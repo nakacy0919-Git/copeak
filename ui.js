@@ -123,6 +123,7 @@ function showRecordingState() {
     }
 }
 
+// ★修正: iPadで潰れないように `min-h-[400px]` を追加。縦に並んでもスクロールして見えるようになります。
 function showResultState() {
     const targetTextWrapper = document.getElementById('targetTextWrapper'); 
     const yourVoiceWrapper = document.getElementById('yourVoiceWrapper');
@@ -132,10 +133,10 @@ function showResultState() {
 
     if (currentMode === 'reading') {
         yourVoiceWrapper.style.display = 'flex';
-        yourVoiceWrapper.className = "w-full md:w-1/2 p-6 md:p-8 bg-white rounded-sm border-l-4 border-stone-800 shadow-sm iron-border-sm flex flex-col transition-all duration-300 relative z-10 opacity-100 pointer-events-auto flex-1";
+        yourVoiceWrapper.className = "w-full lg:w-1/2 p-6 bg-white rounded-sm border-l-4 border-stone-800 shadow-sm iron-border-sm flex flex-col transition-all duration-300 relative z-10 opacity-100 pointer-events-auto min-h-[400px]";
         
         targetTextWrapper.style.display = 'flex';
-        targetTextWrapper.className = "w-full md:w-1/2 flex flex-col gap-6 transition-all duration-300 relative z-10 bg-transparent p-0 backdrop-blur-none border-none shadow-none flex-1";
+        targetTextWrapper.className = "w-full lg:w-1/2 flex flex-col gap-6 transition-all duration-300 relative z-10 bg-transparent p-0 backdrop-blur-none border-none shadow-none min-h-[400px]";
     }
 }
 
@@ -201,7 +202,6 @@ function closeChartModal() {
     document.getElementById('chartModal').classList.add('hidden');
 }
 
-// ★ 変更: グラフに「音読かシャドーイングか」のラベルを追加
 function renderChart() {
     if (!currentCustomLesson || !currentCustomLesson.history || currentCustomLesson.history.length === 0) return;
 
@@ -211,7 +211,6 @@ function renderChart() {
         progressChartInstance.destroy();
     }
 
-    // ★ ラベルにモード名（音読/シャドーイング）を追記
     const labels = currentCustomLesson.history.map((log, index) => {
         const modeStr = log.mode === 'shadowing' ? '🎧 シャドーイング' : '📖 音読';
         return [`${index + 1}回目 (${modeStr})`, log.date];

@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Copeak</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- ★ グラフ描画用ライブラリ Chart.js の読み込み -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,700;1,500&family=Noto+Sans+JP:wght@400;500;700&display=swap');
@@ -86,7 +85,8 @@
                 <div>
                     <label class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Audio File (Optional)</label>
                     <div class="bg-[#faf8f5] p-3 rounded-sm border border-dashed border-stone-400">
-                        <input type="file" id="customAudio" accept="audio/*" class="w-full text-base text-stone-500 file:mr-4 file:py-2 file:px-4 file:rounded-sm file:border-0 file:font-bold file:bg-stone-200 file:text-stone-700 hover:file:bg-stone-300 cursor-pointer">
+                        <!-- ★修正: iPadのグレーアウト対策。具体的な音声拡張子を明示指定 -->
+                        <input type="file" id="customAudio" accept="audio/*, .mp3, .m4a, .wav, .aac, .m4r, .ogg" class="w-full text-base text-stone-500 file:mr-4 file:py-2 file:px-4 file:rounded-sm file:border-0 file:font-bold file:bg-stone-200 file:text-stone-700 hover:file:bg-stone-300 cursor-pointer">
                     </div>
                 </div>
             </div>
@@ -144,10 +144,9 @@
                         <audio id="audioPlayer" controls class="w-full h-10 outline-none"></audio>
                     </div>
 
-                    <!-- リザルト用 ボード（グラフボタン＆練習回数アイコンを追加） -->
+                    <!-- リザルト用 ボード -->
                     <div id="resultScoreBoard" class="hidden flex-col gap-4 shrink-0">
                         <div class="bg-stone-900 p-6 rounded-sm shadow-xl border-2 border-stone-700 flex justify-around items-center relative">
-                            <!-- ★ グラフ表示ボタン -->
                             <button onclick="openChartModal()" class="absolute -top-4 -right-4 bg-[#faf8f5] hover:bg-white text-stone-800 iron-border-sm p-3 rounded-full shadow-lg transition transform hover:scale-110 flex items-center justify-center z-10" title="学習推移グラフを見る">
                                 <span class="text-xl">📊</span>
                             </button>
@@ -166,7 +165,6 @@
                             </div>
                         </div>
 
-                        <!-- ★ 練習回数のアイコン（星など）がここに並びます -->
                         <div id="practiceIconsContainer" class="flex flex-wrap gap-1 px-2"></div>
 
                         <div id="slaAdviceContainer" class="bg-emerald-50 border-l-4 border-emerald-600 p-4 rounded-sm shadow-sm flex items-start gap-4 iron-border-sm">
@@ -178,9 +176,11 @@
                         </div>
                     </div>
 
-                    <div id="learningContentArea" class="relative flex flex-col md:flex-row gap-6 flex-1 w-full min-h-0">
+                    <!-- ★修正: iPadの画面幅に対応するため lg:flex-row に変更。縦画面では上下に並び、横に押しつぶされません -->
+                    <div id="learningContentArea" class="relative flex flex-col lg:flex-row gap-6 flex-1 w-full min-h-0">
                         
-                        <div id="yourVoiceWrapper" class="hidden w-full md:w-1/2 p-6 bg-white rounded-sm border-l-4 border-stone-800 shadow-sm iron-border-sm flex-col transition-all duration-300 flex-1">
+                        <!-- Your Voice -->
+                        <div id="yourVoiceWrapper" class="hidden w-full lg:w-1/2 p-6 bg-white rounded-sm border-l-4 border-stone-800 shadow-sm iron-border-sm flex-col transition-all duration-300 flex-1 min-h-[300px]">
                             <div class="flex justify-between items-center mb-4 border-b border-stone-100 pb-2 shrink-0">
                                 <div class="text-sm text-stone-800 font-bold uppercase tracking-widest">Your Voice</div>
                             </div>
@@ -189,7 +189,8 @@
                             </div>
                         </div>
 
-                        <div id="targetTextWrapper" class="w-full flex flex-col gap-6 transition-all duration-300 flex-1">
+                        <!-- Target Text -->
+                        <div id="targetTextWrapper" class="w-full flex flex-col gap-6 transition-all duration-300 flex-1 min-h-[300px]">
                             <div class="p-6 bg-white rounded-sm border-l-4 border-emerald-800 shadow-sm flex-1 flex flex-col min-h-[250px]">
                                 <div class="flex justify-between items-center mb-4 border-b border-stone-100 pb-2 shrink-0">
                                     <div class="text-sm text-emerald-800 font-bold uppercase tracking-widest">Target Text</div>
@@ -233,7 +234,7 @@
         </div>
     </div>
 
-    <!-- ★ 追加: グラフ表示用のポップアップ（モーダル） -->
+    <!-- グラフモーダル -->
     <div id="chartModal" class="fixed inset-0 bg-stone-900/80 z-50 hidden flex justify-center items-center backdrop-blur-sm transition-opacity">
         <div class="bg-[#faf8f5] p-6 md:p-10 rounded-sm iron-border w-[95%] max-w-5xl relative">
             <button onclick="closeChartModal()" class="absolute top-4 right-4 text-stone-400 hover:text-red-500 text-4xl font-bold transition">&times;</button>
