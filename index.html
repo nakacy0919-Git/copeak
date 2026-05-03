@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Copeak</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- ★ グラフ描画用ライブラリ Chart.js の読み込み -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,700;1,500&family=Noto+Sans+JP:wght@400;500;700&display=swap');
         
@@ -45,13 +47,11 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
-<body class="text-stone-800 pb-10">
+<body class="text-stone-800 pb-10 relative">
 
     <div id="toast">メッセージ</div>
 
-    <!-- ========================================== -->
     <!-- ホーム画面 -->
-    <!-- ========================================== -->
     <div id="homeScreen" class="screen active max-w-[1400px] w-[95%] mx-auto mt-6 md:mt-10 p-8 md:p-12 bg-[#faf8f5] rounded-sm iron-border min-h-[80vh] flex flex-col">
         <div class="flex items-center justify-between mb-8 border-b-2 border-stone-200 pb-4">
             <div class="flex items-center gap-3">
@@ -81,17 +81,6 @@
                         <option value="id-ID">🇮🇩 Indonesian</option>
                         <option value="ne-NP">🇳🇵 Nepali</option>
                         <option value="zh-CN">🇨🇳 Chinese</option>
-                        <option value="ko-KR">🇰🇷 Korean</option>
-                        <option value="fr-FR">🇫🇷 French</option>
-                        <option value="de-DE">🇩🇪 German</option>
-                        <option value="it-IT">🇮🇹 Italian</option>
-                        <option value="pt-BR">🇧🇷 Portuguese</option>
-                        <option value="vi-VN">🇻🇳 Vietnamese</option>
-                        <option value="th-TH">🇹🇭 Thai</option>
-                        <option value="tl-PH">🇵🇭 Tagalog</option>
-                        <option value="hi-IN">🇮🇳 Hindi</option>
-                        <option value="ar-SA">🇸🇦 Arabic</option>
-                        <option value="ru-RU">🇷🇺 Russian</option>
                     </select>
                 </div>
                 <div>
@@ -125,35 +114,21 @@
         <div id="savedLessonsList" class="grid grid-cols-1 md:grid-cols-2 gap-4 pb-4"></div>
     </div>
 
-    <!-- ========================================== -->
-    <!-- 学習画面（超ワイド化・比率変更） -->
-    <!-- ========================================== -->
-    <div id="learningScreen" class="screen max-w-[1800px] w-[98%] mx-auto mt-4 px-2 h-auto min-h-[85vh]">
+    <!-- 学習画面 -->
+    <div id="learningScreen" class="screen max-w-[1800px] w-[98%] mx-auto mt-4 px-2 h-auto min-h-[90vh]">
         
         <div class="flex flex-col sm:flex-row justify-between items-center mb-4 bg-stone-900 p-4 rounded-sm shadow-lg border border-stone-700">
             <button onclick="backToHome()" class="flex items-center gap-2 px-5 py-2 bg-stone-800 hover:bg-stone-700 text-stone-200 rounded-sm font-bold transition border border-stone-600 mb-2 sm:mb-0 text-sm uppercase tracking-wider">
                 ◀ Back to Home
             </button>
             <h2 id="learningTitle" class="text-2xl font-bold text-stone-100 serif-font truncate px-4 flex-1 text-center">Title</h2>
-            
-            <div class="flex space-x-4 text-center">
-                <div class="bg-stone-800 text-white px-5 py-2 rounded-sm border border-stone-600">
-                    <div class="text-[11px] text-stone-400 uppercase tracking-widest font-bold">Score</div>
-                    <div id="hudAccValue" class="font-bold text-2xl text-emerald-400 serif-font">0%</div>
-                </div>
-                <div class="bg-stone-800 text-white px-5 py-2 rounded-sm border border-stone-600 hidden sm:block">
-                    <div class="text-[11px] text-stone-400 uppercase tracking-widest font-bold">WPM</div>
-                    <div id="hudWpmValue" class="font-bold text-2xl serif-font">0</div>
-                </div>
-            </div>
         </div>
 
-        <div class="flex flex-col lg:flex-row gap-6 h-[80vh]">
+        <div class="flex flex-col lg:flex-row gap-6 h-[82vh]">
             
-            <!-- 左：メイン学習エリア（幅を78%に拡大） -->
             <div class="w-full lg:w-[78%] flex flex-col h-full bg-[#faf8f5] rounded-sm iron-border overflow-hidden relative">
                 
-                <div class="flex justify-center p-3 border-b-2 border-stone-200 bg-white shrink-0">
+                <div class="flex justify-center p-3 border-b-2 border-stone-200 bg-white shrink-0 relative z-20">
                     <div class="flex bg-stone-100 p-1 rounded-sm iron-border-sm">
                         <button id="tabReading" onclick="setLearningMode('reading')" class="px-10 py-2 rounded-sm font-bold text-sm transition-all duration-200 bg-stone-800 text-white uppercase tracking-wider shadow-md">
                             📖 Reading
@@ -164,26 +139,57 @@
                     </div>
                 </div>
 
-                <!-- スクロールエリア -->
-                <div id="mainScrollArea" class="flex-1 overflow-y-auto p-6 md:p-8 space-y-6 flex flex-col">
+                <div id="mainScrollArea" class="flex-1 overflow-y-auto p-4 md:p-8 space-y-4 flex flex-col relative z-20">
                     <div id="audioContainer" class="hidden bg-stone-100 p-3 rounded-sm iron-border-sm shrink-0">
                         <audio id="audioPlayer" controls class="w-full h-10 outline-none"></audio>
                     </div>
 
-                    <div class="flex flex-col md:flex-row gap-6 flex-1 w-full min-h-0">
+                    <!-- リザルト用 ボード（グラフボタン＆練習回数アイコンを追加） -->
+                    <div id="resultScoreBoard" class="hidden flex-col gap-4 shrink-0">
+                        <div class="bg-stone-900 p-6 rounded-sm shadow-xl border-2 border-stone-700 flex justify-around items-center relative">
+                            <!-- ★ グラフ表示ボタン -->
+                            <button onclick="openChartModal()" class="absolute -top-4 -right-4 bg-[#faf8f5] hover:bg-white text-stone-800 iron-border-sm p-3 rounded-full shadow-lg transition transform hover:scale-110 flex items-center justify-center z-10" title="学習推移グラフを見る">
+                                <span class="text-xl">📊</span>
+                            </button>
+
+                            <div class="text-center">
+                                <div class="text-stone-400 font-bold tracking-widest text-xs mb-1 uppercase">Accuracy</div>
+                                <div id="bigAccValue" class="text-5xl md:text-6xl font-bold text-emerald-400 serif-font">0%</div>
+                            </div>
+                            <div class="text-center border-l border-r border-stone-700 px-6 md:px-10">
+                                <div class="text-stone-400 font-bold tracking-widest text-xs mb-1 uppercase">WPM</div>
+                                <div id="bigWpmValue" class="text-5xl md:text-6xl font-bold text-blue-400 serif-font">0</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-stone-400 font-bold tracking-widest text-xs mb-1 uppercase">Comprehension</div>
+                                <div id="bigCompValue" class="text-5xl md:text-6xl font-bold text-yellow-400 serif-font">0%</div>
+                            </div>
+                        </div>
+
+                        <!-- ★ 練習回数のアイコン（星など）がここに並びます -->
+                        <div id="practiceIconsContainer" class="flex flex-wrap gap-1 px-2"></div>
+
+                        <div id="slaAdviceContainer" class="bg-emerald-50 border-l-4 border-emerald-600 p-4 rounded-sm shadow-sm flex items-start gap-4 iron-border-sm">
+                            <span class="text-3xl mt-1">💡</span>
+                            <div>
+                                <h4 class="font-bold text-emerald-900 text-sm tracking-widest uppercase mb-1">Learning Feedback</h4>
+                                <p id="slaAdviceText" class="text-stone-700 text-sm leading-relaxed font-medium"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="learningContentArea" class="relative flex flex-col md:flex-row gap-6 flex-1 w-full min-h-0">
                         
-                        <!-- 左側: Your Voice -->
-                        <div id="yourVoiceWrapper" class="w-full md:w-1/2 p-6 bg-white rounded-sm border-l-4 border-stone-800 shadow-sm iron-border-sm flex flex-col min-h-[300px] transition-all duration-300">
+                        <div id="yourVoiceWrapper" class="hidden w-full md:w-1/2 p-6 bg-white rounded-sm border-l-4 border-stone-800 shadow-sm iron-border-sm flex-col transition-all duration-300 flex-1">
                             <div class="flex justify-between items-center mb-4 border-b border-stone-100 pb-2 shrink-0">
                                 <div class="text-sm text-stone-800 font-bold uppercase tracking-widest">Your Voice</div>
                             </div>
-                            <div id="recognizedTextDisplay" class="text-stone-500 leading-relaxed font-medium transition-all duration-200 serif-font flex-1 overflow-y-auto" style="font-size: 32px;">
+                            <div id="recognizedTextDisplay" class="text-stone-500 leading-relaxed font-medium transition-all duration-200 serif-font flex-1 overflow-y-auto" style="font-size: 24px;">
                                 ※Press START to begin
                             </div>
                         </div>
 
-                        <!-- 右側: Target Text & Translation -->
-                        <div id="targetTextWrapper" class="w-full md:w-1/2 flex flex-col gap-6 transition-all duration-300">
+                        <div id="targetTextWrapper" class="w-full flex flex-col gap-6 transition-all duration-300 flex-1">
                             <div class="p-6 bg-white rounded-sm border-l-4 border-emerald-800 shadow-sm flex-1 flex flex-col min-h-[250px]">
                                 <div class="flex justify-between items-center mb-4 border-b border-stone-100 pb-2 shrink-0">
                                     <div class="text-sm text-emerald-800 font-bold uppercase tracking-widest">Target Text</div>
@@ -192,7 +198,7 @@
                                         <button onclick="changeFontSize('eng', 2)" class="w-8 h-8 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold rounded-sm transition text-base">A+</button>
                                     </div>
                                 </div>
-                                <div id="engContainer" class="text-stone-800 leading-relaxed transition-all duration-200 font-medium serif-font flex-1 overflow-y-auto" style="font-size: 32px;"></div>
+                                <div id="engContainer" class="text-stone-800 leading-relaxed transition-all duration-200 font-medium serif-font flex-1 overflow-y-auto" style="font-size: 24px;"></div>
                             </div>
 
                             <div id="jpnWrapper" class="p-6 bg-white rounded-sm border-l-4 border-stone-400 shadow-sm hidden transition-all duration-300 shrink-0">
@@ -203,21 +209,20 @@
                                         <button onclick="changeFontSize('jpn', 2)" class="w-8 h-8 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold rounded-sm transition text-base">A+</button>
                                     </div>
                                 </div>
-                                <div id="jpnContainer" class="text-stone-600 leading-relaxed transition-all duration-200 font-medium max-h-[25vh] overflow-y-auto" style="font-size: 20px;"></div>
+                                <div id="jpnContainer" class="text-stone-600 leading-relaxed transition-all duration-200 font-medium max-h-[20vh] overflow-y-auto" style="font-size: 16px;"></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- ★変更: 絶対配置(absolute)をやめ、下部に固定の枠として配置。テキストに被らなくなります。 -->
-                <div class="bg-[#faf8f5] border-t-2 border-stone-200 p-4 flex justify-center shrink-0">
+                <div class="bg-[#faf8f5] border-t-2 border-stone-200 p-4 flex justify-center shrink-0 relative z-30">
                     <button id="micBtn" onclick="toggleRecording()" class="flex items-center justify-center gap-3 w-full max-w-sm py-3 bg-emerald-800 hover:bg-emerald-900 text-white rounded-sm font-bold text-lg shadow-md border-2 border-emerald-950 transition transform hover:-translate-y-1 uppercase tracking-widest">
                         <span class="text-2xl">🎙</span> <span id="micBtnText">START</span>
                     </button>
                 </div>
             </div>
 
-            <!-- 右：プレイリスト（幅を22%に縮小） -->
+            <!-- 右：プレイリスト -->
             <div class="w-full lg:w-[22%] h-[40vh] lg:h-full bg-[#faf8f5] rounded-sm iron-border flex flex-col overflow-hidden">
                 <div class="p-4 border-b-2 border-stone-200 bg-white shrink-0">
                     <h3 class="font-bold text-stone-800 serif-font uppercase tracking-widest text-sm">📋 Playlist</h3>
@@ -225,6 +230,20 @@
                 <div id="sidebarLessonList" class="flex-1 overflow-y-auto p-4 space-y-3"></div>
             </div>
 
+        </div>
+    </div>
+
+    <!-- ★ 追加: グラフ表示用のポップアップ（モーダル） -->
+    <div id="chartModal" class="fixed inset-0 bg-stone-900/80 z-50 hidden flex justify-center items-center backdrop-blur-sm transition-opacity">
+        <div class="bg-[#faf8f5] p-6 md:p-10 rounded-sm iron-border w-[95%] max-w-5xl relative">
+            <button onclick="closeChartModal()" class="absolute top-4 right-4 text-stone-400 hover:text-red-500 text-4xl font-bold transition">&times;</button>
+            <h2 class="text-2xl font-bold text-stone-800 mb-6 serif-font flex items-center gap-3">
+                <span class="text-3xl">📈</span> Learning Progress
+            </h2>
+            <div class="w-full h-[50vh] md:h-[60vh] bg-white p-4 rounded-sm iron-border-sm relative">
+                <canvas id="progressChart"></canvas>
+            </div>
+            <p class="text-center text-stone-500 text-sm mt-4 font-bold">※日々の反復がスコアアップの鍵です！</p>
         </div>
     </div>
 

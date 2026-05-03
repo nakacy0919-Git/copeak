@@ -1,5 +1,5 @@
 // ==========================================
-// speech.js: 途切れない文字起こし ＆ 順序通りの正確な照合
+// speech.js: 文字起こし、照合、および内容理解度とSLAフィードバック
 // ==========================================
 
 window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -37,13 +37,11 @@ if (window.SpeechRecognition) {
             }
         }
 
-        if (newlyFinalized !== '') {
-            accumulatedTranscript += newlyFinalized;
-        }
+        if (newlyFinalized !== '') accumulatedTranscript += newlyFinalized;
         currentInterim = interimTranscript;
 
         const fullSpokenText = accumulatedTranscript + currentInterim;
-        processSpeechMatch(fullSpokenText);
+        processSpeechMatch(fullSpokenText, false); 
     };
 
     mainRecognition.onend = () => {
@@ -60,37 +58,35 @@ function toggleRecording() {
     }
 
     const audioPlayer = document.getElementById('audioPlayer');
-    const jpnWrapper = document.getElementById('jpnWrapper');
 
     if (isMainRecording) {
         isMainRecording = false;
         mainRecognition.stop();
         
         if (currentMode === 'shadowing' && audioPlayer) audioPlayer.pause();
-        if (currentMode === 'reading' && currentCustomLesson && currentCustomLesson.jpn) {
-            if (jpnWrapper) jpnWrapper.classList.remove('hidden');
-        }
 
         updateMicButtonUI();
         if (currentInterim !== '') {
             accumulatedTranscript += currentInterim + ' ';
             currentInterim = '';
         }
-        processSpeechMatch(accumulatedTranscript); 
+        
+        processSpeechMatch(accumulatedTranscript, true); 
+        if (typeof showResultState === 'function') showResultState();
+
     } else {
         recordStartTime = Date.now();
         isMainRecording = true;
+        
         accumulatedTranscript = '';
         currentInterim = '';
-        
+        document.getElementById('recognizedTextDisplay').innerHTML = "Listening... (話してください)";
         document.getElementById('recognizedTextDisplay').style.color = "#292524"; 
+
+        if (typeof showRecordingState === 'function') showRecordingState();
 
         const targetLang = currentCustomLesson.lang || 'en-US';
         mainRecognition.lang = targetLang;
-
-        if (currentMode === 'reading' && jpnWrapper && !jpnWrapper.classList.contains('hidden')) {
-            jpnWrapper.classList.add('hidden');
-        }
 
         if (currentMode === 'shadowing' && currentCustomLesson.audioBlob && audioPlayer) {
             audioPlayer.play().then(() => {
@@ -98,7 +94,7 @@ function toggleRecording() {
                     try {
                         mainRecognition.start();
                         updateMicButtonUI();
-                        processSpeechMatch(""); 
+                        processSpeechMatch("", false); 
                     } catch(e) {
                         isMainRecording = false;
                         updateMicButtonUI();
@@ -107,13 +103,13 @@ function toggleRecording() {
             }).catch(e => {
                 mainRecognition.start();
                 updateMicButtonUI();
-                processSpeechMatch(""); 
+                processSpeechMatch("", false); 
             });
         } else {
             try {
                 mainRecognition.start();
                 updateMicButtonUI();
-                processSpeechMatch(""); 
+                processSpeechMatch("", false); 
             } catch(e) {
                 isMainRecording = false;
                 updateMicButtonUI();
@@ -130,7 +126,7 @@ function updateMicButtonUI() {
     if (isMainRecording) {
         btn.classList.remove('bg-emerald-800');
         btn.classList.add('bg-stone-800', 'animate-pulse');
-        txt.innerText = "STOP RECORDING";
+        txt.innerText = "FINISH (終了して結果を見る)";
     } else {
         btn.classList.remove('bg-stone-800', 'animate-pulse');
         btn.classList.add('bg-emerald-800');
@@ -143,20 +139,17 @@ function updateMicButtonUI() {
     }
 }
 
-function processSpeechMatch(spokenText) {
+function processSpeechMatch(spokenText, isFinalResult = false) {
     if (typeof targetTextArray === 'undefined' || targetTextArray.length === 0) return;
     const recDisplay = document.getElementById('recognizedTextDisplay');
 
     if (!spokenText && isMainRecording) {
-        recDisplay.innerHTML = "Listening... (話してください)";
-        return;
+        return; 
     }
 
     const spokenOriginalWords = spokenText.split(/\s+/).filter(w => w);
     let matchCount = 0;
     let htmlOutput = [];
-    
-    // スコア計算のために、ターゲットテキストのどこまで読んだかを追跡
     let searchIndex = 0; 
 
     spokenOriginalWords.forEach((originalWord) => {
@@ -165,8 +158,6 @@ function processSpeechMatch(spokenText) {
 
         let isMatched = false;
         let foundIndex = -1;
-        
-        // 言い直しを考慮し、現在の位置から10単語先までを探す
         let lookaheadLimit = Math.min(searchIndex + 10, targetTextArray.length);
         
         for (let i = searchIndex; i < lookaheadLimit; i++) {
@@ -191,25 +182,102 @@ function processSpeechMatch(spokenText) {
 
     recDisplay.innerHTML = htmlOutput.join(' ');
     
-    // 自動スクロール
-    recDisplay.scrollTop = recDisplay.scrollHeight;
+    if (isMainRecording || isFinalResult) {
+        recDisplay.scrollTop = recDisplay.scrollHeight;
+    }
 
-    // ★ Score (Accuracy) の計算
     const validTargetWordCount = targetTextArray.length;
     const percentage = validTargetWordCount === 0 ? 0 : Math.round((matchCount / validTargetWordCount) * 100);
-    const currentScore = percentage > 100 ? 100 : percentage;
+    const currentAccuracy = percentage > 100 ? 100 : percentage;
 
-    const accEl = document.getElementById('hudAccValue');
-    accEl.innerText = `${currentScore}%`;
-
-    if (currentScore >= 80) accEl.className = "font-bold text-2xl text-emerald-400 serif-font";
-    else if (currentScore >= 50) accEl.className = "font-bold text-2xl text-amber-500 serif-font";
-    else accEl.className = "font-bold text-2xl text-stone-300 serif-font";
-
-    // WPM 計算
+    let currentWpm = 0;
     if (recordStartTime > 0 && spokenOriginalWords.length > 0) {
         let elapsedMinutes = (Date.now() - recordStartTime) / 60000;
         if (elapsedMinutes < 0.01) elapsedMinutes = 0.01; 
-        document.getElementById('hudWpmValue').innerText = Math.round(spokenOriginalWords.length / elapsedMinutes);
+        currentWpm = Math.round(spokenOriginalWords.length / elapsedMinutes);
     }
+
+    let wpmRatio = Math.min(currentWpm / 130, 1.0); 
+    let comprehensionScore = Math.round((currentAccuracy * 0.6) + (wpmRatio * 100 * 0.4));
+    if (comprehensionScore > 100) comprehensionScore = 100;
+
+    if (isFinalResult) {
+        document.getElementById('bigAccValue').innerText = `${currentAccuracy}%`;
+        document.getElementById('bigWpmValue').innerText = currentWpm;
+        
+        const compEl = document.getElementById('bigCompValue');
+        compEl.innerText = `${comprehensionScore}%`;
+        
+        if (comprehensionScore >= 80) compEl.className = "text-5xl md:text-6xl font-bold text-yellow-400 serif-font";
+        else if (comprehensionScore >= 50) compEl.className = "text-5xl md:text-6xl font-bold text-amber-500 serif-font";
+        else compEl.className = "text-5xl md:text-6xl font-bold text-red-400 serif-font";
+
+        if (currentCustomLesson) {
+            const todayStr = new Date().toLocaleDateString();
+            const logData = {
+                date: todayStr,
+                mode: currentMode,
+                score: currentAccuracy,
+                wpm: currentWpm,
+                comp: comprehensionScore,
+                timestamp: new Date().getTime()
+            };
+
+            if (typeof savePracticeLog === 'function') {
+                savePracticeLog(currentCustomLesson.id, logData, () => {
+                    updateHistoryUI();
+                });
+            } else {
+                updateHistoryUI(); 
+            }
+        }
+    }
+}
+
+// ★ 変更: アイコンを「音読（📖）」と「シャドーイング（🎧）」で出し分けるようにしました
+function updateHistoryUI() {
+    if (!currentCustomLesson) return;
+    
+    let history = currentCustomLesson.history || [];
+    let totalReads = history.length;
+    
+    // 履歴データを1つずつ確認して、モードに合ったアイコンを生成
+    const iconsHtml = history.map(log => {
+        const icon = log.mode === 'shadowing' ? '🎧' : '📖';
+        const titleText = log.mode === 'shadowing' ? 'シャドーイング' : '音読';
+        return `<span class="text-2xl drop-shadow-md" title="${titleText}">${icon}</span>`;
+    }).join('');
+    
+    const iconContainer = document.getElementById('practiceIconsContainer');
+    if (iconContainer) iconContainer.innerHTML = iconsHtml;
+
+    // 2. SLAアドバイスの生成
+    let isConsecutive = false;
+    let daysSinceLastPractice = 0;
+
+    if (totalReads > 1) {
+        const lastLog = history[totalReads - 2]; 
+        const lastDate = new Date(lastLog.timestamp);
+        const todayDate = new Date();
+        
+        const diffTime = Math.abs(todayDate - lastDate);
+        daysSinceLastPractice = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+        
+        if (daysSinceLastPractice === 1 || daysSinceLastPractice === 0) {
+            isConsecutive = true;
+        }
+    }
+
+    let adviceMsg = `<strong class="text-emerald-800 text-base">現在 ${totalReads}回目 の練習です！</strong><br>`;
+
+    if (totalReads < 5) {
+        adviceMsg += `SLA（第二言語習得論）の研究では、同じ文章を <strong>5〜7回</strong> 反復することで脳内の神経回路が繋がり、「自動化」が始まると言われています。あと <strong>${5 - totalReads}回</strong> 繰り返すと、英語を英語のまま処理する感覚が掴めてきます！`;
+    } else if (totalReads >= 5 && isConsecutive) {
+        adviceMsg += `🔥 素晴らしい反復です！「分散学習（Spacing Effect）」の効果により、脳内でこの回路がスムーズに動き、長期記憶に定着し始めています。`;
+    } else {
+        adviceMsg += `すでに脳内で回路は構築されています！${daysSinceLastPractice > 1 ? `（前回から${daysSinceLastPractice}日ぶりですね）` : ''}少し日数が空いてから「思い出す」プロセスを入れることで、記憶はより強固なものになります。`;
+    }
+
+    const adviceContainer = document.getElementById('slaAdviceText');
+    if (adviceContainer) adviceContainer.innerHTML = adviceMsg;
 }
