@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copeak</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,700;1,500&family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body { 
+            font-family: 'Noto Sans JP', sans-serif; 
+            background-color: #292524; 
+            background-image: radial-gradient(#44403c 1px, transparent 1px);
+            background-size: 20px 20px;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, .serif-font { font-family: 'Lora', serif; }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f5f5f4; }
+        ::-webkit-scrollbar-thumb { background: #57534e; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #292524; }
+
+        .matched-word { color: #0284c7; font-weight: 700; } 
+        .unmatched-word { color: inherit; text-decoration: none; opacity: 1; } 
+        
+        #toast {
+            position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+            background: #1c1917; color: #fafaf9; padding: 12px 28px; 
+            border-radius: 4px; font-weight: 500; box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            border: 1px solid #44403c;
+            opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 1000;
+        }
+        .show-toast { opacity: 1 !important; }
+
+        .iron-border { border: 3px solid #292524; box-shadow: 4px 4px 0px rgba(41,37,36,1); }
+        .iron-border-sm { border: 2px solid #292524; }
+        
+        .sidebar-active { border-left: 4px solid #065f46 !important; background-color: #f0fdf4 !important; }
+
+        .screen { display: none; animation: fadeIn 0.4s ease; }
+        .screen.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="text-stone-800 pb-10">
+
+    <div id="toast">メッセージ</div>
+
+    <!-- ========================================== -->
+    <!-- ホーム画面 -->
+    <!-- ========================================== -->
+    <div id="homeScreen" class="screen active max-w-[1400px] w-[95%] mx-auto mt-6 md:mt-10 p-8 md:p-12 bg-[#faf8f5] rounded-sm iron-border min-h-[80vh] flex flex-col">
+        <div class="flex items-center justify-between mb-8 border-b-2 border-stone-200 pb-4">
+            <div class="flex items-center gap-3">
+                <span class="text-4xl">☕️</span>
+                <h1 class="text-3xl font-bold text-stone-900 serif-font tracking-wide">Copeak</h1>
+            </div>
+            <span class="bg-stone-800 text-stone-100 text-xs font-bold px-4 py-2 rounded-sm uppercase tracking-widest">My Library</span>
+        </div>
+        
+        <form id="customMaterialForm" class="bg-white p-8 rounded-sm iron-border-sm flex flex-col lg:flex-row gap-8 flex-1">
+            <div class="flex-1 space-y-6">
+                <h2 class="text-xl font-bold text-stone-800 serif-font flex items-center gap-2 mb-2">
+                    <span class="text-emerald-800">🌿</span> Create New Material
+                </h2>
+                <div>
+                    <label class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Title</label>
+                    <input type="text" id="customTitle" placeholder="例: Steve Jobs Speech" required 
+                           class="w-full p-4 bg-[#faf8f5] border border-stone-300 rounded-sm focus:ring-2 focus:ring-emerald-800 outline-none transition font-medium text-lg text-stone-800 placeholder-stone-400">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Language</label>
+                    <select id="customLang" class="w-full p-4 bg-[#faf8f5] border border-stone-300 rounded-sm focus:ring-2 focus:ring-emerald-800 outline-none font-medium cursor-pointer text-lg">
+                        <option value="en-US">🇺🇸 English (US)</option>
+                        <option value="en-GB">🇬🇧 English (UK)</option>
+                        <option value="ja-JP">🇯🇵 Japanese</option>
+                        <option value="es-ES">🇪🇸 Spanish</option>
+                        <option value="id-ID">🇮🇩 Indonesian</option>
+                        <option value="ne-NP">🇳🇵 Nepali</option>
+                        <option value="zh-CN">🇨🇳 Chinese</option>
+                        <option value="ko-KR">🇰🇷 Korean</option>
+                        <option value="fr-FR">🇫🇷 French</option>
+                        <option value="de-DE">🇩🇪 German</option>
+                        <option value="it-IT">🇮🇹 Italian</option>
+                        <option value="pt-BR">🇧🇷 Portuguese</option>
+                        <option value="vi-VN">🇻🇳 Vietnamese</option>
+                        <option value="th-TH">🇹🇭 Thai</option>
+                        <option value="tl-PH">🇵🇭 Tagalog</option>
+                        <option value="hi-IN">🇮🇳 Hindi</option>
+                        <option value="ar-SA">🇸🇦 Arabic</option>
+                        <option value="ru-RU">🇷🇺 Russian</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Audio File (Optional)</label>
+                    <div class="bg-[#faf8f5] p-3 rounded-sm border border-dashed border-stone-400">
+                        <input type="file" id="customAudio" accept="audio/*" class="w-full text-base text-stone-500 file:mr-4 file:py-2 file:px-4 file:rounded-sm file:border-0 file:font-bold file:bg-stone-200 file:text-stone-700 hover:file:bg-stone-300 cursor-pointer">
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-1 flex flex-col space-y-6">
+                <div class="flex-1 flex flex-col">
+                    <label class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Target Text (学習テキスト)</label>
+                    <textarea id="customEng" placeholder="英語などのスクリプトを貼り付け" required 
+                              class="w-full h-32 lg:flex-1 p-4 bg-[#faf8f5] border border-stone-300 rounded-sm focus:ring-2 focus:ring-emerald-800 outline-none transition resize-y text-lg"></textarea>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Translation (日本語訳など)</label>
+                    <textarea id="customJpn" placeholder="母語での訳を貼り付け (任意)" rows="2" 
+                              class="w-full p-4 bg-[#faf8f5] border border-stone-300 rounded-sm focus:ring-2 focus:ring-emerald-800 outline-none transition resize-y"></textarea>
+                </div>
+                <button type="button" onclick="saveCustomLesson()" class="w-full py-5 bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-xl rounded-sm shadow-md transition uppercase tracking-widest mt-auto">
+                    Save to Library
+                </button>
+            </div>
+        </form>
+
+        <div class="mt-12 mb-6 border-b-2 border-stone-200 pb-2">
+            <h2 class="text-2xl font-bold text-stone-800 serif-font">📚 Playlist</h2>
+        </div>
+        <div id="savedLessonsList" class="grid grid-cols-1 md:grid-cols-2 gap-4 pb-4"></div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- 学習画面（超ワイド化・比率変更） -->
+    <!-- ========================================== -->
+    <div id="learningScreen" class="screen max-w-[1800px] w-[98%] mx-auto mt-4 px-2 h-auto min-h-[85vh]">
+        
+        <div class="flex flex-col sm:flex-row justify-between items-center mb-4 bg-stone-900 p-4 rounded-sm shadow-lg border border-stone-700">
+            <button onclick="backToHome()" class="flex items-center gap-2 px-5 py-2 bg-stone-800 hover:bg-stone-700 text-stone-200 rounded-sm font-bold transition border border-stone-600 mb-2 sm:mb-0 text-sm uppercase tracking-wider">
+                ◀ Back to Home
+            </button>
+            <h2 id="learningTitle" class="text-2xl font-bold text-stone-100 serif-font truncate px-4 flex-1 text-center">Title</h2>
+            
+            <div class="flex space-x-4 text-center">
+                <div class="bg-stone-800 text-white px-5 py-2 rounded-sm border border-stone-600">
+                    <div class="text-[11px] text-stone-400 uppercase tracking-widest font-bold">Score</div>
+                    <div id="hudAccValue" class="font-bold text-2xl text-emerald-400 serif-font">0%</div>
+                </div>
+                <div class="bg-stone-800 text-white px-5 py-2 rounded-sm border border-stone-600 hidden sm:block">
+                    <div class="text-[11px] text-stone-400 uppercase tracking-widest font-bold">WPM</div>
+                    <div id="hudWpmValue" class="font-bold text-2xl serif-font">0</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-6 h-[80vh]">
+            
+            <!-- 左：メイン学習エリア（幅を78%に拡大） -->
+            <div class="w-full lg:w-[78%] flex flex-col h-full bg-[#faf8f5] rounded-sm iron-border overflow-hidden relative">
+                
+                <div class="flex justify-center p-3 border-b-2 border-stone-200 bg-white shrink-0">
+                    <div class="flex bg-stone-100 p-1 rounded-sm iron-border-sm">
+                        <button id="tabReading" onclick="setLearningMode('reading')" class="px-10 py-2 rounded-sm font-bold text-sm transition-all duration-200 bg-stone-800 text-white uppercase tracking-wider shadow-md">
+                            📖 Reading
+                        </button>
+                        <button id="tabShadowing" onclick="setLearningMode('shadowing')" class="px-10 py-2 rounded-sm font-bold text-sm transition-all duration-200 text-stone-500 hover:text-stone-800 uppercase tracking-wider">
+                            🎧 Shadowing
+                        </button>
+                    </div>
+                </div>
+
+                <!-- スクロールエリア -->
+                <div id="mainScrollArea" class="flex-1 overflow-y-auto p-6 md:p-8 space-y-6 flex flex-col">
+                    <div id="audioContainer" class="hidden bg-stone-100 p-3 rounded-sm iron-border-sm shrink-0">
+                        <audio id="audioPlayer" controls class="w-full h-10 outline-none"></audio>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row gap-6 flex-1 w-full min-h-0">
+                        
+                        <!-- 左側: Your Voice -->
+                        <div id="yourVoiceWrapper" class="w-full md:w-1/2 p-6 bg-white rounded-sm border-l-4 border-stone-800 shadow-sm iron-border-sm flex flex-col min-h-[300px] transition-all duration-300">
+                            <div class="flex justify-between items-center mb-4 border-b border-stone-100 pb-2 shrink-0">
+                                <div class="text-sm text-stone-800 font-bold uppercase tracking-widest">Your Voice</div>
+                            </div>
+                            <div id="recognizedTextDisplay" class="text-stone-500 leading-relaxed font-medium transition-all duration-200 serif-font flex-1 overflow-y-auto" style="font-size: 32px;">
+                                ※Press START to begin
+                            </div>
+                        </div>
+
+                        <!-- 右側: Target Text & Translation -->
+                        <div id="targetTextWrapper" class="w-full md:w-1/2 flex flex-col gap-6 transition-all duration-300">
+                            <div class="p-6 bg-white rounded-sm border-l-4 border-emerald-800 shadow-sm flex-1 flex flex-col min-h-[250px]">
+                                <div class="flex justify-between items-center mb-4 border-b border-stone-100 pb-2 shrink-0">
+                                    <div class="text-sm text-emerald-800 font-bold uppercase tracking-widest">Target Text</div>
+                                    <div class="flex gap-2">
+                                        <button onclick="changeFontSize('eng', -2)" class="w-8 h-8 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold rounded-sm transition text-base">A-</button>
+                                        <button onclick="changeFontSize('eng', 2)" class="w-8 h-8 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold rounded-sm transition text-base">A+</button>
+                                    </div>
+                                </div>
+                                <div id="engContainer" class="text-stone-800 leading-relaxed transition-all duration-200 font-medium serif-font flex-1 overflow-y-auto" style="font-size: 32px;"></div>
+                            </div>
+
+                            <div id="jpnWrapper" class="p-6 bg-white rounded-sm border-l-4 border-stone-400 shadow-sm hidden transition-all duration-300 shrink-0">
+                                <div class="flex justify-between items-center mb-4 border-b border-stone-100 pb-2">
+                                    <div class="text-sm text-stone-500 font-bold uppercase tracking-widest">Translation</div>
+                                    <div class="flex gap-2">
+                                        <button onclick="changeFontSize('jpn', -2)" class="w-8 h-8 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold rounded-sm transition text-base">A-</button>
+                                        <button onclick="changeFontSize('jpn', 2)" class="w-8 h-8 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold rounded-sm transition text-base">A+</button>
+                                    </div>
+                                </div>
+                                <div id="jpnContainer" class="text-stone-600 leading-relaxed transition-all duration-200 font-medium max-h-[25vh] overflow-y-auto" style="font-size: 20px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ★変更: 絶対配置(absolute)をやめ、下部に固定の枠として配置。テキストに被らなくなります。 -->
+                <div class="bg-[#faf8f5] border-t-2 border-stone-200 p-4 flex justify-center shrink-0">
+                    <button id="micBtn" onclick="toggleRecording()" class="flex items-center justify-center gap-3 w-full max-w-sm py-3 bg-emerald-800 hover:bg-emerald-900 text-white rounded-sm font-bold text-lg shadow-md border-2 border-emerald-950 transition transform hover:-translate-y-1 uppercase tracking-widest">
+                        <span class="text-2xl">🎙</span> <span id="micBtnText">START</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 右：プレイリスト（幅を22%に縮小） -->
+            <div class="w-full lg:w-[22%] h-[40vh] lg:h-full bg-[#faf8f5] rounded-sm iron-border flex flex-col overflow-hidden">
+                <div class="p-4 border-b-2 border-stone-200 bg-white shrink-0">
+                    <h3 class="font-bold text-stone-800 serif-font uppercase tracking-widest text-sm">📋 Playlist</h3>
+                </div>
+                <div id="sidebarLessonList" class="flex-1 overflow-y-auto p-4 space-y-3"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById('homeScreen').style.display = 'block';
+        });
+    </script>
+    <script src="storage.js"></script>
+    <script src="ui.js"></script>
+    <script src="speech.js"></script>
+</body>
+</html>
