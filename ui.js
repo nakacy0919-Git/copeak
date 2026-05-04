@@ -45,18 +45,26 @@ function backToHome() {
 
 function openLearningScreen(lesson) {
     document.getElementById('learningTitle').innerText = lesson.title;
-    
     renderTargetText();
     
     document.getElementById('engContainer').style.fontSize = engFontSize + 'px';
     document.getElementById('recognizedTextDisplay').style.fontSize = recFontSize + 'px';
     
+    // ★ 翻訳の初期設定
     const jpnWrapper = document.getElementById('jpnWrapper');
+    const toggleBtn = document.getElementById('toggleJpnBtn');
+    
     if (lesson.jpn && lesson.jpn.trim() !== "") {
-        jpnWrapper.classList.remove('hidden');
+        toggleBtn.classList.remove('hidden'); // ボタンは表示
+        jpnWrapper.classList.add('hidden');   // 中身は最初は隠す
+        
+        toggleBtn.innerText = '🌐 訳を表示';
+        toggleBtn.classList.remove('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+        
         document.getElementById('jpnContainer').innerHTML = lesson.jpn.replace(/([。？！])\s*/g, "$1<br>");
         document.getElementById('jpnContainer').style.fontSize = jpnFontSize + 'px';
     } else {
+        toggleBtn.classList.add('hidden');
         jpnWrapper.classList.add('hidden');
     }
 
@@ -74,9 +82,25 @@ function openLearningScreen(lesson) {
     targetTextArray = lesson.eng.toLowerCase().replace(/[^a-z0-9\u00C0-\u017F\u0900-\u097F\s]/gi, '').split(/\s+/).filter(w => w);
     
     switchScreen('learningScreen');
-
     const mainScrollArea = document.getElementById('mainScrollArea');
     if (mainScrollArea) mainScrollArea.scrollTop = 0;
+}
+
+// ★追加: 日本語訳の表示/非表示を切り替える
+function toggleTranslation() {
+    if (!currentCustomLesson || !currentCustomLesson.jpn) return;
+    const jpnWrapper = document.getElementById('jpnWrapper');
+    const btn = document.getElementById('toggleJpnBtn');
+    
+    if (jpnWrapper.classList.contains('hidden')) {
+        jpnWrapper.classList.remove('hidden');
+        btn.innerText = '🌐 訳を隠す';
+        btn.classList.add('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+    } else {
+        jpnWrapper.classList.add('hidden');
+        btn.innerText = '🌐 訳を表示';
+        btn.classList.remove('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+    }
 }
 
 function renderTargetText() {
@@ -85,20 +109,23 @@ function renderTargetText() {
     engContainer.innerHTML = currentCustomLesson.eng.replace(/([.?!])\s+/g, "$1<br><br>");
 }
 
-// 1. 待機画面（非イマーシブ）
 function showPreReadingState() {
-    // ★ 没入モードを解除
     document.body.classList.remove('immersive-mode');
 
     const targetTextWrapper = document.getElementById('targetTextWrapper'); 
     const yourVoiceWrapper = document.getElementById('yourVoiceWrapper');
-    const jpnWrapper = document.getElementById('jpnWrapper');
     const resultScoreBoard = document.getElementById('resultScoreBoard');
     const mainPane = document.getElementById('mainLearningPane');
     const sidebar = document.getElementById('playlistSidebar');
+    const toggleBtn = document.getElementById('toggleJpnBtn');
 
     if (mainPane) mainPane.className = "w-full lg:w-[78%] flex flex-col h-full bg-[#faf8f5] rounded-sm iron-border overflow-hidden relative transition-all duration-500";
     if (sidebar) sidebar.style.display = 'flex';
+
+    // 待機中はトグルボタンを表示する（もし訳があれば）
+    if (toggleBtn && currentCustomLesson && currentCustomLesson.jpn) {
+        toggleBtn.classList.remove('hidden');
+    }
 
     resultScoreBoard.style.display = 'none'; 
     renderTargetText(); 
@@ -107,10 +134,6 @@ function showPreReadingState() {
         targetTextWrapper.style.display = 'flex';
         targetTextWrapper.className = "w-full flex flex-col gap-4 md:gap-6 transition-all duration-300 relative z-10 bg-transparent p-0 backdrop-blur-none shadow-none border-none";
         yourVoiceWrapper.style.display = 'none';
-        
-        if (jpnWrapper && currentCustomLesson && currentCustomLesson.jpn) {
-            jpnWrapper.classList.add('hidden'); 
-        }
     } else {
         targetTextWrapper.style.display = 'none'; 
         yourVoiceWrapper.style.display = 'flex';
@@ -118,9 +141,7 @@ function showPreReadingState() {
     }
 }
 
-// 2. 録音中（超・イマーシブモード）★ ヘッダーやメニューがすべて消えます
 function showRecordingState() {
-    // ★ 没入モードを発動（CSSアニメーションでヘッダー・タブ・音声バーがペチャンコになります）
     document.body.classList.add('immersive-mode');
 
     const targetTextWrapper = document.getElementById('targetTextWrapper'); 
@@ -129,9 +150,20 @@ function showRecordingState() {
     const resultScoreBoard = document.getElementById('resultScoreBoard');
     const mainPane = document.getElementById('mainLearningPane');
     const sidebar = document.getElementById('playlistSidebar');
+    const toggleBtn = document.getElementById('toggleJpnBtn');
 
     if (mainPane) mainPane.className = "w-full flex flex-col h-full bg-[#faf8f5] rounded-sm iron-border overflow-hidden relative transition-all duration-500";
     if (sidebar) sidebar.style.display = 'none';
+
+    // ★ 没入モード中は訳もトグルボタンも強制的に隠す
+    if (jpnWrapper) jpnWrapper.classList.add('hidden');
+    if (toggleBtn) toggleBtn.classList.add('hidden');
+    
+    // トグルボタンの見た目をリセット
+    if(toggleBtn) {
+        toggleBtn.innerText = '🌐 訳を表示';
+        toggleBtn.classList.remove('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+    }
 
     resultScoreBoard.style.display = 'none'; 
 
@@ -141,8 +173,6 @@ function showRecordingState() {
         
         targetTextWrapper.style.display = 'flex';
         targetTextWrapper.className = "relative z-10 w-full flex-1 flex flex-col gap-4 md:gap-6 transition-all duration-700 bg-white/85 backdrop-blur-xl p-4 md:p-14 rounded-xl md:rounded-2xl shadow-2xl border border-stone-200";
-        
-        if (jpnWrapper) jpnWrapper.classList.add('hidden'); 
     } else {
         targetTextWrapper.style.display = 'none'; 
         yourVoiceWrapper.style.display = 'flex';
@@ -150,9 +180,7 @@ function showRecordingState() {
     }
 }
 
-// 3. 結果表示（非イマーシブ）
 function showResultState() {
-    // ★ 没入モードを解除
     document.body.classList.remove('immersive-mode');
 
     const targetTextWrapper = document.getElementById('targetTextWrapper'); 
@@ -160,9 +188,15 @@ function showResultState() {
     const resultScoreBoard = document.getElementById('resultScoreBoard');
     const mainPane = document.getElementById('mainLearningPane');
     const sidebar = document.getElementById('playlistSidebar');
+    const toggleBtn = document.getElementById('toggleJpnBtn');
 
     if (mainPane) mainPane.className = "w-full lg:w-[78%] flex flex-col h-full bg-[#faf8f5] rounded-sm iron-border overflow-hidden relative transition-all duration-500";
     if (sidebar) sidebar.style.display = 'flex';
+    
+    // リザルト画面でトグルボタンを復活させる
+    if (toggleBtn && currentCustomLesson && currentCustomLesson.jpn) {
+        toggleBtn.classList.remove('hidden');
+    }
 
     resultScoreBoard.style.display = 'flex';
 
@@ -241,10 +275,7 @@ function renderChart() {
     if (!currentCustomLesson || !currentCustomLesson.history || currentCustomLesson.history.length === 0) return;
 
     const ctx = document.getElementById('progressChart').getContext('2d');
-    
-    if (progressChartInstance) {
-        progressChartInstance.destroy();
-    }
+    if (progressChartInstance) progressChartInstance.destroy();
 
     const labels = currentCustomLesson.history.map((log, index) => {
         const modeStr = log.mode === 'shadowing' ? '🎧 シャドーイング' : '📖 音読';
@@ -260,69 +291,18 @@ function renderChart() {
         data: {
             labels: labels,
             datasets: [
-                {
-                    label: 'Comprehension (理解度 %)',
-                    data: compData,
-                    borderColor: '#facc15', 
-                    backgroundColor: 'rgba(250, 204, 21, 0.2)',
-                    borderWidth: 4,
-                    tension: 0.3,
-                    fill: true,
-                    yAxisID: 'y'
-                },
-                {
-                    label: 'Accuracy (正確さ %)',
-                    data: accData,
-                    borderColor: '#34d399', 
-                    borderWidth: 3,
-                    tension: 0.3,
-                    yAxisID: 'y'
-                },
-                {
-                    label: 'WPM (スピード)',
-                    data: wpmData,
-                    borderColor: '#60a5fa', 
-                    borderWidth: 3,
-                    borderDash: [5, 5], 
-                    tension: 0.3,
-                    yAxisID: 'y1'
-                }
+                { label: 'Comprehension (理解度 %)', data: compData, borderColor: '#facc15', backgroundColor: 'rgba(250, 204, 21, 0.2)', borderWidth: 4, tension: 0.3, fill: true, yAxisID: 'y' },
+                { label: 'Accuracy (正確さ %)', data: accData, borderColor: '#34d399', borderWidth: 3, tension: 0.3, yAxisID: 'y' },
+                { label: 'WPM (スピード)', data: wpmData, borderColor: '#60a5fa', borderWidth: 3, borderDash: [5, 5], tension: 0.3, yAxisID: 'y1' }
             ]
         },
         options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            interaction: {
-                mode: 'index',
-                intersect: false,
-            },
+            responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false, },
             scales: {
-                y: {
-                    type: 'linear',
-                    display: true,
-                    position: 'left',
-                    min: 0,
-                    max: 100,
-                    title: { display: true, text: 'Percentage (%)', color: '#78716c', font: { weight: 'bold' } }
-                },
-                y1: {
-                    type: 'linear',
-                    display: true,
-                    position: 'right',
-                    min: 0,
-                    title: { display: true, text: 'Words Per Minute (WPM)', color: '#78716c', font: { weight: 'bold' } },
-                    grid: { drawOnChartArea: false }
-                }
+                y: { type: 'linear', display: true, position: 'left', min: 0, max: 100, title: { display: true, text: 'Percentage (%)', color: '#78716c', font: { weight: 'bold' } } },
+                y1: { type: 'linear', display: true, position: 'right', min: 0, title: { display: true, text: 'Words Per Minute (WPM)', color: '#78716c', font: { weight: 'bold' } }, grid: { drawOnChartArea: false } }
             },
-            plugins: {
-                tooltip: {
-                    callbacks: {
-                        title: (context) => {
-                            return context[0].label.replace(',', ' '); 
-                        }
-                    }
-                }
-            }
+            plugins: { tooltip: { callbacks: { title: (context) => { return context[0].label.replace(',', ' '); } } } }
         }
     });
 }

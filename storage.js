@@ -6,6 +6,7 @@ const dbName = "CopeakDB";
 const storeName = "CustomLessons";
 let db;
 let currentCustomLesson = null;
+let editingLessonId = null; // ★ 編集モード管理用の変数
 
 const initDB = () => {
     return new Promise((resolve, reject) => {
@@ -21,6 +22,40 @@ const initDB = () => {
     });
 };
 
+// ★追加: 編集モードに入る関数
+function editLesson(event, id) {
+    event.stopPropagation();
+    const transaction = db.transaction([storeName], "readonly");
+    const store = transaction.objectStore(storeName);
+    const request = store.get(id);
+    
+    request.onsuccess = () => {
+        const lesson = request.result;
+        if (!lesson) return;
+        
+        // フォームに既存のデータをセット
+        document.getElementById('customTitle').value = lesson.title;
+        document.getElementById('customLang').value = lesson.lang;
+        document.getElementById('customEng').value = lesson.eng;
+        document.getElementById('customJpn').value = lesson.jpn || "";
+        // ※セキュリティ上、ファイルinput(音声)は自動セットできません
+        
+        editingLessonId = id;
+        
+        // ボタンの見た目を「更新モード」に変更
+        const btn = document.getElementById('saveMaterialBtn');
+        if(btn) {
+            btn.innerHTML = "Update Material (更新)";
+            btn.classList.replace('bg-emerald-800', 'bg-blue-600');
+            btn.classList.replace('hover:bg-emerald-900', 'hover:bg-blue-700');
+        }
+        
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (typeof showMsg === 'function') showMsg("✏️ 編集モード: 音声を変更する場合はファイルを選び直してください");
+    };
+}
+
+// ★変更: 新規保存だけでなく、編集（上書き）にも対応
 async function saveCustomLesson() {
     const title = document.getElementById("customTitle").value.trim();
     const engText = document.getElementById("customEng").value.trim();
@@ -36,29 +71,60 @@ async function saveCustomLesson() {
         return;
     }
 
-    const lessonData = {
-        title: title, 
-        eng: engText, 
-        jpn: jpnText,
-        audioBlob: audioFile || null,
-        lang: selectedLang, 
-        langName: selectedLangName,
-        history: [], 
-        createdAt: new Date().getTime()
-    };
-
     const transaction = db.transaction([storeName], "readwrite");
     const store = transaction.objectStore(storeName);
-    store.add(lessonData);
 
+    if (editingLessonId) {
+        // --- 編集（アップデート）モード ---
+        const getReq = store.get(editingLessonId);
+        getReq.onsuccess = () => {
+            const lesson = getReq.result;
+            lesson.title = title;
+            lesson.eng = engText;
+            lesson.jpn = jpnText;
+            lesson.lang = selectedLang;
+            lesson.langName = selectedLangName;
+            
+            // 新しい音声が選択された場合のみ上書き（選択されなければ元のまま）
+            if (audioFile) lesson.audioBlob = audioFile;
+            
+            store.put(lesson);
+            finishSaveProcess(transaction, "✅ 教材を更新しました！");
+        };
+    } else {
+        // --- 新規作成モード ---
+        const lessonData = {
+            title: title, 
+            eng: engText, 
+            jpn: jpnText,
+            audioBlob: audioFile || null,
+            lang: selectedLang, 
+            langName: selectedLangName,
+            history: [], 
+            createdAt: new Date().getTime()
+        };
+        store.add(lessonData);
+        finishSaveProcess(transaction, "✅ 教材を保存しました！");
+    }
+}
+
+// 保存完了後のリセット処理
+function finishSaveProcess(transaction, msg) {
     transaction.oncomplete = () => {
-        if (typeof showMsg === 'function') showMsg("✅ 教材を保存しました！");
+        if (typeof showMsg === 'function') showMsg(msg);
         document.getElementById("customMaterialForm").reset();
+        
+        editingLessonId = null;
+        const btn = document.getElementById('saveMaterialBtn');
+        if(btn) {
+            btn.innerHTML = "Save to Library";
+            btn.classList.replace('bg-blue-600', 'bg-emerald-800');
+            btn.classList.replace('hover:bg-blue-700', 'hover:bg-emerald-900');
+        }
         loadSavedLessons();
     };
 }
 
-// ★変更: コールバック(onComplete)を受け取り、DB保存完了後にUI更新を行えるようにしました
 function savePracticeLog(lessonId, logData, onComplete) {
     const transaction = db.transaction([storeName], "readwrite");
     const store = transaction.objectStore(storeName);
@@ -73,7 +139,6 @@ function savePracticeLog(lessonId, logData, onComplete) {
         store.put(lesson);
         currentCustomLesson = lesson; 
         
-        // 保存完了後にコールバック関数を実行
         if (onComplete) onComplete();
     };
 }
@@ -100,16 +165,16 @@ function loadSavedLessons() {
         }
 
         lessons.forEach(lesson => {
-            const date = new Date(lesson.createdAt).toLocaleDateString();
             const hasAudioIcon = lesson.audioBlob ? '🎵' : '📄';
             const langDisplay = lesson.langName || '🇺🇸 English (US)';
-            
             const playCount = lesson.history ? lesson.history.length : 0;
             const badgeHtml = playCount > 0 ? `<span class="bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded text-[10px] font-black">★ ${playCount}回</span>` : '';
 
             if (homeList) {
                 const homeCard = document.createElement("div");
                 homeCard.className = "p-5 bg-white border border-gray-100 hover:border-emerald-700 rounded-sm cursor-pointer shadow-sm hover:shadow-md transition group flex justify-between items-center";
+                
+                // ★ 編集(✏️)ボタンを削除ボタンの横に追加
                 homeCard.innerHTML = `
                     <div class="flex-1 overflow-hidden pr-4">
                         <div class="flex items-center gap-2">
@@ -122,9 +187,14 @@ function loadSavedLessons() {
                             <span class="bg-emerald-50 text-emerald-600 px-2 py-1 rounded-sm">${hasAudioIcon}</span>
                         </div>
                     </div>
-                    <button onclick="deleteLesson(event, ${lesson.id})" class="p-3 text-stone-300 hover:text-red-500 hover:bg-red-50 rounded-sm transition" title="削除">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                    </button>
+                    <div class="flex flex-col md:flex-row gap-1">
+                        <button onclick="editLesson(event, ${lesson.id})" class="p-2 md:p-3 text-stone-300 hover:text-blue-600 hover:bg-blue-50 rounded-sm transition" title="編集">
+                            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                        </button>
+                        <button onclick="deleteLesson(event, ${lesson.id})" class="p-2 md:p-3 text-stone-300 hover:text-red-500 hover:bg-red-50 rounded-sm transition" title="削除">
+                            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                        </button>
+                    </div>
                 `;
                 homeCard.onclick = (e) => { if(!e.target.closest('button')) startCustomLesson(lesson); };
                 homeList.appendChild(homeCard);
@@ -153,7 +223,7 @@ function loadSavedLessons() {
 
 function deleteLesson(event, id) {
     event.stopPropagation(); 
-    if(!confirm("本当にこの教材を削除しますか？")) return;
+    if(!confirm("本当にこの教材を削除しますか？\n（学習記録もすべて消去されます）")) return;
     const transaction = db.transaction([storeName], "readwrite");
     const store = transaction.objectStore(storeName);
     store.delete(id);

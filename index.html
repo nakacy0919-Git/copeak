@@ -45,18 +45,14 @@
         .screen.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* ★追加: 超・没入（イマーシブ）モード用のアニメーションCSS */
         #learningHeader, #learningTabs, #audioContainer {
             transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, padding 0.5s ease, margin 0.5s ease;
             overflow: hidden;
-            max-height: 200px; /* 通常時の上限 */
+            max-height: 200px;
         }
         
-        #mainLayoutWrapper {
-            transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+        #mainLayoutWrapper { transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
 
-        /* 録音中（bodyに immersive-mode が付いた時）は要素をペチャンコに潰して隠す */
         .immersive-mode #learningHeader,
         .immersive-mode #learningTabs,
         .immersive-mode #audioContainer {
@@ -69,10 +65,7 @@
             border-width: 0 !important;
         }
 
-        /* メインエリアの高さを画面ギリギリ（95vh）まで拡張 */
-        .immersive-mode #mainLayoutWrapper {
-            height: 95vh !important;
-        }
+        .immersive-mode #mainLayoutWrapper { height: 95vh !important; }
     </style>
 </head>
 <body class="text-stone-800 pb-10 relative transition-colors duration-500">
@@ -94,15 +87,15 @@
                 <span class="text-lg">⚠️</span> データの保存に関する重要なお願い
             </h3>
             <ul class="text-xs md:text-sm text-stone-700 space-y-2 ml-2 md:ml-6 list-disc font-medium">
-                <li><strong class="text-stone-900">iPad / スマホの方:</strong> 最初にブラウザのメニューから<strong class="text-amber-700">「ホーム画面に追加」</strong>を行い、<strong class="underline decoration-amber-400 decoration-2">必ずそのアイコンからアプリを開いて</strong>教材を登録してください。（Safari等から登録すると次回開いた時にデータが消えてしまいます）</li>
-                <li><strong class="text-stone-900">PCの方:</strong> ブックマークに登録し、常に同じブラウザを使用してください。（履歴やキャッシュを消去するとデータが消える場合があります）</li>
+                <li><strong class="text-stone-900">iPad / スマホの方:</strong> 最初にブラウザのメニューから<strong class="text-amber-700">「ホーム画面に追加」</strong>を行い、<strong class="underline decoration-amber-400 decoration-2">必ずそのアイコンからアプリを開いて</strong>教材を登録してください。</li>
+                <li><strong class="text-stone-900">PCの方:</strong> ブックマークに登録し、常に同じブラウザを使用してください。</li>
             </ul>
         </div>
         
         <form id="customMaterialForm" class="bg-white p-6 md:p-8 rounded-sm iron-border-sm flex flex-col lg:flex-row gap-8 flex-1">
             <div class="flex-1 space-y-6">
                 <h2 class="text-lg md:text-xl font-bold text-stone-800 serif-font flex items-center gap-2 mb-2">
-                    <span class="text-emerald-800">🌿</span> Create New Material
+                    <span class="text-emerald-800">🌿</span> Create / Edit Material
                 </h2>
                 <div>
                     <label class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Title</label>
@@ -140,7 +133,8 @@
                     <textarea id="customJpn" placeholder="母語での訳を貼り付け (任意)" rows="2" 
                               class="w-full p-3 md:p-4 bg-[#faf8f5] border border-stone-300 rounded-sm focus:ring-2 focus:ring-emerald-800 outline-none transition resize-y"></textarea>
                 </div>
-                <button type="button" onclick="saveCustomLesson()" class="w-full py-4 md:py-5 bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-lg md:text-xl rounded-sm shadow-md transition uppercase tracking-widest mt-auto">
+                <!-- ★ id="saveMaterialBtn" を追加 -->
+                <button type="button" id="saveMaterialBtn" onclick="saveCustomLesson()" class="w-full py-4 md:py-5 bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-lg md:text-xl rounded-sm shadow-md transition uppercase tracking-widest mt-auto">
                     Save to Library
                 </button>
             </div>
@@ -155,7 +149,6 @@
     <!-- 学習画面 -->
     <div id="learningScreen" class="screen max-w-[1800px] w-[98%] mx-auto mt-2 md:mt-4 px-1 md:px-2 h-auto min-h-[90vh]">
         
-        <!-- ★追加: id="learningHeader" -->
         <div id="learningHeader" class="flex flex-col sm:flex-row justify-between items-center mb-4 bg-stone-900 p-3 md:p-4 rounded-sm shadow-lg border border-stone-700">
             <button onclick="backToHome()" class="flex items-center gap-2 px-4 py-2 bg-stone-800 hover:bg-stone-700 text-stone-200 rounded-sm font-bold transition border border-stone-600 mb-2 sm:mb-0 text-xs md:text-sm uppercase tracking-wider">
                 ◀ Back
@@ -163,12 +156,10 @@
             <h2 id="learningTitle" class="text-xl md:text-2xl font-bold text-stone-100 serif-font truncate px-2 md:px-4 flex-1 text-center">Title</h2>
         </div>
 
-        <!-- ★追加: id="mainLayoutWrapper" -->
         <div id="mainLayoutWrapper" class="flex flex-col lg:flex-row gap-4 md:gap-6 h-[82vh]">
             
             <div id="mainLearningPane" class="w-full lg:w-[78%] flex flex-col h-full bg-[#faf8f5] rounded-sm iron-border overflow-hidden relative transition-all duration-500">
                 
-                <!-- ★追加: id="learningTabs" -->
                 <div id="learningTabs" class="flex justify-center p-2 md:p-3 border-b-2 border-stone-200 bg-white shrink-0 relative z-20 overflow-x-auto">
                     <div class="flex bg-stone-100 p-1 rounded-sm iron-border-sm shrink-0">
                         <button id="tabReading" onclick="setLearningMode('reading')" class="px-6 md:px-10 py-2 rounded-sm font-bold text-xs md:text-sm transition-all duration-200 bg-stone-800 text-white uppercase tracking-wider shadow-md whitespace-nowrap">
@@ -182,18 +173,15 @@
 
                 <div id="mainScrollArea" class="flex-1 overflow-y-auto p-3 md:p-8 space-y-4 flex flex-col relative z-20">
                     
-                    <!-- audioContainer はそのまま（CSSで自動的にペチャンコになります） -->
                     <div id="audioContainer" class="hidden bg-stone-100 p-3 rounded-sm iron-border-sm shrink-0">
                         <audio id="audioPlayer" controls class="w-full h-10 outline-none"></audio>
                     </div>
 
-                    <!-- リザルト用 ボード -->
                     <div id="resultScoreBoard" class="hidden flex-col gap-4 shrink-0">
                         <div class="bg-stone-900 p-4 md:p-6 rounded-sm shadow-xl border-2 border-stone-700 flex flex-col md:flex-row justify-around items-center relative gap-4 md:gap-0">
                             <button onclick="openChartModal()" class="absolute -top-3 -right-3 md:-top-4 md:-right-4 bg-[#faf8f5] hover:bg-white text-stone-800 iron-border-sm p-2 md:p-3 rounded-full shadow-lg transition transform hover:scale-110 flex items-center justify-center z-10" title="学習推移グラフを見る">
                                 <span class="text-lg md:text-xl">📊</span>
                             </button>
-
                             <div class="text-center w-full md:w-auto">
                                 <div class="text-stone-400 font-bold tracking-widest text-[10px] md:text-xs mb-1 uppercase">Accuracy</div>
                                 <div id="bigAccValue" class="text-4xl sm:text-5xl md:text-6xl font-bold text-emerald-400 serif-font">0%</div>
@@ -207,9 +195,7 @@
                                 <div id="bigCompValue" class="text-4xl sm:text-5xl md:text-6xl font-bold text-yellow-400 serif-font">0%</div>
                             </div>
                         </div>
-
                         <div id="practiceIconsContainer" class="flex flex-wrap gap-1 px-2"></div>
-
                         <div id="slaAdviceContainer" class="bg-emerald-50 border-l-4 border-emerald-600 p-3 md:p-4 rounded-sm shadow-sm flex items-start gap-3 md:gap-4 iron-border-sm">
                             <span class="text-2xl md:text-3xl mt-0 md:mt-1">💡</span>
                             <div>
@@ -232,8 +218,15 @@
 
                         <div id="targetTextWrapper" class="w-full flex flex-col gap-4 md:gap-6 transition-all duration-300 flex-1 min-h-[200px] md:min-h-[300px]">
                             <div class="p-4 md:p-6 bg-white rounded-sm border-l-4 border-emerald-800 shadow-sm flex-1 flex flex-col min-h-[150px] md:min-h-[250px]">
+                                
                                 <div class="flex justify-between items-center mb-2 md:mb-4 border-b border-stone-100 pb-2 shrink-0">
-                                    <div class="text-xs md:text-sm text-emerald-800 font-bold uppercase tracking-widest">Target Text</div>
+                                    <div class="flex items-center gap-3">
+                                        <div class="text-xs md:text-sm text-emerald-800 font-bold uppercase tracking-widest">Target Text</div>
+                                        <!-- ★追加: 日本語訳の表示/非表示ボタン -->
+                                        <button id="toggleJpnBtn" onclick="toggleTranslation()" class="hidden text-[10px] md:text-xs font-bold text-stone-500 hover:text-emerald-700 bg-stone-100 px-2 md:px-3 py-1 rounded-sm transition border border-stone-200">
+                                            🌐 訳を表示
+                                        </button>
+                                    </div>
                                     <div class="flex gap-1 md:gap-2">
                                         <button onclick="changeFontSize('eng', -2)" class="w-6 h-6 md:w-8 md:h-8 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold rounded-sm transition text-xs md:text-base">A-</button>
                                         <button onclick="changeFontSize('eng', 2)" class="w-6 h-6 md:w-8 md:h-8 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold rounded-sm transition text-xs md:text-base">A+</button>
@@ -242,15 +235,15 @@
                                 <div id="engContainer" class="text-stone-800 leading-relaxed transition-all duration-200 font-medium serif-font flex-1 overflow-y-auto" style="font-size: 24px;"></div>
                             </div>
 
-                            <div id="jpnWrapper" class="p-4 md:p-6 bg-white rounded-sm border-l-4 border-stone-400 shadow-sm hidden transition-all duration-300 shrink-0">
-                                <div class="flex justify-between items-center mb-2 md:mb-4 border-b border-stone-100 pb-2">
+                            <div id="jpnWrapper" class="p-4 md:p-6 bg-[#f8fafc] rounded-sm border-l-4 border-stone-400 shadow-inner hidden transition-all duration-300 shrink-0">
+                                <div class="flex justify-between items-center mb-2 md:mb-4 border-b border-stone-200 pb-2">
                                     <div class="text-xs md:text-sm text-stone-500 font-bold uppercase tracking-widest">Translation</div>
                                     <div class="flex gap-1 md:gap-2">
-                                        <button onclick="changeFontSize('jpn', -2)" class="w-6 h-6 md:w-8 md:h-8 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold rounded-sm transition text-xs md:text-base">A-</button>
-                                        <button onclick="changeFontSize('jpn', 2)" class="w-6 h-6 md:w-8 md:h-8 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold rounded-sm transition text-xs md:text-base">A+</button>
+                                        <button onclick="changeFontSize('jpn', -2)" class="w-6 h-6 md:w-8 md:h-8 bg-white hover:bg-stone-100 text-stone-700 font-bold rounded-sm transition text-xs md:text-base border border-stone-200">A-</button>
+                                        <button onclick="changeFontSize('jpn', 2)" class="w-6 h-6 md:w-8 md:h-8 bg-white hover:bg-stone-100 text-stone-700 font-bold rounded-sm transition text-xs md:text-base border border-stone-200">A+</button>
                                     </div>
                                 </div>
-                                <div id="jpnContainer" class="text-stone-600 leading-relaxed transition-all duration-200 font-medium max-h-[15vh] md:max-h-[20vh] overflow-y-auto" style="font-size: 16px;"></div>
+                                <div id="jpnContainer" class="text-stone-600 leading-relaxed transition-all duration-200 font-medium max-h-[15vh] md:max-h-[25vh] overflow-y-auto" style="font-size: 16px;"></div>
                             </div>
                         </div>
                     </div>
