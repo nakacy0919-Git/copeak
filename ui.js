@@ -2,12 +2,14 @@
 // ui.js: 画面切り替え、モード設定、およびグラフ描画
 // ==========================================
 
-let engFontSize = 24; 
-let jpnFontSize = 16;
-let recFontSize = 24; 
+// ★ スマホ画面判定とフォントサイズの自動調整
+const isMobile = window.innerWidth < 768;
+let engFontSize = isMobile ? 18 : 24; 
+let jpnFontSize = isMobile ? 14 : 16;
+let recFontSize = isMobile ? 18 : 24; 
+
 let targetTextArray = [];
 let currentMode = 'reading'; 
-
 let progressChartInstance = null;
 
 function showMsg(message) {
@@ -47,10 +49,15 @@ function openLearningScreen(lesson) {
     
     renderTargetText();
     
+    // フォントサイズの反映
+    document.getElementById('engContainer').style.fontSize = engFontSize + 'px';
+    document.getElementById('recognizedTextDisplay').style.fontSize = recFontSize + 'px';
+    
     const jpnWrapper = document.getElementById('jpnWrapper');
     if (lesson.jpn && lesson.jpn.trim() !== "") {
         jpnWrapper.classList.remove('hidden');
         document.getElementById('jpnContainer').innerHTML = lesson.jpn.replace(/([。？！])\s*/g, "$1<br>");
+        document.getElementById('jpnContainer').style.fontSize = jpnFontSize + 'px';
     } else {
         jpnWrapper.classList.add('hidden');
     }
@@ -85,13 +92,18 @@ function showPreReadingState() {
     const yourVoiceWrapper = document.getElementById('yourVoiceWrapper');
     const jpnWrapper = document.getElementById('jpnWrapper');
     const resultScoreBoard = document.getElementById('resultScoreBoard');
+    const mainPane = document.getElementById('mainLearningPane');
+    const sidebar = document.getElementById('playlistSidebar');
+
+    if (mainPane) mainPane.className = "w-full lg:w-[78%] flex flex-col h-full bg-[#faf8f5] rounded-sm iron-border overflow-hidden relative transition-all duration-500";
+    if (sidebar) sidebar.style.display = 'flex';
 
     resultScoreBoard.style.display = 'none'; 
     renderTargetText(); 
 
     if (currentMode === 'reading') {
         targetTextWrapper.style.display = 'flex';
-        targetTextWrapper.className = "w-full flex flex-col gap-6 transition-all duration-300 relative z-10 bg-transparent p-0 backdrop-blur-none shadow-none border-none";
+        targetTextWrapper.className = "w-full flex flex-col gap-4 md:gap-6 transition-all duration-300 relative z-10 bg-transparent p-0 backdrop-blur-none shadow-none border-none";
         yourVoiceWrapper.style.display = 'none';
         
         if (jpnWrapper && currentCustomLesson && currentCustomLesson.jpn) {
@@ -100,7 +112,7 @@ function showPreReadingState() {
     } else {
         targetTextWrapper.style.display = 'none'; 
         yourVoiceWrapper.style.display = 'flex';
-        yourVoiceWrapper.className = "w-full max-w-4xl mx-auto p-6 md:p-10 bg-white rounded-sm border-l-4 border-stone-800 shadow-sm iron-border-sm flex flex-col min-h-[400px] transition-all duration-300 opacity-100 relative z-10";
+        yourVoiceWrapper.className = "w-full max-w-4xl mx-auto p-4 md:p-10 bg-white rounded-sm border-l-4 border-stone-800 shadow-sm iron-border-sm flex flex-col min-h-[300px] md:min-h-[400px] transition-all duration-300 opacity-100 relative z-10";
     }
 }
 
@@ -109,34 +121,48 @@ function showRecordingState() {
     const yourVoiceWrapper = document.getElementById('yourVoiceWrapper');
     const jpnWrapper = document.getElementById('jpnWrapper');
     const resultScoreBoard = document.getElementById('resultScoreBoard');
+    const mainPane = document.getElementById('mainLearningPane');
+    const sidebar = document.getElementById('playlistSidebar');
+
+    if (mainPane) mainPane.className = "w-full flex flex-col h-full bg-[#faf8f5] rounded-sm iron-border overflow-hidden relative transition-all duration-500";
+    if (sidebar) sidebar.style.display = 'none';
 
     resultScoreBoard.style.display = 'none'; 
 
     if (currentMode === 'reading') {
         yourVoiceWrapper.style.display = 'flex';
-        yourVoiceWrapper.className = "absolute inset-0 z-0 opacity-40 pointer-events-none p-4 md:p-8 flex flex-col overflow-hidden transition-all duration-700 bg-transparent border-none shadow-none";
+        yourVoiceWrapper.className = "absolute inset-0 z-0 opacity-20 pointer-events-none p-4 md:p-14 flex flex-col overflow-hidden transition-all duration-700 bg-transparent border-none shadow-none";
         
         targetTextWrapper.style.display = 'flex';
-        targetTextWrapper.className = "relative z-10 w-full lg:w-[85%] mx-auto flex flex-col gap-6 transition-all duration-700 bg-white/85 backdrop-blur-md p-8 md:p-10 rounded-xl shadow-2xl border border-white/60";
+        targetTextWrapper.className = "relative z-10 w-full flex-1 flex flex-col gap-4 md:gap-6 transition-all duration-700 bg-white/85 backdrop-blur-xl p-4 md:p-14 rounded-xl md:rounded-2xl shadow-2xl border border-stone-200";
         
         if (jpnWrapper) jpnWrapper.classList.add('hidden'); 
+    } else {
+        targetTextWrapper.style.display = 'none'; 
+        yourVoiceWrapper.style.display = 'flex';
+        yourVoiceWrapper.className = "w-full max-w-5xl mx-auto p-4 md:p-12 bg-white rounded-sm border-l-4 border-stone-800 shadow-sm iron-border-sm flex flex-col min-h-[300px] md:min-h-[400px] transition-all duration-300 opacity-100 relative z-10";
     }
 }
 
-// ★修正: iPadで潰れないように `min-h-[400px]` を追加。縦に並んでもスクロールして見えるようになります。
 function showResultState() {
     const targetTextWrapper = document.getElementById('targetTextWrapper'); 
     const yourVoiceWrapper = document.getElementById('yourVoiceWrapper');
     const resultScoreBoard = document.getElementById('resultScoreBoard');
+    const mainPane = document.getElementById('mainLearningPane');
+    const sidebar = document.getElementById('playlistSidebar');
+
+    if (mainPane) mainPane.className = "w-full lg:w-[78%] flex flex-col h-full bg-[#faf8f5] rounded-sm iron-border overflow-hidden relative transition-all duration-500";
+    if (sidebar) sidebar.style.display = 'flex';
 
     resultScoreBoard.style.display = 'flex';
 
+    // ★スマホ環境（isMobile）に合わせてクラスを微調整
     if (currentMode === 'reading') {
         yourVoiceWrapper.style.display = 'flex';
-        yourVoiceWrapper.className = "w-full lg:w-1/2 p-6 bg-white rounded-sm border-l-4 border-stone-800 shadow-sm iron-border-sm flex flex-col transition-all duration-300 relative z-10 opacity-100 pointer-events-auto min-h-[400px]";
+        yourVoiceWrapper.className = "w-full lg:w-1/2 p-4 md:p-8 bg-white rounded-sm border-l-4 border-stone-800 shadow-sm iron-border-sm flex flex-col transition-all duration-300 relative z-10 opacity-100 pointer-events-auto flex-1 min-h-[250px] md:min-h-[400px]";
         
         targetTextWrapper.style.display = 'flex';
-        targetTextWrapper.className = "w-full lg:w-1/2 flex flex-col gap-6 transition-all duration-300 relative z-10 bg-transparent p-0 backdrop-blur-none border-none shadow-none min-h-[400px]";
+        targetTextWrapper.className = "w-full lg:w-1/2 flex flex-col gap-4 md:gap-6 transition-all duration-300 relative z-10 bg-transparent p-0 backdrop-blur-none border-none shadow-none flex-1 min-h-[250px] md:min-h-[400px]";
     }
 }
 
@@ -151,12 +177,12 @@ function setLearningMode(mode) {
     const btnText = document.getElementById('micBtnText');
     
     if (mode === 'reading') {
-        tabR.className = "px-10 py-2 rounded-sm font-bold text-sm transition-all duration-200 bg-stone-800 text-white uppercase tracking-wider shadow-md";
-        tabS.className = "px-10 py-2 rounded-sm font-bold text-sm transition-all duration-200 text-stone-500 hover:text-stone-800 uppercase tracking-wider";
+        tabR.className = "px-6 md:px-10 py-2 rounded-sm font-bold text-xs md:text-sm transition-all duration-200 bg-stone-800 text-white uppercase tracking-wider shadow-md whitespace-nowrap";
+        tabS.className = "px-6 md:px-10 py-2 rounded-sm font-bold text-xs md:text-sm transition-all duration-200 text-stone-500 hover:text-stone-800 uppercase tracking-wider whitespace-nowrap";
         btnText.innerText = "START READING";
     } else {
-        tabS.className = "px-10 py-2 rounded-sm font-bold text-sm transition-all duration-200 bg-stone-800 text-white uppercase tracking-wider shadow-md";
-        tabR.className = "px-10 py-2 rounded-sm font-bold text-sm transition-all duration-200 text-stone-500 hover:text-stone-800 uppercase tracking-wider";
+        tabS.className = "px-6 md:px-10 py-2 rounded-sm font-bold text-xs md:text-sm transition-all duration-200 bg-stone-800 text-white uppercase tracking-wider shadow-md whitespace-nowrap";
+        tabR.className = "px-6 md:px-10 py-2 rounded-sm font-bold text-xs md:text-sm transition-all duration-200 text-stone-500 hover:text-stone-800 uppercase tracking-wider whitespace-nowrap";
         btnText.innerText = "START SHADOWING";
     }
 
@@ -182,13 +208,13 @@ function resetLearningState() {
 
 function changeFontSize(type, step) {
     if (type === 'eng') {
-        engFontSize = Math.max(16, Math.min(80, engFontSize + step));
+        engFontSize = Math.max(12, Math.min(80, engFontSize + step));
         document.getElementById('engContainer').style.fontSize = engFontSize + 'px';
     } else if (type === 'jpn') {
-        jpnFontSize = Math.max(12, Math.min(60, jpnFontSize + step));
+        jpnFontSize = Math.max(10, Math.min(60, jpnFontSize + step));
         document.getElementById('jpnContainer').style.fontSize = jpnFontSize + 'px';
     } else if (type === 'rec') {
-        recFontSize = Math.max(16, Math.min(80, recFontSize + step));
+        recFontSize = Math.max(12, Math.min(80, recFontSize + step));
         document.getElementById('recognizedTextDisplay').style.fontSize = recFontSize + 'px';
     }
 }
