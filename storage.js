@@ -6,7 +6,7 @@ const dbName = "CopeakDB";
 const storeName = "CustomLessons";
 let db;
 let currentCustomLesson = null;
-let editingLessonId = null; // ★ 編集モード管理用の変数
+let editingLessonId = null; 
 
 const initDB = () => {
     return new Promise((resolve, reject) => {
@@ -22,7 +22,6 @@ const initDB = () => {
     });
 };
 
-// ★追加: 編集モードに入る関数
 function editLesson(event, id) {
     event.stopPropagation();
     const transaction = db.transaction([storeName], "readonly");
@@ -33,29 +32,70 @@ function editLesson(event, id) {
         const lesson = request.result;
         if (!lesson) return;
         
-        // フォームに既存のデータをセット
         document.getElementById('customTitle').value = lesson.title;
         document.getElementById('customLang').value = lesson.lang;
         document.getElementById('customEng').value = lesson.eng;
         document.getElementById('customJpn').value = lesson.jpn || "";
-        // ※セキュリティ上、ファイルinput(音声)は自動セットできません
+        
+        // セキュリティ上、ファイルinputは空にしておきます
+        document.getElementById('customAudio').value = "";
         
         editingLessonId = id;
         
-        // ボタンの見た目を「更新モード」に変更
+        // ボタンとマークの表示を更新
         const btn = document.getElementById('saveMaterialBtn');
+        const cancelBtn = document.getElementById('cancelEditBtn');
+        const audioMark = document.getElementById('audioRegisteredMark');
+        
         if(btn) {
             btn.innerHTML = "Update Material (更新)";
             btn.classList.replace('bg-emerald-800', 'bg-blue-600');
             btn.classList.replace('hover:bg-emerald-900', 'hover:bg-blue-700');
         }
+        if(cancelBtn) {
+            cancelBtn.classList.remove('hidden');
+        }
+        if(audioMark) {
+            // 音声が既に存在する場合は、安心マークを表示！
+            if (lesson.audioBlob) {
+                audioMark.classList.remove('hidden');
+            } else {
+                audioMark.classList.add('hidden');
+            }
+        }
         
         window.scrollTo({ top: 0, behavior: 'smooth' });
-        if (typeof showMsg === 'function') showMsg("✏️ 編集モード: 音声を変更する場合はファイルを選び直してください");
+        if (typeof showMsg === 'function') showMsg("✏️ 編集モードに入りました（既存の音声は保持されています）");
     };
 }
 
-// ★変更: 新規保存だけでなく、編集（上書き）にも対応
+// ★追加: 編集モードをキャンセルする関数
+function cancelEdit(isSilent = false) {
+    document.getElementById("customMaterialForm").reset();
+    document.getElementById('customAudio').value = ""; // ファイル選択状態もリセット
+    editingLessonId = null;
+
+    const btn = document.getElementById('saveMaterialBtn');
+    const cancelBtn = document.getElementById('cancelEditBtn');
+    const audioMark = document.getElementById('audioRegisteredMark');
+
+    if(btn) {
+        btn.innerHTML = "Save to Library";
+        btn.classList.replace('bg-blue-600', 'bg-emerald-800');
+        btn.classList.replace('hover:bg-blue-700', 'hover:bg-emerald-900');
+    }
+    if(cancelBtn) {
+        cancelBtn.classList.add('hidden');
+    }
+    if(audioMark) {
+        audioMark.classList.add('hidden');
+    }
+
+    if (!isSilent && typeof showMsg === 'function') {
+        showMsg("キャンセルして新規作成モードに戻りました");
+    }
+}
+
 async function saveCustomLesson() {
     const title = document.getElementById("customTitle").value.trim();
     const engText = document.getElementById("customEng").value.trim();
@@ -75,7 +115,6 @@ async function saveCustomLesson() {
     const store = transaction.objectStore(storeName);
 
     if (editingLessonId) {
-        // --- 編集（アップデート）モード ---
         const getReq = store.get(editingLessonId);
         getReq.onsuccess = () => {
             const lesson = getReq.result;
@@ -85,14 +124,13 @@ async function saveCustomLesson() {
             lesson.lang = selectedLang;
             lesson.langName = selectedLangName;
             
-            // 新しい音声が選択された場合のみ上書き（選択されなければ元のまま）
+            // 新しい音声が選択された場合のみ上書き（何も選ばれなければ昔のデータがそのまま生き残る！）
             if (audioFile) lesson.audioBlob = audioFile;
             
             store.put(lesson);
             finishSaveProcess(transaction, "✅ 教材を更新しました！");
         };
     } else {
-        // --- 新規作成モード ---
         const lessonData = {
             title: title, 
             eng: engText, 
@@ -112,15 +150,7 @@ async function saveCustomLesson() {
 function finishSaveProcess(transaction, msg) {
     transaction.oncomplete = () => {
         if (typeof showMsg === 'function') showMsg(msg);
-        document.getElementById("customMaterialForm").reset();
-        
-        editingLessonId = null;
-        const btn = document.getElementById('saveMaterialBtn');
-        if(btn) {
-            btn.innerHTML = "Save to Library";
-            btn.classList.replace('bg-blue-600', 'bg-emerald-800');
-            btn.classList.replace('hover:bg-blue-700', 'hover:bg-emerald-900');
-        }
+        cancelEdit(true); // ★完了したらキャンセル関数を呼んでUIをリセットする
         loadSavedLessons();
     };
 }
@@ -174,7 +204,6 @@ function loadSavedLessons() {
                 const homeCard = document.createElement("div");
                 homeCard.className = "p-5 bg-white border border-gray-100 hover:border-emerald-700 rounded-sm cursor-pointer shadow-sm hover:shadow-md transition group flex justify-between items-center";
                 
-                // ★ 編集(✏️)ボタンを削除ボタンの横に追加
                 homeCard.innerHTML = `
                     <div class="flex-1 overflow-hidden pr-4">
                         <div class="flex items-center gap-2">
