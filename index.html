@@ -44,9 +44,38 @@
         .screen { display: none; animation: fadeIn 0.4s ease; }
         .screen.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* ★追加: 超・没入（イマーシブ）モード用のアニメーションCSS */
+        #learningHeader, #learningTabs, #audioContainer {
+            transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, padding 0.5s ease, margin 0.5s ease;
+            overflow: hidden;
+            max-height: 200px; /* 通常時の上限 */
+        }
+        
+        #mainLayoutWrapper {
+            transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* 録音中（bodyに immersive-mode が付いた時）は要素をペチャンコに潰して隠す */
+        .immersive-mode #learningHeader,
+        .immersive-mode #learningTabs,
+        .immersive-mode #audioContainer {
+            max-height: 0 !important;
+            opacity: 0 !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+            border-width: 0 !important;
+        }
+
+        /* メインエリアの高さを画面ギリギリ（95vh）まで拡張 */
+        .immersive-mode #mainLayoutWrapper {
+            height: 95vh !important;
+        }
     </style>
 </head>
-<body class="text-stone-800 pb-10 relative">
+<body class="text-stone-800 pb-10 relative transition-colors duration-500">
 
     <div id="toast">メッセージ</div>
 
@@ -60,7 +89,6 @@
             <span class="bg-stone-800 text-stone-100 text-[10px] md:text-xs font-bold px-3 py-1.5 md:px-4 md:py-2 rounded-sm uppercase tracking-widest">My Library</span>
         </div>
 
-        <!-- ★追加: データの保存に関する重要なお願い -->
         <div class="bg-amber-50 border-l-4 border-amber-500 p-4 md:p-5 mb-8 rounded-sm shadow-sm iron-border-sm">
             <h3 class="font-bold text-amber-800 text-sm md:text-base flex items-center gap-2 mb-2">
                 <span class="text-lg">⚠️</span> データの保存に関する重要なお願い
@@ -125,20 +153,23 @@
     </div>
 
     <!-- 学習画面 -->
-    <div id="learningScreen" class="screen max-w-[1800px] w-[98%] mx-auto mt-4 px-1 md:px-2 h-auto min-h-[90vh]">
+    <div id="learningScreen" class="screen max-w-[1800px] w-[98%] mx-auto mt-2 md:mt-4 px-1 md:px-2 h-auto min-h-[90vh]">
         
-        <div class="flex flex-col sm:flex-row justify-between items-center mb-4 bg-stone-900 p-3 md:p-4 rounded-sm shadow-lg border border-stone-700">
+        <!-- ★追加: id="learningHeader" -->
+        <div id="learningHeader" class="flex flex-col sm:flex-row justify-between items-center mb-4 bg-stone-900 p-3 md:p-4 rounded-sm shadow-lg border border-stone-700">
             <button onclick="backToHome()" class="flex items-center gap-2 px-4 py-2 bg-stone-800 hover:bg-stone-700 text-stone-200 rounded-sm font-bold transition border border-stone-600 mb-2 sm:mb-0 text-xs md:text-sm uppercase tracking-wider">
                 ◀ Back
             </button>
             <h2 id="learningTitle" class="text-xl md:text-2xl font-bold text-stone-100 serif-font truncate px-2 md:px-4 flex-1 text-center">Title</h2>
         </div>
 
-        <div class="flex flex-col lg:flex-row gap-4 md:gap-6 h-[82vh]">
+        <!-- ★追加: id="mainLayoutWrapper" -->
+        <div id="mainLayoutWrapper" class="flex flex-col lg:flex-row gap-4 md:gap-6 h-[82vh]">
             
             <div id="mainLearningPane" class="w-full lg:w-[78%] flex flex-col h-full bg-[#faf8f5] rounded-sm iron-border overflow-hidden relative transition-all duration-500">
                 
-                <div class="flex justify-center p-2 md:p-3 border-b-2 border-stone-200 bg-white shrink-0 relative z-20 overflow-x-auto">
+                <!-- ★追加: id="learningTabs" -->
+                <div id="learningTabs" class="flex justify-center p-2 md:p-3 border-b-2 border-stone-200 bg-white shrink-0 relative z-20 overflow-x-auto">
                     <div class="flex bg-stone-100 p-1 rounded-sm iron-border-sm shrink-0">
                         <button id="tabReading" onclick="setLearningMode('reading')" class="px-6 md:px-10 py-2 rounded-sm font-bold text-xs md:text-sm transition-all duration-200 bg-stone-800 text-white uppercase tracking-wider shadow-md whitespace-nowrap">
                             📖 Reading
@@ -150,11 +181,13 @@
                 </div>
 
                 <div id="mainScrollArea" class="flex-1 overflow-y-auto p-3 md:p-8 space-y-4 flex flex-col relative z-20">
+                    
+                    <!-- audioContainer はそのまま（CSSで自動的にペチャンコになります） -->
                     <div id="audioContainer" class="hidden bg-stone-100 p-3 rounded-sm iron-border-sm shrink-0">
                         <audio id="audioPlayer" controls class="w-full h-10 outline-none"></audio>
                     </div>
 
-                    <!-- リザルト用 ボード（スマホでは縦積み flex-col、PCでは横並び md:flex-row） -->
+                    <!-- リザルト用 ボード -->
                     <div id="resultScoreBoard" class="hidden flex-col gap-4 shrink-0">
                         <div class="bg-stone-900 p-4 md:p-6 rounded-sm shadow-xl border-2 border-stone-700 flex flex-col md:flex-row justify-around items-center relative gap-4 md:gap-0">
                             <button onclick="openChartModal()" class="absolute -top-3 -right-3 md:-top-4 md:-right-4 bg-[#faf8f5] hover:bg-white text-stone-800 iron-border-sm p-2 md:p-3 rounded-full shadow-lg transition transform hover:scale-110 flex items-center justify-center z-10" title="学習推移グラフを見る">

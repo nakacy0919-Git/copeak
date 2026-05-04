@@ -2,7 +2,6 @@
 // ui.js: 画面切り替え、モード設定、およびグラフ描画
 // ==========================================
 
-// ★ スマホ画面判定とフォントサイズの自動調整
 const isMobile = window.innerWidth < 768;
 let engFontSize = isMobile ? 18 : 24; 
 let jpnFontSize = isMobile ? 14 : 16;
@@ -49,7 +48,6 @@ function openLearningScreen(lesson) {
     
     renderTargetText();
     
-    // フォントサイズの反映
     document.getElementById('engContainer').style.fontSize = engFontSize + 'px';
     document.getElementById('recognizedTextDisplay').style.fontSize = recFontSize + 'px';
     
@@ -87,7 +85,11 @@ function renderTargetText() {
     engContainer.innerHTML = currentCustomLesson.eng.replace(/([.?!])\s+/g, "$1<br><br>");
 }
 
+// 1. 待機画面（非イマーシブ）
 function showPreReadingState() {
+    // ★ 没入モードを解除
+    document.body.classList.remove('immersive-mode');
+
     const targetTextWrapper = document.getElementById('targetTextWrapper'); 
     const yourVoiceWrapper = document.getElementById('yourVoiceWrapper');
     const jpnWrapper = document.getElementById('jpnWrapper');
@@ -116,7 +118,11 @@ function showPreReadingState() {
     }
 }
 
+// 2. 録音中（超・イマーシブモード）★ ヘッダーやメニューがすべて消えます
 function showRecordingState() {
+    // ★ 没入モードを発動（CSSアニメーションでヘッダー・タブ・音声バーがペチャンコになります）
+    document.body.classList.add('immersive-mode');
+
     const targetTextWrapper = document.getElementById('targetTextWrapper'); 
     const yourVoiceWrapper = document.getElementById('yourVoiceWrapper');
     const jpnWrapper = document.getElementById('jpnWrapper');
@@ -144,7 +150,11 @@ function showRecordingState() {
     }
 }
 
+// 3. 結果表示（非イマーシブ）
 function showResultState() {
+    // ★ 没入モードを解除
+    document.body.classList.remove('immersive-mode');
+
     const targetTextWrapper = document.getElementById('targetTextWrapper'); 
     const yourVoiceWrapper = document.getElementById('yourVoiceWrapper');
     const resultScoreBoard = document.getElementById('resultScoreBoard');
@@ -156,7 +166,6 @@ function showResultState() {
 
     resultScoreBoard.style.display = 'flex';
 
-    // ★スマホ環境（isMobile）に合わせてクラスを微調整
     if (currentMode === 'reading') {
         yourVoiceWrapper.style.display = 'flex';
         yourVoiceWrapper.className = "w-full lg:w-1/2 p-4 md:p-8 bg-white rounded-sm border-l-4 border-stone-800 shadow-sm iron-border-sm flex flex-col transition-all duration-300 relative z-10 opacity-100 pointer-events-auto flex-1 min-h-[250px] md:min-h-[400px]";
