@@ -12,7 +12,8 @@ let recordStartTime = 0;
 
 if (window.SpeechRecognition) {
     mainRecognition = new SpeechRecognition();
-    mainRecognition.interimResults = false; 
+    // ★修正1：Safariで途中経過を取るため true に戻す
+    mainRecognition.interimResults = true; 
     mainRecognition.continuous = true;     
 
     mainRecognition.onerror = (e) => {
@@ -25,23 +26,19 @@ if (window.SpeechRecognition) {
         }
     };
 
+    // ★修正2：Safariの重複バグを防ぐため、常に「最新の全体テキスト」で上書きする
     mainRecognition.onresult = (e) => {
-        let interimTranscript = '';
-        let newlyFinalized = '';
+        let fullTranscript = '';
 
-        for (let i = e.resultIndex; i < e.results.length; i++) {
-            if (e.results[i].isFinal) {
-                newlyFinalized += e.results[i][0].transcript + ' ';
-            } else {
-                interimTranscript += e.results[i][0].transcript;
-            }
+        // 過去の蓄積に足すのではなく、ブラウザが持っている今の全データを0から結合する
+        for (let i = 0; i < e.results.length; i++) {
+            fullTranscript += e.results[i][0].transcript + ' ';
         }
 
-        if (newlyFinalized !== '') accumulatedTranscript += newlyFinalized;
-        currentInterim = interimTranscript;
+        accumulatedTranscript = fullTranscript;
+        currentInterim = ''; 
 
-        const fullSpokenText = accumulatedTranscript + currentInterim;
-        processSpeechMatch(fullSpokenText, false); 
+        processSpeechMatch(accumulatedTranscript, false); 
     };
 
     mainRecognition.onend = () => {
