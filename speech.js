@@ -12,7 +12,7 @@ let recordStartTime = 0;
 
 if (window.SpeechRecognition) {
     mainRecognition = new SpeechRecognition();
-    mainRecognition.interimResults = true; 
+    mainRecognition.interimResults = false; 
     mainRecognition.continuous = true;     
 
     mainRecognition.onerror = (e) => {
