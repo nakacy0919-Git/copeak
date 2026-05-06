@@ -12,7 +12,6 @@ let recordStartTime = 0;
 
 if (window.SpeechRecognition) {
     mainRecognition = new SpeechRecognition();
-    // ★修正1：Safariで途中経過を取るため true に戻す
     mainRecognition.interimResults = true; 
     mainRecognition.continuous = true;     
 
@@ -20,17 +19,16 @@ if (window.SpeechRecognition) {
         if (e.error === 'not-allowed' || e.error === 'denied') {
             isMainRecording = false;
             updateMicButtonUI();
+            if (typeof stopPacedReading === 'function') stopPacedReading(); // エラー時はカラオケ停止
             const audioPlayer = document.getElementById('audioPlayer');
             if (audioPlayer) audioPlayer.pause();
             if (typeof showMsg === 'function') showMsg("⚠️ マイクが拒否されました");
         }
     };
 
-    // ★修正2：Safariの重複バグを防ぐため、常に「最新の全体テキスト」で上書きする
     mainRecognition.onresult = (e) => {
         let fullTranscript = '';
 
-        // 過去の蓄積に足すのではなく、ブラウザが持っている今の全データを0から結合する
         for (let i = 0; i < e.results.length; i++) {
             fullTranscript += e.results[i][0].transcript + ' ';
         }
@@ -56,11 +54,15 @@ function toggleRecording() {
 
     const audioPlayer = document.getElementById('audioPlayer');
 
+    // ★ 録音を【終了】する時の処理
     if (isMainRecording) {
         isMainRecording = false;
         mainRecognition.stop();
         
         if (currentMode === 'shadowing' && audioPlayer) audioPlayer.pause();
+        
+        // カラオケ機能のタイマーを止める
+        if (typeof stopPacedReading === 'function') stopPacedReading();
 
         updateMicButtonUI();
         if (currentInterim !== '') {
@@ -71,6 +73,7 @@ function toggleRecording() {
         processSpeechMatch(accumulatedTranscript, true); 
         if (typeof showResultState === 'function') showResultState();
 
+    // ★ 録音を【開始】する時の処理
     } else {
         recordStartTime = Date.now();
         isMainRecording = true;
@@ -81,6 +84,11 @@ function toggleRecording() {
         document.getElementById('recognizedTextDisplay').style.color = "#292524"; 
 
         if (typeof showRecordingState === 'function') showRecordingState();
+        
+        // ★Pacedモードなら、カラオケタイマーをスタート
+        if (typeof startPacedReading === 'function' && currentMode === 'paced') {
+            startPacedReading();
+        }
 
         const targetLang = currentCustomLesson.lang || 'en-US';
         mainRecognition.lang = targetLang;
@@ -95,6 +103,7 @@ function toggleRecording() {
                     } catch(e) {
                         isMainRecording = false;
                         updateMicButtonUI();
+                        if (typeof stopPacedReading === 'function') stopPacedReading();
                     }
                 }, 300); 
             }).catch(e => {
@@ -110,6 +119,7 @@ function toggleRecording() {
             } catch(e) {
                 isMainRecording = false;
                 updateMicButtonUI();
+                if (typeof stopPacedReading === 'function') stopPacedReading();
             }
         }
     }
@@ -130,6 +140,10 @@ function updateMicButtonUI() {
         
         if (currentMode === 'shadowing') {
             txt.innerText = accumulatedTranscript.trim() ? "RETRY SHADOWING" : "START SHADOWING";
+        } else if (currentMode === 'memo') {
+            txt.innerText = accumulatedTranscript.trim() ? "RETRY VANISH" : "START VANISH";
+        } else if (currentMode === 'paced') {
+            txt.innerText = accumulatedTranscript.trim() ? "RETRY PACED" : "START PACED";
         } else {
             txt.innerText = accumulatedTranscript.trim() ? "RETRY READING" : "START READING";
         }
@@ -194,7 +208,8 @@ function processSpeechMatch(spokenText, isFinalResult = false) {
         currentWpm = Math.round(spokenOriginalWords.length / elapsedMinutes);
     }
 
-    let wpmRatio = Math.min(currentWpm / 130, 1.0); 
+    let targetWpmToUse = (typeof targetWpm !== 'undefined') ? targetWpm : 130;
+    let wpmRatio = Math.min(currentWpm / targetWpmToUse, 1.0); 
     let comprehensionScore = Math.round((currentAccuracy * 0.6) + (wpmRatio * 100 * 0.4));
     if (comprehensionScore > 100) comprehensionScore = 100;
 
@@ -231,24 +246,25 @@ function processSpeechMatch(spokenText, isFinalResult = false) {
     }
 }
 
-// ★ 変更: アイコンを「音読（📖）」と「シャドーイング（🎧）」で出し分けるようにしました
 function updateHistoryUI() {
     if (!currentCustomLesson) return;
     
     let history = currentCustomLesson.history || [];
     let totalReads = history.length;
     
-    // 履歴データを1つずつ確認して、モードに合ったアイコンを生成
     const iconsHtml = history.map(log => {
-        const icon = log.mode === 'shadowing' ? '🎧' : '📖';
-        const titleText = log.mode === 'shadowing' ? 'シャドーイング' : '音読';
+        let icon = '📖';
+        let titleText = '音読';
+        if (log.mode === 'shadowing') { icon = '🎧'; titleText = 'シャドーイング'; }
+        if (log.mode === 'memo') { icon = '🧠'; titleText = '暗記'; }
+        if (log.mode === 'paced') { icon = '⚡️'; titleText = 'ペース音読'; }
+        
         return `<span class="text-2xl drop-shadow-md" title="${titleText}">${icon}</span>`;
     }).join('');
     
     const iconContainer = document.getElementById('practiceIconsContainer');
     if (iconContainer) iconContainer.innerHTML = iconsHtml;
 
-    // 2. SLAアドバイスの生成
     let isConsecutive = false;
     let daysSinceLastPractice = 0;
 

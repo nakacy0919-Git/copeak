@@ -9,8 +9,12 @@ let recFontSize = isMobile ? 18 : 24;
 
 let targetTextArray = [];
 let currentMode = 'reading'; 
-let currentMemoLevel = 0; // 暗記モードのレベル（0は通常表示）
+let currentMemoLevel = 0; 
 let progressChartInstance = null;
+
+let targetWpm = 120;
+let pacedInterval = null;
+let currentPaceIndex = 0;
 
 function showMsg(message) {
     const toast = document.getElementById('toast');
@@ -101,10 +105,8 @@ function toggleTranslation() {
     }
 }
 
-// レベルに応じたボタンの装飾と、テキストの再描画
 function updateMemoLevel(level) {
     currentMemoLevel = level;
-    
     for (let i = 1; i <= 5; i++) {
         const btn = document.getElementById('lvlBtn' + i);
         if (!btn) continue;
@@ -117,37 +119,95 @@ function updateMemoLevel(level) {
     renderTargetText(); 
 }
 
-// 指定された暗記レベルに応じて単語を灰色の箱（虫食い）化する
 function renderTargetText() {
     if (!currentCustomLesson) return;
     const engContainer = document.getElementById('engContainer');
     let text = currentCustomLesson.eng;
 
-    if (currentMemoLevel > 0 && currentMode === 'memo') {
-        const threshold = currentMemoLevel * 0.2; // Lv1=20%, Lv5=100%
-        const words = text.split(/(\s+)/); 
-        
-        const maskedWords = words.map((word, index) => {
-            if (word.trim() === "") return word; 
+    if (currentMode === 'paced') engContainer.classList.add('karaoke-active');
+    else engContainer.classList.remove('karaoke-active');
 
-            // 擬似乱数で常に同じ場所が空欄になるようにする
+    const words = text.split(/(\s+)/); 
+    const processedWords = words.map((word, index) => {
+        if (word.trim() === "") return word; 
+
+        let finalWord = word;
+
+        if (currentMode === 'memo' && currentMemoLevel > 0) {
+            const threshold = currentMemoLevel * 0.2; 
             let hash = 0;
             for (let i = 0; i < word.length; i++) hash = word.charCodeAt(i) + ((hash << 5) - hash);
             const pseudoRandom = Math.abs(hash + index * 137) % 100 / 100;
 
             if (pseudoRandom < threshold) {
-                // 文字を透明にして背景を灰色に塗る（ドラッグ選択でのカンニングも防止）
-                const maskedWord = word.replace(/[a-zA-Z0-9\u00C0-\u017F\u0900-\u097F']+/g, match => {
+                finalWord = word.replace(/[a-zA-Z0-9\u00C0-\u017F\u0900-\u097F']+/g, match => {
                     return `<span class="bg-stone-300 text-transparent rounded-sm select-none">${match}</span>`;
                 });
-                return maskedWord;
             }
-            return word;
-        });
-        text = maskedWords.join('');
-    }
+        }
 
-    engContainer.innerHTML = text.replace(/([.?!])\s+/g, "$1<br><br>");
+        return `<span class="pace-word">${finalWord}</span>`;
+    });
+
+    engContainer.innerHTML = processedWords.join('').replace(/([.?!]["']?)<\/span>\s+/g, "$1</span><br><br>");
+}
+
+function updateTargetWpm(val) {
+    targetWpm = parseInt(val);
+    const display = document.getElementById('targetWpmDisplay');
+    if (display) display.innerText = targetWpm + " WPM";
+}
+
+function openWpmGuide() {
+    const modal = document.getElementById('wpmGuideModal');
+    if (modal) modal.classList.remove('hidden');
+}
+
+function closeWpmGuide() {
+    const modal = document.getElementById('wpmGuideModal');
+    if (modal) modal.classList.add('hidden');
+}
+
+function startPacedReading() {
+    stopPacedReading(); 
+    currentPaceIndex = 0;
+    const words = document.querySelectorAll('.pace-word');
+    if (words.length === 0) return;
+
+    const msPerWord = 60000 / targetWpm;
+
+    pacedInterval = setInterval(() => {
+        if (currentPaceIndex > 0 && currentPaceIndex <= words.length) {
+            const prevWord = words[currentPaceIndex - 1];
+            prevWord.classList.remove('paced-highlight');
+            prevWord.classList.add('paced-read');
+            prevWord.style.transition = 'none'; 
+        }
+        
+        if (currentPaceIndex < words.length) {
+            const currentWordEl = words[currentPaceIndex];
+            
+            currentWordEl.style.transition = `background-position ${msPerWord}ms linear`;
+            void currentWordEl.offsetWidth; 
+            currentWordEl.classList.add('paced-highlight');
+            currentWordEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            currentPaceIndex++;
+        } else {
+            stopPacedReading(); 
+        }
+    }, msPerWord);
+}
+
+function stopPacedReading() {
+    if (pacedInterval) {
+        clearInterval(pacedInterval);
+        pacedInterval = null;
+    }
+    document.querySelectorAll('.pace-word').forEach(el => {
+        el.classList.remove('paced-highlight', 'paced-read');
+        el.style.transition = '';
+    });
 }
 
 function showPreReadingState() {
@@ -170,7 +230,7 @@ function showPreReadingState() {
     resultScoreBoard.style.display = 'none'; 
     renderTargetText(); 
 
-    if (currentMode === 'reading' || currentMode === 'memo') {
+    if (currentMode !== 'shadowing') {
         targetTextWrapper.style.display = 'flex';
         targetTextWrapper.className = "w-full flex flex-col gap-4 md:gap-6 transition-all duration-300 relative z-10 bg-transparent p-0 backdrop-blur-none shadow-none border-none";
         yourVoiceWrapper.style.display = 'none';
@@ -205,7 +265,7 @@ function showRecordingState() {
 
     resultScoreBoard.style.display = 'none'; 
 
-    if (currentMode === 'reading' || currentMode === 'memo') {
+    if (currentMode !== 'shadowing') {
         yourVoiceWrapper.style.display = 'flex';
         yourVoiceWrapper.className = "absolute inset-0 z-0 opacity-20 pointer-events-none p-4 md:p-14 flex flex-col overflow-hidden transition-all duration-700 bg-transparent border-none shadow-none";
         
@@ -237,7 +297,7 @@ function showResultState() {
 
     resultScoreBoard.style.display = 'flex';
 
-    if (currentMode === 'reading' || currentMode === 'memo') {
+    if (currentMode !== 'shadowing') {
         yourVoiceWrapper.style.display = 'flex';
         yourVoiceWrapper.className = "w-full lg:w-1/2 p-4 md:p-8 bg-white rounded-sm border-l-4 border-stone-800 shadow-sm iron-border-sm flex flex-col transition-all duration-300 relative z-10 opacity-100 pointer-events-auto flex-1 min-h-[250px] md:min-h-[400px]";
         
@@ -246,7 +306,6 @@ function showResultState() {
     }
 }
 
-// 3つのモード（タブ）の切り替え制御
 function setLearningMode(mode) {
     if (typeof isMainRecording !== 'undefined' && isMainRecording) {
         if (typeof toggleRecording === 'function') toggleRecording();
@@ -254,29 +313,41 @@ function setLearningMode(mode) {
 
     currentMode = mode;
     const tabR = document.getElementById('tabReading');
+    const tabP = document.getElementById('tabPaced');
     const tabM = document.getElementById('tabMemo');
     const tabS = document.getElementById('tabShadowing');
+    
     const btnText = document.getElementById('micBtnText');
     const vanishControls = document.getElementById('vanishModeControls');
+    const pacedControls = document.getElementById('pacedModeControls'); 
     
-    const activeClass = "flex-1 px-2 md:px-6 py-2 rounded-sm font-bold text-[10px] md:text-sm transition-all duration-200 bg-stone-800 text-white uppercase tracking-wider shadow-md whitespace-nowrap";
-    const inactiveClass = "flex-1 px-2 md:px-6 py-2 rounded-sm font-bold text-[10px] md:text-sm transition-all duration-200 text-stone-500 hover:text-stone-800 uppercase tracking-wider whitespace-nowrap";
+    const activeClass = "flex-1 px-1 md:px-4 py-2 rounded-sm font-bold text-[10px] md:text-sm transition-all duration-200 bg-stone-800 text-white uppercase tracking-wider shadow-md whitespace-nowrap";
+    const inactiveClass = "flex-1 px-1 md:px-4 py-2 rounded-sm font-bold text-[10px] md:text-sm transition-all duration-200 text-stone-500 hover:text-stone-800 uppercase tracking-wider whitespace-nowrap";
 
-    tabR.className = (mode === 'reading') ? activeClass : inactiveClass;
-    tabM.className = (mode === 'memo') ? activeClass : inactiveClass;
-    tabS.className = (mode === 'shadowing') ? activeClass : inactiveClass;
+    if(tabR) tabR.className = (mode === 'reading') ? activeClass : inactiveClass;
+    if(tabP) tabP.className = (mode === 'paced') ? activeClass : inactiveClass;
+    if(tabM) tabM.className = (mode === 'memo') ? activeClass : inactiveClass;
+    if(tabS) tabS.className = (mode === 'shadowing') ? activeClass : inactiveClass;
 
     if (mode === 'reading') {
         btnText.innerText = "START READING";
-        vanishControls.classList.add('hidden');
+        if (vanishControls) vanishControls.classList.add('hidden');
+        if (pacedControls) pacedControls.classList.add('hidden');
+        currentMemoLevel = 0;
+    } else if (mode === 'paced') {
+        btnText.innerText = "START PACED";
+        if (vanishControls) vanishControls.classList.add('hidden');
+        if (pacedControls) pacedControls.classList.remove('hidden');
         currentMemoLevel = 0;
     } else if (mode === 'memo') {
         btnText.innerText = "START VANISH";
-        vanishControls.classList.remove('hidden');
-        if (currentMemoLevel === 0) updateMemoLevel(1); // デフォルトをLv1に
+        if (vanishControls) vanishControls.classList.remove('hidden');
+        if (pacedControls) pacedControls.classList.add('hidden');
+        if (currentMemoLevel === 0) updateMemoLevel(1); 
     } else {
         btnText.innerText = "START SHADOWING";
-        vanishControls.classList.add('hidden');
+        if (vanishControls) vanishControls.classList.add('hidden');
+        if (pacedControls) pacedControls.classList.add('hidden');
         currentMemoLevel = 0;
     }
 
@@ -287,6 +358,8 @@ function resetLearningState() {
     if (typeof finalTranscript !== 'undefined') finalTranscript = '';
     if (typeof accumulatedTranscript !== 'undefined') accumulatedTranscript = '';
     
+    stopPacedReading(); 
+
     const recDisplay = document.getElementById('recognizedTextDisplay');
     recDisplay.innerHTML = "※Press START to begin";
     recDisplay.style.color = "#a8a29e"; 
@@ -332,6 +405,7 @@ function renderChart() {
         let modeStr = '📖 音読';
         if (log.mode === 'shadowing') modeStr = '🎧 シャドーイング';
         if (log.mode === 'memo') modeStr = '🧠 暗記';
+        if (log.mode === 'paced') modeStr = '⚡️ ペース音読';
         return [`${index + 1}回目 (${modeStr})`, log.date];
     });
     
@@ -358,4 +432,15 @@ function renderChart() {
             plugins: { tooltip: { callbacks: { title: (context) => { return context[0].label.replace(',', ' '); } } } }
         }
     });
+}
+
+// ★追加：学習ガイドモーダルの開閉関数
+function openModeGuide() {
+    const modal = document.getElementById('modeGuideModal');
+    if (modal) modal.classList.remove('hidden');
+}
+
+function closeModeGuide() {
+    const modal = document.getElementById('modeGuideModal');
+    if (modal) modal.classList.add('hidden');
 }

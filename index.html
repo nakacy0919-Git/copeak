@@ -45,7 +45,6 @@
         .screen.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* 没入モード用のアニメーション */
         #learningHeader, #learningTabs, #audioContainer {
             transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, padding 0.5s ease, margin 0.5s ease;
             overflow: hidden;
@@ -65,14 +64,26 @@
             margin-bottom: 0 !important;
             border-width: 0 !important;
         }
-
         .immersive-mode #mainLayoutWrapper { height: 95vh !important; }
+
+        .karaoke-active .pace-word {
+            background-image: linear-gradient(to right, #a855f7 50%, #57534e 50%); 
+            background-size: 200% 100%; 
+            background-position: 100% 0; 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            background-clip: text;
+            color: transparent;
+        }
+        .karaoke-active .pace-word.paced-highlight { background-position: 0 0; }
+        .karaoke-active .pace-word.paced-read { background-position: 0 0; }
     </style>
 </head>
 <body class="text-stone-800 pb-10 relative transition-colors duration-500">
 
     <div id="toast">メッセージ</div>
 
+    <!-- HomeScreen 省略せずに記載 -->
     <div id="homeScreen" class="screen active max-w-[1400px] w-[95%] mx-auto mt-6 md:mt-10 p-6 md:p-12 bg-[#faf8f5] rounded-sm iron-border min-h-[80vh] flex flex-col">
         <div class="flex items-center justify-between mb-6 md:mb-8 border-b-2 border-stone-200 pb-4">
             <div class="flex items-center gap-2 md:gap-3">
@@ -87,8 +98,8 @@
                 <span class="text-lg">⚠️</span> データの保存に関する重要なお願い
             </h3>
             <ul class="text-xs md:text-sm text-stone-700 space-y-2 ml-2 md:ml-6 list-disc font-medium">
-                <li><strong class="text-stone-900">iPad / スマホの方:</strong> 最初にブラウザのメニューから<strong class="text-amber-700">「ホーム画面に追加」</strong>を行い、<strong class="underline decoration-amber-400 decoration-2">必ずそのアイコンからアプリを開いて</strong>教材を登録してください。</li>
-                <li><strong class="text-stone-900">PCの方:</strong> ブックマークに登録し、常に同じブラウザを使用してください。（履歴やキャッシュを消去するとデータが消える場合があります）</li>
+                <li><strong class="text-stone-900">iPad / スマホの方:</strong> 最初にブラウザのメニューから<strong class="text-amber-700">「ホーム画面に追加」</strong>を行い、必ずそのアイコンからアプリを開いてください。</li>
+                <li><strong class="text-stone-900">PCの方:</strong> ブックマークに登録し、常に同じブラウザを使用してください。</li>
             </ul>
         </div>
         
@@ -119,7 +130,7 @@
                     <div class="bg-[#faf8f5] p-2 md:p-3 rounded-sm border border-dashed border-stone-400 overflow-hidden">
                         <input type="file" id="customAudio" accept="audio/*, .mp3, .m4a, .wav, .aac, .m4r, .ogg" class="w-full text-sm md:text-base text-stone-500 file:mr-2 md:file:mr-4 file:py-1.5 file:px-3 md:file:py-2 md:file:px-4 file:rounded-sm file:border-0 file:font-bold file:bg-stone-200 file:text-stone-700 hover:file:bg-stone-300 cursor-pointer">
                         <div id="audioRegisteredMark" class="hidden mt-3 p-2 bg-emerald-50 border border-emerald-200 rounded-sm text-xs md:text-sm font-bold text-emerald-700 flex items-center gap-2">
-                            <span>🎵 音声はすでに保存されています（新しいファイルを選ぶと上書きされます）</span>
+                            <span>🎵 音声はすでに保存されています</span>
                         </div>
                     </div>
                 </div>
@@ -151,25 +162,9 @@
             <h2 class="text-xl md:text-2xl font-bold text-stone-800 serif-font">📚 Playlist</h2>
         </div>
         <div id="savedLessonsList" class="grid grid-cols-1 md:grid-cols-2 gap-4 pb-4"></div>
-
-        <div class="mt-auto pt-8 md:pt-12 border-t border-stone-200 flex flex-col md:flex-row justify-between items-center gap-4 text-xs md:text-sm text-stone-500 font-medium">
-            <div class="flex flex-wrap justify-center gap-4 md:gap-6">
-                <a href="https://www.pic-speak-story.com/index.html" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-700 transition flex items-center gap-1">
-                    <span class="text-base">🏠</span> PicSpeak トップ
-                </a>
-                <a href="https://www.pic-speak-story.com/article9.html" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-700 transition flex items-center gap-1">
-                    <span class="text-base">💡</span> 開発者ブログ（音読のコツ）
-                </a>
-                <a href="https://www.pic-speak-story.com/privacy.html" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-700 transition flex items-center gap-1">
-                    <span class="text-base">🛡️</span> プライバシーポリシー
-                </a>
-            </div>
-            <div class="text-stone-400 tracking-wider">
-                &copy; 2026 Kohei Nakashima.
-            </div>
-        </div>
     </div>
 
+    <!-- LearningScreen -->
     <div id="learningScreen" class="screen max-w-[1800px] w-[98%] mx-auto mt-2 md:mt-4 px-1 md:px-2 h-auto min-h-[90vh]">
         
         <div id="learningHeader" class="flex flex-col sm:flex-row justify-between items-center mb-4 bg-stone-900 p-3 md:p-4 rounded-sm shadow-lg border border-stone-700">
@@ -183,19 +178,26 @@
             
             <div id="mainLearningPane" class="w-full lg:w-[78%] flex flex-col h-full bg-[#faf8f5] rounded-sm iron-border overflow-hidden relative transition-all duration-500">
                 
-                <!-- ★変更点：タブを3つに拡張 -->
-                <div id="learningTabs" class="flex justify-center p-2 md:p-3 border-b-2 border-stone-200 bg-white shrink-0 relative z-20 overflow-x-auto">
-                    <div class="flex bg-stone-100 p-1 rounded-sm iron-border-sm shrink-0 w-full max-w-2xl">
-                        <button id="tabReading" onclick="setLearningMode('reading')" class="flex-1 px-2 md:px-6 py-2 rounded-sm font-bold text-xs md:text-sm transition-all duration-200 bg-stone-800 text-white uppercase tracking-wider shadow-md whitespace-nowrap">
-                            📖 Reading
+                <!-- ★変更点：タブの右横に「❓」ボタンを配置 -->
+                <div id="learningTabs" class="flex justify-center items-center p-2 md:p-3 border-b-2 border-stone-200 bg-white shrink-0 relative z-20 gap-2">
+                    <div class="flex bg-stone-100 p-1 rounded-sm iron-border-sm shrink-0 w-full max-w-3xl overflow-x-auto gap-1">
+                        <button id="tabReading" onclick="setLearningMode('reading')" class="flex-1 px-1 md:px-4 py-2 rounded-sm font-bold text-[10px] md:text-sm transition-all duration-200 bg-stone-800 text-white uppercase tracking-wider shadow-md whitespace-nowrap">
+                            📖 Read
                         </button>
-                        <button id="tabMemo" onclick="setLearningMode('memo')" class="flex-1 px-2 md:px-6 py-2 rounded-sm font-bold text-xs md:text-sm transition-all duration-200 text-stone-500 hover:text-stone-800 uppercase tracking-wider whitespace-nowrap">
+                        <button id="tabPaced" onclick="setLearningMode('paced')" class="flex-1 px-1 md:px-4 py-2 rounded-sm font-bold text-[10px] md:text-sm transition-all duration-200 text-stone-500 hover:text-stone-800 uppercase tracking-wider whitespace-nowrap">
+                            ⚡️ Paced
+                        </button>
+                        <button id="tabMemo" onclick="setLearningMode('memo')" class="flex-1 px-1 md:px-4 py-2 rounded-sm font-bold text-[10px] md:text-sm transition-all duration-200 text-stone-500 hover:text-stone-800 uppercase tracking-wider whitespace-nowrap">
                             🧠 Vanish
                         </button>
-                        <button id="tabShadowing" onclick="setLearningMode('shadowing')" class="flex-1 px-2 md:px-6 py-2 rounded-sm font-bold text-xs md:text-sm transition-all duration-200 text-stone-500 hover:text-stone-800 uppercase tracking-wider whitespace-nowrap">
-                            🎧 Shadowing
+                        <button id="tabShadowing" onclick="setLearningMode('shadowing')" class="flex-1 px-1 md:px-4 py-2 rounded-sm font-bold text-[10px] md:text-sm transition-all duration-200 text-stone-500 hover:text-stone-800 uppercase tracking-wider whitespace-nowrap">
+                            🎧 Shadow
                         </button>
                     </div>
+                    <!-- ❓ 学習ガイドボタン -->
+                    <button onclick="openModeGuide()" class="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 bg-stone-200 hover:bg-stone-800 hover:text-white text-stone-600 rounded-sm font-bold text-sm md:text-lg transition iron-border-sm flex items-center justify-center shadow-sm" title="各モードの学習ガイドを見る">
+                        ❓
+                    </button>
                 </div>
 
                 <div id="mainScrollArea" class="flex-1 overflow-y-auto p-3 md:p-8 space-y-4 flex flex-col relative z-20">
@@ -258,7 +260,6 @@
                                     </div>
                                 </div>
                                 
-                                <!-- ★追加点：暗記モードのレベルボタン（タブで暗記モードを選んだ時だけ表示される） -->
                                 <div id="vanishModeControls" class="hidden mb-4 bg-stone-50 p-2 md:p-3 rounded-sm border border-stone-200 transition-all duration-300 shrink-0">
                                     <label class="text-[10px] md:text-xs font-bold text-stone-500 uppercase tracking-widest flex items-center gap-1 mb-2">
                                         <span>🧠</span> Blank Level (空欄の割合)
@@ -271,7 +272,23 @@
                                         <button onclick="updateMemoLevel(5)" id="lvlBtn5" class="flex-1 py-1.5 md:py-2 rounded-sm bg-stone-200 text-stone-600 hover:bg-stone-300 font-bold text-xs transition">Lv.5</button>
                                     </div>
                                 </div>
-                                <!-- ★追加点ここまで -->
+
+                                <div id="pacedModeControls" class="hidden mb-4 bg-purple-50 p-3 md:p-4 rounded-sm border border-purple-200 transition-all duration-300 shrink-0">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <div class="flex items-center gap-2">
+                                            <label class="text-xs md:text-sm font-bold text-purple-900 uppercase tracking-widest flex items-center gap-1">
+                                                <span>⚡️</span> 目標WPM設定
+                                            </label>
+                                            <button type="button" onclick="openWpmGuide()" class="w-5 h-5 flex items-center justify-center bg-purple-200 text-purple-700 rounded-full text-xs font-bold hover:bg-purple-300 transition">?</button>
+                                        </div>
+                                        <span id="targetWpmDisplay" class="bg-purple-600 text-white px-2 py-1 rounded-sm text-[10px] md:text-xs font-bold uppercase tracking-widest">
+                                            120 WPM
+                                        </span>
+                                    </div>
+                                    <input type="range" id="targetWpmSlider" min="60" max="240" value="120" step="10" 
+                                           class="w-full h-1.5 bg-purple-200 rounded-lg appearance-none cursor-pointer outline-none"
+                                           oninput="updateTargetWpm(this.value)">
+                                </div>
 
                                 <div id="engContainer" class="text-stone-800 leading-relaxed transition-all duration-200 font-medium serif-font flex-1 overflow-y-auto" style="font-size: 24px;"></div>
                             </div>
@@ -307,6 +324,7 @@
         </div>
     </div>
 
+    <!-- 各種モーダル -->
     <div id="chartModal" class="fixed inset-0 bg-stone-900/80 z-50 hidden flex justify-center items-center backdrop-blur-sm transition-opacity p-2 md:p-0">
         <div class="bg-[#faf8f5] p-5 md:p-10 rounded-sm iron-border w-full md:w-[95%] max-w-5xl relative">
             <button onclick="closeChartModal()" class="absolute top-2 right-3 md:top-4 md:right-4 text-stone-400 hover:text-red-500 text-3xl md:text-4xl font-bold transition">&times;</button>
@@ -317,6 +335,95 @@
                 <canvas id="progressChart"></canvas>
             </div>
             <p class="text-center text-stone-500 text-xs md:text-sm mt-3 md:mt-4 font-bold">※日々の反復がスコアアップの鍵です！</p>
+        </div>
+    </div>
+
+    <div id="wpmGuideModal" class="fixed inset-0 bg-stone-900/80 z-[100] hidden flex justify-center items-center p-4 backdrop-blur-sm transition-opacity">
+        <div class="bg-white p-6 md:p-8 rounded-sm iron-border max-w-md w-full relative">
+            <h3 class="text-lg md:text-xl font-bold text-stone-800 mb-4 border-b-2 border-stone-100 pb-2 flex items-center gap-2">
+                <span class="text-2xl">⏱</span> WPMの目安
+            </h3>
+            <p class="text-xs text-stone-500 mb-4 font-bold">※WPM (Words Per Minute) ＝ 1分間に読む単語数</p>
+            <ul class="space-y-4 text-sm md:text-base">
+                <li class="flex justify-between border-b border-stone-50 pb-2"><span>🐢 <b>80</b> WPM</span><span class="font-bold text-stone-500">ゆっくり (初心者)</span></li>
+                <li class="flex justify-between border-b border-stone-50 pb-2"><span>🚶 <b>100</b> WPM</span><span class="font-bold text-stone-600">標準的 (中学生レベル)</span></li>
+                <li class="flex justify-between border-b border-stone-50 pb-2"><span>🏃 <b>120</b> WPM</span><span class="font-bold text-emerald-600">流暢 (高校生・日常会話)</span></li>
+                <li class="flex justify-between border-b border-stone-50 pb-2"><span>🚀 <b>150</b> WPM</span><span class="font-bold text-purple-600">速い (ニュース・TOEIC)</span></li>
+                <li class="flex justify-between border-b border-stone-50 pb-2"><span>🔥 <b>180+</b> WPM</span><span class="font-bold text-red-500">超特急 (ネイティブの早口)</span></li>
+            </ul>
+            <button type="button" onclick="closeWpmGuide()" class="mt-6 w-full py-3 bg-stone-800 hover:bg-stone-700 transition text-white font-bold rounded-sm tracking-widest">閉じる</button>
+        </div>
+    </div>
+
+    <!-- ★追加：4-Step 学習ガイドモーダル -->
+    <div id="modeGuideModal" class="fixed inset-0 bg-stone-900/80 z-[100] hidden flex justify-center items-center p-4 backdrop-blur-sm transition-opacity">
+        <div class="bg-[#faf8f5] p-6 md:p-8 rounded-sm iron-border max-w-4xl w-full relative max-h-[90vh] overflow-y-auto">
+            <button type="button" onclick="closeModeGuide()" class="absolute top-3 right-4 md:top-4 md:right-5 text-stone-400 hover:text-red-500 text-3xl font-bold transition">&times;</button>
+            
+            <h3 class="text-xl md:text-2xl font-bold text-stone-800 mb-2 border-b-2 border-stone-200 pb-2 flex items-center gap-2 serif-font">
+                <span class="text-3xl">🧭</span> Copeak 4-Step Learning Guide
+            </h3>
+            
+            <p class="text-xs md:text-sm text-red-700 font-bold mb-6 bg-red-50 p-3 rounded-sm border border-red-200 flex gap-2">
+                <span class="text-base">⚠️</span> 
+                <span>いきなり「Paced」や「Vanish」を行っても学習効果はありません。英文の内容を完全に理解し、Step 1 から順番に負荷を上げていきましょう。</span>
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                
+                <!-- Step 1 -->
+                <div class="bg-white p-4 md:p-5 rounded-sm border-l-4 border-stone-800 shadow-sm iron-border-sm flex flex-col">
+                    <h4 class="font-bold text-stone-800 text-base md:text-lg flex justify-between items-center mb-2">
+                        <span>Step 1: 📖 Reading</span>
+                        <span class="text-[10px] bg-stone-100 px-2 py-1 rounded text-stone-500 uppercase tracking-widest">導入・意味理解</span>
+                    </h4>
+                    <p class="text-xs md:text-sm text-stone-600 mb-3 flex-1"><strong class="text-stone-800">🔬 SLA科学的根拠:</strong><br>「Form-Meaning Mapping（形式と意味の結びつけ）」。文字と音声、そして「意味」を脳内で連結させる最初の土台作りです。</p>
+                    <div class="bg-stone-50 p-2 rounded text-[11px] md:text-xs text-stone-700 font-bold border border-stone-200">
+                        🤔 内省チェック:<br>「英文の意味を100%理解し、つっかえずにスラスラ読めているか？」
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-white p-4 md:p-5 rounded-sm border-l-4 border-purple-600 shadow-sm iron-border-sm flex flex-col">
+                    <h4 class="font-bold text-purple-900 text-base md:text-lg flex justify-between items-center mb-2">
+                        <span>Step 2: ⚡️ Paced</span>
+                        <span class="text-[10px] bg-purple-50 px-2 py-1 rounded text-purple-600 uppercase tracking-widest">流暢さ・自動化</span>
+                    </h4>
+                    <p class="text-xs md:text-sm text-stone-600 mb-3 flex-1"><strong class="text-stone-800">🔬 SLA科学的根拠:</strong><br>「Automatization（自動化）」。強制的なペースで「返り読み」を物理的に防ぎ、英語を英語の語順のまま処理するスピードを鍛えます。</p>
+                    <div class="bg-purple-50 p-2 rounded text-[11px] md:text-xs text-purple-800 font-bold border border-purple-200">
+                        🤔 内省チェック:<br>「日本語に訳さず理解できているか？スピードに焦って発音が雑になっていないか？」
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-white p-4 md:p-5 rounded-sm border-l-4 border-stone-400 shadow-sm iron-border-sm flex flex-col">
+                    <h4 class="font-bold text-stone-700 text-base md:text-lg flex justify-between items-center mb-2">
+                        <span>Step 3: 🧠 Vanish</span>
+                        <span class="text-[10px] bg-stone-100 px-2 py-1 rounded text-stone-500 uppercase tracking-widest">記憶定着・内在化</span>
+                    </h4>
+                    <p class="text-xs md:text-sm text-stone-600 mb-3 flex-1"><strong class="text-stone-800">🔬 SLA科学的根拠:</strong><br>「Retrieval Practice（検索練習）」。文字という視覚ヒントを奪い、ワーキングメモリに負荷をかけることで長期記憶への定着を促します。</p>
+                    <div class="bg-stone-100 p-2 rounded text-[11px] md:text-xs text-stone-700 font-bold border border-stone-300">
+                        🤔 内省チェック:<br>「単なる丸暗記ではなく、文脈や文法ルールから次の単語を予測して発話できているか？」
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="bg-white p-4 md:p-5 rounded-sm border-l-4 border-blue-500 shadow-sm iron-border-sm flex flex-col">
+                    <h4 class="font-bold text-blue-900 text-base md:text-lg flex justify-between items-center mb-2">
+                        <span>Step 4: 🎧 Shadowing</span>
+                        <span class="text-[10px] bg-blue-50 px-2 py-1 rounded text-blue-600 uppercase tracking-widest">音韻処理の極致</span>
+                    </h4>
+                    <p class="text-xs md:text-sm text-stone-600 mb-3 flex-1"><strong class="text-stone-800">🔬 SLA科学的根拠:</strong><br>「Phonological Loop（音韻ループ）の強化」。ネイティブのプロソディ（抑揚・リズム）を完全に模倣し、音声処理を極限まで自動化させます。</p>
+                    <div class="bg-blue-50 p-2 rounded text-[11px] md:text-xs text-blue-800 font-bold border border-blue-200">
+                        🤔 内省チェック:<br>「手本と声が完全に重なっているか？音声に集中しながら意味も頭に浮かんでいるか？」
+                    </div>
+                </div>
+
+            </div>
+            
+            <button type="button" onclick="closeModeGuide()" class="mt-6 md:mt-8 w-full py-3 bg-stone-800 hover:bg-stone-700 transition text-white font-bold rounded-sm tracking-widest uppercase text-sm md:text-base">
+                理解して学習を始める
+            </button>
         </div>
     </div>
 
