@@ -3,7 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="google-adsense-account" content="ca-pub-2212278850521165">
+
     <title>Copeak - 英語音読・シャドーイング練習ツール</title>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-86CYZ2RWGX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-86CYZ2RWGX');
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2212278850521165" crossorigin="anonymous"></script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -83,7 +97,6 @@
 
     <div id="toast">メッセージ</div>
 
-    <!-- HomeScreen 省略せずに記載 -->
     <div id="homeScreen" class="screen active max-w-[1400px] w-[95%] mx-auto mt-6 md:mt-10 p-6 md:p-12 bg-[#faf8f5] rounded-sm iron-border min-h-[80vh] flex flex-col">
         <div class="flex items-center justify-between mb-6 md:mb-8 border-b-2 border-stone-200 pb-4">
             <div class="flex items-center gap-2 md:gap-3">
@@ -162,9 +175,35 @@
             <h2 class="text-xl md:text-2xl font-bold text-stone-800 serif-font">📚 Playlist</h2>
         </div>
         <div id="savedLessonsList" class="grid grid-cols-1 md:grid-cols-2 gap-4 pb-4"></div>
+
+        <div class="mt-8 md:mt-12 pt-6 border-t border-stone-200 flex flex-col xl:flex-row justify-between items-center gap-6 text-xs md:text-sm text-stone-500 font-medium">
+            <div class="flex flex-wrap justify-center xl:justify-start gap-x-4 md:gap-x-6 gap-y-3">
+                <a href="https://www.pic-speak-story.com/index.html" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-700 transition flex items-center gap-1">
+                    <span class="text-base">🏠</span> PicSpeak (スピーキング)
+                </a>
+                <a href="https://vocadash.pic-speak-story.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-700 transition flex items-center gap-1">
+                    <span class="text-base">🔤</span> VocaDash (単語学習)
+                </a>
+                <a href="copeak-guide.html" class="hover:text-emerald-700 transition flex items-center gap-1">
+                    <span class="text-base">🧭</span> 活用ガイド
+                </a>
+                <a href="https://sites.google.com/view/koheinakashima/bio" class="hover:text-emerald-700 transition flex items-center gap-1">
+                    <span class="text-base">👨‍🏫</span> 開発者について
+                </a>
+                <a href="copeak-terms.html" class="hover:text-emerald-700 transition flex items-center gap-1">
+                    <span class="text-base">📜</span> 利用規約
+                </a>
+                <a href="copeak-privacy.html" class="hover:text-emerald-700 transition flex items-center gap-1">
+                    <span class="text-base">🛡️</span> プライバシーポリシー
+                </a>
+            </div>
+            <div class="text-stone-400 tracking-wider shrink-0 text-center xl:text-right flex flex-col items-center xl:items-end">
+                <span>&copy; 2026 Kohei Nakashima.</span>
+                <span class="text-[10px] mt-0.5">All Rights Reserved.</span>
+            </div>
+        </div>
     </div>
 
-    <!-- LearningScreen -->
     <div id="learningScreen" class="screen max-w-[1800px] w-[98%] mx-auto mt-2 md:mt-4 px-1 md:px-2 h-auto min-h-[90vh]">
         
         <div id="learningHeader" class="flex flex-col sm:flex-row justify-between items-center mb-4 bg-stone-900 p-3 md:p-4 rounded-sm shadow-lg border border-stone-700">
@@ -178,7 +217,6 @@
             
             <div id="mainLearningPane" class="w-full lg:w-[78%] flex flex-col h-full bg-[#faf8f5] rounded-sm iron-border overflow-hidden relative transition-all duration-500">
                 
-                <!-- ★変更点：タブの右横に「❓」ボタンを配置 -->
                 <div id="learningTabs" class="flex justify-center items-center p-2 md:p-3 border-b-2 border-stone-200 bg-white shrink-0 relative z-20 gap-2">
                     <div class="flex bg-stone-100 p-1 rounded-sm iron-border-sm shrink-0 w-full max-w-3xl overflow-x-auto gap-1">
                         <button id="tabReading" onclick="setLearningMode('reading')" class="flex-1 px-1 md:px-4 py-2 rounded-sm font-bold text-[10px] md:text-sm transition-all duration-200 bg-stone-800 text-white uppercase tracking-wider shadow-md whitespace-nowrap">
@@ -194,7 +232,6 @@
                             🎧 Shadow
                         </button>
                     </div>
-                    <!-- ❓ 学習ガイドボタン -->
                     <button onclick="openModeGuide()" class="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 bg-stone-200 hover:bg-stone-800 hover:text-white text-stone-600 rounded-sm font-bold text-sm md:text-lg transition iron-border-sm flex items-center justify-center shadow-sm" title="各モードの学習ガイドを見る">
                         ❓
                     </button>
@@ -324,7 +361,6 @@
         </div>
     </div>
 
-    <!-- 各種モーダル -->
     <div id="chartModal" class="fixed inset-0 bg-stone-900/80 z-50 hidden flex justify-center items-center backdrop-blur-sm transition-opacity p-2 md:p-0">
         <div class="bg-[#faf8f5] p-5 md:p-10 rounded-sm iron-border w-full md:w-[95%] max-w-5xl relative">
             <button onclick="closeChartModal()" class="absolute top-2 right-3 md:top-4 md:right-4 text-stone-400 hover:text-red-500 text-3xl md:text-4xl font-bold transition">&times;</button>
@@ -355,7 +391,6 @@
         </div>
     </div>
 
-    <!-- ★追加：4-Step 学習ガイドモーダル -->
     <div id="modeGuideModal" class="fixed inset-0 bg-stone-900/80 z-[100] hidden flex justify-center items-center p-4 backdrop-blur-sm transition-opacity">
         <div class="bg-[#faf8f5] p-6 md:p-8 rounded-sm iron-border max-w-4xl w-full relative max-h-[90vh] overflow-y-auto">
             <button type="button" onclick="closeModeGuide()" class="absolute top-3 right-4 md:top-4 md:right-5 text-stone-400 hover:text-red-500 text-3xl font-bold transition">&times;</button>
@@ -370,8 +405,6 @@
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                
-                <!-- Step 1 -->
                 <div class="bg-white p-4 md:p-5 rounded-sm border-l-4 border-stone-800 shadow-sm iron-border-sm flex flex-col">
                     <h4 class="font-bold text-stone-800 text-base md:text-lg flex justify-between items-center mb-2">
                         <span>Step 1: 📖 Reading</span>
@@ -383,7 +416,6 @@
                     </div>
                 </div>
 
-                <!-- Step 2 -->
                 <div class="bg-white p-4 md:p-5 rounded-sm border-l-4 border-purple-600 shadow-sm iron-border-sm flex flex-col">
                     <h4 class="font-bold text-purple-900 text-base md:text-lg flex justify-between items-center mb-2">
                         <span>Step 2: ⚡️ Paced</span>
@@ -395,7 +427,6 @@
                     </div>
                 </div>
 
-                <!-- Step 3 -->
                 <div class="bg-white p-4 md:p-5 rounded-sm border-l-4 border-stone-400 shadow-sm iron-border-sm flex flex-col">
                     <h4 class="font-bold text-stone-700 text-base md:text-lg flex justify-between items-center mb-2">
                         <span>Step 3: 🧠 Vanish</span>
@@ -407,7 +438,6 @@
                     </div>
                 </div>
 
-                <!-- Step 4 -->
                 <div class="bg-white p-4 md:p-5 rounded-sm border-l-4 border-blue-500 shadow-sm iron-border-sm flex flex-col">
                     <h4 class="font-bold text-blue-900 text-base md:text-lg flex justify-between items-center mb-2">
                         <span>Step 4: 🎧 Shadowing</span>
@@ -418,7 +448,6 @@
                         🤔 内省チェック:<br>「手本と声が完全に重なっているか？音声に集中しながら意味も頭に浮かんでいるか？」
                     </div>
                 </div>
-
             </div>
             
             <button type="button" onclick="closeModeGuide()" class="mt-6 md:mt-8 w-full py-3 bg-stone-800 hover:bg-stone-700 transition text-white font-bold rounded-sm tracking-widest uppercase text-sm md:text-base">
