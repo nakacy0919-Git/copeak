@@ -323,6 +323,9 @@ function checkUrlParameters() {
 window.addEventListener('DOMContentLoaded', async () => {
     try { 
         await initDB(); 
+        
+        injectPresetLessons(); // ★追加：ここでサンプル教材の補充スイッチをオンにします！
+        
         loadSavedLessons(); 
         checkUrlParameters(); // ← URLにデータがあればここで保存処理が走ります
     } 
