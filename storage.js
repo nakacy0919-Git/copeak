@@ -330,89 +330,97 @@ window.addEventListener('DOMContentLoaded', async () => {
 });
 
 // ==========================================
-// ★変更: リアル音声対応のプリセット自動注入
+// ★変更: 常にサンプルを表示する（足りないものだけ自動補充）
 // ==========================================
-function injectPresetLessons() {
-    const checkTx = db.transaction([storeName], "readonly");
-    const store = checkTx.objectStore(storeName);
-    const countReq = store.count();
+async function injectPresetLessons() {
+    // 1. まず現在のMy Libraryのデータをすべて取得する
+    const getExistingLessons = () => {
+        return new Promise((resolve) => {
+            const tx = db.transaction([storeName], "readonly");
+            const store = tx.objectStore(storeName);
+            const req = store.getAll();
+            req.onsuccess = () => resolve(req.result);
+        });
+    };
 
-    countReq.onsuccess = async () => {
-        // My Libraryが完全に空っぽの場合のみサンプルを追加する
-        if (countReq.result === 0) {
-            
-            // サーバー（audioフォルダ）からMP3をBlobとして取得する関数
-            const fetchAudioBlob = async (path) => {
-                try {
-                    const response = await fetch(path);
-                    if (response.ok) return await response.blob();
-                    return null; // ファイルがない場合はnull
-                } catch (e) {
-                    return null;
-                }
-            };
+    const existingLessons = await getExistingLessons();
 
-            // 4つの音声を裏側で同時ダウンロード
-            const [jobsAudio, malalaAudio, sdgsAudio, northwindAudio] = await Promise.all([
-                fetchAudioBlob('./audio/jobs.mp3'),
-                fetchAudioBlob('./audio/malala.mp3'),
-                fetchAudioBlob('./audio/sdgs.mp3'),
-                fetchAudioBlob('./audio/northwind.mp3')
-            ]);
-
-            const presets = [
-                {
-                    title: "🍎 Steve Jobs - Stanford Speech",
-                    eng: "I am honored to be with you today at your commencement from one of the finest universities in the world. I never graduated from college. Truth be told, this is the closest I've ever gotten to a college graduation. Today I want to tell you three stories from my life. That's it. No big deal. Just three stories.",
-                    jpn: "本日は、世界最高峰の大学の一つである皆さんの卒業式に同席でき、大変光栄に思います。私は大学を卒業したことがありません。実を言うと、これが私にとって最も大学の卒業式に近づいた瞬間です。今日は、私の人生から3つの物語をお話ししたいと思います。それだけです。大したことではありません。ただの3つの物語です。",
-                    lang: "en-US",
-                    langName: "🇺🇸 English (US)",
-                    audioBlob: jobsAudio, // 取得した音声をセット！
-                    history: [],
-                    createdAt: Date.now()
-                },
-                {
-                    title: "🕊️ Malala Yousafzai - UN Speech",
-                    eng: "Dear friends, on the 9th of October 2012, the Taliban shot me on the left side of my forehead. They shot my friends too. They thought that the bullets would silence us. But they failed.",
-                    jpn: "親愛なる友人たちへ。2012年10月9日、タリバンは私の額の左側を撃ちました。私の友人たちも撃たれました。彼らは銃弾で私たちを沈黙させられると考えたのです。しかし、彼らは失敗しました。",
-                    lang: "en-US",
-                    langName: "🇺🇸 English (US)",
-                    audioBlob: malalaAudio, // 取得した音声をセット！
-                    history: [],
-                    createdAt: Date.now() - 1000 
-                },
-                {
-                    title: "🌍 Introduction to SDGs",
-                    eng: "The Sustainable Development Goals are a call for action by all countries to promote prosperity while protecting the planet. They recognize that ending poverty must go hand-in-hand with strategies that build economic growth and address a range of social needs including education, health, social protection, and job opportunities, while tackling climate change and environmental protection.",
-                    jpn: "持続可能な開発目標（SDGs）は、地球を保護しながら繁栄を促進するための、すべての国による行動への呼びかけです。貧困を終わらせるには、気候変動や環境保護に取り組みながら、教育、健康、社会的保護、雇用の機会など、さまざまな社会的ニーズに対処し、経済成長を構築する戦略と連携しなければならないことを認識しています。",
-                    lang: "en-US",
-                    langName: "🇺🇸 English (US)",
-                    audioBlob: sdgsAudio, // 取得した音声をセット！
-                    history: [],
-                    createdAt: Date.now() - 2000
-                },
-                {
-                    title: "☀️ The North Wind and the Sun",
-                    eng: "The North Wind and the Sun had a quarrel about which of them was the stronger. While they were disputing with much heat and bluster, a Traveler passed along the road wrapped in a cloak.",
-                    jpn: "北風と太陽が、どちらが強いかで言い争いをしていました。彼らが熱く激しく議論していると、マントに包まった旅人が道を通りかかりました。",
-                    lang: "en-US",
-                    langName: "🇺🇸 English (US)",
-                    audioBlob: northwindAudio, // 取得した音声をセット！
-                    history: [],
-                    createdAt: Date.now() - 3000
-                }
-            ];
-
-            // データの準備ができたら、保存用の通信を新しく開く
-            const writeTx = db.transaction([storeName], "readwrite");
-            const writeStore = writeTx.objectStore(storeName);
-
-            presets.forEach(preset => writeStore.add(preset));
-            
-            writeTx.oncomplete = () => {
-                loadSavedLessons(); 
-                if (typeof showMsg === 'function') showMsg("📚 音声付きのサンプル教材が追加されました！");
-            };
+    // 2. 常に表示させたいサンプル教材のリスト
+    const presetDataList = [
+        {
+            title: "🍎 Steve Jobs - Stanford Speech",
+            eng: "I am honored to be with you today at your commencement from one of the finest universities in the world. I never graduated from college. Truth be told, this is the closest I've ever gotten to a college graduation. Today I want to tell you three stories from my life. That's it. No big deal. Just three stories.",
+            jpn: "本日は、世界最高峰の大学の一つである皆さんの卒業式に同席でき、大変光栄に思います。私は大学を卒業したことがありません。実を言うと、これが私にとって最も大学の卒業式に近づいた瞬間です。今日は、私の人生から3つの物語をお話ししたいと思います。それだけです。大したことではありません。ただの3つの物語です。",
+            lang: "en-US",
+            langName: "🇺🇸 English (US)",
+            audioPath: './audio/jobs.mp3', // 後でダウンロードするファイルの場所
+            history: [],
+            createdAt: Date.now()
+        },
+        {
+            title: "🕊️ Malala Yousafzai - UN Speech",
+            eng: "Dear friends, on the 9th of October 2012, the Taliban shot me on the left side of my forehead. They shot my friends too. They thought that the bullets would silence us. But they failed.",
+            jpn: "親愛なる友人たちへ。2012年10月9日、タリバンは私の額の左側を撃ちました。私の友人たちも撃たれました。彼らは銃弾で私たちを沈黙させられると考えたのです。しかし、彼らは失敗しました。",
+            lang: "en-US",
+            langName: "🇺🇸 English (US)",
+            audioPath: './audio/malala.mp3',
+            history: [],
+            createdAt: Date.now() - 1000 
+        },
+        {
+            title: "🌍 Introduction to SDGs",
+            eng: "The Sustainable Development Goals are a call for action by all countries to promote prosperity while protecting the planet. They recognize that ending poverty must go hand-in-hand with strategies that build economic growth and address a range of social needs including education, health, social protection, and job opportunities, while tackling climate change and environmental protection.",
+            jpn: "持続可能な開発目標（SDGs）は、地球を保護しながら繁栄を促進するための、すべての国による行動への呼びかけです。貧困を終わらせるには、気候変動や環境保護に取り組みながら、教育、健康、社会的保護、雇用の機会など、さまざまな社会的ニーズに対処し、経済成長を構築する戦略と連携しなければならないことを認識しています。",
+            lang: "en-US",
+            langName: "🇺🇸 English (US)",
+            audioPath: './audio/sdgs.mp3',
+            history: [],
+            createdAt: Date.now() - 2000
+        },
+        {
+            title: "☀️ The North Wind and the Sun",
+            eng: "The North Wind and the Sun had a quarrel about which of them was the stronger. While they were disputing with much heat and bluster, a Traveler passed along the road wrapped in a cloak.",
+            jpn: "北風と太陽が、どちらが強いかで言い争いをしていました。彼らが熱く激しく議論していると、マントに包まった旅人が道を通りかかりました。",
+            lang: "en-US",
+            langName: "🇺🇸 English (US)",
+            audioPath: './audio/northwind.mp3',
+            history: [],
+            createdAt: Date.now() - 3000
         }
+    ];
+
+    // 3. 現在のLibraryに「無い」サンプルだけを絞り込む（タイトルで判定）
+    const presetsToAdd = presetDataList.filter(preset => 
+        !existingLessons.some(lesson => lesson.title === preset.title)
+    );
+
+    // 全てのサンプルがすでに揃っている場合は、ここで処理を終了（無駄な通信を防ぐ）
+    if (presetsToAdd.length === 0) return;
+
+    // 4. 足りないサンプルの音声だけをダウンロード（Fetch）する
+    const fetchAudioBlob = async (path) => {
+        try {
+            const response = await fetch(path);
+            if (response.ok) return await response.blob();
+            return null;
+        } catch (e) {
+            return null;
+        }
+    };
+
+    for (let preset of presetsToAdd) {
+        preset.audioBlob = await fetchAudioBlob(preset.audioPath);
+        delete preset.audioPath; // IndexedDBに入れる前に不要なパス情報を消す
+    }
+
+    // 5. データの準備が整ったら、データベースに一気に追加保存する
+    const writeTx = db.transaction([storeName], "readwrite");
+    const writeStore = writeTx.objectStore(storeName);
+
+    presetsToAdd.forEach(preset => writeStore.add(preset));
+    
+    writeTx.oncomplete = () => {
+        loadSavedLessons(); // 画面を更新してサンプルを表示
+        if (typeof showMsg === 'function') showMsg(`📚 サンプル教材を ${presetsToAdd.length} 件追加しました！`);
     };
 }
