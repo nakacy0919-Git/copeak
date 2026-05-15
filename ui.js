@@ -444,3 +444,121 @@ function closeModeGuide() {
     const modal = document.getElementById('modeGuideModal');
     if (modal) modal.classList.add('hidden');
 }
+
+// ==========================================
+// ★追加: 共有リンク生成機能
+// ==========================================
+function generateShareLink() {
+    if (!currentCustomLesson) return;
+    
+    const baseUrl = window.location.origin + window.location.pathname;
+    const params = new URLSearchParams({
+        title: currentCustomLesson.title.replace('🔗 ', ''), // 共有マークを除外
+        eng: currentCustomLesson.eng,
+        lang: currentCustomLesson.lang || 'en-US'
+    });
+    
+    const shareUrl = `${baseUrl}?${params.toString()}`;
+    
+    // クリップボードにコピー
+    navigator.clipboard.writeText(shareUrl).then(() => {
+        showMsg("🔗 共有リンクをコピーしました！Classroom等に貼り付けてください");
+    }).catch(err => {
+        showMsg("⚠️ リンクのコピーに失敗しました");
+    });
+}
+// ==========================================
+// ★追加: AI音声 (Text-to-Speech) コントロール
+// ==========================================
+let aiUtterance = null;
+
+function toggleAIVoice() {
+    if (!currentCustomLesson) return;
+    
+    const btn = document.getElementById('aiVoiceBtn');
+    
+    // 再生中なら停止
+    if (window.speechSynthesis.speaking) {
+        window.speechSynthesis.cancel();
+        btn.innerHTML = '🤖 AI音声を再生';
+        btn.classList.remove('bg-red-600', 'hover:bg-red-700');
+        btn.classList.add('bg-purple-600', 'hover:bg-purple-700');
+        return;
+    }
+
+    // 新しく再生
+    aiUtterance = new SpeechSynthesisUtterance(currentCustomLesson.eng);
+    aiUtterance.lang = currentCustomLesson.lang || 'en-US';
+    aiUtterance.rate = 0.9; // 少しゆっくりめに設定（0.8〜1.0がおすすめ）
+    
+    aiUtterance.onend = () => {
+        btn.innerHTML = '🤖 AI音声を再生';
+        btn.classList.remove('bg-red-600', 'hover:bg-red-700');
+        btn.classList.add('bg-purple-600', 'hover:bg-purple-700');
+    };
+
+    window.speechSynthesis.speak(aiUtterance);
+    
+    btn.innerHTML = '⏹ AI音声を停止';
+    btn.classList.remove('bg-purple-600', 'hover:bg-purple-700');
+    btn.classList.add('bg-red-600', 'hover:bg-red-700');
+}
+// ==========================================
+// ★追加: 共有リンク生成機能 (魔法のリンク)
+// ==========================================
+function generateShareLink() {
+    if (!currentCustomLesson) return;
+    
+    const baseUrl = window.location.origin + window.location.pathname;
+    const params = new URLSearchParams({
+        title: currentCustomLesson.title.replace('🔗 ', ''), // 共有マークを除外
+        eng: currentCustomLesson.eng,
+        lang: currentCustomLesson.lang || 'en-US'
+    });
+    
+    const shareUrl = `${baseUrl}?${params.toString()}`;
+    
+    // クリップボードにコピー
+    navigator.clipboard.writeText(shareUrl).then(() => {
+        if (typeof showMsg === 'function') showMsg("🔗 共有リンクをコピーしました！Classroom等に貼り付けてください");
+    }).catch(err => {
+        if (typeof showMsg === 'function') showMsg("⚠️ リンクのコピーに失敗しました");
+    });
+}
+
+// ==========================================
+// ★追加: AI音声 (Text-to-Speech) コントロール
+// ==========================================
+let aiUtterance = null;
+
+function toggleAIVoice() {
+    if (!currentCustomLesson) return;
+    
+    const btn = document.getElementById('aiVoiceBtn');
+    
+    // 再生中なら停止
+    if (window.speechSynthesis.speaking) {
+        window.speechSynthesis.cancel();
+        btn.innerHTML = '🤖 AI音声を再生';
+        btn.classList.remove('bg-red-600', 'hover:bg-red-700');
+        btn.classList.add('bg-purple-600', 'hover:bg-purple-700');
+        return;
+    }
+
+    // 新しく再生
+    aiUtterance = new SpeechSynthesisUtterance(currentCustomLesson.eng);
+    aiUtterance.lang = currentCustomLesson.lang || 'en-US';
+    aiUtterance.rate = 0.9; // 少しゆっくりめに設定
+    
+    aiUtterance.onend = () => {
+        btn.innerHTML = '🤖 AI音声を再生';
+        btn.classList.remove('bg-red-600', 'hover:bg-red-700');
+        btn.classList.add('bg-purple-600', 'hover:bg-purple-700');
+    };
+
+    window.speechSynthesis.speak(aiUtterance);
+    
+    btn.innerHTML = '⏹ AI音声を停止';
+    btn.classList.remove('bg-purple-600', 'hover:bg-purple-700');
+    btn.classList.add('bg-red-600', 'hover:bg-red-700');
+}

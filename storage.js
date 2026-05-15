@@ -69,7 +69,6 @@ function editLesson(event, id) {
     };
 }
 
-// ★追加: 編集モードをキャンセルする関数
 function cancelEdit(isSilent = false) {
     document.getElementById("customMaterialForm").reset();
     document.getElementById('customAudio').value = ""; // ファイル選択状態もリセット
@@ -124,7 +123,7 @@ async function saveCustomLesson() {
             lesson.lang = selectedLang;
             lesson.langName = selectedLangName;
             
-            // 新しい音声が選択された場合のみ上書き（何も選ばれなければ昔のデータがそのまま生き残る！）
+            // 新しい音声が選択された場合のみ上書き
             if (audioFile) lesson.audioBlob = audioFile;
             
             store.put(lesson);
@@ -146,11 +145,10 @@ async function saveCustomLesson() {
     }
 }
 
-// 保存完了後のリセット処理
 function finishSaveProcess(transaction, msg) {
     transaction.oncomplete = () => {
         if (typeof showMsg === 'function') showMsg(msg);
-        cancelEdit(true); // ★完了したらキャンセル関数を呼んでUIをリセットする
+        cancelEdit(true); 
         loadSavedLessons();
     };
 }
@@ -265,7 +263,68 @@ function startCustomLesson(lesson) {
     if (typeof openLearningScreen === 'function') openLearningScreen(lesson);
 }
 
+// ==========================================
+// ★追加機能: 魔法のリンク (URLパラメータ) の受け取り処理
+// ==========================================
+function checkUrlParameters() {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('eng')) {
+        const title = urlParams.get('title') || 'Shared Lesson';
+        const engText = urlParams.get('eng');
+        const lang = urlParams.get('lang') || 'en-US';
+
+        // ブラウザのURLバーからパラメータを消す（リロード時の無限ループ追加を防止）
+        window.history.replaceState({}, document.title, window.location.pathname);
+
+        // データベースを開いて重複チェックと保存を行う
+        const transaction = db.transaction([storeName], "readwrite");
+        const store = transaction.objectStore(storeName);
+        const request = store.getAll();
+
+        request.onsuccess = () => {
+            const lessons = request.result;
+            const sharedTitle = "🔗 " + title;
+            
+            // 既に同じタイトルかつ同じ英文の教材がLibraryにあるかチェック
+            const existingLesson = lessons.find(l => l.title === sharedTitle && l.eng === engText);
+
+            if (existingLesson) {
+                // すでに持っている場合は、それを開く
+                if (typeof showMsg === 'function') showMsg("この共有教材はすでにLibraryにあります");
+                startCustomLesson(existingLesson);
+            } else {
+                // 新しい教材としてデータベースに正式に追加！
+                const newLessonData = {
+                    title: sharedTitle, 
+                    eng: engText, 
+                    jpn: "先生からの共有教材です。", 
+                    audioBlob: null,
+                    lang: lang, 
+                    langName: "🌐 Shared Material",
+                    history: [], 
+                    createdAt: new Date().getTime()
+                };
+                
+                const addReq = store.add(newLessonData);
+                addReq.onsuccess = (e) => {
+                    newLessonData.id = e.target.result; // DBが割り振った新しいIDをセット
+                    
+                    if (typeof showMsg === 'function') showMsg("📥 共有教材をLibraryに追加しました！");
+                    
+                    loadSavedLessons(); 
+                    startCustomLesson(newLessonData); 
+                };
+            }
+        };
+    }
+}
+
+// アプリ起動時の処理（URLチェックを最後に追加）
 window.addEventListener('DOMContentLoaded', async () => {
-    try { await initDB(); loadSavedLessons(); } 
+    try { 
+        await initDB(); 
+        loadSavedLessons(); 
+        checkUrlParameters(); // ← URLにデータがあればここで保存処理が走ります
+    } 
     catch (e) { alert("エラー: 保存機能が利用できません。"); }
 });
