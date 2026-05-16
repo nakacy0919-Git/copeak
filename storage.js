@@ -272,11 +272,11 @@ function checkUrlParameters() {
         const title = urlParams.get('title') || 'Shared Lesson';
         const engText = urlParams.get('eng');
         const lang = urlParams.get('lang') || 'en-US';
+        const formUrl = urlParams.get('form') || null; // ★追加: 先生のフォームURLを取得
 
-        // ブラウザのURLバーからパラメータを消す（リロード時の無限ループ追加を防止）
+        // ブラウザのURLバーからパラメータを消す
         window.history.replaceState({}, document.title, window.location.pathname);
 
-        // データベースを開いて重複チェックと保存を行う
         const transaction = db.transaction([storeName], "readwrite");
         const store = transaction.objectStore(storeName);
         const request = store.getAll();
@@ -285,15 +285,17 @@ function checkUrlParameters() {
             const lessons = request.result;
             const sharedTitle = "🔗 " + title;
             
-            // 既に同じタイトルかつ同じ英文の教材がLibraryにあるかチェック
+            // 重複チェック
             const existingLesson = lessons.find(l => l.title === sharedTitle && l.eng === engText);
 
             if (existingLesson) {
-                // すでに持っている場合は、それを開く
+                // すでに持っている場合は、フォームURLだけ最新に更新して開く
+                existingLesson.formUrl = formUrl;
+                store.put(existingLesson);
                 if (typeof showMsg === 'function') showMsg("この共有教材はすでにLibraryにあります");
                 startCustomLesson(existingLesson);
             } else {
-                // 新しい教材としてデータベースに正式に追加！
+                // 新しい教材として保存
                 const newLessonData = {
                     title: sharedTitle, 
                     eng: engText, 
@@ -301,16 +303,15 @@ function checkUrlParameters() {
                     audioBlob: null,
                     lang: lang, 
                     langName: "🌐 Shared Material",
+                    formUrl: formUrl, // ★追加: フォームURLを教材データに紐づけて保存！
                     history: [], 
                     createdAt: new Date().getTime()
                 };
                 
                 const addReq = store.add(newLessonData);
                 addReq.onsuccess = (e) => {
-                    newLessonData.id = e.target.result; // DBが割り振った新しいIDをセット
-                    
+                    newLessonData.id = e.target.result;
                     if (typeof showMsg === 'function') showMsg("📥 共有教材をLibraryに追加しました！");
-                    
                     loadSavedLessons(); 
                     startCustomLesson(newLessonData); 
                 };

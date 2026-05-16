@@ -500,3 +500,144 @@ function toggleAIVoice() {
     btn.classList.remove('bg-purple-600', 'hover:bg-purple-700');
     btn.classList.add('bg-red-600', 'hover:bg-red-700');
 }
+// ==========================================
+// ★追加: 生徒成績管理 & Googleフォーム自動送信システム
+// ==========================================
+
+// 結果画面が表示されたときに、提出ボタンを出すか出さないか制御する（showResultState内に追記する代わりにここで検知）
+const originalShowResultState = showResultState;
+showResultState = function() {
+    originalShowResultState(); // 元々の結果表示処理を実行
+    
+    const submitBtn = document.getElementById('submitScoreTriggerBtn');
+    if (!submitBtn) return;
+
+    // 現在の教材にformUrl（提出先）が設定されている場合のみ、送信ボタンを表示する
+    if (currentCustomLesson && currentCustomLesson.formUrl) {
+        submitBtn.classList.remove('hidden');
+    } else {
+        submitBtn.classList.add('hidden');
+    }
+};
+
+// 1. 提出ボタンが押されたときの処理
+function openReflectionWrapper() {
+    // 端末にプロフィール（クラス・番号・名前）が保存されているか確認
+    const savedProfile = localStorage.getItem('copeak_student_profile');
+    
+    if (!savedProfile) {
+        // 保存されていなければ、先にプロフィール登録モーダルを開く
+        document.getElementById('studentProfileModal').classList.remove('hidden');
+    } else {
+        // 保存されていれば、振り返り入力モーダルを開く
+        openReflectionModal();
+    }
+}
+
+// 2. 生徒プロフィールの保存
+function saveStudentProfile() {
+    const cls = document.getElementById('studentClassInput').value.trim();
+    const num = document.getElementById('studentNumInput').value.trim();
+    const name = document.getElementById('studentNameInput').value.trim();
+
+    if (!cls || !num || !name) {
+        alert("すべての項目を入力してください。");
+        return;
+    }
+
+    const profile = { class: cls, number: num, name: name };
+    localStorage.setItem('copeak_student_profile', JSON.stringify(profile));
+    
+    // プロフィールモーダルを閉じ、振り返りモーダルへ進む
+    document.getElementById('studentProfileModal').classList.add('hidden');
+    openReflectionModal();
+}
+
+// 3. 振り返りモーダルを開き、現在のスコアをプレビュー表示
+function openReflectionModal() {
+    const scoreText = document.getElementById('resultScore') ? document.getElementById('resultScore').innerText : '--%';
+    const wpmText = document.getElementById('resultWpm') ? document.getElementById('resultWpm').innerText : '--';
+    
+    let modeStr = '📖 Read';
+    if (currentMode === 'shadowing') modeStr = '🎧 Shadowing';
+    if (currentMode === 'memo') modeStr = '🧠 Vanish';
+    if (currentMode === 'paced') modeStr = '⚡️ Paced';
+
+    document.getElementById('submitScorePreview').innerText = `Accuracy: ${scoreText} / Speed: ${wpmText} WPM`;
+    document.getElementById('submitModePreview').innerText = modeStr;
+    document.getElementById('reflectionInput').value = ""; // 入力欄をリセット
+    
+    document.getElementById('reflectionModal').classList.remove('hidden');
+}
+
+function closeReflectionModal() {
+    document.getElementById('reflectionModal').classList.add('hidden');
+}
+
+// 4. 【最重要】Googleフォームへのデータ裏口自動送信（POST）
+async function submitScoreToForm() {
+    if (!currentCustomLesson || !currentCustomLesson.formUrl) return;
+
+    const profile = JSON.parse(localStorage.getItem('copeak_student_profile'));
+    if (!profile) return;
+
+    const reflection = document.getElementById('reflectionInput').value.trim();
+    if (!reflection) {
+        alert("練習の振り返りを入力してください（先生に送信されます）。");
+        return;
+    }
+
+    const finalSubmitBtn = document.getElementById('finalSubmitBtn');
+    finalSubmitBtn.disabled = true;
+    finalSubmitBtn.innerText = "⏳ 送信中...";
+
+    // データの抽出
+    const accuracy = document.getElementById('resultScore') ? document.getElementById('resultScore').innerText.replace('%', '') : '0';
+    const wpm = document.getElementById('resultWpm') ? document.getElementById('resultWpm').innerText : '0';
+    const comp = document.getElementById('resultComp') ? document.getElementById('resultComp').innerText.replace('%', '') : '0';
+    const playCount = currentCustomLesson.history ? currentCustomLesson.history.length : 1;
+
+    let modeStr = 'Read';
+    if (currentMode === 'shadowing') modeStr = 'Shadowing';
+    if (currentMode === 'memo') modeStr = 'Vanish';
+    if (currentMode === 'paced') modeStr = 'Paced';
+
+    // 先生のフォームURLを、送信専用の「formResponse」URLに変形する
+    let postUrl = currentCustomLesson.formUrl.replace('/viewform', '/formResponse');
+
+    // 先生から取得した固有のentry.IDをマッピング
+    const formData = new URLSearchParams();
+    formData.append('entry.755665088', profile.class);
+    formData.append('entry.70481568', profile.number);
+    formData.append('entry.1056156063', profile.name);
+    formData.append('entry.145428349', accuracy);
+    formData.append('entry.928123739', wpm);
+    formData.append('entry.1611039041', comp);
+    formData.append('entry.1534604696', modeStr);
+    formData.append('entry.695903918', playCount);
+    formData.append('entry.80945765', reflection);
+
+    try {
+        // Googleのサーバーに直接POST送信
+        await fetch(postUrl, {
+            method: 'POST',
+            mode: 'no-cors', // クロスドメイン制限を回避する魔法のオプション
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: formData.toString()
+        });
+
+        // no-corsモードは成功を検知できない仕様のため、送信を試みたら成功とみなす
+        showMsg("🚀 成績と内省を先生に送信しました！");
+        closeReflectionModal();
+        
+        // 提出ボタンを隠す（2重送信防止）
+        if(document.getElementById('submitScoreTriggerBtn')) {
+            document.getElementById('submitScoreTriggerBtn').classList.add('hidden');
+        }
+    } catch (error) {
+        alert("⚠️ 送信に失敗しました。電波の良いところで再度お試しください。");
+    } finally {
+        finalSubmitBtn.disabled = false;
+        finalSubmitBtn.innerHTML = "<span>🚀</span> この内容で送信する";
+    }
+}
