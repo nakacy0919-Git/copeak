@@ -445,7 +445,7 @@ function closeModeGuide() {
 }
 
 // ==========================================
-// ★修正: 共有リンク生成機能 (TinyURLに変更して警告画面を回避)
+// ★修正: 共有リンク生成機能 (短縮APIを廃止し、安全な直接リンクをコピー)
 // ==========================================
 async function generateShareLink() {
     if (!currentCustomLesson) return;
@@ -466,51 +466,21 @@ async function generateShareLink() {
     const params = new URLSearchParams(paramsConfig);
     const longUrl = `${baseUrl}?${params.toString()}`;
     
-    // ボタンを一時的に「生成中」にする
-    const btnElements = document.querySelectorAll('button[onclick="generateShareLink()"]');
-    const originalTexts = [];
-    btnElements.forEach(btn => {
-        originalTexts.push(btn.innerHTML);
-        btn.innerHTML = "⏳ 生成中...";
-        btn.disabled = true;
-    });
-
     try {
-        // ★変更: is.gd から TinyURL API に変更（プレビュー画面を回避するため）
-        const response = await fetch(`https://tinyurl.com/api-create.php?url=${encodeURIComponent(longUrl)}`);
-        let finalUrl = longUrl; // 初期値は長いURL
-        
-        if (response.ok) {
-            const shortUrl = await response.text();
-            // TinyURLはプレーンテキストでURLを返してくる
-            if (shortUrl && shortUrl.startsWith('http')) {
-                finalUrl = shortUrl;
-            }
-        }
-
-        // クリップボードにコピー
-        await navigator.clipboard.writeText(finalUrl);
+        // 安全に長いURLをそのままクリップボードにコピー
+        await navigator.clipboard.writeText(longUrl);
         
         if (typeof showMsg === 'function') {
             if (savedFormUrl) {
-                showMsg(finalUrl !== longUrl ? "🔗 【成績送信付き】短縮リンクをコピーしました！" : "🔗 【成績送信付き】リンクをコピーしました！");
+                showMsg("🔗 【成績送信付き】リンクをコピーしました！");
             } else {
-                showMsg(finalUrl !== longUrl ? "🔗 短縮リンクをコピーしました！" : "🔗 リンクをコピーしました！");
+                showMsg("🔗 リンクをコピーしました！");
             }
         }
     } catch (err) {
-        // オフライン時などのエラー対応（長いURLをそのままコピー）
-        navigator.clipboard.writeText(longUrl);
-        if (typeof showMsg === 'function') showMsg("🔗 リンクをコピーしました（短縮エラー）");
-    } finally {
-        // ボタンのテキストを元に戻す
-        btnElements.forEach((btn, index) => {
-            btn.innerHTML = originalTexts[index];
-            btn.disabled = false;
-        });
+        if (typeof showMsg === 'function') showMsg("⚠️ リンクのコピーに失敗しました");
     }
 }
-
 // ==========================================
 // ★追加: AI音声 (Text-to-Speech) コントロール
 // ==========================================
