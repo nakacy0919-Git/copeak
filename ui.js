@@ -445,41 +445,65 @@ function closeModeGuide() {
 }
 
 // ==========================================
-// ★修正: 共有リンク生成機能 (フォームURL自動付与版)
+// ★修正: 共有リンク生成機能 (短縮URL自動変換 ＋ フォームURL付与)
 // ==========================================
-function generateShareLink() {
+async function generateShareLink() {
     if (!currentCustomLesson) return;
     
     const baseUrl = window.location.origin + window.location.pathname;
     
-    // 基本のパラメータ（タイトル、英文、言語）
     const paramsConfig = {
-        title: currentCustomLesson.title.replace('🔗 ', ''), // 共有マークを除外
+        title: currentCustomLesson.title.replace('🔗 ', ''),
         eng: currentCustomLesson.eng,
         lang: currentCustomLesson.lang || 'en-US'
     };
 
-    // 先生の端末にフォームURLが保存されていれば、自動的に追加する！
     const savedFormUrl = localStorage.getItem('copeak_teacher_form_url');
     if (savedFormUrl) {
         paramsConfig.form = savedFormUrl;
     }
     
     const params = new URLSearchParams(paramsConfig);
-    const shareUrl = `${baseUrl}?${params.toString()}`;
+    const longUrl = `${baseUrl}?${params.toString()}`;
     
-    // クリップボードにコピー
-    navigator.clipboard.writeText(shareUrl).then(() => {
+    // ボタンを一時的に「生成中」にする
+    const btnElements = document.querySelectorAll('button[onclick="generateShareLink()"]');
+    const originalTexts = [];
+    btnElements.forEach(btn => {
+        originalTexts.push(btn.innerHTML);
+        btn.innerHTML = "⏳ 生成中...";
+        btn.disabled = true;
+    });
+
+    try {
+        // 無料の短縮URL API (is.gd) を使用して裏側で短縮！
+        const response = await fetch(`https://is.gd/create.php?format=json&url=${encodeURIComponent(longUrl)}`);
+        const data = await response.json();
+        
+        // 短縮成功時は短縮URL、失敗時（テキストが長すぎる等）は元の長いURLを使う
+        const finalUrl = data.shorturl ? data.shorturl : longUrl;
+
+        // クリップボードにコピー
+        await navigator.clipboard.writeText(finalUrl);
+        
         if (typeof showMsg === 'function') {
             if (savedFormUrl) {
-                showMsg("🔗 【成績送信付き】共有リンクをコピーしました！");
+                showMsg(data.shorturl ? "🔗 【成績送信付き】短縮リンクをコピーしました！" : "🔗 【成績送信付き】リンクをコピーしました！");
             } else {
-                showMsg("🔗 共有リンクをコピーしました！（成績送信なし）");
+                showMsg(data.shorturl ? "🔗 短縮リンクをコピーしました！" : "🔗 リンクをコピーしました！");
             }
         }
-    }).catch(err => {
-        if (typeof showMsg === 'function') showMsg("⚠️ リンクのコピーに失敗しました");
-    });
+    } catch (err) {
+        // オフライン時などのエラー対応（長いURLをそのままコピー）
+        navigator.clipboard.writeText(longUrl);
+        if (typeof showMsg === 'function') showMsg("🔗 リンクをコピーしました（短縮エラー）");
+    } finally {
+        // ボタンのテキストを元に戻す
+        btnElements.forEach((btn, index) => {
+            btn.innerHTML = originalTexts[index];
+            btn.disabled = false;
+        });
+    }
 }
 
 // ==========================================
