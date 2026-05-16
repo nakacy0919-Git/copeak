@@ -6,7 +6,7 @@
 
     <meta name="google-adsense-account" content="ca-pub-2212278850521165">
 
-    <title>Copeak - 英語音読・シャドーイング練習ツール</title>
+    <title data-i18n="head_title">Copeak - 英語音読・シャドーイング練習ツール</title>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-86CYZ2RWGX"></script>
     <script>
@@ -107,16 +107,27 @@
                     <p class="text-[10px] md:text-sm text-emerald-700 font-bold tracking-tight opacity-80 uppercase">AI English Shadowing Platform</p>
                 </div>
             </div>
-            <span class="bg-stone-800 text-stone-100 text-[10px] md:text-xs font-bold px-3 py-1.5 md:px-4 md:py-2 rounded-sm uppercase tracking-widest shrink-0">My Library</span>
+            <div class="flex items-center gap-2">
+                <select id="appLangSelector" onchange="if(typeof changeAppLanguage === 'function') changeAppLanguage(this.value)" class="text-xs font-bold bg-[#faf8f5] border-2 border-stone-800 text-stone-800 rounded-sm px-2 py-1 outline-none cursor-pointer">
+                    <option value="ja">🇯🇵 日本語</option>
+                    <option value="en">🇺🇸 English</option>
+                    <option value="zh-TW">🇹🇼 繁體中文</option>
+                    <option value="vi">🇻🇳 Tiếng Việt</option>
+                    <option value="id">🇮🇩 Indonesia</option>
+                    <option value="tl">🇵🇭 Tagalog</option>
+                    <option value="hi">🇮🇳 हिन्दी</option>
+                </select>
+                <span data-i18n="nav_my_library" class="bg-stone-800 text-stone-100 text-[10px] md:text-xs font-bold px-3 py-1.5 md:px-4 md:py-2 rounded-sm uppercase tracking-widest shrink-0">My Library</span>
+            </div>
         </div>
 
         <div class="bg-amber-50 border-l-4 border-amber-500 p-4 md:p-5 mb-8 rounded-sm shadow-sm iron-border-sm">
             <h3 class="font-bold text-amber-800 text-sm md:text-base flex items-center gap-2 mb-2">
-                <span class="text-lg">⚠️</span> データの保存に関する重要なお願い
+                <span class="text-lg">⚠️</span> <span data-i18n="warning_title">データの保存に関する重要なお願い</span>
             </h3>
             <ul class="text-xs md:text-sm text-stone-700 space-y-2 ml-2 md:ml-6 list-disc font-medium">
-                <li><strong class="text-stone-900">iPad / スマホの方:</strong> 最初にブラウザのメニューから<strong class="text-amber-700">「ホーム画面に追加」</strong>を行い、必ずそのアイコンからアプリを開いてください。</li>
-                <li><strong class="text-stone-900">PCの方:</strong> ブックマークに登録し、常に同じブラウザを使用してください。</li>
+                <li><strong class="text-stone-900" data-i18n="warning_ipad_bold">iPad / スマホの方:</strong> <span data-i18n="warning_ipad_desc">最初にブラウザのメニューから<strong class="text-amber-700">「ホーム画面に追加」</strong>を行い、必ずそのアイコンからアプリを開いてください。</span></li>
+                <li><strong class="text-stone-900" data-i18n="warning_pc_bold">PCの方:</strong> <span data-i18n="warning_pc_desc">ブックマークに登録し、常に同じブラウザを使用してください。</span></li>
             </ul>
         </div>
         
@@ -124,9 +135,9 @@
             <div class="bg-blue-50 border border-blue-200 p-4 md:p-6 rounded-sm shadow-sm flex flex-col gap-4 iron-border-sm">
                 <div>
                     <h3 class="font-bold text-blue-900 text-sm md:text-base flex items-center gap-2 mb-2">
-                        <span class="text-lg">👨‍🏫</span> 教員専用設定：成績回収システムの準備
+                        <span class="text-lg">👨‍🏫</span> <span data-i18n="teacher_title">教員専用設定：成績回収システムの準備</span>
                     </h3>
-                    <p class="text-xs md:text-sm text-blue-700 font-medium mb-4">
+                    <p data-i18n="teacher_desc" class="text-xs md:text-sm text-blue-700 font-medium mb-4">
                         全国の先生方がこのシステムを使うための2ステップです。一度設定すれば、以後は共有リンクに自動で成績送信機能が付与されます。
                     </p>
                 </div>
@@ -134,22 +145,22 @@
                 <div class="flex flex-col md:flex-row gap-6">
                     <div class="flex-1 bg-white p-4 rounded-sm border border-blue-200 shadow-sm flex flex-col">
                         <div class="font-bold text-blue-800 text-xs md:text-sm mb-2 flex items-center gap-2">
-                            <span class="bg-blue-600 text-white px-2 py-0.5 rounded-sm tracking-widest uppercase text-[10px]">Step 1</span> フォームの複製
+                            <span class="bg-blue-600 text-white px-2 py-0.5 rounded-sm tracking-widest uppercase text-[10px]">Step 1</span> <span data-i18n="teacher_step1_title">フォームの複製</span>
                         </div>
-                        <p class="text-xs text-stone-600 mb-4 flex-1">以下のボタンから成績回収用のGoogleフォーム（ひな形）をご自身のGoogleドライブにコピーしてください。（※質問項目は変更しないでください）</p>
+                        <p data-i18n="teacher_step1_desc" class="text-xs text-stone-600 mb-4 flex-1">以下のボタンから成績回収用のGoogleフォーム（ひな形）をご自身のGoogleドライブにコピーしてください。（※質問項目は変更しないでください）</p>
                         <a href="https://docs.google.com/forms/d/1Xjya4Rf2UBCGEr38PDxchoLxknrm9o5_6hqWKqp7I0I/edit" target="_blank" rel="noopener noreferrer" class="block w-full text-center py-2.5 bg-stone-800 hover:bg-stone-700 text-white font-bold text-xs md:text-sm rounded-sm transition shadow-sm">
-                            📑 マスターフォームをコピー
+                            📑 <span data-i18n="teacher_step1_btn">マスターフォームをコピー</span>
                         </a>
                     </div>
 
                     <div class="flex-1 bg-white p-4 rounded-sm border border-blue-200 shadow-sm flex flex-col">
                         <div class="font-bold text-blue-800 text-xs md:text-sm mb-2 flex items-center gap-2">
-                            <span class="bg-blue-600 text-white px-2 py-0.5 rounded-sm tracking-widest uppercase text-[10px]">Step 2</span> URLの登録
+                            <span class="bg-blue-600 text-white px-2 py-0.5 rounded-sm tracking-widest uppercase text-[10px]">Step 2</span> <span data-i18n="teacher_step2_title">URLの登録</span>
                         </div>
-                        <p class="text-xs text-stone-600 mb-4 flex-1">コピーしたフォームを送信モードにし、回答用のURL（.../viewform）を下に貼り付けて保存します。</p>
+                        <p data-i18n="teacher_step2_desc" class="text-xs text-stone-600 mb-4 flex-1">コピーしたフォームを送信モードにし、回答用のURL（.../viewform）を下に貼り付けて保存します。</p>
                         <div class="flex gap-2 mt-auto">
-                            <input type="text" id="teacherFormUrlInput" placeholder="https://docs.google.com/forms/..." class="flex-1 p-2 bg-[#faf8f5] border border-blue-300 rounded-sm focus:ring-2 focus:ring-blue-600 outline-none transition text-xs text-stone-800">
-                            <button onclick="saveTeacherFormUrl()" type="button" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-sm shadow-sm transition whitespace-nowrap text-xs">
+                            <input type="text" id="teacherFormUrlInput" data-i18n-placeholder="teacher_placeholder_url" placeholder="https://docs.google.com/forms/..." class="flex-1 p-2 bg-[#faf8f5] border border-blue-300 rounded-sm focus:ring-2 focus:ring-blue-600 outline-none transition text-xs text-stone-800">
+                            <button onclick="saveTeacherFormUrl()" type="button" data-i18n="teacher_step2_btn" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-sm shadow-sm transition whitespace-nowrap text-xs">
                                 保存
                             </button>
                         </div>
@@ -160,15 +171,15 @@
         <form id="customMaterialForm" class="bg-white p-6 md:p-8 rounded-sm iron-border-sm flex flex-col lg:flex-row gap-8 flex-1">
             <div class="flex-1 space-y-6">
                 <h2 class="text-lg md:text-xl font-bold text-stone-800 serif-font flex items-center gap-2 mb-2">
-                    <span class="text-emerald-800">🌿</span> Create / Edit Material
+                    <span class="text-emerald-800">🌿</span> <span data-i18n="form_title">Create / Edit Material</span>
                 </h2>
                 <div>
-                    <label class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Title</label>
-                    <input type="text" id="customTitle" placeholder="例: Steve Jobs Speech" required 
+                    <label data-i18n="form_label_title" class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Title</label>
+                    <input type="text" id="customTitle" data-i18n-placeholder="form_placeholder_title" placeholder="例: Steve Jobs Speech" required 
                            class="w-full p-3 md:p-4 bg-[#faf8f5] border border-stone-300 rounded-sm focus:ring-2 focus:ring-emerald-800 outline-none transition font-medium text-base md:text-lg text-stone-800 placeholder-stone-400">
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Language</label>
+                    <label data-i18n="form_label_language" class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Language</label>
                     <select id="customLang" class="w-full p-3 md:p-4 bg-[#faf8f5] border border-stone-300 rounded-sm focus:ring-2 focus:ring-emerald-800 outline-none font-medium cursor-pointer text-base md:text-lg">
                         <option value="en-US">🇺🇸 English (US)</option>
                         <option value="en-GB">🇬🇧 English (UK)</option>
@@ -180,11 +191,11 @@
                     </select>
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Audio File (Optional)</label>
+                    <label data-i18n="form_label_audio" class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Audio File (Optional)</label>
                     <div class="bg-[#faf8f5] p-2 md:p-3 rounded-sm border border-dashed border-stone-400 overflow-hidden">
                         <input type="file" id="customAudio" accept="audio/*, .mp3, .m4a, .wav, .aac, .m4r, .ogg" class="w-full text-sm md:text-base text-stone-500 file:mr-2 md:file:mr-4 file:py-1.5 file:px-3 md:file:py-2 md:file:px-4 file:rounded-sm file:border-0 file:font-bold file:bg-stone-200 file:text-stone-700 hover:file:bg-stone-300 cursor-pointer">
                         <div id="audioRegisteredMark" class="hidden mt-3 p-2 bg-emerald-50 border border-emerald-200 rounded-sm text-xs md:text-sm font-bold text-emerald-700 flex items-center gap-2">
-                            <span>🎵 音声はすでに保存されています</span>
+                            <span>🎵</span> <span data-i18n="form_audio_saved">音声はすでに保存されています</span>
                         </div>
                     </div>
                 </div>
@@ -192,20 +203,20 @@
 
             <div class="flex-1 flex flex-col space-y-6">
                 <div class="flex-1 flex flex-col">
-                    <label class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Target Text (学習テキスト)</label>
-                    <textarea id="customEng" placeholder="英語などのスクリプトを貼り付け" required 
+                    <label data-i18n="form_label_text" class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Target Text (学習テキスト)</label>
+                    <textarea id="customEng" data-i18n-placeholder="form_placeholder_eng" placeholder="英語などのスクリプトを貼り付け" required 
                               class="w-full h-32 lg:flex-1 p-3 md:p-4 bg-[#faf8f5] border border-stone-300 rounded-sm focus:ring-2 focus:ring-emerald-800 outline-none transition resize-y text-base md:text-lg"></textarea>
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Translation (日本語訳など)</label>
-                    <textarea id="customJpn" placeholder="母語での訳を貼り付け (任意)" rows="2" 
+                    <label data-i18n="form_label_translation" class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Translation (日本語訳など)</label>
+                    <textarea id="customJpn" data-i18n-placeholder="form_placeholder_jpn" placeholder="母語での訳を貼り付け (任意)" rows="2" 
                               class="w-full p-3 md:p-4 bg-[#faf8f5] border border-stone-300 rounded-sm focus:ring-2 focus:ring-emerald-800 outline-none transition resize-y"></textarea>
                 </div>
                 <div class="flex gap-2 md:gap-3 mt-auto">
-                    <button type="button" id="cancelEditBtn" onclick="cancelEdit()" class="hidden px-4 md:px-6 py-4 md:py-5 bg-stone-300 hover:bg-stone-400 text-stone-800 font-bold text-sm md:text-lg rounded-sm shadow-md transition uppercase tracking-widest whitespace-nowrap">
+                    <button type="button" id="cancelEditBtn" onclick="cancelEdit()" data-i18n="form_btn_cancel" class="hidden px-4 md:px-6 py-4 md:py-5 bg-stone-300 hover:bg-stone-400 text-stone-800 font-bold text-sm md:text-lg rounded-sm shadow-md transition uppercase tracking-widest whitespace-nowrap">
                         Cancel
                     </button>
-                    <button type="button" id="saveMaterialBtn" onclick="saveCustomLesson()" class="flex-1 py-4 md:py-5 bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-lg md:text-xl rounded-sm shadow-md transition uppercase tracking-widest">
+                    <button type="button" id="saveMaterialBtn" onclick="saveCustomLesson()" data-i18n="form_btn_save" class="flex-1 py-4 md:py-5 bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-lg md:text-xl rounded-sm shadow-md transition uppercase tracking-widest">
                         Save to Library
                     </button>
                 </div>
@@ -213,32 +224,32 @@
         </form>
 
         <div class="mt-8 md:mt-12 mb-4 md:mb-6 border-b-2 border-stone-200 pb-2">
-            <h2 class="text-xl md:text-2xl font-bold text-stone-800 serif-font">📚 Playlist</h2>
+            <h2 class="text-xl md:text-2xl font-bold text-stone-800 serif-font">📚 <span data-i18n="playlist_title">Playlist</span></h2>
         </div>
         <div id="savedLessonsList" class="grid grid-cols-1 md:grid-cols-2 gap-4 pb-4"></div>
 
         <div class="mt-8 md:mt-12 pt-6 border-t border-stone-200 flex flex-col xl:flex-row justify-between items-center gap-6 text-xs md:text-sm text-stone-500 font-medium">
             <div class="flex flex-wrap justify-center xl:justify-start gap-x-4 md:gap-x-6 gap-y-3">
                 <a href="https://www.pic-speak-story.com/index.html" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-700 transition flex items-center gap-1">
-                    <span class="text-base">🏠</span> PicSpeak (スピーキング)
+                    <span class="text-base">🏠</span> <span data-i18n="footer_picspeak">PicSpeak (スピーキング)</span>
                 </a>
                 <a href="https://vocadash.pic-speak-story.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-700 transition flex items-center gap-1">
-                    <span class="text-base">🔤</span> VocaDash (単語学習)
+                    <span class="text-base">🔤</span> <span data-i18n="footer_vocadash">VocaDash (単語学習)</span>
                 </a>
                 <a href="copeak-guide.html" class="hover:text-emerald-700 transition flex items-center gap-1">
-                    <span class="text-base">🧭</span> 活用ガイド
+                    <span class="text-base">🧭</span> <span data-i18n="footer_guide">活用ガイド</span>
                 </a>
                 <a href="https://sites.google.com/view/koheinakashima/bio" class="hover:text-emerald-700 transition flex items-center gap-1">
-                    <span class="text-base">👨‍🏫</span> 開発者について
+                    <span class="text-base">👨‍🏫</span> <span data-i18n="footer_dev">開発者について</span>
                 </a>
                 <button onclick="toggleTeacherMode()" class="hover:text-emerald-700 transition flex items-center gap-1 cursor-pointer">
-                    <span class="text-base">🔐</span> 教員用メニュー
+                    <span class="text-base">🔐</span> <span data-i18n="footer_teacher">教員用メニュー</span>
                 </button>
                 <a href="copeak-terms.html" class="hover:text-emerald-700 transition flex items-center gap-1">
-                    <span class="text-base">📜</span> 利用規約
+                    <span class="text-base">📜</span> <span data-i18n="footer_terms">利用規約</span>
                 </a>
                 <a href="copeak-privacy.html" class="hover:text-emerald-700 transition flex items-center gap-1">
-                    <span class="text-base">🛡️</span> プライバシーポリシー
+                    <span class="text-base">🛡️</span> <span data-i18n="footer_privacy">プライバシーポリシー</span>
                 </a>
             </div>
             <div class="text-stone-400 tracking-wider shrink-0 text-center xl:text-right flex flex-col items-center xl:items-end">
@@ -252,11 +263,11 @@
         
         <div id="learningHeader" class="flex flex-col sm:flex-row justify-between items-center mb-4 bg-stone-900 p-3 md:p-4 rounded-sm shadow-lg border border-stone-700">
             <button onclick="backToHome()" class="flex items-center gap-2 px-4 py-2 bg-stone-800 hover:bg-stone-700 text-stone-200 rounded-sm font-bold transition border border-stone-600 mb-2 sm:mb-0 text-xs md:text-sm uppercase tracking-wider">
-                ◀ Back
+                ◀ <span data-i18n="learn_back">Back</span>
             </button>
             <h2 id="learningTitle" class="text-xl md:text-2xl font-bold text-stone-100 serif-font truncate px-2 md:px-4 flex-1 text-center">Title</h2>
             <button onclick="generateShareLink()" class="flex items-center gap-2 px-3 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-sm font-bold transition text-xs md:text-sm shadow-md whitespace-nowrap">
-                🔗 共有
+                🔗 <span data-i18n="learn_share">共有</span>
             </button>
         </div>
 
@@ -267,16 +278,16 @@
                 <div id="learningTabs" class="flex justify-center items-center p-2 md:p-3 border-b-2 border-stone-200 bg-white shrink-0 relative z-20 gap-2">
                     <div class="flex bg-stone-100 p-1 rounded-sm iron-border-sm shrink-0 w-full max-w-3xl overflow-x-auto gap-1">
                         <button id="tabReading" onclick="setLearningMode('reading')" class="flex-1 px-1 md:px-4 py-2 rounded-sm font-bold text-[10px] md:text-sm transition-all duration-200 bg-stone-800 text-white uppercase tracking-wider shadow-md whitespace-nowrap">
-                            📖 Read
+                            📖 <span data-i18n="tab_read">Read</span>
                         </button>
                         <button id="tabPaced" onclick="setLearningMode('paced')" class="flex-1 px-1 md:px-4 py-2 rounded-sm font-bold text-[10px] md:text-sm transition-all duration-200 text-stone-500 hover:text-stone-800 uppercase tracking-wider whitespace-nowrap">
-                            ⚡️ Paced
+                            ⚡️ <span data-i18n="tab_paced">Paced</span>
                         </button>
                         <button id="tabMemo" onclick="setLearningMode('memo')" class="flex-1 px-1 md:px-4 py-2 rounded-sm font-bold text-[10px] md:text-sm transition-all duration-200 text-stone-500 hover:text-stone-800 uppercase tracking-wider whitespace-nowrap">
-                            🧠 Vanish
+                            🧠 <span data-i18n="tab_vanish">Vanish</span>
                         </button>
                         <button id="tabShadowing" onclick="setLearningMode('shadowing')" class="flex-1 px-1 md:px-4 py-2 rounded-sm font-bold text-[10px] md:text-sm transition-all duration-200 text-stone-500 hover:text-stone-800 uppercase tracking-wider whitespace-nowrap">
-                            🎧 Shadow
+                            🎧 <span data-i18n="tab_shadow">Shadow</span>
                         </button>
                     </div>
                     <button onclick="openModeGuide()" class="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 bg-stone-200 hover:bg-stone-800 hover:text-white text-stone-600 rounded-sm font-bold text-sm md:text-lg transition iron-border-sm flex items-center justify-center shadow-sm" title="各モードの学習ガイドを見る">
@@ -292,7 +303,7 @@
 
                     <div class="flex justify-end mt-1">
                         <button id="aiVoiceBtn" onclick="toggleAIVoice()" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-xs md:text-sm font-bold rounded-sm shadow-sm transition">
-                            🤖 AI音声を再生
+                            🤖 <span data-i18n="btn_ai_voice">AI音声を再生</span>
                         </button>
                     </div>
 
@@ -302,15 +313,15 @@
                                 <span class="text-lg md:text-xl">📊</span>
                             </button>
                             <div class="text-center w-full md:w-auto">
-                                <div class="text-stone-400 font-bold tracking-widest text-[10px] md:text-xs mb-1 uppercase">Accuracy</div>
+                                <div data-i18n="score_accuracy" class="text-stone-400 font-bold tracking-widest text-[10px] md:text-xs mb-1 uppercase">Accuracy</div>
                                 <div id="bigAccValue" class="text-4xl sm:text-5xl md:text-6xl font-bold text-emerald-400 serif-font">0%</div>
                             </div>
                             <div class="text-center border-t border-b md:border-t-0 md:border-b-0 md:border-l md:border-r border-stone-700 py-3 md:py-0 px-0 md:px-10 w-full md:w-auto">
-                                <div class="text-stone-400 font-bold tracking-widest text-[10px] md:text-xs mb-1 uppercase">WPM</div>
+                                <div data-i18n="score_wpm" class="text-stone-400 font-bold tracking-widest text-[10px] md:text-xs mb-1 uppercase">WPM</div>
                                 <div id="bigWpmValue" class="text-4xl sm:text-5xl md:text-6xl font-bold text-blue-400 serif-font">0</div>
                             </div>
                             <div class="text-center w-full md:w-auto">
-                                <div class="text-stone-400 font-bold tracking-widest text-[10px] md:text-xs mb-1 uppercase">Comprehension</div>
+                                <div data-i18n="score_comp" class="text-stone-400 font-bold tracking-widest text-[10px] md:text-xs mb-1 uppercase">Comprehension</div>
                                 <div id="bigCompValue" class="text-4xl sm:text-5xl md:text-6xl font-bold text-yellow-400 serif-font">0%</div>
                             </div>
                         </div>
@@ -318,13 +329,13 @@
                         <div id="slaAdviceContainer" class="bg-emerald-50 border-l-4 border-emerald-600 p-3 md:p-4 rounded-sm shadow-sm flex items-start gap-3 md:gap-4 iron-border-sm">
                             <span class="text-2xl md:text-3xl mt-0 md:mt-1">💡</span>
                             <div>
-                                <h4 class="font-bold text-emerald-900 text-xs md:text-sm tracking-widest uppercase mb-1">Learning Feedback</h4>
+                                <h4 data-i18n="score_feedback" class="font-bold text-emerald-900 text-xs md:text-sm tracking-widest uppercase mb-1">Learning Feedback</h4>
                                 <p id="slaAdviceText" class="text-stone-700 text-xs md:text-sm leading-relaxed font-medium"></p>
                             </div>
                         </div>
                         
                         <button id="submitScoreTriggerBtn" onclick="openReflectionWrapper()" class="hidden w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-sm shadow-md transition-all flex items-center justify-center gap-2 animate-bounce">
-                            🚀 先生に成績を提出する（振り返り入力へ）
+                            🚀 <span data-i18n="btn_submit_score">先生に成績を提出する（振り返り入力へ）</span>
                         </button>
                     </div>
 
@@ -332,10 +343,10 @@
                         
                         <div id="yourVoiceWrapper" class="hidden w-full lg:w-1/2 p-4 md:p-6 bg-white rounded-sm border-l-4 border-stone-800 shadow-sm iron-border-sm flex-col transition-all duration-300 flex-1 min-h-[200px] md:min-h-[300px]">
                             <div class="flex justify-between items-center mb-2 md:mb-4 border-b border-stone-100 pb-2 shrink-0">
-                                <div class="text-xs md:text-sm text-stone-800 font-bold uppercase tracking-widest">Your Voice</div>
+                                <div data-i18n="label_your_voice" class="text-xs md:text-sm text-stone-800 font-bold uppercase tracking-widest">Your Voice</div>
                             </div>
                             <div id="recognizedTextDisplay" class="text-stone-500 leading-relaxed font-medium transition-all duration-200 serif-font flex-1 overflow-y-auto" style="font-size: 24px;">
-                                ※Press START to begin
+                                <span data-i18n="msg_press_start">※Press START to begin</span>
                             </div>
                         </div>
 
@@ -343,9 +354,9 @@
                             <div class="p-4 md:p-6 bg-white rounded-sm border-l-4 border-emerald-800 shadow-sm flex-1 flex flex-col min-h-[150px] md:min-h-[250px]">
                                 <div class="flex justify-between items-center mb-2 md:mb-4 border-b border-stone-100 pb-2 shrink-0">
                                     <div class="flex items-center gap-3">
-                                        <div class="text-xs md:text-sm text-emerald-800 font-bold uppercase tracking-widest">Target Text</div>
+                                        <div data-i18n="label_target_text" class="text-xs md:text-sm text-emerald-800 font-bold uppercase tracking-widest">Target Text</div>
                                         <button id="toggleJpnBtn" onclick="toggleTranslation()" class="hidden text-[10px] md:text-xs font-bold text-stone-500 hover:text-emerald-700 bg-stone-100 px-2 md:px-3 py-1 rounded-sm transition border border-stone-200">
-                                            🌐 訳を表示
+                                            🌐 <span data-i18n="btn_show_translation">訳を表示</span>
                                         </button>
                                     </div>
                                     <div class="flex gap-1 md:gap-2">
@@ -356,7 +367,7 @@
                                 
                                 <div id="vanishModeControls" class="hidden mb-4 bg-stone-50 p-2 md:p-3 rounded-sm border border-stone-200 transition-all duration-300 shrink-0">
                                     <label class="text-[10px] md:text-xs font-bold text-stone-500 uppercase tracking-widest flex items-center gap-1 mb-2">
-                                        <span>🧠</span> Blank Level (空欄の割合)
+                                        <span>🧠</span> <span data-i18n="label_blank_level">Blank Level (空欄の割合)</span>
                                     </label>
                                     <div class="flex gap-2">
                                         <button onclick="updateMemoLevel(1)" id="lvlBtn1" class="flex-1 py-1.5 md:py-2 rounded-sm bg-stone-800 text-white font-bold text-xs transition shadow-sm">Lv.1</button>
@@ -371,7 +382,7 @@
                                     <div class="flex justify-between items-center mb-2">
                                         <div class="flex items-center gap-2">
                                             <label class="text-xs md:text-sm font-bold text-purple-900 uppercase tracking-widest flex items-center gap-1">
-                                                <span>⚡️</span> 目標WPM設定
+                                                <span>⚡️</span> <span data-i18n="label_target_wpm">目標WPM設定</span>
                                             </label>
                                             <button type="button" onclick="openWpmGuide()" class="w-5 h-5 flex items-center justify-center bg-purple-200 text-purple-700 rounded-full text-xs font-bold hover:bg-purple-300 transition">?</button>
                                         </div>
@@ -389,7 +400,7 @@
 
                             <div id="jpnWrapper" class="p-4 md:p-6 bg-[#f8fafc] rounded-sm border-l-4 border-stone-400 shadow-inner hidden transition-all duration-300 shrink-0">
                                 <div class="flex justify-between items-center mb-2 md:mb-4 border-b border-stone-200 pb-2">
-                                    <div class="text-xs md:text-sm text-stone-500 font-bold uppercase tracking-widest">Translation</div>
+                                    <div data-i18n="label_translation" class="text-xs md:text-sm text-stone-500 font-bold uppercase tracking-widest">Translation</div>
                                     <div class="flex gap-1 md:gap-2">
                                         <button onclick="changeFontSize('jpn', -2)" class="w-6 h-6 md:w-8 md:h-8 bg-white hover:bg-stone-100 text-stone-700 font-bold rounded-sm transition text-xs md:text-base border border-stone-200">A-</button>
                                         <button onclick="changeFontSize('jpn', 2)" class="w-6 h-6 md:w-8 md:h-8 bg-white hover:bg-stone-100 text-stone-700 font-bold rounded-sm transition text-xs md:text-base border border-stone-200">A+</button>
@@ -403,14 +414,14 @@
 
                 <div class="bg-[#faf8f5] border-t-2 border-stone-200 p-3 md:p-4 flex justify-center shrink-0 relative z-30">
                     <button id="micBtn" onclick="toggleRecording()" class="flex items-center justify-center gap-2 md:gap-3 w-full max-w-sm py-2.5 md:py-3 bg-emerald-800 hover:bg-emerald-900 text-white rounded-sm font-bold text-base md:text-lg shadow-md border-2 border-emerald-950 transition transform hover:-translate-y-1 uppercase tracking-widest">
-                        <span class="text-xl md:text-2xl">🎙</span> <span id="micBtnText">START</span>
+                        <span class="text-xl md:text-2xl">🎙</span> <span id="micBtnText" data-i18n="btn_start_text">START</span>
                     </button>
                 </div>
             </div>
 
             <div id="playlistSidebar" class="w-full lg:w-[22%] h-[35vh] lg:h-full bg-[#faf8f5] rounded-sm iron-border flex flex-col overflow-hidden transition-all duration-500">
                 <div class="p-3 md:p-4 border-b-2 border-stone-200 bg-white shrink-0">
-                    <h3 class="font-bold text-stone-800 serif-font uppercase tracking-widest text-xs md:text-sm">📋 Playlist</h3>
+                    <h3 class="font-bold text-stone-800 serif-font uppercase tracking-widest text-xs md:text-sm">📋 <span data-i18n="sidebar_playlist">Playlist</span></h3>
                 </div>
                 <div id="sidebarLessonList" class="flex-1 overflow-y-auto p-3 md:p-4 space-y-2 md:space-y-3"></div>
             </div>
@@ -422,12 +433,12 @@
         <div class="bg-[#faf8f5] p-5 md:p-10 rounded-sm iron-border w-full md:w-[95%] max-w-5xl relative">
             <button onclick="closeChartModal()" class="absolute top-2 right-3 md:top-4 md:right-4 text-stone-400 hover:text-red-500 text-3xl md:text-4xl font-bold transition">&times;</button>
             <h2 class="text-xl md:text-2xl font-bold text-stone-800 mb-4 md:mb-6 serif-font flex items-center gap-2 md:gap-3">
-                <span class="text-2xl md:text-3xl">📈</span> Learning Progress
+                <span class="text-2xl md:text-3xl">📈</span> <span data-i18n="chart_title">Learning Progress</span>
             </h2>
             <div class="w-full h-[45vh] md:h-[60vh] bg-white p-2 md:p-4 rounded-sm iron-border-sm relative">
                 <canvas id="progressChart"></canvas>
             </div>
-            <p class="text-center text-stone-500 text-xs md:text-sm mt-3 md:mt-4 font-bold">※日々の反復がスコアアップの鍵です！</p>
+            <p data-i18n="chart_desc" class="text-center text-stone-500 text-xs md:text-sm mt-3 md:mt-4 font-bold">※日々の反復がスコアアップの鍵です！</p>
         </div>
     </div>
     
@@ -435,29 +446,29 @@
         <div class="bg-white rounded-xl shadow-2xl w-full max-w-sm overflow-hidden border border-stone-200">
             <div class="bg-stone-800 p-4 flex justify-between items-center text-white">
                 <h3 class="font-bold text-lg flex items-center gap-2">
-                    <span>👤</span> プロフィール登録
+                    <span>👤</span> <span data-i18n="profile_title">プロフィール登録</span>
                 </h3>
             </div>
             <div class="p-6 flex flex-col gap-4">
-                <p class="text-sm text-stone-600 font-medium">成績を送信するために、あなたの情報を登録してください。（この端末に保存されます）</p>
+                <p data-i18n="profile_desc" class="text-sm text-stone-600 font-medium">成績を送信するために、あなたの情報を登録してください。（この端末に保存されます）</p>
                 
                 <div class="flex gap-3">
                     <div class="flex-1">
-                        <label class="block text-xs font-bold text-stone-500 mb-1">クラス</label>
-                        <input type="text" id="studentClassInput" placeholder="例: 1-A" class="w-full bg-[#faf8f5] border border-stone-300 rounded-sm p-2 text-stone-800 font-bold focus:outline-none focus:border-emerald-600 transition">
+                        <label data-i18n="profile_class" class="block text-xs font-bold text-stone-500 mb-1">クラス</label>
+                        <input type="text" id="studentClassInput" data-i18n-placeholder="profile_placeholder_class" placeholder="例: 1-A" class="w-full bg-[#faf8f5] border border-stone-300 rounded-sm p-2 text-stone-800 font-bold focus:outline-none focus:border-emerald-600 transition">
                     </div>
                     <div class="flex-1">
-                        <label class="block text-xs font-bold text-stone-500 mb-1">出席番号</label>
-                        <input type="number" id="studentNumInput" placeholder="例: 15" class="w-full bg-[#faf8f5] border border-stone-300 rounded-sm p-2 text-stone-800 font-bold focus:outline-none focus:border-emerald-600 transition">
+                        <label data-i18n="profile_num" class="block text-xs font-bold text-stone-500 mb-1">出席番号</label>
+                        <input type="number" id="studentNumInput" data-i18n-placeholder="profile_placeholder_num" placeholder="例: 15" class="w-full bg-[#faf8f5] border border-stone-300 rounded-sm p-2 text-stone-800 font-bold focus:outline-none focus:border-emerald-600 transition">
                     </div>
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-stone-500 mb-1">氏名</label>
-                    <input type="text" id="studentNameInput" placeholder="例: 岡崎 太郎" class="w-full bg-[#faf8f5] border border-stone-300 rounded-sm p-2 text-stone-800 font-bold focus:outline-none focus:border-emerald-600 transition">
+                    <label data-i18n="profile_name" class="block text-xs font-bold text-stone-500 mb-1">氏名</label>
+                    <input type="text" id="studentNameInput" data-i18n-placeholder="profile_placeholder_name" placeholder="例: 岡崎 太郎" class="w-full bg-[#faf8f5] border border-stone-300 rounded-sm p-2 text-stone-800 font-bold focus:outline-none focus:border-emerald-600 transition">
                 </div>
 
                 <button onclick="saveStudentProfile()" class="w-full mt-2 bg-emerald-800 hover:bg-emerald-900 text-white font-bold py-3 rounded-sm shadow-md transition-colors flex items-center justify-center gap-2">
-                    保存して始める
+                    <span data-i18n="profile_save">保存して始める</span>
                 </button>
             </div>
         </div>
@@ -467,7 +478,7 @@
         <div class="bg-white rounded-xl shadow-2xl w-full max-w-lg overflow-hidden border border-stone-200">
             <div class="bg-emerald-800 p-4 flex justify-between items-center text-white">
                 <h3 class="font-bold text-lg flex items-center gap-2">
-                    <span>📤</span> 先生に成績を送信
+                    <span>📤</span> <span data-i18n="ref_title">先生に成績を送信</span>
                 </h3>
                 <button onclick="closeReflectionModal()" class="text-white hover:text-stone-300 transition p-1">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
@@ -480,16 +491,16 @@
                 </div>
                 
                 <div>
-                    <label class="block text-sm font-bold text-stone-600 mb-2">今日の練習の振り返り（工夫した点、難しかった点など）</label>
-                    <textarea id="reflectionInput" rows="4" placeholder="例: イントネーションを意識してシャドーイングしました。関係代名詞のところでスピードが落ちてしまったので、次はそこを重点的に練習したいです。" class="w-full bg-[#faf8f5] border border-stone-300 rounded-sm p-3 text-stone-800 text-sm focus:outline-none focus:border-emerald-600 transition resize-none"></textarea>
+                    <label data-i18n="ref_desc" class="block text-sm font-bold text-stone-600 mb-2">今日の練習の振り返り（工夫した点、難しかった点など）</label>
+                    <textarea id="reflectionInput" data-i18n-placeholder="ref_placeholder_text" rows="4" placeholder="例: イントネーションを意識してシャドーイングしました。" class="w-full bg-[#faf8f5] border border-stone-300 rounded-sm p-3 text-stone-800 text-sm focus:outline-none focus:border-emerald-600 transition resize-none"></textarea>
                 </div>
 
                 <div class="flex gap-3 mt-2">
-                    <button onclick="closeReflectionModal()" class="flex-1 bg-stone-200 hover:bg-stone-300 text-stone-700 font-bold py-3 rounded-sm transition-colors">
+                    <button onclick="closeReflectionModal()" data-i18n="ref_cancel" class="flex-1 bg-stone-200 hover:bg-stone-300 text-stone-700 font-bold py-3 rounded-sm transition-colors">
                         キャンセル
                     </button>
                     <button onclick="submitScoreToForm()" id="finalSubmitBtn" class="flex-[2] bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-sm shadow-md transition-colors flex items-center justify-center gap-2">
-                        <span>🚀</span> この内容で送信する
+                        <span>🚀</span> <span data-i18n="ref_submit">この内容で送信する</span>
                     </button>
                 </div>
             </div>
@@ -499,17 +510,17 @@
     <div id="wpmGuideModal" class="fixed inset-0 bg-stone-900/80 z-[100] hidden flex justify-center items-center p-4 backdrop-blur-sm transition-opacity">
         <div class="bg-white p-6 md:p-8 rounded-sm iron-border max-w-md w-full relative">
             <h3 class="text-lg md:text-xl font-bold text-stone-800 mb-4 border-b-2 border-stone-100 pb-2 flex items-center gap-2">
-                <span class="text-2xl">⏱</span> WPMの目安
+                <span class="text-2xl">⏱</span> <span data-i18n="wpm_guide_title">WPMの目安</span>
             </h3>
-            <p class="text-xs text-stone-500 mb-4 font-bold">※WPM (Words Per Minute) ＝ 1分間に読む単語数</p>
+            <p data-i18n="wpm_guide_desc" class="text-xs text-stone-500 mb-4 font-bold">※WPM (Words Per Minute) ＝ 1分間に読む単語数</p>
             <ul class="space-y-4 text-sm md:text-base">
-                <li class="flex justify-between border-b border-stone-50 pb-2"><span>🐢 <b>80</b> WPM</span><span class="font-bold text-stone-500">ゆっくり (初心者)</span></li>
-                <li class="flex justify-between border-b border-stone-50 pb-2"><span>🚶 <b>100</b> WPM</span><span class="font-bold text-stone-600">標準的 (中学生レベル)</span></li>
-                <li class="flex justify-between border-b border-stone-50 pb-2"><span>🏃 <b>120</b> WPM</span><span class="font-bold text-emerald-600">流暢 (高校生・日常会話)</span></li>
-                <li class="flex justify-between border-b border-stone-50 pb-2"><span>🚀 <b>150</b> WPM</span><span class="font-bold text-purple-600">速い (ニュース・TOEIC)</span></li>
-                <li class="flex justify-between border-b border-stone-50 pb-2"><span>🔥 <b>180+</b> WPM</span><span class="font-bold text-red-500">超特急 (ネイティブの早口)</span></li>
+                <li class="flex justify-between border-b border-stone-50 pb-2"><span>🐢 <b>80</b> WPM</span><span data-i18n="wpm_80" class="font-bold text-stone-500">ゆっくり (初心者)</span></li>
+                <li class="flex justify-between border-b border-stone-50 pb-2"><span>🚶 <b>100</b> WPM</span><span data-i18n="wpm_100" class="font-bold text-stone-600">標準的 (中学生レベル)</span></li>
+                <li class="flex justify-between border-b border-stone-50 pb-2"><span>🏃 <b>120</b> WPM</span><span data-i18n="wpm_120" class="font-bold text-emerald-600">流暢 (高校生・日常会話)</span></li>
+                <li class="flex justify-between border-b border-stone-50 pb-2"><span>🚀 <b>150</b> WPM</span><span data-i18n="wpm_150" class="font-bold text-purple-600">速い (ニュース・TOEIC)</span></li>
+                <li class="flex justify-between border-b border-stone-50 pb-2"><span>🔥 <b>180+</b> WPM</span><span data-i18n="wpm_180" class="font-bold text-red-500">超特急 (ネイティブの早口)</span></li>
             </ul>
-            <button type="button" onclick="closeWpmGuide()" class="mt-6 w-full py-3 bg-stone-800 hover:bg-stone-700 transition text-white font-bold rounded-sm tracking-widest">閉じる</button>
+            <button type="button" onclick="closeWpmGuide()" data-i18n="btn_close" class="mt-6 w-full py-3 bg-stone-800 hover:bg-stone-700 transition text-white font-bold rounded-sm tracking-widest">閉じる</button>
         </div>
     </div>
 
@@ -518,61 +529,61 @@
             <button type="button" onclick="closeModeGuide()" class="absolute top-3 right-4 md:top-4 md:right-5 text-stone-400 hover:text-red-500 text-3xl font-bold transition">&times;</button>
             
             <h3 class="text-xl md:text-2xl font-bold text-stone-800 mb-2 border-b-2 border-stone-200 pb-2 flex items-center gap-2 serif-font">
-                <span class="text-3xl">🧭</span> Copeak 4-Step Learning Guide
+                <span class="text-3xl">🧭</span> <span data-i18n="mode_guide_title">Copeak 4-Step Learning Guide</span>
             </h3>
             
             <p class="text-xs md:text-sm text-red-700 font-bold mb-6 bg-red-50 p-3 rounded-sm border border-red-200 flex gap-2">
                 <span class="text-base">⚠️</span> 
-                <span>いきなり「Paced」や「Vanish」を行っても学習効果はありません。英文の内容を完全に理解し、Step 1 から順番に負荷を上げていきましょう。</span>
+                <span data-i18n="mode_guide_warning">いきなり「Paced」や「Vanish」を行っても学習効果はありません。英文の内容を完全に理解し、Step 1 から順番に負荷を上げていきましょう。</span>
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="bg-white p-4 md:p-5 rounded-sm border-l-4 border-stone-800 shadow-sm iron-border-sm flex flex-col">
                     <h4 class="font-bold text-stone-800 text-base md:text-lg flex justify-between items-center mb-2">
-                        <span>Step 1: 📖 Reading</span>
-                        <span class="text-[10px] bg-stone-100 px-2 py-1 rounded text-stone-500 uppercase tracking-widest">導入・意味理解</span>
+                        <span>Step 1: 📖 Read</span>
+                        <span data-i18n="mode_tag_1" class="text-[10px] bg-stone-100 px-2 py-1 rounded text-stone-500 uppercase tracking-widest">導入・意味理解</span>
                     </h4>
-                    <p class="text-xs md:text-sm text-stone-600 mb-3 flex-1"><strong class="text-stone-800">🔬 SLA科学的根拠:</strong><br>「Form-Meaning Mapping（形式と意味の結びつけ）」。文字と音声、そして「意味」を脳内で連結させる最初の土台作りです。</p>
+                    <p class="text-xs md:text-sm text-stone-600 mb-3 flex-1"><strong data-i18n="mode_sla" class="text-stone-800">🔬 SLA科学的根拠:</strong><br><span data-i18n="mode_desc_1">「Form-Meaning Mapping（形式と意味の結びつけ）」。文字と音声、そして「意味」を脳内で連結させる最初の土台作りです。</span></p>
                     <div class="bg-stone-50 p-2 rounded text-[11px] md:text-xs text-stone-700 font-bold border border-stone-200">
-                        🤔 内省チェック:<br>「英文の意味を100%理解し、つっかえずにスラスラ読めているか？」
+                        <span data-i18n="mode_check">🤔 内省チェック:</span><br><span data-i18n="mode_check_1">「英文の意味を100%理解し、つっかえずにスラスラ読めているか？」</span>
                     </div>
                 </div>
 
                 <div class="bg-white p-4 md:p-5 rounded-sm border-l-4 border-purple-600 shadow-sm iron-border-sm flex flex-col">
                     <h4 class="font-bold text-purple-900 text-base md:text-lg flex justify-between items-center mb-2">
                         <span>Step 2: ⚡️ Paced</span>
-                        <span class="text-[10px] bg-purple-50 px-2 py-1 rounded text-purple-600 uppercase tracking-widest">流暢さ・自動化</span>
+                        <span data-i18n="mode_tag_2" class="text-[10px] bg-purple-50 px-2 py-1 rounded text-purple-600 uppercase tracking-widest">流暢さ・自動化</span>
                     </h4>
-                    <p class="text-xs md:text-sm text-stone-600 mb-3 flex-1"><strong class="text-stone-800">🔬 SLA科学的根拠:</strong><br>「Automatization（自動化）」。強制的なペースで「返り読み」を物理的に防ぎ、英語を英語の語順のまま処理するスピードを鍛えます。</p>
+                    <p class="text-xs md:text-sm text-stone-600 mb-3 flex-1"><strong data-i18n="mode_sla" class="text-stone-800">🔬 SLA科学的根拠:</strong><br><span data-i18n="mode_desc_2">「Automatization（自動化）」。強制的なペースで「返り読み」を物理的に防ぎ、英語を英語の語順のまま処理するスピードを鍛えます。</span></p>
                     <div class="bg-purple-50 p-2 rounded text-[11px] md:text-xs text-purple-800 font-bold border border-purple-200">
-                        🤔 内省チェック:<br>「日本語に訳さず理解できているか？スピードに焦って発音が雑になっていないか？」
+                        <span data-i18n="mode_check">🤔 内省チェック:</span><br><span data-i18n="mode_check_2">「日本語に訳さず理解できているか？スピードに焦って発音が雑になっていないか？」</span>
                     </div>
                 </div>
 
                 <div class="bg-white p-4 md:p-5 rounded-sm border-l-4 border-stone-400 shadow-sm iron-border-sm flex flex-col">
                     <h4 class="font-bold text-stone-700 text-base md:text-lg flex justify-between items-center mb-2">
                         <span>Step 3: 🧠 Vanish</span>
-                        <span class="text-[10px] bg-stone-100 px-2 py-1 rounded text-stone-500 uppercase tracking-widest">記憶定着・内在化</span>
+                        <span data-i18n="mode_tag_3" class="text-[10px] bg-stone-100 px-2 py-1 rounded text-stone-500 uppercase tracking-widest">記憶定着・内在化</span>
                     </h4>
-                    <p class="text-xs md:text-sm text-stone-600 mb-3 flex-1"><strong class="text-stone-800">🔬 SLA科学的根拠:</strong><br>「Retrieval Practice（検索練習）」。文字という視覚ヒントを奪い、ワーキングメモリに負荷をかけることで長期記憶への定着を促します。</p>
+                    <p class="text-xs md:text-sm text-stone-600 mb-3 flex-1"><strong data-i18n="mode_sla" class="text-stone-800">🔬 SLA科学的根拠:</strong><br><span data-i18n="mode_desc_3">「Retrieval Practice（検索練習）」。文字という視覚ヒントを奪い、ワーキングメモリに負荷をかけることで長期記憶への定着を促します。</span></p>
                     <div class="bg-stone-100 p-2 rounded text-[11px] md:text-xs text-stone-700 font-bold border border-stone-300">
-                        🤔 内省チェック:<br>「単なる丸暗記ではなく、文脈や文法ルールから次の単語を予測して発話できているか？」
+                        <span data-i18n="mode_check">🤔 内省チェック:</span><br><span data-i18n="mode_check_3">「単なる丸暗記ではなく、文脈や文法ルールから次の単語を予測して発話できているか？」</span>
                     </div>
                 </div>
 
                 <div class="bg-white p-4 md:p-5 rounded-sm border-l-4 border-blue-500 shadow-sm iron-border-sm flex flex-col">
                     <h4 class="font-bold text-blue-900 text-base md:text-lg flex justify-between items-center mb-2">
                         <span>Step 4: 🎧 Shadowing</span>
-                        <span class="text-[10px] bg-blue-50 px-2 py-1 rounded text-blue-600 uppercase tracking-widest">音韻処理の極致</span>
+                        <span data-i18n="mode_tag_4" class="text-[10px] bg-blue-50 px-2 py-1 rounded text-blue-600 uppercase tracking-widest">音韻処理の極致</span>
                     </h4>
-                    <p class="text-xs md:text-sm text-stone-600 mb-3 flex-1"><strong class="text-stone-800">🔬 SLA科学的根拠:</strong><br>「Phonological Loop（音韻ループ）の強化」。ネイティブのプロソディ（抑揚・リズム）を完全に模倣し、音声処理を極限まで自動化させます。</p>
+                    <p class="text-xs md:text-sm text-stone-600 mb-3 flex-1"><strong data-i18n="mode_sla" class="text-stone-800">🔬 SLA科学的根拠:</strong><br><span data-i18n="mode_desc_4">「Phonological Loop（音韻ループ）の強化」。ネイティブのプロソディ（抑揚・リズム）を完全に模倣し、音声処理を極限まで自動化させます。</span></p>
                     <div class="bg-blue-50 p-2 rounded text-[11px] md:text-xs text-blue-800 font-bold border border-blue-200">
-                        🤔 内省チェック:<br>「手本と声が完全に重なっているか？音声に集中しながら意味も頭に浮かんでいるか？」
+                        <span data-i18n="mode_check">🤔 内省チェック:</span><br><span data-i18n="mode_check_4">「手本と声が完全に重なっているか？音声に集中しながら意味も頭に浮かんでいるか？」</span>
                     </div>
                 </div>
             </div>
             
-            <button type="button" onclick="closeModeGuide()" class="mt-6 md:mt-8 w-full py-3 bg-stone-800 hover:bg-stone-700 transition text-white font-bold rounded-sm tracking-widest uppercase text-sm md:text-base">
+            <button type="button" onclick="closeModeGuide()" data-i18n="btn_start_learning" class="mt-6 md:mt-8 w-full py-3 bg-stone-800 hover:bg-stone-700 transition text-white font-bold rounded-sm tracking-widest uppercase text-sm md:text-base">
                 理解して学習を始める
             </button>
         </div>
@@ -581,5 +592,6 @@
     <script src="storage.js"></script>
     <script src="ui.js"></script>
     <script src="speech.js"></script>
+    <script src="lang.js"></script>
 </body>
 </html>
