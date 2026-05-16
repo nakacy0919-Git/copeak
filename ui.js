@@ -445,24 +445,40 @@ function closeModeGuide() {
 }
 
 // ==========================================
-// ★追加: 共有リンク生成機能 (魔法のリンク)
+// ★修正: 共有リンク生成機能 (フォームURL自動付与版)
 // ==========================================
 function generateShareLink() {
     if (!currentCustomLesson) return;
     
     const baseUrl = window.location.origin + window.location.pathname;
-    const params = new URLSearchParams({
-        title: currentCustomLesson.title.replace('🔗 ', ''), 
+    
+    // 基本のパラメータ（タイトル、英文、言語）
+    const paramsConfig = {
+        title: currentCustomLesson.title.replace('🔗 ', ''), // 共有マークを除外
         eng: currentCustomLesson.eng,
         lang: currentCustomLesson.lang || 'en-US'
-    });
+    };
+
+    // 先生の端末にフォームURLが保存されていれば、自動的に追加する！
+    const savedFormUrl = localStorage.getItem('copeak_teacher_form_url');
+    if (savedFormUrl) {
+        paramsConfig.form = savedFormUrl;
+    }
     
+    const params = new URLSearchParams(paramsConfig);
     const shareUrl = `${baseUrl}?${params.toString()}`;
     
+    // クリップボードにコピー
     navigator.clipboard.writeText(shareUrl).then(() => {
-        showMsg("🔗 共有リンクをコピーしました！Classroom等に貼り付けてください");
+        if (typeof showMsg === 'function') {
+            if (savedFormUrl) {
+                showMsg("🔗 【成績送信付き】共有リンクをコピーしました！");
+            } else {
+                showMsg("🔗 共有リンクをコピーしました！（成績送信なし）");
+            }
+        }
     }).catch(err => {
-        showMsg("⚠️ リンクのコピーに失敗しました");
+        if (typeof showMsg === 'function') showMsg("⚠️ リンクのコピーに失敗しました");
     });
 }
 
@@ -592,7 +608,7 @@ async function submitScoreToForm() {
     finalSubmitBtn.disabled = true;
     finalSubmitBtn.innerHTML = "⏳ 送信中...";
 
-    // ★修正: index.htmlの正しいIDからデータを抽出
+    // index.htmlの正しいIDからデータを抽出
     const accuracy = document.getElementById('bigAccValue') ? document.getElementById('bigAccValue').innerText.replace('%', '') : '0';
     const wpm = document.getElementById('bigWpmValue') ? document.getElementById('bigWpmValue').innerText : '0';
     const comp = document.getElementById('bigCompValue') ? document.getElementById('bigCompValue').innerText.replace('%', '') : '0';
@@ -603,15 +619,19 @@ async function submitScoreToForm() {
     if (currentMode === 'memo') modeStr = 'Vanish';
     if (currentMode === 'paced') modeStr = 'Paced';
 
-    // ★修正: 不要なパラメータ(?usp=...)を切り捨てて、純粋な受信用URLを作る
+    // ★追加: 現在開いている教材のタイトルを取得し、共有マーク(🔗 )があれば綺麗に取り除く
+    const lessonTitle = currentCustomLesson.title.replace('🔗 ', '');
+
+    // 不要なパラメータ(?usp=...)を切り捨てて、純粋な受信用URLを作る
     let cleanFormUrl = currentCustomLesson.formUrl.split('?')[0]; 
     let postUrl = cleanFormUrl.replace('/viewform', '/formResponse');
 
-    // 先生から取得した固有のentry.IDをマッピング
+    // 固有のentry.IDをマッピング（新しい教材名用のIDを追加）
     const formData = new URLSearchParams();
     formData.append('entry.755665088', profile.class);
     formData.append('entry.70481568', profile.number);
     formData.append('entry.1056156063', profile.name);
+    formData.append('entry.1259267878', lessonTitle); // ★新設された「教材名」欄にタイトルを自動注入！
     formData.append('entry.145428349', accuracy);
     formData.append('entry.928123739', wpm);
     formData.append('entry.1611039041', comp);
@@ -641,5 +661,71 @@ async function submitScoreToForm() {
     } finally {
         finalSubmitBtn.disabled = false;
         finalSubmitBtn.innerHTML = "<span>🚀</span> この内容で送信する";
+    }
+}
+
+// ==========================================
+// ★追加: 先生用設定 (フォームURL) の保存と読み込み
+// ==========================================
+
+// ページ読み込み時に、保存されているフォームURLを復元する
+window.addEventListener('DOMContentLoaded', () => {
+    const savedFormUrl = localStorage.getItem('copeak_teacher_form_url');
+    const inputEl = document.getElementById('teacherFormUrlInput');
+    if (savedFormUrl && inputEl) {
+        inputEl.value = savedFormUrl;
+    }
+});
+
+// 保存ボタンが押されたときの処理
+function saveTeacherFormUrl() {
+    const inputUrl = document.getElementById('teacherFormUrlInput').value.trim();
+    
+    if (inputUrl === "") {
+        // 空欄で保存した場合は登録解除
+        localStorage.removeItem('copeak_teacher_form_url');
+        if (typeof showMsg === 'function') showMsg("🗑️ 成績回収フォームの登録を解除しました");
+        return;
+    }
+
+    if (!inputUrl.includes('docs.google.com/forms/')) {
+        alert("⚠️ 正しいGoogleフォームのURLを入力してください。");
+        return;
+    }
+
+    // ローカルストレージに保存
+    localStorage.setItem('copeak_teacher_form_url', inputUrl);
+    if (typeof showMsg === 'function') showMsg("✅ 成績回収フォームのURLを保存しました！");
+}
+// ==========================================
+// ★追加: 教員モード (Teacher Mode) の制御
+// ==========================================
+
+// ページ読み込み時に状態を復元（先生の端末は常にオンにしておくため）
+window.addEventListener('DOMContentLoaded', () => {
+    const isTeacherMode = localStorage.getItem('copeak_teacher_mode') === 'true';
+    const area = document.getElementById('teacherModeArea');
+    if (area) {
+        area.style.display = isTeacherMode ? 'flex' : 'none';
+    }
+});
+
+// フッターの秘密のボタンが押されたときの処理
+function toggleTeacherMode() {
+    const area = document.getElementById('teacherModeArea');
+    if (!area) return;
+
+    if (area.style.display === 'none' || area.style.display === '') {
+        // パスワードの代わりに、確認アラートで生徒の誤操作を防ぐ
+        const confirmOpen = confirm("教員用の教材作成・設定メニューを開きますか？\n（生徒には操作させないでください）");
+        if (confirmOpen) {
+            area.style.display = 'flex';
+            localStorage.setItem('copeak_teacher_mode', 'true');
+            if (typeof showMsg === 'function') showMsg("🔓 教員モードをオンにしました");
+        }
+    } else {
+        area.style.display = 'none';
+        localStorage.setItem('copeak_teacher_mode', 'false');
+        if (typeof showMsg === 'function') showMsg("🔒 教員モードをオフにしました（生徒用画面）");
     }
 }
