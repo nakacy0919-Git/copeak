@@ -362,8 +362,8 @@ async function injectPresetLessons() {
         },
         {
             title: "🕊️ Malala Yousafzai - UN Speech",
-            eng: "Dear friends, on the 9th of October 2012, the Taliban shot me on the left side of my forehead. They shot my friends too. They thought that the bullets would silence us. But they failed.",
-            jpn: "親愛なる友人たちへ。2012年10月9日、タリバンは私の額の左側を撃ちました。私の友人たちも撃たれました。彼らは銃弾で私たちを沈黙させられると考えたのです。しかし、彼らは失敗しました。",
+            eng: "On the 9th of October 2012, the Taliban shot me on the left side of my forehead. They shot my friends too. They thought that the bullets would silence us. But they failed.",
+            jpn: "2012年10月9日、タリバンは私の額の左側を撃ちました。私の友人たちも撃たれました。彼らは銃弾で私たちを沈黙させられると考えたのです。しかし、彼らは失敗しました。",
             lang: "en-US",
             langName: "🇺🇸 English (US)",
             audioPath: './audio/malala.mp3',
