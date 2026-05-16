@@ -728,3 +728,97 @@ function toggleTeacherMode() {
         if (typeof showMsg === 'function') showMsg("🔒 教員モードをオフにしました（生徒用画面）");
     }
 }
+
+// ==========================================
+// ★追加: オープニング スプラッシュスクリーン (音声なし・豪華アニメーション完全版)
+// ==========================================
+window.addEventListener('DOMContentLoaded', () => {
+    // 1. アニメーション用のCSSを裏側で生成して追加
+    const style = document.createElement('style');
+    style.innerHTML = `
+        /* 全体の登場・ワープアニメーション */
+        @keyframes splashEntrance {
+            0% { opacity: 0; transform: translateY(40px) scale(0.9); filter: blur(10px); }
+            100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+        }
+        @keyframes warpExit {
+            0% { transform: scale(1); opacity: 1; filter: blur(0); }
+            20% { transform: scale(0.95); opacity: 1; filter: blur(0); } /* 一瞬引くタメ */
+            100% { transform: scale(6); opacity: 0; filter: blur(20px); visibility: hidden; } /* 手前にワープ */
+        }
+        .animate-splash-entrance {
+            animation: splashEntrance 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s forwards;
+        }
+        .warp-animation {
+            animation: warpExit 1.2s cubic-bezier(0.7, 0, 0.2, 1) forwards;
+            pointer-events: none;
+        }
+
+        /* 先生ご指定のテキストアニメーション */
+        .mach-anim-text {
+            display: inline-block;
+            font-size: 2rem; /* スマホでもはみ出さないサイズに微調整 */
+            font-weight: 900;
+            color: white;
+            position: relative;
+            font-family: 'Lora', serif; /* Copeakのブランドフォントに合わせる */
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        @media (min-width: 768px) {
+            .mach-anim-text { font-size: 3rem; } /* PCでは大きく */
+        }
+        .mach-anim-text span {
+            display: inline-block;
+            animation: mach-text-fade-up 1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+            /* スプラッシュ全体の登場を少し待ってから文字を出し始める (+0.5s) */
+            animation-delay: calc(0.5s + (var(--char-index) * 0.05s));
+        }
+        @keyframes mach-text-fade-up {
+            0% { opacity: 0; transform: translateY(20px); filter: blur(5px); }
+            100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+    `;
+    document.head.appendChild(style);
+
+    // 2. スプラッシュ画面のHTML要素を裏側で組み立てる
+    const splash = document.createElement('div');
+    splash.id = 'dynamicSplashScreen';
+    splash.className = 'fixed inset-0 z-[9999] flex flex-col items-center justify-center overflow-hidden transition-colors duration-1000';
+    splash.style.background = 'radial-gradient(circle at center, #0f172a 0%, #020617 100%)';
+    
+    splash.innerHTML = `
+        <div class="absolute inset-0 z-0 flex items-center justify-center opacity-40 pointer-events-none">
+            <div class="w-[40rem] h-[40rem] bg-emerald-500/20 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute w-[30rem] h-[30rem] bg-blue-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+        </div>
+
+        <div id="splashContent" class="relative z-10 flex flex-col items-center opacity-0 animate-splash-entrance">
+            <img src="logo.png" alt="Copeak Logo" class="w-40 md:w-56 mb-4 drop-shadow-2xl">
+            
+            <p class="text-emerald-400 font-bold tracking-[0.3em] uppercase text-[10px] md:text-xs mb-6 opacity-80">English Shadowing Platform</p>
+            
+            <div class="mach-anim-text mb-12 text-center" role="text" aria-label="Welcome to Copeak!">
+                <span style="--char-index: 0;">W</span><span style="--char-index: 1;">e</span><span style="--char-index: 2;">l</span><span style="--char-index: 3;">c</span><span style="--char-index: 4;">o</span><span style="--char-index: 5;">m</span><span style="--char-index: 6;">e</span>
+                <span style="--char-index: 7; margin-left: 0.4em;">t</span><span style="--char-index: 8;">o</span>
+                <span style="--char-index: 9; margin-left: 0.4em; color: #34d399;">C</span><span style="--char-index: 10; color: #34d399;">o</span><span style="--char-index: 11; color: #34d399;">p</span><span style="--char-index: 12; color: #34d399;">e</span><span style="--char-index: 13; color: #34d399;">a</span><span style="--char-index: 14; color: #34d399;">k</span><span style="--char-index: 15; color: #34d399;">!</span>
+            </div>
+            
+            <button id="enterCopeakBtn" class="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/30 text-white rounded-full backdrop-blur-md font-bold text-lg md:text-xl transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_30px_rgba(16,185,129,0.4)] flex items-center gap-3 group">
+                <span class="tracking-widest">ENTER COPEAK</span>
+                <span class="group-hover:translate-x-1 transition-transform">➔</span>
+            </button>
+        </div>
+    `;
+    document.body.appendChild(splash);
+
+    // 3. ボタンを押した時の「吸い込まれる」処理（音声なし）
+    document.getElementById('enterCopeakBtn').addEventListener('click', () => {
+        // ワープアニメーションを発動
+        splash.classList.add('warp-animation');
+        
+        // 1.2秒後（吸い込まれ終わった後）に、この画面自体を完全に消去して軽くする
+        setTimeout(() => {
+            splash.remove();
+        }, 1200);
+    });
+});
