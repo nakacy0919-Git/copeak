@@ -555,8 +555,9 @@ function saveStudentProfile() {
 
 // 3. 振り返りモーダルを開き、現在のスコアをプレビュー表示
 function openReflectionModal() {
-    const scoreText = document.getElementById('resultScore') ? document.getElementById('resultScore').innerText : '--%';
-    const wpmText = document.getElementById('resultWpm') ? document.getElementById('resultWpm').innerText : '--';
+    // ★修正: index.htmlの正しいID (bigAccValue, bigWpmValue) に合わせました
+    const scoreText = document.getElementById('bigAccValue') ? document.getElementById('bigAccValue').innerText : '--%';
+    const wpmText = document.getElementById('bigWpmValue') ? document.getElementById('bigWpmValue').innerText : '--';
     
     let modeStr = '📖 Read';
     if (currentMode === 'shadowing') modeStr = '🎧 Shadowing';
@@ -583,18 +584,18 @@ async function submitScoreToForm() {
 
     const reflection = document.getElementById('reflectionInput').value.trim();
     if (!reflection) {
-        alert("練習の振り返りを入力してください（先生に送信されます）。");
+        if (typeof showMsg === 'function') showMsg("⚠️ 振り返りを入力してください");
         return;
     }
 
     const finalSubmitBtn = document.getElementById('finalSubmitBtn');
     finalSubmitBtn.disabled = true;
-    finalSubmitBtn.innerText = "⏳ 送信中...";
+    finalSubmitBtn.innerHTML = "⏳ 送信中...";
 
-    // データの抽出
-    const accuracy = document.getElementById('resultScore') ? document.getElementById('resultScore').innerText.replace('%', '') : '0';
-    const wpm = document.getElementById('resultWpm') ? document.getElementById('resultWpm').innerText : '0';
-    const comp = document.getElementById('resultComp') ? document.getElementById('resultComp').innerText.replace('%', '') : '0';
+    // ★修正: index.htmlの正しいIDからデータを抽出
+    const accuracy = document.getElementById('bigAccValue') ? document.getElementById('bigAccValue').innerText.replace('%', '') : '0';
+    const wpm = document.getElementById('bigWpmValue') ? document.getElementById('bigWpmValue').innerText : '0';
+    const comp = document.getElementById('bigCompValue') ? document.getElementById('bigCompValue').innerText.replace('%', '') : '0';
     const playCount = currentCustomLesson.history ? currentCustomLesson.history.length : 1;
 
     let modeStr = 'Read';
@@ -602,8 +603,9 @@ async function submitScoreToForm() {
     if (currentMode === 'memo') modeStr = 'Vanish';
     if (currentMode === 'paced') modeStr = 'Paced';
 
-    // 先生のフォームURLを、送信専用の「formResponse」URLに変形する
-    let postUrl = currentCustomLesson.formUrl.replace('/viewform', '/formResponse');
+    // ★修正: 不要なパラメータ(?usp=...)を切り捨てて、純粋な受信用URLを作る
+    let cleanFormUrl = currentCustomLesson.formUrl.split('?')[0]; 
+    let postUrl = cleanFormUrl.replace('/viewform', '/formResponse');
 
     // 先生から取得した固有のentry.IDをマッピング
     const formData = new URLSearchParams();
@@ -627,13 +629,13 @@ async function submitScoreToForm() {
         });
 
         // no-corsモードは成功を検知できない仕様のため、送信を試みたら成功とみなす
-        showMsg("🚀 成績と内省を先生に送信しました！");
+        if (typeof showMsg === 'function') showMsg("🚀 成績と内省を先生に送信しました！");
         closeReflectionModal();
         
         // 提出ボタンを隠す（2重送信防止）
-        if(document.getElementById('submitScoreTriggerBtn')) {
-            document.getElementById('submitScoreTriggerBtn').classList.add('hidden');
-        }
+        const triggerBtn = document.getElementById('submitScoreTriggerBtn');
+        if(triggerBtn) triggerBtn.classList.add('hidden');
+        
     } catch (error) {
         alert("⚠️ 送信に失敗しました。電波の良いところで再度お試しください。");
     } finally {
