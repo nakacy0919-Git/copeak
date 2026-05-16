@@ -445,7 +445,7 @@ function closeModeGuide() {
 }
 
 // ==========================================
-// ★修正: 共有リンク生成機能 (短縮URL自動変換 ＋ フォームURL付与)
+// ★修正: 共有リンク生成機能 (TinyURLに変更して警告画面を回避)
 // ==========================================
 async function generateShareLink() {
     if (!currentCustomLesson) return;
@@ -476,21 +476,26 @@ async function generateShareLink() {
     });
 
     try {
-        // 無料の短縮URL API (is.gd) を使用して裏側で短縮！
-        const response = await fetch(`https://is.gd/create.php?format=json&url=${encodeURIComponent(longUrl)}`);
-        const data = await response.json();
+        // ★変更: is.gd から TinyURL API に変更（プレビュー画面を回避するため）
+        const response = await fetch(`https://tinyurl.com/api-create.php?url=${encodeURIComponent(longUrl)}`);
+        let finalUrl = longUrl; // 初期値は長いURL
         
-        // 短縮成功時は短縮URL、失敗時（テキストが長すぎる等）は元の長いURLを使う
-        const finalUrl = data.shorturl ? data.shorturl : longUrl;
+        if (response.ok) {
+            const shortUrl = await response.text();
+            // TinyURLはプレーンテキストでURLを返してくる
+            if (shortUrl && shortUrl.startsWith('http')) {
+                finalUrl = shortUrl;
+            }
+        }
 
         // クリップボードにコピー
         await navigator.clipboard.writeText(finalUrl);
         
         if (typeof showMsg === 'function') {
             if (savedFormUrl) {
-                showMsg(data.shorturl ? "🔗 【成績送信付き】短縮リンクをコピーしました！" : "🔗 【成績送信付き】リンクをコピーしました！");
+                showMsg(finalUrl !== longUrl ? "🔗 【成績送信付き】短縮リンクをコピーしました！" : "🔗 【成績送信付き】リンクをコピーしました！");
             } else {
-                showMsg(data.shorturl ? "🔗 短縮リンクをコピーしました！" : "🔗 リンクをコピーしました！");
+                showMsg(finalUrl !== longUrl ? "🔗 短縮リンクをコピーしました！" : "🔗 リンクをコピーしました！");
             }
         }
     } catch (err) {
