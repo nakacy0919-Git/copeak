@@ -108,6 +108,13 @@
                 </div>
             </div>
             <div class="flex items-center gap-2">
+                <button id="btn-open-trouble" class="text-red-600 hover:bg-red-50 transition-all bg-white/95 px-3 py-2 md:px-4 md:py-2.5 rounded-full backdrop-blur-sm shadow-md border-2 border-red-300 flex items-center justify-center gap-2 animate-pulse hover:animate-none z-50" title="Troubleshooting">
+                    <span class="text-xl md:text-2xl leading-none">🆘</span>
+                    <div class="flex flex-col text-left">
+                        <span class="text-[11px] md:text-xs font-black leading-tight">音声トラブル時はこちら</span>
+                        <span class="text-[9px] md:text-[10px] font-bold text-gray-500 leading-tight">（iPad・iPhone用）</span>
+                    </div>
+                </button>
                 <select id="appLangSelector" onchange="if(typeof changeAppLanguage === 'function') changeAppLanguage(this.value)" class="text-xs font-bold bg-[#faf8f5] border-2 border-stone-800 text-stone-800 rounded-sm px-2 py-1 outline-none cursor-pointer">
                     <option value="ja">🇯🇵 日本語</option>
                     <option value="en">🇺🇸 English</option>
@@ -205,7 +212,7 @@
                 <div class="flex-1 flex flex-col">
                     <label data-i18n="form_label_text" class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Target Text (学習テキスト)</label>
                     <textarea id="customEng" data-i18n-placeholder="form_placeholder_eng" placeholder="英語などのスクリプトを貼り付け" required 
-                              class="w-full h-32 lg:flex-1 p-3 md:p-4 bg-[#faf8f5] border border-stone-300 rounded-sm focus:ring-2 focus:ring-emerald-800 outline-none transition resize-y text-base md:text-lg"></textarea>
+          class="w-full h-48 md:h-64 p-3 md:p-4 bg-[#faf8f5] border border-stone-300 rounded-sm focus:ring-2 focus:ring-emerald-800 outline-none transition resize-y text-base md:text-lg"></textarea>
                 </div>
                 <div>
                     <label data-i18n="form_label_translation" class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Translation (日本語訳など)</label>
@@ -588,7 +595,63 @@
             </button>
         </div>
     </div>
+<div id="modeGuideModal" class="fixed inset-0 bg-stone-900/80 z-[100] hidden flex justify-center items-center p-4 backdrop-blur-sm transition-opacity">
+        </div>
 
+<div id="trouble-modal" class="absolute inset-0 z-50 bg-black/60 backdrop-blur-md flex flex-col items-center justify-start pt-12 md:pt-20 hidden">
+                <div class="bg-white p-6 md:p-10 rounded-3xl shadow-2xl w-11/12 max-w-5xl border border-gray-100 relative flex flex-col max-h-[85vh]">
+                    <button id="btn-close-trouble" class="absolute top-4 right-4 md:top-6 md:right-6 text-gray-400 hover:text-gray-800 font-bold text-3xl md:text-4xl">&times;</button>
+                    <h3 class="text-xl md:text-2xl font-black mb-4 md:mb-6 text-gray-900 border-b pb-3 text-center flex items-center justify-center gap-2"><span class="text-2xl md:text-3xl">🆘</span> 音声認識トラブル対応</h3>
+                    
+                    <div id="trouble-slides" class="relative w-full flex-1 min-h-[400px] md:min-h-[550px]">
+                        
+                        <div class="trouble-slide absolute inset-0 flex flex-col items-center justify-start opacity-100 z-10 transition-opacity duration-300">
+                            <img src="assets/images/ipad1.webp" class="h-56 md:h-[420px] w-full object-contain mb-5 md:mb-6 rounded-xl shadow-sm border border-gray-200 bg-gray-50">
+                            <div class="w-full text-left px-2 md:px-8">
+                                <h4 class="font-black text-red-600 text-lg md:text-2xl mb-2">STEP 1: iPadOSを最新にする</h4>
+                                <p class="text-sm md:text-lg text-gray-700 font-medium leading-relaxed">「設定」＞「一般」＞「ソフトウェアアップデート」を確認。システムが古いとマイクが反応しないことがあります。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="trouble-slide absolute inset-0 flex flex-col items-center justify-start opacity-0 z-0 pointer-events-none transition-opacity duration-300">
+                            <img src="assets/images/ipad2.webp" class="h-56 md:h-[420px] w-full object-contain mb-5 md:mb-6 rounded-xl shadow-sm border border-gray-200 bg-gray-50">
+                            <div class="w-full text-left px-2 md:px-8">
+                                <h4 class="font-black text-red-600 text-lg md:text-2xl mb-2">STEP 2: プライバシー設定を開く</h4>
+                                <p class="text-sm md:text-lg text-gray-700 font-medium leading-relaxed">iPadの「設定」アプリから、左メニューを下へスクロールして「プライバシーとセキュリティ」をタップします。</p>
+                            </div>
+                        </div>
+
+                        <div class="trouble-slide absolute inset-0 flex flex-col items-center justify-start opacity-0 z-0 pointer-events-none transition-opacity duration-300">
+                            <img src="assets/images/ipad3.webp" class="h-56 md:h-[420px] w-full object-contain mb-5 md:mb-6 rounded-xl shadow-sm border border-gray-200 bg-gray-50">
+                            <div class="w-full text-left px-2 md:px-8">
+                                <h4 class="font-black text-red-600 text-lg md:text-2xl mb-2">STEP 3: 音声認識をタップ</h4>
+                                <p class="text-sm md:text-lg text-gray-700 font-medium leading-relaxed">右側に表示されるメニューの中から、「音声認識」を探してタップします。<br><span class="text-xs md:text-sm text-gray-500">※「マイク」の項目も合わせて確認してください。</span></p>
+                            </div>
+                        </div>
+
+                        <div class="trouble-slide absolute inset-0 flex flex-col items-center justify-start opacity-0 z-0 pointer-events-none transition-opacity duration-300">
+                            <img src="assets/images/ipad4.webp" class="h-56 md:h-[420px] w-full object-contain mb-5 md:mb-6 rounded-xl shadow-sm border border-gray-200 bg-gray-50">
+                            <div class="w-full text-left px-2 md:px-8">
+                                <h4 class="font-black text-red-600 text-lg md:text-2xl mb-2">STEP 4: ブラウザの許可を「オン」</h4>
+                                <p class="text-sm md:text-lg text-gray-700 font-medium leading-relaxed">普段使っているブラウザ（SafariやChrome）の右側のスイッチが<strong>「オン（緑色）」</strong>になっているか確認してください。</p>
+                            </div>
+                        </div>
+
+                        <div class="trouble-slide absolute inset-0 flex flex-col items-center justify-start opacity-0 z-0 pointer-events-none transition-opacity duration-300">
+                            <img src="assets/images/ipad5.webp" class="h-56 md:h-[420px] w-full object-contain mb-5 md:mb-6 rounded-xl shadow-sm border border-gray-200 bg-gray-50">
+                            <div class="w-full text-left px-2 md:px-8">
+                                <h4 class="font-black text-red-600 text-lg md:text-2xl mb-2">STEP 5: ダメなら「再起動」！</h4>
+                                <p class="text-sm md:text-lg text-gray-700 font-medium leading-relaxed">💡 <strong>魔法の解決策：</strong>これでも反応しない場合は、<strong>一度iPadの電源を完全に切り、再起動</strong>してみてください。多くの場合これで直ります！</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-between w-full mt-4 md:mt-6 shrink-0 px-2 md:px-8">
+                        <button id="btn-prev-trouble" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 md:px-10 py-3 md:py-4 rounded-full font-bold transition-colors md:text-lg">戻る</button>
+                        <button id="btn-next-trouble" class="bg-blue-600 hover:bg-blue-700 text-white px-6 md:px-10 py-3 md:py-4 rounded-full font-bold transition-colors shadow-md md:text-lg">次へ</button>
+                    </div>
+                </div>
+            </div>
     <script src="storage.js"></script>
     <script src="ui.js"></script>
     <script src="speech.js"></script>
