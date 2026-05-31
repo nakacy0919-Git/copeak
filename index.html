@@ -101,7 +101,6 @@
         <div class="flex items-center justify-between mb-6 md:mb-8 border-b-2 border-stone-200 pb-4">
             <div class="flex items-center gap-3 md:gap-4">
                 <img src="logo.png" alt="Copeak Logo" class="w-10 h-10 md:w-14 md:h-14 object-contain">
-                
                 <div class="flex flex-col sm:flex-row sm:items-baseline sm:gap-3">
                     <h1 class="text-2xl md:text-4xl font-bold text-stone-900 serif-font tracking-wide">Copeak</h1>
                     <p class="text-[10px] md:text-sm text-emerald-700 font-bold tracking-tight opacity-80 uppercase">AI English Shadowing Platform</p>
@@ -137,7 +136,63 @@
                 <li><strong class="text-stone-900" data-i18n="warning_pc_bold">PCの方:</strong> <span data-i18n="warning_pc_desc">ブックマークに登録し、常に同じブラウザを使用してください。</span></li>
             </ul>
         </div>
-        
+
+        <div class="bg-white p-6 md:p-8 mb-8 rounded-sm iron-border-sm flex flex-col gap-6 relative overflow-hidden">
+            <div class="absolute -right-4 -top-4 text-stone-100 text-9xl z-0 opacity-50 pointer-events-none">📈</div>
+
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b-2 border-stone-200 pb-3 relative z-10">
+                <h3 class="font-bold text-stone-800 text-lg md:text-xl flex items-center gap-2 serif-font">
+                    🎯 <span data-i18n="target_score_title">Target Scores (目標ランク)</span>
+                </h3>
+                <button id="btn-open-sla-modal" class="bg-stone-800 hover:bg-stone-700 text-white text-[10px] md:text-xs font-bold px-4 py-2 rounded-sm transition shadow-md flex items-center gap-1 animate-pulse hover:animate-none">
+                    <span>🧠</span> 脳内処理の解説を見る
+                </button>
+            </div>
+            
+            <p id="level-mission-desc" class="text-xs md:text-sm text-stone-600 leading-relaxed font-medium bg-stone-50 p-3 rounded-sm border border-stone-200 relative z-10">
+                【音声化の第1歩】まずは英語の「音」を恐れずに声に出す段階です。1秒に1単語のペースで、ゆっくり確実に文字を音に変えていきましょう！
+            </p>
+
+            <div class="flex bg-stone-100 p-1 rounded-sm iron-border-sm w-full overflow-x-auto gap-1 relative z-10">
+                <button id="btn-lv1" onclick="switchTargetLevel(1)" class="flex-1 px-2 py-2 rounded-sm font-bold text-[10px] md:text-xs transition-all duration-200 bg-stone-800 text-white shadow-md whitespace-nowrap">Lv.1 Starter</button>
+                <button id="btn-lv2" onclick="switchTargetLevel(2)" class="flex-1 px-2 py-2 rounded-sm font-bold text-[10px] md:text-xs transition-all duration-200 text-stone-500 hover:text-stone-800 whitespace-nowrap">Lv.2 Learner</button>
+                <button id="btn-lv3" onclick="switchTargetLevel(3)" class="flex-1 px-2 py-2 rounded-sm font-bold text-[10px] md:text-xs transition-all duration-200 text-stone-500 hover:text-stone-800 whitespace-nowrap">Lv.3 Runner</button>
+                <button id="btn-lv4" onclick="switchTargetLevel(4)" class="flex-1 px-2 py-2 rounded-sm font-bold text-[10px] md:text-xs transition-all duration-200 text-stone-500 hover:text-stone-800 whitespace-nowrap">Lv.4 Expert</button>
+                <button id="btn-lv5" onclick="switchTargetLevel(5)" class="flex-1 px-2 py-2 rounded-sm font-bold text-[10px] md:text-xs transition-all duration-200 text-stone-500 hover:text-stone-800 whitespace-nowrap">Lv.5 Master</button>
+            </div>
+
+            <div class="bg-stone-900 p-4 md:p-6 rounded-xl shadow-2xl border-2 border-stone-700 flex flex-col relative gap-4 w-full z-10">
+                <div class="flex flex-row justify-around items-center w-full border-b border-stone-800 pb-4">
+                    <div class="text-center w-1/3">
+                        <div class="text-stone-400 font-bold tracking-widest text-[9px] md:text-xs mb-1 uppercase">Accuracy</div>
+                        <div id="target-acc" class="text-3xl sm:text-4xl md:text-5xl font-bold text-emerald-400 serif-font drop-shadow-md transition-all duration-300">60%</div>
+                    </div>
+                    <div class="text-center w-1/3 border-l border-r border-stone-700 px-2">
+                        <div class="text-stone-400 font-bold tracking-widest text-[9px] md:text-xs mb-1 uppercase">WPM</div>
+                        <div id="target-wpm" class="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-400 serif-font drop-shadow-md transition-all duration-300">60</div>
+                    </div>
+                    <div class="text-center w-1/3">
+                        <div class="text-stone-400 font-bold tracking-widest text-[9px] md:text-xs mb-1 uppercase">Comp.</div>
+                        <div id="target-comp" class="text-3xl sm:text-4xl md:text-5xl font-bold text-yellow-400 serif-font drop-shadow-md transition-all duration-300">70%</div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row w-full gap-4 md:gap-6 pt-2 h-[380px] md:h-64">
+                    <div class="w-full md:w-1/2 h-48 md:h-full relative z-10">
+                        <canvas id="targetScoreChart"></canvas>
+                    </div>
+                    <div class="w-full md:w-1/2 h-48 md:h-full flex flex-col bg-stone-900 rounded-xl border-2 border-stone-700 cursor-pointer group overflow-hidden transition-all duration-300 hover:border-emerald-500 hover:shadow-[0_0_15px_rgba(52,211,153,0.3)] z-10" onclick="openSlaModalAtCurrent()" title="クリックして大画面で解説を見る">
+                        <div class="w-full flex-1 relative bg-white flex items-center justify-center overflow-hidden pointer-events-none">
+                            <img id="level-preview-img" src="assets/images/level1.webp" alt="Level Image" class="absolute w-full h-full object-contain p-1 group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="w-full py-2.5 bg-stone-900 border-t border-stone-800 flex justify-center items-center text-stone-400 text-[10px] md:text-xs font-bold group-hover:text-emerald-400 transition-colors shrink-0 pointer-events-none">
+                            <span class="text-sm">🔍</span> 画像をタップして拡大解説を見る
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div id="teacherModeArea" class="flex-col gap-6 w-full mb-8" style="display: none;">
             <div class="bg-blue-50 border border-blue-200 p-4 md:p-6 rounded-sm shadow-sm flex flex-col gap-4 iron-border-sm">
                 <div>
@@ -148,7 +203,6 @@
                         全国の先生方がこのシステムを使うための2ステップです。一度設定すれば、以後は共有リンクに自動で成績送信機能が付与されます。
                     </p>
                 </div>
-                
                 <div class="flex flex-col md:flex-row gap-6">
                     <div class="flex-1 bg-white p-4 rounded-sm border border-blue-200 shadow-sm flex flex-col">
                         <div class="font-bold text-blue-800 text-xs md:text-sm mb-2 flex items-center gap-2">
@@ -159,7 +213,6 @@
                             📑 <span data-i18n="teacher_step1_btn">マスターフォームをコピー</span>
                         </a>
                     </div>
-
                     <div class="flex-1 bg-white p-4 rounded-sm border border-blue-200 shadow-sm flex flex-col">
                         <div class="font-bold text-blue-800 text-xs md:text-sm mb-2 flex items-center gap-2">
                             <span class="bg-blue-600 text-white px-2 py-0.5 rounded-sm tracking-widest uppercase text-[10px]">Step 2</span> <span data-i18n="teacher_step2_title">URLの登録</span>
@@ -175,7 +228,8 @@
                 </div>
             </div>
         </div>
-        <form id="customMaterialForm" class="bg-white p-6 md:p-8 rounded-sm iron-border-sm flex flex-col lg:flex-row gap-8 flex-1">
+
+        <form id="customMaterialForm" class="bg-white p-6 md:p-8 rounded-sm iron-border-sm flex flex-col lg:flex-row gap-8 flex-1 relative z-10">
             <div class="flex-1 space-y-6">
                 <h2 class="text-lg md:text-xl font-bold text-stone-800 serif-font flex items-center gap-2 mb-2">
                     <span class="text-emerald-800">🌿</span> <span data-i18n="form_title">Create / Edit Material</span>
@@ -212,7 +266,7 @@
                 <div class="flex-1 flex flex-col">
                     <label data-i18n="form_label_text" class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Target Text (学習テキスト)</label>
                     <textarea id="customEng" data-i18n-placeholder="form_placeholder_eng" placeholder="英語などのスクリプトを貼り付け" required 
-          class="w-full h-48 md:h-64 p-3 md:p-4 bg-[#faf8f5] border border-stone-300 rounded-sm focus:ring-2 focus:ring-emerald-800 outline-none transition resize-y text-base md:text-lg"></textarea>
+                              class="w-full h-48 md:h-64 p-3 md:p-4 bg-[#faf8f5] border border-stone-300 rounded-sm focus:ring-2 focus:ring-emerald-800 outline-none transition resize-y text-base md:text-lg"></textarea>
                 </div>
                 <div>
                     <label data-i18n="form_label_translation" class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Translation (日本語訳など)</label>
@@ -230,12 +284,12 @@
             </div>
         </form>
 
-        <div class="mt-8 md:mt-12 mb-4 md:mb-6 border-b-2 border-stone-200 pb-2">
+        <div class="mt-8 md:mt-12 mb-4 md:mb-6 border-b-2 border-stone-200 pb-2 relative z-10">
             <h2 class="text-xl md:text-2xl font-bold text-stone-800 serif-font">📚 <span data-i18n="playlist_title">Playlist</span></h2>
         </div>
-        <div id="savedLessonsList" class="grid grid-cols-1 md:grid-cols-2 gap-4 pb-4"></div>
+        <div id="savedLessonsList" class="grid grid-cols-1 md:grid-cols-2 gap-4 pb-4 relative z-10"></div>
 
-        <div class="mt-8 md:mt-12 pt-6 border-t border-stone-200 flex flex-col xl:flex-row justify-between items-center gap-6 text-xs md:text-sm text-stone-500 font-medium">
+        <div class="mt-8 md:mt-12 pt-6 border-t border-stone-200 flex flex-col xl:flex-row justify-between items-center gap-6 text-xs md:text-sm text-stone-500 font-medium relative z-10">
             <div class="flex flex-wrap justify-center xl:justify-start gap-x-4 md:gap-x-6 gap-y-3">
                 <a href="https://www.pic-speak-story.com/index.html" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-700 transition flex items-center gap-1">
                     <span class="text-base">🏠</span> <span data-i18n="footer_picspeak">PicSpeak (スピーキング)</span>
@@ -534,16 +588,13 @@
     <div id="modeGuideModal" class="fixed inset-0 bg-stone-900/80 z-[100] hidden flex justify-center items-center p-4 backdrop-blur-sm transition-opacity">
         <div class="bg-[#faf8f5] p-6 md:p-8 rounded-sm iron-border max-w-4xl w-full relative max-h-[90vh] overflow-y-auto">
             <button type="button" onclick="closeModeGuide()" class="absolute top-3 right-4 md:top-4 md:right-5 text-stone-400 hover:text-red-500 text-3xl font-bold transition">&times;</button>
-            
             <h3 class="text-xl md:text-2xl font-bold text-stone-800 mb-2 border-b-2 border-stone-200 pb-2 flex items-center gap-2 serif-font">
                 <span class="text-3xl">🧭</span> <span data-i18n="mode_guide_title">Copeak 4-Step Learning Guide</span>
             </h3>
-            
             <p class="text-xs md:text-sm text-red-700 font-bold mb-6 bg-red-50 p-3 rounded-sm border border-red-200 flex gap-2">
                 <span class="text-base">⚠️</span> 
                 <span data-i18n="mode_guide_warning">いきなり「Paced」や「Vanish」を行っても学習効果はありません。英文の内容を完全に理解し、Step 1 から順番に負荷を上げていきましょう。</span>
             </p>
-
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="bg-white p-4 md:p-5 rounded-sm border-l-4 border-stone-800 shadow-sm iron-border-sm flex flex-col">
                     <h4 class="font-bold text-stone-800 text-base md:text-lg flex justify-between items-center mb-2">
@@ -551,107 +602,311 @@
                         <span data-i18n="mode_tag_1" class="text-[10px] bg-stone-100 px-2 py-1 rounded text-stone-500 uppercase tracking-widest">導入・意味理解</span>
                     </h4>
                     <p class="text-xs md:text-sm text-stone-600 mb-3 flex-1"><strong data-i18n="mode_sla" class="text-stone-800">🔬 SLA科学的根拠:</strong><br><span data-i18n="mode_desc_1">「Form-Meaning Mapping（形式と意味の結びつけ）」。文字と音声、そして「意味」を脳内で連結させる最初の土台作りです。</span></p>
-                    <div class="bg-stone-50 p-2 rounded text-[11px] md:text-xs text-stone-700 font-bold border border-stone-200">
-                        <span data-i18n="mode_check">🤔 内省チェック:</span><br><span data-i18n="mode_check_1">「英文の意味を100%理解し、つっかえずにスラスラ読めているか？」</span>
-                    </div>
                 </div>
-
                 <div class="bg-white p-4 md:p-5 rounded-sm border-l-4 border-purple-600 shadow-sm iron-border-sm flex flex-col">
                     <h4 class="font-bold text-purple-900 text-base md:text-lg flex justify-between items-center mb-2">
                         <span>Step 2: ⚡️ Paced</span>
                         <span data-i18n="mode_tag_2" class="text-[10px] bg-purple-50 px-2 py-1 rounded text-purple-600 uppercase tracking-widest">流暢さ・自動化</span>
                     </h4>
                     <p class="text-xs md:text-sm text-stone-600 mb-3 flex-1"><strong data-i18n="mode_sla" class="text-stone-800">🔬 SLA科学的根拠:</strong><br><span data-i18n="mode_desc_2">「Automatization（自動化）」。強制的なペースで「返り読み」を物理的に防ぎ、英語を英語の語順のまま処理するスピードを鍛えます。</span></p>
-                    <div class="bg-purple-50 p-2 rounded text-[11px] md:text-xs text-purple-800 font-bold border border-purple-200">
-                        <span data-i18n="mode_check">🤔 内省チェック:</span><br><span data-i18n="mode_check_2">「日本語に訳さず理解できているか？スピードに焦って発音が雑になっていないか？」</span>
-                    </div>
                 </div>
-
                 <div class="bg-white p-4 md:p-5 rounded-sm border-l-4 border-stone-400 shadow-sm iron-border-sm flex flex-col">
                     <h4 class="font-bold text-stone-700 text-base md:text-lg flex justify-between items-center mb-2">
                         <span>Step 3: 🧠 Vanish</span>
                         <span data-i18n="mode_tag_3" class="text-[10px] bg-stone-100 px-2 py-1 rounded text-stone-500 uppercase tracking-widest">記憶定着・内在化</span>
                     </h4>
                     <p class="text-xs md:text-sm text-stone-600 mb-3 flex-1"><strong data-i18n="mode_sla" class="text-stone-800">🔬 SLA科学的根拠:</strong><br><span data-i18n="mode_desc_3">「Retrieval Practice（検索練習）」。文字という視覚ヒントを奪い、ワーキングメモリに負荷をかけることで長期記憶への定着を促します。</span></p>
-                    <div class="bg-stone-100 p-2 rounded text-[11px] md:text-xs text-stone-700 font-bold border border-stone-300">
-                        <span data-i18n="mode_check">🤔 内省チェック:</span><br><span data-i18n="mode_check_3">「単なる丸暗記ではなく、文脈や文法ルールから次の単語を予測して発話できているか？」</span>
-                    </div>
                 </div>
-
                 <div class="bg-white p-4 md:p-5 rounded-sm border-l-4 border-blue-500 shadow-sm iron-border-sm flex flex-col">
                     <h4 class="font-bold text-blue-900 text-base md:text-lg flex justify-between items-center mb-2">
                         <span>Step 4: 🎧 Shadowing</span>
                         <span data-i18n="mode_tag_4" class="text-[10px] bg-blue-50 px-2 py-1 rounded text-blue-600 uppercase tracking-widest">音韻処理の極致</span>
                     </h4>
                     <p class="text-xs md:text-sm text-stone-600 mb-3 flex-1"><strong data-i18n="mode_sla" class="text-stone-800">🔬 SLA科学的根拠:</strong><br><span data-i18n="mode_desc_4">「Phonological Loop（音韻ループ）の強化」。ネイティブのプロソディ（抑揚・リズム）を完全に模倣し、音声処理を極限まで自動化させます。</span></p>
-                    <div class="bg-blue-50 p-2 rounded text-[11px] md:text-xs text-blue-800 font-bold border border-blue-200">
-                        <span data-i18n="mode_check">🤔 内省チェック:</span><br><span data-i18n="mode_check_4">「手本と声が完全に重なっているか？音声に集中しながら意味も頭に浮かんでいるか？」</span>
-                    </div>
                 </div>
             </div>
-            
             <button type="button" onclick="closeModeGuide()" data-i18n="btn_start_learning" class="mt-6 md:mt-8 w-full py-3 bg-stone-800 hover:bg-stone-700 transition text-white font-bold rounded-sm tracking-widest uppercase text-sm md:text-base">
                 理解して学習を始める
             </button>
         </div>
     </div>
-<div id="modeGuideModal" class="fixed inset-0 bg-stone-900/80 z-[100] hidden flex justify-center items-center p-4 backdrop-blur-sm transition-opacity">
-        </div>
 
-<div id="trouble-modal" class="absolute inset-0 z-50 bg-black/60 backdrop-blur-md flex flex-col items-center justify-start pt-12 md:pt-20 hidden">
-                <div class="bg-white p-6 md:p-10 rounded-3xl shadow-2xl w-11/12 max-w-5xl border border-gray-100 relative flex flex-col max-h-[85vh]">
-                    <button id="btn-close-trouble" class="absolute top-4 right-4 md:top-6 md:right-6 text-gray-400 hover:text-gray-800 font-bold text-3xl md:text-4xl">&times;</button>
-                    <h3 class="text-xl md:text-2xl font-black mb-4 md:mb-6 text-gray-900 border-b pb-3 text-center flex items-center justify-center gap-2"><span class="text-2xl md:text-3xl">🆘</span> 音声認識トラブル対応</h3>
-                    
-                    <div id="trouble-slides" class="relative w-full flex-1 min-h-[400px] md:min-h-[550px]">
-                        
-                        <div class="trouble-slide absolute inset-0 flex flex-col items-center justify-start opacity-100 z-10 transition-opacity duration-300">
-                            <img src="assets/images/ipad1.webp" class="h-56 md:h-[420px] w-full object-contain mb-5 md:mb-6 rounded-xl shadow-sm border border-gray-200 bg-gray-50">
-                            <div class="w-full text-left px-2 md:px-8">
-                                <h4 class="font-black text-red-600 text-lg md:text-2xl mb-2">STEP 1: iPadOSを最新にする</h4>
-                                <p class="text-sm md:text-lg text-gray-700 font-medium leading-relaxed">「設定」＞「一般」＞「ソフトウェアアップデート」を確認。システムが古いとマイクが反応しないことがあります。</p>
-                            </div>
-                        </div>
-                        
-                        <div class="trouble-slide absolute inset-0 flex flex-col items-center justify-start opacity-0 z-0 pointer-events-none transition-opacity duration-300">
-                            <img src="assets/images/ipad2.webp" class="h-56 md:h-[420px] w-full object-contain mb-5 md:mb-6 rounded-xl shadow-sm border border-gray-200 bg-gray-50">
-                            <div class="w-full text-left px-2 md:px-8">
-                                <h4 class="font-black text-red-600 text-lg md:text-2xl mb-2">STEP 2: プライバシー設定を開く</h4>
-                                <p class="text-sm md:text-lg text-gray-700 font-medium leading-relaxed">iPadの「設定」アプリから、左メニューを下へスクロールして「プライバシーとセキュリティ」をタップします。</p>
-                            </div>
-                        </div>
-
-                        <div class="trouble-slide absolute inset-0 flex flex-col items-center justify-start opacity-0 z-0 pointer-events-none transition-opacity duration-300">
-                            <img src="assets/images/ipad3.webp" class="h-56 md:h-[420px] w-full object-contain mb-5 md:mb-6 rounded-xl shadow-sm border border-gray-200 bg-gray-50">
-                            <div class="w-full text-left px-2 md:px-8">
-                                <h4 class="font-black text-red-600 text-lg md:text-2xl mb-2">STEP 3: 音声認識をタップ</h4>
-                                <p class="text-sm md:text-lg text-gray-700 font-medium leading-relaxed">右側に表示されるメニューの中から、「音声認識」を探してタップします。<br><span class="text-xs md:text-sm text-gray-500">※「マイク」の項目も合わせて確認してください。</span></p>
-                            </div>
-                        </div>
-
-                        <div class="trouble-slide absolute inset-0 flex flex-col items-center justify-start opacity-0 z-0 pointer-events-none transition-opacity duration-300">
-                            <img src="assets/images/ipad4.webp" class="h-56 md:h-[420px] w-full object-contain mb-5 md:mb-6 rounded-xl shadow-sm border border-gray-200 bg-gray-50">
-                            <div class="w-full text-left px-2 md:px-8">
-                                <h4 class="font-black text-red-600 text-lg md:text-2xl mb-2">STEP 4: ブラウザの許可を「オン」</h4>
-                                <p class="text-sm md:text-lg text-gray-700 font-medium leading-relaxed">普段使っているブラウザ（SafariやChrome）の右側のスイッチが<strong>「オン（緑色）」</strong>になっているか確認してください。</p>
-                            </div>
-                        </div>
-
-                        <div class="trouble-slide absolute inset-0 flex flex-col items-center justify-start opacity-0 z-0 pointer-events-none transition-opacity duration-300">
-                            <img src="assets/images/ipad5.webp" class="h-56 md:h-[420px] w-full object-contain mb-5 md:mb-6 rounded-xl shadow-sm border border-gray-200 bg-gray-50">
-                            <div class="w-full text-left px-2 md:px-8">
-                                <h4 class="font-black text-red-600 text-lg md:text-2xl mb-2">STEP 5: ダメなら「再起動」！</h4>
-                                <p class="text-sm md:text-lg text-gray-700 font-medium leading-relaxed">💡 <strong>魔法の解決策：</strong>これでも反応しない場合は、<strong>一度iPadの電源を完全に切り、再起動</strong>してみてください。多くの場合これで直ります！</p>
-                            </div>
-                        </div>
+    <div id="sla-guide-modal" class="fixed inset-0 z-[100] bg-black/80 backdrop-blur-md flex flex-col items-center justify-start pt-4 md:pt-6 hidden">
+        <div class="bg-[#faf8f5] p-4 md:p-6 rounded-2xl shadow-2xl w-[96%] md:w-[92%] max-w-5xl border border-stone-200 relative flex flex-col h-[92vh] md:h-[90vh]">
+            <button id="btn-close-sla-modal" class="absolute top-2 right-4 md:top-4 md:right-6 text-stone-400 hover:text-stone-800 font-bold text-4xl md:text-5xl z-50 transition-colors">&times;</button>
+            <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-stone-800 border-b-2 border-stone-200 pb-2 text-center flex items-center justify-center gap-2 serif-font shrink-0">
+                <span class="text-2xl md:text-3xl">🧠</span> 脳内言語処理フェーズ解説
+            </h3>
+            <div id="sla-slides" class="relative w-full flex-1 overflow-hidden">
+                <div class="sla-slide absolute inset-0 flex flex-col gap-4 opacity-100 z-10 transition-opacity duration-300 overflow-y-auto pb-4 px-1 md:px-4">
+                    <div class="w-full h-56 md:h-[50vh] shrink-0 flex items-center justify-center bg-white rounded-xl shadow-inner border border-stone-100 p-2 md:p-4">
+                        <img src="assets/images/level1.webp" alt="Level 1" class="w-full h-full object-contain drop-shadow-md">
                     </div>
-                    
-                    <div class="flex justify-between w-full mt-4 md:mt-6 shrink-0 px-2 md:px-8">
-                        <button id="btn-prev-trouble" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 md:px-10 py-3 md:py-4 rounded-full font-bold transition-colors md:text-lg">戻る</button>
-                        <button id="btn-next-trouble" class="bg-blue-600 hover:bg-blue-700 text-white px-6 md:px-10 py-3 md:py-4 rounded-full font-bold transition-colors shadow-md md:text-lg">次へ</button>
+                    <div class="w-full flex flex-col justify-start">
+                        <span class="inline-block bg-amber-700 text-white text-[10px] md:text-xs px-3 py-1 rounded-sm w-max mb-2 font-bold tracking-widest">LEVEL 1 : STARTER</span>
+                        <h4 class="font-bold text-stone-800 text-lg md:text-xl mb-2 border-l-4 border-amber-700 pl-3">音韻符号化の起動フェーズ</h4>
+                        <p class="text-sm md:text-base text-stone-600 leading-relaxed font-medium">英語の音読に強い苦手意識を持つ生徒向けのスタートライン。脳内では目から入った文字を「音」に変換する処理だけでメモリが一杯になっています。<br>ここでは文法や意味を考える余裕がないため、まずは点数やスピードを気にせず「声を出すこと」で脳の言語回路を起動させることがミッションです。</p>
+                    </div>
+                </div>
+                <div class="sla-slide absolute inset-0 flex flex-col gap-4 opacity-0 z-0 pointer-events-none transition-opacity duration-300 overflow-y-auto pb-4 px-1 md:px-4">
+                    <div class="w-full h-56 md:h-[50vh] shrink-0 flex items-center justify-center bg-white rounded-xl shadow-inner border border-stone-100 p-2 md:p-4">
+                        <img src="assets/images/level2.webp" alt="Level 2" class="w-full h-full object-contain drop-shadow-md">
+                    </div>
+                    <div class="w-full flex flex-col justify-start">
+                        <span class="inline-block bg-orange-600 text-white text-[10px] md:text-xs px-3 py-1 rounded-sm w-max mb-2 font-bold tracking-widest">LEVEL 2 : LEARNER</span>
+                        <h4 class="font-bold text-stone-800 text-lg md:text-xl mb-2 border-l-4 border-orange-600 pl-3">形式-意味マッピングの初期フェーズ</h4>
+                        <p class="text-sm md:text-base text-stone-600 leading-relaxed font-medium">単語の「文字・音」と「意味」が脳内で少しずつリンクし始める段階です。1語ずつではなく、短い「意味の塊（チャンク）」として英語を捉え始めます。<br>多少発音がつっかえたり、意味が曖昧でも立ち止まらずに、次の塊へと進む「英語の波に乗る感覚」を養います。</p>
+                    </div>
+                </div>
+                <div class="sla-slide absolute inset-0 flex flex-col gap-4 opacity-0 z-0 pointer-events-none transition-opacity duration-300 overflow-y-auto pb-4 px-1 md:px-4">
+                    <div class="w-full h-56 md:h-[50vh] shrink-0 flex items-center justify-center bg-white rounded-xl shadow-inner border border-stone-100 p-2 md:p-4">
+                        <img src="assets/images/level3.webp" alt="Level 3" class="w-full h-full object-contain drop-shadow-md">
+                    </div>
+                    <div class="w-full flex flex-col justify-start">
+                        <span class="inline-block bg-stone-500 text-white text-[10px] md:text-xs px-3 py-1 rounded-sm w-max mb-2 font-bold tracking-widest">LEVEL 3 : RUNNER</span>
+                        <h4 class="font-bold text-stone-800 text-lg md:text-xl mb-2 border-l-4 border-stone-500 pl-3">直線的言語処理への移行フェーズ</h4>
+                        <p class="text-sm md:text-base text-stone-600 leading-relaxed font-medium">「日本語の語順にひっくり返して訳していては間に合わない速度」の入り口です。英語を語順のまま処理する回路が動き始めます。<br>視線を強制的に前へと進めることで、脳から「返り読みの癖」を引き剥がし、実戦的な読解スピードの土台を固めます。</p>
+                    </div>
+                </div>
+                <div class="sla-slide absolute inset-0 flex flex-col gap-4 opacity-0 z-0 pointer-events-none transition-opacity duration-300 overflow-y-auto pb-4 px-1 md:px-4">
+                    <div class="w-full h-56 md:h-[50vh] shrink-0 flex items-center justify-center bg-white rounded-xl shadow-inner border border-stone-100 p-2 md:p-4">
+                        <img src="assets/images/level4.webp" alt="Level 4" class="w-full h-full object-contain drop-shadow-md">
+                    </div>
+                    <div class="w-full flex flex-col justify-start">
+                        <span class="inline-block bg-blue-600 text-white text-[10px] md:text-xs px-3 py-1 rounded-sm w-max mb-2 font-bold tracking-widest">LEVEL 4 : EXPERT</span>
+                        <h4 class="font-bold text-stone-800 text-lg md:text-xl mb-2 border-l-4 border-blue-600 pl-3">低次処理の自動化フェーズ</h4>
+                        <p class="text-sm md:text-base text-stone-600 leading-relaxed font-medium">単語識別や構文解析といった「低次処理」が無意識化（自動化）され、脳のワーキングメモリに大きな空きスペースが生まれます。<br>空いたメモリを「深い意味理解」に回せるため、共通テストなどの長文を時間内にしっかり読み解き、得点力が爆発的に伸び始めます。</p>
+                    </div>
+                </div>
+                <div class="sla-slide absolute inset-0 flex flex-col gap-4 opacity-0 z-0 pointer-events-none transition-opacity duration-300 overflow-y-auto pb-4 px-1 md:px-4">
+                    <div class="w-full h-56 md:h-[50vh] shrink-0 flex items-center justify-center bg-white rounded-xl shadow-inner border border-stone-100 p-2 md:p-4">
+                        <img src="assets/images/level5.webp" alt="Level 5" class="w-full h-full object-contain drop-shadow-md">
+                    </div>
+                    <div class="w-full flex flex-col justify-start">
+                        <span class="inline-block bg-emerald-600 text-white text-[10px] md:text-xs px-3 py-1 rounded-sm w-max mb-2 font-bold tracking-widest">LEVEL 5 : MASTER</span>
+                        <h4 class="font-bold text-stone-800 text-lg md:text-xl mb-2 border-l-4 border-emerald-600 pl-3">ワーキングメモリ完全解放フェーズ</h4>
+                        <p class="text-sm md:text-base text-stone-600 leading-relaxed font-medium">初見の英文であっても、まるで日本語のニュースを読んでいるかのように自然に意味が流れ込んでくる領域です。<br>返り読み一切なしで長文を余裕で解き切るだけでなく、リスニング力もネイティブスピーカーの会話についていける「一生モノの英語脳」が完成します。</p>
                     </div>
                 </div>
             </div>
+            <div class="flex justify-between items-center w-full mt-3 md:mt-4 border-t-2 border-stone-200 pt-3 md:pt-4 shrink-0">
+                <button id="btn-prev-sla" class="bg-stone-200 hover:bg-stone-300 text-stone-700 px-6 md:px-8 py-3 rounded-full font-bold transition-colors text-sm md:text-base">◀ 戻る</button>
+                <div class="flex gap-2 items-center justify-center" id="sla-dots">
+                    <span class="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-stone-800"></span>
+                    <span class="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-stone-300"></span>
+                    <span class="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-stone-300"></span>
+                    <span class="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-stone-300"></span>
+                    <span class="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-stone-300"></span>
+                </div>
+                <button id="btn-next-sla" class="bg-emerald-700 hover:bg-emerald-800 text-white px-6 md:px-8 py-3 rounded-full font-bold transition-colors shadow-md text-sm md:text-base">次へ ▶</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="trouble-modal" class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-md flex flex-col items-center justify-start pt-12 md:pt-20 hidden">
+        <div class="bg-white p-6 md:p-10 rounded-3xl shadow-2xl w-11/12 max-w-5xl border border-gray-100 relative flex flex-col max-h-[85vh]">
+            <button id="btn-close-trouble" class="absolute top-4 right-4 md:top-6 md:right-6 text-gray-400 hover:text-gray-800 font-bold text-3xl md:text-4xl">&times;</button>
+            <h3 class="text-xl md:text-2xl font-black mb-4 md:mb-6 text-gray-900 border-b pb-3 text-center flex items-center justify-center gap-2"><span class="text-2xl md:text-3xl">🆘</span> 音声認識トラブル対応</h3>
+            <div id="trouble-slides" class="relative w-full flex-1 min-h-[400px] md:min-h-[550px]">
+                <div class="trouble-slide absolute inset-0 flex flex-col items-center justify-start opacity-100 z-10 transition-opacity duration-300">
+                    <img src="assets/images/ipad1.webp" class="h-56 md:h-[420px] w-full object-contain mb-5 md:mb-6 rounded-xl shadow-sm border border-gray-200 bg-gray-50">
+                    <div class="w-full text-left px-2 md:px-8">
+                        <h4 class="font-black text-red-600 text-lg md:text-2xl mb-2">STEP 1: iPadOSを最新にする</h4>
+                        <p class="text-sm md:text-lg text-gray-700 font-medium leading-relaxed">「設定」＞「一般」＞「ソフトウェアアップデート」を確認。システムが古いとマイクが反応しないことがあります。</p>
+                    </div>
+                </div>
+                <div class="trouble-slide absolute inset-0 flex flex-col items-center justify-start opacity-0 z-0 pointer-events-none transition-opacity duration-300">
+                    <img src="assets/images/ipad2.webp" class="h-56 md:h-[420px] w-full object-contain mb-5 md:mb-6 rounded-xl shadow-sm border border-gray-200 bg-gray-50">
+                    <div class="w-full text-left px-2 md:px-8">
+                        <h4 class="font-black text-red-600 text-lg md:text-2xl mb-2">STEP 2: プライバシー設定を開く</h4>
+                        <p class="text-sm md:text-lg text-gray-700 font-medium leading-relaxed">iPadの「設定」アプリから、左メニューを下へスクロールして「プライバシーとセキュリティ」をタップします。</p>
+                    </div>
+                </div>
+                <div class="trouble-slide absolute inset-0 flex flex-col items-center justify-start opacity-0 z-0 pointer-events-none transition-opacity duration-300">
+                    <img src="assets/images/ipad3.webp" class="h-56 md:h-[420px] w-full object-contain mb-5 md:mb-6 rounded-xl shadow-sm border border-gray-200 bg-gray-50">
+                    <div class="w-full text-left px-2 md:px-8">
+                        <h4 class="font-black text-red-600 text-lg md:text-2xl mb-2">STEP 3: 音声認識をタップ</h4>
+                        <p class="text-sm md:text-lg text-gray-700 font-medium leading-relaxed">右側に表示されるメニューの中から、「音声認識」を探してタップします。<br><span class="text-xs md:text-sm text-gray-500">※「マイク」の項目も合わせて確認してください。</span></p>
+                    </div>
+                </div>
+                <div class="trouble-slide absolute inset-0 flex flex-col items-center justify-start opacity-0 z-0 pointer-events-none transition-opacity duration-300">
+                    <img src="assets/images/ipad4.webp" class="h-56 md:h-[420px] w-full object-contain mb-5 md:mb-6 rounded-xl shadow-sm border border-gray-200 bg-gray-50">
+                    <div class="w-full text-left px-2 md:px-8">
+                        <h4 class="font-black text-red-600 text-lg md:text-2xl mb-2">STEP 4: ブラウザの許可を「オン」</h4>
+                        <p class="text-sm md:text-lg text-gray-700 font-medium leading-relaxed">普段使っているブラウザ（SafariやChrome）の右側のスイッチが<strong>「オン（緑色）」</strong>になっているか確認してください。</p>
+                    </div>
+                </div>
+                <div class="trouble-slide absolute inset-0 flex flex-col items-center justify-start opacity-0 z-0 pointer-events-none transition-opacity duration-300">
+                    <img src="assets/images/ipad5.webp" class="h-56 md:h-[420px] w-full object-contain mb-5 md:mb-6 rounded-xl shadow-sm border border-gray-200 bg-gray-50">
+                    <div class="w-full text-left px-2 md:px-8">
+                        <h4 class="font-black text-red-600 text-lg md:text-2xl mb-2">STEP 5: ダメなら「再起動」！</h4>
+                        <p class="text-sm md:text-lg text-gray-700 font-medium leading-relaxed">💡 <strong>魔法の解決策：</strong>これでも反応しない場合は、<strong>一度iPadの電源を完全に切り、再起動</strong>してみてください。多くの場合これで直ります！</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-between w-full mt-4 md:mt-6 shrink-0 px-2 md:px-8">
+                <button id="btn-prev-trouble" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 md:px-10 py-3 md:py-4 rounded-full font-bold transition-colors md:text-lg">戻る</button>
+                <button id="btn-next-trouble" class="bg-blue-600 hover:bg-blue-700 text-white px-6 md:px-10 py-3 md:py-4 rounded-full font-bold transition-colors shadow-md md:text-lg">次へ</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // --- 1. SLA グラフ・画像切り替え関連スクリプト ---
+    let targetChartInstance = null;
+    window.currentPreviewLevel = 1;
+
+    function initTargetChart() {
+        const ctx = document.getElementById('targetScoreChart');
+        if (!ctx) return;
+        const gradAcc = ctx.getContext('2d').createLinearGradient(0, 0, 0, 200);
+        gradAcc.addColorStop(0, 'rgba(52, 211, 153, 0.4)');
+        gradAcc.addColorStop(1, 'rgba(52, 211, 153, 0)');
+        const gradWpm = ctx.getContext('2d').createLinearGradient(0, 0, 0, 200);
+        gradWpm.addColorStop(0, 'rgba(96, 165, 250, 0.4)');
+        gradWpm.addColorStop(1, 'rgba(96, 165, 250, 0)');
+        const gradComp = ctx.getContext('2d').createLinearGradient(0, 0, 0, 200);
+        gradComp.addColorStop(0, 'rgba(250, 204, 21, 0.4)');
+        gradComp.addColorStop(1, 'rgba(250, 204, 21, 0)');
+
+        targetChartInstance = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Lv.1', 'Lv.2', 'Lv.3', 'Lv.4', 'Lv.5'],
+                datasets: [
+                    { label: 'Accuracy (%)', data: [60, 70, 80, 85, 90], borderColor: '#34d399', backgroundColor: gradAcc, borderWidth: 3, tension: 0.4, fill: true, yAxisID: 'y', pointRadius: [0,0,0,0,0], pointBackgroundColor: '#34d399', pointBorderColor: 'transparent', pointBorderWidth: 3 },
+                    { label: 'WPM', data: [60, 80, 95, 110, 130], borderColor: '#60a5fa', backgroundColor: gradWpm, borderWidth: 3, borderDash: [5, 5], tension: 0.4, fill: true, yAxisID: 'y1', pointRadius: [0,0,0,0,0], pointBackgroundColor: '#60a5fa', pointBorderColor: 'transparent', pointBorderWidth: 3 },
+                    { label: 'Comprehension (%)', data: [70, 80, 85, 90, 95], borderColor: '#facc15', backgroundColor: gradComp, borderWidth: 3, tension: 0.4, fill: true, yAxisID: 'y', pointRadius: [0,0,0,0,0], pointBackgroundColor: '#facc15', pointBorderColor: 'transparent', pointBorderWidth: 3 }
+                ]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false }, plugins: { legend: { display: false } },
+                scales: {
+                    x: { grid: { color: 'rgba(120, 113, 108, 0.2)', drawBorder: false }, ticks: { color: '#a8a29e', font: { weight: 'bold' } } },
+                    y: { type: 'linear', display: true, position: 'left', min: 40, max: 100, grid: { color: 'rgba(120, 113, 108, 0.2)', drawBorder: false }, ticks: { color: '#a8a29e', stepSize: 20 } },
+                    y1: { type: 'linear', display: true, position: 'right', min: 40, max: 160, grid: { drawOnChartArea: false }, ticks: { color: '#a8a29e', stepSize: 30 } }
+                }
+            }
+        });
+    }
+
+    function switchTargetLevel(level) {
+        const levelData = {
+            1: { desc: "【音声化の第1歩】まずは英語の「音」を恐れずに声に出す段階です。1秒に1単語のペースで、ゆっくり確実に文字を音に変えていきましょう！", acc: 60, wpm: 60, comp: 70 },
+            2: { desc: "【つながる英語脳】文字と意味が少しずつ結びついてくる段階です。ブツブツ途切れてもOK。まずは単語の塊（チャンク）を意識してみよう！", acc: 70, wpm: 80, comp: 80 },
+            3: { desc: "【脱・ひっくり返し読み】英語の並び順のまま、左から右へリズムよく読み進める段階です。共通テストや英検の長文を読み切る基礎体力がつきます。", acc: 80, wpm: 95, comp: 85 },
+            4: { desc: "【脳の省エネモード】発音の処理が自動化され、脳のスタミナが残る段階です。試験本番で初めて見る英文に出会っても、焦らずスラスラ意味が頭に入ります。", acc: 85, wpm: 110, comp: 90 },
+            5: { desc: "【直読直解の極致】共通テストを時間内に余裕で解き切り、見直しの時間が10分余るレベルのスピードです。返り読み一切なしの「一生モノの英語脳」の完成！", acc: 90, wpm: 130, comp: 95 }
+        };
+        window.currentPreviewLevel = level;
+        const data = levelData[level];
+        document.getElementById('level-mission-desc').innerText = data.desc;
+        document.getElementById('target-acc').innerText = data.acc + "%";
+        document.getElementById('target-wpm').innerText = data.wpm;
+        document.getElementById('target-comp').innerText = data.comp + "%";
+        
+        const imgEl = document.getElementById('level-preview-img');
+        if (imgEl) imgEl.src = `assets/images/level${level}.webp`;
+
+        const activeClass = "flex-1 px-2 py-2 rounded-sm font-bold text-[10px] md:text-xs transition-all duration-200 bg-stone-800 text-white shadow-md whitespace-nowrap";
+        const inactiveClass = "flex-1 px-2 py-2 rounded-sm font-bold text-[10px] md:text-xs transition-all duration-200 text-stone-500 hover:text-stone-800 whitespace-nowrap";
+        for (let i = 1; i <= 5; i++) {
+            const btn = document.getElementById('btn-lv' + i);
+            if (btn) btn.className = (i === level) ? activeClass : inactiveClass;
+        }
+
+        if (!targetChartInstance) initTargetChart();
+        if (targetChartInstance) {
+            const index = level - 1;
+            targetChartInstance.data.datasets.forEach((dataset) => {
+                const radii = [0, 0, 0, 0, 0]; radii[index] = 8;
+                dataset.pointRadius = radii;
+                const borderColors = ['transparent', 'transparent', 'transparent', 'transparent', 'transparent'];
+                borderColors[index] = '#ffffff';
+                dataset.pointBorderColor = borderColors;
+            });
+            targetChartInstance.update();
+        }
+    }
+
+    window.openSlaModalAtCurrent = function() {
+        const slaModal = document.getElementById('sla-guide-modal');
+        if (slaModal && window.showSlaSlideGlobally) {
+            slaModal.classList.remove('hidden');
+            window.showSlaSlideGlobally(window.currentPreviewLevel - 1);
+        }
+    };
+
+    // --- 2. モーダル（SLA ＆ トラブル対応）全体の制御スクリプト ---
+    window.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => { switchTargetLevel(1); }, 100);
+
+        // --- SLA Modal ---
+        const slaModal = document.getElementById('sla-guide-modal');
+        const slaSlides = document.querySelectorAll('#sla-slides .sla-slide');
+        const slaDots = document.getElementById('sla-dots');
+        let currentSlaSlide = 0;
+
+        window.showSlaSlideGlobally = function(index) {
+            if (!slaSlides.length) return;
+            slaSlides.forEach((slide, i) => {
+                if (i === index) { slide.classList.remove('opacity-0', 'pointer-events-none'); slide.classList.add('opacity-100', 'z-10'); } 
+                else { slide.classList.remove('opacity-100', 'z-10'); slide.classList.add('opacity-0', 'pointer-events-none'); }
+            });
+            currentSlaSlide = index;
+            const prevBtn = document.getElementById('btn-prev-sla');
+            const nextBtn = document.getElementById('btn-next-sla');
+            if(prevBtn) prevBtn.style.visibility = index === 0 ? 'hidden' : 'visible';
+            if(nextBtn) nextBtn.innerText = index === slaSlides.length - 1 ? '閉じる' : '次へ ▶';
+            if (slaDots) {
+                Array.from(slaDots.children).forEach((dot, i) => {
+                    dot.className = i === index ? "w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-stone-800" : "w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-stone-300";
+                });
+            }
+        };
+
+        const openBtn = document.getElementById('btn-open-sla-modal');
+        if (openBtn) openBtn.addEventListener('click', () => { slaModal.classList.remove('hidden'); window.showSlaSlideGlobally(0); });
+        const closeBtn = document.getElementById('btn-close-sla-modal');
+        if (closeBtn) closeBtn.addEventListener('click', () => { slaModal.classList.add('hidden'); });
+        const nextBtn = document.getElementById('btn-next-sla');
+        if (nextBtn) nextBtn.addEventListener('click', () => {
+            if (currentSlaSlide < slaSlides.length - 1) window.showSlaSlideGlobally(currentSlaSlide + 1); else slaModal.classList.add('hidden');
+        });
+        const prevBtn = document.getElementById('btn-prev-sla');
+        if (prevBtn) prevBtn.addEventListener('click', () => { if (currentSlaSlide > 0) window.showSlaSlideGlobally(currentSlaSlide - 1); });
+
+        // --- Trouble Modal ---
+        const troubleModal = document.getElementById('trouble-modal');
+        const troubleSlides = document.querySelectorAll('#trouble-slides .trouble-slide');
+        let currentTroubleSlide = 0;
+
+        function showTroubleSlide(index) {
+            if(!troubleSlides.length) return;
+            troubleSlides.forEach((s, i) => {
+                if (i === index) { s.classList.remove('opacity-0', 'pointer-events-none'); s.classList.add('opacity-100', 'z-10'); } 
+                else { s.classList.remove('opacity-100', 'z-10'); s.classList.add('opacity-0', 'pointer-events-none'); }
+            });
+            currentTroubleSlide = index;
+            const prevTBtn = document.getElementById('btn-prev-trouble');
+            const nextTBtn = document.getElementById('btn-next-trouble');
+            if(prevTBtn) prevTBtn.style.visibility = index === 0 ? 'hidden' : 'visible';
+            if(nextTBtn) nextTBtn.innerText = index === troubleSlides.length - 1 ? '閉じる' : '次へ';
+        }
+
+        const openTBtn = document.getElementById('btn-open-trouble');
+        if(openTBtn) openTBtn.addEventListener('click', () => { troubleModal.classList.remove('hidden'); showTroubleSlide(0); });
+        const closeTBtn = document.getElementById('btn-close-trouble');
+        if(closeTBtn) closeTBtn.addEventListener('click', () => { troubleModal.classList.add('hidden'); });
+        const nextTBtn = document.getElementById('btn-next-trouble');
+        if(nextTBtn) nextTBtn.addEventListener('click', () => {
+            if (currentTroubleSlide < troubleSlides.length - 1) showTroubleSlide(currentTroubleSlide + 1); else troubleModal.classList.add('hidden');
+        });
+        const prevTBtn = document.getElementById('btn-prev-trouble');
+        if(prevTBtn) prevTBtn.addEventListener('click', () => { if (currentTroubleSlide > 0) showTroubleSlide(currentTroubleSlide - 1); });
+    });
+    </script>
+
     <script src="storage.js"></script>
     <script src="ui.js"></script>
     <script src="speech.js"></script>
