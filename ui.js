@@ -822,3 +822,136 @@ window.addEventListener('DOMContentLoaded', () => {
         }, 1200);
     });
 });
+// ==========================================
+// ★追加: フルスクリーン予行練習機能 (Fullscreen Preview)
+// ==========================================
+let fsAiUtterance = null;
+let isFsAudioPlaying = false;
+
+function openFullscreenPreview() {
+    if (!currentCustomLesson) return;
+    
+    const overlay = document.getElementById('fullscreenPreviewOverlay');
+    if (!overlay) return;
+    
+    document.getElementById('fsTitleDisplay').innerText = currentCustomLesson.title.replace('🔗 ', '');
+    
+    const engText = currentCustomLesson.eng.replace(/([.?!]["']?)\s+/g, "$1<br><br>");
+    document.getElementById('fsEngContainer').innerHTML = engText;
+    
+    const jpnContainer = document.getElementById('fsJpnContainer');
+    if (currentCustomLesson.jpn && currentCustomLesson.jpn.trim() !== "") {
+        jpnContainer.innerHTML = currentCustomLesson.jpn.replace(/([。？！])\s*/g, "$1<br><br>");
+        jpnContainer.classList.remove('hidden');
+    } else {
+        jpnContainer.classList.add('hidden');
+    }
+    
+    const audioBtn = document.getElementById('fsOriginalAudioBtn');
+    const audioPlayer = document.getElementById('audioPlayer');
+    if (currentCustomLesson.audioBlob || (audioPlayer && audioPlayer.src && audioPlayer.src !== window.location.href)) {
+        audioBtn.classList.remove('hidden');
+        audioBtn.innerHTML = '▶️ <span class="hidden sm:inline">お手本再生</span>';
+    } else {
+        audioBtn.classList.add('hidden');
+    }
+    
+    overlay.classList.remove('hidden');
+    setTimeout(() => {
+        overlay.classList.remove('opacity-0');
+        overlay.classList.add('opacity-100');
+    }, 10);
+    // 👇これを追加：裏側の画面のスクロールを完全にロックする
+    document.body.style.overflow = 'hidden';
+}
+
+function closeFullscreenPreview() {
+    const overlay = document.getElementById('fullscreenPreviewOverlay');
+    if (!overlay) return;
+    
+    if (window.speechSynthesis.speaking) window.speechSynthesis.cancel();
+    const audioPlayer = document.getElementById('audioPlayer');
+    if (audioPlayer) audioPlayer.pause();
+    
+    isFsAudioPlaying = false;
+    document.getElementById('fsOriginalAudioBtn').innerHTML = '▶️ <span class="hidden sm:inline">お手本再生</span>';
+    document.getElementById('fsAiVoiceBtn').innerHTML = '🤖 <span class="hidden sm:inline">AI音声</span>';
+    
+    overlay.classList.remove('opacity-100');
+    overlay.classList.add('opacity-0');
+    setTimeout(() => {
+        overlay.classList.add('hidden');
+    }, 300);
+    // 👇これを追加：画面を閉じたらスクロールロックを解除する
+    document.body.style.overflow = '';
+}
+
+function toggleFsAIVoice() {
+    if (!currentCustomLesson) return;
+    const btn = document.getElementById('fsAiVoiceBtn');
+    
+    const audioPlayer = document.getElementById('audioPlayer');
+    if (audioPlayer) {
+        audioPlayer.pause();
+        isFsAudioPlaying = false;
+        document.getElementById('fsOriginalAudioBtn').innerHTML = '▶️ <span class="hidden sm:inline">お手本再生</span>';
+    }
+
+    if (window.speechSynthesis.speaking) {
+        window.speechSynthesis.cancel();
+        btn.innerHTML = '🤖 <span class="hidden sm:inline">AI音声</span>';
+        btn.classList.remove('bg-red-600', 'hover:bg-red-700');
+        btn.classList.add('bg-purple-600', 'hover:bg-purple-700');
+        return;
+    }
+
+    fsAiUtterance = new SpeechSynthesisUtterance(currentCustomLesson.eng);
+    fsAiUtterance.lang = currentCustomLesson.lang || 'en-US';
+    fsAiUtterance.rate = 0.9; 
+    
+    fsAiUtterance.onend = () => {
+        btn.innerHTML = '🤖 <span class="hidden sm:inline">AI音声</span>';
+        btn.classList.remove('bg-red-600', 'hover:bg-red-700');
+        btn.classList.add('bg-purple-600', 'hover:bg-purple-700');
+    };
+
+    window.speechSynthesis.speak(fsAiUtterance);
+    btn.innerHTML = '⏹ <span class="hidden sm:inline">AI停止</span>';
+    btn.classList.remove('bg-purple-600', 'hover:bg-purple-700');
+    btn.classList.add('bg-red-600', 'hover:bg-red-700');
+}
+
+function toggleFsOriginalAudio() {
+    const audioPlayer = document.getElementById('audioPlayer');
+    const btn = document.getElementById('fsOriginalAudioBtn');
+    if (!audioPlayer) return;
+
+    if (window.speechSynthesis.speaking) {
+        window.speechSynthesis.cancel();
+        const aiBtn = document.getElementById('fsAiVoiceBtn');
+        aiBtn.innerHTML = '🤖 <span class="hidden sm:inline">AI音声</span>';
+        aiBtn.classList.remove('bg-red-600', 'hover:bg-red-700');
+        aiBtn.classList.add('bg-purple-600', 'hover:bg-purple-700');
+    }
+
+    if (isFsAudioPlaying) {
+        audioPlayer.pause();
+        btn.innerHTML = '▶️ <span class="hidden sm:inline">お手本再生</span>';
+        btn.classList.remove('bg-red-600', 'hover:bg-red-700');
+        btn.classList.add('bg-blue-600', 'hover:bg-blue-700');
+        isFsAudioPlaying = false;
+    } else {
+        audioPlayer.play();
+        btn.innerHTML = '⏹ <span class="hidden sm:inline">再生停止</span>';
+        btn.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+        btn.classList.add('bg-red-600', 'hover:bg-red-700');
+        isFsAudioPlaying = true;
+        
+        audioPlayer.onended = () => {
+            btn.innerHTML = '▶️ <span class="hidden sm:inline">お手本再生</span>';
+            btn.classList.remove('bg-red-600', 'hover:bg-red-700');
+            btn.classList.add('bg-blue-600', 'hover:bg-blue-700');
+            isFsAudioPlaying = false;
+        };
+    }
+}
