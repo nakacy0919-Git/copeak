@@ -243,6 +243,12 @@ function processSpeechMatch(spokenText, isFinalResult = false) {
                 updateHistoryUI(); 
             }
         }
+        
+        // 👇👇👇 追加：共同モード通信中なら、確定したスコアを相手に送信 👇👇👇
+        if (typeof sendMyResultToPartner === 'function') {
+            sendMyResultToPartner(currentAccuracy, currentWpm);
+        }
+        // 👆👆👆 追加ここまで 👆👆👆
     }
 }
 

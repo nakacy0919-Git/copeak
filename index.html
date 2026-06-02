@@ -20,6 +20,7 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,700;1,500&family=Noto+Sans+JP:wght@400;500;700&display=swap');
         
@@ -192,7 +193,7 @@
                 </div>
             </div>
         </div>
-
+        
         <div id="teacherModeArea" class="flex-col gap-6 w-full mb-8" style="display: none;">
             <div class="bg-blue-50 border border-blue-200 p-4 md:p-6 rounded-sm shadow-sm flex flex-col gap-4 iron-border-sm">
                 <div>
@@ -319,7 +320,78 @@
             </div>
         </div>
     </div>
+    <div id="multiplayLobbyScreen" class="screen max-w-[1000px] w-[95%] mx-auto mt-6 md:mt-10 p-6 md:p-10 bg-[#faf8f5] rounded-sm iron-border min-h-[60vh] flex flex-col justify-between hidden">
+        <div class="border-b-2 border-stone-200 pb-4 mb-6 flex justify-between items-center">
+            <h2 class="text-xl md:text-2xl font-bold text-stone-800 serif-font flex items-center gap-2">
+                <span>👥</span> 共同モード待合室 (Lobby)
+            </h2>
+            <button onclick="backToHome()" class="px-4 py-2 bg-stone-200 hover:bg-stone-300 text-stone-700 text-xs font-bold rounded-sm transition iron-border-sm">◀ 退出する</button>
+        </div>
 
+        <div class="flex flex-col lg:flex-row gap-6 flex-1 items-stretch">
+            <div class="w-full lg:w-1/2 flex flex-col gap-4">
+                <div class="bg-white p-4 rounded-sm border border-stone-200 shadow-sm flex flex-col gap-2">
+                    <span class="bg-stone-800 text-white text-[9px] font-black px-2 py-0.5 rounded-sm w-max uppercase tracking-wider">Host</span>
+                    <h4 class="font-bold text-sm text-stone-700">新しくグループを作る</h4>
+                    <p class="text-xs text-stone-500">自分がリーダーとなり、一緒にシンクロ・音読するメンバーを募集します。</p>
+                    <button id="btn-create-room" onclick="createMultiplayRoom()" class="w-full mt-2 py-2.5 bg-stone-800 hover:bg-stone-700 text-white font-bold text-xs rounded-sm transition shadow-sm uppercase tracking-wider">
+                        🔑 ルームを作成してIDを発行
+                    </button>
+                    <div id="host-id-display" class="hidden mt-2 p-3 bg-stone-900 rounded-sm text-center border-2 border-stone-700">
+                        <div class="text-[10px] text-stone-400 font-bold uppercase tracking-widest">グループのルームID</div>
+                        <div id="my-room-id" class="text-3xl font-black text-emerald-400 tracking-widest my-1 serif-font">----</div>
+                        <div class="text-[9px] text-stone-300 font-medium">この4桁の数字を一緒に遊ぶ仲間に伝えてください</div>
+                    </div>
+                </div>
+
+                <div id="guest-join-panel" class="bg-white p-4 rounded-sm border border-stone-200 shadow-sm flex flex-col gap-2">
+                    <span class="bg-stone-400 text-white text-[9px] font-black px-2 py-0.5 rounded-sm w-max uppercase tracking-wider">Guest</span>
+                    <h4 class="font-bold text-sm text-stone-700">既存のグループに入る</h4>
+                    <p class="text-xs text-stone-500">友達（ホスト）から教えてもらった4桁のルームIDを入力してください。</p>
+                    <div class="flex gap-2 mt-2">
+                        <input type="text" id="input-room-id" maxlength="4" placeholder="4桁のID" class="w-full p-2.5 bg-[#faf8f5] border border-stone-300 rounded-sm text-center font-bold text-xl focus:ring-2 focus:ring-emerald-800 outline-none transition text-stone-800 placeholder-stone-300 tracking-widest">
+                        <button id="btn-join-room" onclick="joinMultiplayRoom()" class="px-5 py-2 bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-xs rounded-sm shadow-sm transition whitespace-nowrap uppercase tracking-wider">
+                            接続する
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-1/2 bg-stone-900 p-4 md:p-6 rounded-xl shadow-2xl border-2 border-stone-700 flex flex-col justify-between min-h-[280px]">
+                <div>
+                    <div class="text-stone-400 font-bold tracking-widest text-[10px] mb-3 uppercase border-b border-stone-800 pb-1.5 flex justify-between">
+                        <span>Connected Players (最大3人)</span>
+                        <span id="connection-role" class="text-stone-500 text-[9px]">未接続</span>
+                    </div>
+                    <div id="player-list-container" class="space-y-2.5">
+                        <div class="flex items-center justify-between text-stone-200 text-sm font-bold bg-stone-800/60 p-2.5 rounded-sm border border-stone-800">
+                            <span class="flex items-center gap-2">🟢 <span id="p1-name">あなた</span></span>
+                            <span id="p1-status" class="text-[10px] text-emerald-400 bg-emerald-950/50 px-2 py-0.5 rounded-sm border border-emerald-900/30 font-bold tracking-wider">READY</span>
+                        </div>
+                        <div id="p2-row" class="flex items-center justify-between text-stone-600 text-sm font-bold border border-dashed border-stone-800 p-2.5 rounded-sm opacity-40 transition-all duration-300">
+                            <span class="flex items-center gap-2"><span id="p2-dot">⚪️</span> <span id="p2-name">Player 2 を待機中...</span></span>
+                            <span id="p2-status" class="text-[10px] font-bold tracking-wider">WAITING</span>
+                        </div>
+                        <div id="p3-row" class="flex items-center justify-between text-stone-600 text-sm font-bold border border-dashed border-stone-800 p-2.5 rounded-sm opacity-40 transition-all duration-300">
+                            <span class="flex items-center gap-2"><span id="p3-dot">⚪️</span> <span id="p3-name">Player 3 を待機中...</span></span>
+                            <span id="p3-status" class="text-[10px] font-bold tracking-wider">WAITING</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 border-t border-stone-800 pt-4">
+                    <button id="btn-sync-start" disabled onclick="triggerSyncStart()" class="w-full py-3.5 bg-stone-800 text-stone-500 font-bold text-sm rounded-sm tracking-widest uppercase cursor-not-allowed border border-stone-700 transition-all text-center">
+                        メンバーの接続を待っています
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="sync-countdown-overlay" class="fixed inset-0 z-[200] bg-black/90 backdrop-blur-xl flex flex-col items-center justify-center hidden">
+        <div id="countdown-number" class="text-8xl md:text-9xl font-black text-emerald-400 serif-font select-none scale-75 transition-all duration-300">3</div>
+        <div class="text-stone-400 font-bold text-xs md:text-sm tracking-[0.3em] uppercase mt-8 select-none animate-pulse">Synchronizing Audio Playback...</div>
+    </div>
     <div id="learningScreen" class="screen max-w-[1800px] w-[98%] mx-auto mt-2 md:mt-4 px-1 md:px-2 h-auto min-h-[90vh]">
         
         <div id="learningHeader" class="flex flex-col sm:flex-row justify-between items-center mb-4 bg-stone-900 p-3 md:p-4 rounded-sm shadow-lg border border-stone-700">
@@ -327,9 +399,15 @@
                 ◀ <span data-i18n="learn_back">Back</span>
             </button>
             <h2 id="learningTitle" class="text-xl md:text-2xl font-bold text-stone-100 serif-font truncate px-2 md:px-4 flex-1 text-center">Title</h2>
-            <button onclick="generateShareLink()" class="flex items-center gap-2 px-3 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-sm font-bold transition text-xs md:text-sm shadow-md whitespace-nowrap">
-                🔗 <span data-i18n="learn_share">共有</span>
-            </button>
+            
+            <div class="flex items-center gap-2">
+                <button onclick="openMultiplaySetup()" class="flex items-center gap-2 px-3 py-2 bg-emerald-700 hover:bg-emerald-600 text-white rounded-sm font-bold transition text-xs md:text-sm shadow-md whitespace-nowrap">
+                    👥 共同モード
+                </button>
+                <button onclick="generateShareLink()" class="flex items-center gap-2 px-3 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-sm font-bold transition text-xs md:text-sm shadow-md whitespace-nowrap">
+                    🔗 <span data-i18n="learn_share">共有</span>
+                </button>
+            </div>
         </div>
 
         <div id="mainLayoutWrapper" class="flex flex-col lg:flex-row gap-4 md:gap-6 h-[82vh]">
@@ -932,5 +1010,7 @@
     <script src="ui.js"></script>
     <script src="speech.js"></script>
     <script src="lang.js"></script>
+    
+    <script src="multiplay.js"></script>
 </body>
 </html>
