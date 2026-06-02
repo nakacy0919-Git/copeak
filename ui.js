@@ -823,7 +823,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 });
 // ==========================================
-// ★追加: フルスクリーン予行練習機能 (Fullscreen Preview)
+// ★追加: フルスクリーン予行練習機能 (動的生成版・スクロール完璧対応)
 // ==========================================
 let fsAiUtterance = null;
 let isFsAudioPlaying = false;
@@ -831,12 +831,38 @@ let isFsAudioPlaying = false;
 function openFullscreenPreview() {
     if (!currentCustomLesson) return;
     
-    const overlay = document.getElementById('fullscreenPreviewOverlay');
-    if (!overlay) return;
+    // 1. もし古いHTMLの残骸があれば完全に破壊（重複バグの絶対防止）
+    const oldOverlay = document.getElementById('fullscreenPreviewOverlay');
+    if (oldOverlay) oldOverlay.remove();
+
+    // 2. JavaScriptが「完璧なフルスクリーン画面」をゼロから組み立てる
+    const overlay = document.createElement('div');
+    overlay.id = 'fullscreenPreviewOverlay';
+    // PCでもiPadでも絶対に画面全体を覆い、スクロールを内包する最強CSS
+    overlay.className = 'fixed top-0 left-0 w-full h-full z-[9999] bg-[#faf8f5] flex flex-col transition-all duration-300 opacity-0 overflow-hidden';
     
-    document.getElementById('fsTitleDisplay').innerText = currentCustomLesson.title.replace('🔗 ', '');
+    overlay.innerHTML = `
+        <div class="flex items-center justify-between p-4 md:p-6 border-b border-stone-200 bg-white shadow-sm shrink-0 z-10">
+            <button onclick="closeFullscreenPreview()" class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-stone-100 hover:bg-stone-300 text-stone-600 font-bold text-xl transition shadow-inner border border-stone-200">✕</button>
+            <h2 id="fsTitleDisplay" class="text-base md:text-xl font-bold text-stone-800 serif-font truncate px-4 flex-1 text-center">Preview</h2>
+            <div class="flex gap-2">
+                <button id="fsAiVoiceBtn" onclick="toggleFsAIVoice()" class="px-3 md:px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-xs md:text-sm font-bold rounded-sm shadow-md transition flex items-center gap-1">🤖 <span class="hidden sm:inline">AI音声</span></button>
+                <button id="fsOriginalAudioBtn" onclick="toggleFsOriginalAudio()" class="hidden px-3 md:px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs md:text-sm font-bold rounded-sm shadow-md transition flex items-center gap-1">▶️ <span class="hidden sm:inline">お手本再生</span></button>
+            </div>
+        </div>
+        
+        <div class="flex-1 overflow-y-auto p-6 md:p-12 lg:p-20 relative z-0" style="-webkit-overflow-scrolling: touch;">
+            <div id="fsEngContainer" class="text-2xl md:text-4xl leading-relaxed md:leading-[2.5] text-stone-800 font-medium serif-font max-w-5xl mx-auto"></div>
+            <div id="fsJpnContainer" class="text-base md:text-xl text-stone-500 max-w-5xl mx-auto border-t-2 border-dashed border-stone-300 pt-8 mt-8 hidden leading-relaxed"></div>
+            <div class="h-48 md:h-64 w-full shrink-0"></div> 
+        </div>
+    `;
+    document.body.appendChild(overlay);
+
+    // 3. データの流し込み
+    document.getElementById('fsTitleDisplay').innerText = currentCustomLesson.title ? currentCustomLesson.title.replace('🔗 ', '') : 'Preview';
     
-    const engText = currentCustomLesson.eng.replace(/([.?!]["']?)\s+/g, "$1<br><br>");
+    const engText = (currentCustomLesson.eng || "").replace(/([.?!]["']?)\s+/g, "$1<br><br>");
     document.getElementById('fsEngContainer').innerHTML = engText;
     
     const jpnContainer = document.getElementById('fsJpnContainer');
@@ -849,41 +875,35 @@ function openFullscreenPreview() {
     
     const audioBtn = document.getElementById('fsOriginalAudioBtn');
     const audioPlayer = document.getElementById('audioPlayer');
-    if (currentCustomLesson.audioBlob || (audioPlayer && audioPlayer.src && audioPlayer.src !== window.location.href)) {
+    if (currentCustomLesson.audioBlob || (audioPlayer && audioPlayer.src && audioPlayer.src !== "" && !audioPlayer.src.endsWith(window.location.host + "/"))) {
         audioBtn.classList.remove('hidden');
-        audioBtn.innerHTML = '▶️ <span class="hidden sm:inline">お手本再生</span>';
-    } else {
-        audioBtn.classList.add('hidden');
     }
     
-    overlay.classList.remove('hidden');
-    setTimeout(() => {
+    // 4. 裏画面のスクロールをロックし、アニメーションでフワッと表示
+    document.body.style.overflow = 'hidden';
+    requestAnimationFrame(() => {
         overlay.classList.remove('opacity-0');
         overlay.classList.add('opacity-100');
-    }, 10);
-    // 👇これを追加：裏側の画面のスクロールを完全にロックする
-    document.body.style.overflow = 'hidden';
+    });
 }
 
 function closeFullscreenPreview() {
     const overlay = document.getElementById('fullscreenPreviewOverlay');
     if (!overlay) return;
     
+    // 音声の停止
     if (window.speechSynthesis.speaking) window.speechSynthesis.cancel();
     const audioPlayer = document.getElementById('audioPlayer');
     if (audioPlayer) audioPlayer.pause();
-    
     isFsAudioPlaying = false;
-    document.getElementById('fsOriginalAudioBtn').innerHTML = '▶️ <span class="hidden sm:inline">お手本再生</span>';
-    document.getElementById('fsAiVoiceBtn').innerHTML = '🤖 <span class="hidden sm:inline">AI音声</span>';
     
+    // アニメーションで消してから、DOM（裏側）から完全に消し去る
     overlay.classList.remove('opacity-100');
     overlay.classList.add('opacity-0');
     setTimeout(() => {
-        overlay.classList.add('hidden');
+        overlay.remove(); 
+        document.body.style.overflow = ''; // スクロールロック解除
     }, 300);
-    // 👇これを追加：画面を閉じたらスクロールロックを解除する
-    document.body.style.overflow = '';
 }
 
 function toggleFsAIVoice() {
