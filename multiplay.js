@@ -4,21 +4,23 @@
 
 let peer = null;
 let myConnection = null; // ゲストとしての接続
-let hostConnections = []; // ホストとしての接続リスト（最大2人まで追加可能）
+let hostConnections = []; // ホストとしての接続リスト
 let isHost = false;
 let currentRoomId = "";
 
+// スコア同期のためのデータ保持変数
+let myLatestResult = null;
+let partnerLatestResult = null;
+
 // ------------------------------------------
-// UI制御（ロビー画面を開く）
+// 1. UI制御（ロビー画面を開く）
 // ------------------------------------------
 function openMultiplaySetup() {
-    // 現在のレッスンが選択されていない場合は警告
     if (!currentCustomLesson) {
         if (typeof showMsg === 'function') showMsg("⚠️ まずはプレイリストから読む教材を選択してください");
         return;
     }
     
-    // 待合室（ロビー）画面を開く
     document.querySelectorAll('.screen').forEach(el => {
         el.style.display = 'none';
         el.classList.remove('active');
@@ -28,8 +30,6 @@ function openMultiplaySetup() {
         lobby.style.display = 'flex';
         lobby.classList.add('active');
     }
-    
-    // UIの初期化
     resetLobbyUI();
 }
 
@@ -41,7 +41,11 @@ function resetLobbyUI() {
     document.getElementById('btn-join-room').innerText = "接続する";
     document.getElementById('input-room-id').disabled = false;
     
-    updatePlayerListUI(1); // 自分1人の状態
+    // スコアデータの初期化
+    myLatestResult = null;
+    partnerLatestResult = null;
+    
+    updatePlayerListUI(1); 
     
     const startBtn = document.getElementById('btn-sync-start');
     if (startBtn) {
@@ -52,16 +56,14 @@ function resetLobbyUI() {
 }
 
 // ------------------------------------------
-// ホスト（部屋を作る側）の処理
+// 2. ホスト（部屋を作る側）の処理
 // ------------------------------------------
 function createMultiplayRoom() {
     const btn = document.getElementById('btn-create-room');
     btn.disabled = true;
     btn.innerText = "⏳ 作成中...";
 
-    // 4桁のランダムな数字を生成
     currentRoomId = Math.floor(1000 + Math.random() * 9000).toString();
-    // 確実な接続のため、接頭辞をつける
     const peerId = `copeak-room-${currentRoomId}`;
 
     peer = new Peer(peerId);
@@ -71,19 +73,16 @@ function createMultiplayRoom() {
         document.getElementById('host-id-display').classList.remove('hidden');
         document.getElementById('my-room-id').innerText = currentRoomId;
         btn.innerText = "✅ ルーム作成完了";
-        
         document.getElementById('connection-role').innerText = "HOST";
         if (typeof showMsg === 'function') showMsg("🔑 ルームを作成しました！仲間に番号を伝えてください。");
     });
 
-    // ゲストからの接続要求を待ち受け
     peer.on('connection', (conn) => {
         if (hostConnections.length >= 2) {
             conn.send({ type: 'ERROR', message: 'ルームは満員です' });
             setTimeout(() => conn.close(), 500);
             return;
         }
-
         hostConnections.push(conn);
         setupConnectionEvents(conn);
     });
@@ -97,7 +96,7 @@ function createMultiplayRoom() {
 }
 
 // ------------------------------------------
-// ゲスト（部屋に入る側）の処理
+// 3. ゲスト（部屋に入る側）の処理
 // ------------------------------------------
 function joinMultiplayRoom() {
     const inputId = document.getElementById('input-room-id').value.trim();
@@ -111,7 +110,6 @@ function joinMultiplayRoom() {
     document.getElementById('input-room-id').disabled = true;
     btn.innerText = "⏳ 接続中...";
 
-    // 自分用のランダムなPeerIDを発行
     peer = new Peer();
 
     peer.on('open', (id) => {
@@ -131,7 +129,7 @@ function joinMultiplayRoom() {
 }
 
 // ------------------------------------------
-// 通信イベントの共通処理
+// 4. 通信イベントの共通処理
 // ------------------------------------------
 function setupConnectionEvents(conn) {
     conn.on('open', () => {
@@ -141,11 +139,8 @@ function setupConnectionEvents(conn) {
             if (typeof showMsg === 'function') showMsg("🤝 ルームに接続しました！ホストのスタートを待機中...");
         } else {
             if (typeof showMsg === 'function') showMsg("🤝 メンバーが接続しました！");
-            // ホストからゲストへ、現在の参加人数を通知
             broadcast({ type: 'UPDATE_PLAYERS', count: hostConnections.length + 1 });
         }
-        
-        // UIの参加人数表示を更新
         updatePlayerListUI(isHost ? hostConnections.length + 1 : 2);
     });
 
@@ -154,14 +149,11 @@ function setupConnectionEvents(conn) {
             updatePlayerListUI(data.count);
         }
         if (data.type === 'START_SYNCHRO') {
-            executeSyncStart(); // ホストからのスタート合図を受信！
+            executeSyncStart(); 
         }
-        
-        // 👇👇👇 これを追加 👇👇👇
         if (data.type === 'SYNC_RESULT') {
-            handlePartnerResult(data);
+            handlePartnerResult(data); // 相手のスコアデータを受信
         }
-        // 👆👆👆 追加ここまで 👆👆👆
     });
 
     conn.on('close', () => {
@@ -174,7 +166,6 @@ function setupConnectionEvents(conn) {
     });
 }
 
-// データを全員に送信するヘルパー関数（ホスト専用）
 function broadcast(data) {
     if (!isHost) return;
     hostConnections.forEach(conn => {
@@ -183,17 +174,14 @@ function broadcast(data) {
 }
 
 // ------------------------------------------
-// プレイヤーリストUIの更新
+// 5. プレイヤーリストUIの更新
 // ------------------------------------------
 function updatePlayerListUI(playerCount) {
     const p2Row = document.getElementById('p2-row');
     const p2Name = document.getElementById('p2-name');
     const p2Status = document.getElementById('p2-status');
     const p2Dot = document.getElementById('p2-dot');
-
-    const p3Row = document.getElementById('p3-row');
     
-    // Player 2の表示更新
     if (playerCount >= 2) {
         p2Row.classList.remove('opacity-40', 'border-dashed', 'border-stone-800');
         p2Row.classList.add('bg-stone-800/60', 'border-stone-800');
@@ -203,7 +191,6 @@ function updatePlayerListUI(playerCount) {
         p2Status.innerText = "READY";
         p2Status.className = "text-[10px] text-emerald-400 bg-emerald-950/50 px-2 py-0.5 rounded-sm border border-emerald-900/30 font-bold tracking-wider";
     } else {
-        // リセット
         p2Row.className = "flex items-center justify-between text-stone-600 text-sm font-bold border border-dashed border-stone-800 p-2.5 rounded-sm opacity-40 transition-all duration-300";
         p2Name.innerText = "Player 2 を待機中...";
         p2Name.classList.remove('text-stone-200');
@@ -212,7 +199,6 @@ function updatePlayerListUI(playerCount) {
         p2Status.className = "text-[10px] font-bold tracking-wider";
     }
 
-    // ホスト用のSTARTボタン制御（2人以上揃ったら押せるようにする）
     if (isHost) {
         const startBtn = document.getElementById('btn-sync-start');
         if (playerCount >= 2) {
@@ -228,29 +214,22 @@ function updatePlayerListUI(playerCount) {
 }
 
 // ------------------------------------------
-// 同期音読 (Synchro Reading) の開始プロセス
+// 6. 同期音読 (Synchro Reading) の開始プロセス
 // ------------------------------------------
-
-// ホストが「START」を押した時の処理
 function triggerSyncStart() {
     if (!isHost) return;
-    
-    // 全ゲストにスタートの合図を発射！
-    broadcast({ type: 'START_SYNCHRO' });
-    
-    // 自分の画面でもスタート処理を実行
-    executeSyncStart();
+    broadcast({ type: 'START_SYNCHRO' }); 
+    executeSyncStart(); 
 }
 
-// 実際にカウントダウンと音読画面を起動する処理（全員同時に走る）
 function executeSyncStart() {
-    // 1. まず学習画面 (Pacedモード) にこっそり切り替えて裏で準備する
     switchScreen('learningScreen');
+    
+    // ★修正: 'paced' から 'reading' モード(通常のRead)に切り替えます
     if (typeof setLearningMode === 'function') {
-        setLearningMode('paced'); // Synchro Reading用にPacedモードを強制選択
+        setLearningMode('reading');
     }
     
-    // 2. カウントダウンオーバーレイを表示
     const overlay = document.getElementById('sync-countdown-overlay');
     const numberEl = document.getElementById('countdown-number');
     
@@ -263,8 +242,6 @@ function executeSyncStart() {
         let count = 3;
         const countInterval = setInterval(() => {
             count--;
-            
-            // アニメーション用に一度縮小させる
             numberEl.classList.remove('scale-100');
             numberEl.classList.add('scale-75');
             
@@ -278,35 +255,33 @@ function executeSyncStart() {
                     numberEl.classList.remove('scale-75');
                     numberEl.classList.add('scale-100', 'text-yellow-400');
                 } else {
-                    // カウントダウン終了！
                     clearInterval(countInterval);
                     overlay.classList.add('hidden');
                     
-                    // 3. マイクをオンにして、Paced（カラオケバー）を全員同時にスタート！
                     if (typeof toggleRecording === 'function') {
-                        // STARTボタンを押したのと同じ挙動を引き起こす
                         toggleRecording(); 
                     }
                 }
-            }, 100); // 縮小アニメーションのためのわずかなタメ
-            
+            }, 100); 
         }, 1000);
     }
 }
+
 // ------------------------------------------
-// 7. シンクロ判定 (スコアとタイムスタンプの送受信)
+// 7. シンクロ判定 (スコアの送受信と結合)
 // ------------------------------------------
 
-// 自分の音読が終わった時に呼ばれる関数（speech.js等から呼び出す）
 function sendMyResultToPartner(myAccuracy, myWpm) {
-    if (!myConnection && !isHost) return; // 通信していなければ何もしない
+    // 自分の最新結果をメモリに保持
+    myLatestResult = { accuracy: myAccuracy, wpm: myWpm };
+
+    if (!myConnection && !isHost) return; 
     if (hostConnections.length === 0 && isHost) return;
 
     const myResultData = {
         type: 'SYNC_RESULT',
         accuracy: myAccuracy,
-        wpm: myWpm,
-        // ※ゆくゆくはここに「各単語を発音したミリ秒（タイムスタンプ）の配列」も入れます
+        wpm: myWpm
     };
 
     if (isHost) {
@@ -315,49 +290,50 @@ function sendMyResultToPartner(myAccuracy, myWpm) {
         myConnection.send(myResultData);
     }
     
-    console.log("📤 自分のスコアを相手に送信しました:", myResultData);
+    // 相手のデータが先に届いていれば、このタイミングで描画
+    if (partnerLatestResult) {
+        showSynchroResultUI();
+    }
 }
 
-// 相手からのスコアを受信した時の処理（setupConnectionEvents内に追記される想定の処理）
 function handlePartnerResult(data) {
-    console.log("📥 相手のスコアを受信しました:", data);
+    // 相手の最新結果をメモリに保持
+    partnerLatestResult = { accuracy: data.accuracy, wpm: data.wpm };
     
-    // ここで自分のスコアと相手のスコアを比較して「Team Synchro Rate」を計算します
-    // 今回は仮計算として、お互いのAccuracyの平均値をベースにします
-    const partnerAccuracy = data.accuracy;
-    
-    // UI（リザルト画面）に相手のスコアとシンクロ率を表示する処理を呼び出す
-    showSynchroResultUI(partnerAccuracy);
+    // 自分のデータも既に確定していれば、このタイミングで描画
+    if (myLatestResult) {
+        showSynchroResultUI();
+    }
 }
 
-// リザルト画面にシンクロ率を描画する関数
-function showSynchroResultUI(partnerAccuracy) {
-    // ※この処理は ui.js のリザルト表示関数 (showResult) が呼ばれた後に実行されます
-    
-    // リザルト画面のどこかにシンクロ率を表示する枠を動的に作ります
-    const resultContainer = document.getElementById('resultScoreBoard'); // 既存のリザルト表示エリアのIDに合わせてください
+function showSynchroResultUI() {
+    if (!myLatestResult || !partnerLatestResult) return;
+
+    // ui.jsに定義されている結果画面の黒板コンテナを指定
+    const resultContainer = document.getElementById('resultScoreBoard');
     if (!resultContainer) return;
 
-    // 既にシンクロ表示があれば消す
+    // 既に二重で表示されていたら一度消去
     const existingSync = document.getElementById('sync-score-display');
     if (existingSync) existingSync.remove();
 
-    // 自分の現在のAccuracyを取得（仮に画面上の要素から拾うか、グローバル変数から取得）
-    const myAccText = document.getElementById('accuracyScore').innerText || "0";
-    const myAccuracy = parseFloat(myAccText);
+    // 2人のAccuracyの平均からシンクロ率を算出
+    const synchroRate = Math.round((myLatestResult.accuracy + partnerLatestResult.accuracy) / 2);
 
-    // 簡易シンクロ率の計算（2人のAccuracyの平均）
-    const synchroRate = Math.round((myAccuracy + partnerAccuracy) / 2);
-
-    // 画面にドーンと追加するHTML
+    // スコアボードの下部にきれいに収まるHTMLコンポーネント
     const syncHtml = `
-        <div id="sync-score-display" class="mt-6 p-4 border-2 border-yellow-400 bg-yellow-50 rounded-md text-center animate-pulse">
-            <h3 class="text-sm font-bold text-yellow-600 tracking-widest uppercase mb-1">🤝 Team Synchro Rate</h3>
-            <div class="text-4xl font-black text-yellow-500 serif-font">${synchroRate}%</div>
-            <div class="text-xs text-stone-500 mt-2 font-bold">Partner's Accuracy: ${partnerAccuracy}%</div>
+        <div id="sync-score-display" class="mt-6 p-5 border-2 border-emerald-500 bg-stone-800 rounded-xl text-center w-full col-span-full shadow-inner relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-right from-emerald-500 to-teal-400"></div>
+            <h3 class="text-xs font-bold text-emerald-400 tracking-[0.2em] uppercase mb-1">🤝 Team Synchro Rate</h3>
+            <div class="text-5xl font-black text-yellow-400 serif-font my-2 tracking-wide">${synchroRate}%</div>
+            <div class="flex justify-center gap-6 mt-3 pt-3 border-t border-stone-700/60 text-xs text-stone-300 font-medium">
+                <div>あなた: <span class="text-emerald-400 font-bold">${myLatestResult.accuracy}%</span> (${myLatestResult.wpm} WPM)</div>
+                <div class="border-l border-stone-600 h-4"></div>
+                <div>パートナー: <span class="text-emerald-400 font-bold">${partnerLatestResult.accuracy}%</span> (${partnerLatestResult.wpm} WPM)</div>
+            </div>
         </div>
     `;
 
-    // リザルトエリアの下部に追加
+    // 黒板UIの末尾に結合
     resultContainer.insertAdjacentHTML('beforeend', syncHtml);
 }
