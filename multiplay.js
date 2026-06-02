@@ -3,14 +3,15 @@
 // ==========================================
 
 let peer = null;
-let myConnection = null; // ゲストとしての接続
-let hostConnections = []; // ホストとしての接続リスト
+let myConnection = null; 
+let hostConnections = []; 
 let isHost = false;
 let currentRoomId = "";
 
 // スコア同期のためのデータ保持変数
 let myLatestResult = null;
 let partnerLatestResult = null;
+let isSyncModeActive = false; // ★追加: 共同モード中かどうかを判定するフラグ
 
 // ------------------------------------------
 // 1. UI制御（ロビー画面を開く）
@@ -41,7 +42,6 @@ function resetLobbyUI() {
     document.getElementById('btn-join-room').innerText = "接続する";
     document.getElementById('input-room-id').disabled = false;
     
-    // スコアデータの初期化
     myLatestResult = null;
     partnerLatestResult = null;
     
@@ -152,17 +152,13 @@ function setupConnectionEvents(conn) {
             executeSyncStart(); 
         }
         if (data.type === 'SYNC_RESULT') {
-            handlePartnerResult(data); // 相手のスコアデータを受信
+            handlePartnerResult(data); 
         }
     });
 
     conn.on('close', () => {
-        if (typeof showMsg === 'function') showMsg("⚠️ 通信が切断されました");
-        if (isHost) {
-            hostConnections = hostConnections.filter(c => c.peer !== conn.peer);
-            updatePlayerListUI(hostConnections.length + 1);
-            broadcast({ type: 'UPDATE_PLAYERS', count: hostConnections.length + 1 });
-        }
+        exitMultiplayMode(true); // 通信が切れたら強制解除
+        if (typeof showMsg === 'function') showMsg("⚠️ パートナーとの通信が切断されました");
     });
 }
 
@@ -223,12 +219,16 @@ function triggerSyncStart() {
 }
 
 function executeSyncStart() {
+    isSyncModeActive = true; // ★共同モード状態をON
+    myLatestResult = null;
+    partnerLatestResult = null;
+
+    // 前回のカスタムリザルトUIがあれば消す
+    const customBoard = document.getElementById('sync-custom-board');
+    if (customBoard) customBoard.remove();
+
     switchScreen('learningScreen');
-    
-    // ★修正: 'paced' から 'reading' モード(通常のRead)に切り替えます
-    if (typeof setLearningMode === 'function') {
-        setLearningMode('reading');
-    }
+    if (typeof setLearningMode === 'function') setLearningMode('reading');
     
     const overlay = document.getElementById('sync-countdown-overlay');
     const numberEl = document.getElementById('countdown-number');
@@ -259,7 +259,11 @@ function executeSyncStart() {
                     overlay.classList.add('hidden');
                     
                     if (typeof toggleRecording === 'function') {
-                        toggleRecording(); 
+                        // 既に録音中なら一度止めてから（一応の安全策）、スタートする
+                        if(typeof isMainRecording !== 'undefined' && isMainRecording) {
+                            window.originalToggleRecording();
+                        }
+                        window.originalToggleRecording(); // ★ハイジャック前の元の関数を直接呼んで録音開始！
                     }
                 }
             }, 100); 
@@ -268,72 +272,165 @@ function executeSyncStart() {
 }
 
 // ------------------------------------------
-// 7. シンクロ判定 (スコアの送受信と結合)
+// 7. シンクロ判定 (スコアの送受信と並列UI表示)
 // ------------------------------------------
 
 function sendMyResultToPartner(myAccuracy, myWpm) {
-    // 自分の最新結果をメモリに保持
+    if (!isSyncModeActive) return; // 共同モードじゃなければ送らない
+
     myLatestResult = { accuracy: myAccuracy, wpm: myWpm };
 
     if (!myConnection && !isHost) return; 
     if (hostConnections.length === 0 && isHost) return;
 
-    const myResultData = {
-        type: 'SYNC_RESULT',
-        accuracy: myAccuracy,
-        wpm: myWpm
-    };
+    const myResultData = { type: 'SYNC_RESULT', accuracy: myAccuracy, wpm: myWpm };
 
-    if (isHost) {
-        broadcast(myResultData);
-    } else {
-        myConnection.send(myResultData);
-    }
+    if (isHost) broadcast(myResultData);
+    else myConnection.send(myResultData);
     
-    // 相手のデータが先に届いていれば、このタイミングで描画
-    if (partnerLatestResult) {
-        showSynchroResultUI();
-    }
+    if (partnerLatestResult) showSynchroResultUI();
 }
 
 function handlePartnerResult(data) {
-    // 相手の最新結果をメモリに保持
     partnerLatestResult = { accuracy: data.accuracy, wpm: data.wpm };
-    
-    // 自分のデータも既に確定していれば、このタイミングで描画
-    if (myLatestResult) {
-        showSynchroResultUI();
-    }
+    if (myLatestResult) showSynchroResultUI();
 }
 
+// ★修正: リザルトボードを上書きして、Team Synchroを上に、個人のスコアを小さく横に並べる
 function showSynchroResultUI() {
     if (!myLatestResult || !partnerLatestResult) return;
 
-    // ui.jsに定義されている結果画面の黒板コンテナを指定
     const resultContainer = document.getElementById('resultScoreBoard');
     if (!resultContainer) return;
 
-    // 既に二重で表示されていたら一度消去
-    const existingSync = document.getElementById('sync-score-display');
+    // 1. 通常のソロ用スコアボード（子要素）を一旦隠す
+    Array.from(resultContainer.children).forEach(child => {
+        if(child.id !== 'sync-custom-board') {
+            child.style.display = 'none';
+            child.classList.add('sync-hidden-elem'); // 復元用の目印
+        }
+    });
+
+    // 既に表示されていれば消す
+    const existingSync = document.getElementById('sync-custom-board');
     if (existingSync) existingSync.remove();
 
-    // 2人のAccuracyの平均からシンクロ率を算出
     const synchroRate = Math.round((myLatestResult.accuracy + partnerLatestResult.accuracy) / 2);
 
-    // スコアボードの下部にきれいに収まるHTMLコンポーネント
+    // 2. 完全に新しい「共同モード専用のリザルトHTML」を作成
     const syncHtml = `
-        <div id="sync-score-display" class="mt-6 p-5 border-2 border-emerald-500 bg-stone-800 rounded-xl text-center w-full col-span-full shadow-inner relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-right from-emerald-500 to-teal-400"></div>
-            <h3 class="text-xs font-bold text-emerald-400 tracking-[0.2em] uppercase mb-1">🤝 Team Synchro Rate</h3>
-            <div class="text-5xl font-black text-yellow-400 serif-font my-2 tracking-wide">${synchroRate}%</div>
-            <div class="flex justify-center gap-6 mt-3 pt-3 border-t border-stone-700/60 text-xs text-stone-300 font-medium">
-                <div>あなた: <span class="text-emerald-400 font-bold">${myLatestResult.accuracy}%</span> (${myLatestResult.wpm} WPM)</div>
-                <div class="border-l border-stone-600 h-4"></div>
-                <div>パートナー: <span class="text-emerald-400 font-bold">${partnerLatestResult.accuracy}%</span> (${partnerLatestResult.wpm} WPM)</div>
+        <div id="sync-custom-board" class="w-full flex flex-col gap-4 animate-fadeIn">
+            <div class="p-6 md:p-8 border-4 border-yellow-400 bg-yellow-50 rounded-xl text-center shadow-lg relative overflow-hidden">
+                <div class="absolute -top-10 -right-10 text-9xl opacity-10 select-none">🤝</div>
+                <h3 class="text-sm md:text-base font-black text-yellow-600 tracking-[0.2em] uppercase mb-2">Team Synchro Rate</h3>
+                <div class="text-7xl md:text-8xl font-black text-yellow-500 serif-font drop-shadow-md">${synchroRate}<span class="text-4xl">%</span></div>
             </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 w-full">
+                <div class="flex-1 bg-white p-4 rounded-xl border-2 border-emerald-400 shadow-sm text-center relative mt-3 sm:mt-0">
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-emerald-400 text-white text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest whitespace-nowrap">あなた</div>
+                    <div class="mt-2 text-3xl md:text-4xl font-bold text-emerald-600 serif-font">${myLatestResult.accuracy}%</div>
+                    <div class="text-xs text-stone-500 font-bold mt-1">${myLatestResult.wpm} WPM</div>
+                </div>
+                
+                <div class="flex-1 bg-white p-4 rounded-xl border-2 border-blue-400 shadow-sm text-center relative mt-3 sm:mt-0 opacity-90">
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-400 text-white text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest whitespace-nowrap">パートナー</div>
+                    <div class="mt-2 text-3xl md:text-4xl font-bold text-blue-600 serif-font">${partnerLatestResult.accuracy}%</div>
+                    <div class="text-xs text-stone-500 font-bold mt-1">${partnerLatestResult.wpm} WPM</div>
+                </div>
+            </div>
+
+            <button onclick="exitMultiplayMode()" class="mt-4 w-full py-3 bg-stone-200 hover:bg-stone-300 text-stone-600 font-bold text-sm rounded-lg transition-all border border-stone-300">
+                ❌ 共同モードを終了してソロに戻る
+            </button>
         </div>
     `;
 
-    // 黒板UIの末尾に結合
-    resultContainer.insertAdjacentHTML('beforeend', syncHtml);
+    // コンテナの「一番上」に挿入
+    resultContainer.insertAdjacentHTML('afterbegin', syncHtml);
+    
+    // UIの強制更新（黄金のRetryボタンに切り替えるため）
+    if (typeof window.updateMicButtonUI === 'function') window.updateMicButtonUI();
+}
+
+// ------------------------------------------
+// 8. 共同モードの解除と後片付け
+// ------------------------------------------
+function exitMultiplayMode(isForce = false) {
+    if (myConnection) { myConnection.close(); myConnection = null; }
+    if (isHost) {
+        hostConnections.forEach(c => c.close());
+        hostConnections = [];
+        if(peer) peer.destroy();
+    }
+    
+    isSyncModeActive = false; // フラグOFF
+    
+    // 隠していたソロ用UIを復活させる
+    const resultContainer = document.getElementById('resultScoreBoard');
+    if (resultContainer) {
+        Array.from(resultContainer.children).forEach(child => {
+            if(child.classList.contains('sync-hidden-elem')) {
+                child.style.display = '';
+                child.classList.remove('sync-hidden-elem');
+            }
+        });
+        const customBoard = document.getElementById('sync-custom-board');
+        if (customBoard) customBoard.remove();
+    }
+    
+    // マイクボタンの色・文字を通常に戻す
+    if (typeof window.updateMicButtonUI === 'function') window.updateMicButtonUI();
+    
+    if (!isForce && typeof showMsg === 'function') showMsg("共同モードを解除しました");
+}
+
+// ==========================================
+// ★魔法のパッチ：既存の関数を上書きハイジャックして、ボタンの動きを共同モード仕様に変える
+// ==========================================
+
+// 1. マイクボタン（スタート/リトライボタン）の見た目をハイジャック
+if (typeof window.updateMicButtonUI === 'function') {
+    window.originalUpdateMicButtonUI = window.updateMicButtonUI; // 元の関数を保存
+    
+    window.updateMicButtonUI = function() {
+        window.originalUpdateMicButtonUI(); // まず通常の更新を走らせる
+        
+        // もし「共同モード中」かつ「録音中ではない（=待機中・リザルト画面）」なら上書き！
+        if (isSyncModeActive && typeof isMainRecording !== 'undefined' && !isMainRecording) {
+            const btn = document.getElementById('micBtn');
+            const txt = document.getElementById('micBtnText');
+            if (btn && txt) {
+                if (isHost) {
+                    // ホスト専用：黄金の連続リトライボタン
+                    btn.className = "w-full max-w-md mx-auto py-4 md:py-5 rounded-full font-black text-white text-base md:text-lg tracking-widest transition-all duration-300 shadow-[0_0_20px_rgba(234,179,8,0.4)] bg-yellow-500 hover:bg-yellow-400 hover:scale-105 active:scale-95";
+                    txt.innerText = "🚀 RETRY SYNCHRO (ホストとして再開)";
+                } else {
+                    // ゲスト専用：グレーの待機ボタン
+                    btn.className = "w-full max-w-md mx-auto py-4 md:py-5 rounded-full font-black text-stone-400 text-base md:text-lg tracking-widest transition-all duration-300 border-2 border-stone-600 bg-stone-800 cursor-not-allowed";
+                    txt.innerText = "⏳ ホストの再開操作を待機中...";
+                }
+            }
+        }
+    };
+}
+
+// 2. マイクボタンを押した時の「動作」をハイジャック
+if (typeof window.toggleRecording === 'function') {
+    window.originalToggleRecording = window.toggleRecording; // 元の関数を保存
+    
+    window.toggleRecording = function() {
+        // もし「共同モード中」かつ「これからスタートしようとしている」なら、ソロ開始をブロックする
+        if (isSyncModeActive && typeof isMainRecording !== 'undefined' && !isMainRecording) {
+            if (isHost) {
+                triggerSyncStart(); // ホストが押したら、全員に合図を飛ばしてカウントダウン開始
+            } else {
+                if (typeof showMsg === 'function') showMsg("⚠️ ホストが「RETRY SYNCHRO」を押すのをお待ちください");
+            }
+            return; // ここで処理を止めて、元のソロ用スタートは実行させない
+        }
+        
+        // それ以外（ソロモード、または共同モードの録音を「FINISH」する時）は通常通り動かす
+        window.originalToggleRecording();
+    };
 }
