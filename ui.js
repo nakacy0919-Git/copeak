@@ -73,9 +73,14 @@ function openLearningScreen(lesson) {
 
     const audioContainer = document.getElementById('audioContainer');
     const audioPlayer = document.getElementById('audioPlayer');
+    
     if (lesson.audioBlob) {
         audioContainer.classList.remove('hidden');
         audioPlayer.src = URL.createObjectURL(lesson.audioBlob);
+    } else if (lesson.audioUrl) {
+        // ★URL指定された外部音声(CNN等)があれば再生可能にする
+        audioContainer.classList.remove('hidden');
+        audioPlayer.src = lesson.audioUrl;
     } else {
         audioContainer.classList.add('hidden');
         audioPlayer.src = "";
@@ -457,6 +462,11 @@ async function generateShareLink() {
         eng: currentCustomLesson.eng,
         lang: currentCustomLesson.lang || 'en-US'
     };
+
+    // ★追加: もし外部音声URLがあれば、パラメータに含める
+    if (currentCustomLesson.audioUrl) {
+        paramsConfig.audioUrl = currentCustomLesson.audioUrl;
+    }
 
     const savedFormUrl = localStorage.getItem('copeak_teacher_form_url');
     if (savedFormUrl) {

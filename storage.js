@@ -266,15 +266,18 @@ function startCustomLesson(lesson) {
 // ==========================================
 // ★追加機能: 魔法のリンク (URLパラメータ) の受け取り処理
 // ==========================================
+// ==========================================
+// ★追加機能: 魔法のリンク (URLパラメータ) の受け取り処理
+// ==========================================
 function checkUrlParameters() {
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has('eng')) {
         const title = urlParams.get('title') || 'Shared Lesson';
         const engText = urlParams.get('eng');
         const lang = urlParams.get('lang') || 'en-US';
-        const formUrl = urlParams.get('form') || null; // ★追加: 先生のフォームURLを取得
+        const formUrl = urlParams.get('form') || null; 
+        const audioUrl = urlParams.get('audioUrl') || null; // ★追加: URLから外部音声の住所を取得
 
-        // ブラウザのURLバーからパラメータを消す
         window.history.replaceState({}, document.title, window.location.pathname);
 
         const transaction = db.transaction([storeName], "readwrite");
@@ -285,25 +288,24 @@ function checkUrlParameters() {
             const lessons = request.result;
             const sharedTitle = "🔗 " + title;
             
-            // 重複チェック
             const existingLesson = lessons.find(l => l.title === sharedTitle && l.eng === engText);
 
             if (existingLesson) {
-                // すでに持っている場合は、フォームURLだけ最新に更新して開く
                 existingLesson.formUrl = formUrl;
+                if (audioUrl) existingLesson.audioUrl = audioUrl; // ★追加: 音声URLの更新
                 store.put(existingLesson);
                 if (typeof showMsg === 'function') showMsg("この共有教材はすでにLibraryにあります");
                 startCustomLesson(existingLesson);
             } else {
-                // 新しい教材として保存
                 const newLessonData = {
                     title: sharedTitle, 
                     eng: engText, 
                     jpn: "先生からの共有教材です。", 
                     audioBlob: null,
+                    audioUrl: audioUrl, // ★追加: 新規保存時に音声URLも記録する
                     lang: lang, 
                     langName: "🌐 Shared Material",
-                    formUrl: formUrl, // ★追加: フォームURLを教材データに紐づけて保存！
+                    formUrl: formUrl,
                     history: [], 
                     createdAt: new Date().getTime()
                 };
