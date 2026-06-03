@@ -266,9 +266,6 @@ function startCustomLesson(lesson) {
 // ==========================================
 // ★追加機能: 魔法のリンク (URLパラメータ) の受け取り処理
 // ==========================================
-// ==========================================
-// ★追加機能: 魔法のリンク (URLパラメータ) の受け取り処理
-// ==========================================
 function checkUrlParameters() {
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has('eng')) {
@@ -276,7 +273,8 @@ function checkUrlParameters() {
         const engText = urlParams.get('eng');
         const lang = urlParams.get('lang') || 'en-US';
         const formUrl = urlParams.get('form') || null; 
-        const audioUrl = urlParams.get('audioUrl') || null; // ★追加: URLから外部音声の住所を取得
+        const audioUrl = urlParams.get('audioUrl') || null; 
+        const jpnText = urlParams.get('jpn') || "先生からの共有教材です。"; // 👇 追加: URLから日本語訳を取得
 
         window.history.replaceState({}, document.title, window.location.pathname);
 
@@ -292,7 +290,8 @@ function checkUrlParameters() {
 
             if (existingLesson) {
                 existingLesson.formUrl = formUrl;
-                if (audioUrl) existingLesson.audioUrl = audioUrl; // ★追加: 音声URLの更新
+                if (audioUrl) existingLesson.audioUrl = audioUrl; 
+                if (urlParams.has('jpn')) existingLesson.jpn = jpnText; // 👇 追加: 既存教材の和訳も更新
                 store.put(existingLesson);
                 if (typeof showMsg === 'function') showMsg("この共有教材はすでにLibraryにあります");
                 startCustomLesson(existingLesson);
@@ -300,9 +299,9 @@ function checkUrlParameters() {
                 const newLessonData = {
                     title: sharedTitle, 
                     eng: engText, 
-                    jpn: "先生からの共有教材です。", 
+                    jpn: jpnText, // 👇 変更: 取得した和訳をセット
                     audioBlob: null,
-                    audioUrl: audioUrl, // ★追加: 新規保存時に音声URLも記録する
+                    audioUrl: audioUrl, 
                     lang: lang, 
                     langName: "🌐 Shared Material",
                     formUrl: formUrl,

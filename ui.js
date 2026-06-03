@@ -463,6 +463,11 @@ async function generateShareLink() {
         lang: currentCustomLesson.lang || 'en-US'
     };
 
+    // 👇 追加: 日本語訳があればパラメータに含める
+    if (currentCustomLesson.jpn) {
+        paramsConfig.jpn = currentCustomLesson.jpn;
+    }
+
     // ★追加: もし外部音声URLがあれば、パラメータに含める
     if (currentCustomLesson.audioUrl) {
         paramsConfig.audioUrl = currentCustomLesson.audioUrl;
