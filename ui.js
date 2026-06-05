@@ -224,12 +224,23 @@ function showPreReadingState() {
     const mainPane = document.getElementById('mainLearningPane');
     const sidebar = document.getElementById('playlistSidebar');
     const toggleBtn = document.getElementById('toggleJpnBtn');
+    
+    // ★追加: グレーのメインマイクボタンを取得
+    const micBtn = document.getElementById('micBtn');
 
-    // 👇 変更：古い未発話ボタンやポップアップが残っていれば完全に消去
     const oldBtnContainer = document.getElementById('missingWordsBtnContainer');
     if (oldBtnContainer) oldBtnContainer.remove();
     const oldModal = document.getElementById('missingWordsModal');
     if (oldModal) oldModal.remove();
+
+    const previewBtn = document.querySelector('button[onclick="openFullscreenPreview()"]');
+    if (previewBtn) previewBtn.style.display = '';
+
+    const finishBtn = document.getElementById('fullscreenFinishBtn');
+    if (finishBtn) finishBtn.style.display = 'none';
+
+    // ★追加: 最初の画面ではグレーのボタンをしっかり表示しておく
+    if (micBtn) micBtn.style.display = '';
 
     if (mainPane) mainPane.className = "w-full lg:w-[78%] flex flex-col h-full bg-[#faf8f5] rounded-sm iron-border overflow-hidden relative transition-all duration-500";
     if (sidebar) sidebar.style.display = 'flex';
@@ -262,30 +273,53 @@ function showRecordingState() {
     const mainPane = document.getElementById('mainLearningPane');
     const sidebar = document.getElementById('playlistSidebar');
     const toggleBtn = document.getElementById('toggleJpnBtn');
+    
+    // ★追加: グレーのメインマイクボタンを取得
+    const micBtn = document.getElementById('micBtn'); 
+
+    const previewBtn = document.querySelector('button[onclick="openFullscreenPreview()"]');
+    if (previewBtn) previewBtn.style.display = 'none';
 
     if (mainPane) mainPane.className = "w-full flex flex-col h-full bg-[#faf8f5] rounded-sm iron-border overflow-hidden relative transition-all duration-500";
     if (sidebar) sidebar.style.display = 'none';
 
     if (jpnWrapper) jpnWrapper.classList.add('hidden');
     if (toggleBtn) toggleBtn.classList.add('hidden');
-    
-    if(toggleBtn) {
-        toggleBtn.innerText = '🌐 訳を表示';
-        toggleBtn.classList.remove('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
-    }
 
     resultScoreBoard.style.display = 'none'; 
 
     if (currentMode !== 'shadowing') {
-        yourVoiceWrapper.style.display = 'flex';
-        yourVoiceWrapper.className = "absolute inset-0 z-0 opacity-20 pointer-events-none p-4 md:p-14 flex flex-col overflow-hidden transition-all duration-700 bg-transparent border-none shadow-none";
+        yourVoiceWrapper.style.display = 'none'; 
         
+        // ★追加: フルスクリーン本番中は、元のグレーのボタンを「完全に非表示」にする！
+        if (micBtn) micBtn.style.display = 'none';
+
         targetTextWrapper.style.display = 'flex';
-        targetTextWrapper.className = "relative z-10 w-full flex-1 flex flex-col gap-4 md:gap-6 transition-all duration-700 bg-white/85 backdrop-blur-xl p-4 md:p-14 rounded-xl md:rounded-2xl shadow-2xl border border-stone-200";
+        
+        // z-[9999] にして、他のあらゆる要素よりも一番手前に来るように設定
+        targetTextWrapper.className = "fixed inset-0 z-[9999] w-full h-full flex flex-col bg-[#faf8f5] p-6 md:p-12 lg:p-24 overflow-y-auto transition-all duration-500 shadow-2xl";
+        
+        let finishBtn = document.getElementById('fullscreenFinishBtn');
+        if (!finishBtn) {
+            finishBtn = document.createElement('button');
+            finishBtn.id = 'fullscreenFinishBtn';
+            finishBtn.className = "mt-16 mb-24 mx-auto px-10 py-5 bg-red-600 hover:bg-red-700 text-white font-bold text-lg md:text-xl rounded-full shadow-xl transform hover:scale-105 transition-all flex items-center justify-center gap-3 w-[90%] md:w-auto shrink-0";
+            finishBtn.innerHTML = "⏹ 音読を終了する (FINISH)";
+            finishBtn.onclick = () => {
+                if (typeof toggleRecording === 'function') toggleRecording();
+            };
+            targetTextWrapper.appendChild(finishBtn);
+        }
+        finishBtn.style.display = 'flex';
+        targetTextWrapper.scrollTop = 0;
+
     } else {
         targetTextWrapper.style.display = 'none'; 
         yourVoiceWrapper.style.display = 'flex';
         yourVoiceWrapper.className = "w-full max-w-5xl mx-auto p-4 md:p-12 bg-white rounded-sm border-l-4 border-stone-800 shadow-sm iron-border-sm flex flex-col min-h-[300px] md:min-h-[400px] transition-all duration-300 opacity-100 relative z-10";
+        
+        // ★追加: シャドーイングモード（フルスクリーンにならないモード）の時はグレーのボタンを表示したままにする
+        if (micBtn) micBtn.style.display = '';
     }
 }
 
@@ -298,6 +332,18 @@ function showResultState() {
     const mainPane = document.getElementById('mainLearningPane');
     const sidebar = document.getElementById('playlistSidebar');
     const toggleBtn = document.getElementById('toggleJpnBtn');
+    
+    // ★追加: グレーのメインマイクボタンを取得
+    const micBtn = document.getElementById('micBtn');
+
+    const previewBtn = document.querySelector('button[onclick="openFullscreenPreview()"]');
+    if (previewBtn) previewBtn.style.display = 'none';
+
+    const finishBtn = document.getElementById('fullscreenFinishBtn');
+    if (finishBtn) finishBtn.style.display = 'none';
+
+    // ★追加: 結果画面に戻ってきたら、隠していたグレーのボタンを復活させる
+    if (micBtn) micBtn.style.display = '';
 
     if (mainPane) mainPane.className = "w-full flex flex-col h-full bg-[#faf8f5] rounded-sm iron-border overflow-hidden relative transition-all duration-500";
     if (sidebar) sidebar.style.display = 'none';
@@ -315,13 +361,11 @@ function showResultState() {
         targetTextWrapper.style.display = 'flex';
         targetTextWrapper.className = "w-full lg:w-1/2 flex flex-col gap-4 md:gap-6 transition-all duration-300 relative z-10 bg-transparent p-0 backdrop-blur-none border-none shadow-none flex-1 min-h-[250px] md:min-h-[400px]";
 
-        // 👇 修正: ボックス内ではなく、画面の「左下」（Start Readingの左側）に独立して固定配置する
         const oldBtnContainer = document.getElementById('missingWordsBtnContainer');
         if (oldBtnContainer) oldBtnContainer.remove();
 
         const btnContainer = document.createElement('div');
         btnContainer.id = 'missingWordsBtnContainer';
-        // absoluteを使って、メイン画面の左下（Start Readingの左空間）に固定配置
         btnContainer.className = 'absolute bottom-4 left-4 md:bottom-8 md:left-8 z-[100]';
         
         btnContainer.innerHTML = `
@@ -332,7 +376,6 @@ function showResultState() {
             </button>
         `;
 
-        // mainPane (画面全体のコンテナ) に直接追加することで、左右のボックスのレイアウトを一切崩さずに配置されます
         if (mainPane) {
             mainPane.appendChild(btnContainer);
         }
