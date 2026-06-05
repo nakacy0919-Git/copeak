@@ -531,10 +531,11 @@ function toggleAIVoice() {
     btn.classList.add('bg-red-600', 'hover:bg-red-700');
 }
 // ==========================================
-// ★追加: 生徒成績管理 & Googleフォーム自動送信システム
+// ★追加: 生徒成績管理 & Googleフォーム自動送信システム (履歴選択・裏口送信版)
 // ==========================================
+let selectedLogToSubmit = null; // 生徒が選択した過去の成績ログを一時保存する変数
 
-// 結果画面が表示されたときに、提出ボタンを出すか出さないか制御する（showResultState内に追記する代わりにここで検知）
+// 結果画面が表示されたときに、提出ボタンを出すか出さないか制御する
 const originalShowResultState = showResultState;
 showResultState = function() {
     originalShowResultState(); // 元々の結果表示処理を実行
@@ -550,17 +551,16 @@ showResultState = function() {
     }
 };
 
-// 1. 提出ボタンが押されたときの処理
+// 1. 提出ボタンが押されたときの最初の窓口
 function openReflectionWrapper() {
-    // 端末にプロフィール（クラス・番号・名前）が保存されているか確認
     const savedProfile = localStorage.getItem('copeak_student_profile');
     
     if (!savedProfile) {
         // 保存されていなければ、先にプロフィール登録モーダルを開く
         document.getElementById('studentProfileModal').classList.remove('hidden');
     } else {
-        // 保存されていれば、振り返り入力モーダルを開く
-        openReflectionModal();
+        // 保存されていれば、新設した「過去の成績一覧ポップアップ」を開く
+        openHistorySelectModal();
     }
 }
 
@@ -578,23 +578,89 @@ function saveStudentProfile() {
     const profile = { class: cls, number: num, name: name };
     localStorage.setItem('copeak_student_profile', JSON.stringify(profile));
     
-    // プロフィールモーダルを閉じ、振り返りモーダルへ進む
     document.getElementById('studentProfileModal').classList.add('hidden');
-    openReflectionModal();
+    openHistorySelectModal(); // プロフィール登録後、履歴選択へ進む
 }
 
-// 3. 振り返りモーダルを開き、現在のスコアをプレビュー表示
+// 新設 2.5. 過去の成績一覧をポップアップで表示する機能
+function openHistorySelectModal() {
+    const oldModal = document.getElementById('historySelectModal');
+    if (oldModal) oldModal.remove();
+
+    const modal = document.createElement('div');
+    modal.id = 'historySelectModal';
+    modal.className = 'fixed inset-0 z-[10000] bg-black/60 flex items-center justify-center p-4 backdrop-blur-sm';
+    
+    let historyHtml = '';
+    if (!currentCustomLesson || !currentCustomLesson.history || currentCustomLesson.history.length === 0) {
+        historyHtml = `<p class="text-center text-stone-400 py-8 text-sm">練習履歴がまだありません。</p>`;
+    } else {
+        // 新しい履歴が上に来るように（降順）リストを生成
+        const reversedHistory = [...currentCustomLesson.history].reverse();
+        reversedHistory.forEach((log, index) => {
+            const originalIndex = currentCustomLesson.history.length - 1 - index;
+            let modeStr = '📖 音読';
+            if (log.mode === 'shadowing') modeStr = '🎧 シャドー';
+            if (log.mode === 'memo') modeStr = '🧠 暗記';
+            if (log.mode === 'paced') modeStr = '⚡️ ペース';
+
+            historyHtml += `
+                <div onclick="selectHistoryLog(${originalIndex})" class="p-3 mb-2 bg-stone-50 hover:bg-emerald-50 border border-stone-200 hover:border-emerald-500 rounded-sm cursor-pointer transition flex justify-between items-center group text-left">
+                    <div>
+                        <div class="font-bold text-stone-800 text-xs md:text-sm group-hover:text-emerald-900">${originalIndex + 1}回目: ${modeStr} <span class="text-stone-400 font-normal text-[10px] ml-1">${log.date || ''}</span></div>
+                        <div class="text-[11px] text-stone-500 mt-1">Accuracy: <span class="font-bold text-stone-700">${log.score}%</span> / Speed: <span class="font-bold text-stone-700">${log.wpm} WPM</span> / Comp: <span class="font-bold text-stone-700">${log.comp}%</span></div>
+                    </div>
+                    <span class="text-stone-400 group-hover:text-emerald-600 font-bold text-xs shrink-0 pl-2">選択 ➔</span>
+                </div>
+            `;
+        });
+    }
+
+    modal.innerHTML = `
+        <div class="bg-white rounded-sm max-w-md w-full p-5 flex flex-col max-h-[80vh] shadow-xl border border-stone-300">
+            <div class="flex justify-between items-center mb-3 border-b border-stone-200 pb-2">
+                <h3 class="font-black text-base md:text-lg text-stone-800 flex items-center gap-2">📋 提出する成績の選択</h3>
+                <button onclick="closeHistorySelectModal()" class="text-stone-400 hover:text-stone-600 text-lg font-bold">✕</button>
+            </div>
+            <p class="text-[11px] text-stone-500 mb-3 text-left leading-relaxed">過去のすべての練習履歴（今回の結果を含む）が表示されています。先生に送信したい回をタップしてください。</p>
+            <div class="flex-1 overflow-y-auto pr-1">
+                ${historyHtml}
+            </div>
+            <button onclick="closeHistorySelectModal()" class="mt-4 w-full py-2 bg-stone-100 hover:bg-stone-200 text-stone-600 font-bold rounded-sm text-xs transition">閉じる</button>
+        </div>
+    `;
+    document.body.appendChild(modal);
+}
+
+function closeHistorySelectModal() {
+    const modal = document.getElementById('historySelectModal');
+    if (modal) modal.remove();
+}
+
+function selectHistoryLog(index) {
+    if (!currentCustomLesson || !currentCustomLesson.history) return;
+    // 生徒が選んだ特定の回のログをセット
+    selectedLogToSubmit = currentCustomLesson.history[index];
+    selectedLogToSubmit.displayIndex = index + 1; // 何回目の練習か記録保持
+    
+    closeHistorySelectModal();
+    openReflectionModal(); // 振り返り（最終確認）モーダルへ進む
+}
+
+// 3. 振り返りモーダルを開き、選択された過去のスコアをプレビュー表示
 function openReflectionModal() {
-    // ★修正: index.htmlの正しいID (bigAccValue, bigWpmValue) に合わせました
-    const scoreText = document.getElementById('bigAccValue') ? document.getElementById('bigAccValue').innerText : '--%';
-    const wpmText = document.getElementById('bigWpmValue') ? document.getElementById('bigWpmValue').innerText : '--';
+    if (!selectedLogToSubmit) return;
+
+    const scoreText = `${selectedLogToSubmit.score}%`;
+    const wpmText = `${selectedLogToSubmit.wpm}`;
     
     let modeStr = '📖 Read';
-    if (currentMode === 'shadowing') modeStr = '🎧 Shadowing';
-    if (currentMode === 'memo') modeStr = '🧠 Vanish';
-    if (currentMode === 'paced') modeStr = '⚡️ Paced';
+    if (selectedLogToSubmit.mode === 'shadowing') modeStr = '🎧 Shadowing';
+    if (selectedLogToSubmit.mode === 'memo') modeStr = '🧠 Vanish';
+    if (selectedLogToSubmit.mode === 'paced') modeStr = '⚡️ Paced';
 
-    document.getElementById('submitScorePreview').innerText = `Accuracy: ${scoreText} / Speed: ${wpmText} WPM`;
+    // 選択された回の情報を画面にプレビュー表示
+    document.getElementById('submitScorePreview').innerText = `【選択中: 第 ${selectedLogToSubmit.displayIndex} 回目の記録】 Accuracy: ${scoreText} / Speed: ${wpmText} WPM`;
     document.getElementById('submitModePreview').innerText = modeStr;
     document.getElementById('reflectionInput').value = ""; // 入力欄をリセット
     
@@ -603,11 +669,12 @@ function openReflectionModal() {
 
 function closeReflectionModal() {
     document.getElementById('reflectionModal').classList.add('hidden');
+    selectedLogToSubmit = null; // リセット
 }
 
-// 4. 【最重要】Googleフォームへのデータ裏口自動送信（POST）
+// 4. 【選んだログを送信】Googleフォームへのデータ裏口自動送信（POST）
 async function submitScoreToForm() {
-    if (!currentCustomLesson || !currentCustomLesson.formUrl) return;
+    if (!currentCustomLesson || !currentCustomLesson.formUrl || !selectedLogToSubmit) return;
 
     const profile = JSON.parse(localStorage.getItem('copeak_student_profile'));
     if (!profile) return;
@@ -622,51 +689,46 @@ async function submitScoreToForm() {
     finalSubmitBtn.disabled = true;
     finalSubmitBtn.innerHTML = "⏳ 送信中...";
 
-    // index.htmlの正しいIDからデータを抽出
-    const accuracy = document.getElementById('bigAccValue') ? document.getElementById('bigAccValue').innerText.replace('%', '') : '0';
-    const wpm = document.getElementById('bigWpmValue') ? document.getElementById('bigWpmValue').innerText : '0';
-    const comp = document.getElementById('bigCompValue') ? document.getElementById('bigCompValue').innerText.replace('%', '') : '0';
-    const playCount = currentCustomLesson.history ? currentCustomLesson.history.length : 1;
+    // 選択された過去のログデータから送信値を確定させる
+    const accuracy = String(selectedLogToSubmit.score);
+    const wpm = String(selectedLogToSubmit.wpm);
+    const comp = String(selectedLogToSubmit.comp || 0);
+    const targetPlayCount = String(selectedLogToSubmit.displayIndex); // 選択されたのが「何回目」のデータか
 
     let modeStr = 'Read';
-    if (currentMode === 'shadowing') modeStr = 'Shadowing';
-    if (currentMode === 'memo') modeStr = 'Vanish';
-    if (currentMode === 'paced') modeStr = 'Paced';
+    if (selectedLogToSubmit.mode === 'shadowing') modeStr = 'Shadowing';
+    if (selectedLogToSubmit.mode === 'memo') modeStr = 'Vanish';
+    if (selectedLogToSubmit.mode === 'paced') modeStr = 'Paced';
 
-    // ★追加: 現在開いている教材のタイトルを取得し、共有マーク(🔗 )があれば綺麗に取り除く
     const lessonTitle = currentCustomLesson.title.replace('🔗 ', '');
 
-    // 不要なパラメータ(?usp=...)を切り捨てて、純粋な受信用URLを作る
     let cleanFormUrl = currentCustomLesson.formUrl.split('?')[0]; 
     let postUrl = cleanFormUrl.replace('/viewform', '/formResponse');
 
-    // 固有のentry.IDをマッピング（新しい教材名用のIDを追加）
     const formData = new URLSearchParams();
     formData.append('entry.755665088', profile.class);
     formData.append('entry.70481568', profile.number);
     formData.append('entry.1056156063', profile.name);
-    formData.append('entry.1259267878', lessonTitle); // ★新設された「教材名」欄にタイトルを自動注入！
+    formData.append('entry.1259267878', lessonTitle); 
     formData.append('entry.145428349', accuracy);
     formData.append('entry.928123739', wpm);
     formData.append('entry.1611039041', comp);
     formData.append('entry.1534604696', modeStr);
-    formData.append('entry.695903918', playCount);
+    formData.append('entry.695903918', targetPlayCount); // 選んだ回数を送信！
     formData.append('entry.80945765', reflection);
 
     try {
-        // Googleのサーバーに直接POST送信
         await fetch(postUrl, {
             method: 'POST',
-            mode: 'no-cors', // クロスドメイン制限を回避する魔法のオプション
+            mode: 'no-cors', 
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: formData.toString()
         });
 
-        // no-corsモードは成功を検知できない仕様のため、送信を試みたら成功とみなす
-        if (typeof showMsg === 'function') showMsg("🚀 成績と内省を先生に送信しました！");
+        if (typeof showMsg === 'function') showMsg("🚀 選択した成績と内省を先生に送信しました！");
         closeReflectionModal();
         
-        // 提出ボタンを隠す（2重送信防止）
+        // 提出完了したらメインのトリガーボタンを隠す
         const triggerBtn = document.getElementById('submitScoreTriggerBtn');
         if(triggerBtn) triggerBtn.classList.add('hidden');
         
@@ -677,7 +739,6 @@ async function submitScoreToForm() {
         finalSubmitBtn.innerHTML = "<span>🚀</span> この内容で送信する";
     }
 }
-
 // ==========================================
 // ★追加: 先生用設定 (フォームURL) の保存と読み込み
 // ==========================================
