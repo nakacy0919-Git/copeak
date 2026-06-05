@@ -377,7 +377,6 @@ function showResultState() {
 
     if (micBtn) micBtn.style.display = '';
 
-    // ★追加: ボックスのスクロールリミッターを元に戻す
     const engContainer = document.getElementById('engContainer');
     if (engContainer) {
         engContainer.style.overflowY = '';
@@ -398,6 +397,32 @@ function showResultState() {
     }
 
     resultScoreBoard.style.display = 'flex';
+
+    // ★追加: 目標スコア達成時に花火アニメーションを発動！
+    const accEl = document.getElementById('bigAccValue');
+    const wpmEl = document.getElementById('bigWpmValue');
+    if (accEl && wpmEl) {
+        // 現在の値を数値として取得（'%'を取り除く）
+        const accVal = parseInt(accEl.innerText.replace('%', '')) || 0;
+        const wpmVal = parseInt(wpmEl.innerText) || 0;
+        
+        // 再挑戦時にもう一度光らせるために一度クラスをリセット
+        accEl.classList.remove('score-firework');
+        wpmEl.classList.remove('score-firework');
+        
+        // 強制リフロー（アニメーションをリスタートさせる魔法）
+        void accEl.offsetWidth;
+        void wpmEl.offsetWidth;
+
+        // 【Accuracyが80以上】かつ【WPMが95以上】の時に両方のスコアを光らせる
+        if (accVal >= 80 && wpmVal >= 95) {
+            // 結果画面が表示された一瞬あとにフワッと光らせると綺麗です
+            setTimeout(() => {
+                accEl.classList.add('score-firework');
+                wpmEl.classList.add('score-firework');
+            }, 300);
+        }
+    }
 
     if (currentMode !== 'shadowing') {
         yourVoiceWrapper.style.display = 'flex';
