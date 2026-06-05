@@ -225,6 +225,12 @@ function showPreReadingState() {
     const sidebar = document.getElementById('playlistSidebar');
     const toggleBtn = document.getElementById('toggleJpnBtn');
 
+    // 👇 変更：古い未発話ボタンやポップアップが残っていれば完全に消去
+    const oldBtnContainer = document.getElementById('missingWordsBtnContainer');
+    if (oldBtnContainer) oldBtnContainer.remove();
+    const oldModal = document.getElementById('missingWordsModal');
+    if (oldModal) oldModal.remove();
+
     if (mainPane) mainPane.className = "w-full lg:w-[78%] flex flex-col h-full bg-[#faf8f5] rounded-sm iron-border overflow-hidden relative transition-all duration-500";
     if (sidebar) sidebar.style.display = 'flex';
 
@@ -293,8 +299,8 @@ function showResultState() {
     const sidebar = document.getElementById('playlistSidebar');
     const toggleBtn = document.getElementById('toggleJpnBtn');
 
-    if (mainPane) mainPane.className = "w-full lg:w-[78%] flex flex-col h-full bg-[#faf8f5] rounded-sm iron-border overflow-hidden relative transition-all duration-500";
-    if (sidebar) sidebar.style.display = 'flex';
+    if (mainPane) mainPane.className = "w-full flex flex-col h-full bg-[#faf8f5] rounded-sm iron-border overflow-hidden relative transition-all duration-500";
+    if (sidebar) sidebar.style.display = 'none';
     
     if (toggleBtn && currentCustomLesson && currentCustomLesson.jpn) {
         toggleBtn.classList.remove('hidden');
@@ -308,6 +314,28 @@ function showResultState() {
         
         targetTextWrapper.style.display = 'flex';
         targetTextWrapper.className = "w-full lg:w-1/2 flex flex-col gap-4 md:gap-6 transition-all duration-300 relative z-10 bg-transparent p-0 backdrop-blur-none border-none shadow-none flex-1 min-h-[250px] md:min-h-[400px]";
+
+        // 👇 修正: ボックス内ではなく、画面の「左下」（Start Readingの左側）に独立して固定配置する
+        const oldBtnContainer = document.getElementById('missingWordsBtnContainer');
+        if (oldBtnContainer) oldBtnContainer.remove();
+
+        const btnContainer = document.createElement('div');
+        btnContainer.id = 'missingWordsBtnContainer';
+        // absoluteを使って、メイン画面の左下（Start Readingの左空間）に固定配置
+        btnContainer.className = 'absolute bottom-4 left-4 md:bottom-8 md:left-8 z-[100]';
+        
+        btnContainer.innerHTML = `
+            <button onclick="openMissingWordsModal()" class="px-4 py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-full md:rounded-sm text-[11px] md:text-xs transition shadow-lg flex items-center gap-1.5 transform hover:scale-105 duration-200 border border-orange-400">
+                <span class="text-sm leading-none">⚠️</span> 
+                <span class="hidden md:inline">未発話・認識されなかった語彙リスト</span>
+                <span class="md:hidden">未発話リスト</span>
+            </button>
+        `;
+
+        // mainPane (画面全体のコンテナ) に直接追加することで、左右のボックスのレイアウトを一切崩さずに配置されます
+        if (mainPane) {
+            mainPane.appendChild(btnContainer);
+        }
     }
 }
 
@@ -1050,4 +1078,62 @@ function toggleFsOriginalAudio() {
             isFsAudioPlaying = false;
         };
     }
+}
+// ==========================================
+// ★追加: 未発話語彙リストをポップアップ（モーダル窓）で表示する機能
+// ==========================================
+function openMissingWordsModal() {
+    const oldModal = document.getElementById('missingWordsModal');
+    if (oldModal) oldModal.remove();
+
+    if (!currentCustomLesson || !currentCustomLesson.eng) return;
+
+    // 1. お手本の英文から純粋な単語リストを抽出
+    const targetText = currentCustomLesson.eng.toLowerCase().replace(/[^a-z0-9\s']/gi, '');
+    const targetWords = targetText.split(/\s+/).filter(w => w);
+
+    // 2. 認識された音声テキストを抽出
+    const recDisplay = document.getElementById('recognizedTextDisplay');
+    const spokenText = (recDisplay && !recDisplay.innerText.includes('※')) ? recDisplay.innerText.toLowerCase().replace(/[^a-z0-9\s']/gi, '') : '';
+    const spokenWords = spokenText.split(/\s+/).filter(w => w);
+
+    // 3. 含まれなかった単語をフィルタリング（重複カット）
+    const missingWords = targetWords.filter(word => !spokenWords.includes(word));
+    const uniqueMissingWords = [...new Set(missingWords)];
+
+    // 4. モーダル（ポップアップ）を動的に生成
+    const modal = document.createElement('div');
+    modal.id = 'missingWordsModal';
+    modal.className = 'fixed inset-0 z-[10000] bg-black/60 flex items-center justify-center p-4 backdrop-blur-sm animate-fade-in';
+
+    let listHtml = '';
+    if (uniqueMissingWords.length === 0) {
+        listHtml = `<p class="text-sm text-emerald-600 font-bold py-8 text-center">🎉 素晴らしい！すべての単語が完璧に認識されています。</p>`;
+    } else {
+        listHtml = `<div class="flex flex-wrap gap-2 max-h-[35vh] overflow-y-auto p-1 border border-stone-100 bg-stone-50 rounded-sm p-3 text-left">`;
+        uniqueMissingWords.forEach(word => {
+            listHtml += `<span class="px-2.5 py-1 bg-white border border-orange-200 rounded-sm text-xs font-bold text-orange-700 shadow-sm">${word}</span>`;
+        });
+        listHtml += `</div>`;
+    }
+
+    modal.innerHTML = `
+        <div class="bg-white rounded-sm max-w-md w-full p-6 flex flex-col shadow-xl border border-stone-300 transform scale-100 transition-transform">
+            <div class="flex justify-between items-center mb-3 border-b border-stone-200 pb-2 text-left">
+                <h3 class="font-black text-base md:text-lg text-orange-800 flex items-center gap-1.5">⚠️ 未発話・認識されなかった語彙</h3>
+                <button onclick="closeMissingWordsModal()" class="text-stone-400 hover:text-stone-600 text-lg font-bold">✕</button>
+            </div>
+            <p class="text-[11px] text-stone-500 mb-4 text-left leading-relaxed">スクリプト内には存在しますが、今回の音声認識で聞き取れなかった、または読み飛ばされた可能性のある単語です（計 ${uniqueMissingWords.length} 語）。</p>
+            
+            ${listHtml}
+            
+            <button onclick="closeMissingWordsModal()" class="mt-5 w-full py-2.5 bg-stone-800 hover:bg-stone-900 text-white font-bold rounded-sm text-xs transition shadow-sm">閉じる</button>
+        </div>
+    `;
+    document.body.appendChild(modal);
+}
+
+function closeMissingWordsModal() {
+    const modal = document.getElementById('missingWordsModal');
+    if (modal) modal.remove();
 }
