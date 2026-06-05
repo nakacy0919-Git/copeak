@@ -225,7 +225,6 @@ function showPreReadingState() {
     const sidebar = document.getElementById('playlistSidebar');
     const toggleBtn = document.getElementById('toggleJpnBtn');
     
-    // ★追加: グレーのメインマイクボタンを取得
     const micBtn = document.getElementById('micBtn');
 
     const oldBtnContainer = document.getElementById('missingWordsBtnContainer');
@@ -239,8 +238,20 @@ function showPreReadingState() {
     const finishBtn = document.getElementById('fullscreenFinishBtn');
     if (finishBtn) finishBtn.style.display = 'none';
 
-    // ★追加: 最初の画面ではグレーのボタンをしっかり表示しておく
     if (micBtn) micBtn.style.display = '';
+
+    // ★追加: ボックスのスクロールリミッターを元に戻す
+    const engContainer = document.getElementById('engContainer');
+    if (engContainer) {
+        engContainer.style.overflowY = '';
+        engContainer.style.flex = '';
+        engContainer.style.height = '';
+    }
+    if (targetTextWrapper && targetTextWrapper.firstElementChild) {
+        targetTextWrapper.firstElementChild.style.flex = '';
+        targetTextWrapper.firstElementChild.style.height = '';
+        targetTextWrapper.firstElementChild.style.minHeight = '';
+    }
 
     if (mainPane) mainPane.className = "w-full lg:w-[78%] flex flex-col h-full bg-[#faf8f5] rounded-sm iron-border overflow-hidden relative transition-all duration-500";
     if (sidebar) sidebar.style.display = 'flex';
@@ -274,7 +285,6 @@ function showRecordingState() {
     const sidebar = document.getElementById('playlistSidebar');
     const toggleBtn = document.getElementById('toggleJpnBtn');
     
-    // ★追加: グレーのメインマイクボタンを取得
     const micBtn = document.getElementById('micBtn'); 
 
     const previewBtn = document.querySelector('button[onclick="openFullscreenPreview()"]');
@@ -290,35 +300,46 @@ function showRecordingState() {
 
     if (currentMode !== 'shadowing') {
         yourVoiceWrapper.style.display = 'none'; 
-        
-        // ★追加: フルスクリーン本番中は、元のグレーのボタンを「完全に非表示」にする！
         if (micBtn) micBtn.style.display = 'none';
 
         targetTextWrapper.style.display = 'flex';
         
-        // z-[9999] にして、他のあらゆる要素よりも一番手前に来るように設定
-        targetTextWrapper.className = "fixed inset-0 z-[9999] w-full h-full flex flex-col bg-[#faf8f5] p-6 md:p-12 lg:p-24 overflow-y-auto transition-all duration-500 shadow-2xl";
+        // ★修正: 外側の箱をフルスクリーンにする
+        targetTextWrapper.className = "fixed inset-0 z-[9999] w-full h-[100dvh] flex flex-col bg-[#faf8f5] p-2 md:p-8 lg:p-16 overflow-y-auto transition-all duration-500 shadow-2xl";
         
+        // ★追加: 内側の箱のスクロールリミッターを外し、中身を画面いっぱいに押し広げる
+        const engContainer = document.getElementById('engContainer');
+        if (engContainer) {
+            engContainer.style.overflowY = 'visible';
+            engContainer.style.flex = 'none';
+            engContainer.style.height = 'auto';
+        }
+        if (targetTextWrapper.firstElementChild) {
+            targetTextWrapper.firstElementChild.style.flex = 'none';
+            targetTextWrapper.firstElementChild.style.height = 'auto';
+            targetTextWrapper.firstElementChild.style.minHeight = '80vh'; // 最低でも画面の80%は確保
+        }
+
         let finishBtn = document.getElementById('fullscreenFinishBtn');
         if (!finishBtn) {
             finishBtn = document.createElement('button');
             finishBtn.id = 'fullscreenFinishBtn';
-            finishBtn.className = "mt-16 mb-24 mx-auto px-10 py-5 bg-red-600 hover:bg-red-700 text-white font-bold text-lg md:text-xl rounded-full shadow-xl transform hover:scale-105 transition-all flex items-center justify-center gap-3 w-[90%] md:w-auto shrink-0";
-            finishBtn.innerHTML = "⏹ 音読を終了する (FINISH)";
             finishBtn.onclick = () => {
                 if (typeof toggleRecording === 'function') toggleRecording();
             };
             targetTextWrapper.appendChild(finishBtn);
         }
+        // ★修正: 先生ご希望の「音読を提出する (Submit)」に変更
+        finishBtn.innerHTML = "⏹ 音読を提出する (Submit)";
+        finishBtn.className = "mt-12 mb-24 mx-auto px-10 py-5 bg-red-600 hover:bg-red-700 text-white font-bold text-lg md:text-xl rounded-full shadow-xl transform hover:scale-105 transition-all flex items-center justify-center gap-3 w-[90%] md:w-auto shrink-0";
         finishBtn.style.display = 'flex';
+        
         targetTextWrapper.scrollTop = 0;
 
     } else {
         targetTextWrapper.style.display = 'none'; 
         yourVoiceWrapper.style.display = 'flex';
         yourVoiceWrapper.className = "w-full max-w-5xl mx-auto p-4 md:p-12 bg-white rounded-sm border-l-4 border-stone-800 shadow-sm iron-border-sm flex flex-col min-h-[300px] md:min-h-[400px] transition-all duration-300 opacity-100 relative z-10";
-        
-        // ★追加: シャドーイングモード（フルスクリーンにならないモード）の時はグレーのボタンを表示したままにする
         if (micBtn) micBtn.style.display = '';
     }
 }
@@ -333,7 +354,6 @@ function showResultState() {
     const sidebar = document.getElementById('playlistSidebar');
     const toggleBtn = document.getElementById('toggleJpnBtn');
     
-    // ★追加: グレーのメインマイクボタンを取得
     const micBtn = document.getElementById('micBtn');
 
     const previewBtn = document.querySelector('button[onclick="openFullscreenPreview()"]');
@@ -342,8 +362,20 @@ function showResultState() {
     const finishBtn = document.getElementById('fullscreenFinishBtn');
     if (finishBtn) finishBtn.style.display = 'none';
 
-    // ★追加: 結果画面に戻ってきたら、隠していたグレーのボタンを復活させる
     if (micBtn) micBtn.style.display = '';
+
+    // ★追加: ボックスのスクロールリミッターを元に戻す
+    const engContainer = document.getElementById('engContainer');
+    if (engContainer) {
+        engContainer.style.overflowY = '';
+        engContainer.style.flex = '';
+        engContainer.style.height = '';
+    }
+    if (targetTextWrapper && targetTextWrapper.firstElementChild) {
+        targetTextWrapper.firstElementChild.style.flex = '';
+        targetTextWrapper.firstElementChild.style.height = '';
+        targetTextWrapper.firstElementChild.style.minHeight = '';
+    }
 
     if (mainPane) mainPane.className = "w-full flex flex-col h-full bg-[#faf8f5] rounded-sm iron-border overflow-hidden relative transition-all duration-500";
     if (sidebar) sidebar.style.display = 'none';
