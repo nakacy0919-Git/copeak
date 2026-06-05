@@ -287,6 +287,12 @@ function showRecordingState() {
     
     const micBtn = document.getElementById('micBtn'); 
 
+    // ★修正1: 本番（録音中）が始まったら、前回の結果の「未発話リストボタン」を確実に完全消去する
+    const oldBtnContainer = document.getElementById('missingWordsBtnContainer');
+    if (oldBtnContainer) oldBtnContainer.remove();
+    const oldModal = document.getElementById('missingWordsModal');
+    if (oldModal) oldModal.remove();
+
     const previewBtn = document.querySelector('button[onclick="openFullscreenPreview()"]');
     if (previewBtn) previewBtn.style.display = 'none';
 
@@ -304,20 +310,20 @@ function showRecordingState() {
 
         targetTextWrapper.style.display = 'flex';
         
-        // ★修正: 外側の箱をフルスクリーンにする
         targetTextWrapper.className = "fixed inset-0 z-[9999] w-full h-[100dvh] flex flex-col bg-[#faf8f5] p-2 md:p-8 lg:p-16 overflow-y-auto transition-all duration-500 shadow-2xl";
         
-        // ★追加: 内側の箱のスクロールリミッターを外し、中身を画面いっぱいに押し広げる
         const engContainer = document.getElementById('engContainer');
         if (engContainer) {
             engContainer.style.overflowY = 'visible';
             engContainer.style.flex = 'none';
             engContainer.style.height = 'auto';
         }
+        
+        // 白いボックスの縦幅を画面いっぱいに広げる
         if (targetTextWrapper.firstElementChild) {
             targetTextWrapper.firstElementChild.style.flex = 'none';
             targetTextWrapper.firstElementChild.style.height = 'auto';
-            targetTextWrapper.firstElementChild.style.minHeight = '80vh'; // 最低でも画面の80%は確保
+            targetTextWrapper.firstElementChild.style.minHeight = '80vh';
         }
 
         let finishBtn = document.getElementById('fullscreenFinishBtn');
@@ -327,11 +333,18 @@ function showRecordingState() {
             finishBtn.onclick = () => {
                 if (typeof toggleRecording === 'function') toggleRecording();
             };
-            targetTextWrapper.appendChild(finishBtn);
+            
+            // ★修正2: 赤いボタンを「外側」ではなく「緑の線の入った白いボックスの内側」に配置する！
+            if (targetTextWrapper.firstElementChild) {
+                targetTextWrapper.firstElementChild.appendChild(finishBtn);
+            } else {
+                targetTextWrapper.appendChild(finishBtn);
+            }
         }
-        // ★修正: 先生ご希望の「音読を提出する (Submit)」に変更
+        
         finishBtn.innerHTML = "⏹ 音読を提出する (Submit)";
-        finishBtn.className = "mt-12 mb-24 mx-auto px-10 py-5 bg-red-600 hover:bg-red-700 text-white font-bold text-lg md:text-xl rounded-full shadow-xl transform hover:scale-105 transition-all flex items-center justify-center gap-3 w-[90%] md:w-auto shrink-0";
+        // 内側に収まるため、marginを調整して美しく配置
+        finishBtn.className = "mt-16 mb-8 mx-auto px-10 py-5 bg-red-600 hover:bg-red-700 text-white font-bold text-lg md:text-xl rounded-full shadow-xl transform hover:scale-105 transition-all flex items-center justify-center gap-3 w-[90%] md:w-auto shrink-0";
         finishBtn.style.display = 'flex';
         
         targetTextWrapper.scrollTop = 0;
@@ -1187,7 +1200,10 @@ function openMissingWordsModal() {
     } else {
         listHtml = `<div class="flex flex-wrap gap-2 max-h-[35vh] overflow-y-auto p-1 border border-stone-100 bg-stone-50 rounded-sm p-3 text-left">`;
         uniqueMissingWords.forEach(word => {
-            listHtml += `<span class="px-2.5 py-1 bg-white border border-orange-200 rounded-sm text-xs font-bold text-orange-700 shadow-sm">${word}</span>`;
+            // ★修正: アポストロフィ(')が含まれる単語（例: don't）でエラーが起きないようにエスケープ処理
+            const escapedWord = word.replace(/'/g, "\\'");
+            // ★修正: onclickで発音機能を追加し、マウスオーバーで色が変わる（押せる感）UIに変更
+            listHtml += `<span onclick="speakWord('${escapedWord}')" class="px-2.5 py-1.5 bg-white border border-orange-200 rounded-sm text-xs font-bold text-orange-700 shadow-sm cursor-pointer hover:bg-orange-500 hover:text-white transition-colors active:scale-95 flex items-center gap-1" title="タップして発音を聞く">🔊 ${word}</span>`;
         });
         listHtml += `</div>`;
     }
@@ -1198,7 +1214,7 @@ function openMissingWordsModal() {
                 <h3 class="font-black text-base md:text-lg text-orange-800 flex items-center gap-1.5">⚠️ 未発話・認識されなかった語彙</h3>
                 <button onclick="closeMissingWordsModal()" class="text-stone-400 hover:text-stone-600 text-lg font-bold">✕</button>
             </div>
-            <p class="text-[11px] text-stone-500 mb-4 text-left leading-relaxed">スクリプト内には存在しますが、今回の音声認識で聞き取れなかった、または読み飛ばされた可能性のある単語です（計 ${uniqueMissingWords.length} 語）。</p>
+            <p class="text-[11px] text-stone-500 mb-4 text-left leading-relaxed">スクリプト内には存在しますが、今回の音声認識で聞き取れなかった単語です（計 ${uniqueMissingWords.length} 語）。<br><strong class="text-emerald-700 bg-emerald-50 px-1 mt-1 inline-block">💡 単語をタップすると正しい発音を確認できます。</strong></p>
             
             ${listHtml}
             
@@ -1211,4 +1227,22 @@ function openMissingWordsModal() {
 function closeMissingWordsModal() {
     const modal = document.getElementById('missingWordsModal');
     if (modal) modal.remove();
+}
+
+// ==========================================
+// ★追加: クリックされた単語をAI音声で単発読み上げする機能
+// ==========================================
+function speakWord(word) {
+    if ('speechSynthesis' in window) {
+        // もし直前まで別の音声をしゃべっていたら、一度キャンセルして被らないようにする
+        window.speechSynthesis.cancel();
+        
+        const utterance = new SpeechSynthesisUtterance(word);
+        // 教材の言語設定（基本は英語）を引き継ぐ
+        utterance.lang = (currentCustomLesson && currentCustomLesson.lang) ? currentCustomLesson.lang : 'en-US';
+        // 単語だけを聞くので、聞き取りやすいように少しだけゆっくり（0.9倍速）にする
+        utterance.rate = 0.9;
+        
+        window.speechSynthesis.speak(utterance);
+    }
 }
