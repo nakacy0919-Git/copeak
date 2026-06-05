@@ -532,7 +532,7 @@
 
                         <div id="targetTextWrapper" class="w-full flex flex-col gap-4 md:gap-6 transition-all duration-300 flex-1 min-h-[200px] md:min-h-[300px]">
                             <div class="p-4 md:p-6 bg-white rounded-sm border-l-4 border-emerald-800 shadow-sm flex-1 flex flex-col min-h-[150px] md:min-h-[250px]">
-                                <div class="flex justify-between items-center mb-2 md:mb-4 border-b border-stone-100 pb-2 shrink-0">
+                               <div class="flex justify-between items-center mb-2 md:mb-4 border-b border-stone-100 pb-2 shrink-0">
                                     <div class="flex items-center gap-2 md:gap-3 flex-wrap">
                                         <div data-i18n="label_target_text" class="text-xs md:text-sm text-emerald-800 font-bold uppercase tracking-widest">Target Text</div>
                                         <button id="toggleJpnBtn" onclick="toggleTranslation()" class="hidden text-[10px] md:text-xs font-bold text-stone-500 hover:text-emerald-700 bg-stone-100 px-2 md:px-3 py-1 rounded-sm transition border border-stone-200 whitespace-nowrap">
@@ -544,20 +544,47 @@
                                         </button>
                                         
                                         <div id="pacedModeControls" class="hidden">
-                                            <div class="flex items-center gap-2 bg-purple-50 px-2 py-1 border border-purple-200 rounded-sm shrink-0 w-32 md:w-48">
-                                                <span id="targetWpmDisplay" class="text-[10px] font-bold text-purple-900 whitespace-nowrap">120 WPM</span>
-                                                <input type="range" id="targetWpmSlider" min="60" max="240" value="120" step="10" class="w-full h-1 bg-purple-200 rounded-lg appearance-none cursor-pointer outline-none" oninput="updateTargetWpm(this.value)">
+                                            <div class="flex items-center gap-1 bg-purple-50 px-2 py-1 border border-purple-200 rounded-sm shrink-0">
+                                                <label for="pacedWpmSelect" class="text-[10px] font-bold text-purple-900 whitespace-nowrap flex items-center cursor-pointer">
+                                                    ⚡️ WPM
+                                                </label>
+                                                <select id="pacedWpmSelect" onchange="updateTargetWpm(this.value)" class="bg-transparent text-[11px] font-bold text-purple-900 outline-none cursor-pointer ml-1 pl-1 border-l border-purple-200">
+                                                    <option value="60">60</option>
+                                                    <option value="70">70</option>
+                                                    <option value="80">80</option>
+                                                    <option value="90">90</option>
+                                                    <option value="100">100</option>
+                                                    <option value="110">110</option>
+                                                    <option value="120" selected>120</option>
+                                                    <option value="130">130</option>
+                                                    <option value="140">140</option>
+                                                    <option value="150">150</option>
+                                                    <option value="160">160</option>
+                                                    <option value="170">170</option>
+                                                    <option value="180">180</option>
+                                                    <option value="190">190</option>
+                                                    <option value="200">200</option>
+                                                    <option value="210">210</option>
+                                                    <option value="220">220</option>
+                                                    <option value="230">230</option>
+                                                    <option value="240">240</option>
+                                                </select>
+                                                <button type="button" onclick="openWpmGuide()" class="ml-1 w-4 h-4 flex items-center justify-center bg-purple-200 hover:bg-purple-300 text-purple-700 rounded-full text-[9px] font-bold transition">?</button>
                                             </div>
                                         </div>
 
                                         <div id="vanishModeControls" class="hidden">
                                             <div class="flex items-center gap-1 bg-stone-50 px-2 py-1 border border-stone-200 rounded-sm shrink-0">
-                                                <span class="text-[10px] font-bold text-stone-500 mr-1 flex items-center">🧠 Lv</span>
-                                                <button onclick="updateMemoLevel(1)" id="lvlBtn1" class="w-5 h-5 rounded-sm bg-stone-800 text-white font-bold text-[10px] flex items-center justify-center transition shadow-sm">1</button>
-                                                <button onclick="updateMemoLevel(2)" id="lvlBtn2" class="w-5 h-5 rounded-sm bg-stone-200 text-stone-600 hover:bg-stone-300 font-bold text-[10px] flex items-center justify-center transition">2</button>
-                                                <button onclick="updateMemoLevel(3)" id="lvlBtn3" class="w-5 h-5 rounded-sm bg-stone-200 text-stone-600 hover:bg-stone-300 font-bold text-[10px] flex items-center justify-center transition">3</button>
-                                                <button onclick="updateMemoLevel(4)" id="lvlBtn4" class="w-5 h-5 rounded-sm bg-stone-200 text-stone-600 hover:bg-stone-300 font-bold text-[10px] flex items-center justify-center transition">4</button>
-                                                <button onclick="updateMemoLevel(5)" id="lvlBtn5" class="w-5 h-5 rounded-sm bg-stone-200 text-stone-600 hover:bg-stone-300 font-bold text-[10px] flex items-center justify-center transition">5</button>
+                                                <label for="vanishLevelSelect" class="text-[10px] font-bold text-stone-500 flex items-center cursor-pointer">
+                                                    🧠 Lv
+                                                </label>
+                                                <select id="vanishLevelSelect" onchange="updateMemoLevel(this.value)" class="bg-transparent text-[11px] font-bold text-stone-700 outline-none cursor-pointer ml-1 pl-1 border-l border-stone-200">
+                                                    <option value="1">1 (20% 空欄)</option>
+                                                    <option value="2">2 (40% 空欄)</option>
+                                                    <option value="3">3 (60% 空欄)</option>
+                                                    <option value="4">4 (80% 空欄)</option>
+                                                    <option value="5">5 (100% 空欄)</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -567,8 +594,7 @@
                                     </div>
                                 </div>
 
-                                <div id="engContainer" class="text-stone-800 leading-relaxed transition-all duration-200 font-medium serif-font flex-1 overflow-y-auto" style="font-size: 24px;"></div>
-                            </div>
+                                <div id="engContainer" class="text-stone-800 leading-relaxed transition-all duration-200 font-medium serif-font flex-1 overflow-y-auto" style="font-size: 24px;"></div> </div>
 
                             <div id="jpnWrapper" class="p-4 md:p-6 bg-[#f8fafc] rounded-sm border-l-4 border-stone-400 shadow-inner hidden transition-all duration-300 shrink-0">
                                 <div class="flex justify-between items-center mb-2 md:mb-4 border-b border-stone-200 pb-2">
