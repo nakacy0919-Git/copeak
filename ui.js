@@ -111,17 +111,39 @@ function toggleTranslation() {
 }
 
 function updateMemoLevel(level) {
-    currentMemoLevel = level;
+    currentMemoLevel = parseInt(level); // 数値として確実に処理する
+    
+    // 古いボタンUI用のコード（念のため残していますが、画面には出ません）
     for (let i = 1; i <= 5; i++) {
         const btn = document.getElementById('lvlBtn' + i);
         if (!btn) continue;
-        if (i === level) {
+        if (i === currentMemoLevel) {
             btn.className = "flex-1 py-1.5 md:py-2 rounded-sm bg-stone-800 text-white font-bold text-xs transition shadow-sm";
         } else {
             btn.className = "flex-1 py-1.5 md:py-2 rounded-sm bg-stone-200 text-stone-600 hover:bg-stone-300 font-bold text-xs transition";
         }
     }
+
+    // ★抜け落ちていた処理：ドロップダウンの表示を現在のレベルに合わせる
+    const selectEl = document.getElementById('vanishLevelSelect');
+    if (selectEl) selectEl.value = currentMemoLevel;
+
+    // ★抜け落ちていた処理：テキストの再描画
     renderTargetText(); 
+} 
+// 👇👇👇 ここから下を追加する 👇👇👇
+
+// ★追加: PacedのWPM数値を更新し、ドロップダウンとも連動させる
+function updateTargetWpm(val) {
+    targetWpm = parseInt(val);
+    
+    // 古い表示用（念のため残す）
+    const display = document.getElementById('targetWpmDisplay');
+    if (display) display.innerText = targetWpm + " WPM";
+
+    // ドロップダウンの表示を現在のWPMに合わせる
+    const selectEl = document.getElementById('pacedWpmSelect');
+    if (selectEl) selectEl.value = targetWpm;
 }
 
 function renderTargetText() {
@@ -155,12 +177,6 @@ function renderTargetText() {
     });
 
     engContainer.innerHTML = processedWords.join('').replace(/([.?!]["']?)<\/span>\s+/g, "$1</span><br><br>");
-}
-
-function updateTargetWpm(val) {
-    targetWpm = parseInt(val);
-    const display = document.getElementById('targetWpmDisplay');
-    if (display) display.innerText = targetWpm + " WPM";
 }
 
 function openWpmGuide() {
@@ -542,7 +558,10 @@ function closeChartModal() {
 }
 
 function renderChart() {
-    if (!currentCustomLesson || !currentCustomLesson.history || currentCustomLesson.history.length === 0) return;
+    if (!currentCustomLesson || !currentCustomLesson.history || currentCustomLesson.history.length === 0) {
+        if (typeof showMsg === 'function') showMsg("📝 まだ学習履歴がありません");
+        return;
+    }
 
     const ctx = document.getElementById('progressChart').getContext('2d');
     if (progressChartInstance) progressChartInstance.destroy();
@@ -564,13 +583,30 @@ function renderChart() {
         data: {
             labels: labels,
             datasets: [
-                { label: 'Comprehension (理解度 %)', data: compData, borderColor: '#facc15', backgroundColor: 'rgba(250, 204, 21, 0.2)', borderWidth: 4, tension: 0.3, fill: true, yAxisID: 'y' },
-                { label: 'Accuracy (正確さ %)', data: accData, borderColor: '#34d399', borderWidth: 3, tension: 0.3, yAxisID: 'y' },
-                { label: 'WPM (スピード)', data: wpmData, borderColor: '#60a5fa', borderWidth: 3, borderDash: [5, 5], tension: 0.3, yAxisID: 'y1' }
+                { label: 'Comprehension (理解度 %)', data: compData, borderColor: '#facc15', backgroundColor: 'rgba(250, 204, 21, 0.2)', borderWidth: 4, tension: 0.3, fill: true, yAxisID: 'y', pointRadius: 6, pointHoverRadius: 8 },
+                { label: 'Accuracy (正確さ %)', data: accData, borderColor: '#34d399', borderWidth: 3, tension: 0.3, yAxisID: 'y', pointRadius: 6, pointHoverRadius: 8 },
+                { label: 'WPM (スピード)', data: wpmData, borderColor: '#60a5fa', borderWidth: 3, borderDash: [5, 5], tension: 0.3, yAxisID: 'y1', pointRadius: 6, pointHoverRadius: 8 }
             ]
         },
         options: {
-            responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false, },
+            responsive: true, maintainAspectRatio: false, 
+            interaction: { mode: 'index', intersect: false },
+            // ★追加: グラフの点（またはその縦ライン）をタップした時のマジック
+            onClick: (e, elements) => {
+                if (elements.length > 0) {
+                    const dataIndex = elements[0].index;
+                    closeChartModal(); // グラフをスッと閉じる
+                    
+                    const savedProfile = localStorage.getItem('copeak_student_profile');
+                    if (!savedProfile) {
+                        // プロフィール未登録なら先に登録画面へ
+                        document.getElementById('studentProfileModal').classList.remove('hidden');
+                    } else {
+                        // 登録済みなら、タップした「その回」の成績送信（振り返り）画面へ直行！
+                        selectHistoryLog(dataIndex);
+                    }
+                }
+            },
             scales: {
                 y: { type: 'linear', display: true, position: 'left', min: 0, max: 100, title: { display: true, text: 'Percentage (%)', color: '#78716c', font: { weight: 'bold' } } },
                 y1: { type: 'linear', display: true, position: 'right', min: 0, title: { display: true, text: 'Words Per Minute (WPM)', color: '#78716c', font: { weight: 'bold' } }, grid: { drawOnChartArea: false } }

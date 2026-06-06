@@ -589,6 +589,7 @@
                                         </div>
                                     </div>
                                     <div class="flex gap-1 md:gap-2 shrink-0">
+                                        <button onclick="openChartModal()" class="w-6 h-6 md:w-8 md:h-8 bg-blue-50 hover:bg-blue-100 text-blue-600 font-bold rounded-sm transition text-xs md:text-base border border-blue-200 flex items-center justify-center mr-1 shadow-sm" title="学習記録を見る">📊</button>
                                         <button onclick="changeFontSize('eng', -2)" class="w-6 h-6 md:w-8 md:h-8 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold rounded-sm transition text-xs md:text-base">A-</button>
                                         <button onclick="changeFontSize('eng', 2)" class="w-6 h-6 md:w-8 md:h-8 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold rounded-sm transition text-xs md:text-base">A+</button>
                                     </div>
@@ -627,16 +628,22 @@
         </div>
     </div>
 
-    <div id="chartModal" class="fixed inset-0 bg-stone-900/80 z-50 hidden flex justify-center items-center backdrop-blur-sm transition-opacity p-2 md:p-0">
-        <div class="bg-[#faf8f5] p-5 md:p-10 rounded-sm iron-border w-full md:w-[95%] max-w-5xl relative">
+    <div id="chartModal" class="fixed inset-0 bg-stone-900/80 z-[20000] hidden flex justify-center items-center backdrop-blur-sm transition-opacity p-2 md:p-0">
+        <div class="bg-[#faf8f5] p-5 md:p-8 rounded-sm iron-border w-full md:w-[95%] max-w-5xl relative">
             <button onclick="closeChartModal()" class="absolute top-2 right-3 md:top-4 md:right-4 text-stone-400 hover:text-red-500 text-3xl md:text-4xl font-bold transition">&times;</button>
             <h2 class="text-xl md:text-2xl font-bold text-stone-800 mb-4 md:mb-6 serif-font flex items-center gap-2 md:gap-3">
                 <span class="text-2xl md:text-3xl">📈</span> <span data-i18n="chart_title">Learning Progress</span>
             </h2>
-            <div class="w-full h-[45vh] md:h-[60vh] bg-white p-2 md:p-4 rounded-sm iron-border-sm relative">
+            <div class="w-full h-[40vh] md:h-[55vh] bg-white p-2 md:p-4 rounded-sm iron-border-sm relative">
                 <canvas id="progressChart"></canvas>
             </div>
-            <p data-i18n="chart_desc" class="text-center text-stone-500 text-xs md:text-sm mt-3 md:mt-4 font-bold">※日々の反復がスコアアップの鍵です！</p>
+            
+            <div class="mt-4 flex flex-col items-center gap-3 bg-blue-50 p-3 md:p-4 rounded-sm border border-blue-200">
+                <p class="text-[11px] md:text-sm text-blue-800 font-bold">💡 グラフの「点」を直接タップすると、その回の成績を先生に送信できます！</p>
+                <button onclick="openReflectionWrapper(); closeChartModal();" class="w-full md:w-auto px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-sm shadow-md transition-colors flex items-center justify-center gap-2 text-xs md:text-sm">
+                    📋 または過去の成績一覧リストから選ぶ
+                </button>
+            </div>
         </div>
     </div>
     
