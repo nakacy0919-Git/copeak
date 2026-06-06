@@ -248,6 +248,10 @@ function showPreReadingState() {
     const oldModal = document.getElementById('missingWordsModal');
     if (oldModal) oldModal.remove();
 
+    // ★追加: 中止ボタンを隠す
+    const cancelBtn = document.getElementById('cancelRecordingBtn');
+    if (cancelBtn) cancelBtn.style.display = 'none';
+
     const previewBtn = document.querySelector('button[onclick="openFullscreenPreview()"]');
     if (previewBtn) previewBtn.style.display = '';
 
@@ -256,7 +260,6 @@ function showPreReadingState() {
 
     if (micBtn) micBtn.style.display = '';
 
-    // ★追加: ボックスのスクロールリミッターを元に戻す
     const engContainer = document.getElementById('engContainer');
     if (engContainer) {
         engContainer.style.overflowY = '';
@@ -303,11 +306,24 @@ function showRecordingState() {
     
     const micBtn = document.getElementById('micBtn'); 
 
-    // ★修正1: 本番（録音中）が始まったら、前回の結果の「未発話リストボタン」を確実に完全消去する
     const oldBtnContainer = document.getElementById('missingWordsBtnContainer');
     if (oldBtnContainer) oldBtnContainer.remove();
     const oldModal = document.getElementById('missingWordsModal');
     if (oldModal) oldModal.remove();
+
+    // ★追加: 左上のキャンセル（中止）ボタンを生成・表示
+    let cancelBtn = document.getElementById('cancelRecordingBtn');
+    if (!cancelBtn) {
+        cancelBtn = document.createElement('button');
+        cancelBtn.id = 'cancelRecordingBtn';
+        cancelBtn.innerHTML = "✕";
+        cancelBtn.title = "音読を中止する";
+        cancelBtn.onclick = cancelRecording;
+        document.body.appendChild(cancelBtn);
+    }
+    // 左上に完全固定するスタイル
+    cancelBtn.className = "fixed top-3 left-3 md:top-6 md:left-6 z-[20000] w-10 h-10 md:w-12 md:h-12 bg-white hover:bg-red-50 text-stone-500 hover:text-red-600 font-bold text-xl md:text-2xl rounded-full shadow-xl border border-stone-200 flex items-center justify-center transition-all transform hover:scale-105 cursor-pointer";
+    cancelBtn.style.display = 'flex';
 
     const previewBtn = document.querySelector('button[onclick="openFullscreenPreview()"]');
     if (previewBtn) previewBtn.style.display = 'none';
@@ -325,7 +341,6 @@ function showRecordingState() {
         if (micBtn) micBtn.style.display = 'none';
 
         targetTextWrapper.style.display = 'flex';
-        
         targetTextWrapper.className = "fixed inset-0 z-[9999] w-full h-[100dvh] flex flex-col bg-[#faf8f5] p-2 md:p-8 lg:p-16 overflow-y-auto transition-all duration-500 shadow-2xl";
         
         const engContainer = document.getElementById('engContainer');
@@ -335,7 +350,6 @@ function showRecordingState() {
             engContainer.style.height = 'auto';
         }
         
-        // 白いボックスの縦幅を画面いっぱいに広げる
         if (targetTextWrapper.firstElementChild) {
             targetTextWrapper.firstElementChild.style.flex = 'none';
             targetTextWrapper.firstElementChild.style.height = 'auto';
@@ -350,7 +364,6 @@ function showRecordingState() {
                 if (typeof toggleRecording === 'function') toggleRecording();
             };
             
-            // ★修正2: 赤いボタンを「外側」ではなく「緑の線の入った白いボックスの内側」に配置する！
             if (targetTextWrapper.firstElementChild) {
                 targetTextWrapper.firstElementChild.appendChild(finishBtn);
             } else {
@@ -359,8 +372,7 @@ function showRecordingState() {
         }
         
         finishBtn.innerHTML = "⏹ 音読を提出する (Submit)";
-        // 内側に収まるため、marginを調整して美しく配置
-        finishBtn.className = "mt-16 mb-8 mx-auto px-10 py-5 bg-red-600 hover:bg-red-700 text-white font-bold text-lg md:text-xl rounded-full shadow-xl transform hover:scale-105 transition-all flex items-center justify-center gap-3 w-[90%] md:w-auto shrink-0";
+        finishBtn.className = "mt-16 mb-8 mx-auto px-10 py-5 bg-red-600 hover:bg-red-700 text-white font-bold text-lg md:text-xl rounded-full shadow-xl transform hover:scale-105 transition-all flex items-center justify-center gap-3 w-[90%] md:w-auto shrink-0 cursor-pointer";
         finishBtn.style.display = 'flex';
         
         targetTextWrapper.scrollTop = 0;
@@ -374,9 +386,28 @@ function showRecordingState() {
 }
 
 function showResultState() {
+    // 👇👇👇【追加】中止ボタンが押された後の時間差ゾンビバグを完全にブロックする防護壁 👇👇👇
+    if (window.isCopeakCanceling) {
+        window.isCopeakCanceling = false;
+        // 時間差で遅れて履歴に追加されてしまったゴミデータがあれば綺麗に消去する
+        if (currentCustomLesson && currentCustomLesson.history) {
+            while (currentCustomLesson.history.length > (window.historyLengthBeforeCancel || 0)) {
+                currentCustomLesson.history.pop();
+            }
+            if (typeof saveLessons === 'function') saveLessons();
+        }
+        // 強制的に初期画面へ引き戻す
+        if (typeof resetLearningState === 'function') {
+            resetLearningState();
+        }
+        return;
+    }
+    // 👆👆👆 ここまでを追加 👆👆👆
+
     document.body.classList.remove('immersive-mode');
 
     const targetTextWrapper = document.getElementById('targetTextWrapper'); 
+    // ... (これ以降のコードはそのまま変更なし)
     const yourVoiceWrapper = document.getElementById('yourVoiceWrapper');
     const resultScoreBoard = document.getElementById('resultScoreBoard');
     const mainPane = document.getElementById('mainLearningPane');
@@ -384,6 +415,10 @@ function showResultState() {
     const toggleBtn = document.getElementById('toggleJpnBtn');
     
     const micBtn = document.getElementById('micBtn');
+
+    // ★追加: 中止ボタンを隠す
+    const cancelBtn = document.getElementById('cancelRecordingBtn');
+    if (cancelBtn) cancelBtn.style.display = 'none';
 
     const previewBtn = document.querySelector('button[onclick="openFullscreenPreview()"]');
     if (previewBtn) previewBtn.style.display = 'none';
@@ -414,25 +449,18 @@ function showResultState() {
 
     resultScoreBoard.style.display = 'flex';
 
-    // ★追加: 目標スコア達成時に花火アニメーションを発動！
     const accEl = document.getElementById('bigAccValue');
     const wpmEl = document.getElementById('bigWpmValue');
     if (accEl && wpmEl) {
-        // 現在の値を数値として取得（'%'を取り除く）
         const accVal = parseInt(accEl.innerText.replace('%', '')) || 0;
         const wpmVal = parseInt(wpmEl.innerText) || 0;
         
-        // 再挑戦時にもう一度光らせるために一度クラスをリセット
         accEl.classList.remove('score-firework');
         wpmEl.classList.remove('score-firework');
-        
-        // 強制リフロー（アニメーションをリスタートさせる魔法）
         void accEl.offsetWidth;
         void wpmEl.offsetWidth;
 
-        // 【Accuracyが80以上】かつ【WPMが95以上】の時に両方のスコアを光らせる
         if (accVal >= 80 && wpmVal >= 95) {
-            // 結果画面が表示された一瞬あとにフワッと光らせると綺麗です
             setTimeout(() => {
                 accEl.classList.add('score-firework');
                 wpmEl.classList.add('score-firework');
@@ -1305,5 +1333,25 @@ function speakWord(word) {
         utterance.rate = 0.9;
         
         window.speechSynthesis.speak(utterance);
+    }
+}
+// ==========================================
+// ★追加: 録音を途中でキャンセルして結果を残さずに戻る機能
+// ==========================================
+window.historyLengthBeforeCancel = 0; // 履歴の数を記憶する安全弁
+
+function cancelRecording() {
+    // ★確認ダイアログを削除（ワンタップで即座に終了）
+    window.isCopeakCanceling = true;
+    window.historyLengthBeforeCancel = (currentCustomLesson && currentCustomLesson.history) ? currentCustomLesson.history.length : 0;
+
+    // 正規の終了処理（FINISHボタンと同じ関数）を裏で呼んでマイクを確実に切る
+    if (typeof toggleRecording === 'function') {
+        toggleRecording(); 
+    }
+
+    // 終了処理の完了を待たず、即座にUIをSTART（初期）画面に戻す
+    if (typeof resetLearningState === 'function') {
+        resetLearningState();
     }
 }
