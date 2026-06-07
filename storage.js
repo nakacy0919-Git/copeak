@@ -391,7 +391,26 @@ async function injectPresetLessons() {
             audioPath: './audio/northwind.mp3',
             history: [],
             createdAt: Date.now() - 3000
-        }
+        },
+        {
+            id: "arena-task-taylor-01",
+            title: "🏆 (NCC課題) Taylor Swift NYU Speech 2022",
+            eng: `My experience has been that my mistakes led to the best things in my life. And being embarrassed when you mess up is part of the human experience. Getting back up, dusting yourself off, and seeing who still wants to hang out with you afterwards and laugh about it, that's a gift. The times I was told no, or wasn't included, wasn't chosen, didn't win, didn't make the cut... looking back, it really feels like those moments were as important, if not more crucial, than the moments I was told yes. I'm trying to tell you that losing things doesn't just mean losing. A lot of the time when we lose things, we gain things too.
+
+Sometimes the right thing to do is to throw out the old schools of thought in the name of progress and reform. Sometimes the right thing to do is to sit and listen to the wisdom of those who have come before us. How will you know what the right choice is in these crucial moments? You won't. How do I give advice to this many people about their life choices? I won't. The scary news is you're on your own now. But the cool news is you're on your own now.
+
+I leave you with this: We are led by our gut instincts, our intuition, our desires and fears, our scars and our dreams. And you will screw it up sometimes. So will I. And when I do, you will most likely read about it on the internet anyway. Hard things will happen to us. We will recover. We will learn from it. We will grow more resilient because of it. And as long as we are fortunate enough to be breathing, we will breathe in, breathe through, breathe deep, and breathe out.`,
+            jpn: `私の経験上、間違いが人生の最高の物事につながりました。失敗して恥ずかしい思いをすることは、人間の経験の一部です。立ち上がり、土埃を払い落とし、その後でも誰が自分と一緒にいて笑い合ってくれるかを確認すること、それは神様からの贈り物です。私が「ノー」と言われたとき、仲間に入れてもらえなかったとき、選ばれなかったとき、勝てなかったとき、合格しなかったとき…振り返ってみると、そうした瞬間は、「イエス」と言われた瞬間と同じくらい、あるいはそれ以上に重要だったと心から感じます。私が伝えたいのは、失うことは単に失うことだけを意味しないということです。多くの場合、私たちは何かを失うとき、同時に何かを得ているのです。
+
+進歩と改革の名の下に、古い考え方を捨てるのが正しいこともあります。また、先人たちの知恵に腰を下ろして耳を傾けるのが正しいこともあります。このような重要な瞬間に、どうやって正しい選択が分かるのでしょうか？ 分かりません。こんなに多くの人たちの人生の選択について、どうやってアドバイスをすればいいのでしょうか？ しません。怖いお知らせは、皆さんはもう自分一人だということです。でも、素晴らしいお知らせは、皆さんはもう自分一人だということです。
+
+最後にこの言葉を残します。私たちは、直感や直観、欲望や恐れ、傷跡や夢に導かれています。そして、皆さんも時に失敗するでしょう。私も失敗します。そして私が失敗したときは、どうせ皆さんはインターネットでそれを読むことになるでしょう。私たちにはつらいことも起こります。しかし、私たちは立ち直ります。そこから学びます。そこからさらに強い回復力を身につけます。そして、息をする幸運に恵まれている限り、私たちは息を吸い、息を通し、深く息をし、そして息を吐きます。`,
+            lang: "en-US",
+            langName: "🇺🇸 English (US)",
+            audioPath: "taylor.mp3", // ※以前作成したmp3ファイルがあれば、その場所を指定してください
+            history: [],
+            createdAt: Date.now()
+        },
     ];
 
     // 3. 現在のLibraryに「無い」サンプルだけを絞り込む（タイトルで判定）
