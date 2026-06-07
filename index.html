@@ -146,13 +146,15 @@
                 </div>
             </div>
             <div class="flex items-center gap-2">
-                <button id="btn-open-trouble" class="text-red-600 hover:bg-red-50 transition-all bg-white/95 px-3 py-2 md:px-4 md:py-2.5 rounded-full backdrop-blur-sm shadow-md border-2 border-red-300 flex items-center justify-center gap-2 animate-pulse hover:animate-none z-50" title="Troubleshooting">
-                    <span class="text-xl md:text-2xl leading-none">🆘</span>
-                    <div class="flex flex-col text-left">
-                        <span class="text-[11px] md:text-xs font-black leading-tight">音声トラブル時はこちら</span>
-                        <span class="text-[9px] md:text-[10px] font-bold text-gray-500 leading-tight">（iPad・iPhone用）</span>
-                    </div>
-                </button>
+                <div class="flex items-center gap-1 sm:gap-2">
+                    <button id="btn-open-trouble" class="text-red-600 hover:bg-red-50 transition-all bg-white/95 px-2 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2.5 rounded-full backdrop-blur-sm shadow-md border-2 border-red-300 flex items-center justify-center gap-1 sm:gap-2 animate-pulse hover:animate-none z-50 shrink-0" title="Troubleshooting">
+                        <span class="text-lg sm:text-xl md:text-2xl leading-none shrink-0">🆘</span>
+                        <div class="flex flex-col text-left whitespace-nowrap">
+                            <span class="text-[10px] sm:text-[11px] md:text-xs font-black leading-tight">音声トラブル時はこちら</span>
+                            <span class="text-[8px] sm:text-[9px] md:text-[10px] font-bold text-gray-500 leading-tight">（iPad・iPhone用）</span>
+                        </div>
+                    </button>
+                </div>
                 <select id="appLangSelector" onchange="if(typeof changeAppLanguage === 'function') changeAppLanguage(this.value)" class="text-xs font-bold bg-[#faf8f5] border-2 border-stone-800 text-stone-800 rounded-sm px-2 py-1 outline-none cursor-pointer">
                     <option value="ja">🇯🇵 日本語</option>
                     <option value="en">🇺🇸 English</option>
