@@ -34,11 +34,29 @@ function editLesson(event, id) {
         
         document.getElementById('customTitle').value = lesson.title;
         document.getElementById('customLang').value = lesson.lang;
-        document.getElementById('customEng').value = lesson.eng;
         document.getElementById('customJpn').value = lesson.jpn || "";
         
         // セキュリティ上、ファイルinputは空にしておきます
         document.getElementById('customAudio').value = "";
+        
+        // 🌟 追加：教材のタイプによってUIを切り替えてデータを流し込む
+        if (lesson.type === 'dialogue') {
+            if (typeof toggleMaterialType === 'function') toggleMaterialType('dialogue');
+            const container = document.getElementById('dialogueLinesContainer');
+            if (container) {
+                container.innerHTML = ''; // 入力枠を一旦リセット
+                if (lesson.dialogue && lesson.dialogue.length > 0) {
+                    lesson.dialogue.forEach(d => {
+                        if (typeof addDialogueLine === 'function') addDialogueLine(d.speaker, d.text);
+                    });
+                } else {
+                    if (typeof addDialogueLine === 'function') { addDialogueLine('A', ''); addDialogueLine('B', ''); }
+                }
+            }
+        } else {
+            if (typeof toggleMaterialType === 'function') toggleMaterialType('standard');
+            document.getElementById('customEng').value = lesson.eng || "";
+        }
         
         editingLessonId = id;
         
@@ -56,7 +74,6 @@ function editLesson(event, id) {
             cancelBtn.classList.remove('hidden');
         }
         if(audioMark) {
-            // 音声が既に存在する場合は、安心マークを表示！
             if (lesson.audioBlob) {
                 audioMark.classList.remove('hidden');
             } else {
@@ -71,8 +88,11 @@ function editLesson(event, id) {
 
 function cancelEdit(isSilent = false) {
     document.getElementById("customMaterialForm").reset();
-    document.getElementById('customAudio').value = ""; // ファイル選択状態もリセット
+    document.getElementById('customAudio').value = ""; 
     editingLessonId = null;
+
+    // 🌟 追加：キャンセル時は標準モードに戻す
+    if (typeof toggleMaterialType === 'function') toggleMaterialType('standard');
 
     const btn = document.getElementById('saveMaterialBtn');
     const cancelBtn = document.getElementById('cancelEditBtn');
@@ -97,7 +117,6 @@ function cancelEdit(isSilent = false) {
 
 async function saveCustomLesson() {
     const title = document.getElementById("customTitle").value.trim();
-    const engText = document.getElementById("customEng").value.trim();
     const jpnText = document.getElementById("customJpn").value.trim();
     const audioFile = document.getElementById("customAudio").files[0];
     
@@ -105,9 +124,34 @@ async function saveCustomLesson() {
     const selectedLang = langSelect.value;
     const selectedLangName = langSelect.options[langSelect.selectedIndex].text;
 
-    if (!title || !engText) {
-        if (typeof showMsg === 'function') showMsg("⚠️ タイトルとテキストは必須です");
-        return;
+    // 🌟 追加：モードに応じてデータを取得する
+    let engText = "";
+    let lessonType = window.currentMaterialType || 'standard';
+    let dialogueData = [];
+
+    if (lessonType === 'standard') {
+        engText = document.getElementById("customEng").value.trim();
+        if (!title || !engText) {
+            if (typeof showMsg === 'function') showMsg("⚠️ タイトルとテキストは必須です");
+            return;
+        }
+    } else {
+        // 会話文モードの場合
+        const speakers = document.querySelectorAll('.dialogue-speaker');
+        const texts = document.querySelectorAll('.dialogue-text');
+        for (let i = 0; i < speakers.length; i++) {
+            const spk = speakers[i].value.trim();
+            const txt = texts[i].value.trim();
+            if (spk || txt) {
+                dialogueData.push({ speaker: spk, text: txt });
+                // リストのプレビュー表示用にテキストを結合しておく
+                engText += `${spk ? spk + ': ' : ''}${txt} `; 
+            }
+        }
+        if (!title || dialogueData.length === 0) {
+            if (typeof showMsg === 'function') showMsg("⚠️ タイトルと少なくとも1つのセリフが必要です");
+            return;
+        }
     }
 
     const transaction = db.transaction([storeName], "readwrite");
@@ -118,12 +162,15 @@ async function saveCustomLesson() {
         getReq.onsuccess = () => {
             const lesson = getReq.result;
             lesson.title = title;
-            lesson.eng = engText;
+            lesson.eng = engText; // リスト表示用
             lesson.jpn = jpnText;
             lesson.lang = selectedLang;
             lesson.langName = selectedLangName;
             
-            // 新しい音声が選択された場合のみ上書き
+            // 🌟 追加：会話文データを保存
+            lesson.type = lessonType;
+            lesson.dialogue = dialogueData;
+            
             if (audioFile) lesson.audioBlob = audioFile;
             
             store.put(lesson);
@@ -132,11 +179,13 @@ async function saveCustomLesson() {
     } else {
         const lessonData = {
             title: title, 
-            eng: engText, 
+            eng: engText, // リスト表示用
             jpn: jpnText,
             audioBlob: audioFile || null,
             lang: selectedLang, 
             langName: selectedLangName,
+            type: lessonType, // 🌟 追加：教材の種類
+            dialogue: dialogueData, // 🌟 追加：会話データ
             history: [], 
             createdAt: new Date().getTime()
         };
@@ -411,6 +460,26 @@ I leave you with this: We are led by our gut instincts, our intuition, our desir
             history: [],
             createdAt: Date.now()
         },
+        {
+            title: "🗣️ (sample) Conversation: New Job",
+            type: "dialogue", // 🌟 会話文モードを指定
+            eng: "Nick: How's the new job going, Mackenzie? Mackenzie: I'm finding it hard, actually. Nick: Are things hectic there? Mackenzie: Not really. The workload's probably lighter than in my last job. It's the overall atmosphere that's the problem. Nick: What's wrong with it? Mackenzie: Everyone's extremely competitive, and there's constant tension between teams, especially among the managers. Nick: That sounds tough.",
+            jpn: "ニック: 新しい仕事の調子はどう、マッケンジー？\nマッケンジー: 実は、結構大変なんだよね。\nニック: あちこちバタバタして忙しい感じ？\nマッケンジー: いや、そうでもないかな。仕事量はたぶん前の仕事より少ないくらい。問題なのは、全体の雰囲気なんだ。\nニック: 雰囲気の何が悪いの？\nマッケンジー: みんなものすごく競争心が強くて、チーム間に常に緊張感があるんだよ。特にマネージャーたちの間でね。\nニック: それはきつそうだね。",
+            lang: "en-US",
+            langName: "🇺🇸 English (US)",
+            audioPath: './audio/conversation.mp3', // 先生ご指定のパス
+            dialogue: [
+                { speaker: "Nick", text: "How's the new job going, Mackenzie?" },
+                { speaker: "Mackenzie", text: "I'm finding it hard, actually." },
+                { speaker: "Nick", text: "Are things hectic there?" },
+                { speaker: "Mackenzie", text: "Not really. The workload's probably lighter than in my last job. It's the overall atmosphere that's the problem." },
+                { speaker: "Nick", text: "What's wrong with it?" },
+                { speaker: "Mackenzie", text: "Everyone's extremely competitive, and there's constant tension between teams, especially among the managers." },
+                { speaker: "Nick", text: "That sounds tough." }
+            ],
+            history: [],
+            createdAt: Date.now() - 5000 
+        }
     ];
 
     // 3. 現在のLibraryに「無い」サンプルだけを絞り込む（タイトルで判定）

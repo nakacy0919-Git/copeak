@@ -78,7 +78,6 @@ function openLearningScreen(lesson) {
         audioContainer.classList.remove('hidden');
         audioPlayer.src = URL.createObjectURL(lesson.audioBlob);
     } else if (lesson.audioUrl) {
-        // ★URL指定された外部音声(CNN等)があれば再生可能にする
         audioContainer.classList.remove('hidden');
         audioPlayer.src = lesson.audioUrl;
     } else {
@@ -87,7 +86,19 @@ function openLearningScreen(lesson) {
     }
 
     setLearningMode('reading');
-    targetTextArray = lesson.eng.toLowerCase().replace(/[^a-z0-9\u00C0-\u017F\u0900-\u097F\s]/gi, '').split(/\s+/).filter(w => w);
+    
+    // 🌟 修正: 会話文(Dialogue)かどうかで判定ターゲットの作り方を変える
+    targetTextArray = [];
+    if (lesson.type === 'dialogue' && lesson.dialogue) {
+        // 会話文の場合は、各セリフのテキストだけを抽出してターゲットにする
+        lesson.dialogue.forEach(line => {
+            const words = line.text.toLowerCase().replace(/[^a-z0-9\u00C0-\u017F\u0900-\u097F\s]/gi, '').split(/\s+/).filter(w => w);
+            targetTextArray = targetTextArray.concat(words);
+        });
+    } else {
+        // 標準テキストの場合
+        targetTextArray = lesson.eng.toLowerCase().replace(/[^a-z0-9\u00C0-\u017F\u0900-\u097F\s]/gi, '').split(/\s+/).filter(w => w);
+    }
     
     switchScreen('learningScreen');
     const mainScrollArea = document.getElementById('mainScrollArea');
@@ -149,34 +160,49 @@ function updateTargetWpm(val) {
 function renderTargetText() {
     if (!currentCustomLesson) return;
     const engContainer = document.getElementById('engContainer');
-    let text = currentCustomLesson.eng;
-
+    
     if (currentMode === 'paced') engContainer.classList.add('karaoke-active');
     else engContainer.classList.remove('karaoke-active');
 
-    const words = text.split(/(\s+)/); 
-    const processedWords = words.map((word, index) => {
-        if (word.trim() === "") return word; 
+    let finalHtml = "";
 
-        let finalWord = word;
-
-        if (currentMode === 'memo' && currentMemoLevel > 0) {
-            const threshold = currentMemoLevel * 0.2; 
-            let hash = 0;
-            for (let i = 0; i < word.length; i++) hash = word.charCodeAt(i) + ((hash << 5) - hash);
-            const pseudoRandom = Math.abs(hash + index * 137) % 100 / 100;
-
-            if (pseudoRandom < threshold) {
-                finalWord = word.replace(/[a-zA-Z0-9\u00C0-\u017F\u0900-\u097F']+/g, match => {
-                    return `<span class="bg-stone-300 text-transparent rounded-sm select-none">${match}</span>`;
-                });
+    // 🌟 単語ごとの処理を行う内部関数
+    const processWords = (text) => {
+        const words = text.split(/(\s+)/); 
+        return words.map((word, index) => {
+            if (word.trim() === "") return word; 
+            let finalWord = word;
+            if (currentMode === 'memo' && currentMemoLevel > 0) {
+                const threshold = currentMemoLevel * 0.2; 
+                let hash = 0;
+                for (let i = 0; i < word.length; i++) hash = word.charCodeAt(i) + ((hash << 5) - hash);
+                const pseudoRandom = Math.abs(hash + index * 137) % 100 / 100;
+                if (pseudoRandom < threshold) {
+                    finalWord = word.replace(/[a-zA-Z0-9\u00C0-\u017F\u0900-\u097F']+/g, match => {
+                        return `<span class="bg-stone-300 text-transparent rounded-sm select-none">${match}</span>`;
+                    });
+                }
             }
-        }
+            return `<span class="pace-word">${finalWord}</span>`;
+        }).join('').replace(/([.?!]["']?)<\/span>\s+/g, "$1</span><br><br>");
+    };
 
-        return `<span class="pace-word">${finalWord}</span>`;
-    });
+    // 🌟 分岐: 会話文か、標準テキストか
+    if (currentCustomLesson.type === 'dialogue' && currentCustomLesson.dialogue) {
+        currentCustomLesson.dialogue.forEach(line => {
+            finalHtml += `<div class="mb-4 flex flex-col md:flex-row gap-2 md:gap-4 items-start">`;
+            // 話者バッジ（音声判定のターゲットにはならない）
+            if (line.speaker) {
+                finalHtml += `<div class="bg-emerald-600/20 text-emerald-800 font-bold px-3 py-1 rounded border border-emerald-500/30 text-sm md:text-base shrink-0 mt-1 w-24 md:w-32 text-center truncate" title="${line.speaker}">${line.speaker}</div>`;
+            }
+            // セリフ部分（音声判定のターゲットになる）
+            finalHtml += `<div class="flex-1">${processWords(line.text)}</div></div>`;
+        });
+    } else {
+        finalHtml = processWords(currentCustomLesson.eng);
+    }
 
-    engContainer.innerHTML = processedWords.join('').replace(/([.?!]["']?)<\/span>\s+/g, "$1</span><br><br>");
+    engContainer.innerHTML = finalHtml;
 }
 
 function openWpmGuide() {
@@ -1112,14 +1138,11 @@ let isFsAudioPlaying = false;
 function openFullscreenPreview() {
     if (!currentCustomLesson) return;
     
-    // 1. もし古いHTMLの残骸があれば完全に破壊（重複バグの絶対防止）
     const oldOverlay = document.getElementById('fullscreenPreviewOverlay');
     if (oldOverlay) oldOverlay.remove();
 
-    // 2. JavaScriptが「完璧なフルスクリーン画面」をゼロから組み立てる
     const overlay = document.createElement('div');
     overlay.id = 'fullscreenPreviewOverlay';
-    // PCでもiPadでも絶対に画面全体を覆い、スクロールを内包する最強CSS
     overlay.className = 'fixed top-0 left-0 w-full h-full z-[9999] bg-[#faf8f5] flex flex-col transition-all duration-300 opacity-0 overflow-hidden';
     
     overlay.innerHTML = `
@@ -1140,11 +1163,22 @@ function openFullscreenPreview() {
     `;
     document.body.appendChild(overlay);
 
-    // 3. データの流し込み
     document.getElementById('fsTitleDisplay').innerText = currentCustomLesson.title ? currentCustomLesson.title.replace('🔗 ', '') : 'Preview';
     
-    const engText = (currentCustomLesson.eng || "").replace(/([.?!]["']?)\s+/g, "$1<br><br>");
-    document.getElementById('fsEngContainer').innerHTML = engText;
+    // 🌟 修正: 会話文かどうかの判定と描画
+    let engHtml = "";
+    if (currentCustomLesson.type === 'dialogue' && currentCustomLesson.dialogue) {
+        currentCustomLesson.dialogue.forEach(line => {
+            engHtml += `<div class="mb-6 flex flex-col md:flex-row gap-2 md:gap-6 items-start">`;
+            if (line.speaker) {
+                engHtml += `<div class="bg-emerald-600/20 text-emerald-800 font-bold px-4 py-2 rounded-lg border border-emerald-500/30 text-lg md:text-2xl shrink-0 mt-2 w-32 md:w-48 text-center truncate" title="${line.speaker}">${line.speaker}</div>`;
+            }
+            engHtml += `<div class="flex-1">${(line.text || "").replace(/([.?!]["']?)\s+/g, "$1<br><br>")}</div></div>`;
+        });
+    } else {
+        engHtml = (currentCustomLesson.eng || "").replace(/([.?!]["']?)\s+/g, "$1<br><br>");
+    }
+    document.getElementById('fsEngContainer').innerHTML = engHtml;
     
     const jpnContainer = document.getElementById('fsJpnContainer');
     if (currentCustomLesson.jpn && currentCustomLesson.jpn.trim() !== "") {
@@ -1160,7 +1194,6 @@ function openFullscreenPreview() {
         audioBtn.classList.remove('hidden');
     }
     
-    // 4. 裏画面のスクロールをロックし、アニメーションでフワッと表示
     document.body.style.overflow = 'hidden';
     requestAnimationFrame(() => {
         overlay.classList.remove('opacity-0');

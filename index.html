@@ -326,12 +326,27 @@
                 </div>
             </div>
 
-            <div class="flex-1 flex flex-col space-y-6">
-                <div class="flex-1 flex flex-col">
+            <div class="flex-1 flex flex-col space-y-4 md:space-y-6">
+                <div class="flex bg-stone-100 p-1 rounded-sm iron-border-sm w-full gap-1">
+                    <button type="button" id="tabStandardText" onclick="toggleMaterialType('standard')" class="flex-1 py-2 text-xs md:text-sm font-bold rounded-sm transition-colors bg-stone-800 text-white shadow-sm">標準テキスト</button>
+                    <button type="button" id="tabDialogueText" onclick="toggleMaterialType('dialogue')" class="flex-1 py-2 text-xs md:text-sm font-bold rounded-sm transition-colors text-stone-500 hover:text-stone-800">会話文 (Dialogue)</button>
+                </div>
+
+                <div id="standardInputArea" class="flex-1 flex flex-col">
                     <label data-i18n="form_label_text" class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Target Text (学習テキスト)</label>
                     <textarea id="customEng" data-i18n-placeholder="form_placeholder_eng" placeholder="英語などのスクリプトを貼り付け" required 
-                              class="w-full h-48 md:h-64 p-3 md:p-4 bg-[#faf8f5] border border-stone-300 rounded-sm focus:ring-2 focus:ring-emerald-800 outline-none transition resize-y text-base md:text-lg"></textarea>
+                              class="w-full h-40 md:h-64 p-3 md:p-4 bg-[#faf8f5] border border-stone-300 rounded-sm focus:ring-2 focus:ring-emerald-800 outline-none transition resize-y text-base md:text-lg"></textarea>
                 </div>
+
+                <div id="dialogueInputArea" class="flex-1 flex flex-col hidden">
+                    <label class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Dialogue Lines (セリフを追加)</label>
+                    <div id="dialogueLinesContainer" class="flex-1 overflow-y-auto space-y-3 p-2 md:p-3 bg-[#faf8f5] border border-stone-300 rounded-sm h-40 md:h-64 custom-scrollbar">
+                        </div>
+                    <button type="button" onclick="addDialogueLine()" class="mt-2 py-2 w-full bg-stone-200 hover:bg-stone-300 text-stone-700 font-bold text-xs rounded-sm transition border border-stone-300 border-dashed">
+                        ＋ セリフを追加する
+                    </button>
+                </div>
+
                 <div>
                     <label data-i18n="form_label_translation" class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Translation (日本語訳など)</label>
                     <textarea id="customJpn" data-i18n-placeholder="form_placeholder_jpn" placeholder="母語での訳を貼り付け (任意)" rows="2" 
@@ -345,6 +360,54 @@
                         Save to Library
                     </button>
                 </div>
+
+                <script>
+                    window.currentMaterialType = 'standard';
+                    
+                    function toggleMaterialType(type) {
+                        window.currentMaterialType = type;
+                        const tabStd = document.getElementById('tabStandardText');
+                        const tabDlg = document.getElementById('tabDialogueText');
+                        const stdArea = document.getElementById('standardInputArea');
+                        const dlgArea = document.getElementById('dialogueInputArea');
+                        const engInput = document.getElementById('customEng');
+
+                        if (type === 'standard') {
+                            tabStd.className = "flex-1 py-2 text-xs md:text-sm font-bold rounded-sm transition-colors bg-stone-800 text-white shadow-sm";
+                            tabDlg.className = "flex-1 py-2 text-xs md:text-sm font-bold rounded-sm transition-colors text-stone-500 hover:text-stone-800";
+                            stdArea.classList.remove('hidden');
+                            dlgArea.classList.add('hidden');
+                            engInput.required = true;
+                        } else {
+                            tabStd.className = "flex-1 py-2 text-xs md:text-sm font-bold rounded-sm transition-colors text-stone-500 hover:text-stone-800";
+                            tabDlg.className = "flex-1 py-2 text-xs md:text-sm font-bold rounded-sm transition-colors bg-stone-800 text-white shadow-sm";
+                            stdArea.classList.add('hidden');
+                            dlgArea.classList.remove('hidden');
+                            engInput.required = false;
+                            
+                            // 初めてタブを開いた時にAさんとBさんの枠を自動生成
+                            const container = document.getElementById('dialogueLinesContainer');
+                            if (container.children.length === 0) {
+                                addDialogueLine('A', '');
+                                addDialogueLine('B', '');
+                            }
+                        }
+                    }
+
+                    function addDialogueLine(speaker = '', text = '') {
+                        const container = document.getElementById('dialogueLinesContainer');
+                        const lineDiv = document.createElement('div');
+                        lineDiv.className = "flex gap-2 items-start dialogue-line-item animate-fadeIn";
+                        lineDiv.innerHTML = `
+                            <input type="text" placeholder="話者(A)" value="${speaker}" class="w-16 md:w-20 p-2 bg-white border border-stone-300 rounded-sm text-xs font-bold outline-none focus:border-emerald-600 dialogue-speaker transition">
+                            <textarea rows="2" placeholder="セリフを入力" class="flex-1 p-2 bg-white border border-stone-300 rounded-sm text-sm outline-none focus:border-emerald-600 resize-y dialogue-text transition">${text}</textarea>
+                            <button type="button" onclick="this.parentElement.remove()" class="p-2 text-stone-400 hover:text-red-500 transition font-bold">✕</button>
+                        `;
+                        container.appendChild(lineDiv);
+                        // 追加したら一番下までスクロール
+                        container.scrollTop = container.scrollHeight;
+                    }
+                </script>
             </div>
         </form>
 
