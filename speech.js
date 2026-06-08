@@ -287,14 +287,21 @@ function updateHistoryUI() {
         }
     }
 
-    let adviceMsg = `<strong class="text-emerald-800 text-base">現在 ${totalReads}回目 の練習です！</strong><br>`;
+    const langKey = window.currentAppLang || 'ja';
+    const dict = dynamicDict[langKey];
+
+    let adviceMsg = `<strong class="text-emerald-800 text-base">${dict.fb_count.replace('{n}', totalReads)}</strong><br>`;
 
     if (totalReads < 5) {
-        adviceMsg += `SLA（第二言語習得論）の研究では、同じ文章を <strong>5〜7回</strong> 反復することで脳内の神経回路が繋がり、「自動化」が始まると言われています。あと <strong>${5 - totalReads}回</strong> 繰り返すと、英語を英語のまま処理する感覚が掴めてきます！`;
+        adviceMsg += dict.fb_under5.replace('{n}', 5 - totalReads);
     } else if (totalReads >= 5 && isConsecutive) {
-        adviceMsg += `🔥 素晴らしい反復です！「分散学習（Spacing Effect）」の効果により、脳内でこの回路がスムーズに動き、長期記憶に定着し始めています。`;
+        adviceMsg += dict.fb_good;
     } else {
-        adviceMsg += `すでに脳内で回路は構築されています！${daysSinceLastPractice > 1 ? `（前回から${daysSinceLastPractice}日ぶりですね）` : ''}少し日数が空いてから「思い出す」プロセスを入れることで、記憶はより強固なものになります。`;
+        if (daysSinceLastPractice > 1) {
+            adviceMsg += dict.fb_done_days.replace('{n}', daysSinceLastPractice);
+        } else {
+            adviceMsg += dict.fb_done_today;
+        }
     }
 
     const adviceContainer = document.getElementById('slaAdviceText');

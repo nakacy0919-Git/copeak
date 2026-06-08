@@ -1,4 +1,77 @@
 // ==========================================
+// 動的テキスト用 翻訳辞書（Dynamic Translations）
+// ==========================================
+window.currentAppLang = 'ja'; // 初期言語
+
+const dynamicDict = {
+    ja: {
+        // 目標ランク (Target Scores)
+        lv1_desc: "【音声化の第1歩】まずは英語の「音」を恐れずに声に出す段階です。1秒に1単語のペースで、ゆっくり確実に文字を音に変えていきましょう！",
+        lv2_desc: "【つながる英語脳】文字と意味が少しずつ結びついてくる段階です。ブツブツ途切れてもOK。まずは単語の塊（チャンク）を意識してみよう！",
+        lv3_desc: "【脱・ひっくり返し読み】英語の並び順のまま、左から右へリズムよく読み進める段階です。共通テストや英検の長文を読み切る基礎体力がつきます。",
+        lv4_desc: "【脳の省エネモード】発音の処理が自動化され、脳のスタミナが残る段階です。試験本番で初めて見る英文に出会っても、焦らずスラスラ意味が頭に入ります。",
+        lv5_desc: "【直読直解の極致】共通テストを時間内に余裕で解き切り、見直しの時間が10分余るレベルのスピードです。返り読み一切なしの「一生モノの英語脳」の完成！",
+        
+        // SLA 脳内処理解説 (SLA Slides)
+        sla1_title: "音韻符号化の起動フェーズ",
+        sla1_desc: "英語の音読に強い苦手意識を持つ生徒向けのスタートライン。脳内では目から入った文字を「音」に変換する処理だけでメモリが一杯になっています。<br>ここでは文法や意味を考える余裕がないため、まずは点数やスピードを気にせず「声を出すこと」で脳の言語回路を起動させることがミッションです。",
+        sla2_title: "形式-意味マッピングの初期フェーズ",
+        sla2_desc: "単語の「文字・音」と「意味」が脳内で少しずつリンクし始める段階です。1語ずつではなく、短い「意味の塊（チャンク）」として英語を捉え始めます。<br>多少発音がつっかえたり、意味が曖昧でも立ち止まらずに、次の塊へと進む「英語の波に乗る感覚」を養います。",
+        sla3_title: "直線的言語処理への移行フェーズ",
+        sla3_desc: "「日本語の語順にひっくり返して訳していては間に合わない速度」の入り口です。英語を語順のまま処理する回路が動き始めます。<br>視線を強制的に前へと進めることで、脳から「返り読みの癖」を引き剥がし、実戦的な読解スピードの土台を固めます。",
+        sla4_title: "低次処理の自動化フェーズ",
+        sla4_desc: "単語識別や構文解析といった「低次処理」が無意識化（自動化）され、脳のワーキングメモリに大きな空きスペースが生まれます。<br>空いたメモリを「深い意味理解」に回せるため、共通テストなどの長文を時間内にしっかり読み解き、得点力が爆発的に伸び始めます。",
+        sla5_title: "ワーキングメモリ完全解放フェーズ",
+        sla5_desc: "初見の英文であっても、まるで日本語のニュースを読んでいるかのように自然に意味が流れ込んでくる領域です。<br>返り読み一切なしで長文を余裕で解き切るだけでなく、リスニング力もネイティブスピーカーの会話についていける「一生モノの英語脳」が完成します。",
+
+        // フィードバック (Feedback)
+        fb_count: "現在 {n}回目 の練習です！",
+        fb_under5: "SLA（第二言語習得論）の研究では、同じ文章を <strong>5〜7回</strong> 反復することで脳内の神経回路が繋がり、「自動化」が始まると言われています。あと <strong>{n}回</strong> 繰り返すと、英語を英語のまま処理する感覚が掴めてきます！",
+        fb_good: "🔥 素晴らしい反復です！「分散学習（Spacing Effect）」の効果により、脳内でこの回路がスムーズに動き、長期記憶に定着し始めています。",
+        fb_done_days: "すでに脳内で回路は構築されています！（前回から{n}日ぶりですね）少し日数が空いてから「思い出す」プロセスを入れることで、記憶はより強固なものになります。",
+        fb_done_today: "すでに脳内で回路は構築されています！少し日数が空いてから「思い出す」プロセスを入れることで、記憶はより強固なものになります。"
+    },
+    en: {
+        // Target Scores
+        lv1_desc: "[Step 1: Vocalization] Don't be afraid to vocalize English sounds. Read at a slow pace of 1 word per second, steadily converting letters into sounds!",
+        lv2_desc: "[Connecting the Brain] Letters and meanings are starting to connect. It's okay to stumble. Focus on reading in 'chunks' of words!",
+        lv3_desc: "[No More Backwards Reading] Read rhythmically from left to right in the English word order. This builds the stamina needed for long reading tests.",
+        lv4_desc: "[Brain Energy Saving] Pronunciation is automated, saving your brain's stamina. You can easily grasp the meaning of unseen texts without panicking.",
+        lv5_desc: "[Ultimate Direct Reading] Speed to easily finish long tests with 10 minutes to spare. A lifelong 'English Brain' with zero backwards reading!",
+        
+        // SLA Slides
+        sla1_title: "Phonological Encoding Activation",
+        sla1_desc: "The starting line. The brain's memory is fully occupied just converting visual letters into 'sounds'.<br>Since there's no room to process grammar or deep meaning yet, the mission here is simply to activate the brain's language circuit by 'speaking out loud', ignoring scores or speed.",
+        sla2_title: "Initial Form-Meaning Mapping",
+        sla2_desc: "Letters/sounds and 'meanings' begin to link in the brain. You start grasping English in short 'chunks' rather than word-by-word.<br>Even if pronunciation is slightly off or meanings are vague, you develop the sense of 'riding the English wave' without stopping.",
+        sla3_title: "Transition to Linear Processing",
+        sla3_desc: "Entering the speed where translating backwards into your native language isn't fast enough. The circuit to process English in its original word order activates.<br>By forcing your eyes forward, you break the habit of reading backwards, solidifying the foundation for practical reading speed.",
+        sla4_title: "Automation of Lower-Level Processing",
+        sla4_desc: "Lower-level processing like word identification is automated, freeing up massive space in your brain's working memory.<br>This freed memory can be allocated to 'deep reading comprehension', explosively improving your ability to read and solve long passages in time.",
+        sla5_title: "Complete Release of Working Memory",
+        sla5_desc: "The realm where meaning flows naturally into your mind, even with unseen texts, as if reading news in your native language.<br>You gain a lifelong 'English Brain' that can not only breeze through long readings with zero backwards reading, but also keep up with native speakers in listening.",
+
+        // Feedback
+        fb_count: "This is your {n}th practice!",
+        fb_under5: "SLA research suggests repeating the same text <strong>5-7 times</strong> helps connect neural pathways and starts 'automation'. Just <strong>{n} more times</strong> to get the feel of processing English as English!",
+        fb_good: "🔥 Excellent repetition! Thanks to the 'Spacing Effect', this pathway is working smoothly and settling into your long-term memory.",
+        fb_done_days: "The neural pathways are already built! (It's been {n} days since last time) Recalling it after a few days makes the memory even stronger.",
+        fb_done_today: "The neural pathways are already built! Recalling it after a few days makes the memory even stronger."
+    }
+};
+
+// 言語切替時のイベントフック
+function updateDynamicTranslations(lang) {
+    window.currentAppLang = dynamicDict[lang] ? lang : 'en'; // ja以外は一旦enにフォールバック
+    
+    // 現在のレベルのテキストと画像を更新
+    if (typeof switchTargetLevel === 'function') switchTargetLevel(window.currentPreviewLevel || 1);
+    
+    // SLAスライドのテキストを更新
+    if (typeof updateSlaModalTexts === 'function') updateSlaModalTexts();
+}
+
+// ==========================================
 // ★ Copeak 多言語化辞書データ (i18n)
 // ==========================================
 const i18n = {
@@ -743,6 +816,9 @@ function changeAppLanguage(langCode) {
             el.setAttribute('placeholder', i18n[langCode][key]);
         }
     });
+
+    // 4. ★追加：動的コンテンツ（画像・説明文・フィードバック）の切り替えを発動させる
+    updateDynamicTranslations(langCode);
 
     console.log(`Copeak UI Language switched to: ${langCode}`);
 }

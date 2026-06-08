@@ -1044,23 +1044,37 @@
     }
 
     function switchTargetLevel(level) {
-        const levelData = {
-            1: { desc: "【音声化の第1歩】まずは英語の「音」を恐れずに声に出す段階です。1秒に1単語のペースで、ゆっくり確実に文字を音に変えていきましょう！", acc: 60, wpm: 60, comp: 70 },
-            2: { desc: "【つながる英語脳】文字と意味が少しずつ結びついてくる段階です。ブツブツ途切れてもOK。まずは単語の塊（チャンク）を意識してみよう！", acc: 70, wpm: 80, comp: 80 },
-            3: { desc: "【脱・ひっくり返し読み】英語の並び順のまま、左から右へリズムよく読み進める段階です。共通テストや英検の長文を読み切る基礎体力がつきます。", acc: 80, wpm: 95, comp: 85 },
-            4: { desc: "【脳の省エネモード】発音の処理が自動化され、脳のスタミナが残る段階です。試験本番で初めて見る英文に出会っても、焦らずスラスラ意味が頭に入ります。", acc: 85, wpm: 110, comp: 90 },
-            5: { desc: "【直読直解の極致】共通テストを時間内に余裕で解き切り、見直しの時間が10分余るレベルのスピードです。返り読み一切なしの「一生モノの英語脳」の完成！", acc: 90, wpm: 130, comp: 95 }
-        };
         window.currentPreviewLevel = level;
-        const data = levelData[level];
-        document.getElementById('level-mission-desc').innerText = data.desc;
+        
+        // 現在の言語を取得（ja以外はen扱い）
+        const langKey = window.currentAppLang || 'ja';
+        const isJa = langKey === 'ja';
+        const dict = dynamicDict[langKey];
+
+        // 1. 目標スコアの更新 (数字は全言語共通)
+        const levelScores = {
+            1: { acc: 60, wpm: 60, comp: 70 },
+            2: { acc: 70, wpm: 80, comp: 80 },
+            3: { acc: 80, wpm: 95, comp: 85 },
+            4: { acc: 85, wpm: 110, comp: 90 },
+            5: { acc: 90, wpm: 130, comp: 95 }
+        };
+        const data = levelScores[level];
+        
+        // innerText から innerHTML に変更（HTMLタグを許容するため）
+        document.getElementById('level-mission-desc').innerHTML = dict[`lv${level}_desc`];
         document.getElementById('target-acc').innerText = data.acc + "%";
         document.getElementById('target-wpm').innerText = data.wpm;
         document.getElementById('target-comp').innerText = data.comp + "%";
         
+        // 2. 画像の更新（英語等の場合は _eng.webp を読み込む）
         const imgEl = document.getElementById('level-preview-img');
-        if (imgEl) imgEl.src = `assets/images/level${level}.webp`;
+        const imgSuffix = isJa ? '' : '_eng';
+        if (imgEl) {
+            imgEl.src = `assets/images/level${level}${imgSuffix}.webp`;
+        }
 
+        // 3. ボタンの色切り替え
         const activeClass = "flex-1 px-2 py-2 rounded-sm font-bold text-[10px] md:text-xs transition-all duration-200 bg-stone-800 text-white shadow-md whitespace-nowrap";
         const inactiveClass = "flex-1 px-2 py-2 rounded-sm font-bold text-[10px] md:text-xs transition-all duration-200 text-stone-500 hover:text-stone-800 whitespace-nowrap";
         for (let i = 1; i <= 5; i++) {
@@ -1068,6 +1082,7 @@
             if (btn) btn.className = (i === level) ? activeClass : inactiveClass;
         }
 
+        // 4. グラフの更新
         if (!targetChartInstance) initTargetChart();
         if (targetChartInstance) {
             const index = level - 1;
@@ -1079,6 +1094,37 @@
                 dataset.pointBorderColor = borderColors;
             });
             targetChartInstance.update();
+        }
+    }
+
+    // 追加: SLAモーダルのテキストを現在の言語に更新する関数
+    function updateSlaModalTexts() {
+        const langKey = window.currentAppLang || 'ja';
+        const isJa = langKey === 'ja';
+        if (typeof dynamicDict === 'undefined') return;
+        const dict = dynamicDict[langKey];
+        
+        const slaSlides = document.querySelectorAll('#sla-slides .sla-slide');
+        if(slaSlides.length === 0) return;
+
+        // 画像のサフィックス（日本語なら空、英語なら _eng）
+        const imgSuffix = isJa ? '' : '_eng';
+
+        for (let i = 1; i <= 5; i++) {
+            const slide = slaSlides[i-1];
+            if (slide) {
+                // タイトルと説明文の更新
+                const titleEl = slide.querySelector('h4');
+                const descEl = slide.querySelector('p');
+                if (titleEl && dict[`sla${i}_title`]) titleEl.innerText = dict[`sla${i}_title`];
+                if (descEl && dict[`sla${i}_desc`]) descEl.innerHTML = dict[`sla${i}_desc`];
+                
+                // ★追加：画像の切り替え処理
+                const imgEl = slide.querySelector('img');
+                if (imgEl) {
+                    imgEl.src = `assets/images/level${i}${imgSuffix}.webp`;
+                }
+            }
         }
     }
 
