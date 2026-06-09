@@ -93,7 +93,11 @@ function toggleRecording() {
         const targetLang = currentCustomLesson.lang || 'en-US';
         mainRecognition.lang = targetLang;
 
-        if (currentMode === 'shadowing' && currentCustomLesson.audioBlob && audioPlayer) {
+        // ★修正: audioBlob（ファイル）だけでなく、audioUrl（リンク）がある場合も再生対象にする
+        const hasAudio = currentCustomLesson.audioBlob || currentCustomLesson.audioUrl;
+
+        if (currentMode === 'shadowing' && hasAudio && audioPlayer) {
+            audioPlayer.currentTime = 0; // ★修正: 毎回必ず「最初(0秒)から」再生させる
             audioPlayer.play().then(() => {
                 setTimeout(() => {
                     try {
