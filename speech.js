@@ -287,8 +287,12 @@ function updateHistoryUI() {
         }
     }
 
+    // 🌟 修正ポイント：challenge.html（特設会場）など、辞書がない環境でのクラッシュを防ぐ防護壁
+    if (typeof dynamicDict === 'undefined') return;
+
     const langKey = window.currentAppLang || 'ja';
     const dict = dynamicDict[langKey];
+    if (!dict) return;
 
     let adviceMsg = `<strong class="text-emerald-800 text-base">${dict.fb_count.replace('{n}', totalReads)}</strong><br>`;
 
