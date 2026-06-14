@@ -323,7 +323,16 @@ function checkUrlParameters() {
         const lang = urlParams.get('lang') || 'en-US';
         const formUrl = urlParams.get('form') || null; 
         const audioUrl = urlParams.get('audioUrl') || null; 
-        const jpnText = urlParams.get('jpn') || "先生からの共有教材です。"; // 👇 追加: URLから日本語訳を取得
+        const jpnText = urlParams.get('jpn') || "先生からの共有教材です。";
+
+        // 🌟 追加: URLから会話モードの情報を受け取り復元する
+        const lessonType = urlParams.get('type') || 'standard';
+        let dialogueData = [];
+        if (urlParams.has('dialogue')) {
+            try {
+                dialogueData = JSON.parse(urlParams.get('dialogue'));
+            } catch(e) { console.error("Dialogue parse error"); }
+        }
 
         window.history.replaceState({}, document.title, window.location.pathname);
 
@@ -340,7 +349,12 @@ function checkUrlParameters() {
             if (existingLesson) {
                 existingLesson.formUrl = formUrl;
                 if (audioUrl) existingLesson.audioUrl = audioUrl; 
-                if (urlParams.has('jpn')) existingLesson.jpn = jpnText; // 👇 追加: 既存教材の和訳も更新
+                if (urlParams.has('jpn')) existingLesson.jpn = jpnText; 
+                
+                // 🌟 追加: 既存教材の場合でも会話モード情報を更新する
+                existingLesson.type = lessonType;
+                if (dialogueData.length > 0) existingLesson.dialogue = dialogueData;
+
                 store.put(existingLesson);
                 if (typeof showMsg === 'function') showMsg("この共有教材はすでにLibraryにあります");
                 startCustomLesson(existingLesson);
@@ -348,12 +362,14 @@ function checkUrlParameters() {
                 const newLessonData = {
                     title: sharedTitle, 
                     eng: engText, 
-                    jpn: jpnText, // 👇 変更: 取得した和訳をセット
+                    jpn: jpnText, 
                     audioBlob: null,
                     audioUrl: audioUrl, 
                     lang: lang, 
                     langName: "🌐 Shared Material",
                     formUrl: formUrl,
+                    type: lessonType,       // 🌟 追加: 教材の種類
+                    dialogue: dialogueData, // 🌟 追加: 会話データ配列
                     history: [], 
                     createdAt: new Date().getTime()
                 };

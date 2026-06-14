@@ -694,12 +694,10 @@ async function generateShareLink() {
         lang: currentCustomLesson.lang || 'en-US'
     };
 
-    // 👇 追加: 日本語訳があればパラメータに含める
     if (currentCustomLesson.jpn) {
         paramsConfig.jpn = currentCustomLesson.jpn;
     }
 
-    // ★追加: もし外部音声URLがあれば、パラメータに含める
     if (currentCustomLesson.audioUrl) {
         paramsConfig.audioUrl = currentCustomLesson.audioUrl;
     }
@@ -708,14 +706,19 @@ async function generateShareLink() {
     if (savedFormUrl) {
         paramsConfig.form = savedFormUrl;
     }
+
+    // 🌟 追加: 会話文(Dialogue)モードのデータがあればURLパラメータに含める
+    if (currentCustomLesson.type === 'dialogue' && currentCustomLesson.dialogue) {
+        paramsConfig.type = 'dialogue';
+        // 配列データを文字列(JSON)に変換してURLに乗せる
+        paramsConfig.dialogue = JSON.stringify(currentCustomLesson.dialogue);
+    }
     
     const params = new URLSearchParams(paramsConfig);
     const longUrl = `${baseUrl}?${params.toString()}`;
     
     try {
-        // 安全に長いURLをそのままクリップボードにコピー
         await navigator.clipboard.writeText(longUrl);
-        
         if (typeof showMsg === 'function') {
             if (savedFormUrl) {
                 showMsg("🔗 【成績送信付き】リンクをコピーしました！");
