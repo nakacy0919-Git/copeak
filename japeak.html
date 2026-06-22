@@ -72,11 +72,13 @@
                 </div>
             </div>
 
-            <div class="p-8 md:p-12 flex-1 flex flex-col justify-center min-h-[250px]">
-                <!-- ★ AI音声再生ボタン -->
-                <button id="btn-play-audio" class="absolute top-4 right-4 bg-stone-200 hover:bg-stone-300 text-stone-700 w-10 h-10 rounded-full flex items-center justify-center text-xl shadow-sm transition" title="お手本を聞く">
-                    🔊
+            <div class="p-8 md:p-12 flex-1 flex flex-col justify-center min-h-[250px] relative items-start">
+                
+                <button id="btn-play-audio" class="mb-6 flex items-center justify-center gap-2 bg-gradient-to-r from-rose-400 to-red-500 hover:from-rose-500 hover:to-red-600 text-white px-5 py-2.5 rounded-full shadow-lg shadow-red-500/30 transition-all transform hover:scale-105 active:scale-95" title="お手本を聞く">
+                    <span class="text-xl drop-shadow-md">🔈</span>
+                    <span class="text-sm font-bold tracking-widest drop-shadow-md">お手本をきく</span>
                 </button>
+
                 <div id="main-text-jp" class="text-4xl md:text-5xl leading-[2.2] text-stone-800 font-bold mincho-font text-left">
                     <ruby>宜<rt>よろ</rt></ruby>しくお<ruby>願<rt>ねが</rt></ruby>いします。
                 </div>

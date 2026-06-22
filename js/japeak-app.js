@@ -185,6 +185,10 @@ function setupSpeechRecognition() {
             else if (accuracy >= 50) accOutput.className = "text-4xl font-black text-yellow-600 mincho-font mt-1";
             else accOutput.className = "text-4xl font-black text-[#1e3a5f] mincho-font mt-1";
         }
+        // 🌟 ここを追加：最終結果（文の区切り）が出たら、自動で録音をストップする
+        if (finalTranscript.length > 0) {
+            recognition.stop();
+        }
     };
 
     recognition.onerror = () => { isRecording = false; resetMicButton(micBtn); };
