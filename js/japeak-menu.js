@@ -17,10 +17,13 @@ if (typeof japeakTroublesData !== 'undefined') allJapeakData = allJapeakData.con
 if (typeof japeakEventsData !== 'undefined') allJapeakData = allJapeakData.concat(japeakEventsData);
 if (typeof japeakOfficeData !== 'undefined') allJapeakData = allJapeakData.concat(japeakOfficeData);
 
+// 🌟 新しく作成した中文データ（生徒編・保護者編）を結合
+if (typeof japeakParagraphsData !== 'undefined') allJapeakData = allJapeakData.concat(japeakParagraphsData);
+
 let menuLang = 'en';
 let selectedCategory = null;
 
-// 🌟 カテゴリの多言語翻訳辞書（アイコンを追加！）
+// 🌟 カテゴリの多言語翻訳辞書
 const categoryTranslations = {
     "school_life": {
         "icon": "🎒", "en": "Basic School Life", "pt": "Vida Escolar (Básico)", "zh-CN": "学校生活(基础)", "tl": "Buhay Paaralan", "vi": "Đời sống học đường", "es": "Vida Escolar", "ne": "स्कूल जीवन", "id": "Kehidupan Sekolah",
@@ -69,6 +72,15 @@ const categoryTranslations = {
     "school_office": {
         "icon": "🏢", "en": "School Office", "pt": "Secretaria Escolar", "zh-CN": "事务室・行政手续", "tl": "Opisina ng Paaralan", "vi": "Văn phòng trường", "es": "Oficina de la Escuela", "ne": "प्रशासन कक्ष", "id": "Tata Usaha (TU)",
         "ja_ruby": "じむしつ・てつづき"
+    },
+    // 🌟 中文（生徒編・保護者編）を追加！
+    "student_paragraphs": {
+        "icon": "🧑‍🎓", "en": "Student Sentences", "pt": "Frases do Aluno", "zh-CN": "学生篇(长文)", "tl": "Pangungusap ng Estudyante", "vi": "Đoạn văn của học sinh", "es": "Frases del Alumno", "ne": "विद्यार्थी खण्ड (लामो वाक्य)", "id": "Kalimat Siswa",
+        "ja_ruby": "せいと編（すこし長い文）"
+    },
+    "parent_paragraphs": {
+        "icon": "👪", "en": "Parent Sentences", "pt": "Avisos dos Pais", "zh-CN": "家长篇(学校联络)", "tl": "Mensahe ng Magulang", "vi": "Phành cho phụ huynh", "es": "Mensahes de los Padres", "ne": "अभिभावक खण्ड (स्कुललाई सम्पर्क)", "id": "Kalimat Orang Tua",
+        "ja_ruby": "ほごしゃ編（学校への連絡）"
     }
 };
 
@@ -90,7 +102,6 @@ function renderCategories() {
     if (!container) return;
     container.innerHTML = '';
     
-    // 🌟 バラバラなサイズを防ぐため、Gridレイアウト（タイル状）に強制変更
     container.className = "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4";
 
     const uniqueCategories = [...new Set(allJapeakData.map(item => item.category))];
@@ -98,16 +109,14 @@ function renderCategories() {
     uniqueCategories.forEach(cat => {
         const btn = document.createElement('button');
         const trans = categoryTranslations[cat];
-        const icon = trans && trans.icon ? trans.icon : "🗻"; // アイコンがない場合は富士山
+        const icon = trans && trans.icon ? trans.icon : "🗻";
         
-        // アイコンを大きく配置し、テキストを中央揃え
         btn.innerHTML = `
             <div class="text-3xl md:text-4xl mb-2 drop-shadow-sm group-hover:scale-110 transition-transform">${icon}</div>
             <div class="text-sm font-bold leading-snug">${trans ? trans.ja_ruby : cat}</div>
             <div class="text-[10px] opacity-80 mt-1">${trans ? trans[menuLang] : cat}</div>
         `;
         
-        // h-full で高さを揃え、フレックスで中央寄せ
         btn.className = `category-btn group flex flex-col items-center justify-center p-4 h-full w-full bg-[#f4f0e6] text-[#1e3a5f] border-2 border-[#1e3a5f] rounded-sm hover:bg-[#1e3a5f] hover:text-white transition shadow-sm ${selectedCategory === cat ? 'active' : ''}`;
         
         btn.onclick = () => {
@@ -115,10 +124,8 @@ function renderCategories() {
             renderCategories(); 
             renderPhraseList(cat);
 
-            // 🌟 追加：フレーズ一覧エリアへ自動でスムーズにスクロールさせる
             const phraseArea = document.getElementById('phrase-list-container');
             if (phraseArea && phraseArea.parentElement) {
-                // 画面上部から20pxの余白を持たせてスクロール
                 const y = phraseArea.parentElement.getBoundingClientRect().top + window.pageYOffset - 20;
                 window.scrollTo({ top: y, behavior: 'smooth' });
             }

@@ -46,8 +46,7 @@
                     <option value="id">Bahasa Indonesia</option>
                 </select>
             </div>
-            </div>
-            <!-- 🌟 ここを変更：メニューに戻るボタンとCopeakへ戻るボタンを並べる -->
+            
             <div class="flex gap-2">
                 <button onclick="window.location.href='japeak-menu.html'" class="bg-[#b91c1c] hover:bg-[#991b1b] text-white text-[10px] md:text-xs font-bold px-3 py-2 md:px-4 rounded-sm transition shadow-md whitespace-nowrap">
                     ◀ メニュー
@@ -57,34 +56,36 @@
                 </button>
             </div>
         </div>
+    </div>
 
-    <div class="max-w-[1400px] w-[95%] mx-auto mt-6 flex flex-col lg:flex-row gap-6">
+    <!-- 🌟 動的レイアウト用のID (layout-container) と transition を追加 -->
+    <div id="layout-container" class="max-w-[1400px] w-[95%] mx-auto mt-6 flex flex-col lg:flex-row gap-6 transition-all duration-500">
         
-        <div class="w-full lg:w-[65%] flex flex-col bg-[#fdfcf8] rounded-sm wa-border overflow-hidden">
+        <!-- 🌟 左側ペイン用のID (main-pane) を追加 -->
+        <div id="main-pane" class="w-full lg:w-[65%] flex flex-col bg-[#fdfcf8] rounded-sm wa-border overflow-hidden transition-all duration-500">
             
             <div class="bg-[#1e3a5f] p-4 flex justify-between items-center">
                 <div class="flex items-center gap-4">
                     <button id="btn-prev" class="text-white hover:text-stone-300 text-xl font-bold px-2">◀</button>
                     <h2 id="lesson-title" class="text-white font-bold text-lg mincho-font flex items-center gap-2">
-                        <span>🗣️</span> あいさつ① (Greetings 1)
+                        <span>🗣️</span> タイトル
                     </h2>
                     <button id="btn-next" class="text-white hover:text-stone-300 text-xl font-bold px-2">▶</button>
                 </div>
             </div>
 
-            <div class="p-8 md:p-12 flex-1 flex flex-col justify-center min-h-[250px] relative items-start">
+            <div class="p-8 md:p-12 flex-1 flex flex-col justify-center min-h-[250px] relative items-center">
                 
-                <button id="btn-play-audio" class="mb-6 flex items-center justify-center gap-2 bg-gradient-to-r from-rose-400 to-red-500 hover:from-rose-500 hover:to-red-600 text-white px-5 py-2.5 rounded-full shadow-lg shadow-red-500/30 transition-all transform hover:scale-105 active:scale-95" title="お手本を聞く">
+                <button id="btn-play-audio" class="mb-8 flex items-center justify-center gap-2 bg-gradient-to-r from-rose-400 to-red-500 hover:from-rose-500 hover:to-red-600 text-white px-5 py-2.5 rounded-full shadow-lg shadow-red-500/30 transition-all transform hover:scale-105 active:scale-95" title="お手本を聞く">
                     <span class="text-xl drop-shadow-md">🔈</span>
                     <span class="text-sm font-bold tracking-widest drop-shadow-md">お手本をきく</span>
                 </button>
 
-                <div id="main-text-jp" class="text-4xl md:text-5xl leading-[2.2] text-stone-800 font-bold mincho-font text-left">
-                    <ruby>宜<rt>よろ</rt></ruby>しくお<ruby>願<rt>ねが</rt></ruby>いします。
+                <!-- 🌟 ここを変更：文章がバランスよく中央に配置されつつ、文字は左揃えになる魔法のコンテナ -->
+                <div id="sentence-container" class="flex flex-col gap-6 md:gap-8 mx-auto w-fit transition-all duration-300">
+                    <!-- JSから「日本語＋ローマ字」のセットが段組みになって挿入されます -->
                 </div>
-                <div id="main-text-ro" class="text-xl md:text-2xl text-stone-500 font-medium mincho-font mt-4 text-left">
-                    Yoroshiku onegai shimasu.
-                </div>
+
             </div>
 
             <div class="p-6 bg-stone-100 border-t border-stone-200">
@@ -105,7 +106,8 @@
             </div>
         </div>
 
-        <div class="w-full lg:w-[35%] flex flex-col gap-6">
+        <!-- 🌟 右側ペイン用のID (side-pane) を追加 -->
+        <div id="side-pane" class="w-full lg:w-[35%] flex flex-col gap-6 transition-all duration-500">
             
             <div class="bg-white rounded-sm wa-border-sm p-6 shadow-sm relative overflow-hidden flex-1">
                 <div class="absolute top-0 left-0 w-1 h-full bg-[#eab308]"></div>
@@ -113,9 +115,7 @@
                     <span class="text-xl">💡</span> いつ使うの？ (Context)
                 </h3>
                 <div class="p-4 bg-stone-50 border border-stone-200 rounded-sm h-[calc(100%-2rem)] overflow-y-auto">
-                    <p id="context-text" class="text-sm text-stone-600 font-medium leading-relaxed">
-                        Used when meeting someone for the first time...
-                    </p>
+                    <p id="context-text" class="text-sm text-stone-600 font-medium leading-relaxed"></p>
                 </div>
             </div>
 
@@ -125,15 +125,14 @@
                     <span class="text-xl">🌐</span> どんな意味？ (Translation)
                 </h3>
                 <div class="p-4 bg-stone-50 border border-stone-200 rounded-sm h-[calc(100%-2rem)] flex items-center overflow-y-auto">
-                    <p id="translation-text" class="text-[17px] text-stone-800 font-bold mincho-font leading-relaxed">
-                        I look forward to working with you.
-                    </p>
+                    <p id="translation-text" class="text-[17px] text-stone-800 font-bold mincho-font leading-relaxed"></p>
                 </div>
             </div>
 
         </div>
     </div>
 
+    <!-- スクリプトの読み込み -->
     <script src="data/japeak-lessons.js"></script>
     <script src="data/japeak-conversation.js"></script>
     <script src="data/japeak-class.js"></script>
@@ -146,6 +145,7 @@
     <script src="data/japeak-troubles.js"></script>
     <script src="data/japeak-events.js"></script>
     <script src="data/japeak-office.js"></script>
+    <script src="data/japeak-paragraphs.js"></script>
 
     <script src="js/japeak-app.js"></script>
 </body>

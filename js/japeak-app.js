@@ -1,19 +1,11 @@
 // ==========================================
-// Japeak アプリケーションロジック (URL連携 & AI音声対応)
+// Japeak アプリケーションロジック (採点AI超強化版)
 // ==========================================
 let allJapeakData = [];
 if (typeof japeakData !== 'undefined') allJapeakData = allJapeakData.concat(japeakData);
 if (typeof japeakConversationData !== 'undefined') allJapeakData = allJapeakData.concat(japeakConversationData);
 if (typeof japeakClassData !== 'undefined') allJapeakData = allJapeakData.concat(japeakClassData);
-if (typeof japeakHealthData !== 'undefined') allJapeakData = allJapeakData.concat(japeakHealthData);
-if (typeof japeakLunchData !== 'undefined') allJapeakData = allJapeakData.concat(japeakLunchData);
-if (typeof japeakBreakData !== 'undefined') allJapeakData = allJapeakData.concat(japeakBreakData);
-if (typeof japeakClubsData !== 'undefined') allJapeakData = allJapeakData.concat(japeakClubsData);
-if (typeof japeakTeachersData !== 'undefined') allJapeakData = allJapeakData.concat(japeakTeachersData);
-if (typeof japeakCommutingData !== 'undefined') allJapeakData = allJapeakData.concat(japeakCommutingData);
-if (typeof japeakTroublesData !== 'undefined') allJapeakData = allJapeakData.concat(japeakTroublesData);
-if (typeof japeakEventsData !== 'undefined') allJapeakData = allJapeakData.concat(japeakEventsData);
-if (typeof japeakOfficeData !== 'undefined') allJapeakData = allJapeakData.concat(japeakOfficeData);
+if (typeof japeakParagraphsData !== 'undefined') allJapeakData = allJapeakData.concat(japeakParagraphsData);
 
 let currentIndex = 0; 
 let currentLesson = null;
@@ -29,14 +21,12 @@ const urlLang = urlParams.get('lang');
 
 if (urlLang) currentLang = urlLang;
 
-// targetId があればそのフレーズを探す、なければ最初のフレーズ
 if (targetId) {
     const foundIndex = allJapeakData.findIndex(item => item.id === targetId);
     if (foundIndex !== -1) currentIndex = foundIndex;
 }
 if (allJapeakData.length > 0) currentLesson = allJapeakData[currentIndex];
 
-// お祝い用サウンド
 const AudioContext = window.AudioContext || window.webkitAudioContext;
 const audioCtx = new AudioContext();
 
@@ -63,20 +53,29 @@ function fireConfetti() {
     }
 }
 
-// 🌟 AI音声（Text-to-Speech）再生機能
 function playExampleAudio() {
     if (!currentLesson) return;
-    window.speechSynthesis.cancel(); // 連続再生を防ぐ
+    window.speechSynthesis.cancel(); 
     
-    // ターゲットの読み仮名（ひらがな）または元の日本語を取得
     const textToSpeak = currentLesson.target_speech || currentLesson.japanese;
     const utterance = new SpeechSynthesisUtterance(textToSpeak);
     
-    utterance.lang = 'ja-JP'; // 日本語に設定
-    utterance.rate = 0.85;    // 学習者向けに少しだけゆっくり
+    utterance.lang = 'ja-JP'; 
+    utterance.rate = 0.85;    
     utterance.pitch = 1.0;
     
+    const voices = window.speechSynthesis.getVoices();
+    let bestVoice = voices.find(v => v.name === 'Google 日本語' || v.name === 'Google Japanese');
+    if (!bestVoice) bestVoice = voices.find(v => v.lang === 'ja-JP' && (v.name.includes('Kyoko') || v.name.includes('Otoya') || v.name.includes('Hattori')));
+    if (!bestVoice) bestVoice = voices.find(v => v.lang === 'ja-JP' && (v.name.includes('Nanami') || v.name.includes('Keita')));
+    if (!bestVoice) bestVoice = voices.find(v => v.lang.includes('ja'));
+
+    if (bestVoice) utterance.voice = bestVoice;
     window.speechSynthesis.speak(utterance);
+}
+
+if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {
+    speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -97,18 +96,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 音声再生ボタンのイベント
     const btnPlayAudio = document.getElementById('btn-play-audio');
-    if (btnPlayAudio) {
-        btnPlayAudio.onclick = playExampleAudio;
-    }
+    if (btnPlayAudio) btnPlayAudio.onclick = playExampleAudio;
 
     document.getElementById('btn-prev').onclick = () => {
         if (currentIndex > 0) {
             currentIndex--;
             currentLesson = allJapeakData[currentIndex];
             renderLesson();
-            history.replaceState(null, '', `?id=${currentLesson.id}&lang=${currentLang}`); // URLを更新
+            history.replaceState(null, '', `?id=${currentLesson.id}&lang=${currentLang}`); 
         }
     };
     document.getElementById('btn-next').onclick = () => {
@@ -116,18 +112,87 @@ document.addEventListener('DOMContentLoaded', () => {
             currentIndex++;
             currentLesson = allJapeakData[currentIndex];
             renderLesson();
-            history.replaceState(null, '', `?id=${currentLesson.id}&lang=${currentLang}`); // URLを更新
+            history.replaceState(null, '', `?id=${currentLesson.id}&lang=${currentLang}`); 
         }
     };
 });
 
 function renderLesson() {
     document.getElementById('lesson-title').innerHTML = `<span>🗣️</span> ${currentLesson.title}`;
-    document.getElementById('main-text-jp').innerHTML = currentLesson.ruby.hiragana;
-    document.getElementById('main-text-ro').innerText = currentLesson.ruby.romaji;
     document.getElementById('context-text').innerText = currentLesson.context[currentLang] || currentLesson.context['en'];
-    document.getElementById('translation-text').innerText = currentLesson.translations[currentLang] || currentLesson.translations['en'];
     
+    const pureText = currentLesson.japanese.replace(/<[^>]*>?/gm, ''); 
+    const textLength = pureText.length;
+    const isLongText = textLength >= 20;
+
+    const layoutContainer = document.getElementById('layout-container');
+    const mainPane = document.getElementById('main-pane');
+    const sidePane = document.getElementById('side-pane');
+    const sentenceContainer = document.getElementById('sentence-container');
+
+    if (layoutContainer && mainPane && sidePane && sentenceContainer) {
+        if (isLongText) {
+            layoutContainer.className = "max-w-[1400px] w-[95%] mx-auto mt-6 flex flex-col gap-6 transition-all duration-500";
+            mainPane.className = "w-full flex flex-col bg-[#fdfcf8] rounded-sm wa-border overflow-hidden transition-all duration-500";
+            sidePane.className = "w-full grid grid-cols-1 md:grid-cols-2 gap-6 transition-all duration-500";
+        } else {
+            layoutContainer.className = "max-w-[1400px] w-[95%] mx-auto mt-6 flex flex-col lg:flex-row gap-6 transition-all duration-500";
+            mainPane.className = "w-full lg:w-[65%] flex flex-col bg-[#fdfcf8] rounded-sm wa-border overflow-hidden transition-all duration-500";
+            sidePane.className = "w-full lg:w-[35%] flex flex-col gap-6 transition-all duration-500";
+        }
+
+        const rawTrans = currentLesson.translations[currentLang] || currentLesson.translations['en'];
+        const transSentences = rawTrans.match(/.*?[.?!。？！]+(?:\s+|$)|.+$/g) || [rawTrans];
+        const transContainer = document.getElementById('translation-text');
+        transContainer.innerHTML = '';
+        
+        transSentences.forEach((sentence, idx) => {
+            const span = document.createElement('span');
+            span.id = `trans-span-${idx}`;
+            span.className = "transition-all duration-300 px-1 rounded-sm";
+            span.innerText = sentence;
+            transContainer.appendChild(span);
+        });
+
+        const jpLines = currentLesson.ruby.hiragana.split('<br>');
+        const roLines = currentLesson.ruby.romaji.split('<br>');
+
+        sentenceContainer.innerHTML = ''; 
+
+        jpLines.forEach((jpLine, index) => {
+            const roLine = roLines[index] || ''; 
+            const block = document.createElement('div');
+            block.id = `reading-block-${index}`;
+            block.className = "flex flex-col gap-1 md:gap-2 items-start w-full cursor-pointer hover:bg-stone-100 p-3 md:p-4 rounded-md transition-all duration-300 border-2 border-transparent relative group"; 
+            
+            const jpSizeClass = isLongText ? "text-3xl md:text-4xl" : "text-4xl md:text-5xl";
+            const roSizeClass = isLongText ? "text-lg md:text-xl" : "text-xl md:text-2xl";
+
+            block.innerHTML = `
+                <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity text-[10px] text-emerald-600 font-bold bg-emerald-50 px-2 py-1 rounded-full border border-emerald-200 flex items-center gap-1">
+                    <span>👆</span> 意味を確認
+                </div>
+                <div class="${jpSizeClass} leading-[1.8] text-stone-800 font-bold mincho-font">${jpLine.trim()}</div>
+                <div class="${roSizeClass} text-stone-500 font-medium mincho-font">${roLine.trim()}</div>
+            `;
+
+            block.onclick = () => {
+                jpLines.forEach((_, i) => {
+                    const b = document.getElementById(`reading-block-${i}`);
+                    if (b) b.classList.remove('bg-emerald-50', 'border-emerald-200');
+                    const s = document.getElementById(`trans-span-${i}`);
+                    if (s) s.classList.remove('bg-[#eab308]', 'text-white', 'shadow-sm', 'font-bold');
+                });
+                
+                block.classList.add('bg-emerald-50', 'border-emerald-200');
+                const targetSpan = document.getElementById(`trans-span-${index}`);
+                if (targetSpan) targetSpan.classList.add('bg-[#eab308]', 'text-white', 'shadow-sm', 'font-bold');
+            };
+            
+            sentenceContainer.appendChild(block);
+        });
+    }
+
     document.getElementById('voice-output').innerHTML = '※「話す」ボタンを押してください';
     const accOutput = document.getElementById('acc-output');
     accOutput.innerText = '0%';
@@ -165,12 +230,16 @@ function setupSpeechRecognition() {
         }
 
         const currentText = finalTranscript || interimTranscript;
-        voiceOutput.innerHTML = currentText;
+        voiceOutput.innerHTML = currentText; // 画面には漢字混じりのまま表示
 
         if (currentText.length > 0) {
+            // 🌟 魔法のフィルターを通し、純粋なひらがな同士で比較する！
+            const normSpoken = normalizeJapaneseText(currentText, currentLesson.ruby.hiragana);
+            const normTarget = normalizeJapaneseText(currentLesson.target_speech, "");
+
             const score1 = calculateJapaneseAccuracy(currentText, currentLesson.japanese);
-            const score2 = calculateJapaneseAccuracy(currentText, currentLesson.target_speech);
-            const accuracy = Math.max(score1, score2);
+            const score2 = calculateJapaneseAccuracy(normSpoken, normTarget);
+            const accuracy = Math.max(score1, score2); // 漢字同士、ひらがな同士の高い方を採用
 
             accOutput.innerText = `${accuracy}%`;
             
@@ -185,10 +254,6 @@ function setupSpeechRecognition() {
             else if (accuracy >= 50) accOutput.className = "text-4xl font-black text-yellow-600 mincho-font mt-1";
             else accOutput.className = "text-4xl font-black text-[#1e3a5f] mincho-font mt-1";
         }
-        // 🌟 ここを追加：最終結果（文の区切り）が出たら、自動で録音をストップする
-        if (finalTranscript.length > 0) {
-            recognition.stop();
-        }
     };
 
     recognition.onerror = () => { isRecording = false; resetMicButton(micBtn); };
@@ -196,14 +261,77 @@ function setupSpeechRecognition() {
     micBtn.onclick = () => { isRecording ? recognition.stop() : recognition.start(); };
 }
 
+// 🌟 魔法のフィルター：数字・漢字・カタカナをすべて「ひらがな」に自動翻訳する関数
+function normalizeJapaneseText(text, rubyHtml) {
+    if (!text) return "";
+    let normalized = text;
+
+    // 1. 半角英字を全角に変換
+    normalized = normalized.replace(/[A-Za-z]/g, function(s) {
+        return String.fromCharCode(s.charCodeAt(0) + 0xFEE0);
+    });
+
+    // 2. カタカナをひらがなに変換（タロウ → たろう）
+    normalized = normalized.replace(/[\u30a1-\u30f6]/g, function(match) {
+        return String.fromCharCode(match.charCodeAt(0) - 0x60);
+    });
+
+    // 3. 数字（半角・全角）をひらがなに自動変換（1〜99まで対応！）
+    normalized = normalized.replace(/[0-9０-９]+/g, function(match) {
+        // 一度半角に統一
+        const numStr = match.replace(/[０-９]/g, s => String.fromCharCode(s.charCodeAt(0) - 0xFEE0));
+        const num = parseInt(numStr, 10);
+        const numMap = {'0':'ぜろ', '1':'いち', '2':'に', '3':'さん', '4':'よん', '5':'ご', '6':'ろく', '7':'なな', '8':'はち', '9':'きゅう'};
+        
+        if (num >= 10 && num <= 99) {
+            const tens = Math.floor(num / 10);
+            const ones = num % 10;
+            let res = '';
+            if(tens === 1) res += 'じゅう';
+            else if(tens > 1) res += numMap[tens] + 'じゅう';
+            if(ones > 0) res += numMap[ones];
+            return res;
+        }
+        if (num >= 0 && num <= 9) return numMap[num];
+        return match; 
+    });
+
+    // 4. ルビデータを利用して漢字をひらがなに変換
+    if (rubyHtml) {
+        const regex = /<ruby>([^<]+)<rt>([^<]+)<\/rt><\/ruby>/g;
+        let match;
+        while ((match = regex.exec(rubyHtml)) !== null) {
+            const kanji = match[1];
+            const kana = match[2];
+            normalized = normalized.split(kanji).join(kana);
+        }
+    }
+
+    // 5. APIが勝手に変換しがちな漢字を強制的にひらがなに直す
+    const commonReplacements = {
+        "私":"わたし", "僕":"ぼく", "俺":"おれ", "何":"なに",
+        "行く":"いく", "来る":"くる", "食べる":"たべる", "飲む":"のむ",
+        "言う":"いう", "話す":"はなす", "見る":"みる", "聞く":"きく",
+        "有難う":"ありがとう", "御座います":"ございます", "下さい":"ください", 
+        "済みません":"すみません", "御免なさい":"ごめんなさい", "良い":"いい", 
+        "無い":"ない", "時":"とき", "事":"こと", "物":"もの", "人":"ひと", "所":"ところ",
+        "今日":"きょう", "明日":"あした", "昨日":"きのう", "一緒":"いっしょ",
+        "太郎":"たろう", "度":"ど", "熱":"ねつ", "分":"ふん", "半":"はん", "頁":"ぺーじ", "歳":"さい"
+    };
+    for (let [k, v] of Object.entries(commonReplacements)) {
+        normalized = normalized.split(k).join(v);
+    }
+
+    // 6. 空白や句読点をすべて削除
+    return normalized.replace(/[\s 、。！？!?]/g, "");
+}
+
 function resetMicButton(btn) {
     btn.innerHTML = "<span>🎙</span> 話す (Start Speaking)";
     btn.className = "flex-1 w-full flex items-center justify-center gap-3 py-4 bg-[#b91c1c] hover:bg-[#991b1b] text-white rounded-sm font-black text-xl shadow-md border-b-4 border-[#7f1d1d] active:border-b-0 active:translate-y-1 transition-all tracking-widest";
 }
 
-function calculateJapaneseAccuracy(spoken, target) {
-    const cleanSpoken = spoken.replace(/[\s 、。！？!?]/g, "");
-    const cleanTarget = target.replace(/[\s 、。！？!?]/g, "");
+function calculateJapaneseAccuracy(cleanSpoken, cleanTarget) {
     if (cleanSpoken.length === 0) return 0;
     const distance = levenshteinDistance(cleanSpoken, cleanTarget);
     const maxLength = Math.max(cleanSpoken.length, cleanTarget.length);
