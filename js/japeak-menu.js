@@ -76,15 +76,18 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCategories();
 
     const langSelect = document.getElementById('menu-lang-select');
-    langSelect.addEventListener('change', (e) => {
-        menuLang = e.target.value;
-        renderCategories();
-        if (selectedCategory) renderPhraseList(selectedCategory);
-    });
+    if (langSelect) {
+        langSelect.addEventListener('change', (e) => {
+            menuLang = e.target.value;
+            renderCategories();
+            if (selectedCategory) renderPhraseList(selectedCategory);
+        });
+    }
 });
 
 function renderCategories() {
     const container = document.getElementById('category-container');
+    if (!container) return;
     container.innerHTML = '';
     
     // 🌟 バラバラなサイズを防ぐため、Gridレイアウト（タイル状）に強制変更
@@ -111,6 +114,14 @@ function renderCategories() {
             selectedCategory = cat;
             renderCategories(); 
             renderPhraseList(cat);
+
+            // 🌟 追加：フレーズ一覧エリアへ自動でスムーズにスクロールさせる
+            const phraseArea = document.getElementById('phrase-list-container');
+            if (phraseArea && phraseArea.parentElement) {
+                // 画面上部から20pxの余白を持たせてスクロール
+                const y = phraseArea.parentElement.getBoundingClientRect().top + window.pageYOffset - 20;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            }
         };
         container.appendChild(btn);
     });
@@ -118,16 +129,22 @@ function renderCategories() {
 
 function renderPhraseList(category) {
     const container = document.getElementById('phrase-list-container');
+    if (!container) return;
     container.innerHTML = '';
 
     const filteredData = allJapeakData.filter(item => item.category === category);
+
+    if (filteredData.length === 0) {
+        container.innerHTML = '<div class="text-stone-400 text-center py-10 font-bold">フレーズがありません</div>';
+        return;
+    }
 
     filteredData.forEach(item => {
         const card = document.createElement('div');
         card.onclick = () => {
             window.location.href = `japeak.html?id=${item.id}&lang=${menuLang}`;
         };
-        card.className = "group cursor-pointer flex flex-col md:flex-row justify-between items-start md:items-center p-4 bg-stone-50 hover:bg-[#e0e7ff] border border-stone-200 rounded-sm transition gap-4";
+        card.className = "group cursor-pointer flex flex-col md:flex-row justify-between items-start md:items-center p-4 bg-stone-50 hover:bg-[#e0e7ff] border border-stone-200 rounded-sm transition gap-4 shadow-sm";
 
         card.innerHTML = `
             <div class="flex-1">
