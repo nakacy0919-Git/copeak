@@ -125,17 +125,33 @@
     
     <script src="js/japeak-menu.js"></script>
 
-    <!-- 🌟 スプラッシュ画面を消すロジック -->
+    <!-- 🌟 スプラッシュ画面を消すロジック（スキップ機能付き） -->
     <script>
-        window.addEventListener('load', () => {
-            const splash = document.getElementById('japeak-splash');
+        // ブラウザの記憶（セッションストレージ）を確認
+        const splash = document.getElementById('japeak-splash');
+        
+        if (sessionStorage.getItem('japeak_splash_shown')) {
+            // 🌟 すでに1回見た場合は、アニメーションをスキップして一瞬で消す
             if (splash) {
-                // アニメーションをしっかり見せるために1.5秒後にフェードアウトを開始
-                setTimeout(() => {
-                    splash.classList.add('hidden-splash');
-                }, 1500);
+                splash.style.display = 'none';
             }
-        });
+        } else {
+            // 🌟 初回アクセス時は1.5秒見せてからフェードアウトし、記憶に保存する
+            window.addEventListener('load', () => {
+                if (splash) {
+                    setTimeout(() => {
+                        splash.classList.add('hidden-splash');
+                        // 「もう見たよ」という記憶をブラウザに保存
+                        sessionStorage.setItem('japeak_splash_shown', 'true');
+                        
+                        // アニメーションが終わったら裏側からも完全に消す
+                        setTimeout(() => {
+                            splash.style.display = 'none';
+                        }, 800);
+                    }, 1500);
+                }
+            });
+        }
     </script>
 </body>
 </html>
