@@ -3,7 +3,7 @@
 // ==========================================
 const japeakClassData = [
     {
-        id: "japeak_cls_001", title: "質問する (Asking a Question)", category: "class_time",
+        id: "japeak_cls_001", audio: "audio/japeak_cls_001.mp3", title: "質問する (Asking a Question)", category: "class_time",
         japanese: "先生、質問してもいいですか。", target_speech: "せんせいしつもんしてもいいですか",
         ruby: { hiragana: "<ruby>先生<rt>せんせい</rt></ruby>、<ruby>質問<rt>しつもん</rt></ruby>してもいいですか。", romaji: "Sensei, shitsumon shite mo ii desu ka." },
         context: {
@@ -16,7 +16,7 @@ const japeakClassData = [
         }
     },
     {
-        id: "japeak_cls_002", title: "ページを確認する (Checking the Page)", category: "class_time",
+        id: "japeak_cls_002", audio: "audio/japeak_cls_002.mp3", title: "ページを確認する (Checking the Page)", category: "class_time",
         japanese: "教科書の何ページですか。", target_speech: "きょうかしょのなんぺーじですか",
         ruby: { hiragana: "<ruby>教科書<rt>きょうかしょ</rt></ruby>の<ruby>何<rt>なん</rt></ruby>ページですか。", romaji: "Kyoukasho no nan peeji desu ka." },
         context: {
@@ -29,7 +29,7 @@ const japeakClassData = [
         }
     },
     {
-        id: "japeak_cls_003", title: "プリントがない時 (Missing a Handout)", category: "class_time",
+        id: "japeak_cls_003", audio: "audio/japeak_cls_003.mp3", title: "プリントがない時 (Missing a Handout)", category: "class_time",
         japanese: "プリントをもらっていません。", target_speech: "ぷりんとをもらっていません",
         ruby: { hiragana: "プリントをもらっていません。", romaji: "Purinto o moratte imasen." },
         context: {
@@ -42,7 +42,7 @@ const japeakClassData = [
         }
     },
     {
-        id: "japeak_cls_004", title: "黒板が見えない時 (Can't See the Board)", category: "class_time",
+        id: "japeak_cls_004", audio: "audio/japeak_cls_004.mp3", title: "黒板が見えない時 (Can't See the Board)", category: "class_time",
         japanese: "黒板が見えません。", target_speech: "こくばんがみえません",
         ruby: { hiragana: "<ruby>黒板<rt>こくばん</rt></ruby>が<ruby>見<rt>み</rt></ruby>えません。", romaji: "Kokuban ga miemasen." },
         context: {
@@ -55,7 +55,7 @@ const japeakClassData = [
         }
     },
     {
-        id: "japeak_cls_005", title: "声が聞こえない時 (Can't Hear)", category: "class_time",
+        id: "japeak_cls_005", audio: "audio/japeak_cls_005.mp3", title: "声が聞こえない時 (Can't Hear)", category: "class_time",
         japanese: "もう少し大きな声でお願いします。", target_speech: "もうすこしおおきなこえでおねがいします",
         ruby: { hiragana: "もう<ruby>少<rt>すこ</rt></ruby>し<ruby>大<rt>おお</rt></ruby>きな<ruby>声<rt>こえ</rt></ruby>でお<ruby>願<rt>ねが</rt></ruby>いします。", romaji: "Mou sukoshi ookina koe de onegai shimasu." },
         context: {
@@ -68,7 +68,7 @@ const japeakClassData = [
         }
     },
     {
-        id: "japeak_cls_006", title: "ペアワーク (Pair Work)", category: "class_time",
+        id: "japeak_cls_006", audio: "audio/japeak_cls_006.mp3", title: "ペアワーク (Pair Work)", category: "class_time",
         japanese: "一緒にやりましょう。", target_speech: "いっしょにやりましょう",
         ruby: { hiragana: "<ruby>一緒<rt>いっしょ</rt></ruby>にやりましょう。", romaji: "Issho ni yarimashou." },
         context: {
@@ -81,7 +81,7 @@ const japeakClassData = [
         }
     },
     {
-        id: "japeak_cls_007", title: "作業が終わった時 (Finished a Task)", category: "class_time",
+        id: "japeak_cls_007", audio: "audio/japeak_cls_007.mp3", title: "作業が終わった時 (Finished a Task)", category: "class_time",
         japanese: "終わりました。", target_speech: "おわりました",
         ruby: { hiragana: "<ruby>終<rt>お</rt></ruby>わりました。", romaji: "Owarimashita." },
         context: {
@@ -94,7 +94,7 @@ const japeakClassData = [
         }
     },
     {
-        id: "japeak_cls_008", title: "読み方を聞く (Asking How to Read)", category: "class_time",
+        id: "japeak_cls_008", audio: "audio/japeak_cls_008.mp3", title: "読み方を聞く (Asking How to Read)", category: "class_time",
         japanese: "この漢字はどう読みますか。", target_speech: "このかんじはどうよみますか",
         ruby: { hiragana: "この<ruby>漢字<rt>かんじ</rt></ruby>はどう<ruby>読<rt>よ</rt></ruby>みますか。", romaji: "Kono kanji wa dou yomimasu ka." },
         context: {
@@ -107,7 +107,7 @@ const japeakClassData = [
         }
     },
     {
-        id: "japeak_cls_009", title: "答えが分からない時 (Don't Know the Answer)", category: "class_time",
+        id: "japeak_cls_009", audio: "audio/japeak_cls_009.mp3", title: "答えが分からない時 (Don't Know the Answer)", category: "class_time",
         japanese: "答えがわかりません。", target_speech: "こたえがわかりません",
         ruby: { hiragana: "<ruby>答<rt>こた</rt></ruby>えがわかりません。", romaji: "Kotae ga wakarimasen." },
         context: {
@@ -120,7 +120,7 @@ const japeakClassData = [
         }
     },
     {
-        id: "japeak_cls_010", title: "意味を確認する (Asking the Meaning)", category: "class_time",
+        id: "japeak_cls_010", audio: "audio/japeak_cls_010.mp3", title: "意味を確認する (Asking the Meaning)", category: "class_time",
         japanese: "これはどういう意味ですか。", target_speech: "これはどういういみですか",
         ruby: { hiragana: "これはどういう<ruby>意味<rt>いみ</rt></ruby>ですか。", romaji: "Kore wa dou iu imi desu ka." },
         context: {

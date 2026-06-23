@@ -3,7 +3,7 @@
 // ==========================================
 const japeakBreakData = [
     {
-        id: "japeak_brk_001", title: "遊びに誘う (Let's Play)", category: "break_time",
+        id: "japeak_brk_001", audio: "audio/japeak_brk_001.mp3", title: "遊びに誘う (Let's Play)", category: "break_time",
         japanese: "一緒に遊ぼう。", target_speech: "いっしょにあそぼう",
         ruby: { hiragana: "<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>遊<rt>あそ</rt></ruby>ぼう。", romaji: "Issho ni asobou." },
         context: {
@@ -22,7 +22,7 @@ const japeakBreakData = [
         }
     },
     {
-        id: "japeak_brk_002", title: "仲間に入れて (Can I Join?)", category: "break_time",
+        id: "japeak_brk_002", audio: "audio/japeak_brk_002.mp3", title: "仲間に入れて (Can I Join?)", category: "break_time",
         japanese: "仲間に入れて。", target_speech: "なかまにいれて",
         ruby: { hiragana: "<ruby>仲間<rt>なかま</rt></ruby>に<ruby>入<rt>い</rt></ruby>れて。", romaji: "Nakama ni irete." },
         context: {
@@ -41,7 +41,7 @@ const japeakBreakData = [
         }
     },
     {
-        id: "japeak_brk_003", title: "順番を代わる (My Turn)", category: "break_time",
+        id: "japeak_brk_003", audio: "audio/japeak_brk_003.mp3", title: "順番を代わる (My Turn)", category: "break_time",
         japanese: "次は私の番です。", target_speech: "つぎはわたしのばんです",
         ruby: { hiragana: "<ruby>次<rt>つぎ</rt></ruby>は<ruby>私<rt>わたし</rt></ruby>の<ruby>番<rt>ばん</rt></ruby>です。", romaji: "Tsugi wa watashi no ban desu." },
         context: {
@@ -60,7 +60,7 @@ const japeakBreakData = [
         }
     },
     {
-        id: "japeak_brk_004", title: "教室に戻る (Going Back)", category: "break_time",
+        id: "japeak_brk_004", audio: "audio/japeak_brk_004.mp3", title: "教室に戻る (Going Back)", category: "break_time",
         japanese: "教室に戻ろう。", target_speech: "きょうしつにもどろう",
         ruby: { hiragana: "<ruby>教室<rt>きょうしつ</rt></ruby>に<ruby>戻<rt>もど</rt></ruby>ろう。", romaji: "Kyoushitsu ni modorou." },
         context: {
@@ -79,7 +79,7 @@ const japeakBreakData = [
         }
     },
     {
-        id: "japeak_brk_005", title: "名前を聞く (Asking Name)", category: "break_time",
+        id: "japeak_brk_005", audio: "audio/japeak_brk_005.mp3", title: "名前を聞く (Asking Name)", category: "break_time",
         japanese: "お名前は何ですか。", target_speech: "おなまえはなんですか",
         ruby: { hiragana: "お<ruby>名前<rt>なまえ</rt></ruby>は<ruby>何<rt>なん</rt></ruby>ですか。", romaji: "Onamae wa nan desu ka." },
         context: {
@@ -98,7 +98,7 @@ const japeakBreakData = [
         }
     },
     {
-        id: "japeak_brk_006", title: "好きなものを聞く (Asking Preferences)", category: "break_time",
+        id: "japeak_brk_006", audio: "audio/japeak_brk_006.mp3", title: "好きなものを聞く (Asking Preferences)", category: "break_time",
         japanese: "何が好きですか。", target_speech: "なにがすきですか",
         ruby: { hiragana: "<ruby>何<rt>なに</rt></ruby>が<ruby>好<rt>す</rt></ruby>きですか。", romaji: "Nani ga suki desu ka." },
         context: {
@@ -117,7 +117,7 @@ const japeakBreakData = [
         }
     },
     {
-        id: "japeak_brk_007", title: "共感する (Me Too)", category: "break_time",
+        id: "japeak_brk_007", audio: "audio/japeak_brk_007.mp3", title: "共感する (Me Too)", category: "break_time",
         japanese: "私も好きです。", target_speech: "わたしもすきです",
         ruby: { hiragana: "<ruby>私<rt>わたし</rt></ruby>も<ruby>好<rt>す</rt></ruby>きです。", romaji: "Watashi mo suki desu." },
         context: {
@@ -136,7 +136,7 @@ const japeakBreakData = [
         }
     },
     {
-        id: "japeak_brk_008", title: "日本語を教えてもらう (Asking to Teach)", category: "break_time",
+        id: "japeak_brk_008", audio: "audio/japeak_brk_008.mp3", title: "日本語を教えてもらう (Asking to Teach)", category: "break_time",
         japanese: "日本語を教えてください。", target_speech: "にほんごをおしえてください",
         ruby: { hiragana: "<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えてください。", romaji: "Nihongo o oshiete kudasai." },
         context: {
@@ -155,7 +155,7 @@ const japeakBreakData = [
         }
     },
     {
-        id: "japeak_brk_009", title: "移動する時 (Moving Together)", category: "break_time",
+        id: "japeak_brk_009", audio: "audio/japeak_brk_009.mp3", title: "移動する時 (Moving Together)", category: "break_time",
         japanese: "一緒に行こう。", target_speech: "いっしょにいこう",
         ruby: { hiragana: "<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>行<rt>い</rt></ruby>こう。", romaji: "Issho ni ikou." },
         context: {
@@ -174,7 +174,7 @@ const japeakBreakData = [
         }
     },
     {
-        id: "japeak_brk_010", title: "楽しかったと伝える (Having Fun)", category: "break_time",
+        id: "japeak_brk_010", audio: "audio/japeak_brk_010.mp3", title: "楽しかったと伝える (Having Fun)", category: "break_time",
         japanese: "楽しかったです。", target_speech: "たのしかったです",
         ruby: { hiragana: "<ruby>楽<rt>たの</rt></ruby>しかったです。", romaji: "Tanoshikatta desu." },
         context: {

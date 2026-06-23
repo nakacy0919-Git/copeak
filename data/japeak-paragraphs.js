@@ -6,7 +6,7 @@ const japeakParagraphsData = [
     // 🧑‍🎓 せいと編（student_paragraphs）
     // ------------------------------------------
     {
-        id: "japeak_para_stu_001", title: "自己紹介 (Self-Introduction)", category: "student_paragraphs",
+        id: "japeak_para_stu_001", audio: "audio/japeak_para_stu_001.mp3", title: "自己紹介 (Self-Introduction)", category: "student_paragraphs",
         japanese: "初めまして。ネパールから来ました。日本語の勉強と部活動を頑張りたいです。宜しくお願いします。",
         target_speech: "はじめましてねぱーるからきましたにほんごのべんきょうとぶかつどうをがんばりたいですよろしくおねがいします",
         ruby: { 
@@ -30,7 +30,7 @@ const japeakParagraphsData = [
         }
     },
     {
-        id: "japeak_para_stu_002", title: "体調不良を伝える (Feeling Unwell)", category: "student_paragraphs",
+        id: "japeak_para_stu_002", audio: "audio/japeak_para_stu_002.mp3", title: "体調不良を伝える (Feeling Unwell)", category: "student_paragraphs",
         japanese: "少し熱があって、頭が痛いです。保健室で休んでもいいですか。おうちに電話をしたいです。",
         target_speech: "すこしねつがあってあたまがいたいですほけんしつでやすんでもいいですかおうちにでんわをしたいです",
         ruby: { 
@@ -54,7 +54,7 @@ const japeakParagraphsData = [
         }
     },
     {
-        id: "japeak_para_stu_003", title: "宿題を忘れた時 (Forgetting Homework)", category: "student_paragraphs",
+        id: "japeak_para_stu_003", audio: "audio/japeak_para_stu_003.mp3", title: "宿題を忘れた時 (Forgetting Homework)", category: "student_paragraphs",
         japanese: "宿題のプリントを家に忘れてしまいました。明日の朝、必ず提出します。すみません。",
         target_speech: "しゅくだいのぷりんとをいえにわすれてしまいましたあしたのあさかならずていしゅつしますすみません",
         ruby: { 
@@ -82,9 +82,9 @@ const japeakParagraphsData = [
     // 👪 ほごしゃ編（parent_paragraphs）
     // ------------------------------------------
     {
-        id: "japeak_para_par_001", title: "欠席の連絡 (Reporting an Absence)", category: "parent_paragraphs",
+        id: "japeak_para_par_001", audio: "audio/japeak_para_par_001.mp3", title: "欠席の連絡 (Reporting an Absence)", category: "parent_paragraphs",
         japanese: "いつもお世話になっております。息子のタロウですが、今朝から熱が３８度あります。今日は学校を休ませます。",
-        target_speech: "いつもお世話になっておりますむすこのたろうですがけさからねつがさんじゅうはちどありますきょうはがっこうをやすませます",
+        target_speech: "いつもおせわになっておりますむすこのたろうですがけさからねつがさんじゅうはちどありますきょうはがっこうをやすませます",
         ruby: { 
             hiragana: "いつもお<ruby>世話<rt>せわ</rt></ruby>になっております。<br><ruby>息子<rt>むすこ</rt></ruby>のタロウですが、<ruby>今朝<rt>けさ</rt></ruby>から<ruby>熱<rt>ねつ</rt></ruby>が３８<ruby>度<rt>ど</rt></ruby>あります。<br><ruby>今日<rt>きょう</rt></ruby>は<ruby>学校<rt>がっこう</rt></ruby>を<ruby>休<rt>やす</rt></ruby>ませます。", 
             romaji: "Itsumo osewa ni natte orimasu.<br>Musuko no Tarou desu ga, kesa kara netsu ga sanjuuhachi-do arimasu.<br>Kyou wa gakkou o yasumasemasu." 
@@ -106,7 +106,7 @@ const japeakParagraphsData = [
         }
     },
     {
-        id: "japeak_para_par_002", title: "持ち物の確認 (Checking School Supplies)", category: "parent_paragraphs",
+        id: "japeak_para_par_002", audio: "audio/japeak_para_par_002.mp3", title: "持ち物の確認 (Checking School Supplies)", category: "parent_paragraphs",
         japanese: "お世話になります。昨日もらったプリントを見ました。明日の遠足の持ち物がよく分かりません。教えてください。",
         target_speech: "おせわになりますきのうもらったぷりんとをみましたあしたのえんそくのもちものがよくわかりませんおしえてください",
         ruby: { 

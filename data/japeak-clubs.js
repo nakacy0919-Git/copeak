@@ -3,7 +3,7 @@
 // ==========================================
 const japeakClubsData = [
     {
-        id: "japeak_clb_001", title: "部活の挨拶 (Club Greeting)", category: "clubs_committees",
+        id: "japeak_clb_001", audio: "audio/japeak_clb_001.mp3", title: "部活の挨拶 (Club Greeting)", category: "clubs_committees",
         japanese: "お疲れ様です。", target_speech: "おつかれさまです",
         ruby: { hiragana: "お<ruby>疲<rt>つか</rt></ruby>れ<ruby>様<rt>さま</rt></ruby>です。", romaji: "Otsukaresama desu." },
         context: {
@@ -22,7 +22,7 @@ const japeakClubsData = [
         }
     },
     {
-        id: "japeak_clb_002", title: "指示を仰ぐ (Asking What to Do)", category: "clubs_committees",
+        id: "japeak_clb_002", audio: "audio/japeak_clb_002.mp3", title: "指示を仰ぐ (Asking What to Do)", category: "clubs_committees",
         japanese: "何をすればいいですか。", target_speech: "なにをすればいいですか",
         ruby: { hiragana: "<ruby>何<rt>なに</rt></ruby>をすればいいですか。", romaji: "Nani o sureba ii desu ka." },
         context: {
@@ -41,7 +41,7 @@ const japeakClubsData = [
         }
     },
     {
-        id: "japeak_clb_003", title: "手伝いを申し出る (Offering Help)", category: "clubs_committees",
+        id: "japeak_clb_003", audio: "audio/japeak_clb_003.mp3", title: "手伝いを申し出る (Offering Help)", category: "clubs_committees",
         japanese: "準備を手伝います。", target_speech: "じゅんびをてつだいます",
         ruby: { hiragana: "<ruby>準備<rt>じゅんび</rt></ruby>を<ruby>手伝<rt>てつだ</rt></ruby>います。", romaji: "Junbi o tetsudaimasu." },
         context: {
@@ -60,7 +60,7 @@ const japeakClubsData = [
         }
     },
     {
-        id: "japeak_clb_004", title: "やり方を聞く (Asking How)", category: "clubs_committees",
+        id: "japeak_clb_004", audio: "audio/japeak_clb_004.mp3", title: "やり方を聞く (Asking How)", category: "clubs_committees",
         japanese: "やり方を教えてください。", target_speech: "やりかたをおしえてください",
         ruby: { hiragana: "やり<ruby>方<rt>かた</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えてください。", romaji: "Yarikata o oshiete kudasai." },
         context: {
@@ -79,7 +79,7 @@ const japeakClubsData = [
         }
     },
     {
-        id: "japeak_clb_005", title: "励まし合う (Encouragement)", category: "clubs_committees",
+        id: "japeak_clb_005", audio: "audio/japeak_clb_005.mp3", title: "励まし合う (Encouragement)", category: "clubs_committees",
         japanese: "頑張りましょう。", target_speech: "がんばりましょう",
         ruby: { hiragana: "<ruby>頑張<rt>がんば</rt></ruby>りましょう。", romaji: "Ganbarimashou." },
         context: {
@@ -98,7 +98,7 @@ const japeakClubsData = [
         }
     },
     {
-        id: "japeak_clb_006", title: "慰める・励ます (Comforting)", category: "clubs_committees",
+        id: "japeak_clb_006", audio: "audio/japeak_clb_006.mp3", title: "慰める・励ます (Comforting)", category: "clubs_committees",
         japanese: "気にしないでください。", target_speech: "きにしないでください",
         ruby: { hiragana: "<ruby>気<rt>き</rt></ruby>にしないでください。", romaji: "Ki ni shinaide kudasai." },
         context: {
@@ -117,7 +117,7 @@ const japeakClubsData = [
         }
     },
     {
-        id: "japeak_clb_007", title: "片付け (Cleaning Up)", category: "clubs_committees",
+        id: "japeak_clb_007", audio: "audio/japeak_clb_007.mp3", title: "片付け (Cleaning Up)", category: "clubs_committees",
         japanese: "片付けをしましょう。", target_speech: "かたづけをしましょう",
         ruby: { hiragana: "<ruby>片付<rt>かたづ</rt></ruby>けをしましょう。", romaji: "Katazuke o shimashou." },
         context: {
@@ -136,7 +136,7 @@ const japeakClubsData = [
         }
     },
     {
-        id: "japeak_clb_008", title: "欠席の連絡 (Reporting Absence)", category: "clubs_committees",
+        id: "japeak_clb_008", audio: "audio/japeak_clb_008.mp3", title: "欠席の連絡 (Reporting Absence)", category: "clubs_committees",
         japanese: "今日、部活を休みます。", target_speech: "きょうぶかつをやすみます",
         ruby: { hiragana: "<ruby>今日<rt>きょう</rt></ruby>、<ruby>部活<rt>ぶかつ</rt></ruby>を<ruby>休<rt>やす</rt></ruby>みます。", romaji: "Kyou, bukatsu o yasumimasu." },
         context: {
@@ -155,7 +155,7 @@ const japeakClubsData = [
         }
     },
     {
-        id: "japeak_clb_009", title: "先に帰る時の挨拶 (Leaving Early)", category: "clubs_committees",
+        id: "japeak_clb_009", audio: "audio/japeak_clb_009.mp3", title: "先に帰る時の挨拶 (Leaving Early)", category: "clubs_committees",
         japanese: "お先に失礼します。", target_speech: "おさきにしつれいします",
         ruby: { hiragana: "お<ruby>先<rt>さき</rt></ruby>に<ruby>失礼<rt>しつれい</rt></ruby>します。", romaji: "Osaki ni shitsurei shimasu." },
         context: {
@@ -174,7 +174,7 @@ const japeakClubsData = [
         }
     },
     {
-        id: "japeak_clb_010", title: "活動終了の挨拶 (Good Work Today)", category: "clubs_committees",
+        id: "japeak_clb_010", audio: "audio/japeak_clb_010.mp3", title: "活動終了の挨拶 (Good Work Today)", category: "clubs_committees",
         japanese: "お疲れ様でした。", target_speech: "おつかれさまでした",
         ruby: { hiragana: "お<ruby>疲<rt>つか</rt></ruby>れ<ruby>様<rt>さま</rt></ruby>でした。", romaji: "Otsukaresama deshita." },
         context: {

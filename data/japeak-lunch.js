@@ -3,7 +3,7 @@
 // ==========================================
 const japeakLunchData = [
     {
-        id: "japeak_lun_001", title: "いただきます (Starting a Meal)", category: "lunch_time",
+        id: "japeak_lun_001", audio: "audio/japeak_lun_001.mp3", title: "いただきます (Starting a Meal)", category: "lunch_time",
         japanese: "いただきます。", target_speech: "いただきます",
         ruby: { hiragana: "いただきます。", romaji: "Itadakimasu." },
         context: {
@@ -22,7 +22,7 @@ const japeakLunchData = [
         }
     },
     {
-        id: "japeak_lun_002", title: "ごちそうさまでした (Finishing a Meal)", category: "lunch_time",
+        id: "japeak_lun_002", audio: "audio/japeak_lun_002.mp3", title: "ごちそうさまでした (Finishing a Meal)", category: "lunch_time",
         japanese: "ごちそうさまでした。", target_speech: "ごちそうさまでした",
         ruby: { hiragana: "ごちそうさまでした。", romaji: "Gochisousama deshita." },
         context: {
@@ -41,7 +41,7 @@ const japeakLunchData = [
         }
     },
     {
-        id: "japeak_lun_003", title: "おかわり (Asking for Seconds)", category: "lunch_time",
+        id: "japeak_lun_003", audio: "audio/japeak_lun_003.mp3", title: "おかわり (Asking for Seconds)", category: "lunch_time",
         japanese: "おかわりをしてもいいですか。", target_speech: "おかわりをしてもいいですか",
         ruby: { hiragana: "おかわりをしてもいいですか。", romaji: "Okawari o shite mo ii desu ka." },
         context: {
@@ -59,7 +59,7 @@ const japeakLunchData = [
         }
     },
     {
-        id: "japeak_lun_004", title: "量を減らす (Asking for Less)", category: "lunch_time",
+        id: "japeak_lun_004", audio: "audio/japeak_lun_004.mp3", title: "量を減らす (Asking for Less)", category: "lunch_time",
         japanese: "これを減らしてください。", target_speech: "これをへらしてください",
         ruby: { hiragana: "これを<ruby>減<rt>へ</rt></ruby>らしてください。", romaji: "Kore o herashite kudasai." },
         context: {
@@ -77,11 +77,11 @@ const japeakLunchData = [
         }
     },
     {
-        id: "japeak_lun_005", title: "量を増やす (Asking for More)", category: "lunch_time",
+        id: "japeak_lun_005", audio: "audio/japeak_lun_005.mp3", title: "量を増やす (Asking for More)", category: "lunch_time",
         japanese: "これを増やしてください。", target_speech: "これをふやしてください",
         ruby: { hiragana: "これを<ruby>増<rt>ふ</rt></ruby>やしてください。", romaji: "Kore o fuyashite kudasai." },
         context: {
-            "ja": "自分の好きなメニューや、お腹が空いていて、もっとたくさん食べたい時にお願いする言葉です。",
+            "ja": "自分の好きなメニューや、お腹が空いていて、もっとたくさん食べたい時におお願いする言葉です。",
             "en": "Used to ask for a larger portion of your favorite food or when you are hungry and want to eat more.",
             "pt": "Usado para pedir uma porção maior da sua comida favorita ou quando você está com fome.",
             "zh-CN": "遇到喜欢的菜或者肚子饿想多吃一点时，请求增加分量的用语。",
@@ -95,7 +95,7 @@ const japeakLunchData = [
         }
     },
     {
-        id: "japeak_lun_006", title: "アレルギーを伝える (Having Allergies)", category: "lunch_time",
+        id: "japeak_lun_006", audio: "audio/japeak_lun_006.mp3", title: "アレルギーを伝える (Having Allergies)", category: "lunch_time",
         japanese: "アレルギーがあります。", target_speech: "あれるぎーがあります",
         ruby: { hiragana: "アレルギーがあります。", romaji: "Arerugii ga arimasu." },
         context: {
@@ -113,7 +113,7 @@ const japeakLunchData = [
         }
     },
     {
-        id: "japeak_lun_007", title: "箸を忘れた (Forgot Chopsticks)", category: "lunch_time",
+        id: "japeak_lun_007", audio: "audio/japeak_lun_007.mp3", title: "箸を忘れた (Forgot Chopsticks)", category: "lunch_time",
         japanese: "お箸を忘れました。", target_speech: "おはしをわすれました",
         ruby: { hiragana: "お<ruby>箸<rt>はし</rt></ruby>を<ruby>忘<rt>わす</rt></ruby>れました。", romaji: "Ohashi o wasuremashita." },
         context: {
@@ -131,7 +131,7 @@ const japeakLunchData = [
         }
     },
     {
-        id: "japeak_lun_008", title: "こぼした時 (Spilled Food/Drink)", category: "lunch_time",
+        id: "japeak_lun_008", audio: "audio/japeak_lun_008.mp3", title: "こぼした時 (Spilled Food/Drink)", category: "lunch_time",
         japanese: "こぼしてしまいました。", target_speech: "こぼしてしまいました",
         ruby: { hiragana: "こぼしてしまいました。", romaji: "Koboshite shimaimashita." },
         context: {
@@ -149,7 +149,7 @@ const japeakLunchData = [
         }
     },
     {
-        id: "japeak_lun_009", title: "一緒に食べる (Eating Together)", category: "lunch_time",
+        id: "japeak_lun_009", audio: "audio/japeak_lun_009.mp3", title: "一緒に食べる (Eating Together)", category: "lunch_time",
         japanese: "一緒に食べましょう。", target_speech: "いっしょにたべましょう",
         ruby: { hiragana: "<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>食<rt>た</rt></ruby>べましょう。", romaji: "Issho ni tabemashou." },
         context: {
@@ -167,7 +167,7 @@ const japeakLunchData = [
         }
     },
     {
-        id: "japeak_lun_010", title: "美味しいです (It's Delicious)", category: "lunch_time",
+        id: "japeak_lun_010", audio: "audio/japeak_lun_010.mp3", title: "美味しいです (It's Delicious)", category: "lunch_time",
         japanese: "美味しいです。", target_speech: "おいしいです",
         ruby: { hiragana: "<ruby>美味<rt>おい</rt></ruby>しいです。", romaji: "Oishii desu." },
         context: {

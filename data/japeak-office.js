@@ -3,7 +3,7 @@
 // ==========================================
 const japeakOfficeData = [
     {
-        id: "japeak_ofc_001", title: "場所を聞く (Where is the Office?)", category: "school_office",
+        id: "japeak_ofc_001", audio: "audio/japeak_ofc_001.mp3", title: "場所を聞く (Where is the Office?)", category: "school_office",
         japanese: "事務室はどこですか。", target_speech: "じむしつはどこですか",
         ruby: { hiragana: "<ruby>事務室<rt>じむしつ</rt></ruby>はどこですか。", romaji: "Jimushitsu wa doko desu ka." },
         context: {
@@ -22,7 +22,7 @@ const japeakOfficeData = [
         }
     },
     {
-        id: "japeak_ofc_002", title: "電話を借りたい (Borrowing a Phone)", category: "school_office",
+        id: "japeak_ofc_002", audio: "audio/japeak_ofc_002.mp3", title: "電話を借りたい (Borrowing a Phone)", category: "school_office",
         japanese: "電話を貸してください。", target_speech: "でんわをかしてください",
         ruby: { hiragana: "<ruby>電話<rt>でんわ</rt></ruby>を<ruby>貸<rt>か</rt></ruby>してください。", romaji: "Denwa o kashite kudasai." },
         context: {
@@ -41,7 +41,7 @@ const japeakOfficeData = [
         }
     },
     {
-        id: "japeak_ofc_003", title: "忘れ物の確認 (Checking Lost Property)", category: "school_office",
+        id: "japeak_ofc_003", audio: "audio/japeak_ofc_003.mp3", title: "忘れ物の確認 (Checking Lost Property)", category: "school_office",
         japanese: "ここに届いていますか。", target_speech: "ここに届いていますか",
         ruby: { hiragana: "ここに<ruby>届<rt>とど</rt></ruby>いていますか。", romaji: "Koko ni todokeite imasu ka." },
         context: {
@@ -60,7 +60,7 @@ const japeakOfficeData = [
         }
     },
     {
-        id: "japeak_ofc_004", title: "学生証の紛失 (Lost Student ID)", category: "school_office",
+        id: "japeak_ofc_004", audio: "audio/japeak_ofc_004.mp3", title: "学生証の紛失 (Lost Student ID)", category: "school_office",
         japanese: "学生証をなくしました。", target_speech: "がくせいしょうをなくしました",
         ruby: { hiragana: "<ruby>学生証<rt>がくせいしょう</rt></ruby>をなくしました。", romaji: "Gakuseishou o nakushimashita." },
         context: {
@@ -79,7 +79,7 @@ const japeakOfficeData = [
         }
     },
     {
-        id: "japeak_ofc_005", title: "定期券の相談 (Commuter Pass Box)", category: "school_office",
+        id: "japeak_ofc_005", audio: "audio/japeak_ofc_005.mp3", title: "定期券の相談 (Commuter Pass Box)", category: "school_office",
         japanese: "定期券を買いたいです。", target_speech: "ていきけんをかいたいです",
         ruby: { hiragana: "<ruby>定期券<rt>ていきけん</rt></ruby>を<ruby>買<rt>か</rt></ruby>いたいです。", romaji: "Teikiken o kaitai desu." },
         context: {
@@ -98,7 +98,7 @@ const japeakOfficeData = [
         }
     },
     {
-        id: "japeak_ofc_006", title: "書類を提出する (Handing in Paperwork)", category: "school_office",
+        id: "japeak_ofc_006", audio: "audio/japeak_ofc_006.mp3", title: "書類を提出する (Handing in Paperwork)", category: "school_office",
         japanese: "これをお願いします。", target_speech: "これをおねがいします",
         ruby: { hiragana: "これをお<ruby>願<rt>ねが</rt></ruby>いします。", romaji: "Kore o onegai shimasu." },
         context: {
@@ -117,7 +117,7 @@ const japeakOfficeData = [
         }
     },
     {
-        id: "japeak_ofc_007", title: "証明書がほしい (Requesting Certificates)", category: "school_office",
+        id: "japeak_ofc_007", audio: "audio/japeak_ofc_007.mp3", title: "証明書がほしい (Requesting Certificates)", category: "school_office",
         japanese: "在学証明書がほしいです。", target_speech: "ざいがくしゅめいしょがほしいです",
         ruby: { hiragana: "<ruby>在学証明書<rt>ざいがくしょうめいしょ</rt></ruby>がほしいです。", romaji: "Zaigaku shoumeisho ga hoshii desu ka." },
         context: {
@@ -128,7 +128,7 @@ const japeakOfficeData = [
             "tl": "Ginagamit upang humingi ng certificate of enrollment para sa visa o iba pang kailangan.",
             "vi": "Dùng khi bạn cần xin giấy chứng nhận đang học tại trường (Giấy chứng nhận học sinh) để làm thủ tục visa hoặc việc khác.",
             "es": "Se usa para solicitar una constancia de estudios (que demuestra que eres estudiante de esta escuela).",
-            "ne": "भिसा प्रक्रिया आदिको लागि आफू यसै स्कुलको विद्यार्थी भएको प्रमाणपत्र (Certificate of Enrollment) माग्न प्रयोग गरिन्छ处理。",
+            "ne": "भिसा प्रक्रिया आदिको लागि आफू यसै स्कुलको विद्यार्थी भएको प्रमाणपत्र (Certificate of Enrollment) माग्न प्रयोग गरिन्छ處理।",
             "id": "Digunakan untuk meminta surat keterangan aktif sekolah (surat yang membuktikan Anda murid sekolah ini) untuk keperluan visa atau lainnya."
         },
         translations: {
@@ -136,7 +136,7 @@ const japeakOfficeData = [
         }
     },
     {
-        id: "japeak_ofc_008", title: "変更の届け出 (Changing Information)", category: "school_office",
+        id: "japeak_ofc_008", audio: "audio/japeak_ofc_008.mp3", title: "変更の届け出 (Changing Information)", category: "school_office",
         japanese: "住所が変わりました。", target_speech: "じゅうしょがかわりました",
         ruby: { hiragana: "<ruby>住所<rt>じゅうしょ</rt></ruby>が<ruby>変<rt>か</rt></ruby>わりました。", romaji: "Juusho ga kawarimashita." },
         context: {
@@ -155,7 +155,7 @@ const japeakOfficeData = [
         }
     },
     {
-        id: "japeak_ofc_009", title: "プリントをなくした時 (Lost a Handout)", category: "school_office",
+        id: "japeak_ofc_009", audio: "audio/japeak_ofc_009.mp3", title: "プリントをなくした時 (Lost a Handout)", category: "school_office",
         japanese: "プリントをもう一枚ください。", target_speech: "ぷりんとをもういちまいください",
         ruby: { hiragana: "プリントをもう<ruby>一枚<rt>いちまい</rt></ruby>ください。", romaji: "Purinto o mou ichimai kudasai." },
         context: {
@@ -174,7 +174,7 @@ const japeakOfficeData = [
         }
     },
     {
-        id: "japeak_ofc_010", title: "手続き完了の挨拶 (Thank You for Your Help)", category: "school_office",
+        id: "japeak_ofc_010", audio: "audio/japeak_ofc_010.mp3", title: "手続き完了の挨拶 (Thank You for Your Help)", category: "school_office",
         japanese: "ありがとうございました。", target_speech: "ありがとうございました",
         ruby: { hiragana: "ありがとうございました。", romaji: "Arigatou gozaimashita." },
         context: {

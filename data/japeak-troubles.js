@@ -3,7 +3,7 @@
 // ==========================================
 const japeakTroublesData = [
     {
-        id: "japeak_trb_001", title: "物をなくした (Lost Something)", category: "troubles",
+        id: "japeak_trb_001", audio: "audio/japeak_trb_001.mp3", title: "物をなくした (Lost Something)", category: "troubles",
         japanese: "物をなくしました。", target_speech: "ものをなくしました",
         ruby: { hiragana: "<ruby>物<rt>もの</rt></ruby>をなくしました。", romaji: "Mono o nakushimashita." },
         context: {
@@ -22,7 +22,7 @@ const japeakTroublesData = [
         }
     },
     {
-        id: "japeak_trb_002", title: "落とし物を拾った (Found Something)", category: "troubles",
+        id: "japeak_trb_002", audio: "audio/japeak_trb_002.mp3", title: "落とし物を拾った (Found Something)", category: "troubles",
         japanese: "落とし物を拾いました。", target_speech: "おとしものをひろいました",
         ruby: { hiragana: "<ruby>落<rt>お</rt></ruby>とし<ruby>物<rt>もの</rt></ruby>を<ruby>拾<rt>ひろ</rt></ruby>いました。", romaji: "Otoshimono o hiroimashita." },
         context: {
@@ -41,7 +41,7 @@ const japeakTroublesData = [
         }
     },
     {
-        id: "japeak_trb_003", title: "壊してしまった (Broke Something)", category: "troubles",
+        id: "japeak_trb_003", audio: "audio/japeak_trb_003.mp3", title: "壊してしまった (Broke Something)", category: "troubles",
         japanese: "壊してしまいました。", target_speech: "こわしてしまいました",
         ruby: { hiragana: "<ruby>壊<rt>こわ</rt></ruby>してしまいました。", romaji: "Kowashite shimaimashita." },
         context: {
@@ -60,7 +60,7 @@ const japeakTroublesData = [
         }
     },
     {
-        id: "japeak_trb_004", title: "ケンカをした (Had a Fight)", category: "troubles",
+        id: "japeak_trb_004", audio: "audio/japeak_trb_004.mp3", title: "ケンカをした (Had a Fight)", category: "troubles",
         japanese: "友達とケンカをしました。", target_speech: "ともだちとけんかをとしました",
         ruby: { hiragana: "<ruby>友達<rt>ともだち</rt></ruby>とケンカをしました。", romaji: "Tomodachi to kenka o shimashita." },
         context: {
@@ -79,7 +79,7 @@ const japeakTroublesData = [
         }
     },
     {
-        id: "japeak_trb_005", title: "嫌なことをされた (Someone Was Mean)", category: "troubles",
+        id: "japeak_trb_005", audio: "audio/japeak_trb_005.mp3", title: "嫌なことをされた (Someone Was Mean)", category: "troubles",
         japanese: "嫌なことを言われました。", target_speech: "いやなことをいわれません",
         ruby: { hiragana: "<ruby>嫌<rt>いや</rt></ruby>なことを<ruby>言<rt>い</rt></ruby>われました。", romaji: "Iya na koto o iwaremashita." },
         context: {
@@ -98,7 +98,7 @@ const japeakTroublesData = [
         }
     },
     {
-        id: "japeak_trb_006", title: "トイレの紙がない (No Toilet Paper)", category: "troubles",
+        id: "japeak_trb_006", audio: "audio/japeak_trb_006.mp3", title: "トイレの紙がない (No Toilet Paper)", category: "troubles",
         japanese: "トイレの紙がありません。", target_speech: "といれのかみがありません",
         ruby: { hiragana: "トイレの<ruby>紙<rt>かみ</rt></ruby>がありません。", romaji: "Toire no kami ga arimasen." },
         context: {
@@ -117,7 +117,7 @@ const japeakTroublesData = [
         }
     },
     {
-        id: "japeak_trb_007", title: "財布を落とした (Lost Wallet)", category: "troubles",
+        id: "japeak_trb_007", audio: "audio/japeak_trb_007.mp3", title: "財布を落とした (Lost Wallet)", category: "troubles",
         japanese: "お財布を落としました。", target_speech: "おさいふをおとしました",
         ruby: { hiragana: "お<ruby>財布<rt>さいふ</rt></ruby>を<ruby>落<rt>お</rt></ruby>としました。", romaji: "Osaifu o otoshimashita." },
         context: {
@@ -136,7 +136,7 @@ const japeakTroublesData = [
         }
     },
     {
-        id: "japeak_trb_008", title: "道に迷った (Getting Lost)", category: "troubles",
+        id: "japeak_trb_008", audio: "audio/japeak_trb_008.mp3", title: "道に迷った (Getting Lost)", category: "troubles",
         japanese: "道に迷いました。", target_speech: "みちにまよいました",
         ruby: { hiragana: "<ruby>道<rt>みち</rt></ruby>に<ruby>迷<rt>まよ</rt></ruby>いました。", romaji: "Michi ni mayoimashita." },
         context: {
@@ -155,7 +155,7 @@ const japeakTroublesData = [
         }
     },
     {
-        id: "japeak_trb_009", title: "友達のケガを知らせる (Friend is Hurt)", category: "troubles",
+        id: "japeak_trb_009", audio: "audio/japeak_trb_009.mp3", title: "友達のケガを知らせる (Friend is Hurt)", category: "troubles",
         japanese: "友達がケガをしました。", target_speech: "ともだちがけがをしました",
         ruby: { hiragana: "<ruby>友達<rt>ともだち</rt></ruby>がケガをしました。", romaji: "Tomodachi ga kega o shimashita." },
         context: {
@@ -174,7 +174,7 @@ const japeakTroublesData = [
         }
     },
     {
-        id: "japeak_trb_010", title: "助けを求める (What Should I Do?)", category: "troubles",
+        id: "japeak_trb_010", audio: "audio/japeak_trb_010.mp3", title: "助けを求める (What Should I Do?)", category: "troubles",
         japanese: "どうしたらいいですか。", target_speech: "どうしたらいいですか",
         ruby: { hiragana: "どうしたらいいですか。", romaji: "Doushitara ii desu ka." },
         context: {

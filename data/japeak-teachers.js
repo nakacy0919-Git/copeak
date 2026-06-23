@@ -3,7 +3,7 @@
 // ==========================================
 const japeakTeachersData = [
     {
-        id: "japeak_tch_001", title: "時間を確認する (Do you have a moment?)", category: "teachers_room",
+        id: "japeak_tch_001", audio: "audio/japeak_tch_001.mp3", title: "時間を確認する (Do you have a moment?)", category: "teachers_room",
         japanese: "先生、今お時間よろしいですか。", target_speech: "せんせい、いまおじかんよろしいですか",
         ruby: { hiragana: "<ruby>先生<rt>せんせい</rt></ruby>、<ruby>今<rt>いま</rt></ruby>お<ruby>時間<rt>じかん</rt></ruby>よろしいですか。", romaji: "Sensei, ima ojikan yoroshii desu ka." },
         context: {
@@ -22,7 +22,7 @@ const japeakTeachersData = [
         }
     },
     {
-        id: "japeak_tch_002", title: "先生を探す (Looking for a Teacher)", category: "teachers_room",
+        id: "japeak_tch_002", audio: "audio/japeak_tch_002.mp3", title: "先生を探す (Looking for a Teacher)", category: "teachers_room",
         japanese: "田中先生はいらっしゃいますか。", target_speech: "たなかせんせいはいらっしゃいますか",
         ruby: { hiragana: "<ruby>田中<rt>たなか</rt></ruby><ruby>先生<rt>せんせい</rt></ruby>はいらっしゃいますか。", romaji: "Tanaka sensei wa irasshaimasu ka." },
         context: {
@@ -41,7 +41,7 @@ const japeakTeachersData = [
         }
     },
     {
-        id: "japeak_tch_003", title: "呼ばれた時 (When Called by a Teacher)", category: "teachers_room",
+        id: "japeak_tch_003", audio: "audio/japeak_tch_003.mp3", title: "呼ばれた時 (When Called by a Teacher)", category: "teachers_room",
         japanese: "先生に呼ばれて来ました。", target_speech: "せんせいによばれてきました",
         ruby: { hiragana: "<ruby>先生<rt>せんせい</rt></ruby>に<ruby>呼<rt>よ</rt></ruby>ばれて<ruby>来<rt>き</rt></ruby>ました。", romaji: "Sensei ni yobarete kimashita." },
         context: {
@@ -60,7 +60,7 @@ const japeakTeachersData = [
         }
     },
     {
-        id: "japeak_tch_004", title: "提出する (Submitting Homework)", category: "teachers_room",
+        id: "japeak_tch_004", audio: "audio/japeak_tch_004.mp3", title: "提出する (Submitting Homework)", category: "teachers_room",
         japanese: "宿題を提出しに来ました。", target_speech: "しゅくだいをていしゅつしにきました",
         ruby: { hiragana: "<ruby>宿題<rt>しゅくだい</rt></ruby>を<ruby>提出<rt>ていしゅつ</rt></ruby>しに<ruby>来<rt>き</rt></ruby>ました。", romaji: "Shukudai o teishutsu shi ni kimashita." },
         context: {
@@ -79,7 +79,7 @@ const japeakTeachersData = [
         }
     },
     {
-        id: "japeak_tch_005", title: "提出場所を聞く (Asking Where to Submit)", category: "teachers_room",
+        id: "japeak_tch_005", audio: "audio/japeak_tch_005.mp3", title: "提出場所を聞く (Asking Where to Submit)", category: "teachers_room",
         japanese: "これはどこに出せばいいですか。", target_speech: "これはどこにだせばいいですか",
         ruby: { hiragana: "これはどこに<ruby>出<rt>だ</rt></ruby>せばいいですか。", romaji: "Kore wa doko ni daseba ii desu ka." },
         context: {
@@ -90,14 +90,15 @@ const japeakTeachersData = [
             "tl": "Ginagamit upang itanong sa guro kung saan dapat ipasa ang handout o homework.",
             "vi": "Dùng để hỏi giáo viên xem nên nộp tài liệu hoặc bài tập ở đâu.",
             "es": "Se usa para preguntar a un profesor dónde debes entregar una hoja o tarea.",
-            "ne": "प्रिन्ट वा गृहकार्य बुझाउने ठाउँ (बक्स वा टेबल) थाहा नहुँदा शिक्षकलाई सोध्न प्रयोग गरिन्छ।", "id": "Digunakan untuk bertanya kepada guru di mana Anda harus mengumpulkan tugas atau PR."
+            "ne": "प्रिन्ट वा गृहकार्य बुझाउने ठाउँ (बक्स वा टेबल) थाहा नहुँदा शिक्षकलाई सोध्न प्रयोग गरिन्छ।",
+            "id": "Digunakan untuk bertanya kepada guru di mana Anda harus mengumpulkan tugas atau PR."
         },
         translations: {
             "en": "Where should I submit this?", "pt": "Onde devo entregar isso?", "zh-CN": "这个应该交到哪里？", "tl": "Saan ko po ito dapat ipasa?", "vi": "Cái này nộp ở đâu ạ?", "es": "¿Dónde debo entregar esto?", "ne": "मैले यो कहाँ बुझाउनुपर्छ?", "id": "Di mana saya harus mengumpulkan ini?"
         }
     },
     {
-        id: "japeak_tch_006", title: "提出が遅れた謝罪 (Apologizing for Late Submission)", category: "teachers_room",
+        id: "japeak_tch_006", audio: "audio/japeak_tch_006.mp3", title: "提出が遅れた謝罪 (Apologizing for Late Submission)", category: "teachers_room",
         japanese: "提出が遅れてすみません。", target_speech: "ていしゅつがおくれてすみません",
         ruby: { hiragana: "<ruby>提出<rt>ていしゅつ</rt></ruby>が<ruby>遅<rt>おく</rt></ruby>れてすみません。", romaji: "Teishutsu ga okurete sumimasen." },
         context: {
@@ -108,14 +109,15 @@ const japeakTeachersData = [
             "tl": "Isang mahalagang parirala upang humingi ng paumanhin kung huli na ang pagpasa mo ng homework.",
             "vi": "Một câu quan trọng dùng để xin lỗi trước khi bạn nộp bài tập muộn hơn hạn chót.",
             "es": "Una frase importante para disculparte primero cuando entregas la tarea después de la fecha límite.",
-            "ne": "तोकिएको समय (डेडलाइन) भन्दा ढिलो गृहकार्य बुझाउँदा माफी माग्न प्रयोग गरिने महत्त्वपूर्ण शब्द।", "id": "Kalimat penting untuk meminta maaf terlebih dahulu saat Anda mengumpulkan PR melewati batas waktu."
+            "ne": "तोकिएको समय (डेडलाइन) भन्दा ढिलो गृहकार्य बुझाउँदा माफी माग्न प्रयोग गरिने महत्त्वपूर्ण शब्द।",
+            "id": "Kalimat penting untuk meminta maaf terlebih dahulu saat Anda mengumpulkan PR melewati batas waktu."
         },
         translations: {
             "en": "I'm sorry for the late submission.", "pt": "Desculpe pelo atraso na entrega.", "zh-CN": "很抱歉迟交了。", "tl": "Pasensya na po at huli na ang pagpasa ko.", "vi": "Em xin lỗi vì nộp bài muộn ạ.", "es": "Siento entregar esto tarde.", "ne": "ढिलो बुझाएकोमा माफ गर्नुहोस्।", "id": "Maaf saya terlambat mengumpulkannya."
         }
     },
     {
-        id: "japeak_tch_007", title: "期限の延長 (Asking for an Extension)", category: "teachers_room",
+        id: "japeak_tch_007", audio: "audio/japeak_tch_007.mp3", title: "期限の延長 (Asking for an Extension)", category: "teachers_room",
         japanese: "明日提出してもいいですか。", target_speech: "あしたていしゅつしてもいいですか",
         ruby: { hiragana: "<ruby>明日<rt>あした</rt></ruby><ruby>提出<rt>ていしゅつ</rt></ruby>してもいいですか。", romaji: "Ashita teishutsu shite mo ii desu ka." },
         context: {
@@ -134,7 +136,7 @@ const japeakTeachersData = [
         }
     },
     {
-        id: "japeak_tch_008", title: "プリントをもらう (Asking for Handouts)", category: "teachers_room",
+        id: "japeak_tch_008", audio: "audio/japeak_tch_008.mp3", title: "プリントをもらう (Asking for Handouts)", category: "teachers_room",
         japanese: "休んだ日のプリントをください。", target_speech: "やすんだひのぷりんとをください",
         ruby: { hiragana: "<ruby>休<rt>やす</rt></ruby>んだ<ruby>日<rt>ひ</rt></ruby>のプリントをください。", romaji: "Yasunda hi no purinto o kudasai." },
         context: {
@@ -153,7 +155,7 @@ const japeakTeachersData = [
         }
     },
     {
-        id: "japeak_tch_009", title: "授業の準備完了 (Class is Ready)", category: "teachers_room",
+        id: "japeak_tch_009", audio: "audio/japeak_tch_009.mp3", title: "授業の準備完了 (Class is Ready)", category: "teachers_room",
         japanese: "授業の準備ができました。", target_speech: "じゅぎょうのじゅんびができました",
         ruby: { hiragana: "<ruby>授業<rt>じゅんび</rt></ruby>の<ruby>準備<rt>じゅんび</rt></ruby>ができました。", romaji: "Jugyou no junbi ga dekimashita." },
         context: {
@@ -172,7 +174,7 @@ const japeakTeachersData = [
         }
     },
     {
-        id: "japeak_tch_010", title: "退出する (Leaving the Room)", category: "teachers_room",
+        id: "japeak_tch_010", audio: "audio/japeak_tch_010.mp3", title: "退出する (Leaving the Room)", category: "teachers_room",
         japanese: "失礼しました。", target_speech: "しつれいしました",
         ruby: { hiragana: "<ruby>失礼<rt>しつれい</rt></ruby>しました。", romaji: "Shitsurei shimashita." },
         context: {

@@ -4,7 +4,7 @@
 const japeakConversationData = [
     // 1. 友達を誘う
     {
-        id: "japeak_conv_001", title: "友達を誘う (Inviting a Friend)", category: "school_life_conversation",
+        id: "japeak_conv_001", audio: "audio/japeak_conv_001.mp3", title: "友達を誘う (Inviting a Friend)", category: "school_life_conversation",
         japanese: "一緒に昼ごはんを食べませんか？", target_speech: "いっしょにひるごはんをたべませんか",
         ruby: { hiragana: "<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>昼<rt>ひる</rt></ruby>ごはんを<ruby>食<rt>た</rt></ruby>べませんか？", romaji: "Issho ni hirugohan o tabemasen ka?" },
         context: {
@@ -18,7 +18,7 @@ const japeakConversationData = [
     },
     // 2. 感謝を伝える
     {
-        id: "japeak_conv_002", title: "感謝を伝える (Expressing Gratitude)", category: "school_life_conversation",
+        id: "japeak_conv_002", audio: "audio/japeak_conv_002.mp3", title: "感謝を伝える (Expressing Gratitude)", category: "school_life_conversation",
         japanese: "助けてくれて、ありがとうございます。", target_speech: "たすけてくれてありがとうございます",
         ruby: { hiragana: "<ruby>助<rt>たす</rt></ruby>けてくれて、ありがとうございます。", romaji: "Tasukete kurete, arigatou gozaimasu." },
         context: {
@@ -32,7 +32,7 @@ const japeakConversationData = [
     },
     // 3. 誘いを断る（新規）
     {
-        id: "japeak_conv_003", title: "誘いを断る (Declining an Invitation)", category: "school_life_conversation",
+        id: "japeak_conv_003", audio: "audio/japeak_conv_003.mp3", title: "誘いを断る (Declining an Invitation)", category: "school_life_conversation",
         japanese: "ごめんなさい、今日は用事があります。", target_speech: "ごめんなさいきょうはようじがあります",
         ruby: { hiragana: "ごめんなさい、<ruby>今日<rt>きょう</rt></ruby>は<ruby>用事<rt>ようじ</rt></ruby>があります。", romaji: "Gomen nasai, kyou wa youji ga arimasu." },
         context: {
@@ -46,7 +46,7 @@ const japeakConversationData = [
     },
     // 4. 物を借りる（新規）
     {
-        id: "japeak_conv_004", title: "物を借りる (Borrowing Something)", category: "school_life_conversation",
+        id: "japeak_conv_004", audio: "audio/japeak_conv_004.mp3", title: "物を借りる (Borrowing Something)", category: "school_life_conversation",
         japanese: "ペンを貸してくれませんか。", target_speech: "ぺんをかしてくれませんか",
         ruby: { hiragana: "ペンを<ruby>貸<rt>か</rt></ruby>してくれませんか。", romaji: "Pen o kashite kuremasen ka." },
         context: {
@@ -60,7 +60,7 @@ const japeakConversationData = [
     },
     // 5. 遊びに誘う（週末）（新規）
     {
-        id: "japeak_conv_005", title: "遊びに誘う (Inviting to Hang Out)", category: "school_life_conversation",
+        id: "japeak_conv_005", audio: "audio/japeak_conv_005.mp3", title: "遊びに誘う (Inviting to Hang Out)", category: "school_life_conversation",
         japanese: "今週末、一緒に遊びに行きませんか。", target_speech: "こんしゅうまついっしょにあそびにいきませんか",
         ruby: { hiragana: "<ruby>今週末<rt>こんしゅうまつ</rt></ruby>、<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>遊<rt>あそ</rt></ruby>びに<ruby>行<rt>い</rt></ruby>きませんか。", romaji: "Konshuumatsu, issho ni asobi ni ikimasen ka." },
         context: {
@@ -74,7 +74,7 @@ const japeakConversationData = [
     },
     // 6. 相手を褒める（新規）
     {
-        id: "japeak_conv_006", title: "相手を褒める (Complimenting)", category: "school_life_conversation",
+        id: "japeak_conv_006", audio: "audio/japeak_conv_006.mp3", title: "相手を褒める (Complimenting)", category: "school_life_conversation",
         japanese: "すごいですね！かっこいいです。", target_speech: "すごいですねかっこいいです",
         ruby: { hiragana: "すごいですね！かっこいいです。", romaji: "Sugoi desu ne! Kakkoii desu." },
         context: {
@@ -88,7 +88,7 @@ const japeakConversationData = [
     },
     // 7. 分からないことを友達に聞く（新規）
     {
-        id: "japeak_conv_007", title: "友達に質問する (Asking a Friend a Question)", category: "school_life_conversation",
+        id: "japeak_conv_007", audio: "audio/japeak_conv_007.mp3", title: "友達に質問する (Asking a Friend a Question)", category: "school_life_conversation",
         japanese: "これ、どういう意味か教えてくれる？", target_speech: "これどういういみかおしえてくれる",
         ruby: { hiragana: "これ、どういう<ruby>意味<rt>いみ</rt></ruby>か<ruby>教<rt>おし</rt></ruby>えてくれる？", romaji: "Kore, dou iu imi ka oshiete kureru?" },
         context: {

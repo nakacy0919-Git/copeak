@@ -3,7 +3,7 @@
 // ==========================================
 const japeakCommutingData = [
     {
-        id: "japeak_com_001", title: "丁寧な朝の挨拶 (Polite Good Morning)", category: "commuting",
+        id: "japeak_com_001", audio: "audio/japeak_com_001.mp3", title: "丁寧な朝の挨拶 (Polite Good Morning)", category: "commuting",
         japanese: "おはようございます。", target_speech: "おはようございます",
         ruby: { hiragana: "おはようございます。", romaji: "Ohayou gozaimasu." },
         context: {
@@ -22,7 +22,7 @@ const japeakCommutingData = [
         }
     },
     {
-        id: "japeak_com_002", title: "友達への朝の挨拶 (Casual Good Morning)", category: "commuting",
+        id: "japeak_com_002", audio: "audio/japeak_com_002.mp3", title: "友達への朝の挨拶 (Casual Good Morning)", category: "commuting",
         japanese: "おはよう。", target_speech: "おはよう",
         ruby: { hiragana: "おはよう。", romaji: "Ohayou." },
         context: {
@@ -41,7 +41,7 @@ const japeakCommutingData = [
         }
     },
     {
-        id: "japeak_com_003", title: "丁寧な別れの挨拶 (Polite Goodbye)", category: "commuting",
+        id: "japeak_com_003", audio: "audio/japeak_com_003.mp3", title: "丁寧な別れの挨拶 (Polite Goodbye)", category: "commuting",
         japanese: "さようなら。", target_speech: "さようなら",
         ruby: { hiragana: "さようなら。", romaji: "Sayounara." },
         context: {
@@ -60,7 +60,7 @@ const japeakCommutingData = [
         }
     },
     {
-        id: "japeak_com_004", title: "友達との別れ (See You Tomorrow)", category: "commuting",
+        id: "japeak_com_004", audio: "audio/japeak_com_004.mp3", title: "友達との別れ (See You Tomorrow)", category: "commuting",
         japanese: "また明日。", target_speech: "またあした",
         ruby: { hiragana: "また<ruby>明日<rt>あした</rt></ruby>。", romaji: "Mata ashita." },
         context: {
@@ -79,7 +79,7 @@ const japeakCommutingData = [
         }
     },
     {
-        id: "japeak_com_005", title: "一緒に帰る (Let's Go Home Together)", category: "commuting",
+        id: "japeak_com_005", audio: "audio/japeak_com_005.mp3", title: "一緒に帰る (Let's Go Home Together)", category: "commuting",
         japanese: "一緒に帰ろう。", target_speech: "いっしょにかえろう",
         ruby: { hiragana: "<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>ろう。", romaji: "Issho ni kaerou." },
         context: {
@@ -98,7 +98,7 @@ const japeakCommutingData = [
         }
     },
     {
-        id: "japeak_com_006", title: "友達を待たせる (Wait a Minute)", category: "commuting",
+        id: "japeak_com_006", audio: "audio/japeak_com_006.mp3", title: "友達を待たせる (Wait a Minute)", category: "commuting",
         japanese: "ちょっと待って。", target_speech: "ちょっとまって",
         ruby: { hiragana: "ちょっと<ruby>待<rt>ま</rt></ruby>って。", romaji: "Chotto matte." },
         context: {
@@ -117,7 +117,7 @@ const japeakCommutingData = [
         }
     },
     {
-        id: "japeak_com_007", title: "安全を願う (Take Care)", category: "commuting",
+        id: "japeak_com_007", audio: "audio/japeak_com_007.mp3", title: "安全を願う (Take Care)", category: "commuting",
         japanese: "気をつけてね。", target_speech: "きをつけてね",
         ruby: { hiragana: "<ruby>気<rt>き</rt></ruby>をつけてね。", romaji: "Ki o tsukete ne." },
         context: {
@@ -136,7 +136,7 @@ const japeakCommutingData = [
         }
     },
     {
-        id: "japeak_com_008", title: "先に帰る (Leaving First)", category: "commuting",
+        id: "japeak_com_008", audio: "audio/japeak_com_008.mp3", title: "先に帰る (Leaving First)", category: "commuting",
         japanese: "先に帰るね。", target_speech: "さきにかえるね",
         ruby: { hiragana: "<ruby>先<rt>さき</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>るね。", romaji: "Saki ni kaeru ne." },
         context: {
@@ -155,7 +155,7 @@ const japeakCommutingData = [
         }
     },
     {
-        id: "japeak_com_009", title: "寄り道をしない (Going Straight Home)", category: "commuting",
+        id: "japeak_com_009", audio: "audio/japeak_com_009.mp3", title: "寄り道をしない (Going Straight Home)", category: "commuting",
         japanese: "まっすぐ帰ります。", target_speech: "まっすぐかえります",
         ruby: { hiragana: "まっすぐ<ruby>帰<rt>かえ</rt></ruby>ります。", romaji: "Massugu kaerimasu." },
         context: {
@@ -174,7 +174,7 @@ const japeakCommutingData = [
         }
     },
     {
-        id: "japeak_com_010", title: "忘れ物を取りに戻る (Forgot Something)", category: "commuting",
+        id: "japeak_com_010", audio: "audio/japeak_com_010.mp3", title: "忘れ物を取りに戻る (Forgot Something)", category: "commuting",
         japanese: "学校に戻ります。", target_speech: "がっこうにもどります",
         ruby: { hiragana: "<ruby>学校<rt>がっこう</rt></ruby>に<ruby>戻<rt>もど</rt></ruby>ります。", romaji: "Gakkou ni modorimasu." },
         context: {

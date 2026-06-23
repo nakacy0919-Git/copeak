@@ -3,7 +3,7 @@
 // ==========================================
 const japeakHealthData = [
     {
-        id: "japeak_hlt_001", title: "頭が痛い (Headache)", category: "health_clinic",
+        id: "japeak_hlt_001", audio: "audio/japeak_hlt_001.mp3", title: "頭が痛い (Headache)", category: "health_clinic",
         japanese: "頭が痛いです。", target_speech: "あたまがいたいです",
         ruby: { hiragana: "<ruby>頭<rt>あたま</rt></ruby>が<ruby>痛<rt>いた</rt></ruby>いです。", romaji: "Atama ga itai desu." },
         context: {
@@ -16,7 +16,7 @@ const japeakHealthData = [
         }
     },
     {
-        id: "japeak_hlt_002", title: "お腹が痛い (Stomachache)", category: "health_clinic",
+        id: "japeak_hlt_002", audio: "audio/japeak_hlt_002.mp3", title: "お腹が痛い (Stomachache)", category: "health_clinic",
         japanese: "お腹が痛いです。", target_speech: "おなかがいたいです",
         ruby: { hiragana: "お<ruby>腹<rt>なか</rt></ruby>が<ruby>痛<rt>いた</rt></ruby>いです。", romaji: "Onaka ga itai desu." },
         context: {
@@ -29,7 +29,7 @@ const japeakHealthData = [
         }
     },
     {
-        id: "japeak_hlt_003", title: "気持ちが悪い (Feeling Sick/Nauseous)", category: "health_clinic",
+        id: "japeak_hlt_003", audio: "audio/japeak_hlt_003.mp3", title: "気持ちが悪い (Feeling Sick/Nauseous)", category: "health_clinic",
         japanese: "気持ちが悪いです。", target_speech: "きもちがわるいです",
         ruby: { hiragana: "<ruby>気持<rt>きも</rt></ruby>ちが<ruby>悪<rt>わる</rt></ruby>いです。", romaji: "Kimochi ga warui desu." },
         context: {
@@ -42,7 +42,7 @@ const japeakHealthData = [
         }
     },
     {
-        id: "japeak_hlt_004", title: "熱がある (Having a Fever)", category: "health_clinic",
+        id: "japeak_hlt_004", audio: "audio/japeak_hlt_004.mp3", title: "熱がある (Having a Fever)", category: "health_clinic",
         japanese: "熱があります。", target_speech: "ねつがあります",
         ruby: { hiragana: "<ruby>熱<rt>ねつ</rt></ruby>があります。", romaji: "Netsu ga arimasu." },
         context: {
@@ -55,7 +55,7 @@ const japeakHealthData = [
         }
     },
     {
-        id: "japeak_hlt_005", title: "ケガをした (Got Injured)", category: "health_clinic",
+        id: "japeak_hlt_005", audio: "audio/japeak_hlt_005.mp3", title: "ケガをした (Got Injured)", category: "health_clinic",
         japanese: "ケガをしました。", target_speech: "けがをしました",
         ruby: { hiragana: "ケガをしました。", romaji: "Kega o shimashita." },
         context: {
@@ -68,7 +68,7 @@ const japeakHealthData = [
         }
     },
     {
-        id: "japeak_hlt_006", title: "保健室に行きたい (Going to the Clinic)", category: "health_clinic",
+        id: "japeak_hlt_006", audio: "audio/japeak_hlt_006.mp3", title: "保健室に行きたい (Going to the Clinic)", category: "health_clinic",
         japanese: "保健室に行ってもいいですか。", target_speech: "ほけんしつにいってもいいですか",
         ruby: { hiragana: "<ruby>保健室<rt>ほけんしつ</rt></ruby>に<ruby>行<rt>い</rt></ruby>ってもいいですか。", romaji: "Hokenshitsu ni itte mo ii desu ka." },
         context: {
@@ -81,7 +81,7 @@ const japeakHealthData = [
         }
     },
     {
-        id: "japeak_hlt_007", title: "薬を飲みたい (Taking Medicine)", category: "health_clinic",
+        id: "japeak_hlt_007", audio: "audio/japeak_hlt_007.mp3", title: "薬を飲みたい (Taking Medicine)", category: "health_clinic",
         japanese: "薬を飲んでもいいですか。", target_speech: "くすりをのんでもいいですか",
         ruby: { hiragana: "<ruby>薬<rt>くすり</rt></ruby>を<ruby>飲<rt>の</rt></ruby>んでもいいですか。", romaji: "Kusuri o nonde mo ii desu ka." },
         context: {
@@ -94,7 +94,7 @@ const japeakHealthData = [
         }
     },
     {
-        id: "japeak_hlt_008", title: "休みたい (Want to Rest)", category: "health_clinic",
+        id: "japeak_hlt_008", audio: "audio/japeak_hlt_008.mp3", title: "休みたい (Want to Rest)", category: "health_clinic",
         japanese: "少し休みたいです。", target_speech: "すこしやすみたいです",
         ruby: { hiragana: "<ruby>少<rt>すこ</rt></ruby>し<ruby>休<rt>やす</rt></ruby>みたいです。", romaji: "Sukoshi yasumitai desu." },
         context: {
@@ -107,7 +107,7 @@ const japeakHealthData = [
         }
     },
     {
-        id: "japeak_hlt_009", title: "喉が痛い (Sore Throat)", category: "health_clinic",
+        id: "japeak_hlt_009", audio: "audio/japeak_hlt_009.mp3", title: "喉が痛い (Sore Throat)", category: "health_clinic",
         japanese: "喉が痛いです。", target_speech: "のどがいたいです",
         ruby: { hiragana: "<ruby>喉<rt>のど</rt></ruby>が<ruby>痛<rt>いた</rt></ruby>いです。", romaji: "Nodo ga itai desu." },
         context: {
@@ -120,7 +120,7 @@ const japeakHealthData = [
         }
     },
     {
-        id: "japeak_hlt_010", title: "鼻血が出た (Nosebleed)", category: "health_clinic",
+        id: "japeak_hlt_010", audio: "audio/japeak_hlt_010.mp3", title: "鼻血が出た (Nosebleed)", category: "health_clinic",
         japanese: "鼻血が出ました。", target_speech: "はなぢがでました",
         ruby: { hiragana: "<ruby>鼻血<rt>はなぢ</rt></ruby>が<ruby>出<rt>で</rt></ruby>ました。", romaji: "Hanaji ga demashita." },
         context: {

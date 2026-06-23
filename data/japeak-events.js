@@ -3,7 +3,7 @@
 // ==========================================
 const japeakEventsData = [
     {
-        id: "japeak_evt_001", title: "楽しみにする (Looking Forward to It)", category: "school_events",
+        id: "japeak_evt_001", audio: "audio/japeak_evt_001.mp3", title: "楽しみにする (Looking Forward to It)", category: "school_events",
         japanese: "運動会が楽しみです。", target_speech: "うんどうかいがたのしみです",
         ruby: { hiragana: "<ruby>運動会<rt>うんどうかい</rt></ruby>が<ruby>楽<rt>たの</rt></ruby>しみです。", romaji: "Undoukai ga tanoshimi desu." },
         context: {
@@ -22,7 +22,7 @@ const japeakEventsData = [
         }
     },
     {
-        id: "japeak_evt_002", title: "持ち物の確認 (Checking Belongings)", category: "school_events",
+        id: "japeak_evt_002", audio: "audio/japeak_evt_002.mp3", title: "持ち物の確認 (Checking Belongings)", category: "school_events",
         japanese: "持ち物は何ですか。", target_speech: "もちものはなんですか",
         ruby: { hiragana: "<ruby>持<rt>も</rt></ruby>ち<ruby>物<rt>もの</rt></ruby>は<ruby>何<rt>なん</rt></ruby>ですか。", romaji: "Mochimono wa nan desu ka." },
         context: {
@@ -41,7 +41,7 @@ const japeakEventsData = [
         }
     },
     {
-        id: "japeak_evt_003", title: "集合時間の確認 (Gathering Time)", category: "school_events",
+        id: "japeak_evt_003", audio: "audio/japeak_evt_003.mp3", title: "集合時間の確認 (Gathering Time)", category: "school_events",
         japanese: "何時に集まりますか。", target_speech: "なんじにあつまりますか",
         ruby: { hiragana: "<ruby>何時<rt>なんじ</rt></ruby>に<ruby>集<rt>あつ</rt></ruby>まりますか。", romaji: "Nanji ni atsumarimasu ka." },
         context: {
@@ -60,7 +60,7 @@ const japeakEventsData = [
         }
     },
     {
-        id: "japeak_evt_004", title: "集合場所の確認 (Gathering Place)", category: "school_events",
+        id: "japeak_evt_004", audio: "audio/japeak_evt_004.mp3", title: "集合場所の確認 (Gathering Place)", category: "school_events",
         japanese: "どこに集まりますか。", target_speech: "どこにあつまりますか",
         ruby: { hiragana: "どこに<ruby>集<rt>あつ</rt></ruby>まりますか。", romaji: "Doko ni atsumarimasu ka." },
         context: {
@@ -79,7 +79,7 @@ const japeakEventsData = [
         }
     },
     {
-        id: "japeak_evt_005", title: "お弁当の確認 (Need a Lunch Box?)", category: "school_events",
+        id: "japeak_evt_005", audio: "audio/japeak_evt_005.mp3", title: "お弁当の確認 (Need a Lunch Box?)", category: "school_events",
         japanese: "お弁当は必要ですか。", target_speech: "おべんとうはひつようですか",
         ruby: { hiragana: "お<ruby>弁当<rt>べんとう</rt></ruby>は<ruby>必要<rt>ひつよう</rt></ruby>ですか。", romaji: "Obentou wa hitsuyou desu ka." },
         context: {
@@ -98,7 +98,7 @@ const japeakEventsData = [
         }
     },
     {
-        id: "japeak_evt_006", title: "雨天時の確認 (In Case of Rain)", category: "school_events",
+        id: "japeak_evt_006", audio: "audio/japeak_evt_006.mp3", title: "雨天時の確認 (In Case of Rain)", category: "school_events",
         japanese: "雨の日はどうなりますか。", target_speech: "あめのひはどうなりますか",
         ruby: { hiragana: "<ruby>雨<rt>あめ</rt></ruby>の<ruby>日<rt>ひ</rt></ruby>はどうなりますか。", romaji: "Ame no hi wa dou narimasu ka." },
         context: {
@@ -117,7 +117,7 @@ const japeakEventsData = [
         }
     },
     {
-        id: "japeak_evt_007", title: "応援する (Cheering)", category: "school_events",
+        id: "japeak_evt_007", audio: "audio/japeak_evt_007.mp3", title: "応援する (Cheering)", category: "school_events",
         japanese: "頑張れ！", target_speech: "がんばれ",
         ruby: { hiragana: "<ruby>頑張<rt>がんば</rt></ruby>れ！", romaji: "Ganbare!" },
         context: {
@@ -136,7 +136,7 @@ const japeakEventsData = [
         }
     },
     {
-        id: "japeak_evt_008", title: "出番の確認 (Our Turn is Next)", category: "school_events",
+        id: "japeak_evt_008", audio: "audio/japeak_evt_008.mp3", title: "出番の確認 (Our Turn is Next)", category: "school_events",
         japanese: "次は私のクラスです。", target_speech: "つぎはわたしのくらすです",
         ruby: { hiragana: "<ruby>次<rt>つぎ</rt></ruby>は<ruby>私<rt>わたし</rt></ruby>のクラスです。", romaji: "Tsugi wa watashi no kurasu desu." },
         context: {
@@ -155,7 +155,7 @@ const japeakEventsData = [
         }
     },
     {
-        id: "japeak_evt_009", title: "写真を撮る (Taking Pictures)", category: "school_events",
+        id: "japeak_evt_009", audio: "audio/japeak_evt_009.mp3", title: "写真を撮る (Taking Pictures)", category: "school_events",
         japanese: "写真を撮りましょう。", target_speech: "しゃしんをとりましょう",
         ruby: { hiragana: "<ruby>写真<rt>しゃしん</rt></ruby>を<ruby>撮<rt>と</rt></ruby>りましょう。", romaji: "Shashin o torimashou." },
         context: {
@@ -174,7 +174,7 @@ const japeakEventsData = [
         }
     },
     {
-        id: "japeak_evt_010", title: "感想を伝える (Expressing Impressions)", category: "school_events",
+        id: "japeak_evt_010", audio: "audio/japeak_evt_010.mp3", title: "感想を伝える (Expressing Impressions)", category: "school_events",
         japanese: "とても楽しかったです。", target_speech: "とてもたのしかったです",
         ruby: { hiragana: "とても<ruby>楽<rt>たの</rt></ruby>しかったです。", romaji: "Totemo tanoshikatta desu." },
         context: {

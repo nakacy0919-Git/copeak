@@ -4,7 +4,7 @@
 const japeakData = [
     // 1. あいさつ
     {
-        id: "japeak_001", title: "あいさつ① (Greetings 1)", category: "school_life",
+        id: "japeak_001", audio: "audio/japeak_001.mp3", title: "あいさつ① (Greetings 1)", category: "school_life",
         japanese: "宜しくお願いします。", target_speech: "よろしくお願いします",
         ruby: { hiragana: "<ruby>宜<rt>よろ</rt></ruby>しくお<ruby>願<rt>ねが</rt></ruby>いします。", romaji: "Yoroshiku onegai shimasu." },
         context: {
@@ -18,7 +18,7 @@ const japeakData = [
     },
     // 2. 職員室に入る
     {
-        id: "japeak_002", title: "職員室に入る (Entering a Room)", category: "school_life",
+        id: "japeak_002", audio: "audio/japeak_002.mp3", title: "職員室に入る (Entering a Room)", category: "school_life",
         japanese: "失礼します。", target_speech: "しつれいします",
         ruby: { hiragana: "<ruby>失礼<rt>しつれい</rt></ruby>します。", romaji: "Shitsurei shimasu." },
         context: {
@@ -32,7 +32,7 @@ const japeakData = [
     },
     // 3. トイレに行きたい時
     {
-        id: "japeak_003", title: "許可をもらう (Asking Permission)", category: "school_life",
+        id: "japeak_003", audio: "audio/japeak_003.mp3", title: "許可をもらう (Asking Permission)", category: "school_life",
         japanese: "トイレに行ってもいいですか。", target_speech: "といれにいってもいいですか",
         ruby: { hiragana: "トイレに<ruby>行<rt>い</rt></ruby>ってもいいですか。", romaji: "Toire ni itte mo ii desu ka." },
         context: {
@@ -46,7 +46,7 @@ const japeakData = [
     },
     // 4. 理解できない時
     {
-        id: "japeak_004", title: "聞き返す (Asking to Repeat)", category: "school_life",
+        id: "japeak_004", audio: "audio/japeak_004.mp3", title: "聞き返す (Asking to Repeat)", category: "school_life",
         japanese: "分かりません。もう一度お願いします。", target_speech: "わかりませんもういちどおねがいします",
         ruby: { hiragana: "<ruby>分<rt>わ</rt></ruby>かりません。もう<ruby>一<rt>いち</rt></ruby><ruby>度<rt>ど</rt></ruby>お<ruby>願<rt>ねが</rt></ruby>いします。", romaji: "Wakarimasen. Mou ichido onegai shimasu." },
         context: {
@@ -60,7 +60,7 @@ const japeakData = [
     },
     // 5. 助けを求める時
     {
-        id: "japeak_005", title: "助けを呼ぶ (Asking for Help)", category: "school_life",
+        id: "japeak_005", audio: "audio/japeak_005.mp3", title: "助けを呼ぶ (Asking for Help)", category: "school_life",
         japanese: "手伝ってください。", target_speech: "てつだってください",
         ruby: { hiragana: "<ruby>手伝<rt>てつだ</rt></ruby>ってください。", romaji: "Tetsudatte kudasai." },
         context: {
@@ -74,7 +74,7 @@ const japeakData = [
     },
     // 6. 遅刻した時（新規）
     {
-        id: "japeak_006", title: "遅刻した時 (Being Late)", category: "school_life",
+        id: "japeak_006", audio: "audio/japeak_006.mp3", title: "遅刻した時 (Being Late)", category: "school_life",
         japanese: "遅れてすみません。", target_speech: "おくれてすみません",
         ruby: { hiragana: "<ruby>遅<rt>おく</rt></ruby>れてすみません。", romaji: "Okurete sumimasen." },
         context: {
@@ -88,7 +88,7 @@ const japeakData = [
     },
     // 7. 忘れ物をした時（新規）
     {
-        id: "japeak_007", title: "忘れ物をした時 (Forgetting Something)", category: "school_life",
+        id: "japeak_007", audio: "audio/japeak_007.mp3", title: "忘れ物をした時 (Forgetting Something)", category: "school_life",
         japanese: "教科書を忘れました。", target_speech: "きょうかしょをわすれました",
         ruby: { hiragana: "<ruby>教科書<rt>きょうかしょ</rt></ruby>を<ruby>忘<rt>わす</rt></ruby>れました。", romaji: "Kyoukasho o wasuremashita." },
         context: {
@@ -102,7 +102,7 @@ const japeakData = [
     },
     // 8. 早退したい時（新規）
     {
-        id: "japeak_008", title: "早退したい時 (Leaving Early)", category: "school_life",
+        id: "japeak_008", audio: "audio/japeak_008.mp3", title: "早退したい時 (Leaving Early)", category: "school_life",
         japanese: "早退してもいいですか。", target_speech: "そうたいしてもいいですか",
         ruby: { hiragana: "<ruby>早退<rt>そうたい</rt></ruby>してもいいですか。", romaji: "Soutai shite mo ii desu ka." },
         context: {
@@ -116,7 +116,7 @@ const japeakData = [
     },
     // 9. 言葉の意味を聞く時（新規）
     {
-        id: "japeak_009", title: "言葉を聞く (Asking How to Say)", category: "school_life",
+        id: "japeak_009", audio: "audio/japeak_009.mp3", title: "言葉を聞く (Asking How to Say)", category: "school_life",
         japanese: "これは日本語で何と言いますか。", target_speech: "これはにほんごでなんといいますか",
         ruby: { hiragana: "これは<ruby>日本語<rt>にほんご</rt></ruby>で<ruby>何<rt>なん</rt></ruby>と<ruby>言<rt>い</rt></ruby>いますか。", romaji: "Kore wa nihongo de nan to iimasu ka." },
         context: {
@@ -130,7 +130,7 @@ const japeakData = [
     },
     // 10. ゆっくり話してほしい時（新規）
     {
-        id: "japeak_010", title: "ゆっくり話してほしい時 (Asking to Speak Slower)", category: "school_life",
+        id: "japeak_010", audio: "audio/japeak_010.mp3", title: "ゆっくり話してほしい時 (Asking to Speak Slower)", category: "school_life",
         japanese: "もう少しゆっくり話してください。", target_speech: "もうすこしゆっくりはなしてください",
         ruby: { hiragana: "もう<ruby>少<rt>すこ</rt></ruby>しゆっくり<ruby>話<rt>はな</rt></ruby>してください。", romaji: "Mou sukoshi yukkuri hanashite kudasai." },
         context: {
