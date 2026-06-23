@@ -370,6 +370,9 @@ function setupSpeechRecognition() {
                     hasCelebrated = true;
                     playSuccessSound();
                     fireConfetti();
+                    
+                    // 🌟 【追加】紙吹雪が出たら自動で録音を停止し、ボタンをリセットする！
+                    recognition.stop();
                 }
             }
             else if (accuracy >= 50) accOutput.className = "text-4xl font-black text-yellow-600 mincho-font mt-1";

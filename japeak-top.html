@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Japeak</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700;900&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        .serif-font { font-family: 'Noto Serif JP', serif; }
+        .title-font { font-family: 'Poppins', sans-serif; }
+        .japeak-orange { color: #f05a28; }
+        .bg-japeak-orange { background-color: #f05a28; }
+        .bg-dark-navy { background-color: #0d1627; }
+
+        /* 🌟 Copeak風の美しい時間差・浮き上がりアニメーション */
+        .fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+        @keyframes fadeInUp {
+            0% {
+                transform: translateY(40px) scale(0.95);
+                opacity: 0;
+                filter: blur(4px);
+            }
+            100% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-dark-navy h-screen flex flex-col items-center justify-center relative overflow-hidden selection:bg-[#f05a28] selection:text-white">
+    
+    <div class="z-10 flex flex-col items-center">
+        
+        <div class="fade-in-up w-48 h-48 md:w-60 md:h-60 rounded-full bg-white flex items-center justify-center shadow-2xl mb-8 overflow-hidden border-4 border-white" style="animation-delay: 0.1s;">
+            <img src="japeaklog.png" alt="Japeak Logo" class="w-full h-full object-cover">
+        </div>
+
+        <p class="fade-in-up japeak-orange text-xs md:text-sm font-bold tracking-[0.3em] md:tracking-[0.4em] mb-10 uppercase text-center title-font" style="animation-delay: 0.4s;">
+            Japanese Speaking Platform
+        </p>
+
+        <h1 class="fade-in-up text-4xl md:text-6xl font-bold serif-font mb-14 flex items-center gap-3 md:gap-5 drop-shadow-lg" style="animation-delay: 0.7s;">
+            <span class="text-white">Welcome to</span>
+            <span class="japeak-orange">Japeak!</span>
+        </h1>
+
+        <a href="japeak-menu.html" class="fade-in-up group relative px-8 py-4 border-2 border-slate-500 rounded-full text-white font-bold tracking-widest text-sm md:text-base hover:border-[#f05a28] hover:bg-[#f05a28]/10 transition-all duration-300 flex items-center gap-3 title-font shadow-lg" style="animation-delay: 1.0s;">
+            ENTER JAPEAK 
+            <span class="group-hover:translate-x-2 transition-transform duration-300 font-black">➔</span>
+        </a>
+
+    </div>
+
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#f05a28] opacity-5 rounded-full blur-[100px] pointer-events-none"></div>
+
+</body>
+</html>
