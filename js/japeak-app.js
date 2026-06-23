@@ -1,8 +1,7 @@
 // ==========================================
-// Japeak アプリケーションロジック (完全統合版)
+// Japeak アプリケーションロジック (確定判定システム版)
 // ==========================================
 let allJapeakData = [];
-// すべてのカテゴリデータを結合する
 if (typeof japeakData !== 'undefined') allJapeakData = allJapeakData.concat(japeakData);
 if (typeof japeakConversationData !== 'undefined') allJapeakData = allJapeakData.concat(japeakConversationData);
 if (typeof japeakClassData !== 'undefined') allJapeakData = allJapeakData.concat(japeakClassData);
@@ -65,15 +64,13 @@ function playSuccessSound() {
 
 function fireConfetti() {
     if (typeof confetti !== 'undefined') {
-        confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 }, colors: ['#eab308', '#b91c1c', '#1e3a5f', '#166534', '#ffffff'] });
+        confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 }, colors: ['#f05a28', '#1e3a5f', '#eab308', '#166534', '#ffffff'] });
     }
 }
 
-// 🌟 音声読み上げ（MP3とAIのハイブリッド機能）
 function playExampleAudio() {
     if (!currentLesson) return;
     
-    // ① 反転モード（外国語学習）の時は、その言語のネイティブAI音声を再生する
     if (isSwapped) {
         window.speechSynthesis.cancel(); 
         const textToSpeak = currentLesson.translations[currentLang] || currentLesson.translations['en'];
@@ -102,11 +99,9 @@ function playExampleAudio() {
         return;
     }
 
-    // ② 通常モード（日本語学習）の時は、用意したMP3ファイルを再生する
     const audioPath = currentLesson.audio || `audio/${currentLesson.id}.mp3`;
     const audioObj = new Audio(audioPath);
     
-    // 🌟 MP3ファイルが見つからなかった場合の安全装置（AI音声で代用）
     audioObj.onerror = () => {
         console.warn("MP3ファイルが見つかりません。代わりにAI音声を再生します:", audioPath);
         window.speechSynthesis.cancel();
@@ -125,7 +120,6 @@ function playExampleAudio() {
         window.speechSynthesis.speak(utterance);
     };
 
-    // MP3が存在すれば再生！
     audioObj.play();
 }
 
@@ -307,6 +301,7 @@ function renderLesson() {
     accOutput.className = "text-4xl font-black text-[#1e3a5f] mincho-font mt-1";
 }
 
+// 🌟 音声認識システム（リアルタイム数値更新 ＆ 確定時判定）
 function setupSpeechRecognition() {
     window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (!window.SpeechRecognition) return;
@@ -320,13 +315,18 @@ function setupSpeechRecognition() {
     const accOutput = document.getElementById('acc-output');
     const micBtn = document.getElementById('mic-btn');
 
+    let finalTranscriptText = "";
+
     recognition.onstart = () => {
         isRecording = true;
         hasCelebrated = false; 
+        finalTranscriptText = "";
         micBtn.innerHTML = "<span>⏹</span> 停止 (Stop)";
         micBtn.className = "flex-1 w-full flex items-center justify-center gap-3 py-4 bg-stone-700 hover:bg-stone-800 text-white rounded-sm font-black text-xl shadow-inner tracking-widest";
         voiceOutput.innerHTML = '<span class="text-stone-400 text-base">聞いています...</span>';
+        
         accOutput.innerText = "0%";
+        accOutput.className = "text-4xl font-black text-[#1e3a5f] mincho-font mt-1";
     };
 
     recognition.onresult = (event) => {
@@ -339,20 +339,17 @@ function setupSpeechRecognition() {
 
         const currentText = finalTranscript || interimTranscript;
         voiceOutput.innerHTML = currentText; 
+        finalTranscriptText = currentText;
 
+        // 🌟 話している最中にリアルタイムで数値を更新する
         if (currentText.length > 0) {
             let accuracy = 0;
-
             if (!isSwapped) {
-                // 🌟 【修正ポイント】target_speechがない場合でも強制的にひらがなを作る
                 const rawTarget = currentLesson.target_speech || currentLesson.japanese;
-                
                 const normSpoken = normalizeJapaneseText(currentText, currentLesson.ruby.hiragana);
                 const normTarget = normalizeJapaneseText(rawTarget, currentLesson.ruby.hiragana);
-                
                 const score1 = calculateJapaneseAccuracy(currentText, currentLesson.japanese);
                 const score2 = calculateJapaneseAccuracy(normSpoken, normTarget);
-                
                 accuracy = Math.max(score1, score2); 
             } else {
                 const punctuationRegex = /[\s.,?!¿¡。、！？「」'"]/g;
@@ -363,40 +360,60 @@ function setupSpeechRecognition() {
             }
 
             accOutput.innerText = `${accuracy}%`;
-            
-            if(accuracy >= 80) {
-                accOutput.className = "text-4xl font-black text-green-600 mincho-font mt-1";
-                if (!hasCelebrated) {
-                    hasCelebrated = true;
-                    playSuccessSound();
-                    fireConfetti();
-                    
-                    // 🌟 【追加】紙吹雪が出たら自動で録音を停止し、ボタンをリセットする！
-                    recognition.stop();
-                }
-            }
-            else if (accuracy >= 50) accOutput.className = "text-4xl font-black text-yellow-600 mincho-font mt-1";
-            else accOutput.className = "text-4xl font-black text-[#1e3a5f] mincho-font mt-1";
+            // 話している最中は色は変わらずニュートラルなまま
+            accOutput.className = "text-4xl font-black text-[#1e3a5f] opacity-70 mincho-font mt-1 transition-all duration-75";
         }
     };
 
     recognition.onerror = () => { isRecording = false; resetMicButton(micBtn); };
-    recognition.onend = () => { isRecording = false; resetMicButton(micBtn); };
+    
+    // 🌟 録音が終了したタイミング（ユーザーが「停止」を押した時）に色と演出を確定！
+    recognition.onend = () => { 
+        isRecording = false; 
+        resetMicButton(micBtn); 
+        
+        if (finalTranscriptText.trim().length > 0) {
+            let accuracy = 0;
+
+            if (!isSwapped) {
+                const rawTarget = currentLesson.target_speech || currentLesson.japanese;
+                const normSpoken = normalizeJapaneseText(finalTranscriptText, currentLesson.ruby.hiragana);
+                const normTarget = normalizeJapaneseText(rawTarget, currentLesson.ruby.hiragana);
+                const score1 = calculateJapaneseAccuracy(finalTranscriptText, currentLesson.japanese);
+                const score2 = calculateJapaneseAccuracy(normSpoken, normTarget);
+                accuracy = Math.max(score1, score2); 
+            } else {
+                const punctuationRegex = /[\s.,?!¿¡。、！？「」'"]/g;
+                const targetText = currentLesson.translations[currentLang] || currentLesson.translations['en'];
+                const cleanSpoken = finalTranscriptText.toLowerCase().replace(punctuationRegex, "");
+                const cleanTarget = targetText.toLowerCase().replace(punctuationRegex, "");
+                accuracy = calculateJapaneseAccuracy(cleanSpoken, cleanTarget);
+            }
+
+            accOutput.innerText = `${accuracy}%`;
+            
+            // 🛑 確定時に初めて色をつけ、条件を満たせばお祝いを発動
+            if(accuracy >= 80) {
+                accOutput.className = "text-4xl font-black text-green-600 mincho-font mt-1 transition-all duration-300";
+                if (!hasCelebrated) {
+                    hasCelebrated = true;
+                    playSuccessSound();
+                    fireConfetti();
+                }
+            }
+            else if (accuracy >= 50) accOutput.className = "text-4xl font-black text-yellow-600 mincho-font mt-1 transition-all duration-300";
+            else accOutput.className = "text-4xl font-black text-[#1e3a5f] mincho-font mt-1 transition-all duration-300";
+        }
+    };
+
     micBtn.onclick = () => { isRecording ? recognition.stop() : recognition.start(); };
 }
 
-// 🌟 【修正ポイント】正しく強化された最新のフィルターだけを残しました
 function normalizeJapaneseText(text, rubyHtml) {
     if (!text) return "";
     let normalized = text;
-    
-    // 英字の全角化
     normalized = normalized.replace(/[A-Za-z]/g, function(s) { return String.fromCharCode(s.charCodeAt(0) + 0xFEE0); });
-    
-    // カタカナをひらがなに変換
     normalized = normalized.replace(/[\u30a1-\u30f6]/g, function(match) { return String.fromCharCode(match.charCodeAt(0) - 0x60); });
-    
-    // 数字のひらがな変換
     normalized = normalized.replace(/[0-9０-９]+/g, function(match) {
         const numStr = match.replace(/[０-９]/g, s => String.fromCharCode(s.charCodeAt(0) - 0xFEE0));
         const num = parseInt(numStr, 10);
@@ -414,7 +431,6 @@ function normalizeJapaneseText(text, rubyHtml) {
         return match; 
     });
 
-    // ルビデータの抽出精度を向上
     if (rubyHtml) {
         const regex = /<ruby>\s*([^<]+?)\s*<rt>\s*([^<]+?)\s*<\/rt>\s*<\/ruby>/g;
         let match;
@@ -425,7 +441,6 @@ function normalizeJapaneseText(text, rubyHtml) {
         }
     }
 
-    // AIが勝手に変換しがちな漢字リスト
     const commonReplacements = {
         "私":"わたし", "僕":"ぼく", "俺":"おれ", "何":"なに",
         "行く":"いく", "来る":"くる", "食べる":"たべる", "飲む":"のむ",
