@@ -1,5 +1,5 @@
 // ==========================================
-// Japeak 教材データベース（保健室・体調不良）
+// Japeak 教材データベース（保健室・体調不良） - 19言語指定順対応版
 // ==========================================
 const japeakHealthData = [
     {
@@ -9,10 +9,45 @@ const japeakHealthData = [
         context: {
             "ja": "授業中や休み時間に、頭が痛くなった時に先生に伝える言葉です。無理をせずに早めに言いましょう。",
             "en": "Used to tell the teacher when you get a headache during class or break time. Don't push yourself and tell them early.",
-            "pt": "Usado para dizer ao professor quando você está com dor de cabeça. Não se esforce muito e avise logo.", "zh-CN": "上课或休息时头痛，用来向老师报告的用语。不要勉强，尽早说明。", "tl": "Ginagamit para sabihin sa guro na masakit ang iyong ulo. Huwag pilitin ang sarili at sabihin agad.", "vi": "Dùng để nói với giáo viên khi bạn bị đau đầu. Đừng cố quá mà hãy báo sớm.", "es": "Se usa para decirle al profesor que te duele la cabeza. No te exijas demasiado y avisa pronto.", "ne": "कक्षा वा खाजा समयमा टाउको दुख्दा शिक्षकलाई भन्न प्रयोग गरिन्छ। गाह्रो नमान्नुहोस् र छिट्टै भन्नुहोस्।", "id": "Digunakan untuk memberitahu guru saat Anda sakit kepala. Jangan dipaksakan dan beritahu secepatnya."
+            "zh-CN": "上课或休息时头痛，用来向老师报告的用语。不要勉强，尽早说明。",
+            "zh-TW": "上課或休息時頭痛，用來向老師報告的用語。不要勉強，儘早說明。",
+            "ko": "수업 중이나 쉬는 시간에 머리가 아플 때 선생님에게 알리는 말입니다. 무리하지 말고 일찍 말합시다.",
+            "vi": "Dùng để nói với giáo viên khi bạn bị đau đầu. Đừng cố quá mà hãy báo sớm.",
+            "tl": "Ginagamit para sabihin sa guro na masakit ang iyong ulo. Huwag pilitin ang sarili at sabihin agad.",
+            "id": "Digunakan untuk memberitahu guru saat Anda sakit kepala. Jangan dipaksakan dan beritahu secepatnya.",
+            "th": "ใช้บอกครูเมื่อปวดหัวระหว่างเรียนหรือช่วงพัก อย่าฝืนและรีบบอกตั้งแต่เนิ่นๆ",
+            "my": "အတန်းတွင်း သို့မဟုတ် အနားယူချိန်တွင် ခေါင်းကိုက်လာပါက ဆရာ့အား ပြောရန် သုံးသည်။ အတင်းမအောင့်ထားဘဲ စောစောပြောပါ။",
+            "km": "ប្រើសម្រាប់ប្រាប់គ្រូនៅពេលដែលអ្នកឈឺក្បាលពេលកំពុងរៀន ឬពេលសម្រាក។ កុំទ្រាំ ត្រូវប្រាប់ឲ្យបានឆាប់។",
+            "ne": "कक्षा वा खाजा समयमा टाउको दुख्दा शिक्षकलाई भन्न प्रयोग गरिन्छ। गाह्रो नमान्नुहोस् र छिट्टै भन्नुहोस्।",
+            "mn": "Хичээлийн болон завсарлагааны үеэр толгой өвдвөл багшид хэлэх үг. Өөрийгөө хүчлэхгүйгээр эртхэн хэлээрэй.",
+            "si": "පන්තිය අතරතුර හෝ විවේක කාලයේදී හිසරදයක් ඇති වූ විට ගුරුවරයාට පැවසීමට භාවිතා කරයි. අපහසුවෙන් නොසිට ඉක්මනින් පවසන්න.",
+            "bn": "ক্লাস বা বিরতির সময় মাথা ব্যথা করলে শিক্ষককে বলতে ব্যবহৃত হয়। কষ্ট সহ্য না করে আগেই বলুন।",
+            "pt": "Usado para dizer ao professor quando você está com dor de cabeça. Não se esforce muito e avise logo.",
+            "es": "Se usa para decirle al profesor que te duele la cabeza. No te exijas demasiado y avisa pronto.",
+            "fr": "Utilisé pour dire au professeur quand vous avez mal à la tête pendant les cours ou la récréation. Ne vous forcez pas et prévenez-le tôt.",
+            "ru": "Используется, чтобы сказать учителю, когда у вас болит голова во время урока или перемены. Не терпите и скажите об этом как можно раньше.",
+            "uk": "Використовується, щоб сказати вчителю, коли у вас болить голова під час уроку або перерви. Не терпіть і скажіть про це якомога раніше."
         },
         translations: {
-            "en": "My head hurts. / I have a headache.", "pt": "Minha cabeça dói. / Estou com dor de cabeça.", "zh-CN": "我头痛。", "tl": "Masakit po ang ulo ko.", "vi": "Em bị đau đầu ạ.", "es": "Me duele la cabeza.", "ne": "मेरो टाउको दुखेको छ।", "id": "Kepala saya sakit."
+            "en": "My head hurts. / I have a headache.",
+            "zh-CN": "我头痛。",
+            "zh-TW": "我頭痛。",
+            "ko": "머리가 아파요.",
+            "vi": "Em bị đau đầu ạ.",
+            "tl": "Masakit po ang ulo ko.",
+            "id": "Kepala saya sakit.",
+            "th": "ปวดหัวครับ/ค่ะ",
+            "my": "ခေါင်းကိုက်နေပါတယ်။",
+            "km": "ខ្ញុំឈឺក្បាល។",
+            "ne": "मेरो टाउको दुखेको छ।",
+            "mn": "Миний толгой өвдөж байна.",
+            "si": "මට හිසේ කැක්කුමක් තියෙනවා.",
+            "bn": "আমার মাথা ব্যথা করছে।",
+            "pt": "Minha cabeça dói. / Estou com dor de cabeça.",
+            "es": "Me duele la cabeza.",
+            "fr": "J'ai mal à la tête.",
+            "ru": "У меня болит голова.",
+            "uk": "У мене болить голова."
         }
     },
     {
@@ -22,10 +57,45 @@ const japeakHealthData = [
         context: {
             "ja": "お腹の調子が悪い時に使います。トイレに行きたい時や保健室に行きたい時に、すぐ先生に言いましょう。",
             "en": "Used when your stomach feels bad. Tell the teacher immediately if you need to go to the bathroom or the nurse's office.",
-            "pt": "Usado quando você está com dor de estômago. Avise o professor imediatamente se precisar ir ao banheiro ou à enfermaria.", "zh-CN": "肚子痛时使用。想去洗手间或保健室时，请立刻告诉老师。", "tl": "Ginagamit kapag masakit ang tiyan. Sabihin agad sa guro kung kailangan mong pumunta sa banyo o klinika.", "vi": "Dùng khi bị đau bụng. Hãy báo ngay cho giáo viên nếu bạn muốn đi vệ sinh hoặc xuống phòng y tế.", "es": "Se usa cuando te duele el estómago. Dile al profesor de inmediato si necesitas ir al baño o a la enfermería.", "ne": "पेट दुख्दा प्रयोग गरिन्छ। शौचालय वा स्वास्थ्य कक्ष जानु परेमा तुरुन्तै शिक्षकलाई भन्नुहोस्।", "id": "Digunakan saat perut terasa sakit. Segera beritahu guru jika ingin ke toilet atau UKS."
+            "zh-CN": "肚子痛时使用。想去洗手间或保健室时，请立刻告诉老师。",
+            "zh-TW": "肚子痛時使用。想去洗手間或保健室時，請立刻告訴老師。",
+            "ko": "배가 아플 때 사용합니다. 화장실이나 보건실에 가고 싶을 때 바로 선생님에게 말하세요.",
+            "vi": "Dùng khi bị đau bụng. Hãy báo ngay cho giáo viên nếu bạn muốn đi vệ sinh hoặc xuống phòng y tế.",
+            "tl": "Ginagamit kapag masakit ang tiyan. Sabihin agad sa guro kung kailangan mong pumunta sa banyo o klinika.",
+            "id": "Digunakan saat perut terasa sakit. Segera beritahu guru jika ingin ke toilet atau UKS.",
+            "th": "ใช้เมื่อรู้สึกปวดท้อง หากต้องการไปห้องน้ำหรือห้องพยาบาลให้รีบบอกครูทันที",
+            "my": "ဗိုက်မကောင်းသည့်အခါ သုံးသည်။ အိမ်သာ သို့မဟုတ် ဆေးခန်းသွားချင်ပါက ဆရာ့အား ချက်ချင်းပြောပါ။",
+            "km": "ប្រើនៅពេលដែលអ្នកឈឺពោះ។ ប្រាប់គ្រូភ្លាមៗប្រសិនបើអ្នកចង់ទៅបន្ទប់ទឹក ឬបន្ទប់សុខភាព។",
+            "ne": "पेट दुख्दा प्रयोग गरिन्छ। शौचालय वा स्वास्थ्य कक्ष जानु परेमा तुरुन्तै शिक्षकलाई भन्नुहोस्।",
+            "mn": "Гэдэс өвдөх үед хэрэглэнэ. Бие засах газар эсвэл эрүүл мэндийн өрөө рүү явмаар байвал багшид шууд хэлээрэй.",
+            "si": "බඩේ අමාරුවක් ඇති විට භාවිතා කරයි. වැසිකිළියට හෝ සෞඛ්‍ය කාමරයට යාමට අවශ්‍ය නම් වහාම ගුරුවරයාට පවසන්න.",
+            "bn": "পেট খারাপ লাগলে ব্যবহার করা হয়। বাথরুমে বা স্বাস্থ্যকক্ষে যেতে চাইলে সাথে সাথে শিক্ষককে বলুন।",
+            "pt": "Usado quando você está com dor de estômago. Avise o professor imediatamente se precisar ir ao banheiro ou à enfermaria.",
+            "es": "Se usa cuando te duele el estómago. Dile al profesor de inmediato si necesitas ir al baño o a la enfermería.",
+            "fr": "Utilisé quand on a mal au ventre. Prévenez immédiatement le professeur si vous devez aller aux toilettes ou à l'infirmerie.",
+            "ru": "Используется при боли в животе. Сразу скажите учителю, если вам нужно в туалет или в медпункт.",
+            "uk": "Використовується при болю в животі. Одразу скажіть вчителю, якщо вам потрібно в туалет або в медпункт."
         },
         translations: {
-            "en": "My stomach hurts. / I have a stomachache.", "pt": "Minha barriga dói. / Estou com dor de estômago.", "zh-CN": "我肚子痛。", "tl": "Masakit po ang tiyan ko.", "vi": "Em bị đau bụng ạ.", "es": "Me duele el estómago.", "ne": "मेरो पेट दुखेको छ।", "id": "Perut saya sakit."
+            "en": "My stomach hurts. / I have a stomachache.",
+            "zh-CN": "我肚子痛。",
+            "zh-TW": "我肚子痛。",
+            "ko": "배가 아파요.",
+            "vi": "Em bị đau bụng ạ.",
+            "tl": "Masakit po ang tiyan ko.",
+            "id": "Perut saya sakit.",
+            "th": "ปวดท้องครับ/ค่ะ",
+            "my": "ဗိုက်နာနေပါတယ်။",
+            "km": "ខ្ញុំឈឺពោះ។",
+            "ne": "मेरो पेट दुखेको छ।",
+            "mn": "Миний гэдэс өвдөж байна.",
+            "si": "මගේ බඩ රිදෙනවා.",
+            "bn": "আমার পেট ব্যথা করছে।",
+            "pt": "Minha barriga dói. / Estou com dor de estômago.",
+            "es": "Me duele el estómago.",
+            "fr": "J'ai mal au ventre.",
+            "ru": "У меня болит живот.",
+            "uk": "У мене болить живіт."
         }
     },
     {
@@ -35,10 +105,45 @@ const japeakHealthData = [
         context: {
             "ja": "吐き気がしたり、気分が悪くなったりした時に使う大切な言葉です。我慢してはいけません。",
             "en": "An important phrase used when you feel nauseous or unwell. Do not try to endure it.",
-            "pt": "Uma frase importante usada quando você sente náuseas ou mal-estar. Não tente aguentar.", "zh-CN": "恶心想吐或感觉不舒服时使用的重要用语。千万不要强忍着。", "tl": "Isang mahalagang parirala kapag nakakaramdam ka ng pagduduwal o masama ang pakiramdam. Huwag itong tiisin.", "vi": "Một câu quan trọng dùng khi bạn cảm thấy buồn nôn hoặc khó ở. Đừng cố chịu đựng.", "es": "Una frase importante que se usa cuando sientes náuseas o malestar. No trates de aguantar.", "ne": "वाकवाकी लाग्दा वा सन्चो नहुँदा प्रयोग गरिने महत्त्वपूर्ण वाक्यांश। यसलाई सहेर नबस्नुहोस्।", "id": "Kalimat penting yang digunakan saat Anda merasa mual atau tidak enak badan. Jangan ditahan."
+            "zh-CN": "恶心想吐或感觉不舒服时使用的重要用语。千万不要强忍着。",
+            "zh-TW": "噁心想吐或感覺不舒服時使用的重要用語。千萬不要強忍著。",
+            "ko": "토할 것 같거나 기분이 안 좋을 때 사용하는 중요한 말입니다. 참지 마세요.",
+            "vi": "Một câu quan trọng dùng khi bạn cảm thấy buồn nôn hoặc khó ở. Đừng cố chịu đựng.",
+            "tl": "Isang mahalagang parirala kapag nakakaramdam ka ng pagduduwal o masama ang pakiramdam. Huwag itong tiisin.",
+            "id": "Kalimat penting yang digunakan saat Anda merasa mual atau tidak enak badan. Jangan ditahan.",
+            "th": "ประโยคสำคัญที่ใช้เมื่อรู้สึกคลื่นไส้หรือไม่สบาย อย่าพยายามฝืนทน",
+            "my": "ပျို့အန်ချင်ခြင်း သို့မဟုတ် နေမကောင်းဖြစ်လာသည့်အခါ သုံးရမည့် အရေးကြီးသောစကားဖြစ်သည်။ မအောင့်ထားပါနှင့်。",
+            "km": "ជាពាក្យសំខាន់ដែលត្រូវប្រើនៅពេលដែលអ្នកមានអារម្មណ៍ចង់ក្អួត ឬមិនស្រួលខ្លួន។ កុំព្យាយាមទ្រាំ។",
+            "ne": "वाकवाकी लाग्दा वा सन्चो नहुँदा प्रयोग गरिने महत्त्वपूर्ण वाक्यांश। यसलाई सहेर नबस्नुहोस्।",
+            "mn": "Дотор муухайрах эсвэл бие эвгүйрхэх үед хэрэглэх чухал үг. Тэсэж болохгүй.",
+            "si": "ඔක්කාරය හෝ අසනීප බවක් දැනෙන විට භාවිතා කරන වැදගත් වාක්‍යයකි. ඉවසා සිටීමට උත්සාහ නොකරන්න.",
+            "bn": "বমি বমি ভাব বা অসুস্থ বোধ করলে ব্যবহৃত একটি গুরুত্বপূর্ণ বাক্য। সহ্য করার চেষ্টা করবেন না।",
+            "pt": "Uma frase importante usada quando você sente náuseas ou mal-estar. Não tente aguentar.",
+            "es": "Una frase importante que se usa cuando sientes náuseas o malestar. No trates de aguantar.",
+            "fr": "Une phrase importante utilisée lorsque vous avez des nausées ou que vous ne vous sentez pas bien. N'essayez pas de supporter la douleur.",
+            "ru": "Важная фраза, которая используется, когда вас тошнит или вы плохо себя чувствуете. Не терпите.",
+            "uk": "Важлива фраза, яка використовується, коли вас нудить або ви погано почуваєтеся. Не терпіть."
         },
         translations: {
-            "en": "I feel sick. / I feel nauseous.", "pt": "Estou me sentindo mal. / Sinto náuseas.", "zh-CN": "我有点恶心/不舒服。", "tl": "Masama po ang pakiramdam ko. / Nasusuka po ako.", "vi": "Em thấy buồn nôn / khó chịu trong người ạ.", "es": "Me siento mal. / Tengo náuseas.", "ne": "मलाई वाकवाकी लागिरहेको छ / बिसन्चो छ।", "id": "Saya merasa mual / tidak enak badan."
+            "en": "I feel sick. / I feel nauseous.",
+            "zh-CN": "我有点恶心/不舒服。",
+            "zh-TW": "我有點噁心/不舒服。",
+            "ko": "속이 안 좋아요.",
+            "vi": "Em thấy buồn nôn / khó chịu trong người ạ.",
+            "tl": "Masama po ang pakiramdam ko. / Nasusuka po ako.",
+            "id": "Saya merasa mual / tidak enak badan.",
+            "th": "รู้สึกไม่สบาย/คลื่นไส้ครับ/ค่ะ",
+            "my": "နေလို့မကောင်းဘူး / ပျို့နေတယ်။",
+            "km": "ខ្ញុំមានអារម្មណ៍មិនស្រួលខ្លួន/ចង់ក្អួត។",
+            "ne": "मलाई वाकवाकी लागिरहेको छ / बिसन्चो छ।",
+            "mn": "Бие эвгүйрхэж байна. / Дотор муухайрч байна.",
+            "si": "මට අසනීප බවක් දැනෙනවා.",
+            "bn": "আমার অসুস্থ লাগছে / বমি বমি ভাব হচ্ছে।",
+            "pt": "Estou me sentindo mal. / Sinto náuseas.",
+            "es": "Me siento mal. / Tengo náuseas.",
+            "fr": "Je me sens mal. / J'ai des nausées.",
+            "ru": "Мне плохо. / Меня тошнит.",
+            "uk": "Мені зле. / Мене нудить."
         }
     },
     {
@@ -48,10 +153,45 @@ const japeakHealthData = [
         context: {
             "ja": "体が熱くて、風邪かもしれないと思った時に先生に伝えます。体温計で熱を測りましょう。",
             "en": "Used to tell the teacher when your body feels hot and you think you might have a cold. Let's take your temperature.",
-            "pt": "Usado para dizer ao professor quando seu corpo está quente e você acha que pode estar gripado.", "zh-CN": "感觉身体发烫，可能感冒时向老师报告。需要用体温计量一下体温。", "tl": "Ginagamit kapag mainit ang iyong katawan at sa tingin mo ay may lagnat ka.", "vi": "Dùng để báo với giáo viên khi thấy người nóng và nghĩ mình bị cảm. Hãy đo thân nhiệt nhé.", "es": "Se usa para decirle al profesor cuando tu cuerpo está caliente y crees que podrías tener un resfriado.", "ne": "शरीर तातो भएर ज्वरो आएको जस्तो लाग्दा शिक्षकलाई भन्न प्रयोग गरिन्छ। थर्मोमिटरले ज्वरो नापौं।", "id": "Digunakan saat badan terasa panas dan Anda merasa mungkin terkena flu. Mari ukur suhu tubuh Anda."
+            "zh-CN": "感觉身体发烫，可能感冒时向老师报告。需要用体温计量一下体温。",
+            "zh-TW": "感覺身體發燙，可能感冒時向老師報告。需要用體溫計量一下體溫。",
+            "ko": "몸이 뜨겁고 감기에 걸린 것 같을 때 선생님에게 말합니다. 체온계로 열을 재봅시다.",
+            "vi": "Dùng để báo với giáo viên khi thấy người nóng và nghĩ mình bị cảm. Hãy đo thân nhiệt nhé.",
+            "tl": "Ginagamit kapag mainit ang iyong katawan at sa tingin mo ay may lagnat ka.",
+            "id": "Digunakan saat badan terasa panas dan Anda merasa mungkin terkena flu. Mari ukur suhu tubuh Anda.",
+            "th": "ใช้บอกครูเมื่อรู้สึกตัวร้อนและคิดว่าอาจจะเป็นหวัด มาวัดไข้กันเถอะ",
+            "my": "ကိုယ်ပူနေပြီး အအေးမိနေပြီဟု ထင်သောအခါ ဆရာ့အား ပြောရန် သုံးသည်။ သာမိုမီတာဖြင့် အပူချိန်တိုင်းကြစို့။",
+            "km": "ប្រើសម្រាប់ប្រាប់គ្រូនៅពេលដែលខ្លួនអ្នកក្តៅ ហើយអ្នកគិតថាអ្នកអាចនឹងផ្តាសាយ។ សូមវាស់កម្តៅរបស់អ្នក។",
+            "ne": "शरीर तातो भएर ज्वरो आएको जस्तो लाग्दा शिक्षकलाई भन्न प्रयोग गरिन्छ। थर्मोमिटरले ज्वरो नापौं।",
+            "mn": "Бие халуураад ханиад хүрсэн юм шиг санагдвал багшид хэлнэ. Халууны шилээр халуунаа хэмжицгээе.",
+            "si": "ඇඟ රස්නෙ බව දැනෙන විට සහ ඔබට සෙම්ප්‍රතිශ්‍යාව වැළඳී ඇතැයි සිතන විට ගුරුවරයාට පැවසීමට භාවිතා කරයි. අපි උණ බලමු.",
+            "bn": "শরীর গরম অনুভব হলে এবং আপনার সর্দি লেগেছে মনে হলে শিক্ষককে বলতে ব্যবহৃত হয়। থার্মোমিটার দিয়ে জ্বর মাপি।",
+            "pt": "Usado para dizer ao professor quando seu corpo está quente e você acha que pode estar gripado.",
+            "es": "Se usa para decirle al profesor cuando tu cuerpo está caliente y crees que podrías tener un resfriado.",
+            "fr": "Utilisé pour prévenir le professeur lorsque vous avez chaud et pensez avoir un rhume. Mesurons votre température.",
+            "ru": "Используется, чтобы сказать учителю, когда у вас горячее тело и вы думаете, что простудились. Давайте измерим температуру.",
+            "uk": "Використовується, щоб сказати вчителю, коли у вас гаряче тіло і ви думаєте, що застудилися. Давайте виміряємо температуру."
         },
         translations: {
-            "en": "I have a fever.", "pt": "Estou com febre.", "zh-CN": "我发烧了。", "tl": "May lagnat po ako.", "vi": "Em bị sốt ạ.", "es": "Tengo fiebre.", "ne": "मलाई ज्वरो आएको छ।", "id": "Saya demam."
+            "en": "I have a fever.",
+            "zh-CN": "我发烧了。",
+            "zh-TW": "我發燒了。",
+            "ko": "열이 나요.",
+            "vi": "Em bị sốt ạ.",
+            "tl": "May lagnat po ako.",
+            "id": "Saya demam.",
+            "th": "มีไข้ครับ/ค่ะ",
+            "my": "ဖျားနေပါတယ်။",
+            "km": "ខ្ញុំមានគ្រុនក្តៅ។",
+            "ne": "मलाई ज्वरो आएको छ।",
+            "mn": "Би халуурч байна.",
+            "si": "මට උණ තියෙනවා.",
+            "bn": "আমার জ্বর এসেছে।",
+            "pt": "Estou com febre.",
+            "es": "Tengo fiebre.",
+            "fr": "J'ai de la fièvre.",
+            "ru": "У меня температура.",
+            "uk": "У мене температура (гарячка)."
         }
     },
     {
@@ -61,10 +201,45 @@ const japeakHealthData = [
         context: {
             "ja": "転んだり、ぶつけたりして血が出たり痛い時に、すぐ先生に伝えてください。",
             "en": "Tell the teacher immediately if you fall, bump into something, bleed, or feel pain.",
-            "pt": "Avise o professor imediatamente se você cair, bater em algo, sangrar ou sentir dor.", "zh-CN": "摔倒、撞到导致流血或疼痛时，请立刻告诉老师。", "tl": "Sabihin agad sa guro kung ikaw ay nadapa, nabunggo, dumugo, o nakaramdam ng sakit.", "vi": "Hãy báo ngay cho giáo viên nếu bạn bị ngã, va đập gây chảy máu hoặc đau đớn.", "es": "Dile al profesor inmediatamente si te caes, te golpeas, sangras o sientes dolor.", "ne": "लडेर, ठोक्किएर रगत आउँदा वा दुख्दा तुरुन्तै शिक्षकलाई भन्नुहोस्।", "id": "Segera beritahu guru jika Anda jatuh, terbentur, berdarah, atau merasa sakit."
+            "zh-CN": "摔倒、撞到导致流血或疼痛时，请立刻告诉老师。",
+            "zh-TW": "摔倒、撞到導致流血或疼痛時，請立刻告訴老師。",
+            "ko": "넘어지거나 부딪혀서 피가 나거나 아플 때 바로 선생님에게 말하세요.",
+            "vi": "Hãy báo ngay cho giáo viên nếu bạn bị ngã, va đập gây chảy máu hoặc đau đớn.",
+            "tl": "Sabihin agad sa guro kung ikaw ay nadapa, nabunggo, dumugo, o nakaramdam ng sakit.",
+            "id": "Segera beritahu guru jika Anda jatuh, terbentur, berdarah, atau merasa sakit.",
+            "th": "หากหกล้ม ชนสิ่งของ มีเลือดออก หรือรู้สึกเจ็บ ให้รีบบอกครูทันที",
+            "my": "ချော်လဲခြင်း၊ ခိုက်မိခြင်း၊ သွေးထွက်ခြင်း သို့မဟုတ် နာကျင်ခြင်းများရှိပါက ဆရာ့အား ချက်ချင်းပြောပါ။",
+            "km": "សូមប្រាប់គ្រូភ្លាមៗ ប្រសិនបើអ្នកដួល ប៉ះទង្គិច ហូរឈាម ឬមានអារម្មណ៍ឈឺចាប់។",
+            "ne": "लडेर, ठोक्किएर रगत आउँदा वा दुख्दा तुरुन्तै शिक्षकलाई भन्नुहोस्।",
+            "mn": "Унах, юм мөргөх зэргээс болж цус гарах эсвэл өвдөж байвал багшид шууд хэлээрэй.",
+            "si": "ඔබ වැටුණහොත්, යමක හැපුණහොත්, ලේ ගැලීමක් හෝ වේදනාවක් දැනේ නම් වහාම ගුරුවරයාට පවසන්න.",
+            "bn": "পড়ে গেলে, আঘাত পেলে, রক্ত পড়লে বা ব্যথা অনুভব করলে সাথে সাথে শিক্ষককে বলুন।",
+            "pt": "Avise o professor imediatamente se você cair, bater em algo, sangrar ou sentir dor.",
+            "es": "Dile al profesor inmediatamente si te caes, te golpeas, sangras o sientes dolor.",
+            "fr": "Prévenez immédiatement le professeur si vous tombez, vous cognez, saignez ou avez mal.",
+            "ru": "Немедленно скажите учителю, если вы упали, ударились, у вас идет кровь или вам больно.",
+            "uk": "Негайно скажіть вчителю, якщо ви впали, вдарилися, у вас йде кров або вам боляче."
         },
         translations: {
-            "en": "I got injured. / I hurt myself.", "pt": "Eu me machuquei.", "zh-CN": "我受伤了。", "tl": "Nasugatan po ako. / Nasaktan po ako.", "vi": "Em bị thương rồi ạ.", "es": "Me lastimé. / Me herí.", "ne": "मलाई चोट लाग्यो।", "id": "Saya terluka."
+            "en": "I got injured. / I hurt myself.",
+            "zh-CN": "我受伤了。",
+            "zh-TW": "我受傷了。",
+            "ko": "다쳤어요.",
+            "vi": "Em bị thương rồi ạ.",
+            "tl": "Nasugatan po ako. / Nasaktan po ako.",
+            "id": "Saya terluka.",
+            "th": "ได้รับบาดเจ็บครับ/ค่ะ",
+            "my": "ထိခိုက်ဒဏ်ရာရသွားတယ်။",
+            "km": "ខ្ញុំបានរងរបួស។",
+            "ne": "मलाई चोट लाग्यो।",
+            "mn": "Би гэмтчихлээ.",
+            "si": "මම තුවාල වුණා.",
+            "bn": "আমি আহত হয়েছি / ব্যথা পেয়েছি।",
+            "pt": "Eu me machuquei.",
+            "es": "Me lastimé. / Me herí.",
+            "fr": "Je me suis blessé.",
+            "ru": "Я поранился / ушибся.",
+            "uk": "Я поранився / забився."
         }
     },
     {
@@ -74,10 +249,45 @@ const japeakHealthData = [
         context: {
             "ja": "体調が悪くて、保健室（学校の病院のような部屋）で休みたい時や手当てをしてほしい時に先生に許可をもらいます。",
             "en": "Used to ask the teacher for permission to go to the nurse's office (clinic) when you feel unwell and need to rest or get treatment.",
-            "pt": "Usado para pedir permissão ao professor para ir à enfermaria quando você não se sente bem.", "zh-CN": "身体不舒服，想去保健室休息或处理伤口时，向老师寻求许可的用语。", "tl": "Ginagamit para humingi ng pahintulot na pumunta sa klinika ng paaralan kapag masama ang pakiramdam.", "vi": "Dùng để xin phép giáo viên xuống phòng y tế khi cảm thấy không khỏe, muốn nghỉ ngơi hoặc sơ cứu.", "es": "Se usa para pedir permiso al profesor para ir a la enfermería cuando no te sientes bien.", "ne": "सन्चो नभएर स्वास्थ्य कक्ष (नर्सको कोठा) मा गएर आराम गर्न वा उपचार गर्न अनुमति माग्दा प्रयोग गरिन्छ।", "id": "Digunakan untuk meminta izin pergi ke UKS saat Anda merasa tidak enak badan dan butuh istirahat atau perawatan."
+            "zh-CN": "身体不舒服，想去保健室休息或处理伤口时，向老师寻求许可的用语。",
+            "zh-TW": "身體不舒服，想去保健室休息或處理傷口時，向老師尋求許可的用語。",
+            "ko": "몸이 안 좋아서 보건실에서 쉬고 싶거나 치료를 받고 싶을 때 선생님에게 허락을 받는 말입니다.",
+            "vi": "Dùng để xin phép giáo viên xuống phòng y tế khi cảm thấy không khỏe, muốn nghỉ ngơi hoặc sơ cứu.",
+            "tl": "Ginagamit para humingi ng pahintulot na pumunta sa klinika ng paaralan kapag masama ang pakiramdam.",
+            "id": "Digunakan untuk meminta izin pergi ke UKS saat Anda merasa tidak enak badan dan butuh istirahat atau perawatan.",
+            "th": "ใช้ขออนุญาตครูไปห้องพยาบาลเมื่อรู้สึกไม่สบายและต้องการพักผ่อนหรือรับการปฐมพยาบาล",
+            "my": "နေမကောင်းဖြစ်၍ အနားယူလိုသောအခါ သို့မဟုတ် ဆေးကုသမှုခံယူလိုသောအခါ ဆေးခန်းသွားရန် ဆရာ့ထံမှ ခွင့်ပြုချက်တောင်းရာတွင် သုံးသည်။",
+            "km": "ប្រើសម្រាប់សុំការអនុញ្ញាតពីគ្រូដើម្បីទៅបន្ទប់សុខភាព នៅពេលដែលអ្នកមិនស្រួលខ្លួន ហើយត្រូវការសម្រាក ឬព្យាបាល។",
+            "ne": "सन्चो नभएर स्वास्थ्य कक्ष (नर्सको कोठा) मा गएर आराम गर्न वा उपचार गर्न अनुमति माग्दा प्रयोग गरिन्छ।",
+            "mn": "Бие өвдөж, эрүүл мэндийн өрөөнд амарч, эмчилгээ хийлгэмээр байгаа үед багшаас зөвшөөрөл авах үг.",
+            "si": "ඔබට අසනීප බවක් දැනෙන විට සහ විවේක ගැනීමට හෝ ප්‍රතිකාර ලබා ගැනීමට අවශ්‍ය වූ විට සෞඛ්‍ය කාමරයට යාමට ගුරුවරයාගෙන් අවසර ඉල්ලා සිටීමට භාවිතා කරයි.",
+            "bn": "আপনি যখন অসুস্থ বোধ করেন এবং বিশ্রাম নিতে বা চিকিৎসা নিতে স্বাস্থ্যকক্ষে (ক্লিনিক) যাওয়ার জন্য শিক্ষকের কাছে অনুমতি চাইতে এটি ব্যবহৃত হয়।",
+            "pt": "Usado para pedir permissão ao professor para ir à enfermaria quando você não se sente bem.",
+            "es": "Se usa para pedir permiso al profesor para ir a la enfermería cuando no te sientes bien.",
+            "fr": "Utilisé pour demander au professeur la permission d'aller à l'infirmerie lorsque vous ne vous sentez pas bien et avez besoin de vous reposer ou d'être soigné.",
+            "ru": "Используется, чтобы отпроситься у учителя в медпункт, когда вы плохо себя чувствуете и хотите отдохнуть или получить помощь.",
+            "uk": "Використовується, щоб відпроситися у вчителя в медпункт, коли ви погано почуваєтеся і хочете відпочити або отримати допомогу."
         },
         translations: {
-            "en": "May I go to the nurse's office?", "pt": "Posso ir à enfermaria?", "zh-CN": "我可以去保健室吗？", "tl": "Maaari po ba akong pumunta sa klinika?", "vi": "Em có thể xuống phòng y tế được không ạ?", "es": "¿Puedo ir a la enfermería?", "ne": "म स्वास्थ्य कक्ष जान सक्छु?", "id": "Bolehkah saya pergi ke ruang UKS?"
+            "en": "May I go to the nurse's office?",
+            "zh-CN": "我可以去保健室吗？",
+            "zh-TW": "我可以去保健室嗎？",
+            "ko": "보건실에 가도 될까요?",
+            "vi": "Em có thể xuống phòng y tế được không ạ?",
+            "tl": "Maaari po ba akong pumunta sa klinika?",
+            "id": "Bolehkah saya pergi ke ruang UKS?",
+            "th": "ขออนุญาตไปห้องพยาบาลได้ไหมครับ/คะ?",
+            "my": "ဆေးခန်းသွားလို့ရမလား။",
+            "km": "តើខ្ញុំអាចទៅបន្ទប់សុខភាពបានទេ?",
+            "ne": "म स्वास्थ्य कक्ष जान सक्छु?",
+            "mn": "Эрүүл мэндийн өрөө рүү явж болох уу?",
+            "si": "මට සෞඛ්‍ය කාමරයට යන්න පුළුවන්ද?",
+            "bn": "আমি কি নার্সের কক্ষে যেতে পারি?",
+            "pt": "Posso ir à enfermaria?",
+            "es": "¿Puedo ir a la enfermería?",
+            "fr": "Puis-je aller à l'infirmerie ?",
+            "ru": "Можно мне пойти в медпункт?",
+            "uk": "Чи можна мені піти в медпункт?"
         }
     },
     {
@@ -87,10 +297,45 @@ const japeakHealthData = [
         context: {
             "ja": "自分で持ってきた薬を授業中などに飲みたい時に、先生に確認する言葉です。",
             "en": "Used to ask the teacher for permission to take medicine you brought with you during class.",
-            "pt": "Usado para pedir permissão ao professor para tomar o remédio que você trouxe.", "zh-CN": "上课时想吃自己带来的药，用来向老师确认的用语。", "tl": "Ginagamit upang humingi ng pahintulot sa guro na inumin ang dalang gamot.", "vi": "Dùng để xin phép giáo viên uống thuốc bạn tự mang theo trong giờ học.", "es": "Se usa para pedir permiso al profesor para tomar la medicina que trajiste.", "ne": "आफूले ल्याएको औषधि कक्षामा खानु परेमा शिक्षकसँग अनुमति माग्ने शब्द।", "id": "Digunakan untuk meminta izin meminum obat yang Anda bawa sendiri saat pelajaran."
+            "zh-CN": "上课时想吃自己带来的药，用来向老师确认的用语。",
+            "zh-TW": "上課時想吃自己帶來的藥，用來向老師確認的用語。",
+            "ko": "직접 가져온 약을 수업 중 등에 먹고 싶을 때 선생님에게 확인하는 말입니다.",
+            "vi": "Dùng để xin phép giáo viên uống thuốc bạn tự mang theo trong giờ học.",
+            "tl": "Ginagamit upang humingi ng pahintulot sa guro na inumin ang dalang gamot.",
+            "id": "Digunakan untuk meminta izin meminum obat yang Anda bawa sendiri saat pelajaran.",
+            "th": "ใช้ขออนุญาตครูเพื่อกินยาที่นำมาเองระหว่างเรียน",
+            "my": "အတန်းတွင်း၌ မိမိယူလာသော ဆေးကို သောက်လိုသောအခါ ဆရာ့ထံမှ ခွင့်ပြုချက်တောင်းရာတွင် သုံးသည်။",
+            "km": "ប្រើសម្រាប់សុំការអនុញ្ញាតពីគ្រូដើម្បីផឹកថ្នាំដែលអ្នកបានយកមកក្នុងម៉ោងរៀន។",
+            "ne": "आफूले ल्याएको औषधि कक्षामा खानु परेमा शिक्षकसँग अनुमति माग्ने शब्द।",
+            "mn": "Өөрийн авчирсан эмийг хичээлийн үеэр уух гэсэн үедээ багшаас лавлах үг.",
+            "si": "ඔබ රැගෙන ආ ඖෂධ පන්තිය අතරතුර පානය කිරීමට ගුරුවරයාගෙන් අවසර ඉල්ලීමට භාවිතා කරයි.",
+            "bn": "ক্লাস চলাকালীন আপনার নিয়ে আসা ওষুধ খাওয়ার জন্য শিক্ষকের কাছে অনুমতি চাইতে ব্যবহৃত হয়।",
+            "pt": "Usado para pedir permissão ao professor para tomar o remédio que você trouxe.",
+            "es": "Se usa para pedir permiso al profesor para tomar la medicina que trajiste.",
+            "fr": "Utilisé pour demander au professeur la permission de prendre un médicament que vous avez apporté pendant les cours.",
+            "ru": "Используется, чтобы спросить у учителя разрешения принять лекарство, которое вы принесли с собой, во время урока.",
+            "uk": "Використовується, щоб запитати у вчителя дозволу прийняти ліки, які ви принесли з собою, під час уроку."
         },
         translations: {
-            "en": "May I take my medicine?", "pt": "Posso tomar meu remédio?", "zh-CN": "我可以吃药吗？", "tl": "Maaari ko po bang inumin ang aking gamot?", "vi": "Em uống thuốc được không ạ?", "es": "¿Puedo tomar mi medicina?", "ne": "म औषधि खान सक्छु?", "id": "Bolehkah saya minum obat?"
+            "en": "May I take my medicine?",
+            "zh-CN": "我可以吃药吗？",
+            "zh-TW": "我可以吃藥嗎？",
+            "ko": "약을 먹어도 될까요?",
+            "vi": "Em uống thuốc được không ạ?",
+            "tl": "Maaari ko po bang inumin ang aking gamot?",
+            "id": "Bolehkah saya minum obat?",
+            "th": "ขอกินยาได้ไหมครับ/คะ?",
+            "my": "ဆေးသောက်လို့ရမလား။",
+            "km": "តើខ្ញុំអាចផឹកថ្នាំបានទេ?",
+            "ne": "म औषधि खान सक्छु?",
+            "mn": "Эм ууж болох уу?",
+            "si": "මට ඖෂධ පානය කළ හැකිද?",
+            "bn": "আমি কি আমার ওষুধ খেতে পারি?",
+            "pt": "Posso tomar meu remédio?",
+            "es": "¿Puedo tomar mi medicina?",
+            "fr": "Puis-je prendre mon médicament ?",
+            "ru": "Можно мне принять лекарство?",
+            "uk": "Чи можна мені прийняти ліки?"
         }
     },
     {
@@ -100,10 +345,45 @@ const japeakHealthData = [
         context: {
             "ja": "体育の授業中や集会の時など、疲れたり具合が悪くて少し座って休みたい時に使います。",
             "en": "Used when you feel tired or unwell during PE class or an assembly and want to sit and rest for a bit.",
-            "pt": "Usado quando você se sente cansado ou mal durante a aula de educação física e quer descansar um pouco.", "zh-CN": "上体育课或集会时，感到疲劳或不适，想坐下休息一会儿时使用。", "tl": "Ginagamit kapag pagod o masama ang pakiramdam sa PE class at gusto mong magpahinga saglit.", "vi": "Dùng khi thấy mệt hoặc khó ở trong giờ Thể dục hoặc chào cờ và muốn ngồi nghỉ một chút.", "es": "Se usa cuando te sientes cansado o mal durante la clase de educación física y quieres descansar un poco.", "ne": "शारीरिक शिक्षा (PE) कक्षामा वा भेलामा थाकेको वा गाह्रो महसुस भएर एकछिन आराम गर्न मन लाग्दा प्रयोग गरिन्छ।", "id": "Digunakan saat Anda merasa lelah atau tidak sehat saat pelajaran olahraga dan ingin beristirahat sebentar."
+            "zh-CN": "上体育课或集会时，感到疲劳或不适，想坐下休息一会儿时使用。",
+            "zh-TW": "上體育課或集會時，感到疲勞或不適，想坐下休息一會兒時使用。",
+            "ko": "체육 시간이나 조회 시간 등 피곤하거나 몸이 안 좋아서 조금 앉아서 쉬고 싶을 때 사용합니다.",
+            "vi": "Dùng khi thấy mệt hoặc khó ở trong giờ Thể dục hoặc chào cờ và muốn ngồi nghỉ một chút.",
+            "tl": "Ginagamit kapag pagod o masama ang pakiramdam sa PE class at gusto mong magpahinga saglit.",
+            "id": "Digunakan saat Anda merasa lelah atau tidak sehat saat pelajaran olahraga dan ingin beristirahat sebentar.",
+            "th": "ใช้เมื่อรู้สึกเหนื่อยหรือไม่สบายระหว่างเรียนพละหรือเข้าแถว แล้วต้องการนั่งพักสักหน่อย",
+            "my": "ကာယသင်ခန်းစာ သို့မဟုတ် လူစုလူဝေးတွင် ပင်ပန်းခြင်း သို့မဟုတ် နေမကောင်းဖြစ်ကာ ခဏထိုင်၍ အနားယူလိုသောအခါ သုံးသည်။",
+            "km": "ប្រើនៅពេលដែលអ្នកមានអារម្មណ៍ហត់នឿយ ឬមិនស្រួលខ្លួនក្នុងម៉ោងកីឡា ឬពេលជួបជុំ ហើយចង់អង្គុយសម្រាកបន្តិច។",
+            "ne": "शारीरिक शिक्षा (PE) कक्षामा वा भेलामा थाकेको वा गाह्रो महसुस भएर एकछिन आराम गर्न मन लाग्दा प्रयोग गरिन्छ।",
+            "mn": "Биеийн тамирын хичээл эсвэл цуглааны үеэр ядарч, бие өвдөх үед бага зэрэг сууж амрахыг хүсэхэд хэрэглэнэ.",
+            "si": "ශාරීරික අධ්‍යාපන පන්තියකදී හෝ රැස්වීමකදී ඔබට වෙහෙසක් හෝ අසනීප බවක් දැනෙන විට ටිකක් වාඩි වී විවේක ගැනීමට අවශ්‍ය වූ විට භාවිතා කරයි.",
+            "bn": "পিটি ক্লাস বা সমাবেশের সময় ক্লান্ত বা অসুস্থ বোধ করলে এবং কিছুক্ষণ বসে বিশ্রাম নিতে চাইলে ব্যবহৃত হয়।",
+            "pt": "Usado quando você se sente cansado ou mal durante a aula de educação física e quer descansar um pouco.",
+            "es": "Se usa cuando te sientes cansado o mal durante la clase de educación física y quieres descansar un poco.",
+            "fr": "Utilisé lorsque vous vous sentez fatigué ou malade pendant le cours de sport ou un rassemblement et que vous voulez vous asseoir et vous reposer un peu.",
+            "ru": "Используется, когда вы устали или плохо себя чувствуете на уроке физкультуры или линейке и хотите немного посидеть и отдохнуть.",
+            "uk": "Використовується, коли ви втомилися або погано почуваєтеся на уроці фізкультури чи лінійці і хочете трохи посидіти та відпочити."
         },
         translations: {
-            "en": "I want to rest a little.", "pt": "Quero descansar um pouco.", "zh-CN": "我想休息一下。", "tl": "Gusto ko po sanang magpahinga saglit.", "vi": "Em muốn nghỉ ngơi một chút ạ.", "es": "Quiero descansar un poco.", "ne": "म एकछिन आराम गर्न चाहन्छु।", "id": "Saya ingin beristirahat sebentar."
+            "en": "I want to rest a little.",
+            "zh-CN": "我想休息一下。",
+            "zh-TW": "我想休息一下。",
+            "ko": "조금 쉬고 싶어요.",
+            "vi": "Em muốn nghỉ ngơi một chút ạ.",
+            "tl": "Gusto ko po sanang magpahinga saglit.",
+            "id": "Saya ingin beristirahat sebentar.",
+            "th": "ขอพักสักหน่อยได้ไหมครับ/คะ",
+            "my": "ခဏလောက် အနားယူချင်ပါတယ်။",
+            "km": "ខ្ញុំចង់សម្រាកបន្តិច។",
+            "ne": "म एकछिन आराम गर्न चाहन्छु।",
+            "mn": "Бага зэрэг амарч болох уу.",
+            "si": "මට ටිකක් විවේක ගන්න ඕනේ.",
+            "bn": "আমি একটু বিশ্রাম নিতে চাই।",
+            "pt": "Quero descansar um pouco.",
+            "es": "Quiero descansar un poco.",
+            "fr": "Je voudrais me reposer un peu.",
+            "ru": "Я хочу немного отдохнуть.",
+            "uk": "Я хочу трохи відпочити."
         }
     },
     {
@@ -113,10 +393,45 @@ const japeakHealthData = [
         context: {
             "ja": "風邪をひいて、つばを飲み込むと喉が痛い時や、咳が出る時に使います。",
             "en": "Used when you have a cold, it hurts to swallow, or you have a cough.",
-            "pt": "Usado quando você está resfriado e dói para engolir ou está com tosse.", "zh-CN": "感冒时吞咽困难或咳嗽喉咙痛时使用。", "tl": "Ginagamit kapag may sipon ka at masakit lumunok, o inuubo ka.", "vi": "Dùng khi bạn bị cảm, nuốt nước bọt thấy đau họng hoặc khi bị ho.", "es": "Se usa cuando tienes un resfriado, te duele al tragar o tienes tos.", "ne": "रुघाखोकी लागेर थुक निल्दा घाँटी दुख्दा वा खोकी लाग्दा प्रयोग गरिन्छ।", "id": "Digunakan saat Anda terkena flu, sakit saat menelan, atau sedang batuk."
+            "zh-CN": "感冒时吞咽困难或咳嗽喉咙痛时使用。",
+            "zh-TW": "感冒時吞嚥困難或咳嗽喉嚨痛時使用。",
+            "ko": "감기에 걸려서 침을 삼킬 때 목이 아프거나 기침이 날 때 사용합니다.",
+            "vi": "Dùng khi bạn bị cảm, nuốt nước bọt thấy đau họng hoặc khi bị ho.",
+            "tl": "Ginagamit kapag may sipon ka at masakit lumunok, o inuubo ka.",
+            "id": "Digunakan saat Anda terkena flu, sakit saat menelan, atau sedang batuk.",
+            "th": "ใช้เมื่อเป็นหวัด เจ็บคอเวลากลืนน้ำลาย หรือมีอาการไอ",
+            "my": "အအေးမိသည့်အခါ တံတွေးမျိုချလျှင် လည်ချောင်းနာခြင်း သို့မဟုတ် ချောင်းဆိုးသည့်အခါ သုံးသည်။",
+            "km": "ប្រើនៅពេលដែលអ្នកផ្តាសាយ ឈឺបំពង់កពេលលេបទឹកមាត់ ឬពេលអ្នកក្អក។",
+            "ne": "रुघाखोकी लागेर थुक निल्दा घाँटी दुख्दा वा खोकी लाग्दा प्रयोग गरिन्छ।",
+            "mn": "Ханиад хүрч, шүлсээ залгих үед хоолой өвдөх, эсвэл ханиалгах үед хэрэглэнэ.",
+            "si": "ඔබට සෙම්ප්‍රතිශ්‍යාව වැළඳී ඇති විට, කෙළ ගිලීමට රිදෙන විට හෝ ඔබට කැස්සක් ඇති විට භාවිතා කරයි.",
+            "bn": "সর্দি হলে, ঢোক গিলতে ব্যথা করলে বা কাশি হলে ব্যবহৃত হয়।",
+            "pt": "Usado quando você está resfriado e dói para engolir ou está com tosse.",
+            "es": "Se usa cuando tienes un resfriado, te duele al tragar o tienes tos.",
+            "fr": "Utilisé lorsque vous avez un rhume, que vous avez mal en avalant ou que vous toussez.",
+            "ru": "Используется при простуде, когда больно глотать или у вас кашель.",
+            "uk": "Використовується при застуді, коли боляче ковтати або у вас кашель."
         },
         translations: {
-            "en": "My throat hurts. / I have a sore throat.", "pt": "Minha garganta dói.", "zh-CN": "我喉咙痛。", "tl": "Masakit po ang lalamunan ko.", "vi": "Em bị đau họng ạ.", "es": "Me duele la garganta.", "ne": "मेरो घाँटी दुखेको छ।", "id": "Tenggorokan saya sakit."
+            "en": "My throat hurts. / I have a sore throat.",
+            "zh-CN": "我喉咙痛。",
+            "zh-TW": "我喉嚨痛。",
+            "ko": "목이 아파요.",
+            "vi": "Em bị đau họng ạ.",
+            "tl": "Masakit po ang lalamunan ko.",
+            "id": "Tenggorokan saya sakit.",
+            "th": "เจ็บคอครับ/ค่ะ",
+            "my": "လည်ချောင်းနာနေပါတယ်။",
+            "km": "ខ្ញុំឈឺបំពង់ក។",
+            "ne": "मेरो घाँटी दुखेको छ।",
+            "mn": "Миний хоолой өвдөж байна.",
+            "si": "මගේ උගුර රිදෙනවා.",
+            "bn": "আমার গলা ব্যথা করছে।",
+            "pt": "Minha garganta dói.",
+            "es": "Me duele la garganta.",
+            "fr": "J'ai mal à la gorge.",
+            "ru": "У меня болит горло.",
+            "uk": "У мене болить горло."
         }
     },
     {
@@ -126,10 +441,45 @@ const japeakHealthData = [
         context: {
             "ja": "鼻から血が出た時に使います。ティッシュをもらったり、保健室に行くためにすぐ言いましょう。",
             "en": "Used when your nose is bleeding. Tell the teacher immediately to get tissues or go to the nurse's office.",
-            "pt": "Usado quando seu nariz está sangrando. Avise imediatamente para pegar lenços ou ir à enfermaria.", "zh-CN": "流鼻血时使用。请立刻告诉老师以拿取纸巾或前往保健室。", "tl": "Ginagamit kapag dumudugo ang ilong. Sabihin agad para makakuha ng tissue o makapunta sa klinika.", "vi": "Dùng khi bị chảy máu cam. Hãy báo ngay để lấy giấy hoặc xuống phòng y tế.", "es": "Se usa cuando te sangra la nariz. Avisa inmediatamente para pedir pañuelos o ir a la enfermería.", "ne": "नाकबाट रगत आउँदा प्रयोग गरिन्छ। टिस्यु पेपर माग्न वा स्वास्थ्य कक्ष जान तुरुन्तै भन्नुहोस्।", "id": "Digunakan saat mimisan. Segera beritahu guru untuk meminta tisu atau pergi ke UKS."
+            "zh-CN": "流鼻血时使用。请立刻告诉老师以拿取纸巾或前往保健室。",
+            "zh-TW": "流鼻血時使用。請立刻告訴老師以拿取紙巾或前往保健室。",
+            "ko": "코피가 났을 때 사용합니다. 휴지를 받거나 보건실에 가기 위해 바로 말하세요.",
+            "vi": "Dùng khi bị chảy máu cam. Hãy báo ngay để lấy giấy hoặc xuống phòng y tế.",
+            "tl": "Ginagamit kapag dumudugo ang ilong. Sabihin agad para makakuha ng tissue o makapunta sa klinika.",
+            "id": "Digunakan saat mimisan. Segera beritahu guru untuk meminta tisu atau pergi ke UKS.",
+            "th": "ใช้เมื่อเลือดกำเดาไหล ให้รีบบอกครูทันทีเพื่อขอทิชชู่หรือไปห้องพยาบาล",
+            "my": "နှာခေါင်းသွေးယိုသည့်အခါ သုံးသည်။ တစ်ရှူးတောင်းရန် သို့မဟုတ် ဆေးခန်းသွားရန် ချက်ချင်းပြောပါ။",
+            "km": "ប្រើនៅពេលដែលអ្នកហូរឈាមច្រមុះ។ ប្រាប់គ្រូភ្លាមៗដើម្បីសុំក្រដាសអនាម័យ ឬទៅបន្ទប់សុខភាព។",
+            "ne": "नाकबाट रगत आउँदा प्रयोग गरिन्छ। टिस्यु पेपर माग्न वा स्वास्थ्य कक्ष जान तुरुन्तै भन्नुहोस्।",
+            "mn": "Хамраас цус гарах үед хэрэглэнэ. Цаасан алчуур авах эсвэл эрүүл мэндийн өрөө рүү явахын тулд багшид шууд хэлээрэй.",
+            "si": "ඔබේ නාසයෙන් ලේ ගලන විට භාවිතා කරයි. ටිෂූ ලබා ගැනීමට හෝ සෞඛ්‍ය කාමරයට යාමට වහාම ගුරුවරයාට පවසන්න.",
+            "bn": "নাক দিয়ে রক্ত পড়লে ব্যবহৃত হয়। টিস্যু নিতে বা স্বাস্থ্যকক্ষে যেতে শিক্ষককে সাথে সাথে বলুন।",
+            "pt": "Usado quando seu nariz está sangrando. Avise imediatamente para pegar lenços ou ir à enfermaria.",
+            "es": "Se usa cuando te sangra la nariz. Avisa inmediatamente para pedir pañuelos o ir a la enfermería.",
+            "fr": "Utilisé lorsque vous saignez du nez. Prévenez immédiatement le professeur pour obtenir des mouchoirs ou aller à l'infirmerie.",
+            "ru": "Используется при носовом кровотечении. Сразу скажите учителю, чтобы взять салфетки или пойти в медпункт.",
+            "uk": "Використовується при носовій кровотечі. Одразу скажіть вчителю, щоб взяти серветки або піти в медпункт."
         },
         translations: {
-            "en": "My nose is bleeding. / I have a nosebleed.", "pt": "Meu nariz está sangrando.", "zh-CN": "我流鼻血了。", "tl": "Dumudugo po ang ilong ko.", "vi": "Em bị chảy máu cam ạ.", "es": "Me sangra la nariz.", "ne": "मेरो नाकबाट रगत बगिरहेको छ।", "id": "Hidung saya berdarah (mimisan)."
+            "en": "My nose is bleeding. / I have a nosebleed.",
+            "zh-CN": "我流鼻血了。",
+            "zh-TW": "我流鼻血了。",
+            "ko": "코피가 났어요.",
+            "vi": "Em bị chảy máu cam ạ.",
+            "tl": "Dumudugo po ang ilong ko.",
+            "id": "Hidung saya berdarah (mimisan).",
+            "th": "เลือดกำเดาไหลครับ/ค่ะ",
+            "my": "နှာခေါင်းသွေးယိုနေပါတယ်။",
+            "km": "ខ្ញុំហូរឈាមច្រមុះ។",
+            "ne": "मेरो नाकबाट रगत बगिरहेको छ।",
+            "mn": "Хамраас цус гарчихлаа.",
+            "si": "මගේ නහයෙන් ලේ ගලනවා.",
+            "bn": "আমার নাক দিয়ে রক্ত পড়ছে।",
+            "pt": "Meu nariz está sangrando.",
+            "es": "Me sangra la nariz.",
+            "fr": "Je saigne du nez.",
+            "ru": "У меня идет кровь из носа.",
+            "uk": "У мене йде кров з носа."
         }
     }
 ];

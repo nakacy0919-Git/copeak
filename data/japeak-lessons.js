@@ -1,5 +1,5 @@
 // ==========================================
-// Japeak 教材データベース（多言語対応・基礎編）
+// Japeak 教材データベース（多言語対応・基礎編） - 19言語指定順対応版
 // ==========================================
 const japeakData = [
     // 1. あいさつ
@@ -10,10 +10,45 @@ const japeakData = [
         context: {
             "ja": "初めて会ったときや、相手に何かをお願いするときに使います。良い関係を作るための大切な言葉です。",
             "en": "Used when meeting someone for the first time, or when asking for a favor. A crucial phrase for building good relationships.",
-            "pt": "Usado ao conhecer alguém pela primeira vez ou ao pedir um favor.", "zh-CN": "初次见面或请求对方帮忙时使用。这是建立良好关系的重要用语。", "tl": "Ginagamit kapag unang nakikita ang isang tao, o kapag may ipinapakiusap.", "vi": "Dùng khi gặp ai đó lần đầu tiên, hoặc khi nhờ vả điều gì đó.", "es": "Se usa al conocer a alguien por primera vez o al pedir un favor.", "ne": "पहिलो पटक कसैलाई भेट्दा वा कुनै अनुरोध गर्दा प्रयोग गरिन्छ।", "id": "Digunakan saat pertama kali bertemu seseorang, atau saat meminta bantuan."
+            "zh-CN": "初次见面或请求对方帮忙时使用。这是建立良好关系的重要用语。",
+            "zh-TW": "初次見面或請求對方幫忙時使用。這是建立良好關係的重要用語。",
+            "ko": "처음 만났을 때나 상대방에게 무언가를 부탁할 때 사용합니다. 좋은 관계를 맺기 위한 중요한 인사말입니다.",
+            "vi": "Dùng khi gặp ai đó lần đầu tiên, hoặc khi nhờ vả điều gì đó.",
+            "tl": "Ginagamit kapag unang nakikita ang isang tao, o kapag may ipinapakiusap.",
+            "id": "Digunakan saat pertama kali bertemu seseorang, atau saat meminta bantuan.",
+            "th": "ใช้เมื่อพบกันครั้งแรกหรือเมื่อขอความช่วยเหลือ เป็นคำสำคัญในการสร้างความสัมพันธ์ที่ดี",
+            "my": "ပထမဆုံးအကြိမ် တွေ့ဆုံချိန် သို့မဟုတ် တစ်စုံတစ်ဦးထံ အကူအညီတောင်းခံချိန်တွင် သုံးသည်။ ဆက်ဆံရေးကောင်းမွန်စေရန် အရေးကြီးသောစကားဖြစ်သည်။",
+            "km": "ប្រើនៅពេលជួបនរណាម្នាក់ជាលើកដំបូង ឬនៅពេលសុំជំនួយ។ នេះជាពាក្យសំខាន់សម្រាប់កសាងទំនាក់ទំនងល្អ។",
+            "ne": "पहिलो पटक कसैलाई भेट्दा वा कुनै अनुरोध गर्दा प्रयोग गरिन्छ।",
+            "mn": "Хүнтэй анх уулзах эсвэл хэн нэгнээс тусламж гуйх үед хэрэглэнэ. Сайн харилцаа тогтооход чухал үг юм.",
+            "si": "පළමු වරට කෙනෙකුව මුණගැසෙන විට හෝ යම් උපකාරයක් ඉල්ලා සිටින විට භාවිතා කරයි.",
+            "bn": "প্রথমবার কারও সাথে দেখা হলে বা কোন অনুরোধ করার সময় ব্যবহৃত হয়।",
+            "pt": "Usado ao conhecer alguém pela primeira vez ou ao pedir um favor.",
+            "es": "Se usa al conocer a alguien por primera vez o al pedir un favor.",
+            "fr": "Utilisé lors d'une première rencontre ou pour demander un service. Une phrase cruciale pour nouer de bonnes relations.",
+            "ru": "Используется при первой встрече или при просьбе об одолжении. Важная фраза для построения хороших отношений.",
+            "uk": "Використовується при першій зустрічі або при проханні про послугу. Важлива фраза для побудови добрих стосунків."
         },
         translations: {
-            "en": "I look forward to working with you. / Please be kind to me.", "pt": "Conto com sua colaboração. / Muito prazer.", "zh-CN": "请多关照。", "tl": "Ikinagagalak ko kayong makasama.", "vi": "Rất mong nhận được sự giúp đỡ của bạn.", "es": "Mucho gusto. / Cuento con su colaboración.", "ne": "तपाईंसँग काम गर्न तत्पर छु।", "id": "Mohon bimbingannya."
+            "en": "I look forward to working with you. / Please be kind to me.",
+            "zh-CN": "请多关照。",
+            "zh-TW": "請多指教。",
+            "ko": "잘 부탁드립니다.",
+            "vi": "Rất mong nhận được sự giúp đỡ của bạn.",
+            "tl": "Ikinagagalak ko kayong makasama.",
+            "id": "Mohon bimbingannya.",
+            "th": "ฝากเนื้อฝากตัวด้วยครับ/ค่ะ",
+            "my": "ကူညီစောင့်ရှောက်ပေးပါဦး။",
+            "km": "សូមមេត្តាជួយណែនាំផង។",
+            "ne": "तपाईंसँग काम गर्न तत्पर छु।",
+            "mn": "Надад тусалж дэмжээрэй.",
+            "si": "කරුණාකර මට උදව් කරන්න.",
+            "bn": "অনুগ্রহ করে আমাকে সাহায্য করুন।",
+            "pt": "Conto com sua colaboração. / Muito prazer.",
+            "es": "Mucho gusto. / Cuento con su colaboración.",
+            "fr": "Ravi de vous rencontrer. / Je compte sur vous.",
+            "ru": "Приятно познакомиться. / Надеюсь на вашу поддержку.",
+            "uk": "Приємно познайомитися. / Сподіваюся на вашу підтримку."
         }
     },
     // 2. 職員室に入る
@@ -24,10 +59,45 @@ const japeakData = [
         context: {
             "ja": "職員室や校長室など、部屋に入るときに言う挨拶です。部屋を出るときにも使います。",
             "en": "A greeting used when entering a room, such as the teachers' room. Also used when leaving.",
-            "pt": "Uma saudação usada ao entrar em uma sala.", "zh-CN": "进入教职员室等房间时使用的问候语。", "tl": "Isang pagbati na ginagamit kapag pumapasok sa isang silid.", "vi": "Lời chào được sử dụng khi bước vào phòng.", "es": "Un saludo que se usa al entrar a una habitación.", "ne": "शिक्षक कक्ष जस्ता कोठामा प्रवेश गर्दा प्रयोग गरिने अभिवादन।", "id": "Salam yang digunakan saat memasuki ruangan."
+            "zh-CN": "进入教职员室等房间时使用的问候语。离开房间时也会使用。",
+            "zh-TW": "進入教職員室等房間時使用的問候語。離開房間時也會使用。",
+            "ko": "교무실이나 교장실 등 방에 들어갈 때 하는 인사입니다. 방에서 나갈 때도 사용합니다.",
+            "vi": "Lời chào được sử dụng khi bước vào phòng như phòng giáo viên. Cũng dùng khi rời đi.",
+            "tl": "Isang pagbati na ginagamit kapag pumapasok sa isang silid.",
+            "id": "Salam yang digunakan saat memasuki ruangan, seperti ruang guru. Juga digunakan saat keluar.",
+            "th": "คำทักทายที่ใช้เมื่อเข้าไปในห้อง เช่น ห้องพักครู และใช้เมื่อออกจากห้องด้วย",
+            "my": "ဆရာများနားနေခန်းကဲ့သို့ အခန်းထဲသို့ ဝင်သည့်အခါ ပြောသော နှုတ်ခွန်းဆက်စကားဖြစ်သည်။ ထွက်ခွာချိန်တွင်လည်း သုံးသည်။",
+            "km": "ជាការស្វាគមន៍ដែលត្រូវប្រើពេលចូលបន្ទប់ ដូចជាបន្ទប់គ្រូបង្រៀន។ ប្រើពេលចេញពីបន្ទប់ផងដែរ។",
+            "ne": "शिक्षक कक्ष जस्ता कोठामा प्रवेश गर्दा प्रयोग गरिने अभिवादन। बाहिर निस्कँदा पनि प्रयोग गरिन्छ।",
+            "mn": "Багш нарын өрөө зэрэг өрөөнд орох үед хэлэх мэндчилгээ. Өрөөнөөс гарах үед бас хэрэглэнэ.",
+            "si": "ගුරු කාමරය වැනි කාමරයකට ඇතුළු වන විට භාවිතා කරන ආචාර කිරීමකි. පිටවන විටද භාවිතා වේ.",
+            "bn": "শিক্ষক কক্ষের মতো কোনো রুমে প্রবেশ করার সময় ব্যবহৃত অভিবাদন। রুম থেকে বের হওয়ার সময়ও ব্যবহৃত হয়।",
+            "pt": "Uma saudação usada ao entrar em uma sala. Também usada ao sair.",
+            "es": "Un saludo que se usa al entrar a una habitación. También se usa al salir.",
+            "fr": "Salutation utilisée pour entrer dans une pièce, comme la salle des professeurs. Également utilisée en sortant.",
+            "ru": "Приветствие, используемое при входе в помещение, например, в учительскую. Также используется при выходе.",
+            "uk": "Привітання, що використовується при вході в приміщення, наприклад, в учительську. Також використовується при виході."
         },
         translations: {
-            "en": "Excuse me.", "pt": "Com licença.", "zh-CN": "打扰了。", "tl": "Makikiraan po.", "vi": "Xin phép.", "es": "Con permiso.", "ne": "माफ गर्नुहोस्।", "id": "Permisi."
+            "en": "Excuse me.",
+            "zh-CN": "打扰了。",
+            "zh-TW": "打擾了。",
+            "ko": "실례합니다.",
+            "vi": "Xin phép.",
+            "tl": "Makikiraan po.",
+            "id": "Permisi.",
+            "th": "ขออนุญาตครับ/ค่ะ",
+            "my": "ခွင့်ပြုပါ။",
+            "km": "សុំទោស/សុំអនុញ្ញាត។",
+            "ne": "माफ गर्नुहोस्।",
+            "mn": "Өршөөгөөрэй. (Орж болох уу?)",
+            "si": "මට සමාවෙන්න.",
+            "bn": "মাফ করবেন।",
+            "pt": "Com licença.",
+            "es": "Con permiso.",
+            "fr": "Excusez-moi. / Avec votre permission.",
+            "ru": "Извините. / Разрешите.",
+            "uk": "Перепрошую. / Дозвольте."
         }
     },
     // 3. トイレに行きたい時
@@ -38,10 +108,45 @@ const japeakData = [
         context: {
             "ja": "授業中や部活中に、トイレに行きたいときに先生に許可をもらうためのフレーズです。",
             "en": "A phrase to ask the teacher for permission to go to the bathroom during class or club activities.",
-            "pt": "Uma frase para pedir permissão ao professor para ir ao banheiro.", "zh-CN": "在课堂上想去洗手间时向老师寻求许可的用语。", "tl": "Isang parirala upang humingi ng pahintulot na pumunta sa banyo.", "vi": "Một câu để xin phép giáo viên đi vệ sinh.", "es": "Una frase para pedir permiso al profesor para ir al baño.", "ne": "शौचालय जान शिक्षकसँग अनुमति माग्ने वाक्यांश।", "id": "Kalimat untuk meminta izin pergi ke toilet."
+            "zh-CN": "在课堂上或社团活动时，想去洗手间向老师寻求许可的用语。",
+            "zh-TW": "在課堂上或社團活動時，想去洗手間向老師尋求許可的用語。",
+            "ko": "수업 중이나 동아리 활동 중에 화장실에 가고 싶을 때 선생님에게 허락을 구하는 말입니다.",
+            "vi": "Một câu để xin phép giáo viên đi vệ sinh trong giờ học hoặc câu lạc bộ.",
+            "tl": "Isang parirala upang humingi ng pahintulot na pumunta sa banyo.",
+            "id": "Kalimat untuk meminta izin pergi ke toilet saat pelajaran atau ekstrakurikuler.",
+            "th": "ประโยคที่ใช้ขออนุญาตครูไปห้องน้ำระหว่างเรียนหรือทำกิจกรรมชมรม",
+            "my": "အတန်းချိန် သို့မဟုတ် ကလပ်လှုပ်ရှားမှုအတွင်း အိမ်သာသွားလို၍ ဆရာ့ထံ ခွင့်ပြုချက်တောင်းရန် သုံးသည်။",
+            "km": "ឃ្លាសម្រាប់សុំការអនុញ្ញាតពីគ្រូដើម្បីទៅបន្ទប់ទឹកក្នុងម៉ោងរៀន ឬសកម្មភាពក្លឹប។",
+            "ne": "शौचालय जान शिक्षकसँग अनुमति माग्ने वाक्यांश।",
+            "mn": "Хичээл болон дугуйлангийн үеэр бие засах газар руу явахыг багшаас зөвшөөрөл авах үг.",
+            "si": "පන්තිය හෝ ක්‍රීඩා අතරතුර වැසිකිළියට යාමට ගුරුවරයාගෙන් අවසර ඉල්ලා සිටීමට භාවිතා කරන වාක්‍යයකි.",
+            "bn": "ক্লাস বা ক্লাবের কার্যক্রম চলাকালীন বাথরুমে যাওয়ার জন্য শিক্ষকের কাছে অনুমতি চাওয়ার একটি বাক্য।",
+            "pt": "Uma frase para pedir permissão ao professor para ir ao banheiro.",
+            "es": "Una frase para pedir permiso al profesor para ir al baño.",
+            "fr": "Une phrase pour demander au professeur la permission d'aller aux toilettes pendant les cours.",
+            "ru": "Фраза, чтобы отпроситься у учителя в туалет во время урока или кружка.",
+            "uk": "Фраза, щоб відпроситися у вчителя в туалет під час уроку або гуртка."
         },
         translations: {
-            "en": "May I go to the bathroom?", "pt": "Posso ir ao banheiro?", "zh-CN": "我可以去洗手间吗？", "tl": "Maaari po ba akong pumunta sa banyo?", "vi": "Em có thể đi vệ sinh được không ạ?", "es": "¿Puedo ir al baño?", "ne": "म शौचालय जान सक्छु?", "id": "Bolehkah saya pergi ke toilet?"
+            "en": "May I go to the bathroom?",
+            "zh-CN": "我可以去洗手间吗？",
+            "zh-TW": "我可以去洗手間嗎？",
+            "ko": "화장실에 다녀와도 될까요?",
+            "vi": "Em có thể đi vệ sinh được không ạ?",
+            "tl": "Maaari po ba akong pumunta sa banyo?",
+            "id": "Bolehkah saya pergi ke toilet?",
+            "th": "ขออนุญาตไปห้องน้ำได้ไหมครับ/คะ?",
+            "my": "အိမ်သာသွားလို့ရမလား။",
+            "km": "តើខ្ញុំអាចទៅបន្ទប់ទឹកបានទេ?",
+            "ne": "म शौचालय जान सक्छु?",
+            "mn": "Бие засах газар руу явж болох уу?",
+            "si": "මට වැසිකිළියට යන්න පුළුවන්ද?",
+            "bn": "আমি কি বাথরুমে যেতে পারি?",
+            "pt": "Posso ir ao banheiro?",
+            "es": "¿Puedo ir al baño?",
+            "fr": "Puis-je aller aux toilettes ?",
+            "ru": "Можно мне выйти в туалет?",
+            "uk": "Чи можна мені вийти в туалет?"
         }
     },
     // 4. 理解できない時
@@ -52,10 +157,45 @@ const japeakData = [
         context: {
             "ja": "先生の指示や、友達の話が理解できなかった時に、もう一度言ってほしいと伝える言葉です。",
             "en": "Used when you don't understand instructions and ask to repeat them.",
-            "pt": "Usado quando você não entende as instruções e pede para repetir.", "zh-CN": "当你听不懂指示时，请求对方再念一次的用语。", "tl": "Ginagamit kapag hindi mo naintindihan at pakiusapan silang ulitin.", "vi": "Được sử dụng khi bạn không hiểu và yêu cầu lặp lại.", "es": "Se usa cuando no entiendes y pides que lo repitan.", "ne": "नबुझ्दा फेरि भन्न अनुरोध गर्न प्रयोग गरिन्छ।", "id": "Digunakan saat Anda tidak mengerti dan meminta untuk mengulanginya."
+            "zh-CN": "当你听不懂指示时，请求对方再念一次的用语。",
+            "zh-TW": "當你聽不懂指示時，請求對方再念一次的用語。",
+            "ko": "선생님의 지시나 친구의 말을 이해하지 못했을 때 다시 말해달라고 부탁하는 말입니다.",
+            "vi": "Được sử dụng khi bạn không hiểu và yêu cầu lặp lại.",
+            "tl": "Ginagamit kapag hindi mo naintindihan at pakiusapan silang ulitin.",
+            "id": "Digunakan saat Anda tidak mengerti dan meminta untuk mengulanginya.",
+            "th": "ใช้เมื่อไม่เข้าใจคำสั่งหรือเรื่องที่พูด แล้วขอให้พูดทวนอีกครั้ง",
+            "my": "နားမလည်သည့်အခါ တစ်ဖန်ပြန်ပြောပေးရန် တောင်းဆိုရာတွင် သုံးသည်။",
+            "km": "ប្រើនៅពេលដែលអ្នកមិនយល់ ហើយស្នើសុំឱ្យនិយាយម្តងទៀត។",
+            "ne": "नबुझ्दा फेरि भन्न अनुरोध गर्न प्रयोग गरिन्छ।",
+            "mn": "Ойлгохгүй үедээ дахин хэлж өгөхийг хүсэх үед хэрэглэнэ.",
+            "si": "ඔබට නොතේරෙන විට නැවත කියන ලෙස ඉල්ලා සිටීමට භාවිතා කරයි.",
+            "bn": "আপনি যখন বুঝতে পারেন না এবং আবার বলার জন্য অনুরোধ করেন তখন ব্যবহৃত হয়।",
+            "pt": "Usado quando você não entende as instruções e pede para repetir.",
+            "es": "Se usa cuando no entiendes y pides que lo repitan.",
+            "fr": "Utilisé lorsque vous ne comprenez pas et demandez de répéter.",
+            "ru": "Используется, когда вы не понимаете сказанное и просите повторить.",
+            "uk": "Використовується, коли ви не розумієте сказане і просите повторити."
         },
         translations: {
-            "en": "I don't understand. Could you repeat that, please?", "pt": "Eu não entendo. Mais uma vez, por favor.", "zh-CN": "我不明白。请再讲一次。", "tl": "Hindi ko po maintindihan. Pakiulit po.", "vi": "Em không hiểu. Xin hãy nhắc lại một lần nữa.", "es": "No entiendo. ¿Podría repetirlo?", "ne": "मैले बुझिन। कृपया फेरि भन्नुहोस्।", "id": "Saya tidak mengerti. Tolong ulangi sekali lagi."
+            "en": "I don't understand. Could you repeat that, please?",
+            "zh-CN": "我不明白。请再讲一次。",
+            "zh-TW": "我不明白。請再說一次。",
+            "ko": "모르겠습니다. 다시 한번 부탁드립니다.",
+            "vi": "Em không hiểu. Xin hãy nhắc lại một lần nữa.",
+            "tl": "Hindi ko po maintindihan. Pakiulit po.",
+            "id": "Saya tidak mengerti. Tolong ulangi sekali lagi.",
+            "th": "ไม่เข้าใจครับ/ค่ะ ขออีกครั้งได้ไหมครับ/คะ",
+            "my": "နားမလည်ပါဘူး။ နောက်တစ်ခေါက်လောက် ပြန်ပြောပေးပါ။",
+            "km": "ខ្ញុំមិនយល់ទេ។ សូមជួយនិយាយម្តងទៀត។",
+            "ne": "मैले बुझिन। कृपया फेरि भन्नुहोस्।",
+            "mn": "Ойлгосонгүй. Дахиад нэг хэлж өгөөч.",
+            "si": "මට තේරෙන්නේ නැහැ. කරුණාකර නැවත කියන්න.",
+            "bn": "আমি বুঝতে পারছি না। দয়া করে আরেকবার বলবেন?",
+            "pt": "Eu não entendo. Mais uma vez, por favor.",
+            "es": "No entiendo. ¿Podría repetirlo?",
+            "fr": "Je ne comprends pas. Pourriez-vous répéter, s'il vous plaît ?",
+            "ru": "Я не понимаю. Повторите, пожалуйста, еще раз.",
+            "uk": "Я не розумію. Повторіть, будь ласка, ще раз."
         }
     },
     // 5. 助けを求める時
@@ -66,13 +206,48 @@ const japeakData = [
         context: {
             "ja": "勉強が分からない時や、重いものを運ぶ時など、誰かに助けが必要な時に使います。",
             "en": "Used when you need someone's help, such as when you don't understand your studies.",
-            "pt": "Usado quando você precisa da ajuda de alguém.", "zh-CN": "需要别人帮助时使用。", "tl": "Ginagamit kapag kailangan mo ng tulong.", "vi": "Được sử dụng khi bạn cần ai đó giúp đỡ.", "es": "Se usa cuando necesitas ayuda.", "ne": "सहयोग चाहिने बेला प्रयोग गरिन्छ।", "id": "Digunakan saat Anda membutuhkan bantuan."
+            "zh-CN": "遇到学习上的困难或搬重物等，需要别人帮助时使用。",
+            "zh-TW": "遇到學習上的困難或搬重物等，需要別人幫助時使用。",
+            "ko": "공부를 모르겠거나 무거운 것을 옮길 때 등 누군가의 도움이 필요할 때 사용합니다.",
+            "vi": "Được sử dụng khi bạn cần ai đó giúp đỡ, ví dụ như khi học bài hoặc khi bê đồ nặng.",
+            "tl": "Ginagamit kapag kailangan mo ng tulong.",
+            "id": "Digunakan saat Anda membutuhkan bantuan, seperti saat tidak mengerti pelajaran.",
+            "th": "ใช้เมื่อต้องการความช่วยเหลือ เช่น เวลาเรียนไม่เข้าใจหรือยกของหนัก",
+            "my": "စာနားမလည်သည့်အခါ သို့မဟုတ် လေးလံသောပစ္စည်းများ သယ်ယူသည့်အခါကဲ့သို့ အကူအညီလိုချိန်တွင် သုံးသည်။",
+            "km": "ប្រើនៅពេលដែលអ្នកត្រូវការជំនួយពីនរណាម្នាក់ ដូចជាពេលមិនយល់មេរៀនជាដើម។",
+            "ne": "सहयोग चाहिने बेला प्रयोग गरिन्छ।",
+            "mn": "Хичээлээ ойлгохгүй байх, хүнд юм өргөх зэрэг бусдын тусламж хэрэгтэй үед хэрэглэнэ.",
+            "si": "ඔබට යමෙකුගේ උපකාර අවශ්‍ය වූ විට භාවිතා කරයි.",
+            "bn": "যখন আপনার কারও সাহায্য প্রয়োজন হয় তখন ব্যবহৃত হয়।",
+            "pt": "Usado quando você precisa da ajuda de alguém.",
+            "es": "Se usa cuando necesitas ayuda.",
+            "fr": "Utilisé lorsque vous avez besoin de l'aide de quelqu'un.",
+            "ru": "Используется, когда вам нужна чья-то помощь, например, в учебе или перенести что-то тяжелое.",
+            "uk": "Використовується, коли вам потрібна чиясь допомога."
         },
         translations: {
-            "en": "Please help me.", "pt": "Por favor, me ajude.", "zh-CN": "请帮帮我。", "tl": "Tulungan mo po ako.", "vi": "Xin hãy giúp tôi.", "es": "Por favor, ayúdame.", "ne": "कृपया मलाई सहयोग गर्नुहोस्।", "id": "Tolong bantu saya."
+            "en": "Please help me.",
+            "zh-CN": "请帮帮我。",
+            "zh-TW": "請幫幫我。",
+            "ko": "도와주세요.",
+            "vi": "Xin hãy giúp tôi.",
+            "tl": "Tulungan mo po ako.",
+            "id": "Tolong bantu saya.",
+            "th": "ช่วยหน่อยครับ/ค่ะ",
+            "my": "ကျေးဇူးပြု၍ ကူညီပေးပါ။",
+            "km": "សូមជួយខ្ញុំផង។",
+            "ne": "कृपया मलाई सहयोग गर्नुहोस्।",
+            "mn": "Надад туслаач.",
+            "si": "කරුණාකර මට උදව් කරන්න.",
+            "bn": "দয়া করে আমাকে সাহায্য করুন।",
+            "pt": "Por favor, me ajude.",
+            "es": "Por favor, ayúdame.",
+            "fr": "Aidez-moi, s'il vous plaît.",
+            "ru": "Помогите мне, пожалуйста.",
+            "uk": "Допоможіть мені, будь ласка."
         }
     },
-    // 6. 遅刻した時（新規）
+    // 6. 遅刻した時
     {
         id: "japeak_006", audio: "audio/japeak_006.mp3", title: "遅刻した時 (Being Late)", category: "school_life",
         japanese: "遅れてすみません。", target_speech: "おくれてすみません",
@@ -80,13 +255,48 @@ const japeakData = [
         context: {
             "ja": "授業や集合時間に遅刻してしまった時に、先生や友達に謝る言葉です。",
             "en": "An apology used when you are late for class or a meeting.",
-            "pt": "Um pedido de desculpas usado quando você se atrasa para a aula.", "zh-CN": "上课或集合迟到时向老师或朋友道歉的用语。", "tl": "Isang paghingi ng paumanhin kapag nahuli ka sa klase.", "vi": "Lời xin lỗi khi bạn đi học muộn.", "es": "Una disculpa que se usa cuando llegas tarde a clase.", "ne": "कक्षा वा भेटघाटमा ढिलो हुँदा माफी माग्ने शब्द।", "id": "Permintaan maaf saat Anda terlambat masuk kelas."
+            "zh-CN": "上课或集合迟到时向老师或朋友道歉的用语。",
+            "zh-TW": "上課或集合遲到時向老師或朋友道歉的用語。",
+            "ko": "수업이나 모임 시간에 지각했을 때 선생님이나 친구에게 사과하는 말입니다.",
+            "vi": "Lời xin lỗi khi bạn đi học muộn hoặc trễ giờ tập trung.",
+            "tl": "Isang paghingi ng paumanhin kapag nahuli ka sa klase.",
+            "id": "Permintaan maaf saat Anda terlambat masuk kelas atau pertemuan.",
+            "th": "คำขอโทษที่ใช้เมื่อมาสายในชั้นเรียนหรือเวลานัดหมาย",
+            "my": "အတန်း သို့မဟုတ် ချိန်းဆိုထားသောအချိန် နောက်ကျသည့်အခါ ဆရာ သို့မဟုတ် သူငယ်ချင်းအား တောင်းပန်သည့် စကားဖြစ်သည်။",
+            "km": "ពាក្យសុំទោសដែលប្រើនៅពេលអ្នកយឺតម៉ោងចូលរៀន ឬការជួបជុំ។",
+            "ne": "कक्षा वा भेटघाटमा ढिलो हुँदा माफी माग्ने शब्द।",
+            "mn": "Хичээл болон цуглах цагаас хоцорсон үедээ уучлалт гуйх үг.",
+            "si": "පන්තියට හෝ රැස්වීමට ප්‍රමාද වූ විට සමාව ගැනීමට භාවිතා කරන වචනයකි.",
+            "bn": "ক্লাস বা কোনো মিটিংয়ে দেরি হলে ক্ষমা চাওয়ার জন্য ব্যবহৃত হয়।",
+            "pt": "Um pedido de desculpas usado quando você se atrasa para a aula.",
+            "es": "Una disculpa que se usa cuando llegas tarde a clase.",
+            "fr": "Des excuses utilisées lorsque vous êtes en retard en classe ou à un rendez-vous.",
+            "ru": "Извинение, используемое при опоздании на урок или встречу.",
+            "uk": "Вибачення, що використовується при запізненні на урок або зустріч."
         },
         translations: {
-            "en": "I'm sorry I'm late.", "pt": "Desculpe o atraso.", "zh-CN": "对不起，我迟到了。", "tl": "Paumanhin po at nahuli ako.", "vi": "Em xin lỗi vì đã đến muộn.", "es": "Siento llegar tarde.", "ne": "ढिलो भएकोमा माफ गर्नुहोस्।", "id": "Maaf saya terlambat."
+            "en": "I'm sorry I'm late.",
+            "zh-CN": "对不起，我迟到了。",
+            "zh-TW": "對不起，我遲到了。",
+            "ko": "늦어서 죄송합니다.",
+            "vi": "Em xin lỗi vì đã đến muộn.",
+            "tl": "Paumanhin po at nahuli ako.",
+            "id": "Maaf saya terlambat.",
+            "th": "ขอโทษที่มาสายครับ/ค่ะ",
+            "my": "နောက်ကျသွားတဲ့အတွက် တောင်းပန်ပါတယ်။",
+            "km": "សុំទោសដែលខ្ញុំមកយឺត។",
+            "ne": "ढिलो भएकोमा माफ गर्नुहोस्।",
+            "mn": "Хоцорсонд уучлаарай.",
+            "si": "ප්‍රමාද වූවාට සමාවෙන්න.",
+            "bn": "দেরি হওয়ার জন্য আমি দুঃখিত।",
+            "pt": "Desculpe o atraso.",
+            "es": "Siento llegar tarde.",
+            "fr": "Désolé pour mon retard.",
+            "ru": "Извините за опоздание.",
+            "uk": "Вибачте за запізнення."
         }
     },
-    // 7. 忘れ物をした時（新規）
+    // 7. 忘れ物をした時
     {
         id: "japeak_007", audio: "audio/japeak_007.mp3", title: "忘れ物をした時 (Forgetting Something)", category: "school_life",
         japanese: "教科書を忘れました。", target_speech: "きょうかしょをわすれました",
@@ -94,13 +304,48 @@ const japeakData = [
         context: {
             "ja": "授業で使う教科書やノートを家に忘れてしまった時に、先生に伝える言葉です。",
             "en": "A phrase to tell the teacher when you forget your textbook or notebook at home.",
-            "pt": "Uma frase para dizer ao professor quando você esquece seu livro didático.", "zh-CN": "忘记带教科书或笔记本时向老师说明的用语。", "tl": "Ginagamit upang sabihin sa guro na nakalimutan mo ang iyong aklat.", "vi": "Câu nói với giáo viên khi bạn để quên sách giáo khoa.", "es": "Una frase para decirle al profesor que olvidaste tu libro de texto.", "ne": "पाठ्यपुस्तक बिर्संदा शिक्षकलाई भनिने वाक्यांश।", "id": "Kalimat untuk memberitahu guru saat Anda lupa membawa buku cetak."
+            "zh-CN": "忘记带教科书或笔记本时向老师说明的用语。",
+            "zh-TW": "忘記帶教科書或筆記本時向老師說明的用語。",
+            "ko": "수업에 필요한 교과서나 공책을 집에 두고 왔을 때 선생님에게 하는 말입니다.",
+            "vi": "Câu nói với giáo viên khi bạn để quên sách giáo khoa hoặc vở ở nhà.",
+            "tl": "Ginagamit upang sabihin sa guro na nakalimutan mo ang iyong aklat.",
+            "id": "Kalimat untuk memberitahu guru saat Anda lupa membawa buku cetak atau buku tulis.",
+            "th": "ประโยคที่ใช้บอกครูเมื่อลืมเอาหนังสือเรียนหรือสมุดจดมาจากบ้าน",
+            "my": "စာအုပ် သို့မဟုတ် မှတ်စုစာအုပ် ကျန်ခဲ့သည့်အခါ ဆရာ့အား ပြောသည့်စကားဖြစ်သည်။",
+            "km": "ឃ្លាសម្រាប់ប្រាប់គ្រូនៅពេលអ្នកភ្លេចសៀវភៅពុម្ព ឬសៀវភៅសរសេរ។",
+            "ne": "पाठ्यपुस्तक बिर्संदा शिक्षकलाई भनिने वाक्यांश।",
+            "mn": "Хичээлд хэрэглэх сурах бичиг, дэвтрээ гэртээ мартсан үед багшид хэлэх үг.",
+            "si": "පෙළපොත හෝ සටහන් පොත ගෙදර අමතක වූ විට ගුරුවරයාට පැවසීමට භාවිතා කරයි.",
+            "bn": "বাড়িতে পাঠ্যবই বা খাতা ফেলে আসলে শিক্ষককে বলার জন্য ব্যবহৃত বাক্য।",
+            "pt": "Uma frase para dizer ao professor quando você esquece seu livro didático.",
+            "es": "Una frase para decirle al profesor que olvidaste tu libro de texto.",
+            "fr": "Une phrase pour dire au professeur que vous avez oublié votre manuel scolaire.",
+            "ru": "Фраза, чтобы сказать учителю, что вы забыли дома учебник или тетрадь.",
+            "uk": "Фраза, щоб сказати вчителю, що ви забули вдома підручник або зошит."
         },
         translations: {
-            "en": "I forgot my textbook.", "pt": "Esqueci meu livro didático.", "zh-CN": "我忘记带教科书了。", "tl": "Nakalimutan ko po ang aking aklat.", "vi": "Em quên mang sách giáo khoa ạ.", "es": "Olvidé mi libro de texto.", "ne": "मैले मेरो पाठ्यपुस्तक बिर्सें।", "id": "Saya lupa membawa buku cetak."
+            "en": "I forgot my textbook.",
+            "zh-CN": "我忘记带教科书了。",
+            "zh-TW": "我忘記帶教科書了。",
+            "ko": "교과서를 깜빡했습니다.",
+            "vi": "Em quên mang sách giáo khoa ạ.",
+            "tl": "Nakalimutan ko po ang aking aklat.",
+            "id": "Saya lupa membawa buku cetak.",
+            "th": "ลืมเอาหนังสือเรียนมาครับ/ค่ะ",
+            "my": "ဖတ်စာအုပ် ကျန်ခဲ့ပါတယ်။",
+            "km": "ខ្ញុំភ្លេចសៀវភៅពុម្ពហើយ។",
+            "ne": "मैले मेरो पाठ्यपुस्तक बिर्सें।",
+            "mn": "Би сурах бичгээ мартчихжээ.",
+            "si": "මට මගේ පෙළපොත අමතක වුණා.",
+            "bn": "আমি আমার পাঠ্যবই ভুলে গেছি।",
+            "pt": "Esqueci meu livro didático.",
+            "es": "Olvidé mi libro de texto.",
+            "fr": "J'ai oublié mon manuel scolaire.",
+            "ru": "Я забыл(а) свой учебник.",
+            "uk": "Я забув(ла) свій підручник."
         }
     },
-    // 8. 早退したい時（新規）
+    // 8. 早退したい時
     {
         id: "japeak_008", audio: "audio/japeak_008.mp3", title: "早退したい時 (Leaving Early)", category: "school_life",
         japanese: "早退してもいいですか。", target_speech: "そうたいしてもいいですか",
@@ -108,13 +353,48 @@ const japeakData = [
         context: {
             "ja": "体調が悪い時や、家の用事で学校を早く帰りたい時に、先生に許可をもらう言葉です。",
             "en": "A phrase to ask the teacher for permission to leave school early due to illness or family reasons.",
-            "pt": "Uma frase para pedir permissão para sair mais cedo da escola.", "zh-CN": "因为生病或家事需要提前放学时，向老师请假的用语。", "tl": "Ginagamit upang humingi ng pahintulot na umuwi nang maaga.", "vi": "Câu để xin phép giáo viên về sớm khi bị ốm hoặc có việc gia đình.", "es": "Frase para pedir permiso para salir temprano de la escuela.", "ne": "बिरामी वा कामको कारण छिटो घर जान अनुमति माग्ने शब्द।", "id": "Kalimat untuk meminta izin pulang lebih awal karena sakit atau ada urusan."
+            "zh-CN": "因为生病或家事需要提前放学时，向老师请假的用语。",
+            "zh-TW": "因為生病或家事需要提前放學時，向老師請假的用語。",
+            "ko": "몸이 안 좋거나 집안일로 학교에서 일찍 조퇴하고 싶을 때 선생님에게 허락을 구하는 말입니다.",
+            "vi": "Câu để xin phép giáo viên về sớm khi bị ốm hoặc có việc gia đình.",
+            "tl": "Ginagamit upang humingi ng pahintulot na umuwi nang maaga.",
+            "id": "Kalimat untuk meminta izin pulang lebih awal karena sakit atau ada urusan.",
+            "th": "ประโยคที่ใช้ขออนุญาตครูกลับก่อนเวลาเมื่อรู้สึกไม่สบายหรือมีธุระที่บ้าน",
+            "my": "နေမကောင်းချိန် သို့မဟုတ် အိမ်ကိစ္စကြောင့် ကျောင်းမှ စောစောပြန်လို၍ ဆရာ့ထံ ခွင့်ပြုချက်တောင်းရာတွင် သုံးသည်။",
+            "km": "ឃ្លាសម្រាប់សុំការអនុញ្ញាតពីគ្រូដើម្បីចេញពីសាលាមុនម៉ោងដោយសារឈឺ ឬមានធុរៈគ្រួសារ។",
+            "ne": "बिरामी वा कामको कारण छिटो घर जान अनुमति माग्ने शब्द।",
+            "mn": "Бие өвдөх эсвэл ар гэрийн гачигдлаар сургуулиас эрт тарахыг багшаас зөвшөөрөл авах үг.",
+            "si": "අසනීපයක් හෝ පවුලේ හේතුවක් නිසා පාසලෙන් කලින් පිටව යාමට ගුරුවරයාගෙන් අවසර ඉල්ලීමට භාවිතා කරයි.",
+            "bn": "অসুস্থতা বা পারিবারিক কারণে স্কুল থেকে তাড়াতাড়ি ছুটি নেওয়ার জন্য শিক্ষকের কাছে অনুমতি চাইতে ব্যবহৃত হয়।",
+            "pt": "Uma frase para pedir permissão para sair mais cedo da escola.",
+            "es": "Frase para pedir permiso para salir temprano de la escuela.",
+            "fr": "Phrase pour demander la permission de quitter l'école plus tôt (maladie, motif familial).",
+            "ru": "Фраза, чтобы отпроситься у учителя уйти из школы пораньше из-за болезни или по семейным обстоятельствам.",
+            "uk": "Фраза, щоб відпроситися у вчителя піти зі школи раніше через хворобу або сімейні обставини."
         },
         translations: {
-            "en": "May I leave early?", "pt": "Posso sair mais cedo?", "zh-CN": "我可以早退吗？", "tl": "Maaari po ba akong umuwi nang maaga?", "vi": "Em có thể về sớm được không ạ?", "es": "¿Puedo salir temprano?", "ne": "म छिटो जान सक्छु?", "id": "Bolehkah saya pulang lebih awal?"
+            "en": "May I leave early?",
+            "zh-CN": "我可以早退吗？",
+            "zh-TW": "我可以早退嗎？",
+            "ko": "조퇴해도 될까요?",
+            "vi": "Em có thể về sớm được không ạ?",
+            "tl": "Maaari po ba akong umuwi nang maaga?",
+            "id": "Bolehkah saya pulang lebih awal?",
+            "th": "ขอกลับก่อนได้ไหมครับ/คะ?",
+            "my": "စောစောပြန်လို့ရမလား။",
+            "km": "តើខ្ញុំអាចចេញមុនម៉ោងបានទេ?",
+            "ne": "म छिटो जान सक्छु?",
+            "mn": "Би эрт тарж болох уу?",
+            "si": "මට කලින් යන්න පුළුවන්ද?",
+            "bn": "আমি কি তাড়াতাড়ি যেতে পারি?",
+            "pt": "Posso sair mais cedo?",
+            "es": "¿Puedo salir temprano?",
+            "fr": "Puis-je partir plus tôt ?",
+            "ru": "Можно мне уйти пораньше?",
+            "uk": "Чи можна мені піти раніше?"
         }
     },
-    // 9. 言葉の意味を聞く時（新規）
+    // 9. 言葉の意味を聞く時
     {
         id: "japeak_009", audio: "audio/japeak_009.mp3", title: "言葉を聞く (Asking How to Say)", category: "school_life",
         japanese: "これは日本語で何と言いますか。", target_speech: "これはにほんごでなんといいますか",
@@ -122,13 +402,48 @@ const japeakData = [
         context: {
             "ja": "物の名前や、自分の言いたいことが日本語でどう表現するのか分からない時に聞く言葉です。",
             "en": "Used to ask how to say something in Japanese when you don't know the word.",
-            "pt": "Usado para perguntar como se diz algo em japonês.", "zh-CN": "不知道某物用日语怎么说时使用的提问方式。", "tl": "Ginagamit upang itanong kung ano ang tawag sa isang bagay sa Japanese.", "vi": "Dùng để hỏi cách nói một từ nào đó bằng tiếng Nhật.", "es": "Se usa para preguntar cómo se dice algo en japonés.", "ne": "जापानी भाषामा यसलाई के भनिन्छ भनेर सोध्न प्रयोग गरिन्छ।", "id": "Digunakan untuk bertanya apa bahasa Jepangnya suatu benda."
+            "zh-CN": "不知道某物用日语怎么说时使用的提问方式。",
+            "zh-TW": "不知道某物用日語怎麼說時使用的提問方式。",
+            "ko": "물건의 이름이나 자신이 하고 싶은 말을 일본어로 어떻게 표현하는지 모를 때 묻는 말입니다.",
+            "vi": "Dùng để hỏi cách nói một từ nào đó bằng tiếng Nhật.",
+            "tl": "Ginagamit upang itanong kung ano ang tawag sa isang bagay sa Japanese.",
+            "id": "Digunakan untuk bertanya apa bahasa Jepangnya suatu benda.",
+            "th": "ใช้ถามเมื่อไม่รู้ว่าสิ่งนั้นหรือสิ่งที่อยากพูดในภาษาญี่ปุ่นเรียกว่าอะไร",
+            "my": "အရာဝတ္ထုအမည် သို့မဟုတ် မိမိပြောလိုသောအရာကို ဂျပန်လို ဘယ်လိုခေါ်လဲ မသိချိန်တွင် မေးမြန်းသည့်စကားဖြစ်သည်။",
+            "km": "ប្រើសម្រាប់សួរពីរបៀបនិយាយអ្វីមួយជាភាសាជប៉ុន នៅពេលដែលអ្នកមិនដឹងពាក្យនោះ។",
+            "ne": "जापानी भाषामा यसलाई के भनिन्छ भनेर सोध्न प्रयोग गरिन्छ।",
+            "mn": "Юмны нэр эсвэл өөрийн хэлэх гэсэн зүйлээ япон хэлээр юу гэж хэлдгийг мэдэхгүй үед асуух үг.",
+            "si": "ඔබට ජපන් භාෂාවෙන් යමක් පවසන්නේ කෙසේදැයි දැන ගැනීමට අවශ්‍ය වූ විට අසන්නට භාවිතා කරයි.",
+            "bn": "কোনো কিছু জাপানি ভাষায় কীভাবে বলতে হয় তা না জানলে জিজ্ঞেস করার জন্য ব্যবহৃত হয়।",
+            "pt": "Usado para perguntar como se diz algo em japonês.",
+            "es": "Se usa para preguntar cómo se dice algo en japonés.",
+            "fr": "Utilisé pour demander comment dire quelque chose en japonais.",
+            "ru": "Используется, чтобы спросить, как сказать что-то по-японски, если вы не знаете слово.",
+            "uk": "Використовується, щоб запитати, як сказати щось японською, якщо ви не знаєте слово."
         },
         translations: {
-            "en": "How do you say this in Japanese?", "pt": "Como se diz isso em japonês?", "zh-CN": "这个用日语怎么说？", "tl": "Ano po ito sa Japanese?", "vi": "Cái này tiếng Nhật nói như thế nào ạ?", "es": "¿Cómo se dice esto en japonés?", "ne": "यसलाई जापानी भाषामा के भनिन्छ?", "id": "Apa bahasa Jepangnya ini?"
+            "en": "How do you say this in Japanese?",
+            "zh-CN": "这个用日语怎么说？",
+            "zh-TW": "這個用日語怎麼說？",
+            "ko": "이것은 일본어로 뭐라고 하나요?",
+            "vi": "Cái này tiếng Nhật nói như thế nào ạ?",
+            "tl": "Ano po ito sa Japanese?",
+            "id": "Apa bahasa Jepangnya ini?",
+            "th": "อันนี้ภาษาญี่ปุ่นเรียกว่าอะไรครับ/คะ?",
+            "my": "ဒါကို ဂျပန်လို ဘယ်လိုခေါ်လဲ။",
+            "km": "តើនេះហៅជាភាសាជប៉ុនយ៉ាងម៉េច?",
+            "ne": "यसलाई जापानी भाषामा के भनिन्छ?",
+            "mn": "Үүнийг япон хэлээр юу гэдэг вэ?",
+            "si": "මේක ජපන් භාෂාවෙන් කියන්නේ කොහොමද?",
+            "bn": "এটাকে জাপানি ভাষায় কী বলে?",
+            "pt": "Como se diz isso em japonês?",
+            "es": "¿Cómo se dice esto en japonés?",
+            "fr": "Comment dit-on cela en japonais ?",
+            "ru": "Как это сказать по-японски?",
+            "uk": "Як це сказати японською?"
         }
     },
-    // 10. ゆっくり話してほしい時（新規）
+    // 10. ゆっくり話してほしい時
     {
         id: "japeak_010", audio: "audio/japeak_010.mp3", title: "ゆっくり話してほしい時 (Asking to Speak Slower)", category: "school_life",
         japanese: "もう少しゆっくり話してください。", target_speech: "もうすこしゆっくりはなしてください",
@@ -136,10 +451,45 @@ const japeakData = [
         context: {
             "ja": "相手の日本語が速くて聞き取れない時に、ゆっくり話してもらうようにお願いする言葉です。",
             "en": "Used to ask someone to speak more slowly when you cannot catch what they are saying.",
-            "pt": "Usado para pedir a alguém que fale mais devagar.", "zh-CN": "对方语速太快听不清时，请求对方说慢一点的用语。", "tl": "Ginagamit upang pakiusapan ang isang tao na magsalita nang mas mabagal.", "vi": "Dùng để yêu cầu ai đó nói chậm lại một chút.", "es": "Se usa para pedir a alguien que hable más despacio.", "ne": "कसैलाई अलि बिस्तारै बोल्न अनुरोध गर्न प्रयोग गरिन्छ।", "id": "Digunakan untuk meminta seseorang berbicara lebih pelan."
+            "zh-CN": "对方语速太快听不清时，请求对方说慢一点的用语。",
+            "zh-TW": "對方語速太快聽不清時，請求對方說慢一點的用語。",
+            "ko": "상대방의 말이 빨라서 알아듣기 힘들 때 조금 천천히 말해달라고 부탁하는 말입니다.",
+            "vi": "Dùng để yêu cầu ai đó nói chậm lại một chút khi họ nói quá nhanh.",
+            "tl": "Ginagamit upang pakiusapan ang isang tao na magsalita nang mas mabagal.",
+            "id": "Digunakan untuk meminta seseorang berbicara lebih pelan saat Anda tidak bisa menangkap perkataannya.",
+            "th": "ใช้ขอให้พูดช้าลงอีกนิดเมื่ออีกฝ่ายพูดเร็วเกินไปจนฟังไม่ทัน",
+            "my": "တစ်ဖက်လူ၏ စကားပြောမြန်လွန်း၍ နားမလည်နိုင်ချိန်တွင် ဖြည်းဖြည်းပြောပေးရန် တောင်းဆိုရာတွင် သုံးသည်။",
+            "km": "ប្រើសម្រាប់សុំឱ្យនរណាម្នាក់និយាយយឺតបន្តិច នៅពេលដែលអ្នកស្តាប់មិនទាន់។",
+            "ne": "कसैलाई अलि बिस्तारै बोल्न अनुरोध गर्न प्रयोग गरिन्छ।",
+            "mn": "Хүний яриа хэт хурдан байгаад сайн сонсож чадахгүй үед удаан ярьж өгөхийг хүсэх үг.",
+            "si": "අනෙක් පුද්ගලයා වේගයෙන් කතා කරන විට සහ ඔබට තේරුම් ගත නොහැකි වූ විට ටිකක් සෙමින් කතා කරන ලෙස ඉල්ලා සිටීමට භාවිතා කරයි.",
+            "bn": "কেউ খুব দ্রুত কথা বললে তাকে একটু আস্তে বলতে অনুরোধ করতে ব্যবহৃত হয়।",
+            "pt": "Usado para pedir a alguém que fale mais devagar.",
+            "es": "Se usa para pedir a alguien que hable más despacio.",
+            "fr": "Utilisé pour demander à quelqu'un de parler plus lentement lorsque vous ne comprenez pas.",
+            "ru": "Используется, чтобы попросить кого-то говорить медленнее, если вы не успеваете понять.",
+            "uk": "Використовується, щоб попросити когось говорити повільніше, якщо ви не встигаєте зрозуміти."
         },
         translations: {
-            "en": "Please speak a little slower.", "pt": "Por favor, fale um pouco mais devagar.", "zh-CN": "请说慢一点。", "tl": "Pakibagalan po ng kaunti ang pagsasalita.", "vi": "Xin hãy nói chậm lại một chút.", "es": "Por favor, hable un poco más despacio.", "ne": "कृपया अलि बिस्तारै बोल्नुहोस्।", "id": "Tolong bicara sedikit lebih pelan."
+            "en": "Please speak a little slower.",
+            "zh-CN": "请说慢一点。",
+            "zh-TW": "請說慢一點。",
+            "ko": "조금 더 천천히 말씀해 주세요.",
+            "vi": "Xin hãy nói chậm lại một chút.",
+            "tl": "Pakibagalan po ng kaunti ang pagsasalita.",
+            "id": "Tolong bicara sedikit lebih pelan.",
+            "th": "ช่วยพูดช้าลงอีกนิดได้ไหมครับ/คะ",
+            "my": "နည်းနည်းလောက် ဖြည်းဖြည်းပြောပေးပါ။",
+            "km": "សូមនិយាយយឺតបន្តិច។",
+            "ne": "कृपया अलि बिस्तारै बोल्नुहोस्।",
+            "mn": "Жаахан удаан яриач.",
+            "si": "කරුණාකර ටිකක් සෙමින් කතා කරන්න.",
+            "bn": "দয়া করে একটু আস্তে কথা বলুন।",
+            "pt": "Por favor, fale um pouco mais devagar.",
+            "es": "Por favor, hable un poco más despacio.",
+            "fr": "Veuillez parler un peu plus lentement, s'il vous plaît.",
+            "ru": "Говорите, пожалуйста, немного медленнее.",
+            "uk": "Говоріть, будь ласка, трохи повільніше."
         }
     }
 ];

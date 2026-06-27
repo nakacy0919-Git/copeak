@@ -1,5 +1,5 @@
 // ==========================================
-// Japeak 教材データベース（中文：生徒編＆保護者編）
+// Japeak 教材データベース（パラグラフ：生徒編＆保護者編・多言語対応版）
 // ==========================================
 const japeakParagraphsData = [
     // ------------------------------------------
@@ -16,17 +16,45 @@ const japeakParagraphsData = [
         context: {
             "ja": "転校してきた初日や、新しいクラスでみんなの前で自己紹介をする時に使います。",
             "en": "Used on your first day after transferring, or when introducing yourself in front of a new class.",
-            "pt": "Usado no primeiro dia após a transferência ou ao se apresentar na frente de uma nova classe.", "zh-CN": "转校第一天或在新班级面前做自我介绍时使用。", "tl": "Ginagamit sa unang araw pagkalipat, o kapag nagpapakilala sa harap ng bagong klase.", "vi": "Dùng vào ngày đầu tiên chuyển trường, hoặc khi tự giới thiệu trước lớp mới.", "es": "Se usa el primer día después de transferirte, o al presentarte frente a una nueva clase.", "ne": "सरुवा भएर आएको पहिलो दिन वा नयाँ कक्षामा सबैको अगाडि आत्म-परिचय दिँदा प्रयोग गरिन्छ।", "id": "Digunakan pada hari pertama pindah sekolah, o saat memperkenalkan diri di depan kelas baru."
+            "zh-CN": "转校第一天或在新班级面前做自我介绍时使用。",
+            "zh-TW": "轉學第一天或在新班級面前做自我介紹時使用。",
+            "ko": "전학 온 첫날이나 새로운 반 친구들 앞에서 자기소개를 할 때 사용합니다.",
+            "vi": "Dùng vào ngày đầu tiên chuyển trường, hoặc khi tự giới thiệu trước lớp mới.",
+            "tl": "Ginagamit sa unang araw pagkalipat, o kapag nagpapakilala sa harap ng bagong klase.",
+            "id": "Digunakan pada hari pertama pindah sekolah, atau saat memperkenalkan diri di depan kelas baru.",
+            "th": "ใช้ในวันแรกที่ย้ายโรงเรียน หรือเมื่อแนะนำตัวหน้าชั้นเรียนใหม่",
+            "my": "ကျောင်းပြောင်းလာသော ပထမဆုံးနေ့ သို့မဟုတ် အတန်းသစ်တွင် မိမိကိုယ်ကို မိတ်ဆက်ရာ၌ သုံးသည်။",
+            "km": "ប្រើនៅថ្ងៃដំបូងដែលប្តូរសាលា ឬនៅពេលណែនាំខ្លួននៅមុខសិស្សក្នុងថ្នាក់ថ្មី។",
+            "ne": "सरुवा भएर आएको पहिलो दिन वा नयाँ कक्षामा सबैको अगाडि आत्म-परिचय दिँदा प्रयोग गरिन्छ।",
+            "mn": "Шилжиж ирсэн эхний өдөр болон шинэ ангийнхаа өмнө өөрийгөө танилцуулах үед хэрэглэнэ.",
+            "si": "ඔබ පාසල මාරු කර පැමිණි පළමු දිනයේ හෝ නව පන්තියක් ඉදිරිපිට ඔබව හඳුන්වා දීමේදී භාවිතා වේ.",
+            "bn": "স্কুল পরিবর্তনের প্রথম দিনে বা নতুন ক্লাসে সবার সামনে নিজের পরিচয় দেওয়ার সময় ব্যবহৃত হয়।",
+            "pt": "Usado no primeiro dia após a transferência ou ao se apresentar na frente de uma nova classe.",
+            "es": "Se usa el primer día después de transferirte, o al presentarte frente a una nueva clase.",
+            "fr": "Utilisé le premier jour après un transfert, ou pour se présenter devant une nouvelle classe.",
+            "ru": "Используется в первый день после перевода в другую школу или при знакомстве с новым классом.",
+            "uk": "Використовується в перший день після переведення в іншу школу або при знайомстві з новим класом."
         },
         translations: {
             "en": "Nice to meet you. I came from Nepal. I want to do my best in my Japanese studies and club activities. Please be kind to me.",
-            "pt": "Prazer em conhecê-lo. Vim do Nepal. Quero dar o meu melhor nos estudos de japonês e nas atividades do clube. Conto com a sua colaboração.",
             "zh-CN": "初次见面。我来自尼泊尔。我想在日语学习和社团活动上努力。请多关照。",
-            "tl": "Ikinagagalak ko kayong makilala. Galing ako sa Nepal. Gusto kong galingan sa pag-aaral ng Japanese at sa mga club activity. Pakiusap, maging mabuti kayo sa akin.",
+            "zh-TW": "初次見面。我來自尼泊爾。我想在日語學習和社團活動上努力。請多指教。",
+            "ko": "처음 뵙겠습니다. 네팔에서 왔습니다. 일본어 공부와 동아리 활동을 열심히 하고 싶습니다. 잘 부탁드립니다.",
             "vi": "Rất vui được gặp các bạn. Em đến từ Nepal. Em muốn cố gắng học tiếng Nhật và tham gia hoạt động câu lạc bộ. Rất mong nhận được sự giúp đỡ.",
-            "es": "Mucho gusto. Vengo de Nepal. Quiero dar lo mejor de mí en mis estudios de japonés y actividades del club. Cuento con su colaboración.",
+            "tl": "Ikinagagalak ko kayong makilala. Galing ako sa Nepal. Gusto kong galingan sa pag-aaral ng Japanese at sa mga club activity. Pakiusap, maging mabuti kayo sa akin.",
+            "id": "Salam kenal. Saya datang dari Nepal. Saya ingin berusaha keras dalam belajar bahasa Jepang dan kegiatan klub. Mohon bimbingannya.",
+            "th": "ยินดีที่ได้รู้จักครับ/ค่ะ ผม/หนูมาจากเนปาล อยากตั้งใจเรียนภาษาญี่ปุ่นและทำกิจกรรมชมรม ฝากเนื้อฝากตัวด้วยครับ/ค่ะ",
+            "my": "တွေ့ရတာ ဝမ်းသာပါတယ်။ နီပေါကနေ လာတာပါ။ ဂျပန်စာလေ့လာတာနဲ့ အသင်းအဖွဲ့လှုပ်ရှားမှုတွေကို ကြိုးစားချင်ပါတယ်။ ကျေးဇူးပြု၍ ကူညီစောင့်ရှောက်ပေးပါ။",
+            "km": "រីករាយដែលបានស្គាល់។ ខ្ញុំមកពីប្រទេសនេប៉ាល់។ ខ្ញុំចង់ខិតខំរៀនភាសាជប៉ុន និងសកម្មភាពក្លឹប។ សូមជួយណែនាំផង។",
             "ne": "नमस्ते। म नेपालबाट आएको हुँ। म जापानी भाषाको पढाइ र क्लबका गतिविधिहरूमा आफ्नो उत्कृष्ट प्रयास गर्न चाहन्छु। धन्यवाद।",
-            "id": "Salam kenal. Saya datang dari Nepal. Saya ingin berusaha keras dalam belajar bahasa Jepang dan kegiatan klub. Mohon bimbingannya."
+            "mn": "Танилцсандаа таатай байна. Би Балба улсаас ирсэн. Япон хэлний хичээл болон дугуйлангийн үйл ажиллагаандаа хичээх болно. Намайг дэмжиж туслаарай.",
+            "si": "හමුවීම සතුටක්. මම නේපාලයේ ඉඳන් ආවේ. මම ජපන් භාෂාව ඉගෙන ගන්නයි සමාජ ක්‍රියාකාරකම්වලටයි හොඳින් සහභාගි වෙන්න කැමතියි. කරුණාකර මට උදව් කරන්න.",
+            "bn": "আপনার সাথে দেখা হয়ে ভালো লাগলো। আমি নেপাল থেকে এসেছি। আমি জাপানি ভাষা শেখা এবং ক্লাবের কার্যক্রমে ভালো করার চেষ্টা করতে চাই। দয়া করে আমাকে সাহায্য করবেন।",
+            "pt": "Prazer em conhecê-lo. Vim do Nepal. Quero dar o meu melhor nos estudos de japonês e nas atividades do clube. Conto com a sua colaboração.",
+            "es": "Mucho gusto. Vengo de Nepal. Quiero dar lo mejor de mí en mis estudios de japonés y actividades del club. Cuento con su colaboración.",
+            "fr": "Enchanté. Je viens du Népal. Je veux faire de mon mieux dans mes études de japonais et les activités du club. Merci de bien m'accueillir.",
+            "ru": "Приятно познакомиться. Я приехал(а) из Непала. Я хочу хорошо учиться японскому языку и участвовать в клубных мероприятиях. Прошу любить и жаловать.",
+            "uk": "Приємно познайомитися. Я приїхав(ла) з Непалу. Я хочу добре вчитися японської мови та брати участь у клубних заходах. Прошу любити і жалувати."
         }
     },
     {
@@ -40,17 +68,45 @@ const japeakParagraphsData = [
         context: {
             "ja": "授業中や休み時間に体調が悪くなり、保健室に行きたい時や保護者に連絡してほしい時に伝えます。",
             "en": "Used during class or break time when you feel sick, want to rest in the clinic, or need to call home.",
-            "pt": "Usado durante a aula ou intervalo quando você se sente doente e quer ir à enfermaria.", "zh-CN": "上课或休息时间身体不舒服，想去保健室或想给家里打电话时使用。", "tl": "Ginagamit kapag masama ang pakiramdam sa klase at gustong magpahinga sa klinika.", "vi": "Dùng khi bạn bị ốm trong giờ học hoặc giờ giải lao, muốn nghỉ ở phòng y tế.", "es": "Se usa durante la clase o el recreo quando te sientes mal y quieres ir a la enfermería.", "ne": "कक्षा वा छुट्टीको समयमा बिरामी पर्दा, स्वास्थ्य कक्षमा आराम गर्न वा घरमा फोन गर्न चाहँदा भनिन्छ।", "id": "Digunakan saat merasa tidak enak badan di kelas, ingin istirahat di UKS, atau ingin menelepon rumah."
+            "zh-CN": "上课或休息时间身体不舒服，想去保健室或想给家里打电话时使用。",
+            "zh-TW": "上課或休息時間身體不舒服，想去保健室或想給家裡打電話時使用。",
+            "ko": "수업 중이나 쉬는 시간에 몸이 아파 보건실에 가고 싶거나 부모님께 연락하고 싶을 때 말합니다.",
+            "vi": "Dùng khi bạn bị ốm trong giờ học hoặc giờ giải lao, muốn nghỉ ở phòng y tế.",
+            "tl": "Ginagamit kapag masama ang pakiramdam sa klase at gustong magpahinga sa klinika.",
+            "id": "Digunakan saat merasa tidak enak badan di kelas, ingin istirahat di UKS, atau ingin menelepon rumah.",
+            "th": "ใช้เมื่อรู้สึกไม่สบายในชั่วโมงเรียนหรือเวลาพัก แล้วอยากไปห้องพยาบาล หรืออยากให้ติดต่อผู้ปกครอง",
+            "my": "အတန်းချိန် သို့မဟုတ် အားလပ်ချိန်တွင် နေမကောင်းဖြစ်၍ ဆေးခန်းတွင် နားချင်ချိန် သို့မဟုတ် အိမ်သို့ဖုန်းဆက်လိုချိန်တွင် သုံးသည်။",
+            "km": "ប្រើនៅពេលមានអារម្មណ៍មិនស្រួលខ្លួនក្នុងម៉ោងរៀន ឬម៉ោងចេញលេង ហើយចង់ទៅបន្ទប់ពេទ្យ ឬចង់ទូរស័ព្ទទៅផ្ទះ។",
+            "ne": "कक्षा वा छुट्टीको समयमा बिरामी पर्दा, स्वास्थ्य कक्षमा आराम गर्न वा घरमा फोन गर्न चाहँदा भनिन्छ।",
+            "mn": "Хичээл болон завсарлагааны үеэр бие өвдөж, эрүүл мэндийн өрөөнд очих эсвэл гэр лүүгээ залгахыг хүсэх үедээ хэлнэ.",
+            "si": "පන්තිය අතරතුර හෝ විවේක කාලයේදී ඔබට අසනීප බවක් දැනෙන විට, සෞඛ්‍ය කාමරයට යාමට අවශ්‍ය වූ විට හෝ නිවසට ඇමතීමට අවශ්‍ය වූ විට භාවිතා වේ.",
+            "bn": "ক্লাস বা বিরতির সময় অসুস্থ বোধ করলে এবং মেডিকেল রুমে যেতে চাইলে বা বাড়িতে ফোন করতে চাইলে ব্যবহৃত হয়।",
+            "pt": "Usado durante a aula ou intervalo quando você se sente doente e quer ir à enfermaria ou ligar para casa.",
+            "es": "Se usa durante la clase o el recreo cuando te sientes mal y quieres ir a la enfermería o llamar a casa.",
+            "fr": "Utilisé pendant les cours ou la récréation quand on ne se sent pas bien, pour demander à aller à l'infirmerie ou à appeler à la maison.",
+            "ru": "Используется, если вы плохо себя почувствовали на уроке или перемене, и хотите пойти в медпункт или позвонить домой.",
+            "uk": "Використовується, якщо ви погано себе почуваєте на уроці або перерві, і хочете піти до медпункту або зателефонувати додому."
         },
         translations: {
             "en": "I have a slight fever and my head hurts. May I rest in the nurse's office? I would like to call my home.",
-            "pt": "Estou com um pouco de febre e dor de cabeça. Posso descansar na enfermaria? Quero ligar para casa.",
             "zh-CN": "我有点发烧，头痛。我可以去保健室休息吗？我想给家里打个电话。",
-            "tl": "May kaunting lagnat po ako at masakit ang ulo ko. Maaari po ba akong magpahinga sa klinika? Gusto ko pong tumawag sa bahay.",
+            "zh-TW": "我有點發燒，頭很痛。我可以去保健室休息嗎？我想給家裡打個電話。",
+            "ko": "열이 조금 나고 머리가 아픕니다. 보건실에서 쉬어도 될까요? 집에 전화를 하고 싶습니다.",
             "vi": "Em hơi sốt và bị đau đầu. Em có thể xuống phòng y tế nghỉ được không ạ? Em muốn gọi điện về nhà.",
-            "es": "Tengo un pouco de fiebre y me duele la cabeza. ¿Puedo descansar en la enfermería? Me gustaría llamar a casa.",
+            "tl": "May kaunting lagnat po ako at masakit ang ulo ko. Maaari po ba akong magpahinga sa klinika? Gusto ko pong tumawag sa bahay.",
+            "id": "Saya agak demam dan kepala saya sakit. Bolehkah saya istirahat di UKS? Saya ingin menelepon rumah.",
+            "th": "มีไข้นิดหน่อยและปวดหัวครับ/ค่ะ ขอไปพักที่ห้องพยาบาลได้ไหมครับ/ค่ะ อยากโทรศัพท์กลับบ้านครับ/ค่ะ",
+            "my": "ကိုယ်နည်းနည်းပူပြီး ခေါင်းကိုက်နေပါတယ်။ ဆေးခန်းမှာ နားလို့ရမလား။ အိမ်ကို ဖုန်းဆက်ချင်ပါတယ်။",
+            "km": "ខ្ញុំក្តៅខ្លួនបន្តិច ហើយឈឺក្បាល។ តើខ្ញុំអាចទៅសម្រាកនៅបន្ទប់ពេទ្យបានទេ? ខ្ញុំចង់ទូរស័ព្ទទៅផ្ទះ។",
             "ne": "मलाई अलि ज्वरो आएको छ र टाउको दुखिरहेको छ। के म स्वास्थ्य कक्षमा आराम गर्न सक्छु? म घरमा फोन गर्न चाहन्छु।",
-            "id": "Saya agak demam dan kepala saya sakit. Bolehkah saya istirahat di UKS? Saya ingin menelepon rumah."
+            "mn": "Бага зэрэг халуураад, толгой өвдөж байна. Эрүүл мэндийн өрөөнд амарч болох уу? Гэр лүүгээ утасдмаар байна.",
+            "si": "මට පොඩි උණ ගතියක් තියෙනවා, ඔළුවත් රිදෙනවා. මට සෞඛ්‍ය කාමරයේ විවේක ගන්න පුළුවන්ද? මට ගෙදරට කතා කරන්න ඕනේ.",
+            "bn": "আমার একটু জ্বর এবং মাথা ব্যথা করছে। আমি কি মেডিকেল রুমে বিশ্রাম নিতে পারি? আমি বাড়িতে ফোন করতে চাই।",
+            "pt": "Estou com um pouco de febre e dor de cabeça. Posso descansar na enfermaria? Quero ligar para casa.",
+            "es": "Tengo un poco de fiebre y me duele la cabeza. ¿Puedo descansar en la enfermería? Me gustaría llamar a casa.",
+            "fr": "J'ai un peu de fièvre et j'ai mal à la tête. Puis-je me reposer à l'infirmerie ? Je voudrais appeler chez moi.",
+            "ru": "У меня небольшая температура и болит голова. Можно я отдохну в медпункте? Я хочу позвонить домой.",
+            "uk": "У мене невелика температура і болить голова. Можна я відпочину в медпункті? Я хочу зателефонувати додому."
         }
     },
     {
@@ -64,17 +120,45 @@ const japeakParagraphsData = [
         context: {
             "ja": "やっておいた宿題のプリントを家に忘れてきてしまい、先生に謝って提出期限を相談する時に使います。",
             "en": "Used to apologize to the teacher and promise to bring it the next morning when you left your homework at home.",
-            "pt": "Usado para pedir desculpas ao professor quando você esquece a lição de casa.", "zh-CN": "把做好的作业讲义忘在家里，向老师道并保证明天交时使用。", "tl": "Ginagamit para humingi ng paumanhin sa guro kapag naiwan ang homework sa bahay.", "vi": "Dùng để xin lỗi giáo viên và hứa sáng mai sẽ nộp khi bạn để quên bài tập ở nhà.", "es": "Se usa para disculparsetenindo el profesor cuando olvidaste la tarea en casa.", "ne": "गरेको गृहकार्यको पेपर घरमा बिर्संदा, शिक्षकसँग माफी मागेर भोलि बुझाउँछु भन्न प्रयोग गरिन्छ。", "id": "Digunakan untuk meminta maaf kepada guru ketika Anda meninggalkan lembar PR di rumah."
+            "zh-CN": "把做好的作业讲义忘在家里，向老师道歉并保证明天交时使用。",
+            "zh-TW": "把做好的作業講義忘在家裡，向老師道歉並保證明天交時使用。",
+            "ko": "다 해놓은 숙제 프린트를 집에 두고 왔을 때 선생님께 사과하고 내일 제출하겠다고 말할 때 사용합니다.",
+            "vi": "Dùng để xin lỗi giáo viên và hứa sáng mai sẽ nộp khi bạn để quên bài tập ở nhà.",
+            "tl": "Ginagamit para humingi ng paumanhin sa guro kapag naiwan ang homework sa bahay.",
+            "id": "Digunakan untuk meminta maaf kepada guru ketika Anda meninggalkan lembar PR di rumah.",
+            "th": "ใช้เมื่อลืมใบงานการบ้านที่ทำเสร็จแล้วไว้ที่บ้าน เพื่อขอโทษครูและสัญญาว่าจะส่งในวันพรุ่งนี้",
+            "my": "လုပ်ပြီးသား အိမ်စာစာရွက်ကို အိမ်မှာမေ့ကျန်ခဲ့၍ ဆရာ့ကို တောင်းပန်ပြီး နောက်နေ့ မနက်ပေးမည်ဟု ပြောရာ၌ သုံးသည်။",
+            "km": "ប្រើសម្រាប់សុំទោសគ្រូនៅពេលភ្លេចសន្លឹកកិច្ចការផ្ទះដែលបានធ្វើរួចនៅផ្ទះ និងសន្យាថានឹងប្រគល់ជូននៅព្រឹកស្អែក។",
+            "ne": "गरेको गृहकार्यको पेपर घरमा बिर्संदा, शिक्षकसँग माफी मागेर भोलि बिहान बुझाउँछु भन्न प्रयोग गरिन्छ।",
+            "mn": "Хийсэн гэрийн даалгавраа гэртээ мартсан үед багшаас уучлалт гуйж, маргааш өглөө заавал өгнө гэж хэлэхдээ хэрэглэнэ.",
+            "si": "ගෙදර වැඩ කොළය ගෙදර අමතක වූ විට ගුරුවරයාගෙන් සමාව ගැනීමටත් හෙට උදේ එය ලබා දෙන බවට පොරොන්දු වීමටත් භාවිතා වේ.",
+            "bn": "হোমওয়ার্কের কাগজ বাড়িতে ভুলে রেখে আসলে শিক্ষকের কাছে ক্ষমা চাইতে এবং পরের দিন সকালে জমা দেওয়ার প্রতিশ্রুতি দিতে ব্যবহৃত হয়।",
+            "pt": "Usado para pedir desculpas ao professor quando você esquece a lição de casa e prometer entregá-la no dia seguinte.",
+            "es": "Se usa para disculparse con el profesor cuando olvidaste la tarea en casa y prometer entregarla a la mañana siguiente.",
+            "fr": "Utilisé pour s'excuser auprès du professeur d'avoir oublié son devoir à la maison et promettre de le rendre le lendemain matin.",
+            "ru": "Используется, чтобы извиниться перед учителем за то, что забыли выполненное домашнее задание дома, и пообещать сдать его на следующее утро.",
+            "uk": "Використовується, щоб вибачитися перед вчителем за те, що забули виконане домашнє завдання вдома, і пообіцяти здати його наступного ранку."
         },
         translations: {
             "en": "I forgot my homework worksheet at home. I will definitely submit it tomorrow morning. I'm sorry.",
-            "pt": "Esqueci a folha de lição de casa em casa. Com certeza vou entregar amanhã de manhã. Desculpe.",
             "zh-CN": "我把作业讲义忘在家里了。明天早上我一定提交。对不起。",
-            "tl": "Naiwan ko po sa bahay ang aking homework handout. Sigurado pong ipapasa ko bukas ng umaga. Pasensya na po.",
+            "zh-TW": "我把作業講義忘在家裡了。明天早上我一定提交。對不起。",
+            "ko": "숙제 프린트를 집에 두고 왔습니다. 내일 아침에 반드시 제출하겠습니다. 죄송합니다.",
             "vi": "Em để quên tờ bài tập ở nhà mất rồi ạ. Sáng mai em nhất định sẽ nộp. Em xin lỗi thầy/cô.",
-            "es": "Olvidé la hoja de tarea en casa. Sin falta la entregaré mañana por la mañana. Lo siento.",
+            "tl": "Naiwan ko po sa bahay ang aking homework handout. Sigurado pong ipapasa ko bukas ng umaga. Pasensya na po.",
+            "id": "Saya lupa membawa lembar PR saya di rumah. Besok pagi, pasti akan saya kumpulkan. Maaf.",
+            "th": "ลืมใบงานการบ้านไว้ที่บ้านครับ/ค่ะ พรุ่งนี้เช้าจะนำมาส่งให้ได้ครับ/ค่ะ ขอโทษครับ/ค่ะ",
+            "my": "အိမ်စာစာရွက် အိမ်မှာမေ့ကျန်ခဲ့ပါတယ်။ မနက်ဖြန်မနက် အသေအချာ လာပေးပါမယ်။ တောင်းပန်ပါတယ်။",
+            "km": "ខ្ញុំភ្លេចសន្លឹកកិច្ចការផ្ទះនៅផ្ទះហើយ។ ព្រឹកស្អែកខ្ញុំពិតជានឹងយកមកប្រគល់ជូនមិនខាន។ សុំទោស។",
             "ne": "मैले गृहकार्यको पेपर घरमै बिर्सिएँ। भोलि बिहान निश्चित रूपमा बुझाउनेछु। माफ गर्नुहोस्।",
-            "id": "Saya lupa membawa lembar PR saya di rumah. Besok pagi, pasti akan saya kumpulkan. Maaf."
+            "mn": "Гэрийн даалгавартай цаасаа гэртээ мартчихаж. Маргааш өглөө заавал авчирч өгнө өө. Уучлаарай.",
+            "si": "මට මගේ ගෙදර වැඩ කොළය ගෙදර අමතක වුණා. හෙට උදේ මම අනිවාර්යයෙන්ම ඒක දෙන්නම්. මට සමාවෙන්න.",
+            "bn": "আমি আমার হোমওয়ার্কের কাগজ বাড়িতে ভুলে এসেছি। কাল সকালে আমি অবশ্যই জমা দেবো। আমাকে ক্ষমা করবেন।",
+            "pt": "Esqueci a folha de lição de casa em casa. Com certeza vou entregar amanhã de manhã. Desculpe.",
+            "es": "Olvidé la hoja de tarea en casa. Sin falta la entregaré mañana por la mañana. Lo siento.",
+            "fr": "J'ai oublié la feuille de mes devoirs à la maison. Je la rendrai sans faute demain matin. Je suis désolé.",
+            "ru": "Я забыл(а) лист с домашним заданием дома. Я обязательно сдам его завтра утром. Извините.",
+            "uk": "Я забув(ла) аркуш із домашнім завданням вдома. Я обов'язково здам його завтра вранці. Вибачте."
         }
     },
 
@@ -92,17 +176,45 @@ const japeakParagraphsData = [
         context: {
             "ja": "朝、子どもが病気になった時に、保護者が学校（担任の先生）に電話や連絡帳で伝える定番の文章です。",
             "en": "A standard phrase used by parents to inform the school (homeroom teacher) via phone or contact book when a child is sick in the morning.",
-            "pt": "Uma frase padrão usada pelos pais para informar a escola quando o filho está doente de manhã.", "zh-CN": "早上孩子生病时，家长通过电话或联络簿向学校（班主任）说明情况的固定句式。", "tl": "Isang karaniwang pangungusap na ginagamit ng magulang para ipaalam sa paaralan na may sakit ang anak.", "vi": "Câu mẫu chuẩn để phụ huynh thông báo cho nhà trường khi con bị ốm vào buổi sáng.", "es": "Una frase estándar usada por los padres para informar a la escuela cuando el hijo está enfermo por la mañana.", "ne": "बिहान बच्चा बिरामी हुँदा, अभिभावकले विद्यालय (कक्षा शिक्षक) लाई फोन वा सम्पर्क डायरी मार्फत जानकारी दिने वाक्य।", "id": "Kalimat standar yang digunakan orang tua untuk memberitahu sekolah saat anak sakit di pagi hari."
+            "zh-CN": "早上孩子生病时，家长通过电话或联络簿向学校（班主任）说明情况的固定句式。",
+            "zh-TW": "早上孩子生病時，家長透過電話或聯絡簿向學校（班主任）說明情況的固定句式。",
+            "ko": "아침에 아이가 아플 때 학부모가 학교(담임 선생님)에 전화나 연락장으로 알리는 정형화된 문장입니다.",
+            "vi": "Câu mẫu chuẩn để phụ huynh thông báo cho nhà trường khi con bị ốm vào buổi sáng.",
+            "tl": "Isang karaniwang pangungusap na ginagamit ng magulang para ipaalam sa paaralan na may sakit ang anak.",
+            "id": "Kalimat standar yang digunakan orang tua untuk memberitahu sekolah saat anak sakit di pagi hari.",
+            "th": "ประโยคมาตรฐานที่ผู้ปกครองใช้แจ้งโรงเรียน (ครูประจำชั้น) ทางโทรศัพท์หรือสมุดพกเมื่อเด็กป่วยในตอนเช้า",
+            "my": "နံနက်ပိုင်း ကလေးနေမကောင်းဖြစ်ချိန်တွင် မိဘများက ကျောင်း (အတန်းပိုင်ဆရာ) ထံသို့ ဖုန်းဆက်၍ဖြစ်စေ၊ ဆက်သွယ်ရေးစာအုပ်တွင်ရေး၍ဖြစ်စေ အကြောင်းကြားရာ၌ သုံးသောပုံမှန်စာသားဖြစ်သည်။",
+            "km": "ជាប្រយោគទូទៅដែលឪពុកម្តាយប្រើសម្រាប់ប្រាប់សាលា (គ្រូបន្ទុកថ្នាក់) តាមទូរស័ព្ទ ឬសៀវភៅទាក់ទងនៅពេលកូនឈឺនៅពេលព្រឹក។",
+            "ne": "बिहान बच्चा बिरामी हुँदा, अभिभावकले विद्यालय (कक्षा शिक्षक) लाई फोन वा सम्पर्क डायरी मार्फत जानकारी दिने वाक्य।",
+            "mn": "Өглөө хүүхэд өвдсөн үед эцэг эхчүүд сургууль (ангийн багш) руу утасдах эсвэл харилцах дэвтрээр мэдэгдэхдээ хэрэглэдэг тогтсон өгүүлбэр.",
+            "si": "උදෑසන දරුවෙකු අසනීප වූ විට දෙමාපියන් විසින් පාසලට (පන්ති භාර ගුරුවරයාට) දුරකථනයෙන් හෝ සන්නිවේදන පොතෙන් දැනුම් දීමට භාවිතා කරන සම්මත වාක්‍යයකි.",
+            "bn": "সকালে বাচ্চা অসুস্থ হলে বাবা-মা স্কুলকে (ক্লাস টিচারকে) ফোন করে বা যোগাযোগের ডায়রিতে লিখে জানাতে এই সাধারণ বাক্যটি ব্যবহার করেন।",
+            "pt": "Uma frase padrão usada pelos pais para informar a escola quando o filho está doente de manhã.",
+            "es": "Una frase estándar usada por los padres para informar a la escuela cuando el hijo está enfermo por la mañana.",
+            "fr": "Phrase type utilisée par les parents pour prévenir l'école (le professeur principal) par téléphone ou dans le carnet de liaison lorsque leur enfant est malade le matin.",
+            "ru": "Стандартная фраза, которую используют родители, чтобы сообщить школе (классному руководителю) по телефону или через дневник о том, что ребенок заболел с утра.",
+            "uk": "Стандартна фраза, яку використовують батьки, щоб повідомити школу (класного керівника) телефоном або через щоденник про те, що дитина захворіла зранку."
         },
         translations: {
             "en": "Thank you for always taking care of my child. Regarding my son, Taro, he has had a fever of 38 degrees since this morning. I will have him stay home from school today.",
-            "pt": "Obrigado por sempre cuidar do meu filho. Sobre o meu filho Taro, ele está com febre de 38 graus desde hoje de manhã. Vou deixá-lo descansar da escola hoje.",
             "zh-CN": "非常感谢您一直以来的照顾。我的儿子太郎今天早上开始发烧38度。今天让他请假不去上学。",
-            "tl": "Salamat po sa laging pag-aalaga sa aking anak. Tungkol po sa anak kong si Taro, may lagnat po siyang 38 degrees simula kaninang umaga. Papakahit muna siya sa bahay ngayon.",
+            "zh-TW": "非常感謝您一直以來的照顧。我的兒子太郎今天早上開始發燒38度。今天讓他請假不去上學。",
+            "ko": "평소에 감사드립니다. 제 아들 타로우입니다만, 오늘 아침부터 38도 열이 납니다. 오늘은 학교를 쉬게 하겠습니다.",
             "vi": "Xin chào thầy/cô. Con trai tôi là Taro bị sốt 38 độ từ sáng nay. Hôm nay tôi xin phép cho cháu nghỉ học ạ.",
-            "es": "Gracias por cuidar sempre de mi hijo. Con respecto a mi hijo Taro, tiene fiebre de 38 grados desde esta mañana. Lo haré faltar a la escuela hoy.",
+            "tl": "Salamat po sa laging pag-aalaga sa aking anak. Tungkol po sa anak kong si Taro, may lagnat po siyang 38 degrees simula kaninang umaga. Papakahit muna siya sa bahay ngayon.",
+            "id": "Terima kasih atas bimbingannya selalu. Mengenai anak saya Taro, dia demam 38 derajat sejak pagi ini. Hari ini saya ijin tidak menyekolahkannya.",
+            "th": "ขอบคุณที่ดูแลกันเสมอมาครับ/ค่ะ ลูกชายของฉัน ทาโร่ มีไข้ 38 องศาตั้งแต่เช้า วันนี้ขอให้ลาหยุดโรงเรียนครับ/ค่ะ",
+            "my": "အမြဲတမ်း ဂရုစိုက်ပေးတဲ့အတွက် ကျေးဇူးတင်ပါတယ်။ သားဖြစ်သူ တာရိုးက ဒီမနက်ကတည်းက ၃၈ ဒီဂရီ ဖျားနေပါတယ်။ ဒီနေ့ ကျောင်းကို ခွင့်တိုင်ပါရစေ。",
+            "km": "អរគុណសម្រាប់ការមើលថែជានិច្ច។ កូនប្រុសខ្ញុំ ថាវរ៉ូ មានកម្តៅ ៣៨ អង្សារតាំងពីព្រឹក។ ថ្ងៃនេះខ្ញុំសូមអនុញ្ញាតឱ្យគាត់សម្រាកមិនទៅសាលាទេ។",
             "ne": "सधैं सहयोग गर्नुभएकोमा धन्यवाद। मेरो छोरा तारोलाई आज बिहानदेखि ३८ डिग्री ज्वरो आएको छ। त्यसैले आज उसलाई स्कुल पठाउँदिनँ।",
-            "id": "Terima kasih atas bimbingannya selalu. Mengenai anak saya Taro, dia demam 38 derajat sejak pagi ini. Hari ini saya ijin tidak menyekolahkannya."
+            "mn": "Байнга тусалж дэмждэгт баярлалаа. Миний хүү Таро өнөө өглөөнөөс хойш 38 хэм халуурч байна. Өнөөдөр сургуулиас нь чөлөөлье.",
+            "si": "හැමවිටම ලබාදෙන සහයෝගයට ස්තුතියි. මගේ පුතා ටාරෝට අද උදේ ඉඳන් අංශක 38 ක උණ තියෙනවා. ඒ නිසා අද ඔහුව පාසල් එවන්නේ නැහැ.",
+            "bn": "সবসময় খেয়াল রাখার জন্য ধন্যবাদ। আমার ছেলে তারোর আজ সকাল থেকে ৩৮ ডিগ্রি জ্বর। তাই আজ তাকে স্কুলে পাঠাবো না।",
+            "pt": "Obrigado por sempre cuidar do meu filho. Sobre o meu filho Taro, ele está com febre de 38 graus desde hoje de manhã. Vou deixá-lo descansar da escola hoje.",
+            "es": "Gracias por cuidar siempre de mi hijo. Con respecto a mi hijo Taro, tiene fiebre de 38 grados desde esta mañana. Lo haré faltar a la escuela hoy.",
+            "fr": "Merci de toujours prendre soin de mon enfant. Mon fils Taro a de la fièvre à 38 degrés depuis ce matin. Il n'ira pas à l'école aujourd'hui.",
+            "ru": "Спасибо за вашу постоянную заботу. У моего сына Таро с самого утра температура 38 градусов. Сегодня он в школу не пойдет.",
+            "uk": "Дякуємо за вашу постійну турботу. У мого сина Таро з самого ранку температура 38 градусів. Сьогодні він до школи не піде."
         }
     },
     {
@@ -116,17 +228,45 @@ const japeakParagraphsData = [
         context: {
             "ja": "学校から配布されたプリントを読んでも、次の日のイベント（遠足など）の持ち物が分からない時に先生に質問する文章です。",
             "en": "Used to ask the teacher when you don't understand the required supplies for tomorrow's field trip written on the handout.",
-            "pt": "Usado para perguntar ao professor quando você não entende os materiais necessários para a excursão de amanhã.", "zh-CN": "看了学校发的通知单，还是不明白明天活动（如远足）需要带什么物品时，向老师请教的用语。", "tl": "Ginagamit upang magtanong sa titser kapag hindi naintindihan ang mga dadalhin para sa lakbay-aral bukas.", "vi": "Dùng để hỏi giáo viên khi đọc tài liệu trường phát nhưng chưa rõ đồ dùng cần mang cho chuyến dã ngoại ngày mai.", "es": "Se usa para preguntar al profesor cuando no entiendes los materiales para la excursión de mañana.", "ne": "विद्यालयबाट पाएको कागज हेर्दा पनि भोलिको पिकनिकको लागि चाहिने सामान नबुझ्दा शिक्षकलाई सोध्ने वाक्य।", "id": "Digunakan untuk bertanya kepada guru saat tidak memahami barang bawaan untuk piknik besok setelah membaca lembaran pengumuman."
+            "zh-CN": "看了学校发的通知单，还是不明白明天活动（如远足）需要带什么物品时，向老师请教的用语。",
+            "zh-TW": "看了學校發的通知單，還是不明白明天活動（如遠足）需要帶什麼物品時，向老師請教的用語。",
+            "ko": "학교에서 배부한 프린트를 읽어보아도 다음 날 행사(소풍 등)의 준비물을 잘 모르겠을 때 선생님께 질문하는 문장입니다。",
+            "vi": "Dùng để hỏi giáo viên khi đọc tài liệu trường phát nhưng chưa rõ đồ dùng cần mang cho chuyến dã ngoại ngày mai.",
+            "tl": "Ginagamit upang magtanong sa titser kapag hindi naintindihan ang mga dadalhin para sa lakbay-aral bukas.",
+            "id": "Digunakan untuk bertanya kepada guru saat tidak memahami barang bawaan untuk piknik besok setelah membaca lembaran pengumuman.",
+            "th": "ประโยคที่ใช้ถามครูเมื่ออ่านเอกสารที่โรงเรียนแจกแล้ว แต่ยังไม่เข้าใจว่าต้องเตรียมอะไรไปสำหรับกิจกรรมวันพรุ่งนี้ (เช่น ทัศนศึกษา)",
+            "my": "ကျောင်းမှဝေပေးသော စာရွက်ကိုဖတ်သော်လည်း နောက်နေ့တွင်ပြုလုပ်မည့် (လေ့လာရေးခရီးကဲ့သို့သော) ပွဲများအတွက် ယူသွားရမည့်ပစ္စည်းများကို နားမလည်ချိန်၌ ဆရာ့ကိုမေးရာတွင် သုံးသည်။",
+            "km": "ជាប្រយោគដែលប្រើសម្រាប់សួរគ្រូនៅពេលអានឯកសារដែលសាលាបានចែកជូនហើយ ប៉ុន្តែនៅតែមិនយល់ពីរបស់ដែលត្រូវយកទៅសម្រាប់កម្មវិធីនៅថ្ងៃស្អែក (ដូចជាដំណើរកម្សាន្ត)។",
+            "ne": "विद्यालयबाट पाएको कागज हेर्दा पनि भोलिको पिकनिकको लागि चाहिने सामान नबुझ्दा शिक्षकलाई सोध्ने वाक्य।",
+            "mn": "Сургуулиас тараасан цаасыг уншсан ч маргаашийн арга хэмжээнд (аялал гэх мэт) юу авч явахыг сайн ойлгохгүй үед багшаас асуух өгүүлбэр.",
+            "si": "පාසලෙන් දුන් පත්‍රිකාව කියෙව්වත්, පසුදා පැවැත්වෙන උත්සවයට (චාරිකාවක් වැනි) ගෙන යා යුතු දේවල් මොනවාදැයි නොතේරෙන විට ගුරුවරයාගෙන් ඇසීමට භාවිතා කරන වාක්‍යයකි.",
+            "bn": "স্কুল থেকে দেওয়া কাগজ পড়ার পরও পরের দিনের অনুষ্ঠানের (যেমন পিকনিক) জন্য কী নিয়ে যেতে হবে তা বুঝতে না পারলে শিক্ষককে জিজ্ঞাসা করতে এই বাক্যটি ব্যবহৃত হয়।",
+            "pt": "Usado para perguntar ao professor quando você não entende os materiais necessários para a excursão de amanhã indicados no folheto.",
+            "es": "Se usa para preguntar al profesor cuando no entiendes los materiales para la excursión de mañana tras leer el aviso.",
+            "fr": "Utilisé pour poser une question au professeur lorsqu'après avoir lu le document distribué par l'école, on ne comprend pas bien ce qu'il faut apporter pour l'événement du lendemain (comme une sortie scolaire).",
+            "ru": "Используется, чтобы задать вопрос учителю, если, прочитав выданную школой распечатку, вы не поняли, что нужно взять с собой на завтрашнее мероприятие (например, на экскурсию).",
+            "uk": "Використовується, щоб поставити запитання вчителю, якщо, прочитавши видану школою роздруківку, ви не зрозуміли, що потрібно взяти із собою на завтрашній захід (наприклад, на екскурсію)."
         },
         translations: {
             "en": "Thank you for your support. I looked at the handout I received yesterday. I don't really understand the items needed for tomorrow's field trip. Please tell me.",
-            "pt": "Obrigado pelo suporte. Vi o folheto que recebi ontem. Não entendi muito bem o que levar para a excursão de amanhã. Por favor, me informe.",
             "zh-CN": "谢谢您的照顾。我看了昨天发的手册。说明天远足要带的东西我不太明白。请告诉我。",
-            "tl": "Salamat po. Nakita ko po ang handout na binigay kahapon. Hindi ko po gaanong naintindihan ang mga dadalhin para sa lakbay-aral bukas. Pakiusap, pakisabi po sa amin.",
+            "zh-TW": "謝謝您的照顧。我看了昨天發的通知單。說明天遠足要帶的東西我不太明白。請告訴我。",
+            "ko": "평소에 감사드립니다. 어제 받은 프린트를 보았습니다. 내일 소풍 준비물을 잘 모르겠습니다. 알려주세요.",
             "vi": "Chào thầy/cô. Tôi đã xem tờ thông báo nhận được hôm qua. Tôi không rõ lắm về đồ dùng cần mang cho chuyến dã ngoại ngày mai. Xin hãy hướng dẫn giúp tôi.",
-            "es": "Gracias por su apoyo. Vi la hoja que recibí ayer. No entiendo muy bien las cosas que hay que llevar para la excursión de mañana. Por favor, dígame.",
+            "tl": "Salamat po. Nakita ko po ang handout na binigay kahapon. Hindi ko po gaanong naintindihan ang mga dadalhin para sa lakbay-aral bukas. Pakiusap, pakisabi po sa amin.",
+            "id": "Terima kasih atas bantuannya. Saya sudah membaca lembaran yang diberikan kemarin. Saya kurang paham barang bawaan untuk piknik besok. Mohon penjelasannya.",
+            "th": "ขอบคุณที่ดูแลครับ/ค่ะ ฉันได้ดูเอกสารที่ได้รับเมื่อวานแล้ว แต่ยังไม่ค่อยเข้าใจเรื่องของที่ต้องเตรียมไปทัศนศึกษาพรุ่งนี้ ช่วยอธิบายให้ฟังหน่อยครับ/ค่ะ",
+            "my": "အမြဲတမ်း ဂရုစိုက်ပေးတဲ့အတွက် ကျေးဇူးတင်ပါတယ်။ မနေ့ကရတဲ့ စာရွက်ကို ကြည့်ပြီးပါပြီ။ မနက်ဖြန် လေ့လာရေးခရီးအတွက် ယူသွားရမယ့်ပစ္စည်းတွေကို သေချာနားမလည်လို့ပါ။ ကျေးဇူးပြု၍ ရှင်းပြပေးပါ။",
+            "km": "អរគុណសម្រាប់ការមើលថែ។ ខ្ញុំបានមើលឯកសារដែលទទួលបានកាលពីម្សិលមិញហើយ។ ខ្ញុំមិនសូវយល់ពីរបស់ដែលត្រូវយកទៅសម្រាប់ដំណើរកម្សាន្តថ្ងៃស្អែកទេ។ សូមប្រាប់ខ្ញុំផង។",
             "ne": "नमस्कार। मैले हिजो पाएको कागज हेरेँ। भोलिको पिकनिकको लागि लैजाने सामानहरू राम्रोसँग बुझिनँ। कृपया मलाई बताइदिनुहोस्।",
-            "id": "Terima kasih atas bantuannya. Saya sudah membaca lembaran yang diberikan kemarin. Saya kurang paham barang bawaan untuk piknik besok. Mohon penjelasannya."
+            "mn": "Тусалж дэмждэгт баярлалаа. Өчигдөр өгсөн цаасыг үзлээ. Маргаашийн аялалд авч явах зүйлсийг сайн ойлгосонгүй. Надад хэлж өгнө үү.",
+            "si": "හැමවිටම ලබාදෙන සහයෝගයට ස්තුතියි. මම ඊයේ දුන්න කොළය බැලුවා. හෙට චාරිකාවට ගෙනියන්න ඕන දේවල් මට හරියටම තේරුණේ නැහැ. කරුණාකර මට කියලා දෙන්න.",
+            "bn": "সবসময় সাহায্য করার জন্য ধন্যবাদ। আমি গতকাল দেওয়া কাগজটি দেখেছি। আগামীকালের পিকনিকের জন্য কী নিয়ে যেতে হবে তা ভালো করে বুঝতে পারছি না। দয়া করে আমাকে বুঝিয়ে বলুন।",
+            "pt": "Obrigado pelo suporte. Vi o folheto que recebi ontem. Não entendi muito bem o que levar para a excursão de amanhã. Por favor, me informe.",
+            "es": "Gracias por su apoyo. Vi la hoja que recibí ayer. No entiendo muy bien las cosas que hay que llevar para la excursión de mañana. Por favor, dígame.",
+            "fr": "Merci pour votre soutien. J'ai regardé le document reçu hier. Je ne comprends pas bien ce qu'il faut apporter pour la sortie scolaire de demain. Pourriez-vous m'éclairer ?",
+            "ru": "Спасибо за вашу поддержку. Я посмотрел(а) распечатку, которую выдали вчера. Я не очень понял(а), что нужно взять с собой на завтрашнюю экскурсию. Подскажите, пожалуйста.",
+            "uk": "Дякуємо за вашу підтримку. Я подивився(лася) роздруківку, яку видали вчора. Я не дуже зрозумів(ла), що потрібно взяти з собою на завтрашню екскурсію. Підкажіть, будь ласка."
         }
     }
 ];

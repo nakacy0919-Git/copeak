@@ -1,5 +1,5 @@
 // ==========================================
-// Japeak 教材データベース（多言語対応・会話編）
+// Japeak 教材データベース（多言語対応・会話編）- 19言語指定順対応版
 // ==========================================
 const japeakConversationData = [
     // 1. 友達を誘う
@@ -10,10 +10,45 @@ const japeakConversationData = [
         context: {
             "ja": "休み時間や昼休みに、クラスメイトを食事に誘うときに使います。友達を作るための第一歩です。",
             "en": "Used to invite a classmate to eat together during break or lunch.",
-            "pt": "Usado para convidar um colega de classe para comer junto.", "zh-CN": "在午休时邀请同学一起吃饭的用语。", "tl": "Ginagamit upang anyayahan ang isang kaklase na kumain nang sabay.", "vi": "Được sử dụng để mời bạn cùng lớp ăn trưa.", "es": "Se usa para invitar a un compañero a comer.", "ne": "खाजाको समयमा साथीलाई सँगै खाना खान बोलाउँदा प्रयोग गरिन्छ।", "id": "Digunakan untuk mengajak teman sekelas makan bersama."
+            "zh-CN": "在午休时邀请同学一起吃饭的用语。",
+            "zh-TW": "在午休時邀請同學一起吃飯的用語。",
+            "ko": "쉬는 시간이나 점심시간에 반 친구에게 같이 밥을 먹자고 할 때 사용합니다.",
+            "vi": "Được sử dụng để mời bạn cùng lớp ăn trưa.",
+            "tl": "Ginagamit upang anyayahan ang isang kaklase na kumain nang sabay.",
+            "id": "Digunakan untuk mengajak teman sekelas makan bersama.",
+            "th": "ใช้ชวนเพื่อนร่วมชั้นทานอาหารกลางวันด้วยกัน",
+            "my": "နေ့လယ်စာစားချိန်တွင် အတန်းဖော်ကို အတူတူစားရန် ဖိတ်ခေါ်ရာတွင် သုံးသည်။",
+            "km": "ប្រើសម្រាប់បបួលមិត្តរួមថ្នាក់ញ៉ាំអាហារពេលថ្ងៃត្រង់ជាមួយគ្នា។",
+            "ne": "खाजाको समयमा साथीलाई सँगै खाना खान बोलाउँदा प्रयोग गरिन्छ।",
+            "mn": "Завсарлагаан эсвэл үдийн цайны цагаар ангийнхантайгаа хамт хооллохыг урих үед ашиглана.",
+            "si": "දිවා ආහාර වේලාවේදී පන්තියේ මිතුරෙකුට එකට කෑමට ආරාධනා කිරීමට භාවිතා කරයි.",
+            "bn": "দুপুরের বিরতিতে সহপাঠীকে একসাথে খাওয়ার আমন্ত্রণ জানাতে ব্যবহৃত হয়।",
+            "pt": "Usado para convidar um colega de classe para comer junto.",
+            "es": "Se usa para invitar a un compañero a comer.",
+            "fr": "Utilisé pour inviter un camarade de classe à déjeuner ensemble.",
+            "ru": "Используется, чтобы предложить однокласснику вместе пообедать во время перерыва.",
+            "uk": "Використовується, щоб запропонувати однокласнику разом пообідати під час перерви."
         },
         translations: {
-            "en": "Would you like to eat lunch together?", "pt": "Você gostaria de almoçar junto?", "zh-CN": "要不要一起吃午饭？", "tl": "Gusto mo bang sabay tayong mananghalian?", "vi": "Bạn có muốn ăn trưa cùng nhau không?", "es": "¿Te gustaría almorzar juntos?", "ne": "के तपाईं सँगै खाजा खान चाहनुहुन्छ?", "id": "Maukah kamu makan siang bersama?"
+            "en": "Would you like to eat lunch together?",
+            "zh-CN": "要不要一起吃午饭？",
+            "zh-TW": "要不要一起吃午飯？",
+            "ko": "같이 점심 먹지 않을래요?",
+            "vi": "Bạn có muốn ăn trưa cùng nhau không?",
+            "tl": "Gusto mo bang sabay tayong mananghalian?",
+            "id": "Maukah kamu makan siang bersama?",
+            "th": "ไปทานข้าวเที่ยงด้วยกันไหมครับ/คะ?",
+            "my": "နေ့လယ်စာ အတူတူစားကြမလား။",
+            "km": "តើអ្នកចង់ញ៉ាំអាហារពេលថ្ងៃត្រង់ជាមួយគ្នាទេ?",
+            "ne": "के तपाईं सँगै खाजा खान चाहनुहुन्छ?",
+            "mn": "Хамтдаа үдийн хоол идэх үү?",
+            "si": "අපි එකට දිවා ආහාරය ගනිමුද?",
+            "bn": "তুমি কি একসাথে দুপুরের খাবার খেতে চাও?",
+            "pt": "Você gostaria de almoçar junto?",
+            "es": "¿Te gustaría almorzar juntos?",
+            "fr": "Voudrais-tu déjeuner avec moi ?",
+            "ru": "Не хочешь пообедать вместе?",
+            "uk": "Не хочеш пообідати разом?"
         }
     },
     // 2. 感謝を伝える
@@ -24,13 +59,48 @@ const japeakConversationData = [
         context: {
             "ja": "勉強を教えてもらったり、手伝ってもらったりした後に、相手に感謝の気持ちを伝える言葉です。",
             "en": "Used to express gratitude after someone has taught you something or helped you out.",
-            "pt": "Usado para expressar gratidão depois de ser ajudado.", "zh-CN": "在别人帮助你之后，表达感谢之情的用语。", "tl": "Ginagamit upang magpasalamat matapos kang tulungan.", "vi": "Được sử dụng để bày tỏ lòng biết ơn sau khi được giúp đỡ.", "es": "Se usa para expresar gratitud después de ser ayudado.", "ne": "मद्दत गरेपछि कृतज्ञता व्यक्त गर्न प्रयोग गरिन्छ।", "id": "Digunakan untuk mengungkapkan rasa terima kasih setelah dibantu."
+            "zh-CN": "在别人帮助你之后，表达感谢之情的用语。",
+            "zh-TW": "在別人幫助你之後，表達感謝之情的用語。",
+            "ko": "도움을 받은 후 감사의 마음을 전할 때 사용합니다.",
+            "vi": "Được sử dụng để bày tỏ lòng biết ơn sau khi được giúp đỡ.",
+            "tl": "Ginagamit upang magpasalamat matapos kang tulungan.",
+            "id": "Digunakan untuk mengungkapkan rasa terima kasih setelah dibantu.",
+            "th": "ใช้แสดงความขอบคุณหลังจากได้รับการช่วยเหลือ",
+            "my": "အကူအညီရပြီးနောက် ကျေးဇူးတင်ကြောင်း ပြောရာတွင် သုံးသည်။",
+            "km": "ប្រើសម្រាប់បង្ហាញការដឹងគុណបន្ទាប់ពីមានគេជួយ។",
+            "ne": "मद्दत गरेपछि कृतज्ञता व्यक्त गर्न प्रयोग गरिन्छ।",
+            "mn": "Бусдаас тусламж авсныхаа дараа талархсанаа илэрхийлэхдээ ашиглана.",
+            "si": "යමෙකු උදව් කිරීමෙන් පසු කෘතඥතාව පළ කිරීමට භාවිතා කරයි.",
+            "bn": "কেউ সাহায্য করার পর কৃতজ্ঞতা প্রকাশ করতে ব্যবহৃত হয়।",
+            "pt": "Usado para expressar gratidão depois de ser ajudado.",
+            "es": "Se usa para expresar gratitud después de ser ayudado.",
+            "fr": "Utilisé pour exprimer sa gratitude après avoir été aidé.",
+            "ru": "Используется для выражения благодарности после того, как вам помогли.",
+            "uk": "Використовується для вираження вдячності після того, як вам допомогли."
         },
         translations: {
-            "en": "Thank you for helping me.", "pt": "Obrigado por me ajudar.", "zh-CN": "谢谢你的帮助。", "tl": "Salamat sa pagtulong sa akin.", "vi": "Cảm ơn bạn đã giúp đỡ tôi.", "es": "Gracias por ayudarme.", "ne": "मलाई मद्दत गर्नुभएकोमा धन्यवाद।", "id": "Terima kasih telah membantu saya."
+            "en": "Thank you for helping me.",
+            "zh-CN": "谢谢你的帮助。",
+            "zh-TW": "謝謝你的幫助。",
+            "ko": "도와주셔서 감사합니다.",
+            "vi": "Cảm ơn bạn đã giúp đỡ tôi.",
+            "tl": "Salamat sa pagtulong sa akin.",
+            "id": "Terima kasih telah membantu saya.",
+            "th": "ขอบคุณที่ช่วยนะ",
+            "my": "ကူညီပေးတဲ့အတွက် ကျေးဇူးတင်ပါတယ်။",
+            "km": "សូមអរគុណដែលបានជួយខ្ញុំ។",
+            "ne": "मलाई मद्दत गर्नुभएकोमा धन्यवाद।",
+            "mn": "Тусалсанд баярлалаа.",
+            "si": "මට උදව් කළාට ස්තුතියි.",
+            "bn": "আমাকে সাহায্য করার জন্য ধন্যবাদ।",
+            "pt": "Obrigado por me ajudar.",
+            "es": "Gracias por ayudarme.",
+            "fr": "Merci de m'avoir aidé.",
+            "ru": "Спасибо за помощь.",
+            "uk": "Дякую за допомогу."
         }
     },
-    // 3. 誘いを断る（新規）
+    // 3. 誘いを断る
     {
         id: "japeak_conv_003", audio: "audio/japeak_conv_003.mp3", title: "誘いを断る (Declining an Invitation)", category: "school_life_conversation",
         japanese: "ごめんなさい、今日は用事があります。", target_speech: "ごめんなさいきょうはようじがあります",
@@ -38,13 +108,48 @@ const japeakConversationData = [
         context: {
             "ja": "友達からの遊びや食事の誘いに行けない時、相手を傷つけずに優しく断る言葉です。",
             "en": "A polite way to decline a friend's invitation to hang out or eat when you have other plans.",
-            "pt": "Uma maneira educada de recusar um convite de um amigo quando você tem outros planos.", "zh-CN": "因为有事无法赴约时，委婉拒绝朋友邀请的用语。", "tl": "Isang magalang na paraan para tumanggi sa imbitasyon ng kaibigan.", "vi": "Cách từ chối lịch sự lời mời của bạn bè khi bạn có việc bận.", "es": "Una forma educada de rechazar una invitación de un amigo.", "ne": "साथीको निमन्त्रणा अस्वीकार गर्ने विनम्र तरिका।", "id": "Cara sopan untuk menolak ajakan teman saat Anda ada urusan lain."
+            "zh-CN": "因为有事无法赴约时，委婉拒绝朋友邀请的用语。",
+            "zh-TW": "因為有事無法赴約時，委婉拒絕朋友邀請的用語。",
+            "ko": "다른 일정이 있어서 친구의 초대를 거절할 때 정중하게 사용하는 말입니다.",
+            "vi": "Cách từ chối lịch sự lời mời của bạn bè khi bạn có việc bận.",
+            "tl": "Isang magalang na paraan para tumanggi sa imbitasyon ng kaibigan.",
+            "id": "Cara sopan untuk menolak ajakan teman saat Anda ada urusan lain.",
+            "th": "วิธีปฏิเสธคำชวนของเพื่อนอย่างสุภาพเมื่อมีธุระอื่น",
+            "my": "အခြားကိစ္စရှိ၍ သူငယ်ချင်း၏ဖိတ်ခေါ်ချက်ကို ယဉ်ကျေးစွာ ငြင်းပယ်ရာတွင် သုံးသည်။",
+            "km": "វិធីគួរសមដើម្បីបដិសេធការអញ្ជើញរបស់មិត្តភក្តិនៅពេលអ្នកមានធុរៈ។",
+            "ne": "साथीको निमन्त्रणा अस्वीकार गर्ने विनम्र तरिका।",
+            "mn": "Өөр ажилтай байх үедээ найзынхаа урилгаас эелдгээр татгалзахдаа хэрэглэнэ.",
+            "si": "ඔබට වෙනත් වැඩක් ඇති විට මිතුරෙකුගේ ආරාධනයක් කාරුණිකව ප්‍රතික්ෂේප කිරීමට භාවිතා කරයි.",
+            "bn": "অন্য কাজ থাকলে বন্ধুর আমন্ত্রণ ভদ্রভাবে প্রত্যাখ্যান করার উপায়।",
+            "pt": "Uma maneira educada de recusar um convite de um amigo quando você tem outros planos.",
+            "es": "Una forma educada de rechazar una invitación de un amigo.",
+            "fr": "Une façon polie de décliner l'invitation d'un ami lorsqu'on a d'autres projets.",
+            "ru": "Вежливый способ отказаться от приглашения друга, если у вас другие планы.",
+            "uk": "Ввічливий спосіб відмовитися від запрошення друга, якщо у вас інші плани."
         },
         translations: {
-            "en": "I'm sorry, I have plans today.", "pt": "Desculpe, tenho compromissos hoje.", "zh-CN": "对不起，我今天有事。", "tl": "Pasensya na, may gagawin ako ngayon.", "vi": "Xin lỗi, hôm nay tôi có việc rồi.", "es": "Lo siento, tengo planes hoy.", "ne": "माफ गर्नुहोस्, आज मेरो काम छ।", "id": "Maaf, saya ada urusan hari ini."
+            "en": "I'm sorry, I have plans today.",
+            "zh-CN": "对不起，我今天有事。",
+            "zh-TW": "對不起，我今天有事。",
+            "ko": "미안해요, 오늘은 볼일이 있어요.",
+            "vi": "Xin lỗi, hôm nay tôi có việc rồi.",
+            "tl": "Pasensya na, may gagawin ako ngayon.",
+            "id": "Maaf, saya ada urusan hari ini.",
+            "th": "ขอโทษนะ วันนี้มีธุระแล้ว",
+            "my": "တောင်းပန်ပါတယ်၊ ဒီနေ့ ကိစ္စလေးရှိလို့ပါ။",
+            "km": "សុំទោស ថ្ងៃនេះខ្ញុំមានធុរៈ។",
+            "ne": "माफ गर्नुहोस्, आज मेरो काम छ।",
+            "mn": "Уучлаарай, өнөөдөр би ажилтай.",
+            "si": "කණගාටුයි, අද මට වැඩ තියෙනවා.",
+            "bn": "দুঃখিত, আজ আমার একটু কাজ আছে।",
+            "pt": "Desculpe, tenho compromissos hoje.",
+            "es": "Lo siento, tengo planes hoy.",
+            "fr": "Désolé, j'ai quelque chose de prévu aujourd'hui.",
+            "ru": "Извините, у меня сегодня дела.",
+            "uk": "Вибачте, у мене сьогодні справи."
         }
     },
-    // 4. 物を借りる（新規）
+    // 4. 物を借りる
     {
         id: "japeak_conv_004", audio: "audio/japeak_conv_004.mp3", title: "物を借りる (Borrowing Something)", category: "school_life_conversation",
         japanese: "ペンを貸してくれませんか。", target_speech: "ぺんをかしてくれませんか",
@@ -52,13 +157,48 @@ const japeakConversationData = [
         context: {
             "ja": "授業中に文房具を忘れた時など、隣の席の友達に物を借りたい時に使います。",
             "en": "Used to ask a friend to lend you something, like a pen when you forgot yours in class.",
-            "pt": "Usado para pedir a um amigo que lhe empreste algo, como uma caneta.", "zh-CN": "上课时忘记带文具，想向旁边的同学借用时的用语。", "tl": "Ginagamit upang humiram ng isang bagay mula sa kaibigan, tulad ng bolpen.", "vi": "Dùng để mượn bạn bè một vật gì đó, chẳng hạn như bút.", "es": "Se usa para pedirle prestado algo a un amigo, como un bolígrafo.", "ne": "साथीसँग कलम जस्ता सामान माग्न प्रयोग गरिन्छ।", "id": "Digunakan untuk meminjam sesuatu dari teman, seperti pulpen."
+            "zh-CN": "上课时忘记带文具，想向旁边的同学借用时的用语。",
+            "zh-TW": "上課時忘記帶文具，想向旁邊的同學借用時的用語。",
+            "ko": "수업 중에 학용품을 잊어버렸을 때, 옆 짝꿍에게 물건을 빌리고 싶을 때 사용합니다.",
+            "vi": "Dùng để mượn bạn bè một vật gì đó, chẳng hạn như bút.",
+            "tl": "Ginagamit upang humiram ng isang bagay mula sa kaibigan, tulad ng bolpen.",
+            "id": "Digunakan untuk meminjam sesuatu dari teman, seperti pulpen.",
+            "th": "ใช้ขอยืมสิ่งของจากเพื่อน เช่น ปากกา",
+            "my": "သူငယ်ချင်းထံမှ ဘောပင်ကဲ့သို့သော ပစ္စည်းတစ်ခုခုကို ငှားရမ်းလိုသောအခါ သုံးသည်။",
+            "km": "ប្រើសម្រាប់ខ្ចីរបស់ពីមិត្តភក្តិ ដូចជាប៊ិចជាដើម។",
+            "ne": "साथीसँग कलम जस्ता सामान माग्न प्रयोग गरिन्छ।",
+            "mn": "Хичээлийн үеэр үзэг зэрэг зүйлсээ мартсан үедээ найзаасаа зээлэхийг гуйхдаа ашиглана.",
+            "si": "පෑනක් වැනි යමක් මිතුරෙකුගෙන් ඉල්ලා සිටීමට භාවිතා කරයි.",
+            "bn": "বন্ধুর কাছ থেকে কলমের মতো কিছু ধার নিতে ব্যবহৃত হয়।",
+            "pt": "Usado para pedir a um amigo que lhe empreste algo, como uma caneta.",
+            "es": "Se usa para pedirle prestado algo a un amigo, como un bolígrafo.",
+            "fr": "Utilisé pour emprunter quelque chose à un ami, comme un stylo.",
+            "ru": "Используется, чтобы одолжить что-то у друга, например ручку.",
+            "uk": "Використовується, щоб позичити щось у друга, наприклад ручку."
         },
         translations: {
-            "en": "Could you lend me a pen?", "pt": "Você poderia me emprestar uma caneta?", "zh-CN": "能借我一支笔吗？", "tl": "Pwede ba akong humiram ng bolpen?", "vi": "Bạn cho mình mượn một cây bút được không?", "es": "¿Me podrías prestar un bolígrafo?", "ne": "के मलाई कलम दिन सक्नुहुन्छ?", "id": "Bolehkah saya pinjam pulpenmu?"
+            "en": "Could you lend me a pen?",
+            "zh-CN": "能借我一支笔吗？",
+            "zh-TW": "能借我一支筆嗎？",
+            "ko": "펜 좀 빌려줄 수 있나요?",
+            "vi": "Bạn cho mình mượn một cây bút được không?",
+            "tl": "Pwede ba akong humiram ng bolpen?",
+            "id": "Bolehkah saya pinjam pulpenmu?",
+            "th": "ขอยืมปากกาหน่อยได้ไหม?",
+            "my": "ဘောပင်လေး ငှားပေးလို့ရမလား။",
+            "km": "តើអ្នកអាចឲ្យខ្ញុំខ្ចីប៊ិចមួយបានទេ?",
+            "ne": "के मलाई कलम दिन सक्नुहुन्छ?",
+            "mn": "Үзгээ түр өгөөч?",
+            "si": "මට පෑනක් දිය හැකිද?",
+            "bn": "আমাকে কি একটি কলম ধার দিতে পারবে?",
+            "pt": "Você poderia me emprestar uma caneta?",
+            "es": "¿Me podrías prestar un bolígrafo?",
+            "fr": "Pourriez-vous me prêter un stylo ?",
+            "ru": "Не могли бы вы одолжить мне ручку?",
+            "uk": "Чи не могли б ви позичити мені ручку?"
         }
     },
-    // 5. 遊びに誘う（週末）（新規）
+    // 5. 遊びに誘う（週末）
     {
         id: "japeak_conv_005", audio: "audio/japeak_conv_005.mp3", title: "遊びに誘う (Inviting to Hang Out)", category: "school_life_conversation",
         japanese: "今週末、一緒に遊びに行きませんか。", target_speech: "こんしゅうまついっしょにあそびにいきませんか",
@@ -66,13 +206,48 @@ const japeakConversationData = [
         context: {
             "ja": "学校が休みの週末に、仲良くなった友達を買い物や映画などに誘う言葉です。",
             "en": "A phrase to invite a good friend to hang out, go shopping, or see a movie on the weekend.",
-            "pt": "Uma frase para convidar um amigo para sair no fim de semana.", "zh-CN": "周末时邀请好朋友一起出去玩或逛街的用语。", "tl": "Ginagamit para anyayahan ang isang kaibigan na lumabas sa weekend.", "vi": "Câu dùng để rủ bạn bè đi chơi vào cuối tuần.", "es": "Una frase para invitar a un amigo a salir el fin de semana.", "ne": "सप्ताहन्तमा साथीलाई घुम्न जान बोलाउने शब्द।", "id": "Kalimat untuk mengajak teman jalan-jalan di akhir pekan."
+            "zh-CN": "周末时邀请好朋友一起出去玩或逛街的用语。",
+            "zh-TW": "週末時邀請好朋友一起出去玩或逛街的用語。",
+            "ko": "주말에 친한 친구에게 놀러 가자고 권유할 때 사용합니다.",
+            "vi": "Câu dùng để rủ bạn bè đi chơi vào cuối tuần.",
+            "tl": "Ginagamit para anyayahan ang isang kaibigan na lumabas sa weekend.",
+            "id": "Kalimat untuk mengajak teman jalan-jalan di akhir pekan.",
+            "th": "ประโยคสำหรับชวนเพื่อนไปเที่ยวในวันหยุดสุดสัปดาห์",
+            "my": "စနေ၊ တနင်္ဂနွေ အားလပ်ရက်တွင် သူငယ်ချင်းများနှင့် အပြင်သွားရန် ဖိတ်ခေါ်ရာ၌ သုံးသည်။",
+            "km": "ប្រយោគសម្រាប់បបួលមិត្តភក្តិដើរលេងនៅចុងសប្តាហ៍។",
+            "ne": "सप्ताहन्तमा साथीलाई घुम्न जान बोलाउने शब्द।",
+            "mn": "Амралтын өдрөөр найзыгаа гадуур гарахыг урихдаа ашиглана.",
+            "si": "සති අන්තයේ මිතුරෙකුට පිටතට යාමට ආරාධනා කිරීමට භාවිතා කරයි.",
+            "bn": "সপ্তাহান্তে বন্ধুকে বাইরে যাওয়ার আমন্ত্রণ জানাতে ব্যবহৃত হয়।",
+            "pt": "Uma frase para convidar um amigo para sair no fim de semana.",
+            "es": "Una frase para invitar a un amigo a salir el fin de semana.",
+            "fr": "Une phrase pour inviter un ami à sortir le week-end.",
+            "ru": "Фраза, чтобы пригласить друга куда-нибудь на выходных.",
+            "uk": "Фраза, щоб запросити друга кудись на вихідних."
         },
         translations: {
-            "en": "Would you like to hang out this weekend?", "pt": "Você gostaria de sair neste fim de semana?", "zh-CN": "这周末要不要一起出去玩？", "tl": "Gusto mo bang lumabas ngayong weekend?", "vi": "Cuối tuần này đi chơi cùng nhau không?", "es": "¿Te gustaría salir este fin de semana?", "ne": "यस सप्ताहन्तमा सँगै घुम्न जाऔं?", "id": "Maukah kamu pergi jalan-jalan akhir pekan ini?"
+            "en": "Would you like to hang out this weekend?",
+            "zh-CN": "这周末要不要一起出去玩？",
+            "zh-TW": "這週末要不要一起出去玩？",
+            "ko": "이번 주말에 같이 놀러 가지 않을래요?",
+            "vi": "Cuối tuần này đi chơi cùng nhau không?",
+            "tl": "Gusto mo bang lumabas ngayong weekend?",
+            "id": "Maukah kamu pergi jalan-jalan akhir pekan ini?",
+            "th": "สุดสัปดาห์นี้ไปเที่ยวด้วยกันไหม?",
+            "my": "ဒီအပတ်ပိတ်ရက် အတူတူ အပြင်သွားကြမလား။",
+            "km": "តើចុងសប្តាហ៍នេះទៅដើរលេងជាមួយគ្នាទេ?",
+            "ne": "यस सप्ताहन्तमा सँगै घुम्न जाऔं?",
+            "mn": "Энэ амралтын өдрүүдэд хамт гадуур гарах уу?",
+            "si": "මේ සති අන්තයේ එකට ඇවිදින්න යමුද?",
+            "bn": "এই সপ্তাহান্তে কি একসাথে ঘুরতে যাবে?",
+            "pt": "Você gostaria de sair neste fim de semana?",
+            "es": "¿Te gustaría salir este fin de semana?",
+            "fr": "Voudrais-tu sortir ce week-end ?",
+            "ru": "Не хочешь куда-нибудь сходить на этих выходных?",
+            "uk": "Не хочеш кудись піти на цих вихідних?"
         }
     },
-    // 6. 相手を褒める（新規）
+    // 6. 相手を褒める
     {
         id: "japeak_conv_006", audio: "audio/japeak_conv_006.mp3", title: "相手を褒める (Complimenting)", category: "school_life_conversation",
         japanese: "すごいですね！かっこいいです。", target_speech: "すごいですねかっこいいです",
@@ -80,13 +255,48 @@ const japeakConversationData = [
         context: {
             "ja": "友達の持ち物や、スポーツのプレイなどを見て、素敵だと感じた時に素直に褒める言葉です。",
             "en": "Used to honestly compliment a friend's belongings or their skills in sports.",
-            "pt": "Usado para elogiar honestamente as coisas de um amigo ou suas habilidades.", "zh-CN": "看到朋友的物品或出色的表现时，由衷赞美对方的用语。", "tl": "Ginagamit para purihin ang kaibigan sa kanilang gamit o galing.", "vi": "Dùng để khen ngợi đồ vật hoặc kỹ năng của bạn bè một cách chân thành.", "es": "Se usa para elogiar sinceramente las cosas o habilidades de un amigo.", "ne": "साथीको सामान वा सीपको प्रशंसा गर्न प्रयोग गरिन्छ।", "id": "Digunakan untuk memuji barang atau kemampuan teman."
+            "zh-CN": "看到朋友的物品或出色的表现时，由衷赞美对方的用语。",
+            "zh-TW": "看到朋友的物品或出色的表現時，由衷讚美對方的用語。",
+            "ko": "친구의 물건이나 실력을 보고 멋지다고 느꼈을 때 솔직하게 칭찬하는 말입니다.",
+            "vi": "Dùng để khen ngợi đồ vật hoặc kỹ năng của bạn bè một cách chân thành.",
+            "tl": "Ginagamit para purihin ang kaibigan sa kanilang gamit o galing.",
+            "id": "Digunakan untuk memuji barang atau kemampuan teman.",
+            "th": "ใช้ชมเชยสิ่งของหรือทักษะของเพื่อนอย่างจริงใจ",
+            "my": "သူငယ်ချင်း၏ ပစ္စည်း သို့မဟုတ် ကျွမ်းကျင်မှုများကို ချီးကျူးရာတွင် သုံးသည်။",
+            "km": "ប្រើសម្រាប់សរសើររបស់របរ ឬជំនាញរបស់មិត្តភក្តិ។",
+            "ne": "साथीको सामान वा सीपको प्रशंसा गर्न प्रयोग गरिन्छ।",
+            "mn": "Найзынхаа эд зүйлс эсвэл чадварыг магтахдаа хэрэглэнэ.",
+            "si": "මිතුරෙකුගේ දේවල් හෝ හැකියාවන් අවංකව අගය කිරීමට භාවිතා කරයි.",
+            "bn": "বন্ধুর জিনিসপত্র বা দক্ষতার প্রশংসা করতে ব্যবহৃত হয়।",
+            "pt": "Usado para elogiar honestamente as coisas de um amigo ou suas habilidades.",
+            "es": "Se usa para elogiar sinceramente las cosas o habilidades de un amigo.",
+            "fr": "Utilisé pour complimenter sincèrement les affaires ou les compétences d'un ami.",
+            "ru": "Используется для искреннего комплимента вещам или навыкам друга.",
+            "uk": "Використовується для щирого компліменту речам або навичкам друга."
         },
         translations: {
-            "en": "That's amazing! It's so cool.", "pt": "Isso é incrível! É muito legal.", "zh-CN": "太棒了！真帅气。", "tl": "Ang galing! Ang astig.", "vi": "Tuyệt quá! Rất tuyệt vời.", "es": "¡Eso es increíble! Es genial.", "ne": "धेरै राम्रो! कस्तो अचम्मको।", "id": "Hebat sekali! Itu sangat keren."
+            "en": "That's amazing! It's so cool.",
+            "zh-CN": "太棒了！真帅气。",
+            "zh-TW": "太棒了！真帥氣。",
+            "ko": "대단하네요! 멋져요.",
+            "vi": "Tuyệt quá! Rất tuyệt vời.",
+            "tl": "Ang galing! Ang astig.",
+            "id": "Hebat sekali! Itu sangat keren.",
+            "th": "ยอดเยี่ยมมาก! เท่สุดๆ ไปเลย",
+            "my": "အရမ်းမိုက်တာပဲ! အရမ်းသဘောကျတယ်။",
+            "km": "អស្ចារ្យណាស់! ឡូយមែនទែន។",
+            "ne": "धेरै राम्रो! कस्तो अचम्मको।",
+            "mn": "Гайхалтай юм аа! Ямар мундаг юм бэ.",
+            "si": "ඒක නියමයි! හරිම අපූරුයි.",
+            "bn": "এটা অসাধারণ! খুব সুন্দর।",
+            "pt": "Isso é incrível! É muito legal.",
+            "es": "¡Eso es increíble! Es genial.",
+            "fr": "C'est génial ! C'est super cool.",
+            "ru": "Потрясающе! Очень круто.",
+            "uk": "Чудово! Дуже круто."
         }
     },
-    // 7. 分からないことを友達に聞く（新規）
+    // 7. 分からないことを友達に聞く
     {
         id: "japeak_conv_007", audio: "audio/japeak_conv_007.mp3", title: "友達に質問する (Asking a Friend a Question)", category: "school_life_conversation",
         japanese: "これ、どういう意味か教えてくれる？", target_speech: "これどういういみかおしえてくれる",
@@ -94,10 +304,45 @@ const japeakConversationData = [
         context: {
             "ja": "先生ではなく、仲の良い友達に日本語の意味やプリントの内容をフランクに聞く時の言葉です。",
             "en": "A casual way to ask a close friend what a Japanese word or a handout means.",
-            "pt": "Uma maneira casual de perguntar a um amigo próximo o que algo significa.", "zh-CN": "向关系好的朋友询问日语含义或讲义内容时的随和用语。", "tl": "Isang kaswal na paraan upang magtanong sa kaibigan kung ano ang ibig sabihin ng isang bagay.", "vi": "Cách hỏi thân mật một người bạn thân về ý nghĩa của từ vựng hoặc tài liệu.", "es": "Una forma informal de preguntarle a un amigo cercano qué significa algo.", "ne": "नजिकको साथीलाई कुनै कुराको अर्थ सोध्ने अनौपचारिक तरिका।", "id": "Cara santai untuk bertanya kepada teman dekat apa arti sesuatu."
+            "zh-CN": "向关系好的朋友询问日语含义或讲义内容时的随和用语。",
+            "zh-TW": "向關係好的朋友詢問日語含義或講義內容時的隨和用語。",
+            "ko": "친한 친구에게 일본어의 의미나 프린트 내용을 편하게 물어볼 때 사용하는 말입니다.",
+            "vi": "Cách hỏi thân mật một người bạn thân về ý nghĩa của từ vựng hoặc tài liệu.",
+            "tl": "Isang kaswal na paraan upang magtanong sa kaibigan kung ano ang ibig sabihin ng isang bagay.",
+            "id": "Cara santai untuk bertanya kepada teman dekat apa arti sesuatu.",
+            "th": "วิธีการถามเพื่อนสนิทแบบเป็นกันเองว่าสิ่งนี้หมายความว่าอย่างไร",
+            "my": "ရင်းနှီးသော သူငယ်ချင်းအား စာရွက်ပါ အကြောင်းအရာများ၏ အဓိပ္ပာယ်ကို မေးရာတွင် သုံးသည်။",
+            "km": "វិធីក្រៅផ្លូវការដើម្បីសួរមិត្តភក្តិជិតស្និទ្ធថាតើនេះមានន័យយ៉ាងណា។",
+            "ne": "नजिकको साथीलाई कुनै कुराको अर्थ सोध्ने अनौपचारिक तरिका।",
+            "mn": "Дотны найзаасаа ямар нэг зүйлийн утгыг энгийнээр асуухдаа хэрэглэнэ.",
+            "si": "මෙහි තේරුම කුමක්දැයි සමීප මිතුරෙකුගෙන් ඇසීමට භාවිතා කරයි.",
+            "bn": "ঘনিষ্ঠ বন্ধুকে এর অর্থ কী তা জিজ্ঞাসা করার একটি সাধারণ উপায়।",
+            "pt": "Uma maneira casual de perguntar a um amigo próximo o que algo significa.",
+            "es": "Una forma informal de preguntarle a un amigo cercano qué significa algo.",
+            "fr": "Une façon informelle de demander à un ami proche ce que signifie quelque chose.",
+            "ru": "Неформальный способ спросить близкого друга, что означает что-либо.",
+            "uk": "Неформальний спосіб запитати близького друга, що означає щось."
         },
         translations: {
-            "en": "Could you tell me what this means?", "pt": "Você poderia me dizer o que isso significa?", "zh-CN": "你能告诉我这是什么意思吗？", "tl": "Pwede mo bang sabihin sa akin kung ano ang ibig sabihin nito?", "vi": "Cậu có thể cho mình biết cái này có nghĩa là gì không?", "es": "¿Podrías decirme qué significa esto?", "ne": "यसको अर्थ के हो मलाई बताउन सक्नुहुन्छ?", "id": "Bisakah kamu memberitahuku apa arti ini?"
+            "en": "Could you tell me what this means?",
+            "zh-CN": "你能告诉我这是什么意思吗？",
+            "zh-TW": "你能告訴我這是什麼意思嗎？",
+            "ko": "이거 무슨 뜻인지 알려줄래?",
+            "vi": "Cậu có thể cho mình biết cái này có nghĩa là gì không?",
+            "tl": "Pwede mo bang sabihin sa akin kung ano ang ibig sabihin nito?",
+            "id": "Bisakah kamu memberitahuku apa arti ini?",
+            "th": "ช่วยบอกหน่อยได้ไหมว่าอันนี้แปลว่าอะไร?",
+            "my": "ဒါ ဘာအဓိပ္ပာယ်လဲဆိုတာ ပြောပြလို့ရမလား။",
+            "km": "តើអ្នកអាចប្រាប់ខ្ញុំបានទេថាវានិយាយពីអ្វី?",
+            "ne": "यसको अर्थ के हो मलाई बताउन सक्नुहुन्छ?",
+            "mn": "Энэ ямар утгатай болохыг хэлээд өгөхгүй юу?",
+            "si": "මේකේ තේරුම මට කියන්න පුළුවන්ද?",
+            "bn": "এর মানে কী তা কি আমাকে বলতে পারবে?",
+            "pt": "Você poderia me dizer o que isso significa?",
+            "es": "¿Podrías decirme qué significa esto?",
+            "fr": "Pourrais-tu me dire ce que ça signifie ?",
+            "ru": "Не подскажешь, что это значит?",
+            "uk": "Не підкажеш, що це означає?"
         }
     }
 ];

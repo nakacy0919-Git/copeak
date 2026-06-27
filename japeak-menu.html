@@ -21,7 +21,6 @@
 </head>
 <body class="text-stone-800 pb-12">
 
-    <!-- ナビゲーション -->
     <div class="max-w-[1000px] w-[95%] mx-auto mt-6 md:mt-10 p-6 md:p-8 bg-[#fdfcf8] rounded-sm wa-border flex flex-col md:flex-row justify-between items-center gap-4">
         <div class="flex items-center gap-3 md:gap-4">
             <img src="japeaklog.png" alt="Japeak Logo" class="w-12 h-12 md:w-14 md:h-14 object-cover rounded-full border-2 border-[#1e3a5f] drop-shadow-sm">
@@ -30,40 +29,64 @@
                 <p class="text-[10px] text-[#b91c1c] font-bold tracking-widest">にほんごのれんしゅうをしましょう</p>
             </div>
         </div>
-        <div class="flex items-center gap-3">
-            <div class="flex items-center gap-2">
-                <select id="menu-lang-select" class="text-xs font-bold bg-[#f4f0e6] border-2 border-[#1e3a5f] text-[#1e3a5f] rounded-sm px-3 py-2 outline-none cursor-pointer">
+        <div class="flex items-center gap-6">
+            
+            <div class="relative inline-block text-left w-48 md:w-56 z-50" id="custom-lang-wrapper">
+                <div class="text-center text-[10px] text-[#0086d9] font-bold mb-0.5 tracking-widest uppercase">LANGUAGE</div>
+                
+                <button type="button" id="custom-lang-btn" class="inline-flex justify-between items-center w-full rounded-sm shadow-sm px-3 py-2 md:py-2.5 bg-[#0086d9] text-sm md:text-base font-bold text-white hover:bg-[#0074bd] transition-colors focus:outline-none">
+                    <span id="custom-lang-display" class="flex items-end gap-2">
+                        <span>English</span> <span class="text-[10px] font-normal opacity-90 mb-0.5">英語</span>
+                    </span>
+                    <svg id="custom-lang-chevron" class="ml-2 h-5 w-5 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+
+                <div id="custom-lang-menu" class="hidden absolute right-0 mt-0 w-full rounded-b-sm shadow-2xl bg-white border border-stone-200 overflow-hidden transform origin-top transition-all duration-200">
+                    <ul id="custom-lang-list" class="max-h-64 md:max-h-80 overflow-y-auto py-1 text-stone-800" style="scrollbar-width: thin; scrollbar-color: #a8a29e #f5f5f4;">
+                        </ul>
+                </div>
+
+                <select id="menu-lang-select" class="hidden">
                     <option value="en">English</option>
-                    <option value="pt">Português</option>
                     <option value="zh-CN">简体中文</option>
-                    <option value="tl">Tagalog</option>
+                    <option value="zh-TW">繁體中文</option>
+                    <option value="ko">한국어</option>
                     <option value="vi">Tiếng Việt</option>
-                    <option value="es">Español</option>
+                    <option value="tl">Filipino</option>
+                    <option value="id">Indonesia</option>
+                    <option value="th">ภาษาไทย</option>
+                    <option value="my">မြန်မာဘာသာ</option>
+                    <option value="km">ខ្មែរ</option>
                     <option value="ne">नेपाली</option>
-                    <option value="id">Bahasa Indonesia</option>
+                    <option value="mn">Монгол хэл</option>
+                    <option value="si">සිංහල</option>
+                    <option value="bn">বাংলা ভাষা</option>
+                    <option value="pt">Português</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                    <option value="ru">Русский</option>
+                    <option value="uk">Українська</option>
                 </select>
             </div>
-            <!-- オープニング画面（japeak-top.html）に戻るボタン -->
-            <button onclick="window.location.href='japeak-top.html'" class="bg-[#1e3a5f] hover:bg-[#172a45] text-white text-[10px] md:text-xs font-bold px-4 py-2 rounded-sm transition shadow-md">
+
+            <button onclick="window.location.href='japeak-top.html'" class="bg-[#1e3a5f] hover:bg-[#172a45] text-white text-[10px] md:text-xs font-bold px-4 py-2 rounded-sm transition shadow-md self-end mb-0.5">
                 トップへ戻る
             </button>
         </div>
     </div>
 
-    <!-- メインコンテンツ -->
     <div class="max-w-[1000px] w-[95%] mx-auto mt-6 flex flex-col gap-6">
         
-        <!-- 場面（カテゴリ）選択エリア -->
         <div class="bg-white p-6 rounded-sm wa-border">
             <h2 class="text-[#1e3a5f] font-bold text-lg mb-4 flex items-center gap-2">
                 <span class="text-2xl">🏫</span> <span id="label-category">どんな 場面（シチュエーション）ですか？</span>
             </h2>
             <div id="category-container" class="flex flex-wrap gap-3">
-                <!-- JSでカテゴリボタンが生成されます -->
-            </div>
+                </div>
         </div>
 
-        <!-- フレーズ一覧エリア -->
         <div class="bg-white p-6 rounded-sm wa-border min-h-[300px]">
             <h2 class="text-[#1e3a5f] font-bold text-lg mb-4 flex items-center gap-2 border-b border-stone-200 pb-2">
                 <span class="text-2xl">📝</span> <span id="label-phrase">れんしゅうする フレーズ</span>
@@ -75,7 +98,6 @@
 
     </div>
 
-    <!-- データの読み込み -->
     <script src="data/japeak-lessons.js"></script>
     <script src="data/japeak-conversation.js"></script>
     <script src="data/japeak-class.js"></script>
@@ -91,5 +113,88 @@
     <script src="data/japeak-paragraphs.js"></script>
     
     <script src="js/japeak-menu.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const langData = [
+                { code: 'en', native: 'English', jp: '英語' },
+                { code: 'zh-CN', native: '简体中文', jp: '中国語（簡体字）' },
+                { code: 'zh-TW', native: '繁體中文', jp: '中国語（繁体字）' },
+                { code: 'ko', native: '한국어', jp: '韓国語' },
+                { code: 'vi', native: 'Tiếng Việt', jp: 'ベトナム語' },
+                { code: 'tl', native: 'Filipino', jp: 'フィリピノ語' },
+                { code: 'id', native: 'Indonesia', jp: 'インドネシア語' },
+                { code: 'th', native: 'ภาษาไทย', jp: 'タイ語' },
+                { code: 'my', native: 'မြန်မာဘာသာ', jp: 'ミャンマー語' },
+                { code: 'km', native: 'ខ្មែរ', jp: 'クメール語' },
+                { code: 'ne', native: 'नेपाली', jp: 'ネパール語' },
+                { code: 'mn', native: 'Монгол хэл', jp: 'モンгол語' },
+                { code: 'si', native: 'සිංහල', jp: 'シンハラ語' },
+                { code: 'bn', native: 'বাংলা ভাষা', jp: 'ベンガル語' },
+                { code: 'pt', native: 'Português', jp: 'ポルトガル語' },
+                { code: 'es', native: 'Español', jp: 'スペイン語' },
+                { code: 'fr', native: 'Français', jp: 'フランス語' },
+                { code: 'ru', native: 'Русский', jp: 'ロシア語' },
+                { code: 'uk', native: 'Українська', jp: 'ウクライナ語' }
+            ];
+
+            const btn = document.getElementById('custom-lang-btn');
+            const menu = document.getElementById('custom-lang-menu');
+            const list = document.getElementById('custom-lang-list');
+            const display = document.getElementById('custom-lang-display');
+            const chevron = document.getElementById('custom-lang-chevron');
+            const hiddenSelect = document.getElementById('menu-lang-select');
+
+            // リスト項目の生成
+            langData.forEach(lang => {
+                const li = document.createElement('li');
+                li.className = "px-4 py-3 hover:bg-[#eef8ff] cursor-pointer border-b border-stone-100 last:border-0 transition-colors flex items-baseline gap-2 text-left";
+                li.innerHTML = `<span class="text-base font-medium">${lang.native}</span> <span class="text-[10px] text-stone-500 font-bold mb-0.5">${lang.jp}</span>`;
+                
+                li.addEventListener('click', () => {
+                    display.innerHTML = `<span>${lang.native}</span> <span class="text-[10px] font-normal opacity-90 mb-0.5">${lang.jp}</span>`;
+                    
+                    hiddenSelect.value = lang.code;
+                    hiddenSelect.dispatchEvent(new Event('change'));
+                    
+                    closeMenu();
+                });
+                list.appendChild(li);
+            });
+
+            // 初期表示のセット
+            setTimeout(() => {
+                const currentCode = hiddenSelect.value;
+                const currentLang = langData.find(l => l.code === currentCode) || langData[0];
+                display.innerHTML = `<span>${currentLang.native}</span> <span class="text-[10px] font-normal opacity-90 mb-0.5">${currentLang.jp}</span>`;
+            }, 100);
+
+            function toggleMenu() {
+                const isHidden = menu.classList.contains('hidden');
+                if (isHidden) {
+                    menu.classList.remove('hidden');
+                    chevron.classList.add('rotate-180');
+                } else {
+                    closeMenu();
+                }
+            }
+
+            function closeMenu() {
+                menu.classList.add('hidden');
+                chevron.classList.remove('rotate-180');
+            }
+
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleMenu();
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!menu.contains(e.target) && !btn.contains(e.target)) {
+                    closeMenu();
+                }
+            });
+        });
+    </script>
 </body>
 </html>

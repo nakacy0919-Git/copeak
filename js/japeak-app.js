@@ -26,8 +26,25 @@ let hasCelebrated = false;
 let isSwapped = false;
 
 const langCodeMap = {
-    'en': 'en-US', 'pt': 'pt-BR', 'zh-CN': 'zh-CN', 'tl': 'fil-PH', 
-    'vi': 'vi-VN', 'es': 'es-ES', 'ne': 'ne-NP', 'id': 'id-ID'
+    'en': 'en-US',
+    'zh-CN': 'zh-CN',
+    'zh-TW': 'zh-TW',
+    'ko': 'ko-KR',
+    'vi': 'vi-VN',
+    'tl': 'fil-PH',
+    'id': 'id-ID',
+    'th': 'th-TH',
+    'my': 'my-MM',
+    'km': 'km-KH',
+    'ne': 'ne-NP',
+    'mn': 'mn-MN',
+    'si': 'si-LK',
+    'bn': 'bn-BD',
+    'pt': 'pt-BR',
+    'es': 'es-ES',
+    'fr': 'fr-FR',
+    'ru': 'ru-RU',
+    'uk': 'uk-UA'
 };
 
 const urlParams = new URLSearchParams(window.location.search);
