@@ -186,7 +186,14 @@
     <script src="data/japeak-events.js"></script>
     <script src="data/japeak-office.js"></script>
     <script src="data/japeak-paragraphs.js"></script>
-    
+    <script src="data/japeak-a1-s1.js"></script>
+    <script src="data/japeak-convenient-shopping.js"></script>
+    <script src="data/japeak-convenient-ordering.js"></script>
+    <script src="data/japeak-convenient-neighbor.js"></script>
+    <script src="data/japeak-convenient-visit-home.js"></script>
+    <script src="data/japeak-convenient-question.js"></script>
+    <script src="data/japeak-a1-buy-things.js"></script>
+
     <script src="js/japeak-menu.js"></script>
 
     <script>
@@ -202,19 +209,19 @@
                 labelId: "title_convenient",
                 titles: { 'ja': "🥚 はじめに覚えよう！便利なフレーズ", 'en': "🥚 Basic Convenient Phrases", 'zh-CN': "🥚 首先记住！便利短句", 'zh-TW': "🥚 首先記住！便利短句", 'ko': "🥚 우선 기억하자! 편리한 표현", 'vi': "🥚 Cụm từ tiện lợi cơ bản", 'tl': "🥚 Mga Pangunahing Parirala", 'id': "🥚 Ungkapan Praktis Dasar", 'th': "🥚 วลีสะดวกใช้เบื้องต้น", 'my': "🥚 အခြေခံအသုံးဝင်သောစကားစုများ", 'km': "🥚 ឃ្លាប្រកបដោយភាពងាយស្រួល", 'ne': "🥚 सुरुमा सम्झनुपर्ने उपयोगी वाक्यांशहरू", 'mn': "🥚 Анхлан сурах хэрэгцээт үгс", 'si': "🥚 මූලික ප්‍රයෝජනවත් වාක්‍ය ඛණ්ඩ", 'bn': "🥚 প্রাথমিক দরকারী বাক্যাংশ", 'pt': "🥚 Frases Úteis Básicas", 'es': "🥚 Frases Útiles Básicas", 'fr': "🥚 Phrases Pratiques de Base", 'ru': "🥚 Базовые полезные фразы", 'uk': "🥚 Базові корисні фрази" },
                 scenes: [
-                    { name: "ちょっと声をかけたいとき", isReady: true, catKey: "break_time" },
-                    { name: "買い物をするとき", isReady: false },
-                    { name: "注文するとき", isReady: false },
-                    { name: "近所の人に会ったとき", isReady: false },
-                    { name: "人の家を訪問するとき", isReady: false },
-                    { name: "質問したいとき", isReady: false }
+                    { name: "ちょっと声をかけたいとき", isReady: true, catKey: "a1_scene1" },
+                    { name: "買い物をするとき", isReady: true, catKey: "convenient_shopping" },
+                    { name: "注文するとき", isReady: true, catKey: "convenient_ordering" },
+                    { name: "近所の人に会ったとき", isReady: true, catKey: "convenient_neighbor" },
+                    { name: "人の家を訪問するとき", isReady: true, catKey: "convenient_visit_home" },
+                    { name: "質問したいとき", isReady: true, catKey: "convenient_question" }
                 ]
             },
             {
                 labelId: "title_a1",
                 titles: { 'ja': "🌱 目指そう A1レベル", 'en': "🌱 Aim for A1 Level", 'zh-CN': "🌱 目标 A1 レベル", 'zh-TW': "🌱 目標 A1 レベル", 'ko': "🌱 도전하자 A1 레벨", 'vi': "🌱 Hướng tới trình độ A1", 'tl': "🌱 Layunin ang A1 Level", 'id': "🌱 Target Tingkat A1", 'th': "🌱 มุ่งสู่ระดับ A1", 'my': "🌱 A1 အဆင့်သို့ ရည်မှန်းကြစို့", 'km': "🌱 ឆ្ពោះទៅកម្រិត A1", 'ne': "🌱 A1 स्तरको लक्ष्य राखौं", 'mn': "🌱 A1 түвшинд хүрэх зорилт", 'si': "🌱 A1 මට්ටම සාක්ෂාත් කරගනිමු", 'bn': "🌱 A1 স্তরের লক্ষ্য নির্ধারণ", 'pt': "🌱 Rumo ao Nível A1", 'es': "🌱 Rumo ao Nivel A1", 'fr': "🌱 Objectif Niveau A1", 'ru': "🌱 Стремись к уровню A1", 'uk': "🌱 Прагни до рівня A1" },
                 scenes: [
-                    { name: "あいさつをしよう", isReady: false }, { name: "身近なものを買ってみよう", isReady: false },
+                    { name: "あいさつをしよう", isReady: true, catKey: "a1_scene1" }, { name: "みじかなモノを買ってみよう", isReady: true, catKey: "a1_buy_things" },
                     { name: "売り場や値段をきいてみよう", isReady: false }, { name: "ほしいものを選んで買ってみよう", isReady: false },
                     { name: "お店の人に希望を伝えてみよう", isReady: false }, { name: "レストランへ行ってみよう", isReady: false },
                     { name: "宅配便を利用しよう", isReady: false }, { name: "電車に乗ってみよう", isReady: false },
@@ -303,6 +310,8 @@
 
         function renderLifeDashboard(langCode) {
             const container = document.getElementById('life-categories-box');
+            if (!container) return;
+
             container.innerHTML = "";
 
             lifeMasterData.forEach(cat => {
@@ -310,35 +319,53 @@
                 block.className = "flex flex-col gap-3";
 
                 const categoryTitleText = cat.titles[langCode] || cat.titles['en'];
-                
+
                 block.innerHTML = `
                     <h3 class="font-bold text-stone-700 text-sm md:text-base mb-2 flex items-center gap-2 bg-stone-100 p-2 rounded-sm">
                         ${categoryTitleText}
                     </h3>
                     <div class="flex flex-col gap-2" id="box-${cat.labelId}"></div>
                 `;
+
                 container.appendChild(block);
 
                 const listInner = document.getElementById(`box-${cat.labelId}`);
-                
+
                 cat.scenes.forEach(scene => {
                     const btn = document.createElement('button');
+
                     if (scene.isReady) {
-                        btn.className = "w-full text-left px-4 py-3 rounded-sm border border-emerald-600 bg-emerald-50 text-emerald-900 font-bold hover:bg-emerald-100 transition-all flex justify-between items-center shadow-[0_2px_0_rgba(4,120,87,1)] active:translate-y-0.5 active:shadow-none text-xs md:text-sm";
-                        btn.innerHTML = `<span>${scene.name}</span><span class="text-xs text-emerald-600 font-black">▶</span>`;
+                        const isSelected = window.selectedLifeSceneName === scene.name;
+
+                        btn.className = isSelected
+                            ? "w-full text-left px-4 py-3 rounded-sm border border-emerald-700 bg-emerald-700 text-white font-black transition-all flex justify-between items-center shadow-[0_2px_0_rgba(4,120,87,1)] active:translate-y-0.5 active:shadow-none text-xs md:text-sm"
+                            : "w-full text-left px-4 py-3 rounded-sm border border-emerald-600 bg-emerald-50 text-emerald-900 font-bold hover:bg-emerald-100 transition-all flex justify-between items-center shadow-[0_2px_0_rgba(4,120,87,1)] active:translate-y-0.5 active:shadow-none text-xs md:text-sm";
+
+                        btn.innerHTML = `
+                            <span>${scene.name}</span>
+                            <span class="text-xs ${isSelected ? 'text-white' : 'text-emerald-600'} font-black">▼</span>
+                        `;
+
                         btn.onclick = () => {
-                            if(typeof window.loadJapeakCategory === 'function' && scene.catKey) {
-                                window.loadJapeakCategory(scene.catKey);
+                            if (typeof window.loadJapeakCategory === 'function' && scene.catKey) {
+                                window.loadJapeakCategory(scene.catKey, scene.name);
                             } else {
-                                alert(`「${scene.name}」の練習画面へ進みます！`);
+                                alert(`「${scene.name}」のフレーズデータがまだ登録されていません。`);
                             }
                         };
+
                     } else {
                         btn.disabled = true;
                         btn.className = "w-full text-left px-4 py-3 rounded-sm border border-stone-200 bg-stone-50 text-stone-400 font-medium grayscale cursor-not-allowed flex justify-between items-center shadow-sm text-xs md:text-sm";
+
                         const comingSoonText = (langCode === 'ja') ? '準備中' : 'Soon';
-                        btn.innerHTML = `<span>${scene.name}</span><span class="text-[9px] bg-stone-300 text-white px-1.5 py-0.5 rounded-sm font-bold tracking-wider">${comingSoonText}</span>`;
+
+                        btn.innerHTML = `
+                            <span>${scene.name}</span>
+                            <span class="text-[9px] bg-stone-300 text-white px-1.5 py-0.5 rounded-sm font-bold tracking-wider">${comingSoonText}</span>
+                        `;
                     }
+
                     listInner.appendChild(btn);
                 });
             });

@@ -16,9 +16,14 @@ if (typeof japeakCommutingData !== 'undefined') allJapeakData = allJapeakData.co
 if (typeof japeakTroublesData !== 'undefined') allJapeakData = allJapeakData.concat(japeakTroublesData);
 if (typeof japeakEventsData !== 'undefined') allJapeakData = allJapeakData.concat(japeakEventsData);
 if (typeof japeakOfficeData !== 'undefined') allJapeakData = allJapeakData.concat(japeakOfficeData);
-
-// 🌟 新しく作成した中文データ（生徒編・保護者編）を結合
 if (typeof japeakParagraphsData !== 'undefined') allJapeakData = allJapeakData.concat(japeakParagraphsData);
+if (typeof japeakA1Scene1Data !== 'undefined') allJapeakData = allJapeakData.concat(japeakA1Scene1Data);
+if (typeof japeakConvenientShoppingData !== 'undefined') allJapeakData = allJapeakData.concat(japeakConvenientShoppingData);
+if (typeof japeakConvenientOrderingData !== 'undefined') allJapeakData = allJapeakData.concat(japeakConvenientOrderingData);
+if (typeof japeakConvenientNeighborData !== 'undefined') allJapeakData = allJapeakData.concat(japeakConvenientNeighborData);
+if (typeof japeakConvenientVisitHomeData !== 'undefined') allJapeakData = allJapeakData.concat(japeakConvenientVisitHomeData);
+if (typeof japeakConvenientQuestionData !== 'undefined') allJapeakData = allJapeakData.concat(japeakConvenientQuestionData);
+if (typeof japeakA1BuyThingsData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA1BuyThingsData);
 
 let menuLang = 'en';
 let selectedCategory = null;
@@ -83,84 +88,181 @@ const categoryTranslations = {
     }
 };
 
+// ==========================================
+// Japeak メニュー操作ロジック
+// 学校編・生活編 共通フレーズ表示対応版
+// ==========================================
+
+window.selectedLifeSceneName = null;
+
 document.addEventListener('DOMContentLoaded', () => {
     renderCategories();
 
     const langSelect = document.getElementById('menu-lang-select');
+
     if (langSelect) {
         langSelect.addEventListener('change', (e) => {
             menuLang = e.target.value;
+
             renderCategories();
-            if (selectedCategory) renderPhraseList(selectedCategory);
+
+            if (selectedCategory) {
+                renderPhraseList(selectedCategory, window.selectedLifeSceneName);
+            }
+
+            if (typeof renderLifeDashboard === 'function') {
+                renderLifeDashboard(menuLang);
+            }
         });
     }
 });
 
+// 学校編カテゴリを表示する
 function renderCategories() {
     const container = document.getElementById('category-container');
     if (!container) return;
+
     container.innerHTML = '';
-    
     container.className = "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4";
 
-    const uniqueCategories = [...new Set(allJapeakData.map(item => item.category))];
+    // a1_scene1 は生活編側で使うので、学校編一覧からは外す
+    const uniqueCategories = [...new Set(allJapeakData.map(item => item.category))]
+        .filter(cat => cat !== 'a1_scene1');
 
     uniqueCategories.forEach(cat => {
         const btn = document.createElement('button');
         const trans = categoryTranslations[cat];
         const icon = trans && trans.icon ? trans.icon : "🗻";
-        
+
         btn.innerHTML = `
             <div class="text-3xl md:text-4xl mb-2 drop-shadow-sm group-hover:scale-110 transition-transform">${icon}</div>
             <div class="text-sm font-bold leading-snug">${trans ? trans.ja_ruby : cat}</div>
             <div class="text-[10px] opacity-80 mt-1">${trans ? (trans[menuLang] || trans['en']) : cat}</div>
         `;
-        
+
         btn.className = `category-btn group flex flex-col items-center justify-center p-4 h-full w-full bg-[#f4f0e6] text-[#1e3a5f] border-2 border-[#1e3a5f] rounded-sm hover:bg-[#1e3a5f] hover:text-white transition shadow-sm ${selectedCategory === cat ? 'active' : ''}`;
-        
+
         btn.onclick = () => {
+            window.selectedLifeSceneName = null;
             selectedCategory = cat;
-            renderCategories(); 
+
+            renderCategories();
             renderPhraseList(cat);
 
-            const phraseArea = document.getElementById('phrase-list-container');
-            if (phraseArea && phraseArea.parentElement) {
-                const y = phraseArea.parentElement.getBoundingClientRect().top + window.pageYOffset - 20;
-                window.scrollTo({ top: y, behavior: 'smooth' });
-            }
+            scrollToPhraseSection();
         };
+
         container.appendChild(btn);
     });
 }
 
-function renderPhraseList(category) {
+// フレーズ一覧を表示する
+function renderPhraseList(category, sceneName = null) {
     const container = document.getElementById('phrase-list-container');
     if (!container) return;
+
     container.innerHTML = '';
+
+    const labelPhrase = document.getElementById('label-phrase');
+
+    if (labelPhrase) {
+        if (sceneName) {
+            labelPhrase.innerText = `${sceneName}：れんしゅうする フレーズ`;
+        } else {
+            const trans = categoryTranslations[category];
+            const label = trans ? (trans.ja_ruby || trans[menuLang] || trans['en']) : category;
+            labelPhrase.innerText = `${label}：れんしゅうする フレーズ`;
+        }
+    }
 
     const filteredData = allJapeakData.filter(item => item.category === category);
 
     if (filteredData.length === 0) {
-        container.innerHTML = '<div class="text-stone-400 text-center py-10 font-bold">フレーズがありません</div>';
+        container.innerHTML = `
+            <div class="text-stone-400 text-center py-10 font-bold">
+                このシチュエーションのフレーズはまだ登録されていません。
+            </div>
+        `;
         return;
     }
 
-    filteredData.forEach(item => {
+    const countBox = document.createElement('div');
+    countBox.className = "mb-2 text-xs md:text-sm text-stone-500 font-bold tracking-wide";
+    countBox.innerHTML = `全 ${filteredData.length} フレーズ`;
+    container.appendChild(countBox);
+
+    filteredData.forEach((item, index) => {
         const card = document.createElement('div');
+
         card.onclick = () => {
             window.location.href = `japeak.html?id=${item.id}&lang=${menuLang}`;
         };
-        card.className = "group cursor-pointer flex flex-col md:flex-row justify-between items-start md:items-center p-4 bg-stone-50 hover:bg-[#e0e7ff] border border-stone-200 rounded-sm transition gap-4 shadow-sm";
+
+        card.className = "group cursor-pointer flex flex-col md:flex-row justify-between items-start md:items-center p-4 bg-stone-50 hover:bg-emerald-50 border border-stone-200 hover:border-emerald-500 rounded-sm transition gap-4 shadow-sm";
+
+        const translationText = item.translations
+            ? (item.translations[menuLang] || item.translations['en'] || '')
+            : '';
+
+        const contextText = item.context
+            ? (item.context[menuLang] || item.context['en'] || '')
+            : '';
 
         card.innerHTML = `
-            <div class="flex-1">
-                <h3 class="text-lg font-bold text-stone-800 mincho-font">${item.japanese}</h3>
-                <p class="text-sm text-stone-500 font-medium mt-1">${item.translations[menuLang] || item.translations['en']}</p>
+            <div class="flex items-start gap-3 flex-1">
+                <div class="w-8 h-8 rounded-full bg-[#1e3a5f] text-white flex items-center justify-center text-xs font-black shrink-0">
+                    ${index + 1}
+                </div>
+
+                <div class="flex-1">
+                    <h3 class="text-lg md:text-xl font-bold text-stone-800 mincho-font leading-relaxed">
+                        ${item.japanese}
+                    </h3>
+
+                    <p class="text-sm text-stone-600 font-bold mt-1">
+                        ${translationText}
+                    </p>
+
+                    <p class="text-xs text-stone-400 font-medium mt-2 leading-relaxed">
+                        ${contextText}
+                    </p>
+                </div>
             </div>
-            <div class="bg-[#1e3a5f] text-white text-xs font-bold px-4 py-2 rounded-sm group-hover:bg-[#b91c1c] transition whitespace-nowrap">
+
+            <div class="bg-[#1e3a5f] text-white text-xs font-bold px-4 py-2 rounded-sm group-hover:bg-[#047857] transition whitespace-nowrap">
                 れんしゅう ▶
             </div>
         `;
+
         container.appendChild(card);
     });
+}
+
+// 生活編のシーンボタンから、フレーズ一覧を表示する
+window.loadJapeakCategory = function(category, sceneName = null) {
+    selectedCategory = category;
+    window.selectedLifeSceneName = sceneName;
+
+    renderPhraseList(category, sceneName);
+
+    if (typeof renderLifeDashboard === 'function') {
+        renderLifeDashboard(menuLang);
+    }
+
+    scrollToPhraseSection();
+};
+
+// フレーズ一覧セクションへ自動スクロールする
+function scrollToPhraseSection() {
+    const phraseArea = document.getElementById('phrase-list-container');
+
+    if (phraseArea && phraseArea.parentElement) {
+        setTimeout(() => {
+            const y = phraseArea.parentElement.getBoundingClientRect().top + window.pageYOffset - 20;
+            window.scrollTo({
+                top: y,
+                behavior: 'smooth'
+            });
+        }, 80);
+    }
 }
