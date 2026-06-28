@@ -26,8 +26,8 @@ if (typeof japeakConvenientQuestionData !== 'undefined') allJapeakData = allJape
 if (typeof japeakA1GreetingDialogueData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA1GreetingDialogueData);
 if (typeof japeakA1BuyThingsData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA1BuyThingsData);
 
-
-let currentIndex = 0, currentLesson = null, currentLang = 'en', recognition = null;
+// 🌟 修正ポイント1：currentAudio を追加しました
+let currentIndex = 0, currentLesson = null, currentLang = 'en', recognition = null, currentAudio = null;
 let isRecording = false, hasCelebrated = false, isSwapped = false;
 
 const langCodeMap = {
@@ -227,23 +227,31 @@ function speakWithBrowserVoice(text, langCode, rate = 0.95) {
     }
 }
 
-function playExampleAudio() {
+// スピード調整対応のお手本音声再生
+function playExampleAudio(speed = 1.0) {
     if (!currentLesson) return;
 
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+    }
+    window.speechSynthesis.cancel();
+
     if (isSwapped) {
-        speakWithBrowserVoice(getForeignPracticeTarget(currentLesson, currentLang), langCodeMap[currentLang] || 'en-US', 0.95);
+        speakWithBrowserVoice(getForeignPracticeTarget(currentLesson, currentLang), langCodeMap[currentLang] || 'en-US', 0.95 * speed);
         return;
     }
 
     const audioPath = currentLesson.audio || `audio/${currentLesson.id}.mp3`;
-    const audioObj = new Audio(audioPath);
+    currentAudio = new Audio(audioPath);
+    currentAudio.playbackRate = speed; 
 
-    audioObj.onerror = () => {
+    currentAudio.onerror = () => {
         console.warn('MP3ファイルが見つかりません。代わりにAI音声を再生します:', audioPath);
-        speakWithBrowserVoice(getJapanesePracticeTarget(currentLesson), 'ja-JP', 0.85);
+        speakWithBrowserVoice(getJapanesePracticeTarget(currentLesson), 'ja-JP', 0.85 * speed);
     };
 
-    audioObj.play();
+    currentAudio.play();
 }
 
 if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {
@@ -269,8 +277,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // 🌟 修正ポイント2：通常再生ボタンとゆっくりボタンを正しく紐付け
     const btnPlayAudio = $('btn-play-audio');
-    if (btnPlayAudio) btnPlayAudio.onclick = playExampleAudio;
+    if (btnPlayAudio) btnPlayAudio.onclick = () => playExampleAudio(1.0);
+
+    const btnPlaySlow = $('btn-play-slow');
+    if (btnPlaySlow) btnPlaySlow.onclick = () => playExampleAudio(0.7);
 
     const btnPrev = $('btn-prev');
     if (btnPrev) btnPrev.onclick = () => moveLesson(-1);
@@ -605,26 +617,43 @@ function normalizeJapaneseText(text, rubyHtml) {
 
     let normalized = stripHtmlTags(String(text));
 
+    // 全角英数字を半角に、カタカナをひらがなに変換
     normalized = normalized.replace(/[A-Za-z]/g, s => String.fromCharCode(s.charCodeAt(0) + 0xFEE0));
     normalized = normalized.replace(/[\u30a1-\u30f6]/g, m => String.fromCharCode(m.charCodeAt(0) - 0x60));
+    
+    // 🌟 改善ポイント1：9,999までの数字を正確にひらがなに変換
     normalized = normalized.replace(/[0-9０-９]+/g, match => {
         const numStr = match.replace(/[０-９]/g, s => String.fromCharCode(s.charCodeAt(0) - 0xFEE0));
         const num = parseInt(numStr, 10);
-        const numMap = {'0':'ぜろ','1':'いち','2':'に','3':'さん','4':'よん','5':'ご','6':'ろく','7':'なな','8':'はち','9':'きゅう'};
+        if (num === 0) return 'ぜろ';
+        
+        const units = ['', 'いち', 'に', 'さん', 'よん', 'ご', 'ろく', 'なな', 'はち', 'きゅう'];
+        let res = '';
 
-        if (num >= 10 && num <= 99) {
-            const tens = Math.floor(num / 10), ones = num % 10;
-            let res = '';
-            if (tens === 1) res += 'じゅう';
-            else if (tens > 1) res += numMap[tens] + 'じゅう';
-            if (ones > 0) res += numMap[ones];
-            return res;
-        }
+        const t = Math.floor(num / 1000) % 10;
+        if (t === 1) res += 'せん';
+        else if (t === 3) res += 'さんぜん';
+        else if (t === 8) res += 'はっせん';
+        else if (t > 0) res += units[t] + 'せん';
 
-        if (num >= 0 && num <= 9) return numMap[num];
-        return match;
+        const h = Math.floor(num / 100) % 10;
+        if (h === 1) res += 'ひゃく';
+        else if (h === 3) res += 'さんびゃく';
+        else if (h === 6) res += 'ろっぴゃく';
+        else if (h === 8) res += 'はっぴゃく';
+        else if (h > 0) res += units[h] + 'ひゃく';
+
+        const ten = Math.floor(num / 10) % 10;
+        if (ten === 1) res += 'じゅう';
+        else if (ten > 0) res += units[ten] + 'じゅう';
+
+        const one = num % 10;
+        if (one > 0) res += units[one];
+
+        return res;
     });
 
+    // Rubyタグからの漢字→ひらがな置換
     if (rubyHtml) {
         const regex = /<ruby>\s*([^<]+?)\s*<rt>\s*([^<]+?)\s*<\/rt>\s*<\/ruby>/g;
         let match;
@@ -633,6 +662,7 @@ function normalizeJapaneseText(text, rubyHtml) {
         }
     }
 
+    // 🌟 改善ポイント2：音声認識特有の揺れや、Rubyでカバーしきれない漢字の辞書を強化
     const commonReplacements = {
         '私':'わたし','僕':'ぼく','俺':'おれ','何':'なに','行く':'いく','来る':'くる','食べる':'たべる',
         '飲む':'のむ','言う':'いう','話す':'はなす','見る':'みる','聞く':'きく','有難う':'ありがとう',
@@ -640,10 +670,14 @@ function normalizeJapaneseText(text, rubyHtml) {
         '良い':'いい','無い':'ない','時':'とき','事':'こと','物':'もの','人':'ひと','所':'ところ',
         '今日':'きょう','明日':'あした','昨日':'きのう','一緒':'いっしょ','太郎':'たろう','次郎':'じろう',
         '花子':'はなこ','先生':'せんせい','度':'ど','熱':'ねつ','分':'ふん','半':'はん','頁':'ぺーじ',
-        '歳':'さい','分かる':'わかる','解る':'わかる','判る':'わかる','居る':'いる'
+        '歳':'さい','分かる':'わかる','解る':'わかる','判る':'わかる','居る':'いる',
+        '1つ':'ひとつ', '2つ':'ふたつ', '3つ':'みっつ', '4つ':'よっつ', '5つ':'いつつ', 
+        '1人':'ひとり', '2人':'ふたり', '円':'えん', '百':'ひゃく', '千':'せん', '万':'まん'
     };
 
-    for (const [k, v] of Object.entries(commonReplacements)) normalized = normalized.split(k).join(v);
+    for (const [k, v] of Object.entries(commonReplacements)) {
+        normalized = normalized.split(k).join(v);
+    }
 
     return normalized.replace(/[\s\n\r\t、。！？!?「」『』（）()\[\]【】・,\.：:]/g, '');
 }

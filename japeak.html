@@ -106,10 +106,17 @@
 
             <div class="p-8 md:p-12 flex-1 flex flex-col justify-center min-h-[250px] relative items-center">
                 
-                <button id="btn-play-audio" class="mb-8 flex items-center justify-center gap-2 bg-gradient-to-r from-rose-400 to-red-500 hover:from-rose-500 hover:to-red-600 text-white px-5 py-2.5 rounded-full shadow-lg shadow-red-500/30 transition-all transform hover:scale-105 active:scale-95" title="お手本を聞く">
-                    <span class="text-xl drop-shadow-md">🔈</span>
-                    <span class="text-sm font-bold tracking-widest drop-shadow-md">お手本をきく</span>
-                </button>
+                <div class="flex items-center gap-4 mb-8">
+                    <button id="btn-play-audio" class="flex items-center justify-center gap-2 bg-gradient-to-r from-rose-400 to-red-500 hover:from-rose-500 hover:to-red-600 text-white px-5 py-2.5 rounded-full shadow-lg shadow-red-500/30 transition-all transform hover:scale-105 active:scale-95" title="お手本を聞く">
+                        <span class="text-xl drop-shadow-md">🔈</span>
+                        <span class="text-sm font-bold tracking-widest drop-shadow-md">お手本をきく</span>
+                    </button>
+                    
+                    <button id="btn-play-slow" class="flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-400 to-teal-500 hover:from-emerald-500 hover:to-teal-600 text-white px-5 py-2.5 rounded-full shadow-lg shadow-teal-500/30 transition-all transform hover:scale-105 active:scale-95" title="ゆっくり聞く">
+                        <span class="text-xl drop-shadow-md">🐢</span>
+                        <span class="text-sm font-bold tracking-widest drop-shadow-md">ゆっくり</span>
+                    </button>
+                </div>
 
                 <div id="sentence-container" class="flex flex-col gap-6 md:gap-8 mx-auto w-fit transition-all duration-300">
                     </div>
