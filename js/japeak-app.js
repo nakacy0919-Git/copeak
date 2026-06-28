@@ -405,13 +405,13 @@ function createDialogueLineBlock(turn, index, mainTextHtml, subText, isJapaneseM
     block.id = `reading-block-${index}`;
     block.className = 'w-full cursor-pointer transition-all duration-300 hover:bg-emerald-50 border-2 border-transparent hover:border-emerald-200 rounded-xl px-3 py-3 md:px-5 md:py-4';
     block.innerHTML = `
-        <div class="grid grid-cols-[4.5rem_1.2rem_1fr] md:grid-cols-[6rem_1.4rem_1fr] items-start gap-1 md:gap-2 w-full">
-            <div class="text-right text-xl md:text-2xl font-black text-[#1e3a5f] mincho-font leading-[1.9] whitespace-nowrap">${escapeHtml(speakerName)}</div>
+        <div class="grid grid-cols-[6rem_1.2rem_1fr] md:grid-cols-[8rem_1.4rem_1fr] items-start gap-1 md:gap-2 w-full">
+            <div class="text-right text-xl md:text-2xl font-black text-[#1e3a5f] mincho-font leading-[1.9] truncate">${escapeHtml(speakerName)}</div>
             <div class="text-xl md:text-2xl font-black text-[#1e3a5f] mincho-font leading-[1.9] text-center">：</div>
             <div class="${mainTextClass}">${mainTextHtml}</div>
         </div>
         ${subText ? `
-            <div class="grid grid-cols-[4.5rem_1.2rem_1fr] md:grid-cols-[6rem_1.4rem_1fr] items-start gap-1 md:gap-2 w-full mt-1">
+            <div class="grid grid-cols-[6rem_1.2rem_1fr] md:grid-cols-[8rem_1.4rem_1fr] items-start gap-1 md:gap-2 w-full mt-1">
                 <div></div><div></div>
                 <div class="text-base md:text-lg text-stone-500 font-medium mincho-font">${escapeHtml(subText)}</div>
             </div>` : ''}
