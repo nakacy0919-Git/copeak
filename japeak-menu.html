@@ -16,11 +16,21 @@
         }
         .mincho-font { font-family: 'Noto Serif JP', serif; }
         .wa-border { border: 3px solid #1e3a5f; box-shadow: 4px 4px 0px rgba(30,58,95,1); }
+        .life-border { border: 3px solid #047857; box-shadow: 4px 4px 0px rgba(4,120,87,1); }
         .category-btn.active { background-color: #b91c1c; color: white; border-color: #991b1b; }
+        
+        /* カスタムスクロールバーの調整 */
+        .custom-container-scroll {
+            max-height: 65vh;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #047857 #f5f5f4;
+        }
     </style>
 </head>
 <body class="text-stone-800 pb-12">
 
+    <!-- ナビゲーション -->
     <div class="max-w-[1000px] w-[95%] mx-auto mt-6 md:mt-10 p-6 md:p-8 bg-[#fdfcf8] rounded-sm wa-border flex flex-col md:flex-row justify-between items-center gap-4">
         <div class="flex items-center gap-3 md:gap-4">
             <img src="japeaklog.png" alt="Japeak Logo" class="w-12 h-12 md:w-14 md:h-14 object-cover rounded-full border-2 border-[#1e3a5f] drop-shadow-sm">
@@ -31,9 +41,9 @@
         </div>
         <div class="flex items-center gap-6">
             
+            <!-- カスタム言語選択ドロップダウン -->
             <div class="relative inline-block text-left w-48 md:w-56 z-50" id="custom-lang-wrapper">
                 <div class="text-center text-[10px] text-[#0086d9] font-bold mb-0.5 tracking-widest uppercase">LANGUAGE</div>
-                
                 <button type="button" id="custom-lang-btn" class="inline-flex justify-between items-center w-full rounded-sm shadow-sm px-3 py-2 md:py-2.5 bg-[#0086d9] text-sm md:text-base font-bold text-white hover:bg-[#0074bd] transition-colors focus:outline-none">
                     <span id="custom-lang-display" class="flex items-end gap-2">
                         <span>English</span> <span class="text-[10px] font-normal opacity-90 mb-0.5">英語</span>
@@ -45,10 +55,12 @@
 
                 <div id="custom-lang-menu" class="hidden absolute right-0 mt-0 w-full rounded-b-sm shadow-2xl bg-white border border-stone-200 overflow-hidden transform origin-top transition-all duration-200">
                     <ul id="custom-lang-list" class="max-h-64 md:max-h-80 overflow-y-auto py-1 text-stone-800" style="scrollbar-width: thin; scrollbar-color: #a8a29e #f5f5f4;">
-                        </ul>
+                        <!-- スクリプトで自動生成 -->
+                    </ul>
                 </div>
 
                 <select id="menu-lang-select" class="hidden">
+                    <option value="ja">日本語</option>
                     <option value="en">English</option>
                     <option value="zh-CN">简体中文</option>
                     <option value="zh-TW">繁體中文</option>
@@ -71,33 +83,96 @@
                 </select>
             </div>
 
-            <button onclick="window.location.href='japeak-top.html'" class="bg-[#1e3a5f] hover:bg-[#172a45] text-white text-[10px] md:text-xs font-bold px-4 py-2 rounded-sm transition shadow-md self-end mb-0.5">
+            <button onclick="window.location.href='japeak-top.html'" class="bg-[#1e3a5f] hover:bg-[#172a45] text-white text-[10px] md:text-xs font-bold px-4 py-2 rounded-sm transition shadow-md self-end mb-0.5 whitespace-nowrap">
                 トップへ戻る
             </button>
         </div>
     </div>
 
-    <div class="max-w-[1000px] w-[95%] mx-auto mt-6 flex flex-col gap-6">
+    <!-- ==============================
+         🚪 ゲート画面 (スタート初期画面)
+    ============================== -->
+    <div id="gate-container" class="max-w-[800px] w-[95%] mx-auto mt-12 mb-12 flex flex-col md:flex-row gap-8 transition-all duration-500">
         
-        <div class="bg-white p-6 rounded-sm wa-border">
-            <h2 class="text-[#1e3a5f] font-bold text-lg mb-4 flex items-center gap-2">
-                <span class="text-2xl">🏫</span> <span id="label-category">どんな 場面（シチュエーション）ですか？</span>
-            </h2>
-            <div id="category-container" class="flex flex-wrap gap-3">
+        <!-- 学校編ボタン -->
+        <button onclick="enterWorkspace('school')" class="group relative flex-1 bg-white rounded-2xl shadow-xl border-2 border-stone-200 hover:border-[#1e3a5f] overflow-hidden transition-all duration-300 hover:shadow-2xl transform hover:-translate-y-2 outline-none">
+            <div class="absolute top-0 left-0 w-full h-4 bg-[#1e3a5f] transition-all group-hover:h-6"></div>
+            <div class="p-10 md:p-14 flex flex-col items-center justify-center gap-6 mt-2">
+                <div class="w-24 h-24 md:w-28 md:h-28 bg-stone-50 rounded-full flex items-center justify-center border-4 border-stone-100 group-hover:bg-[#1e3a5f]/5 transition-colors">
+                    <span class="text-6xl md:text-7xl group-hover:scale-110 transition-transform duration-300">🏫</span>
                 </div>
-        </div>
+                <div class="flex flex-col items-center">
+                    <h2 id="btn-text-school" class="text-2xl md:text-3xl font-black text-[#1e3a5f] tracking-widest text-center">学校編</h2>
+                    <p id="sub-text-school" class="text-stone-400 font-bold text-xs md:text-sm tracking-widest mt-2 uppercase">School</p>
+                </div>
+            </div>
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 text-[#1e3a5f] font-black text-xl">➔ ENTER</div>
+        </button>
 
-        <div class="bg-white p-6 rounded-sm wa-border min-h-[300px]">
-            <h2 class="text-[#1e3a5f] font-bold text-lg mb-4 flex items-center gap-2 border-b border-stone-200 pb-2">
-                <span class="text-2xl">📝</span> <span id="label-phrase">れんしゅうする フレーズ</span>
-            </h2>
-            <div id="phrase-list-container" class="flex flex-col gap-3">
-                <div class="text-stone-400 text-center py-10 font-bold">シチュエーションを えらんでください</div>
+        <!-- 生活編ボタン -->
+        <button onclick="enterWorkspace('life')" class="group relative flex-1 bg-white rounded-2xl shadow-xl border-2 border-stone-200 hover:border-[#047857] overflow-hidden transition-all duration-300 hover:shadow-2xl transform hover:-translate-y-2 outline-none">
+            <div class="absolute top-0 left-0 w-full h-4 bg-[#047857] transition-all group-hover:h-6"></div>
+            <div class="p-10 md:p-14 flex flex-col items-center justify-center gap-6 mt-2">
+                <div class="w-24 h-24 md:w-28 md:h-28 bg-stone-50 rounded-full flex items-center justify-center border-4 border-stone-100 group-hover:bg-[#047857]/5 transition-colors">
+                    <span class="text-6xl md:text-7xl group-hover:scale-110 transition-transform duration-300">🏘️</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <h2 id="btn-text-life" class="text-2xl md:text-3xl font-black text-[#047857] tracking-widest text-center">生活編</h2>
+                    <p id="sub-text-life" class="text-stone-400 font-bold text-xs md:text-sm tracking-widest mt-2 uppercase">Daily Life</p>
+                </div>
+            </div>
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 text-[#047857] font-black text-xl">➔ ENTER</div>
+        </button>
+    </div>
+
+    <!-- ==============================
+         🛠️ ワークスペース (ダッシュボード)
+    ============================== -->
+    <div id="workspace-container" class="max-w-[1000px] w-[95%] mx-auto mt-6 flex flex-col gap-6 hidden opacity-0 transition-opacity duration-500">
+        
+        <button onclick="backToGate()" id="btn-back-to-course" class="self-start text-stone-500 hover:text-stone-800 font-bold text-sm md:text-base flex items-center gap-2 transition-colors border-b-2 border-transparent hover:border-stone-400 pb-1">
+            ◀ コース選択にもどる
+        </button>
+
+        <!-- 🏫 学校編ダッシュボード -->
+        <div id="area-school" class="hidden flex-col gap-6">
+            <div class="bg-white p-6 rounded-sm wa-border mb-6 relative overflow-hidden">
+                <div class="absolute top-0 right-0 text-9xl opacity-5 pointer-events-none transform translate-x-4 -translate-y-4">🏫</div>
+                <h2 class="text-[#1e3a5f] font-bold text-lg mb-4 flex items-center gap-2 relative z-10">
+                    <span class="text-2xl">🏫</span> <span id="label-category">どんな 場面（シチュエーション）ですか？</span>
+                </h2>
+                <div id="category-container" class="flex flex-wrap gap-3 relative z-10">
+                    <!-- 既存の学校用カテゴリボタンがjs/japeak-menu.js経由で自動配置されます -->
+                </div>
             </div>
         </div>
 
+        <!-- 🏘️ 生活編ダッシュボード -->
+        <div id="area-life" class="hidden flex-col gap-6">
+            <div class="bg-white p-6 md:p-8 rounded-sm life-border mb-6 relative overflow-hidden">
+                <div class="absolute top-0 right-0 text-9xl opacity-5 pointer-events-none transform translate-x-4 -translate-y-4">🏘️</div>
+                <h2 class="text-[#047857] font-bold text-xl md:text-2xl mb-8 flex items-center gap-2 border-b-2 border-[#047857]/20 pb-4 relative z-10">
+                    <span class="text-3xl">🏘️</span> <span id="label-life-title" class="tracking-wide">生活でつかう にほんご</span>
+                </h2>
+
+                <div id="life-categories-box" class="grid grid-cols-1 md:grid-cols-2 gap-10 relative z-10 custom-container-scroll pr-2">
+                    <!-- JavaScriptが自動構築 -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 共通フレーズ一覧エリア -->
+        <div class="bg-white p-6 rounded-sm border-2 border-stone-300 shadow-sm min-h-[300px]">
+            <h2 class="text-stone-700 font-bold text-lg mb-4 flex items-center gap-2 border-b border-stone-200 pb-2">
+                <span class="text-2xl">📝</span> <span id="label-phrase">れんしゅうする フレーズ</span>
+            </h2>
+            <div id="phrase-list-container" class="flex flex-col gap-3">
+                <div id="label-select-prompt" class="text-stone-400 text-center py-10 font-bold">シチュエーションを えらんでください</div>
+            </div>
+        </div>
     </div>
 
+    <!-- データの読み込み -->
     <script src="data/japeak-lessons.js"></script>
     <script src="data/japeak-conversation.js"></script>
     <script src="data/japeak-class.js"></script>
@@ -115,8 +190,177 @@
     <script src="js/japeak-menu.js"></script>
 
     <script>
+        const gateContainer = document.getElementById('gate-container');
+        const workspaceContainer = document.getElementById('workspace-container');
+        const areaSchool = document.getElementById('area-school');
+        const areaLife = document.getElementById('area-life');
+        const phraseContainer = document.getElementById('phrase-list-container');
+
+        // 🌟 生活編：全56シチュエーション完全マスターデータ構造（キーのハイフンエラー修正済み）
+        const lifeMasterData = [
+            {
+                labelId: "title_convenient",
+                titles: { 'ja': "🥚 はじめに覚えよう！便利なフレーズ", 'en': "🥚 Basic Convenient Phrases", 'zh-CN': "🥚 首先记住！便利短句", 'zh-TW': "🥚 首先記住！便利短句", 'ko': "🥚 우선 기억하자! 편리한 표현", 'vi': "🥚 Cụm từ tiện lợi cơ bản", 'tl': "🥚 Mga Pangunahing Parirala", 'id': "🥚 Ungkapan Praktis Dasar", 'th': "🥚 วลีสะดวกใช้เบื้องต้น", 'my': "🥚 အခြေခံအသုံးဝင်သောစကားစုများ", 'km': "🥚 ឃ្លាប្រកបដោយភាពងាយស្រួល", 'ne': "🥚 सुरुमा सम्झनुपर्ने उपयोगी वाक्यांशहरू", 'mn': "🥚 Анхлан сурах хэрэгцээт үгс", 'si': "🥚 මූලික ප්‍රයෝජනවත් වාක්‍ය ඛණ්ඩ", 'bn': "🥚 প্রাথমিক দরকারী বাক্যাংশ", 'pt': "🥚 Frases Úteis Básicas", 'es': "🥚 Frases Útiles Básicas", 'fr': "🥚 Phrases Pratiques de Base", 'ru': "🥚 Базовые полезные фразы", 'uk': "🥚 Базові корисні фрази" },
+                scenes: [
+                    { name: "ちょっと声をかけたいとき", isReady: true, catKey: "break_time" },
+                    { name: "買い物をするとき", isReady: false },
+                    { name: "注文するとき", isReady: false },
+                    { name: "近所の人に会ったとき", isReady: false },
+                    { name: "人の家を訪問するとき", isReady: false },
+                    { name: "質問したいとき", isReady: false }
+                ]
+            },
+            {
+                labelId: "title_a1",
+                titles: { 'ja': "🌱 目指そう A1レベル", 'en': "🌱 Aim for A1 Level", 'zh-CN': "🌱 目标 A1 レベル", 'zh-TW': "🌱 目標 A1 レベル", 'ko': "🌱 도전하자 A1 레벨", 'vi': "🌱 Hướng tới trình độ A1", 'tl': "🌱 Layunin ang A1 Level", 'id': "🌱 Target Tingkat A1", 'th': "🌱 มุ่งสู่ระดับ A1", 'my': "🌱 A1 အဆင့်သို့ ရည်မှန်းကြစို့", 'km': "🌱 ឆ្ពោះទៅកម្រិត A1", 'ne': "🌱 A1 स्तरको लक्ष्य राखौं", 'mn': "🌱 A1 түвшинд хүрэх зорилт", 'si': "🌱 A1 මට්ටම සාක්ෂාත් කරගනිමු", 'bn': "🌱 A1 স্তরের লক্ষ্য নির্ধারণ", 'pt': "🌱 Rumo ao Nível A1", 'es': "🌱 Rumo ao Nivel A1", 'fr': "🌱 Objectif Niveau A1", 'ru': "🌱 Стремись к уровню A1", 'uk': "🌱 Прагни до рівня A1" },
+                scenes: [
+                    { name: "あいさつをしよう", isReady: false }, { name: "身近なものを買ってみよう", isReady: false },
+                    { name: "売り場や値段をきいてみよう", isReady: false }, { name: "ほしいものを選んで買ってみよう", isReady: false },
+                    { name: "お店の人に希望を伝えてみよう", isReady: false }, { name: "レストランへ行ってみよう", isReady: false },
+                    { name: "宅配便を利用しよう", isReady: false }, { name: "電車に乗ってみよう", isReady: false },
+                    { name: "道をきいてみよう", isReady: false }, { name: "銀行を利用しよう", isReady: false },
+                    { name: "住民としてのマナーを理解しよう", isReady: false }, { name: "職場の機械を使いこなそう", isReady: false }
+                ]
+            },
+            {
+                labelId: "title_a2",
+                titles: { 'ja': "🧱 目指そう A2レベル", 'en': "🧱 Aim for A2 Level", 'zh-CN': "🧱 目标 A2 レベル", 'zh-TW': "🧱 目標 A2 レベル", 'ko': "🧱 도전하자 A2 레벨", 'vi': "🧱 Hướng tới trình độ A2", 'tl': "🧱 Layunin ang A2 Level", 'id': "🧱 Target Tingkat A2", 'th': "🧱 มุ่งสู่ระดับ A2", 'my': "🧱 A2 အဆင့်သို့ ရည်မှန်းကြစို့", 'km': "🧱 ឆ្ពោះទៅកម្រិត A2", 'ne': "🧱 A2 स्तरको लक्ष्य राखौं", 'mn': "🧱 A2 түвшинд хүрэх зорилт", 'si': "🧱 A2 මට්ටම සාක්ෂาත් කරගනිමු", 'bn': "🧱 A2 স্তরের লক্ষ্য নির্ধারণ", 'pt': "🧱 Rumo ao Nível A2", 'es': "🧱 Rumo ao Nivel A2", 'fr': "🧱 Objectif Niveau A2", 'ru': "🧱 Стремись к уровню A2", 'uk': "🧱 Прагни до рівня A2" },
+                scenes: [
+                    { name: "場面に応じたあいさつをしよう", isReady: false }, { name: "お店のサービスを利用してみよう", isReady: false },
+                    { name: "お店を選んでみよう", isReady: false }, { name: "いろいろなお店を利用しよう", isReady: false },
+                    { name: "上手にお買い物をしよう", isReady: false }, { name: "自治会に入ってみよう", isReady: false },
+                    { name: "イベントに行ってみよう", isReady: false }, { name: "病院に行こう", isReady: false },
+                    { name: "緊急のときは、助けをもとめよう", isReady: false }, { name: "役所に行こう", isReady: false },
+                    { name: "図書館に行ってみよう", isReady: false }, { name: "ハガキを送ってみよう", isReady: false },
+                    { name: "インターネットや電話を利用しよう", isReady: false }, { name: "安全に注意して働こう", isReady: false },
+                    { name: "職場での事故に対応しよう", isReady: false }, { name: "仕事を探してみよう", isReady: false },
+                    { name: "面接を受けてみよう", isReady: false }, { name: "職場の同僚とやりとりしよう", isReady: false },
+                    { name: "職場で早退や休暇を申請してみよう", isReady: false }
+                ]
+            },
+            {
+                labelId: "title_b1",
+                titles: { 'ja': "🌿 目指そう B1レベル", 'en': "🌿 Aim for B1 Level", 'zh-CN': "🌿 目标 B1 レベル", 'zh-TW': "🌿 目標 B1 レベル", 'ko': "🌿 도전하자 B1 레벨", 'vi': "🌿 Hướng tới trình độ B1", 'tl': "🌿 Layunin ang B1 Level", 'id': "🌿 Target Tingkat B1", 'th': "🌿 มุ่งสู่ระดับ B1", 'my': "🌿 B1 အဆင့်သို့ ရည်မှန်းကြစို့", 'km': "🌿 ឆ្ពោះទៅកម្រិត B1", 'ne': "🌿 B1 स्तरको लक्ष्य राखौं", 'mn': "🌿 B1 түвшинд хүрэх зорилт", 'si': "🌿 B1 මට්ටම සාක්ෂาත් කරගනිමු", 'bn': "🌿 B1 স্তরের লক্ষ্য নির্ধারণ", 'pt': "🌿 Rumo ao Nível B1", 'es': "🌿 Rumo ao Nivel B1", 'fr': "🌿 Objectif Niveau B1", 'ru': "🌿 Стремись к уровню B1", 'uk': "🌿 Прагни до рівня B1" },
+                scenes: [
+                    { name: "職場であいさつをしよう", isReady: false }, { name: "行きたい場所に自分の力で行ってみよう", isReady: false },
+                    { name: "安全に注意して移動しよう", isReady: false }, { name: "薬局を利用しよう", isReady: false },
+                    { name: "防災について考えよう", isReady: false }, { name: "病気を予防しよう", isReady: false },
+                    { name: "住民として地域の活動に参加しよう", isReady: false }, { name: "引っ越し先を探そう", isReady: false },
+                    { name: "引っ越しの準備をしよう", isReady: false }, { name: "出産の準備をしよう", isReady: false },
+                    { name: "出産について相談してみよう", isReady: false }, { name: "育児に関するサービスを利用しよう", isReady: false },
+                    { name: "子どもを病院に連れていこう", isReady: false }, { name: "保育施設を利用しよう", isReady: false },
+                    { name: "子育てについて相談しよう", isReady: false }, { name: "入学に向けて準備しよう", isReady: false },
+                    { name: "学校生活について理解しよう", isReady: false }, { name: "学校生活でのトラブルに対処しよう", isReady: false },
+                    { name: "進路について相談しよう", isReady: false }
+                ]
+            }
+        ];
+
+        const uiDict = {
+            'ja': { school: '学校編', life: '生活編', back: '◀ コース選択にもどる', prompt: 'シチュエーションを えらんでください', lifeTitle: '生活でつかう にほんご' },
+            'en': { school: 'School Mode', life: 'Life Mode', back: '◀ Back to Course Selection', prompt: 'Please select a situation', lifeTitle: 'Japanese for Daily Life' },
+            'zh-CN': { school: '学校篇', life: '生活篇', back: '◀ 返回课程选择', prompt: '请选择一个场景', lifeTitle: '日常生活日语' },
+            'zh-TW': { school: '學校篇', life: '生活篇', back: '◀ 返回課程選擇', prompt: '請選擇一個場景', lifeTitle: '日常生活日語' },
+            'ko': { school: '학교편', life: '생활편', back: '◀ 코스 선택으로 돌아가기', prompt: '시추에이션을 선택해 주세요', lifeTitle: '생활에서 쓰는 한국어' },
+            'vi': { school: 'Trường học', life: 'Đời sống', back: '◀ Quay lại chọn khóa học', prompt: 'Vui lòng chọn một tình huống', lifeTitle: 'Tiếng Nhật đời sống hàng ngày' },
+            'tl': { school: 'Paaralan', life: 'Buhay', back: '◀ Bumalik sa Pagpili', prompt: 'Mangyaring pumili ng sitwasyon', lifeTitle: 'Japanese para sa Araw-araw' },
+            'id': { school: 'Sekolah', life: 'Kehidupan', back: '◀ Kembali ke Pilihan Kursus', prompt: 'Silakan pilih situasi', lifeTitle: 'Bahasa Jepang untuk Sehari-hari' },
+            'th': { school: 'ภาคโรงเรียน', life: 'ภาคการดำเนินชีวิต', back: '◀ กลับไปที่เลือกคอร์ส', prompt: 'กรุณาเลือกสถานการณ์', lifeTitle: 'ภาษาญี่ปุ่นที่ใช้ในชีวิตประจำวัน' },
+            'my': { school: 'ကျောင်းသုံး', life: 'နေ့စဉ်ဘဝ', back: '◀ သင်တန်းရွေးချယ်မှုသို့ပြန်သွားရန်', prompt: 'အခြေအနေတစ်ခုကိုရွေးချယ်ပါ', lifeTitle: 'နေ့စဉ်ဘဝသုံးဂျပန်စာ' },
+            'km': { school: 'សាលារៀន', life: 'ជីវិតរស់នៅ', back: '◀ ត្រឡប់ទៅការជ្រើសរើសវគ្គសិក្សា', prompt: 'សូមជ្រើសរើសស្ថានភាពមួយ', lifeTitle: 'ភាសាជប៉ុនសម្រាប់ជីវិតប្រចាំថ្ងៃ' },
+            'ne': { school: 'विद्यालय संस्करण', life: 'दैनिक जीवन संस्करण', back: '◀ कोर्स चयनमा फर्कनुहोस्', prompt: 'कृपया एउटा परिस्थिति छनौट गर्नुहोस्', lifeTitle: 'दैनिक जीवनमा प्रयोग हुने जापानी भाषा' },
+            'mn': { school: 'Сургууль', life: 'Амьдрал', back: '◀ Хичээл сонголт руу буцах', prompt: 'Нөхцөл байдлыг сонгоно уу', lifeTitle: 'Өдөр тутмын амьдралын Япон хэл' },
+            'si': { school: 'පාසල් අංශය', life: 'ජීවන අංශය', back: '◀ පාඨමාලා තේරීමට ආපසු යන්න', prompt: 'කරුණාකර තත්වයක් තෝරන්න', lifeTitle: 'එදිනෙදා ජීවිතයට ජපන් භාෂාව' },
+            'bn': { school: 'স্কুল সংস্করণ', life: 'জীবন সংস্করণ', back: '◀ কোর্স নির্বাচনে ফিরে যান', prompt: 'দয়া করে একটি পরিস্থিতি চয়ন করুন', lifeTitle: 'দৈনন্দิน জীবনে ব্যবহৃত জাপানি' },
+            'pt': { school: 'Escola', life: 'Vida Diária', back: '◀ Voltar para Seleção de Cursos', prompt: 'Por favor, selecione uma situação', lifeTitle: 'Japonês para o Dia a Dia' },
+            'es': { school: 'Escuela', life: 'Vida Diaria', back: '◀ Voltar para Seleção de Cursos', prompt: 'Por favor, seleccione una situación', lifeTitle: 'Japonês para o Dia a Dia' },
+            'fr': { school: 'École', life: 'Vie Quotidienne', back: '◀ Retour à la sélection', prompt: 'Vui lòng choisir une situation', lifeTitle: 'Japonês pour la vie quotidienne' },
+            'ru': { school: 'Школа', life: 'Жизнь', back: '◀ Назад к выбору курса', prompt: 'Пожалуйста, выберите ситуацию', lifeTitle: 'Японский для повседневной жизни' },
+            'uk': { school: 'Школа', life: 'Життя', back: '◀ Назад до вибору курсу', prompt: 'Будь ласка, виберіть ситуацію', lifeTitle: 'Японська для повсякденного життя' }
+        };
+
+        function enterWorkspace(mode) {
+            gateContainer.style.display = 'none';
+            workspaceContainer.classList.remove('hidden');
+            setTimeout(() => { workspaceContainer.classList.remove('opacity-0'); }, 50);
+
+            if (mode === 'school') {
+                areaSchool.classList.remove('hidden'); areaSchool.classList.add('flex');
+                areaLife.classList.remove('flex'); areaLife.classList.add('hidden');
+            } else {
+                areaSchool.classList.remove('flex'); areaSchool.classList.add('hidden');
+                areaLife.classList.remove('hidden'); areaLife.classList.add('flex');
+            }
+        }
+
+        function backToGate() {
+            workspaceContainer.classList.add('opacity-0');
+            setTimeout(() => {
+                workspaceContainer.classList.add('hidden');
+                gateContainer.style.display = 'flex';
+            }, 300);
+        }
+
+        function renderLifeDashboard(langCode) {
+            const container = document.getElementById('life-categories-box');
+            container.innerHTML = "";
+
+            lifeMasterData.forEach(cat => {
+                const block = document.createElement('div');
+                block.className = "flex flex-col gap-3";
+
+                const categoryTitleText = cat.titles[langCode] || cat.titles['en'];
+                
+                block.innerHTML = `
+                    <h3 class="font-bold text-stone-700 text-sm md:text-base mb-2 flex items-center gap-2 bg-stone-100 p-2 rounded-sm">
+                        ${categoryTitleText}
+                    </h3>
+                    <div class="flex flex-col gap-2" id="box-${cat.labelId}"></div>
+                `;
+                container.appendChild(block);
+
+                const listInner = document.getElementById(`box-${cat.labelId}`);
+                
+                cat.scenes.forEach(scene => {
+                    const btn = document.createElement('button');
+                    if (scene.isReady) {
+                        btn.className = "w-full text-left px-4 py-3 rounded-sm border border-emerald-600 bg-emerald-50 text-emerald-900 font-bold hover:bg-emerald-100 transition-all flex justify-between items-center shadow-[0_2px_0_rgba(4,120,87,1)] active:translate-y-0.5 active:shadow-none text-xs md:text-sm";
+                        btn.innerHTML = `<span>${scene.name}</span><span class="text-xs text-emerald-600 font-black">▶</span>`;
+                        btn.onclick = () => {
+                            if(typeof window.loadJapeakCategory === 'function' && scene.catKey) {
+                                window.loadJapeakCategory(scene.catKey);
+                            } else {
+                                alert(`「${scene.name}」の練習画面へ進みます！`);
+                            }
+                        };
+                    } else {
+                        btn.disabled = true;
+                        btn.className = "w-full text-left px-4 py-3 rounded-sm border border-stone-200 bg-stone-50 text-stone-400 font-medium grayscale cursor-not-allowed flex justify-between items-center shadow-sm text-xs md:text-sm";
+                        const comingSoonText = (langCode === 'ja') ? '準備中' : 'Soon';
+                        btn.innerHTML = `<span>${scene.name}</span><span class="text-[9px] bg-stone-300 text-white px-1.5 py-0.5 rounded-sm font-bold tracking-wider">${comingSoonText}</span>`;
+                    }
+                    listInner.appendChild(btn);
+                });
+            });
+        }
+
+        function updateUiLanguage(langCode) {
+            const data = uiDict[langCode] || uiDict['en'];
+            
+            document.getElementById('btn-text-school').innerText = data.school;
+            document.getElementById('btn-text-life').innerText = data.life;
+            document.getElementById('btn-back-to-course').innerText = data.back;
+            document.getElementById('label-life-title').innerText = data.lifeTitle;
+            
+            const promptBox = document.getElementById('label-select-prompt');
+            if(promptBox) promptBox.innerText = data.prompt;
+
+            renderLifeDashboard(langCode);
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             const langData = [
+                { code: 'ja', native: '日本語', jp: 'にほんご' },
                 { code: 'en', native: 'English', jp: '英語' },
                 { code: 'zh-CN', native: '简体中文', jp: '中国語（簡体字）' },
                 { code: 'zh-TW', native: '繁體中文', jp: '中国語（繁体字）' },
@@ -128,7 +372,7 @@
                 { code: 'my', native: 'မြန်မာဘာသာ', jp: 'ミャンマー語' },
                 { code: 'km', native: 'ខ្មែរ', jp: 'クメール語' },
                 { code: 'ne', native: 'नेपाली', jp: 'ネパール語' },
-                { code: 'mn', native: 'Монгол хэл', jp: 'モンゴル語' },
+                { code: 'mn', native: 'Монгол хэл', jp: 'モンгол語' },
                 { code: 'si', native: 'සිංහල', jp: 'シンハラ語' },
                 { code: 'bn', native: 'বাংলা ভাষা', jp: 'ベンガル語' },
                 { code: 'pt', native: 'Português', jp: 'ポルトガル語' },
@@ -145,7 +389,6 @@
             const chevron = document.getElementById('custom-lang-chevron');
             const hiddenSelect = document.getElementById('menu-lang-select');
 
-            // リスト項目の生成
             langData.forEach(lang => {
                 const li = document.createElement('li');
                 li.className = "px-4 py-3 hover:bg-[#eef8ff] cursor-pointer border-b border-stone-100 last:border-0 transition-colors flex items-baseline gap-2 text-left";
@@ -153,47 +396,31 @@
                 
                 li.addEventListener('click', () => {
                     display.innerHTML = `<span>${lang.native}</span> <span class="text-[10px] font-normal opacity-90 mb-0.5">${lang.jp}</span>`;
-                    
                     hiddenSelect.value = lang.code;
                     hiddenSelect.dispatchEvent(new Event('change'));
                     
+                    updateUiLanguage(lang.code);
                     closeMenu();
                 });
                 list.appendChild(li);
             });
 
-            // 初期表示のセット
             setTimeout(() => {
-                const currentCode = hiddenSelect.value;
+                const currentCode = hiddenSelect.value || 'en';
                 const currentLang = langData.find(l => l.code === currentCode) || langData[0];
                 display.innerHTML = `<span>${currentLang.native}</span> <span class="text-[10px] font-normal opacity-90 mb-0.5">${currentLang.jp}</span>`;
+                updateUiLanguage(currentCode);
             }, 100);
 
             function toggleMenu() {
-                const isHidden = menu.classList.contains('hidden');
-                if (isHidden) {
-                    menu.classList.remove('hidden');
-                    chevron.classList.add('rotate-180');
-                } else {
-                    closeMenu();
-                }
+                if (menu.classList.contains('hidden')) {
+                    menu.classList.remove('hidden'); chevron.classList.add('rotate-180');
+                } else { closeMenu(); }
             }
+            function closeMenu() { menu.classList.add('hidden'); chevron.classList.remove('rotate-180'); }
 
-            function closeMenu() {
-                menu.classList.add('hidden');
-                chevron.classList.remove('rotate-180');
-            }
-
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                toggleMenu();
-            });
-
-            document.addEventListener('click', (e) => {
-                if (!menu.contains(e.target) && !btn.contains(e.target)) {
-                    closeMenu();
-                }
-            });
+            btn.addEventListener('click', (e) => { e.stopPropagation(); toggleMenu(); });
+            document.addEventListener('click', (e) => { if (!menu.contains(e.target) && !btn.contains(e.target)) closeMenu(); });
         });
     </script>
 </body>
