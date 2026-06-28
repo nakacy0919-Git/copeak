@@ -1,0 +1,108 @@
+{
+  "footerBadge": "Центр підтримки Japeak",
+  "footerTitle": "Практикуйте японську впевнено",
+  "footerSubtitle": "Перевірте допомогу з голосом, умови, приватність та інформацію про розробника.",
+  "navTrouble": "Допомога з голосом",
+  "navTerms": "Умови",
+  "navPrivacy": "Приватність",
+  "navDeveloper": "Розробник",
+  "navCopeak": "Copeak",
+  "close": "Закрити",
+  "back": "◀ Назад",
+  "next": "Далі ▶",
+  "step": "КРОК",
+  "troubleTitle": "Усунення проблем із розпізнаванням голосу",
+  "troubleSubtitle": "Кроки перевірки, якщо голос не розпізнається на iPad, iPhone або Chrome.",
+  "troubleKicker": "Усунення проблем із розпізнаванням голосу",
+  "notes": [
+    "First, make sure your device and browser are ready.",
+    "Follow the screenshots and check the settings carefully.",
+    "If it still does not work, try another device or check school device restrictions."
+  ],
+  "troubleTitles": [
+    "Update iPadOS / iOS",
+    "Open Privacy & Security",
+    "Check Speech Recognition and Microphone",
+    "Allow your browser",
+    "Restart the device"
+  ],
+  "troubleBodies": [
+    "Open Settings > General > Software Update. Older systems may prevent microphone or speech recognition features from working correctly.",
+    "Open the Settings app and scroll down to Privacy & Security.",
+    "Open Speech Recognition and make sure Safari or Chrome is allowed. Also check Microphone settings.",
+    "Make sure the browser you use is turned on. If it is blocked, Japeak cannot listen to your voice.",
+    "If it still does not work, reload the page, restart the browser, or restart the device. School devices may also have restrictions set by administrators."
+  ],
+  "termsTitle": "Умови використання Japeak",
+  "termsSubtitle": "Rules and notes for using Japeak safely and responsibly.",
+  "termsKicker": "Умови використання",
+  "termsSections": [
+    [
+      "1. Purpose of the Service",
+      "Japeak is a web application for Japanese reading-aloud and speaking practice. It supports pronunciation, expression, and dialogue practice in schools, homes, self-study, and community Japanese education."
+    ],
+    [
+      "2. Speech Recognition and Scores",
+      "Speech recognition may be affected by the device, browser, network, microphone settings, and surrounding noise. Scores are learning indicators and do not officially certify Japanese ability."
+    ],
+    [
+      "3. Learning Materials and Translations",
+      "Japanese sentences, translations, furigana, romaji, and explanations are created for learning support. We try to keep them accurate, but we do not guarantee perfect accuracy in every situation."
+    ],
+    [
+      "4. Prohibited Use",
+      "Unauthorized copying, redistribution, modification, improper access, harmful use, and actions that place excessive load on the system are prohibited."
+    ],
+    [
+      "5. Disclaimer",
+      "Some functions may not work depending on browser specifications, OS, device settings, external service changes, or network conditions. We work to improve the service but cannot guarantee perfect operation in every environment."
+    ]
+  ],
+  "privacyTitle": "Політика приватності Japeak",
+  "privacySubtitle": "How voice recognition and learning-related data are handled.",
+  "privacyKicker": "Політика приватності",
+  "privacySections": [
+    [
+      "1. Basic Policy",
+      "Japeak values a safe environment for Japanese learning. We aim to avoid collecting unnecessary personal information."
+    ],
+    [
+      "2. Voice Data",
+      "Japeak is not designed to permanently store users’ voice files. Speech recognition is processed through browser or OS features."
+    ],
+    [
+      "3. Local Data",
+      "Language settings, learning status, and temporary display information may be stored in the browser. Clearing cache or history may delete them."
+    ],
+    [
+      "4. External Services",
+      "Japeak may use external services for fonts, speech recognition, analytics, ads, or libraries. Information may be processed according to each provider’s policy."
+    ],
+    [
+      "5. Contact Information",
+      "If we receive a name or email address through inquiries, it will be used only for replies and support, unless required by law."
+    ]
+  ],
+  "developerTitle": "Про розробника",
+  "developerSubtitle": "The background of Japeak, Copeak, and Global Classroom.",
+  "developerKicker": "Про розробника",
+  "ctaDeveloper": "Сторінка розробника",
+  "developerSections": [
+    [
+      "Kohei Nakashima",
+      "High School English Teacher / Global Classroom Founder / EdTech Developer"
+    ],
+    [
+      "Why Japeak was created",
+      "Japeak was created to help Japanese learners read, speak, check their pronunciation, and gradually build practical Japanese for real-life situations."
+    ],
+    [
+      "Connection with Copeak",
+      "Copeak is a sister site for English reading-aloud and shadowing practice. Japeak applies the same idea to Japanese learning, including daily life, school, and dialogue practice."
+    ],
+    [
+      "Educational Vision",
+      "Language learning is a power to connect with people. Japeak aims to support learners in Japan and around the world as they take their first confident step in speaking Japanese."
+    ]
+  ]
+}
