@@ -3,11 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="google-adsense-account" content="ca-pub-2212278850521165">
-
     <title data-i18n="head_title">Copeak - 英語音読・シャドーイング練習ツール</title>
-
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-86CYZ2RWGX"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -15,125 +12,48 @@
       gtag('js', new Date());
       gtag('config', 'G-86CYZ2RWGX');
     </script>
-
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2212278850521165" crossorigin="anonymous"></script>
-
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,700;1,500&family=Noto+Sans+JP:wght@400;500;700&display=swap');
-        
-        body { 
-            font-family: 'Noto Sans JP', sans-serif; 
-            background-color: #292524; 
-            background-image: radial-gradient(#44403c 1px, transparent 1px);
-            background-size: 20px 20px;
-            min-height: 100vh;
-        }
-
+        body { font-family: 'Noto Sans JP', sans-serif; background-color: #292524; background-image: radial-gradient(#44403c 1px, transparent 1px); background-size: 20px 20px; min-height: 100vh; }
         h1, h2, h3, .serif-font { font-family: 'Lora', serif; }
-        
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f5f5f4; }
         ::-webkit-scrollbar-thumb { background: #57534e; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #292524; }
-
         .matched-word { color: #0284c7; font-weight: 700; } 
         .unmatched-word { color: inherit; text-decoration: none; opacity: 1; } 
-        
-        #toast {
-            position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
-            background: #1c1917; color: #fafaf9; padding: 12px 28px; 
-            border-radius: 4px; font-weight: 500; box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            border: 1px solid #44403c;
-            opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 1000;
-        }
+        #toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: #1c1917; color: #fafaf9; padding: 12px 28px; border-radius: 4px; font-weight: 500; box-shadow: 0 10px 25px rgba(0,0,0,0.5); border: 1px solid #44403c; opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 1000; }
         .show-toast { opacity: 1 !important; }
-
         .iron-border { border: 3px solid #292524; box-shadow: 4px 4px 0px rgba(41,37,36,1); }
         .iron-border-sm { border: 2px solid #292524; }
-        
         .sidebar-active { border-left: 4px solid #065f46 !important; background-color: #f0fdf4 !important; }
-
         .screen { display: none; animation: fadeIn 0.4s ease; }
         .screen.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        #learningHeader, #learningTabs, #audioContainer {
-            transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, padding 0.5s ease, margin 0.5s ease;
-            overflow: hidden;
-            max-height: 200px;
-        }
-        
+        #learningHeader, #learningTabs, #audioContainer { transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, padding 0.5s ease, margin 0.5s ease; overflow: hidden; max-height: 200px; }
         #mainLayoutWrapper { transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
-
-        .immersive-mode #learningHeader,
-        .immersive-mode #learningTabs,
-        .immersive-mode #audioContainer {
-            max-height: 0 !important;
-            opacity: 0 !important;
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
-            margin-top: 0 !important;
-            margin-bottom: 0 !important;
-            border-width: 0 !important;
-        }
+        .immersive-mode #learningHeader, .immersive-mode #learningTabs, .immersive-mode #audioContainer { max-height: 0 !important; opacity: 0 !important; padding-top: 0 !important; padding-bottom: 0 !important; margin-top: 0 !important; margin-bottom: 0 !important; border-width: 0 !important; }
         .immersive-mode #mainLayoutWrapper { height: 95vh !important; }
-
-        .karaoke-active .pace-word {
-            background-image: linear-gradient(to right, #a855f7 50%, #57534e 50%); 
-            background-size: 200% 100%; 
-            background-position: 100% 0; 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent; 
-            background-clip: text;
-            color: transparent;
-        }
+        .karaoke-active .pace-word { background-image: linear-gradient(to right, #a855f7 50%, #57534e 50%); background-size: 200% 100%; background-position: 100% 0; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent; }
         .karaoke-active .pace-word.paced-highlight { background-position: 0 0; }
         .karaoke-active .pace-word.paced-read { background-position: 0 0; }
-        /* ★花火アニメーションを「無限ループ」に修正 */
-        @keyframes score-pop {
-            0% { transform: scale(1); }
-            40% { transform: scale(1.3); text-shadow: 0 0 15px currentColor; }
-            100% { transform: scale(1); text-shadow: 0 0 0 transparent; }
-        }
-        @keyframes fireworks-burst {
-            0% { box-shadow: 0 0 0 -2px currentColor; opacity: 1; }
-            /* 50%で消すことで、次に打ち上がるまでの「タメ（間）」を作ります */
-            50%, 100% { 
-                box-shadow: 
-                    0 -60px 0 -2px currentColor, 45px -45px 0 -2px currentColor, 
-                    60px 0 0 -2px currentColor, 45px 45px 0 -2px currentColor, 
-                    0 60px 0 -2px currentColor, -45px 45px 0 -2px currentColor, 
-                    -60px 0 0 -2px currentColor, -45px -45px 0 -2px currentColor; 
-                opacity: 0; 
-            }
-        }
-        .score-firework {
-            animation: score-pop 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-        }
-        .score-firework::after {
-            content: '';
-            position: absolute;
-            top: 50%; left: 50%;
-            width: 8px; height: 8px;
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            /* ★1.5秒周期で「無限(infinite)」に繰り返すように変更 */
-            animation: fireworks-burst 1.5s ease-out infinite;
-            pointer-events: none;
-        }
-
-        /* ★追加: 本番（immersive-mode）中は設定バーを強制非表示にする魔法のCSS */
-        .immersive-mode #vanishModeControls,
-        .immersive-mode #pacedModeControls {
-            display: none !important;
-        }
+        @keyframes score-pop { 0% { transform: scale(1); } 40% { transform: scale(1.3); text-shadow: 0 0 15px currentColor; } 100% { transform: scale(1); text-shadow: 0 0 0 transparent; } }
+        @keyframes fireworks-burst { 0% { box-shadow: 0 0 0 -2px currentColor; opacity: 1; } 50%, 100% { box-shadow: 0 -60px 0 -2px currentColor, 45px -45px 0 -2px currentColor, 60px 0 0 -2px currentColor, 45px 45px 0 -2px currentColor, 0 60px 0 -2px currentColor, -45px 45px 0 -2px currentColor, -60px 0 0 -2px currentColor, -45px -45px 0 -2px currentColor; opacity: 0; } }
+        .score-firework { animation: score-pop 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+        .score-firework::after { content: ''; position: absolute; top: 50%; left: 50%; width: 8px; height: 8px; border-radius: 50%; transform: translate(-50%, -50%); animation: fireworks-burst 1.5s ease-out infinite; pointer-events: none; }
+        .immersive-mode #vanishModeControls, .immersive-mode #pacedModeControls { display: none !important; }
+        /* 🌟 アコーディオン用のCSS */
+        .accordion-content { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out; opacity: 0; overflow: hidden; }
+        .accordion-content.is-open { grid-template-rows: 1fr; opacity: 1; }
+        .accordion-inner { min-height: 0; overflow: hidden; padding-bottom: 0; transition: padding-bottom 0.3s ease-out; }
+        .accordion-content.is-open .accordion-inner { padding-bottom: 1.5rem; }
     </style>
 </head>
 <body class="text-stone-800 pb-10 relative transition-colors duration-500">
-
     <div id="toast">メッセージ</div>
 
     <div id="homeScreen" class="screen active max-w-[1400px] w-[95%] mx-auto mt-6 md:mt-10 p-6 md:p-12 bg-[#faf8f5] rounded-sm iron-border min-h-[80vh] flex flex-col">
@@ -156,106 +76,115 @@
                     </button>
                 </div>
                 <select id="appLangSelector" onchange="if(typeof changeAppLanguage === 'function') changeAppLanguage(this.value)" class="text-xs font-bold bg-[#faf8f5] border-2 border-stone-800 text-stone-800 rounded-sm px-2 py-1 outline-none cursor-pointer">
-                    <option value="ja">🇯🇵 日本語</option>
-                    <option value="en">🇺🇸 English</option>
-                    <option value="zh-TW">🇹🇼 繁體中文</option>
-                    <option value="vi">🇻🇳 Tiếng Việt</option>
-                    <option value="id">🇮🇩 Indonesia</option>
-                    <option value="tl">🇵🇭 Tagalog</option>
-                    <option value="hi">🇮🇳 हिन्दी</option>
+                    <option value="ja">🇯🇵 日本語</option><option value="en">🇺🇸 English</option><option value="zh-TW">🇹🇼 繁體中文</option><option value="vi">🇻🇳 Tiếng Việt</option><option value="id">🇮🇩 Indonesia</option><option value="tl">🇵🇭 Tagalog</option><option value="hi">🇮🇳 हिन्दी</option>
                 </select>
                 <span data-i18n="nav_my_library" class="bg-stone-800 text-stone-100 text-[10px] md:text-xs font-bold px-3 py-1.5 md:px-4 md:py-2 rounded-sm uppercase tracking-widest shrink-0">My Library</span>
             </div>
         </div>
-        <div class="bg-gradient-to-r from-blue-700 via-indigo-600 to-purple-700 p-[3px] rounded-sm shadow-xl mb-8 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl cursor-pointer group" onclick="window.location.href='challenge.html'">
-            <div class="bg-stone-900 px-5 py-6 md:px-8 md:py-8 rounded-sm flex flex-col md:flex-row items-center justify-between gap-5 relative overflow-hidden">
-                <div class="absolute -right-4 -top-6 text-white opacity-5 text-9xl pointer-events-none transform rotate-12 group-hover:scale-110 transition-transform duration-700">🏆</div>
-                <div class="absolute -left-10 -bottom-10 text-emerald-400 opacity-5 text-9xl pointer-events-none transform -rotate-12">🔥</div>
-                
-                <div class="flex-1 text-center md:text-left z-10">
-                    <div class="inline-block bg-yellow-400 text-yellow-900 text-[10px] md:text-xs font-black px-3 py-1 rounded-sm mb-3 tracking-widest uppercase animate-pulse">
-                        期間限定イベント開催中！
-                    </div>
-                    <h3 class="text-xl md:text-3xl font-black text-white mb-2 serif-font tracking-wide">
-                        <span class="text-yellow-400">N</span>ational <span class="text-emerald-400">C</span>opeak <span class="text-blue-400">C</span>hallenge
-                    </h3>
-                    <p class="text-xs md:text-sm text-stone-300 font-medium leading-relaxed">
-                        全国の仲間と音読スコアを競い合おう！リアルタイム・ランキングで自分の実力を試すチャンス！
-                    </p>
-                </div>
-                
-                <div class="shrink-0 z-10 w-full md:w-auto mt-2 md:mt-0">
-                    <button class="w-full md:w-auto px-6 py-3.5 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 font-black text-sm md:text-base rounded-full shadow-[0_0_15px_rgba(250,204,21,0.4)] transition-all flex items-center justify-center gap-2 group-hover:bg-yellow-300">
-                        <span>特設会場へエントリー</span> <span class="group-hover:translate-x-1 transition-transform">➔</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="bg-amber-50 border-l-4 border-amber-500 p-4 md:p-5 mb-8 rounded-sm shadow-sm iron-border-sm">
-            <h3 class="font-bold text-amber-800 text-sm md:text-base flex items-center gap-2 mb-2">
-                <span class="text-lg">⚠️</span> <span data-i18n="warning_title">データの保存に関する重要なお願い</span>
-            </h3>
-            <ul class="text-xs md:text-sm text-stone-700 space-y-2 ml-2 md:ml-6 list-disc font-medium">
-                <li><strong class="text-stone-900" data-i18n="warning_ipad_bold">iPad / スマホの方:</strong> <span data-i18n="warning_ipad_desc">最初にブラウザのメニューから<strong class="text-amber-700">「ホーム画面に追加」</strong>を行い、必ずそのアイコンからアプリを開いてください。</span></li>
-                <li><strong class="text-stone-900" data-i18n="warning_pc_bold">PCの方:</strong> <span data-i18n="warning_pc_desc">ブックマークに登録し、常に同じブラウザを使用してください。</span></li>
-            </ul>
-        </div>
 
-        <div class="bg-white p-6 md:p-8 mb-8 rounded-sm iron-border-sm flex flex-col gap-6 relative overflow-hidden">
-            <div class="absolute -right-4 -top-4 text-stone-100 text-9xl z-0 opacity-50 pointer-events-none">📈</div>
-
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b-2 border-stone-200 pb-3 relative z-10">
-                <h3 class="font-bold text-stone-800 text-lg md:text-xl flex items-center gap-2 serif-font">
-                    🎯 <span data-i18n="target_score_title">Target Scores (目標ランク)</span>
-                </h3>
-                <button id="btn-open-sla-modal" class="bg-stone-800 hover:bg-stone-700 text-white text-[10px] md:text-xs font-bold px-4 py-2 rounded-sm transition shadow-md flex items-center gap-1 animate-pulse hover:animate-none">
-                    <span>🧠</span> 脳内処理の解説を見る
+        <div class="mb-10 space-y-1">
+            <div class="border-b-2 border-stone-200">
+                <button onclick="toggleAccordion('warning')" class="w-full flex justify-between items-center py-4 md:py-5 outline-none group text-left transition-colors">
+                    <span class="flex items-center gap-3 font-bold text-stone-800 text-base md:text-lg group-hover:text-amber-600 transition-colors">
+                        <span class="text-xl">⚠️</span> <span data-i18n="warning_title">データの保存に関する重要なお願い</span>
+                    </span>
+                    <span id="acc-warning-icon" class="text-3xl text-amber-600 font-normal leading-none group-hover:scale-110 transition-transform">－</span>
                 </button>
-            </div>
-            
-            <p id="level-mission-desc" class="text-xs md:text-sm text-stone-600 leading-relaxed font-medium bg-stone-50 p-3 rounded-sm border border-stone-200 relative z-10">
-                【音声化の第1歩】まずは英語の「音」を恐れずに声に出す段階です。1秒に1単語のペースで、ゆっくり確実に文字を音に変えていきましょう！
-            </p>
-
-            <div class="flex bg-stone-100 p-1 rounded-sm iron-border-sm w-full overflow-x-auto gap-1 relative z-10">
-                <button id="btn-lv1" onclick="switchTargetLevel(1)" class="flex-1 px-2 py-2 rounded-sm font-bold text-[10px] md:text-xs transition-all duration-200 bg-stone-800 text-white shadow-md whitespace-nowrap">Lv.1 Starter</button>
-                <button id="btn-lv2" onclick="switchTargetLevel(2)" class="flex-1 px-2 py-2 rounded-sm font-bold text-[10px] md:text-xs transition-all duration-200 text-stone-500 hover:text-stone-800 whitespace-nowrap">Lv.2 Learner</button>
-                <button id="btn-lv3" onclick="switchTargetLevel(3)" class="flex-1 px-2 py-2 rounded-sm font-bold text-[10px] md:text-xs transition-all duration-200 text-stone-500 hover:text-stone-800 whitespace-nowrap">Lv.3 Runner</button>
-                <button id="btn-lv4" onclick="switchTargetLevel(4)" class="flex-1 px-2 py-2 rounded-sm font-bold text-[10px] md:text-xs transition-all duration-200 text-stone-500 hover:text-stone-800 whitespace-nowrap">Lv.4 Expert</button>
-                <button id="btn-lv5" onclick="switchTargetLevel(5)" class="flex-1 px-2 py-2 rounded-sm font-bold text-[10px] md:text-xs transition-all duration-200 text-stone-500 hover:text-stone-800 whitespace-nowrap">Lv.5 Master</button>
-            </div>
-
-            <div class="bg-stone-900 p-4 md:p-6 rounded-xl shadow-2xl border-2 border-stone-700 flex flex-col relative gap-4 w-full z-10">
-                <div class="flex flex-row justify-around items-center w-full border-b border-stone-800 pb-4">
-                    <div class="text-center w-1/3">
-                        <div class="text-stone-400 font-bold tracking-widest text-[9px] md:text-xs mb-1 uppercase">Accuracy</div>
-                        <div id="target-acc" class="text-3xl sm:text-4xl md:text-5xl font-bold text-emerald-400 serif-font drop-shadow-md transition-all duration-300">60%</div>
-                    </div>
-                    <div class="text-center w-1/3 border-l border-r border-stone-700 px-2">
-                        <div class="text-stone-400 font-bold tracking-widest text-[9px] md:text-xs mb-1 uppercase">WPM</div>
-                        <div id="target-wpm" class="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-400 serif-font drop-shadow-md transition-all duration-300">60</div>
-                    </div>
-                    <div class="text-center w-1/3">
-                        <div class="text-stone-400 font-bold tracking-widest text-[9px] md:text-xs mb-1 uppercase">Comp.</div>
-                        <div id="target-comp" class="text-3xl sm:text-4xl md:text-5xl font-bold text-yellow-400 serif-font drop-shadow-md transition-all duration-300">70%</div>
+                <div id="acc-warning-content" class="accordion-content is-open">
+                    <div class="accordion-inner pb-6">
+                        <div class="bg-amber-50 border-l-4 border-amber-500 p-4 md:p-5 rounded-sm shadow-sm iron-border-sm">
+                            <ul class="text-xs md:text-sm text-stone-700 space-y-2 ml-2 md:ml-6 list-disc font-medium">
+                                <li><strong class="text-stone-900" data-i18n="warning_ipad_bold">iPad / スマホの方:</strong> <span data-i18n="warning_ipad_desc">最初にブラウザのメニューから<strong class="text-amber-700">「ホーム画面に追加」</strong>を行い、必ずそのアイコンからアプリを開いてください。</span></li>
+                                <li><strong class="text-stone-900" data-i18n="warning_pc_bold">PCの方:</strong> <span data-i18n="warning_pc_desc">ブックマークに登録し、常に同じブラウザを使用してください。</span></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="flex flex-col md:flex-row w-full gap-4 md:gap-6 pt-2 h-[380px] md:h-64">
-                    <div class="w-full md:w-1/2 h-48 md:h-full relative z-10">
-                        <canvas id="targetScoreChart"></canvas>
-                    </div>
-                    <div class="w-full md:w-1/2 h-48 md:h-full flex flex-col bg-stone-900 rounded-xl border-2 border-stone-700 cursor-pointer group overflow-hidden transition-all duration-300 hover:border-emerald-500 hover:shadow-[0_0_15px_rgba(52,211,153,0.3)] z-10" onclick="openSlaModalAtCurrent()" title="クリックして大画面で解説を見る">
-                        <div class="w-full flex-1 relative bg-white flex items-center justify-center overflow-hidden pointer-events-none">
-                            <img id="level-preview-img" src="assets/images/level1.webp" alt="Level Image" class="absolute w-full h-full object-contain p-1 group-hover:scale-105 transition-transform duration-500">
+            <div class="border-b-2 border-stone-200">
+                <button onclick="toggleAccordion('ncc')" class="w-full flex justify-between items-center py-4 md:py-5 outline-none group text-left transition-colors">
+                    <span class="flex items-center gap-3 font-bold text-stone-800 text-base md:text-lg group-hover:text-indigo-600 transition-colors">
+                        <span class="text-xl">🏆</span> <span>National Copeak Challenge 開催中！</span>
+                    </span>
+                    <span id="acc-ncc-icon" class="text-3xl text-indigo-600 font-normal leading-none group-hover:scale-110 transition-transform">－</span>
+                </button>
+                <div id="acc-ncc-content" class="accordion-content is-open">
+                    <div class="accordion-inner pb-6">
+                        <div class="bg-gradient-to-r from-blue-700 via-indigo-600 to-purple-700 p-[3px] rounded-sm shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl cursor-pointer group/ncc" onclick="window.location.href='challenge.html'">
+                            <div class="bg-stone-900 px-5 py-6 md:px-8 md:py-8 rounded-sm flex flex-col md:flex-row items-center justify-between gap-5 relative overflow-hidden">
+                                <div class="absolute -right-4 -top-6 text-white opacity-5 text-9xl pointer-events-none transform rotate-12 group-hover/ncc:scale-110 transition-transform duration-700">🏆</div>
+                                <div class="absolute -left-10 -bottom-10 text-emerald-400 opacity-5 text-9xl pointer-events-none transform -rotate-12">🔥</div>
+                                <div class="flex-1 text-center md:text-left z-10">
+                                    <div class="inline-block bg-yellow-400 text-yellow-900 text-[10px] md:text-xs font-black px-3 py-1 rounded-sm mb-3 tracking-widest uppercase animate-pulse">期間限定イベント開催中！</div>
+                                    <h3 class="text-xl md:text-3xl font-black text-white mb-2 serif-font tracking-wide"><span class="text-yellow-400">N</span>ational <span class="text-emerald-400">C</span>opeak <span class="text-blue-400">C</span>hallenge</h3>
+                                    <p class="text-xs md:text-sm text-stone-300 font-medium leading-relaxed">全国の仲間と音読スコアを競い合おう！リアルタイム・ランキングで自分の実力を試すチャンス！</p>
+                                </div>
+                                <div class="shrink-0 z-10 w-full md:w-auto mt-2 md:mt-0">
+                                    <button class="w-full md:w-auto px-6 py-3.5 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 font-black text-sm md:text-base rounded-full shadow-[0_0_15px_rgba(250,204,21,0.4)] transition-all flex items-center justify-center gap-2 group-hover/ncc:bg-yellow-300">
+                                        <span>特設会場へエントリー</span> <span class="group-hover/ncc:translate-x-1 transition-transform">➔</span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="w-full py-2.5 bg-stone-900 border-t border-stone-800 flex justify-center items-center text-stone-400 text-[10px] md:text-xs font-bold group-hover:text-emerald-400 transition-colors shrink-0 pointer-events-none">
-                            <span class="text-sm">🔍</span> 画像をタップして拡大解説を見る
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-b-2 border-stone-200 mb-8">
+                <button onclick="toggleAccordion('target')" class="w-full flex justify-between items-center py-4 md:py-5 outline-none group text-left transition-colors">
+                    <span class="flex items-center gap-3 font-bold text-stone-800 text-base md:text-lg group-hover:text-stone-500 transition-colors">
+                        <span class="text-xl">🎯</span> <span data-i18n="target_score_title">Target Scores (目標ランク) と 脳内処理の解説</span>
+                    </span>
+                    <span id="acc-target-icon" class="text-3xl text-stone-500 font-normal leading-none group-hover:scale-110 transition-transform">－</span>
+                </button>
+                <div id="acc-target-content" class="accordion-content is-open">
+                    <div class="accordion-inner pb-6">
+                        <div class="bg-white p-6 md:p-8 rounded-sm iron-border-sm flex flex-col gap-6 relative overflow-hidden">
+                            <div class="absolute -right-4 -top-4 text-stone-100 text-9xl z-0 opacity-50 pointer-events-none">📈</div>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 relative z-10">
+                                <button id="btn-open-sla-modal" class="bg-stone-800 hover:bg-stone-700 text-white text-[10px] md:text-xs font-bold px-4 py-2 rounded-sm transition shadow-md flex items-center gap-1 animate-pulse hover:animate-none">
+                                    <span>🧠</span> 脳内処理の解説を見る
+                                </button>
+                            </div>
+                            <p id="level-mission-desc" class="text-xs md:text-sm text-stone-600 leading-relaxed font-medium bg-stone-50 p-3 rounded-sm border border-stone-200 relative z-10">
+                                【音声化の第1歩】まずは英語の「音」を恐れずに声に出す段階です。1秒に1単語のペースで、ゆっくり確実に文字を音に変えていきましょう！
+                            </p>
+                            <div class="flex bg-stone-100 p-1 rounded-sm iron-border-sm w-full overflow-x-auto gap-1 relative z-10">
+                                <button id="btn-lv1" onclick="switchTargetLevel(1)" class="flex-1 px-2 py-2 rounded-sm font-bold text-[10px] md:text-xs transition-all duration-200 bg-stone-800 text-white shadow-md whitespace-nowrap">Lv.1 Starter</button>
+                                <button id="btn-lv2" onclick="switchTargetLevel(2)" class="flex-1 px-2 py-2 rounded-sm font-bold text-[10px] md:text-xs transition-all duration-200 text-stone-500 hover:text-stone-800 whitespace-nowrap">Lv.2 Learner</button>
+                                <button id="btn-lv3" onclick="switchTargetLevel(3)" class="flex-1 px-2 py-2 rounded-sm font-bold text-[10px] md:text-xs transition-all duration-200 text-stone-500 hover:text-stone-800 whitespace-nowrap">Lv.3 Runner</button>
+                                <button id="btn-lv4" onclick="switchTargetLevel(4)" class="flex-1 px-2 py-2 rounded-sm font-bold text-[10px] md:text-xs transition-all duration-200 text-stone-500 hover:text-stone-800 whitespace-nowrap">Lv.4 Expert</button>
+                                <button id="btn-lv5" onclick="switchTargetLevel(5)" class="flex-1 px-2 py-2 rounded-sm font-bold text-[10px] md:text-xs transition-all duration-200 text-stone-500 hover:text-stone-800 whitespace-nowrap">Lv.5 Master</button>
+                            </div>
+                            <div class="bg-stone-900 p-4 md:p-6 rounded-xl shadow-2xl border-2 border-stone-700 flex flex-col relative gap-4 w-full z-10">
+                                <div class="flex flex-row justify-around items-center w-full border-b border-stone-800 pb-4">
+                                    <div class="text-center w-1/3"><div class="text-stone-400 font-bold tracking-widest text-[9px] md:text-xs mb-1 uppercase">Accuracy</div><div id="target-acc" class="text-3xl sm:text-4xl md:text-5xl font-bold text-emerald-400 serif-font drop-shadow-md transition-all duration-300">60%</div></div>
+                                    <div class="text-center w-1/3 border-l border-r border-stone-700 px-2"><div class="text-stone-400 font-bold tracking-widest text-[9px] md:text-xs mb-1 uppercase">WPM</div><div id="target-wpm" class="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-400 serif-font drop-shadow-md transition-all duration-300">60</div></div>
+                                    <div class="text-center w-1/3"><div class="text-stone-400 font-bold tracking-widest text-[9px] md:text-xs mb-1 uppercase">Comp.</div><div id="target-comp" class="text-3xl sm:text-4xl md:text-5xl font-bold text-yellow-400 serif-font drop-shadow-md transition-all duration-300">70%</div></div>
+                                </div>
+                                <div class="flex flex-col md:flex-row w-full gap-4 md:gap-6 pt-2 h-[380px] md:h-64">
+                                    <div class="w-full md:w-1/2 h-48 md:h-full relative z-10"><canvas id="targetScoreChart"></canvas></div>
+                                    <div class="w-full md:w-1/2 h-48 md:h-full flex flex-col bg-stone-900 rounded-xl border-2 border-stone-700 cursor-pointer group overflow-hidden transition-all duration-300 hover:border-emerald-500 hover:shadow-[0_0_15px_rgba(52,211,153,0.3)] z-10" onclick="openSlaModalAtCurrent()" title="クリックして大画面で解説を見る">
+                                        <div class="w-full flex-1 relative bg-white flex items-center justify-center overflow-hidden pointer-events-none">
+                                            <img id="level-preview-img" src="assets/images/level1.webp" alt="Level Image" class="absolute w-full h-full object-contain p-1 group-hover:scale-105 transition-transform duration-500">
+                                        </div>
+                                        <div class="w-full py-2.5 bg-stone-900 border-t border-stone-800 flex justify-center items-center text-stone-400 text-[10px] md:text-xs font-bold group-hover:text-emerald-400 transition-colors shrink-0 pointer-events-none">
+                                            <span class="text-sm">🔍</span> 画像をタップして拡大解説を見る
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="mt-4 mb-4 md:mb-6 border-b-2 border-stone-200 pb-2 relative z-10">
+            <h2 class="text-xl md:text-2xl font-bold text-stone-800 serif-font">📚 <span>Library</span></h2>
+        </div>
+        <div id="savedLessonsList" class="grid grid-cols-1 md:grid-cols-2 gap-4 pb-8 relative z-10"></div>
         
         <div id="teacherModeArea" class="flex-col gap-6 w-full mb-8" style="display: none;">
             <div class="bg-blue-50 border border-blue-200 p-4 md:p-6 rounded-sm shadow-sm flex flex-col gap-4 iron-border-sm">
@@ -263,159 +192,116 @@
                     <h3 class="font-bold text-blue-900 text-sm md:text-base flex items-center gap-2 mb-2">
                         <span class="text-lg">👨‍🏫</span> <span data-i18n="teacher_title">教員専用設定：成績回収システムの準備</span>
                     </h3>
-                    <p data-i18n="teacher_desc" class="text-xs md:text-sm text-blue-700 font-medium mb-4">
-                        全国の先生方がこのシステムを使うための2ステップです。一度設定すれば、以後は共有リンクに自動で成績送信機能が付与されます。
-                    </p>
+                    <p data-i18n="teacher_desc" class="text-xs md:text-sm text-blue-700 font-medium mb-4">全国の先生方がこのシステムを使うための2ステップです。一度設定すれば、以後は共有リンクに自動で成績送信機能が付与されます。</p>
                 </div>
                 <div class="flex flex-col md:flex-row gap-6">
                     <div class="flex-1 bg-white p-4 rounded-sm border border-blue-200 shadow-sm flex flex-col">
                         <div class="font-bold text-blue-800 text-xs md:text-sm mb-2 flex items-center gap-2">
                             <span class="bg-blue-600 text-white px-2 py-0.5 rounded-sm tracking-widest uppercase text-[10px]">Step 1</span> <span data-i18n="teacher_step1_title">フォームの複製</span>
                         </div>
-                        <p data-i18n="teacher_step1_desc" class="text-xs text-stone-600 mb-4 flex-1">以下のボタンから成績回収用のGoogleフォーム（ひな形）をご自身のGoogleドライブにコピーしてください。（※質問項目は変更しないでください）</p>
-                        <a href="https://docs.google.com/forms/d/1Xjya4Rf2UBCGEr38PDxchoLxknrm9o5_6hqWKqp7I0I/copy" target="_blank" rel="noopener noreferrer" class="block w-full text-center py-2.5 bg-stone-800 hover:bg-stone-700 text-white font-bold text-xs md:text-sm rounded-sm transition shadow-sm">
-                            📑 <span data-i18n="teacher_step1_btn">マスターフォームをコピー</span>
-                        </a>
+                        <p data-i18n="teacher_step1_desc" class="text-xs text-stone-600 mb-4 flex-1">以下のボタンから成績回収用のGoogleフォームをご自身のGoogleドライブにコピーしてください。</p>
+                        <a href="https://docs.google.com/forms/d/1Xjya4Rf2UBCGEr38PDxchoLxknrm9o5_6hqWKqp7I0I/copy" target="_blank" rel="noopener noreferrer" class="block w-full text-center py-2.5 bg-stone-800 hover:bg-stone-700 text-white font-bold text-xs md:text-sm rounded-sm transition shadow-sm">📑 <span data-i18n="teacher_step1_btn">マスターフォームをコピー</span></a>
                     </div>
                     <div class="flex-1 bg-white p-4 rounded-sm border border-blue-200 shadow-sm flex flex-col">
                         <div class="font-bold text-blue-800 text-xs md:text-sm mb-2 flex items-center gap-2">
                             <span class="bg-blue-600 text-white px-2 py-0.5 rounded-sm tracking-widest uppercase text-[10px]">Step 2</span> <span data-i18n="teacher_step2_title">URLの登録</span>
                         </div>
-                        <p data-i18n="teacher_step2_desc" class="text-xs text-stone-600 mb-4 flex-1">コピーしたフォームを送信モードにし、回答用のURL（.../viewform）を下に貼り付けて保存します。</p>
+                        <p data-i18n="teacher_step2_desc" class="text-xs text-stone-600 mb-4 flex-1">コピーしたフォームを送信モードにし、回答用のURLを下に貼り付けて保存します。</p>
                         <div class="flex gap-2 mt-auto">
                             <input type="text" id="teacherFormUrlInput" data-i18n-placeholder="teacher_placeholder_url" placeholder="https://docs.google.com/forms/..." class="flex-1 p-2 bg-[#faf8f5] border border-blue-300 rounded-sm focus:ring-2 focus:ring-blue-600 outline-none transition text-xs text-stone-800">
-                            <button onclick="saveTeacherFormUrl()" type="button" data-i18n="teacher_step2_btn" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-sm shadow-sm transition whitespace-nowrap text-xs">
-                                保存
-                            </button>
+                            <button onclick="saveTeacherFormUrl()" type="button" data-i18n="teacher_step2_btn" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-sm shadow-sm transition whitespace-nowrap text-xs">保存</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <form id="customMaterialForm" class="bg-white p-6 md:p-8 rounded-sm iron-border-sm flex flex-col lg:flex-row gap-8 flex-1 relative z-10">
-            <div class="flex-1 space-y-6">
-                <h2 class="text-lg md:text-xl font-bold text-stone-800 serif-font flex items-center gap-2 mb-2">
-                    <span class="text-emerald-800">🌿</span> <span data-i18n="form_title">Create / Edit Material</span>
-                </h2>
-                <div>
-                    <label data-i18n="form_label_title" class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Title</label>
-                    <input type="text" id="customTitle" data-i18n-placeholder="form_placeholder_title" placeholder="例: Steve Jobs Speech" required 
-                           class="w-full p-3 md:p-4 bg-[#faf8f5] border border-stone-300 rounded-sm focus:ring-2 focus:ring-emerald-800 outline-none transition font-medium text-base md:text-lg text-stone-800 placeholder-stone-400">
-                </div>
-                <div>
-                    <label data-i18n="form_label_language" class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Language</label>
-                    <select id="customLang" class="w-full p-3 md:p-4 bg-[#faf8f5] border border-stone-300 rounded-sm focus:ring-2 focus:ring-emerald-800 outline-none font-medium cursor-pointer text-base md:text-lg">
-                        <option value="en-US">🇺🇸 English (US)</option>
-                        <option value="en-GB">🇬🇧 English (UK)</option>
-                        <option value="ja-JP">🇯🇵 Japanese</option>
-                        <option value="es-ES">🇪🇸 Spanish</option>
-                        <option value="id-ID">🇮🇩 Indonesian</option>
-                        <option value="ne-NP">🇳🇵 Nepali</option>
-                        <option value="zh-CN">🇨🇳 Chinese</option>
-                    </select>
-                </div>
-                <div>
-                    <label data-i18n="form_label_audio" class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Audio File (Optional)</label>
-                    <div class="bg-[#faf8f5] p-2 md:p-3 rounded-sm border border-dashed border-stone-400 overflow-hidden">
-                        <input type="file" id="customAudio" accept="audio/*, .mp3, .m4a, .wav, .aac, .m4r, .ogg" class="w-full text-sm md:text-base text-stone-500 file:mr-2 md:file:mr-4 file:py-1.5 file:px-3 md:file:py-2 md:file:px-4 file:rounded-sm file:border-0 file:font-bold file:bg-stone-200 file:text-stone-700 hover:file:bg-stone-300 cursor-pointer">
-                        <div id="audioRegisteredMark" class="hidden mt-3 p-2 bg-emerald-50 border border-emerald-200 rounded-sm text-xs md:text-sm font-bold text-emerald-700 flex items-center gap-2">
-                            <span>🎵</span> <span data-i18n="form_audio_saved">音声はすでに保存されています</span>
+        <div class="border-b-2 border-stone-200 mb-8 relative z-10">
+            <button type="button" onclick="toggleAccordion('form')" class="w-full flex justify-between items-center py-4 md:py-5 outline-none group text-left transition-colors">
+                <span class="flex items-center gap-3 font-bold text-stone-800 text-base md:text-lg group-hover:text-emerald-700 transition-colors">
+                    <span class="text-xl">🌿</span> <span data-i18n="form_title">教材を作成・登録する (Create Material)</span>
+                </span>
+                <span id="acc-form-icon" class="text-3xl text-emerald-600 font-normal leading-none group-hover:scale-110 transition-transform">＋</span>
+            </button>
+            <div id="acc-form-content" class="accordion-content">
+                <div class="accordion-inner pb-6">
+                    <form id="customMaterialForm" class="bg-white p-6 md:p-8 rounded-sm iron-border-sm flex flex-col lg:flex-row gap-8 flex-1 mt-2">
+                        <div class="flex-1 space-y-6">
+                            <div>
+                                <label data-i18n="form_label_title" class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Title</label>
+                                <input type="text" id="customTitle" data-i18n-placeholder="form_placeholder_title" placeholder="例: Steve Jobs Speech" required class="w-full p-3 md:p-4 bg-[#faf8f5] border border-stone-300 rounded-sm focus:ring-2 focus:ring-emerald-800 outline-none transition font-medium text-base md:text-lg text-stone-800 placeholder-stone-400">
+                            </div>
+                            <div>
+                                <label data-i18n="form_label_language" class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Language</label>
+                                <select id="customLang" class="w-full p-3 md:p-4 bg-[#faf8f5] border border-stone-300 rounded-sm focus:ring-2 focus:ring-emerald-800 outline-none font-medium cursor-pointer text-base md:text-lg">
+                                    <option value="en-US">🇺🇸 English (US)</option><option value="en-GB">🇬🇧 English (UK)</option><option value="ja-JP">🇯🇵 Japanese</option><option value="es-ES">🇪🇸 Spanish</option><option value="id-ID">🇮🇩 Indonesian</option><option value="ne-NP">🇳🇵 Nepali</option><option value="zh-CN">🇨🇳 Chinese</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label data-i18n="form_label_audio" class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Audio File (Optional)</label>
+                                <div class="bg-[#faf8f5] p-2 md:p-3 rounded-sm border border-dashed border-stone-400 overflow-hidden">
+                                    <input type="file" id="customAudio" accept="audio/*, .mp3, .m4a, .wav, .aac, .m4r, .ogg" class="w-full text-sm md:text-base text-stone-500 file:mr-2 md:file:mr-4 file:py-1.5 file:px-3 md:file:py-2 md:file:px-4 file:rounded-sm file:border-0 file:font-bold file:bg-stone-200 file:text-stone-700 hover:file:bg-stone-300 cursor-pointer">
+                                    <div id="audioRegisteredMark" class="hidden mt-3 p-2 bg-emerald-50 border border-emerald-200 rounded-sm text-xs md:text-sm font-bold text-emerald-700 flex items-center gap-2"><span>🎵</span> <span data-i18n="form_audio_saved">音声はすでに保存されています</span></div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                        <div class="flex-1 flex flex-col space-y-4 md:space-y-6">
+                            <div class="flex bg-stone-100 p-1 rounded-sm iron-border-sm w-full gap-1">
+                                <button type="button" id="tabStandardText" onclick="toggleMaterialType('standard')" class="flex-1 py-2 text-xs md:text-sm font-bold rounded-sm transition-colors bg-stone-800 text-white shadow-sm">標準テキスト</button>
+                                <button type="button" id="tabDialogueText" onclick="toggleMaterialType('dialogue')" class="flex-1 py-2 text-xs md:text-sm font-bold rounded-sm transition-colors text-stone-500 hover:text-stone-800">会話文 (Dialogue)</button>
+                            </div>
+                            <div id="standardInputArea" class="flex-1 flex flex-col">
+                                <label data-i18n="form_label_text" class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Target Text (学習テキスト)</label>
+                                <textarea id="customEng" data-i18n-placeholder="form_placeholder_eng" placeholder="英語などのスクリプトを貼り付け" required class="w-full h-40 md:h-64 p-3 md:p-4 bg-[#faf8f5] border border-stone-300 rounded-sm focus:ring-2 focus:ring-emerald-800 outline-none transition resize-y text-base md:text-lg"></textarea>
+                            </div>
+                            <div id="dialogueInputArea" class="flex-1 flex flex-col hidden">
+                                <label class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Dialogue Lines (セリフを追加)</label>
+                                <div id="dialogueLinesContainer" class="flex-1 overflow-y-auto space-y-3 p-2 md:p-3 bg-[#faf8f5] border border-stone-300 rounded-sm h-40 md:h-64 custom-scrollbar"></div>
+                                <button type="button" onclick="addDialogueLine()" class="mt-2 py-2 w-full bg-stone-200 hover:bg-stone-300 text-stone-700 font-bold text-xs rounded-sm transition border border-stone-300 border-dashed">＋ セリフを追加する</button>
+                            </div>
+                            <div>
+                                <label data-i18n="form_label_translation" class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Translation (日本語訳など)</label>
+                                <textarea id="customJpn" data-i18n-placeholder="form_placeholder_jpn" placeholder="母語での訳を貼り付け (任意)" rows="2" class="w-full p-3 md:p-4 bg-[#faf8f5] border border-stone-300 rounded-sm focus:ring-2 focus:ring-emerald-800 outline-none transition resize-y"></textarea>
+                            </div>
+                            <div class="flex gap-2 md:gap-3 mt-auto">
+                                <button type="button" id="cancelEditBtn" onclick="cancelEdit()" data-i18n="form_btn_cancel" class="hidden px-4 md:px-6 py-4 md:py-5 bg-stone-300 hover:bg-stone-400 text-stone-800 font-bold text-sm md:text-lg rounded-sm shadow-md transition uppercase tracking-widest whitespace-nowrap">Cancel</button>
+                                <button type="button" id="saveMaterialBtn" onclick="saveCustomLesson()" data-i18n="form_btn_save" class="flex-1 py-4 md:py-5 bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-lg md:text-xl rounded-sm shadow-md transition uppercase tracking-widest">Save to Library</button>
+                            </div>
+                            <script>
+                                window.currentMaterialType = 'standard';
+                                function toggleMaterialType(type) {
+                                    window.currentMaterialType = type;
+                                    const tabStd = document.getElementById('tabStandardText');
+                                    const tabDlg = document.getElementById('tabDialogueText');
+                                    const stdArea = document.getElementById('standardInputArea');
+                                    const dlgArea = document.getElementById('dialogueInputArea');
+                                    const engInput = document.getElementById('customEng');
+                                    if (type === 'standard') {
+                                        tabStd.className = "flex-1 py-2 text-xs md:text-sm font-bold rounded-sm transition-colors bg-stone-800 text-white shadow-sm";
+                                        tabDlg.className = "flex-1 py-2 text-xs md:text-sm font-bold rounded-sm transition-colors text-stone-500 hover:text-stone-800";
+                                        stdArea.classList.remove('hidden'); dlgArea.classList.add('hidden'); engInput.required = true;
+                                    } else {
+                                        tabStd.className = "flex-1 py-2 text-xs md:text-sm font-bold rounded-sm transition-colors text-stone-500 hover:text-stone-800";
+                                        tabDlg.className = "flex-1 py-2 text-xs md:text-sm font-bold rounded-sm transition-colors bg-stone-800 text-white shadow-sm";
+                                        stdArea.classList.add('hidden'); dlgArea.classList.remove('hidden'); engInput.required = false;
+                                        const container = document.getElementById('dialogueLinesContainer');
+                                        if (container.children.length === 0) { addDialogueLine('A', ''); addDialogueLine('B', ''); }
+                                    }
+                                }
+                                function addDialogueLine(speaker = '', text = '') {
+                                    const container = document.getElementById('dialogueLinesContainer');
+                                    const lineDiv = document.createElement('div');
+                                    lineDiv.className = "flex gap-2 items-start dialogue-line-item animate-fadeIn";
+                                    lineDiv.innerHTML = `<input type="text" placeholder="話者(A)" value="${speaker}" class="w-16 md:w-20 p-2 bg-white border border-stone-300 rounded-sm text-xs font-bold outline-none focus:border-emerald-600 dialogue-speaker transition"><textarea rows="2" placeholder="セリフを入力" class="flex-1 p-2 bg-white border border-stone-300 rounded-sm text-sm outline-none focus:border-emerald-600 resize-y dialogue-text transition">${text}</textarea><button type="button" onclick="this.parentElement.remove()" class="p-2 text-stone-400 hover:text-red-500 transition font-bold">✕</button>`;
+                                    container.appendChild(lineDiv); container.scrollTop = container.scrollHeight;
+                                }
+                            </script>
+                        </div>
+                    </form>
                 </div>
             </div>
-
-            <div class="flex-1 flex flex-col space-y-4 md:space-y-6">
-                <div class="flex bg-stone-100 p-1 rounded-sm iron-border-sm w-full gap-1">
-                    <button type="button" id="tabStandardText" onclick="toggleMaterialType('standard')" class="flex-1 py-2 text-xs md:text-sm font-bold rounded-sm transition-colors bg-stone-800 text-white shadow-sm">標準テキスト</button>
-                    <button type="button" id="tabDialogueText" onclick="toggleMaterialType('dialogue')" class="flex-1 py-2 text-xs md:text-sm font-bold rounded-sm transition-colors text-stone-500 hover:text-stone-800">会話文 (Dialogue)</button>
-                </div>
-
-                <div id="standardInputArea" class="flex-1 flex flex-col">
-                    <label data-i18n="form_label_text" class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Target Text (学習テキスト)</label>
-                    <textarea id="customEng" data-i18n-placeholder="form_placeholder_eng" placeholder="英語などのスクリプトを貼り付け" required 
-                              class="w-full h-40 md:h-64 p-3 md:p-4 bg-[#faf8f5] border border-stone-300 rounded-sm focus:ring-2 focus:ring-emerald-800 outline-none transition resize-y text-base md:text-lg"></textarea>
-                </div>
-
-                <div id="dialogueInputArea" class="flex-1 flex flex-col hidden">
-                    <label class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Dialogue Lines (セリフを追加)</label>
-                    <div id="dialogueLinesContainer" class="flex-1 overflow-y-auto space-y-3 p-2 md:p-3 bg-[#faf8f5] border border-stone-300 rounded-sm h-40 md:h-64 custom-scrollbar">
-                        </div>
-                    <button type="button" onclick="addDialogueLine()" class="mt-2 py-2 w-full bg-stone-200 hover:bg-stone-300 text-stone-700 font-bold text-xs rounded-sm transition border border-stone-300 border-dashed">
-                        ＋ セリフを追加する
-                    </button>
-                </div>
-
-                <div>
-                    <label data-i18n="form_label_translation" class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Translation (日本語訳など)</label>
-                    <textarea id="customJpn" data-i18n-placeholder="form_placeholder_jpn" placeholder="母語での訳を貼り付け (任意)" rows="2" 
-                              class="w-full p-3 md:p-4 bg-[#faf8f5] border border-stone-300 rounded-sm focus:ring-2 focus:ring-emerald-800 outline-none transition resize-y"></textarea>
-                </div>
-                <div class="flex gap-2 md:gap-3 mt-auto">
-                    <button type="button" id="cancelEditBtn" onclick="cancelEdit()" data-i18n="form_btn_cancel" class="hidden px-4 md:px-6 py-4 md:py-5 bg-stone-300 hover:bg-stone-400 text-stone-800 font-bold text-sm md:text-lg rounded-sm shadow-md transition uppercase tracking-widest whitespace-nowrap">
-                        Cancel
-                    </button>
-                    <button type="button" id="saveMaterialBtn" onclick="saveCustomLesson()" data-i18n="form_btn_save" class="flex-1 py-4 md:py-5 bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-lg md:text-xl rounded-sm shadow-md transition uppercase tracking-widest">
-                        Save to Library
-                    </button>
-                </div>
-
-                <script>
-                    window.currentMaterialType = 'standard';
-                    
-                    function toggleMaterialType(type) {
-                        window.currentMaterialType = type;
-                        const tabStd = document.getElementById('tabStandardText');
-                        const tabDlg = document.getElementById('tabDialogueText');
-                        const stdArea = document.getElementById('standardInputArea');
-                        const dlgArea = document.getElementById('dialogueInputArea');
-                        const engInput = document.getElementById('customEng');
-
-                        if (type === 'standard') {
-                            tabStd.className = "flex-1 py-2 text-xs md:text-sm font-bold rounded-sm transition-colors bg-stone-800 text-white shadow-sm";
-                            tabDlg.className = "flex-1 py-2 text-xs md:text-sm font-bold rounded-sm transition-colors text-stone-500 hover:text-stone-800";
-                            stdArea.classList.remove('hidden');
-                            dlgArea.classList.add('hidden');
-                            engInput.required = true;
-                        } else {
-                            tabStd.className = "flex-1 py-2 text-xs md:text-sm font-bold rounded-sm transition-colors text-stone-500 hover:text-stone-800";
-                            tabDlg.className = "flex-1 py-2 text-xs md:text-sm font-bold rounded-sm transition-colors bg-stone-800 text-white shadow-sm";
-                            stdArea.classList.add('hidden');
-                            dlgArea.classList.remove('hidden');
-                            engInput.required = false;
-                            
-                            // 初めてタブを開いた時にAさんとBさんの枠を自動生成
-                            const container = document.getElementById('dialogueLinesContainer');
-                            if (container.children.length === 0) {
-                                addDialogueLine('A', '');
-                                addDialogueLine('B', '');
-                            }
-                        }
-                    }
-
-                    function addDialogueLine(speaker = '', text = '') {
-                        const container = document.getElementById('dialogueLinesContainer');
-                        const lineDiv = document.createElement('div');
-                        lineDiv.className = "flex gap-2 items-start dialogue-line-item animate-fadeIn";
-                        lineDiv.innerHTML = `
-                            <input type="text" placeholder="話者(A)" value="${speaker}" class="w-16 md:w-20 p-2 bg-white border border-stone-300 rounded-sm text-xs font-bold outline-none focus:border-emerald-600 dialogue-speaker transition">
-                            <textarea rows="2" placeholder="セリフを入力" class="flex-1 p-2 bg-white border border-stone-300 rounded-sm text-sm outline-none focus:border-emerald-600 resize-y dialogue-text transition">${text}</textarea>
-                            <button type="button" onclick="this.parentElement.remove()" class="p-2 text-stone-400 hover:text-red-500 transition font-bold">✕</button>
-                        `;
-                        container.appendChild(lineDiv);
-                        // 追加したら一番下までスクロール
-                        container.scrollTop = container.scrollHeight;
-                    }
-                </script>
-            </div>
-        </form>
-　　　　 
-        <div class="mt-8 md:mt-12 mb-4 md:mb-6 border-b-2 border-stone-200 pb-2 relative z-10">
-            <h2 class="text-xl md:text-2xl font-bold text-stone-800 serif-font">📚 <span data-i18n="playlist_title">Playlist</span></h2>
         </div>
-        <div id="savedLessonsList" class="grid grid-cols-1 md:grid-cols-2 gap-4 pb-4 relative z-10"></div>
-        
+
         <div class="mt-8 mb-4 flex justify-center relative z-10">
             <a href="japeak-top.html" class="group flex items-center gap-4 bg-[#1e3a5f] hover:bg-[#172a45] text-white px-8 py-4 rounded-sm shadow-md transition-all duration-300 border-b-4 border-[#0f1d2f] active:border-b-0 active:translate-y-1">
                 <span class="text-3xl drop-shadow-md">🗻</span>
@@ -428,111 +314,78 @@
         </div>
         <div class="mt-8 md:mt-12 pt-6 border-t border-stone-200 flex flex-col xl:flex-row justify-between items-center gap-6 text-xs md:text-sm text-stone-500 font-medium relative z-10">
             <div class="flex flex-wrap justify-center xl:justify-start gap-x-4 md:gap-x-6 gap-y-3">
-                <a href="https://www.pic-speak-story.com/index.html" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-700 transition flex items-center gap-1">
-                    <span class="text-base">🏠</span> <span data-i18n="footer_picspeak">PicSpeak (スピーキング)</span>
-                </a>
-                <a href="https://vocadash.pic-speak-story.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-700 transition flex items-center gap-1">
-                    <span class="text-base">🔤</span> <span data-i18n="footer_vocadash">VocaDash (単語学習)</span>
-                </a>
-                <a href="copeak-guide.html" class="hover:text-emerald-700 transition flex items-center gap-1">
-                    <span class="text-base">🧭</span> <span data-i18n="footer_guide">活用ガイド</span>
-                </a>
-                <a href="https://sites.google.com/view/koheinakashima/bio" class="hover:text-emerald-700 transition flex items-center gap-1">
-                    <span class="text-base">👨‍🏫</span> <span data-i18n="footer_dev">開発者について</span>
-                </a>
-                <button onclick="toggleTeacherMode()" class="hover:text-emerald-700 transition flex items-center gap-1 cursor-pointer">
-                    <span class="text-base">🔐</span> <span data-i18n="footer_teacher">教員用メニュー</span>
-                </button>
-                <a href="copeak-terms.html" class="hover:text-emerald-700 transition flex items-center gap-1">
-                    <span class="text-base">📜</span> <span data-i18n="footer_terms">利用規約</span>
-                </a>
-                <a href="copeak-privacy.html" class="hover:text-emerald-700 transition flex items-center gap-1">
-                    <span class="text-base">🛡️</span> <span data-i18n="footer_privacy">プライバシーポリシー</span>
-                </a>
+                <a href="https://www.pic-speak-story.com/index.html" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-700 transition flex items-center gap-1"><span class="text-base">🏠</span> <span data-i18n="footer_picspeak">PicSpeak (スピーキング)</span></a>
+                <a href="https://vocadash.pic-speak-story.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-700 transition flex items-center gap-1"><span class="text-base">🔤</span> <span data-i18n="footer_vocadash">VocaDash (単語学習)</span></a>
+                <a href="copeak-guide.html" class="hover:text-emerald-700 transition flex items-center gap-1"><span class="text-base">🧭</span> <span data-i18n="footer_guide">活用ガイド</span></a>
+                <a href="https://sites.google.com/view/koheinakashima/bio" class="hover:text-emerald-700 transition flex items-center gap-1"><span class="text-base">👨‍🏫</span> <span data-i18n="footer_dev">開発者について</span></a>
+                <button onclick="toggleTeacherMode()" class="hover:text-emerald-700 transition flex items-center gap-1 cursor-pointer"><span class="text-base">🔐</span> <span data-i18n="footer_teacher">教員用メニュー</span></button>
+                <a href="copeak-terms.html" class="hover:text-emerald-700 transition flex items-center gap-1"><span class="text-base">📜</span> <span data-i18n="footer_terms">利用規約</span></a>
+                <a href="copeak-privacy.html" class="hover:text-emerald-700 transition flex items-center gap-1"><span class="text-base">🛡️</span> <span data-i18n="footer_privacy">プライバシーポリシー</span></a>
             </div>
             <div class="text-stone-400 tracking-wider shrink-0 text-center xl:text-right flex flex-col items-center xl:items-end">
-                <span>&copy; 2026 Kohei Nakashima.</span>
-                <span class="text-[10px] mt-0.5">All Rights Reserved.</span>
+                <span>&copy; 2026 Kohei Nakashima.</span><span class="text-[10px] mt-0.5">All Rights Reserved.</span>
             </div>
         </div>
         <div class="mt-6 pt-6 border-t border-stone-200/50 flex flex-col sm:flex-row justify-between items-center gap-6 relative z-10 opacity-80 hover:opacity-100 transition-opacity duration-300">
-            
             <div class="flex items-center gap-3 md:gap-4">
                 <span class="text-[9px] md:text-[10px] text-stone-400 font-bold tracking-widest uppercase mb-0.5">Supported by</span>
                 <a href="https://vital-design.co.jp/" target="_blank" rel="noopener noreferrer" class="group flex items-center bg-white/40 hover:bg-white px-3 py-2 md:px-4 md:py-2.5 rounded-md transition-all duration-300 border border-transparent hover:border-blue-100 shadow-sm hover:shadow-md" title="株式会社バイタルデザイン">
                     <img src="support1.webp" alt="Vital Design" class="h-8 md:h-11 object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500">
                 </a>
             </div>
-
             <a href="https://forms.gle/Kvfezyax5qs9BvYQ7" target="_blank" rel="noopener noreferrer" class="text-[9px] md:text-[11px] text-stone-400 hover:text-stone-600 transition-colors flex items-center gap-1.5 font-bold tracking-wider bg-stone-100/50 hover:bg-stone-200/50 px-3 py-2 rounded-md">
                 <span>🤝</span> スポンサー・協賛のお問い合わせ
             </a>
-            
         </div>
     </div>
+    
     <div id="multiplayLobbyScreen" class="screen max-w-[1000px] w-[95%] mx-auto mt-6 md:mt-10 p-6 md:p-10 bg-[#faf8f5] rounded-sm iron-border min-h-[60vh] flex flex-col justify-between hidden">
         <div class="border-b-2 border-stone-200 pb-4 mb-6 flex justify-between items-center">
-            <h2 class="text-xl md:text-2xl font-bold text-stone-800 serif-font flex items-center gap-2">
-                <span>👥</span> 共同モード待合室 (Lobby)
-            </h2>
+            <h2 class="text-xl md:text-2xl font-bold text-stone-800 serif-font flex items-center gap-2"><span>👥</span> 共同モード待合室 (Lobby)</h2>
             <button onclick="backToHome()" class="px-4 py-2 bg-stone-200 hover:bg-stone-300 text-stone-700 text-xs font-bold rounded-sm transition iron-border-sm">◀ 退出する</button>
         </div>
-
         <div class="flex flex-col lg:flex-row gap-6 flex-1 items-stretch">
             <div class="w-full lg:w-1/2 flex flex-col gap-4">
                 <div class="bg-white p-4 rounded-sm border border-stone-200 shadow-sm flex flex-col gap-2">
                     <span class="bg-stone-800 text-white text-[9px] font-black px-2 py-0.5 rounded-sm w-max uppercase tracking-wider">Host</span>
                     <h4 class="font-bold text-sm text-stone-700">新しくグループを作る</h4>
                     <p class="text-xs text-stone-500">自分がリーダーとなり、一緒にシンクロ・音読するメンバーを募集します。</p>
-                    <button id="btn-create-room" onclick="createMultiplayRoom()" class="w-full mt-2 py-2.5 bg-stone-800 hover:bg-stone-700 text-white font-bold text-xs rounded-sm transition shadow-sm uppercase tracking-wider">
-                        🔑 ルームを作成してIDを発行
-                    </button>
+                    <button id="btn-create-room" onclick="createMultiplayRoom()" class="w-full mt-2 py-2.5 bg-stone-800 hover:bg-stone-700 text-white font-bold text-xs rounded-sm transition shadow-sm uppercase tracking-wider">🔑 ルームを作成してIDを発行</button>
                     <div id="host-id-display" class="hidden mt-2 p-3 bg-stone-900 rounded-sm text-center border-2 border-stone-700">
                         <div class="text-[10px] text-stone-400 font-bold uppercase tracking-widest">グループのルームID</div>
                         <div id="my-room-id" class="text-3xl font-black text-emerald-400 tracking-widest my-1 serif-font">----</div>
                         <div class="text-[9px] text-stone-300 font-medium">この4桁の数字を一緒に遊ぶ仲間に伝えてください</div>
                     </div>
                 </div>
-
                 <div id="guest-join-panel" class="bg-white p-4 rounded-sm border border-stone-200 shadow-sm flex flex-col gap-2">
                     <span class="bg-stone-400 text-white text-[9px] font-black px-2 py-0.5 rounded-sm w-max uppercase tracking-wider">Guest</span>
                     <h4 class="font-bold text-sm text-stone-700">既存のグループに入る</h4>
                     <p class="text-xs text-stone-500">友達（ホスト）から教えてもらった4桁のルームIDを入力してください。</p>
                     <div class="flex gap-2 mt-2">
                         <input type="text" id="input-room-id" maxlength="4" placeholder="4桁のID" class="w-full p-2.5 bg-[#faf8f5] border border-stone-300 rounded-sm text-center font-bold text-xl focus:ring-2 focus:ring-emerald-800 outline-none transition text-stone-800 placeholder-stone-300 tracking-widest">
-                        <button id="btn-join-room" onclick="joinMultiplayRoom()" class="px-5 py-2 bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-xs rounded-sm shadow-sm transition whitespace-nowrap uppercase tracking-wider">
-                            接続する
-                        </button>
+                        <button id="btn-join-room" onclick="joinMultiplayRoom()" class="px-5 py-2 bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-xs rounded-sm shadow-sm transition whitespace-nowrap uppercase tracking-wider">接続する</button>
                     </div>
                 </div>
             </div>
-
             <div class="w-full lg:w-1/2 bg-stone-900 p-4 md:p-6 rounded-xl shadow-2xl border-2 border-stone-700 flex flex-col justify-between min-h-[280px]">
                 <div>
                     <div class="text-stone-400 font-bold tracking-widest text-[10px] mb-3 uppercase border-b border-stone-800 pb-1.5 flex justify-between">
-                        <span>Connected Players (最大3人)</span>
-                        <span id="connection-role" class="text-stone-500 text-[9px]">未接続</span>
+                        <span>Connected Players (最大3人)</span><span id="connection-role" class="text-stone-500 text-[9px]">未接続</span>
                     </div>
                     <div id="player-list-container" class="space-y-2.5">
                         <div class="flex items-center justify-between text-stone-200 text-sm font-bold bg-stone-800/60 p-2.5 rounded-sm border border-stone-800">
-                            <span class="flex items-center gap-2">🟢 <span id="p1-name">あなた</span></span>
-                            <span id="p1-status" class="text-[10px] text-emerald-400 bg-emerald-950/50 px-2 py-0.5 rounded-sm border border-emerald-900/30 font-bold tracking-wider">READY</span>
+                            <span class="flex items-center gap-2">🟢 <span id="p1-name">あなた</span></span><span id="p1-status" class="text-[10px] text-emerald-400 bg-emerald-950/50 px-2 py-0.5 rounded-sm border border-emerald-900/30 font-bold tracking-wider">READY</span>
                         </div>
                         <div id="p2-row" class="flex items-center justify-between text-stone-600 text-sm font-bold border border-dashed border-stone-800 p-2.5 rounded-sm opacity-40 transition-all duration-300">
-                            <span class="flex items-center gap-2"><span id="p2-dot">⚪️</span> <span id="p2-name">Player 2 を待機中...</span></span>
-                            <span id="p2-status" class="text-[10px] font-bold tracking-wider">WAITING</span>
+                            <span class="flex items-center gap-2"><span id="p2-dot">⚪️</span> <span id="p2-name">Player 2 を待機中...</span></span><span id="p2-status" class="text-[10px] font-bold tracking-wider">WAITING</span>
                         </div>
                         <div id="p3-row" class="flex items-center justify-between text-stone-600 text-sm font-bold border border-dashed border-stone-800 p-2.5 rounded-sm opacity-40 transition-all duration-300">
-                            <span class="flex items-center gap-2"><span id="p3-dot">⚪️</span> <span id="p3-name">Player 3 を待機中...</span></span>
-                            <span id="p3-status" class="text-[10px] font-bold tracking-wider">WAITING</span>
+                            <span class="flex items-center gap-2"><span id="p3-dot">⚪️</span> <span id="p3-name">Player 3 を待機中...</span></span><span id="p3-status" class="text-[10px] font-bold tracking-wider">WAITING</span>
                         </div>
                     </div>
                 </div>
-
                 <div class="mt-4 border-t border-stone-800 pt-4">
-                    <button id="btn-sync-start" disabled onclick="triggerSyncStart()" class="w-full py-3.5 bg-stone-800 text-stone-500 font-bold text-sm rounded-sm tracking-widest uppercase cursor-not-allowed border border-stone-700 transition-all text-center">
-                        メンバーの接続を待っています
-                    </button>
+                    <button id="btn-sync-start" disabled onclick="triggerSyncStart()" class="w-full py-3.5 bg-stone-800 text-stone-500 font-bold text-sm rounded-sm tracking-widest uppercase cursor-not-allowed border border-stone-700 transition-all text-center">メンバーの接続を待っています</button>
                 </div>
             </div>
         </div>
@@ -542,160 +395,78 @@
         <div id="countdown-number" class="text-8xl md:text-9xl font-black text-emerald-400 serif-font select-none scale-75 transition-all duration-300">3</div>
         <div class="text-stone-400 font-bold text-xs md:text-sm tracking-[0.3em] uppercase mt-8 select-none animate-pulse">Synchronizing Audio Playback...</div>
     </div>
+
     <div id="learningScreen" class="screen max-w-[1800px] w-[98%] mx-auto mt-2 md:mt-4 px-1 md:px-2 h-auto min-h-[90vh]">
-        
         <div id="learningHeader" class="flex flex-col sm:flex-row justify-between items-center mb-4 bg-stone-900 p-3 md:p-4 rounded-sm shadow-lg border border-stone-700">
-            <button onclick="backToHome()" class="flex items-center gap-2 px-4 py-2 bg-stone-800 hover:bg-stone-700 text-stone-200 rounded-sm font-bold transition border border-stone-600 mb-2 sm:mb-0 text-xs md:text-sm uppercase tracking-wider">
-                ◀ <span data-i18n="learn_back">Back</span>
-            </button>
+            <button onclick="backToHome()" class="flex items-center gap-2 px-4 py-2 bg-stone-800 hover:bg-stone-700 text-stone-200 rounded-sm font-bold transition border border-stone-600 mb-2 sm:mb-0 text-xs md:text-sm uppercase tracking-wider">◀ <span data-i18n="learn_back">Back</span></button>
             <h2 id="learningTitle" class="text-xl md:text-2xl font-bold text-stone-100 serif-font truncate px-2 md:px-4 flex-1 text-center">Title</h2>
-            
             <div class="flex items-center gap-2">
-                <button onclick="openMultiplaySetup()" class="flex items-center gap-2 px-3 py-2 bg-emerald-700 hover:bg-emerald-600 text-white rounded-sm font-bold transition text-xs md:text-sm shadow-md whitespace-nowrap">
-                    👥 共同モード
-                </button>
-                <button onclick="generateShareLink()" class="flex items-center gap-2 px-3 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-sm font-bold transition text-xs md:text-sm shadow-md whitespace-nowrap">
-                    🔗 <span data-i18n="learn_share">共有</span>
-                </button>
+                <button onclick="openMultiplaySetup()" class="flex items-center gap-2 px-3 py-2 bg-emerald-700 hover:bg-emerald-600 text-white rounded-sm font-bold transition text-xs md:text-sm shadow-md whitespace-nowrap">👥 共同モード</button>
+                <button onclick="generateShareLink()" class="flex items-center gap-2 px-3 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-sm font-bold transition text-xs md:text-sm shadow-md whitespace-nowrap">🔗 <span data-i18n="learn_share">共有</span></button>
             </div>
         </div>
-        
         <div id="mainLayoutWrapper" class="flex flex-col lg:flex-row gap-4 md:gap-6 h-[82vh]">
-            
             <div id="mainLearningPane" class="w-full lg:w-[78%] flex flex-col h-full bg-[#faf8f5] rounded-sm iron-border overflow-hidden relative transition-all duration-500">
-                
                 <div id="learningTabs" class="flex justify-center items-center p-2 md:p-3 border-b-2 border-stone-200 bg-white shrink-0 relative z-20 gap-2">
                     <div class="flex bg-stone-100 p-1 rounded-sm iron-border-sm shrink-0 w-full max-w-3xl overflow-x-auto gap-1">
-                        <button id="tabReading" onclick="setLearningMode('reading')" class="flex-1 px-1 md:px-4 py-2 rounded-sm font-bold text-[10px] md:text-sm transition-all duration-200 bg-stone-800 text-white uppercase tracking-wider shadow-md whitespace-nowrap">
-                            📖 <span data-i18n="tab_read">Read</span>
-                        </button>
-                        <button id="tabPaced" onclick="setLearningMode('paced')" class="flex-1 px-1 md:px-4 py-2 rounded-sm font-bold text-[10px] md:text-sm transition-all duration-200 text-stone-500 hover:text-stone-800 uppercase tracking-wider whitespace-nowrap">
-                            ⚡️ <span data-i18n="tab_paced">Paced</span>
-                        </button>
-                        <button id="tabMemo" onclick="setLearningMode('memo')" class="flex-1 px-1 md:px-4 py-2 rounded-sm font-bold text-[10px] md:text-sm transition-all duration-200 text-stone-500 hover:text-stone-800 uppercase tracking-wider whitespace-nowrap">
-                            🧠 <span data-i18n="tab_vanish">Vanish</span>
-                        </button>
-                        <button id="tabShadowing" onclick="setLearningMode('shadowing')" class="flex-1 px-1 md:px-4 py-2 rounded-sm font-bold text-[10px] md:text-sm transition-all duration-200 text-stone-500 hover:text-stone-800 uppercase tracking-wider whitespace-nowrap">
-                            🎧 <span data-i18n="tab_shadow">Shadow</span>
-                        </button>
+                        <button id="tabReading" onclick="setLearningMode('reading')" class="flex-1 px-1 md:px-4 py-2 rounded-sm font-bold text-[10px] md:text-sm transition-all duration-200 bg-stone-800 text-white uppercase tracking-wider shadow-md whitespace-nowrap">📖 <span data-i18n="tab_read">Read</span></button>
+                        <button id="tabPaced" onclick="setLearningMode('paced')" class="flex-1 px-1 md:px-4 py-2 rounded-sm font-bold text-[10px] md:text-sm transition-all duration-200 text-stone-500 hover:text-stone-800 uppercase tracking-wider whitespace-nowrap">⚡️ <span data-i18n="tab_paced">Paced</span></button>
+                        <button id="tabMemo" onclick="setLearningMode('memo')" class="flex-1 px-1 md:px-4 py-2 rounded-sm font-bold text-[10px] md:text-sm transition-all duration-200 text-stone-500 hover:text-stone-800 uppercase tracking-wider whitespace-nowrap">🧠 <span data-i18n="tab_vanish">Vanish</span></button>
+                        <button id="tabShadowing" onclick="setLearningMode('shadowing')" class="flex-1 px-1 md:px-4 py-2 rounded-sm font-bold text-[10px] md:text-sm transition-all duration-200 text-stone-500 hover:text-stone-800 uppercase tracking-wider whitespace-nowrap">🎧 <span data-i18n="tab_shadow">Shadow</span></button>
                     </div>
-                    <button onclick="openModeGuide()" class="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 bg-stone-200 hover:bg-stone-800 hover:text-white text-stone-600 rounded-sm font-bold text-sm md:text-lg transition iron-border-sm flex items-center justify-center shadow-sm" title="各モードの学習ガイドを見る">
-                        ❓
-                    </button>
+                    <button onclick="openModeGuide()" class="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 bg-stone-200 hover:bg-stone-800 hover:text-white text-stone-600 rounded-sm font-bold text-sm md:text-lg transition iron-border-sm flex items-center justify-center shadow-sm" title="各モードの学習ガイドを見る">❓</button>
                 </div>
-
                 <div id="mainScrollArea" class="flex-1 overflow-y-auto p-3 md:p-8 space-y-4 flex flex-col relative z-20">
-                    
                     <div id="audioContainer" class="hidden bg-stone-100 p-2 md:p-3 rounded-sm iron-border-sm shrink-0 w-full">
                         <div class="flex items-center gap-2 w-full">
                             <audio id="audioPlayer" controls class="flex-1 min-w-0 h-10 outline-none"></audio>
                             <button id="aiVoiceBtn" onclick="toggleAIVoice()" class="shrink-0 px-3 py-2 h-10 bg-purple-600 hover:bg-purple-700 text-white text-[10px] md:text-xs font-bold rounded-sm shadow-sm transition flex items-center justify-center whitespace-nowrap">
-                                🤖 <span data-i18n="btn_ai_voice" class="hidden sm:inline ml-1">AI音声を再生</span>
-                                <span class="sm:hidden ml-1">AI再生</span>
+                                🤖 <span data-i18n="btn_ai_voice" class="hidden sm:inline ml-1">AI音声を再生</span><span class="sm:hidden ml-1">AI再生</span>
                             </button>
                         </div>
                     </div>
-
                     <div id="resultScoreBoard" class="hidden flex-col gap-4 shrink-0">
                         <div class="bg-stone-900 p-4 md:p-6 rounded-sm shadow-xl border-2 border-stone-700 flex flex-col md:flex-row items-center relative gap-4 md:gap-0">
-                            <button onclick="openChartModal()" class="absolute -top-3 -right-3 md:-top-4 md:-right-4 bg-[#faf8f5] hover:bg-white text-stone-800 iron-border-sm p-2 md:p-3 rounded-full shadow-lg transition transform hover:scale-110 flex items-center justify-center z-10" title="学習推移グラフを見る">
-                                <span class="text-lg md:text-xl">📊</span>
-                            </button>
-                            
-                            <div class="flex-1 text-center w-full">
-                                <div data-i18n="score_accuracy" class="text-stone-400 font-bold tracking-widest text-[10px] md:text-xs mb-1 uppercase">Accuracy</div>
-                                <div id="bigAccValue" class="text-4xl sm:text-5xl md:text-6xl font-bold text-emerald-400 serif-font relative inline-block">0%</div>
-                            </div>
-                            
-                            <div class="flex-1 text-center border-t border-b md:border-t-0 md:border-b-0 md:border-l md:border-r border-stone-700 py-3 md:py-0 w-full">
-                                <div data-i18n="score_wpm" class="text-stone-400 font-bold tracking-widest text-[10px] md:text-xs mb-1 uppercase">WPM</div>
-                                <div id="bigWpmValue" class="text-4xl sm:text-5xl md:text-6xl font-bold text-blue-400 serif-font relative inline-block">0</div>
-                            </div>
-                            
-                            <div class="flex-1 text-center w-full">
-                                <div data-i18n="score_comp" class="text-stone-400 font-bold tracking-widest text-[10px] md:text-xs mb-1 uppercase">Comprehension</div>
-                                <div id="bigCompValue" class="text-4xl sm:text-5xl md:text-6xl font-bold text-yellow-400 serif-font relative inline-block">0%</div>
-                            </div>
+                            <button onclick="openChartModal()" class="absolute -top-3 -right-3 md:-top-4 md:-right-4 bg-[#faf8f5] hover:bg-white text-stone-800 iron-border-sm p-2 md:p-3 rounded-full shadow-lg transition transform hover:scale-110 flex items-center justify-center z-10" title="学習推移グラフを見る"><span class="text-lg md:text-xl">📊</span></button>
+                            <div class="flex-1 text-center w-full"><div data-i18n="score_accuracy" class="text-stone-400 font-bold tracking-widest text-[10px] md:text-xs mb-1 uppercase">Accuracy</div><div id="bigAccValue" class="text-4xl sm:text-5xl md:text-6xl font-bold text-emerald-400 serif-font relative inline-block">0%</div></div>
+                            <div class="flex-1 text-center border-t border-b md:border-t-0 md:border-b-0 md:border-l md:border-r border-stone-700 py-3 md:py-0 w-full"><div data-i18n="score_wpm" class="text-stone-400 font-bold tracking-widest text-[10px] md:text-xs mb-1 uppercase">WPM</div><div id="bigWpmValue" class="text-4xl sm:text-5xl md:text-6xl font-bold text-blue-400 serif-font relative inline-block">0</div></div>
+                            <div class="flex-1 text-center w-full"><div data-i18n="score_comp" class="text-stone-400 font-bold tracking-widest text-[10px] md:text-xs mb-1 uppercase">Comprehension</div><div id="bigCompValue" class="text-4xl sm:text-5xl md:text-6xl font-bold text-yellow-400 serif-font relative inline-block">0%</div></div>
                         </div>
                         <div id="practiceIconsContainer" class="flex flex-wrap gap-1 px-2"></div>
                         <div id="slaAdviceContainer" class="bg-emerald-50 border-l-4 border-emerald-600 p-3 md:p-4 rounded-sm shadow-sm flex items-start gap-3 md:gap-4 iron-border-sm">
                             <span class="text-2xl md:text-3xl mt-0 md:mt-1">💡</span>
-                            <div>
-                                <h4 data-i18n="score_feedback" class="font-bold text-emerald-900 text-xs md:text-sm tracking-widest uppercase mb-1">Learning Feedback</h4>
-                                <p id="slaAdviceText" class="text-stone-700 text-xs md:text-sm leading-relaxed font-medium"></p>
-                            </div>
+                            <div><h4 data-i18n="score_feedback" class="font-bold text-emerald-900 text-xs md:text-sm tracking-widest uppercase mb-1">Learning Feedback</h4><p id="slaAdviceText" class="text-stone-700 text-xs md:text-sm leading-relaxed font-medium"></p></div>
                         </div>
-                        
                         <button id="submitScoreTriggerBtn" onclick="openReflectionWrapper()" class="hidden w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-sm shadow-md transition-all flex items-center justify-center gap-2 animate-bounce">
                             🚀 <span data-i18n="btn_submit_score">先生に成績を提出する（振り返り入力へ）</span>
                         </button>
                     </div>
-
                     <div id="learningContentArea" class="relative flex flex-col lg:flex-row gap-4 md:gap-6 flex-1 w-full min-h-0">
-                        
                         <div id="yourVoiceWrapper" class="hidden w-full lg:w-1/2 p-4 md:p-6 bg-white rounded-sm border-l-4 border-stone-800 shadow-sm iron-border-sm flex-col transition-all duration-300 flex-1 min-h-[200px] md:min-h-[300px]">
-                            <div class="flex justify-between items-center mb-2 md:mb-4 border-b border-stone-100 pb-2 shrink-0">
-                                <div data-i18n="label_your_voice" class="text-xs md:text-sm text-stone-800 font-bold uppercase tracking-widest">Your Voice</div>
-                            </div>
-                            <div id="recognizedTextDisplay" class="text-stone-500 leading-relaxed font-medium transition-all duration-200 serif-font flex-1 overflow-y-auto" style="font-size: 24px;">
-                                <span data-i18n="msg_press_start">※Press START to begin</span>
-                            </div>
+                            <div class="flex justify-between items-center mb-2 md:mb-4 border-b border-stone-100 pb-2 shrink-0"><div data-i18n="label_your_voice" class="text-xs md:text-sm text-stone-800 font-bold uppercase tracking-widest">Your Voice</div></div>
+                            <div id="recognizedTextDisplay" class="text-stone-500 leading-relaxed font-medium transition-all duration-200 serif-font flex-1 overflow-y-auto" style="font-size: 24px;"><span data-i18n="msg_press_start">※Press START to begin</span></div>
                         </div>
-
                         <div id="targetTextWrapper" class="w-full flex flex-col gap-4 md:gap-6 transition-all duration-300 flex-1 min-h-[200px] md:min-h-[300px]">
                             <div class="p-4 md:p-6 bg-white rounded-sm border-l-4 border-emerald-800 shadow-sm flex-1 flex flex-col min-h-[150px] md:min-h-[250px]">
                                <div class="flex justify-between items-center mb-2 md:mb-4 border-b border-stone-100 pb-2 shrink-0">
                                     <div class="flex items-center gap-2 md:gap-3 flex-wrap">
                                         <div data-i18n="label_target_text" class="text-xs md:text-sm text-emerald-800 font-bold uppercase tracking-widest">Target Text</div>
-                                        <button id="toggleJpnBtn" onclick="toggleTranslation()" class="hidden text-[10px] md:text-xs font-bold text-stone-500 hover:text-emerald-700 bg-stone-100 px-2 md:px-3 py-1 rounded-sm transition border border-stone-200 whitespace-nowrap">
-                                            🌐 <span data-i18n="btn_show_translation">訳を表示</span>
-                                        </button>
-                                        <button onclick="openFullscreenPreview()" class="px-2 py-1 md:px-3 md:py-1 bg-stone-800 hover:bg-stone-700 text-white rounded-sm font-bold transition text-[10px] md:text-xs shadow-sm flex items-center gap-1.5 whitespace-nowrap">
-                                            ⛶ <span class="hidden sm:inline">フルスクリーンで予行練習</span>
-                                            <span class="sm:hidden">予行練習</span>
-                                        </button>
-                                        
+                                        <button id="toggleJpnBtn" onclick="toggleTranslation()" class="hidden text-[10px] md:text-xs font-bold text-stone-500 hover:text-emerald-700 bg-stone-100 px-2 md:px-3 py-1 rounded-sm transition border border-stone-200 whitespace-nowrap">🌐 <span data-i18n="btn_show_translation">訳を表示</span></button>
+                                        <button onclick="openFullscreenPreview()" class="px-2 py-1 md:px-3 md:py-1 bg-stone-800 hover:bg-stone-700 text-white rounded-sm font-bold transition text-[10px] md:text-xs shadow-sm flex items-center gap-1.5 whitespace-nowrap">⛶ <span class="hidden sm:inline">フルスクリーンで予行練習</span><span class="sm:hidden">予行練習</span></button>
                                         <div id="pacedModeControls" class="hidden">
                                             <div class="flex items-center gap-1 bg-purple-50 px-2 py-1 border border-purple-200 rounded-sm shrink-0">
-                                                <label for="pacedWpmSelect" class="text-[10px] font-bold text-purple-900 whitespace-nowrap flex items-center cursor-pointer">
-                                                    ⚡️ WPM
-                                                </label>
+                                                <label for="pacedWpmSelect" class="text-[10px] font-bold text-purple-900 whitespace-nowrap flex items-center cursor-pointer">⚡️ WPM</label>
                                                 <select id="pacedWpmSelect" onchange="updateTargetWpm(this.value)" class="bg-transparent text-[11px] font-bold text-purple-900 outline-none cursor-pointer ml-1 pl-1 border-l border-purple-200">
-                                                    <option value="60">60</option>
-                                                    <option value="70">70</option>
-                                                    <option value="80">80</option>
-                                                    <option value="90">90</option>
-                                                    <option value="100">100</option>
-                                                    <option value="110">110</option>
-                                                    <option value="120" selected>120</option>
-                                                    <option value="130">130</option>
-                                                    <option value="140">140</option>
-                                                    <option value="150">150</option>
-                                                    <option value="160">160</option>
-                                                    <option value="170">170</option>
-                                                    <option value="180">180</option>
-                                                    <option value="190">190</option>
-                                                    <option value="200">200</option>
-                                                    <option value="210">210</option>
-                                                    <option value="220">220</option>
-                                                    <option value="230">230</option>
-                                                    <option value="240">240</option>
+                                                    <option value="60">60</option><option value="70">70</option><option value="80">80</option><option value="90">90</option><option value="100">100</option><option value="110">110</option><option value="120" selected>120</option><option value="130">130</option><option value="140">140</option><option value="150">150</option><option value="160">160</option><option value="170">170</option><option value="180">180</option><option value="190">190</option><option value="200">200</option><option value="210">210</option><option value="220">220</option><option value="230">230</option><option value="240">240</option>
                                                 </select>
                                                 <button type="button" onclick="openWpmGuide()" class="ml-1 w-4 h-4 flex items-center justify-center bg-purple-200 hover:bg-purple-300 text-purple-700 rounded-full text-[9px] font-bold transition">?</button>
                                             </div>
                                         </div>
-
                                         <div id="vanishModeControls" class="hidden">
                                             <div class="flex items-center gap-1 bg-stone-50 px-2 py-1 border border-stone-200 rounded-sm shrink-0">
-                                                <label for="vanishLevelSelect" class="text-[10px] font-bold text-stone-500 flex items-center cursor-pointer">
-                                                    🧠 Lv
-                                                </label>
+                                                <label for="vanishLevelSelect" class="text-[10px] font-bold text-stone-500 flex items-center cursor-pointer">🧠 Lv</label>
                                                 <select id="vanishLevelSelect" onchange="updateMemoLevel(this.value)" class="bg-transparent text-[11px] font-bold text-stone-700 outline-none cursor-pointer ml-1 pl-1 border-l border-stone-200">
-                                                    <option value="1">1 (20% 空欄)</option>
-                                                    <option value="2">2 (40% 空欄)</option>
-                                                    <option value="3">3 (60% 空欄)</option>
-                                                    <option value="4">4 (80% 空欄)</option>
-                                                    <option value="5">5 (100% 空欄)</option>
+                                                    <option value="1">1 (20% 空欄)</option><option value="2">2 (40% 空欄)</option><option value="3">3 (60% 空欄)</option><option value="4">4 (80% 空欄)</option><option value="5">5 (100% 空欄)</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -706,9 +477,8 @@
                                         <button onclick="changeFontSize('eng', 2)" class="w-6 h-6 md:w-8 md:h-8 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold rounded-sm transition text-xs md:text-base">A+</button>
                                     </div>
                                 </div>
-
-                                <div id="engContainer" class="text-stone-800 leading-relaxed transition-all duration-200 font-medium serif-font flex-1 overflow-y-auto" style="font-size: 24px;"></div> </div>
-
+                                <div id="engContainer" class="text-stone-800 leading-relaxed transition-all duration-200 font-medium serif-font flex-1 overflow-y-auto" style="font-size: 24px;"></div> 
+                            </div>
                             <div id="jpnWrapper" class="p-4 md:p-6 bg-[#f8fafc] rounded-sm border-l-4 border-stone-400 shadow-inner hidden transition-all duration-300 shrink-0">
                                 <div class="flex justify-between items-center mb-2 md:mb-4 border-b border-stone-200 pb-2">
                                     <div data-i18n="label_translation" class="text-xs md:text-sm text-stone-500 font-bold uppercase tracking-widest">Translation</div>
@@ -722,34 +492,26 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="bg-[#faf8f5] border-t-2 border-stone-200 p-3 md:p-4 flex justify-center shrink-0 relative z-30">
                     <button id="micBtn" onclick="toggleRecording()" class="flex items-center justify-center gap-2 md:gap-3 w-full max-w-sm py-2.5 md:py-3 bg-emerald-800 hover:bg-emerald-900 text-white rounded-sm font-bold text-base md:text-lg shadow-md border-2 border-emerald-950 transition transform hover:-translate-y-1 uppercase tracking-widest">
                         <span class="text-xl md:text-2xl">🎙</span> <span id="micBtnText" data-i18n="btn_start_text">START</span>
                     </button>
                 </div>
             </div>
-
             <div id="playlistSidebar" class="w-full lg:w-[22%] h-[35vh] lg:h-full bg-[#faf8f5] rounded-sm iron-border flex flex-col overflow-hidden transition-all duration-500">
                 <div class="p-3 md:p-4 border-b-2 border-stone-200 bg-white shrink-0">
-                    <h3 class="font-bold text-stone-800 serif-font uppercase tracking-widest text-xs md:text-sm">📋 <span data-i18n="sidebar_playlist">Playlist</span></h3>
+                    <h3 class="font-bold text-stone-800 serif-font uppercase tracking-widest text-xs md:text-sm">📚 <span data-i18n="sidebar_playlist">Library</span></h3>
                 </div>
                 <div id="sidebarLessonList" class="flex-1 overflow-y-auto p-3 md:p-4 space-y-2 md:space-y-3"></div>
             </div>
-
         </div>
     </div>
 
     <div id="chartModal" class="fixed inset-0 bg-stone-900/80 z-[20000] hidden flex justify-center items-center backdrop-blur-sm transition-opacity p-2 md:p-0">
         <div class="bg-[#faf8f5] p-5 md:p-8 rounded-sm iron-border w-full md:w-[95%] max-w-5xl relative">
             <button onclick="closeChartModal()" class="absolute top-2 right-3 md:top-4 md:right-4 text-stone-400 hover:text-red-500 text-3xl md:text-4xl font-bold transition">&times;</button>
-            <h2 class="text-xl md:text-2xl font-bold text-stone-800 mb-4 md:mb-6 serif-font flex items-center gap-2 md:gap-3">
-                <span class="text-2xl md:text-3xl">📈</span> <span data-i18n="chart_title">Learning Progress</span>
-            </h2>
-            <div class="w-full h-[40vh] md:h-[55vh] bg-white p-2 md:p-4 rounded-sm iron-border-sm relative">
-                <canvas id="progressChart"></canvas>
-            </div>
-            
+            <h2 class="text-xl md:text-2xl font-bold text-stone-800 mb-4 md:mb-6 serif-font flex items-center gap-2 md:gap-3"><span class="text-2xl md:text-3xl">📈</span> <span data-i18n="chart_title">Learning Progress</span></h2>
+            <div class="w-full h-[40vh] md:h-[55vh] bg-white p-2 md:p-4 rounded-sm iron-border-sm relative"><canvas id="progressChart"></canvas></div>
             <div class="mt-4 flex flex-col items-center gap-3 bg-blue-50 p-3 md:p-4 rounded-sm border border-blue-200">
                 <p class="text-[11px] md:text-sm text-blue-800 font-bold">💡 グラフの「点」を直接タップすると、その回の成績を先生に送信できます！</p>
                 <button onclick="openReflectionWrapper(); closeChartModal();" class="w-full md:w-auto px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-sm shadow-md transition-colors flex items-center justify-center gap-2 text-xs md:text-sm">
@@ -762,13 +524,10 @@
     <div id="studentProfileModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-stone-900/80 backdrop-blur-sm p-4 transition-opacity duration-300">
         <div class="bg-white rounded-xl shadow-2xl w-full max-w-sm overflow-hidden border border-stone-200">
             <div class="bg-stone-800 p-4 flex justify-between items-center text-white">
-                <h3 class="font-bold text-lg flex items-center gap-2">
-                    <span>👤</span> <span data-i18n="profile_title">プロフィール登録</span>
-                </h3>
+                <h3 class="font-bold text-lg flex items-center gap-2"><span>👤</span> <span data-i18n="profile_title">プロフィール登録</span></h3>
             </div>
             <div class="p-6 flex flex-col gap-4">
                 <p data-i18n="profile_desc" class="text-sm text-stone-600 font-medium">成績を送信するために、あなたの情報を登録してください。（この端末に保存されます）</p>
-                
                 <div class="flex gap-3">
                     <div class="flex-1">
                         <label data-i18n="profile_class" class="block text-xs font-bold text-stone-500 mb-1">クラス</label>
@@ -783,7 +542,6 @@
                     <label data-i18n="profile_name" class="block text-xs font-bold text-stone-500 mb-1">氏名</label>
                     <input type="text" id="studentNameInput" data-i18n-placeholder="profile_placeholder_name" placeholder="例: 岡崎 太郎" class="w-full bg-[#faf8f5] border border-stone-300 rounded-sm p-2 text-stone-800 font-bold focus:outline-none focus:border-emerald-600 transition">
                 </div>
-
                 <button onclick="saveStudentProfile()" class="w-full mt-2 bg-emerald-800 hover:bg-emerald-900 text-white font-bold py-3 rounded-sm shadow-md transition-colors flex items-center justify-center gap-2">
                     <span data-i18n="profile_save">保存して始める</span>
                 </button>
@@ -794,31 +552,20 @@
     <div id="reflectionModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-stone-900/80 backdrop-blur-sm p-4 transition-opacity duration-300">
         <div class="bg-white rounded-xl shadow-2xl w-full max-w-lg overflow-hidden border border-stone-200">
             <div class="bg-emerald-800 p-4 flex justify-between items-center text-white">
-                <h3 class="font-bold text-lg flex items-center gap-2">
-                    <span>📤</span> <span data-i18n="ref_title">先生に成績を送信</span>
-                </h3>
-                <button onclick="closeReflectionModal()" class="text-white hover:text-stone-300 transition p-1">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
+                <h3 class="font-bold text-lg flex items-center gap-2"><span>📤</span> <span data-i18n="ref_title">先生に成績を送信</span></h3>
+                <button onclick="closeReflectionModal()" class="text-white hover:text-stone-300 transition p-1"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
             </div>
             <div class="p-6 flex flex-col gap-4">
                 <div class="bg-stone-100 p-3 rounded-sm border border-stone-200 flex justify-between items-center text-sm">
-                    <span class="font-bold text-stone-600" id="submitScorePreview">Accuracy: --% / WPM: --</span>
-                    <span class="bg-stone-800 text-white px-2 py-0.5 rounded text-xs font-bold" id="submitModePreview">Mode</span>
+                    <span class="font-bold text-stone-600" id="submitScorePreview">Accuracy: --% / WPM: --</span><span class="bg-stone-800 text-white px-2 py-0.5 rounded text-xs font-bold" id="submitModePreview">Mode</span>
                 </div>
-                
                 <div>
                     <label data-i18n="ref_desc" class="block text-sm font-bold text-stone-600 mb-2">今日の練習の振り返り（工夫した点、難しかった点など）</label>
                     <textarea id="reflectionInput" data-i18n-placeholder="ref_placeholder_text" rows="4" placeholder="例: イントネーションを意識してシャドーイングしました。" class="w-full bg-[#faf8f5] border border-stone-300 rounded-sm p-3 text-stone-800 text-sm focus:outline-none focus:border-emerald-600 transition resize-none"></textarea>
                 </div>
-
                 <div class="flex gap-3 mt-2">
-                    <button onclick="closeReflectionModal()" data-i18n="ref_cancel" class="flex-1 bg-stone-200 hover:bg-stone-300 text-stone-700 font-bold py-3 rounded-sm transition-colors">
-                        キャンセル
-                    </button>
-                    <button onclick="submitScoreToForm()" id="finalSubmitBtn" class="flex-[2] bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-sm shadow-md transition-colors flex items-center justify-center gap-2">
-                        <span>🚀</span> <span data-i18n="ref_submit">この内容で送信する</span>
-                    </button>
+                    <button onclick="closeReflectionModal()" data-i18n="ref_cancel" class="flex-1 bg-stone-200 hover:bg-stone-300 text-stone-700 font-bold py-3 rounded-sm transition-colors">キャンセル</button>
+                    <button onclick="submitScoreToForm()" id="finalSubmitBtn" class="flex-[2] bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-sm shadow-md transition-colors flex items-center justify-center gap-2"><span>🚀</span> <span data-i18n="ref_submit">この内容で送信する</span></button>
                 </div>
             </div>
         </div>
@@ -826,9 +573,7 @@
     
     <div id="wpmGuideModal" class="fixed inset-0 bg-stone-900/80 z-[100] hidden flex justify-center items-center p-4 backdrop-blur-sm transition-opacity">
         <div class="bg-white p-6 md:p-8 rounded-sm iron-border max-w-md w-full relative">
-            <h3 class="text-lg md:text-xl font-bold text-stone-800 mb-4 border-b-2 border-stone-100 pb-2 flex items-center gap-2">
-                <span class="text-2xl">⏱</span> <span data-i18n="wpm_guide_title">WPMの目安</span>
-            </h3>
+            <h3 class="text-lg md:text-xl font-bold text-stone-800 mb-4 border-b-2 border-stone-100 pb-2 flex items-center gap-2"><span class="text-2xl">⏱</span> <span data-i18n="wpm_guide_title">WPMの目安</span></h3>
             <p data-i18n="wpm_guide_desc" class="text-xs text-stone-500 mb-4 font-bold">※WPM (Words Per Minute) ＝ 1分間に読む単語数</p>
             <ul class="space-y-4 text-sm md:text-base">
                 <li class="flex justify-between border-b border-stone-50 pb-2"><span>🐢 <b>80</b> WPM</span><span data-i18n="wpm_80" class="font-bold text-stone-500">ゆっくり (初心者)</span></li>
@@ -844,46 +589,27 @@
     <div id="modeGuideModal" class="fixed inset-0 bg-stone-900/80 z-[100] hidden flex justify-center items-center p-4 backdrop-blur-sm transition-opacity">
         <div class="bg-[#faf8f5] p-6 md:p-8 rounded-sm iron-border max-w-4xl w-full relative max-h-[90vh] overflow-y-auto">
             <button type="button" onclick="closeModeGuide()" class="absolute top-3 right-4 md:top-4 md:right-5 text-stone-400 hover:text-red-500 text-3xl font-bold transition">&times;</button>
-            <h3 class="text-xl md:text-2xl font-bold text-stone-800 mb-2 border-b-2 border-stone-200 pb-2 flex items-center gap-2 serif-font">
-                <span class="text-3xl">🧭</span> <span data-i18n="mode_guide_title">Copeak 4-Step Learning Guide</span>
-            </h3>
-            <p class="text-xs md:text-sm text-red-700 font-bold mb-6 bg-red-50 p-3 rounded-sm border border-red-200 flex gap-2">
-                <span class="text-base">⚠️</span> 
-                <span data-i18n="mode_guide_warning">いきなり「Paced」や「Vanish」を行っても学習効果はありません。英文の内容を完全に理解し、Step 1 から順番に負荷を上げていきましょう。</span>
-            </p>
+            <h3 class="text-xl md:text-2xl font-bold text-stone-800 mb-2 border-b-2 border-stone-200 pb-2 flex items-center gap-2 serif-font"><span class="text-3xl">🧭</span> <span data-i18n="mode_guide_title">Copeak 4-Step Learning Guide</span></h3>
+            <p class="text-xs md:text-sm text-red-700 font-bold mb-6 bg-red-50 p-3 rounded-sm border border-red-200 flex gap-2"><span class="text-base">⚠️</span> <span data-i18n="mode_guide_warning">いきなり「Paced」や「Vanish」を行っても学習効果はありません。英文の内容を完全に理解し、Step 1 から順番に負荷を上げていきましょう。</span></p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="bg-white p-4 md:p-5 rounded-sm border-l-4 border-stone-800 shadow-sm iron-border-sm flex flex-col">
-                    <h4 class="font-bold text-stone-800 text-base md:text-lg flex justify-between items-center mb-2">
-                        <span>Step 1: 📖 Read</span>
-                        <span data-i18n="mode_tag_1" class="text-[10px] bg-stone-100 px-2 py-1 rounded text-stone-500 uppercase tracking-widest">導入・意味理解</span>
-                    </h4>
+                    <h4 class="font-bold text-stone-800 text-base md:text-lg flex justify-between items-center mb-2"><span>Step 1: 📖 Read</span><span data-i18n="mode_tag_1" class="text-[10px] bg-stone-100 px-2 py-1 rounded text-stone-500 uppercase tracking-widest">導入・意味理解</span></h4>
                     <p class="text-xs md:text-sm text-stone-600 mb-3 flex-1"><strong data-i18n="mode_sla" class="text-stone-800">🔬 SLA科学的根拠:</strong><br><span data-i18n="mode_desc_1">「Form-Meaning Mapping（形式と意味の結びつけ）」。文字と音声、そして「意味」を脳内で連結させる最初の土台作りです。</span></p>
                 </div>
                 <div class="bg-white p-4 md:p-5 rounded-sm border-l-4 border-purple-600 shadow-sm iron-border-sm flex flex-col">
-                    <h4 class="font-bold text-purple-900 text-base md:text-lg flex justify-between items-center mb-2">
-                        <span>Step 2: ⚡️ Paced</span>
-                        <span data-i18n="mode_tag_2" class="text-[10px] bg-purple-50 px-2 py-1 rounded text-purple-600 uppercase tracking-widest">流暢さ・自動化</span>
-                    </h4>
+                    <h4 class="font-bold text-purple-900 text-base md:text-lg flex justify-between items-center mb-2"><span>Step 2: ⚡️ Paced</span><span data-i18n="mode_tag_2" class="text-[10px] bg-purple-50 px-2 py-1 rounded text-purple-600 uppercase tracking-widest">流暢さ・自動化</span></h4>
                     <p class="text-xs md:text-sm text-stone-600 mb-3 flex-1"><strong data-i18n="mode_sla" class="text-stone-800">🔬 SLA科学的根拠:</strong><br><span data-i18n="mode_desc_2">「Automatization（自動化）」。強制的なペースで「返り読み」を物理的に防ぎ、英語を英語の語順のまま処理するスピードを鍛えます。</span></p>
                 </div>
                 <div class="bg-white p-4 md:p-5 rounded-sm border-l-4 border-stone-400 shadow-sm iron-border-sm flex flex-col">
-                    <h4 class="font-bold text-stone-700 text-base md:text-lg flex justify-between items-center mb-2">
-                        <span>Step 3: 🧠 Vanish</span>
-                        <span data-i18n="mode_tag_3" class="text-[10px] bg-stone-100 px-2 py-1 rounded text-stone-500 uppercase tracking-widest">記憶定着・内在化</span>
-                    </h4>
+                    <h4 class="font-bold text-stone-700 text-base md:text-lg flex justify-between items-center mb-2"><span>Step 3: 🧠 Vanish</span><span data-i18n="mode_tag_3" class="text-[10px] bg-stone-100 px-2 py-1 rounded text-stone-500 uppercase tracking-widest">記憶定着・内在化</span></h4>
                     <p class="text-xs md:text-sm text-stone-600 mb-3 flex-1"><strong data-i18n="mode_sla" class="text-stone-800">🔬 SLA科学的根拠:</strong><br><span data-i18n="mode_desc_3">「Retrieval Practice（検索練習）」。文字という視覚ヒントを奪い、ワーキングメモリに負荷をかけることで長期記憶への定着を促します。</span></p>
                 </div>
                 <div class="bg-white p-4 md:p-5 rounded-sm border-l-4 border-blue-500 shadow-sm iron-border-sm flex flex-col">
-                    <h4 class="font-bold text-blue-900 text-base md:text-lg flex justify-between items-center mb-2">
-                        <span>Step 4: 🎧 Shadowing</span>
-                        <span data-i18n="mode_tag_4" class="text-[10px] bg-blue-50 px-2 py-1 rounded text-blue-600 uppercase tracking-widest">音韻処理の極致</span>
-                    </h4>
+                    <h4 class="font-bold text-blue-900 text-base md:text-lg flex justify-between items-center mb-2"><span>Step 4: 🎧 Shadowing</span><span data-i18n="mode_tag_4" class="text-[10px] bg-blue-50 px-2 py-1 rounded text-blue-600 uppercase tracking-widest">音韻処理の極致</span></h4>
                     <p class="text-xs md:text-sm text-stone-600 mb-3 flex-1"><strong data-i18n="mode_sla" class="text-stone-800">🔬 SLA科学的根拠:</strong><br><span data-i18n="mode_desc_4">「Phonological Loop（音韻ループ）の強化」。ネイティブのプロソディ（抑揚・リズム）を完全に模倣し、音声処理を極限まで自動化させます。</span></p>
                 </div>
             </div>
-            <button type="button" onclick="closeModeGuide()" data-i18n="btn_start_learning" class="mt-6 md:mt-8 w-full py-3 bg-stone-800 hover:bg-stone-700 transition text-white font-bold rounded-sm tracking-widest uppercase text-sm md:text-base">
-                理解して学習を始める
-            </button>
+            <button type="button" onclick="closeModeGuide()" data-i18n="btn_start_learning" class="mt-6 md:mt-8 w-full py-3 bg-stone-800 hover:bg-stone-700 transition text-white font-bold rounded-sm tracking-widest uppercase text-sm md:text-base">理解して学習を始める</button>
         </div>
     </div>
 
@@ -948,11 +674,7 @@
             <div class="flex justify-between items-center w-full mt-3 md:mt-4 border-t-2 border-stone-200 pt-3 md:pt-4 shrink-0">
                 <button id="btn-prev-sla" class="bg-stone-200 hover:bg-stone-300 text-stone-700 px-6 md:px-8 py-3 rounded-full font-bold transition-colors text-sm md:text-base">◀ 戻る</button>
                 <div class="flex gap-2 items-center justify-center" id="sla-dots">
-                    <span class="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-stone-800"></span>
-                    <span class="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-stone-300"></span>
-                    <span class="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-stone-300"></span>
-                    <span class="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-stone-300"></span>
-                    <span class="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-stone-300"></span>
+                    <span class="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-stone-800"></span><span class="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-stone-300"></span><span class="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-stone-300"></span><span class="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-stone-300"></span><span class="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-stone-300"></span>
                 </div>
                 <button id="btn-next-sla" class="bg-emerald-700 hover:bg-emerald-800 text-white px-6 md:px-8 py-3 rounded-full font-bold transition-colors shadow-md text-sm md:text-base">次へ ▶</button>
             </div>
@@ -961,66 +683,32 @@
 
     <div id="trouble-modal" class="fixed inset-0 z-[100] bg-black/80 backdrop-blur-md flex flex-col items-center justify-center p-4 hidden">
         <div class="bg-white p-4 md:p-8 rounded-2xl shadow-2xl w-full max-w-4xl border border-stone-200 relative flex flex-col h-[92vh] md:h-[85vh]">
-            
             <button id="btn-close-trouble" class="absolute top-2 right-4 md:top-6 md:right-6 text-stone-400 hover:text-red-500 font-bold text-4xl md:text-5xl z-50 transition-colors">&times;</button>
-            
             <h3 class="text-xl md:text-2xl font-black mb-3 md:mb-4 text-stone-800 border-b-2 border-stone-100 pb-2 text-center flex items-center justify-center gap-2 shrink-0">
                 <span class="text-2xl md:text-3xl">🆘</span> 音声認識トラブル対応
             </h3>
-            
             <div id="trouble-slides" class="relative w-full flex-1 overflow-hidden">
-                
                 <div class="trouble-slide absolute inset-0 flex flex-col gap-4 opacity-100 z-10 transition-opacity duration-300 overflow-y-auto pb-4 px-1 md:px-4">
-                    <div class="w-full h-56 md:h-[45vh] shrink-0 flex items-center justify-center bg-stone-50 rounded-xl shadow-inner border border-stone-200 p-2 md:p-4">
-                        <img src="assets/images/ipad1.webp" class="max-w-full max-h-full object-contain drop-shadow-md">
-                    </div>
-                    <div class="w-full flex flex-col justify-start">
-                        <h4 class="font-black text-red-600 text-lg md:text-xl mb-2">STEP 1: iPadOSを最新にする</h4>
-                        <p class="text-sm md:text-base text-stone-700 font-medium leading-relaxed">「設定」＞「一般」＞「ソフトウェアアップデート」を確認。システムが古いとマイクが反応しないことがあります。</p>
-                    </div>
+                    <div class="w-full h-56 md:h-[45vh] shrink-0 flex items-center justify-center bg-stone-50 rounded-xl shadow-inner border border-stone-200 p-2 md:p-4"><img src="assets/images/ipad1.webp" class="max-w-full max-h-full object-contain drop-shadow-md"></div>
+                    <div class="w-full flex flex-col justify-start"><h4 class="font-black text-red-600 text-lg md:text-xl mb-2">STEP 1: iPadOSを最新にする</h4><p class="text-sm md:text-base text-stone-700 font-medium leading-relaxed">「設定」＞「一般」＞「ソフトウェアアップデート」を確認。システムが古いとマイクが反応しないことがあります。</p></div>
                 </div>
-                
                 <div class="trouble-slide absolute inset-0 flex flex-col gap-4 opacity-0 z-0 pointer-events-none transition-opacity duration-300 overflow-y-auto pb-4 px-1 md:px-4">
-                    <div class="w-full h-56 md:h-[45vh] shrink-0 flex items-center justify-center bg-stone-50 rounded-xl shadow-inner border border-stone-200 p-2 md:p-4">
-                        <img src="assets/images/ipad2.webp" class="max-w-full max-h-full object-contain drop-shadow-md">
-                    </div>
-                    <div class="w-full flex flex-col justify-start">
-                        <h4 class="font-black text-red-600 text-lg md:text-xl mb-2">STEP 2: プライバシー設定を開く</h4>
-                        <p class="text-sm md:text-base text-stone-700 font-medium leading-relaxed">iPadの「設定」アプリから、左メニューを下へスクロールして「プライバシーとセキュリティ」をタップします。</p>
-                    </div>
+                    <div class="w-full h-56 md:h-[45vh] shrink-0 flex items-center justify-center bg-stone-50 rounded-xl shadow-inner border border-stone-200 p-2 md:p-4"><img src="assets/images/ipad2.webp" class="max-w-full max-h-full object-contain drop-shadow-md"></div>
+                    <div class="w-full flex flex-col justify-start"><h4 class="font-black text-red-600 text-lg md:text-xl mb-2">STEP 2: プライバシー設定を開く</h4><p class="text-sm md:text-base text-stone-700 font-medium leading-relaxed">iPadの「設定」アプリから、左メニューを下へスクロールして「プライバシーとセキュリティ」をタップします。</p></div>
                 </div>
-
                 <div class="trouble-slide absolute inset-0 flex flex-col gap-4 opacity-0 z-0 pointer-events-none transition-opacity duration-300 overflow-y-auto pb-4 px-1 md:px-4">
-                    <div class="w-full h-56 md:h-[45vh] shrink-0 flex items-center justify-center bg-stone-50 rounded-xl shadow-inner border border-stone-200 p-2 md:p-4">
-                        <img src="assets/images/ipad3.webp" class="max-w-full max-h-full object-contain drop-shadow-md">
-                    </div>
-                    <div class="w-full flex flex-col justify-start">
-                        <h4 class="font-black text-red-600 text-lg md:text-xl mb-2">STEP 3: 音声認識をタップ</h4>
-                        <p class="text-sm md:text-base text-stone-700 font-medium leading-relaxed">右側に表示されるメニューの中から、「音声認識」を探してタップします。<br><span class="text-xs md:text-sm text-stone-500">※「マイク」の項目も合わせて確認してください。</span></p>
-                    </div>
+                    <div class="w-full h-56 md:h-[45vh] shrink-0 flex items-center justify-center bg-stone-50 rounded-xl shadow-inner border border-stone-200 p-2 md:p-4"><img src="assets/images/ipad3.webp" class="max-w-full max-h-full object-contain drop-shadow-md"></div>
+                    <div class="w-full flex flex-col justify-start"><h4 class="font-black text-red-600 text-lg md:text-xl mb-2">STEP 3: 音声認識をタップ</h4><p class="text-sm md:text-base text-stone-700 font-medium leading-relaxed">右側に表示されるメニューの中から、「音声認識」を探してタップします。</p></div>
                 </div>
-
                 <div class="trouble-slide absolute inset-0 flex flex-col gap-4 opacity-0 z-0 pointer-events-none transition-opacity duration-300 overflow-y-auto pb-4 px-1 md:px-4">
-                    <div class="w-full h-56 md:h-[45vh] shrink-0 flex items-center justify-center bg-stone-50 rounded-xl shadow-inner border border-stone-200 p-2 md:p-4">
-                        <img src="assets/images/ipad4.webp" class="max-w-full max-h-full object-contain drop-shadow-md">
-                    </div>
-                    <div class="w-full flex flex-col justify-start">
-                        <h4 class="font-black text-red-600 text-lg md:text-xl mb-2">STEP 4: ブラウザの許可を「オン」</h4>
-                        <p class="text-sm md:text-base text-stone-700 font-medium leading-relaxed">普段使っているブラウザ（SafariやChrome）の右側のスイッチが<strong>「オン（緑色）」</strong>になっているか確認してください。</p>
-                    </div>
+                    <div class="w-full h-56 md:h-[45vh] shrink-0 flex items-center justify-center bg-stone-50 rounded-xl shadow-inner border border-stone-200 p-2 md:p-4"><img src="assets/images/ipad4.webp" class="max-w-full max-h-full object-contain drop-shadow-md"></div>
+                    <div class="w-full flex flex-col justify-start"><h4 class="font-black text-red-600 text-lg md:text-xl mb-2">STEP 4: ブラウザの許可を「オン」</h4><p class="text-sm md:text-base text-stone-700 font-medium leading-relaxed">普段使っているブラウザ（SafariやChrome）の右側のスイッチが<strong>「オン（緑色）」</strong>になっているか確認してください。</p></div>
                 </div>
-
                 <div class="trouble-slide absolute inset-0 flex flex-col gap-4 opacity-0 z-0 pointer-events-none transition-opacity duration-300 overflow-y-auto pb-4 px-1 md:px-4">
-                    <div class="w-full h-56 md:h-[45vh] shrink-0 flex items-center justify-center bg-stone-50 rounded-xl shadow-inner border border-stone-200 p-2 md:p-4">
-                        <img src="assets/images/ipad5.webp" class="max-w-full max-h-full object-contain drop-shadow-md">
-                    </div>
-                    <div class="w-full flex flex-col justify-start">
-                        <h4 class="font-black text-red-600 text-lg md:text-xl mb-2">STEP 5: ダメなら「再起動」！</h4>
-                        <p class="text-sm md:text-base text-stone-700 font-medium leading-relaxed">💡 <strong>魔法の解決策：</strong>これでも反応しない場合は、<strong>一度iPadの電源を完全に切り、再起動</strong>してみてください。多くの場合これで直ります！</p>
-                    </div>
+                    <div class="w-full h-56 md:h-[45vh] shrink-0 flex items-center justify-center bg-stone-50 rounded-xl shadow-inner border border-stone-200 p-2 md:p-4"><img src="assets/images/ipad5.webp" class="max-w-full max-h-full object-contain drop-shadow-md"></div>
+                    <div class="w-full flex flex-col justify-start"><h4 class="font-black text-red-600 text-lg md:text-xl mb-2">STEP 5: ダメなら「再起動」！</h4><p class="text-sm md:text-base text-stone-700 font-medium leading-relaxed">💡 <strong>魔法の解決策：</strong>これでも反応しない場合は、<strong>一度iPadの電源を完全に切り、再起動</strong>してみてください。多くの場合これで直ります！</p></div>
                 </div>
             </div>
-            
             <div class="flex justify-between items-center w-full mt-3 md:mt-4 border-t-2 border-stone-100 pt-3 md:pt-4 shrink-0">
                 <button id="btn-prev-trouble" class="bg-stone-200 hover:bg-stone-300 text-stone-700 px-6 md:px-8 py-3 rounded-full font-bold transition-colors text-sm md:text-base">◀ 戻る</button>
                 <button id="btn-next-trouble" class="bg-blue-600 hover:bg-blue-700 text-white px-6 md:px-8 py-3 rounded-full font-bold transition-colors shadow-md text-sm md:text-base">次へ ▶</button>
@@ -1028,143 +716,50 @@
         </div>
     </div>
 
+    <div id="fullscreenPreviewOverlay" class="fixed top-0 left-0 w-full h-[100dvh] z-[300] bg-[#faf8f5] hidden flex-col transition-all duration-300 opacity-0">
+        <div class="flex items-center justify-between p-4 md:p-6 border-b border-stone-200 bg-white shadow-sm shrink-0">
+            <button onclick="closeFullscreenPreview()" class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-stone-100 hover:bg-stone-300 text-stone-600 font-bold text-xl transition shadow-inner border border-stone-200">✕</button>
+            <h2 id="fsTitleDisplay" class="text-base md:text-xl font-bold text-stone-800 serif-font truncate px-4 flex-1 text-center">Preview</h2>
+            <div class="flex gap-2">
+                <button id="fsAiVoiceBtn" onclick="toggleFsAIVoice()" class="px-3 md:px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-xs md:text-sm font-bold rounded-sm shadow-md transition flex items-center gap-1">🤖 <span class="hidden sm:inline">AI音声</span></button>
+                <button id="fsOriginalAudioBtn" onclick="toggleFsOriginalAudio()" class="hidden px-3 md:px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs md:text-sm font-bold rounded-sm shadow-md transition flex items-center gap-1">▶️ <span class="hidden sm:inline">お手本再生</span></button>
+            </div>
+        </div>
+        <div class="flex-1 overflow-y-auto p-6 md:p-12 lg:p-20 pb-40 md:pb-64">
+            <div id="fsEngContainer" class="text-2xl md:text-4xl leading-relaxed md:leading-[2.5] text-stone-800 font-medium serif-font max-w-5xl mx-auto"></div>
+            <div id="fsJpnContainer" class="text-base md:text-xl text-stone-500 max-w-5xl mx-auto border-t-2 border-dashed border-stone-300 pt-8 mt-8 hidden leading-relaxed"></div>
+            <div class="h-48 md:h-64 w-full"></div>
+        </div>
+    </div>
+
     <script>
-    // --- 1. SLA グラフ・画像切り替え関連スクリプト ---
-    let targetChartInstance = null;
-    window.currentPreviewLevel = 1;
-
-    function initTargetChart() {
-        const ctx = document.getElementById('targetScoreChart');
-        if (!ctx) return;
-        const gradAcc = ctx.getContext('2d').createLinearGradient(0, 0, 0, 200);
-        gradAcc.addColorStop(0, 'rgba(52, 211, 153, 0.4)');
-        gradAcc.addColorStop(1, 'rgba(52, 211, 153, 0)');
-        const gradWpm = ctx.getContext('2d').createLinearGradient(0, 0, 0, 200);
-        gradWpm.addColorStop(0, 'rgba(96, 165, 250, 0.4)');
-        gradWpm.addColorStop(1, 'rgba(96, 165, 250, 0)');
-        const gradComp = ctx.getContext('2d').createLinearGradient(0, 0, 0, 200);
-        gradComp.addColorStop(0, 'rgba(250, 204, 21, 0.4)');
-        gradComp.addColorStop(1, 'rgba(250, 204, 21, 0)');
-
-        targetChartInstance = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Lv.1', 'Lv.2', 'Lv.3', 'Lv.4', 'Lv.5'],
-                datasets: [
-                    { label: 'Accuracy (%)', data: [60, 70, 80, 85, 90], borderColor: '#34d399', backgroundColor: gradAcc, borderWidth: 3, tension: 0.4, fill: true, yAxisID: 'y', pointRadius: [0,0,0,0,0], pointBackgroundColor: '#34d399', pointBorderColor: 'transparent', pointBorderWidth: 3 },
-                    { label: 'WPM', data: [60, 80, 95, 110, 130], borderColor: '#60a5fa', backgroundColor: gradWpm, borderWidth: 3, borderDash: [5, 5], tension: 0.4, fill: true, yAxisID: 'y1', pointRadius: [0,0,0,0,0], pointBackgroundColor: '#60a5fa', pointBorderColor: 'transparent', pointBorderWidth: 3 },
-                    { label: 'Comprehension (%)', data: [70, 80, 85, 90, 95], borderColor: '#facc15', backgroundColor: gradComp, borderWidth: 3, tension: 0.4, fill: true, yAxisID: 'y', pointRadius: [0,0,0,0,0], pointBackgroundColor: '#facc15', pointBorderColor: 'transparent', pointBorderWidth: 3 }
-                ]
-            },
-            options: {
-                responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false }, plugins: { legend: { display: false } },
-                scales: {
-                    x: { grid: { color: 'rgba(120, 113, 108, 0.2)', drawBorder: false }, ticks: { color: '#a8a29e', font: { weight: 'bold' } } },
-                    y: { type: 'linear', display: true, position: 'left', min: 40, max: 100, grid: { color: 'rgba(120, 113, 108, 0.2)', drawBorder: false }, ticks: { color: '#a8a29e', stepSize: 20 } },
-                    y1: { type: 'linear', display: true, position: 'right', min: 40, max: 160, grid: { drawOnChartArea: false }, ticks: { color: '#a8a29e', stepSize: 30 } }
-                }
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- 1. アコーディオン制御 ---
+        const accConfigs = [
+            { id: 'warning', defaultOpen: true },
+            { id: 'ncc', defaultOpen: true },
+            { id: 'target', defaultOpen: true },
+            { id: 'form', defaultOpen: false }
+        ];
+        
+        accConfigs.forEach(conf => {
+            const state = localStorage.getItem('copeak-acc-' + conf.id);
+            const content = document.getElementById('acc-' + conf.id + '-content');
+            const icon = document.getElementById('acc-' + conf.id + '-icon');
+            
+            if (state === 'closed' || (state === null && !conf.defaultOpen)) {
+                if(content) content.classList.remove('is-open');
+                if(icon) icon.innerText = '＋';
+            } else {
+                if(content) content.classList.add('is-open');
+                if(icon) icon.innerText = '－';
             }
         });
-    }
 
-    function switchTargetLevel(level) {
-        window.currentPreviewLevel = level;
-        
-        // 現在の言語を取得（ja以外はen扱い）
-        const langKey = window.currentAppLang || 'ja';
-        const isJa = langKey === 'ja';
-        const dict = dynamicDict[langKey];
-
-        // 1. 目標スコアの更新 (数字は全言語共通)
-        const levelScores = {
-            1: { acc: 60, wpm: 60, comp: 70 },
-            2: { acc: 70, wpm: 80, comp: 80 },
-            3: { acc: 80, wpm: 95, comp: 85 },
-            4: { acc: 85, wpm: 110, comp: 90 },
-            5: { acc: 90, wpm: 130, comp: 95 }
-        };
-        const data = levelScores[level];
-        
-        // innerText から innerHTML に変更（HTMLタグを許容するため）
-        document.getElementById('level-mission-desc').innerHTML = dict[`lv${level}_desc`];
-        document.getElementById('target-acc').innerText = data.acc + "%";
-        document.getElementById('target-wpm').innerText = data.wpm;
-        document.getElementById('target-comp').innerText = data.comp + "%";
-        
-        // 2. 画像の更新（英語等の場合は _eng.webp を読み込む）
-        const imgEl = document.getElementById('level-preview-img');
-        const imgSuffix = isJa ? '' : '_eng';
-        if (imgEl) {
-            imgEl.src = `assets/images/level${level}${imgSuffix}.webp`;
-        }
-
-        // 3. ボタンの色切り替え
-        const activeClass = "flex-1 px-2 py-2 rounded-sm font-bold text-[10px] md:text-xs transition-all duration-200 bg-stone-800 text-white shadow-md whitespace-nowrap";
-        const inactiveClass = "flex-1 px-2 py-2 rounded-sm font-bold text-[10px] md:text-xs transition-all duration-200 text-stone-500 hover:text-stone-800 whitespace-nowrap";
-        for (let i = 1; i <= 5; i++) {
-            const btn = document.getElementById('btn-lv' + i);
-            if (btn) btn.className = (i === level) ? activeClass : inactiveClass;
-        }
-
-        // 4. グラフの更新
-        if (!targetChartInstance) initTargetChart();
-        if (targetChartInstance) {
-            const index = level - 1;
-            targetChartInstance.data.datasets.forEach((dataset) => {
-                const radii = [0, 0, 0, 0, 0]; radii[index] = 8;
-                dataset.pointRadius = radii;
-                const borderColors = ['transparent', 'transparent', 'transparent', 'transparent', 'transparent'];
-                borderColors[index] = '#ffffff';
-                dataset.pointBorderColor = borderColors;
-            });
-            targetChartInstance.update();
-        }
-    }
-
-    // 追加: SLAモーダルのテキストを現在の言語に更新する関数
-    function updateSlaModalTexts() {
-        const langKey = window.currentAppLang || 'ja';
-        const isJa = langKey === 'ja';
-        if (typeof dynamicDict === 'undefined') return;
-        const dict = dynamicDict[langKey];
-        
-        const slaSlides = document.querySelectorAll('#sla-slides .sla-slide');
-        if(slaSlides.length === 0) return;
-
-        // 画像のサフィックス（日本語なら空、英語なら _eng）
-        const imgSuffix = isJa ? '' : '_eng';
-
-        for (let i = 1; i <= 5; i++) {
-            const slide = slaSlides[i-1];
-            if (slide) {
-                // タイトルと説明文の更新
-                const titleEl = slide.querySelector('h4');
-                const descEl = slide.querySelector('p');
-                if (titleEl && dict[`sla${i}_title`]) titleEl.innerText = dict[`sla${i}_title`];
-                if (descEl && dict[`sla${i}_desc`]) descEl.innerHTML = dict[`sla${i}_desc`];
-                
-                // ★追加：画像の切り替え処理
-                const imgEl = slide.querySelector('img');
-                if (imgEl) {
-                    imgEl.src = `assets/images/level${i}${imgSuffix}.webp`;
-                }
-            }
-        }
-    }
-
-    window.openSlaModalAtCurrent = function() {
-        const slaModal = document.getElementById('sla-guide-modal');
-        if (slaModal && window.showSlaSlideGlobally) {
-            slaModal.classList.remove('hidden');
-            window.showSlaSlideGlobally(window.currentPreviewLevel - 1);
-        }
-    };
-
-    // --- 2. モーダル（SLA ＆ トラブル対応）全体の制御スクリプト ---
-    window.addEventListener('DOMContentLoaded', () => {
+        // --- 2. Chartの初期化呼び出し ---
         setTimeout(() => { switchTargetLevel(1); }, 100);
 
-        // --- SLA Modal ---
+        // --- 3. SLAモーダルのスライド制御 ---
         const slaModal = document.getElementById('sla-guide-modal');
         const slaSlides = document.querySelectorAll('#sla-slides .sla-slide');
         const slaDots = document.getElementById('sla-dots');
@@ -1189,17 +784,17 @@
         };
 
         const openBtn = document.getElementById('btn-open-sla-modal');
-        if (openBtn) openBtn.addEventListener('click', () => { slaModal.classList.remove('hidden'); window.showSlaSlideGlobally(0); });
+        if (openBtn) openBtn.addEventListener('click', () => { if(slaModal){ slaModal.classList.remove('hidden'); window.showSlaSlideGlobally(window.currentPreviewLevel - 1); } });
         const closeBtn = document.getElementById('btn-close-sla-modal');
-        if (closeBtn) closeBtn.addEventListener('click', () => { slaModal.classList.add('hidden'); });
+        if (closeBtn) closeBtn.addEventListener('click', () => { if(slaModal) slaModal.classList.add('hidden'); });
         const nextBtn = document.getElementById('btn-next-sla');
         if (nextBtn) nextBtn.addEventListener('click', () => {
-            if (currentSlaSlide < slaSlides.length - 1) window.showSlaSlideGlobally(currentSlaSlide + 1); else slaModal.classList.add('hidden');
+            if (currentSlaSlide < slaSlides.length - 1) window.showSlaSlideGlobally(currentSlaSlide + 1); else if(slaModal) slaModal.classList.add('hidden');
         });
         const prevBtn = document.getElementById('btn-prev-sla');
         if (prevBtn) prevBtn.addEventListener('click', () => { if (currentSlaSlide > 0) window.showSlaSlideGlobally(currentSlaSlide - 1); });
 
-        // --- Trouble Modal ---
+        // --- 4. トラブルモーダルの制御 ---
         const troubleModal = document.getElementById('trouble-modal');
         const troubleSlides = document.querySelectorAll('#trouble-slides .trouble-slide');
         let currentTroubleSlide = 0;
@@ -1214,63 +809,123 @@
             const prevTBtn = document.getElementById('btn-prev-trouble');
             const nextTBtn = document.getElementById('btn-next-trouble');
             if(prevTBtn) prevTBtn.style.visibility = index === 0 ? 'hidden' : 'visible';
-            if(nextTBtn) nextTBtn.innerText = index === troubleSlides.length - 1 ? '閉じる' : '次へ';
+            if(nextTBtn) nextTBtn.innerText = index === troubleSlides.length - 1 ? '閉じる' : '次へ ▶';
         }
 
         const openTBtn = document.getElementById('btn-open-trouble');
-        if(openTBtn) openTBtn.addEventListener('click', () => { troubleModal.classList.remove('hidden'); showTroubleSlide(0); });
+        if(openTBtn) openTBtn.addEventListener('click', () => { if(troubleModal){ troubleModal.classList.remove('hidden'); showTroubleSlide(0); } });
         const closeTBtn = document.getElementById('btn-close-trouble');
-        if(closeTBtn) closeTBtn.addEventListener('click', () => { troubleModal.classList.add('hidden'); });
+        if(closeTBtn) closeTBtn.addEventListener('click', () => { if(troubleModal) troubleModal.classList.add('hidden'); });
         const nextTBtn = document.getElementById('btn-next-trouble');
         if(nextTBtn) nextTBtn.addEventListener('click', () => {
-            if (currentTroubleSlide < troubleSlides.length - 1) showTroubleSlide(currentTroubleSlide + 1); else troubleModal.classList.add('hidden');
+            if (currentTroubleSlide < troubleSlides.length - 1) showTroubleSlide(currentTroubleSlide + 1); else if(troubleModal) troubleModal.classList.add('hidden');
         });
         const prevTBtn = document.getElementById('btn-prev-trouble');
         if(prevTBtn) prevTBtn.addEventListener('click', () => { if (currentTroubleSlide > 0) showTroubleSlide(currentTroubleSlide - 1); });
     });
+
+    window.toggleAccordion = function(id) {
+        const content = document.getElementById('acc-' + id + '-content');
+        const icon = document.getElementById('acc-' + id + '-icon');
+        if (content.classList.contains('is-open')) {
+            content.classList.remove('is-open');
+            if(icon) icon.innerText = '＋';
+            localStorage.setItem('copeak-acc-' + id, 'closed');
+        } else {
+            content.classList.add('is-open');
+            if(icon) icon.innerText = '－';
+            localStorage.setItem('copeak-acc-' + id, 'open');
+        }
+    };
+
+    let targetChartInstance = null;
+    window.currentPreviewLevel = 1;
+
+    window.initTargetChart = function() {
+        const ctx = document.getElementById('targetScoreChart');
+        if (!ctx) return;
+        const gradAcc = ctx.getContext('2d').createLinearGradient(0, 0, 0, 200); gradAcc.addColorStop(0, 'rgba(52, 211, 153, 0.4)'); gradAcc.addColorStop(1, 'rgba(52, 211, 153, 0)');
+        const gradWpm = ctx.getContext('2d').createLinearGradient(0, 0, 0, 200); gradWpm.addColorStop(0, 'rgba(96, 165, 250, 0.4)'); gradWpm.addColorStop(1, 'rgba(96, 165, 250, 0)');
+        const gradComp = ctx.getContext('2d').createLinearGradient(0, 0, 0, 200); gradComp.addColorStop(0, 'rgba(250, 204, 21, 0.4)'); gradComp.addColorStop(1, 'rgba(250, 204, 21, 0)');
+
+        targetChartInstance = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Lv.1', 'Lv.2', 'Lv.3', 'Lv.4', 'Lv.5'],
+                datasets: [
+                    { label: 'Accuracy (%)', data: [60, 70, 80, 85, 90], borderColor: '#34d399', backgroundColor: gradAcc, borderWidth: 3, tension: 0.4, fill: true, yAxisID: 'y', pointRadius: [0,0,0,0,0], pointBackgroundColor: '#34d399', pointBorderColor: 'transparent', pointBorderWidth: 3 },
+                    { label: 'WPM', data: [60, 80, 95, 110, 130], borderColor: '#60a5fa', backgroundColor: gradWpm, borderWidth: 3, borderDash: [5, 5], tension: 0.4, fill: true, yAxisID: 'y1', pointRadius: [0,0,0,0,0], pointBackgroundColor: '#60a5fa', pointBorderColor: 'transparent', pointBorderWidth: 3 },
+                    { label: 'Comprehension (%)', data: [70, 80, 85, 90, 95], borderColor: '#facc15', backgroundColor: gradComp, borderWidth: 3, tension: 0.4, fill: true, yAxisID: 'y', pointRadius: [0,0,0,0,0], pointBackgroundColor: '#facc15', pointBorderColor: 'transparent', pointBorderWidth: 3 }
+                ]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false }, plugins: { legend: { display: false } },
+                scales: {
+                    x: { grid: { color: 'rgba(120, 113, 108, 0.2)', drawBorder: false }, ticks: { color: '#a8a29e', font: { weight: 'bold' } } },
+                    y: { type: 'linear', display: true, position: 'left', min: 40, max: 100, grid: { color: 'rgba(120, 113, 108, 0.2)', drawBorder: false }, ticks: { color: '#a8a29e', stepSize: 20 } },
+                    y1: { type: 'linear', display: true, position: 'right', min: 40, max: 160, grid: { drawOnChartArea: false }, ticks: { color: '#a8a29e', stepSize: 30 } }
+                }
+            }
+        });
+    };
+
+    window.switchTargetLevel = function(level) {
+        window.currentPreviewLevel = level;
+        const langKey = window.currentAppLang || 'ja';
+        const isJa = langKey === 'ja';
+        const dict = (typeof dynamicDict !== 'undefined') ? dynamicDict[langKey] : null;
+
+        const levelScores = { 1: { acc: 60, wpm: 60, comp: 70 }, 2: { acc: 70, wpm: 80, comp: 80 }, 3: { acc: 80, wpm: 95, comp: 85 }, 4: { acc: 85, wpm: 110, comp: 90 }, 5: { acc: 90, wpm: 130, comp: 95 } };
+        const data = levelScores[level];
+        
+        if(dict) { document.getElementById('level-mission-desc').innerHTML = dict[`lv${level}_desc`]; }
+        document.getElementById('target-acc').innerText = data.acc + "%"; document.getElementById('target-wpm').innerText = data.wpm; document.getElementById('target-comp').innerText = data.comp + "%";
+        
+        const imgEl = document.getElementById('level-preview-img');
+        const imgSuffix = isJa ? '' : '_eng';
+        if (imgEl) { imgEl.src = `assets/images/level${level}${imgSuffix}.webp`; }
+
+        const activeClass = "flex-1 px-2 py-2 rounded-sm font-bold text-[10px] md:text-xs transition-all duration-200 bg-stone-800 text-white shadow-md whitespace-nowrap";
+        const inactiveClass = "flex-1 px-2 py-2 rounded-sm font-bold text-[10px] md:text-xs transition-all duration-200 text-stone-500 hover:text-stone-800 whitespace-nowrap";
+        for (let i = 1; i <= 5; i++) {
+            const btn = document.getElementById('btn-lv' + i);
+            if (btn) btn.className = (i === level) ? activeClass : inactiveClass;
+        }
+
+        if (!targetChartInstance) initTargetChart();
+        if (targetChartInstance) {
+            const index = level - 1;
+            targetChartInstance.data.datasets.forEach((dataset) => {
+                const radii = [0, 0, 0, 0, 0]; radii[index] = 8;
+                dataset.pointRadius = radii;
+                const borderColors = ['transparent', 'transparent', 'transparent', 'transparent', 'transparent']; borderColors[index] = '#ffffff';
+                dataset.pointBorderColor = borderColors;
+            });
+            targetChartInstance.update();
+        }
+    };
+
+    window.openSlaModalAtCurrent = function() {
+        const slaModal = document.getElementById('sla-guide-modal');
+        if (slaModal && typeof window.showSlaSlideGlobally === 'function') {
+            slaModal.classList.remove('hidden');
+            window.showSlaSlideGlobally(window.currentPreviewLevel - 1);
+        }
+    };
     </script>
-    <div id="fullscreenPreviewOverlay" class="fixed top-0 left-0 w-full h-[100dvh] z-[300] bg-[#faf8f5] hidden flex-col transition-all duration-300 opacity-0">
-        
-        <div class="flex items-center justify-between p-4 md:p-6 border-b border-stone-200 bg-white shadow-sm shrink-0">
-            <button onclick="closeFullscreenPreview()" class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-stone-100 hover:bg-stone-300 text-stone-600 font-bold text-xl transition shadow-inner border border-stone-200">
-                ✕
-            </button>
-            
-            <h2 id="fsTitleDisplay" class="text-base md:text-xl font-bold text-stone-800 serif-font truncate px-4 flex-1 text-center">Preview</h2>
-            
-            <div class="flex gap-2">
-                <button id="fsAiVoiceBtn" onclick="toggleFsAIVoice()" class="px-3 md:px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-xs md:text-sm font-bold rounded-sm shadow-md transition flex items-center gap-1">
-                    🤖 <span class="hidden sm:inline">AI音声</span>
-                </button>
-                <button id="fsOriginalAudioBtn" onclick="toggleFsOriginalAudio()" class="hidden px-3 md:px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs md:text-sm font-bold rounded-sm shadow-md transition flex items-center gap-1">
-                    ▶️ <span class="hidden sm:inline">お手本再生</span>
-                </button>
-            </div>
-        </div>
-        
-        <div class="flex-1 overflow-y-auto p-6 md:p-12 lg:p-20 pb-40 md:pb-64">
-            <div id="fsEngContainer" class="text-2xl md:text-4xl leading-relaxed md:leading-[2.5] text-stone-800 font-medium serif-font max-w-5xl mx-auto">
-                </div>
-            
-            <div id="fsJpnContainer" class="text-base md:text-xl text-stone-500 max-w-5xl mx-auto border-t-2 border-dashed border-stone-300 pt-8 mt-8 hidden leading-relaxed">
-                </div>
-            
-            <div class="h-48 md:h-64 w-full"></div>
-        </div>
-    </div>
+
     <script src="storage.js"></script>
     <script src="ui.js"></script>
     <script src="speech.js"></script>
     <script src="lang.js"></script>
-    
     <script src="multiplay.js"></script>
+
 <div id="teacherArenaScreen" class="hidden fixed inset-0 bg-stone-900 text-white p-6 overflow-y-auto z-50 font-sans">
     <div class="max-w-6xl mx-auto">
         <div class="flex justify-between items-center border-b border-stone-700 pb-4 mb-6">
             <h1 class="text-3xl font-black tracking-wider text-purple-400">⚔️ Copeak Arena <span class="text-sm bg-purple-900 text-purple-200 px-3 py-1 rounded-full font-normal ml-2">Host Mode</span></h1>
             <button id="closeTeacherArenaBtn" class="bg-stone-700 hover:bg-stone-600 px-4 py-2 rounded text-sm font-bold">アリーナを終了</button>
         </div>
-
         <div id="arenaSetupArea" class="bg-stone-800 p-8 rounded-2xl border border-stone-700 text-center max-w-md mx-auto my-12">
             <p class="text-stone-300 mb-6 font-bold">チーム数を選択してアリーナを開放します</p>
             <div class="flex justify-center gap-4 mb-6">
@@ -1280,7 +935,6 @@
             </div>
             <button id="createArenaRoomBtn" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 py-4 rounded-xl font-black text-lg shadow-lg opacity-50 cursor-not-allowed" disabled>アリーナを生成する</button>
         </div>
-
         <div id="arenaMainArea" class="hidden">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 text-center">
                 <div class="bg-stone-800 p-4 rounded-xl border border-stone-700">
@@ -1295,40 +949,30 @@
                     <button id="startArenaBattleBtn" class="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-stone-900 font-black text-lg px-8 py-3 rounded-xl shadow-lg transition">🚀 音読スタートの合図を出す</button>
                 </div>
             </div>
-
-            <div id="arenaQrGrid" class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-                </div>
-
+            <div id="arenaQrGrid" class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12"></div>
             <div class="bg-stone-800 p-6 rounded-2xl border border-stone-700">
                 <h2 class="text-xl font-black text-stone-200 mb-6 flex items-center gap-2">📊 リアルタイム・チームランキング</h2>
-                <div id="arenaLeaderboard" class="space-y-4">
-                    </div>
+                <div id="arenaLeaderboard" class="space-y-4"></div>
             </div>
         </div>
     </div>
 </div>
 
-
 <div id="studentArenaScreen" class="hidden fixed inset-0 bg-stone-900 text-white p-6 overflow-y-auto z-50 font-sans">
     <div class="max-w-md mx-auto text-center my-12">
         <h1 class="text-2xl font-black text-purple-400 mb-2">⚔️ Copeak Arena</h1>
         <p class="text-xs text-stone-400 mb-8 font-bold">チーム対抗音読バトル</p>
-
         <div id="studentScanArea" class="bg-stone-800 p-6 rounded-2xl border border-stone-700 mb-6">
             <p class="text-stone-200 text-sm font-bold mb-4">スクリーン上の自分のチームのQRコードをカメラで読み取ってください</p>
-            
             <div id="qrReaderCamera" class="w-full aspect-square bg-black rounded-xl border-2 border-dashed border-stone-600 mb-4 overflow-hidden relative flex items-center justify-center">
                 <span class="text-stone-500 text-xs">📷 カメラ準備中...</span>
             </div>
-            
             <button id="cancelStudentArenaBtn" class="text-stone-400 hover:text-stone-300 text-xs font-bold underline">キャンセルして戻る</button>
         </div>
-
         <div id="studentWaitArea" class="hidden bg-stone-800 p-8 rounded-2xl border border-stone-700">
             <div class="w-16 h-16 bg-purple-900 text-purple-300 rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-4" id="studentTeamBadge">--</div>
             <h3 class="text-lg font-black text-stone-100 mb-1">チームに合流しました！</h3>
             <p class="text-xs text-stone-400 mb-6">先生が「スタート」の合図を出すまで、英文を眺めてプレビュー（予行練習）しておきましょう。</p>
-            
             <div class="flex justify-center gap-2 mb-6">
                 <div class="w-2 h-2 bg-purple-500 rounded-full animate-ping"></div>
                 <p class="text-xs text-purple-400 font-bold">Waiting for Host...</p>
@@ -1336,5 +980,6 @@
         </div>
     </div>
 </div>
+
 </body>
 </html>
