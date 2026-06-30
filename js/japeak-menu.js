@@ -24,6 +24,7 @@ if (typeof japeakConvenientNeighborData !== 'undefined') allJapeakData = allJape
 if (typeof japeakConvenientVisitHomeData !== 'undefined') allJapeakData = allJapeakData.concat(japeakConvenientVisitHomeData);
 if (typeof japeakConvenientQuestionData !== 'undefined') allJapeakData = allJapeakData.concat(japeakConvenientQuestionData);
 if (typeof japeakA1BuyThingsData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA1BuyThingsData);
+if (typeof japeakA1AskPlacePriceData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA1AskPlacePriceData);
 
 let menuLang = 'en';
 let selectedCategory = null;

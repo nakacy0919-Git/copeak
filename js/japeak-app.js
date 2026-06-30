@@ -25,6 +25,7 @@ if (typeof japeakConvenientVisitHomeData !== 'undefined') allJapeakData = allJap
 if (typeof japeakConvenientQuestionData !== 'undefined') allJapeakData = allJapeakData.concat(japeakConvenientQuestionData);
 if (typeof japeakA1GreetingDialogueData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA1GreetingDialogueData);
 if (typeof japeakA1BuyThingsData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA1BuyThingsData);
+if (typeof japeakA1AskPlacePriceData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA1AskPlacePriceData);
 
 // 🌟 修正ポイント1：currentAudio を追加しました
 let currentIndex = 0, currentLesson = null, currentLang = 'en', recognition = null, currentAudio = null;
