@@ -25,6 +25,11 @@ if (typeof japeakConvenientQuestionData !== 'undefined') allJapeakData = allJape
 if (typeof japeakA1BuyThingsData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA1BuyThingsData);
 if (typeof japeakA1GreetingDialogueData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA1GreetingDialogueData);
 if (typeof japeakA1AskPlacePriceData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA1AskPlacePriceData);
+if (typeof japeakA1WantToBuyData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA1WantToBuyData);
+if (typeof japeakA1TellPreferencesData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA1TellPreferencesData);
+if (typeof japeakA1RestaurantData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA1RestaurantData);
+if (typeof japeakA1DeliveryData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA1DeliveryData);
+if (typeof japeakA1TrainData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA1TrainData);
 
 let menuLang = localStorage.getItem('japeakLang') || 'en';
 let selectedCategory = null;
@@ -108,9 +113,9 @@ const lifeMasterData = [
                 titles: { 'ja': "🌱 目指そう A1レベル", 'en': "🌱 Aim for A1 Level", 'zh-CN': "🌱 目标 A1 レベル", 'zh-TW': "🌱 目標 A1 レベル", 'ko': "🌱 도전하자 A1 레벨", 'vi': "🌱 Hướng tới trình độ A1", 'tl': "🌱 Layunin ang A1 Level", 'id': "🌱 Target Tingkat A1", 'th': "🌱 มุ่งสู่ระดับ A1", 'my': "🌱 A1 အဆင့်သို့ ရည်မှန်းကြစို့", 'km': "🌱 ឆ្ពោះទៅកម្រិត A1", 'ne': "🌱 A1 स्तरको लक्ष्य राखौं", 'mn': "🌱 A1 түвшинд хүрэх зорилт", 'si': "🌱 A1 මට්ටම සාක්ෂාත් කරගනිමු", 'bn': "🌱 A1 স্তরের লক্ষ্য নির্ধারণ", 'pt': "🌱 Rumo ao Nível A1", 'es': "🌱 Rumo ao Nivel A1", 'fr': "🌱 Objectif Niveau A1", 'ru': "🌱 Стремись к уровню A1", 'uk': "🌱 Прагни до рівня A1" },
                 scenes: [
                     { name: "あいさつをしよう", isReady: true, catKey: "a1_scene1" }, { name: "みじかなモノを買ってみよう", isReady: true, catKey: "a1_buy_things" },
-                    { name: "売り場や値段をきいてみよう", isReady: true, catKey: "a1_ask_place_price" }, { name: "ほしいものを選んで買ってみよう", isReady: false },
-                    { name: "お店の人に希望を伝えてみよう", isReady: false }, { name: "レストランへ行ってみよう", isReady: false },
-                    { name: "宅配便を利用しよう", isReady: false }, { name: "電車に乗ってみよう", isReady: false },
+                    { name: "売り場や値段をきいてみよう", isReady: true, catKey: "a1_ask_place_price" }, { name: "ほしいものを選んで買ってみよう", isReady: true, catKey: "a1_want_to_buy" },
+                    { name: "お店の人に希望を伝えてみよう", isReady: true, catKey: "a1_tell_preferences" }, { name: "レストランへ行ってみよう", isReady: true, catKey: "a1_restaurant" },
+                    { name: "宅配便を利用しよう", isReady: true, catKey: "a1_delivery" }, { name: "電車に乗ってみよう", isReady: true, catKey: "a1_train" },
                     { name: "道をきいてみよう", isReady: false }, { name: "銀行を利用しよう", isReady: false },
                     { name: "住民としてのマナーを理解しよう", isReady: false }, { name: "職場の機械を使いこなそう", isReady: false }
                 ]
