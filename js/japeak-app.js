@@ -36,6 +36,8 @@ if (typeof japeakA1BankData !== 'undefined') allJapeakData = allJapeakData.conca
 if (typeof japeakA1ResidentMannersData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA1ResidentMannersData);
 if (typeof japeakA1WorkplaceMachinesData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA1WorkplaceMachinesData);
 if (typeof japeakA2GreetingsBySituationData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA2GreetingsBySituationData);
+if (typeof japeakA2StoreServicesData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA2StoreServicesData);
+if (typeof japeakA2ChooseStoreData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA2ChooseStoreData);
 
 // 🌟 修正ポイント1：currentAudio を追加しました
 let currentIndex = 0, currentLesson = null, currentLang = 'en', recognition = null, currentAudio = null;
