@@ -30,6 +30,10 @@ if (typeof japeakA1TellPreferencesData !== 'undefined') allJapeakData = allJapea
 if (typeof japeakA1RestaurantData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA1RestaurantData);
 if (typeof japeakA1DeliveryData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA1DeliveryData);
 if (typeof japeakA1TrainData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA1TrainData);
+if (typeof japeakA1AskDirectionsData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA1AskDirectionsData);
+if (typeof japeakA1BankData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA1BankData);
+if (typeof japeakA1ResidentMannersData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA1ResidentMannersData);
+if (typeof japeakA1WorkplaceMachinesData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA1WorkplaceMachinesData);
 
 let menuLang = localStorage.getItem('japeakLang') || 'en';
 let selectedCategory = null;
@@ -116,8 +120,8 @@ const lifeMasterData = [
                     { name: "売り場や値段をきいてみよう", isReady: true, catKey: "a1_ask_place_price" }, { name: "ほしいものを選んで買ってみよう", isReady: true, catKey: "a1_want_to_buy" },
                     { name: "お店の人に希望を伝えてみよう", isReady: true, catKey: "a1_tell_preferences" }, { name: "レストランへ行ってみよう", isReady: true, catKey: "a1_restaurant" },
                     { name: "宅配便を利用しよう", isReady: true, catKey: "a1_delivery" }, { name: "電車に乗ってみよう", isReady: true, catKey: "a1_train" },
-                    { name: "道をきいてみよう", isReady: false }, { name: "銀行を利用しよう", isReady: false },
-                    { name: "住民としてのマナーを理解しよう", isReady: false }, { name: "職場の機械を使いこなそう", isReady: false }
+                    { name: "道をきいてみよう", isReady: true, catKey: "a1_ask_directions" }, { name: "銀行を利用しよう", isReady: true, catKey: "a1_bank" },
+                    { name: "住民としてのマナーを理解しよう", isReady: true, catKey: "a1_resident_manners" }, { name: "職場の機械を使いこなそう", isReady: true, catKey: "a1_workplace_machines" }
                 ]
             },
             {
