@@ -34,6 +34,7 @@ if (typeof japeakA1AskDirectionsData !== 'undefined') allJapeakData = allJapeakD
 if (typeof japeakA1BankData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA1BankData);
 if (typeof japeakA1ResidentMannersData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA1ResidentMannersData);
 if (typeof japeakA1WorkplaceMachinesData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA1WorkplaceMachinesData);
+if (typeof japeakA2GreetingsBySituationData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA2GreetingsBySituationData);
 
 let menuLang = localStorage.getItem('japeakLang') || 'en';
 let selectedCategory = null;
@@ -128,7 +129,7 @@ const lifeMasterData = [
                 labelId: "title_a2",
                 titles: { 'ja': "🧱 目指そう A2レベル", 'en': "🧱 Aim for A2 Level", 'zh-CN': "🧱 目标 A2 レベル", 'zh-TW': "🧱 目標 A2 レベル", 'ko': "🧱 도전하자 A2 레벨", 'vi': "🧱 Hướng tới trình độ A2", 'tl': "🧱 Layunin ang A2 Level", 'id': "🧱 Target Tingkat A2", 'th': "🧱 มุ่งสู่ระดับ A2", 'my': "🧱 A2 အဆင့်သို့ ရည်မှန်းကြစို့", 'km': "🧱 ឆ្ពោះទៅកម្រិត A2", 'ne': "🧱 A2 स्तरको लक्ष्य राखौं", 'mn': "🧱 A2 түвшинд хүрэх зорилт", 'si': "🧱 A2 මට්ටම සාක්ෂาත් කරගනිමු", 'bn': "🧱 A2 স্তরের লক্ষ্য নির্ধারণ", 'pt': "🧱 Rumo ao Nível A2", 'es': "🧱 Rumo ao Nivel A2", 'fr': "🧱 Objectif Niveau A2", 'ru': "🧱 Стремись к уровню A2", 'uk': "🧱 Прагни до рівня A2" },
                 scenes: [
-                    { name: "場面に応じたあいさつをしよう", isReady: false }, { name: "お店のサービスを利用してみよう", isReady: false },
+                    { name: "場面に応じたあいさつをしよう", isReady: true, catKey: "a2_greetings_by_situation" }, { name: "お店のサービスを利用してみよう", isReady: false },
                     { name: "お店を選んでみよう", isReady: false }, { name: "いろいろなお店を利用しよう", isReady: false },
                     { name: "上手にお買い物をしよう", isReady: false }, { name: "自治会に入ってみよう", isReady: false },
                     { name: "イベントに行ってみよう", isReady: false }, { name: "病院に行こう", isReady: false },
