@@ -38,6 +38,25 @@ if (typeof japeakA1WorkplaceMachinesData !== 'undefined') allJapeakData = allJap
 if (typeof japeakA2GreetingsBySituationData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA2GreetingsBySituationData);
 if (typeof japeakA2StoreServicesData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA2StoreServicesData);
 if (typeof japeakA2ChooseStoreData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA2ChooseStoreData);
+if (typeof japeakA2ChooseVariousStoresData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA2ChooseVariousStoresData);
+if (typeof japeakA2SmartShoppingData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA2SmartShoppingData);
+if (typeof japeakA2NeighborhoodAssociationData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA2NeighborhoodAssociationData);
+if (typeof japeakA2EventData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA2EventData);
+if (typeof japeakA2HospitalData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA2HospitalData);
+if (typeof japeakA2EmergencyHelpData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA2EmergencyHelpData);
+if (typeof japeakA2CityOfficeData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA2CityOfficeData);
+if (typeof japeakA2LibraryData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA2LibraryData);
+if (typeof japeakA2PostcardData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA2PostcardData);
+if (typeof japeakA2InternetPhoneData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA2InternetPhoneData);
+if (typeof japeakA2WorkSafetyData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA2WorkSafetyData);
+if (typeof japeakA2WorkAccidentData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA2WorkAccidentData);
+if (typeof japeakA2JobSearchData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA2JobSearchData);
+if (typeof japeakA2JobInterviewData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA2JobInterviewData);
+if (typeof japeakA2WorkColleaguesData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA2WorkColleaguesData);
+if (typeof japeakA2WorkLeaveRequestData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA2WorkLeaveRequestData);
+if (typeof japeakB1WorkGreetingsData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1WorkGreetingsData);
+if (typeof japeakB2GoToDestinationData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB2GoToDestinationData);
+
 
 // 🌟 修正ポイント1：currentAudio を追加しました
 let currentIndex = 0, currentLesson = null, currentLang = 'en', recognition = null, currentAudio = null;
