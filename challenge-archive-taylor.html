@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>過去のNCC課題 - Taylor Swift</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,700;1,500&family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        body { font-family: 'Noto Sans JP', sans-serif; background-color: #0f172a; color: #f8fafc; min-height: 100vh; }
+        .serif-font { font-family: 'Lora', serif; }
+        body.arena-recording .hide-during-record { display: none !important; }
+        .matched-word { color: #34d399; font-weight: 700; } 
+        .unmatched-word { color: inherit; text-decoration: none; opacity: 1; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #1e293b; border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #475569; border-radius: 4px; }
+        #entranceView {
+            background-color: #0f172a;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(56, 189, 248, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(232, 121, 249, 0.1) 0%, transparent 40%),
+                url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Cg fill-rule="evenodd"%3E%3Cg fill="%23475569" fill-opacity="0.1"%3E%3Cpath opacity=".5" d="M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h8v-1h1V95zm1 1h8v-9h-8v9zm1 1h9V85h-9v9zm1 1h8v-9h-8v9zm1 1h9V75h-9v9zm1 1h8v-9h-8v9zm1 1h9V65h-9v9zm1 1h8v-9h-8v9zm1 1h9V55h-9v9zm1 1h8v-9h-8v9zm1 1h9V45h-9v9zm1 1h8v-9h-8v9zm1 1h9V35h-9v9zm1 1h8v-9h-8v9zm1 1h9V25h-9v9zm1 1h8v-9h-8v9zm1 1h9V15h-9v9zm1 1h8v-9h-8v9zm1 1h9V5h-9v9zM1 1h8V0H1v1zm1 1h9v-9H2v9zm1 1h8V0H3v1zm1 1h9v-9H4v9zm1 1h8V0H5v1zm1 1h9v-9H6v9zm1 1h8V0H7v1zm1 1h9v-9H8v9zm1 1h8V0H9v1z" fill-rule="evenodd"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+            background-blend-mode: color-dodge, color-dodge, normal;
+            background-size: cover, cover, auto;
+        }
+    </style>
+</head>
+<body class="pb-10 bg-slate-900 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-slate-800 via-slate-900 to-black transition-all duration-500">
+
+    <div id="safety-charm-container" class="hidden">
+        <div id="learningTitle"></div>
+        <select id="customLang"><option value="en-US">en-US</option></select>
+        <audio id="audioPlayer"></audio>
+        <div id="missingWordsBtnContainer"></div>
+        <div id="modeDisplay"></div>
+        <div id="memoLevelDisplay"></div>
+        <div id="slaAdviceText"></div>
+        <div id="practiceIconsContainer"></div>
+    </div>
+
+    <!-- ヘッダー -->
+    <div class="bg-slate-900 border-b border-slate-700 sticky top-0 z-40 shadow-lg hide-during-record">
+        <div class="max-w-[1000px] mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-2 sm:gap-3">
+                <button onclick="window.location.href='challenge.html'" class="px-2 sm:px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-[10px] sm:text-xs font-bold rounded-sm border border-slate-600 transition shrink-0">◀ 現在のNCCへ</button>
+                <h1 class="text-base sm:text-xl md:text-2xl font-black text-slate-400 serif-font tracking-wide flex items-center gap-1 sm:gap-2 truncate">
+                    NCC Archive (過去の課題)
+                </h1>
+            </div>
+            <div class="text-[10px] sm:text-xs text-slate-500 font-bold truncate">
+                ※オフライン練習モード
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-[1000px] mx-auto p-3 sm:p-4 mt-2 sm:mt-4 flex flex-col gap-4 sm:gap-6 relative">
+        <div class="w-full flex flex-col gap-4 transition-all duration-500" id="arenaMainPane">
+            
+            <div id="entranceView" class="min-h-[70vh] sm:min-h-[75vh] flex flex-col items-center justify-center p-4 sm:p-6 md:p-10 relative overflow-hidden transition-all duration-1000 rounded-xl border border-slate-700 shadow-xl">
+                <h2 class="text-4xl md:text-6xl font-black text-white serif-font tracking-widest mb-1 sm:mb-2 text-center drop-shadow-lg z-10 opacity-70">Taylor Swift</h2>
+                <p class="text-emerald-500 text-xs sm:text-base md:text-lg font-bold tracking-widest uppercase mb-8 sm:mb-12 text-center z-10 opacity-70">NYU Commencement Speech 2022</p>
+                
+                <div id="flyerContainer" class="w-full max-w-2xl mb-10 sm:mb-16 shadow-2xl rounded-xl overflow-hidden border-2 border-slate-600 transition hover:scale-105 cursor-pointer z-10 opacity-80">
+                    <img src="flyer_taylor.png" alt="Challenge Flyer" class="w-full object-cover" onerror="this.src='https://placehold.co/1200x600/1e293b/a21caf?text=Taylor+Swift+Speech+(Archive)'">
+                </div>
+                
+                <button onclick="enterArena()" class="w-full max-w-md py-4 sm:py-5 md:py-6 bg-slate-700 hover:bg-slate-600 text-white rounded-full font-black text-sm sm:text-lg md:text-xl shadow-lg transition transform hover:-translate-y-1 tracking-widest flex items-center justify-center gap-2 sm:gap-3 z-10 px-2 border border-slate-500">
+                    📖 過去の原稿で練習する ➔
+                </button>
+            </div>
+
+            <div id="recordingView" class="hidden flex-col gap-3 sm:gap-4 w-full">
+                <div class="mb-1 sm:mb-2 hide-during-record flex justify-between items-center">
+                    <button onclick="exitArena()" class="px-3 sm:px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs sm:text-sm font-bold rounded-lg border border-slate-700 transition flex items-center gap-2 w-fit">
+                        🏠 戻る
+                    </button>
+                </div>
+
+                <div id="resultScoreBoard" class="hidden bg-slate-900 p-4 sm:p-6 md:p-10 rounded-xl border border-slate-600 shadow-2xl flex flex-col items-center mb-4 sm:mb-6">
+                    <h3 class="text-slate-300 font-black text-lg sm:text-xl md:text-2xl mb-4 sm:mb-6 tracking-widest uppercase">Practice Result</h3>
+                    
+                    <div class="flex w-full justify-between items-center px-1 sm:px-2 md:px-6">
+                        <div class="text-center flex-1">
+                            <div class="text-slate-500 text-[9px] sm:text-[10px] md:text-sm font-bold tracking-widest uppercase mb-1 sm:mb-2">Accuracy</div>
+                            <div id="bigAccValue" class="text-4xl sm:text-5xl md:text-6xl font-bold text-emerald-400 serif-font">0%</div>
+                        </div>
+                        <div class="text-center flex-1 border-x border-slate-700 mx-1 sm:mx-2 md:mx-4">
+                            <div class="text-slate-500 text-[9px] sm:text-[10px] md:text-sm font-bold tracking-widest uppercase mb-1 sm:mb-2">Speed(WPM)</div>
+                            <div id="bigWpmValue" class="text-4xl sm:text-5xl md:text-6xl font-bold text-blue-400 serif-font">0</div>
+                        </div>
+                        <div class="text-center flex-1">
+                            <div class="text-slate-500 text-[9px] sm:text-[10px] md:text-sm font-bold tracking-widest uppercase mb-1 sm:mb-2">Comprehension</div>
+                            <div id="bigCompValue" class="text-4xl sm:text-5xl md:text-6xl font-bold text-yellow-400 serif-font">0%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 sm:mt-10 flex flex-col gap-3 sm:gap-4 w-full max-w-md mx-auto">
+                        <button onclick="window.retryChallenge(true)" class="w-full py-3 sm:py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-bold text-sm sm:text-base shadow-md transition flex items-center justify-center gap-2">
+                            🔄 もう一度練習する
+                        </button>
+                    </div>
+                </div>
+
+                <div id="targetTextWrapper" class="bg-slate-800 p-4 sm:p-6 md:p-8 rounded-xl border border-slate-700 shadow-xl relative flex flex-col transition-all duration-500">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-slate-700 pb-3 sm:pb-4 mb-4 sm:mb-5 shrink-0 hide-during-record gap-3 sm:gap-4">
+                        <h2 class="font-bold text-slate-400 tracking-widest text-xs sm:text-sm md:text-base uppercase flex items-center gap-2">
+                            <span class="bg-slate-700 px-2 py-1 rounded text-slate-300">Archive</span> Tournament Script
+                        </h2>
+                        <div class="flex gap-2 w-full sm:w-auto">
+                            <button onclick="document.getElementById('jpModal').classList.remove('hidden')" class="flex-1 sm:flex-none px-2 sm:px-4 py-2 bg-slate-700 hover:bg-slate-600 text-slate-200 text-[10px] sm:text-xs font-bold rounded-lg border border-slate-600 transition flex items-center justify-center gap-1 sm:gap-2">🇯🇵 日本語訳</button>
+                            <button onclick="document.getElementById('expModal').classList.remove('hidden')" class="flex-1 sm:flex-none px-2 sm:px-4 py-2 bg-blue-900/50 hover:bg-blue-800/60 text-blue-300 text-[10px] sm:text-xs font-bold rounded-lg border border-blue-700/50 transition flex items-center justify-center gap-1 sm:gap-2">💡 表現解説</button>
+                        </div>
+                    </div>
+
+                    <div class="mb-4 sm:mb-6 bg-slate-900/80 p-2 sm:p-3 rounded-lg border border-slate-700 hide-during-record">
+                        <p class="text-[10px] sm:text-xs text-slate-400 font-bold mb-2 tracking-widest uppercase flex items-center gap-2">🎙 YouTube Practice <span class="text-[9px] sm:text-[10px] bg-slate-700 text-slate-300 px-1.5 py-0.5 rounded">3:14~</span></p>
+                        <div class="aspect-video w-full">
+                            <iframe class="w-full h-full rounded-md" src="https://www.youtube.com/embed/M2BKYQQiNUA?start=194" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+                    <div id="engContainer" class="text-xl sm:text-2xl md:text-[2rem] text-slate-300 font-medium serif-font leading-relaxed md:leading-loose space-y-4 md:space-y-6 flex-1 overflow-y-auto max-h-[50vh] sm:max-h-[60vh] pr-2 sm:pr-4 custom-scrollbar"></div>
+                </div>
+
+                <div id="yourVoiceWrapper" class="hidden bg-slate-900 p-4 sm:p-6 md:p-8 rounded-xl border border-blue-900 shadow-xl relative flex flex-col min-h-[120px] sm:min-h-[150px]">
+                    <div class="border-b border-slate-700 pb-2 mb-3 shrink-0">
+                        <h2 class="font-bold text-blue-400 tracking-widest text-xs sm:text-sm md:text-base uppercase">Your Voice (音声認識)</h2>
+                    </div>
+                    <div id="recognizedTextDisplay" class="text-lg sm:text-xl md:text-2xl text-slate-500 font-medium serif-font leading-relaxed flex-1 overflow-y-auto max-h-[25vh] sm:max-h-[30vh] custom-scrollbar">※Press START to begin</div>
+                </div>
+
+                <div class="flex justify-center mt-2 relative z-50">
+                    <button id="micBtn" onclick="if(typeof toggleRecording === 'function') toggleRecording();" class="w-full max-w-sm py-3 sm:py-4 md:py-5 bg-emerald-700 hover:bg-emerald-600 text-white rounded-full font-black text-base sm:text-lg md:text-xl shadow-lg transition transform hover:-translate-y-1 uppercase tracking-widest flex items-center justify-center gap-2 border border-emerald-500">
+                        🎙 <span id="micBtnText">練習をスタートする</span>
+                    </button>
+                </div>
+                
+                <button id="cancelRecordingBtn" onclick="cancelChallengeRecording()" class="hidden fixed top-3 right-3 sm:top-4 sm:right-4 z-[9999] w-10 h-10 sm:w-14 sm:h-14 bg-slate-800 text-slate-400 hover:text-red-500 font-bold text-xl sm:text-2xl rounded-full border border-slate-600 flex items-center justify-center transition-all shadow-xl">✕</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- モーダル群 -->
+    <div id="jpModal" class="hidden fixed inset-0 bg-black/90 z-[99999] flex justify-center items-center p-2 sm:p-4 transition-opacity">
+        <div class="bg-slate-800 p-4 sm:p-6 md:p-10 rounded-2xl border border-slate-600 shadow-2xl w-full max-w-3xl max-h-[90vh] flex flex-col relative">
+            <button onclick="document.getElementById('jpModal').classList.add('hidden')" class="absolute top-2 right-2 sm:top-4 sm:right-4 w-8 h-8 sm:w-10 sm:h-10 bg-slate-700 rounded-full text-white font-bold hover:bg-slate-600 transition flex items-center justify-center">✕</button>
+            <h2 class="text-lg sm:text-xl font-bold text-slate-300 mb-3 sm:mb-4 border-b border-slate-700 pb-2">🇯🇵 日本語訳 (Japanese Translation)</h2>
+            <div class="overflow-y-auto custom-scrollbar pr-2 text-slate-400 text-xs sm:text-sm md:text-base leading-relaxed md:leading-loose space-y-4 md:space-y-6 font-medium">
+                <p>私の経験上、間違いが人生の最高の物事につながりました。失敗して恥ずかしい思いをすることは、人間の経験の一部です。立ち上がり、土埃を払い落とし、その後でも誰が自分と一緒にいて笑い合ってくれるかを確認すること、それは神様からの贈り物です。私が「ノー」と言われたとき、仲間に入れてもらえなかったとき、選ばれなかったとき、勝てなかったとき、合格しなかったとき…振り返ってみると、そうした瞬間は、「イエス」と言われた瞬間と同じくらい、あるいはそれ以上に重要だったと心から感じます。私が伝えたいのは、失うことは単に失うことだけを意味しないということです。多くの場合、私たちは何かを失うとき、同時に何かを得ているのです。</p>
+                <p>進歩と改革の名の下に、古い考え方を捨てるのが正しいこともあります。また、先人たちの知恵に腰を下ろして耳を傾けるのが正しいこともあります。このような重要な瞬間に、どうやって正しい選択が分かるのでしょうか？ 分かりません。こんなに多くの人たちの人生の選択について、どうやってアドバイスをすればいいのでしょうか？ しません。怖いお知らせは、皆さんはもう自分一人だということです。でも、素晴らしいお知らせは、皆さんはもう自分一人だということです。</p>
+                <p>最後にこの言葉を残します。私たちは、直感や直観、欲望や恐れ、傷跡や夢に導かれています。そして、皆さんも時に失敗するでしょう。私も失敗します。そして私が失敗したときは、どうせ皆さんはインターネットでそれを読むことになるでしょう。私たちにはつらいことも起こります。しかし、私たちは立ち直ります。そこから学びます。そこからさらに強い回復力を身につけます。そして、息をする幸運に恵まれている限り、私たちは息を吸い、息を通し、深く息をし、そして息を吐きます。</p>
+            </div>
+        </div>
+    </div>
+
+    <<div id="expModal" class="hidden fixed inset-0 bg-black/90 z-[99999] flex justify-center items-center p-2 sm:p-4 transition-opacity">
+        <div class="bg-slate-800 p-4 sm:p-6 md:p-8 rounded-2xl border border-blue-900 shadow-2xl w-full max-w-6xl max-h-[95vh] flex flex-col relative overflow-hidden">
+            <button onclick="document.getElementById('expModal').classList.add('hidden')" class="absolute top-2 right-2 sm:top-4 sm:right-4 w-8 h-8 sm:w-10 sm:h-10 bg-slate-700 rounded-full text-white font-bold hover:bg-slate-600 transition z-20 flex items-center justify-center">✕</button>
+            <h2 class="text-lg sm:text-xl font-bold text-blue-400 mb-4 sm:mb-6 border-b border-slate-700 pb-2 shrink-0 pr-8">💡 表現解説 (Expressions & Idioms)</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8 flex-1 overflow-hidden">
+                <div class="bg-slate-900/50 p-4 sm:p-6 rounded-xl border border-slate-700 flex flex-col overflow-hidden">
+                    <h3 class="text-slate-400 text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-2 sm:mb-4 shrink-0">Original Text</h3>
+                    <div class="text-slate-300 text-sm sm:text-base md:text-lg serif-font leading-relaxed md:leading-loose space-y-4 md:space-y-6 flex-1 overflow-y-auto custom-scrollbar pr-2">
+                        <p>My experience has been that my mistakes led to the best things in my life. And being embarrassed when you <span class="text-blue-400 font-bold border-b border-blue-400/50">mess up</span> is part of the human experience. Getting back up, <span class="text-blue-400 font-bold border-b border-blue-400/50">dusting yourself off</span>, and seeing who still wants to <span class="text-blue-400 font-bold border-b border-blue-400/50">hang out with</span> you afterwards and laugh about it, that's a gift. The times I was told no... didn't <span class="text-blue-400 font-bold border-b border-blue-400/50">make the cut</span>... it really feels like those moments were as important, if not more <span class="text-blue-400 font-bold border-b border-blue-400/50">crucial</span>, than the moments I was told yes.</p>
+                        <p>Sometimes the right thing to do is to <span class="text-blue-400 font-bold border-b border-blue-400/50">throw out the old schools of thought</span> in the name of progress and reform... The scary news is <span class="text-blue-400 font-bold border-b border-blue-400/50">you're on your own</span> now. But the cool news is you're on your own now.</p>
+                        <p>I leave you with this: We are led by our <span class="text-blue-400 font-bold border-b border-blue-400/50">gut instincts</span>, our intuition... And you will <span class="text-blue-400 font-bold border-b border-blue-400/50">screw it up</span> sometimes. So will I... We will <span class="text-blue-400 font-bold border-b border-blue-400/50">grow more resilient</span> because of it.</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col gap-2 sm:gap-4 overflow-hidden">
+                    <div class="flex justify-between items-center bg-slate-700/50 p-3 sm:p-4 rounded-xl border border-slate-700 shrink-0">
+                        <h3 id="expTitle" class="text-slate-400 text-[10px] sm:text-sm font-bold tracking-widest uppercase">Key Expressions</h3>
+                        <button id="toggleTranslationBtn" class="px-2 sm:px-4 py-1.5 sm:py-2 bg-blue-900/50 hover:bg-blue-800/60 text-blue-300 text-[10px] sm:text-xs font-bold rounded-full border border-blue-700/50 transition truncate max-w-[140px] sm:max-w-none">
+                            🇯🇵 和訳表示に切替
+                        </button>
+                    </div>
+                    
+                    <div id="englishExplanations" class="space-y-2 sm:space-y-3 custom-scrollbar flex-1 overflow-y-auto pr-2">
+                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50 hover:bg-slate-700/50 transition">
+                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">mess up</div>
+                            <div class="text-slate-200 text-xs sm:text-sm">失敗する、しくじる、台無しにする</div>
+                        </div>
+                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50 hover:bg-slate-700/50 transition">
+                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">dust oneself off</div>
+                            <div class="text-slate-200 text-xs sm:text-sm">土埃を払う ➔ （失敗や挫折から）立ち直る、再起する</div>
+                        </div>
+                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50 hover:bg-slate-700/50 transition">
+                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">hang out with ~</div>
+                            <div class="text-slate-200 text-xs sm:text-sm">～と一緒に過ごす、遊ぶ、つるむ</div>
+                        </div>
+                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50 hover:bg-slate-700/50 transition">
+                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">make the cut</div>
+                            <div class="text-slate-200 text-xs sm:text-sm">基準を満たす、合格する、選考に残る</div>
+                        </div>
+                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50 hover:bg-slate-700/50 transition">
+                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">crucial</div>
+                            <div class="text-slate-200 text-xs sm:text-sm">極めて重要な、決定的な（important よりも強い意味合い）</div>
+                        </div>
+                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50 hover:bg-slate-700/50 transition">
+                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">throw out the old schools of thought</div>
+                            <div class="text-slate-200 text-xs sm:text-sm">古い考え方（学派・流派）を捨てる</div>
+                        </div>
+                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50 hover:bg-slate-700/50 transition">
+                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">you're on your own</div>
+                            <div class="text-slate-200 text-xs sm:text-sm">あなた自身でやるしかない、一人立ちする</div>
+                        </div>
+                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50 hover:bg-slate-700/50 transition">
+                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">gut instincts</div>
+                            <div class="text-slate-200 text-xs sm:text-sm">直感、本能的な勘（gut=腸・腹）</div>
+                        </div>
+                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50 hover:bg-slate-700/50 transition">
+                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">screw it up</div>
+                            <div class="text-slate-200 text-xs sm:text-sm">大失敗する、やらかす</div>
+                        </div>
+                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50 hover:bg-slate-700/50 transition">
+                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">grow more resilient</div>
+                            <div class="text-slate-200 text-xs sm:text-sm">より回復力（レジリエンス）を高める、しなやかに立ち直るようになる</div>
+                        </div>
+                    </div>
+
+                    <div id="japaneseTranslationForPair" class="hidden flex-1 overflow-y-auto custom-scrollbar pr-2">
+                        <div class="space-y-4 md:space-y-6 text-slate-200 text-sm sm:text-base md:text-lg serif-font leading-relaxed md:leading-loose font-medium">
+                            <p>私の経験上、間違いが人生の最高の物事につながりました。失敗して恥ずかしい思いをすることは、人間の経験の一部です。立ち上がり、土埃を払い落とし、その後でも誰が自分と一緒にいて笑い合ってくれるかを確認すること、それは神様からの贈り物です。私が「ノー」と言われたとき、仲間に入れてもらえなかったとき、選ばれなかったとき、勝てなかったとき、合格しなかったとき…振り返ってみると、そうした瞬間は、「イエス」と言われた瞬間と同じくらい、あるいはそれ以上に重要だったと心から感じます。私が伝えたいのは、失うことは単に失うことだけを意味しないということです。多くの場合、私たちは何かを失うとき、同時に何かを得ているのです。</p>
+                            <p>進歩と改革の名の下に、古い考え方を捨てるのが正しいこともあります。また、先人たちの知恵に腰を下ろして耳を傾けるのが正しいこともあります。このような重要な瞬間に、どうやって正しい選択が分かるのでしょうか？ 分かりません。こんなに多くの人たちの人生の選択について、どうやってアドバイスをすればいいのでしょうか？ しません。怖いお知らせは、皆さんはもう自分一人だということです。でも、素晴らしいお知らせは、皆さんはもう自分一人だということです。</p>
+                            <p>最後にこの言葉を残します。私たちは、直感や直観、欲望や恐れ、傷跡や夢に導かれています。そして、皆さんも時に失敗するでしょう。私も失敗します。そして私が失敗したときは、どうせ皆さんはインターネットでそれを読むことになるでしょう。私たちにはつらいことも起こります。しかし、私たちは立ち直ります。そこから学びます。そこからさらに強い回復力を身につけます。そして、息をする幸運に恵まれている限り、私たちは息を吸い、息を通し、深く息をし、そして息を吐きます。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="storage.js"></script>
+    <script src="speech.js"></script>
+    <script>
+        function enterArena() {
+            document.getElementById('entranceView').style.display = 'none';
+            const recView = document.getElementById('recordingView');
+            recView.style.display = 'flex';
+            recView.classList.remove('hidden');
+        }
+
+        function exitArena() {
+            if (typeof cancelChallengeRecording === 'function' && document.body.classList.contains('arena-recording')) {
+                cancelChallengeRecording();
+            }
+            const recView = document.getElementById('recordingView');
+            recView.style.display = 'none';
+            recView.classList.add('hidden');
+            document.getElementById('entranceView').style.display = 'flex';
+        }
+
+        window.savePracticeLog = function(lessonId, data, callback) {
+            if (callback) callback(); 
+        };
+
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                currentMode = 'reading'; 
+                currentMemoLevel = 0;
+                targetWpm = 120;
+                if (typeof isMobile !== 'undefined') isMobile = window.innerWidth < 768;
+
+                currentCustomLesson = {
+                    id: "arena-archive-taylor",
+                    title: "Taylor Swift NYU Speech",
+                    lang: "en-US",
+                    eng: `My experience has been that my mistakes led to the best things in my life. And being embarrassed when you mess up is part of the human experience. Getting back up, dusting yourself off, and seeing who still wants to hang out with you afterwards and laugh about it, that's a gift. The times I was told no, or wasn't included, wasn't chosen, didn't win, didn't make the cut... looking back, it really feels like those moments were as important, if not more crucial, than the moments I was told yes. I'm trying to tell you that losing things doesn't just mean losing. A lot of the time when we lose things, we gain things too.\n\nSometimes the right thing to do is to throw out the old schools of thought in the name of progress and reform. Sometimes the right thing to do is to sit and listen to the wisdom of those who have come before us. How will you know what the right choice is in these crucial moments? You won't. How do I give advice to this many people about their life choices? I won't. The scary news is you're on your own now. But the cool news is you're on your own now.\n\nI leave you with this: We are led by our gut instincts, our intuition, our desires and fears, our scars and our dreams. And you will screw it up sometimes. So will I. And when I do, you will most likely read about it on the internet anyway. Hard things will happen to us. We will recover. We will learn from it. We will grow more resilient because of it. And as long as we are fortunate enough to be breathing, we will breathe in, breathe through, breathe deep, and breathe out.`,
+                    history: []
+                };
+
+                targetTextArray = currentCustomLesson.eng.toLowerCase().replace(/[^a-z0-9\u00C0-\u017F\u0900-\u097F\s]/gi, '').split(/\s+/).filter(w => w);
+                    
+                const engContainer = document.getElementById('engContainer');
+                if (engContainer) {
+                    const paragraphs = currentCustomLesson.eng.split(/\n+/);
+                    const htmlContent = paragraphs.map(p => {
+                        const words = p.split(/(\s+)/);
+                        const wordSpans = words.map(w => w.trim() ? `<span class="pace-word">${w}</span>` : w).join('');
+                        return `<p>${wordSpans}</p>`;
+                    }).join('');
+                    engContainer.innerHTML = htmlContent;
+                }
+            }, 100);
+        });
+　　　　
+        // 和訳・解説の切り替えロジック
+        const englishExplanations = document.getElementById('englishExplanations');
+        const japaneseTranslationForPair = document.getElementById('japaneseTranslationForPair');
+        const toggleTranslationBtn = document.getElementById('toggleTranslationBtn');
+        const expTitle = document.getElementById('expTitle');
+        let showingTranslation = false;
+
+        if (toggleTranslationBtn) {
+            toggleTranslationBtn.addEventListener('click', () => {
+                showingTranslation = !showingTranslation;
+                if (showingTranslation) {
+                    englishExplanations.classList.add('hidden');
+                    japaneseTranslationForPair.classList.remove('hidden');
+                    toggleTranslationBtn.innerText = '🇺🇸 英語解説に切替';
+                    expTitle.innerText = '🇯🇵 日本語訳';
+                } else {
+                    englishExplanations.classList.remove('hidden');
+                    japaneseTranslationForPair.classList.add('hidden');
+                    toggleTranslationBtn.innerText = '🇯🇵 和訳表示に切替';
+                    expTitle.innerText = 'Key Expressions';
+                }
+            });
+        }
+
+        function showPreReadingState() {
+            document.body.classList.remove('arena-recording');
+            document.getElementById('yourVoiceWrapper').style.display = 'none';
+            const resultBoard = document.getElementById('resultScoreBoard');
+            if(resultBoard) { resultBoard.classList.add('hidden'); resultBoard.style.display = 'none'; }
+            document.getElementById('cancelRecordingBtn').style.display = 'none';
+            
+            const micBtn = document.getElementById('micBtn');
+            if(micBtn) micBtn.style.display = 'flex';
+            const txt = document.getElementById('micBtnText');
+            if(txt) txt.innerText = "練習をスタートする";
+            
+            const engContainer = document.getElementById('engContainer');
+            if(engContainer) engContainer.innerHTML = engContainer.innerHTML.replace(/matched-word/g, '').replace(/unmatched-word/g, '');
+        }
+
+        function showRecordingState() {
+            document.body.classList.add('arena-recording'); 
+            document.getElementById('yourVoiceWrapper').style.display = 'flex';
+            const resultBoard = document.getElementById('resultScoreBoard');
+            if(resultBoard) { resultBoard.classList.add('hidden'); resultBoard.style.display = 'none'; }
+            document.getElementById('cancelRecordingBtn').style.display = 'flex';
+
+            const iframes = document.querySelectorAll('iframe');
+            iframes.forEach(iframe => {
+                let currentSrc = iframe.src;
+                iframe.src = currentSrc;
+            });
+
+            const micBtn = document.getElementById('micBtn');
+            if(micBtn) micBtn.className = "w-full max-w-md py-4 sm:py-5 md:py-6 bg-red-600 hover:bg-red-500 text-white rounded-full font-black text-base sm:text-xl md:text-2xl shadow-[0_0_30px_rgba(220,38,38,0.6)] transition transform hover:scale-105 uppercase tracking-widest flex items-center justify-center gap-2 border-2 border-red-400 animate-pulse";
+            const txt = document.getElementById('micBtnText');
+            if(txt) txt.innerText = "⏹ 録音を終了して結果を見る";
+        }
+
+        function showResultState() {
+            if (window.isCopeakCanceling) {
+                window.isCopeakCanceling = false;
+                retryChallenge();
+                return;
+            }
+            document.body.classList.remove('arena-recording');
+            document.getElementById('yourVoiceWrapper').style.display = 'flex';
+            const resultBoard = document.getElementById('resultScoreBoard');
+            if(resultBoard) { resultBoard.classList.remove('hidden'); resultBoard.style.display = 'flex'; }
+            
+            document.getElementById('cancelRecordingBtn').style.display = 'none';
+            const micBtn = document.getElementById('micBtn');
+            if(micBtn) micBtn.style.display = 'none'; 
+        }
+
+        function cancelChallengeRecording() {
+            window.isCopeakCanceling = true;
+            if (typeof toggleRecording === 'function' && typeof isMainRecording !== 'undefined' && isMainRecording) {
+                toggleRecording();
+            }
+            retryChallenge();
+        }
+
+        window.retryChallenge = function(autoStart = false) {
+            if (typeof finalTranscript !== 'undefined') finalTranscript = '';
+            if (typeof accumulatedTranscript !== 'undefined') accumulatedTranscript = '';
+            const recDisplay = document.getElementById('recognizedTextDisplay');
+            if (recDisplay) {
+                recDisplay.innerHTML = '※Press START to begin';
+                recDisplay.style.color = '#64748b'; 
+            }
+            showPreReadingState();
+            if (autoStart) {
+                setTimeout(() => { if (typeof toggleRecording === 'function') toggleRecording(); }, 400); 
+            }
+        };
+
+        function resetLearningState() { retryChallenge(); }
+    </script>
+</body>
+</html>
