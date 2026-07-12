@@ -55,6 +55,20 @@ if (typeof japeakA2WorkColleaguesData !== 'undefined') allJapeakData = allJapeak
 if (typeof japeakA2WorkLeaveRequestData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA2WorkLeaveRequestData);
 if (typeof japeakB1WorkGreetingsData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1WorkGreetingsData);
 if (typeof japeakB2GoToDestinationData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB2GoToDestinationData);
+if (typeof japeakB1SafeMovementData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1SafeMovementData);
+if (typeof japeakB1PharmacyData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1PharmacyData);
+if (typeof japeakB2DisasterPreparednessData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB2DisasterPreparednessData);
+if (typeof japeakB1PreventIllnessData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1PreventIllnessData);
+if (typeof japeakB1CommunityActivitiesData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1CommunityActivitiesData);
+if (typeof japeakB1FindHomeData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1FindHomeData);
+if (typeof japeakB1MovingPreparationData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1MovingPreparationData);
+if (typeof japeakB1ChildbirthPreparationData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1ChildbirthPreparationData);
+if (typeof japeakB1ChildbirthConsultationData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1ChildbirthConsultationData);
+if (typeof japeakB1ChildcareServicesData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1ChildcareServicesData);
+if (typeof japeakB1ChildHospitalData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1ChildHospitalData);
+if (typeof japeakB1ChildcareFacilityData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1ChildcareFacilityData);
+if (typeof japeakB1ParentingConsultationData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1ParentingConsultationData);
+
 
 let menuLang = localStorage.getItem('japeakLang') || 'en';
 let selectedCategory = null;
@@ -166,13 +180,13 @@ const lifeMasterData = [
                 titles: { 'ja': "🌿 目指そう B1レベル", 'en': "🌿 Aim for B1 Level", 'zh-CN': "🌿 目标 B1 レベル", 'zh-TW': "🌿 目標 B1 レベル", 'ko': "🌿 도전하자 B1 레벨", 'vi': "🌿 Hướng tới trình độ B1", 'tl': "🌿 Layunin ang B1 Level", 'id': "🌿 Target Tingkat B1", 'th': "🌿 มุ่งสู่ระดับ B1", 'my': "🌿 B1 အဆင့်သို့ ရည်မှန်းကြစို့", 'km': "🌿 ឆ្ពោះទៅកម្រិត B1", 'ne': "🌿 B1 स्तरको लक्ष्य राखौं", 'mn': "🌿 B1 түвшинд хүрэх зорилт", 'si': "🌿 B1 මට්ටම සාක්ෂาත් කරගනිමු", 'bn': "🌿 B1 স্তরের লক্ষ্য নির্ধারণ", 'pt': "🌿 Rumo ao Nível B1", 'es': "🌿 Rumo ao Nivel B1", 'fr': "🌿 Objectif Niveau B1", 'ru': "🌿 Стремись к уровню B1", 'uk': "🌿 Прагни до рівня B1" },
                 scenes: [
                     { name: "職場であいさつをしよう", isReady: true, catKey: "b1_work_greetings" }, { name: "行きたい場所に自分の力で行ってみよう", isReady: true, catKey: "b2_go_to_destination" },
-                    { name: "安全に注意して移動しよう", isReady: false, catKey: "" }, { name: "薬局を利用しよう", isReady: false, catKey: "" },
-                    { name: "防災について考えよう", isReady: false, catKey: "" }, { name: "病気を予防しよう", isReady: false, catKey: "" },
-                    { name: "住民として地域の活動に参加しよう", isReady: false, catKey: "" }, { name: "引っ越し先を探そう", isReady: false, catKey: "" },
-                    { name: "引っ越しの準備をしよう", isReady: false, catKey: "" }, { name: "出産の準備をしよう", isReady: false, catKey: "" },
-                    { name: "出産について相談してみよう", isReady: false, catKey: "" }, { name: "育児に関するサービスを利用しよう", isReady: false, catKey: "" },
-                    { name: "子どもを病院に連れていこう", isReady: false, catKey: "" }, { name: "保育施設を利用しよう", isReady: false, catKey: "" },
-                    { name: "子育てについて相談しよう", isReady: false, catKey: "" }, { name: "入学に向けて準備しよう", isReady: false, catKey: "" },
+                    { name: "安全に注意して移動しよう", isReady: true, catKey: "b1_safe_movement" }, { name: "薬局を利用しよう", isReady: true, catKey: "b1_pharmacy" },
+                    { name: "防災について考えよう", isReady: true, catKey: "b2_disaster_preparedness" }, { name: "病気を予防しよう", isReady: true, catKey: "b1_prevent_illness" },
+                    { name: "住民として地域の活動に参加しよう", isReady: true, catKey: "b1_community_activities" }, { name: "引っ越し先を探そう", isReady: true, catKey: "b1_find_home" },
+                    { name: "引っ越しの準備をしよう", isReady: true, catKey: "b1_moving_preparation" }, { name: "出産の準備をしよう", isReady: true, catKey: "b1_childbirth_preparation" },
+                    { name: "出産について相談してみよう", isReady: true, catKey: "b1_childbirth_consultation" }, { name: "育児に関するサービスを利用しよう", isReady: true, catKey: "b1_childcare_services" },
+                    { name: "子どもを病院に連れていこう", isReady: true, catKey: "b1_child_hospital" }, { name: "保育施設を利用しよう", isReady: true, catKey: "b1_childcare_facility" },
+                    { name: "子育てについて相談しよう", isReady: true, catKey: "b1_parenting_consultation" }, { name: "入学に向けて準備しよう", isReady: false, catKey: "" },
                     { name: "学校生活について理解しよう", isReady: false, catKey: "" }, { name: "学校生活でのトラブルに対処しよう", isReady: false, catKey: "" },
                     { name: "進路について相談しよう", isReady: false, catKey: "" }
                 ]

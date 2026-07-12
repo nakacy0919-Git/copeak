@@ -56,6 +56,21 @@ if (typeof japeakA2WorkColleaguesData !== 'undefined') allJapeakData = allJapeak
 if (typeof japeakA2WorkLeaveRequestData !== 'undefined') allJapeakData = allJapeakData.concat(japeakA2WorkLeaveRequestData);
 if (typeof japeakB1WorkGreetingsData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1WorkGreetingsData);
 if (typeof japeakB2GoToDestinationData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB2GoToDestinationData);
+if (typeof japeakB1SafeMovementData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1SafeMovementData);
+if (typeof japeakB1PharmacyData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1PharmacyData);
+if (typeof japeakB2DisasterPreparednessData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB2DisasterPreparednessData);
+if (typeof japeakB1PreventIllnessData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1PreventIllnessData);
+if (typeof japeakB1PreventIllnessData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1PreventIllnessData);
+if (typeof japeakB1CommunityActivitiesData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1CommunityActivitiesData);
+if (typeof japeakB1FindHomeData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1FindHomeData);
+if (typeof japeakB1MovingPreparationData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1MovingPreparationData);
+if (typeof japeakB1ChildbirthPreparationData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1ChildbirthPreparationData);
+if (typeof japeakB1ChildbirthConsultationData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1ChildbirthConsultationData);
+if (typeof japeakB1ChildcareServicesData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1ChildcareServicesData);
+if (typeof japeakB1ChildHospitalData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1ChildHospitalData);
+if (typeof japeakB1ChildcareFacilityData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1ChildcareFacilityData);
+if (typeof japeakB1ParentingConsultationData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1ParentingConsultationData);
+
 
 
 // 🌟 修正ポイント1：currentAudio を追加しました
