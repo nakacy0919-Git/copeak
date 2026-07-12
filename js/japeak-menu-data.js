@@ -68,6 +68,10 @@ if (typeof japeakB1ChildcareServicesData !== 'undefined') allJapeakData = allJap
 if (typeof japeakB1ChildHospitalData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1ChildHospitalData);
 if (typeof japeakB1ChildcareFacilityData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1ChildcareFacilityData);
 if (typeof japeakB1ParentingConsultationData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1ParentingConsultationData);
+if (typeof japeakB1SchoolEnrollmentData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1SchoolEnrollmentData);
+if (typeof japeakB1SchoolLifeData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1SchoolLifeData);
+if (typeof japeakB1SchoolTroubleData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1SchoolTroubleData);
+if (typeof japeakB1CareerConsultationData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1CareerConsultationData);
 
 
 let menuLang = localStorage.getItem('japeakLang') || 'en';
@@ -186,9 +190,9 @@ const lifeMasterData = [
                     { name: "引っ越しの準備をしよう", isReady: true, catKey: "b1_moving_preparation" }, { name: "出産の準備をしよう", isReady: true, catKey: "b1_childbirth_preparation" },
                     { name: "出産について相談してみよう", isReady: true, catKey: "b1_childbirth_consultation" }, { name: "育児に関するサービスを利用しよう", isReady: true, catKey: "b1_childcare_services" },
                     { name: "子どもを病院に連れていこう", isReady: true, catKey: "b1_child_hospital" }, { name: "保育施設を利用しよう", isReady: true, catKey: "b1_childcare_facility" },
-                    { name: "子育てについて相談しよう", isReady: true, catKey: "b1_parenting_consultation" }, { name: "入学に向けて準備しよう", isReady: false, catKey: "" },
-                    { name: "学校生活について理解しよう", isReady: false, catKey: "" }, { name: "学校生活でのトラブルに対処しよう", isReady: false, catKey: "" },
-                    { name: "進路について相談しよう", isReady: false, catKey: "" }
+                    { name: "子育てについて相談しよう", isReady: true, catKey: "b1_parenting_consultation" }, { name: "入学に向けて準備しよう", isReady: true, catKey: "b1_school_enrollment" },
+                    { name: "学校生活について理解しよう", isReady: true, catKey: "b1_school_life" }, { name: "学校生活でのトラブルに対処しよう", isReady: true, catKey: "b1_school_trouble" },
+                    { name: "進路について相談しよう", isReady: true, catKey: "b1_career_consultation" }
                 ]
             }
         ];

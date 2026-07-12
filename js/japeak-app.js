@@ -70,6 +70,11 @@ if (typeof japeakB1ChildcareServicesData !== 'undefined') allJapeakData = allJap
 if (typeof japeakB1ChildHospitalData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1ChildHospitalData);
 if (typeof japeakB1ChildcareFacilityData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1ChildcareFacilityData);
 if (typeof japeakB1ParentingConsultationData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1ParentingConsultationData);
+if (typeof japeakB1SchoolEnrollmentData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1SchoolEnrollmentData);
+if (typeof japeakB1SchoolLifeData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1SchoolLifeData);
+if (typeof japeakB1SchoolTroubleData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1SchoolTroubleData);
+if (typeof japeakB1CareerConsultationData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1CareerConsultationData);
+
 
 
 
