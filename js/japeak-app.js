@@ -279,16 +279,36 @@ function speakWithBrowserVoice(text, langCode, rate = 0.95) {
     }
 }
 
-// スピード調整対応のお手本音声再生
+// スピード調整＆再生/停止トグル対応のお手本音声再生
 function playExampleAudio(speed = 1.0) {
     if (!currentLesson) return;
 
+    // 1. ブラウザ音声（AI音声・外国語）が再生中の場合の停止処理
+    if (window.speechSynthesis.speaking) {
+        window.speechSynthesis.cancel();
+        return; // 再生中なら停止して終了
+    }
+
+    // 2. 録音音声(MP3) が再生中の場合の停止処理
+    if (currentAudio && !currentAudio.paused) {
+        const previousSpeed = currentAudio.playbackRate;
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+        
+        // もし「再生中と同じ速度のボタン」を押したなら、停止するだけで終了
+        if (previousSpeed === speed) {
+            return;
+        }
+    }
+
+    // （安全のためのリセット処理）
     if (currentAudio) {
         currentAudio.pause();
         currentAudio.currentTime = 0;
     }
     window.speechSynthesis.cancel();
 
+    // 3. 新しく音声を再生する処理
     if (isSwapped) {
         speakWithBrowserVoice(getForeignPracticeTarget(currentLesson, currentLang), langCodeMap[currentLang] || 'en-US', 0.95 * speed);
         return;
@@ -303,7 +323,7 @@ function playExampleAudio(speed = 1.0) {
         speakWithBrowserVoice(getJapanesePracticeTarget(currentLesson), 'ja-JP', 0.85 * speed);
     };
 
-    currentAudio.play();
+    currentAudio.play().catch(e => console.warn("音声の再生がブロックされました:", e));
 }
 
 if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {
