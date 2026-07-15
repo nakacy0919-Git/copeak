@@ -1,193 +1,193 @@
 // =====================================================
 // Japeak B1 Level
-// Scene: 子育てについて相談しよう
-// File: data/japeak-b1-parenting-consultation.js
-// Category Key: b1_parenting_consultation
+// Scene: 出産について相談してみよう
+// File: data/japeak-b1-childbirth-consultation.js
+// Category Key: b1_childbirth_consultation
 // =====================================================
 
-const b1ParentingConsultationLangs = [
+const b1ChildbirthConsultationLangs = [
     "ja", "en", "zh-CN", "zh-TW", "ko", "vi", "tl", "id", "th", "my",
     "km", "ne", "mn", "si", "bn", "pt", "es", "fr", "ru", "uk"
 ];
 
-function completeB1ParentingConsultationTranslations(translations) {
+function completeB1ChildbirthConsultationTranslations(translations) {
     const completed = {};
 
-    b1ParentingConsultationLangs.forEach(lang => {
+    b1ChildbirthConsultationLangs.forEach(lang => {
         completed[lang] = translations[lang] || translations.en || translations.ja;
     });
 
     return completed;
 }
 
-const b1ParentingConsultationContext = {
-    ja: "子育てについて相談するときに、育児の不安、夜泣きや睡眠、食事、言葉や発達、子どもの気持ち、親の疲れ、きょうだいへの対応、継続的な相談方法などについて日本語で話す練習をします。",
+const b1ChildbirthConsultationContext = {
+    ja: "出産への不安、自分の希望、痛みへの心配、持病や薬、立ち会い出産、言葉の不安、予定どおりにならない場合、出産後の生活などについて、医師や助産師などに相談するための日本語を練習します。",
 
-    en: "Practice Japanese for consulting about parenting, including worries about childcare, nighttime crying and sleep, meals, language and development, children's emotions, parental fatigue, sibling relationships, and ways to continue receiving support.",
+    en: "Practice Japanese for discussing childbirth with doctors, midwives, and hospital staff, including worries about giving birth, personal preferences, pain, medical conditions and medicines, having a partner present, language concerns, unexpected changes to the birth plan, and life after childbirth.",
 
-    "zh-CN": "练习关于育儿咨询时使用的日语，包括育儿不安、夜哭和睡眠、饮食、语言和发展、孩子的情绪、父母的疲劳、兄弟姐妹之间的关系以及持续咨询的方法。",
+    "zh-CN": "练习用日语向医生、助产士和医院工作人员咨询分娩相关问题，包括对分娩的担忧、个人希望、疼痛、疾病和药物、陪产、语言问题、分娩计划发生变化以及产后生活。",
 
-    "zh-TW": "練習關於育兒諮詢時使用的日語，包括育兒不安、夜哭和睡眠、飲食、語言和發展、孩子的情緒、父母的疲勞、兄弟姊妹之間的關係以及持續諮詢的方法。",
+    "zh-TW": "練習用日語向醫生、助產師和醫院工作人員諮詢分娩相關問題，包括對分娩的擔憂、個人希望、疼痛、疾病和藥物、陪產、語言問題、分娩計畫發生變化以及產後生活。",
 
-    ko: "육아에 대해 상담할 때 필요한 일본어를 연습합니다. 육아 불안, 밤 울음과 수면, 식사, 언어와 발달, 아이의 감정, 부모의 피로, 형제자매 관계, 지속적인 상담 방법을 다룹니다.",
+    ko: "출산에 대한 불안, 자신의 희망, 통증에 대한 걱정, 지병과 약, 가족의 출산 동행, 언어 문제, 출산 계획의 변경 가능성, 출산 후 생활 등에 대해 의사나 조산사에게 상담하는 일본어를 연습합니다.",
 
-    vi: "Luyện tiếng Nhật để tư vấn về nuôi dạy trẻ, bao gồm lo lắng khi chăm con, khóc đêm và giấc ngủ, bữa ăn, ngôn ngữ và phát triển, cảm xúc của trẻ, sự mệt mỏi của cha mẹ, quan hệ anh chị em và cách tiếp tục nhận hỗ trợ.",
+    vi: "Luyện tiếng Nhật để trao đổi với bác sĩ, nữ hộ sinh và nhân viên bệnh viện về những lo lắng khi sinh con, mong muốn cá nhân, đau đớn, bệnh nền và thuốc, người thân có mặt khi sinh, khó khăn ngôn ngữ, thay đổi kế hoạch sinh và cuộc sống sau sinh.",
 
-    tl: "Practice Japanese for consulting about parenting, including childcare worries, sleep, meals, child development, children's emotions, parental fatigue, sibling relationships, and continuing support.",
+    tl: "Practice Japanese for consulting doctors and midwives about childbirth, including worries, personal preferences, pain, medical conditions and medicine, having a partner present, language concerns, changes to the birth plan, and life after childbirth.",
 
-    id: "Latihan bahasa Jepang untuk berkonsultasi tentang pengasuhan anak, termasuk kekhawatiran dalam merawat anak, tidur, makanan, perkembangan bahasa, emosi anak, kelelahan orang tua, hubungan saudara, dan cara melanjutkan dukungan.",
+    id: "Latihan bahasa Jepang untuk berkonsultasi dengan dokter dan bidan tentang persalinan, termasuk kekhawatiran, keinginan pribadi, rasa sakit, kondisi kesehatan dan obat-obatan, pendampingan saat melahirkan, masalah bahasa, perubahan rencana persalinan, dan kehidupan setelah melahirkan.",
 
-    th: "ฝึกภาษาญี่ปุ่นสำหรับการปรึกษาเรื่องการเลี้ยงลูก เช่น ความกังวลในการดูแลเด็ก การร้องตอนกลางคืนและการนอน อาหาร ภาษาและพัฒนาการ อารมณ์ของเด็ก ความเหนื่อยของผู้ปกครอง ความสัมพันธ์ระหว่างพี่น้อง และวิธีรับคำปรึกษาต่อเนื่อง",
+    th: "ฝึกภาษาญี่ปุ่นเพื่อปรึกษาแพทย์และพยาบาลผดุงครรภ์เกี่ยวกับการคลอด เช่น ความกังวล ความต้องการส่วนตัว ความเจ็บปวด โรคประจำตัวและยา การมีคู่ครองอยู่ด้วยขณะคลอด ปัญหาด้านภาษา การเปลี่ยนแผนการคลอด และชีวิตหลังคลอด",
 
-    my: "ကလေးပြုစုပျိုးထောင်ရေးအကြောင်း တိုင်ပင်ရန် ဂျပန်စကားကို လေ့ကျင့်ပါ။ ကလေးပြုစုရာတွင် စိုးရိမ်မှု၊ ညဘက်ငိုခြင်းနှင့် အိပ်စက်ခြင်း၊ အစားအစာ၊ ဘာသာစကားနှင့် ဖွံ့ဖြိုးမှု၊ ကလေး၏ခံစားချက်၊ မိဘ၏ပင်ပန်းမှု၊ မောင်နှမဆက်ဆံရေးနှင့် ဆက်လက်တိုင်ပင်နည်းများ ပါဝင်သည်။",
+    my: "ကလေးမွေးဖွားခြင်းနှင့်ပတ်သက်သော စိုးရိမ်မှုများ၊ ကိုယ်ပိုင်ဆန္ဒများ၊ နာကျင်မှု၊ ရောဂါအခံနှင့် ဆေးဝါးများ၊ မိသားစုဝင်အတူရှိခြင်း၊ ဘာသာစကားအခက်အခဲ၊ မွေးဖွားမှုအစီအစဉ် ပြောင်းလဲနိုင်ခြင်းနှင့် မွေးဖွားပြီးနောက်ဘဝတို့ကို ဆရာဝန်နှင့် သားဖွားဆရာမတို့အား တိုင်ပင်ရန် ဂျပန်စကားကို လေ့ကျင့်ပါသည်။",
 
-    km: "ហាត់ភាសាជប៉ុនសម្រាប់ពិគ្រោះអំពីការចិញ្ចឹមកូន រួមមានការព្រួយបារម្ភក្នុងការថែទាំកូន ការយំយប់ និងការគេង អាហារ ភាសា និងការអភិវឌ្ឍ អារម្មណ៍របស់កុមារ ភាពនឿយហត់របស់ឪពុកម្តាយ ទំនាក់ទំនងរវាងបងប្អូន និងវិធីទទួលការពិគ្រោះបន្ត។",
+    km: "ហាត់ភាសាជប៉ុនសម្រាប់ពិគ្រោះជាមួយវេជ្ជបណ្ឌិត និងឆ្មបអំពីការសម្រាលកូន រួមមានការព្រួយបារម្ភ បំណងផ្ទាល់ខ្លួន ការឈឺចាប់ ជំងឺប្រចាំកាយ និងថ្នាំ ការមានដៃគូនៅពេលសម្រាល បញ្ហាភាសា ការផ្លាស់ប្តូរផែនការសម្រាល និងជីវិតក្រោយសម្រាល។",
 
-    ne: "बालबालिका पालनपोषणबारे परामर्श गर्दा प्रयोग हुने जापानी अभ्यास। यसमा बाल हेरचाहको चिन्ता, राति रुने र निद्रा, खाना, भाषा र विकास, बच्चाको भावना, अभिभावकको थकान, दाजुभाइ-दिदीबहिनी सम्बन्ध र निरन्तर सहयोग लिने तरिका समावेश छन्।",
+    ne: "प्रसवसम्बन्धी डर, व्यक्तिगत चाहना, दुखाइ, स्वास्थ्य अवस्था र औषधि, प्रसवका बेला परिवारको उपस्थिति, भाषासम्बन्धी चिन्ता, प्रसव योजनामा परिवर्तन र प्रसवपछिको जीवनबारे डाक्टर वा प्रसूति सहायकसँग जापानीमा परामर्श गर्ने अभ्यास।",
 
-    mn: "Хүүхэд өсгөх талаар зөвлөгөө авах япон хэлний дадлага. Үүнд хүүхэд асрах үеийн санаа зовнил, шөнө уйлах ба унтах, хоол, хэл яриа ба хөгжил, хүүхдийн сэтгэл хөдлөл, эцэг эхийн ядаргаа, ах дүүгийн харилцаа, үргэлжлүүлэн зөвлөгөө авах арга багтана.",
+    mn: "Төрөхтэй холбоотой айдас, өөрийн хүсэл, өвдөлт, суурь өвчин болон эм, хамтрагч төрөх үед байлцах эсэх, хэлний бэрхшээл, төрөх төлөвлөгөө өөрчлөгдөх боломж, төрсний дараах амьдралын талаар эмч, эх баригчтай япон хэлээр зөвлөлдөх дадлага.",
 
-    si: "දරුවන් ඇතිදැඩි කිරීම පිළිබඳ උපදෙස් ලබාගැනීමට ජපන් භාෂාව පුහුණු වීම. ළමා රැකවරණයේ කනස්සල්ල, රාත්‍රියේ ඇඬීම සහ නින්ද, ආහාර, භාෂාව සහ වර්ධනය, දරුවාගේ හැඟීම්, දෙමාපියන්ගේ වෙහෙස, සහෝදර සම්බන්ධතා සහ අඛණ්ඩ උපදෙස් ලබාගැනීම ඇතුළත් වේ.",
+    si: "දරු ප්‍රසූතිය පිළිබඳ බිය, තම කැමැත්ත, වේදනාව, සෞඛ්‍ය තත්ත්ව සහ ඖෂධ, සහකරුගේ සහභාගීත්වය, භාෂා ගැටලු, ප්‍රසව සැලැස්මේ වෙනස්කම් සහ ප්‍රසවයෙන් පසු ජීවිතය ගැන වෛද්‍යවරුන් සහ වින්නඹු මාතාවන් සමඟ ජපන් භාෂාවෙන් සාකච්ඡා කිරීමේ පුහුණුව.",
 
-    bn: "শিশু লালনপালন সম্পর্কে পরামর্শ করার জন্য জাপানি অনুশীলন। এতে শিশুর যত্ন নিয়ে উদ্বেগ, রাতে কান্না ও ঘুম, খাবার, ভাষা ও বিকাশ, শিশুর অনুভূতি, অভিভাবকের ক্লান্তি, ভাইবোনের সম্পর্ক এবং ধারাবাহিক সহায়তা নেওয়ার উপায় অন্তর্ভুক্ত।",
+    bn: "প্রসব নিয়ে উদ্বেগ, ব্যক্তিগত ইচ্ছা, ব্যথা, স্বাস্থ্য সমস্যা ও ওষুধ, প্রসবের সময় সঙ্গীর উপস্থিতি, ভাষাগত সমস্যা, প্রসব পরিকল্পনার পরিবর্তন এবং প্রসব-পরবর্তী জীবন সম্পর্কে ডাক্তার ও ধাত্রীর সঙ্গে জাপানিতে পরামর্শ করার অনুশীলন।",
 
-    pt: "Prática de japonês para consultar sobre criação de filhos, incluindo preocupações com os cuidados, choro noturno e sono, alimentação, linguagem e desenvolvimento, emoções da criança, cansaço dos pais, relacionamento entre irmãos e formas de continuar recebendo apoio.",
+    pt: "Prática de japonês para conversar com médicos e parteiras sobre o parto, incluindo preocupações, preferências pessoais, dor, condições médicas e medicamentos, presença do parceiro, dificuldades com o idioma, mudanças no plano de parto e a vida após o nascimento.",
 
-    es: "Práctica de japonés para consultar sobre la crianza, incluyendo preocupaciones sobre el cuidado infantil, llanto nocturno y sueño, comidas, lenguaje y desarrollo, emociones del niño, cansancio de los padres, relación entre hermanos y formas de continuar recibiendo apoyo.",
+    es: "Práctica de japonés para consultar con médicos y matronas sobre el parto, incluyendo preocupaciones, preferencias personales, dolor, enfermedades y medicamentos, presencia de la pareja, dificultades lingüísticas, cambios en el plan de parto y la vida después del nacimiento.",
 
-    fr: "Entraînement en japonais pour consulter au sujet de la parentalité, notamment les inquiétudes liées à l'éducation, les pleurs nocturnes et le sommeil, les repas, le langage et le développement, les émotions de l'enfant, la fatigue des parents, les relations entre frères et sœurs et les moyens de poursuivre le soutien.",
+    fr: "Entraînement en japonais pour consulter des médecins et des sages-femmes au sujet de l'accouchement, notamment les inquiétudes, les préférences personnelles, la douleur, les problèmes médicaux et les médicaments, la présence du partenaire, les difficultés linguistiques, les changements du projet de naissance et la vie après l'accouchement.",
 
-    ru: "Практика японского языка для консультаций по воспитанию детей: тревоги по уходу за ребёнком, ночной плач и сон, питание, речь и развитие, эмоции ребёнка, усталость родителей, отношения между братьями и сёстрами и способы продолжать получать поддержку.",
+    ru: "Практика японского языка для консультаций с врачами и акушерками о родах: тревоги, личные пожелания, боль, заболевания и лекарства, присутствие партнёра, языковые трудности, изменения плана родов и жизнь после рождения ребёнка.",
 
-    uk: "Практика японської мови для консультацій щодо виховання дітей: тривоги у догляді за дитиною, нічний плач і сон, харчування, мовлення та розвиток, емоції дитини, втома батьків, стосунки між братами й сестрами та способи продовжувати отримувати підтримку."
+    uk: "Практика японської мови для консультацій із лікарями та акушерками щодо пологів: тривоги, особисті побажання, біль, захворювання й ліки, присутність партнера, мовні труднощі, зміни плану пологів і життя після народження дитини."
 };
 
-const b1ParentingConsultationSpeakerNames = {
+const b1ChildbirthConsultationSpeakerNames = {
 
-    parent: {
-        ja: "保護者",
-        en: "Parent",
-        "zh-CN": "家长",
-        "zh-TW": "家長",
-        ko: "보호자",
-        vi: "Phụ huynh",
-        tl: "Magulang",
-        id: "Orang tua",
-        th: "ผู้ปกครอง",
-        my: "မိဘ",
-        km: "អាណាព្យាបាល",
-        ne: "अभिभावक",
-        mn: "Эцэг эх",
-        si: "දෙමාපියා",
-        bn: "অভিভাবক",
-        pt: "Responsável",
-        es: "Progenitor",
-        fr: "Parent",
-        ru: "Родитель",
-        uk: "Один із батьків"
+    pregnantWoman: {
+        ja: "妊婦",
+        en: "Pregnant Woman",
+        "zh-CN": "孕妇",
+        "zh-TW": "孕婦",
+        ko: "임산부",
+        vi: "Thai phụ",
+        tl: "Buntis",
+        id: "Ibu hamil",
+        th: "หญิงตั้งครรภ์",
+        my: "ကိုယ်ဝန်ဆောင်မိခင်",
+        km: "ស្ត្រីមានផ្ទៃពោះ",
+        ne: "गर्भवती महिला",
+        mn: "Жирэмсэн эмэгтэй",
+        si: "ගර්භණී කාන්තාව",
+        bn: "গর্ভবতী নারী",
+        pt: "Gestante",
+        es: "Embarazada",
+        fr: "Femme enceinte",
+        ru: "Беременная женщина",
+        uk: "Вагітна жінка"
     },
 
-    counselor: {
-        ja: "子育て相談員",
-        en: "Parenting Counselor",
-        "zh-CN": "育儿咨询员",
-        "zh-TW": "育兒諮詢員",
-        ko: "육아 상담원",
-        vi: "Nhân viên tư vấn nuôi dạy trẻ",
-        tl: "Parenting counselor",
-        id: "Konselor pengasuhan anak",
-        th: "ที่ปรึกษาการเลี้ยงดูเด็ก",
-        my: "ကလေးပြုစုရေးအကြံပေး",
-        km: "អ្នកពិគ្រោះការចិញ្ចឹមកូន",
-        ne: "बाल पालन परामर्शदाता",
-        mn: "Хүүхэд өсгөх зөвлөх",
-        si: "දරුවන් ඇතිදැඩි කිරීමේ උපදේශක",
-        bn: "শিশু লালনপালন পরামর্শদাতা",
-        pt: "Consultor de parentalidade",
-        es: "Asesor de crianza",
-        fr: "Conseiller parental",
-        ru: "Консультант по воспитанию",
-        uk: "Консультант із виховання"
+    midwife: {
+        ja: "助産師",
+        en: "Midwife",
+        "zh-CN": "助产士",
+        "zh-TW": "助產師",
+        ko: "조산사",
+        vi: "Nữ hộ sinh",
+        tl: "Midwife",
+        id: "Bidan",
+        th: "พยาบาลผดุงครรภ์",
+        my: "သားဖွားဆရာမ",
+        km: "ឆ្មប",
+        ne: "प्रसूति सहायक",
+        mn: "Эх баригч",
+        si: "වින්නඹු මාතාව",
+        bn: "ধাত্রী",
+        pt: "Parteira",
+        es: "Matrona",
+        fr: "Sage-femme",
+        ru: "Акушерка",
+        uk: "Акушерка"
     },
 
-    publicHealthNurse: {
-        ja: "保健師",
-        en: "Public Health Nurse",
-        "zh-CN": "保健师",
-        "zh-TW": "保健師",
-        ko: "보건사",
-        vi: "Y tá sức khỏe cộng đồng",
-        tl: "Public health nurse",
-        id: "Perawat kesehatan masyarakat",
-        th: "พยาบาลสาธารณสุข",
-        my: "ပြည်သူ့ကျန်းမာရေးသူနာပြု",
-        km: "គិលានុបដ្ឋាកសុខភាពសាធារណៈ",
-        ne: "जनस्वास्थ्य नर्स",
-        mn: "Нийгмийн эрүүл мэндийн сувилагч",
-        si: "මහජන සෞඛ්‍ය හෙද නිලධාරි",
-        bn: "জনস্বাস্থ্য নার্স",
-        pt: "Enfermeiro de saúde pública",
-        es: "Enfermero de salud pública",
-        fr: "Infirmier de santé publique",
-        ru: "Медсестра общественного здравоохранения",
-        uk: "Медсестра громадського здоров'я"
+    doctor: {
+        ja: "医師",
+        en: "Doctor",
+        "zh-CN": "医生",
+        "zh-TW": "醫師",
+        ko: "의사",
+        vi: "Bác sĩ",
+        tl: "Doctor",
+        id: "Dokter",
+        th: "แพทย์",
+        my: "ဆရာဝန်",
+        km: "វេជ្ជបណ្ឌិត",
+        ne: "डाक्टर",
+        mn: "Эмч",
+        si: "වෛද්‍යවරයා",
+        bn: "ডাক্তার",
+        pt: "Médico",
+        es: "Médico",
+        fr: "Médecin",
+        ru: "Врач",
+        uk: "Лікар"
     },
 
-    childcareTeacher: {
-        ja: "保育士",
-        en: "Childcare Teacher",
-        "zh-CN": "保育员",
-        "zh-TW": "保育人員",
-        ko: "보육교사",
-        vi: "Giáo viên giữ trẻ",
-        tl: "Childcare teacher",
-        id: "Guru penitipan anak",
-        th: "ครูผู้ดูแลเด็ก",
-        my: "ကလေးထိန်းဆရာမ",
-        km: "គ្រូថែទាំកុមារ",
-        ne: "बाल हेरचाह शिक्षक",
-        mn: "Хүүхэд асрах багш",
-        si: "ළමා සුරැකුම් ගුරුවරයා",
-        bn: "শিশু পরিচর্যা শিক্ষক",
-        pt: "Educador infantil",
-        es: "Educador infantil",
-        fr: "Éducateur de jeunes enfants",
-        ru: "Воспитатель",
-        uk: "Вихователь"
+    hospitalStaff: {
+        ja: "病院職員",
+        en: "Hospital Staff",
+        "zh-CN": "医院工作人员",
+        "zh-TW": "醫院工作人員",
+        ko: "병원 직원",
+        vi: "Nhân viên bệnh viện",
+        tl: "Hospital staff",
+        id: "Petugas rumah sakit",
+        th: "เจ้าหน้าที่โรงพยาบาล",
+        my: "ဆေးရုံဝန်ထမ်း",
+        km: "បុគ្គលិកមន្ទីរពេទ្យ",
+        ne: "अस्पताल कर्मचारी",
+        mn: "Эмнэлгийн ажилтан",
+        si: "රෝහල් කාර්ය මණ්ඩලය",
+        bn: "হাসপাতাল কর্মী",
+        pt: "Funcionário do hospital",
+        es: "Personal del hospital",
+        fr: "Personnel hospitalier",
+        ru: "Сотрудник больницы",
+        uk: "Працівник лікарні"
     },
 
-    developmentStaff: {
-        ja: "発達相談員",
-        en: "Development Counselor",
-        "zh-CN": "发展咨询员",
-        "zh-TW": "發展諮詢員",
-        ko: "발달 상담원",
-        vi: "Nhân viên tư vấn phát triển",
-        tl: "Development counselor",
-        id: "Konselor perkembangan",
-        th: "ที่ปรึกษาด้านพัฒนาการ",
-        my: "ဖွံ့ဖြိုးမှုအကြံပေး",
-        km: "អ្នកពិគ្រោះអភិវឌ្ឍន៍",
-        ne: "विकास परामर्शदाता",
-        mn: "Хөгжлийн зөвлөх",
-        si: "වර්ධන උපදේශක",
-        bn: "বিকাশ পরামর্শদাতা",
-        pt: "Consultor de desenvolvimento",
-        es: "Asesor de desarrollo",
-        fr: "Conseiller en développement",
-        ru: "Консультант по развитию",
-        uk: "Консультант із розвитку"
+    partner: {
+        ja: "パートナー",
+        en: "Partner",
+        "zh-CN": "伴侣",
+        "zh-TW": "伴侶",
+        ko: "파트너",
+        vi: "Bạn đời",
+        tl: "Partner",
+        id: "Pasangan",
+        th: "คู่ครอง",
+        my: "အိမ်ထောင်ဖက်",
+        km: "ដៃគូ",
+        ne: "जीवनसाथी",
+        mn: "Хань",
+        si: "සහකරු",
+        bn: "সঙ্গী",
+        pt: "Parceiro",
+        es: "Pareja",
+        fr: "Partenaire",
+        ru: "Партнёр",
+        uk: "Партнер"
     }
 };
 
-function makeB1ParentingConsultationDialogue(
+function makeB1ChildbirthConsultationDialogue(
     id,
     title,
     dialogue,
     dialogueTranslations
 ) {
     const fullDialogueTranslations =
-        completeB1ParentingConsultationTranslations(dialogueTranslations);
+        completeB1ChildbirthConsultationTranslations(dialogueTranslations);
 
     const translations = {};
 
@@ -199,7 +199,7 @@ function makeB1ParentingConsultationDialogue(
         id,
         audio: `audio/${id}.mp3`,
         title,
-        category: "b1_parenting_consultation",
+        category: "b1_childbirth_consultation",
 
         japanese: dialogue
             .map(t => `${t.name}：${t.line}`)
@@ -224,993 +224,993 @@ function makeB1ParentingConsultationDialogue(
             speakerName: t.name,
             speakerKey: t.key || t.name,
             speakerNames:
-                b1ParentingConsultationSpeakerNames[t.key] || { ja: t.name },
+                b1ChildbirthConsultationSpeakerNames[t.key] || { ja: t.name },
             line: t.line,
             target: t.target,
             ruby: t.ruby,
             romaji: t.romaji
         })),
 
-        context: b1ParentingConsultationContext,
+        context: b1ChildbirthConsultationContext,
         translations,
         dialogueTranslations: fullDialogueTranslations
     };
 }
 
-const japeakB1ParentingConsultationData = [
+const japeakB1ChildbirthConsultationData = [
 
     // =====================================================
-    // 001 子育ての不安を相談する
+    // 001 出産への不安を相談する
     // =====================================================
 
-    makeB1ParentingConsultationDialogue(
-        "b1_parentingconsult_001",
-        "子育ての不安を相談する",
+    makeB1ChildbirthConsultationDialogue(
+        "b1_childbirthconsult_001",
+        "出産への不安を相談する",
 
         [
             {
                 label: "話者B",
-                key: "parent",
-                name: "保護者",
-                line: "最近、子育てに自信がなくなってきて、少し相談したいです。",
-                target: "さいきん こそだてにじしんがなくなってきて すこしそうだんしたいです",
-                ruby: "<ruby>最近<rt>さいきん</rt></ruby>、<ruby>子育<rt>こそだ</rt></ruby>てに<ruby>自信<rt>じしん</rt></ruby>がなくなってきて、<ruby>少<rt>すこ</rt></ruby>し<ruby>相談<rt>そうだん</rt></ruby>したいです。",
-                romaji: "Saikin, kosodate ni jishin ga nakunatte kite, sukoshi sōdan shitai desu."
+                key: "pregnantWoman",
+                name: "妊婦",
+                line: "出産予定日が近づくにつれて、だんだん不安が強くなってきました。",
+                target: "しゅっさんよていびがちかづくにつれて だんだんふあんがつよくなってきました",
+                ruby: "<ruby>出産予定日<rt>しゅっさんよていび</rt></ruby>が<ruby>近<rt>ちか</rt></ruby>づくにつれて、だんだん<ruby>不安<rt>ふあん</rt></ruby>が<ruby>強<rt>つよ</rt></ruby>くなってきました。",
+                romaji: "Shussan yoteibi ga chikazuku ni tsurete, dandan fuan ga tsuyoku natte kimashita."
             },
             {
                 label: "話者A",
-                key: "counselor",
-                name: "子育て相談員",
-                line: "話してくださってありがとうございます。どのような場面で一番不安を感じますか。",
-                target: "はなしてくださってありがとうございます どのようなばめんでいちばんふあんをかんじますか",
-                ruby: "<ruby>話<rt>はな</rt></ruby>してくださってありがとうございます。どのような<ruby>場面<rt>ばめん</rt></ruby>で<ruby>一番<rt>いちばん</rt></ruby><ruby>不安<rt>ふあん</rt></ruby>を<ruby>感<rt>かん</rt></ruby>じますか。",
-                romaji: "Hanashite kudasatte arigatō gozaimasu. Dono yō na bamen de ichiban fuan o kanjimasu ka."
+                key: "midwife",
+                name: "助産師",
+                line: "そう感じる方は少なくありません。特にどのようなことが心配ですか。",
+                target: "そうかんじるかたはすくなくありません とくにどのようなことがしんぱいですか",
+                ruby: "そう<ruby>感<rt>かん</rt></ruby>じる<ruby>方<rt>かた</rt></ruby>は<ruby>少<rt>すく</rt></ruby>なくありません。<ruby>特<rt>とく</rt></ruby>にどのようなことが<ruby>心配<rt>しんぱい</rt></ruby>ですか。",
+                romaji: "Sō kanjiru kata wa sukunaku arimasen. Toku ni dono yō na koto ga shinpai desu ka."
             },
             {
                 label: "話者B",
-                key: "parent",
-                name: "保護者",
-                line: "子どもが泣き続けると、どう対応すればいいかわからなくなります。",
-                target: "こどもがなきつづけると どうたいおうすればいいかわからなくなります",
-                ruby: "<ruby>子<rt>こ</rt></ruby>どもが<ruby>泣<rt>な</rt></ruby>き<ruby>続<rt>つづ</rt></ruby>けると、どう<ruby>対応<rt>たいおう</rt></ruby>すればいいかわからなくなります。",
-                romaji: "Kodomo ga nakitsuzukeru to, dō taiō sureba ii ka wakaranaku narimasu."
+                key: "pregnantWoman",
+                name: "妊婦",
+                line: "初めての出産なので、何が起こるかわからないことが一番不安です。",
+                target: "はじめてのしゅっさんなので なにがおこるかわからないことがいちばんふあんです",
+                ruby: "<ruby>初<rt>はじ</rt></ruby>めての<ruby>出産<rt>しゅっさん</rt></ruby>なので、<ruby>何<rt>なに</rt></ruby>が<ruby>起<rt>お</rt></ruby>こるかわからないことが<ruby>一番<rt>いちばん</rt></ruby><ruby>不安<rt>ふあん</rt></ruby>です。",
+                romaji: "Hajimete no shussan na node, nani ga okoru ka wakaranai koto ga ichiban fuan desu."
             },
             {
                 label: "話者A",
-                key: "counselor",
-                name: "子育て相談員",
-                line: "一人で抱え込むと、とてもつらくなりますよね。普段、助けを頼める人はいますか。",
-                target: "ひとりでかかえこむと とてもつらくなりますよね ふだん たすけをたのめるひとはいますか",
-                ruby: "<ruby>一人<rt>ひとり</rt></ruby>で<ruby>抱<rt>かか</rt></ruby>え<ruby>込<rt>こ</rt></ruby>むと、とてもつらくなりますよね。<ruby>普段<rt>ふだん</rt></ruby>、<ruby>助<rt>たす</rt></ruby>けを<ruby>頼<rt>たの</rt></ruby>める<ruby>人<rt>ひと</rt></ruby>はいますか。",
-                romaji: "Hitori de kakaekomu to, totemo tsuraku narimasu yo ne. Fudan, tasuke o tanomeru hito wa imasu ka."
+                key: "midwife",
+                name: "助産師",
+                line: "では、出産の一般的な流れと、病院へ連絡する場合について一緒に確認しましょう。",
+                target: "では しゅっさんのいっぱんてきなながれと びょういんへれんらくするばあいについていっしょにかくにんしましょう",
+                ruby: "では、<ruby>出産<rt>しゅっさん</rt></ruby>の<ruby>一般的<rt>いっぱんてき</rt></ruby>な<ruby>流<rt>なが</rt></ruby>れと、<ruby>病院<rt>びょういん</rt></ruby>へ<ruby>連絡<rt>れんらく</rt></ruby>する<ruby>場合<rt>ばあい</rt></ruby>について<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>確認<rt>かくにん</rt></ruby>しましょう。",
+                romaji: "Dewa, shussan no ippanteki na nagare to, byōin e renraku suru baai ni tsuite issho ni kakunin shimashō."
             },
             {
                 label: "話者B",
-                key: "parent",
-                name: "保護者",
-                line: "近くに家族がいないので、ほとんど一人で見ています。",
-                target: "ちかくにかぞくがいないので ほとんどひとりでみています",
-                ruby: "<ruby>近<rt>ちか</rt></ruby>くに<ruby>家族<rt>かぞく</rt></ruby>がいないので、ほとんど<ruby>一人<rt>ひとり</rt></ruby>で<ruby>見<rt>み</rt></ruby>ています。",
-                romaji: "Chikaku ni kazoku ga inai node, hotondo hitori de mite imasu."
+                key: "pregnantWoman",
+                name: "妊婦",
+                line: "ありがとうございます。わからないことを一つずつ確認できれば、少し安心できそうです。",
+                target: "ありがとうございます わからないことをひとつずつかくにんできれば すこしあんしんできそうです",
+                ruby: "ありがとうございます。わからないことを<ruby>一<rt>ひと</rt></ruby>つずつ<ruby>確認<rt>かくにん</rt></ruby>できれば、<ruby>少<rt>すこ</rt></ruby>し<ruby>安心<rt>あんしん</rt></ruby>できそうです。",
+                romaji: "Arigatō gozaimasu. Wakaranai koto o hitotsu zutsu kakunin dekireba, sukoshi anshin dekisō desu."
             },
             {
                 label: "話者A",
-                key: "counselor",
-                name: "子育て相談員",
-                line: "では、利用できる相談窓口や支援サービスを一緒に確認しましょう。",
-                target: "では りようできるそうだんまどぐちやしえんさーびすをいっしょにかくにんしましょう",
-                ruby: "では、<ruby>利用<rt>りよう</rt></ruby>できる<ruby>相談窓口<rt>そうだんまどぐち</rt></ruby>や<ruby>支援<rt>しえん</rt></ruby>サービスを<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>確認<rt>かくにん</rt></ruby>しましょう。",
-                romaji: "Dewa, riyō dekiru sōdan madoguchi ya shien sābisu o issho ni kakunin shimashō."
+                key: "midwife",
+                name: "助産師",
+                line: "遠慮しなくて大丈夫です。気になることは、健診のときに何度でも質問してください。",
+                target: "えんりょしなくてだいじょうぶです きになることは けんしんのときになんどでもしつもんしてください",
+                ruby: "<ruby>遠慮<rt>えんりょ</rt></ruby>しなくて<ruby>大丈夫<rt>だいじょうぶ</rt></ruby>です。<ruby>気<rt>き</rt></ruby>になることは、<ruby>健診<rt>けんしん</rt></ruby>のときに<ruby>何度<rt>なんど</rt></ruby>でも<ruby>質問<rt>しつもん</rt></ruby>してください。",
+                romaji: "Enryo shinakute daijōbu desu. Ki ni naru koto wa, kenshin no toki ni nando demo shitsumon shite kudasai."
             }
         ],
 
         {
             ja: [
-                "保護者：最近、子育てに自信がなくなってきて、少し相談したいです。",
-                "子育て相談員：話してくださってありがとうございます。どのような場面で一番不安を感じますか。",
-                "保護者：子どもが泣き続けると、どう対応すればいいかわからなくなります。",
-                "子育て相談員：一人で抱え込むと、とてもつらくなりますよね。普段、助けを頼める人はいますか。",
-                "保護者：近くに家族がいないので、ほとんど一人で見ています。",
-                "子育て相談員：では、利用できる相談窓口や支援サービスを一緒に確認しましょう。"
+                "妊婦：出産予定日が近づくにつれて、だんだん不安が強くなってきました。",
+                "助産師：そう感じる方は少なくありません。特にどのようなことが心配ですか。",
+                "妊婦：初めての出産なので、何が起こるかわからないことが一番不安です。",
+                "助産師：では、出産の一般的な流れと、病院へ連絡する場合について一緒に確認しましょう。",
+                "妊婦：ありがとうございます。わからないことを一つずつ確認できれば、少し安心できそうです。",
+                "助産師：遠慮しなくて大丈夫です。気になることは、健診のときに何度でも質問してください。"
             ],
 
             en: [
-                "Parent: Recently, I have been losing confidence in parenting, and I would like to talk about it.",
-                "Parenting Counselor: Thank you for sharing that. In what situations do you feel the most anxious?",
-                "Parent: When my child keeps crying, I no longer know how to respond.",
-                "Parenting Counselor: It can be very hard when you carry everything alone. Do you usually have anyone you can ask for help?",
-                "Parent: I do not have family nearby, so I care for my child almost entirely by myself.",
-                "Parenting Counselor: Then let us check together what consultation desks and support services you can use."
+                "Pregnant Woman: As my due date gets closer, I have been feeling more and more anxious.",
+                "Midwife: Many people feel that way. What are you particularly worried about?",
+                "Pregnant Woman: This is my first time giving birth, so not knowing what will happen worries me most.",
+                "Midwife: Then let us review the general process of childbirth and when you may need to contact the hospital.",
+                "Pregnant Woman: Thank you. I think I will feel a little more relaxed if I can check things one by one.",
+                "Midwife: Please do not hesitate. You can ask questions as many times as necessary during your checkups."
             ],
 
             "zh-CN": [
-                "家长：最近我对育儿越来越没有自信，想稍微咨询一下。",
-                "育儿咨询员：谢谢您愿意说出来。您在什么情况下最感到不安？",
-                "家长：孩子一直哭的时候，我就不知道该怎么应对。",
-                "育儿咨询员：一个人承担的话会非常辛苦。平时有可以求助的人吗？",
-                "家长：附近没有家人，所以几乎都是我一个人在照顾。",
-                "育儿咨询员：那么，我们一起确认可以利用的咨询窗口和支援服务吧。"
+                "孕妇：随着预产期越来越近，我越来越感到不安。",
+                "助产士：很多人都会有这样的感觉。您特别担心什么呢？",
+                "孕妇：因为是第一次分娩，我最担心的是不知道会发生什么。",
+                "助产士：那么，我们一起确认一下分娩的一般流程以及需要联系医院的情况吧。",
+                "孕妇：谢谢。如果能一件一件确认，我想自己会安心一些。",
+                "助产士：不用客气。有任何担心的事情，都可以在产检时反复询问。"
             ],
 
             "zh-TW": [
-                "家長：最近我對育兒越來越沒有自信，想稍微諮詢一下。",
-                "育兒諮詢員：謝謝您願意說出來。您在什麼情況下最感到不安？",
-                "家長：孩子一直哭的時候，我就不知道該怎麼應對。",
-                "育兒諮詢員：一個人承擔的話會非常辛苦。平時有可以求助的人嗎？",
-                "家長：附近沒有家人，所以幾乎都是我一個人在照顧。",
-                "育兒諮詢員：那麼，我們一起確認可以利用的諮詢窗口和支援服務吧。"
+                "孕婦：隨著預產期越來越近，我越來越感到不安。",
+                "助產師：很多人都會有這樣的感覺。您特別擔心什麼呢？",
+                "孕婦：因為是第一次分娩，我最擔心的是不知道會發生什麼。",
+                "助產師：那麼，我們一起確認一下分娩的一般流程以及需要聯絡醫院的情況吧。",
+                "孕婦：謝謝。如果能一件一件確認，我想自己會安心一些。",
+                "助產師：不用客氣。有任何擔心的事情，都可以在產檢時反覆詢問。"
             ],
 
             ko: [
-                "보호자: 최근 육아에 자신이 없어져서 조금 상담하고 싶습니다.",
-                "육아 상담원: 말씀해 주셔서 감사합니다. 어떤 상황에서 가장 불안하신가요?",
-                "보호자: 아이가 계속 울면 어떻게 대응해야 할지 모르겠습니다.",
-                "육아 상담원: 혼자서 모든 것을 떠안으면 정말 힘들지요. 평소 도움을 부탁할 수 있는 사람이 있나요?",
-                "보호자: 가까이에 가족이 없어서 거의 혼자 돌보고 있습니다.",
-                "육아 상담원: 그러면 이용할 수 있는 상담 창구와 지원 서비스를 함께 확인해 봅시다."
+                "임산부: 출산 예정일이 가까워질수록 점점 불안해지고 있습니다.",
+                "조산사: 그렇게 느끼는 분들이 적지 않습니다. 특히 어떤 점이 걱정되나요?",
+                "임산부: 첫 출산이라 무엇이 일어날지 모른다는 것이 가장 불안합니다.",
+                "조산사: 그러면 출산의 일반적인 과정과 병원에 연락해야 하는 경우를 함께 확인해 봅시다.",
+                "임산부: 감사합니다. 모르는 것을 하나씩 확인하면 조금 안심할 수 있을 것 같습니다.",
+                "조산사: 부담 갖지 않으셔도 됩니다. 궁금한 점은 검진 때 몇 번이라도 질문해 주세요."
             ],
 
             vi: [
-                "Phụ huynh: Gần đây tôi mất tự tin trong việc nuôi con nên muốn được tư vấn một chút.",
-                "Nhân viên tư vấn nuôi dạy trẻ: Cảm ơn bạn đã chia sẻ. Bạn cảm thấy lo lắng nhất trong tình huống nào?",
-                "Phụ huynh: Khi con cứ khóc mãi, tôi không biết phải xử lý thế nào.",
-                "Nhân viên tư vấn nuôi dạy trẻ: Nếu ôm hết mọi việc một mình thì rất vất vả. Bình thường bạn có ai có thể nhờ giúp không?",
-                "Phụ huynh: Gia đình tôi không ở gần nên hầu như tôi chăm con một mình.",
-                "Nhân viên tư vấn nuôi dạy trẻ: Vậy chúng ta hãy cùng kiểm tra các nơi tư vấn và dịch vụ hỗ trợ mà bạn có thể sử dụng."
+                "Thai phụ: Khi ngày dự sinh đến gần, tôi ngày càng cảm thấy lo lắng hơn.",
+                "Nữ hộ sinh: Có nhiều người cũng cảm thấy như vậy. Bạn đặc biệt lo về điều gì?",
+                "Thai phụ: Vì đây là lần đầu sinh con nên điều khiến tôi lo nhất là không biết chuyện gì sẽ xảy ra.",
+                "Nữ hộ sinh: Vậy chúng ta hãy cùng xác nhận quy trình sinh con thông thường và những trường hợp cần liên lạc với bệnh viện.",
+                "Thai phụ: Cảm ơn. Nếu có thể xác nhận từng điều một, tôi nghĩ mình sẽ yên tâm hơn.",
+                "Nữ hộ sinh: Bạn không cần ngại. Hãy hỏi bất cứ điều gì bạn quan tâm trong những lần khám thai."
             ]
         }
     ),
 
     // =====================================================
-    // 002 夜泣きと睡眠について相談する
+    // 002 出産についての希望を伝える
     // =====================================================
 
-    makeB1ParentingConsultationDialogue(
-        "b1_parentingconsult_002",
-        "夜泣きと睡眠について相談する",
+    makeB1ChildbirthConsultationDialogue(
+        "b1_childbirthconsult_002",
+        "出産についての希望を伝える",
 
         [
             {
                 label: "話者B",
-                key: "parent",
-                name: "保護者",
-                line: "子どもが夜中に何度も起きるので、私もほとんど眠れていません。",
-                target: "こどもがよなかになんどもおきるので わたしもほとんどねむれていません",
-                ruby: "<ruby>子<rt>こ</rt></ruby>どもが<ruby>夜中<rt>よなか</rt></ruby>に<ruby>何度<rt>なんど</rt></ruby>も<ruby>起<rt>お</rt></ruby>きるので、<ruby>私<rt>わたし</rt></ruby>もほとんど<ruby>眠<rt>ねむ</rt></ruby>れていません。",
-                romaji: "Kodomo ga yonaka ni nando mo okiru node, watashi mo hotondo nemurete imasen."
+                key: "pregnantWoman",
+                name: "妊婦",
+                line: "出産について自分なりの希望があるのですが、相談してもいいでしょうか。",
+                target: "しゅっさんについてじぶんなりのきぼうがあるのですが そうだんしてもいいでしょうか",
+                ruby: "<ruby>出産<rt>しゅっさん</rt></ruby>について<ruby>自分<rt>じぶん</rt></ruby>なりの<ruby>希望<rt>きぼう</rt></ruby>があるのですが、<ruby>相談<rt>そうだん</rt></ruby>してもいいでしょうか。",
+                romaji: "Shussan ni tsuite jibun nari no kibō ga aru no desu ga, sōdan shite mo ii deshō ka."
             },
             {
                 label: "話者A",
-                key: "publicHealthNurse",
-                name: "保健師",
-                line: "それは大変ですね。夜に起きるとき、泣き方や体調に気になる変化はありますか。",
-                target: "それはたいへんですね よるにおきるとき なきかたやたいちょうにきになるへんかはありますか",
-                ruby: "それは<ruby>大変<rt>たいへん</rt></ruby>ですね。<ruby>夜<rt>よる</rt></ruby>に<ruby>起<rt>お</rt></ruby>きるとき、<ruby>泣<rt>な</rt></ruby>き<ruby>方<rt>かた</rt></ruby>や<ruby>体調<rt>たいちょう</rt></ruby>に<ruby>気<rt>き</rt></ruby>になる<ruby>変化<rt>へんか</rt></ruby>はありますか。",
-                romaji: "Sore wa taihen desu ne. Yoru ni okiru toki, nakikata ya taichō ni ki ni naru henka wa arimasu ka."
+                key: "midwife",
+                name: "助産師",
+                line: "もちろんです。どのような出産を希望しているか、できるだけ具体的に教えてください。",
+                target: "もちろんです どのようなしゅっさんをきぼうしているか できるだけぐたいてきにおしえてください",
+                ruby: "もちろんです。どのような<ruby>出産<rt>しゅっさん</rt></ruby>を<ruby>希望<rt>きぼう</rt></ruby>しているか、できるだけ<ruby>具体的<rt>ぐたいてき</rt></ruby>に<ruby>教<rt>おし</rt></ruby>えてください。",
+                romaji: "Mochiron desu. Dono yō na shussan o kibō shite iru ka, dekiru dake gutaiteki ni oshiete kudasai."
             },
             {
                 label: "話者B",
-                key: "parent",
-                name: "保護者",
-                line: "熱はありませんが、抱っこしないと長く泣き続けます。",
-                target: "ねつはありませんが だっこしないとながくなきつづけます",
-                ruby: "<ruby>熱<rt>ねつ</rt></ruby>はありませんが、<ruby>抱<rt>だ</rt></ruby>っこしないと<ruby>長<rt>なが</rt></ruby>く<ruby>泣<rt>な</rt></ruby>き<ruby>続<rt>つづ</rt></ruby>けます。",
-                romaji: "Netsu wa arimasen ga, dakko shinai to nagaku nakitsuzukemasu."
+                key: "pregnantWoman",
+                name: "妊婦",
+                line: "できれば落ち着いた環境で、説明を受けながら出産したいと思っています。",
+                target: "できればおちついたかんきょうで せつめいをうけながらしゅっさんしたいとおもっています",
+                ruby: "できれば<ruby>落<rt>お</rt></ruby>ち<ruby>着<rt>つ</rt></ruby>いた<ruby>環境<rt>かんきょう</rt></ruby>で、<ruby>説明<rt>せつめい</rt></ruby>を<ruby>受<rt>う</rt></ruby>けながら<ruby>出産<rt>しゅっさん</rt></ruby>したいと<ruby>思<rt>おも</rt></ruby>っています。",
+                romaji: "Dekireba ochitsuita kankyō de, setsumei o ukenagara shussan shitai to omotte imasu."
             },
             {
                 label: "話者A",
-                key: "publicHealthNurse",
-                name: "保健師",
-                line: "まずは生活リズムや昼寝の時間を一緒に確認してみましょう。",
-                target: "まずはせいかつりずむやひるねのじかんをいっしょにかくにんしてみましょう",
-                ruby: "まずは<ruby>生活<rt>せいかつ</rt></ruby>リズムや<ruby>昼寝<rt>ひるね</rt></ruby>の<ruby>時間<rt>じかん</rt></ruby>を<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>確認<rt>かくにん</rt></ruby>してみましょう。",
-                romaji: "Mazu wa seikatsu rizumu ya hirune no jikan o issho ni kakunin shite mimashō."
+                key: "midwife",
+                name: "助産師",
+                line: "わかりました。病院で対応できることと難しいことを確認しながら、一緒に考えていきましょう。",
+                target: "わかりました びょういんでたいおうできることとむずかしいことをかくにんしながら いっしょにかんがえていきましょう",
+                ruby: "わかりました。<ruby>病院<rt>びょういん</rt></ruby>で<ruby>対応<rt>たいおう</rt></ruby>できることと<ruby>難<rt>むずか</rt></ruby>しいことを<ruby>確認<rt>かくにん</rt></ruby>しながら、<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>考<rt>かんが</rt></ruby>えていきましょう。",
+                romaji: "Wakarimashita. Byōin de taiō dekiru koto to muzukashii koto o kakunin shinagara, issho ni kangaete ikimashō."
             },
             {
                 label: "話者B",
-                key: "parent",
-                name: "保護者",
-                line: "昼寝の時間が日によって違うので、それも関係しているかもしれません。",
-                target: "ひるねのじかんがひによってちがうので それもかんけいしているかもしれません",
-                ruby: "<ruby>昼寝<rt>ひるね</rt></ruby>の<ruby>時間<rt>じかん</rt></ruby>が<ruby>日<rt>ひ</rt></ruby>によって<ruby>違<rt>ちが</rt></ruby>うので、それも<ruby>関係<rt>かんけい</rt></ruby>しているかもしれません。",
-                romaji: "Hirune no jikan ga hi ni yotte chigau node, sore mo kankei shite iru kamo shiremasen."
+                key: "pregnantWoman",
+                name: "妊婦",
+                line: "希望を伝えても、状況によって変更が必要になることもありますよね。",
+                target: "きぼうをつたえても じょうきょうによってへんこうがひつようになることもありますよね",
+                ruby: "<ruby>希望<rt>きぼう</rt></ruby>を<ruby>伝<rt>つた</rt></ruby>えても、<ruby>状況<rt>じょうきょう</rt></ruby>によって<ruby>変更<rt>へんこう</rt></ruby>が<ruby>必要<rt>ひつよう</rt></ruby>になることもありますよね。",
+                romaji: "Kibō o tsutaete mo, jōkyō ni yotte henkō ga hitsuyō ni naru koto mo arimasu yo ne."
             },
             {
                 label: "話者A",
-                key: "publicHealthNurse",
-                name: "保健師",
-                line: "記録をつけると変化が見えやすくなります。無理のない範囲で試してみましょう。",
-                target: "きろくをつけるとへんかがみえやすくなります むりのないはんいでためしてみましょう",
-                ruby: "<ruby>記録<rt>きろく</rt></ruby>をつけると<ruby>変化<rt>へんか</rt></ruby>が<ruby>見<rt>み</rt></ruby>えやすくなります。<ruby>無理<rt>むり</rt></ruby>のない<ruby>範囲<rt>はんい</rt></ruby>で<ruby>試<rt>ため</rt></ruby>してみましょう。",
-                romaji: "Kiroku o tsukeru to henka ga mieyasuku narimasu. Muri no nai han'i de tameshite mimashō."
+                key: "midwife",
+                name: "助産師",
+                line: "はい。その場合も、できるだけ理由を説明しながら相談して進めることが大切です。",
+                target: "はい そのばあいも できるだけりゆうをせつめいしながらそうだんしてすすめることがたいせつです",
+                ruby: "はい。その<ruby>場合<rt>ばあい</rt></ruby>も、できるだけ<ruby>理由<rt>りゆう</rt></ruby>を<ruby>説明<rt>せつめい</rt></ruby>しながら<ruby>相談<rt>そうだん</rt></ruby>して<ruby>進<rt>すす</rt></ruby>めることが<ruby>大切<rt>たいせつ</rt></ruby>です。",
+                romaji: "Hai. Sono baai mo, dekiru dake riyū o setsumei shinagara sōdan shite susumeru koto ga taisetsu desu."
             }
         ],
 
         {
             ja: [
-                "保護者：子どもが夜中に何度も起きるので、私もほとんど眠れていません。",
-                "保健師：それは大変ですね。夜に起きるとき、泣き方や体調に気になる変化はありますか。",
-                "保護者：熱はありませんが、抱っこしないと長く泣き続けます。",
-                "保健師：まずは生活リズムや昼寝の時間を一緒に確認してみましょう。",
-                "保護者：昼寝の時間が日によって違うので、それも関係しているかもしれません。",
-                "保健師：記録をつけると変化が見えやすくなります。無理のない範囲で試してみましょう。"
+                "妊婦：出産について自分なりの希望があるのですが、相談してもいいでしょうか。",
+                "助産師：もちろんです。どのような出産を希望しているか、できるだけ具体的に教えてください。",
+                "妊婦：できれば落ち着いた環境で、説明を受けながら出産したいと思っています。",
+                "助産師：わかりました。病院で対応できることと難しいことを確認しながら、一緒に考えていきましょう。",
+                "妊婦：希望を伝えても、状況によって変更が必要になることもありますよね。",
+                "助産師：はい。その場合も、できるだけ理由を説明しながら相談して進めることが大切です。"
             ],
 
             en: [
-                "Parent: My child wakes up many times during the night, so I can hardly sleep either.",
-                "Public Health Nurse: That sounds very difficult. When your child wakes at night, have you noticed any concerning changes in crying or health?",
-                "Parent: There is no fever, but my child keeps crying for a long time unless I hold them.",
-                "Public Health Nurse: First, let us check the daily rhythm and nap times together.",
-                "Parent: Nap times differ depending on the day, so that may be related.",
-                "Public Health Nurse: Keeping a record can make patterns easier to see. Let us try it within a manageable range."
+                "Pregnant Woman: I have some personal preferences about childbirth. May I discuss them with you?",
+                "Midwife: Of course. Please tell me as specifically as possible what kind of childbirth experience you hope for.",
+                "Pregnant Woman: If possible, I would like to give birth in a calm environment while receiving explanations about what is happening.",
+                "Midwife: I understand. Let us consider it together while checking what the hospital can and cannot provide.",
+                "Pregnant Woman: Even if I express my preferences, changes may be necessary depending on the situation, right?",
+                "Midwife: Yes. Even in that case, it is important to explain the reasons as much as possible and proceed through discussion."
             ],
 
             "zh-CN": [
-                "家长：孩子半夜会醒来好几次，所以我也几乎睡不好。",
-                "保健师：那真是很辛苦。孩子晚上醒来时，哭法或身体状况有没有让您担心的变化？",
-                "家长：没有发烧，但是如果不抱着，就会哭很久。",
-                "保健师：首先我们一起确认一下生活节奏和午睡时间吧。",
-                "家长：午睡时间每天不一样，也许和这个有关。",
-                "保健师：做记录的话更容易看出变化。我们在不勉强的范围内试试看吧。"
+                "孕妇：关于分娩，我有一些自己的希望，可以和您商量吗？",
+                "助产士：当然可以。请尽量具体地告诉我您希望怎样分娩。",
+                "孕妇：如果可以的话，我希望在安静的环境中，一边接受说明一边分娩。",
+                "助产士：明白了。我们一边确认医院可以做到和比较困难的事情，一边一起考虑。",
+                "孕妇：即使表达了自己的希望，根据情况也可能需要改变，对吧？",
+                "助产士：是的。即使在那种情况下，也应该尽可能说明理由，并通过商量来进行。"
             ],
 
             "zh-TW": [
-                "家長：孩子半夜會醒來好幾次，所以我也幾乎睡不好。",
-                "保健師：那真是很辛苦。孩子晚上醒來時，哭法或身體狀況有沒有讓您擔心的變化？",
-                "家長：沒有發燒，但是如果不抱著，就會哭很久。",
-                "保健師：首先我們一起確認一下生活節奏和午睡時間吧。",
-                "家長：午睡時間每天不一樣，也許和這個有關。",
-                "保健師：做記錄的話更容易看出變化。我們在不勉強的範圍內試試看吧。"
+                "孕婦：關於分娩，我有一些自己的希望，可以和您商量嗎？",
+                "助產師：當然可以。請盡量具體地告訴我您希望怎樣分娩。",
+                "孕婦：如果可以的話，我希望在安靜的環境中，一邊接受說明一邊分娩。",
+                "助產師：明白了。我們一邊確認醫院可以做到和比較困難的事情，一邊一起考慮。",
+                "孕婦：即使表達了自己的希望，根據情況也可能需要改變，對吧？",
+                "助產師：是的。即使在那種情況下，也應該盡可能說明理由，並透過商量來進行。"
             ],
 
             ko: [
-                "보호자: 아이가 밤중에 여러 번 깨서 저도 거의 잠을 자지 못합니다.",
-                "보건사: 정말 힘드시겠네요. 밤에 깰 때 울음이나 몸 상태에 걱정되는 변화가 있나요?",
-                "보호자: 열은 없지만 안아 주지 않으면 오래 계속 웁니다.",
-                "보건사: 우선 생활 리듬과 낮잠 시간을 함께 확인해 봅시다.",
-                "보호자: 낮잠 시간이 날마다 달라서 그것도 관련이 있을지 모르겠습니다.",
-                "보건사: 기록을 하면 변화가 보이기 쉬워집니다. 무리하지 않는 범위에서 시도해 봅시다."
+                "임산부: 출산에 대해 저만의 희망이 있는데 상담해도 될까요?",
+                "조산사: 물론입니다. 어떤 출산을 원하시는지 가능한 한 구체적으로 말씀해 주세요.",
+                "임산부: 가능하면 차분한 환경에서 설명을 들으면서 출산하고 싶습니다.",
+                "조산사: 알겠습니다. 병원에서 가능한 것과 어려운 것을 확인하면서 함께 생각해 봅시다.",
+                "임산부: 희망을 말해도 상황에 따라 변경이 필요할 수도 있겠지요?",
+                "조산사: 네. 그런 경우에도 가능한 한 이유를 설명하면서 상담을 통해 진행하는 것이 중요합니다."
             ],
 
             vi: [
-                "Phụ huynh: Con tôi thức dậy nhiều lần vào ban đêm nên tôi cũng hầu như không ngủ được.",
-                "Y tá sức khỏe cộng đồng: Điều đó thật vất vả. Khi cháu thức dậy ban đêm, cách khóc hoặc sức khỏe có thay đổi gì khiến bạn lo không?",
-                "Phụ huynh: Cháu không sốt, nhưng nếu không bế thì cháu khóc rất lâu.",
-                "Y tá sức khỏe cộng đồng: Trước hết, chúng ta hãy cùng kiểm tra nhịp sinh hoạt và thời gian ngủ trưa.",
-                "Phụ huynh: Thời gian ngủ trưa khác nhau tùy ngày, nên có thể điều đó cũng liên quan.",
-                "Y tá sức khỏe cộng đồng: Ghi chép lại sẽ giúp dễ thấy sự thay đổi hơn. Hãy thử trong phạm vi không quá sức."
+                "Thai phụ: Tôi có một số mong muốn riêng về việc sinh con. Tôi có thể trao đổi với bạn không?",
+                "Nữ hộ sinh: Tất nhiên. Hãy cho tôi biết càng cụ thể càng tốt bạn mong muốn một cuộc sinh như thế nào.",
+                "Thai phụ: Nếu có thể, tôi muốn sinh trong môi trường yên tĩnh và được giải thích về những gì đang xảy ra.",
+                "Nữ hộ sinh: Tôi hiểu. Chúng ta sẽ cùng xem xét trong khi xác nhận những gì bệnh viện có thể và khó có thể đáp ứng.",
+                "Thai phụ: Ngay cả khi tôi nói mong muốn của mình, vẫn có thể cần thay đổi tùy tình hình, đúng không?",
+                "Nữ hộ sinh: Đúng vậy. Ngay cả trong trường hợp đó, điều quan trọng là giải thích lý do hết mức có thể và cùng nhau trao đổi."
             ]
         }
     ),
 
     // =====================================================
-    // 003 食事や好き嫌いについて相談する
+    // 003 痛みへの不安を相談する
     // =====================================================
 
-    makeB1ParentingConsultationDialogue(
-        "b1_parentingconsult_003",
-        "食事や好き嫌いについて相談する",
+    makeB1ChildbirthConsultationDialogue(
+        "b1_childbirthconsult_003",
+        "痛みへの不安を相談する",
 
         [
             {
                 label: "話者B",
-                key: "parent",
-                name: "保護者",
-                line: "子どもの好き嫌いが多くて、食事の時間が毎日大変です。",
-                target: "こどものすききらいがおおくて しょくじのじかんがまいにちたいへんです",
-                ruby: "<ruby>子<rt>こ</rt></ruby>どもの<ruby>好<rt>す</rt></ruby>き<ruby>嫌<rt>きら</rt></ruby>いが<ruby>多<rt>おお</rt></ruby>くて、<ruby>食事<rt>しょくじ</rt></ruby>の<ruby>時間<rt>じかん</rt></ruby>が<ruby>毎日<rt>まいにち</rt></ruby><ruby>大変<rt>たいへん</rt></ruby>です。",
-                romaji: "Kodomo no sukikirai ga ōkute, shokuji no jikan ga mainichi taihen desu."
+                key: "pregnantWoman",
+                name: "妊婦",
+                line: "出産の痛みに耐えられるかどうか、とても心配しています。",
+                target: "しゅっさんのいたみにたえられるかどうか とてもしんぱいしています",
+                ruby: "<ruby>出産<rt>しゅっさん</rt></ruby>の<ruby>痛<rt>いた</rt></ruby>みに<ruby>耐<rt>た</rt></ruby>えられるかどうか、とても<ruby>心配<rt>しんぱい</rt></ruby>しています。",
+                romaji: "Shussan no itami ni taerareru ka dō ka, totemo shinpai shite imasu."
             },
             {
                 label: "話者A",
-                key: "publicHealthNurse",
-                name: "保健師",
-                line: "毎日のことなので負担になりますよね。どのような食べ物を嫌がりますか。",
-                target: "まいにちのことなのでふたんになりますよね どのようなたべものをいやがりますか",
-                ruby: "<ruby>毎日<rt>まいにち</rt></ruby>のことなので<ruby>負担<rt>ふたん</rt></ruby>になりますよね。どのような<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby>を<ruby>嫌<rt>いや</rt></ruby>がりますか。",
-                romaji: "Mainichi no koto na node futan ni narimasu yo ne. Dono yō na tabemono o iyagarimasu ka."
+                key: "doctor",
+                name: "医師",
+                line: "痛みに対する不安があるのですね。どのようなことを特に心配していますか。",
+                target: "いたみにたいするふあんがあるのですね どのようなことをとくにしんぱいしていますか",
+                ruby: "<ruby>痛<rt>いた</rt></ruby>みに<ruby>対<rt>たい</rt></ruby>する<ruby>不安<rt>ふあん</rt></ruby>があるのですね。どのようなことを<ruby>特<rt>とく</rt></ruby>に<ruby>心配<rt>しんぱい</rt></ruby>していますか。",
+                romaji: "Itami ni taisuru fuan ga aru no desu ne. Dono yō na koto o toku ni shinpai shite imasu ka."
             },
             {
                 label: "話者B",
-                key: "parent",
-                name: "保護者",
-                line: "野菜をほとんど食べません。出すだけで泣くこともあります。",
-                target: "やさいをほとんどたべません だすだけでなくこともあります",
-                ruby: "<ruby>野菜<rt>やさい</rt></ruby>をほとんど<ruby>食<rt>た</rt></ruby>べません。<ruby>出<rt>だ</rt></ruby>すだけで<ruby>泣<rt>な</rt></ruby>くこともあります。",
-                romaji: "Yasai o hotondo tabemasen. Dasu dake de naku koto mo arimasu."
+                key: "pregnantWoman",
+                name: "妊婦",
+                line: "痛みが強くなったときに、落ち着いていられるか自信がありません。",
+                target: "いたみがつよくなったときに おちついていられるかじしんがありません",
+                ruby: "<ruby>痛<rt>いた</rt></ruby>みが<ruby>強<rt>つよ</rt></ruby>くなったときに、<ruby>落<rt>お</rt></ruby>ち<ruby>着<rt>つ</rt></ruby>いていられるか<ruby>自信<rt>じしん</rt></ruby>がありません。",
+                romaji: "Itami ga tsuyoku natta toki ni, ochitsuite irareru ka jishin ga arimasen."
             },
             {
                 label: "話者A",
-                key: "publicHealthNurse",
-                name: "保健師",
-                line: "無理に食べさせようとすると、食事の時間がつらくなることもあります。",
-                target: "むりにたべさせようとすると しょくじのじかんがつらくなることもあります",
-                ruby: "<ruby>無理<rt>むり</rt></ruby>に<ruby>食<rt>た</rt></ruby>べさせようとすると、<ruby>食事<rt>しょくじ</rt></ruby>の<ruby>時間<rt>じかん</rt></ruby>がつらくなることもあります。",
-                romaji: "Muri ni tabesaseyō to suru to, shokuji no jikan ga tsuraku naru koto mo arimasu."
+                key: "doctor",
+                name: "医師",
+                line: "病院で利用できる方法について説明できますので、それぞれの特徴を聞いてから考えましょう。",
+                target: "びょういんでりようできるほうほうについてせつめいできますので それぞれのとくちょうをきいてからかんがえましょう",
+                ruby: "<ruby>病院<rt>びょういん</rt></ruby>で<ruby>利用<rt>りよう</rt></ruby>できる<ruby>方法<rt>ほうほう</rt></ruby>について<ruby>説明<rt>せつめい</rt></ruby>できますので、それぞれの<ruby>特徴<rt>とくちょう</rt></ruby>を<ruby>聞<rt>き</rt></ruby>いてから<ruby>考<rt>かんが</rt></ruby>えましょう。",
+                romaji: "Byōin de riyō dekiru hōhō ni tsuite setsumei dekimasu node, sorezore no tokuchō o kiite kara kangaemashō."
             },
             {
                 label: "話者B",
-                key: "parent",
-                name: "保護者",
-                line: "食べさせなければいけないと思って、私も焦ってしまいます。",
-                target: "たべさせなければいけないとおもって わたしもあせってしまいます",
-                ruby: "<ruby>食<rt>た</rt></ruby>べさせなければいけないと<ruby>思<rt>おも</rt></ruby>って、<ruby>私<rt>わたし</rt></ruby>も<ruby>焦<rt>あせ</rt></ruby>ってしまいます。",
-                romaji: "Tabesasenakereba ikenai to omotte, watashi mo asette shimaimasu."
+                key: "pregnantWoman",
+                name: "妊婦",
+                line: "方法によって条件や注意点が違うのであれば、それも詳しく知りたいです。",
+                target: "ほうほうによってじょうけんやちゅういてんがちがうのであれば それもくわしくしりたいです",
+                ruby: "<ruby>方法<rt>ほうほう</rt></ruby>によって<ruby>条件<rt>じょうけん</rt></ruby>や<ruby>注意点<rt>ちゅういてん</rt></ruby>が<ruby>違<rt>ちが</rt></ruby>うのであれば、それも<ruby>詳<rt>くわ</rt></ruby>しく<ruby>知<rt>し</rt></ruby>りたいです。",
+                romaji: "Hōhō ni yotte jōken ya chūiten ga chigau no de areba, sore mo kuwashiku shiritai desu."
             },
             {
                 label: "話者A",
-                key: "publicHealthNurse",
-                name: "保健師",
-                line: "少しずつ慣れる方法を考えましょう。食事の様子も記録しておくと相談しやすいです。",
-                target: "すこしずつなれるほうほうをかんがえましょう しょくじのようすもきろくしておくとそうだんしやすいです",
-                ruby: "<ruby>少<rt>すこ</rt></ruby>しずつ<ruby>慣<rt>な</rt></ruby>れる<ruby>方法<rt>ほうほう</rt></ruby>を<ruby>考<rt>かんが</rt></ruby>えましょう。<ruby>食事<rt>しょくじ</rt></ruby>の<ruby>様子<rt>ようす</rt></ruby>も<ruby>記録<rt>きろく</rt></ruby>しておくと<ruby>相談<rt>そうだん</rt></ruby>しやすいです。",
-                romaji: "Sukoshizutsu nareru hōhō o kangaemashō. Shokuji no yōsu mo kiroku shite oku to sōdan shiyasui desu."
+                key: "doctor",
+                name: "医師",
+                line: "もちろんです。わからない言葉があれば、その場で確認しながら一緒に考えていきましょう。",
+                target: "もちろんです わからないことばがあれば そのばでかくにんしながらいっしょにかんがえていきましょう",
+                ruby: "もちろんです。わからない<ruby>言葉<rt>ことば</rt></ruby>があれば、その<ruby>場<rt>ば</rt></ruby>で<ruby>確認<rt>かくにん</rt></ruby>しながら<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>考<rt>かんが</rt></ruby>えていきましょう。",
+                romaji: "Mochiron desu. Wakaranai kotoba ga areba, sono ba de kakunin shinagara issho ni kangaete ikimashō."
             }
         ],
 
         {
             ja: [
-                "保護者：子どもの好き嫌いが多くて、食事の時間が毎日大変です。",
-                "保健師：毎日のことなので負担になりますよね。どのような食べ物を嫌がりますか。",
-                "保護者：野菜をほとんど食べません。出すだけで泣くこともあります。",
-                "保健師：無理に食べさせようとすると、食事の時間がつらくなることもあります。",
-                "保護者：食べさせなければいけないと思って、私も焦ってしまいます。",
-                "保健師：少しずつ慣れる方法を考えましょう。食事の様子も記録しておくと相談しやすいです。"
+                "妊婦：出産の痛みに耐えられるかどうか、とても心配しています。",
+                "医師：痛みに対する不安があるのですね。どのようなことを特に心配していますか。",
+                "妊婦：痛みが強くなったときに、落ち着いていられるか自信がありません。",
+                "医師：病院で利用できる方法について説明できますので、それぞれの特徴を聞いてから考えましょう。",
+                "妊婦：方法によって条件や注意点が違うのであれば、それも詳しく知りたいです。",
+                "医師：もちろんです。わからない言葉があれば、その場で確認しながら一緒に考えていきましょう。"
             ],
 
             en: [
-                "Parent: My child is very picky, so mealtimes are difficult every day.",
-                "Public Health Nurse: Since it happens every day, it becomes a burden. What kinds of foods does your child dislike?",
-                "Parent: My child hardly eats vegetables. Sometimes just serving them makes my child cry.",
-                "Public Health Nurse: If you try to force your child to eat, mealtimes may become stressful.",
-                "Parent: I feel that I have to make my child eat, so I get anxious too.",
-                "Public Health Nurse: Let us think about ways to get used to foods little by little. Keeping a record of mealtimes also makes it easier to discuss."
+                "Pregnant Woman: I am very worried about whether I will be able to handle the pain of childbirth.",
+                "Doctor: I see that you are anxious about the pain. What are you especially worried about?",
+                "Pregnant Woman: I am not confident that I will be able to stay calm when the pain becomes stronger.",
+                "Doctor: We can explain the options available at this hospital, so let us consider them after you understand their different features.",
+                "Pregnant Woman: If the conditions and points to consider differ depending on the method, I would like to know about those in detail too.",
+                "Doctor: Of course. If there are words you do not understand, let us check them at the time and think about the options together."
             ],
 
             "zh-CN": [
-                "家长：孩子挑食很严重，每天吃饭时间都很辛苦。",
-                "保健师：每天都会发生，所以确实会成为负担。孩子不喜欢什么样的食物？",
-                "家长：几乎不吃蔬菜。有时候只是端出来就会哭。",
-                "保健师：如果勉强让孩子吃，吃饭时间可能会变得更痛苦。",
-                "家长：我总觉得必须让孩子吃，所以自己也会着急。",
-                "保健师：我们一起想想让孩子一点一点适应的方法吧。记录吃饭时的情况也会更方便咨询。"
+                "孕妇：我非常担心自己能不能承受分娩的疼痛。",
+                "医生：您对疼痛感到不安。您特别担心什么呢？",
+                "孕妇：疼痛变强的时候，我没有信心自己能够保持冷静。",
+                "医生：我们可以说明本医院可以采用的方法，您了解各种方法的特点以后再考虑吧。",
+                "孕妇：如果不同方法的条件和注意事项不同，我也想详细了解。",
+                "医生：当然可以。如果有不明白的词语，我们可以当场确认并一起考虑。"
             ],
 
             "zh-TW": [
-                "家長：孩子挑食很嚴重，每天吃飯時間都很辛苦。",
-                "保健師：每天都會發生，所以確實會成為負擔。孩子不喜歡什麼樣的食物？",
-                "家長：幾乎不吃蔬菜。有時候只是端出來就會哭。",
-                "保健師：如果勉強讓孩子吃，吃飯時間可能會變得更痛苦。",
-                "家長：我總覺得必須讓孩子吃，所以自己也會著急。",
-                "保健師：我們一起想想讓孩子一點一點適應的方法吧。記錄吃飯時的情況也會更方便諮詢。"
+                "孕婦：我非常擔心自己能不能承受分娩的疼痛。",
+                "醫師：您對疼痛感到不安。您特別擔心什麼呢？",
+                "孕婦：疼痛變強的時候，我沒有信心自己能夠保持冷靜。",
+                "醫師：我們可以說明本醫院可以採用的方法，您了解各種方法的特點以後再考慮吧。",
+                "孕婦：如果不同方法的條件和注意事項不同，我也想詳細了解。",
+                "醫師：當然可以。如果有不明白的詞語，我們可以當場確認並一起考慮。"
             ],
 
             ko: [
-                "보호자: 아이가 편식이 심해서 식사 시간이 매일 힘듭니다.",
-                "보건사: 매일 있는 일이라 부담이 되겠네요. 어떤 음식을 싫어하나요?",
-                "보호자: 채소를 거의 먹지 않습니다. 내놓기만 해도 울 때가 있습니다.",
-                "보건사: 억지로 먹이려고 하면 식사 시간이 더 힘들어질 수도 있습니다.",
-                "보호자: 먹여야 한다고 생각해서 저도 초조해집니다.",
-                "보건사: 조금씩 익숙해지는 방법을 생각해 봅시다. 식사 모습도 기록해 두면 상담하기 쉽습니다."
+                "임산부: 출산의 통증을 견딜 수 있을지 매우 걱정됩니다.",
+                "의사: 통증에 대한 불안이 있으시군요. 특히 어떤 점이 걱정되나요?",
+                "임산부: 통증이 강해졌을 때 침착하게 있을 수 있을지 자신이 없습니다.",
+                "의사: 병원에서 이용할 수 있는 방법을 설명해 드릴 수 있으니 각각의 특징을 들은 후 생각해 봅시다.",
+                "임산부: 방법에 따라 조건이나 주의할 점이 다르다면 그것도 자세히 알고 싶습니다.",
+                "의사: 물론입니다. 모르는 말이 있으면 그 자리에서 확인하면서 함께 생각해 봅시다."
             ],
 
             vi: [
-                "Phụ huynh: Con tôi kén ăn nhiều nên giờ ăn mỗi ngày rất vất vả.",
-                "Y tá sức khỏe cộng đồng: Vì đó là việc hằng ngày nên chắc chắn rất áp lực. Cháu không thích những món như thế nào?",
-                "Phụ huynh: Cháu hầu như không ăn rau. Có khi chỉ cần tôi đưa ra là cháu khóc.",
-                "Y tá sức khỏe cộng đồng: Nếu cố ép trẻ ăn, giờ ăn có thể trở nên căng thẳng hơn.",
-                "Phụ huynh: Tôi nghĩ mình phải cho cháu ăn nên cũng trở nên sốt ruột.",
-                "Y tá sức khỏe cộng đồng: Chúng ta hãy nghĩ cách để cháu quen dần từng chút một. Ghi lại tình hình bữa ăn cũng giúp việc tư vấn dễ hơn."
+                "Thai phụ: Tôi rất lo không biết mình có thể chịu được cơn đau khi sinh hay không.",
+                "Bác sĩ: Tôi hiểu bạn đang lo về cơn đau. Bạn đặc biệt lo điều gì?",
+                "Thai phụ: Tôi không tự tin mình có thể giữ bình tĩnh khi cơn đau trở nên mạnh hơn.",
+                "Bác sĩ: Chúng tôi có thể giải thích các phương pháp có tại bệnh viện, nên hãy tìm hiểu đặc điểm của từng phương pháp rồi cùng cân nhắc.",
+                "Thai phụ: Nếu mỗi phương pháp có điều kiện và điểm cần chú ý khác nhau, tôi cũng muốn biết rõ.",
+                "Bác sĩ: Tất nhiên. Nếu có từ nào không hiểu, chúng ta sẽ xác nhận ngay lúc đó và cùng nhau cân nhắc."
             ]
         }
     ),
 
     // =====================================================
-    // 004 言葉や発達について相談する
+    // 004 持病や薬について相談する
     // =====================================================
 
-    makeB1ParentingConsultationDialogue(
-        "b1_parentingconsult_004",
-        "言葉や発達について相談する",
+    makeB1ChildbirthConsultationDialogue(
+        "b1_childbirthconsult_004",
+        "持病や薬について相談する",
 
         [
             {
                 label: "話者B",
-                key: "parent",
-                name: "保護者",
-                line: "同じ年齢の子と比べて、言葉が少ないように感じて心配です。",
-                target: "おなじねんれいのことくらべて ことばがすくないようにかんじてしんぱいです",
-                ruby: "<ruby>同<rt>おな</rt></ruby>じ<ruby>年齢<rt>ねんれい</rt></ruby>の<ruby>子<rt>こ</rt></ruby>と<ruby>比<rt>くら</rt></ruby>べて、<ruby>言葉<rt>ことば</rt></ruby>が<ruby>少<rt>すく</rt></ruby>ないように<ruby>感<rt>かん</rt></ruby>じて<ruby>心配<rt>しんぱい</rt></ruby>です。",
-                romaji: "Onaji nenrei no ko to kurabete, kotoba ga sukunai yō ni kanjite shinpai desu."
+                key: "pregnantWoman",
+                name: "妊婦",
+                line: "妊娠する前から飲んでいる薬があるので、出産への影響が心配です。",
+                target: "にんしんするまえからのんでいるくすりがあるので しゅっさんへのえいきょうがしんぱいです",
+                ruby: "<ruby>妊娠<rt>にんしん</rt></ruby>する<ruby>前<rt>まえ</rt></ruby>から<ruby>飲<rt>の</rt></ruby>んでいる<ruby>薬<rt>くすり</rt></ruby>があるので、<ruby>出産<rt>しゅっさん</rt></ruby>への<ruby>影響<rt>えいきょう</rt></ruby>が<ruby>心配<rt>しんぱい</rt></ruby>です。",
+                romaji: "Ninshin suru mae kara nonde iru kusuri ga aru node, shussan e no eikyō ga shinpai desu."
             },
             {
                 label: "話者A",
-                key: "developmentStaff",
-                name: "発達相談員",
-                line: "心配になりますよね。普段、どのような場面で言葉を使っていますか。",
-                target: "しんぱいになりますよね ふだん どのようなばめんでことばをつかっていますか",
-                ruby: "<ruby>心配<rt>しんぱい</rt></ruby>になりますよね。<ruby>普段<rt>ふだん</rt></ruby>、どのような<ruby>場面<rt>ばめん</rt></ruby>で<ruby>言葉<rt>ことば</rt></ruby>を<ruby>使<rt>つか</rt></ruby>っていますか。",
-                romaji: "Shinpai ni narimasu yo ne. Fudan, dono yō na bamen de kotoba o tsukatte imasu ka."
+                key: "doctor",
+                name: "医師",
+                line: "わかりました。薬の名前と飲んでいる量、それから持病について教えてください。",
+                target: "わかりました くすりのなまえとのんでいるりょう それからじびょうについておしえてください",
+                ruby: "わかりました。<ruby>薬<rt>くすり</rt></ruby>の<ruby>名前<rt>なまえ</rt></ruby>と<ruby>飲<rt>の</rt></ruby>んでいる<ruby>量<rt>りょう</rt></ruby>、それから<ruby>持病<rt>じびょう</rt></ruby>について<ruby>教<rt>おし</rt></ruby>えてください。",
+                romaji: "Wakarimashita. Kusuri no namae to nonde iru ryō, sorekara jibyō ni tsuite oshiete kudasai."
             },
             {
                 label: "話者B",
-                key: "parent",
-                name: "保護者",
-                line: "欲しい物があるときは、指をさして声を出しますが、単語は少ないです。",
-                target: "ほしいものがあるときは ゆびをさしてこえをだしますが たんごはすくないです",
-                ruby: "<ruby>欲<rt>ほ</rt></ruby>しい<ruby>物<rt>もの</rt></ruby>があるときは、<ruby>指<rt>ゆび</rt></ruby>をさして<ruby>声<rt>こえ</rt></ruby>を<ruby>出<rt>だ</rt></ruby>しますが、<ruby>単語<rt>たんご</rt></ruby>は<ruby>少<rt>すく</rt></ruby>ないです。",
-                romaji: "Hoshii mono ga aru toki wa, yubi o sashite koe o dashimasu ga, tango wa sukunai desu."
+                key: "pregnantWoman",
+                name: "妊婦",
+                line: "お薬手帳を持ってきました。自分で薬をやめた方がいいのでしょうか。",
+                target: "おくすりてちょうをもってきました じぶんでくすりをやめたほうがいいのでしょうか",
+                ruby: "お<ruby>薬手帳<rt>くすりてちょう</rt></ruby>を<ruby>持<rt>も</rt></ruby>ってきました。<ruby>自分<rt>じぶん</rt></ruby>で<ruby>薬<rt>くすり</rt></ruby>をやめた<ruby>方<rt>ほう</rt></ruby>がいいのでしょうか。",
+                romaji: "Okusuri techō o motte kimashita. Jibun de kusuri o yameta hō ga ii no deshō ka."
             },
             {
                 label: "話者A",
-                key: "developmentStaff",
-                name: "発達相談員",
-                line: "言葉だけでなく、表情や指さしなどの伝え方も大切な情報です。",
-                target: "ことばだけでなく ひょうじょうやゆびさしなどのつたえかたもたいせつなじょうほうです",
-                ruby: "<ruby>言葉<rt>ことば</rt></ruby>だけでなく、<ruby>表情<rt>ひょうじょう</rt></ruby>や<ruby>指<rt>ゆび</rt></ruby>さしなどの<ruby>伝<rt>つた</rt></ruby>え<ruby>方<rt>かた</rt></ruby>も<ruby>大切<rt>たいせつ</rt></ruby>な<ruby>情報<rt>じょうほう</rt></ruby>です。",
-                romaji: "Kotoba dake de naku, hyōjō ya yubisashi nado no tsutaekata mo taisetsu na jōhō desu."
+                key: "doctor",
+                name: "医師",
+                line: "自己判断で中止せず、薬について心配なことは医師や薬剤師に相談してください。",
+                target: "じこはんだんでちゅうしせず くすりについてしんぱいなことはいしややくざいしにそうだんしてください",
+                ruby: "<ruby>自己判断<rt>じこはんだん</rt></ruby>で<ruby>中止<rt>ちゅうし</rt></ruby>せず、<ruby>薬<rt>くすり</rt></ruby>について<ruby>心配<rt>しんぱい</rt></ruby>なことは<ruby>医師<rt>いし</rt></ruby>や<ruby>薬剤師<rt>やくざいし</rt></ruby>に<ruby>相談<rt>そうだん</rt></ruby>してください。",
+                romaji: "Jikohandan de chūshi sezu, kusuri ni tsuite shinpai na koto wa ishi ya yakuzaishi ni sōdan shite kudasai."
             },
             {
                 label: "話者B",
-                key: "parent",
-                name: "保護者",
-                line: "家では母語も使っているので、日本語が遅れているのかと不安になります。",
-                target: "いえではぼごもつかっているので にほんごがおくれているのかとふあんになります",
-                ruby: "<ruby>家<rt>いえ</rt></ruby>では<ruby>母語<rt>ぼご</rt></ruby>も<ruby>使<rt>つか</rt></ruby>っているので、<ruby>日本語<rt>にほんご</rt></ruby>が<ruby>遅<rt>おく</rt></ruby>れているのかと<ruby>不安<rt>ふあん</rt></ruby>になります。",
-                romaji: "Ie de wa bogo mo tsukatte iru node, Nihongo ga okurete iru no ka to fuan ni narimasu."
+                key: "pregnantWoman",
+                name: "妊婦",
+                line: "わかりました。今後、新しい薬を使う場合も先に確認するようにします。",
+                target: "わかりました こんご あたらしいくすりをつかうばあいもさきにかくにんするようにします",
+                ruby: "わかりました。<ruby>今後<rt>こんご</rt></ruby>、<ruby>新<rt>あたら</rt></ruby>しい<ruby>薬<rt>くすり</rt></ruby>を<ruby>使<rt>つか</rt></ruby>う<ruby>場合<rt>ばあい</rt></ruby>も<ruby>先<rt>さき</rt></ruby>に<ruby>確認<rt>かくにん</rt></ruby>するようにします。",
+                romaji: "Wakarimashita. Kongo, atarashii kusuri o tsukau baai mo saki ni kakunin suru yō ni shimasu."
             },
             {
                 label: "話者A",
-                key: "developmentStaff",
-                name: "発達相談員",
-                line: "家庭での言語環境も含めて考えます。様子を聞きながら、必要な支援を一緒に考えましょう。",
-                target: "かていでのげんごかんきょうもふくめてかんがえます ようすをききながら ひつようなしえんをいっしょにかんがえましょう",
-                ruby: "<ruby>家庭<rt>かてい</rt></ruby>での<ruby>言語環境<rt>げんごかんきょう</rt></ruby>も<ruby>含<rt>ふく</rt></ruby>めて<ruby>考<rt>かんが</rt></ruby>えます。<ruby>様子<rt>ようす</rt></ruby>を<ruby>聞<rt>き</rt></ruby>きながら、<ruby>必要<rt>ひつよう</rt></ruby>な<ruby>支援<rt>しえん</rt></ruby>を<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>考<rt>かんが</rt></ruby>えましょう。",
-                romaji: "Katei de no gengo kankyō mo fukumete kangaemasu. Yōsu o kikinagara, hitsuyō na shien o issho ni kangaemashō."
+                key: "doctor",
+                name: "医師",
+                line: "それがいいですね。健診のときには、お薬手帳も持ってきてください。",
+                target: "それがいいですね けんしんのときには おくすりてちょうももってきてください",
+                ruby: "それがいいですね。<ruby>健診<rt>けんしん</rt></ruby>のときには、お<ruby>薬手帳<rt>くすりてちょう</rt></ruby>も<ruby>持<rt>も</rt></ruby>ってきてください。",
+                romaji: "Sore ga ii desu ne. Kenshin no toki ni wa, okusuri techō mo motte kite kudasai."
             }
         ],
 
         {
             ja: [
-                "保護者：同じ年齢の子と比べて、言葉が少ないように感じて心配です。",
-                "発達相談員：心配になりますよね。普段、どのような場面で言葉を使っていますか。",
-                "保護者：欲しい物があるときは、指をさして声を出しますが、単語は少ないです。",
-                "発達相談員：言葉だけでなく、表情や指さしなどの伝え方も大切な情報です。",
-                "保護者：家では母語も使っているので、日本語が遅れているのかと不安になります。",
-                "発達相談員：家庭での言語環境も含めて考えます。様子を聞きながら、必要な支援を一緒に考えましょう。"
+                "妊婦：妊娠する前から飲んでいる薬があるので、出産への影響が心配です。",
+                "医師：わかりました。薬の名前と飲んでいる量、それから持病について教えてください。",
+                "妊婦：お薬手帳を持ってきました。自分で薬をやめた方がいいのでしょうか。",
+                "医師：自己判断で中止せず、薬について心配なことは医師や薬剤師に相談してください。",
+                "妊婦：わかりました。今後、新しい薬を使う場合も先に確認するようにします。",
+                "医師：それがいいですね。健診のときには、お薬手帳も持ってきてください。"
             ],
 
             en: [
-                "Parent: Compared with children of the same age, my child seems to use fewer words, and I am worried.",
-                "Development Counselor: That can be concerning. In what situations does your child usually use words?",
-                "Parent: When my child wants something, they point and make sounds, but they use only a few words.",
-                "Development Counselor: Communication through facial expressions and pointing is also important information, not only words.",
-                "Parent: We also use our home language at home, so I worry that my child's Japanese may be delayed.",
-                "Development Counselor: We will consider the language environment at home too. Let us listen to your child's situation and think together about support if needed."
+                "Pregnant Woman: I have been taking medicine since before becoming pregnant, so I am worried about how it may affect childbirth.",
+                "Doctor: I understand. Please tell me the name of the medicine, how much you take, and any medical conditions you have.",
+                "Pregnant Woman: I brought my medication notebook. Should I stop taking the medicine by myself?",
+                "Doctor: Do not stop it on your own. If you are worried about medicine, please consult a doctor or pharmacist.",
+                "Pregnant Woman: I understand. I will also check first before using any new medicine in the future.",
+                "Doctor: Good. Please bring your medication notebook with you to your checkups."
             ],
 
             "zh-CN": [
-                "家长：和同龄孩子相比，我觉得孩子说的话比较少，所以很担心。",
-                "发展咨询员：这确实会让人担心。平时孩子在什么情况下会使用语言？",
-                "家长：想要东西的时候，会用手指并发出声音，但是单词很少。",
-                "发展咨询员：不仅是语言，表情和指物等表达方式也是重要的信息。",
-                "家长：家里也使用母语，所以我担心孩子的日语是不是落后了。",
-                "发展咨询员：我们会把家庭语言环境也考虑进去。一边听取孩子的情况，一边一起考虑需要的支援。"
+                "孕妇：我从怀孕前就一直在服药，所以担心会不会影响分娩。",
+                "医生：明白了。请告诉我药物的名称、服用量以及您的既往疾病。",
+                "孕妇：我带来了用药手册。我应该自己停药吗？",
+                "医生：请不要自行停药。如果对药物有担心，请咨询医生或药剂师。",
+                "孕妇：明白了。今后使用新的药物时，我也会事先确认。",
+                "医生：很好。产检时也请带上您的用药手册。"
             ],
 
             "zh-TW": [
-                "家長：和同齡孩子相比，我覺得孩子說的話比較少，所以很擔心。",
-                "發展諮詢員：這確實會讓人擔心。平時孩子在什麼情況下會使用語言？",
-                "家長：想要東西的時候，會用手指並發出聲音，但是單詞很少。",
-                "發展諮詢員：不僅是語言，表情和指物等表達方式也是重要的資訊。",
-                "家長：家裡也使用母語，所以我擔心孩子的日語是不是落後了。",
-                "發展諮詢員：我們會把家庭語言環境也考慮進去。一邊聽取孩子的情況，一邊一起考慮需要的支援。"
+                "孕婦：我從懷孕前就一直在服藥，所以擔心會不會影響分娩。",
+                "醫師：明白了。請告訴我藥物的名稱、服用量以及您的既往疾病。",
+                "孕婦：我帶來了用藥手冊。我應該自己停藥嗎？",
+                "醫師：請不要自行停藥。如果對藥物有擔心，請諮詢醫師或藥師。",
+                "孕婦：明白了。今後使用新的藥物時，我也會事先確認。",
+                "醫師：很好。產檢時也請帶上您的用藥手冊。"
             ],
 
             ko: [
-                "보호자: 같은 나이의 아이와 비교해서 말이 적은 것 같아 걱정됩니다.",
-                "발달 상담원: 걱정되시겠네요. 평소 어떤 상황에서 말을 사용하나요?",
-                "보호자: 원하는 것이 있을 때는 손가락으로 가리키고 소리를 내지만 단어는 적습니다.",
-                "발달 상담원: 말뿐만 아니라 표정이나 손가락으로 가리키는 등 전달 방식도 중요한 정보입니다.",
-                "보호자: 집에서는 모국어도 사용하고 있어서 일본어가 늦는 것은 아닌지 불안합니다.",
-                "발달 상담원: 가정의 언어 환경도 포함해서 생각합니다. 아이의 모습을 들으면서 필요한 지원을 함께 생각해 봅시다."
+                "임산부: 임신 전부터 먹고 있는 약이 있어서 출산에 미치는 영향이 걱정됩니다.",
+                "의사: 알겠습니다. 약 이름과 복용량, 그리고 지병에 대해 알려 주세요.",
+                "임산부: 약 수첩을 가져왔습니다. 제가 스스로 약을 끊는 편이 좋을까요?",
+                "의사: 스스로 판단해서 중단하지 말고, 약에 대해 걱정되는 점은 의사나 약사와 상담해 주세요.",
+                "임산부: 알겠습니다. 앞으로 새로운 약을 사용할 때도 먼저 확인하겠습니다.",
+                "의사: 좋습니다. 검진 때는 약 수첩도 가져와 주세요."
             ],
 
             vi: [
-                "Phụ huynh: So với trẻ cùng tuổi, tôi cảm thấy con tôi nói ít hơn nên rất lo.",
-                "Nhân viên tư vấn phát triển: Điều đó có thể khiến bạn lo lắng. Bình thường cháu dùng lời nói trong những tình huống nào?",
-                "Phụ huynh: Khi muốn thứ gì đó, cháu chỉ tay và phát ra âm thanh, nhưng số từ rất ít.",
-                "Nhân viên tư vấn phát triển: Không chỉ lời nói, cách truyền đạt bằng nét mặt hoặc chỉ tay cũng là thông tin quan trọng.",
-                "Phụ huynh: Ở nhà chúng tôi cũng dùng tiếng mẹ đẻ nên tôi lo tiếng Nhật của cháu bị chậm.",
-                "Nhân viên tư vấn phát triển: Chúng tôi sẽ xem xét cả môi trường ngôn ngữ trong gia đình. Hãy cùng nghe tình hình của cháu và suy nghĩ về hỗ trợ cần thiết."
+                "Thai phụ: Tôi đã dùng một loại thuốc từ trước khi mang thai nên lo nó có thể ảnh hưởng đến việc sinh con.",
+                "Bác sĩ: Tôi hiểu. Hãy cho tôi biết tên thuốc, liều lượng đang dùng và bệnh nền của bạn.",
+                "Thai phụ: Tôi đã mang theo sổ thuốc. Tôi có nên tự ngừng thuốc không?",
+                "Bác sĩ: Đừng tự ý ngừng thuốc. Nếu lo lắng về thuốc, hãy trao đổi với bác sĩ hoặc dược sĩ.",
+                "Thai phụ: Tôi hiểu. Sau này nếu dùng thuốc mới, tôi cũng sẽ xác nhận trước.",
+                "Bác sĩ: Tốt. Khi đi khám thai, hãy mang theo cả sổ thuốc."
             ]
         }
     ),
 
     // =====================================================
-    // 005 子どもの気持ちへの対応を相談する
+    // 005 立ち会い出産について相談する
     // =====================================================
 
-    makeB1ParentingConsultationDialogue(
-        "b1_parentingconsult_005",
-        "子どもの気持ちへの対応を相談する",
+    makeB1ChildbirthConsultationDialogue(
+        "b1_childbirthconsult_005",
+        "立ち会い出産について相談する",
 
         [
             {
                 label: "話者B",
-                key: "parent",
-                name: "保護者",
-                line: "子どもが思い通りにならないと、大きな声で泣いたり怒ったりします。",
-                target: "こどもがおもいどおりにならないと おおきなこえでないたりおこったりします",
-                ruby: "<ruby>子<rt>こ</rt></ruby>どもが<ruby>思<rt>おも</rt></ruby>い<ruby>通<rt>どお</rt></ruby>りにならないと、<ruby>大<rt>おお</rt></ruby>きな<ruby>声<rt>こえ</rt></ruby>で<ruby>泣<rt>な</rt></ruby>いたり<ruby>怒<rt>おこ</rt></ruby>ったりします。",
-                romaji: "Kodomo ga omoi dōri ni naranai to, ōkina koe de naitari okottari shimasu."
+                key: "pregnantWoman",
+                name: "妊婦",
+                line: "出産のときに、パートナーにそばにいてもらいたいと思っています。",
+                target: "しゅっさんのときに ぱーとなーにそばにいてもらいたいとおもっています",
+                ruby: "<ruby>出産<rt>しゅっさん</rt></ruby>のときに、パートナーにそばにいてもらいたいと<ruby>思<rt>おも</rt></ruby>っています。",
+                romaji: "Shussan no toki ni, pātonā ni soba ni ite moraitai to omotte imasu."
             },
             {
                 label: "話者A",
-                key: "childcareTeacher",
-                name: "保育士",
-                line: "そのような場面が続くと、保護者の方も疲れてしまいますよね。",
-                target: "そのようなばめんがつづくと ほごしゃのかたもつかれてしまいますよね",
-                ruby: "そのような<ruby>場面<rt>ばめん</rt></ruby>が<ruby>続<rt>つづ</rt></ruby>くと、<ruby>保護者<rt>ほごしゃ</rt></ruby>の<ruby>方<rt>かた</rt></ruby>も<ruby>疲<rt>つか</rt></ruby>れてしまいますよね。",
-                romaji: "Sono yō na bamen ga tsuzuku to, hogosha no kata mo tsukarete shimaimasu yo ne."
+                key: "hospitalStaff",
+                name: "病院職員",
+                line: "立ち会いについては病院のルールがありますので、条件を一緒に確認しましょう。",
+                target: "たちあいについてはびょういんのるーるがありますので じょうけんをいっしょにかくにんしましょう",
+                ruby: "<ruby>立<rt>た</rt></ruby>ち<ruby>会<rt>あ</rt></ruby>いについては<ruby>病院<rt>びょういん</rt></ruby>のルールがありますので、<ruby>条件<rt>じょうけん</rt></ruby>を<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>確認<rt>かくにん</rt></ruby>しましょう。",
+                romaji: "Tachiai ni tsuite wa byōin no rūru ga arimasu node, jōken o issho ni kakunin shimashō."
             },
             {
                 label: "話者B",
-                key: "parent",
-                name: "保護者",
-                line: "つい強く注意してしまい、あとで後悔することがあります。",
-                target: "つよくちゅういしてしまい あとでこうかいすることがあります",
-                ruby: "つい<ruby>強<rt>つよ</rt></ruby>く<ruby>注意<rt>ちゅうい</rt></ruby>してしまい、あとで<ruby>後悔<rt>こうかい</rt></ruby>することがあります。",
-                romaji: "Tsui tsuyoku chūi shite shimai, ato de kōkai suru koto ga arimasu."
+                key: "pregnantWoman",
+                name: "妊婦",
+                line: "事前に申し込みや説明会への参加が必要でしょうか。",
+                target: "じぜんにもうしこみやせつめいかいへのさんかがひつようでしょうか",
+                ruby: "<ruby>事前<rt>じぜん</rt></ruby>に<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>みや<ruby>説明会<rt>せつめいかい</rt></ruby>への<ruby>参加<rt>さんか</rt></ruby>が<ruby>必要<rt>ひつよう</rt></ruby>でしょうか。",
+                romaji: "Jizen ni mōshikomi ya setsumeikai e no sanka ga hitsuyō deshō ka."
             },
             {
                 label: "話者A",
-                key: "childcareTeacher",
-                name: "保育士",
-                line: "まずは子どもの気持ちを短い言葉で受け止める方法を試してみましょう。",
-                target: "まずはこどものきもちをみじかいことばでうけとめるほうほうをためしてみましょう",
-                ruby: "まずは<ruby>子<rt>こ</rt></ruby>どもの<ruby>気持<rt>きも</rt></ruby>ちを<ruby>短<rt>みじか</rt></ruby>い<ruby>言葉<rt>ことば</rt></ruby>で<ruby>受<rt>う</rt></ruby>け<ruby>止<rt>と</rt></ruby>める<ruby>方法<rt>ほうほう</rt></ruby>を<ruby>試<rt>ため</rt></ruby>してみましょう。",
-                romaji: "Mazu wa kodomo no kimochi o mijikai kotoba de uketomeru hōhō o tameshite mimashō."
+                key: "hospitalStaff",
+                name: "病院職員",
+                line: "必要な手続きは病院によって異なりますので、こちらの案内を確認してください。",
+                target: "ひつようなてつづきはびょういんによってことなりますので こちらのあんないをかくにんしてください",
+                ruby: "<ruby>必要<rt>ひつよう</rt></ruby>な<ruby>手続<rt>てつづ</rt></ruby>きは<ruby>病院<rt>びょういん</rt></ruby>によって<ruby>異<rt>こと</rt></ruby>なりますので、こちらの<ruby>案内<rt>あんない</rt></ruby>を<ruby>確認<rt>かくにん</rt></ruby>してください。",
+                romaji: "Hitsuyō na tetsuzuki wa byōin ni yotte kotonarimasu node, kochira no annai o kakunin shite kudasai."
             },
             {
                 label: "話者B",
-                key: "parent",
-                name: "保護者",
-                line: "例えば、どのように声をかければいいでしょうか。",
-                target: "たとえば どのようにこえをかければいいでしょうか",
-                ruby: "<ruby>例<rt>たと</rt></ruby>えば、どのように<ruby>声<rt>こえ</rt></ruby>をかければいいでしょうか。",
-                romaji: "Tatoeba, dono yō ni koe o kakereba ii deshō ka."
+                key: "pregnantWoman",
+                name: "妊婦",
+                line: "もし立ち会えない場合に、どのように支えてもらうかも相談しておきたいです。",
+                target: "もしたちあえないばあいに どのようにささえてもらうかもそうだんしておきたいです",
+                ruby: "もし<ruby>立<rt>た</rt></ruby>ち<ruby>会<rt>あ</rt></ruby>えない<ruby>場合<rt>ばあい</rt></ruby>に、どのように<ruby>支<rt>ささ</rt></ruby>えてもらうかも<ruby>相談<rt>そうだん</rt></ruby>しておきたいです。",
+                romaji: "Moshi tachiaenai baai ni, dono yō ni sasaete morau ka mo sōdan shite okitai desu."
             },
             {
                 label: "話者A",
-                key: "childcareTeacher",
-                name: "保育士",
-                line: "「嫌だったね」や「まだ遊びたかったね」のように、気持ちを言葉にしてあげるとよいです。",
-                target: "いやだったね や まだあそびたかったね のように きもちをことばにしてあげるとよいです",
-                ruby: "「<ruby>嫌<rt>いや</rt></ruby>だったね」や「まだ<ruby>遊<rt>あそ</rt></ruby>びたかったね」のように、<ruby>気持<rt>きも</rt></ruby>ちを<ruby>言葉<rt>ことば</rt></ruby>にしてあげるとよいです。",
-                romaji: "“Iya datta ne” ya “mada asobitakatta ne” no yō ni, kimochi o kotoba ni shite ageru to yoi desu."
+                key: "hospitalStaff",
+                name: "病院職員",
+                line: "いいですね。いくつかの場合を考えておくと、予定が変わったときにも対応しやすくなります。",
+                target: "いいですね いくつかのばあいをかんがえておくと よていがかわったときにもたいおうしやすくなります",
+                ruby: "いいですね。いくつかの<ruby>場合<rt>ばあい</rt></ruby>を<ruby>考<rt>かんが</rt></ruby>えておくと、<ruby>予定<rt>よてい</rt></ruby>が<ruby>変<rt>か</rt></ruby>わったときにも<ruby>対応<rt>たいおう</rt></ruby>しやすくなります。",
+                romaji: "Ii desu ne. Ikutsuka no baai o kangaete oku to, yotei ga kawatta toki ni mo taiō shiyasuku narimasu."
             }
         ],
 
         {
             ja: [
-                "保護者：子どもが思い通りにならないと、大きな声で泣いたり怒ったりします。",
-                "保育士：そのような場面が続くと、保護者の方も疲れてしまいますよね。",
-                "保護者：つい強く注意してしまい、あとで後悔することがあります。",
-                "保育士：まずは子どもの気持ちを短い言葉で受け止める方法を試してみましょう。",
-                "保護者：例えば、どのように声をかければいいでしょうか。",
-                "保育士：「嫌だったね」や「まだ遊びたかったね」のように、気持ちを言葉にしてあげるとよいです。"
+                "妊婦：出産のときに、パートナーにそばにいてもらいたいと思っています。",
+                "病院職員：立ち会いについては病院のルールがありますので、条件を一緒に確認しましょう。",
+                "妊婦：事前に申し込みや説明会への参加が必要でしょうか。",
+                "病院職員：必要な手続きは病院によって異なりますので、こちらの案内を確認してください。",
+                "妊婦：もし立ち会えない場合に、どのように支えてもらうかも相談しておきたいです。",
+                "病院職員：いいですね。いくつかの場合を考えておくと、予定が変わったときにも対応しやすくなります。"
             ],
 
             en: [
-                "Parent: When things do not go the way my child wants, my child cries loudly or gets angry.",
-                "Childcare Teacher: When those situations continue, parents become tired too.",
-                "Parent: I sometimes scold my child too strongly and regret it afterward.",
-                "Childcare Teacher: First, let us try accepting your child's feelings in short words.",
-                "Parent: For example, what should I say?",
-                "Childcare Teacher: It can help to put the feeling into words, such as, “That felt bad, didn't it?” or “You still wanted to play.”"
+                "Pregnant Woman: I would like my partner to be with me when I give birth.",
+                "Hospital Staff: The hospital has rules about having someone present during childbirth, so let us check the conditions together.",
+                "Pregnant Woman: Do we need to apply in advance or attend an information session?",
+                "Hospital Staff: Required procedures differ depending on the hospital, so please check this information.",
+                "Pregnant Woman: I would also like to discuss how my partner can support me if being present is not possible.",
+                "Hospital Staff: That is a good idea. Thinking about several possible situations makes it easier to respond if plans change."
             ],
 
             "zh-CN": [
-                "家长：孩子不如意时，会大声哭或生气。",
-                "保育员：这样的场面持续发生，家长也会很累吧。",
-                "家长：我有时会不由自主地严厉批评，之后又后悔。",
-                "保育员：首先可以试着用简短的话接住孩子的情绪。",
-                "家长：比如，应该怎么说呢？",
-                "保育员：可以把孩子的感受说出来，比如“你觉得不喜欢，对吧”或“你还想继续玩，对吧”。"
+                "孕妇：分娩的时候，我希望伴侣能够陪在身边。",
+                "医院工作人员：关于陪产，医院有相关规定，我们一起确认一下条件吧。",
+                "孕妇：需要提前申请或参加说明会吗？",
+                "医院工作人员：所需手续因医院而异，请确认这份说明。",
+                "孕妇：如果无法陪产，我也想提前商量伴侣可以怎样支持我。",
+                "医院工作人员：很好。事先考虑几种情况，即使计划发生变化也比较容易应对。"
             ],
 
             "zh-TW": [
-                "家長：孩子不如意時，會大聲哭或生氣。",
-                "保育人員：這樣的場面持續發生，家長也會很累吧。",
-                "家長：我有時會不由自主地嚴厲批評，之後又後悔。",
-                "保育人員：首先可以試著用簡短的話接住孩子的情緒。",
-                "家長：比如，應該怎麼說呢？",
-                "保育人員：可以把孩子的感受說出來，比如「你覺得不喜歡，對吧」或「你還想繼續玩，對吧」。"
+                "孕婦：分娩的時候，我希望伴侶能夠陪在身邊。",
+                "醫院工作人員：關於陪產，醫院有相關規定，我們一起確認一下條件吧。",
+                "孕婦：需要提前申請或參加說明會嗎？",
+                "醫院工作人員：所需手續因醫院而異，請確認這份說明。",
+                "孕婦：如果無法陪產，我也想提前商量伴侶可以怎樣支持我。",
+                "醫院工作人員：很好。事先考慮幾種情況，即使計畫發生變化也比較容易應對。"
             ],
 
             ko: [
-                "보호자: 아이가 뜻대로 되지 않으면 큰 소리로 울거나 화를 냅니다.",
-                "보육교사: 그런 상황이 계속되면 보호자도 지치게 되지요.",
-                "보호자: 저도 모르게 강하게 주의를 주고 나중에 후회할 때가 있습니다.",
-                "보육교사: 우선 아이의 마음을 짧은 말로 받아 주는 방법을 시도해 봅시다.",
-                "보호자: 예를 들면 어떻게 말을 걸면 좋을까요?",
-                "보육교사: “싫었구나”나 “아직 놀고 싶었구나”처럼 마음을 말로 표현해 주면 좋습니다."
+                "임산부: 출산할 때 파트너가 제 곁에 있어 주었으면 합니다.",
+                "병원 직원: 출산 동행에 대해서는 병원 규정이 있으므로 조건을 함께 확인해 봅시다.",
+                "임산부: 미리 신청하거나 설명회에 참석해야 하나요?",
+                "병원 직원: 필요한 절차는 병원마다 다르므로 이 안내를 확인해 주세요.",
+                "임산부: 만약 함께 있을 수 없는 경우에는 어떻게 지원받을지도 상담해 두고 싶습니다.",
+                "병원 직원: 좋습니다. 여러 상황을 생각해 두면 계획이 바뀌었을 때도 대응하기 쉬워집니다."
             ],
 
             vi: [
-                "Phụ huynh: Khi mọi việc không theo ý mình, con tôi khóc lớn hoặc tức giận.",
-                "Giáo viên giữ trẻ: Nếu những tình huống như vậy kéo dài, cha mẹ cũng sẽ rất mệt.",
-                "Phụ huynh: Có lúc tôi lỡ la mắng mạnh rồi sau đó lại hối hận.",
-                "Giáo viên giữ trẻ: Trước hết, hãy thử cách đón nhận cảm xúc của trẻ bằng những câu ngắn.",
-                "Phụ huynh: Ví dụ, tôi nên nói như thế nào?",
-                "Giáo viên giữ trẻ: Bạn có thể nói thành lời cảm xúc của trẻ, như “Con không thích nhỉ” hoặc “Con vẫn muốn chơi nữa nhỉ.”"
+                "Thai phụ: Khi sinh con, tôi muốn bạn đời ở bên cạnh mình.",
+                "Nhân viên bệnh viện: Bệnh viện có quy định về người có mặt khi sinh, nên chúng ta hãy cùng kiểm tra điều kiện.",
+                "Thai phụ: Có cần đăng ký trước hoặc tham gia buổi hướng dẫn không?",
+                "Nhân viên bệnh viện: Các thủ tục cần thiết khác nhau tùy bệnh viện, nên hãy kiểm tra hướng dẫn này.",
+                "Thai phụ: Nếu không thể có mặt, tôi cũng muốn trao đổi trước về cách bạn đời có thể hỗ trợ tôi.",
+                "Nhân viên bệnh viện: Đó là một ý hay. Nghĩ trước một vài tình huống sẽ giúp bạn dễ ứng phó hơn khi kế hoạch thay đổi."
             ]
         }
     ),
 
     // =====================================================
-    // 006 親の疲れについて相談する
+    // 006 日本語や通訳について相談する
     // =====================================================
 
-    makeB1ParentingConsultationDialogue(
-        "b1_parentingconsult_006",
-        "親の疲れについて相談する",
+    makeB1ChildbirthConsultationDialogue(
+        "b1_childbirthconsult_006",
+        "日本語や通訳について相談する",
 
         [
             {
                 label: "話者B",
-                key: "parent",
-                name: "保護者",
-                line: "最近、疲れがたまっていて、子どもに優しくできない日があります。",
-                target: "さいきん つかれがたまっていて こどもにやさしくできないひがあります",
-                ruby: "<ruby>最近<rt>さいきん</rt></ruby>、<ruby>疲<rt>つか</rt></ruby>れがたまっていて、<ruby>子<rt>こ</rt></ruby>どもに<ruby>優<rt>やさ</rt></ruby>しくできない<ruby>日<rt>ひ</rt></ruby>があります。",
-                romaji: "Saikin, tsukare ga tamatte ite, kodomo ni yasashiku dekinai hi ga arimasu."
+                key: "pregnantWoman",
+                name: "妊婦",
+                line: "普段の会話はできますが、医療の難しい日本語には自信がありません。",
+                target: "ふだんのかいわはできますが いりょうのむずかしいにほんごにはじしんがありません",
+                ruby: "<ruby>普段<rt>ふだん</rt></ruby>の<ruby>会話<rt>かいわ</rt></ruby>はできますが、<ruby>医療<rt>いりょう</rt></ruby>の<ruby>難<rt>むずか</rt></ruby>しい<ruby>日本語<rt>にほんご</rt></ruby>には<ruby>自信<rt>じしん</rt></ruby>がありません。",
+                romaji: "Fudan no kaiwa wa dekimasu ga, iryō no muzukashii Nihongo ni wa jishin ga arimasen."
             },
             {
                 label: "話者A",
-                key: "counselor",
-                name: "子育て相談員",
-                line: "正直に話してくださってありがとうございます。休む時間は少しでも取れていますか。",
-                target: "しょうじきにはなしてくださってありがとうございます やすむじかんはすこしでもとれていますか",
-                ruby: "<ruby>正直<rt>しょうじき</rt></ruby>に<ruby>話<rt>はな</rt></ruby>してくださってありがとうございます。<ruby>休<rt>やす</rt></ruby>む<ruby>時間<rt>じかん</rt></ruby>は<ruby>少<rt>すこ</rt></ruby>しでも<ruby>取<rt>と</rt></ruby>れていますか。",
-                romaji: "Shōjiki ni hanashite kudasatte arigatō gozaimasu. Yasumu jikan wa sukoshi demo torete imasu ka."
+                key: "hospitalStaff",
+                name: "病院職員",
+                line: "わかりました。特に説明がわかりにくいときは、遠慮なく伝えてください。",
+                target: "わかりました とくにせつめいがわかりにくいときは えんりょなくつたえてください",
+                ruby: "わかりました。<ruby>特<rt>とく</rt></ruby>に<ruby>説明<rt>せつめい</rt></ruby>がわかりにくいときは、<ruby>遠慮<rt>えんりょ</rt></ruby>なく<ruby>伝<rt>つた</rt></ruby>えてください。",
+                romaji: "Wakarimashita. Toku ni setsumei ga wakarinikui toki wa, enryo naku tsutaete kudasai."
             },
             {
                 label: "話者B",
-                key: "parent",
-                name: "保護者",
-                line: "子どもが寝たあとに家事をしているので、自分の時間がほとんどありません。",
-                target: "こどもがねたあとにかじをしているので じぶんのじかんがほとんどありません",
-                ruby: "<ruby>子<rt>こ</rt></ruby>どもが<ruby>寝<rt>ね</rt></ruby>たあとに<ruby>家事<rt>かじ</rt></ruby>をしているので、<ruby>自分<rt>じぶん</rt></ruby>の<ruby>時間<rt>じかん</rt></ruby>がほとんどありません。",
-                romaji: "Kodomo ga neta ato ni kaji o shite iru node, jibun no jikan ga hotondo arimasen."
+                key: "pregnantWoman",
+                name: "妊婦",
+                line: "大切な説明を聞き間違えるのが心配です。通訳を利用できる場合はありますか。",
+                target: "たいせつなせつめいをききまちがえるのがしんぱいです つうやくをりようできるばあいはありますか",
+                ruby: "<ruby>大切<rt>たいせつ</rt></ruby>な<ruby>説明<rt>せつめい</rt></ruby>を<ruby>聞<rt>き</rt></ruby>き<ruby>間違<rt>まちが</rt></ruby>えるのが<ruby>心配<rt>しんぱい</rt></ruby>です。<ruby>通訳<rt>つうやく</rt></ruby>を<ruby>利用<rt>りよう</rt></ruby>できる<ruby>場合<rt>ばあい</rt></ruby>はありますか。",
+                romaji: "Taisetsu na setsumei o kikimachigaeru no ga shinpai desu. Tsūyaku o riyō dekiru baai wa arimasu ka."
             },
             {
                 label: "話者A",
-                key: "counselor",
-                name: "子育て相談員",
-                line: "全部を完璧にしようとすると、心も体も休まりませんよね。",
-                target: "ぜんぶをかんぺきにしようとすると こころもからだもやすまりませんよね",
-                ruby: "<ruby>全部<rt>ぜんぶ</rt></ruby>を<ruby>完璧<rt>かんぺき</rt></ruby>にしようとすると、<ruby>心<rt>こころ</rt></ruby>も<ruby>体<rt>からだ</rt></ruby>も<ruby>休<rt>やす</rt></ruby>まりませんよね。",
-                romaji: "Zenbu o kanpeki ni shiyō to suru to, kokoro mo karada mo yasumarimasen yo ne."
+                key: "hospitalStaff",
+                name: "病院職員",
+                line: "対応方法は病院によって異なりますので、事前に利用できるサービスを確認しましょう。",
+                target: "たいおうほうほうはびょういんによってことなりますので じぜんにりようできるさーびすをかくにんしましょう",
+                ruby: "<ruby>対応方法<rt>たいおうほうほう</rt></ruby>は<ruby>病院<rt>びょういん</rt></ruby>によって<ruby>異<rt>こと</rt></ruby>なりますので、<ruby>事前<rt>じぜん</rt></ruby>に<ruby>利用<rt>りよう</rt></ruby>できるサービスを<ruby>確認<rt>かくにん</rt></ruby>しましょう。",
+                romaji: "Taiō hōhō wa byōin ni yotte kotonarimasu node, jizen ni riyō dekiru sābisu o kakunin shimashō."
             },
             {
                 label: "話者B",
-                key: "parent",
-                name: "保護者",
-                line: "でも、手を抜くと悪い親のように感じてしまいます。",
-                target: "でも てをぬくとわるいおやのようにかんじてしまいます",
-                ruby: "でも、<ruby>手<rt>て</rt></ruby>を<ruby>抜<rt>ぬ</rt></ruby>くと<ruby>悪<rt>わる</rt></ruby>い<ruby>親<rt>おや</rt></ruby>のように<ruby>感<rt>かん</rt></ruby>じてしまいます。",
-                romaji: "Demo, te o nuku to warui oya no yō ni kanjite shimaimasu."
+                key: "pregnantWoman",
+                name: "妊婦",
+                line: "説明を聞いたあと、自分の言葉で確認してもいいでしょうか。",
+                target: "せつめいをきいたあと じぶんのことばでかくにんしてもいいでしょうか",
+                ruby: "<ruby>説明<rt>せつめい</rt></ruby>を<ruby>聞<rt>き</rt></ruby>いたあと、<ruby>自分<rt>じぶん</rt></ruby>の<ruby>言葉<rt>ことば</rt></ruby>で<ruby>確認<rt>かくにん</rt></ruby>してもいいでしょうか。",
+                romaji: "Setsumei o kiita ato, jibun no kotoba de kakunin shite mo ii deshō ka."
             },
             {
                 label: "話者A",
-                key: "counselor",
-                name: "子育て相談員",
-                line: "休むことも子育ての一部です。頼れる人やサービスを一緒に探しましょう。",
-                target: "やすむこともこそだてのいちぶです たよれるひとやさーびすをいっしょにさがしましょう",
-                ruby: "<ruby>休<rt>やす</rt></ruby>むことも<ruby>子育<rt>こそだ</rt></ruby>ての<ruby>一部<rt>いちぶ</rt></ruby>です。<ruby>頼<rt>たよ</rt></ruby>れる<ruby>人<rt>ひと</rt></ruby>やサービスを<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>探<rt>さが</rt></ruby>しましょう。",
-                romaji: "Yasumu koto mo kosodate no ichibu desu. Tayoreru hito ya sābisu o issho ni sagashimashō."
+                key: "hospitalStaff",
+                name: "病院職員",
+                line: "もちろんです。大切な内容は、理解できたか一緒に確認しながら進めましょう。",
+                target: "もちろんです たいせつなないようは りかいできたかいっしょにかくにんしながらすすめましょう",
+                ruby: "もちろんです。<ruby>大切<rt>たいせつ</rt></ruby>な<ruby>内容<rt>ないよう</rt></ruby>は、<ruby>理解<rt>りかい</rt></ruby>できたか<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>確認<rt>かくにん</rt></ruby>しながら<ruby>進<rt>すす</rt></ruby>めましょう。",
+                romaji: "Mochiron desu. Taisetsu na naiyō wa, rikai dekita ka issho ni kakunin shinagara susumemashō."
             }
         ],
 
         {
             ja: [
-                "保護者：最近、疲れがたまっていて、子どもに優しくできない日があります。",
-                "子育て相談員：正直に話してくださってありがとうございます。休む時間は少しでも取れていますか。",
-                "保護者：子どもが寝たあとに家事をしているので、自分の時間がほとんどありません。",
-                "子育て相談員：全部を完璧にしようとすると、心も体も休まりませんよね。",
-                "保護者：でも、手を抜くと悪い親のように感じてしまいます。",
-                "子育て相談員：休むことも子育ての一部です。頼れる人やサービスを一緒に探しましょう。"
+                "妊婦：普段の会話はできますが、医療の難しい日本語には自信がありません。",
+                "病院職員：わかりました。特に説明がわかりにくいときは、遠慮なく伝えてください。",
+                "妊婦：大切な説明を聞き間違えるのが心配です。通訳を利用できる場合はありますか。",
+                "病院職員：対応方法は病院によって異なりますので、事前に利用できるサービスを確認しましょう。",
+                "妊婦：説明を聞いたあと、自分の言葉で確認してもいいでしょうか。",
+                "病院職員：もちろんです。大切な内容は、理解できたか一緒に確認しながら進めましょう。"
             ],
 
             en: [
-                "Parent: Recently, I have been very tired, and there are days when I cannot be gentle with my child.",
-                "Parenting Counselor: Thank you for speaking honestly. Are you able to get even a little time to rest?",
-                "Parent: After my child goes to sleep, I do housework, so I hardly have any time for myself.",
-                "Parenting Counselor: If you try to do everything perfectly, your mind and body cannot rest.",
-                "Parent: But when I do less, I feel like I am a bad parent.",
-                "Parenting Counselor: Resting is also part of parenting. Let us look together for people or services you can rely on."
+                "Pregnant Woman: I can manage everyday conversations, but I am not confident with difficult medical Japanese.",
+                "Hospital Staff: I understand. Please do not hesitate to tell us when an explanation is difficult to understand.",
+                "Pregnant Woman: I am worried that I might misunderstand important explanations. Is interpretation available in some cases?",
+                "Hospital Staff: Support methods differ by hospital, so let us check in advance what services are available.",
+                "Pregnant Woman: After hearing an explanation, may I confirm it again in my own words?",
+                "Hospital Staff: Of course. For important information, let us proceed while checking together that you have understood it."
             ],
 
             "zh-CN": [
-                "家长：最近很累，有些日子无法温柔地对待孩子。",
-                "育儿咨询员：谢谢您诚实地说出来。您有哪怕一点休息时间吗？",
-                "家长：孩子睡了以后我要做家务，所以几乎没有自己的时间。",
-                "育儿咨询员：如果想把所有事情都做得完美，身心都无法休息。",
-                "家长：但是如果少做一点，我就会觉得自己像个不好的父母。",
-                "育儿咨询员：休息也是育儿的一部分。我们一起寻找可以依靠的人和服务吧。"
+                "孕妇：日常会话没有问题，但是我对医疗方面的复杂日语没有信心。",
+                "医院工作人员：明白了。如果说明特别难懂，请不要客气，告诉我们。",
+                "孕妇：我担心自己听错重要的说明。有时可以使用口译服务吗？",
+                "医院工作人员：不同医院的应对方法不同，我们提前确认可以利用的服务吧。",
+                "孕妇：听完说明以后，我可以用自己的话再次确认吗？",
+                "医院工作人员：当然可以。重要的内容，我们一边确认您是否理解，一边进行。"
             ],
 
             "zh-TW": [
-                "家長：最近很累，有些日子無法溫柔地對待孩子。",
-                "育兒諮詢員：謝謝您誠實地說出來。您有哪怕一點休息時間嗎？",
-                "家長：孩子睡了以後我要做家務，所以幾乎沒有自己的時間。",
-                "育兒諮詢員：如果想把所有事情都做得完美，身心都無法休息。",
-                "家長：但是如果少做一點，我就會覺得自己像個不好的父母。",
-                "育兒諮詢員：休息也是育兒的一部分。我們一起尋找可以依靠的人和服務吧。"
+                "孕婦：日常會話沒有問題，但是我對醫療方面的複雜日語沒有信心。",
+                "醫院工作人員：明白了。如果說明特別難懂，請不要客氣，告訴我們。",
+                "孕婦：我擔心自己聽錯重要的說明。有時可以使用口譯服務嗎？",
+                "醫院工作人員：不同醫院的應對方法不同，我們提前確認可以利用的服務吧。",
+                "孕婦：聽完說明以後，我可以用自己的話再次確認嗎？",
+                "醫院工作人員：當然可以。重要的內容，我們一邊確認您是否理解，一邊進行。"
             ],
 
             ko: [
-                "보호자: 최근 피로가 쌓여서 아이에게 다정하게 대하지 못하는 날이 있습니다.",
-                "육아 상담원: 솔직하게 말씀해 주셔서 감사합니다. 조금이라도 쉴 시간은 있나요?",
-                "보호자: 아이가 잠든 뒤에 집안일을 해서 제 시간이 거의 없습니다.",
-                "육아 상담원: 모든 것을 완벽하게 하려고 하면 마음도 몸도 쉬지 못하지요.",
-                "보호자: 하지만 대충하면 나쁜 부모처럼 느껴집니다.",
-                "육아 상담원: 쉬는 것도 육아의 일부입니다. 의지할 수 있는 사람이나 서비스를 함께 찾아봅시다."
+                "임산부: 일상 대화는 할 수 있지만 어려운 의료 일본어에는 자신이 없습니다.",
+                "병원 직원: 알겠습니다. 특히 설명을 이해하기 어려울 때는 부담 없이 말씀해 주세요.",
+                "임산부: 중요한 설명을 잘못 들을까 봐 걱정됩니다. 통역을 이용할 수 있는 경우가 있나요?",
+                "병원 직원: 지원 방법은 병원마다 다르므로 미리 이용 가능한 서비스를 확인해 봅시다.",
+                "임산부: 설명을 들은 후 제 말로 다시 확인해도 될까요?",
+                "병원 직원: 물론입니다. 중요한 내용은 이해했는지 함께 확인하면서 진행합시다."
             ],
 
             vi: [
-                "Phụ huynh: Gần đây tôi rất mệt và có những ngày không thể dịu dàng với con.",
-                "Nhân viên tư vấn nuôi dạy trẻ: Cảm ơn bạn đã nói thật. Bạn có thể có dù chỉ một chút thời gian nghỉ ngơi không?",
-                "Phụ huynh: Sau khi con ngủ, tôi làm việc nhà nên hầu như không có thời gian cho bản thân.",
-                "Nhân viên tư vấn nuôi dạy trẻ: Nếu cố làm mọi thứ hoàn hảo, cả tinh thần và cơ thể đều không được nghỉ.",
-                "Phụ huynh: Nhưng nếu tôi làm bớt đi, tôi cảm thấy mình như một phụ huynh tệ.",
-                "Nhân viên tư vấn nuôi dạy trẻ: Nghỉ ngơi cũng là một phần của nuôi dạy con. Hãy cùng tìm người hoặc dịch vụ mà bạn có thể dựa vào."
+                "Thai phụ: Tôi có thể giao tiếp hằng ngày, nhưng không tự tin với tiếng Nhật y tế khó.",
+                "Nhân viên bệnh viện: Tôi hiểu. Khi phần giải thích khó hiểu, đừng ngại nói với chúng tôi.",
+                "Thai phụ: Tôi lo có thể nghe nhầm những giải thích quan trọng. Có trường hợp nào được sử dụng phiên dịch không?",
+                "Nhân viên bệnh viện: Cách hỗ trợ khác nhau tùy bệnh viện, nên chúng ta hãy kiểm tra trước những dịch vụ có thể sử dụng.",
+                "Thai phụ: Sau khi nghe giải thích, tôi có thể xác nhận lại bằng lời của mình không?",
+                "Nhân viên bệnh viện: Tất nhiên. Với nội dung quan trọng, chúng ta sẽ cùng xác nhận bạn đã hiểu trước khi tiếp tục."
             ]
         }
     ),
 
     // =====================================================
-    // 007 きょうだいへの対応を相談する
+    // 007 予定どおりにならない場合について相談する
     // =====================================================
 
-    makeB1ParentingConsultationDialogue(
-        "b1_parentingconsult_007",
-        "きょうだいへの対応を相談する",
+    makeB1ChildbirthConsultationDialogue(
+        "b1_childbirthconsult_007",
+        "予定どおりにならない場合について相談する",
 
         [
             {
                 label: "話者B",
-                key: "parent",
-                name: "保護者",
-                line: "下の子が生まれてから、上の子が甘えたり怒ったりすることが増えました。",
-                target: "したのこがうまれてから うえのこがあまえたりおこったりすることがふえました",
-                ruby: "<ruby>下<rt>した</rt></ruby>の<ruby>子<rt>こ</rt></ruby>が<ruby>生<rt>う</rt></ruby>まれてから、<ruby>上<rt>うえ</rt></ruby>の<ruby>子<rt>こ</rt></ruby>が<ruby>甘<rt>あま</rt></ruby>えたり<ruby>怒<rt>おこ</rt></ruby>ったりすることが<ruby>増<rt>ふ</rt></ruby>えました。",
-                romaji: "Shita no ko ga umarete kara, ue no ko ga amaetari okottari suru koto ga fuemashita."
+                key: "pregnantWoman",
+                name: "妊婦",
+                line: "出産が予定どおりに進まなかったらどうなるのか、それも心配しています。",
+                target: "しゅっさんがよていどおりにすすまなかったらどうなるのか それもしんぱいしています",
+                ruby: "<ruby>出産<rt>しゅっさん</rt></ruby>が<ruby>予定通<rt>よていどお</rt></ruby>りに<ruby>進<rt>すす</rt></ruby>まなかったらどうなるのか、それも<ruby>心配<rt>しんぱい</rt></ruby>しています。",
+                romaji: "Shussan ga yotei dōri ni susumanakattara dō naru no ka, sore mo shinpai shite imasu."
             },
             {
                 label: "話者A",
-                key: "counselor",
-                name: "子育て相談員",
-                line: "家族が増えて、上のお子さんも気持ちが揺れているのかもしれませんね。",
-                target: "かぞくがふえて うえのおこさんもきもちがゆれているのかもしれませんね",
-                ruby: "<ruby>家族<rt>かぞく</rt></ruby>が<ruby>増<rt>ふ</rt></ruby>えて、<ruby>上<rt>うえ</rt></ruby>のお<ruby>子<rt>こ</rt></ruby>さんも<ruby>気持<rt>きも</rt></ruby>ちが<ruby>揺<rt>ゆ</rt></ruby>れているのかもしれませんね。",
-                romaji: "Kazoku ga fuete, ue no okosan mo kimochi ga yurete iru no kamo shiremasen ne."
+                key: "doctor",
+                name: "医師",
+                line: "出産の経過は一人ひとり違うので、状況を確認しながら対応を考えていきます。",
+                target: "しゅっさんのけいかはひとりひとりちがうので じょうきょうをかくにんしながらたいおうをかんがえていきます",
+                ruby: "<ruby>出産<rt>しゅっさん</rt></ruby>の<ruby>経過<rt>けいか</rt></ruby>は<ruby>一人<rt>ひとり</rt></ruby>ひとり<ruby>違<rt>ちが</rt></ruby>うので、<ruby>状況<rt>じょうきょう</rt></ruby>を<ruby>確認<rt>かくにん</rt></ruby>しながら<ruby>対応<rt>たいおう</rt></ruby>を<ruby>考<rt>かんが</rt></ruby>えていきます。",
+                romaji: "Shussan no keika wa hitori hitori chigau node, jōkyō o kakunin shinagara taiō o kangaete ikimasu."
             },
             {
                 label: "話者B",
-                key: "parent",
-                name: "保護者",
-                line: "赤ちゃんのお世話で忙しく、上の子の話をゆっくり聞けていません。",
-                target: "あかちゃんのおせわでいそがしく うえのこのはなしをゆっくりきけていません",
-                ruby: "<ruby>赤<rt>あか</rt></ruby>ちゃんのお<ruby>世話<rt>せわ</rt></ruby>で<ruby>忙<rt>いそが</rt></ruby>しく、<ruby>上<rt>うえ</rt></ruby>の<ruby>子<rt>こ</rt></ruby>の<ruby>話<rt>はなし</rt></ruby>をゆっくり<ruby>聞<rt>き</rt></ruby>けていません。",
-                romaji: "Akachan no osewa de isogashiku, ue no ko no hanashi o yukkuri kikete imasen."
+                key: "pregnantWoman",
+                name: "妊婦",
+                line: "急に方法を変える必要がある場合は、説明を受けることができますか。",
+                target: "きゅうにほうほうをかえるひつようがあるばあいは せつめいをうけることができますか",
+                ruby: "<ruby>急<rt>きゅう</rt></ruby>に<ruby>方法<rt>ほうほう</rt></ruby>を<ruby>変<rt>か</rt></ruby>える<ruby>必要<rt>ひつよう</rt></ruby>がある<ruby>場合<rt>ばあい</rt></ruby>は、<ruby>説明<rt>せつめい</rt></ruby>を<ruby>受<rt>う</rt></ruby>けることができますか。",
+                romaji: "Kyū ni hōhō o kaeru hitsuyō ga aru baai wa, setsumei o ukeru koto ga dekimasu ka."
             },
             {
                 label: "話者A",
-                key: "counselor",
-                name: "子育て相談員",
-                line: "長い時間でなくても、上のお子さんだけを見る時間を少し作れるとよいです。",
-                target: "ながいじかんでなくても うえのおこさんだけをみるじかんをすこしつくれるとよいです",
-                ruby: "<ruby>長<rt>なが</rt></ruby>い<ruby>時間<rt>じかん</rt></ruby>でなくても、<ruby>上<rt>うえ</rt></ruby>のお<ruby>子<rt>こ</rt></ruby>さんだけを<ruby>見<rt>み</rt></ruby>る<ruby>時間<rt>じかん</rt></ruby>を<ruby>少<rt>すこ</rt></ruby>し<ruby>作<rt>つく</rt></ruby>れるとよいです。",
-                romaji: "Nagai jikan de nakute mo, ue no okosan dake o miru jikan o sukoshi tsukureru to yoi desu."
+                key: "doctor",
+                name: "医師",
+                line: "状況に応じて、必要なことや理由をできるだけわかりやすく説明します。",
+                target: "じょうきょうにおうじて ひつようなことやりゆうをできるだけわかりやすくせつめいします",
+                ruby: "<ruby>状況<rt>じょうきょう</rt></ruby>に<ruby>応<rt>おう</rt></ruby>じて、<ruby>必要<rt>ひつよう</rt></ruby>なことや<ruby>理由<rt>りゆう</rt></ruby>をできるだけわかりやすく<ruby>説明<rt>せつめい</rt></ruby>します。",
+                romaji: "Jōkyō ni ōjite, hitsuyō na koto ya riyū o dekiru dake wakariyasuku setsumei shimasu."
             },
             {
                 label: "話者B",
-                key: "parent",
-                name: "保護者",
-                line: "一日に十分だけでも、一緒に遊ぶ時間を作ってみます。",
-                target: "いちにちにじゅっぷんだけでも いっしょにあそぶじかんをつくってみます",
-                ruby: "<ruby>一日<rt>いちにち</rt></ruby>に<ruby>十分<rt>じゅっぷん</rt></ruby>だけでも、<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>遊<rt>あそ</rt></ruby>ぶ<ruby>時間<rt>じかん</rt></ruby>を<ruby>作<rt>つく</rt></ruby>ってみます。",
-                romaji: "Ichinichi ni juppun dake demo, issho ni asobu jikan o tsukutte mimasu."
+                key: "pregnantWoman",
+                name: "妊婦",
+                line: "自分が慌てて質問できない場合に備えて、パートナーとも希望を共有しておきます。",
+                target: "じぶんがあわててしつもんできないばあいにそなえて ぱーとなーともきぼうをきょうゆうしておきます",
+                ruby: "<ruby>自分<rt>じぶん</rt></ruby>が<ruby>慌<rt>あわ</rt></ruby>てて<ruby>質問<rt>しつもん</rt></ruby>できない<ruby>場合<rt>ばあい</rt></ruby>に<ruby>備<rt>そな</rt></ruby>えて、パートナーとも<ruby>希望<rt>きぼう</rt></ruby>を<ruby>共有<rt>きょうゆう</rt></ruby>しておきます。",
+                romaji: "Jibun ga awatete shitsumon dekinai baai ni sonaete, pātonā to mo kibō o kyōyū shite okimasu."
             },
             {
                 label: "話者A",
-                key: "counselor",
-                name: "子育て相談員",
-                line: "いいですね。完璧にしようとせず、できることから少しずつ始めましょう。",
-                target: "いいですね かんぺきにしようとせず できることからすこしずつはじめましょう",
-                ruby: "いいですね。<ruby>完璧<rt>かんぺき</rt></ruby>にしようとせず、できることから<ruby>少<rt>すこ</rt></ruby>しずつ<ruby>始<rt>はじ</rt></ruby>めましょう。",
-                romaji: "Ii desu ne. Kanpeki ni shiyō to sezu, dekiru koto kara sukoshizutsu hajimemashō."
+                key: "doctor",
+                name: "医師",
+                line: "それはよい準備ですね。気になることは事前に書いておく方法もあります。",
+                target: "それはよいじゅんびですね きになることはじぜんにかいておくほうほうもあります",
+                ruby: "それはよい<ruby>準備<rt>じゅんび</rt></ruby>ですね。<ruby>気<rt>き</rt></ruby>になることは<ruby>事前<rt>じぜん</rt></ruby>に<ruby>書<rt>か</rt></ruby>いておく<ruby>方法<rt>ほうほう</rt></ruby>もあります。",
+                romaji: "Sore wa yoi junbi desu ne. Ki ni naru koto wa jizen ni kaite oku hōhō mo arimasu."
             }
         ],
 
         {
             ja: [
-                "保護者：下の子が生まれてから、上の子が甘えたり怒ったりすることが増えました。",
-                "子育て相談員：家族が増えて、上のお子さんも気持ちが揺れているのかもしれませんね。",
-                "保護者：赤ちゃんのお世話で忙しく、上の子の話をゆっくり聞けていません。",
-                "子育て相談員：長い時間でなくても、上のお子さんだけを見る時間を少し作れるとよいです。",
-                "保護者：一日に十分だけでも、一緒に遊ぶ時間を作ってみます。",
-                "子育て相談員：いいですね。完璧にしようとせず、できることから少しずつ始めましょう。"
+                "妊婦：出産が予定どおりに進まなかったらどうなるのか、それも心配しています。",
+                "医師：出産の経過は一人ひとり違うので、状況を確認しながら対応を考えていきます。",
+                "妊婦：急に方法を変える必要がある場合は、説明を受けることができますか。",
+                "医師：状況に応じて、必要なことや理由をできるだけわかりやすく説明します。",
+                "妊婦：自分が慌てて質問できない場合に備えて、パートナーとも希望を共有しておきます。",
+                "医師：それはよい準備ですね。気になることは事前に書いておく方法もあります。"
             ],
 
             en: [
-                "Parent: Since the younger child was born, my older child has become more clingy and gets angry more often.",
-                "Parenting Counselor: With a new family member, your older child's feelings may be unsettled.",
-                "Parent: I am busy caring for the baby, so I have not been able to listen carefully to my older child.",
-                "Parenting Counselor: Even if it is not a long time, it can help to make a little time just for your older child.",
-                "Parent: I will try to make time to play together, even just ten minutes a day.",
-                "Parenting Counselor: That sounds good. Do not try to be perfect; start little by little with what you can do."
+                "Pregnant Woman: I am also worried about what will happen if the birth does not go according to plan.",
+                "Doctor: The progress of childbirth differs from person to person, so we consider the appropriate response while checking the situation.",
+                "Pregnant Woman: If the plan suddenly needs to change, will I receive an explanation?",
+                "Doctor: Depending on the situation, we will explain what is necessary and why as clearly as possible.",
+                "Pregnant Woman: In case I am too overwhelmed to ask questions, I will share my preferences with my partner in advance.",
+                "Doctor: That is good preparation. You can also write down your questions and concerns beforehand."
             ],
 
             "zh-CN": [
-                "家长：自从小的孩子出生后，大的孩子变得更爱撒娇，也更容易生气。",
-                "育儿咨询员：家庭成员增加了，老大的心情也许也在摇摆。",
-                "家长：因为照顾宝宝很忙，所以没有好好听老大的话。",
-                "育儿咨询员：即使时间不长，也可以稍微创造只关注老大的时间。",
-                "家长：哪怕一天只有十分钟，我也试着安排一起玩的时间。",
-                "育儿咨询员：很好。不要追求完美，从能做的事情一点一点开始吧。"
+                "孕妇：我也担心如果分娩没有按照计划进行会怎么样。",
+                "医生：每个人的分娩过程都不同，我们会一边确认情况，一边考虑相应的应对方式。",
+                "孕妇：如果突然需要改变方法，我可以得到说明吗？",
+                "医生：我们会根据情况，尽可能清楚地说明需要做什么以及原因。",
+                "孕妇：为了防止自己慌张得无法提问，我会提前和伴侣共享自己的希望。",
+                "医生：这是很好的准备。也可以事先把担心的问题写下来。"
             ],
 
             "zh-TW": [
-                "家長：自從小的孩子出生後，大的孩子變得更愛撒嬌，也更容易生氣。",
-                "育兒諮詢員：家庭成員增加了，老大的心情也許也在搖擺。",
-                "家長：因為照顧寶寶很忙，所以沒有好好聽老大的話。",
-                "育兒諮詢員：即使時間不長，也可以稍微創造只關注老大的時間。",
-                "家長：哪怕一天只有十分鐘，我也試著安排一起玩的時間。",
-                "育兒諮詢員：很好。不要追求完美，從能做的事情一點一點開始吧。"
+                "孕婦：我也擔心如果分娩沒有按照計畫進行會怎麼樣。",
+                "醫師：每個人的分娩過程都不同，我們會一邊確認情況，一邊考慮相應的應對方式。",
+                "孕婦：如果突然需要改變方法，我可以得到說明嗎？",
+                "醫師：我們會根據情況，盡可能清楚地說明需要做什麼以及原因。",
+                "孕婦：為了防止自己慌張得無法提問，我會提前和伴侶共享自己的希望。",
+                "醫師：這是很好的準備。也可以事先把擔心的問題寫下來。"
             ],
 
             ko: [
-                "보호자: 둘째가 태어난 후 첫째가 더 응석을 부리거나 화를 내는 일이 늘었습니다.",
-                "육아 상담원: 가족이 늘어나면서 첫째 아이도 마음이 흔들리고 있을 수 있습니다.",
-                "보호자: 아기 돌보느라 바빠서 첫째의 이야기를 천천히 들어 주지 못하고 있습니다.",
-                "육아 상담원: 긴 시간이 아니어도 첫째 아이만 바라보는 시간을 조금 만들 수 있으면 좋습니다.",
-                "보호자: 하루에 10분만이라도 함께 노는 시간을 만들어 보겠습니다.",
-                "육아 상담원: 좋습니다. 완벽하게 하려고 하지 말고 할 수 있는 것부터 조금씩 시작합시다."
+                "임산부: 출산이 계획대로 진행되지 않으면 어떻게 되는지도 걱정됩니다.",
+                "의사: 출산 과정은 사람마다 다르기 때문에 상황을 확인하면서 대응 방법을 생각합니다.",
+                "임산부: 갑자기 방법을 바꿔야 할 경우 설명을 들을 수 있나요?",
+                "의사: 상황에 따라 필요한 일과 이유를 가능한 한 이해하기 쉽게 설명하겠습니다.",
+                "임산부: 제가 당황해서 질문하지 못할 경우를 대비해 파트너와도 제 희망을 공유해 두겠습니다.",
+                "의사: 좋은 준비입니다. 궁금한 점을 미리 적어 두는 방법도 있습니다."
             ],
 
             vi: [
-                "Phụ huynh: Từ khi em bé ra đời, con lớn của tôi hay bám mẹ hơn và cũng dễ tức giận hơn.",
-                "Nhân viên tư vấn nuôi dạy trẻ: Khi gia đình có thêm thành viên, cảm xúc của con lớn cũng có thể dao động.",
-                "Phụ huynh: Vì bận chăm em bé nên tôi chưa thể lắng nghe con lớn một cách chậm rãi.",
-                "Nhân viên tư vấn nuôi dạy trẻ: Dù không dài, việc tạo một chút thời gian chỉ dành cho con lớn cũng rất tốt.",
-                "Phụ huynh: Tôi sẽ thử tạo thời gian chơi cùng con, dù chỉ mười phút mỗi ngày.",
-                "Nhân viên tư vấn nuôi dạy trẻ: Tốt lắm. Đừng cố hoàn hảo, hãy bắt đầu từng chút từ những gì có thể làm."
+                "Thai phụ: Tôi cũng lo không biết chuyện gì sẽ xảy ra nếu việc sinh con không diễn ra theo kế hoạch.",
+                "Bác sĩ: Quá trình sinh của mỗi người khác nhau, nên chúng tôi sẽ xem xét cách xử lý trong khi theo dõi tình hình.",
+                "Thai phụ: Nếu đột nhiên cần thay đổi phương pháp, tôi có được giải thích không?",
+                "Bác sĩ: Tùy tình hình, chúng tôi sẽ giải thích những gì cần thiết và lý do một cách dễ hiểu nhất có thể.",
+                "Thai phụ: Để phòng trường hợp tôi quá hoảng nên không thể đặt câu hỏi, tôi sẽ chia sẻ mong muốn của mình với bạn đời trước.",
+                "Bác sĩ: Đó là sự chuẩn bị tốt. Bạn cũng có thể viết trước những điều mình lo lắng."
             ]
         }
     ),
 
     // =====================================================
-    // 008 継続して相談する方法を確認する
+    // 008 出産後の生活への不安を相談する
     // =====================================================
 
-    makeB1ParentingConsultationDialogue(
-        "b1_parentingconsult_008",
-        "継続して相談する方法を確認する",
+    makeB1ChildbirthConsultationDialogue(
+        "b1_childbirthconsult_008",
+        "出産後の生活への不安を相談する",
 
         [
             {
                 label: "話者B",
-                key: "parent",
-                name: "保護者",
-                line: "今日相談して少し安心しましたが、また困ったときに相談できますか。",
-                target: "きょうそうだんしてすこしあんしんしましたが またこまったときにそうだんできますか",
-                ruby: "<ruby>今日<rt>きょう</rt></ruby><ruby>相談<rt>そうだん</rt></ruby>して<ruby>少<rt>すこ</rt></ruby>し<ruby>安心<rt>あんしん</rt></ruby>しましたが、また<ruby>困<rt>こま</rt></ruby>ったときに<ruby>相談<rt>そうだん</rt></ruby>できますか。",
-                romaji: "Kyō sōdan shite sukoshi anshin shimashita ga, mata komatta toki ni sōdan dekimasu ka."
+                key: "pregnantWoman",
+                name: "妊婦",
+                line: "出産そのものだけでなく、赤ちゃんとの生活が始まったあとのことも不安です。",
+                target: "しゅっさんそのものだけでなく あかちゃんとのせいかつがはじまったあとのこともふあんです",
+                ruby: "<ruby>出産<rt>しゅっさん</rt></ruby>そのものだけでなく、<ruby>赤<rt>あか</rt></ruby>ちゃんとの<ruby>生活<rt>せいかつ</rt></ruby>が<ruby>始<rt>はじ</rt></ruby>まったあとのことも<ruby>不安<rt>ふあん</rt></ruby>です。",
+                romaji: "Shussan sono mono dake de naku, akachan to no seikatsu ga hajimatta ato no koto mo fuan desu."
             },
             {
                 label: "話者A",
-                key: "counselor",
-                name: "子育て相談員",
-                line: "もちろんです。一回で解決しようとせず、必要なときに何度でも相談してください。",
-                target: "もちろんです いっかいでかいけつしようとせず ひつようなときになんどでもそうだんしてください",
-                ruby: "もちろんです。<ruby>一回<rt>いっかい</rt></ruby>で<ruby>解決<rt>かいけつ</rt></ruby>しようとせず、<ruby>必要<rt>ひつよう</rt></ruby>なときに<ruby>何度<rt>なんど</rt></ruby>でも<ruby>相談<rt>そうだん</rt></ruby>してください。",
-                romaji: "Mochiron desu. Ikkai de kaiketsu shiyō to sezu, hitsuyō na toki ni nando demo sōdan shite kudasai."
+                key: "midwife",
+                name: "助産師",
+                line: "特にどのようなことを心配していますか。今のうちから一緒に整理してみましょう。",
+                target: "とくにどのようなことをしんぱいしていますか いまのうちからいっしょにせいりしてみましょう",
+                ruby: "<ruby>特<rt>とく</rt></ruby>にどのようなことを<ruby>心配<rt>しんぱい</rt></ruby>していますか。<ruby>今<rt>いま</rt></ruby>のうちから<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>整理<rt>せいり</rt></ruby>してみましょう。",
+                romaji: "Toku ni dono yō na koto o shinpai shite imasu ka. Ima no uchi kara issho ni seiri shite mimashō."
             },
             {
                 label: "話者B",
-                key: "parent",
-                name: "保護者",
-                line: "次に相談するときは、予約が必要でしょうか。",
-                target: "つぎにそうだんするときは よやくがひつようでしょうか",
-                ruby: "<ruby>次<rt>つぎ</rt></ruby>に<ruby>相談<rt>そうだん</rt></ruby>するときは、<ruby>予約<rt>よやく</rt></ruby>が<ruby>必要<rt>ひつよう</rt></ruby>でしょうか。",
-                romaji: "Tsugi ni sōdan suru toki wa, yoyaku ga hitsuyō deshō ka."
+                key: "pregnantWoman",
+                name: "妊婦",
+                line: "近くに家族がいないので、一人で全部できるかどうか心配しています。",
+                target: "ちかくにかぞくがいないので ひとりでぜんぶできるかどうかしんぱいしています",
+                ruby: "<ruby>近<rt>ちか</rt></ruby>くに<ruby>家族<rt>かぞく</rt></ruby>がいないので、<ruby>一人<rt>ひとり</rt></ruby>で<ruby>全部<rt>ぜんぶ</rt></ruby>できるかどうか<ruby>心配<rt>しんぱい</rt></ruby>しています。",
+                romaji: "Chikaku ni kazoku ga inai node, hitori de zenbu dekiru ka dō ka shinpai shite imasu."
             },
             {
                 label: "話者A",
-                key: "counselor",
-                name: "子育て相談員",
-                line: "相談内容や窓口によって違いますので、利用しやすい方法を一緒に確認しましょう。",
-                target: "そうだんないようやまどぐちによってちがいますので りようしやすいほうほうをいっしょにかくにんしましょう",
-                ruby: "<ruby>相談内容<rt>そうだんないよう</rt></ruby>や<ruby>窓口<rt>まどぐち</rt></ruby>によって<ruby>違<rt>ちが</rt></ruby>いますので、<ruby>利用<rt>りよう</rt></ruby>しやすい<ruby>方法<rt>ほうほう</rt></ruby>を<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>確認<rt>かくにん</rt></ruby>しましょう。",
-                romaji: "Sōdan naiyō ya madoguchi ni yotte chigaimasu node, riyō shiyasui hōhō o issho ni kakunin shimashō."
+                key: "midwife",
+                name: "助産師",
+                line: "家族だけで抱え込まず、病院や自治体など、相談できる場所を事前に確認しておきましょう。",
+                target: "かぞくだけでかかえこまず びょういんやじちたいなど そうだんできるばしょをじぜんにかくにんしておきましょう",
+                ruby: "<ruby>家族<rt>かぞく</rt></ruby>だけで<ruby>抱<rt>かか</rt></ruby>え<ruby>込<rt>こ</rt></ruby>まず、<ruby>病院<rt>びょういん</rt></ruby>や<ruby>自治体<rt>じちたい</rt></ruby>など、<ruby>相談<rt>そうだん</rt></ruby>できる<ruby>場所<rt>ばしょ</rt></ruby>を<ruby>事前<rt>じぜん</rt></ruby>に<ruby>確認<rt>かくにん</rt></ruby>しておきましょう。",
+                romaji: "Kazoku dake de kakaekomazu, byōin ya jichitai nado, sōdan dekiru basho o jizen ni kakunin shite okimashō."
             },
             {
                 label: "話者B",
-                key: "parent",
-                name: "保護者",
-                line: "電話よりも、できれば直接話せる場所があると助かります。",
-                target: "でんわよりも できればちょくせつはなせるばしょがあるとたすかります",
-                ruby: "<ruby>電話<rt>でんわ</rt></ruby>よりも、できれば<ruby>直接<rt>ちょくせつ</rt></ruby><ruby>話<rt>はな</rt></ruby>せる<ruby>場所<rt>ばしょ</rt></ruby>があると<ruby>助<rt>たす</rt></ruby>かります。",
-                romaji: "Denwa yori mo, dekireba chokusetsu hanaseru basho ga aru to tasukarimasu."
+                key: "pregnantWoman",
+                name: "妊婦",
+                line: "困ってから探すのではなく、今のうちに連絡先をまとめておきたいです。",
+                target: "こまってからさがすのではなく いまのうちにれんらくさきをまとめておきたいです",
+                ruby: "<ruby>困<rt>こま</rt></ruby>ってから<ruby>探<rt>さが</rt></ruby>すのではなく、<ruby>今<rt>いま</rt></ruby>のうちに<ruby>連絡先<rt>れんらくさき</rt></ruby>をまとめておきたいです。",
+                romaji: "Komatte kara sagasu no de wa naku, ima no uchi ni renrakusaki o matomete okitai desu."
             },
             {
                 label: "話者A",
-                key: "counselor",
-                name: "子育て相談員",
-                line: "わかりました。近くの相談場所と利用できる時間を確認して、無理なく続けられる形を考えましょう。",
-                target: "わかりました ちかくのそうだんばしょとりようできるじかんをかくにんして むりなくつづけられるかたちをかんがえましょう",
-                ruby: "わかりました。<ruby>近<rt>ちか</rt></ruby>くの<ruby>相談場所<rt>そうだんばしょ</rt></ruby>と<ruby>利用<rt>りよう</rt></ruby>できる<ruby>時間<rt>じかん</rt></ruby>を<ruby>確認<rt>かくにん</rt></ruby>して、<ruby>無理<rt>むり</rt></ruby>なく<ruby>続<rt>つづ</rt></ruby>けられる<ruby>形<rt>かたち</rt></ruby>を<ruby>考<rt>かんが</rt></ruby>えましょう。",
-                romaji: "Wakarimashita. Chikaku no sōdan basho to riyō dekiru jikan o kakunin shite, muri naku tsuzukerareru katachi o kangaemashō."
+                key: "midwife",
+                name: "助産師",
+                line: "いいですね。不安や困りごとを一人で我慢せず、早めに相談することも大切です。",
+                target: "いいですね ふあんやこまりごとをひとりでがまんせず はやめにそうだんすることもたいせつです",
+                ruby: "いいですね。<ruby>不安<rt>ふあん</rt></ruby>や<ruby>困<rt>こま</rt></ruby>りごとを<ruby>一人<rt>ひとり</rt></ruby>で<ruby>我慢<rt>がまん</rt></ruby>せず、<ruby>早<rt>はや</rt></ruby>めに<ruby>相談<rt>そうだん</rt></ruby>することも<ruby>大切<rt>たいせつ</rt></ruby>です。",
+                romaji: "Ii desu ne. Fuan ya komarigoto o hitori de gaman sezu, hayame ni sōdan suru koto mo taisetsu desu."
             }
         ],
 
         {
             ja: [
-                "保護者：今日相談して少し安心しましたが、また困ったときに相談できますか。",
-                "子育て相談員：もちろんです。一回で解決しようとせず、必要なときに何度でも相談してください。",
-                "保護者：次に相談するときは、予約が必要でしょうか。",
-                "子育て相談員：相談内容や窓口によって違いますので、利用しやすい方法を一緒に確認しましょう。",
-                "保護者：電話よりも、できれば直接話せる場所があると助かります。",
-                "子育て相談員：わかりました。近くの相談場所と利用できる時間を確認して、無理なく続けられる形を考えましょう。"
+                "妊婦：出産そのものだけでなく、赤ちゃんとの生活が始まったあとのことも不安です。",
+                "助産師：特にどのようなことを心配していますか。今のうちから一緒に整理してみましょう。",
+                "妊婦：近くに家族がいないので、一人で全部できるかどうか心配しています。",
+                "助産師：家族だけで抱え込まず、病院や自治体など、相談できる場所を事前に確認しておきましょう。",
+                "妊婦：困ってから探すのではなく、今のうちに連絡先をまとめておきたいです。",
+                "助産師：いいですね。不安や困りごとを一人で我慢せず、早めに相談することも大切です。"
             ],
 
             en: [
-                "Parent: Talking today made me feel a little relieved. Can I consult again when I have trouble?",
-                "Parenting Counselor: Of course. Do not try to solve everything in one session; please consult as many times as needed.",
-                "Parent: Do I need a reservation the next time I want to consult?",
-                "Parenting Counselor: It depends on the content and the consultation desk, so let us check a convenient method together.",
-                "Parent: Rather than by phone, it would help if there were a place where I could talk in person.",
-                "Parenting Counselor: I understand. Let us check nearby consultation places and available times, and think about a way you can continue without difficulty."
+                "Pregnant Woman: I am worried not only about childbirth itself, but also about life after I start living with the baby.",
+                "Midwife: What are you especially worried about? Let us organize your concerns together now.",
+                "Pregnant Woman: My family does not live nearby, so I am worried about whether I can manage everything alone.",
+                "Midwife: Rather than trying to handle everything only within the family, let us check in advance where you can ask for help, such as the hospital or local government.",
+                "Pregnant Woman: Instead of searching only after I have a problem, I would like to organize the contact information now.",
+                "Midwife: Good. It is also important not to keep worries and difficulties to yourself and to ask for help early."
             ],
 
             "zh-CN": [
-                "家长：今天咨询后我稍微安心了。以后遇到困难时还可以再咨询吗？",
-                "育儿咨询员：当然可以。不需要一次就解决所有问题，有需要时请随时多次咨询。",
-                "家长：下次咨询时需要预约吗？",
-                "育儿咨询员：根据咨询内容和窗口不同会有所不同，我们一起确认方便使用的方法吧。",
-                "家长：比起电话，如果有可以直接面对面说话的地方会更有帮助。",
-                "育儿咨询员：明白了。我们确认附近的咨询地点和可利用时间，一起想一个可以不勉强持续下去的方法。"
+                "孕妇：我不仅担心分娩本身，也担心孩子出生以后开始的生活。",
+                "助产士：您特别担心什么呢？我们现在就一起整理一下吧。",
+                "孕妇：我的家人不住在附近，所以我担心自己一个人能不能做所有事情。",
+                "助产士：不要只由家庭承担所有问题，提前确认医院、自治体等可以咨询的地方吧。",
+                "孕妇：我不想等遇到困难后才寻找，希望现在就整理好联系方式。",
+                "助产士：很好。不要一个人忍耐不安和困难，尽早咨询也很重要。"
             ],
 
             "zh-TW": [
-                "家長：今天諮詢後我稍微安心了。以後遇到困難時還可以再諮詢嗎？",
-                "育兒諮詢員：當然可以。不需要一次就解決所有問題，有需要時請隨時多次諮詢。",
-                "家長：下次諮詢時需要預約嗎？",
-                "育兒諮詢員：根據諮詢內容和窗口不同會有所不同，我們一起確認方便使用的方法吧。",
-                "家長：比起電話，如果有可以直接面對面說話的地方會更有幫助。",
-                "育兒諮詢員：明白了。我們確認附近的諮詢地點和可利用時間，一起想一個可以不勉強持續下去的方法。"
+                "孕婦：我不僅擔心分娩本身，也擔心孩子出生以後開始的生活。",
+                "助產師：您特別擔心什麼呢？我們現在就一起整理一下吧。",
+                "孕婦：我的家人不住在附近，所以我擔心自己一個人能不能做所有事情。",
+                "助產師：不要只由家庭承擔所有問題，提前確認醫院、自治體等可以諮詢的地方吧。",
+                "孕婦：我不想等遇到困難後才尋找，希望現在就整理好聯絡方式。",
+                "助產師：很好。不要一個人忍耐不安和困難，儘早諮詢也很重要。"
             ],
 
             ko: [
-                "보호자: 오늘 상담해서 조금 안심이 되었습니다. 또 어려울 때 상담할 수 있나요?",
-                "육아 상담원: 물론입니다. 한 번에 해결하려고 하지 말고 필요할 때 몇 번이든 상담해 주세요.",
-                "보호자: 다음에 상담할 때는 예약이 필요한가요?",
-                "육아 상담원: 상담 내용이나 창구에 따라 다르므로 이용하기 쉬운 방법을 함께 확인해 봅시다.",
-                "보호자: 전화보다 가능하면 직접 이야기할 수 있는 장소가 있으면 도움이 됩니다.",
-                "육아 상담원: 알겠습니다. 가까운 상담 장소와 이용 가능한 시간을 확인해서 무리 없이 계속할 수 있는 방법을 생각해 봅시다."
+                "임산부: 출산 자체뿐 아니라 아기와의 생활이 시작된 후의 일도 불안합니다.",
+                "조산사: 특히 어떤 점이 걱정되나요? 지금부터 함께 정리해 봅시다.",
+                "임산부: 가까이에 가족이 없어서 혼자서 모든 것을 할 수 있을지 걱정됩니다.",
+                "조산사: 가족끼리만 모든 것을 떠안지 말고 병원이나 지자체 등 상담할 수 있는 곳을 미리 확인해 둡시다.",
+                "임산부: 곤란해진 후에 찾기보다 지금 연락처를 정리해 두고 싶습니다.",
+                "조산사: 좋습니다. 불안이나 어려움을 혼자 참지 말고 일찍 상담하는 것도 중요합니다."
             ],
 
             vi: [
-                "Phụ huynh: Sau khi được tư vấn hôm nay, tôi thấy yên tâm hơn một chút. Khi gặp khó khăn tôi có thể tư vấn lại không?",
-                "Nhân viên tư vấn nuôi dạy trẻ: Tất nhiên. Đừng cố giải quyết mọi thứ chỉ trong một lần; khi cần, hãy tư vấn bao nhiêu lần cũng được.",
-                "Phụ huynh: Lần sau khi tư vấn, tôi có cần đặt trước không?",
-                "Nhân viên tư vấn nuôi dạy trẻ: Tùy nội dung tư vấn và nơi tiếp nhận, nên chúng ta hãy cùng kiểm tra cách thuận tiện nhất.",
-                "Phụ huynh: Nếu có nơi có thể nói chuyện trực tiếp thay vì qua điện thoại thì sẽ giúp tôi nhiều hơn.",
-                "Nhân viên tư vấn nuôi dạy trẻ: Tôi hiểu. Chúng ta hãy kiểm tra địa điểm tư vấn gần nhà và thời gian sử dụng, rồi tìm cách có thể tiếp tục mà không quá sức."
+                "Thai phụ: Tôi không chỉ lo về việc sinh con mà còn lo về cuộc sống sau khi bắt đầu sống cùng em bé.",
+                "Nữ hộ sinh: Bạn đặc biệt lo điều gì? Chúng ta hãy cùng sắp xếp những lo lắng ngay từ bây giờ.",
+                "Thai phụ: Gia đình tôi không sống gần đây nên tôi lo liệu mình có thể tự làm mọi việc hay không.",
+                "Nữ hộ sinh: Đừng để gia đình tự gánh mọi việc. Hãy xác nhận trước những nơi có thể xin tư vấn như bệnh viện hoặc chính quyền địa phương.",
+                "Thai phụ: Thay vì đợi đến khi gặp khó khăn mới tìm, tôi muốn tổng hợp sẵn thông tin liên lạc từ bây giờ.",
+                "Nữ hộ sinh: Tốt lắm. Điều quan trọng là không chịu đựng lo lắng và khó khăn một mình mà nên xin tư vấn sớm."
             ]
         }
     )
