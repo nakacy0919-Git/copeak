@@ -580,7 +580,7 @@ function setupSpeechRecognition() {
     if (!window.SpeechRecognition) {
         micBtn.disabled = true;
         micBtn.innerHTML = 'このブラウザでは音声認識が使えません';
-        micBtn.className = 'flex-1 w-full py-4 bg-stone-400 text-white rounded-sm font-bold text-base';
+        micBtn.className = 'flex-1 w-full py-4 bg-stone-400 text-white rounded-sm font-bold text-base whitespace-nowrap';
         if (voiceOutput) voiceOutput.innerHTML = 'Google Chromeで開いてください。';
         return;
     }
@@ -601,8 +601,9 @@ function setupSpeechRecognition() {
         hasCelebrated = false;
         finalTranscriptText = '';
 
-        micBtn.innerHTML = '<span>⏹</span> 停止 (Stop)';
-        micBtn.className = 'flex-1 w-full flex items-center justify-center gap-3 py-4 bg-stone-700 hover:bg-stone-800 text-white rounded-sm font-black text-xl shadow-inner tracking-widest';
+        // 🌟 修正：録音中ボタンにスマホ用サイズと「改行禁止(whitespace-nowrap)」を追加
+        micBtn.innerHTML = '<span class="text-lg md:text-2xl">⏹</span> 停止 (Stop)';
+        micBtn.className = 'flex-1 w-full flex items-center justify-center gap-1.5 md:gap-3 py-2.5 md:py-4 bg-stone-700 hover:bg-stone-800 text-white rounded-sm font-black text-base md:text-xl shadow-inner tracking-widest whitespace-nowrap';
 
         if (voiceOutput) voiceOutput.innerHTML = '<span class="text-stone-400 text-base">聞いています...</span>';
         if (accOutput) {
@@ -685,8 +686,9 @@ function calculateCurrentLessonAccuracy(spokenText) {
 
 function resetMicButton(btn) {
     if (!btn) return;
-    btn.innerHTML = '<span>🎙</span> 話す (Start Speaking)';
-    btn.className = 'flex-1 w-full flex items-center justify-center gap-3 py-4 bg-[#b91c1c] hover:bg-[#991b1b] text-white rounded-sm font-black text-xl shadow-md border-b-4 border-[#7f1d1d] active:border-b-0 active:translate-y-1 transition-all tracking-widest';
+    // 🌟 修正：元に戻る時もスマホ用サイズと「改行禁止(whitespace-nowrap)」を適用
+    btn.innerHTML = '<span class="text-lg md:text-2xl">🎙</span> 話す (Start)';
+    btn.className = 'flex-1 w-full flex items-center justify-center gap-1.5 md:gap-3 py-2.5 md:py-4 bg-[#b91c1c] hover:bg-[#991b1b] text-white rounded-sm font-black text-base md:text-xl shadow-md border-b-[3px] md:border-b-4 border-[#7f1d1d] active:border-b-0 active:translate-y-1 transition-all tracking-widest whitespace-nowrap';
 }
 
 function normalizeJapaneseText(text, rubyHtml) {
