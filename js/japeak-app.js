@@ -470,22 +470,27 @@ function addTransLine(container, text, index) {
 function createDialogueLineBlock(turn, index, mainTextHtml, subText, isJapaneseMode) {
     const block = document.createElement('div');
     const speakerName = getSpeakerDisplayName(turn, index);
+    
+    // PCは従来通り、スマホ時のみ文字サイズをやや小さく
     const mainTextClass = isJapaneseMode
-        ? 'text-3xl md:text-4xl leading-[1.9] text-stone-800 font-bold mincho-font'
-        : 'text-2xl md:text-3xl leading-[1.8] text-stone-800 font-bold';
+        ? 'text-xl md:text-4xl leading-[1.8] md:leading-[1.9] text-stone-800 font-bold mincho-font'
+        : 'text-lg md:text-3xl leading-[1.6] md:leading-[1.8] text-stone-800 font-bold';
 
     block.id = `reading-block-${index}`;
+    // PCは従来通りのパディング、スマホ時のみ少し詰める
     block.className = 'w-full cursor-pointer transition-all duration-300 hover:bg-emerald-50 border-2 border-transparent hover:border-emerald-200 rounded-xl px-3 py-3 md:px-5 md:py-4';
+    
+    // 🌟 PCのGridデザインを維持しつつ、max-content で長い英語名が来てもコロンが重ならないように修正
     block.innerHTML = `
-        <div class="grid grid-cols-[6rem_1.2rem_1fr] md:grid-cols-[8rem_1.4rem_1fr] items-start gap-1 md:gap-2 w-full">
-            <div class="text-right text-xl md:text-2xl font-black text-[#1e3a5f] mincho-font leading-[1.9] truncate">${escapeHtml(speakerName)}</div>
-            <div class="text-xl md:text-2xl font-black text-[#1e3a5f] mincho-font leading-[1.9] text-center">：</div>
+        <div class="grid grid-cols-[max-content_1rem_1fr] md:grid-cols-[max-content_1.4rem_1fr] items-start gap-1 md:gap-2 w-full">
+            <div class="text-right text-lg md:text-2xl font-black text-[#1e3a5f] mincho-font leading-[1.8] md:leading-[1.9] min-w-[4.5rem] md:min-w-[6rem] whitespace-nowrap">${escapeHtml(speakerName)}</div>
+            <div class="text-lg md:text-2xl font-black text-[#1e3a5f] mincho-font leading-[1.8] md:leading-[1.9] text-center">：</div>
             <div class="${mainTextClass}">${mainTextHtml}</div>
         </div>
         ${subText ? `
-            <div class="grid grid-cols-[6rem_1.2rem_1fr] md:grid-cols-[8rem_1.4rem_1fr] items-start gap-1 md:gap-2 w-full mt-1">
-                <div></div><div></div>
-                <div class="text-base md:text-lg text-stone-500 font-medium mincho-font">${escapeHtml(subText)}</div>
+            <div class="grid grid-cols-[max-content_1rem_1fr] md:grid-cols-[max-content_1.4rem_1fr] items-start gap-1 md:gap-2 w-full mt-1">
+                <div class="min-w-[4.5rem] md:min-w-[6rem]"></div><div></div>
+                <div class="text-sm md:text-lg text-stone-500 font-medium mincho-font">${escapeHtml(subText)}</div>
             </div>` : ''}
     `;
 
