@@ -858,3 +858,23 @@ const speakerNameDictionary = {
         fr: "Policier", ru: "Полицейский", uk: "Поліцейський"
     }
 };
+// ==========================================
+// メニューに戻る際、現在のカテゴリー状態をURLパラメータで渡す
+// ==========================================
+window.goBackToMenu = function() {
+    if (!currentLesson) {
+        window.location.href = 'japeak-menu.html';
+        return;
+    }
+
+    const cat = currentLesson.category;
+    // 「生活編」のカテゴリキーの特徴から、どちらのモードかを判定
+    const isLifeMode = cat.startsWith('a1_') || cat.startsWith('a2_') || 
+                       cat.startsWith('b1_') || cat.startsWith('b2_') || 
+                       cat.startsWith('convenient_');
+                       
+    const mode = isLifeMode ? 'life' : 'school';
+    
+    // パラメータを付けてメニュー画面へ遷移（例: japeak-menu.html?mode=school&cat=school_life）
+    window.location.href = `japeak-menu.html?mode=${mode}&cat=${cat}`;
+};

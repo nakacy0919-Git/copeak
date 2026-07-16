@@ -6,7 +6,7 @@
     <title>Japeak Menu - シチュエーションをえらぶ</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@400;700;900&display=swap" rel="stylesheet">
-        <style>
+    <style>
     body { 
         font-family: 'Noto Sans JP', sans-serif; 
         background-color: #f4f0e6; 
@@ -368,7 +368,125 @@
 <script src="js/japeak-menu-data.js"></script>
 <script src="js/japeak-menu-main.js"></script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const langData = [
+                { code: 'en', native: 'English', jp: '英語' },
+                { code: 'zh-CN', native: '简体中文', jp: '中国語（簡体字）' },
+                { code: 'zh-TW', native: '繁體中文', jp: '中国語（繁体字）' },
+                { code: 'ko', native: '한국어', jp: '韓国語' },
+                { code: 'vi', native: 'Tiếng Việt', jp: 'ベトナム語' },
+                { code: 'tl', native: 'Filipino', jp: 'フィリピノ語' },
+                { code: 'id', native: 'Indonesia', jp: 'インドネシア語' },
+                { code: 'th', native: 'ภาษาไทย', jp: 'タイ語' },
+                { code: 'my', native: 'မြန်မာဘာသာ', jp: 'ミャンマー語' },
+                { code: 'km', native: 'ខ្មែរ', jp: 'クメール語' },
+                { code: 'ne', native: 'नेपाली', jp: 'ネパール語' },
+                { code: 'mn', 'native': 'Монгол хэл', jp: 'モンгол語' },
+                { code: 'si', native: 'සිංහල', jp: 'シンハラ語' },
+                { code: 'bn', native: 'বাংলা ভাষা', jp: 'ベンガル語' },
+                { code: 'pt', native: 'Português', jp: 'ポルトガル語' },
+                { code: 'es', native: 'Español', jp: 'スペイン語' },
+                { code: 'fr', native: 'Français', jp: 'フランス語' },
+                { code: 'ru', native: 'Русский', jp: 'ロシア語' },
+                { code: 'uk', native: 'Українська', jp: 'ウクライナ語' }
+            ];
 
+            const btn = document.getElementById('custom-lang-btn');
+            const menu = document.getElementById('custom-lang-menu');
+            const list = document.getElementById('custom-lang-list');
+            const display = document.getElementById('custom-lang-display');
+            const chevron = document.getElementById('custom-lang-chevron');
+            const hiddenSelect = document.getElementById('lang-select');
+
+            // リスト項目の生成
+            langData.forEach(lang => {
+                const li = document.createElement('li');
+                li.className = "px-4 py-3 hover:bg-[#eef8ff] cursor-pointer border-b border-stone-100 last:border-0 transition-colors flex items-baseline gap-2 text-left";
+                li.innerHTML = `<span class="text-base font-medium">${lang.native}</span> <span class="text-[10px] text-stone-500 font-bold mb-0.5">${lang.jp}</span>`;
+                
+                li.addEventListener('click', () => {
+                    display.innerHTML = `<span>${lang.native}</span> <span class="text-[10px] font-normal opacity-90 mt-1">${lang.jp}</span>`;
+                    
+                    hiddenSelect.value = lang.code;
+                    hiddenSelect.dispatchEvent(new Event('change'));
+                    
+                    closeMenu();
+                });
+                list.appendChild(li);
+            });
+
+            // 初期表示のセット
+            setTimeout(() => {
+                const currentCode = hiddenSelect.value || 'en';
+                const currentLang = langData.find(l => l.code === currentCode) || langData[0];
+                display.innerHTML = `<span>${currentLang.native}</span> <span class="text-[10px] font-normal opacity-90 mt-1">${currentLang.jp}</span>`;
+            }, 100);
+
+            // 🌟 今回新しく追加するコード（ここから）
+            const urlParams = new URLSearchParams(window.location.search);
+            const initMode = urlParams.get('mode');
+            const initCat = urlParams.get('cat');
+
+            if (initMode === 'school' || initMode === 'life') {
+                // 最初の2択（ゲート画面）をスキップしてワークスペースを表示
+                enterWorkspace(initMode);
+                
+                setTimeout(() => {
+                    if (initMode === 'school' && initCat) {
+                        // 学校編：該当のカテゴリを選択状態にし、フレーズ一覧を表示
+                        selectedCategory = initCat;
+                        window.selectedLifeSceneName = null;
+                        if (typeof renderCategories === 'function') renderCategories();
+                        if (typeof renderPhraseList === 'function') renderPhraseList(initCat);
+                        scrollToPhraseSection();
+                    } else if (initMode === 'life' && initCat) {
+                        // 生活編：該当のシーン名を逆引きして自動選択する
+                        let foundSceneName = null;
+                        if (typeof lifeMasterData !== 'undefined') {
+                            lifeMasterData.forEach(group => {
+                                group.scenes.forEach(scene => {
+                                    if (scene.catKey === initCat) {
+                                        foundSceneName = scene.name;
+                                    }
+                                });
+                            });
+                        }
+                        if (foundSceneName && typeof window.loadJapeakCategory === 'function') {
+                            window.loadJapeakCategory(initCat, foundSceneName);
+                        }
+                    }
+                }, 200); // UIの切り替えアニメーションを少し待ってから実行
+            }
+            // 🌟 今回新しく追加するコード（ここまで）
+
+            function toggleMenu() {
+                const isHidden = menu.classList.contains('hidden');
+                if (isHidden) {
+                    menu.classList.remove('hidden');
+                    chevron.classList.add('rotate-180');
+                } else {
+                    closeMenu();
+                }
+            }
+
+            function closeMenu() {
+                menu.classList.add('hidden');
+                chevron.classList.remove('rotate-180');
+            }
+
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleMenu();
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!menu.contains(e.target) && !btn.contains(e.target)) {
+                    closeMenu();
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
