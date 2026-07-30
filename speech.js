@@ -252,7 +252,13 @@ function processSpeechMatch(spokenText, isFinalResult = false) {
         if (typeof sendMyResultToPartner === 'function') {
             sendMyResultToPartner(currentAccuracy, currentWpm);
         }
-        // 👆👆👆 追加ここまで 👆👆👆
+       // 👆👆👆 追加ここまで 👆👆👆
+        
+       // 👇👇👇 【ここから追加】クエストモードなら合否判定のド派手な演出を出す 👇👇👇
+        if (typeof evaluateQuestResult === 'function') {
+            evaluateQuestResult(currentAccuracy, currentWpm);
+        }
+        // 👆👆👆 【ここまで追加】 👆👆👆
     }
 }
 

@@ -16,6 +16,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,700;1,500&family=Noto+Sans+JP:wght@400;500;700&display=swap');
         body { font-family: 'Noto Sans JP', sans-serif; background-color: #292524; background-image: radial-gradient(#44403c 1px, transparent 1px); background-size: 20px 20px; min-height: 100vh; }
@@ -187,6 +188,16 @@
         </div>
         <div id="savedLessonsList" class="grid grid-cols-1 md:grid-cols-2 gap-4 pb-8 relative z-10"></div>
         
+        <!-- ▼ここから追加：Quest用 Libraryエリア▼ -->
+        <div class="mt-2 mb-4 border-b-2 border-purple-200 pb-2 relative z-10">
+            <h2 class="text-xl md:text-2xl font-bold text-purple-900 serif-font flex items-center gap-2">
+                <span>🗺️</span> <span>Quest Library</span>
+            </h2>
+        </div>
+        <div id="questLibraryList" class="grid grid-cols-1 md:grid-cols-2 gap-4 pb-8 relative z-10">
+            <!-- JSで自動的に挑戦中のクエストが表示されます -->
+        </div>
+        <!-- ▲ここまで追加▲ -->
         <div id="teacherModeArea" class="flex-col gap-6 w-full mb-8" style="display: none;">
             <div class="bg-blue-50 border border-blue-200 p-4 md:p-6 rounded-sm shadow-sm flex flex-col gap-4 iron-border-sm">
                 <div>
@@ -215,7 +226,46 @@
                     </div>
                 </div>
             </div>
-        </div>
+            <!-- ▼ここから追加：Copeak Quest（パッケージ作成機能）完全版▼ -->
+            <div class="bg-purple-50 border border-purple-200 p-4 md:p-6 rounded-sm shadow-sm flex flex-col gap-4 iron-border-sm mt-6">
+                <div>
+                    <h3 class="font-bold text-purple-900 text-sm md:text-base flex items-center gap-2 mb-2">
+                        <span class="text-lg">🗺️</span> <span>Copeak Quest（連続パッケージ課題）の作成</span>
+                    </h3>
+                    <p class="text-xs md:text-sm text-purple-700 font-medium mb-4">
+                        クリアしないと次に進めない「ステージ制」の課題を発行します。短いURL1つで生徒に配布できます。
+                    </p>
+                </div>
+                
+                <div class="bg-white p-4 rounded-sm border border-purple-200 shadow-sm flex flex-col gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 mb-1">パッケージタイトル (例: 中1・1学期の総復習)</label>
+                        <input type="text" id="questTitle" class="w-full bg-[#faf8f5] border border-slate-300 rounded-sm p-2 font-bold outline-none focus:border-purple-600">
+                    </div>
+                    
+                    <div id="questBuilderContainer" class="space-y-4">
+                        <!-- ここにJSで入力フォームが自動生成されます -->
+                    </div>
+
+                    <!-- ステージ追加ボタン -->
+                    <button onclick="addQuestStage()" class="w-full py-2 bg-purple-100 hover:bg-purple-200 text-purple-700 font-bold text-xs rounded-sm border border-purple-300 border-dashed transition mt-2 mb-2">
+                        ＋ ステージを追加する
+                    </button>
+
+                    <div class="mt-4 flex flex-col gap-2">
+                        <button onclick="generateQuestPackage()" id="btnGenerateQuest" class="w-full py-3 bg-purple-700 hover:bg-purple-600 text-white font-black text-sm rounded-sm shadow-md transition flex items-center justify-center gap-2">
+                            📦 この内容でパッケージURLを発行する
+                        </button>
+                        <div id="questResultArea" class="hidden mt-4 p-4 bg-slate-900 text-white rounded-sm border-2 border-purple-500 text-center">
+                            <p class="text-xs text-purple-300 font-bold mb-2">生徒配布用リンクが完成しました！</p>
+                            <input type="text" id="questShareLink" readonly class="w-full bg-slate-800 text-emerald-400 font-bold text-sm p-2 rounded text-center border border-slate-700 mb-2 cursor-pointer" onclick="this.select(); document.execCommand('copy'); alert('コピーしました！');">
+                            <p class="text-[10px] text-slate-400">※URLをタップしてコピー、またはClassroom等に貼り付けてください。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ▲ここまで追加▲ -->
+        </div> <!-- 👈 ★★★ ここに </div> を1つ追加してください！ ★★★ -->
 
         <div class="border-b-2 border-stone-200 mb-8 relative z-10">
             <button type="button" onclick="toggleAccordion('form')" class="w-full flex justify-between items-center py-4 md:py-5 outline-none group text-left transition-colors">
@@ -981,6 +1031,677 @@
         </div>
     </div>
 </div>
+<!-- ▼▼ ここから追加：生徒用 Quest Map モーダル ▼▼ -->
+<div id="questMapModal" class="hidden fixed inset-0 bg-slate-900/95 z-[99999] flex items-center justify-center p-4 transition-opacity duration-300 overflow-y-auto">
+    <div class="bg-slate-800 rounded-2xl shadow-[0_0_50px_rgba(147,51,234,0.3)] w-full max-w-2xl overflow-hidden border-2 border-purple-600/50 my-auto flex flex-col max-h-[90vh]">
+        <div class="bg-gradient-to-r from-purple-900 to-indigo-900 p-4 md:p-6 flex justify-between items-center text-white shrink-0">
+            <h3 class="font-black text-lg md:text-2xl flex items-center gap-2 tracking-widest serif-font">
+                <span>🗺️</span> <span id="displayQuestTitle">Copeak Quest</span>
+            </h3>
+            <button onclick="closeQuestMap()" class="text-white hover:text-purple-300 transition text-2xl font-bold p-1">✕</button>
+        </div>
+        
+        <div class="p-4 md:p-8 flex-1 overflow-y-auto custom-scrollbar relative">
+            <!-- 縦の繋がり線（道のり） -->
+            <div class="absolute left-[38px] md:left-[52px] top-8 bottom-8 w-1 bg-slate-700 z-0"></div>
+            
+            <div id="questStagesContainer" class="space-y-6 md:space-y-8 relative z-10">
+                <!-- JSでステージ一覧がここに自動描画されます -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ▼ 生徒用：Quest合否判定モーダル ▼ -->
+<div id="questJudgeModal" class="hidden fixed inset-0 bg-black/90 z-[100000] flex items-center justify-center p-4">
+    <div id="questJudgeContent" class="bg-slate-800 p-6 md:p-10 rounded-2xl border-4 text-center max-w-md w-full shadow-2xl">
+        <!-- JSで「合格」か「不合格」かによって中身を自動で書き換えます -->
+    </div>
+</div>
+<!-- ▲ 生徒用：Quest合否判定モーダル ▲ -->
+<script>
+// ==========================================
+// 🚀 Copeak Quest (パッケージ機能) エンジン 完全版
+// ==========================================
 
+const GAS_API_URL = "https://script.google.com/macros/s/AKfycbxHkFCtlpFodKmtfYkk1sl4v1iuqEm-HgJGihwYXdnQNdff_Heh7jQo3lfyP7qmQlMwow/exec";
+
+// --- 教員用：パッケージ作成UIの自動生成 ---
+let questStageCount = 0; // 現在のステージ数を記録する変数
+
+function initQuestBuilder() {
+    const container = document.getElementById('questBuilderContainer');
+    if (!container) return;
+    container.innerHTML = '';
+    questStageCount = 0;
+    
+    // デフォルトで3ステージ分を表示
+    for (let i = 0; i < 3; i++) {
+        addQuestStage();
+    }
+}
+
+// ▼▼ ここから下の関数が丸ごと消えていたので、追加してください！ ▼▼
+function addQuestStage() {
+    questStageCount++;
+    const i = questStageCount;
+    const container = document.getElementById('questBuilderContainer');
+    
+    const stageDiv = document.createElement('div');
+    stageDiv.className = "quest-stage-box p-3 bg-[#f8fafc] border border-slate-200 rounded-sm relative";
+    stageDiv.innerHTML = `
+        <div class="flex justify-between items-center mb-2">
+            <div class="font-black text-purple-800 text-xs">STAGE ${i}</div>
+            <button onclick="this.closest('.quest-stage-box').remove()" class="text-slate-400 hover:text-red-500 transition text-[10px] font-bold px-2 py-1 bg-white border border-slate-200 rounded-sm shadow-sm">
+                🗑️ 削除
+            </button>
+        </div>
+        <input type="text" id="q_title_${i}" placeholder="タイトル (例: Lesson 1 Part 1)" class="w-full bg-white border border-slate-300 rounded-sm p-1.5 text-xs mb-2 outline-none focus:border-purple-500">
+        <textarea id="q_eng_${i}" placeholder="英文を入力..." rows="2" class="w-full bg-white border border-slate-300 rounded-sm p-1.5 text-xs mb-2 outline-none focus:border-purple-500"></textarea>
+        <div class="flex gap-2">
+            <div class="flex-1"><label class="text-[10px] font-bold text-slate-500">合格 Accuracy(%)</label><input type="number" id="q_acc_${i}" value="80" class="w-full bg-white border border-slate-300 rounded-sm p-1 text-xs outline-none"></div>
+            <div class="flex-1"><label class="text-[10px] font-bold text-slate-500">合格 WPM</label><input type="number" id="q_wpm_${i}" value="100" class="w-full bg-white border border-slate-300 rounded-sm p-1 text-xs outline-none"></div>
+        </div>
+    `;
+    container.appendChild(stageDiv);
+}
+// ▲▲ ここまで追加 ▲▲
+// --- 生徒用：URLからパッケージを受信・展開 ---
+window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(async () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('pkg')) {
+            const pkgId = urlParams.get('pkg');
+            window.history.replaceState({}, document.title, window.location.pathname); 
+            
+            showMsg("⏳ クエストデータを受信中...");
+            try {
+                const res = await fetch(GAS_API_URL + "?pkg=" + pkgId);
+                const data = await res.json();
+                if (data.success) {
+                    saveQuestToLibrary(data); // ★追加：ライブラリにセーブする
+                    openQuestMap(data);
+                } else {
+                    alert("クエストの読み込みに失敗しました。");
+                }
+            } catch(e) {
+                alert("通信エラーが発生しました。");
+            }
+        }
+        
+        // ★追加：ページ読み込み時にQuestライブラリを描画する
+        renderQuestLibrary();
+    }, 500);
+});
+// --- 教員用：データをGASに送信してURL発行 ---
+async function generateQuestPackage() {
+    const btn = document.getElementById('btnGenerateQuest');
+    const title = document.getElementById('questTitle').value.trim() || "Copeak Quest (オリジナル課題)";
+    
+    let lessons = [];
+    let actualStageNumber = 1; 
+    
+    for (let i = 1; i <= questStageCount; i++) {
+        const titleEl = document.getElementById(`q_title_${i}`);
+        const engEl = document.getElementById(`q_eng_${i}`);
+        if (!titleEl || !engEl) continue; 
+        
+        const lTitle = titleEl.value.trim();
+        const lEng = engEl.value.trim();
+        const lAcc = parseInt(document.getElementById(`q_acc_${i}`).value) || 80;
+        const lWpm = parseInt(document.getElementById(`q_wpm_${i}`).value) || 100;
+        
+        if (lTitle && lEng) {
+            lessons.push({ stage: actualStageNumber, title: lTitle, eng: lEng, goalAcc: lAcc, goalWpm: lWpm });
+            actualStageNumber++;
+        }
+    }
+    
+    if (lessons.length === 0) return alert("最低1つのステージ（タイトルと英文）を入力してください！");
+    
+    btn.innerText = "⏳ パッケージを生成中...";
+    btn.disabled = true;
+
+    // ★変更点：赤枠（教員専用設定）からURLを自動取得する
+    const teacherInput = document.getElementById('teacherFormUrlInput');
+    let formUrl = teacherInput ? teacherInput.value.trim() : "";
+    if (!formUrl) {
+        // 入力欄が空でも、以前に保存した履歴があればそれを使う
+        formUrl = localStorage.getItem('copeak_teacher_form_url') || "";
+    }
+
+    try {
+        const res = await fetch(GAS_API_URL, {
+            method: 'POST',
+            body: JSON.stringify({ title: title, formUrl: formUrl, lessons: lessons })
+        });
+        const data = await res.json();
+        
+        if (data.success) {
+            const shareUrl = window.location.origin + window.location.pathname + "?pkg=" + data.packageId;
+            document.getElementById('questShareLink').value = shareUrl;
+            document.getElementById('questResultArea').classList.remove('hidden');
+            btn.innerText = "✅ 成功！下のリンクをコピーしてください";
+            btn.classList.remove('bg-purple-700', 'hover:bg-purple-600');
+            btn.classList.add('bg-emerald-600', 'hover:bg-emerald-500');
+        } else {
+            throw new Error(data.error);
+        }
+    } catch (error) {
+        alert("エラーが発生しました: " + error.message);
+        btn.innerText = "📦 この内容でパッケージURLを発行する";
+        btn.classList.remove('bg-emerald-600', 'hover:bg-emerald-500');
+        btn.classList.add('bg-purple-700', 'hover:bg-purple-600');
+        btn.disabled = false;
+    }
+}
+
+// --- 生徒用：URLからパッケージを受信・展開 ---
+window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(async () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('pkg')) {
+            const pkgId = urlParams.get('pkg');
+            window.history.replaceState({}, document.title, window.location.pathname); 
+            
+            showMsg("⏳ クエストデータを受信中...");
+            try {
+                const res = await fetch(GAS_API_URL + "?pkg=" + pkgId);
+                const data = await res.json();
+                if (data.success) {
+                    openQuestMap(data);
+                } else {
+                    alert("クエストの読み込みに失敗しました。");
+                }
+            } catch(e) {
+                alert("通信エラーが発生しました。");
+            }
+        }
+    }, 500);
+});
+
+// --- 生徒用：セーブデータ管理（IndexedDB / LocalStorage） ---
+let currentQuestPkgId = "";
+
+function getQuestProgress(pkgId) {
+    // 端末のローカルストレージから「クリア済みのステージ番号」を取得（初回は0）
+    return parseInt(localStorage.getItem('copeak_quest_' + pkgId) || "0");
+}
+
+function saveQuestProgress(pkgId, stageCleared) {
+    const current = getQuestProgress(pkgId);
+    // 過去の記録より先のステージをクリアした場合のみセーブを上書き
+    if (stageCleared > current) {
+        localStorage.setItem('copeak_quest_' + pkgId, stageCleared);
+    }
+}
+
+// --- 生徒用：Quest Map の描画（ロック機能付き） ---
+let currentQuestLessons = []; 
+
+function openQuestMap(pkgData) {
+    currentQuestPkgId = pkgData.packageId;
+    currentQuestLessons = pkgData.lessons; 
+    
+    // ★追加：パッケージに保存された先生のフォームURLを、生徒のシステムにセットする
+    if (pkgData.formUrl) {
+        localStorage.setItem('copeak_teacher_form_url', pkgData.formUrl);
+    }
+    
+    document.getElementById('displayQuestTitle').innerText = pkgData.title;
+    const container = document.getElementById('questStagesContainer');
+    container.innerHTML = '';
+    
+    const clearedStages = getQuestProgress(currentQuestPkgId);
+    
+    pkgData.lessons.forEach((lesson, index) => {
+// （これより下は既存のコードのまま変更なし）
+        const stageNum = lesson.stage;
+        const isCleared = stageNum <= clearedStages; // すでにクリア済み
+        const isUnlocked = stageNum <= clearedStages + 1; // プレイ可能
+        
+        let icon = isCleared ? "✅" : (isUnlocked ? "⚔️" : "🔒");
+        let iconColor = isUnlocked ? "bg-purple-900 border-purple-500" : "bg-slate-800 border-slate-700 opacity-60";
+        let boxStyle = isUnlocked 
+            ? "bg-slate-700/50 border-purple-500 hover:bg-slate-700 cursor-pointer shadow-[0_0_15px_rgba(168,85,247,0.2)]" 
+            : "bg-slate-800/80 border-slate-700 opacity-50 cursor-not-allowed";
+        let textColor = isUnlocked ? "text-white" : "text-slate-500";
+        
+        let clickEvent = isUnlocked ? `onclick="startQuestLesson(${index})"` : "";
+
+        container.innerHTML += `
+            <div class="flex items-center gap-4 group">
+                <div class="w-12 h-12 md:w-16 md:h-16 rounded-full ${iconColor} border-4 flex items-center justify-center text-xl md:text-2xl shrink-0 z-10 transition">
+                    ${icon}
+                </div>
+                <div class="flex-1 p-4 md:p-5 rounded-xl border transition ${boxStyle}" ${clickEvent}>
+                    <div class="text-[10px] md:text-xs font-black ${isUnlocked ? 'text-purple-400' : 'text-slate-500'} tracking-widest mb-1">
+                        STAGE ${stageNum} ${isCleared ? '<span class="text-emerald-400 ml-2">CLEAR!</span>' : ''}
+                    </div>
+                    <h4 class="font-bold ${textColor} text-sm md:text-lg mb-2">${lesson.title}</h4>
+                    <div class="flex gap-3 text-[10px] md:text-xs font-bold text-slate-400">
+                        <span class="${isUnlocked ? 'bg-slate-800 text-slate-300' : 'bg-slate-900 text-slate-600'} px-2 py-1 rounded">🎯 目標 Acc: ${lesson.goalAcc}%</span>
+                        <span class="${isUnlocked ? 'bg-slate-800 text-slate-300' : 'bg-slate-900 text-slate-600'} px-2 py-1 rounded">⚡ 目標 WPM: ${lesson.goalWpm}</span>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+    
+    const modal = document.getElementById('questMapModal');
+    modal.classList.remove('hidden');
+    modal.style.display = 'flex'; // ★確実に表示させる
+}
+
+// 現在挑戦中のクエスト目標を保持する変数
+let activeQuestGoal = null;
+
+window.startQuestLesson = function(index) {
+    console.log("🚀 Stage Clicked! Index:", index);
+    
+    const lessonData = currentQuestLessons[index];
+    if (!lessonData) return;
+
+    // 余計な画面（マップ、オープニング）を確実に消去
+    const mapModal = document.getElementById('questMapModal');
+    if (mapModal) {
+        mapModal.classList.add('hidden');
+        mapModal.style.display = 'none';
+    }
+    const splash = document.getElementById('dynamicSplashScreen');
+    if (splash) splash.remove();
+
+    document.body.style.overflow = '';
+    document.body.classList.remove('immersive-mode');
+
+    // 目標値のセット
+    activeQuestGoal = {
+        pkgId: currentQuestPkgId,
+        stage: lessonData.stage,
+        goalAcc: lessonData.goalAcc,
+        goalWpm: lessonData.goalWpm
+    };
+    
+    const pseudoLesson = {
+        id: "quest_stage_" + lessonData.stage,
+        title: lessonData.title,
+        eng: lessonData.eng,
+        jpn: `【QUEST STAGE ${lessonData.stage}】目標: Accuracy ${lessonData.goalAcc}% 以上 / WPM ${lessonData.goalWpm} 以上`,
+        lang: "en-US",
+        target: "quest"
+    };
+    
+    currentCustomLesson = pseudoLesson;
+
+    // 正規のルートで学習画面を展開（HTMLが直ったのでこれで完璧に表示されます！）
+    if (typeof openLearningScreen === 'function') {
+        openLearningScreen(pseudoLesson);
+    }
+}
+// --- Quest用：マップを閉じて完全にホーム画面に戻る ---
+window.closeQuestMap = function() {
+    // URLの「?pkg=...」を消して、完全な初期状態でリロードするのが最も安全
+    window.location.href = window.location.pathname.split('?')[0];
+}
+
+// --- Quest用：即座にマップに戻る（リロードなしの瞬間移動） ---
+window.returnToQuestMap = function() {
+    document.getElementById('questJudgeModal').classList.add('hidden');
+    document.getElementById('questJudgeModal').style.display = 'none';
+    
+    const ls = document.getElementById('learningScreen');
+    if (ls) {
+        ls.style.setProperty('display', 'none', 'important');
+    }
+    
+    // 現在のデータを再利用してマップを「一瞬で」再描画する
+    openQuestMap({
+        packageId: currentQuestPkgId,
+        title: document.getElementById('displayQuestTitle').innerText,
+        lessons: currentQuestLessons
+    });
+}
+
+// --- Quest用：効果音ジェネレーター（Web Audio API） ---
+window.playQuestSound = function(type) {
+    try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContext) return;
+        const ctx = new AudioContext();
+        
+        if (type === 'clear') {
+            // 🎵 ピロリロン♪（通常クリア）
+            [523.25, 659.25, 783.99, 1046.50].forEach((freq, i) => {
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sine'; osc.frequency.value = freq;
+                osc.connect(gain); gain.connect(ctx.destination);
+                osc.start(ctx.currentTime + i * 0.08);
+                gain.gain.setValueAtTime(0.1, ctx.currentTime + i * 0.08);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + i * 0.08 + 0.3);
+                osc.stop(ctx.currentTime + i * 0.08 + 0.3);
+            });
+        } else if (type === 'complete') {
+            // 🎺 パッパラパッパッパー♪（完全制覇ファンファーレ）
+            [523.25, 523.25, 523.25, 698.46, 587.33, 659.25, 698.46].forEach((freq, i) => {
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'triangle'; osc.frequency.value = freq;
+                osc.connect(gain); gain.connect(ctx.destination);
+                let t = ctx.currentTime + i * 0.12;
+                if (i === 3) t += 0.1; // 少しタメる
+                if (i > 3) t += 0.2;
+                osc.start(t);
+                gain.gain.setValueAtTime(0.1, t);
+                gain.gain.exponentialRampToValueAtTime(0.001, t + 0.4);
+                osc.stop(t + 0.4);
+            });
+        } else if (type === 'fail') {
+            // ❌ ブブー（不合格）
+            [300, 250].forEach((freq, i) => {
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sawtooth'; osc.frequency.value = freq;
+                osc.connect(gain); gain.connect(ctx.destination);
+                osc.start(ctx.currentTime + i * 0.2);
+                gain.gain.setValueAtTime(0.1, ctx.currentTime + i * 0.2);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + i * 0.2 + 0.2);
+                osc.stop(ctx.currentTime + i * 0.2 + 0.2);
+            });
+        }
+    } catch(e) { console.log("Audio not supported"); }
+}
+
+// --- Quest用：紙吹雪アニメーション ---
+window.fireConfetti = function(isFinal) {
+    if (typeof confetti !== 'function') return;
+    
+    if (isFinal) {
+        // 👑 黄金の派手な紙吹雪（両端から3秒間降り注ぐ）
+        const duration = 3000;
+        const end = Date.now() + duration;
+        (function frame() {
+            confetti({ particleCount: 5, angle: 60, spread: 55, origin: { x: 0 }, colors: ['#fbbf24', '#f59e0b', '#d97706'], zIndex: 200000 });
+            confetti({ particleCount: 5, angle: 120, spread: 55, origin: { x: 1 }, colors: ['#fbbf24', '#f59e0b', '#d97706'], zIndex: 200000 });
+            if (Date.now() < end) requestAnimationFrame(frame);
+        }());
+    } else {
+        // 🎉 通常の紙吹雪（下から一発ドカン！）
+        confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 }, zIndex: 200000 });
+    }
+}
+
+// --- 生徒用：クエストの合否判定と演出 ---
+window.evaluateQuestResult = function(myAcc, myWpm) {
+    if (!activeQuestGoal) return; 
+
+    const modal = document.getElementById('questJudgeModal');
+    const content = document.getElementById('questJudgeContent');
+    
+    const isAccCleared = myAcc >= activeQuestGoal.goalAcc;
+    const isWpmCleared = myWpm >= activeQuestGoal.goalWpm;
+    const isCleared = isAccCleared && isWpmCleared;
+
+    const totalStages = currentQuestLessons.length;
+    const isFinalStage = (activeQuestGoal.stage === totalStages);
+
+    if (isCleared) {
+        saveQuestProgress(activeQuestGoal.pkgId, activeQuestGoal.stage);
+        
+        // ★ ここで効果音と紙吹雪をドカーンと発動！
+        playQuestSound(isFinalStage ? 'complete' : 'clear');
+        fireConfetti(isFinalStage);
+        
+       if (isFinalStage) {
+            content.className = "bg-slate-900 p-6 md:p-8 rounded-2xl border-4 border-yellow-400 text-center max-w-lg w-full shadow-[0_0_50px_rgba(250,204,21,0.5)]";
+            content.innerHTML = `
+                <div class="text-6xl md:text-7xl mb-2 animate-pulse">👑</div>
+                <h2 class="text-2xl md:text-3xl font-black text-yellow-400 tracking-widest mb-1 serif-font">QUEST COMPLETE!!</h2>
+                <p class="text-white text-xs md:text-sm mb-4 font-bold">すべてのステージを制覇しました！<br><span class="text-yellow-400 text-[10px] md:text-xs">※最終ステージの成績が、今回のQuest代表スコアとして先生に送信されます。</span></p>
+                
+                <div class="bg-slate-800 p-3 rounded-lg border border-yellow-500/50 mb-4">
+                    <div class="flex justify-center gap-4 text-base md:text-lg font-bold text-white">
+                        <div>Accuracy: <span class="text-emerald-400">${myAcc}%</span></div>
+                        <div>WPM: <span class="text-blue-400">${myWpm}</span></div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <!-- ★修正：openQuestReflectionにスコアを渡す -->
+                    <button onclick="openQuestReflection(${myAcc}, ${myWpm});" class="w-full py-4 bg-blue-600 hover:bg-blue-500 text-white font-black rounded-full shadow-[0_0_15px_rgba(37,99,235,0.4)] transition transform hover:scale-105 text-base md:text-lg flex items-center justify-center gap-2">
+                        📤 先生にQuest制覇を報告する
+                    </button>
+                    <button onclick="returnToQuestMap();" class="w-full py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded-full transition text-xs border border-slate-600">
+                        送信せずにマップへ戻る
+                    </button>
+                </div>
+            `;
+        } else {
+            // （ここから下は既存のコードのまま）
+            content.className = "bg-slate-800 p-6 md:p-10 rounded-2xl border-4 border-emerald-500 text-center max-w-md w-full shadow-[0_0_30px_rgba(16,185,129,0.5)]";
+            content.innerHTML = `
+                <div class="text-5xl md:text-7xl mb-4 animate-bounce">🎉</div>
+                <h2 class="text-2xl md:text-3xl font-black text-emerald-400 tracking-widest mb-2">STAGE CLEAR!!</h2>
+                <p class="text-slate-300 text-sm mb-6 font-bold">目標を見事に達成しました！次のステージが解放されます。</p>
+                <div class="flex flex-col gap-2">
+                    <button onclick="returnToQuestMap();" class="w-full py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-full shadow-lg transition">
+                        🗺️ マップに戻る
+                    </button>
+                </div>
+            `;
+        }
+    } else {
+        // ★ 不合格時の効果音
+        playQuestSound('fail');
+
+        content.className = "bg-slate-800 p-6 md:p-10 rounded-2xl border-4 border-pink-600 text-center max-w-md w-full shadow-[0_0_30px_rgba(219,39,119,0.5)]";
+        let hintMsg = !isAccCleared ? "もう少し発音を正確に！" : "もう少しスピードを上げて！";
+        if (!isAccCleared && !isWpmCleared) hintMsg = "AccuracyとWPM、両方ともあと少し！";
+
+        content.innerHTML = `
+            <div class="text-5xl md:text-7xl mb-4">💪</div>
+            <h2 class="text-2xl md:text-3xl font-black text-pink-500 tracking-widest mb-2">TRY AGAIN!</h2>
+            <p class="text-slate-300 text-sm mb-6 font-bold">惜しい！${hintMsg}</p>
+            <div class="flex flex-col gap-2">
+                <button onclick="document.getElementById('questJudgeModal').style.display='none';" class="w-full py-3 bg-slate-700 hover:bg-slate-600 text-white font-bold rounded-full shadow-lg transition border border-slate-500">
+                    🔄 もう一度このステージに挑戦
+                </button>
+                <button onclick="returnToQuestMap();" class="w-full py-2 text-slate-400 hover:text-white text-xs font-bold underline mt-2">
+                    諦めてマップに戻る
+                </button>
+            </div>
+        `;
+    }
+    
+    modal.classList.remove('hidden');
+    modal.style.display = 'flex';
+}
+// --- Quest用：ライブラリから削除する機能 ---
+function removeQuestFromLibrary(pkgId, event) {
+    if (event) event.stopPropagation(); // カード全体のクリック判定（クエスト開始）をブロックします
+    
+    if (!confirm("このクエストをライブラリから削除しますか？\n（※学習データは消えません。URLから再度アクセスすれば続きから再開できます）")) {
+        return;
+    }
+
+    let library = JSON.parse(localStorage.getItem('copeak_quest_library') || '[]');
+    library = library.filter(q => q.pkgId !== pkgId); // 指定されたIDを配列から除外
+    localStorage.setItem('copeak_quest_library', JSON.stringify(library));
+    
+    renderQuestLibrary(); // 画面を再描画
+}
+
+// --- 生徒用：Questライブラリ（続きからプレイ）機能 ---
+function saveQuestToLibrary(pkgData) {
+    let library = JSON.parse(localStorage.getItem('copeak_quest_library') || '[]');
+    // 同じクエストがあれば一旦削除（常に最新のものを一番上にするため）
+    library = library.filter(q => q.pkgId !== pkgData.packageId); 
+    
+    library.unshift({
+        pkgId: pkgData.packageId,
+        title: pkgData.title,
+        totalStages: pkgData.lessons.length,
+        lastAccessed: new Date().getTime()
+    });
+    
+    localStorage.setItem('copeak_quest_library', JSON.stringify(library));
+    renderQuestLibrary();
+}
+
+function renderQuestLibrary() {
+    const container = document.getElementById('questLibraryList');
+    if (!container) return;
+    
+    const library = JSON.parse(localStorage.getItem('copeak_quest_library') || '[]');
+    
+    if (library.length === 0) {
+        container.innerHTML = '<p class="text-stone-400 text-xs font-bold px-2 py-4">挑戦中のクエストはまだありません。</p>';
+        return;
+    }
+    
+    let html = '';
+    library.forEach(quest => {
+        const clearedStages = getQuestProgress(quest.pkgId);
+        const isCompleted = clearedStages >= quest.totalStages;
+        const progressText = isCompleted ? '👑 完全制覇！' : `STAGE ${clearedStages + 1} に挑戦中`;
+        const progressColor = isCompleted ? 'text-yellow-600' : 'text-purple-600';
+        const bgStyle = isCompleted ? 'bg-yellow-50 border-yellow-300' : 'bg-white border-purple-200 hover:border-purple-500';
+        
+        html += `
+            <div onclick="resumeQuest('${quest.pkgId}')" class="p-4 md:p-5 rounded-sm border shadow-sm cursor-pointer transition-all flex flex-col gap-3 ${bgStyle} transform hover:-translate-y-1 relative group">
+                
+                <!-- ★削除ボタン（右上に配置） -->
+                <button onclick="removeQuestFromLibrary('${quest.pkgId}', event)" class="absolute top-2 right-2 w-7 h-7 flex items-center justify-center bg-white hover:bg-red-50 text-stone-300 hover:text-red-500 border border-stone-200 hover:border-red-200 rounded-full transition shadow-sm z-10" title="ライブラリから削除">✕</button>
+
+                <div class="flex justify-between items-center pr-8">
+                    <span class="text-[10px] font-bold bg-purple-100 text-purple-800 px-2 py-0.5 rounded-sm tracking-widest">QUEST</span>
+                    <span class="text-[10px] md:text-xs font-bold ${progressColor}">${progressText} (${clearedStages}/${quest.totalStages})</span>
+                </div>
+                <h4 class="font-bold text-stone-800 text-sm md:text-base">${quest.title}</h4>
+                <div class="mt-auto pt-2 text-right">
+                    <span class="text-xs font-bold text-purple-600">${isCompleted ? 'マップを見る ➔' : '続きからプレイ ➔'}</span>
+                </div>
+            </div>
+        `;
+    });
+    container.innerHTML = html;
+}
+
+async function resumeQuest(pkgId) {
+    showMsg("⏳ クエストデータを読み込み中...");
+    try {
+        const res = await fetch(GAS_API_URL + "?pkg=" + pkgId);
+        const data = await res.json();
+        if (data.success) {
+            saveQuestToLibrary(data); // アクセス時間を更新
+            openQuestMap(data);
+        } else {
+            alert("クエストの読み込みに失敗しました。");
+        }
+    } catch(e) {
+        alert("通信エラーが発生しました。");
+    }
+}
+// --- Quest用：既存の成績送信システムをQuest仕様にして呼び出す ---
+window.openQuestReflection = function(acc, wpm) {
+    const pkgTitle = document.getElementById('displayQuestTitle').innerText;
+    const lessonTitle = `【Quest Mode】 ${pkgTitle}`;
+    
+    // 1. 黄金のポップアップを完全に隠す
+    const judgeModal = document.getElementById('questJudgeModal');
+    if (judgeModal) {
+        judgeModal.classList.add('hidden');
+        judgeModal.style.display = 'none';
+    }
+    
+    // 2. システム上のスコア表示をQuestの数値で強制上書き
+    const accEl = document.getElementById('bigAccValue');
+    const wpmEl = document.getElementById('bigWpmValue');
+    if (accEl) accEl.innerText = acc + "%";
+    if (wpmEl) wpmEl.innerText = wpm;
+    
+    const previewEl = document.getElementById('submitScorePreview');
+    const modeEl = document.getElementById('submitModePreview');
+    if (previewEl) previewEl.innerText = `Accuracy: ${acc}% / WPM: ${wpm}`;
+    if (modeEl) modeEl.innerText = "Quest";
+    
+    // 3. 振り返り入力画面を直接開く
+    const refModal = document.getElementById('reflectionModal');
+    if (refModal) {
+        refModal.classList.remove('hidden');
+        // ★修正：強力なflex固定を解除し、Tailwindの標準CSSに任せる
+        refModal.style.display = ''; 
+        refModal.style.zIndex = '200000';
+    }
+
+    // 4. 送信ボタンの動作をQuest専用の「裏口自動送信」に上書き！
+    const submitBtn = document.getElementById('finalSubmitBtn');
+    if (submitBtn) {
+        submitBtn.onclick = async function() {
+            const profileStr = localStorage.getItem('copeak_student_profile');
+            if (!profileStr) {
+                alert("プロフィールが登録されていません。ホーム画面右下から登録してください。");
+                return;
+            }
+            const profile = JSON.parse(profileStr);
+
+            const reflection = document.getElementById('reflectionInput').value.trim();
+            if (!reflection) {
+                if (typeof showMsg === 'function') showMsg("⚠️ 振り返りを入力してください");
+                return;
+            }
+
+            const formUrl = localStorage.getItem('copeak_teacher_form_url');
+            if (!formUrl) {
+                alert("先生の成績回収フォームURLが設定されていません。");
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = "⏳ 送信中...";
+
+            let cleanFormUrl = formUrl.split('?')[0];
+            let postUrl = cleanFormUrl.replace('/viewform', '/formResponse');
+
+            const formData = new URLSearchParams();
+            formData.append('entry.755665088', profile.class || "");
+            formData.append('entry.70481568', profile.number || "");
+            formData.append('entry.1056156063', profile.name || "");
+            formData.append('entry.1259267878', lessonTitle);
+            formData.append('entry.145428349', String(acc));
+            formData.append('entry.928123739', String(wpm));
+            formData.append('entry.1611039041', "100"); 
+            formData.append('entry.1534604696', "Quest"); 
+            formData.append('entry.695903918', "Quest制覇"); 
+            formData.append('entry.80945765', reflection);
+
+            try {
+                await fetch(postUrl, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: formData.toString()
+                });
+
+                if (typeof showMsg === 'function') showMsg("🚀 Quest制覇の成績を先生に送信しました！");
+                
+                // ★修正：送信完了後に確実にモーダルを消し去る処理を追加
+                if (refModal) {
+                    refModal.classList.add('hidden');
+                    refModal.style.display = 'none';
+                }
+                
+                document.getElementById('reflectionInput').value = ""; 
+                returnToQuestMap();
+
+            } catch (error) {
+                alert("⚠️ 送信に失敗しました。電波の良いところで再度お試しください。");
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = "<span>🚀</span> この内容で送信する";
+            }
+        };
+    }
+};
+</script>
 </body>
 </html>
