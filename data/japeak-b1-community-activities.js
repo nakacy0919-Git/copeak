@@ -663,8 +663,7 @@ const japeakB1CommunityActivitiesData = [
             {
                 label: "話者A",
                 key: "associationMember",
-               rt></ruby>に<ruby>参加<rt>さんか</rt></ruby>しても<ruby>大丈夫<rt>だいじょうぶ</rt></ruby>でしょうか。",
-                romaji: "Kodomo to issho ni s name: "自治会役員",
+                name: "自治会役員",
                 line: "はい。家族で参加すると、災害時の行動について一緒に確認できます。",
                 target: "はい かぞくでさんかすると さいがいじのこうどうについていっしょにかくにんできます",
                 ruby: "はい。<ruby>家族<rt>かぞく</rt></ruby>で<ruby>参加<rt>さんか</rt></ruby>すると、<ruby>災害時<rt>さいがいじ</rt></ruby>の<ruby>行動<rt>こうどう</rt></ruby>について<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>確認<rt>かくにん</rt></ruby>できます。",
