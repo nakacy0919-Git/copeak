@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Copeak Sound Quest</title>
+    <!-- ★ 追加: データファイルを外部から読み込む -->
+    <script src="sq-data.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
@@ -11,12 +13,10 @@
         body { font-family: 'Noto Sans JP', sans-serif; background-color: #faf8f5; }
         .serif-font { font-family: 'Lora', serif; }
         @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
-        /* マイク波紋（ライトテーマ用） */
         @keyframes ripple { 0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); } 70% { box-shadow: 0 0 0 20px rgba(16, 185, 129, 0); } 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } }
         .recording-ripple { animation: ripple 1.5s infinite; }
         @keyframes popIn { 0% { transform: scale(0.8); opacity: 0; filter: blur(10px); } 100% { transform: scale(1); opacity: 1; filter: blur(0); } }
         .animate-pop-in { animation: popIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
-        /* Copeak本編風の枠線 */
         .iron-border { border: 2px solid #e5e5e5; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: transparent; }
@@ -26,7 +26,6 @@
 </head>
 <body class="min-h-screen text-stone-800 flex flex-col selection:bg-emerald-200 relative z-0">
     
-    <!-- Header (ライトテーマ) -->
     <header class="w-full px-4 py-3 md:px-8 md:py-4 border-b border-stone-200 bg-white/90 backdrop-blur-sm flex justify-between items-center sticky top-0 z-50 shadow-sm">
         <div class="flex items-center gap-3">
             <img src="logo.png" alt="Copeak" class="w-6 h-6 md:w-8 md:h-8 object-contain" onerror="this.style.display='none'">
@@ -44,9 +43,7 @@
         </div>
     </header>
 
-    <main id="sqAppContainer" class="flex-1 w-full max-w-5xl mx-auto p-4 md:p-8 flex flex-col justify-center relative z-10">
-        <!-- JSで動的描画 -->
-    </main>
+    <main id="sqAppContainer" class="flex-1 w-full max-w-5xl mx-auto p-4 md:p-8 flex flex-col justify-center relative z-10"></main>
 
     <!-- 完了モーダル -->
     <div id="transferModal" class="hidden fixed inset-0 z-[20000] bg-stone-900/60 flex items-center justify-center p-4 backdrop-blur-md">
@@ -62,7 +59,7 @@
                 <button onclick="returnToSoundQuestHome()" class="w-full py-4 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold text-base md:text-lg rounded-full shadow-sm transition border border-stone-300 flex items-center justify-center gap-2">
                     別の音素クエストに挑戦する ➔
                 </button>
-                <button onclick="window.location.href='index.html'" class="w-full py-5 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-lg md:text-xl rounded-full shadow-lg transition transform hover:scale-105 active:scale-95 flex items-center justify-center gap-3">
+                <button onclick="window.location.href='index.html'" class="w-full py-5 bg-emerald-600 hover:bg-emerald-50 text-white font-black text-lg md:text-xl rounded-full shadow-lg transition transform hover:scale-105 active:scale-95 flex items-center justify-center gap-3">
                     Copeak 本編へ戻る 🚀
                 </button>
             </div>
@@ -86,140 +83,34 @@
         document.addEventListener('click', (e) => { if (e.target.closest('button')) playGentleSound('click'); });
 
         // ==========================================
-        // 全16コース・データ大増量
-        // ==========================================
-        const courses = {
-            "l-r": { id: "l-r", title: "L / R", subtitle: "Light or Right?", labelJa: "LとRの聞き分け", theme: "text-emerald-600", bgTheme: "bg-emerald-50", borderTheme: "border-emerald-200", coachA: "l", coachB: "r",
-                pairs: [ {wordA:"light",wordB:"right",ipaA:"/laɪt/",ipaB:"/raɪt/"}, {wordA:"led",wordB:"red",ipaA:"/led/",ipaB:"/red/"}, {wordA:"play",wordB:"pray",ipaA:"/pleɪ/",ipaB:"/preɪ/"}, {wordA:"collect",wordB:"correct",ipaA:"/kəˈlɛkt/",ipaB:"/kəˈrɛkt/"}, {wordA:"fly",wordB:"fry",ipaA:"/flaɪ/",ipaB:"/fraɪ/"}, {wordA:"glass",wordB:"grass",ipaA:"/ɡlæs/",ipaB:"/ɡræs/"}, {wordA:"alive",wordB:"arrive",ipaA:"/əˈlaɪv/",ipaB:"/əˈraɪv/"}, {wordA:"lock",wordB:"rock",ipaA:"/lɒk/",ipaB:"/rɒk/"}, {wordA:"cloud",wordB:"crowd",ipaA:"/klaʊd/",ipaB:"/kraʊd/"}, {wordA:"flea",wordB:"free",ipaA:"/fli/",ipaB:"/fri/"} ],
-                phrases: [ {text:"a red light",translation:"赤信号",targetWords:["red","light"]}, {text:"turn right",translation:"右に曲がる",targetWords:["right"]}, {text:"play correctly",translation:"正確に演奏する",targetWords:["play","correctly"]} ],
-                sentences: [ {text:"Turn right at the red light.",translation:"赤信号を右に曲がってください。",targetWords:["right","red","light"]}, {text:"The plane will arrive on the right.",translation:"飛行機は右側に到着します。",targetWords:["plane","arrive","right"]}, {text:"Please collect the correct paper.",translation:"正しい用紙を集めてください。",targetWords:["collect","correct"]} ]
-            },
-            "b-v": { id: "b-v", title: "B / V", subtitle: "Berry or Very?", labelJa: "BとVの聞き分け", theme: "text-blue-600", bgTheme: "bg-blue-50", borderTheme: "border-blue-200", coachA: "b", coachB: "v",
-                pairs: [ {wordA:"berry",wordB:"very",ipaA:"/ˈbɛri/",ipaB:"/ˈvɛri/"}, {wordA:"boat",wordB:"vote",ipaA:"/boʊt/",ipaB:"/voʊt/"}, {wordA:"best",wordB:"vest",ipaA:"/bɛst/",ipaB:"/vɛst/"}, {wordA:"bat",wordB:"vat",ipaA:"/bæt/",ipaB:"/væt/"}, {wordA:"ban",wordB:"van",ipaA:"/bæn/",ipaB:"/væn/"}, {wordA:"bowel",wordB:"vowel",ipaA:"/ˈbaʊəl/",ipaB:"/ˈvaʊəl/"}, {wordA:"base",wordB:"vase",ipaA:"/beɪs/",ipaB:"/veɪs/"}, {wordA:"bale",wordB:"veil",ipaA:"/beɪl/",ipaB:"/veɪl/"}, {wordA:"bent",wordB:"vent",ipaA:"/bɛnt/",ipaB:"/vɛnt/"}, {wordA:"bet",wordB:"vet",ipaA:"/bɛt/",ipaB:"/vɛt/"} ],
-                phrases: [ {text:"the very best",translation:"最高の",targetWords:["very","best"]}, {text:"a big van",translation:"大きなバン",targetWords:["big","van"]}, {text:"vote for the boat",translation:"ボートに投票する",targetWords:["vote","boat"]} ],
-                sentences: [ {text:"He has the very best vest.",translation:"彼は最高のベストを持っている。",targetWords:["very","best","vest"]}, {text:"Drive the van to the base.",translation:"バンを基地まで運転して。",targetWords:["van","base"]}, {text:"I bet the vet is busy.",translation:"その獣医は忙しいに違いない。",targetWords:["bet","vet"]} ]
-            },
-            "s-sh": { id: "s-sh", title: "S / SH", subtitle: "See or She?", labelJa: "SとSHの聞き分け", theme: "text-indigo-600", bgTheme: "bg-indigo-50", borderTheme: "border-indigo-200", coachA: "s", coachB: "sh",
-                pairs: [ {wordA:"see",wordB:"she",ipaA:"/si/",ipaB:"/ʃi/"}, {wordA:"seat",wordB:"sheet",ipaA:"/sit/",ipaB:"/ʃit/"}, {wordA:"sign",wordB:"shine",ipaA:"/saɪn/",ipaB:"/ʃaɪn/"}, {wordA:"save",wordB:"shave",ipaA:"/seɪv/",ipaB:"/ʃeɪv/"}, {wordA:"sip",wordB:"ship",ipaA:"/sɪp/",ipaB:"/ʃɪp/"}, {wordA:"sort",wordB:"short",ipaA:"/sɔrt/",ipaB:"/ʃɔrt/"}, {wordA:"sell",wordB:"shell",ipaA:"/sɛl/",ipaB:"/ʃɛl/"}, {wordA:"sour",wordB:"shower",ipaA:"/ˈsaʊər/",ipaB:"/ˈʃaʊər/"}, {wordA:"sack",wordB:"shack",ipaA:"/sæk/",ipaB:"/ʃæk/"}, {wordA:"same",wordB:"shame",ipaA:"/seɪm/",ipaB:"/ʃeɪm/"} ],
-                phrases: [ {text:"she can see",translation:"彼女は見える",targetWords:["she","see"]}, {text:"a short seat",translation:"短い席",targetWords:["short","seat"]}, {text:"sell a shell",translation:"貝殻を売る",targetWords:["sell","shell"]} ],
-                sentences: [ {text:"She can see the ship.",translation:"彼女はその船が見える。",targetWords:["she","see","ship"]}, {text:"Save the short sheet.",translation:"短いシーツを取っておいて。",targetWords:["save","short","sheet"]}, {text:"It is a shame it is the same.",translation:"同じなのは残念だ。",targetWords:["shame","same"]} ]
-            },
-            "s-th": { id: "s-th", title: "S / TH", subtitle: "Sink or Think?", labelJa: "Sと無声音TH", theme: "text-teal-600", bgTheme: "bg-teal-50", borderTheme: "border-teal-200", coachA: "s", coachB: "th_s",
-                pairs: [ {wordA:"sink",wordB:"think",ipaA:"/sɪŋk/",ipaB:"/θɪŋk/"}, {wordA:"sick",wordB:"thick",ipaA:"/sɪk/",ipaB:"/θɪk/"}, {wordA:"sum",wordB:"thumb",ipaA:"/sʌm/",ipaB:"/θʌm/"}, {wordA:"pass",wordB:"path",ipaA:"/pæs/",ipaB:"/pæθ/"}, {wordA:"mouse",wordB:"mouth",ipaA:"/maʊs/",ipaB:"/maʊθ/"}, {wordA:"saw",wordB:"thaw",ipaA:"/sɔ/",ipaB:"/θɔ/"}, {wordA:"sing",wordB:"thing",ipaA:"/sɪŋ/",ipaB:"/θɪŋ/"}, {wordA:"sank",wordB:"thank",ipaA:"/sæŋk/",ipaB:"/θæŋk/"}, {wordA:"face",wordB:"faith",ipaA:"/feɪs/",ipaB:"/feɪθ/"}, {wordA:"force",wordB:"fourth",ipaA:"/fɔrs/",ipaB:"/fɔrθ/"} ],
-                phrases: [ {text:"think and sink",translation:"考えて沈む",targetWords:["think","sink"]}, {text:"a sick mouse",translation:"病気のネズミ",targetWords:["sick","mouse"]}, {text:"thank you for the song",translation:"歌をありがとう",targetWords:["thank","song"]} ],
-                sentences: [ {text:"I think the mouse is sick.",translation:"そのネズミは病気だと思う。",targetWords:["think","mouse","sick"]}, {text:"Pass me the thick book.",translation:"その分厚い本を取って。",targetWords:["pass","thick"]}, {text:"Thank you for the sweet thing.",translation:"甘いものをありがとう。",targetWords:["thank","sweet","thing"]} ]
-            },
-            "th-z": { id: "th-z", title: "TH / Z", subtitle: "Breathe or Breeze?", labelJa: "有声音THとZ", theme: "text-teal-700", bgTheme: "bg-teal-50", borderTheme: "border-teal-300", coachA: "th_z", coachB: "z",
-                pairs: [ {wordA:"breathe",wordB:"breeze",ipaA:"/brið/",ipaB:"/briz/"}, {wordA:"clothing",wordB:"closing",ipaA:"/ˈkloʊðɪŋ/",ipaB:"/ˈkloʊzɪŋ/"}, {wordA:"teethe",wordB:"tease",ipaA:"/tið/",ipaB:"/tiz/"}, {wordA:"writhe",wordB:"rise",ipaA:"/raɪð/",ipaB:"/raɪz/"}, {wordA:"loathe",wordB:"lows",ipaA:"/loʊð/",ipaB:"/loʊz/"}, {wordA:"seethe",wordB:"seas",ipaA:"/sið/",ipaB:"/siz/"}, {wordA:"tithe",wordB:"ties",ipaA:"/taɪð/",ipaB:"/taɪz/"}, {wordA:"bathe",wordB:"bays",ipaA:"/beɪð/",ipaB:"/beɪz/"}, {wordA:"soothe",wordB:"sues",ipaA:"/suð/",ipaB:"/suz/"}, {wordA:"scythe",wordB:"sighs",ipaA:"/saɪð/",ipaB:"/saɪz/"} ],
-                phrases: [ {text:"a gentle breeze",translation:"そよ風",targetWords:["gentle","breeze"]}, {text:"closing the clothing store",translation:"服屋を閉める",targetWords:["closing","clothing"]}, {text:"breathe the air",translation:"空気を吸う",targetWords:["breathe","air"]} ],
-                sentences: [ {text:"Breathe in the gentle breeze.",translation:"優しいそよ風を吸い込んで。",targetWords:["breathe","gentle","breeze"]}, {text:"He is closing the clothing store.",translation:"彼は服屋を閉めているところだ。",targetWords:["closing","clothing","store"]}, {text:"Please don't tease the dog.",translation:"犬をからかわないでください。",targetWords:["please","tease","dog"]} ]
-            },
-            "f-h": { id: "f-h", title: "F / H", subtitle: "Food or Hood?", labelJa: "FとHの聞き分け", theme: "text-amber-600", bgTheme: "bg-amber-50", borderTheme: "border-amber-200", coachA: "f", coachB: "h",
-                pairs: [ {wordA:"food",wordB:"hood",ipaA:"/fud/",ipaB:"/hʊd/"}, {wordA:"fairy",wordB:"hairy",ipaA:"/ˈfɛri/",ipaB:"/ˈhɛri/"}, {wordA:"fat",wordB:"hat",ipaA:"/fæt/",ipaB:"/hæt/"}, {wordA:"fan",wordB:"Han",ipaA:"/fæn/",ipaB:"/hæn/"}, {wordA:"fold",wordB:"hold",ipaA:"/foʊld/",ipaB:"/hoʊld/"}, {wordA:"fair",wordB:"hair",ipaA:"/fɛr/",ipaB:"/hɛr/"}, {wordA:"find",wordB:"hind",ipaA:"/faɪnd/",ipaB:"/haɪnd/"}, {wordA:"feel",wordB:"heel",ipaA:"/fil/",ipaB:"/hil/"}, {wordA:"fear",wordB:"hear",ipaA:"/fɪr/",ipaB:"/hɪr/"}, {wordA:"fee",wordB:"he",ipaA:"/fi/",ipaB:"/hi/"} ],
-                phrases: [ {text:"fast food",translation:"ファーストフード",targetWords:["fast","food"]}, {text:"hold the fold",translation:"折り目を持つ",targetWords:["hold","fold"]}, {text:"fair hair",translation:"金髪",targetWords:["fair","hair"]} ],
-                sentences: [ {text:"He holds the fast food.",translation:"彼はファーストフードを持っている。",targetWords:["holds","fast","food"]}, {text:"Find the hidden hat.",translation:"隠された帽子を見つけて。",targetWords:["find","hidden","hat"]}, {text:"She has very fair hair.",translation:"彼女はとても明るい髪色だ。",targetWords:["fair","hair"]} ]
-            },
-            "f-v": { id: "f-v", title: "F / V", subtitle: "Fan or Van?", labelJa: "無声音と有声音(F/V)", theme: "text-rose-500", bgTheme: "bg-rose-50", borderTheme: "border-rose-200", coachA: "f", coachB: "v",
-                pairs: [ {wordA:"fan",wordB:"van",ipaA:"/fæn/",ipaB:"/væn/"}, {wordA:"fault",wordB:"vault",ipaA:"/fɔlt/",ipaB:"/vɔlt/"}, {wordA:"safe",wordB:"save",ipaA:"/seɪf/",ipaB:"/seɪv/"}, {wordA:"leaf",wordB:"leave",ipaA:"/lif/",ipaB:"/liv/"}, {wordA:"half",wordB:"halve",ipaA:"/hæf/",ipaB:"/hæv/"}, {wordA:"life",wordB:"live",ipaA:"/laɪf/",ipaB:"/lɪv/"}, {wordA:"surf",wordB:"serve",ipaA:"/sɜrf/",ipaB:"/sɜrv/"}, {wordA:"proof",wordB:"prove",ipaA:"/pruf/",ipaB:"/pruv/"}, {wordA:"off",wordB:"of",ipaA:"/ɔf/",ipaB:"/ʌv/"}, {wordA:"grief",wordB:"grieve",ipaA:"/ɡrif/",ipaB:"/ɡriv/"} ],
-                phrases: [ {text:"a fast van",translation:"速いバン",targetWords:["fast","van"]}, {text:"save a leaf",translation:"葉っぱを保存する",targetWords:["save","leaf"]}, {text:"half of life",translation:"人生の半分",targetWords:["half","life"]} ],
-                sentences: [ {text:"Leave the fan in the van.",translation:"バンの中に扇風機を置いておいて。",targetWords:["leave","fan","van"]}, {text:"Save the safe for later.",translation:"金庫は後にとっておいて。",targetWords:["save","safe"]}, {text:"Prove you have the proof.",translation:"証拠があることを証明して。",targetWords:["prove","proof"]} ]
-            },
-            "p-f": { id: "p-f", title: "P / F", subtitle: "Pool or Fool?", labelJa: "PとFの聞き分け", theme: "text-pink-600", bgTheme: "bg-pink-50", borderTheme: "border-pink-200", coachA: "p", coachB: "f",
-                pairs: [ {wordA:"pool",wordB:"fool",ipaA:"/pul/",ipaB:"/ful/"}, {wordA:"copy",wordB:"coffee",ipaA:"/ˈkɒpi/",ipaB:"/ˈkɔfi/"}, {wordA:"pan",wordB:"fan",ipaA:"/pæn/",ipaB:"/fæn/"}, {wordA:"past",wordB:"fast",ipaA:"/pæst/",ipaB:"/fæst/"}, {wordA:"pill",wordB:"fill",ipaA:"/pɪl/",ipaB:"/fɪl/"}, {wordA:"pork",wordB:"fork",ipaA:"/pɔrk/",ipaB:"/fɔrk/"}, {wordA:"pace",wordB:"face",ipaA:"/peɪs/",ipaB:"/feɪs/"}, {wordA:"pair",wordB:"fair",ipaA:"/pɛr/",ipaB:"/fɛr/"}, {wordA:"peel",wordB:"feel",ipaA:"/pil/",ipaB:"/fil/"}, {wordA:"pine",wordB:"fine",ipaA:"/paɪn/",ipaB:"/faɪn/"} ],
-                phrases: [ {text:"free coffee",translation:"無料のコーヒー",targetWords:["free","coffee"]}, {text:"a fast pace",translation:"速いペース",targetWords:["fast","pace"]}, {text:"fill the pool",translation:"プールを満たす",targetWords:["fill","pool"]} ],
-                sentences: [ {text:"Please fill the cup with coffee.",translation:"カップにコーヒーを入れてください。",targetWords:["please","fill","coffee"]}, {text:"He is a fool in the pool.",translation:"彼はプールの中でバカなことをしている。",targetWords:["fool","pool"]}, {text:"Use a fork for the pork.",translation:"豚肉にはフォークを使って。",targetWords:["fork","pork"]} ]
-            },
-            "w-v": { id: "w-v", title: "W / V", subtitle: "West or Vest?", labelJa: "WとVの聞き分け", theme: "text-cyan-600", bgTheme: "bg-cyan-50", borderTheme: "border-cyan-200", coachA: "w", coachB: "v",
-                pairs: [ {wordA:"west",wordB:"vest",ipaA:"/wɛst/",ipaB:"/vɛst/"}, {wordA:"wet",wordB:"vet",ipaA:"/wɛt/",ipaB:"/vɛt/"}, {wordA:"wine",wordB:"vine",ipaA:"/waɪn/",ipaB:"/vaɪn/"}, {wordA:"worse",wordB:"verse",ipaA:"/wɜrs/",ipaB:"/vɜrs/"}, {wordA:"wheel",wordB:"veal",ipaA:"/wil/",ipaB:"/vil/"}, {wordA:"wary",wordB:"vary",ipaA:"/ˈwɛri/",ipaB:"/ˈvɛri/"}, {wordA:"wail",wordB:"veil",ipaA:"/weɪl/",ipaB:"/veɪl/"}, {wordA:"we",wordB:"v",ipaA:"/wi/",ipaB:"/vi/"}, {wordA:"went",wordB:"vent",ipaA:"/wɛnt/",ipaB:"/vɛnt/"}, {wordA:"wow",wordB:"vow",ipaA:"/waʊ/",ipaB:"/vaʊ/"} ],
-                phrases: [ {text:"a wet vest",translation:"濡れたベスト",targetWords:["wet","vest"]}, {text:"west of the vine",translation:"ブドウの木の西",targetWords:["west","vine"]}, {text:"went to the vet",translation:"獣医に行った",targetWords:["went","vet"]} ],
-                sentences: [ {text:"The vet has a wet vest.",translation:"その獣医は濡れたベストを着ている。",targetWords:["vet","wet","vest"]}, {text:"He went west in a van.",translation:"彼はバンで西へ行った。",targetWords:["went","west","van"]}, {text:"The wine is from the vine.",translation:"そのワインはブドウの木から作られる。",targetWords:["wine","vine"]} ]
-            },
-            "i-ee": { id: "i-ee", title: "I / EE", subtitle: "Hit or Heat?", labelJa: "短いイ・長いイー", theme: "text-fuchsia-600", bgTheme: "bg-fuchsia-50", borderTheme: "border-fuchsia-200", coachA: "i", coachB: "ee",
-                pairs: [ {wordA:"hit",wordB:"heat",ipaA:"/hɪt/",ipaB:"/hit/"}, {wordA:"ship",wordB:"sheep",ipaA:"/ʃɪp/",ipaB:"/ʃip/"}, {wordA:"sit",wordB:"seat",ipaA:"/sɪt/",ipaB:"/sit/"}, {wordA:"bit",wordB:"beet",ipaA:"/bɪt/",ipaB:"/bit/"}, {wordA:"dip",wordB:"deep",ipaA:"/dɪp/",ipaB:"/dip/"}, {wordA:"slip",wordB:"sleep",ipaA:"/slɪp/",ipaB:"/slip/"}, {wordA:"pitch",wordB:"peach",ipaA:"/pɪtʃ/",ipaB:"/pitʃ/"}, {wordA:"fit",wordB:"feet",ipaA:"/fɪt/",ipaB:"/fit/"}, {wordA:"lid",wordB:"lead",ipaA:"/lɪd/",ipaB:"/lid/"}, {wordA:"sick",wordB:"seek",ipaA:"/sɪk/",ipaB:"/sik/"} ],
-                phrases: [ {text:"sit on the seat",translation:"席に座る",targetWords:["sit","seat"]}, {text:"a big sheep",translation:"大きな羊",targetWords:["big","sheep"]}, {text:"deep sleep",translation:"深い眠り",targetWords:["deep","sleep"]} ],
-                sentences: [ {text:"I see a sheep on the ship.",translation:"船の上に羊が見える。",targetWords:["see","sheep","ship"]}, {text:"Please sit in this seat.",translation:"この席に座ってください。",targetWords:["sit","seat"]}, {text:"Don't slip while you sleep.",translation:"寝ている間に滑らないで。",targetWords:["slip","sleep"]} ]
-            },
-            "a-u": { id: "a-u", title: "A / U", subtitle: "Cat or Cut?", labelJa: "アとア（æ / ʌ）", theme: "text-red-600", bgTheme: "bg-red-50", borderTheme: "border-red-200", coachA: "a", coachB: "u",
-                pairs: [ {wordA:"cat",wordB:"cut",ipaA:"/kæt/",ipaB:"/kʌt/"}, {wordA:"hat",wordB:"hut",ipaA:"/hæt/",ipaB:"/hʌt/"}, {wordA:"bag",wordB:"bug",ipaA:"/bæɡ/",ipaB:"/bʌɡ/"}, {wordA:"match",wordB:"much",ipaA:"/mætʃ/",ipaB:"/mʌtʃ/"}, {wordA:"cap",wordB:"cup",ipaA:"/kæp/",ipaB:"/kʌp/"}, {wordA:"bat",wordB:"but",ipaA:"/bæt/",ipaB:"/bʌt/"}, {wordA:"ankle",wordB:"uncle",ipaA:"/ˈæŋkəl/",ipaB:"/ˈʌŋkəl/"}, {wordA:"drank",wordB:"drunk",ipaA:"/dræŋk/",ipaB:"/drʌŋk/"}, {wordA:"mad",wordB:"mud",ipaA:"/mæd/",ipaB:"/mʌd/"}, {wordA:"track",wordB:"truck",ipaA:"/træk/",ipaB:"/trʌk/"} ],
-                phrases: [ {text:"a bug in a bag",translation:"バッグの中の虫",targetWords:["bug","bag"]}, {text:"a cut cat",translation:"切られた猫",targetWords:["cut","cat"]}, {text:"a mad uncle",translation:"怒ったおじさん",targetWords:["mad","uncle"]} ],
-                sentences: [ {text:"The cat cut the bag.",translation:"猫がカバンを切った。",targetWords:["cat","cut","bag"]}, {text:"He drank a cup of water.",translation:"彼は水を一杯飲んだ。",targetWords:["drank","cup"]}, {text:"My uncle has a big truck.",translation:"私のおじさんは大きなトラックを持っている。",targetWords:["uncle","big","truck"]} ]
-            },
-            "e-a": { id: "e-a", title: "E / A", subtitle: "Bed or Bad?", labelJa: "エとア（ɛ / æ）", theme: "text-violet-600", bgTheme: "bg-violet-50", borderTheme: "border-violet-200", coachA: "e", coachB: "a",
-                pairs: [ {wordA:"bed",wordB:"bad",ipaA:"/bɛd/",ipaB:"/bæd/"}, {wordA:"men",wordB:"man",ipaA:"/mɛn/",ipaB:"/mæn/"}, {wordA:"said",wordB:"sad",ipaA:"/sɛd/",ipaB:"/sæd/"}, {wordA:"pen",wordB:"pan",ipaA:"/pɛn/",ipaB:"/pæn/"}, {wordA:"head",wordB:"had",ipaA:"/hɛd/",ipaB:"/hæd/"}, {wordA:"letter",wordB:"latter",ipaA:"/ˈlɛtər/",ipaB:"/ˈlætər/"}, {wordA:"end",wordB:"and",ipaA:"/ɛnd/",ipaB:"/ænd/"}, {wordA:"pet",wordB:"pat",ipaA:"/pɛt/",ipaB:"/pæt/"}, {wordA:"met",wordB:"mat",ipaA:"/mɛt/",ipaB:"/mæt/"}, {wordA:"guess",wordB:"gas",ipaA:"/ɡɛs/",ipaB:"/ɡæs/"} ],
-                phrases: [ {text:"a bad bed",translation:"悪いベッド",targetWords:["bad","bed"]}, {text:"sad men",translation:"悲しい男たち",targetWords:["sad","men"]}, {text:"pen and pan",translation:"ペンとフライパン",targetWords:["pen","pan"]} ],
-                sentences: [ {text:"The man had a bad pen.",translation:"その男は悪いペンを持っていた。",targetWords:["man","had","bad","pen"]}, {text:"He said he was sad.",translation:"彼は悲しいと言った。",targetWords:["said","sad"]}, {text:"The pet is on the mat.",translation:"ペットがマットの上にいる。",targetWords:["pet","mat"]} ]
-            },
-            "n-ng": { id: "n-ng", title: "N / NG", subtitle: "Sin or Sing?", labelJa: "鼻音の聞き分け", theme: "text-emerald-600", bgTheme: "bg-emerald-50", borderTheme: "border-emerald-200", coachA: "n", coachB: "ng",
-                pairs: [ {wordA:"sin",wordB:"sing",ipaA:"/sɪn/",ipaB:"/sɪŋ/"}, {wordA:"ran",wordB:"rang",ipaA:"/ræn/",ipaB:"/ræŋ/"}, {wordA:"win",wordB:"wing",ipaA:"/wɪn/",ipaB:"/wɪŋ/"}, {wordA:"thin",wordB:"thing",ipaA:"/θɪn/",ipaB:"/θɪŋ/"}, {wordA:"ban",wordB:"bang",ipaA:"/bæn/",ipaB:"/bæŋ/"}, {wordA:"kin",wordB:"king",ipaA:"/kɪn/",ipaB:"/kɪŋ/"}, {wordA:"pin",wordB:"ping",ipaA:"/pɪn/",ipaB:"/pɪŋ/"}, {wordA:"fan",wordB:"fang",ipaA:"/fæn/",ipaB:"/fæŋ/"}, {wordA:"stun",wordB:"stung",ipaA:"/stʌn/",ipaB:"/stʌŋ/"}, {wordA:"ton",wordB:"tong",ipaA:"/tʌn/",ipaB:"/tɒŋ/"} ],
-                phrases: [ {text:"sing a song",translation:"歌を歌う",targetWords:["sing","song"]}, {text:"ran and rang",translation:"走って鳴らした",targetWords:["ran","rang"]}, {text:"a thin wing",translation:"薄い翼",targetWords:["thin","wing"]} ],
-                sentences: [ {text:"I ran to see the king sing.",translation:"王様が歌うのを見るために走った。",targetWords:["ran","king","sing"]}, {text:"He hit the thing with a bang.",translation:"彼はバンと音を立ててそれを叩いた。",targetWords:["thing","bang"]}, {text:"Win the thin pin.",translation:"細いピンを勝ち取れ。",targetWords:["win","thin","pin"]} ]
-            },
-            "u-oo": { id: "u-oo", title: "U / OO", subtitle: "Pull or Pool?", labelJa: "ウとウー（ʊ / uː）", theme: "text-cyan-600", bgTheme: "bg-cyan-50", borderTheme: "border-cyan-200", coachA: "u_short", coachB: "oo",
-                pairs: [ {wordA:"pull",wordB:"pool",ipaA:"/pʊl/",ipaB:"/pul/"}, {wordA:"full",wordB:"fool",ipaA:"/fʊl/",ipaB:"/ful/"}, {wordA:"look",wordB:"Luke",ipaA:"/lʊk/",ipaB:"/luk/"}, {wordA:"soot",wordB:"suit",ipaA:"/sʊt/",ipaB:"/sut/"}, {wordA:"stood",wordB:"stewed",ipaA:"/stʊd/",ipaB:"/stud/"}, {wordA:"wood",wordB:"wooed",ipaA:"/wʊd/",ipaB:"/wud/"}, {wordA:"hood",wordB:"who'd",ipaA:"/hʊd/",ipaB:"/hud/"}, {wordA:"could",wordB:"cooed",ipaA:"/kʊd/",ipaB:"/kud/"}, {wordA:"put",wordB:"poot",ipaA:"/pʊt/",ipaB:"/put/"}, {wordA:"foot",wordB:"food",ipaA:"/fʊt/",ipaB:"/fud/"} ],
-                phrases: [ {text:"a full pool",translation:"満杯のプール",targetWords:["full","pool"]}, {text:"look at Luke",translation:"ルークを見る",targetWords:["look","Luke"]}, {text:"wood and food",translation:"木と食べ物",targetWords:["wood","food"]} ],
-                sentences: [ {text:"The fool jumped into the full pool.",translation:"その愚か者は満杯のプールに飛び込んだ。",targetWords:["fool","full","pool"]}, {text:"Luke will look at the suit.",translation:"ルークはそのスーツを見るだろう。",targetWords:["Luke","look","suit"]}, {text:"He stood on the wood.",translation:"彼は木の上に立った。",targetWords:["stood","wood"]} ]
-            },
-            "ur-ar": { id: "ur-ar", title: "UR / AR", subtitle: "Hurt or Heart?", labelJa: "こもったアとアー", theme: "text-purple-600", bgTheme: "bg-purple-50", borderTheme: "border-purple-200", coachA: "ur", coachB: "ar",
-                pairs: [ {wordA:"hurt",wordB:"heart",ipaA:"/hɜrt/",ipaB:"/hɑrt/"}, {wordA:"firm",wordB:"farm",ipaA:"/fɜrm/",ipaB:"/fɑrm/"}, {wordA:"stir",wordB:"star",ipaA:"/stɜr/",ipaB:"/stɑr/"}, {wordA:"dirt",wordB:"dart",ipaA:"/dɜrt/",ipaB:"/dɑrt/"}, {wordA:"lurk",wordB:"lark",ipaA:"/lɜrk/",ipaB:"/lɑrk/"}, {wordA:"burn",wordB:"barn",ipaA:"/bɜrn/",ipaB:"/bɑrn/"}, {wordA:"turn",wordB:"tarn",ipaA:"/tɜrn/",ipaB:"/tɑrn/"}, {wordA:"perk",wordB:"park",ipaA:"/pɜrk/",ipaB:"/pɑrk/"}, {wordA:"bird",wordB:"bard",ipaA:"/bɜrd/",ipaB:"/bɑrd/"}, {wordA:"smirk",wordB:"smart",ipaA:"/smɜrk/",ipaB:"/smɑrt/"} ],
-                phrases: [ {text:"a firm farm",translation:"堅実な農場",targetWords:["firm","farm"]}, {text:"a falling star",translation:"流れ星",targetWords:["falling","star"]}, {text:"hurt my heart",translation:"心を痛める",targetWords:["hurt","heart"]} ],
-                sentences: [ {text:"The farmer has a firm heart.",translation:"その農夫は強い心を持っている。",targetWords:["farmer","firm","heart"]}, {text:"Don't stir the dirt on the farm.",translation:"農場の土をかき回さないで。",targetWords:["stir","dirt","farm"]}, {text:"The bird is in the park.",translation:"その鳥は公園にいる。",targetWords:["bird","park"]} ]
-            },
-            "aw-ow": { id: "aw-ow", title: "AW / OW", subtitle: "Bought or Boat?", labelJa: "オーとオウ", theme: "text-orange-600", bgTheme: "bg-orange-50", borderTheme: "border-orange-200", coachA: "aw", coachB: "ow",
-                pairs: [ {wordA:"caught",wordB:"coat",ipaA:"/kɔt/",ipaB:"/koʊt/"}, {wordA:"bought",wordB:"boat",ipaA:"/bɔt/",ipaB:"/boʊt/"}, {wordA:"ought",wordB:"oat",ipaA:"/ɔt/",ipaB:"/oʊt/"}, {wordA:"bald",wordB:"bold",ipaA:"/bɔld/",ipaB:"/boʊld/"}, {wordA:"call",wordB:"coal",ipaA:"/kɔl/",ipaB:"/koʊl/"}, {wordA:"fall",wordB:"foal",ipaA:"/fɔl/",ipaB:"/foʊl/"}, {wordA:"hall",wordB:"hole",ipaA:"/hɔl/",ipaB:"/hoʊl/"}, {wordA:"naught",wordB:"note",ipaA:"/nɔt/",ipaB:"/noʊt/"}, {wordA:"raw",wordB:"row",ipaA:"/rɔ/",ipaB:"/roʊ/"}, {wordA:"walk",wordB:"woke",ipaA:"/wɔk/",ipaB:"/woʊk/"} ],
-                phrases: [ {text:"bought a boat",translation:"ボートを買った",targetWords:["bought","boat"]}, {text:"caught a coat",translation:"コートを掴んだ",targetWords:["caught","coat"]}, {text:"a bold call",translation:"大胆な電話",targetWords:["bold","call"]} ],
-                sentences: [ {text:"He bought a new boat.",translation:"彼は新しいボートを買った。",targetWords:["bought","new","boat"]}, {text:"I caught him wearing my coat.",translation:"私は彼が私のコートを着ているのを見つけた。",targetWords:["caught","wearing","coat"]}, {text:"Walk to the big hall.",translation:"大きなホールまで歩いて。",targetWords:["walk","big","hall"]} ]
-            }
-        };
-
-        // 全26音素分の超詳細コーチングデータ (ライトテーマ用に色味調整)
-        const coachingData = {
-            "l": { symbol: "/l/", title: "舌先を歯茎につける", theme: "emerald", instructions: ["舌先を上の前歯のすぐ裏（歯茎）にぴったり付けます。","声を出しながら、空気は舌の「左右の隙間」から流します。"], steps: ["l", "la", "lie", "light"] },
-            "r": { symbol: "/r/", title: "舌をどこにも付けない", theme: "emerald", instructions: ["唇を「ウ」の形に少し丸く突き出します。","舌全体を奥に引き、口の中のどこにも触れさせません。"], steps: ["r", "ra", "rye", "right"] },
-            "b": { symbol: "/b/", title: "唇を閉じて破裂させる", theme: "blue", instructions: ["上下の唇をしっかり固く閉じます。","息をせき止めてから、一気に「ブッ」と破裂させます。"], steps: ["b", "ba", "bay", "best"] },
-            "v": { symbol: "/v/", title: "下唇を噛んで震わせる", theme: "blue", instructions: ["上の前歯で下唇を軽く噛みます（または触れます）。","そのまま隙間から息を出し、「ヴー」と震わせます。"], steps: ["v", "va", "vey", "vest"] },
-            "s": { symbol: "/s/", title: "歯の間から息を出す", theme: "indigo", instructions: ["上下の歯を軽く合わせます。","舌先を歯茎に近づけ、隙間から「スッ」と息をこすり出します。"], steps: ["s", "sa", "see", "seat"] },
-            "sh": { symbol: "/ʃ/", title: "唇を突き出して息を出す", theme: "indigo", instructions: ["「静かに」のポーズのように、唇を少し前に突き出します。","舌の中央を持ち上げ、息を「シュッ」と出します。"], steps: ["sh", "sha", "she", "sheet"] },
-            "th_s": { symbol: "/θ/", title: "舌先を歯で軽く挟む", theme: "teal", instructions: ["舌先を上下の前歯で軽く挟みます（または当てます）。","そのまま息を「スッ」と出します。"], steps: ["th", "tha", "thick", "think"] },
-            "th_z": { symbol: "/ð/", title: "舌先を挟んで震わせる", theme: "teal", instructions: ["舌先を上下の前歯で軽く挟みます。","そのまま声を出し、舌と歯の間をビリビリと震わせます。"], steps: ["th", "this", "breathe", "clothing"] },
-            "z": { symbol: "/z/", title: "歯の間で震わせる", theme: "teal", instructions: ["上下の歯を軽く閉じます。","舌先を歯茎に近づけ、隙間から声を出しながら震わせます。"], steps: ["z", "zoo", "breeze", "closing"] },
-            "f": { symbol: "/f/", title: "下唇を噛んで息を出す", theme: "amber", instructions: ["上の前歯で下唇を軽く噛みます。","そのまま隙間から「フッ」と息をこすり出します。"], steps: ["f", "fa", "fan", "food"] },
-            "h": { symbol: "/h/", title: "お腹から息を吐き出す", theme: "amber", instructions: ["口をリラックスさせて開きます。","お腹からため息をつくように「ハッ」と息を出します。"], steps: ["h", "ha", "hat", "hood"] },
-            "p": { symbol: "/p/", title: "唇を閉じて弾く", theme: "pink", instructions: ["上下の唇をしっかり閉じます。","息をせき止めてから、「プッ」と勢いよく弾きます。"], steps: ["p", "pa", "pan", "pool"] },
-            "w": { symbol: "/w/", title: "唇を丸めて突き出す", theme: "cyan", instructions: ["唇を小さく丸めて「ウ」の形にします。","そこから口を開きながら声を出します。"], steps: ["w", "wa", "wet", "west"] },
-            "i": { symbol: "/ɪ/", title: "短く「イ」と「エ」の間", theme: "fuchsia", instructions: ["口を軽く開き、リラックスします。","「イ」と「エ」の中間のような音を短く出します。"], steps: ["i", "it", "sit", "ship"] },
-            "ee": { symbol: "/iː/", title: "横に引いて長く「イー」", theme: "fuchsia", instructions: ["口を横にしっかり引いてスマイルの形にします。","長くはっきりと「イー」と発音します。"], steps: ["ee", "eat", "seat", "sheep"] },
-            "a": { symbol: "/æ/", title: "大きく開けた「ア」と「エ」", theme: "red", instructions: ["口を縦にも横にも大きく開けます。","「ア」と「エ」を同時に言うつもりで発音します。"], steps: ["a", "at", "cat", "bat"] },
-            "u": { symbol: "/ʌ/", title: "短く鋭い「ア」", theme: "red", instructions: ["口をあまり開けず、リラックスさせます。","お腹から短く「アッ」と鋭く声が出るように出します。"], steps: ["u", "up", "cut", "but"] },
-            "e": { symbol: "/ɛ/", title: "日本語の「エ」に近い", theme: "violet", instructions: ["日本語の「エ」と同じくらい口を開けます。","短くはっきりと「エ」と発音します。"], steps: ["e", "ed", "bed", "pen"] },
-            "n": { symbol: "/n/", title: "舌先をつける鼻音", theme: "emerald", instructions: ["舌先を上の歯の裏に広くベタッと付けます。","息を口から出さず、鼻から抜いて発音します。"], steps: ["n", "na", "ran", "sin"] },
-            "ng": { symbol: "/ŋ/", title: "舌の奥を上げる鼻音", theme: "emerald", instructions: ["舌の奥を持ち上げて、口の奥を塞ぎます。","息を鼻から抜いて「ング」と発音します。"], steps: ["ng", "ing", "rang", "sing"] },
-            "u_short": { symbol: "/ʊ/", title: "口を少し開けて「ウ」", theme: "cyan", instructions: ["口をリラックスさせて少し開けます。","日本語の「ウ」より少しアに近い音です。"], steps: ["u", "put", "pull", "full"] },
-            "oo": { symbol: "/uː/", title: "唇を丸めて突き出す", theme: "cyan", instructions: ["唇をタコのようにギュッと丸めて突き出します。","長くはっきりと「ウー」と発音します。"], steps: ["oo", "too", "pool", "fool"] },
-            "ur": { symbol: "/ɜːr/", title: "舌を引いてこもらせる", theme: "purple", instructions: ["口を少し開け、舌全体を奥に引きます。","喉の奥でこもったような「アー」と「ウー」の中間の音を出します。"], steps: ["ur", "sir", "hurt", "firm"] },
-            "ar": { symbol: "/ɑːr/", title: "口を大きく開ける", theme: "purple", instructions: ["指が縦に2本入るくらい口を大きく開けます。","舌を下げて、口の奥から「アー」と発音します。"], steps: ["ar", "car", "heart", "farm"] },
-            "aw": { symbol: "/ɔː/", title: "口を縦に開けて「オ」", theme: "orange", instructions: ["口を縦に大きく開け、少し唇を丸めます。","喉の奥から長く「オー」と発音します。"], steps: ["aw", "saw", "caught", "bought"] },
-            "ow": { symbol: "/oʊ/", title: "口をすぼめながら動かす", theme: "orange", instructions: ["「オ」と言いながら、徐々に唇をすぼめて「ウ」の形にします。","2つの音を滑らかに繋げます。"], steps: ["ow", "so", "coat", "boat"] }
-        };
-
-        let currentCourseId = "l-r";
-
-        // ==========================================
         // 状態管理 & Speech API
         // ==========================================
-        const SoundQuestState = { HOME: "home", INTRO: "intro", EAR_CHECK: "ear_check", EAR_RESULT: "ear_result", VOICE_CHECK: "voice_check", COACHING: "coaching", PHRASE_BRIDGE: "phrase_bridge", SENTENCE_MISSION: "sentence_mission" };
+        const SoundQuestState = { HOME: "home", INTRO: "intro", EAR_CHECK: "ear_check", EAR_RESULT: "ear_result", VOICE_CHECK: "voice_check", COACHING: "coaching", WORD_PRACTICE: "word_practice", PHRASE_BRIDGE: "phrase_bridge", SENTENCE_MISSION: "sentence_mission" };
         let currentState = SoundQuestState.HOME;
+        let currentCourseId = "l-r";
 
         let earCheckSession = { questions: [], currentIndex: 0, score: 0, combo: 0, isAnswering: false };
         let voiceCheckSession = { currentPairIndex: 0, currentTargetIsA: true, isRecording: false, resultStatus: null, alternativesData: [], isRetry: false, previousStatus: null, previousTranscript: "" };
         let phraseSession = { data: null, isRecording: false, resultStatus: null, matchedWords: 0 };
+        let wordPracticeSession = { listWords: [], currentIndex: 0, isRecording: false, resultStatus: null, alternativesData: [] };
 
         window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         let sqRecognition = null;
         if (window.SpeechRecognition) {
             sqRecognition = new SpeechRecognition(); sqRecognition.lang = 'en-US'; sqRecognition.continuous = false; sqRecognition.interimResults = false; sqRecognition.maxAlternatives = 5;
             sqRecognition.onresult = (e) => { const results = e.results[0]; let alts = []; for (let i = 0; i < results.length; i++) alts.push({ transcript: results[i].transcript, confidence: results[i].confidence }); handleVoiceRecognitionResult(alts); };
-            sqRecognition.onerror = (e) => { if (currentState === SoundQuestState.VOICE_CHECK) voiceCheckSession.isRecording = false; else phraseSession.isRecording = false; renderScreen(); };
-            sqRecognition.onend = () => { if (voiceCheckSession.isRecording) voiceCheckSession.isRecording = false; if (phraseSession.isRecording) phraseSession.isRecording = false; renderScreen(); };
+            sqRecognition.onerror = (e) => { 
+                if (currentState === SoundQuestState.VOICE_CHECK) voiceCheckSession.isRecording = false; 
+                else if (currentState === SoundQuestState.WORD_PRACTICE) wordPracticeSession.isRecording = false;
+                else phraseSession.isRecording = false; 
+                renderScreen(); 
+            };
+            sqRecognition.onend = () => { 
+                if (voiceCheckSession.isRecording) voiceCheckSession.isRecording = false; 
+                if (wordPracticeSession.isRecording) wordPracticeSession.isRecording = false; 
+                if (phraseSession.isRecording) phraseSession.isRecording = false; 
+                renderScreen(); 
+            };
         }
 
         function normalizeSpeechText(text = "") { return text.toLowerCase().replace(/_/g, " ").replace(/‿/g, "").replace(/[.,!?;:"“”‘’()[\]{}]/g, "").replace(/\s+/g, " ").trim(); }
@@ -230,14 +121,13 @@
             else if (currentState === SoundQuestState.EAR_CHECK) { earCheckSession.score = 8; currentState = SoundQuestState.EAR_RESULT; }
             else if (currentState === SoundQuestState.EAR_RESULT) { startVoiceCheck(); }
             else if (currentState === SoundQuestState.VOICE_CHECK) { if (!voiceCheckSession.isRetry) { openCoaching('contrast_error', 'wrong'); } else { startPhraseBridge(); } }
-            else if (currentState === SoundQuestState.COACHING) { startVoiceRetry(); }
+            else if (currentState === SoundQuestState.COACHING || currentState === SoundQuestState.WORD_PRACTICE) { startVoiceRetry(); }
             else if (currentState === SoundQuestState.PHRASE_BRIDGE) { startSentenceMission(); }
             else if (currentState === SoundQuestState.SENTENCE_MISSION) { showCompletionModal(); }
             renderScreen();
         }
 
         function returnToSoundQuestHome() { document.getElementById('transferModal').classList.add('hidden'); currentState = SoundQuestState.HOME; renderScreen(); }
-
         function selectCourse(courseId) { currentCourseId = courseId; currentState = SoundQuestState.INTRO; renderScreen(); }
 
         function startEarCheck() {
@@ -248,11 +138,13 @@
             }
             currentState = SoundQuestState.EAR_CHECK; renderScreen(); setTimeout(playTextAudio, 500);
         }
+        
         function playTextAudio(textOverride = null) {
             let text = textOverride;
             if (!text) {
                 if (currentState === SoundQuestState.EAR_CHECK) text = earCheckSession.questions[earCheckSession.currentIndex].correctWord;
                 else if (currentState === SoundQuestState.VOICE_CHECK) text = voiceCheckSession.currentTargetIsA ? courses[currentCourseId].pairs[voiceCheckSession.currentPairIndex].wordA : courses[currentCourseId].pairs[voiceCheckSession.currentPairIndex].wordB;
+                else if (currentState === SoundQuestState.WORD_PRACTICE) text = wordPracticeSession.listWords[wordPracticeSession.currentIndex];
                 else if (currentState === SoundQuestState.PHRASE_BRIDGE || currentState === SoundQuestState.SENTENCE_MISSION) text = phraseSession.data.text;
             }
             const utterance = new SpeechSynthesisUtterance(text); utterance.lang = 'en-US'; utterance.rate = 0.85; window.speechSynthesis.cancel(); window.speechSynthesis.speak(utterance);
@@ -282,28 +174,52 @@
         function startVoiceCheck() { voiceCheckSession = { currentPairIndex: Math.floor(Math.random() * courses[currentCourseId].pairs.length), currentTargetIsA: true, isRecording: false, resultStatus: null, alternativesData: [], isRetry: false, previousStatus: null, previousTranscript: "" }; currentState = SoundQuestState.VOICE_CHECK; renderScreen(); }
         function openCoaching(forceStatus = null, forceTranscript = null) { voiceCheckSession.previousStatus = forceStatus || voiceCheckSession.resultStatus; voiceCheckSession.previousTranscript = forceTranscript || (voiceCheckSession.alternativesData[0] ? voiceCheckSession.alternativesData[0].transcript : '...'); currentState = SoundQuestState.COACHING; renderScreen(); }
         function startVoiceRetry() { voiceCheckSession.isRetry = true; voiceCheckSession.resultStatus = null; voiceCheckSession.isRecording = false; voiceCheckSession.alternativesData = []; currentState = SoundQuestState.VOICE_CHECK; renderScreen(); }
-        
         function startPhraseBridge() { const phrases = courses[currentCourseId].phrases; phraseSession = { data: phrases[Math.floor(Math.random()*phrases.length)], isRecording: false, resultStatus: null, matchedWords: 0 }; currentState = SoundQuestState.PHRASE_BRIDGE; renderScreen(); }
         function startSentenceMission() { const sentences = courses[currentCourseId].sentences; phraseSession = { data: sentences[Math.floor(Math.random()*sentences.length)], isRecording: false, resultStatus: null, matchedWords: 0 }; currentState = SoundQuestState.SENTENCE_MISSION; renderScreen(); }
 
+        function openWordPractice(listIndex, wordIndex) {
+            const c = courses[currentCourseId];
+            const coachSymbolKey = voiceCheckSession.currentTargetIsA ? c.coachA : c.coachB;
+            const coach = coachingData[coachSymbolKey] || coachingData["l"];
+            wordPracticeSession = { listWords: coach.wordLists[listIndex].words, currentIndex: wordIndex, isRecording: false, resultStatus: null, alternativesData: [] };
+            currentState = SoundQuestState.WORD_PRACTICE; renderScreen();
+        }
+
+        function navWordPractice(direction) {
+            if (direction === 'next' && wordPracticeSession.currentIndex < wordPracticeSession.listWords.length - 1) wordPracticeSession.currentIndex++;
+            else if (direction === 'prev' && wordPracticeSession.currentIndex > 0) wordPracticeSession.currentIndex--;
+            wordPracticeSession.resultStatus = null; wordPracticeSession.alternativesData = []; renderScreen();
+        }
+
         function toggleMic() {
             if (!sqRecognition) { alert("マイクでの音声認識に非対応です。"); return; }
-            const isRec = (currentState === SoundQuestState.VOICE_CHECK) ? voiceCheckSession.isRecording : phraseSession.isRecording;
+            let isRec = false;
+            if (currentState === SoundQuestState.VOICE_CHECK) isRec = voiceCheckSession.isRecording;
+            else if (currentState === SoundQuestState.WORD_PRACTICE) isRec = wordPracticeSession.isRecording;
+            else isRec = phraseSession.isRecording;
+
             if (isRec) { sqRecognition.stop(); } 
             else {
                 if (currentState === SoundQuestState.VOICE_CHECK) { voiceCheckSession.resultStatus = null; voiceCheckSession.isRecording = true; }
+                else if (currentState === SoundQuestState.WORD_PRACTICE) { wordPracticeSession.resultStatus = null; wordPracticeSession.isRecording = true; }
                 else { phraseSession.resultStatus = null; phraseSession.isRecording = true; }
-                renderScreen(); try { sqRecognition.start(); } catch(e) { if(currentState===SoundQuestState.VOICE_CHECK)voiceCheckSession.isRecording=false; else phraseSession.isRecording=false; renderScreen(); }
+                renderScreen(); 
+                try { sqRecognition.start(); } catch(e) { 
+                    if(currentState===SoundQuestState.VOICE_CHECK) voiceCheckSession.isRecording=false; 
+                    else if(currentState===SoundQuestState.WORD_PRACTICE) wordPracticeSession.isRecording=false;
+                    else phraseSession.isRecording=false; 
+                    renderScreen(); 
+                }
             }
         }
 
         function handleVoiceRecognitionResult(alternatives) {
             const topTranscript = alternatives[0] ? normalizeSpeechText(alternatives[0].transcript) : "";
+            
             if (currentState === SoundQuestState.VOICE_CHECK) {
                 voiceCheckSession.isRecording = false; const pair = courses[currentCourseId].pairs[voiceCheckSession.currentPairIndex];
                 const targetWord = normalizeSpeechText(voiceCheckSession.currentTargetIsA ? pair.wordA : pair.wordB); const contrastWord = normalizeSpeechText(voiceCheckSession.currentTargetIsA ? pair.wordB : pair.wordA);
                 voiceCheckSession.alternativesData = alternatives;
-
                 if (!alternatives || alternatives.length === 0) { voiceCheckSession.resultStatus = 'retry'; } 
                 else if (topTranscript === targetWord) { voiceCheckSession.resultStatus = 'clear'; playGentleSound('correct'); } 
                 else if (topTranscript === contrastWord) { voiceCheckSession.resultStatus = 'contrast_error'; playGentleSound('incorrect'); } 
@@ -313,6 +229,17 @@
                     if(foundInClose) playGentleSound('correct'); else playGentleSound('incorrect');
                 }
             } 
+            else if (currentState === SoundQuestState.WORD_PRACTICE) {
+                wordPracticeSession.isRecording = false; const targetWord = normalizeSpeechText(wordPracticeSession.listWords[wordPracticeSession.currentIndex]);
+                wordPracticeSession.alternativesData = alternatives;
+                if (!alternatives || alternatives.length === 0) { wordPracticeSession.resultStatus = 'retry'; }
+                else if (topTranscript === targetWord) { wordPracticeSession.resultStatus = 'clear'; playGentleSound('correct'); }
+                else {
+                    let foundInClose = false; for (let i = 1; i < alternatives.length; i++) { if (normalizeSpeechText(alternatives[i].transcript) === targetWord) { foundInClose = true; break; } }
+                    wordPracticeSession.resultStatus = foundInClose ? 'close' : 'retry';
+                    if(foundInClose) playGentleSound('correct'); else playGentleSound('incorrect');
+                }
+            }
             else if (currentState === SoundQuestState.PHRASE_BRIDGE || currentState === SoundQuestState.SENTENCE_MISSION) {
                 phraseSession.isRecording = false;
                 if (!topTranscript) { phraseSession.resultStatus = 'retry'; }
@@ -335,7 +262,7 @@
         }
 
         // ==========================================
-        // 画面描画 (ライト＆ストーン調デザイン)
+        // 画面描画
         // ==========================================
         function renderScreen() {
             const container = document.getElementById('sqAppContainer');
@@ -349,7 +276,6 @@
                         </div>
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6">
                 `;
-                
                 Object.values(courses).forEach(c => {
                     html += `
                         <button onclick="selectCourse('${c.id}')" class="text-left p-5 md:p-6 rounded-xl border-2 border-stone-200 bg-white hover:${c.bgTheme} hover:border-${c.theme.split('-')[1]}-400 transition-all transform hover:-translate-y-1 group shadow-sm hover:shadow-md flex flex-col justify-between relative overflow-hidden min-h-[170px]">
@@ -361,26 +287,128 @@
                             <span class="${c.theme} opacity-70 group-hover:opacity-100 font-black text-xs group-hover:translate-x-1 transition-all tracking-widest block mt-4">START ➔</span>
                         </button>`;
                 });
-                
-                html += `</div></div>`; 
-                container.innerHTML = html;
-            }
+                html += `</div></div>`; container.innerHTML = html;
+            } 
             else if (currentState === SoundQuestState.INTRO) {
                 const c = courses[currentCourseId];
-                container.innerHTML = `<div class="bg-white rounded-md iron-border p-8 md:p-14 shadow-sm text-center max-w-2xl mx-auto"><h3 class="text-4xl md:text-6xl font-black text-stone-800 mb-8 serif-font tracking-tight">${c.subtitle.split(' ')[0]} <span class="text-stone-300">or</span> ${c.subtitle.split(' ')[2].replace('?','')}?</h3><button onclick="startEarCheck()" class="w-full md:w-auto px-10 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-lg rounded-full shadow-md transition transform hover:scale-105">聞き分けを始める</button></div>`;
+                container.innerHTML = `<div class="bg-white rounded-xl iron-border p-8 md:p-14 shadow-sm text-center max-w-2xl mx-auto"><h3 class="text-4xl md:text-6xl font-black text-stone-800 mb-8 serif-font tracking-tight">${c.subtitle.split(' ')[0]} <span class="text-stone-300">or</span> ${c.subtitle.split(' ')[2].replace('?','')}?</h3><button onclick="startEarCheck()" class="w-full md:w-auto px-10 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-lg rounded-full shadow-md transition transform hover:scale-105">聞き分けを始める</button></div>`;
             } 
             else if (currentState === SoundQuestState.EAR_CHECK) {
                 const q = earCheckSession.questions[earCheckSession.currentIndex];
-                container.innerHTML = `<div class="bg-white rounded-md iron-border p-6 md:p-12 shadow-sm max-w-2xl mx-auto w-full text-center"><div class="flex justify-between items-end mb-4 border-b border-stone-100 pb-2"><span class="text-stone-400 font-bold text-xs tracking-wider">QUESTION ${earCheckSession.currentIndex + 1} / 8</span><span id="comboDisplay" class="text-orange-500 font-black text-sm italic">${earCheckSession.combo > 1 ? earCheckSession.combo + ' COMBO🔥' : ''}</span></div><button onclick="playTextAudio()" class="w-20 h-20 bg-stone-100 hover:bg-stone-200 border border-stone-300 rounded-full mx-auto flex items-center justify-center text-3xl mb-10 transition hover:scale-105 shadow-sm">🔊</button><div class="grid grid-cols-2 gap-4 mb-8"><button onclick="handleEarCheckAnswer('${q.wordLeft}', this)" class="py-6 rounded-md border-2 border-stone-200 bg-white hover:bg-stone-50 font-black text-xl md:text-2xl text-stone-800 serif-font shadow-sm transition">${q.wordLeft}</button><button onclick="handleEarCheckAnswer('${q.wordRight}', this)" class="py-6 rounded-md border-2 border-stone-200 bg-white hover:bg-stone-50 font-black text-xl md:text-2xl text-stone-800 serif-font shadow-sm transition">${q.wordRight}</button></div><div id="earFeedbackArea" class="h-8 flex items-center justify-center"></div></div>`;
+                container.innerHTML = `<div class="bg-white rounded-xl iron-border p-6 md:p-12 shadow-sm max-w-2xl mx-auto w-full text-center"><div class="flex justify-between items-end mb-4 border-b border-stone-100 pb-2"><span class="text-stone-400 font-bold text-xs tracking-wider">QUESTION ${earCheckSession.currentIndex + 1} / 8</span><span id="comboDisplay" class="text-orange-500 font-black text-sm italic">${earCheckSession.combo > 1 ? earCheckSession.combo + ' COMBO🔥' : ''}</span></div><button onclick="playTextAudio()" class="w-20 h-20 bg-stone-100 hover:bg-stone-200 border border-stone-300 rounded-full mx-auto flex items-center justify-center text-3xl mb-10 transition hover:scale-105 shadow-sm">🔊</button><div class="grid grid-cols-2 gap-4 mb-8"><button onclick="handleEarCheckAnswer('${q.wordLeft}', this)" class="py-6 rounded-md border-2 border-stone-200 bg-white hover:bg-stone-50 font-black text-xl md:text-2xl text-stone-800 serif-font shadow-sm transition">${q.wordLeft}</button><button onclick="handleEarCheckAnswer('${q.wordRight}', this)" class="py-6 rounded-md border-2 border-stone-200 bg-white hover:bg-stone-50 font-black text-xl md:text-2xl text-stone-800 serif-font shadow-sm transition">${q.wordRight}</button></div><div id="earFeedbackArea" class="h-8 flex items-center justify-center"></div></div>`;
             } 
             else if (currentState === SoundQuestState.EAR_RESULT) {
                 const percent = Math.round((earCheckSession.score / 8) * 100);
-                container.innerHTML = `<div class="bg-white rounded-md border-2 ${percent >= 75 ? 'border-emerald-300' : 'border-amber-300'} p-8 md:p-12 shadow-md text-center max-w-2xl mx-auto w-full"><h2 class="text-sm font-black tracking-widest text-stone-500 mb-6 uppercase">Ear Check Complete</h2><div class="text-5xl font-black mb-2 serif-font ${percent >= 75 ? 'text-emerald-500' : 'text-amber-500'}">${earCheckSession.score} <span class="text-2xl text-stone-400">/ 8</span></div><p class="text-stone-600 font-bold mb-10">Listening Match: ${percent}%</p><button onclick="startVoiceCheck()" class="w-full md:w-auto px-10 py-4 bg-stone-800 hover:bg-stone-700 text-white font-black text-lg rounded-full shadow-md transition transform hover:scale-105">発音テストへ進む (Voice Check)</button></div>`;
+                container.innerHTML = `<div class="bg-white rounded-xl border-2 ${percent >= 75 ? 'border-emerald-300' : 'border-amber-300'} p-8 md:p-12 shadow-md text-center max-w-2xl mx-auto w-full"><h2 class="text-sm font-black tracking-widest text-stone-500 mb-6 uppercase">Ear Check Complete</h2><div class="text-5xl font-black mb-2 serif-font ${percent >= 75 ? 'text-emerald-500' : 'text-amber-500'}">${earCheckSession.score} <span class="text-2xl text-stone-400">/ 8</span></div><p class="text-stone-600 font-bold mb-10">Listening Match: ${percent}%</p><button onclick="startVoiceCheck()" class="w-full md:w-auto px-10 py-4 bg-stone-800 hover:bg-stone-700 text-white font-black text-lg rounded-full shadow-md transition transform hover:scale-105">発音テストへ進む (Voice Check)</button></div>`;
             } 
             else if (currentState === SoundQuestState.COACHING) {
                 const c = courses[currentCourseId]; const targetIsA = voiceCheckSession.currentTargetIsA; 
                 const coachSymbolKey = targetIsA ? c.coachA : c.coachB; const coach = coachingData[coachSymbolKey] || coachingData["l"]; const themeColor = coach.theme;
-                container.innerHTML = `<div class="bg-white rounded-md iron-border p-6 md:p-12 shadow-sm max-w-2xl mx-auto w-full flex flex-col animate-[fade-in_0.4s_ease-out]"><div class="flex justify-between items-center mb-6 border-b border-stone-100 pb-4"><h2 class="text-xs font-black tracking-widest text-${themeColor}-600 uppercase flex items-center gap-2">💡 Sound Coach</h2><span class="text-3xl font-black text-stone-800 serif-font bg-stone-50 px-3 py-1 rounded border border-stone-200">${coach.symbol}</span></div><h3 class="text-xl md:text-2xl font-black text-stone-800 mb-6">${coach.title}</h3><div class="w-full flex justify-center mb-8"><div class="w-48 h-48 md:w-56 md:h-56 bg-white rounded-md border-2 border-stone-200 p-2 shadow-inner flex items-center justify-center overflow-hidden"><img src="coach_images/coach_${coachSymbolKey}.webp" alt="${coach.symbol}の口の形" class="w-full h-full object-contain" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\\'text-stone-400 text-xs font-bold\\'>画像準備中...</span>';"></div></div><ul class="space-y-4 mb-10 text-stone-700 font-bold text-sm bg-stone-50 p-6 rounded-md border border-stone-200">${coach.instructions.map((inst, i) => `<li class="flex gap-4 items-start"><span class="text-white bg-${themeColor}-500 w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-xs shadow-sm">${i+1}</span> <span>${inst}</span></li>`).join('')}</ul><div class="bg-stone-50 rounded-md p-6 border border-stone-200 mb-10"><p class="text-xs text-stone-500 font-bold tracking-widest mb-4 uppercase text-center">Step-by-step Practice</p><div class="flex flex-wrap gap-2 justify-center items-center font-mono text-lg text-stone-700">${coach.steps.map(step => `<button onclick="playTextAudio('${step}')" class="px-4 py-2 bg-white hover:bg-stone-100 rounded-md transition active:scale-95 border border-stone-300 shadow-sm text-stone-800 font-bold">🔊 ${step}</button>`).join('<span class="text-stone-400 text-sm">➔</span>')}</div></div><button onclick="startVoiceRetry()" class="w-full py-4 bg-stone-800 hover:bg-stone-700 text-white font-black text-lg rounded-full shadow-md transition transform hover:scale-105 active:scale-95">もう一度テストへ戻る (Retry)</button></div>`;
+                
+                let coachingHtml = `
+                    <div class="bg-white rounded-xl iron-border p-6 md:p-10 shadow-sm max-w-5xl mx-auto w-full flex flex-col animate-[fade-in_0.4s_ease-out] mb-8">
+                        <div class="flex justify-between items-center mb-8 border-b border-stone-200 pb-4">
+                            <h2 class="text-xs font-black tracking-widest text-${themeColor}-600 uppercase flex items-center gap-2">💡 Sound Coach</h2>
+                            <span class="text-3xl font-black text-stone-800 serif-font bg-stone-50 px-3 py-1 rounded border border-stone-200 shadow-sm">${coach.symbol}</span>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
+                            <!-- 👈 左カラム：解説・図解 -->
+                            <div class="flex flex-col">
+                                <div class="w-full flex justify-center mb-6">
+                                    <div class="w-48 h-48 bg-white rounded-xl border-2 border-stone-200 p-2 shadow-inner flex items-center justify-center overflow-hidden">
+                                        <img src="coach_images/coach_${coachSymbolKey}.webp" alt="${coach.symbol}の口の形" class="w-full h-full object-contain" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\\'text-stone-400 text-xs font-bold\\'>画像準備中...</span>';">
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-8">
+                                    <div class="inline-block px-4 py-1.5 bg-${themeColor}-500 text-white font-bold text-sm rounded-full mb-3 shadow-sm">発音の仕方</div>
+                                    <h3 class="text-xl md:text-2xl font-black text-stone-800 mb-3 leading-tight">${coach.title}</h3>
+                                    <p class="text-stone-600 text-sm md:text-base leading-relaxed font-medium">${coach.howTo || "データ作成中です。"}</p>
+                                </div>
+                                
+                                ${coach.tips ? `
+                                <div class="bg-orange-50 border border-orange-200 rounded-xl p-5 shadow-sm relative mt-auto">
+                                    <div class="absolute -top-3 left-4 bg-orange-400 text-white text-[10px] font-black px-3 py-1 rounded-full shadow-sm tracking-widest">TIPS</div>
+                                    <p class="text-orange-900 font-bold text-sm leading-relaxed mt-1">💡 ${coach.tips}</p>
+                                </div>
+                                ` : ''}
+                            </div>
+
+                            <!-- 👉 右カラム：単語リスト -->
+                            <div class="flex flex-col space-y-8">
+                                ${coach.wordLists ? coach.wordLists.map((list, lIdx) => `
+                                    <div class="bg-stone-50 p-5 rounded-xl border border-stone-200">
+                                        <div class="inline-block px-4 py-1.5 bg-stone-700 text-white font-bold text-sm rounded-full mb-2 shadow-sm">${list.title}</div>
+                                        <p class="text-stone-500 text-xs font-bold mb-4">${list.desc}</p>
+                                        <div class="grid grid-cols-2 gap-3">
+                                            ${list.words.map((w, wIdx) => `
+                                                <div class="flex items-center justify-between bg-white border border-stone-200 rounded-lg shadow-sm p-1.5 hover:border-${themeColor}-300 transition group">
+                                                    <span class="font-bold text-stone-700 text-sm ml-2">${w}</span>
+                                                    <div class="flex gap-1">
+                                                        <button onclick="playTextAudio('${w}')" class="w-8 h-8 flex items-center justify-center rounded text-stone-400 hover:text-stone-600 hover:bg-stone-100 transition active:scale-95">🔊</button>
+                                                        <button onclick="openWordPractice(${lIdx}, ${wIdx})" class="w-8 h-8 flex items-center justify-center rounded bg-white border border-stone-200 text-stone-400 hover:text-${themeColor}-500 hover:border-${themeColor}-300 hover:bg-${themeColor}-50 transition active:scale-95 shadow-sm">🎤</button>
+                                                    </div>
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                    </div>
+                                `).join('') : '<p class="text-stone-400 text-sm font-bold">データ準備中...</p>'}
+                            </div>
+                        </div>
+
+                        <div class="mt-10 pt-6 border-t border-stone-200">
+                            <button onclick="startVoiceRetry()" class="w-full md:w-auto md:px-16 py-4 bg-stone-800 hover:bg-stone-700 text-white font-black text-lg rounded-full shadow-md transition transform hover:scale-105 active:scale-95 mx-auto block">もう一度 Voice Check へ戻る (Retry)</button>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML = coachingHtml;
+            }
+            else if (currentState === SoundQuestState.WORD_PRACTICE) {
+                const targetWord = wordPracticeSession.listWords[wordPracticeSession.currentIndex];
+                const c = courses[currentCourseId];
+                const coachSymbolKey = voiceCheckSession.currentTargetIsA ? c.coachA : c.coachB; 
+                const themeColor = (coachingData[coachSymbolKey] || coachingData["l"]).theme;
+
+                let feedbackHtml = `<p class="text-stone-500 text-sm font-bold h-12 flex items-center justify-center">マイクボタンを押して発音してください</p>`;
+                let recognizedText = wordPracticeSession.alternativesData[0] ? normalizeSpeechText(wordPracticeSession.alternativesData[0].transcript) : '???';
+                if (wordPracticeSession.isRecording) feedbackHtml = `<p class="text-${themeColor}-600 text-sm font-bold h-12 flex items-center justify-center animate-pulse">Listening... (話してください)</p>`;
+                else if (wordPracticeSession.resultStatus === 'clear') feedbackHtml = `<div class="h-12 flex flex-col items-center justify-center"><span class="text-emerald-600 font-black text-xl tracking-widest uppercase">CLEAR!</span><span class="text-emerald-700/70 text-xs">Recognized as: ${recognizedText}</span></div>`;
+                else if (wordPracticeSession.resultStatus === 'close') feedbackHtml = `<div class="h-12 flex flex-col items-center justify-center"><span class="text-amber-500 font-black text-lg tracking-widest uppercase">CLOSE!</span><span class="text-amber-600/70 text-[10px]">Close match detected.</span></div>`;
+                else if (wordPracticeSession.resultStatus === 'retry') feedbackHtml = `<p class="text-orange-500 text-sm font-bold h-12 flex items-center justify-center">Not clear yet. Listen and try again.</p>`;
+
+                const isFirst = wordPracticeSession.currentIndex === 0;
+                const isLast = wordPracticeSession.currentIndex === wordPracticeSession.listWords.length - 1;
+
+                container.innerHTML = `
+                    <div class="bg-white rounded-xl iron-border p-8 md:p-14 shadow-sm max-w-2xl mx-auto w-full text-center relative">
+                        <button onclick="currentState='${SoundQuestState.COACHING}'; renderScreen();" class="absolute top-6 left-6 text-stone-400 hover:text-stone-600 font-bold text-xs flex items-center gap-1"><span>←</span> コーチングに戻る</button>
+                        
+                        <h2 class="text-xs font-black tracking-widest text-${themeColor}-600 mb-8 uppercase mt-6 md:mt-0">Word Practice</h2>
+                        
+                        <div class="flex items-center justify-center gap-4 md:gap-8 mb-10">
+                            <button onclick="navWordPractice('prev')" class="w-12 h-12 rounded-full flex items-center justify-center text-stone-400 hover:text-${themeColor}-600 hover:bg-${themeColor}-50 transition active:scale-95 ${isFirst ? 'opacity-30 cursor-not-allowed' : ''}" ${isFirst ? 'disabled' : ''}>
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M15 19l-7-7 7-7"></path></svg>
+                            </button>
+                            
+                            <div class="w-48 text-center">
+                                <div class="mb-2 text-stone-400 font-bold tracking-widest text-xs uppercase">SAY:</div>
+                                <h3 class="text-4xl md:text-5xl font-black text-stone-800 serif-font tracking-tight capitalize drop-shadow-sm">${targetWord}</h3>
+                            </div>
+                            
+                            <button onclick="navWordPractice('next')" class="w-12 h-12 rounded-full flex items-center justify-center text-stone-400 hover:text-${themeColor}-600 hover:bg-${themeColor}-50 transition active:scale-95 ${isLast ? 'opacity-30 cursor-not-allowed' : ''}" ${isLast ? 'disabled' : ''}>
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"></path></svg>
+                            </button>
+                        </div>
+                        
+                        <button onclick="playTextAudio()" class="px-6 py-2 bg-stone-100 hover:bg-stone-200 text-stone-600 font-bold rounded-full transition text-sm mb-10 border border-stone-300 flex items-center gap-2 mx-auto shadow-sm">🔊 お手本を聞く</button>
+                        
+                        <div class="relative w-32 h-32 mx-auto mb-8">
+                            <button onclick="toggleMic()" class="absolute inset-0 w-full h-full rounded-full flex flex-col items-center justify-center text-white transition-all shadow-md z-10 ${wordPracticeSession.isRecording ? `bg-${themeColor}-500 recording-ripple` : `bg-stone-800 border-4 border-stone-200 hover:bg-stone-700`}"><span class="text-4xl mb-1">${wordPracticeSession.isRecording ? '⏹' : '🎤'}</span></button>
+                        </div>
+                        ${feedbackHtml}
+                    </div>
+                `;
             }
             else if (currentState === SoundQuestState.VOICE_CHECK) {
                 const c = courses[currentCourseId]; const pair = c.pairs[voiceCheckSession.currentPairIndex];
@@ -404,7 +432,7 @@
                 }
 
                 container.innerHTML = `
-                    <div class="bg-white rounded-md iron-border p-8 md:p-14 shadow-sm max-w-2xl mx-auto w-full text-center">
+                    <div class="bg-white rounded-xl iron-border p-8 md:p-14 shadow-sm max-w-2xl mx-auto w-full text-center">
                         <h2 class="text-xs font-black tracking-widest text-${themeColor}-600 mb-8 uppercase">Voice Check ${voiceCheckSession.isRetry ? '(Retry)' : ''}</h2>
                         ${retryHeaderHtml}
                         <div class="mb-2 text-stone-400 font-bold tracking-widest text-sm">SAY:</div>
@@ -424,8 +452,7 @@
             else if (currentState === SoundQuestState.PHRASE_BRIDGE || currentState === SoundQuestState.SENTENCE_MISSION) {
                 const isSentence = (currentState === SoundQuestState.SENTENCE_MISSION); const title = isSentence ? "Sentence Mission" : "Phrase Bridge";
                 const totalTargets = phraseSession.data.targetWords.length;
-                const c = courses[currentCourseId];
-                const themeColor = "emerald"; 
+                const c = courses[currentCourseId]; const themeColor = "emerald"; 
                 
                 let displayHtml = phraseSession.data.text;
                 phraseSession.data.targetWords.forEach(tw => {
@@ -445,7 +472,7 @@
                 }
 
                 container.innerHTML = `
-                    <div class="bg-white rounded-md iron-border p-8 md:p-14 shadow-sm max-w-3xl mx-auto w-full text-center">
+                    <div class="bg-white rounded-xl iron-border p-8 md:p-14 shadow-sm max-w-3xl mx-auto w-full text-center">
                         <h2 class="text-xs font-black tracking-widest text-${themeColor}-600 mb-8 uppercase">${title}</h2>
                         <p class="text-stone-500 text-sm font-bold mb-4">${phraseSession.data.translation}</p>
                         <h3 class="text-3xl md:text-5xl font-medium text-stone-800 mb-10 serif-font leading-relaxed drop-shadow-sm">${displayHtml}</h3>
