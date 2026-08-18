@@ -17,6 +17,8 @@
         .recording-ripple { animation: ripple 1.5s infinite; }
         @keyframes popIn { 0% { transform: scale(0.95); opacity: 0; filter: blur(4px); } 100% { transform: scale(1); opacity: 1; filter: blur(0); } }
         .animate-pop-in { animation: popIn 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+        @keyframes successPop { 0% { transform: scale(1); } 50% { transform: scale(1.15); color: #059669; text-shadow: 0px 4px 10px rgba(5, 150, 105, 0.3); } 100% { transform: scale(1); } }
+        .animate-success-pop { animation: successPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
         .iron-border { border: 2px solid #e5e5e5; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
         ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: transparent; }
@@ -62,7 +64,7 @@
             <div class="text-5xl md:text-6xl mb-3 drop-shadow-md animate-bounce">👑</div>
             <h3 class="text-2xl md:text-3xl font-black text-stone-800 mb-2 serif-font tracking-tight leading-tight">READY FOR<br>COPEAK TRANSFER</h3>
             <p class="text-stone-500 font-bold text-xs md:text-sm mt-4 mb-8 leading-relaxed">
-                ターゲット音の聞き分けと発音を習得しました！<br>この感覚を持ったまま、Copeak本体へ進みましょう。
+                発音とリエゾンの基礎を完全にマスターしました！<br>この滑らかな感覚のまま、Copeak本体で長文音読へ進みましょう。
             </p>
             <div class="flex flex-col gap-3">
                 <button onclick="returnToSoundQuestHome()" class="w-full py-3 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold text-sm md:text-base rounded-full shadow-sm transition border border-stone-300 flex items-center justify-center gap-2">
@@ -77,9 +79,10 @@
 
     <script>
         function executeCopeakTransfer() {
-            if (!phraseSession.data) { window.location.href = 'index.html'; return; }
+            let dataObj = phraseSession.data || (passageSession && passageSession.data);
+            if (!dataObj) { window.location.href = 'index.html'; return; }
             const c = getCurrentCourse();
-            const transferData = { title: "Sound Quest: " + c.title, eng: phraseSession.data.text, jpn: phraseSession.data.translation };
+            const transferData = { title: "Sound Quest: " + c.title, eng: dataObj.text, jpn: dataObj.translation || "" };
             sessionStorage.setItem('copeak_sq_transfer', JSON.stringify(transferData));
             window.location.href = 'index.html';
         }
@@ -87,19 +90,43 @@
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         function playGentleSound(type) {
             if (audioCtx.state === 'suspended') audioCtx.resume();
-            const osc = audioCtx.createOscillator(); const gain = audioCtx.createGain();
-            osc.connect(gain); gain.connect(audioCtx.destination); const now = audioCtx.currentTime;
-            if (type === 'click') { osc.type = 'sine'; osc.frequency.setValueAtTime(300, now); osc.frequency.exponentialRampToValueAtTime(150, now + 0.05); gain.gain.setValueAtTime(0.05, now); gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05); osc.start(now); osc.stop(now + 0.05); } 
-            else if (type === 'correct') { osc.type = 'triangle'; osc.frequency.setValueAtTime(392.00, now); osc.frequency.setValueAtTime(523.25, now + 0.1); gain.gain.setValueAtTime(0.1, now); gain.gain.exponentialRampToValueAtTime(0.001, now + 0.4); osc.start(now); osc.stop(now + 0.4); } 
-            else if (type === 'incorrect') { osc.type = 'sine'; osc.frequency.setValueAtTime(200, now); osc.frequency.exponentialRampToValueAtTime(150, now + 0.2); gain.gain.setValueAtTime(0.1, now); gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2); osc.start(now); osc.stop(now + 0.2); }
+            const now = audioCtx.currentTime;
+            
+            if (type === 'click') {
+                const osc = audioCtx.createOscillator(); const gain = audioCtx.createGain();
+                osc.connect(gain); gain.connect(audioCtx.destination);
+                osc.type = 'sine'; osc.frequency.setValueAtTime(300, now); osc.frequency.exponentialRampToValueAtTime(150, now + 0.05); gain.gain.setValueAtTime(0.05, now); gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05); osc.start(now); osc.stop(now + 0.05);
+            } 
+            else if (type === 'correct') { 
+                const freqs = [523.25, 659.25, 1046.50]; 
+                freqs.forEach((freq, i) => {
+                    const osc = audioCtx.createOscillator(); const gain = audioCtx.createGain();
+                    osc.connect(gain); gain.connect(audioCtx.destination);
+                    osc.type = 'sine'; osc.frequency.setValueAtTime(freq, now + i * 0.08); gain.gain.setValueAtTime(0, now + i * 0.08); gain.gain.linearRampToValueAtTime(0.1, now + i * 0.08 + 0.02); gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.08 + 0.4); osc.start(now + i * 0.08); osc.stop(now + i * 0.08 + 0.4);
+                });
+            } 
+            else if (type === 'incorrect') {
+                const osc = audioCtx.createOscillator(); const gain = audioCtx.createGain();
+                osc.connect(gain); gain.connect(audioCtx.destination);
+                osc.type = 'sine'; osc.frequency.setValueAtTime(200, now); osc.frequency.exponentialRampToValueAtTime(150, now + 0.2); gain.gain.setValueAtTime(0.1, now); gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2); osc.start(now); osc.stop(now + 0.2);
+            }
         }
+        
         function playFanfare() {
             if (audioCtx.state === 'suspended') audioCtx.resume(); const now = audioCtx.currentTime;
             [523.25, 659.25, 783.99].forEach(freq => { const osc = audioCtx.createOscillator(); const gain = audioCtx.createGain(); osc.connect(gain); gain.connect(audioCtx.destination); osc.type = 'triangle'; osc.frequency.setValueAtTime(freq, now); gain.gain.setValueAtTime(0, now); gain.gain.linearRampToValueAtTime(0.1, now + 0.1); gain.gain.exponentialRampToValueAtTime(0.001, now + 1.5); osc.start(now); osc.stop(now + 1.5); });
         }
+        
+        function fireSmallConfetti() {
+            if (typeof confetti === 'function') {
+                confetti({ particleCount: 40, spread: 70, origin: { y: 0.65 }, colors: ['#10b981', '#fbbf24', '#3b82f6'], zIndex: 200000, disableForReducedMotion: true });
+            }
+        }
+
         document.addEventListener('click', (e) => { if (e.target.closest('button')) playGentleSound('click'); });
 
-        const SoundQuestState = { HOME: "home", INTRO: "intro", EAR_CHECK: "ear_check", EAR_RESULT: "ear_result", VOICE_CHECK: "voice_check", COACHING: "coaching", WORD_PRACTICE: "word_practice", PHRASE_BRIDGE: "phrase_bridge", SENTENCE_MISSION: "sentence_mission" };
+        // ★追加: PASSAGE_MISSION と PASSAGE_RESULT をステートに登録
+        const SoundQuestState = { HOME: "home", INTRO: "intro", EAR_CHECK: "ear_check", EAR_RESULT: "ear_result", VOICE_CHECK: "voice_check", COACHING: "coaching", WORD_PRACTICE: "word_practice", PHRASE_BRIDGE: "phrase_bridge", SENTENCE_MISSION: "sentence_mission", PASSAGE_MISSION: "passage_mission", PASSAGE_RESULT: "passage_result" };
         let currentState = SoundQuestState.HOME;
         
         let currentCourseType = 'minimal'; 
@@ -109,6 +136,9 @@
         let voiceCheckSession = { currentPairIndex: 0, currentTargetIsA: true, isRecording: false, resultStatus: null, alternativesData: [], isRetry: false, previousStatus: null, previousTranscript: "" };
         let phraseSession = { data: null, isRecording: false, resultStatus: null, matchedWords: 0, alternativesData: [] };
         let wordPracticeSession = { listWords: [], currentIndex: 0, isRecording: false, resultStatus: null, alternativesData: [] };
+        
+        // ★追加: パッセージ用のセッションデータ
+        let passageSession = { data: null, isRecording: false, accuracy: 0, alternativesData: [] };
 
         function getCurrentCourse() {
             return currentCourseType === 'minimal' ? courses[currentCourseId] : liaisonCourses[currentCourseId];
@@ -131,6 +161,7 @@
             sqRecognition.onerror = (e) => { 
                 if (currentState === SoundQuestState.VOICE_CHECK) voiceCheckSession.isRecording = false; 
                 else if (currentState === SoundQuestState.WORD_PRACTICE) wordPracticeSession.isRecording = false;
+                else if (currentState === SoundQuestState.PASSAGE_MISSION) passageSession.isRecording = false;
                 else phraseSession.isRecording = false; 
                 renderScreen(); 
             };
@@ -138,6 +169,7 @@
                 if (voiceCheckSession.isRecording) voiceCheckSession.isRecording = false; 
                 if (wordPracticeSession.isRecording) wordPracticeSession.isRecording = false; 
                 if (phraseSession.isRecording) phraseSession.isRecording = false; 
+                if (passageSession.isRecording) passageSession.isRecording = false; 
                 renderScreen(); 
             };
         }
@@ -154,7 +186,12 @@
             else if (currentState === SoundQuestState.EAR_RESULT) { startVoiceCheck(); }
             else if (currentState === SoundQuestState.VOICE_CHECK || currentState === SoundQuestState.COACHING || currentState === SoundQuestState.WORD_PRACTICE) { startPhraseBridge(); }
             else if (currentState === SoundQuestState.PHRASE_BRIDGE) { startSentenceMission(); }
-            else if (currentState === SoundQuestState.SENTENCE_MISSION) { showCompletionModal(); }
+            else if (currentState === SoundQuestState.SENTENCE_MISSION) { 
+                // ★修正: リエゾンの場合は パッセージミッション へ！
+                if (currentCourseType === 'liaison') startPassageMission();
+                else showCompletionModal(); 
+            }
+            else if (currentState === SoundQuestState.PASSAGE_MISSION || currentState === SoundQuestState.PASSAGE_RESULT) { showCompletionModal(); }
             renderScreen();
         }
 
@@ -184,16 +221,64 @@
         
         function playTextAudio(textOverride = null) {
             let text = textOverride;
+            let audioPath = null;
+
             if (!text) {
-                if (currentState === SoundQuestState.EAR_CHECK) text = earCheckSession.questions[earCheckSession.currentIndex].correctWord;
+                if (currentState === SoundQuestState.EAR_CHECK) {
+                    text = earCheckSession.questions[earCheckSession.currentIndex].correctWord;
+                }
                 else if (currentState === SoundQuestState.VOICE_CHECK) {
                     const c = getCurrentCourse();
                     text = voiceCheckSession.currentTargetIsA ? c.pairs[voiceCheckSession.currentPairIndex].wordA : c.pairs[voiceCheckSession.currentPairIndex].wordB;
                 }
-                else if (currentState === SoundQuestState.WORD_PRACTICE) text = wordPracticeSession.listWords[wordPracticeSession.currentIndex];
-                else if (currentState === SoundQuestState.PHRASE_BRIDGE || currentState === SoundQuestState.SENTENCE_MISSION) text = phraseSession.data.text;
+                else if (currentState === SoundQuestState.WORD_PRACTICE) {
+                    text = wordPracticeSession.listWords[wordPracticeSession.currentIndex];
+                }
+                else if (currentState === SoundQuestState.PHRASE_BRIDGE || currentState === SoundQuestState.SENTENCE_MISSION) {
+                    text = phraseSession.data.text;
+                    if (currentCourseType === 'liaison') {
+                        const prefixMap = { "linking": "link", "reduction": "redu", "silent-letters": "sile", "magic-e": "mage", "assimilation": "assi", "glottal-t": "glot" };
+                        const prefix = prefixMap[currentCourseId];
+                        if (prefix) {
+                            const isPhrase = currentState === SoundQuestState.PHRASE_BRIDGE;
+                            const c = getCurrentCourse();
+                            const list = isPhrase ? c.phrases : c.sentences;
+                            const idx = list.findIndex(item => item.text === text);
+                            if (idx !== -1) audioPath = `audio/liaison/${prefix}_${isPhrase ? 'p' : 's'}${idx + 1}.mp3`;
+                        }
+                    }
+                }
+                // ★追加: パッセージ用の音声ファイルパス生成
+                else if (currentState === SoundQuestState.PASSAGE_MISSION) {
+                    text = passageSession.data.text;
+                    if (currentCourseType === 'liaison') {
+                        const prefixMap = { "linking": "link", "reduction": "redu", "silent-letters": "sile", "magic-e": "mage", "assimilation": "assi", "glottal-t": "glot" };
+                        const prefix = prefixMap[currentCourseId];
+                        if (prefix) {
+                            const c = getCurrentCourse();
+                            const idx = (c.passages || []).findIndex(item => item.text === text);
+                            if (idx !== -1) {
+                                audioPath = `audio/liaison/${prefix}_pass${idx + 1}.mp3`;
+                            } else {
+                                audioPath = `audio/liaison/${prefix}_pass1.mp3`; // 予備
+                            }
+                        }
+                    }
+                }
             }
-            const utterance = new SpeechSynthesisUtterance(text); utterance.lang = 'en-US'; utterance.rate = 0.85; window.speechSynthesis.cancel(); window.speechSynthesis.speak(utterance);
+
+            if (audioPath) {
+                const audio = new Audio(audioPath);
+                audio.onerror = () => { console.warn("⚠️ MP3 file not found:", audioPath); playTTS(text); };
+                audio.play().catch(e => { console.warn("⚠️ Autoplay blocked:", e); playTTS(text); });
+            } else {
+                playTTS(text);
+            }
+        }
+
+        function playTTS(text) {
+            const utterance = new SpeechSynthesisUtterance(text); utterance.lang = 'en-US'; utterance.rate = 0.85; 
+            window.speechSynthesis.cancel(); window.speechSynthesis.speak(utterance);
         }
 
         function handleEarCheckAnswer(sw, btn) {
@@ -201,7 +286,7 @@
             earCheckSession.isAnswering = true; const q = earCheckSession.questions[earCheckSession.currentIndex]; const isCorrect = (sw === q.correctWord);
             const fb = document.getElementById('earFeedbackArea');
             if (isCorrect) {
-                playGentleSound('correct'); earCheckSession.score++; earCheckSession.combo++;
+                playGentleSound('correct'); fireSmallConfetti(); earCheckSession.score++; earCheckSession.combo++;
                 btn.classList.replace('border-stone-200', 'border-emerald-400'); btn.classList.add('bg-emerald-50', 'text-emerald-700', 'shadow-md');
                 fb.innerHTML = `<span class="text-emerald-600 font-black text-lg md:text-xl animate-bounce inline-block drop-shadow-sm">✨ Great listening!</span>`;
             } else {
@@ -235,6 +320,15 @@
             phraseSession = { data: c.sentences[Math.floor(Math.random()*c.sentences.length)], isRecording: false, resultStatus: null, matchedWords: 0, alternativesData: [] }; 
             currentState = SoundQuestState.SENTENCE_MISSION; renderScreen(); 
         }
+        
+        // ★追加: Passage Missionの開始
+        function startPassageMission() {
+            const c = getCurrentCourse();
+            const dummyPassage = { text: "No passage data found. Please add it to sq-liaison-data.js.", translation: "データ未登録", displayHtml: "" };
+            const passages = c.passages || [dummyPassage];
+            passageSession = { data: passages[0], isRecording: false, accuracy: 0, alternativesData: [] }; 
+            currentState = SoundQuestState.PASSAGE_MISSION; renderScreen(); 
+        }
 
         function openWordPractice(listIndex, wordIndex) {
             const coach = getCurrentCoaching();
@@ -253,17 +347,20 @@
             let isRec = false;
             if (currentState === SoundQuestState.VOICE_CHECK) isRec = voiceCheckSession.isRecording;
             else if (currentState === SoundQuestState.WORD_PRACTICE) isRec = wordPracticeSession.isRecording;
+            else if (currentState === SoundQuestState.PASSAGE_MISSION) isRec = passageSession.isRecording;
             else isRec = phraseSession.isRecording;
 
             if (isRec) { sqRecognition.stop(); } 
             else {
                 if (currentState === SoundQuestState.VOICE_CHECK) { voiceCheckSession.resultStatus = null; voiceCheckSession.isRecording = true; }
                 else if (currentState === SoundQuestState.WORD_PRACTICE) { wordPracticeSession.resultStatus = null; wordPracticeSession.isRecording = true; }
+                else if (currentState === SoundQuestState.PASSAGE_MISSION) { passageSession.isRecording = true; }
                 else { phraseSession.resultStatus = null; phraseSession.isRecording = true; }
                 renderScreen(); 
                 try { sqRecognition.start(); } catch(e) { 
                     if(currentState===SoundQuestState.VOICE_CHECK) voiceCheckSession.isRecording=false; 
                     else if(currentState===SoundQuestState.WORD_PRACTICE) wordPracticeSession.isRecording=false;
+                    else if(currentState===SoundQuestState.PASSAGE_MISSION) passageSession.isRecording=false;
                     else phraseSession.isRecording=false; 
                     renderScreen(); 
                 }
@@ -282,7 +379,9 @@
                 
                 voiceCheckSession.alternativesData = alternatives;
                 if (!alternatives || alternatives.length === 0) { voiceCheckSession.resultStatus = 'retry'; } 
-                else if (topTranscript.includes(targetWord) || topTranscript === targetWord) { voiceCheckSession.resultStatus = 'clear'; playGentleSound('correct'); } 
+                else if (topTranscript.includes(targetWord) || topTranscript === targetWord) { 
+                    voiceCheckSession.resultStatus = 'clear'; playGentleSound('correct'); fireSmallConfetti(); 
+                } 
                 else if (topTranscript === contrastWord) { voiceCheckSession.resultStatus = 'contrast_error'; playGentleSound('incorrect'); } 
                 else {
                     let foundInClose = false; 
@@ -297,7 +396,9 @@
                 wordPracticeSession.isRecording = false; const targetWord = normalizeSpeechText(wordPracticeSession.listWords[wordPracticeSession.currentIndex]);
                 wordPracticeSession.alternativesData = alternatives;
                 if (!alternatives || alternatives.length === 0) { wordPracticeSession.resultStatus = 'retry'; }
-                else if (topTranscript.includes(targetWord) || topTranscript === targetWord) { wordPracticeSession.resultStatus = 'clear'; playGentleSound('correct'); }
+                else if (topTranscript.includes(targetWord) || topTranscript === targetWord) { 
+                    wordPracticeSession.resultStatus = 'clear'; playGentleSound('correct'); fireSmallConfetti(); 
+                }
                 else {
                     let foundInClose = false; for (let i = 1; i < alternatives.length; i++) { if (normalizeSpeechText(alternatives[i].transcript).includes(targetWord)) { foundInClose = true; break; } }
                     wordPracticeSession.resultStatus = foundInClose ? 'close' : 'retry';
@@ -311,8 +412,35 @@
                 else {
                     let matchedCount = 0; phraseSession.data.targetWords.forEach(tw => { if (topTranscript.includes(normalizeSpeechText(tw))) matchedCount++; });
                     phraseSession.matchedWords = matchedCount; phraseSession.resultStatus = (matchedCount === phraseSession.data.targetWords.length) ? 'clear' : 'close';
-                    if (phraseSession.resultStatus === 'clear') playGentleSound('correct'); else playGentleSound('incorrect');
+                    if (phraseSession.resultStatus === 'clear') { playGentleSound('correct'); fireSmallConfetti(); } else playGentleSound('incorrect');
                 }
+            }
+            // ★追加: Passage MissionのAccuracy判定ロジック
+            else if (currentState === SoundQuestState.PASSAGE_MISSION) {
+                passageSession.isRecording = false;
+                passageSession.alternativesData = alternatives;
+                if (!topTranscript) { 
+                    // 音が取れなかった場合はやり直し
+                    renderScreen();
+                    return;
+                }
+                // Copeak本体と同じように、認識テキストと元テキストを比較してAccuracyを計算
+                let targetWords = passageSession.data.text.toLowerCase().replace(/[.,!?;:"“”‘’()[\]{}]/g, "").split(/\s+/);
+                let recogWords = topTranscript.split(/\s+/);
+                let matchCount = 0;
+                targetWords.forEach(tw => {
+                    if(recogWords.includes(tw)) matchCount++;
+                });
+                
+                let accuracy = Math.round((matchCount / targetWords.length) * 100);
+                if (accuracy > 100) accuracy = 100;
+                passageSession.accuracy = accuracy;
+                
+                if (accuracy >= 80) { playGentleSound('correct'); fireSmallConfetti(); } 
+                else { playGentleSound('incorrect'); }
+                
+                // 判定後、自動的に結果画面(RESULT)へ移動
+                currentState = SoundQuestState.PASSAGE_RESULT;
             }
             renderScreen();
         }
@@ -355,10 +483,12 @@
                     if (currentState === SoundQuestState.PHRASE_BRIDGE) currentStepNum = 3;
                     if (currentState === SoundQuestState.SENTENCE_MISSION) currentStepNum = 4;
                 } else {
-                    steps = [{n: 1, l: "Coach"}, {n: 2, l: "Phrase"}, {n: 3, l: "Sentence"}];
+                    // ★修正: リエゾンは4ステップ構成に変更（Coach -> Phrase -> Sentence -> Passage）
+                    steps = [{n: 1, l: "Coach"}, {n: 2, l: "Phrase"}, {n: 3, l: "Sentence"}, {n: 4, l: "Passage"}];
                     if ([SoundQuestState.COACHING, SoundQuestState.WORD_PRACTICE].includes(currentState)) currentStepNum = 1;
                     if (currentState === SoundQuestState.PHRASE_BRIDGE) currentStepNum = 2;
                     if (currentState === SoundQuestState.SENTENCE_MISSION) currentStepNum = 3;
+                    if ([SoundQuestState.PASSAGE_MISSION, SoundQuestState.PASSAGE_RESULT].includes(currentState)) currentStepNum = 4;
                 }
 
                 const pW = (currentStepNum - 1) * (100 / (steps.length - 1)); 
@@ -378,9 +508,6 @@
             }
         }
 
-        // ==========================================
-        // 画面描画
-        // ==========================================
         function renderScreen() {
             updateHeaderUI();
             const container = document.getElementById('sqAppContainer');
@@ -580,14 +707,15 @@
 
                 let recognizedText = wordPracticeSession.alternativesData[0] ? normalizeSpeechText(wordPracticeSession.alternativesData[0].transcript) : '???';
                 let feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><p class="text-stone-500 text-sm md:text-base font-bold tracking-widest">マイクボタンを押して発音してください</p></div>`;
+                
                 if (wordPracticeSession.isRecording) {
                     feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><p class="text-${themeColor}-600 text-sm md:text-base font-bold animate-pulse tracking-widest">Listening... (話してください)</p></div>`;
                 } else if (wordPracticeSession.resultStatus === 'clear') {
-                    feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><span class="text-emerald-600 font-black text-xl tracking-[0.2em] uppercase">CLEAR!</span><span class="text-stone-500 text-sm md:text-base font-bold mt-1">Recognized as: <span class="text-stone-800 bg-stone-100 px-2 py-1 rounded">${recognizedText}</span></span></div>`;
+                    feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><span class="text-emerald-600 font-black text-xl tracking-[0.2em] uppercase">CLEAR!</span><span class="text-stone-500 text-sm md:text-base font-bold mt-1">Recognized as: <span class="text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded shadow-sm">${recognizedText}</span></span></div>`;
                 } else if (wordPracticeSession.resultStatus === 'close') {
-                    feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><span class="text-amber-500 font-black text-xl tracking-widest uppercase">CLOSE!</span><span class="text-stone-500 text-sm md:text-base font-bold mt-1">Recognized as: <span class="text-stone-800 bg-stone-100 px-2 py-1 rounded">${recognizedText}</span></span></div>`;
+                    feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><span class="text-amber-500 font-black text-xl tracking-widest uppercase">CLOSE!</span><span class="text-stone-500 text-sm md:text-base font-bold mt-1">Recognized as: <span class="text-amber-700 bg-amber-50 border border-amber-200 px-3 py-1 rounded shadow-sm">${recognizedText}</span></span></div>`;
                 } else if (wordPracticeSession.resultStatus === 'retry') {
-                    feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><span class="text-orange-500 text-sm md:text-base font-bold tracking-widest">Not clear yet. Listen and try again.</span><span class="text-stone-500 text-sm md:text-base font-bold mt-1">Recognized as: <span class="text-stone-800 bg-stone-100 px-2 py-1 rounded">${recognizedText}</span></span></div>`;
+                    feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><span class="text-orange-500 text-sm md:text-base font-bold tracking-widest">Not clear yet. Listen and try again.</span><span class="text-stone-500 text-sm md:text-base font-bold mt-1">Recognized as: <span class="text-orange-700 bg-orange-50 border border-orange-200 px-3 py-1 rounded shadow-sm">${recognizedText}</span></span></div>`;
                 }
 
                 const isFirst = wordPracticeSession.currentIndex === 0;
@@ -606,7 +734,7 @@
                             
                             <div class="w-48 md:w-56 text-center">
                                 <div class="mb-1.5 text-stone-400 font-bold tracking-widest text-[10px] uppercase">SAY:</div>
-                                <h3 class="text-4xl md:text-5xl font-black text-stone-800 serif-font tracking-tight capitalize drop-shadow-sm">${targetWord}</h3>
+                                <h3 class="text-4xl md:text-5xl font-black text-stone-800 serif-font tracking-tight capitalize drop-shadow-sm ${wordPracticeSession.resultStatus === 'clear' ? 'animate-success-pop text-emerald-600' : ''}">${targetWord}</h3>
                             </div>
                             
                             <button onclick="navWordPractice('next')" class="w-10 h-10 rounded-full flex items-center justify-center text-stone-400 hover:text-${themeColor}-600 hover:bg-${themeColor}-50 transition active:scale-95 border-2 border-transparent hover:border-${themeColor}-200 ${isLast ? 'opacity-30 cursor-not-allowed' : ''}" ${isLast ? 'disabled' : ''}>
@@ -633,16 +761,17 @@
                 
                 let recognizedText = voiceCheckSession.alternativesData[0] ? normalizeSpeechText(voiceCheckSession.alternativesData[0].transcript) : '???';
                 let feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><p class="text-stone-500 text-sm md:text-base font-bold tracking-widest">マイクボタンを押して発音してください</p></div>`;
+                
                 if (voiceCheckSession.isRecording) {
                     feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><p class="text-${themeColor}-600 text-sm md:text-base font-bold animate-pulse tracking-widest">Listening... (話してください)</p></div>`;
                 } else if (voiceCheckSession.resultStatus === 'clear') {
-                    feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><span class="text-emerald-600 font-black text-lg md:text-xl tracking-[0.2em] uppercase">CLEAR!</span><span class="text-stone-500 text-sm md:text-base font-bold mt-1">Recognized as: <span class="text-stone-800 bg-stone-100 px-2 py-1 rounded">${recognizedText}</span></span></div>`;
+                    feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><span class="text-emerald-600 font-black text-lg md:text-xl tracking-[0.2em] uppercase">CLEAR!</span><span class="text-stone-500 text-sm md:text-base font-bold mt-1">Recognized as: <span class="text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded shadow-sm">${recognizedText}</span></span></div>`;
                 } else if (voiceCheckSession.resultStatus === 'close') {
                     feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><span class="text-amber-500 font-black text-lg md:text-xl tracking-widest uppercase">CLOSE!</span><span class="text-stone-500 text-sm md:text-base font-bold mt-1">Target detected in alternative results.</span></div>`;
                 } else if (voiceCheckSession.resultStatus === 'contrast_error') {
-                    feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><span class="text-orange-600 font-black text-sm md:text-base tracking-widest uppercase">Let's adjust the sound.</span><span class="text-stone-500 text-sm md:text-base font-bold mt-1">Recognized as: <span class="text-stone-800 bg-stone-100 px-2 py-1 rounded">${recognizedText}</span></span></div>`;
+                    feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><span class="text-orange-600 font-black text-sm md:text-base tracking-widest uppercase">Let's adjust the sound.</span><span class="text-stone-500 text-sm md:text-base font-bold mt-1">Recognized as: <span class="text-orange-700 bg-orange-50 border border-orange-200 px-3 py-1 rounded shadow-sm">${recognizedText}</span></span></div>`;
                 } else if (voiceCheckSession.resultStatus === 'retry' || voiceCheckSession.resultStatus === 'error') {
-                    feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><span class="text-orange-500 text-sm md:text-base font-bold tracking-widest">Not clear yet. Listen and try again.</span><span class="text-stone-500 text-sm md:text-base font-bold mt-1">Recognized as: <span class="text-stone-800 bg-stone-100 px-2 py-1 rounded">${recognizedText}</span></span></div>`;
+                    feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><span class="text-orange-500 text-sm md:text-base font-bold tracking-widest">Not clear yet. Listen and try again.</span><span class="text-stone-500 text-sm md:text-base font-bold mt-1">Recognized as: <span class="text-orange-700 bg-orange-50 border border-orange-200 px-3 py-1 rounded shadow-sm">${recognizedText}</span></span></div>`;
                 }
 
                 let retryHeaderHtml = '';
@@ -663,7 +792,7 @@
                         <h2 class="text-xs font-black tracking-[0.3em] text-${themeColor}-600 mb-6 uppercase">Voice Check ${voiceCheckSession.isRetry ? '(Retry)' : ''}</h2>
                         ${retryHeaderHtml}
                         <div class="mb-1.5 text-stone-400 font-bold tracking-widest text-[10px] md:text-xs uppercase">SAY:</div>
-                        <h3 class="text-4xl md:text-5xl font-black text-stone-800 mb-2 serif-font tracking-tight capitalize drop-shadow-sm">${targetWord}</h3>
+                        <h3 class="text-4xl md:text-5xl font-black text-stone-800 mb-2 serif-font tracking-tight capitalize drop-shadow-sm ${voiceCheckSession.resultStatus === 'clear' ? 'animate-success-pop text-emerald-600' : ''}">${targetWord}</h3>
                         ${targetIpa ? `<p class="text-sm md:text-base text-stone-400 font-medium mb-6 font-mono tracking-widest">${targetIpa}</p>` : '<div class="h-6 mb-6"></div>'}
                         
                         <button onclick="playTextAudio()" class="px-5 py-2 md:py-2.5 bg-stone-50 hover:bg-stone-100 text-stone-600 font-bold rounded-full transition text-xs md:text-sm mb-8 border-2 border-stone-200 flex items-center gap-1.5 mx-auto shadow-sm hover:shadow-md tracking-widest">🔊 お手本を聞く</button>
@@ -688,7 +817,7 @@
                 const themeColor = c.theme.split('-')[1];
                 
                 let displayHtml = phraseSession.data.displayHtml || phraseSession.data.text;
-                let kanaHtml = phraseSession.data.kana ? `<p class="text-stone-400 font-bold tracking-widest text-sm md:text-base mt-2">${phraseSession.data.kana}</p>` : '';
+                let kanaHtml = phraseSession.data.kana ? `<p class="text-stone-400 font-bold tracking-widest text-sm md:text-base mt-4 leading-relaxed break-words">${phraseSession.data.kana}</p>` : '';
                 
                 if (!phraseSession.data.displayHtml) {
                     phraseSession.data.targetWords.forEach(tw => {
@@ -714,13 +843,13 @@
                     feedbackHtml = `
                         <div class="min-h-[4rem] flex flex-col items-center justify-center">
                             <span class="${isPerfect ? 'text-emerald-600' : 'text-amber-500'} font-black text-lg md:text-xl tracking-[0.2em] uppercase">Target Sound Match: ${phraseSession.matchedWords} / ${totalTargets}</span>
-                            <span class="text-stone-500 text-sm md:text-base font-bold mt-2">Recognized as: <span class="text-stone-800 bg-stone-100 px-2 py-1 rounded">${recognizedText}</span></span>
+                            <span class="text-stone-500 text-sm md:text-base font-bold mt-2">Recognized as: <span class="text-stone-800 bg-stone-100 px-3 py-1 rounded shadow-sm">${recognizedText}</span></span>
                         </div>`;
                 } else if (phraseSession.resultStatus === 'retry') {
                     feedbackHtml = `
                         <div class="min-h-[4rem] flex flex-col items-center justify-center">
                             <span class="text-orange-500 text-sm md:text-base font-bold tracking-widest">聞き取れませんでした。もう一度発音してください。</span>
-                            <span class="text-stone-500 text-sm md:text-base font-bold mt-2">Recognized as: <span class="text-stone-800 bg-stone-100 px-2 py-1 rounded">${recognizedText}</span></span>
+                            <span class="text-stone-500 text-sm md:text-base font-bold mt-2">Recognized as: <span class="text-stone-800 bg-stone-100 px-3 py-1 rounded shadow-sm">${recognizedText}</span></span>
                         </div>`;
                 }
 
@@ -732,7 +861,7 @@
                             <p class="text-stone-400 text-[10px] md:text-xs font-bold mb-3 tracking-widest uppercase border-b-2 border-stone-100 pb-1.5 inline-block">${phraseSession.data.translation}</p>
                             
                             <div class="w-full overflow-x-auto hide-scroll pb-2">
-                                <h3 class="text-3xl sm:text-4xl md:text-5xl font-bold text-stone-800 mt-2 serif-font leading-relaxed drop-shadow-sm whitespace-nowrap px-4 w-max mx-auto">${displayHtml}</h3>
+                                <h3 class="text-3xl sm:text-4xl md:text-5xl font-bold text-stone-800 mt-2 serif-font leading-relaxed drop-shadow-sm whitespace-nowrap px-4 w-max mx-auto ${phraseSession.resultStatus === 'clear' ? 'animate-success-pop' : ''}">${displayHtml}</h3>
                                 ${kanaHtml}
                             </div>
                         </div>
@@ -745,9 +874,73 @@
                         
                         ${feedbackHtml}
                         
-                        ${(phraseSession.resultStatus === 'clear' || phraseSession.resultStatus === 'close') ? `<button onclick="${isSentence ? "showCompletionModal()" : "startSentenceMission()"}" class="mt-8 w-full md:w-auto px-10 py-3 md:py-4 bg-stone-800 hover:bg-stone-700 text-white font-black text-sm md:text-base rounded-full shadow-lg transition transform hover:scale-105 tracking-widest">${isSentence ? 'ミッション完了 ➔' : '文の練習へ進む ➔'}</button>` : ''}
+                        ${(phraseSession.resultStatus === 'clear' || phraseSession.resultStatus === 'close') ? `<button onclick="${isSentence ? (currentCourseType === 'liaison' ? "startPassageMission()" : "showCompletionModal()") : "startSentenceMission()"}" class="mt-8 w-full md:w-auto px-10 py-3 md:py-4 bg-stone-800 hover:bg-stone-700 text-white font-black text-sm md:text-base rounded-full shadow-lg transition transform hover:scale-105 tracking-widest">${isSentence ? (currentCourseType === 'liaison' ? '長文の音読へ進む ➔' : 'ミッション完了 ➔') : '文の練習へ進む ➔'}</button>` : ''}
                     </div>
                 `;
+            }
+            // ★追加: Passage Mission (長文音読)
+            else if (currentState === SoundQuestState.PASSAGE_MISSION) {
+                const c = getCurrentCourse();
+                const themeColor = c.theme.split('-')[1];
+                let displayHtml = passageSession.data.displayHtml || passageSession.data.text;
+                let kanaHtml = passageSession.data.kana ? `<p class="text-stone-400 font-bold tracking-widest text-sm md:text-base mt-6 leading-relaxed text-left max-w-4xl mx-auto">${passageSession.data.kana}</p>` : '';
+                
+                let feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><p class="text-stone-500 text-sm md:text-base font-bold tracking-widest">マイクボタンを押して、最後まで一気に読んでください</p></div>`;
+                if (passageSession.isRecording) {
+                    feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><p class="text-${themeColor}-600 text-sm md:text-base font-bold animate-pulse tracking-widest">Listening... (読み上げてください)</p></div>`;
+                } else if (passageSession.resultStatus === 'retry') {
+                    feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><span class="text-orange-500 text-sm md:text-base font-bold tracking-widest">聞き取れませんでした。もう一度発音してください。</span></div>`;
+                }
+
+                container.innerHTML = `
+                    <div class="bg-white rounded-3xl iron-border p-6 md:p-12 shadow-lg mx-auto w-full max-w-5xl text-center flex flex-col items-center justify-center min-h-[40vh] md:min-h-[50vh] animate-[fade-in_0.3s_ease-out]">
+                        <h2 class="text-xs font-black tracking-[0.3em] text-${themeColor}-600 mb-6 uppercase">Passage Mission</h2>
+                        
+                        <div class="mb-10 w-full">
+                            <p class="text-stone-400 text-[10px] md:text-xs font-bold mb-4 tracking-widest uppercase border-b-2 border-stone-100 pb-2 inline-block">${passageSession.data.translation}</p>
+                            
+                            <div class="w-full text-left px-2 md:px-6">
+                                <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-800 mt-2 serif-font leading-[1.8] md:leading-[2.0] drop-shadow-sm">${displayHtml}</h3>
+                                ${kanaHtml}
+                            </div>
+                        </div>
+                        
+                        <button onclick="playTextAudio()" class="px-6 py-3 bg-stone-50 hover:bg-stone-100 text-stone-600 font-bold rounded-full transition text-sm md:text-base mb-10 border-2 border-stone-200 flex items-center gap-2 mx-auto shadow-sm hover:shadow-md tracking-widest">🔊 お手本を全編聞く</button>
+                        
+                        <div class="relative w-28 h-28 md:w-32 md:h-32 mx-auto mb-6">
+                            <button onclick="toggleMic()" class="absolute inset-0 w-full h-full rounded-full flex flex-col items-center justify-center text-white transition-all shadow-xl z-10 ${passageSession.isRecording ? `bg-${themeColor}-500 recording-ripple` : `bg-stone-800 border-[6px] border-stone-200 hover:bg-stone-700 hover:border-stone-300`}"><span class="text-5xl md:text-6xl mb-1">${passageSession.isRecording ? '⏹' : '🎤'}</span></button>
+                        </div>
+                        
+                        ${feedbackHtml}
+                    </div>
+                `;
+            }
+            // ★追加: Passage Result (リザルト画面)
+            else if (currentState === SoundQuestState.PASSAGE_RESULT) {
+                const acc = passageSession.accuracy;
+                const c = getCurrentCourse();
+                const themeColor = c.theme.split('-')[1];
+                
+                container.innerHTML = `
+                    <div class="bg-white rounded-3xl border-4 border-${themeColor}-400 p-8 md:p-14 shadow-xl text-center mx-auto w-full max-w-2xl flex flex-col items-center justify-center min-h-[40vh] md:min-h-[50vh] animate-pop-in">
+                        <h2 class="text-xs font-black tracking-[0.3em] text-stone-400 mb-6 uppercase">Passage Reading Result</h2>
+                        
+                        <div class="text-6xl md:text-8xl font-black mb-2 serif-font text-${themeColor}-500 drop-shadow-sm flex items-end justify-center gap-2">
+                            ${acc} <span class="text-3xl md:text-5xl text-stone-300">%</span>
+                        </div>
+                        <p class="text-stone-500 font-bold text-sm md:text-base mb-8 tracking-widest uppercase">Accuracy</p>
+                        
+                        ${acc >= 80 ? `<p class="text-emerald-600 font-bold text-lg md:text-xl mb-10">素晴らしい！リエゾンのルールがしっかり定着しています！✨</p>` : `<p class="text-orange-500 font-bold text-lg md:text-xl mb-10">Nice try! 繰り返し練習してさらに精度を上げましょう！💪</p>`}
+                        
+                        <div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
+                            <button onclick="startPassageMission()" class="w-full sm:w-auto px-8 py-4 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold text-sm md:text-base rounded-full shadow-sm transition tracking-widest">
+                                もう一度練習する 🔄
+                            </button>
+                            <button onclick="showCompletionModal()" class="w-full sm:w-auto px-10 py-4 bg-${themeColor}-600 hover:bg-${themeColor}-500 text-white font-black text-sm md:text-base rounded-full shadow-lg transition transform hover:scale-105 tracking-widest">
+                                ミッション完了 ➔
+                            </button>
+                        </div>
+                    </div>`;
             }
             window.scrollTo(0, 0);
         }
