@@ -1391,3 +1391,40 @@ function cancelRecording() {
         resetLearningState();
     }
 }
+// ==========================================
+// ★追加: Sound Questからの引き継ぎデータ（Transfer）を受け取る
+// ==========================================
+window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        // メモリに Sound Quest からのバトンがあるかチェック
+        const sqDataStr = sessionStorage.getItem('copeak_sq_transfer');
+        if (sqDataStr) {
+            // バトンを受け取ったら、二度読み込まないようにメモリから消す
+            sessionStorage.removeItem('copeak_sq_transfer');
+            
+            try {
+                const sqData = JSON.parse(sqDataStr);
+                // Copeak用の学習データ形式に変換
+                const pseudoLesson = {
+                    id: "sq_" + Date.now(),
+                    title: sqData.title,
+                    eng: sqData.eng,
+                    jpn: sqData.jpn,
+                    lang: "en-US",
+                    target: "custom"
+                };
+                
+                // 強制的に学習画面（4-Step Learning）を開く！
+                currentCustomLesson = pseudoLesson;
+                if (typeof openLearningScreen === 'function') {
+                    openLearningScreen(pseudoLesson);
+                    if (typeof showMsg === 'function') {
+                        showMsg("🎯 Sound Questの発音課題を引き継ぎました！");
+                    }
+                }
+            } catch(e) {
+                console.error("Sound Quest 連携エラー:", e);
+            }
+        }
+    }, 800); // 画面が完全にロードされてから発動させる
+});
