@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Copeak Sound Quest</title>
     <script src="sq-data.js"></script>
+    <script src="sq-liaison-data.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
@@ -61,11 +62,11 @@
             <div class="text-5xl md:text-6xl mb-3 drop-shadow-md animate-bounce">👑</div>
             <h3 class="text-2xl md:text-3xl font-black text-stone-800 mb-2 serif-font tracking-tight leading-tight">READY FOR<br>COPEAK TRANSFER</h3>
             <p class="text-stone-500 font-bold text-xs md:text-sm mt-4 mb-8 leading-relaxed">
-                ターゲット音素の聞き分けと発音を習得しました！<br>この感覚を持ったまま、Copeak本体へ進みましょう。
+                ターゲット音の聞き分けと発音を習得しました！<br>この感覚を持ったまま、Copeak本体へ進みましょう。
             </p>
             <div class="flex flex-col gap-3">
                 <button onclick="returnToSoundQuestHome()" class="w-full py-3 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold text-sm md:text-base rounded-full shadow-sm transition border border-stone-300 flex items-center justify-center gap-2">
-                    別の音素クエストに挑戦する ➔
+                    別の特訓に挑戦する ➔
                 </button>
                 <button onclick="executeCopeakTransfer()" class="w-full py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-base md:text-lg rounded-full shadow-lg transition transform hover:scale-105 active:scale-95 flex items-center justify-center gap-2">
                     Copeak 本編へ戻る 🚀
@@ -77,7 +78,8 @@
     <script>
         function executeCopeakTransfer() {
             if (!phraseSession.data) { window.location.href = 'index.html'; return; }
-            const transferData = { title: "Sound Quest: " + courses[currentCourseId].title, eng: phraseSession.data.text, jpn: phraseSession.data.translation };
+            const c = getCurrentCourse();
+            const transferData = { title: "Sound Quest: " + c.title, eng: phraseSession.data.text, jpn: phraseSession.data.translation };
             sessionStorage.setItem('copeak_sq_transfer', JSON.stringify(transferData));
             window.location.href = 'index.html';
         }
@@ -99,12 +101,27 @@
 
         const SoundQuestState = { HOME: "home", INTRO: "intro", EAR_CHECK: "ear_check", EAR_RESULT: "ear_result", VOICE_CHECK: "voice_check", COACHING: "coaching", WORD_PRACTICE: "word_practice", PHRASE_BRIDGE: "phrase_bridge", SENTENCE_MISSION: "sentence_mission" };
         let currentState = SoundQuestState.HOME;
+        
+        let currentCourseType = 'minimal'; 
         let currentCourseId = "l-r";
 
         let earCheckSession = { questions: [], currentIndex: 0, score: 0, combo: 0, isAnswering: false };
         let voiceCheckSession = { currentPairIndex: 0, currentTargetIsA: true, isRecording: false, resultStatus: null, alternativesData: [], isRetry: false, previousStatus: null, previousTranscript: "" };
-        let phraseSession = { data: null, isRecording: false, resultStatus: null, matchedWords: 0 };
+        let phraseSession = { data: null, isRecording: false, resultStatus: null, matchedWords: 0, alternativesData: [] };
         let wordPracticeSession = { listWords: [], currentIndex: 0, isRecording: false, resultStatus: null, alternativesData: [] };
+
+        function getCurrentCourse() {
+            return currentCourseType === 'minimal' ? courses[currentCourseId] : liaisonCourses[currentCourseId];
+        }
+        function getCurrentCoaching() {
+            if (currentCourseType === 'minimal') {
+                const c = courses[currentCourseId];
+                const coachSymbolKey = voiceCheckSession.currentTargetIsA ? c.coachA : c.coachB;
+                return coachingData[coachSymbolKey] || coachingData["l"];
+            } else {
+                return liaisonCoachingData[currentCourseId] || { title: "準備中", theme: "slate", howTo: "", tips: "", wordLists: [] };
+            }
+        }
 
         window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         let sqRecognition = null;
@@ -129,7 +146,10 @@
 
         function skipPhase() {
             if (currentState === SoundQuestState.HOME) { return; }
-            else if (currentState === SoundQuestState.INTRO) { startEarCheck(); }
+            else if (currentState === SoundQuestState.INTRO) { 
+                if (currentCourseType === 'minimal') startEarCheck(); 
+                else { openCoaching(); }
+            }
             else if (currentState === SoundQuestState.EAR_CHECK) { earCheckSession.score = 8; currentState = SoundQuestState.EAR_RESULT; }
             else if (currentState === SoundQuestState.EAR_RESULT) { startVoiceCheck(); }
             else if (currentState === SoundQuestState.VOICE_CHECK || currentState === SoundQuestState.COACHING || currentState === SoundQuestState.WORD_PRACTICE) { startPhraseBridge(); }
@@ -139,26 +159,25 @@
         }
 
         function returnToSoundQuestHome() { document.getElementById('transferModal').classList.add('hidden'); currentState = SoundQuestState.HOME; renderScreen(); }
-        function selectCourse(courseId) { currentCourseId = courseId; currentState = SoundQuestState.INTRO; renderScreen(); }
+        
+        function selectCourse(type, courseId) { 
+            currentCourseType = type; 
+            currentCourseId = courseId; 
+            currentState = SoundQuestState.INTRO; 
+            renderScreen(); 
+        }
 
-        // ★修正: EarCheckの乱数ロジックを修正し、完全にランダムに左右に割り振る
         function startEarCheck() {
             earCheckSession = { questions: [], currentIndex: 0, score: 0, combo: 0, isAnswering: false }; 
-            const pairs = courses[currentCourseId].pairs;
+            const c = getCurrentCourse();
+            const pairs = c.pairs;
             for (let i = 0; i < 8; i++) {
                 const pair = pairs[Math.floor(Math.random() * pairs.length)]; 
-                const targetIsA = Math.random() < 0.5; // 正解がAかBかを決める
-                const putCorrectLeft = Math.random() < 0.5; // 正解を左に置くか右に置くかを決める
-                
+                const targetIsA = Math.random() < 0.5;
+                const putCorrectLeft = Math.random() < 0.5;
                 const correctWord = targetIsA ? pair.wordA : pair.wordB;
                 const wrongWord = targetIsA ? pair.wordB : pair.wordA;
-                
-                earCheckSession.questions.push({ 
-                    pair, 
-                    correctWord: correctWord, 
-                    wordLeft: putCorrectLeft ? correctWord : wrongWord, 
-                    wordRight: putCorrectLeft ? wrongWord : correctWord 
-                });
+                earCheckSession.questions.push({ pair, correctWord, wordLeft: putCorrectLeft ? correctWord : wrongWord, wordRight: putCorrectLeft ? wrongWord : correctWord });
             }
             currentState = SoundQuestState.EAR_CHECK; renderScreen(); setTimeout(playTextAudio, 500);
         }
@@ -167,7 +186,10 @@
             let text = textOverride;
             if (!text) {
                 if (currentState === SoundQuestState.EAR_CHECK) text = earCheckSession.questions[earCheckSession.currentIndex].correctWord;
-                else if (currentState === SoundQuestState.VOICE_CHECK) text = voiceCheckSession.currentTargetIsA ? courses[currentCourseId].pairs[voiceCheckSession.currentPairIndex].wordA : courses[currentCourseId].pairs[voiceCheckSession.currentPairIndex].wordB;
+                else if (currentState === SoundQuestState.VOICE_CHECK) {
+                    const c = getCurrentCourse();
+                    text = voiceCheckSession.currentTargetIsA ? c.pairs[voiceCheckSession.currentPairIndex].wordA : c.pairs[voiceCheckSession.currentPairIndex].wordB;
+                }
                 else if (currentState === SoundQuestState.WORD_PRACTICE) text = wordPracticeSession.listWords[wordPracticeSession.currentIndex];
                 else if (currentState === SoundQuestState.PHRASE_BRIDGE || currentState === SoundQuestState.SENTENCE_MISSION) text = phraseSession.data.text;
             }
@@ -195,16 +217,27 @@
             }, 1500);
         }
 
-        function startVoiceCheck() { voiceCheckSession = { currentPairIndex: Math.floor(Math.random() * courses[currentCourseId].pairs.length), currentTargetIsA: true, isRecording: false, resultStatus: null, alternativesData: [], isRetry: false, previousStatus: null, previousTranscript: "" }; currentState = SoundQuestState.VOICE_CHECK; renderScreen(); }
+        function startVoiceCheck() { 
+            const c = getCurrentCourse();
+            voiceCheckSession = { currentPairIndex: Math.floor(Math.random() * c.pairs.length), currentTargetIsA: Math.random() < 0.5, isRecording: false, resultStatus: null, alternativesData: [], isRetry: false, previousStatus: null, previousTranscript: "" }; 
+            currentState = SoundQuestState.VOICE_CHECK; renderScreen(); 
+        }
         function openCoaching(forceStatus = null, forceTranscript = null) { voiceCheckSession.previousStatus = forceStatus || voiceCheckSession.resultStatus; voiceCheckSession.previousTranscript = forceTranscript || (voiceCheckSession.alternativesData[0] ? voiceCheckSession.alternativesData[0].transcript : '...'); currentState = SoundQuestState.COACHING; renderScreen(); }
         function startVoiceRetry() { voiceCheckSession.isRetry = true; voiceCheckSession.resultStatus = null; voiceCheckSession.isRecording = false; voiceCheckSession.alternativesData = []; currentState = SoundQuestState.VOICE_CHECK; renderScreen(); }
-        function startPhraseBridge() { const phrases = courses[currentCourseId].phrases; phraseSession = { data: phrases[Math.floor(Math.random()*phrases.length)], isRecording: false, resultStatus: null, matchedWords: 0 }; currentState = SoundQuestState.PHRASE_BRIDGE; renderScreen(); }
-        function startSentenceMission() { const sentences = courses[currentCourseId].sentences; phraseSession = { data: sentences[Math.floor(Math.random()*sentences.length)], isRecording: false, resultStatus: null, matchedWords: 0 }; currentState = SoundQuestState.SENTENCE_MISSION; renderScreen(); }
+        
+        function startPhraseBridge() { 
+            const c = getCurrentCourse();
+            phraseSession = { data: c.phrases[Math.floor(Math.random()*c.phrases.length)], isRecording: false, resultStatus: null, matchedWords: 0, alternativesData: [] }; 
+            currentState = SoundQuestState.PHRASE_BRIDGE; renderScreen(); 
+        }
+        function startSentenceMission() { 
+            const c = getCurrentCourse();
+            phraseSession = { data: c.sentences[Math.floor(Math.random()*c.sentences.length)], isRecording: false, resultStatus: null, matchedWords: 0, alternativesData: [] }; 
+            currentState = SoundQuestState.SENTENCE_MISSION; renderScreen(); 
+        }
 
         function openWordPractice(listIndex, wordIndex) {
-            const c = courses[currentCourseId];
-            const coachSymbolKey = voiceCheckSession.currentTargetIsA ? c.coachA : c.coachB;
-            const coach = coachingData[coachSymbolKey] || coachingData["l"];
+            const coach = getCurrentCoaching();
             wordPracticeSession = { listWords: coach.wordLists[listIndex].words, currentIndex: wordIndex, isRecording: false, resultStatus: null, alternativesData: [] };
             currentState = SoundQuestState.WORD_PRACTICE; renderScreen();
         }
@@ -239,15 +272,23 @@
 
         function handleVoiceRecognitionResult(alternatives) {
             const topTranscript = alternatives[0] ? normalizeSpeechText(alternatives[0].transcript) : "";
+            const c = getCurrentCourse();
+            
             if (currentState === SoundQuestState.VOICE_CHECK) {
-                voiceCheckSession.isRecording = false; const pair = courses[currentCourseId].pairs[voiceCheckSession.currentPairIndex];
-                const targetWord = normalizeSpeechText(voiceCheckSession.currentTargetIsA ? pair.wordA : pair.wordB); const contrastWord = normalizeSpeechText(voiceCheckSession.currentTargetIsA ? pair.wordB : pair.wordA);
+                voiceCheckSession.isRecording = false; 
+                const pair = c.pairs[voiceCheckSession.currentPairIndex];
+                const targetWord = normalizeSpeechText(voiceCheckSession.currentTargetIsA ? pair.wordA : pair.wordB); 
+                const contrastWord = normalizeSpeechText(voiceCheckSession.currentTargetIsA ? pair.wordB : pair.wordA);
+                
                 voiceCheckSession.alternativesData = alternatives;
                 if (!alternatives || alternatives.length === 0) { voiceCheckSession.resultStatus = 'retry'; } 
-                else if (topTranscript === targetWord) { voiceCheckSession.resultStatus = 'clear'; playGentleSound('correct'); } 
+                else if (topTranscript.includes(targetWord) || topTranscript === targetWord) { voiceCheckSession.resultStatus = 'clear'; playGentleSound('correct'); } 
                 else if (topTranscript === contrastWord) { voiceCheckSession.resultStatus = 'contrast_error'; playGentleSound('incorrect'); } 
                 else {
-                    let foundInClose = false; for (let i = 1; i < alternatives.length; i++) { if (normalizeSpeechText(alternatives[i].transcript) === targetWord) { foundInClose = true; break; } }
+                    let foundInClose = false; 
+                    for (let i = 1; i < alternatives.length; i++) { 
+                        if (normalizeSpeechText(alternatives[i].transcript).includes(targetWord)) { foundInClose = true; break; } 
+                    }
                     voiceCheckSession.resultStatus = foundInClose ? 'close' : 'retry';
                     if(foundInClose) playGentleSound('correct'); else playGentleSound('incorrect');
                 }
@@ -256,15 +297,16 @@
                 wordPracticeSession.isRecording = false; const targetWord = normalizeSpeechText(wordPracticeSession.listWords[wordPracticeSession.currentIndex]);
                 wordPracticeSession.alternativesData = alternatives;
                 if (!alternatives || alternatives.length === 0) { wordPracticeSession.resultStatus = 'retry'; }
-                else if (topTranscript === targetWord) { wordPracticeSession.resultStatus = 'clear'; playGentleSound('correct'); }
+                else if (topTranscript.includes(targetWord) || topTranscript === targetWord) { wordPracticeSession.resultStatus = 'clear'; playGentleSound('correct'); }
                 else {
-                    let foundInClose = false; for (let i = 1; i < alternatives.length; i++) { if (normalizeSpeechText(alternatives[i].transcript) === targetWord) { foundInClose = true; break; } }
+                    let foundInClose = false; for (let i = 1; i < alternatives.length; i++) { if (normalizeSpeechText(alternatives[i].transcript).includes(targetWord)) { foundInClose = true; break; } }
                     wordPracticeSession.resultStatus = foundInClose ? 'close' : 'retry';
                     if(foundInClose) playGentleSound('correct'); else playGentleSound('incorrect');
                 }
             }
             else if (currentState === SoundQuestState.PHRASE_BRIDGE || currentState === SoundQuestState.SENTENCE_MISSION) {
                 phraseSession.isRecording = false;
+                phraseSession.alternativesData = alternatives; // ★追加：文字起こし結果を保存
                 if (!topTranscript) { phraseSession.resultStatus = 'retry'; }
                 else {
                     let matchedCount = 0; phraseSession.data.targetWords.forEach(tw => { if (topTranscript.includes(normalizeSpeechText(tw))) matchedCount++; });
@@ -301,23 +343,34 @@
                 if (btnDivider) btnDivider.classList.replace('hidden', 'sm:block');
                 if (progContainer) progContainer.classList.remove('hidden');
 
-                let step = 1;
-                if ([SoundQuestState.VOICE_CHECK, SoundQuestState.COACHING, SoundQuestState.WORD_PRACTICE].includes(currentState)) step = 2;
-                if (currentState === SoundQuestState.PHRASE_BRIDGE) step = 3;
-                if (currentState === SoundQuestState.SENTENCE_MISSION) step = 4;
-
-                const c = courses[currentCourseId] || courses["l-r"];
+                const c = getCurrentCourse();
                 const tc = c.theme.split('-')[1]; 
-                const pW = (step - 1) * 33.33; 
+                
+                let steps = [];
+                let currentStepNum = 1;
+                
+                if (currentCourseType === 'minimal') {
+                    steps = [{n: 1, l: "Ear Check"}, {n: 2, l: "Voice Check"}, {n: 3, l: "Phrase"}, {n: 4, l: "Sentence"}];
+                    if ([SoundQuestState.VOICE_CHECK, SoundQuestState.COACHING, SoundQuestState.WORD_PRACTICE].includes(currentState)) currentStepNum = 2;
+                    if (currentState === SoundQuestState.PHRASE_BRIDGE) currentStepNum = 3;
+                    if (currentState === SoundQuestState.SENTENCE_MISSION) currentStepNum = 4;
+                } else {
+                    steps = [{n: 1, l: "Coach"}, {n: 2, l: "Phrase"}, {n: 3, l: "Sentence"}];
+                    if ([SoundQuestState.COACHING, SoundQuestState.WORD_PRACTICE].includes(currentState)) currentStepNum = 1;
+                    if (currentState === SoundQuestState.PHRASE_BRIDGE) currentStepNum = 2;
+                    if (currentState === SoundQuestState.SENTENCE_MISSION) currentStepNum = 3;
+                }
+
+                const pW = (currentStepNum - 1) * (100 / (steps.length - 1)); 
 
                 progContainer.innerHTML = `
-                    <div class="relative w-full max-w-xl mx-auto flex justify-between items-center z-10 px-4 md:px-0">
+                    <div class="relative w-full flex justify-between items-center z-10 px-4 md:px-0">
                         <div class="absolute left-4 right-4 md:left-0 md:right-0 top-1/2 h-1.5 bg-stone-200 -translate-y-1/2 -z-10 rounded-full"></div>
                         <div class="absolute left-4 md:left-0 top-1/2 h-1.5 bg-${tc}-400 -translate-y-1/2 -z-10 rounded-full transition-all duration-500" style="width: calc(${pW}% - ${pW === 100 ? '2rem' : '0px'});"></div>
-                        ${[{n: 1, l: "Ear Check"}, {n: 2, l: "Voice Check"}, {n: 3, l: "Phrase"}, {n: 4, l: "Sentence"}].map(s => `
-                            <div class="flex flex-col items-center bg-white/90 px-1 rounded-full">
-                                <div class="w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs font-black border-[3px] transition-colors duration-300 ${step >= s.n ? `bg-${tc}-500 border-${tc}-500 text-white shadow-sm` : 'bg-white border-stone-300 text-stone-400'}">${s.n}</div>
-                                <span class="text-[9px] md:text-[10px] font-bold mt-1 tracking-wider ${step >= s.n ? `text-${tc}-700` : 'text-stone-400'}">${s.l}</span>
+                        ${steps.map(s => `
+                            <div class="flex flex-col items-center bg-white/95 px-1 rounded-full">
+                                <div class="w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs font-black border-[3px] transition-colors duration-300 ${currentStepNum >= s.n ? `bg-${tc}-500 border-${tc}-500 text-white shadow-md` : 'bg-white border-stone-300 text-stone-400'}">${s.n}</div>
+                                <span class="text-[9px] md:text-[10px] font-bold mt-1 tracking-wider ${currentStepNum >= s.n ? `text-${tc}-700` : 'text-stone-400'}">${s.l}</span>
                             </div>
                         `).join('')}
                     </div>
@@ -326,7 +379,7 @@
         }
 
         // ==========================================
-        // 画面描画（★全体的な余白と文字サイズをコンパクト・スマートに）
+        // 画面描画
         // ==========================================
         function renderScreen() {
             updateHeaderUI();
@@ -334,124 +387,174 @@
             
             if (currentState === SoundQuestState.HOME) {
                 let html = `
-                    <div class="bg-white rounded-3xl iron-border p-6 md:p-10 shadow-lg flex flex-col mb-6 max-w-5xl mx-auto w-full">
-                        <div class="mb-6 shrink-0 border-b-2 border-stone-100 pb-4 text-center md:text-left">
-                            <h2 class="text-2xl md:text-4xl font-black mb-2 text-stone-800 serif-font tracking-tight">Select Mission</h2>
-                            <p class="text-stone-500 text-xs md:text-sm font-bold tracking-widest uppercase">発音の基礎となる「音の違い」をマスターしましょう</p>
+                    <div class="bg-white rounded-3xl iron-border p-6 md:p-10 shadow-lg flex flex-col mb-6 w-full">
+                        <div class="mb-6 shrink-0 border-b-2 border-stone-100 pb-4 flex items-center gap-3">
+                            <span class="text-3xl md:text-4xl">🧩</span>
+                            <div>
+                                <h2 class="text-2xl md:text-3xl font-black mb-1 text-stone-800 serif-font tracking-tight">Minimal Pairs</h2>
+                                <p class="text-stone-500 text-[10px] md:text-xs font-bold tracking-widest uppercase">発音の基礎となる「音の違い」をマスター</p>
+                            </div>
                         </div>
                         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
                 `;
                 Object.values(courses).forEach(c => {
                     html += `
-                        <button onclick="selectCourse('${c.id}')" class="text-left p-4 md:p-6 rounded-2xl border-2 border-stone-200 bg-white hover:${c.bgTheme} hover:border-${c.theme.split('-')[1]}-400 transition-all transform hover:-translate-y-1 group shadow-sm hover:shadow-md flex flex-col justify-between relative overflow-hidden min-h-[140px]">
+                        <button onclick="selectCourse('minimal', '${c.id}')" class="text-left p-4 md:p-5 rounded-2xl border-2 border-stone-200 bg-white hover:${c.bgTheme} hover:border-${c.theme.split('-')[1]}-400 transition-all transform hover:-translate-y-1 group shadow-sm hover:shadow-md flex flex-col justify-between relative overflow-hidden min-h-[130px]">
                             <div>
-                                <h3 class="text-3xl md:text-4xl font-black ${c.theme} mb-1 serif-font tracking-tighter drop-shadow-sm whitespace-nowrap">${c.title}</h3>
-                                <p class="font-bold text-stone-600 text-xs md:text-sm mb-1">${c.subtitle}</p>
-                                <p class="text-stone-400 text-[10px] font-bold tracking-wider">${c.labelJa}</p>
+                                <h3 class="text-2xl md:text-3xl font-black ${c.theme} mb-1 serif-font tracking-tighter drop-shadow-sm whitespace-nowrap">${c.title}</h3>
+                                <p class="font-bold text-stone-600 text-[11px] md:text-xs mb-1 truncate">${c.subtitle}</p>
+                                <p class="text-stone-400 text-[9px] md:text-[10px] font-bold tracking-wider truncate">${c.labelJa}</p>
                             </div>
-                            <span class="${c.theme} opacity-70 group-hover:opacity-100 font-black text-[10px] md:text-xs tracking-widest block mt-4 flex items-center gap-1">START <span class="group-hover:translate-x-1 transition-transform">➔</span></span>
+                            <span class="${c.theme} opacity-70 group-hover:opacity-100 font-black text-[10px] tracking-widest block mt-3 flex items-center gap-1">START <span class="group-hover:translate-x-1 transition-transform">➔</span></span>
                         </button>`;
                 });
-                html += `</div></div>`; container.innerHTML = html;
+                html += `</div></div>`;
+                
+                html += `
+                    <div class="bg-white rounded-3xl iron-border p-6 md:p-10 shadow-lg flex flex-col mb-6 w-full">
+                        <div class="mb-6 shrink-0 border-b-2 border-stone-100 pb-4 flex items-center gap-3">
+                            <span class="text-3xl md:text-4xl">🔗</span>
+                            <div>
+                                <h2 class="text-2xl md:text-3xl font-black mb-1 text-stone-800 serif-font tracking-tight">Connected Speech</h2>
+                                <p class="text-stone-500 text-[10px] md:text-xs font-bold tracking-widest uppercase">実践的な「音の繋がりや脱落」をマスター</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
+                `;
+                if (typeof liaisonCourses !== 'undefined') {
+                    Object.values(liaisonCourses).forEach(c => {
+                        html += `
+                            <button onclick="selectCourse('liaison', '${c.id}')" class="text-left p-4 md:p-5 rounded-2xl border-2 border-stone-200 bg-white hover:${c.bgTheme} hover:border-${c.theme.split('-')[1]}-400 transition-all transform hover:-translate-y-1 group shadow-sm hover:shadow-md flex flex-col justify-between relative overflow-hidden min-h-[130px]">
+                                <div>
+                                    <h3 class="text-xl md:text-2xl font-black ${c.theme} mb-1 serif-font tracking-tighter drop-shadow-sm whitespace-nowrap">${c.title}</h3>
+                                    <p class="font-bold text-stone-600 text-[11px] md:text-xs mb-1 truncate">${c.subtitle}</p>
+                                    <p class="text-stone-400 text-[9px] md:text-[10px] font-bold tracking-wider truncate">${c.labelJa || ""}</p>
+                                </div>
+                                <span class="${c.theme} opacity-70 group-hover:opacity-100 font-black text-[10px] tracking-widest block mt-3 flex items-center gap-1">START <span class="group-hover:translate-x-1 transition-transform">➔</span></span>
+                            </button>`;
+                    });
+                } else {
+                    html += `<p class="text-stone-400 text-xs font-bold col-span-full">リエゾンのデータがまだありません。</p>`;
+                }
+                html += `</div></div>`;
+                
+                container.innerHTML = html;
             } 
             else if (currentState === SoundQuestState.INTRO) {
-                const c = courses[currentCourseId];
+                const c = getCurrentCourse();
+                let subtitleHtml = "";
+                if (currentCourseType === 'minimal') {
+                    subtitleHtml = `
+                        <span>${c.subtitle.split(' ')[0]}</span>
+                        <span class="text-2xl md:text-3xl lg:text-4xl text-stone-300 font-medium italic opacity-70 px-2">or</span>
+                        <span>${c.subtitle.split(' ')[2].replace('?','')}?</span>
+                    `;
+                } else {
+                    subtitleHtml = `<span>${c.title}</span>`;
+                }
+
                 container.innerHTML = `
-                    <div class="bg-white rounded-3xl iron-border p-8 md:p-16 shadow-lg text-center max-w-3xl mx-auto w-full flex flex-col items-center justify-center min-h-[45vh] md:min-h-[50vh] animate-pop-in">
-                        <div class="mb-4 text-stone-400 font-bold tracking-widest text-xs md:text-sm uppercase">Mission Start</div>
-                        <h3 class="text-5xl md:text-6xl lg:text-7xl font-black text-stone-800 mb-10 md:mb-12 serif-font tracking-tight drop-shadow-sm flex items-center justify-center gap-3 flex-wrap">
-                            <span>${c.subtitle.split(' ')[0]}</span>
-                            <span class="text-3xl md:text-4xl text-stone-300 font-medium italic opacity-70">or</span>
-                            <span>${c.subtitle.split(' ')[2].replace('?','')}?</span>
+                    <div class="bg-white rounded-3xl iron-border p-8 md:p-16 shadow-lg text-center mx-auto w-full max-w-3xl flex flex-col items-center justify-center min-h-[40vh] md:min-h-[50vh] animate-pop-in">
+                        <div class="mb-3 text-stone-400 font-bold tracking-widest text-xs md:text-sm uppercase">Mission Start</div>
+                        <h3 class="text-4xl md:text-5xl lg:text-6xl font-black text-stone-800 mb-8 md:mb-12 serif-font tracking-tight drop-shadow-sm flex items-center justify-center flex-wrap leading-tight">
+                            ${subtitleHtml}
                         </h3>
-                        <button onclick="startEarCheck()" class="w-full md:w-auto px-10 md:px-14 py-4 md:py-5 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-lg md:text-xl rounded-full shadow-lg transition transform hover:scale-105 flex items-center justify-center gap-3">
-                            👂 聞き分けを始める ➔
+                        <p class="text-stone-500 font-bold text-sm mb-8">${c.subtitle}</p>
+                        <button onclick="${currentCourseType === 'minimal' ? 'startEarCheck()' : 'openCoaching()'}" class="w-full md:w-auto px-10 md:px-14 py-4 md:py-5 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-lg md:text-xl rounded-full shadow-lg transition transform hover:scale-105 flex items-center justify-center gap-2">
+                            ${currentCourseType === 'minimal' ? '👂 聞き分けを始める ➔' : '🎤 発音の特訓を始める ➔'}
                         </button>
                     </div>`;
             } 
             else if (currentState === SoundQuestState.EAR_CHECK) {
                 const q = earCheckSession.questions[earCheckSession.currentIndex];
                 container.innerHTML = `
-                    <div class="bg-white rounded-3xl iron-border p-6 md:p-12 shadow-lg max-w-3xl mx-auto w-full text-center flex flex-col items-center justify-center min-h-[45vh] md:min-h-[50vh] animate-[fade-in_0.3s_ease-out]">
-                        <div class="flex justify-between items-end w-full mb-6 border-b-2 border-stone-100 pb-3">
-                            <span class="text-stone-400 font-bold text-xs md:text-sm tracking-widest uppercase">Question ${earCheckSession.currentIndex + 1} <span class="text-stone-300">/ 8</span></span>
-                            <span id="comboDisplay" class="text-orange-500 font-black text-sm md:text-base italic tracking-wider">${earCheckSession.combo > 1 ? earCheckSession.combo + ' COMBO 🔥' : ''}</span>
+                    <div class="bg-white rounded-3xl iron-border p-6 md:p-10 shadow-lg mx-auto w-full max-w-2xl text-center flex flex-col items-center justify-center min-h-[40vh] md:min-h-[50vh] animate-[fade-in_0.3s_ease-out]">
+                        <div class="flex justify-between items-end w-full mb-6 border-b-2 border-stone-100 pb-2">
+                            <span class="text-stone-400 font-bold text-xs tracking-widest uppercase">Question ${earCheckSession.currentIndex + 1} <span class="text-stone-300">/ 8</span></span>
+                            <span id="comboDisplay" class="text-orange-500 font-black text-sm italic tracking-wider">${earCheckSession.combo > 1 ? earCheckSession.combo + ' COMBO 🔥' : ''}</span>
                         </div>
-                        <button onclick="playTextAudio()" class="w-20 h-20 md:w-24 md:h-24 bg-stone-50 hover:bg-stone-100 border-2 border-stone-200 rounded-full mx-auto flex items-center justify-center text-3xl md:text-4xl mb-8 transition-all transform hover:scale-105 shadow-sm hover:shadow-md text-stone-600">
+                        <button onclick="playTextAudio()" class="w-16 h-16 md:w-20 md:h-20 bg-stone-50 hover:bg-stone-100 border-2 border-stone-200 rounded-full mx-auto flex items-center justify-center text-2xl md:text-3xl mb-8 transition-all transform hover:scale-105 shadow-sm hover:shadow-md text-stone-600">
                             🔊
                         </button>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full mb-6">
-                            <button onclick="handleEarCheckAnswer('${q.wordLeft}', this)" class="w-full py-6 md:py-8 rounded-2xl border-2 border-stone-200 bg-white hover:bg-stone-50 hover:border-stone-300 font-black text-2xl md:text-3xl text-stone-800 serif-font shadow-sm hover:shadow-md transition-all flex items-center justify-center tracking-wide">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full mb-4">
+                            <button onclick="handleEarCheckAnswer('${q.wordLeft}', this)" class="w-full py-5 md:py-6 rounded-2xl border-2 border-stone-200 bg-white hover:bg-stone-50 hover:border-stone-300 font-black text-xl md:text-2xl text-stone-800 serif-font shadow-sm hover:shadow-md transition-all flex items-center justify-center tracking-wide">
                                 ${q.wordLeft}
                             </button>
-                            <button onclick="handleEarCheckAnswer('${q.wordRight}', this)" class="w-full py-6 md:py-8 rounded-2xl border-2 border-stone-200 bg-white hover:bg-stone-50 hover:border-stone-300 font-black text-2xl md:text-3xl text-stone-800 serif-font shadow-sm hover:shadow-md transition-all flex items-center justify-center tracking-wide">
+                            <button onclick="handleEarCheckAnswer('${q.wordRight}', this)" class="w-full py-5 md:py-6 rounded-2xl border-2 border-stone-200 bg-white hover:bg-stone-50 hover:border-stone-300 font-black text-xl md:text-2xl text-stone-800 serif-font shadow-sm hover:shadow-md transition-all flex items-center justify-center tracking-wide">
                                 ${q.wordRight}
                             </button>
                         </div>
-                        <div id="earFeedbackArea" class="h-10 flex items-center justify-center"></div>
+                        <div id="earFeedbackArea" class="h-8 flex items-center justify-center"></div>
                     </div>`;
             } 
             else if (currentState === SoundQuestState.EAR_RESULT) {
                 const percent = Math.round((earCheckSession.score / 8) * 100);
                 container.innerHTML = `
-                    <div class="bg-white rounded-3xl border-4 ${percent >= 75 ? 'border-emerald-400' : 'border-amber-400'} p-8 md:p-16 shadow-xl text-center max-w-3xl mx-auto w-full flex flex-col items-center justify-center min-h-[45vh] md:min-h-[50vh] animate-pop-in">
-                        <h2 class="text-xs md:text-sm font-black tracking-[0.3em] text-stone-400 mb-6 uppercase">Ear Check Complete</h2>
-                        <div class="text-6xl md:text-7xl font-black mb-3 serif-font ${percent >= 75 ? 'text-emerald-500' : 'text-amber-500'} drop-shadow-sm">
-                            ${earCheckSession.score} <span class="text-3xl md:text-4xl text-stone-300">/ 8</span>
+                    <div class="bg-white rounded-3xl border-4 ${percent >= 75 ? 'border-emerald-400' : 'border-amber-400'} p-8 md:p-14 shadow-xl text-center mx-auto w-full max-w-2xl flex flex-col items-center justify-center min-h-[40vh] md:min-h-[50vh] animate-pop-in">
+                        <h2 class="text-xs font-black tracking-[0.3em] text-stone-400 mb-6 uppercase">Ear Check Complete</h2>
+                        <div class="text-5xl md:text-6xl font-black mb-3 serif-font ${percent >= 75 ? 'text-emerald-500' : 'text-amber-500'} drop-shadow-sm">
+                            ${earCheckSession.score} <span class="text-2xl md:text-3xl text-stone-300">/ 8</span>
                         </div>
-                        <p class="text-stone-500 font-bold text-base md:text-lg mb-10 tracking-widest uppercase">Listening Match: <span class="text-stone-700">${percent}%</span></p>
-                        <button onclick="startVoiceCheck()" class="w-full md:w-auto px-10 md:px-14 py-4 md:py-5 bg-stone-800 hover:bg-stone-700 text-white font-black text-lg md:text-xl rounded-full shadow-lg transition transform hover:scale-105 flex items-center justify-center gap-3">
+                        <p class="text-stone-500 font-bold text-sm md:text-base mb-8 tracking-widest uppercase">Listening Match: <span class="text-stone-700">${percent}%</span></p>
+                        <button onclick="startVoiceCheck()" class="w-full md:w-auto px-10 md:px-14 py-4 md:py-5 bg-stone-800 hover:bg-stone-700 text-white font-black text-lg md:text-xl rounded-full shadow-lg transition transform hover:scale-105 flex items-center justify-center gap-2">
                             🎤 発音テストへ進む ➔
                         </button>
                     </div>`;
             } 
             else if (currentState === SoundQuestState.COACHING) {
-                const c = courses[currentCourseId]; const targetIsA = voiceCheckSession.currentTargetIsA; 
-                const coachSymbolKey = targetIsA ? c.coachA : c.coachB; const coach = coachingData[coachSymbolKey] || coachingData["l"]; const themeColor = coach.theme;
+                const c = getCurrentCourse(); 
+                const coach = getCurrentCoaching(); 
+                const themeColor = coach.theme;
                 
+                let imgHtml = "";
+                if (currentCourseType === 'minimal') {
+                    const coachSymbolKey = voiceCheckSession.currentTargetIsA ? c.coachA : c.coachB;
+                    imgHtml = `<img src="coach_images/coach_${coachSymbolKey}.webp" alt="口の形" class="w-full h-full object-contain" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\\'text-stone-400 text-xs font-bold\\'>画像準備中...</span>';">`;
+                } else {
+                    imgHtml = `<span class="text-6xl md:text-8xl">${coach.symbol}</span>`;
+                }
+
                 let coachingHtml = `
-                    <div class="bg-white rounded-3xl iron-border p-6 md:p-10 shadow-lg max-w-5xl mx-auto w-full flex flex-col animate-[fade-in_0.4s_ease-out] mb-6">
-                        <div class="flex justify-between items-center mb-8 border-b-2 border-stone-100 pb-4">
+                    <div class="bg-white rounded-3xl iron-border p-6 md:p-10 shadow-lg mx-auto w-full max-w-5xl flex flex-col animate-[fade-in_0.4s_ease-out] mb-6">
+                        <div class="flex justify-between items-center mb-6 border-b-2 border-stone-100 pb-3">
                             <h2 class="text-xs md:text-sm font-black tracking-widest text-${themeColor}-600 uppercase flex items-center gap-2">💡 Sound Coach</h2>
-                            <span class="text-3xl md:text-4xl font-black text-stone-800 serif-font bg-stone-50 px-4 py-2 rounded-xl border-2 border-stone-200 shadow-sm">${coach.symbol}</span>
+                            ${currentCourseType === 'minimal' && coach.symbol ? `<span class="text-2xl md:text-3xl font-black text-stone-800 serif-font bg-stone-50 px-3 py-1.5 rounded-xl border-2 border-stone-200 shadow-sm">${coach.symbol}</span>` : ''}
                         </div>
                         
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-                            <!-- 👈 左カラム：解説・図解 -->
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
                             <div class="flex flex-col">
                                 <div class="w-full flex justify-center mb-6">
-                                    <div class="w-48 h-48 md:w-56 md:h-56 bg-white rounded-2xl border-4 border-stone-100 p-2 shadow-inner flex items-center justify-center overflow-hidden">
-                                        <img src="coach_images/coach_${coachSymbolKey}.webp" alt="${coach.symbol}の口の形" class="w-full h-full object-contain" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\\'text-stone-400 text-xs font-bold\\'>画像準備中...</span>';">
+                                    <div class="w-40 h-40 md:w-48 md:h-48 bg-stone-50 rounded-2xl border-4 border-stone-100 p-2 shadow-inner flex items-center justify-center overflow-hidden">
+                                        ${imgHtml}
                                     </div>
                                 </div>
                                 
                                 <div class="mb-6">
-                                    <div class="inline-block px-4 py-1.5 bg-${themeColor}-500 text-white font-bold text-xs md:text-sm rounded-full mb-3 shadow-sm tracking-wider">発音の仕方</div>
-                                    <h3 class="text-xl md:text-2xl font-black text-stone-800 mb-3 leading-tight tracking-wide">${coach.title}</h3>
-                                    <p class="text-stone-600 text-sm md:text-base leading-relaxed font-medium">${coach.howTo || "データ作成中です。"}</p>
+                                    <div class="inline-block px-3 py-1 bg-${themeColor}-500 text-white font-bold text-[10px] md:text-xs rounded-full mb-2 shadow-sm tracking-wider">発音のポイント</div>
+                                    <h3 class="text-lg md:text-xl font-black text-stone-800 mb-2 leading-tight tracking-wide">${coach.title}</h3>
+                                    <p class="text-stone-600 text-xs md:text-sm leading-relaxed font-medium">${coach.howTo || "データ作成中です。"}</p>
                                 </div>
                                 
                                 ${coach.tips ? `
-                                <div class="bg-orange-50 border-2 border-orange-200 rounded-2xl p-5 shadow-sm relative mt-auto">
-                                    <div class="absolute -top-3 left-5 bg-orange-400 text-white text-[10px] md:text-xs font-black px-3 py-1 rounded-full shadow-sm tracking-widest">TIPS</div>
-                                    <p class="text-orange-900 font-bold text-sm md:text-base leading-relaxed mt-1">💡 ${coach.tips}</p>
+                                <div class="bg-orange-50 border-2 border-orange-200 rounded-2xl p-4 shadow-sm relative mt-auto">
+                                    <div class="absolute -top-3 left-4 bg-orange-400 text-white text-[9px] md:text-[10px] font-black px-2.5 py-1 rounded-full shadow-md tracking-widest">TIPS</div>
+                                    <p class="text-orange-900 font-bold text-xs md:text-sm leading-relaxed mt-1">💡 ${coach.tips}</p>
                                 </div>
                                 ` : ''}
                             </div>
 
-                            <!-- 👉 右カラム：単語リスト -->
-                            <div class="flex flex-col space-y-6">
+                            <div class="flex flex-col space-y-4">
                                 ${coach.wordLists ? coach.wordLists.map((list, lIdx) => `
-                                    <div class="bg-stone-50 p-5 md:p-6 rounded-2xl border-2 border-stone-100">
-                                        <div class="inline-block px-4 py-1.5 bg-stone-700 text-white font-bold text-xs md:text-sm rounded-full mb-2 shadow-sm tracking-wider">${list.title}</div>
-                                        <p class="text-stone-500 text-xs md:text-sm font-bold mb-4">${list.desc}</p>
-                                        <div class="grid grid-cols-2 gap-3">
+                                    <div class="bg-stone-50 p-4 md:p-5 rounded-2xl border-2 border-stone-100">
+                                        <div class="inline-block px-3 py-1 bg-stone-700 text-white font-bold text-[10px] md:text-xs rounded-full mb-2 shadow-sm tracking-wider">${list.title}</div>
+                                        <p class="text-stone-500 text-[10px] md:text-xs font-bold mb-3">${list.desc}</p>
+                                        <div class="grid grid-cols-2 gap-2.5">
                                             ${list.words.map((w, wIdx) => `
                                                 <div class="flex items-center justify-between bg-white border-2 border-stone-200 rounded-xl shadow-sm p-1.5 hover:border-${themeColor}-400 transition group">
-                                                    <span class="font-bold text-stone-700 text-sm md:text-base ml-2 tracking-wide">${w}</span>
-                                                    <div class="flex gap-1">
-                                                        <button onclick="playTextAudio('${w}')" class="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-lg text-stone-400 hover:text-stone-600 hover:bg-stone-100 transition active:scale-95 text-base md:text-lg">🔊</button>
-                                                        <button onclick="openWordPractice(${lIdx}, ${wIdx})" class="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-lg bg-white border-2 border-stone-200 text-stone-400 hover:text-${themeColor}-500 hover:border-${themeColor}-400 hover:bg-${themeColor}-50 transition active:scale-95 shadow-sm text-base md:text-lg">🎤</button>
+                                                    <span class="font-bold text-stone-700 text-xs md:text-sm ml-2 tracking-wide truncate pr-1">${w}</span>
+                                                    <div class="flex gap-1 shrink-0">
+                                                        <button onclick="playTextAudio('${w}')" class="w-7 h-7 md:w-8 md:h-8 flex items-center justify-center rounded-lg text-stone-400 hover:text-stone-600 hover:bg-stone-100 transition active:scale-95 text-sm md:text-base">🔊</button>
+                                                        <button onclick="openWordPractice(${lIdx}, ${wIdx})" class="w-7 h-7 md:w-8 md:h-8 flex items-center justify-center rounded-lg bg-white border-2 border-stone-200 text-stone-400 hover:text-${themeColor}-500 hover:border-${themeColor}-400 hover:bg-${themeColor}-50 transition active:scale-95 shadow-sm text-sm md:text-base">🎤</button>
                                                     </div>
                                                 </div>
                                             `).join('')}
@@ -461,8 +564,10 @@
                             </div>
                         </div>
 
-                        <div class="mt-8 pt-6 border-t-2 border-stone-100">
-                            <button onclick="startVoiceRetry()" class="w-full md:w-auto md:px-16 py-4 bg-stone-800 hover:bg-stone-700 text-white font-black text-base md:text-lg rounded-full shadow-lg transition transform hover:scale-105 active:scale-95 mx-auto block tracking-widest">もう一度 Voice Check へ戻る (Retry)</button>
+                        <div class="mt-6 pt-4 border-t-2 border-stone-100">
+                            <button onclick="${currentCourseType === 'minimal' ? 'startVoiceRetry()' : 'startPhraseBridge()'}" class="w-full md:w-auto md:px-16 py-3 md:py-4 bg-stone-800 hover:bg-stone-700 text-white font-black text-sm md:text-base rounded-full shadow-lg transition transform hover:scale-105 active:scale-95 mx-auto block tracking-widest">
+                                ${currentCourseType === 'minimal' ? 'もう一度 Voice Check へ戻る (Retry)' : '🎤 フレーズ特訓へ進む ➔'}
+                            </button>
                         </div>
                     </div>
                 `;
@@ -470,62 +575,64 @@
             }
             else if (currentState === SoundQuestState.WORD_PRACTICE) {
                 const targetWord = wordPracticeSession.listWords[wordPracticeSession.currentIndex];
-                const c = courses[currentCourseId];
-                const coachSymbolKey = voiceCheckSession.currentTargetIsA ? c.coachA : c.coachB; 
-                const themeColor = (coachingData[coachSymbolKey] || coachingData["l"]).theme;
+                const coach = getCurrentCoaching(); 
+                const themeColor = coach.theme;
 
-                let feedbackHtml = `<p class="text-stone-500 text-sm font-bold h-12 flex items-center justify-center tracking-widest">マイクボタンを押して発音してください</p>`;
+                let feedbackHtml = `<p class="text-stone-500 text-xs md:text-sm font-bold h-12 flex items-center justify-center tracking-widest">マイクボタンを押して発音してください</p>`;
                 let recognizedText = wordPracticeSession.alternativesData[0] ? normalizeSpeechText(wordPracticeSession.alternativesData[0].transcript) : '???';
-                if (wordPracticeSession.isRecording) feedbackHtml = `<p class="text-${themeColor}-600 text-sm font-bold h-12 flex items-center justify-center animate-pulse tracking-widest">Listening... (話してください)</p>`;
-                else if (wordPracticeSession.resultStatus === 'clear') feedbackHtml = `<div class="h-12 flex flex-col items-center justify-center"><span class="text-emerald-600 font-black text-xl tracking-[0.3em] uppercase">CLEAR!</span><span class="text-emerald-700/70 text-xs font-bold mt-1">Recognized as: ${recognizedText}</span></div>`;
-                else if (wordPracticeSession.resultStatus === 'close') feedbackHtml = `<div class="h-12 flex flex-col items-center justify-center"><span class="text-amber-500 font-black text-lg tracking-widest uppercase">CLOSE!</span><span class="text-amber-600/70 text-[10px] font-bold mt-1">Close match detected.</span></div>`;
-                else if (wordPracticeSession.resultStatus === 'retry') feedbackHtml = `<p class="text-orange-500 text-sm font-bold h-12 flex items-center justify-center tracking-widest">Not clear yet. Listen and try again.</p>`;
+                if (wordPracticeSession.isRecording) feedbackHtml = `<p class="text-${themeColor}-600 text-xs md:text-sm font-bold h-12 flex items-center justify-center animate-pulse tracking-widest">Listening... (話してください)</p>`;
+                else if (wordPracticeSession.resultStatus === 'clear') feedbackHtml = `<div class="h-12 flex flex-col items-center justify-center"><span class="text-emerald-600 font-black text-lg tracking-[0.2em] uppercase">CLEAR!</span><span class="text-emerald-700/70 text-[10px] font-bold mt-0.5">Recognized as: ${recognizedText}</span></div>`;
+                else if (wordPracticeSession.resultStatus === 'close') feedbackHtml = `<div class="h-12 flex flex-col items-center justify-center"><span class="text-amber-500 font-black text-base tracking-widest uppercase">CLOSE!</span><span class="text-amber-600/70 text-[10px] font-bold mt-0.5">Close match detected.</span></div>`;
+                else if (wordPracticeSession.resultStatus === 'retry') feedbackHtml = `<p class="text-orange-500 text-xs md:text-sm font-bold h-12 flex items-center justify-center tracking-widest">Not clear yet. Listen and try again.</p>`;
 
                 const isFirst = wordPracticeSession.currentIndex === 0;
                 const isLast = wordPracticeSession.currentIndex === wordPracticeSession.listWords.length - 1;
 
                 container.innerHTML = `
-                    <div class="bg-white rounded-3xl iron-border p-8 md:p-14 shadow-lg max-w-3xl mx-auto w-full text-center relative min-h-[45vh] md:min-h-[50vh] flex flex-col justify-center">
-                        <button onclick="currentState='${SoundQuestState.COACHING}'; renderScreen();" class="absolute top-6 left-6 text-stone-400 hover:text-stone-600 font-bold text-xs md:text-sm flex items-center gap-1.5 transition-colors border-b-2 border-transparent hover:border-stone-300 pb-0.5 tracking-widest"><span>←</span> コーチングに戻る</button>
+                    <div class="bg-white rounded-3xl iron-border p-8 md:p-12 shadow-lg mx-auto w-full max-w-2xl text-center relative min-h-[40vh] md:min-h-[50vh] flex flex-col justify-center">
+                        <button onclick="currentState='${SoundQuestState.COACHING}'; renderScreen();" class="absolute top-6 left-6 text-stone-400 hover:text-stone-600 font-bold text-xs flex items-center gap-1.5 transition-colors border-b-2 border-transparent hover:border-stone-300 pb-0.5 tracking-widest"><span>←</span> コーチングに戻る</button>
                         
-                        <h2 class="text-xs md:text-sm font-black tracking-[0.3em] text-${themeColor}-600 mb-8 uppercase mt-6 md:mt-0">Word Practice</h2>
+                        <h2 class="text-xs font-black tracking-[0.3em] text-${themeColor}-600 mb-6 uppercase mt-6 md:mt-0">Word Practice</h2>
                         
-                        <div class="flex items-center justify-center gap-4 md:gap-8 mb-10">
-                            <button onclick="navWordPractice('prev')" class="w-12 h-12 rounded-full flex items-center justify-center text-stone-400 hover:text-${themeColor}-600 hover:bg-${themeColor}-50 transition active:scale-95 border-2 border-transparent hover:border-${themeColor}-200 ${isFirst ? 'opacity-30 cursor-not-allowed' : ''}" ${isFirst ? 'disabled' : ''}>
+                        <div class="flex items-center justify-center gap-4 md:gap-8 mb-8">
+                            <button onclick="navWordPractice('prev')" class="w-10 h-10 rounded-full flex items-center justify-center text-stone-400 hover:text-${themeColor}-600 hover:bg-${themeColor}-50 transition active:scale-95 border-2 border-transparent hover:border-${themeColor}-200 ${isFirst ? 'opacity-30 cursor-not-allowed' : ''}" ${isFirst ? 'disabled' : ''}>
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M15 19l-7-7 7-7"></path></svg>
                             </button>
                             
-                            <div class="w-56 text-center">
-                                <div class="mb-2 text-stone-400 font-bold tracking-widest text-xs uppercase">SAY:</div>
-                                <h3 class="text-5xl md:text-6xl font-black text-stone-800 serif-font tracking-tight capitalize drop-shadow-sm">${targetWord}</h3>
+                            <div class="w-48 md:w-56 text-center">
+                                <div class="mb-1.5 text-stone-400 font-bold tracking-widest text-[10px] uppercase">SAY:</div>
+                                <h3 class="text-4xl md:text-5xl font-black text-stone-800 serif-font tracking-tight capitalize drop-shadow-sm">${targetWord}</h3>
                             </div>
                             
-                            <button onclick="navWordPractice('next')" class="w-12 h-12 rounded-full flex items-center justify-center text-stone-400 hover:text-${themeColor}-600 hover:bg-${themeColor}-50 transition active:scale-95 border-2 border-transparent hover:border-${themeColor}-200 ${isLast ? 'opacity-30 cursor-not-allowed' : ''}" ${isLast ? 'disabled' : ''}>
+                            <button onclick="navWordPractice('next')" class="w-10 h-10 rounded-full flex items-center justify-center text-stone-400 hover:text-${themeColor}-600 hover:bg-${themeColor}-50 transition active:scale-95 border-2 border-transparent hover:border-${themeColor}-200 ${isLast ? 'opacity-30 cursor-not-allowed' : ''}" ${isLast ? 'disabled' : ''}>
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"></path></svg>
                             </button>
                         </div>
                         
-                        <button onclick="playTextAudio()" class="px-6 py-2.5 md:py-3 bg-stone-50 hover:bg-stone-100 text-stone-600 font-bold rounded-full transition text-sm md:text-base mb-10 border-2 border-stone-200 flex items-center gap-2 mx-auto shadow-sm hover:shadow-md tracking-widest">🔊 お手本を聞く</button>
+                        <button onclick="playTextAudio()" class="px-5 py-2 md:py-2.5 bg-stone-50 hover:bg-stone-100 text-stone-600 font-bold rounded-full transition text-xs md:text-sm mb-8 border-2 border-stone-200 flex items-center gap-1.5 mx-auto shadow-sm hover:shadow-md tracking-widest">🔊 お手本を聞く</button>
                         
-                        <div class="relative w-32 h-32 md:w-36 md:h-36 mx-auto mb-6">
-                            <button onclick="toggleMic()" class="absolute inset-0 w-full h-full rounded-full flex flex-col items-center justify-center text-white transition-all shadow-xl z-10 ${wordPracticeSession.isRecording ? `bg-${themeColor}-500 recording-ripple` : `bg-stone-800 border-[5px] border-stone-200 hover:bg-stone-700 hover:border-stone-300`}"><span class="text-5xl md:text-6xl mb-1">${wordPracticeSession.isRecording ? '⏹' : '🎤'}</span></button>
+                        <div class="relative w-24 h-24 md:w-28 md:h-28 mx-auto mb-4">
+                            <button onclick="toggleMic()" class="absolute inset-0 w-full h-full rounded-full flex flex-col items-center justify-center text-white transition-all shadow-xl z-10 ${wordPracticeSession.isRecording ? `bg-${themeColor}-500 recording-ripple` : `bg-stone-800 border-4 border-stone-200 hover:bg-stone-700 hover:border-stone-300`}"><span class="text-4xl md:text-5xl mb-1">${wordPracticeSession.isRecording ? '⏹' : '🎤'}</span></button>
                         </div>
                         ${feedbackHtml}
                     </div>
                 `;
             }
             else if (currentState === SoundQuestState.VOICE_CHECK) {
-                const c = courses[currentCourseId]; const pair = c.pairs[voiceCheckSession.currentPairIndex];
-                const targetWord = voiceCheckSession.currentTargetIsA ? pair.wordA : pair.wordB; const targetIpa = voiceCheckSession.currentTargetIsA ? pair.ipaA : pair.ipaB || "";
-                const coachSymbolKey = voiceCheckSession.currentTargetIsA ? c.coachA : c.coachB; const themeColor = (coachingData[coachSymbolKey] || coachingData["l"]).theme;
+                const c = getCurrentCourse(); 
+                const pair = c.pairs[voiceCheckSession.currentPairIndex];
+                const targetWord = voiceCheckSession.currentTargetIsA ? pair.wordA : pair.wordB; 
+                const targetIpa = voiceCheckSession.currentTargetIsA ? pair.ipaA : pair.ipaB || "";
+                const coach = getCurrentCoaching();
+                const themeColor = coach.theme;
                 
-                let feedbackHtml = `<p class="text-stone-500 text-sm font-bold h-12 flex items-center justify-center tracking-widest">マイクボタンを押して発音してください</p>`;
+                let feedbackHtml = `<p class="text-stone-500 text-xs md:text-sm font-bold h-12 flex items-center justify-center tracking-widest">マイクボタンを押して発音してください</p>`;
                 let recognizedText = voiceCheckSession.alternativesData[0] ? normalizeSpeechText(voiceCheckSession.alternativesData[0].transcript) : '???';
-                if (voiceCheckSession.isRecording) feedbackHtml = `<p class="text-${themeColor}-600 text-sm font-bold h-12 flex items-center justify-center animate-pulse tracking-widest">Listening... (話してください)</p>`;
-                else if (voiceCheckSession.resultStatus === 'clear') feedbackHtml = `<div class="h-12 flex flex-col items-center justify-center"><span class="text-emerald-600 font-black text-xl tracking-[0.3em] uppercase">CLEAR!</span><span class="text-emerald-700/70 text-xs font-bold mt-1">Recognized as: ${recognizedText}</span></div>`;
-                else if (voiceCheckSession.resultStatus === 'close') feedbackHtml = `<div class="h-12 flex flex-col items-center justify-center"><span class="text-amber-500 font-black text-lg tracking-widest uppercase">CLOSE!</span><span class="text-amber-600/70 text-[10px] font-bold mt-1">Target detected in alternative results.</span></div>`;
-                else if (voiceCheckSession.resultStatus === 'contrast_error') feedbackHtml = `<div class="h-12 flex flex-col items-center justify-center"><span class="text-orange-600 font-black text-sm tracking-widest uppercase">Let's adjust the sound.</span><span class="text-orange-600/70 text-[10px] font-bold mt-1">Recognized as: ${recognizedText}</span></div>`;
-                else if (voiceCheckSession.resultStatus === 'retry' || voiceCheckSession.resultStatus === 'error') feedbackHtml = `<p class="text-stone-500 text-sm font-bold h-12 flex items-center justify-center tracking-widest">Not clear yet. Listen and try again.</p>`;
+                if (voiceCheckSession.isRecording) feedbackHtml = `<p class="text-${themeColor}-600 text-xs md:text-sm font-bold h-12 flex items-center justify-center animate-pulse tracking-widest">Listening... (話してください)</p>`;
+                else if (voiceCheckSession.resultStatus === 'clear') feedbackHtml = `<div class="h-12 flex flex-col items-center justify-center"><span class="text-emerald-600 font-black text-lg tracking-[0.2em] uppercase">CLEAR!</span><span class="text-emerald-700/70 text-[10px] font-bold mt-0.5">Recognized as: ${recognizedText}</span></div>`;
+                else if (voiceCheckSession.resultStatus === 'close') feedbackHtml = `<div class="h-12 flex flex-col items-center justify-center"><span class="text-amber-500 font-black text-base tracking-widest uppercase">CLOSE!</span><span class="text-amber-600/70 text-[10px] font-bold mt-0.5">Target detected in alternative results.</span></div>`;
+                else if (voiceCheckSession.resultStatus === 'contrast_error') feedbackHtml = `<div class="h-12 flex flex-col items-center justify-center"><span class="text-orange-600 font-black text-xs md:text-sm tracking-widest uppercase">Let's adjust the sound.</span><span class="text-orange-600/70 text-[10px] font-bold mt-0.5">Recognized as: ${recognizedText}</span></div>`;
+                else if (voiceCheckSession.resultStatus === 'retry' || voiceCheckSession.resultStatus === 'error') feedbackHtml = `<p class="text-stone-500 text-xs md:text-sm font-bold h-12 flex items-center justify-center tracking-widest">Not clear yet. Listen and try again.</p>`;
 
                 let retryHeaderHtml = '';
                 if (voiceCheckSession.isRetry) {
@@ -533,78 +640,96 @@
                     if (voiceCheckSession.resultStatus === 'clear' || voiceCheckSession.resultStatus === 'close') { nowStatusText = 'IMPROVED!✨'; nowColor = 'text-emerald-600'; }
                     else if (voiceCheckSession.resultStatus) { nowStatusText = recognizedText; nowColor = 'text-orange-600'; }
                     retryHeaderHtml = `
-                        <div class="mb-8 p-4 md:p-5 bg-stone-50 border-2 border-stone-100 rounded-2xl flex justify-between items-center text-xs md:text-sm font-bold tracking-widest w-full max-w-md mx-auto">
-                            <div class="flex flex-col"><span class="text-stone-400 text-[9px] md:text-[10px] mb-1">BEFORE</span><span class="text-orange-500 text-base md:text-lg">${normalizeSpeechText(voiceCheckSession.previousTranscript)}</span></div>
-                            <div class="text-stone-300 px-4 text-xl">➔</div>
-                            <div class="flex flex-col text-right"><span class="text-stone-400 text-[9px] md:text-[10px] mb-1">NOW</span><span class="${nowColor} text-base md:text-lg">${nowStatusText}</span></div>
+                        <div class="mb-6 p-3 md:p-4 bg-stone-50 border-2 border-stone-100 rounded-2xl flex justify-between items-center text-[10px] md:text-xs font-bold tracking-widest w-full max-w-sm mx-auto">
+                            <div class="flex flex-col"><span class="text-stone-400 text-[8px] md:text-[9px] mb-0.5">BEFORE</span><span class="text-orange-500 text-sm md:text-base">${normalizeSpeechText(voiceCheckSession.previousTranscript)}</span></div>
+                            <div class="text-stone-300 px-3 text-lg">➔</div>
+                            <div class="flex flex-col text-right"><span class="text-stone-400 text-[8px] md:text-[9px] mb-0.5">NOW</span><span class="${nowColor} text-sm md:text-base">${nowStatusText}</span></div>
                         </div>`;
                 }
 
                 container.innerHTML = `
-                    <div class="bg-white rounded-3xl iron-border p-8 md:p-14 shadow-lg max-w-3xl mx-auto w-full text-center flex flex-col items-center justify-center min-h-[45vh] md:min-h-[50vh] animate-[fade-in_0.3s_ease-out]">
-                        <h2 class="text-xs md:text-sm font-black tracking-[0.3em] text-${themeColor}-600 mb-8 uppercase">Voice Check ${voiceCheckSession.isRetry ? '(Retry)' : ''}</h2>
+                    <div class="bg-white rounded-3xl iron-border p-8 md:p-12 shadow-lg mx-auto w-full max-w-2xl text-center flex flex-col items-center justify-center min-h-[40vh] md:min-h-[50vh] animate-[fade-in_0.3s_ease-out]">
+                        <h2 class="text-xs font-black tracking-[0.3em] text-${themeColor}-600 mb-6 uppercase">Voice Check ${voiceCheckSession.isRetry ? '(Retry)' : ''}</h2>
                         ${retryHeaderHtml}
-                        <div class="mb-2 text-stone-400 font-bold tracking-widest text-xs md:text-sm uppercase">SAY:</div>
-                        <h3 class="text-5xl md:text-7xl font-black text-stone-800 mb-3 serif-font tracking-tight capitalize drop-shadow-sm">${targetWord}</h3>
-                        <p class="text-lg md:text-xl text-stone-400 font-medium mb-8 font-mono tracking-widest">${targetIpa}</p>
+                        <div class="mb-1.5 text-stone-400 font-bold tracking-widest text-[10px] md:text-xs uppercase">SAY:</div>
+                        <h3 class="text-4xl md:text-5xl font-black text-stone-800 mb-2 serif-font tracking-tight capitalize drop-shadow-sm">${targetWord}</h3>
+                        ${targetIpa ? `<p class="text-sm md:text-base text-stone-400 font-medium mb-6 font-mono tracking-widest">${targetIpa}</p>` : '<div class="h-6 mb-6"></div>'}
                         
-                        <button onclick="playTextAudio()" class="px-6 py-2.5 md:py-3 bg-stone-50 hover:bg-stone-100 text-stone-600 font-bold rounded-full transition text-sm md:text-base mb-10 border-2 border-stone-200 flex items-center gap-2 mx-auto shadow-sm hover:shadow-md tracking-widest">🔊 お手本を聞く</button>
+                        <button onclick="playTextAudio()" class="px-5 py-2 md:py-2.5 bg-stone-50 hover:bg-stone-100 text-stone-600 font-bold rounded-full transition text-xs md:text-sm mb-8 border-2 border-stone-200 flex items-center gap-1.5 mx-auto shadow-sm hover:shadow-md tracking-widest">🔊 お手本を聞く</button>
                         
-                        <div class="relative w-32 h-32 md:w-36 md:h-36 mx-auto mb-6">
-                            <button onclick="toggleMic()" class="absolute inset-0 w-full h-full rounded-full flex flex-col items-center justify-center text-white transition-all shadow-xl z-10 ${voiceCheckSession.isRecording ? `bg-${themeColor}-500 recording-ripple` : `bg-stone-800 border-[5px] border-stone-200 hover:bg-stone-700 hover:border-stone-300`}"><span class="text-5xl md:text-6xl mb-1">${voiceCheckSession.isRecording ? '⏹' : '🎤'}</span></button>
+                        <div class="relative w-24 h-24 md:w-28 md:h-28 mx-auto mb-4">
+                            <button onclick="toggleMic()" class="absolute inset-0 w-full h-full rounded-full flex flex-col items-center justify-center text-white transition-all shadow-xl z-10 ${voiceCheckSession.isRecording ? `bg-${themeColor}-500 recording-ripple` : `bg-stone-800 border-4 border-stone-200 hover:bg-stone-700 hover:border-stone-300`}"><span class="text-4xl md:text-5xl mb-1">${voiceCheckSession.isRecording ? '⏹' : '🎤'}</span></button>
                         </div>
                         
                         ${feedbackHtml}
                         
-                        ${(!voiceCheckSession.isRetry && (voiceCheckSession.resultStatus === 'contrast_error' || voiceCheckSession.resultStatus === 'retry')) ? `<button onclick="openCoaching()" class="mt-8 text-orange-500 hover:text-orange-600 text-xs md:text-sm font-bold underline underline-offset-8 transition tracking-widest">💡 口と舌の使い方のコツを見る</button>` : ''}
-                        ${(voiceCheckSession.isRetry && (voiceCheckSession.resultStatus === 'contrast_error' || voiceCheckSession.resultStatus === 'retry')) ? `<button onclick="openCoaching()" class="mt-8 text-stone-400 hover:text-stone-600 text-xs md:text-sm font-bold border-b-2 border-stone-300 hover:border-stone-500 pb-1 transition tracking-widest">もう一度コツを確認する</button>` : ''}
-                        ${(voiceCheckSession.resultStatus === 'clear' || voiceCheckSession.resultStatus === 'close') ? `<button onclick="startPhraseBridge()" class="mt-10 w-full md:w-auto px-12 py-4 md:py-5 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-lg rounded-full shadow-xl transition transform hover:scale-105 tracking-widest">句の練習へ進む ➔</button>` : ''}
+                        ${(!voiceCheckSession.isRetry && (voiceCheckSession.resultStatus === 'contrast_error' || voiceCheckSession.resultStatus === 'retry')) ? `<button onclick="openCoaching()" class="mt-6 text-orange-500 hover:text-orange-600 text-[10px] md:text-xs font-bold underline underline-offset-4 transition tracking-widest">💡 解説とコツを見る</button>` : ''}
+                        ${(voiceCheckSession.isRetry && (voiceCheckSession.resultStatus === 'contrast_error' || voiceCheckSession.resultStatus === 'retry')) ? `<button onclick="openCoaching()" class="mt-6 text-stone-400 hover:text-stone-600 text-[10px] md:text-xs font-bold border-b border-stone-300 hover:border-stone-500 pb-0.5 transition tracking-widest">もう一度コツを確認する</button>` : ''}
+                        ${(voiceCheckSession.resultStatus === 'clear' || voiceCheckSession.resultStatus === 'close') ? `<button onclick="startPhraseBridge()" class="mt-8 w-full md:w-auto px-10 py-3 md:py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm md:text-base rounded-full shadow-lg transition transform hover:scale-105 tracking-widest">句の練習へ進む ➔</button>` : ''}
                     </div>
                 `;
             }
             else if (currentState === SoundQuestState.PHRASE_BRIDGE || currentState === SoundQuestState.SENTENCE_MISSION) {
-                const isSentence = (currentState === SoundQuestState.SENTENCE_MISSION); const title = isSentence ? "Sentence Mission" : "Phrase Bridge";
+                const isSentence = (currentState === SoundQuestState.SENTENCE_MISSION); 
+                const title = isSentence ? "Sentence Mission" : "Phrase Practice";
                 const totalTargets = phraseSession.data.targetWords.length;
-                const c = courses[currentCourseId]; const themeColor = "emerald"; 
+                const c = getCurrentCourse();
+                const themeColor = c.theme.split('-')[1];
                 
-                let displayHtml = phraseSession.data.text;
-                phraseSession.data.targetWords.forEach(tw => {
-                    const coachDataA = coachingData[c.coachA] || {theme:'emerald'}; const coachDataB = coachingData[c.coachB] || {theme:'emerald'};
-                    const colorClass = (c.coachA && normalizeSpeechText(tw).includes(c.coachA.replace('_s','').replace('_z',''))) ? `text-${coachDataA.theme}-600` : `text-${coachDataB.theme}-600`;
-                    const regex = new RegExp(`\\b${tw}\\b`, 'gi');
-                    // ★修正: whitespace-nowrapの影響を受けない自然な装飾に変更
-                    displayHtml = displayHtml.replace(regex, `<span class="font-black border-b-4 border-${colorClass.split('-')[1]}-300 pb-1 ${colorClass}">$&</span>`);
-                });
+                // ★追加: displayHtml と kana があれば最優先で採用
+                let displayHtml = phraseSession.data.displayHtml || phraseSession.data.text;
+                let kanaHtml = phraseSession.data.kana ? `<p class="text-stone-400 font-bold tracking-widest text-sm md:text-base mt-2">${phraseSession.data.kana}</p>` : '';
+                
+                // Minimal Pairs（またはdisplayHtml未設定）の場合は動的にハイライト
+                if (!phraseSession.data.displayHtml) {
+                    phraseSession.data.targetWords.forEach(tw => {
+                        let colorClass = "text-emerald-600";
+                        if (currentCourseType === 'minimal') {
+                            const coachDataA = coachingData[c.coachA] || {theme:'emerald'}; const coachDataB = coachingData[c.coachB] || {theme:'emerald'};
+                            colorClass = (c.coachA && normalizeSpeechText(tw).includes(c.coachA.replace('_s','').replace('_z',''))) ? `text-${coachDataA.theme}-600` : `text-${coachDataB.theme}-600`;
+                        } else {
+                            colorClass = c.theme;
+                        }
+                        const regex = new RegExp(`\\b${tw}\\b`, 'gi');
+                        displayHtml = displayHtml.replace(regex, `<span class="font-black border-b-2 border-${colorClass.split('-')[1]}-300 pb-0.5 ${colorClass}">$&</span>`);
+                    });
+                }
 
-                let feedbackHtml = `<p class="text-stone-500 text-sm font-bold h-12 flex items-center justify-center tracking-widest">マイクボタンを押して発音してください</p>`;
-                if (phraseSession.isRecording) feedbackHtml = `<p class="text-${themeColor}-600 text-sm font-bold h-12 flex items-center justify-center animate-pulse tracking-widest">Listening... (話してください)</p>`;
-                else if (phraseSession.resultStatus === 'clear' || phraseSession.resultStatus === 'close') {
+                // ★追加: 音声認識された自分の結果（Recognized as）を表示
+                let recognizedText = phraseSession.alternativesData && phraseSession.alternativesData[0] ? normalizeSpeechText(phraseSession.alternativesData[0].transcript) : '???';
+                
+                let feedbackHtml = `<div class="h-10 flex flex-col items-center justify-center"><p class="text-stone-500 text-xs md:text-sm font-bold tracking-widest">マイクボタンを押して発音してください</p></div>`;
+                if (phraseSession.isRecording) {
+                    feedbackHtml = `<div class="h-10 flex flex-col items-center justify-center"><p class="text-${themeColor}-600 text-xs md:text-sm font-bold animate-pulse tracking-widest">Listening... (話してください)</p></div>`;
+                } else if (phraseSession.resultStatus === 'clear' || phraseSession.resultStatus === 'close') {
                     const isPerfect = phraseSession.resultStatus === 'clear';
-                    feedbackHtml = `<div class="h-12 flex flex-col items-center justify-center"><span class="${isPerfect ? 'text-emerald-600' : 'text-amber-500'} font-black text-lg tracking-[0.2em] uppercase">Target Sound Match: ${phraseSession.matchedWords} / ${totalTargets}</span></div>`;
+                    feedbackHtml = `<div class="h-10 flex flex-col items-center justify-center"><span class="${isPerfect ? 'text-emerald-600' : 'text-amber-500'} font-black text-sm md:text-base tracking-[0.2em] uppercase">Target Sound Match: ${phraseSession.matchedWords} / ${totalTargets}</span><span class="text-stone-400 text-[10px] font-bold mt-1">Recognized as: ${recognizedText}</span></div>`;
                 } else if (phraseSession.resultStatus === 'retry') {
-                    feedbackHtml = `<p class="text-orange-500 text-sm font-bold h-12 flex items-center justify-center tracking-widest">聞き取れませんでした。もう一度発音してください。</p>`;
+                    feedbackHtml = `<div class="h-10 flex flex-col items-center justify-center"><span class="text-orange-500 text-xs md:text-sm font-bold tracking-widest">聞き取れませんでした。もう一度発音してください。</span><span class="text-stone-400 text-[10px] font-bold mt-1">Recognized as: ${recognizedText}</span></div>`;
                 }
 
                 container.innerHTML = `
-                    <div class="bg-white rounded-3xl iron-border p-8 md:p-14 shadow-lg max-w-4xl mx-auto w-full text-center flex flex-col items-center justify-center min-h-[45vh] md:min-h-[50vh] animate-[fade-in_0.3s_ease-out]">
-                        <h2 class="text-xs md:text-sm font-black tracking-[0.3em] text-${themeColor}-600 mb-8 uppercase">${title}</h2>
+                    <div class="bg-white rounded-3xl iron-border p-6 md:p-12 shadow-lg mx-auto w-full max-w-4xl text-center flex flex-col items-center justify-center min-h-[40vh] md:min-h-[50vh] animate-[fade-in_0.3s_ease-out]">
+                        <h2 class="text-xs font-black tracking-[0.3em] text-${themeColor}-600 mb-6 uppercase">${title}</h2>
                         
-                        <div class="mb-10 w-full max-w-3xl">
-                            <p class="text-stone-400 text-xs md:text-sm font-bold mb-4 tracking-widest uppercase border-b-2 border-stone-100 pb-2 inline-block">${phraseSession.data.translation}</p>
+                        <div class="mb-8 w-full">
+                            <p class="text-stone-400 text-[10px] md:text-xs font-bold mb-3 tracking-widest uppercase border-b-2 border-stone-100 pb-1.5 inline-block">${phraseSession.data.translation}</p>
                             
-                            <!-- ★修正: 1行表示を保証しつつ、はみ出る場合は横スクロールできる安全設計 -->
-                            <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-800 mt-4 serif-font leading-relaxed drop-shadow-sm whitespace-nowrap overflow-x-auto hide-scroll px-4 pb-2 w-full">${displayHtml}</h3>
+                            <div class="w-full overflow-x-auto hide-scroll pb-2">
+                                <h3 class="text-3xl sm:text-4xl md:text-5xl font-bold text-stone-800 mt-2 serif-font leading-relaxed drop-shadow-sm whitespace-nowrap px-4 w-max mx-auto">${displayHtml}</h3>
+                                ${kanaHtml}
+                            </div>
                         </div>
                         
-                        <button onclick="playTextAudio()" class="px-6 py-2.5 md:py-3 bg-stone-50 hover:bg-stone-100 text-stone-600 font-bold rounded-full transition text-sm md:text-base mb-10 border-2 border-stone-200 flex items-center gap-2 mx-auto shadow-sm hover:shadow-md tracking-widest">🔊 お手本を聞く</button>
+                        <button onclick="playTextAudio()" class="px-5 py-2 md:py-2.5 bg-stone-50 hover:bg-stone-100 text-stone-600 font-bold rounded-full transition text-xs md:text-sm mb-8 border-2 border-stone-200 flex items-center gap-1.5 mx-auto shadow-sm hover:shadow-md tracking-widest">🔊 お手本を聞く</button>
                         
-                        <div class="relative w-32 h-32 md:w-36 md:h-36 mx-auto mb-6">
-                            <button onclick="toggleMic()" class="absolute inset-0 w-full h-full rounded-full flex flex-col items-center justify-center text-white transition-all shadow-xl z-10 ${phraseSession.isRecording ? `bg-${themeColor}-500 recording-ripple` : `bg-stone-800 border-[5px] border-stone-200 hover:bg-stone-700 hover:border-stone-300`}"><span class="text-5xl md:text-6xl mb-1">${phraseSession.isRecording ? '⏹' : '🎤'}</span></button>
+                        <div class="relative w-24 h-24 md:w-28 md:h-28 mx-auto mb-4">
+                            <button onclick="toggleMic()" class="absolute inset-0 w-full h-full rounded-full flex flex-col items-center justify-center text-white transition-all shadow-xl z-10 ${phraseSession.isRecording ? `bg-${themeColor}-500 recording-ripple` : `bg-stone-800 border-4 border-stone-200 hover:bg-stone-700 hover:border-stone-300`}"><span class="text-4xl md:text-5xl mb-1">${phraseSession.isRecording ? '⏹' : '🎤'}</span></button>
                         </div>
                         
                         ${feedbackHtml}
                         
-                        ${(phraseSession.resultStatus === 'clear' || phraseSession.resultStatus === 'close') ? `<button onclick="${isSentence ? "showCompletionModal()" : "startSentenceMission()"}" class="mt-10 w-full md:w-auto px-12 py-4 md:py-5 bg-stone-800 hover:bg-stone-700 text-white font-black text-lg rounded-full shadow-xl transition transform hover:scale-105 tracking-widest">${isSentence ? 'ミッション完了 ➔' : '文の練習へ進む ➔'}</button>` : ''}
+                        ${(phraseSession.resultStatus === 'clear' || phraseSession.resultStatus === 'close') ? `<button onclick="${isSentence ? "showCompletionModal()" : "startSentenceMission()"}" class="mt-8 w-full md:w-auto px-10 py-3 md:py-4 bg-stone-800 hover:bg-stone-700 text-white font-black text-sm md:text-base rounded-full shadow-lg transition transform hover:scale-105 tracking-widest">${isSentence ? 'ミッション完了 ➔' : '文の練習へ進む ➔'}</button>` : ''}
                     </div>
                 `;
             }
