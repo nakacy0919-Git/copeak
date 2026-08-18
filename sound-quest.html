@@ -64,7 +64,7 @@
             <div class="text-5xl md:text-6xl mb-3 drop-shadow-md animate-bounce">👑</div>
             <h3 class="text-2xl md:text-3xl font-black text-stone-800 mb-2 serif-font tracking-tight leading-tight">READY FOR<br>COPEAK TRANSFER</h3>
             <p class="text-stone-500 font-bold text-xs md:text-sm mt-4 mb-8 leading-relaxed">
-                発音とリエゾンの基礎を完全にマスターしました！<br>この滑らかな感覚のまま、Copeak本体で長文音読へ進みましょう。
+                ターゲット音の聞き分けと発音を習得しました！<br>この感覚を持ったまま、Copeak本体へ進みましょう。
             </p>
             <div class="flex flex-col gap-3">
                 <button onclick="returnToSoundQuestHome()" class="w-full py-3 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold text-sm md:text-base rounded-full shadow-sm transition border border-stone-300 flex items-center justify-center gap-2">
@@ -125,7 +125,6 @@
 
         document.addEventListener('click', (e) => { if (e.target.closest('button')) playGentleSound('click'); });
 
-        // ★追加: PASSAGE_MISSION と PASSAGE_RESULT をステートに登録
         const SoundQuestState = { HOME: "home", INTRO: "intro", EAR_CHECK: "ear_check", EAR_RESULT: "ear_result", VOICE_CHECK: "voice_check", COACHING: "coaching", WORD_PRACTICE: "word_practice", PHRASE_BRIDGE: "phrase_bridge", SENTENCE_MISSION: "sentence_mission", PASSAGE_MISSION: "passage_mission", PASSAGE_RESULT: "passage_result" };
         let currentState = SoundQuestState.HOME;
         
@@ -136,8 +135,6 @@
         let voiceCheckSession = { currentPairIndex: 0, currentTargetIsA: true, isRecording: false, resultStatus: null, alternativesData: [], isRetry: false, previousStatus: null, previousTranscript: "" };
         let phraseSession = { data: null, isRecording: false, resultStatus: null, matchedWords: 0, alternativesData: [] };
         let wordPracticeSession = { listWords: [], currentIndex: 0, isRecording: false, resultStatus: null, alternativesData: [] };
-        
-        // ★追加: パッセージ用のセッションデータ
         let passageSession = { data: null, isRecording: false, accuracy: 0, alternativesData: [] };
 
         function getCurrentCourse() {
@@ -187,7 +184,6 @@
             else if (currentState === SoundQuestState.VOICE_CHECK || currentState === SoundQuestState.COACHING || currentState === SoundQuestState.WORD_PRACTICE) { startPhraseBridge(); }
             else if (currentState === SoundQuestState.PHRASE_BRIDGE) { startSentenceMission(); }
             else if (currentState === SoundQuestState.SENTENCE_MISSION) { 
-                // ★修正: リエゾンの場合は パッセージミッション へ！
                 if (currentCourseType === 'liaison') startPassageMission();
                 else showCompletionModal(); 
             }
@@ -219,9 +215,17 @@
             currentState = SoundQuestState.EAR_CHECK; renderScreen(); setTimeout(playTextAudio, 500);
         }
         
+        // ==========================================
+        // ★修正: WordPractice等で指定単語が渡されたときのパス生成を追加
+        // ==========================================
         function playTextAudio(textOverride = null) {
             let text = textOverride;
             let audioPath = null;
+            let isWordList = false;
+
+            if (text) {
+                isWordList = true;
+            }
 
             if (!text) {
                 if (currentState === SoundQuestState.EAR_CHECK) {
@@ -233,6 +237,7 @@
                 }
                 else if (currentState === SoundQuestState.WORD_PRACTICE) {
                     text = wordPracticeSession.listWords[wordPracticeSession.currentIndex];
+                    isWordList = true;
                 }
                 else if (currentState === SoundQuestState.PHRASE_BRIDGE || currentState === SoundQuestState.SENTENCE_MISSION) {
                     text = phraseSession.data.text;
@@ -248,7 +253,6 @@
                         }
                     }
                 }
-                // ★追加: パッセージ用の音声ファイルパス生成
                 else if (currentState === SoundQuestState.PASSAGE_MISSION) {
                     text = passageSession.data.text;
                     if (currentCourseType === 'liaison') {
@@ -260,17 +264,23 @@
                             if (idx !== -1) {
                                 audioPath = `audio/liaison/${prefix}_pass${idx + 1}.mp3`;
                             } else {
-                                audioPath = `audio/liaison/${prefix}_pass1.mp3`; // 予備
+                                audioPath = `audio/liaison/${prefix}_pass1.mp3`; 
                             }
                         }
                     }
                 }
             }
 
+            // ★追加: Coach画面の単語やWord Practiceのテキストだった場合、単語名ベースのファイル名を生成する
+            if (!audioPath && isWordList && currentCourseType === 'liaison') {
+                const safeName = text.toLowerCase().replace(/['?.,!]/g, '').replace(/\s+/g, '_');
+                audioPath = `audio/liaison/${safeName}.mp3`;
+            }
+
             if (audioPath) {
                 const audio = new Audio(audioPath);
-                audio.onerror = () => { console.warn("⚠️ MP3 file not found:", audioPath); playTTS(text); };
-                audio.play().catch(e => { console.warn("⚠️ Autoplay blocked:", e); playTTS(text); });
+                audio.onerror = () => { console.warn("⚠️ MP3 file not found, falling back to AI Voice (TTS):", audioPath); playTTS(text); };
+                audio.play().catch(e => { console.warn("⚠️ Autoplay blocked or error:", e); playTTS(text); });
             } else {
                 playTTS(text);
             }
@@ -321,7 +331,6 @@
             currentState = SoundQuestState.SENTENCE_MISSION; renderScreen(); 
         }
         
-        // ★追加: Passage Missionの開始
         function startPassageMission() {
             const c = getCurrentCourse();
             const dummyPassage = { text: "No passage data found. Please add it to sq-liaison-data.js.", translation: "データ未登録", displayHtml: "" };
@@ -415,16 +424,13 @@
                     if (phraseSession.resultStatus === 'clear') { playGentleSound('correct'); fireSmallConfetti(); } else playGentleSound('incorrect');
                 }
             }
-            // ★追加: Passage MissionのAccuracy判定ロジック
             else if (currentState === SoundQuestState.PASSAGE_MISSION) {
                 passageSession.isRecording = false;
                 passageSession.alternativesData = alternatives;
                 if (!topTranscript) { 
-                    // 音が取れなかった場合はやり直し
                     renderScreen();
                     return;
                 }
-                // Copeak本体と同じように、認識テキストと元テキストを比較してAccuracyを計算
                 let targetWords = passageSession.data.text.toLowerCase().replace(/[.,!?;:"“”‘’()[\]{}]/g, "").split(/\s+/);
                 let recogWords = topTranscript.split(/\s+/);
                 let matchCount = 0;
@@ -439,7 +445,6 @@
                 if (accuracy >= 80) { playGentleSound('correct'); fireSmallConfetti(); } 
                 else { playGentleSound('incorrect'); }
                 
-                // 判定後、自動的に結果画面(RESULT)へ移動
                 currentState = SoundQuestState.PASSAGE_RESULT;
             }
             renderScreen();
@@ -483,7 +488,6 @@
                     if (currentState === SoundQuestState.PHRASE_BRIDGE) currentStepNum = 3;
                     if (currentState === SoundQuestState.SENTENCE_MISSION) currentStepNum = 4;
                 } else {
-                    // ★修正: リエゾンは4ステップ構成に変更（Coach -> Phrase -> Sentence -> Passage）
                     steps = [{n: 1, l: "Coach"}, {n: 2, l: "Phrase"}, {n: 3, l: "Sentence"}, {n: 4, l: "Passage"}];
                     if ([SoundQuestState.COACHING, SoundQuestState.WORD_PRACTICE].includes(currentState)) currentStepNum = 1;
                     if (currentState === SoundQuestState.PHRASE_BRIDGE) currentStepNum = 2;
@@ -529,8 +533,8 @@
                         <button onclick="selectCourse('minimal', '${c.id}')" class="text-left p-4 md:p-5 rounded-2xl border-2 border-stone-200 bg-white hover:${c.bgTheme} hover:border-${c.theme.split('-')[1]}-400 transition-all transform hover:-translate-y-1 group shadow-sm hover:shadow-md flex flex-col justify-between relative overflow-hidden min-h-[130px]">
                             <div>
                                 <h3 class="text-2xl md:text-3xl font-black ${c.theme} mb-1 serif-font tracking-tighter drop-shadow-sm whitespace-nowrap">${c.title}</h3>
-                                <p class="font-bold text-stone-600 text-[11px] md:text-xs mb-1 truncate">${c.subtitle}</p>
-                                <p class="text-stone-400 text-[9px] md:text-[10px] font-bold tracking-wider truncate">${c.labelJa}</p>
+                                <p class="font-bold text-stone-600 text-[11px] md:text-xs mb-1 leading-snug break-words">${c.subtitle}</p>
+                                <p class="text-stone-400 text-[9px] md:text-[10px] font-bold tracking-wider leading-snug break-words">${c.labelJa}</p>
                             </div>
                             <span class="${c.theme} opacity-70 group-hover:opacity-100 font-black text-[10px] tracking-widest block mt-3 flex items-center gap-1">START <span class="group-hover:translate-x-1 transition-transform">➔</span></span>
                         </button>`;
@@ -554,8 +558,8 @@
                             <button onclick="selectCourse('liaison', '${c.id}')" class="text-left p-4 md:p-5 rounded-2xl border-2 border-stone-200 bg-white hover:${c.bgTheme} hover:border-${c.theme.split('-')[1]}-400 transition-all transform hover:-translate-y-1 group shadow-sm hover:shadow-md flex flex-col justify-between relative overflow-hidden min-h-[130px]">
                                 <div>
                                     <h3 class="text-xl md:text-2xl font-black ${c.theme} mb-1 serif-font tracking-tighter drop-shadow-sm whitespace-nowrap">${c.title}</h3>
-                                    <p class="font-bold text-stone-600 text-[11px] md:text-xs mb-1 truncate">${c.subtitle}</p>
-                                    <p class="text-stone-400 text-[9px] md:text-[10px] font-bold tracking-wider truncate">${c.labelJa || ""}</p>
+                                    <p class="font-bold text-stone-600 text-[11px] md:text-xs mb-1 leading-snug break-words">${c.subtitle}</p>
+                                    <p class="text-stone-400 text-[9px] md:text-[10px] font-bold tracking-wider leading-snug break-words">${c.labelJa || ""}</p>
                                 </div>
                                 <span class="${c.theme} opacity-70 group-hover:opacity-100 font-black text-[10px] tracking-widest block mt-3 flex items-center gap-1">START <span class="group-hover:translate-x-1 transition-transform">➔</span></span>
                             </button>`;
@@ -675,13 +679,13 @@
                                     <div class="bg-stone-50 p-4 md:p-5 rounded-2xl border-2 border-stone-100">
                                         <div class="inline-block px-3 py-1 bg-stone-700 text-white font-bold text-[10px] md:text-xs rounded-full mb-2 shadow-sm tracking-wider">${list.title}</div>
                                         <p class="text-stone-500 text-[10px] md:text-xs font-bold mb-3">${list.desc}</p>
-                                        <div class="grid grid-cols-2 gap-2.5">
+                                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 md:gap-3">
                                             ${list.words.map((w, wIdx) => `
-                                                <div class="flex items-center justify-between bg-white border-2 border-stone-200 rounded-xl shadow-sm p-1.5 hover:border-${themeColor}-400 transition group">
-                                                    <span class="font-bold text-stone-700 text-xs md:text-sm ml-2 tracking-wide truncate pr-1">${w}</span>
+                                                <div class="flex items-center justify-between bg-white border-2 border-stone-200 rounded-xl shadow-sm p-2 hover:border-${themeColor}-400 transition group">
+                                                    <span class="font-bold text-stone-700 text-xs md:text-sm ml-2 tracking-wide leading-snug pr-2 break-words flex-1 text-left py-1">${w}</span>
                                                     <div class="flex gap-1 shrink-0">
-                                                        <button onclick="playTextAudio('${w}')" class="w-7 h-7 md:w-8 md:h-8 flex items-center justify-center rounded-lg text-stone-400 hover:text-stone-600 hover:bg-stone-100 transition active:scale-95 text-sm md:text-base">🔊</button>
-                                                        <button onclick="openWordPractice(${lIdx}, ${wIdx})" class="w-7 h-7 md:w-8 md:h-8 flex items-center justify-center rounded-lg bg-white border-2 border-stone-200 text-stone-400 hover:text-${themeColor}-500 hover:border-${themeColor}-400 hover:bg-${themeColor}-50 transition active:scale-95 shadow-sm text-sm md:text-base">🎤</button>
+                                                        <button onclick="playTextAudio('${w.replace(/'/g, "\\'")}')" class="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-lg text-stone-400 hover:text-stone-600 hover:bg-stone-100 transition active:scale-95 text-sm md:text-base">🔊</button>
+                                                        <button onclick="openWordPractice(${lIdx}, ${wIdx})" class="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-lg bg-white border-2 border-stone-200 text-stone-400 hover:text-${themeColor}-500 hover:border-${themeColor}-400 hover:bg-${themeColor}-50 transition active:scale-95 shadow-sm text-sm md:text-base">🎤</button>
                                                     </div>
                                                 </div>
                                             `).join('')}
@@ -878,7 +882,6 @@
                     </div>
                 `;
             }
-            // ★追加: Passage Mission (長文音読)
             else if (currentState === SoundQuestState.PASSAGE_MISSION) {
                 const c = getCurrentCourse();
                 const themeColor = c.theme.split('-')[1];
@@ -915,7 +918,6 @@
                     </div>
                 `;
             }
-            // ★追加: Passage Result (リザルト画面)
             else if (currentState === SoundQuestState.PASSAGE_RESULT) {
                 const acc = passageSession.accuracy;
                 const c = getCurrentCourse();
