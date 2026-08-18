@@ -130,20 +130,29 @@
         
         let currentCourseType = 'minimal'; 
         let currentCourseId = "l-r";
+        
+        // ★追加: 解説（図鑑）へ直行したかどうかのフラグ
+        let isDirectCoaching = false;
+        let directCoachingTargetIsA = true;
 
         let earCheckSession = { questions: [], currentIndex: 0, score: 0, combo: 0, isAnswering: false };
         let voiceCheckSession = { currentPairIndex: 0, currentTargetIsA: true, isRecording: false, resultStatus: null, alternativesData: [], isRetry: false, previousStatus: null, previousTranscript: "" };
         let phraseSession = { data: null, isRecording: false, resultStatus: null, matchedWords: 0, alternativesData: [] };
         let wordPracticeSession = { listWords: [], currentIndex: 0, isRecording: false, resultStatus: null, alternativesData: [] };
         let passageSession = { data: null, isRecording: false, accuracy: 0, alternativesData: [] };
+        
+        let passageTranscript = "";
 
         function getCurrentCourse() {
             return currentCourseType === 'minimal' ? courses[currentCourseId] : liaisonCourses[currentCourseId];
         }
+        
+        // ★修正: 直行モード時は直行用のタブ（TargetIsA）を優先して読み込む
         function getCurrentCoaching() {
             if (currentCourseType === 'minimal') {
                 const c = courses[currentCourseId];
-                const coachSymbolKey = voiceCheckSession.currentTargetIsA ? c.coachA : c.coachB;
+                const targetIsA = isDirectCoaching ? directCoachingTargetIsA : voiceCheckSession.currentTargetIsA;
+                const coachSymbolKey = targetIsA ? c.coachA : c.coachB;
                 return coachingData[coachSymbolKey] || coachingData["l"];
             } else {
                 return liaisonCoachingData[currentCourseId] || { title: "準備中", theme: "slate", howTo: "", tips: "", wordLists: [] };
@@ -153,8 +162,26 @@
         window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         let sqRecognition = null;
         if (window.SpeechRecognition) {
-            sqRecognition = new SpeechRecognition(); sqRecognition.lang = 'en-US'; sqRecognition.continuous = false; sqRecognition.interimResults = false; sqRecognition.maxAlternatives = 5;
-            sqRecognition.onresult = (e) => { const results = e.results[0]; let alts = []; for (let i = 0; i < results.length; i++) alts.push({ transcript: results[i].transcript, confidence: results[i].confidence }); handleVoiceRecognitionResult(alts); };
+            sqRecognition = new SpeechRecognition(); 
+            sqRecognition.lang = 'en-US'; 
+            sqRecognition.continuous = false; 
+            sqRecognition.interimResults = false; 
+            sqRecognition.maxAlternatives = 10;
+
+            sqRecognition.onresult = (e) => { 
+                if (currentState === SoundQuestState.PASSAGE_MISSION) {
+                    let fullText = "";
+                    for(let i=0; i<e.results.length; i++) {
+                        fullText += e.results[i][0].transcript + " ";
+                    }
+                    passageTranscript = fullText;
+                } else {
+                    const results = e.results[0]; 
+                    let alts = []; 
+                    for (let i = 0; i < results.length; i++) alts.push({ transcript: results[i].transcript, confidence: results[i].confidence }); 
+                    handleVoiceRecognitionResult(alts); 
+                }
+            };
             sqRecognition.onerror = (e) => { 
                 if (currentState === SoundQuestState.VOICE_CHECK) voiceCheckSession.isRecording = false; 
                 else if (currentState === SoundQuestState.WORD_PRACTICE) wordPracticeSession.isRecording = false;
@@ -163,18 +190,27 @@
                 renderScreen(); 
             };
             sqRecognition.onend = () => { 
-                if (voiceCheckSession.isRecording) voiceCheckSession.isRecording = false; 
-                if (wordPracticeSession.isRecording) wordPracticeSession.isRecording = false; 
-                if (phraseSession.isRecording) phraseSession.isRecording = false; 
-                if (passageSession.isRecording) passageSession.isRecording = false; 
-                renderScreen(); 
+                if (currentState === SoundQuestState.PASSAGE_MISSION && passageSession.isRecording) {
+                    handlePassageResult(passageTranscript);
+                } else {
+                    if (voiceCheckSession.isRecording) voiceCheckSession.isRecording = false; 
+                    if (wordPracticeSession.isRecording) wordPracticeSession.isRecording = false; 
+                    if (phraseSession.isRecording) phraseSession.isRecording = false; 
+                    renderScreen(); 
+                }
             };
         }
 
-        function normalizeSpeechText(text = "") { return text.toLowerCase().replace(/_/g, " ").replace(/‿/g, "").replace(/[.,!?;:"“”‘’()[\]{}]/g, "").replace(/\s+/g, " ").trim(); }
+        function normalizeSpeechText(text = "") { 
+            return text.toLowerCase()
+                       .replace(/[_‿/]/g, " ") 
+                       .replace(/[.,!?;:"“”‘’()[\]{}-]/g, "") 
+                       .replace(/\s+/g, " ")
+                       .trim(); 
+        }
 
         function skipPhase() {
-            if (currentState === SoundQuestState.HOME) { return; }
+            if (currentState === SoundQuestState.HOME || isDirectCoaching) { returnToSoundQuestHome(); return; } // 直行モードのスキップはホームへ
             else if (currentState === SoundQuestState.INTRO) { 
                 if (currentCourseType === 'minimal') startEarCheck(); 
                 else { openCoaching(); }
@@ -191,13 +227,29 @@
             renderScreen();
         }
 
-        function returnToSoundQuestHome() { document.getElementById('transferModal').classList.add('hidden'); currentState = SoundQuestState.HOME; renderScreen(); }
+        function returnToSoundQuestHome() { 
+            document.getElementById('transferModal').classList.add('hidden'); 
+            isDirectCoaching = false; // ★ホームに戻る時はリセット
+            currentState = SoundQuestState.HOME; 
+            renderScreen(); 
+        }
         
         function selectCourse(type, courseId) { 
+            isDirectCoaching = false;
             currentCourseType = type; 
             currentCourseId = courseId; 
             currentState = SoundQuestState.INTRO; 
             renderScreen(); 
+        }
+        
+        // ★追加: ホームから直接解説へ飛ぶ関数
+        function openDirectCoaching(type, courseId) {
+            currentCourseType = type;
+            currentCourseId = courseId;
+            isDirectCoaching = true;
+            directCoachingTargetIsA = true; // デフォルトはAを表示
+            currentState = SoundQuestState.COACHING;
+            renderScreen();
         }
 
         function startEarCheck() {
@@ -215,9 +267,6 @@
             currentState = SoundQuestState.EAR_CHECK; renderScreen(); setTimeout(playTextAudio, 500);
         }
         
-        // ==========================================
-        // ★修正: WordPractice等で指定単語が渡されたときのパス生成を追加
-        // ==========================================
         function playTextAudio(textOverride = null) {
             let text = textOverride;
             let audioPath = null;
@@ -271,9 +320,8 @@
                 }
             }
 
-            // ★追加: Coach画面の単語やWord Practiceのテキストだった場合、単語名ベースのファイル名を生成する
             if (!audioPath && isWordList && currentCourseType === 'liaison') {
-                const safeName = text.toLowerCase().replace(/['?.,!]/g, '').replace(/\s+/g, '_');
+                const safeName = text.toLowerCase().replace(/['?.,!]/g, '').replace(/\s*\/\s*/g, '_').replace(/\s+/g, '_');
                 audioPath = `audio/liaison/${safeName}.mp3`;
             }
 
@@ -317,7 +365,13 @@
             voiceCheckSession = { currentPairIndex: Math.floor(Math.random() * c.pairs.length), currentTargetIsA: Math.random() < 0.5, isRecording: false, resultStatus: null, alternativesData: [], isRetry: false, previousStatus: null, previousTranscript: "" }; 
             currentState = SoundQuestState.VOICE_CHECK; renderScreen(); 
         }
-        function openCoaching(forceStatus = null, forceTranscript = null) { voiceCheckSession.previousStatus = forceStatus || voiceCheckSession.resultStatus; voiceCheckSession.previousTranscript = forceTranscript || (voiceCheckSession.alternativesData[0] ? voiceCheckSession.alternativesData[0].transcript : '...'); currentState = SoundQuestState.COACHING; renderScreen(); }
+        function openCoaching(forceStatus = null, forceTranscript = null) { 
+            if(!isDirectCoaching) {
+                voiceCheckSession.previousStatus = forceStatus || voiceCheckSession.resultStatus; 
+                voiceCheckSession.previousTranscript = forceTranscript || (voiceCheckSession.alternativesData[0] ? voiceCheckSession.alternativesData[0].transcript : '...'); 
+            }
+            currentState = SoundQuestState.COACHING; renderScreen(); 
+        }
         function startVoiceRetry() { voiceCheckSession.isRetry = true; voiceCheckSession.resultStatus = null; voiceCheckSession.isRecording = false; voiceCheckSession.alternativesData = []; currentState = SoundQuestState.VOICE_CHECK; renderScreen(); }
         
         function startPhraseBridge() { 
@@ -359,12 +413,22 @@
             else if (currentState === SoundQuestState.PASSAGE_MISSION) isRec = passageSession.isRecording;
             else isRec = phraseSession.isRecording;
 
-            if (isRec) { sqRecognition.stop(); } 
+            if (isRec) { 
+                sqRecognition.stop(); 
+            } 
             else {
-                if (currentState === SoundQuestState.VOICE_CHECK) { voiceCheckSession.resultStatus = null; voiceCheckSession.isRecording = true; }
-                else if (currentState === SoundQuestState.WORD_PRACTICE) { wordPracticeSession.resultStatus = null; wordPracticeSession.isRecording = true; }
-                else if (currentState === SoundQuestState.PASSAGE_MISSION) { passageSession.isRecording = true; }
-                else { phraseSession.resultStatus = null; phraseSession.isRecording = true; }
+                if (currentState === SoundQuestState.PASSAGE_MISSION) {
+                    sqRecognition.continuous = true;
+                    sqRecognition.interimResults = true;
+                    passageSession.isRecording = true;
+                    passageTranscript = "";
+                } else {
+                    sqRecognition.continuous = false;
+                    sqRecognition.interimResults = false;
+                    if (currentState === SoundQuestState.VOICE_CHECK) voiceCheckSession.isRecording = true;
+                    else if (currentState === SoundQuestState.WORD_PRACTICE) wordPracticeSession.isRecording = true;
+                    else phraseSession.isRecording = true;
+                }
                 renderScreen(); 
                 try { sqRecognition.start(); } catch(e) { 
                     if(currentState===SoundQuestState.VOICE_CHECK) voiceCheckSession.isRecording=false; 
@@ -402,7 +466,10 @@
                 }
             } 
             else if (currentState === SoundQuestState.WORD_PRACTICE) {
-                wordPracticeSession.isRecording = false; const targetWord = normalizeSpeechText(wordPracticeSession.listWords[wordPracticeSession.currentIndex]);
+                wordPracticeSession.isRecording = false; 
+                let rawWord = wordPracticeSession.listWords[wordPracticeSession.currentIndex];
+                let targetWord = normalizeSpeechText(rawWord.split('/')[0]); 
+                
                 wordPracticeSession.alternativesData = alternatives;
                 if (!alternatives || alternatives.length === 0) { wordPracticeSession.resultStatus = 'retry'; }
                 else if (topTranscript.includes(targetWord) || topTranscript === targetWord) { 
@@ -424,29 +491,41 @@
                     if (phraseSession.resultStatus === 'clear') { playGentleSound('correct'); fireSmallConfetti(); } else playGentleSound('incorrect');
                 }
             }
-            else if (currentState === SoundQuestState.PASSAGE_MISSION) {
-                passageSession.isRecording = false;
-                passageSession.alternativesData = alternatives;
-                if (!topTranscript) { 
-                    renderScreen();
-                    return;
-                }
-                let targetWords = passageSession.data.text.toLowerCase().replace(/[.,!?;:"“”‘’()[\]{}]/g, "").split(/\s+/);
-                let recogWords = topTranscript.split(/\s+/);
-                let matchCount = 0;
-                targetWords.forEach(tw => {
-                    if(recogWords.includes(tw)) matchCount++;
-                });
-                
-                let accuracy = Math.round((matchCount / targetWords.length) * 100);
-                if (accuracy > 100) accuracy = 100;
-                passageSession.accuracy = accuracy;
-                
-                if (accuracy >= 80) { playGentleSound('correct'); fireSmallConfetti(); } 
-                else { playGentleSound('incorrect'); }
-                
-                currentState = SoundQuestState.PASSAGE_RESULT;
+            renderScreen();
+        }
+
+        function handlePassageResult(transcript) {
+            passageSession.isRecording = false;
+            passageSession.alternativesData = [{transcript: transcript.trim() || '???'}];
+            
+            if (!transcript.trim()) { 
+                passageSession.resultStatus = 'retry';
+                currentState = SoundQuestState.PASSAGE_MISSION;
+                renderScreen();
+                return;
             }
+
+            let targetWords = normalizeSpeechText(passageSession.data.text).split(/\s+/);
+            let recogWords = normalizeSpeechText(transcript).split(/\s+/);
+            
+            let matchCount = 0;
+            let recogWordsCopy = [...recogWords];
+            targetWords.forEach(tw => {
+                const idx = recogWordsCopy.indexOf(tw);
+                if (idx !== -1) {
+                    matchCount++;
+                    recogWordsCopy.splice(idx, 1);
+                }
+            });
+            
+            let accuracy = Math.round((matchCount / targetWords.length) * 100);
+            if (accuracy > 100) accuracy = 100;
+            passageSession.accuracy = accuracy;
+            
+            if (accuracy >= 80) { playGentleSound('correct'); fireSmallConfetti(); } 
+            else { playGentleSound('incorrect'); }
+            
+            currentState = SoundQuestState.PASSAGE_RESULT;
             renderScreen();
         }
 
@@ -465,11 +544,14 @@
             const btnDivider = document.getElementById('btnDivider');
             const progContainer = document.getElementById('progressContainer');
 
-            if (currentState === SoundQuestState.HOME) {
+            // ★修正: 直行モード(isDirectCoaching)の場合もホーム画面と同じようにヘッダーをシンプルにする
+            if (currentState === SoundQuestState.HOME || isDirectCoaching) {
                 if (btnSkip) btnSkip.classList.add('hidden');
-                if (btnHome) btnHome.classList.add('hidden');
+                if (btnHome) btnHome.classList.remove('hidden'); // コース選択へ戻るボタンだけは常に表示
                 if (btnDivider) btnDivider.classList.replace('sm:block', 'hidden');
                 if (progContainer) progContainer.classList.add('hidden');
+                
+                if (currentState === SoundQuestState.HOME && btnHome) btnHome.classList.add('hidden');
             } else {
                 if (btnSkip) btnSkip.classList.remove('hidden');
                 if (btnHome) btnHome.classList.remove('hidden');
@@ -530,14 +612,20 @@
                 `;
                 Object.values(courses).forEach(c => {
                     html += `
-                        <button onclick="selectCourse('minimal', '${c.id}')" class="text-left p-4 md:p-5 rounded-2xl border-2 border-stone-200 bg-white hover:${c.bgTheme} hover:border-${c.theme.split('-')[1]}-400 transition-all transform hover:-translate-y-1 group shadow-sm hover:shadow-md flex flex-col justify-between relative overflow-hidden min-h-[130px]">
+                        <!-- ★修正: カード全体をdivに変更し、右下に直行ボタンを配置 -->
+                        <div onclick="selectCourse('minimal', '${c.id}')" class="p-4 md:p-5 rounded-2xl border-2 border-stone-200 bg-white hover:${c.bgTheme} hover:border-${c.theme.split('-')[1]}-400 transition-all transform hover:-translate-y-1 group shadow-sm hover:shadow-md flex flex-col justify-between relative overflow-hidden min-h-[130px] cursor-pointer">
                             <div>
                                 <h3 class="text-2xl md:text-3xl font-black ${c.theme} mb-1 serif-font tracking-tighter drop-shadow-sm whitespace-nowrap">${c.title}</h3>
                                 <p class="font-bold text-stone-600 text-[11px] md:text-xs mb-1 leading-snug break-words">${c.subtitle}</p>
                                 <p class="text-stone-400 text-[9px] md:text-[10px] font-bold tracking-wider leading-snug break-words">${c.labelJa}</p>
                             </div>
-                            <span class="${c.theme} opacity-70 group-hover:opacity-100 font-black text-[10px] tracking-widest block mt-3 flex items-center gap-1">START <span class="group-hover:translate-x-1 transition-transform">➔</span></span>
-                        </button>`;
+                            <div class="mt-4 flex justify-between items-center w-full">
+                                <span class="${c.theme} opacity-70 group-hover:opacity-100 font-black text-[10px] tracking-widest flex items-center gap-1">START <span class="group-hover:translate-x-1 transition-transform">➔</span></span>
+                                <button onclick="event.stopPropagation(); openDirectCoaching('minimal', '${c.id}')" class="px-2.5 py-1.5 bg-stone-50 hover:bg-white border border-stone-200 text-stone-400 hover:text-amber-500 rounded-md text-[10px] font-bold transition flex items-center gap-1 shadow-sm">
+                                    💡 解説
+                                </button>
+                            </div>
+                        </div>`;
                 });
                 html += `</div></div>`;
                 
@@ -555,14 +643,20 @@
                 if (typeof liaisonCourses !== 'undefined') {
                     Object.values(liaisonCourses).forEach(c => {
                         html += `
-                            <button onclick="selectCourse('liaison', '${c.id}')" class="text-left p-4 md:p-5 rounded-2xl border-2 border-stone-200 bg-white hover:${c.bgTheme} hover:border-${c.theme.split('-')[1]}-400 transition-all transform hover:-translate-y-1 group shadow-sm hover:shadow-md flex flex-col justify-between relative overflow-hidden min-h-[130px]">
+                            <!-- ★修正: リエゾン側も同様に直行ボタンを配置 -->
+                            <div onclick="selectCourse('liaison', '${c.id}')" class="p-4 md:p-5 rounded-2xl border-2 border-stone-200 bg-white hover:${c.bgTheme} hover:border-${c.theme.split('-')[1]}-400 transition-all transform hover:-translate-y-1 group shadow-sm hover:shadow-md flex flex-col justify-between relative overflow-hidden min-h-[130px] cursor-pointer">
                                 <div>
                                     <h3 class="text-xl md:text-2xl font-black ${c.theme} mb-1 serif-font tracking-tighter drop-shadow-sm whitespace-nowrap">${c.title}</h3>
                                     <p class="font-bold text-stone-600 text-[11px] md:text-xs mb-1 leading-snug break-words">${c.subtitle}</p>
                                     <p class="text-stone-400 text-[9px] md:text-[10px] font-bold tracking-wider leading-snug break-words">${c.labelJa || ""}</p>
                                 </div>
-                                <span class="${c.theme} opacity-70 group-hover:opacity-100 font-black text-[10px] tracking-widest block mt-3 flex items-center gap-1">START <span class="group-hover:translate-x-1 transition-transform">➔</span></span>
-                            </button>`;
+                                <div class="mt-4 flex justify-between items-center w-full">
+                                    <span class="${c.theme} opacity-70 group-hover:opacity-100 font-black text-[10px] tracking-widest flex items-center gap-1">START <span class="group-hover:translate-x-1 transition-transform">➔</span></span>
+                                    <button onclick="event.stopPropagation(); openDirectCoaching('liaison', '${c.id}')" class="px-2.5 py-1.5 bg-stone-50 hover:bg-white border border-stone-200 text-stone-400 hover:text-amber-500 rounded-md text-[10px] font-bold transition flex items-center gap-1 shadow-sm">
+                                        💡 解説
+                                    </button>
+                                </div>
+                            </div>`;
                     });
                 } else {
                     html += `<p class="text-stone-400 text-xs font-bold col-span-full">リエゾンのデータがまだありません。</p>`;
@@ -637,9 +731,11 @@
                 const coach = getCurrentCoaching(); 
                 const themeColor = coach.theme;
                 
+                // ★修正: isDirectCoaching に対応した画像切り替え
                 let imgHtml = "";
                 if (currentCourseType === 'minimal') {
-                    const coachSymbolKey = voiceCheckSession.currentTargetIsA ? c.coachA : c.coachB;
+                    const targetIsA = isDirectCoaching ? directCoachingTargetIsA : voiceCheckSession.currentTargetIsA;
+                    const coachSymbolKey = targetIsA ? c.coachA : c.coachB;
                     imgHtml = `<img src="coach_images/coach_${coachSymbolKey}.webp" alt="口の形" class="w-full h-full object-contain" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\\'text-stone-400 text-xs font-bold\\'>画像準備中...</span>';">`;
                 } else {
                     imgHtml = `<span class="text-6xl md:text-8xl">${coach.symbol}</span>`;
@@ -647,9 +743,25 @@
 
                 let coachingHtml = `
                     <div class="bg-white rounded-3xl iron-border p-6 md:p-10 shadow-lg mx-auto w-full max-w-5xl flex flex-col animate-[fade-in_0.4s_ease-out] mb-6">
-                        <div class="flex justify-between items-center mb-6 border-b-2 border-stone-100 pb-3">
-                            <h2 class="text-xs md:text-sm font-black tracking-widest text-${themeColor}-600 uppercase flex items-center gap-2">💡 Sound Coach</h2>
-                            ${currentCourseType === 'minimal' && coach.symbol ? `<span class="text-2xl md:text-3xl font-black text-stone-800 serif-font bg-stone-50 px-3 py-1.5 rounded-xl border-2 border-stone-200 shadow-sm">${coach.symbol}</span>` : ''}
+                        <div class="flex flex-col gap-4 mb-6 border-b-2 border-stone-100 pb-4">
+                            <div class="flex justify-between items-center">
+                                <h2 class="text-xs md:text-sm font-black tracking-widest text-${themeColor}-600 uppercase flex items-center gap-2">💡 Sound Coach</h2>
+                                ${currentCourseType === 'minimal' && coach.symbol ? `<span class="text-2xl md:text-3xl font-black text-stone-800 serif-font bg-stone-50 px-3 py-1.5 rounded-xl border-2 border-stone-200 shadow-sm">${coach.symbol}</span>` : ''}
+                            </div>
+                            
+                            <!-- ★追加: 直行モード時のA/Bタブ切り替え -->
+                            ${isDirectCoaching && currentCourseType === 'minimal' ? `
+                                <div class="flex justify-center">
+                                    <div class="flex gap-1 bg-stone-100 p-1 rounded-full shadow-inner border border-stone-200">
+                                        <button onclick="directCoachingTargetIsA = true; renderScreen();" class="w-24 md:w-32 py-1.5 rounded-full text-xs md:text-sm font-black transition-colors ${directCoachingTargetIsA ? 'bg-white shadow text-stone-800' : 'text-stone-400 hover:text-stone-600'}">
+                                            ${c.title.split('/')[0].trim()}
+                                        </button>
+                                        <button onclick="directCoachingTargetIsA = false; renderScreen();" class="w-24 md:w-32 py-1.5 rounded-full text-xs md:text-sm font-black transition-colors ${!directCoachingTargetIsA ? 'bg-white shadow text-stone-800' : 'text-stone-400 hover:text-stone-600'}">
+                                            ${c.title.split('/')[1] ? c.title.split('/')[1].trim() : ''}
+                                        </button>
+                                    </div>
+                                </div>
+                            ` : ''}
                         </div>
                         
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
@@ -695,10 +807,20 @@
                             </div>
                         </div>
 
-                        <div class="mt-6 pt-4 border-t-2 border-stone-100">
-                            <button onclick="${currentCourseType === 'minimal' ? 'startVoiceRetry()' : 'startPhraseBridge()'}" class="w-full md:w-auto md:px-16 py-3 md:py-4 bg-stone-800 hover:bg-stone-700 text-white font-black text-sm md:text-base rounded-full shadow-lg transition transform hover:scale-105 active:scale-95 mx-auto block tracking-widest">
-                                ${currentCourseType === 'minimal' ? 'もう一度 Voice Check へ戻る (Retry)' : '🎤 フレーズ特訓へ進む ➔'}
-                            </button>
+                        <!-- ★追加: 直行モード時の戻るボタンの分岐 -->
+                        <div class="mt-8 pt-6 border-t-2 border-stone-100 flex flex-col sm:flex-row gap-4 justify-center w-full max-w-2xl mx-auto">
+                            ${isDirectCoaching ? `
+                                <button onclick="returnToSoundQuestHome();" class="flex-1 py-3 md:py-4 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold text-sm md:text-base rounded-full shadow-sm transition tracking-widest border border-stone-300">
+                                    🏠 選択へ戻る
+                                </button>
+                                <button onclick="isDirectCoaching = false; currentCourseType === 'minimal' ? startEarCheck() : startPhraseBridge();" class="flex-1 py-3 md:py-4 bg-${themeColor}-600 hover:bg-${themeColor}-500 text-white font-black text-sm md:text-base rounded-full shadow-lg transition transform hover:scale-105 active:scale-95 tracking-widest">
+                                    ▶️ この特訓を始める
+                                </button>
+                            ` : `
+                                <button onclick="${currentCourseType === 'minimal' ? 'startVoiceRetry()' : 'startPhraseBridge()'}" class="w-full md:px-16 py-3 md:py-4 bg-stone-800 hover:bg-stone-700 text-white font-black text-sm md:text-base rounded-full shadow-lg transition transform hover:scale-105 active:scale-95 mx-auto block tracking-widest">
+                                    ${currentCourseType === 'minimal' ? 'もう一度 Voice Check へ戻る (Retry)' : '🎤 フレーズ特訓へ進む ➔'}
+                                </button>
+                            `}
                         </div>
                     </div>
                 `;
@@ -719,7 +841,12 @@
                 } else if (wordPracticeSession.resultStatus === 'close') {
                     feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><span class="text-amber-500 font-black text-xl tracking-widest uppercase">CLOSE!</span><span class="text-stone-500 text-sm md:text-base font-bold mt-1">Recognized as: <span class="text-amber-700 bg-amber-50 border border-amber-200 px-3 py-1 rounded shadow-sm">${recognizedText}</span></span></div>`;
                 } else if (wordPracticeSession.resultStatus === 'retry') {
-                    feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><span class="text-orange-500 text-sm md:text-base font-bold tracking-widest">Not clear yet. Listen and try again.</span><span class="text-stone-500 text-sm md:text-base font-bold mt-1">Recognized as: <span class="text-orange-700 bg-orange-50 border border-orange-200 px-3 py-1 rounded shadow-sm">${recognizedText}</span></span></div>`;
+                    feedbackHtml = `
+                        <div class="min-h-[4rem] flex flex-col items-center justify-center">
+                            <span class="text-orange-500 text-sm md:text-base font-bold tracking-widest">Not clear yet. Listen and try again.</span>
+                            <span class="text-stone-500 text-sm md:text-base font-bold mt-1">Recognized as: <span class="text-orange-700 bg-orange-50 border border-orange-200 px-3 py-1 rounded shadow-sm">${recognizedText}</span></span>
+                            <span class="text-stone-400 text-[10px] md:text-xs mt-2 font-medium bg-stone-50 px-2 py-1 rounded shadow-sm">※短い単語はAIが誤認識しやすいため、最初の子音を少し大げさに発音してみてください</span>
+                        </div>`;
                 }
 
                 const isFirst = wordPracticeSession.currentIndex === 0;
@@ -746,7 +873,7 @@
                             </button>
                         </div>
                         
-                        <button onclick="playTextAudio()" class="px-5 py-2 md:py-2.5 bg-stone-50 hover:bg-stone-100 text-stone-600 font-bold rounded-full transition text-xs md:text-sm mb-8 border-2 border-stone-200 flex items-center gap-1.5 mx-auto shadow-sm hover:shadow-md tracking-widest">🔊 お手本を聞く</button>
+                        <button onclick="playTextAudio('${targetWord.replace(/'/g, "\\'")}')" class="px-5 py-2 md:py-2.5 bg-stone-50 hover:bg-stone-100 text-stone-600 font-bold rounded-full transition text-xs md:text-sm mb-8 border-2 border-stone-200 flex items-center gap-1.5 mx-auto shadow-sm hover:shadow-md tracking-widest">🔊 お手本を聞く</button>
                         
                         <div class="relative w-24 h-24 md:w-28 md:h-28 mx-auto mb-4">
                             <button onclick="toggleMic()" class="absolute inset-0 w-full h-full rounded-full flex flex-col items-center justify-center text-white transition-all shadow-xl z-10 ${wordPracticeSession.isRecording ? `bg-${themeColor}-500 recording-ripple` : `bg-stone-800 border-4 border-stone-200 hover:bg-stone-700 hover:border-stone-300`}"><span class="text-4xl md:text-5xl mb-1">${wordPracticeSession.isRecording ? '⏹' : '🎤'}</span></button>
@@ -775,7 +902,12 @@
                 } else if (voiceCheckSession.resultStatus === 'contrast_error') {
                     feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><span class="text-orange-600 font-black text-sm md:text-base tracking-widest uppercase">Let's adjust the sound.</span><span class="text-stone-500 text-sm md:text-base font-bold mt-1">Recognized as: <span class="text-orange-700 bg-orange-50 border border-orange-200 px-3 py-1 rounded shadow-sm">${recognizedText}</span></span></div>`;
                 } else if (voiceCheckSession.resultStatus === 'retry' || voiceCheckSession.resultStatus === 'error') {
-                    feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><span class="text-orange-500 text-sm md:text-base font-bold tracking-widest">Not clear yet. Listen and try again.</span><span class="text-stone-500 text-sm md:text-base font-bold mt-1">Recognized as: <span class="text-orange-700 bg-orange-50 border border-orange-200 px-3 py-1 rounded shadow-sm">${recognizedText}</span></span></div>`;
+                    feedbackHtml = `
+                        <div class="min-h-[4rem] flex flex-col items-center justify-center">
+                            <span class="text-orange-500 text-sm md:text-base font-bold tracking-widest">Not clear yet. Listen and try again.</span>
+                            <span class="text-stone-500 text-sm md:text-base font-bold mt-1">Recognized as: <span class="text-orange-700 bg-orange-50 border border-orange-200 px-3 py-1 rounded shadow-sm">${recognizedText}</span></span>
+                            <span class="text-stone-400 text-[10px] md:text-xs mt-2 font-medium bg-stone-50 px-2 py-1 rounded shadow-sm">※短い単語はAIが誤認識しやすいため、最初の子音を少し大げさに発音してみてください</span>
+                        </div>`;
                 }
 
                 let retryHeaderHtml = '';
@@ -890,7 +1022,7 @@
                 
                 let feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><p class="text-stone-500 text-sm md:text-base font-bold tracking-widest">マイクボタンを押して、最後まで一気に読んでください</p></div>`;
                 if (passageSession.isRecording) {
-                    feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><p class="text-${themeColor}-600 text-sm md:text-base font-bold animate-pulse tracking-widest">Listening... (読み上げてください)</p></div>`;
+                    feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><p class="text-${themeColor}-600 text-sm md:text-base font-bold animate-pulse tracking-widest">Listening... (読み終わったらマイクをもう一度押して終了)</p></div>`;
                 } else if (passageSession.resultStatus === 'retry') {
                     feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><span class="text-orange-500 text-sm md:text-base font-bold tracking-widest">聞き取れませんでした。もう一度発音してください。</span></div>`;
                 }
