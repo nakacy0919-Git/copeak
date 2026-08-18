@@ -306,7 +306,7 @@
             }
             else if (currentState === SoundQuestState.PHRASE_BRIDGE || currentState === SoundQuestState.SENTENCE_MISSION) {
                 phraseSession.isRecording = false;
-                phraseSession.alternativesData = alternatives; // ★追加：文字起こし結果を保存
+                phraseSession.alternativesData = alternatives; 
                 if (!topTranscript) { phraseSession.resultStatus = 'retry'; }
                 else {
                     let matchedCount = 0; phraseSession.data.targetWords.forEach(tw => { if (topTranscript.includes(normalizeSpeechText(tw))) matchedCount++; });
@@ -578,12 +578,17 @@
                 const coach = getCurrentCoaching(); 
                 const themeColor = coach.theme;
 
-                let feedbackHtml = `<p class="text-stone-500 text-xs md:text-sm font-bold h-12 flex items-center justify-center tracking-widest">マイクボタンを押して発音してください</p>`;
                 let recognizedText = wordPracticeSession.alternativesData[0] ? normalizeSpeechText(wordPracticeSession.alternativesData[0].transcript) : '???';
-                if (wordPracticeSession.isRecording) feedbackHtml = `<p class="text-${themeColor}-600 text-xs md:text-sm font-bold h-12 flex items-center justify-center animate-pulse tracking-widest">Listening... (話してください)</p>`;
-                else if (wordPracticeSession.resultStatus === 'clear') feedbackHtml = `<div class="h-12 flex flex-col items-center justify-center"><span class="text-emerald-600 font-black text-lg tracking-[0.2em] uppercase">CLEAR!</span><span class="text-emerald-700/70 text-[10px] font-bold mt-0.5">Recognized as: ${recognizedText}</span></div>`;
-                else if (wordPracticeSession.resultStatus === 'close') feedbackHtml = `<div class="h-12 flex flex-col items-center justify-center"><span class="text-amber-500 font-black text-base tracking-widest uppercase">CLOSE!</span><span class="text-amber-600/70 text-[10px] font-bold mt-0.5">Close match detected.</span></div>`;
-                else if (wordPracticeSession.resultStatus === 'retry') feedbackHtml = `<p class="text-orange-500 text-xs md:text-sm font-bold h-12 flex items-center justify-center tracking-widest">Not clear yet. Listen and try again.</p>`;
+                let feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><p class="text-stone-500 text-sm md:text-base font-bold tracking-widest">マイクボタンを押して発音してください</p></div>`;
+                if (wordPracticeSession.isRecording) {
+                    feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><p class="text-${themeColor}-600 text-sm md:text-base font-bold animate-pulse tracking-widest">Listening... (話してください)</p></div>`;
+                } else if (wordPracticeSession.resultStatus === 'clear') {
+                    feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><span class="text-emerald-600 font-black text-xl tracking-[0.2em] uppercase">CLEAR!</span><span class="text-stone-500 text-sm md:text-base font-bold mt-1">Recognized as: <span class="text-stone-800 bg-stone-100 px-2 py-1 rounded">${recognizedText}</span></span></div>`;
+                } else if (wordPracticeSession.resultStatus === 'close') {
+                    feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><span class="text-amber-500 font-black text-xl tracking-widest uppercase">CLOSE!</span><span class="text-stone-500 text-sm md:text-base font-bold mt-1">Recognized as: <span class="text-stone-800 bg-stone-100 px-2 py-1 rounded">${recognizedText}</span></span></div>`;
+                } else if (wordPracticeSession.resultStatus === 'retry') {
+                    feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><span class="text-orange-500 text-sm md:text-base font-bold tracking-widest">Not clear yet. Listen and try again.</span><span class="text-stone-500 text-sm md:text-base font-bold mt-1">Recognized as: <span class="text-stone-800 bg-stone-100 px-2 py-1 rounded">${recognizedText}</span></span></div>`;
+                }
 
                 const isFirst = wordPracticeSession.currentIndex === 0;
                 const isLast = wordPracticeSession.currentIndex === wordPracticeSession.listWords.length - 1;
@@ -626,13 +631,19 @@
                 const coach = getCurrentCoaching();
                 const themeColor = coach.theme;
                 
-                let feedbackHtml = `<p class="text-stone-500 text-xs md:text-sm font-bold h-12 flex items-center justify-center tracking-widest">マイクボタンを押して発音してください</p>`;
                 let recognizedText = voiceCheckSession.alternativesData[0] ? normalizeSpeechText(voiceCheckSession.alternativesData[0].transcript) : '???';
-                if (voiceCheckSession.isRecording) feedbackHtml = `<p class="text-${themeColor}-600 text-xs md:text-sm font-bold h-12 flex items-center justify-center animate-pulse tracking-widest">Listening... (話してください)</p>`;
-                else if (voiceCheckSession.resultStatus === 'clear') feedbackHtml = `<div class="h-12 flex flex-col items-center justify-center"><span class="text-emerald-600 font-black text-lg tracking-[0.2em] uppercase">CLEAR!</span><span class="text-emerald-700/70 text-[10px] font-bold mt-0.5">Recognized as: ${recognizedText}</span></div>`;
-                else if (voiceCheckSession.resultStatus === 'close') feedbackHtml = `<div class="h-12 flex flex-col items-center justify-center"><span class="text-amber-500 font-black text-base tracking-widest uppercase">CLOSE!</span><span class="text-amber-600/70 text-[10px] font-bold mt-0.5">Target detected in alternative results.</span></div>`;
-                else if (voiceCheckSession.resultStatus === 'contrast_error') feedbackHtml = `<div class="h-12 flex flex-col items-center justify-center"><span class="text-orange-600 font-black text-xs md:text-sm tracking-widest uppercase">Let's adjust the sound.</span><span class="text-orange-600/70 text-[10px] font-bold mt-0.5">Recognized as: ${recognizedText}</span></div>`;
-                else if (voiceCheckSession.resultStatus === 'retry' || voiceCheckSession.resultStatus === 'error') feedbackHtml = `<p class="text-stone-500 text-xs md:text-sm font-bold h-12 flex items-center justify-center tracking-widest">Not clear yet. Listen and try again.</p>`;
+                let feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><p class="text-stone-500 text-sm md:text-base font-bold tracking-widest">マイクボタンを押して発音してください</p></div>`;
+                if (voiceCheckSession.isRecording) {
+                    feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><p class="text-${themeColor}-600 text-sm md:text-base font-bold animate-pulse tracking-widest">Listening... (話してください)</p></div>`;
+                } else if (voiceCheckSession.resultStatus === 'clear') {
+                    feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><span class="text-emerald-600 font-black text-lg md:text-xl tracking-[0.2em] uppercase">CLEAR!</span><span class="text-stone-500 text-sm md:text-base font-bold mt-1">Recognized as: <span class="text-stone-800 bg-stone-100 px-2 py-1 rounded">${recognizedText}</span></span></div>`;
+                } else if (voiceCheckSession.resultStatus === 'close') {
+                    feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><span class="text-amber-500 font-black text-lg md:text-xl tracking-widest uppercase">CLOSE!</span><span class="text-stone-500 text-sm md:text-base font-bold mt-1">Target detected in alternative results.</span></div>`;
+                } else if (voiceCheckSession.resultStatus === 'contrast_error') {
+                    feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><span class="text-orange-600 font-black text-sm md:text-base tracking-widest uppercase">Let's adjust the sound.</span><span class="text-stone-500 text-sm md:text-base font-bold mt-1">Recognized as: <span class="text-stone-800 bg-stone-100 px-2 py-1 rounded">${recognizedText}</span></span></div>`;
+                } else if (voiceCheckSession.resultStatus === 'retry' || voiceCheckSession.resultStatus === 'error') {
+                    feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><span class="text-orange-500 text-sm md:text-base font-bold tracking-widest">Not clear yet. Listen and try again.</span><span class="text-stone-500 text-sm md:text-base font-bold mt-1">Recognized as: <span class="text-stone-800 bg-stone-100 px-2 py-1 rounded">${recognizedText}</span></span></div>`;
+                }
 
                 let retryHeaderHtml = '';
                 if (voiceCheckSession.isRetry) {
@@ -676,11 +687,9 @@
                 const c = getCurrentCourse();
                 const themeColor = c.theme.split('-')[1];
                 
-                // ★追加: displayHtml と kana があれば最優先で採用
                 let displayHtml = phraseSession.data.displayHtml || phraseSession.data.text;
                 let kanaHtml = phraseSession.data.kana ? `<p class="text-stone-400 font-bold tracking-widest text-sm md:text-base mt-2">${phraseSession.data.kana}</p>` : '';
                 
-                // Minimal Pairs（またはdisplayHtml未設定）の場合は動的にハイライト
                 if (!phraseSession.data.displayHtml) {
                     phraseSession.data.targetWords.forEach(tw => {
                         let colorClass = "text-emerald-600";
@@ -695,17 +704,24 @@
                     });
                 }
 
-                // ★追加: 音声認識された自分の結果（Recognized as）を表示
                 let recognizedText = phraseSession.alternativesData && phraseSession.alternativesData[0] ? normalizeSpeechText(phraseSession.alternativesData[0].transcript) : '???';
+                let feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><p class="text-stone-500 text-sm md:text-base font-bold tracking-widest">マイクボタンを押して発音してください</p></div>`;
                 
-                let feedbackHtml = `<div class="h-10 flex flex-col items-center justify-center"><p class="text-stone-500 text-xs md:text-sm font-bold tracking-widest">マイクボタンを押して発音してください</p></div>`;
                 if (phraseSession.isRecording) {
-                    feedbackHtml = `<div class="h-10 flex flex-col items-center justify-center"><p class="text-${themeColor}-600 text-xs md:text-sm font-bold animate-pulse tracking-widest">Listening... (話してください)</p></div>`;
+                    feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><p class="text-${themeColor}-600 text-sm md:text-base font-bold animate-pulse tracking-widest">Listening... (話してください)</p></div>`;
                 } else if (phraseSession.resultStatus === 'clear' || phraseSession.resultStatus === 'close') {
                     const isPerfect = phraseSession.resultStatus === 'clear';
-                    feedbackHtml = `<div class="h-10 flex flex-col items-center justify-center"><span class="${isPerfect ? 'text-emerald-600' : 'text-amber-500'} font-black text-sm md:text-base tracking-[0.2em] uppercase">Target Sound Match: ${phraseSession.matchedWords} / ${totalTargets}</span><span class="text-stone-400 text-[10px] font-bold mt-1">Recognized as: ${recognizedText}</span></div>`;
+                    feedbackHtml = `
+                        <div class="min-h-[4rem] flex flex-col items-center justify-center">
+                            <span class="${isPerfect ? 'text-emerald-600' : 'text-amber-500'} font-black text-lg md:text-xl tracking-[0.2em] uppercase">Target Sound Match: ${phraseSession.matchedWords} / ${totalTargets}</span>
+                            <span class="text-stone-500 text-sm md:text-base font-bold mt-2">Recognized as: <span class="text-stone-800 bg-stone-100 px-2 py-1 rounded">${recognizedText}</span></span>
+                        </div>`;
                 } else if (phraseSession.resultStatus === 'retry') {
-                    feedbackHtml = `<div class="h-10 flex flex-col items-center justify-center"><span class="text-orange-500 text-xs md:text-sm font-bold tracking-widest">聞き取れませんでした。もう一度発音してください。</span><span class="text-stone-400 text-[10px] font-bold mt-1">Recognized as: ${recognizedText}</span></div>`;
+                    feedbackHtml = `
+                        <div class="min-h-[4rem] flex flex-col items-center justify-center">
+                            <span class="text-orange-500 text-sm md:text-base font-bold tracking-widest">聞き取れませんでした。もう一度発音してください。</span>
+                            <span class="text-stone-500 text-sm md:text-base font-bold mt-2">Recognized as: <span class="text-stone-800 bg-stone-100 px-2 py-1 rounded">${recognizedText}</span></span>
+                        </div>`;
                 }
 
                 container.innerHTML = `
@@ -723,7 +739,7 @@
                         
                         <button onclick="playTextAudio()" class="px-5 py-2 md:py-2.5 bg-stone-50 hover:bg-stone-100 text-stone-600 font-bold rounded-full transition text-xs md:text-sm mb-8 border-2 border-stone-200 flex items-center gap-1.5 mx-auto shadow-sm hover:shadow-md tracking-widest">🔊 お手本を聞く</button>
                         
-                        <div class="relative w-24 h-24 md:w-28 md:h-28 mx-auto mb-4">
+                        <div class="relative w-24 h-24 md:w-28 md:h-28 mx-auto mb-6">
                             <button onclick="toggleMic()" class="absolute inset-0 w-full h-full rounded-full flex flex-col items-center justify-center text-white transition-all shadow-xl z-10 ${phraseSession.isRecording ? `bg-${themeColor}-500 recording-ripple` : `bg-stone-800 border-4 border-stone-200 hover:bg-stone-700 hover:border-stone-300`}"><span class="text-4xl md:text-5xl mb-1">${phraseSession.isRecording ? '⏹' : '🎤'}</span></button>
                         </div>
                         
