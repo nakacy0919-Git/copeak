@@ -79,10 +79,27 @@
 
     <script>
         function executeCopeakTransfer() {
-            let dataObj = phraseSession.data || (passageSession && passageSession.data);
-            if (!dataObj) { window.location.href = 'index.html'; return; }
             const c = getCurrentCourse();
-            const transferData = { title: "Sound Quest: " + c.title, eng: dataObj.text, jpn: dataObj.translation || "" };
+            let dataObj = null;
+            if (passageSession && passageSession.data && passageSession.data.text) dataObj = passageSession.data;
+            else if (phraseSession && phraseSession.data && phraseSession.data.text) dataObj = phraseSession.data;
+
+            let transferText = "";
+            let transferJpn = "";
+            if (dataObj) {
+                transferText = dataObj.text;
+                transferJpn = dataObj.translation || "";
+            } else if (currentCourseType === 'minimal') {
+                if (voiceCheckSession && voiceCheckSession.alternativesData) {
+                    const pair = c.pairs[voiceCheckSession.currentPairIndex];
+                    transferText = voiceCheckSession.currentTargetIsA ? pair.wordA : pair.wordB;
+                    transferJpn = c.title + " の特訓";
+                }
+            }
+            
+            if (!transferText) { window.location.href = 'index.html'; return; }
+            
+            const transferData = { title: "Sound Quest: " + c.title, eng: transferText, jpn: transferJpn };
             sessionStorage.setItem('copeak_sq_transfer', JSON.stringify(transferData));
             window.location.href = 'index.html';
         }
@@ -131,7 +148,6 @@
         let currentCourseType = 'minimal'; 
         let currentCourseId = "l-r";
         
-        // ★追加: 解説（図鑑）へ直行したかどうかのフラグ
         let isDirectCoaching = false;
         let directCoachingTargetIsA = true;
 
@@ -147,7 +163,6 @@
             return currentCourseType === 'minimal' ? courses[currentCourseId] : liaisonCourses[currentCourseId];
         }
         
-        // ★修正: 直行モード時は直行用のタブ（TargetIsA）を優先して読み込む
         function getCurrentCoaching() {
             if (currentCourseType === 'minimal') {
                 const c = courses[currentCourseId];
@@ -209,27 +224,56 @@
                        .trim(); 
         }
 
+        // ★修正: 新しく追加した本物のデータを読み込み、無い場合はスキップする
+        function proceedToNextFrom(currentPhase) {
+            const c = getCurrentCourse();
+            if (currentPhase === 'voice') {
+                if (c.phrases && c.phrases.length > 0) { startPhraseBridge(); }
+                else { showCompletionModal(); renderScreen(); }
+            } else if (currentPhase === 'phrase') {
+                if (c.sentences && c.sentences.length > 0) { startSentenceMission(); }
+                else { showCompletionModal(); renderScreen(); }
+            } else if (currentPhase === 'sentence') {
+                if (currentCourseType === 'minimal') {
+                    showCompletionModal(); renderScreen();
+                } else {
+                    if (c.passages && c.passages.length > 0) { startPassageMission(); }
+                    else { showCompletionModal(); renderScreen(); }
+                }
+            }
+        }
+        
+        function getNextPhaseLabel(currentPhase) {
+            const c = getCurrentCourse();
+            if (currentPhase === 'voice') {
+                return (c.phrases && c.phrases.length > 0) ? "句の練習へ進む ➔" : "ミッション完了 ➔";
+            }
+            if (currentPhase === 'phrase') {
+                return (c.sentences && c.sentences.length > 0) ? "文の練習へ進む ➔" : "ミッション完了 ➔";
+            }
+            if (currentPhase === 'sentence') {
+                return currentCourseType === 'minimal' ? "ミッション完了 ➔" : "長文の音読へ進む ➔";
+            }
+            return "次へ進む ➔";
+        }
+
         function skipPhase() {
-            if (currentState === SoundQuestState.HOME || isDirectCoaching) { returnToSoundQuestHome(); return; } // 直行モードのスキップはホームへ
+            if (currentState === SoundQuestState.HOME || isDirectCoaching) { returnToSoundQuestHome(); return; }
             else if (currentState === SoundQuestState.INTRO) { 
                 if (currentCourseType === 'minimal') startEarCheck(); 
                 else { openCoaching(); }
             }
             else if (currentState === SoundQuestState.EAR_CHECK) { earCheckSession.score = 8; currentState = SoundQuestState.EAR_RESULT; }
             else if (currentState === SoundQuestState.EAR_RESULT) { startVoiceCheck(); }
-            else if (currentState === SoundQuestState.VOICE_CHECK || currentState === SoundQuestState.COACHING || currentState === SoundQuestState.WORD_PRACTICE) { startPhraseBridge(); }
-            else if (currentState === SoundQuestState.PHRASE_BRIDGE) { startSentenceMission(); }
-            else if (currentState === SoundQuestState.SENTENCE_MISSION) { 
-                if (currentCourseType === 'liaison') startPassageMission();
-                else showCompletionModal(); 
-            }
-            else if (currentState === SoundQuestState.PASSAGE_MISSION || currentState === SoundQuestState.PASSAGE_RESULT) { showCompletionModal(); }
-            renderScreen();
+            else if (currentState === SoundQuestState.VOICE_CHECK || currentState === SoundQuestState.COACHING || currentState === SoundQuestState.WORD_PRACTICE) { proceedToNextFrom('voice'); }
+            else if (currentState === SoundQuestState.PHRASE_BRIDGE) { proceedToNextFrom('phrase'); }
+            else if (currentState === SoundQuestState.SENTENCE_MISSION) { proceedToNextFrom('sentence'); }
+            else if (currentState === SoundQuestState.PASSAGE_MISSION || currentState === SoundQuestState.PASSAGE_RESULT) { showCompletionModal(); renderScreen(); }
         }
 
         function returnToSoundQuestHome() { 
             document.getElementById('transferModal').classList.add('hidden'); 
-            isDirectCoaching = false; // ★ホームに戻る時はリセット
+            isDirectCoaching = false;
             currentState = SoundQuestState.HOME; 
             renderScreen(); 
         }
@@ -242,12 +286,11 @@
             renderScreen(); 
         }
         
-        // ★追加: ホームから直接解説へ飛ぶ関数
         function openDirectCoaching(type, courseId) {
             currentCourseType = type;
             currentCourseId = courseId;
             isDirectCoaching = true;
-            directCoachingTargetIsA = true; // デフォルトはAを表示
+            directCoachingTargetIsA = true;
             currentState = SoundQuestState.COACHING;
             renderScreen();
         }
@@ -376,20 +419,31 @@
         
         function startPhraseBridge() { 
             const c = getCurrentCourse();
+            if (!c.phrases || c.phrases.length === 0) {
+                startSentenceMission();
+                return;
+            }
             phraseSession = { data: c.phrases[Math.floor(Math.random()*c.phrases.length)], isRecording: false, resultStatus: null, matchedWords: 0, alternativesData: [] }; 
             currentState = SoundQuestState.PHRASE_BRIDGE; renderScreen(); 
         }
+        
         function startSentenceMission() { 
             const c = getCurrentCourse();
+            if (!c.sentences || c.sentences.length === 0) {
+                showCompletionModal(); renderScreen();
+                return;
+            }
             phraseSession = { data: c.sentences[Math.floor(Math.random()*c.sentences.length)], isRecording: false, resultStatus: null, matchedWords: 0, alternativesData: [] }; 
             currentState = SoundQuestState.SENTENCE_MISSION; renderScreen(); 
         }
         
         function startPassageMission() {
             const c = getCurrentCourse();
-            const dummyPassage = { text: "No passage data found. Please add it to sq-liaison-data.js.", translation: "データ未登録", displayHtml: "" };
-            const passages = c.passages || [dummyPassage];
-            passageSession = { data: passages[0], isRecording: false, accuracy: 0, alternativesData: [] }; 
+            if (!c.passages || c.passages.length === 0) {
+                showCompletionModal(); renderScreen();
+                return;
+            }
+            passageSession = { data: c.passages[0], isRecording: false, accuracy: 0, alternativesData: [] }; 
             currentState = SoundQuestState.PASSAGE_MISSION; renderScreen(); 
         }
 
@@ -544,10 +598,9 @@
             const btnDivider = document.getElementById('btnDivider');
             const progContainer = document.getElementById('progressContainer');
 
-            // ★修正: 直行モード(isDirectCoaching)の場合もホーム画面と同じようにヘッダーをシンプルにする
             if (currentState === SoundQuestState.HOME || isDirectCoaching) {
                 if (btnSkip) btnSkip.classList.add('hidden');
-                if (btnHome) btnHome.classList.remove('hidden'); // コース選択へ戻るボタンだけは常に表示
+                if (btnHome) btnHome.classList.remove('hidden'); 
                 if (btnDivider) btnDivider.classList.replace('sm:block', 'hidden');
                 if (progContainer) progContainer.classList.add('hidden');
                 
@@ -612,7 +665,6 @@
                 `;
                 Object.values(courses).forEach(c => {
                     html += `
-                        <!-- ★修正: カード全体をdivに変更し、右下に直行ボタンを配置 -->
                         <div onclick="selectCourse('minimal', '${c.id}')" class="p-4 md:p-5 rounded-2xl border-2 border-stone-200 bg-white hover:${c.bgTheme} hover:border-${c.theme.split('-')[1]}-400 transition-all transform hover:-translate-y-1 group shadow-sm hover:shadow-md flex flex-col justify-between relative overflow-hidden min-h-[130px] cursor-pointer">
                             <div>
                                 <h3 class="text-2xl md:text-3xl font-black ${c.theme} mb-1 serif-font tracking-tighter drop-shadow-sm whitespace-nowrap">${c.title}</h3>
@@ -643,7 +695,6 @@
                 if (typeof liaisonCourses !== 'undefined') {
                     Object.values(liaisonCourses).forEach(c => {
                         html += `
-                            <!-- ★修正: リエゾン側も同様に直行ボタンを配置 -->
                             <div onclick="selectCourse('liaison', '${c.id}')" class="p-4 md:p-5 rounded-2xl border-2 border-stone-200 bg-white hover:${c.bgTheme} hover:border-${c.theme.split('-')[1]}-400 transition-all transform hover:-translate-y-1 group shadow-sm hover:shadow-md flex flex-col justify-between relative overflow-hidden min-h-[130px] cursor-pointer">
                                 <div>
                                     <h3 class="text-xl md:text-2xl font-black ${c.theme} mb-1 serif-font tracking-tighter drop-shadow-sm whitespace-nowrap">${c.title}</h3>
@@ -731,12 +782,11 @@
                 const coach = getCurrentCoaching(); 
                 const themeColor = coach.theme;
                 
-                // ★修正: isDirectCoaching に対応した画像切り替え
                 let imgHtml = "";
                 if (currentCourseType === 'minimal') {
                     const targetIsA = isDirectCoaching ? directCoachingTargetIsA : voiceCheckSession.currentTargetIsA;
                     const coachSymbolKey = targetIsA ? c.coachA : c.coachB;
-                    imgHtml = `<img src="coach_images/coach_${coachSymbolKey}.webp" alt="口の形" class="w-full h-full object-contain" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\\'text-stone-400 text-xs font-bold\\'>画像準備中...</span>';">`;
+                    imgHtml = `<img src="coach_images/coach_${coachSymbolKey}.png" alt="口の形" class="w-full h-full object-contain" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\\'text-stone-400 text-xs font-bold\\'>画像準備中...</span>';">`;
                 } else {
                     imgHtml = `<span class="text-6xl md:text-8xl">${coach.symbol}</span>`;
                 }
@@ -749,7 +799,6 @@
                                 ${currentCourseType === 'minimal' && coach.symbol ? `<span class="text-2xl md:text-3xl font-black text-stone-800 serif-font bg-stone-50 px-3 py-1.5 rounded-xl border-2 border-stone-200 shadow-sm">${coach.symbol}</span>` : ''}
                             </div>
                             
-                            <!-- ★追加: 直行モード時のA/Bタブ切り替え -->
                             ${isDirectCoaching && currentCourseType === 'minimal' ? `
                                 <div class="flex justify-center">
                                     <div class="flex gap-1 bg-stone-100 p-1 rounded-full shadow-inner border border-stone-200">
@@ -807,18 +856,17 @@
                             </div>
                         </div>
 
-                        <!-- ★追加: 直行モード時の戻るボタンの分岐 -->
                         <div class="mt-8 pt-6 border-t-2 border-stone-100 flex flex-col sm:flex-row gap-4 justify-center w-full max-w-2xl mx-auto">
                             ${isDirectCoaching ? `
                                 <button onclick="returnToSoundQuestHome();" class="flex-1 py-3 md:py-4 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold text-sm md:text-base rounded-full shadow-sm transition tracking-widest border border-stone-300">
                                     🏠 選択へ戻る
                                 </button>
-                                <button onclick="isDirectCoaching = false; currentCourseType === 'minimal' ? startEarCheck() : startPhraseBridge();" class="flex-1 py-3 md:py-4 bg-${themeColor}-600 hover:bg-${themeColor}-500 text-white font-black text-sm md:text-base rounded-full shadow-lg transition transform hover:scale-105 active:scale-95 tracking-widest">
+                                <button onclick="isDirectCoaching = false; currentCourseType === 'minimal' ? startEarCheck() : proceedToNextFrom('voice');" class="flex-1 py-3 md:py-4 bg-${themeColor}-600 hover:bg-${themeColor}-500 text-white font-black text-sm md:text-base rounded-full shadow-lg transition transform hover:scale-105 active:scale-95 tracking-widest">
                                     ▶️ この特訓を始める
                                 </button>
                             ` : `
-                                <button onclick="${currentCourseType === 'minimal' ? 'startVoiceRetry()' : 'startPhraseBridge()'}" class="w-full md:px-16 py-3 md:py-4 bg-stone-800 hover:bg-stone-700 text-white font-black text-sm md:text-base rounded-full shadow-lg transition transform hover:scale-105 active:scale-95 mx-auto block tracking-widest">
-                                    ${currentCourseType === 'minimal' ? 'もう一度 Voice Check へ戻る (Retry)' : '🎤 フレーズ特訓へ進む ➔'}
+                                <button onclick="${currentCourseType === 'minimal' ? 'startVoiceRetry()' : 'proceedToNextFrom(\'voice\')'}" class="w-full md:px-16 py-3 md:py-4 bg-stone-800 hover:bg-stone-700 text-white font-black text-sm md:text-base rounded-full shadow-lg transition transform hover:scale-105 active:scale-95 mx-auto block tracking-widest">
+                                    ${currentCourseType === 'minimal' ? 'もう一度 Voice Check へ戻る (Retry)' : '🎤 ' + getNextPhaseLabel('voice')}
                                 </button>
                             `}
                         </div>
@@ -941,7 +989,8 @@
                         
                         ${(!voiceCheckSession.isRetry && (voiceCheckSession.resultStatus === 'contrast_error' || voiceCheckSession.resultStatus === 'retry')) ? `<button onclick="openCoaching()" class="mt-6 text-orange-500 hover:text-orange-600 text-[10px] md:text-xs font-bold underline underline-offset-4 transition tracking-widest">💡 解説とコツを見る</button>` : ''}
                         ${(voiceCheckSession.isRetry && (voiceCheckSession.resultStatus === 'contrast_error' || voiceCheckSession.resultStatus === 'retry')) ? `<button onclick="openCoaching()" class="mt-6 text-stone-400 hover:text-stone-600 text-[10px] md:text-xs font-bold border-b border-stone-300 hover:border-stone-500 pb-0.5 transition tracking-widest">もう一度コツを確認する</button>` : ''}
-                        ${(voiceCheckSession.resultStatus === 'clear' || voiceCheckSession.resultStatus === 'close') ? `<button onclick="startPhraseBridge()" class="mt-8 w-full md:w-auto px-10 py-3 md:py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm md:text-base rounded-full shadow-lg transition transform hover:scale-105 tracking-widest">句の練習へ進む ➔</button>` : ''}
+                        
+                        ${(voiceCheckSession.resultStatus === 'clear' || voiceCheckSession.resultStatus === 'close') ? `<button onclick="proceedToNextFrom('voice')" class="mt-8 w-full md:w-auto px-10 py-3 md:py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm md:text-base rounded-full shadow-lg transition transform hover:scale-105 tracking-widest">${getNextPhaseLabel('voice')}</button>` : ''}
                     </div>
                 `;
             }
@@ -1010,7 +1059,7 @@
                         
                         ${feedbackHtml}
                         
-                        ${(phraseSession.resultStatus === 'clear' || phraseSession.resultStatus === 'close') ? `<button onclick="${isSentence ? (currentCourseType === 'liaison' ? "startPassageMission()" : "showCompletionModal()") : "startSentenceMission()"}" class="mt-8 w-full md:w-auto px-10 py-3 md:py-4 bg-stone-800 hover:bg-stone-700 text-white font-black text-sm md:text-base rounded-full shadow-lg transition transform hover:scale-105 tracking-widest">${isSentence ? (currentCourseType === 'liaison' ? '長文の音読へ進む ➔' : 'ミッション完了 ➔') : '文の練習へ進む ➔'}</button>` : ''}
+                        ${(phraseSession.resultStatus === 'clear' || phraseSession.resultStatus === 'close') ? `<button onclick="${isSentence ? "proceedToNextFrom('sentence')" : "proceedToNextFrom('phrase')"}" class="mt-8 w-full md:w-auto px-10 py-3 md:py-4 bg-stone-800 hover:bg-stone-700 text-white font-black text-sm md:text-base rounded-full shadow-lg transition transform hover:scale-105 tracking-widest">${getNextPhaseLabel(isSentence ? 'sentence' : 'phrase')}</button>` : ''}
                     </div>
                 `;
             }
