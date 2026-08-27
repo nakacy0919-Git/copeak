@@ -142,7 +142,6 @@ function updateMemoLevel(level) {
     // ★抜け落ちていた処理：テキストの再描画
     renderTargetText(); 
 } 
-// 👇👇👇 ここから下を追加する 👇👇👇
 
 // ★追加: PacedのWPM数値を更新し、ドロップダウンとも連動させる
 function updateTargetWpm(val) {
@@ -433,7 +432,6 @@ function showResultState() {
     document.body.classList.remove('immersive-mode');
 
     const targetTextWrapper = document.getElementById('targetTextWrapper'); 
-    // ... (これ以降のコードはそのまま変更なし)
     const yourVoiceWrapper = document.getElementById('yourVoiceWrapper');
     const resultScoreBoard = document.getElementById('resultScoreBoard');
     const mainPane = document.getElementById('mainLearningPane');
@@ -713,6 +711,7 @@ async function generateShareLink() {
         // 配列データを文字列(JSON)に変換してURLに乗せる
         paramsConfig.dialogue = JSON.stringify(currentCustomLesson.dialogue);
     }
+    // メモ画像はBase64が長すぎるためURLに乗せません（仕様通り）
     
     const params = new URLSearchParams(paramsConfig);
     const longUrl = `${baseUrl}?${params.toString()}`;
@@ -1132,11 +1131,13 @@ window.addEventListener('DOMContentLoaded', () => {
         }, 1200);
     });
 });
+
 // ==========================================
-// ★追加: フルスクリーン予行練習機能 (動的生成版・スクロール完璧対応)
+// ★追加改修: 1:1画像分割フルスクリーン予行練習機能
 // ==========================================
 let fsAiUtterance = null;
 let isFsAudioPlaying = false;
+window.isFsImageShowing = false; // フルスクリーン時の画像表示状態管理
 
 function openFullscreenPreview() {
     if (!currentCustomLesson) return;
@@ -1146,11 +1147,20 @@ function openFullscreenPreview() {
 
     const overlay = document.createElement('div');
     overlay.id = 'fullscreenPreviewOverlay';
-    overlay.className = 'fixed top-0 left-0 w-full h-full z-[9999] bg-[#faf8f5] flex flex-col transition-all duration-300 opacity-0 overflow-hidden';
+    // 画面全体を覆うベースレイヤー
+    overlay.className = 'fixed top-0 left-0 w-full h-[100dvh] z-[9999] bg-[#faf8f5] flex flex-col transition-all duration-300 opacity-0 overflow-hidden';
     
     overlay.innerHTML = `
-        <div class="flex items-center justify-between p-4 md:p-6 border-b border-stone-200 bg-white shadow-sm shrink-0 z-10">
-            <button onclick="closeFullscreenPreview()" class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-stone-100 hover:bg-stone-300 text-stone-600 font-bold text-xl transition shadow-inner border border-stone-200">✕</button>
+        <!-- 上部ヘッダー -->
+        <div class="flex items-center justify-between p-4 md:p-6 border-b border-stone-200 bg-white shadow-sm shrink-0 z-20">
+            <div class="flex items-center gap-3">
+                <button onclick="closeFullscreenPreview()" class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-stone-100 hover:bg-stone-300 text-stone-600 font-bold text-xl transition shadow-inner border border-stone-200">✕</button>
+                
+                <!-- 🌟 メモ画像ON/OFFボタン（教材に画像がある時だけ表示される） -->
+                <button id="fsToggleImageBtn" onclick="toggleFsMemoImage()" class="hidden px-3 py-2 bg-emerald-100 hover:bg-emerald-200 text-emerald-700 font-bold rounded-sm text-xs transition border border-emerald-200 shadow-sm flex items-center gap-1.5 whitespace-nowrap">
+                    🖼️ <span class="hidden sm:inline">画像 OFF</span>
+                </button>
+            </div>
             <h2 id="fsTitleDisplay" class="text-base md:text-xl font-bold text-stone-800 serif-font truncate px-4 flex-1 text-center">Preview</h2>
             <div class="flex gap-2">
                 <button id="fsAiVoiceBtn" onclick="toggleFsAIVoice()" class="px-3 md:px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-xs md:text-sm font-bold rounded-sm shadow-md transition flex items-center gap-1">🤖 <span class="hidden sm:inline">AI音声</span></button>
@@ -1158,17 +1168,44 @@ function openFullscreenPreview() {
             </div>
         </div>
         
-        <div class="flex-1 overflow-y-auto p-6 md:p-12 lg:p-20 relative z-0" style="-webkit-overflow-scrolling: touch;">
-            <div id="fsEngContainer" class="text-2xl md:text-4xl leading-relaxed md:leading-[2.5] text-stone-800 font-medium serif-font max-w-5xl mx-auto"></div>
-            <div id="fsJpnContainer" class="text-base md:text-xl text-stone-500 max-w-5xl mx-auto border-t-2 border-dashed border-stone-300 pt-8 mt-8 hidden leading-relaxed"></div>
-            <div class="h-48 md:h-64 w-full shrink-0"></div> 
+        <!-- 下部メインコンテンツ (Flexで左右に割る) -->
+        <div class="flex-1 flex overflow-hidden w-full max-w-[1600px] mx-auto">
+            
+            <!-- 🌟 左側: メモ画像エリア (初期はhidden) -->
+            <div id="fsImagePane" class="w-1/2 h-full bg-stone-100 border-r border-stone-200 p-4 md:p-8 hidden flex-col justify-center items-center transition-all duration-300">
+                <img id="fsMemoImageDisplay" src="" alt="Memo" class="w-full h-full object-contain drop-shadow-sm rounded-md">
+            </div>
+
+            <!-- 🌟 右側: テキストエリア (初期はw-fullで画面全体) -->
+            <div id="fsTextPane" class="w-full h-full overflow-y-auto p-6 md:p-12 lg:p-16 pb-40 transition-all duration-300 relative" style="-webkit-overflow-scrolling: touch;">
+                <div id="fsEngContainer" class="text-2xl md:text-4xl leading-relaxed md:leading-[2.5] text-stone-800 font-medium serif-font max-w-4xl mx-auto"></div>
+                <div id="fsJpnContainer" class="text-base md:text-xl text-stone-500 max-w-4xl mx-auto border-t-2 border-dashed border-stone-300 pt-8 mt-8 hidden leading-relaxed"></div>
+                <div class="h-48 md:h-64 w-full shrink-0"></div> 
+            </div>
         </div>
     `;
     document.body.appendChild(overlay);
 
     document.getElementById('fsTitleDisplay').innerText = currentCustomLesson.title ? currentCustomLesson.title.replace('🔗 ', '') : 'Preview';
     
-    // 🌟 修正: 会話文かどうかの判定と描画
+    // 🌟 画像のセットアップ
+    const fsToggleBtn = document.getElementById('fsToggleImageBtn');
+    const fsImageDisplay = document.getElementById('fsMemoImageDisplay');
+    
+    if (currentCustomLesson.memoImage) {
+        fsImageDisplay.src = currentCustomLesson.memoImage;
+        fsToggleBtn.classList.remove('hidden');
+        
+        // 先生の要望通り、画像が存在する場合は最初から1:1表示(ON)の状態で開く
+        window.isFsImageShowing = false; // toggle関数で反転させてtrueにするため
+        window.toggleFsMemoImage();
+    } else {
+        fsToggleBtn.classList.add('hidden');
+        window.isFsImageShowing = true; // 強制的にOFF状態にするため
+        window.toggleFsMemoImage();
+    }
+
+    // 会話文かどうかの判定と描画
     let engHtml = "";
     if (currentCustomLesson.type === 'dialogue' && currentCustomLesson.dialogue) {
         currentCustomLesson.dialogue.forEach(line => {
@@ -1203,6 +1240,41 @@ function openFullscreenPreview() {
         overlay.classList.add('opacity-100');
     });
 }
+
+// 🌟 画像ON/OFF切り替えロジック
+window.toggleFsMemoImage = function() {
+    window.isFsImageShowing = !window.isFsImageShowing;
+    
+    const imgPane = document.getElementById('fsImagePane');
+    const txtPane = document.getElementById('fsTextPane');
+    const btn = document.getElementById('fsToggleImageBtn');
+    
+    if (!imgPane || !txtPane || !btn) return;
+
+    if (window.isFsImageShowing) {
+        // 画像ON (1:1分割)
+        imgPane.classList.remove('hidden');
+        imgPane.classList.add('flex');
+        txtPane.classList.remove('w-full');
+        txtPane.classList.add('w-1/2');
+        
+        btn.innerHTML = '🖼️ <span class="hidden sm:inline">画像 OFF</span>';
+        btn.classList.replace('bg-emerald-100', 'bg-stone-200');
+        btn.classList.replace('text-emerald-700', 'text-stone-600');
+        btn.classList.replace('border-emerald-200', 'border-stone-300');
+    } else {
+        // 画像OFF (テキスト全画面)
+        imgPane.classList.add('hidden');
+        imgPane.classList.remove('flex');
+        txtPane.classList.remove('w-1/2');
+        txtPane.classList.add('w-full');
+        
+        btn.innerHTML = '🖼️ <span class="hidden sm:inline">画像 ON</span>';
+        btn.classList.replace('bg-stone-200', 'bg-emerald-100');
+        btn.classList.replace('text-stone-600', 'text-emerald-700');
+        btn.classList.replace('border-stone-300', 'border-emerald-200');
+    }
+};
 
 function closeFullscreenPreview() {
     const overlay = document.getElementById('fullscreenPreviewOverlay');

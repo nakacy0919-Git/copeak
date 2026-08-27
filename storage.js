@@ -38,6 +38,8 @@ function editLesson(event, id) {
         
         // セキュリティ上、ファイルinputは空にしておきます
         document.getElementById('customAudio').value = "";
+        const memoInput = document.getElementById('customMemoImage');
+        if(memoInput) memoInput.value = "";
         
         // 🌟 追加：教材のタイプによってUIを切り替えてデータを流し込む
         if (lesson.type === 'dialogue') {
@@ -56,6 +58,25 @@ function editLesson(event, id) {
         } else {
             if (typeof toggleMaterialType === 'function') toggleMaterialType('standard');
             document.getElementById('customEng').value = lesson.eng || "";
+        }
+        
+        // 🌟 追加：メモ画像を読み込んでプレビュー表示する
+        const memoPreview = document.getElementById('memoImagePreview');
+        const imageMark = document.getElementById('imageRegisteredMark');
+        if (lesson.memoImage) {
+            window.currentMemoImageBase64 = lesson.memoImage;
+            if (memoPreview) {
+                memoPreview.src = lesson.memoImage;
+                memoPreview.classList.remove('hidden');
+            }
+            if (imageMark) imageMark.classList.remove('hidden');
+        } else {
+            window.currentMemoImageBase64 = null;
+            if (memoPreview) {
+                memoPreview.src = "";
+                memoPreview.classList.add('hidden');
+            }
+            if (imageMark) imageMark.classList.add('hidden');
         }
         
         editingLessonId = id;
@@ -82,13 +103,26 @@ function editLesson(event, id) {
         }
         
         window.scrollTo({ top: 0, behavior: 'smooth' });
-        if (typeof showMsg === 'function') showMsg("✏️ 編集モードに入りました（既存の音声は保持されています）");
+        if (typeof showMsg === 'function') showMsg("✏️ 編集モードに入りました（既存の音声や画像は保持されています）");
     };
 }
 
 function cancelEdit(isSilent = false) {
     document.getElementById("customMaterialForm").reset();
     document.getElementById('customAudio').value = ""; 
+    
+    // 🌟 追加：画像プレビューと保存データのクリア
+    const memoInput = document.getElementById('customMemoImage');
+    if(memoInput) memoInput.value = "";
+    window.currentMemoImageBase64 = null;
+    const memoPreview = document.getElementById('memoImagePreview');
+    if (memoPreview) {
+        memoPreview.src = "";
+        memoPreview.classList.add('hidden');
+    }
+    const imageMark = document.getElementById('imageRegisteredMark');
+    if (imageMark) imageMark.classList.add('hidden');
+
     editingLessonId = null;
 
     // 🌟 追加：キャンセル時は標準モードに戻す
@@ -167,9 +201,10 @@ async function saveCustomLesson() {
             lesson.lang = selectedLang;
             lesson.langName = selectedLangName;
             
-            // 🌟 追加：会話文データを保存
+            // 🌟 追加：会話文データとメモ画像を保存
             lesson.type = lessonType;
             lesson.dialogue = dialogueData;
+            lesson.memoImage = window.currentMemoImageBase64 || null; 
             
             if (audioFile) lesson.audioBlob = audioFile;
             
@@ -184,8 +219,9 @@ async function saveCustomLesson() {
             audioBlob: audioFile || null,
             lang: selectedLang, 
             langName: selectedLangName,
-            type: lessonType, // 🌟 追加：教材の種類
-            dialogue: dialogueData, // 🌟 追加：会話データ
+            type: lessonType, // 教材の種類
+            dialogue: dialogueData, // 会話データ
+            memoImage: window.currentMemoImageBase64 || null, // 🌟 追加：メモ画像
             history: [], 
             createdAt: new Date().getTime()
         };
@@ -243,6 +279,9 @@ function loadSavedLessons() {
 
         lessons.forEach(lesson => {
             const hasAudioIcon = lesson.audioBlob ? '🎵' : '📄';
+            // 🌟 画像アイコンも表示するように追加
+            const hasImageIcon = lesson.memoImage ? '<span class="bg-purple-50 text-purple-600 px-2 py-1 rounded-sm ml-1">🖼️</span>' : '';
+            
             const langDisplay = lesson.langName || '🇺🇸 English (US)';
             const playCount = lesson.history ? lesson.history.length : 0;
             const badgeHtml = playCount > 0 ? `<span class="bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded text-[10px] font-black">★ ${playCount}回</span>` : '';
@@ -261,6 +300,7 @@ function loadSavedLessons() {
                         <div class="flex gap-2 mt-3 text-[11px] font-bold text-stone-500 items-center">
                             <span class="bg-stone-100 px-2 py-1 rounded-sm text-stone-600">${langDisplay.split(' ')[0]}</span>
                             <span class="bg-emerald-50 text-emerald-600 px-2 py-1 rounded-sm">${hasAudioIcon}</span>
+                            ${hasImageIcon}
                         </div>
                     </div>
                     <div class="flex flex-col md:flex-row gap-1">
@@ -287,6 +327,7 @@ function loadSavedLessons() {
                     <div class="flex gap-2 mt-1.5 text-[10px] font-bold text-stone-400 items-center">
                         <span class="bg-[#faf8f5] px-1.5 py-0.5 rounded-sm border border-stone-200">${langDisplay.split(' ')[0]}</span>
                         <span class="${lesson.audioBlob ? 'text-emerald-600' : ''}">${hasAudioIcon}</span>
+                        ${hasImageIcon}
                         ${playCount > 0 ? `<span class="text-yellow-600 ml-auto">★${playCount}</span>` : ''}
                     </div>
                 `;
@@ -370,6 +411,7 @@ function checkUrlParameters() {
                     formUrl: formUrl,
                     type: lessonType,       // 🌟 追加: 教材の種類
                     dialogue: dialogueData, // 🌟 追加: 会話データ配列
+                    memoImage: null, // 画像はURL共有できないのでnull
                     history: [], 
                     createdAt: new Date().getTime()
                 };
@@ -460,30 +502,22 @@ async function injectPresetLessons() {
         {
             id: "arena-task-taylor-01",
             title: "🏆 (NCC課題) Taylor Swift NYU Speech 2022",
-            eng: `My experience has been that my mistakes led to the best things in my life. And being embarrassed when you mess up is part of the human experience. Getting back up, dusting yourself off, and seeing who still wants to hang out with you afterwards and laugh about it, that's a gift. The times I was told no, or wasn't included, wasn't chosen, didn't win, didn't make the cut... looking back, it really feels like those moments were as important, if not more crucial, than the moments I was told yes. I'm trying to tell you that losing things doesn't just mean losing. A lot of the time when we lose things, we gain things too.
-
-Sometimes the right thing to do is to throw out the old schools of thought in the name of progress and reform. Sometimes the right thing to do is to sit and listen to the wisdom of those who have come before us. How will you know what the right choice is in these crucial moments? You won't. How do I give advice to this many people about their life choices? I won't. The scary news is you're on your own now. But the cool news is you're on your own now.
-
-I leave you with this: We are led by our gut instincts, our intuition, our desires and fears, our scars and our dreams. And you will screw it up sometimes. So will I. And when I do, you will most likely read about it on the internet anyway. Hard things will happen to us. We will recover. We will learn from it. We will grow more resilient because of it. And as long as we are fortunate enough to be breathing, we will breathe in, breathe through, breathe deep, and breathe out.`,
-            jpn: `私の経験上、間違いが人生の最高の物事につながりました。失敗して恥ずかしい思いをすることは、人間の経験の一部です。立ち上がり、土埃を払い落とし、その後でも誰が自分と一緒にいて笑い合ってくれるかを確認すること、それは神様からの贈り物です。私が「ノー」と言われたとき、仲間に入れてもらえなかったとき、選ばれなかったとき、勝てなかったとき、合格しなかったとき…振り返ってみると、そうした瞬間は、「イエス」と言われた瞬間と同じくらい、あるいはそれ以上に重要だったと心から感じます。私が伝えたいのは、失うことは単に失うことだけを意味しないということです。多くの場合、私たちは何かを失うとき、同時に何かを得ているのです。
-
-進歩と改革の名の下に、古い考え方を捨てるのが正しいこともあります。また、先人たちの知恵に腰を下ろして耳を傾けるのが正しいこともあります。このような重要な瞬間に、どうやって正しい選択が分かるのでしょうか？ 分かりません。こんなに多くの人たちの人生の選択について、どうやってアドバイスをすればいいのでしょうか？ しません。怖いお知らせは、皆さんはもう自分一人だということです。でも、素晴らしいお知らせは、皆さんはもう自分一人だということです。
-
-最後にこの言葉を残します。私たちは、直感や直観、欲望や恐れ、傷跡や夢に導かれています。そして、皆さんも時に失敗するでしょう。私も失敗します。そして私が失敗したときは、どうせ皆さんはインターネットでそれを読むことになるでしょう。私たちにはつらいことも起こります。しかし、私たちは立ち直ります。そこから学びます。そこからさらに強い回復力を身につけます。そして、息をする幸運に恵まれている限り、私たちは息を吸い、息を通し、深く息をし、そして息を吐きます。`,
+            eng: `My experience has been that my mistakes led to the best things in my life. And being embarrassed when you mess up is part of the human experience. Getting back up, dusting yourself off, and seeing who still wants to hang out with you afterwards and laugh about it, that's a gift. The times I was told no, or wasn't included, wasn't chosen, didn't win, didn't make the cut... looking back, it really feels like those moments were as important, if not more crucial, than the moments I was told yes. I'm trying to tell you that losing things doesn't just mean losing. A lot of the time when we lose things, we gain things too.\n\nSometimes the right thing to do is to throw out the old schools of thought in the name of progress and reform. Sometimes the right thing to do is to sit and listen to the wisdom of those who have come before us. How will you know what the right choice is in these crucial moments? You won't. How do I give advice to this many people about their life choices? I won't. The scary news is you're on your own now. But the cool news is you're on your own now.\n\nI leave you with this: We are led by our gut instincts, our intuition, our desires and fears, our scars and our dreams. And you will screw it up sometimes. So will I. And when I do, you will most likely read about it on the internet anyway. Hard things will happen to us. We will recover. We will learn from it. We will grow more resilient because of it. And as long as we are fortunate enough to be breathing, we will breathe in, breathe through, breathe deep, and breathe out.`,
+            jpn: `私の経験上、間違いが人生の最高の物事につながりました。失敗して恥ずかしい思いをすることは、人間の経験の一部です。立ち上がり、土埃を払い落とし、その後でも誰が自分と一緒にいて笑い合ってくれるかを確認すること、それは神様からの贈り物です。私が「ノー」と言われたとき、仲間に入れてもらえなかったとき、選ばれなかったとき、勝てなかったとき、合格しなかったとき…振り返ってみると、そうした瞬間は、「イエス」と言われた瞬間と同じくらい、あるいはそれ以上に重要だったと心から感じます。私が伝えたいのは、失うことは単に失うことだけを意味しないということです。多くの場合、私たちは何かを失うとき、同時に何かを得ているのです。\n\n進歩と改革の名の下に、古い考え方を捨てるのが正しいこともあります。また、先人たちの知恵に腰を下ろして耳を傾けるのが正しいこともあります。このような重要な瞬間に、どうやって正しい選択が分かるのでしょうか？ 分かりません。こんなに多くの人たちの人生の選択について、どうやってアドバイスをすればいいのでしょうか？ しません。怖いお知らせは、皆さんはもう自分一人だということです。でも、素晴らしいお知らせは、皆さんはもう自分一人だということです。\n\n最後にこの言葉を残します。私たちは、直感や直観、欲望や恐れ、傷跡や夢に導かれています。そして、皆さんも時に失敗するでしょう。私も失敗します。そして私が失敗したときは、どうせ皆さんはインターネットでそれを読むことになるでしょう。私たちにはつらいことも起こります。しかし、私たちは立ち直ります。そこから学びます。そこからさらに強い回復力を身につけます。そして、息をする幸運に恵まれている限り、私たちは息を吸い、息を通し、深く息をし、そして息を吐きます。`,
             lang: "en-US",
             langName: "🇺🇸 English (US)",
-            audioPath: "taylor.mp3", // ※以前作成したmp3ファイルがあれば、その場所を指定してください
+            audioPath: "taylor.mp3", 
             history: [],
             createdAt: Date.now()
         },
         {
             title: "🗣️ (sample) Conversation: New Job",
-            type: "dialogue", // 🌟 会話文モードを指定
+            type: "dialogue", 
             eng: "Nick: How's the new job going, Mackenzie? Mackenzie: I'm finding it hard, actually. Nick: Are things hectic there? Mackenzie: Not really. The workload's probably lighter than in my last job. It's the overall atmosphere that's the problem. Nick: What's wrong with it? Mackenzie: Everyone's extremely competitive, and there's constant tension between teams, especially among the managers. Nick: That sounds tough.",
             jpn: "ニック: 新しい仕事の調子はどう、マッケンジー？\nマッケンジー: 実は、結構大変なんだよね。\nニック: あちこちバタバタして忙しい感じ？\nマッケンジー: いや、そうでもないかな。仕事量はたぶん前の仕事より少ないくらい。問題なのは、全体の雰囲気なんだ。\nニック: 雰囲気の何が悪いの？\nマッケンジー: みんなものすごく競争心が強くて、チーム間に常に緊張感があるんだよ。特にマネージャーたちの間でね。\nニック: それはきつそうだね。",
             lang: "en-US",
             langName: "🇺🇸 English (US)",
-            audioPath: './audio/conversation.mp3', // 先生ご指定のパス
+            audioPath: './audio/conversation.mp3', 
             dialogue: [
                 { speaker: "Nick", text: "How's the new job going, Mackenzie?" },
                 { speaker: "Mackenzie", text: "I'm finding it hard, actually." },
