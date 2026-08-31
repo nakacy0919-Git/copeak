@@ -786,7 +786,8 @@
                 if (currentCourseType === 'minimal') {
                     const targetIsA = isDirectCoaching ? directCoachingTargetIsA : voiceCheckSession.currentTargetIsA;
                     const coachSymbolKey = targetIsA ? c.coachA : c.coachB;
-                    imgHtml = `<img src="coach_images/coach_${coachSymbolKey}.png" alt="口の形" class="w-full h-full object-contain" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\\'text-stone-400 text-xs font-bold\\'>画像準備中...</span>';">`;
+                    // ★ 修正部分： .webp を優先し、なければ .png を探す安全なフォールバック設計
+                    imgHtml = `<img src="coach_images/coach_${coachSymbolKey}.webp" alt="口の形" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='coach_images/coach_${coachSymbolKey}.png'; this.onerror=function(){this.style.display='none'; this.parentElement.innerHTML='<span class=\\'text-stone-400 text-xs font-bold\\'>画像準備中...</span>';};">`;
                 } else {
                     imgHtml = `<span class="text-6xl md:text-8xl">${coach.symbol}</span>`;
                 }
@@ -1025,9 +1026,11 @@
                     feedbackHtml = `<div class="min-h-[4rem] flex flex-col items-center justify-center"><p class="text-${themeColor}-600 text-sm md:text-base font-bold animate-pulse tracking-widest">Listening... (話してください)</p></div>`;
                 } else if (phraseSession.resultStatus === 'clear' || phraseSession.resultStatus === 'close') {
                     const isPerfect = phraseSession.resultStatus === 'clear';
+                    // ダミーデータの場合は強制クリア表示
+                    const matchText = phraseSession.data.translation.includes("データ未登録") ? "Auto Clear" : `${phraseSession.matchedWords} / ${totalTargets}`;
                     feedbackHtml = `
                         <div class="min-h-[4rem] flex flex-col items-center justify-center">
-                            <span class="${isPerfect ? 'text-emerald-600' : 'text-amber-500'} font-black text-lg md:text-xl tracking-[0.2em] uppercase">Target Sound Match: ${phraseSession.matchedWords} / ${totalTargets}</span>
+                            <span class="${isPerfect ? 'text-emerald-600' : 'text-amber-500'} font-black text-lg md:text-xl tracking-[0.2em] uppercase">Target Sound Match: ${matchText}</span>
                             <span class="text-stone-500 text-sm md:text-base font-bold mt-2">Recognized as: <span class="text-stone-800 bg-stone-100 px-3 py-1 rounded shadow-sm">${recognizedText}</span></span>
                         </div>`;
                 } else if (phraseSession.resultStatus === 'retry') {
@@ -1059,7 +1062,7 @@
                         
                         ${feedbackHtml}
                         
-                        ${(phraseSession.resultStatus === 'clear' || phraseSession.resultStatus === 'close') ? `<button onclick="${isSentence ? "proceedToNextFrom('sentence')" : "proceedToNextFrom('phrase')"}" class="mt-8 w-full md:w-auto px-10 py-3 md:py-4 bg-stone-800 hover:bg-stone-700 text-white font-black text-sm md:text-base rounded-full shadow-lg transition transform hover:scale-105 tracking-widest">${getNextPhaseLabel(isSentence ? 'sentence' : 'phrase')}</button>` : ''}
+                        ${(phraseSession.resultStatus === 'clear' || phraseSession.resultStatus === 'close') ? `<button onclick="${isSentence ? "proceedToNextFrom('sentence')" : "proceedToNextFrom('phrase')"}" class="mt-8 w-full md:w-auto px-10 py-3 md:py-4 bg-stone-800 hover:bg-stone-700 text-white font-black text-sm md:text-base rounded-full shadow-lg transition transform hover:scale-105 tracking-widest">${isSentence ? getNextPhaseLabel('sentence') : getNextPhaseLabel('phrase')}</button>` : ''}
                     </div>
                 `;
             }
