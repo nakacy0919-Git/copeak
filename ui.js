@@ -411,23 +411,19 @@ function showRecordingState() {
 }
 
 function showResultState() {
-    // 👇👇👇【追加】中止ボタンが押された後の時間差ゾンビバグを完全にブロックする防護壁 👇👇👇
     if (window.isCopeakCanceling) {
         window.isCopeakCanceling = false;
-        // 時間差で遅れて履歴に追加されてしまったゴミデータがあれば綺麗に消去する
         if (currentCustomLesson && currentCustomLesson.history) {
             while (currentCustomLesson.history.length > (window.historyLengthBeforeCancel || 0)) {
                 currentCustomLesson.history.pop();
             }
             if (typeof saveLessons === 'function') saveLessons();
         }
-        // 強制的に初期画面へ引き戻す
         if (typeof resetLearningState === 'function') {
             resetLearningState();
         }
         return;
     }
-    // 👆👆👆 ここまでを追加 👆👆👆
 
     document.body.classList.remove('immersive-mode');
 
@@ -440,7 +436,6 @@ function showResultState() {
     
     const micBtn = document.getElementById('micBtn');
 
-    // ★追加: 中止ボタンを隠す
     const cancelBtn = document.getElementById('cancelRecordingBtn');
     if (cancelBtn) cancelBtn.style.display = 'none';
 
@@ -643,18 +638,15 @@ function renderChart() {
         options: {
             responsive: true, maintainAspectRatio: false, 
             interaction: { mode: 'index', intersect: false },
-            // ★追加: グラフの点（またはその縦ライン）をタップした時のマジック
             onClick: (e, elements) => {
                 if (elements.length > 0) {
                     const dataIndex = elements[0].index;
-                    closeChartModal(); // グラフをスッと閉じる
+                    closeChartModal(); 
                     
                     const savedProfile = localStorage.getItem('copeak_student_profile');
                     if (!savedProfile) {
-                        // プロフィール未登録なら先に登録画面へ
                         document.getElementById('studentProfileModal').classList.remove('hidden');
                     } else {
-                        // 登録済みなら、タップした「その回」の成績送信（振り返り）画面へ直行！
                         selectHistoryLog(dataIndex);
                     }
                 }
@@ -678,9 +670,6 @@ function closeModeGuide() {
     if (modal) modal.classList.add('hidden');
 }
 
-// ==========================================
-// ★修正: 共有リンク生成機能 (短縮APIを廃止し、安全な直接リンクをコピー)
-// ==========================================
 async function generateShareLink() {
     if (!currentCustomLesson) return;
     
@@ -705,13 +694,10 @@ async function generateShareLink() {
         paramsConfig.form = savedFormUrl;
     }
 
-    // 🌟 追加: 会話文(Dialogue)モードのデータがあればURLパラメータに含める
     if (currentCustomLesson.type === 'dialogue' && currentCustomLesson.dialogue) {
         paramsConfig.type = 'dialogue';
-        // 配列データを文字列(JSON)に変換してURLに乗せる
         paramsConfig.dialogue = JSON.stringify(currentCustomLesson.dialogue);
     }
-    // メモ画像はBase64が長すぎるためURLに乗せません（仕様通り）
     
     const params = new URLSearchParams(paramsConfig);
     const longUrl = `${baseUrl}?${params.toString()}`;
@@ -729,9 +715,7 @@ async function generateShareLink() {
         if (typeof showMsg === 'function') showMsg("⚠️ リンクのコピーに失敗しました");
     }
 }
-// ==========================================
-// ★追加: AI音声 (Text-to-Speech) コントロール
-// ==========================================
+
 let aiUtterance = null;
 
 function toggleAIVoice() {
@@ -763,20 +747,16 @@ function toggleAIVoice() {
     btn.classList.remove('bg-purple-600', 'hover:bg-purple-700');
     btn.classList.add('bg-red-600', 'hover:bg-red-700');
 }
-// ==========================================
-// ★追加: 生徒成績管理 & Googleフォーム自動送信システム (履歴選択・裏口送信版)
-// ==========================================
-let selectedLogToSubmit = null; // 生徒が選択した過去の成績ログを一時保存する変数
 
-// 結果画面が表示されたときに、提出ボタンを出すか出さないか制御する
+let selectedLogToSubmit = null; 
+
 const originalShowResultState = showResultState;
 showResultState = function() {
-    originalShowResultState(); // 元々の結果表示処理を実行
+    originalShowResultState(); 
     
     const submitBtn = document.getElementById('submitScoreTriggerBtn');
     if (!submitBtn) return;
 
-    // 現在の教材にformUrl（提出先）が設定されている場合のみ、送信ボタンを表示する
     if (currentCustomLesson && currentCustomLesson.formUrl) {
         submitBtn.classList.remove('hidden');
     } else {
@@ -784,20 +764,16 @@ showResultState = function() {
     }
 };
 
-// 1. 提出ボタンが押されたときの最初の窓口
 function openReflectionWrapper() {
     const savedProfile = localStorage.getItem('copeak_student_profile');
     
     if (!savedProfile) {
-        // 保存されていなければ、先にプロフィール登録モーダルを開く
         document.getElementById('studentProfileModal').classList.remove('hidden');
     } else {
-        // 保存されていれば、新設した「過去の成績一覧ポップアップ」を開く
         openHistorySelectModal();
     }
 }
 
-// 2. 生徒プロフィールの保存
 function saveStudentProfile() {
     const cls = document.getElementById('studentClassInput').value.trim();
     const num = document.getElementById('studentNumInput').value.trim();
@@ -812,10 +788,9 @@ function saveStudentProfile() {
     localStorage.setItem('copeak_student_profile', JSON.stringify(profile));
     
     document.getElementById('studentProfileModal').classList.add('hidden');
-    openHistorySelectModal(); // プロフィール登録後、履歴選択へ進む
+    openHistorySelectModal(); 
 }
 
-// 新設 2.5. 過去の成績一覧をポップアップで表示する機能
 function openHistorySelectModal() {
     const oldModal = document.getElementById('historySelectModal');
     if (oldModal) oldModal.remove();
@@ -828,7 +803,6 @@ function openHistorySelectModal() {
     if (!currentCustomLesson || !currentCustomLesson.history || currentCustomLesson.history.length === 0) {
         historyHtml = `<p class="text-center text-stone-400 py-8 text-sm">練習履歴がまだありません。</p>`;
     } else {
-        // 新しい履歴が上に来るように（降順）リストを生成
         const reversedHistory = [...currentCustomLesson.history].reverse();
         reversedHistory.forEach((log, index) => {
             const originalIndex = currentCustomLesson.history.length - 1 - index;
@@ -872,15 +846,13 @@ function closeHistorySelectModal() {
 
 function selectHistoryLog(index) {
     if (!currentCustomLesson || !currentCustomLesson.history) return;
-    // 生徒が選んだ特定の回のログをセット
     selectedLogToSubmit = currentCustomLesson.history[index];
-    selectedLogToSubmit.displayIndex = index + 1; // 何回目の練習か記録保持
+    selectedLogToSubmit.displayIndex = index + 1; 
     
     closeHistorySelectModal();
-    openReflectionModal(); // 振り返り（最終確認）モーダルへ進む
+    openReflectionModal(); 
 }
 
-// 3. 振り返りモーダルを開き、選択された過去のスコアをプレビュー表示
 function openReflectionModal() {
     if (!selectedLogToSubmit) return;
 
@@ -892,20 +864,18 @@ function openReflectionModal() {
     if (selectedLogToSubmit.mode === 'memo') modeStr = '🧠 Vanish';
     if (selectedLogToSubmit.mode === 'paced') modeStr = '⚡️ Paced';
 
-    // 選択された回の情報を画面にプレビュー表示
     document.getElementById('submitScorePreview').innerText = `【選択中: 第 ${selectedLogToSubmit.displayIndex} 回目の記録】 Accuracy: ${scoreText} / Speed: ${wpmText} WPM`;
     document.getElementById('submitModePreview').innerText = modeStr;
-    document.getElementById('reflectionInput').value = ""; // 入力欄をリセット
+    document.getElementById('reflectionInput').value = ""; 
     
     document.getElementById('reflectionModal').classList.remove('hidden');
 }
 
 function closeReflectionModal() {
     document.getElementById('reflectionModal').classList.add('hidden');
-    selectedLogToSubmit = null; // リセット
+    selectedLogToSubmit = null; 
 }
 
-// 4. 【選んだログを送信】Googleフォームへのデータ裏口自動送信（POST）
 async function submitScoreToForm() {
     if (!currentCustomLesson || !currentCustomLesson.formUrl || !selectedLogToSubmit) return;
 
@@ -922,11 +892,10 @@ async function submitScoreToForm() {
     finalSubmitBtn.disabled = true;
     finalSubmitBtn.innerHTML = "⏳ 送信中...";
 
-    // 選択された過去のログデータから送信値を確定させる
     const accuracy = String(selectedLogToSubmit.score);
     const wpm = String(selectedLogToSubmit.wpm);
     const comp = String(selectedLogToSubmit.comp || 0);
-    const targetPlayCount = String(selectedLogToSubmit.displayIndex); // 選択されたのが「何回目」のデータか
+    const targetPlayCount = String(selectedLogToSubmit.displayIndex);
 
     let modeStr = 'Read';
     if (selectedLogToSubmit.mode === 'shadowing') modeStr = 'Shadowing';
@@ -947,7 +916,7 @@ async function submitScoreToForm() {
     formData.append('entry.928123739', wpm);
     formData.append('entry.1611039041', comp);
     formData.append('entry.1534604696', modeStr);
-    formData.append('entry.695903918', targetPlayCount); // 選んだ回数を送信！
+    formData.append('entry.695903918', targetPlayCount);
     formData.append('entry.80945765', reflection);
 
     try {
@@ -961,7 +930,6 @@ async function submitScoreToForm() {
         if (typeof showMsg === 'function') showMsg("🚀 選択した成績と内省を先生に送信しました！");
         closeReflectionModal();
         
-        // 提出完了したらメインのトリガーボタンを隠す
         const triggerBtn = document.getElementById('submitScoreTriggerBtn');
         if(triggerBtn) triggerBtn.classList.add('hidden');
         
@@ -972,11 +940,7 @@ async function submitScoreToForm() {
         finalSubmitBtn.innerHTML = "<span>🚀</span> この内容で送信する";
     }
 }
-// ==========================================
-// ★追加: 先生用設定 (フォームURL) の保存と読み込み
-// ==========================================
 
-// ページ読み込み時に、保存されているフォームURLを復元する
 window.addEventListener('DOMContentLoaded', () => {
     const savedFormUrl = localStorage.getItem('copeak_teacher_form_url');
     const inputEl = document.getElementById('teacherFormUrlInput');
@@ -985,12 +949,10 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// 保存ボタンが押されたときの処理
 function saveTeacherFormUrl() {
     const inputUrl = document.getElementById('teacherFormUrlInput').value.trim();
     
     if (inputUrl === "") {
-        // 空欄で保存した場合は登録解除
         localStorage.removeItem('copeak_teacher_form_url');
         if (typeof showMsg === 'function') showMsg("🗑️ 成績回収フォームの登録を解除しました");
         return;
@@ -1001,15 +963,10 @@ function saveTeacherFormUrl() {
         return;
     }
 
-    // ローカルストレージに保存
     localStorage.setItem('copeak_teacher_form_url', inputUrl);
     if (typeof showMsg === 'function') showMsg("✅ 成績回収フォームのURLを保存しました！");
 }
-// ==========================================
-// ★追加: 教員モード (Teacher Mode) の制御
-// ==========================================
 
-// ページ読み込み時に状態を復元（先生の端末は常にオンにしておくため）
 window.addEventListener('DOMContentLoaded', () => {
     const isTeacherMode = localStorage.getItem('copeak_teacher_mode') === 'true';
     const area = document.getElementById('teacherModeArea');
@@ -1018,13 +975,11 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// フッターの秘密のボタンが押されたときの処理
 function toggleTeacherMode() {
     const area = document.getElementById('teacherModeArea');
     if (!area) return;
 
     if (area.style.display === 'none' || area.style.display === '') {
-        // パスワードの代わりに、確認アラートで生徒の誤操作を防ぐ
         const confirmOpen = confirm("教員用の教材作成・設定メニューを開きますか？\n（生徒には操作させないでください）");
         if (confirmOpen) {
             area.style.display = 'flex';
@@ -1038,22 +993,17 @@ function toggleTeacherMode() {
     }
 }
 
-// ==========================================
-// ★追加: オープニング スプラッシュスクリーン (音声なし・豪華アニメーション完全版)
-// ==========================================
 window.addEventListener('DOMContentLoaded', () => {
-    // 1. アニメーション用のCSSを裏側で生成して追加
     const style = document.createElement('style');
     style.innerHTML = `
-        /* 全体の登場・ワープアニメーション */
         @keyframes splashEntrance {
             0% { opacity: 0; transform: translateY(40px) scale(0.9); filter: blur(10px); }
             100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
         }
         @keyframes warpExit {
             0% { transform: scale(1); opacity: 1; filter: blur(0); }
-            20% { transform: scale(0.95); opacity: 1; filter: blur(0); } /* 一瞬引くタメ */
-            100% { transform: scale(6); opacity: 0; filter: blur(20px); visibility: hidden; } /* 手前にワープ */
+            20% { transform: scale(0.95); opacity: 1; filter: blur(0); }
+            100% { transform: scale(6); opacity: 0; filter: blur(20px); visibility: hidden; }
         }
         .animate-splash-entrance {
             animation: splashEntrance 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s forwards;
@@ -1062,24 +1012,21 @@ window.addEventListener('DOMContentLoaded', () => {
             animation: warpExit 1.2s cubic-bezier(0.7, 0, 0.2, 1) forwards;
             pointer-events: none;
         }
-
-        /* 先生ご指定のテキストアニメーション */
         .mach-anim-text {
             display: inline-block;
-            font-size: 2rem; /* スマホでもはみ出さないサイズに微調整 */
+            font-size: 2rem;
             font-weight: 900;
             color: white;
             position: relative;
-            font-family: 'Lora', serif; /* Copeakのブランドフォントに合わせる */
+            font-family: 'Lora', serif;
             text-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
         @media (min-width: 768px) {
-            .mach-anim-text { font-size: 3rem; } /* PCでは大きく */
+            .mach-anim-text { font-size: 3rem; }
         }
         .mach-anim-text span {
             display: inline-block;
             animation: mach-text-fade-up 1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
-            /* スプラッシュ全体の登場を少し待ってから文字を出し始める (+0.5s) */
             animation-delay: calc(0.5s + (var(--char-index) * 0.05s));
         }
         @keyframes mach-text-fade-up {
@@ -1089,7 +1036,6 @@ window.addEventListener('DOMContentLoaded', () => {
     `;
     document.head.appendChild(style);
 
-    // 2. スプラッシュ画面のHTML要素を裏側で組み立てる
     const splash = document.createElement('div');
     splash.id = 'dynamicSplashScreen';
     splash.className = 'fixed inset-0 z-[9999] flex flex-col items-center justify-center overflow-hidden transition-colors duration-1000';
@@ -1103,15 +1049,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
         <div id="splashContent" class="relative z-10 flex flex-col items-center opacity-0 animate-splash-entrance">
             <img src="logo.png" alt="Copeak Logo" class="w-40 md:w-56 mb-4 drop-shadow-2xl">
-            
             <p class="text-emerald-400 font-bold tracking-[0.3em] uppercase text-[10px] md:text-xs mb-6 opacity-80">English Shadowing Platform</p>
-            
             <div class="mach-anim-text mb-12 text-center" role="text" aria-label="Welcome to Copeak!">
                 <span style="--char-index: 0;">W</span><span style="--char-index: 1;">e</span><span style="--char-index: 2;">l</span><span style="--char-index: 3;">c</span><span style="--char-index: 4;">o</span><span style="--char-index: 5;">m</span><span style="--char-index: 6;">e</span>
                 <span style="--char-index: 7; margin-left: 0.4em;">t</span><span style="--char-index: 8;">o</span>
                 <span style="--char-index: 9; margin-left: 0.4em; color: #34d399;">C</span><span style="--char-index: 10; color: #34d399;">o</span><span style="--char-index: 11; color: #34d399;">p</span><span style="--char-index: 12; color: #34d399;">e</span><span style="--char-index: 13; color: #34d399;">a</span><span style="--char-index: 14; color: #34d399;">k</span><span style="--char-index: 15; color: #34d399;">!</span>
             </div>
-            
             <button id="enterCopeakBtn" class="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/30 text-white rounded-full backdrop-blur-md font-bold text-lg md:text-xl transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_30px_rgba(16,185,129,0.4)] flex items-center gap-3 group">
                 <span class="tracking-widest">ENTER COPEAK</span>
                 <span class="group-hover:translate-x-1 transition-transform">➔</span>
@@ -1120,24 +1063,17 @@ window.addEventListener('DOMContentLoaded', () => {
     `;
     document.body.appendChild(splash);
 
-    // 3. ボタンを押した時の「吸い込まれる」処理（音声なし）
     document.getElementById('enterCopeakBtn').addEventListener('click', () => {
-        // ワープアニメーションを発動
         splash.classList.add('warp-animation');
-        
-        // 1.2秒後（吸い込まれ終わった後）に、この画面自体を完全に消去して軽くする
         setTimeout(() => {
             splash.remove();
         }, 1200);
     });
 });
 
-// ==========================================
-// ★追加改修: 1:1画像分割フルスクリーン予行練習機能
-// ==========================================
 let fsAiUtterance = null;
 let isFsAudioPlaying = false;
-window.isFsImageShowing = false; // フルスクリーン時の画像表示状態管理
+window.isFsImageShowing = false; 
 
 function openFullscreenPreview() {
     if (!currentCustomLesson) return;
@@ -1147,16 +1083,12 @@ function openFullscreenPreview() {
 
     const overlay = document.createElement('div');
     overlay.id = 'fullscreenPreviewOverlay';
-    // 画面全体を覆うベースレイヤー
     overlay.className = 'fixed top-0 left-0 w-full h-[100dvh] z-[9999] bg-[#faf8f5] flex flex-col transition-all duration-300 opacity-0 overflow-hidden';
     
     overlay.innerHTML = `
-        <!-- 上部ヘッダー -->
         <div class="flex items-center justify-between p-4 md:p-6 border-b border-stone-200 bg-white shadow-sm shrink-0 z-20">
             <div class="flex items-center gap-3">
                 <button onclick="closeFullscreenPreview()" class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-stone-100 hover:bg-stone-300 text-stone-600 font-bold text-xl transition shadow-inner border border-stone-200">✕</button>
-                
-                <!-- 🌟 メモ画像ON/OFFボタン（教材に画像がある時だけ表示される） -->
                 <button id="fsToggleImageBtn" onclick="toggleFsMemoImage()" class="hidden px-3 py-2 bg-emerald-100 hover:bg-emerald-200 text-emerald-700 font-bold rounded-sm text-xs transition border border-emerald-200 shadow-sm flex items-center gap-1.5 whitespace-nowrap">
                     🖼️ <span class="hidden sm:inline">画像 OFF</span>
                 </button>
@@ -1167,16 +1099,10 @@ function openFullscreenPreview() {
                 <button id="fsOriginalAudioBtn" onclick="toggleFsOriginalAudio()" class="hidden px-3 md:px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs md:text-sm font-bold rounded-sm shadow-md transition flex items-center gap-1">▶️ <span class="hidden sm:inline">お手本再生</span></button>
             </div>
         </div>
-        
-        <!-- 下部メインコンテンツ (Flexで左右に割る) -->
         <div class="flex-1 flex overflow-hidden w-full max-w-[1600px] mx-auto">
-            
-            <!-- 🌟 左側: メモ画像エリア (初期はhidden) -->
             <div id="fsImagePane" class="w-1/2 h-full bg-stone-100 border-r border-stone-200 p-4 md:p-8 hidden flex-col justify-center items-center transition-all duration-300">
                 <img id="fsMemoImageDisplay" src="" alt="Memo" class="w-full h-full object-contain drop-shadow-sm rounded-md">
             </div>
-
-            <!-- 🌟 右側: テキストエリア (初期はw-fullで画面全体) -->
             <div id="fsTextPane" class="w-full h-full overflow-y-auto p-6 md:p-12 lg:p-16 pb-40 transition-all duration-300 relative" style="-webkit-overflow-scrolling: touch;">
                 <div id="fsEngContainer" class="text-2xl md:text-4xl leading-relaxed md:leading-[2.5] text-stone-800 font-medium serif-font max-w-4xl mx-auto"></div>
                 <div id="fsJpnContainer" class="text-base md:text-xl text-stone-500 max-w-4xl mx-auto border-t-2 border-dashed border-stone-300 pt-8 mt-8 hidden leading-relaxed"></div>
@@ -1188,24 +1114,20 @@ function openFullscreenPreview() {
 
     document.getElementById('fsTitleDisplay').innerText = currentCustomLesson.title ? currentCustomLesson.title.replace('🔗 ', '') : 'Preview';
     
-    // 🌟 画像のセットアップ
     const fsToggleBtn = document.getElementById('fsToggleImageBtn');
     const fsImageDisplay = document.getElementById('fsMemoImageDisplay');
     
     if (currentCustomLesson.memoImage) {
         fsImageDisplay.src = currentCustomLesson.memoImage;
         fsToggleBtn.classList.remove('hidden');
-        
-        // 先生の要望通り、画像が存在する場合は最初から1:1表示(ON)の状態で開く
-        window.isFsImageShowing = false; // toggle関数で反転させてtrueにするため
+        window.isFsImageShowing = false; 
         window.toggleFsMemoImage();
     } else {
         fsToggleBtn.classList.add('hidden');
-        window.isFsImageShowing = true; // 強制的にOFF状態にするため
+        window.isFsImageShowing = true; 
         window.toggleFsMemoImage();
     }
 
-    // 会話文かどうかの判定と描画
     let engHtml = "";
     if (currentCustomLesson.type === 'dialogue' && currentCustomLesson.dialogue) {
         currentCustomLesson.dialogue.forEach(line => {
@@ -1241,7 +1163,6 @@ function openFullscreenPreview() {
     });
 }
 
-// 🌟 画像ON/OFF切り替えロジック
 window.toggleFsMemoImage = function() {
     window.isFsImageShowing = !window.isFsImageShowing;
     
@@ -1252,7 +1173,6 @@ window.toggleFsMemoImage = function() {
     if (!imgPane || !txtPane || !btn) return;
 
     if (window.isFsImageShowing) {
-        // 画像ON (1:1分割)
         imgPane.classList.remove('hidden');
         imgPane.classList.add('flex');
         txtPane.classList.remove('w-full');
@@ -1263,7 +1183,6 @@ window.toggleFsMemoImage = function() {
         btn.classList.replace('text-emerald-700', 'text-stone-600');
         btn.classList.replace('border-emerald-200', 'border-stone-300');
     } else {
-        // 画像OFF (テキスト全画面)
         imgPane.classList.add('hidden');
         imgPane.classList.remove('flex');
         txtPane.classList.remove('w-1/2');
@@ -1280,18 +1199,16 @@ function closeFullscreenPreview() {
     const overlay = document.getElementById('fullscreenPreviewOverlay');
     if (!overlay) return;
     
-    // 音声の停止
     if (window.speechSynthesis.speaking) window.speechSynthesis.cancel();
     const audioPlayer = document.getElementById('audioPlayer');
     if (audioPlayer) audioPlayer.pause();
     isFsAudioPlaying = false;
     
-    // アニメーションで消してから、DOM（裏側）から完全に消し去る
     overlay.classList.remove('opacity-100');
     overlay.classList.add('opacity-0');
     setTimeout(() => {
         overlay.remove(); 
-        document.body.style.overflow = ''; // スクロールロック解除
+        document.body.style.overflow = '';
     }, 300);
 }
 
@@ -1364,43 +1281,83 @@ function toggleFsOriginalAudio() {
         };
     }
 }
+
 // ==========================================
-// ★追加: 未発話語彙リストをポップアップ（モーダル窓）で表示する機能
+// ★追加・改修: 未発話語彙リストと個別発音練習機能
 // ==========================================
+let currentMissingWords = [];
+let currentMissingWordIndex = 0;
+let mwRecognition = null;
+let isMissingWordRecording = false;
+
+if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    mwRecognition = new SpeechRecognition();
+    mwRecognition.continuous = false;
+    mwRecognition.interimResults = false;
+
+    mwRecognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript.toLowerCase().replace(/[^a-z0-9\u00C0-\u017F\u0900-\u097F']/gi, '');
+        const targetWord = currentMissingWords[currentMissingWordIndex].toLowerCase();
+        const feedbackEl = document.getElementById('mwFeedback');
+
+        if (transcript.includes(targetWord) || targetWord === transcript) {
+            feedbackEl.innerHTML = `<span class="text-emerald-600 text-lg">✨ CLEAR!</span> <span class="text-xs text-stone-400 block mt-1">(Recognized: ${transcript})</span>`;
+        } else {
+            feedbackEl.innerHTML = `<span class="text-orange-500 text-lg">❌ Close...</span> <span class="text-xs text-stone-400 block mt-1">(Recognized: ${transcript})</span>`;
+        }
+        isMissingWordRecording = false;
+        updateMwMicBtnUI();
+    };
+
+    mwRecognition.onerror = (event) => {
+        const feedbackEl = document.getElementById('mwFeedback');
+        if(feedbackEl) feedbackEl.innerHTML = `<span class="text-red-500">エラーが発生しました</span>`;
+        isMissingWordRecording = false;
+        updateMwMicBtnUI();
+    };
+
+    mwRecognition.onend = () => {
+        isMissingWordRecording = false;
+        updateMwMicBtnUI();
+    };
+}
+
 function openMissingWordsModal() {
     const oldModal = document.getElementById('missingWordsModal');
     if (oldModal) oldModal.remove();
 
     if (!currentCustomLesson || !currentCustomLesson.eng) return;
 
-    // 1. お手本の英文から純粋な単語リストを抽出
-    const targetText = currentCustomLesson.eng.toLowerCase().replace(/[^a-z0-9\s']/gi, '');
+    const targetText = currentCustomLesson.eng.toLowerCase().replace(/[^a-z0-9\u00C0-\u017F\u0900-\u097F\s']/gi, '');
     const targetWords = targetText.split(/\s+/).filter(w => w);
 
-    // 2. 認識された音声テキストを抽出
     const recDisplay = document.getElementById('recognizedTextDisplay');
-    const spokenText = (recDisplay && !recDisplay.innerText.includes('※')) ? recDisplay.innerText.toLowerCase().replace(/[^a-z0-9\s']/gi, '') : '';
+    const spokenText = (recDisplay && !recDisplay.innerText.includes('※')) ? recDisplay.innerText.toLowerCase().replace(/[^a-z0-9\u00C0-\u017F\u0900-\u097F\s']/gi, '') : '';
     const spokenWords = spokenText.split(/\s+/).filter(w => w);
 
-    // 3. 含まれなかった単語をフィルタリング（重複カット）
     const missingWords = targetWords.filter(word => !spokenWords.includes(word));
-    const uniqueMissingWords = [...new Set(missingWords)];
+    currentMissingWords = [...new Set(missingWords)];
 
-    // 4. モーダル（ポップアップ）を動的に生成
     const modal = document.createElement('div');
     modal.id = 'missingWordsModal';
     modal.className = 'fixed inset-0 z-[10000] bg-black/60 flex items-center justify-center p-4 backdrop-blur-sm animate-fade-in';
+    document.body.appendChild(modal);
+
+    renderMissingWordsListView();
+}
+
+function renderMissingWordsListView() {
+    const modal = document.getElementById('missingWordsModal');
+    if (!modal) return;
 
     let listHtml = '';
-    if (uniqueMissingWords.length === 0) {
+    if (currentMissingWords.length === 0) {
         listHtml = `<p class="text-sm text-emerald-600 font-bold py-8 text-center">🎉 素晴らしい！すべての単語が完璧に認識されています。</p>`;
     } else {
         listHtml = `<div class="flex flex-wrap gap-2 max-h-[35vh] overflow-y-auto p-1 border border-stone-100 bg-stone-50 rounded-sm p-3 text-left">`;
-        uniqueMissingWords.forEach(word => {
-            // ★修正: アポストロフィ(')が含まれる単語（例: don't）でエラーが起きないようにエスケープ処理
-            const escapedWord = word.replace(/'/g, "\\'");
-            // ★修正: onclickで発音機能を追加し、マウスオーバーで色が変わる（押せる感）UIに変更
-            listHtml += `<span onclick="speakWord('${escapedWord}')" class="px-2.5 py-1.5 bg-white border border-orange-200 rounded-sm text-xs font-bold text-orange-700 shadow-sm cursor-pointer hover:bg-orange-500 hover:text-white transition-colors active:scale-95 flex items-center gap-1" title="タップして発音を聞く">🔊 ${word}</span>`;
+        currentMissingWords.forEach((word, index) => {
+            listHtml += `<span onclick="startMissingWordPractice(${index})" class="px-2.5 py-1.5 bg-white border border-stone-300 rounded-sm text-xs font-bold text-stone-700 shadow-sm cursor-pointer hover:bg-emerald-50 hover:border-emerald-400 hover:text-emerald-800 transition-colors active:scale-95 flex items-center gap-1" title="タップして練習する">🎯 ${word}</span>`;
         });
         listHtml += `</div>`;
     }
@@ -1411,72 +1368,160 @@ function openMissingWordsModal() {
                 <h3 class="font-black text-base md:text-lg text-orange-800 flex items-center gap-1.5">⚠️ 未発話・認識されなかった語彙</h3>
                 <button onclick="closeMissingWordsModal()" class="text-stone-400 hover:text-stone-600 text-lg font-bold">✕</button>
             </div>
-            <p class="text-[11px] text-stone-500 mb-4 text-left leading-relaxed">スクリプト内には存在しますが、今回の音声認識で聞き取れなかった単語です（計 ${uniqueMissingWords.length} 語）。<br><strong class="text-emerald-700 bg-emerald-50 px-1 mt-1 inline-block">💡 単語をタップすると正しい発音を確認できます。</strong></p>
+            <p class="text-[11px] text-stone-500 mb-4 text-left leading-relaxed">スクリプト内には存在しますが、今回の音声認識で聞き取れなかった単語です（計 ${currentMissingWords.length} 語）。<br><strong class="text-emerald-700 bg-emerald-50 px-1 mt-1 inline-block">💡 単語をタップすると個別発音練習ができます。</strong></p>
             
             ${listHtml}
             
             <button onclick="closeMissingWordsModal()" class="mt-5 w-full py-2.5 bg-stone-800 hover:bg-stone-900 text-white font-bold rounded-sm text-xs transition shadow-sm">閉じる</button>
         </div>
     `;
-    document.body.appendChild(modal);
+}
+
+function startMissingWordPractice(index) {
+    currentMissingWordIndex = index;
+    renderMissingWordPracticeView();
+}
+
+function renderMissingWordPracticeView() {
+    const modal = document.getElementById('missingWordsModal');
+    if (!modal) return;
+
+    const word = currentMissingWords[currentMissingWordIndex];
+    const escapedWord = word.replace(/'/g, "\\'");
+    const isFirst = currentMissingWordIndex === 0;
+    const isLast = currentMissingWordIndex === currentMissingWords.length - 1;
+
+    modal.innerHTML = `
+        <div class="bg-white rounded-sm max-w-md w-full p-6 flex flex-col shadow-xl border border-stone-300">
+            <div class="flex justify-between items-center mb-4 border-b border-stone-200 pb-2">
+                <button onclick="renderMissingWordsListView()" class="text-stone-500 hover:text-stone-800 font-bold text-xs flex items-center gap-1">◀ リストへ戻る</button>
+                <span class="text-xs font-bold text-stone-400 tracking-widest">${currentMissingWordIndex + 1} / ${currentMissingWords.length}</span>
+                <button onclick="closeMissingWordsModal()" class="text-stone-400 hover:text-stone-600 text-lg font-bold">✕</button>
+            </div>
+
+            <div class="text-center py-6">
+                <p class="text-[10px] text-stone-400 font-bold tracking-widest uppercase mb-1">Target Word</p>
+                <h3 class="text-4xl md:text-5xl font-black text-stone-800 mb-6 serif-font tracking-tight capitalize" id="mwTargetWord">${word}</h3>
+
+                <div class="flex justify-center gap-3 md:gap-4 mb-4">
+                    <button onclick="speakWord('${escapedWord}')" class="px-4 py-2.5 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold rounded-full transition text-sm flex items-center gap-1.5 border border-stone-300 shadow-sm">
+                        🔊 お手本
+                    </button>
+                    <button onclick="toggleMissingWordMic()" id="mwMicBtn" class="px-6 py-2.5 bg-stone-800 hover:bg-stone-700 text-white font-bold rounded-full transition text-sm flex items-center gap-1.5 shadow-md">
+                        🎤 発音する
+                    </button>
+                </div>
+
+                <div id="mwFeedback" class="h-12 flex flex-col items-center justify-center text-sm font-bold text-stone-500">
+                    マイクボタンを押して発音してください
+                </div>
+            </div>
+
+            <div class="flex justify-between mt-2 pt-4 border-t border-stone-100">
+                <button onclick="navMissingWord(-1)" class="px-5 py-2.5 bg-stone-100 text-stone-600 font-bold rounded-sm text-xs transition ${isFirst ? 'opacity-30 cursor-not-allowed' : 'hover:bg-stone-200'}" ${isFirst ? 'disabled' : ''}>◀ 前の単語</button>
+                <button onclick="navMissingWord(1)" class="px-5 py-2.5 bg-emerald-600 text-white font-bold rounded-sm text-xs transition shadow-sm ${isLast ? 'opacity-30 cursor-not-allowed' : 'hover:bg-emerald-700'}" ${isLast ? 'disabled' : ''}>次の単語 ▶</button>
+            </div>
+        </div>
+    `;
+}
+
+function navMissingWord(dir) {
+    if (isMissingWordRecording) toggleMissingWordMic();
+    currentMissingWordIndex += dir;
+    if (currentMissingWordIndex < 0) currentMissingWordIndex = 0;
+    if (currentMissingWordIndex >= currentMissingWords.length) currentMissingWordIndex = currentMissingWords.length - 1;
+    renderMissingWordPracticeView();
+}
+
+function toggleMissingWordMic() {
+    if (!mwRecognition) {
+        alert("このブラウザは音声認識に対応していません。");
+        return;
+    }
+    if (isMissingWordRecording) {
+        mwRecognition.stop();
+    } else {
+        const feedbackEl = document.getElementById('mwFeedback');
+        if(feedbackEl) feedbackEl.innerHTML = `<span class="text-blue-500 animate-pulse text-lg">Listening...</span>`;
+        
+        if (currentCustomLesson && currentCustomLesson.lang) {
+            mwRecognition.lang = currentCustomLesson.lang;
+        } else {
+            mwRecognition.lang = 'en-US';
+        }
+        
+        try {
+            mwRecognition.start();
+            isMissingWordRecording = true;
+        } catch (e) {
+            isMissingWordRecording = false;
+        }
+    }
+    updateMwMicBtnUI();
+}
+
+function updateMwMicBtnUI() {
+    const btn = document.getElementById('mwMicBtn');
+    if (!btn) return;
+    if (isMissingWordRecording) {
+        btn.innerHTML = `⏹ 停止する`;
+        btn.classList.replace('bg-stone-800', 'bg-red-600');
+        btn.classList.replace('hover:bg-stone-700', 'hover:bg-red-700');
+    } else {
+        btn.innerHTML = `🎤 発音する`;
+        btn.classList.replace('bg-red-600', 'bg-stone-800');
+        btn.classList.replace('hover:bg-red-700', 'hover:bg-stone-700');
+    }
 }
 
 function closeMissingWordsModal() {
+    if (isMissingWordRecording) {
+        try { mwRecognition.stop(); } catch(e){}
+        isMissingWordRecording = false;
+    }
     const modal = document.getElementById('missingWordsModal');
     if (modal) modal.remove();
 }
 
-// ==========================================
-// ★追加: クリックされた単語をAI音声で単発読み上げする機能
-// ==========================================
 function speakWord(word) {
     if ('speechSynthesis' in window) {
-        // もし直前まで別の音声をしゃべっていたら、一度キャンセルして被らないようにする
         window.speechSynthesis.cancel();
-        
         const utterance = new SpeechSynthesisUtterance(word);
-        // 教材の言語設定（基本は英語）を引き継ぐ
         utterance.lang = (currentCustomLesson && currentCustomLesson.lang) ? currentCustomLesson.lang : 'en-US';
-        // 単語だけを聞くので、聞き取りやすいように少しだけゆっくり（0.9倍速）にする
         utterance.rate = 0.9;
-        
         window.speechSynthesis.speak(utterance);
     }
 }
+
 // ==========================================
 // ★追加: 録音を途中でキャンセルして結果を残さずに戻る機能
 // ==========================================
-window.historyLengthBeforeCancel = 0; // 履歴の数を記憶する安全弁
+window.historyLengthBeforeCancel = 0; 
 
 function cancelRecording() {
-    // ★確認ダイアログを削除（ワンタップで即座に終了）
     window.isCopeakCanceling = true;
     window.historyLengthBeforeCancel = (currentCustomLesson && currentCustomLesson.history) ? currentCustomLesson.history.length : 0;
 
-    // 正規の終了処理（FINISHボタンと同じ関数）を裏で呼んでマイクを確実に切る
     if (typeof toggleRecording === 'function') {
         toggleRecording(); 
     }
 
-    // 終了処理の完了を待たず、即座にUIをSTART（初期）画面に戻す
     if (typeof resetLearningState === 'function') {
         resetLearningState();
     }
 }
+
 // ==========================================
 // ★追加: Sound Questからの引き継ぎデータ（Transfer）を受け取る
 // ==========================================
 window.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
-        // メモリに Sound Quest からのバトンがあるかチェック
         const sqDataStr = sessionStorage.getItem('copeak_sq_transfer');
         if (sqDataStr) {
-            // バトンを受け取ったら、二度読み込まないようにメモリから消す
             sessionStorage.removeItem('copeak_sq_transfer');
             
             try {
                 const sqData = JSON.parse(sqDataStr);
-                // Copeak用の学習データ形式に変換
                 const pseudoLesson = {
                     id: "sq_" + Date.now(),
                     title: sqData.title,
@@ -1486,7 +1531,6 @@ window.addEventListener('DOMContentLoaded', () => {
                     target: "custom"
                 };
                 
-                // 強制的に学習画面（4-Step Learning）を開く！
                 currentCustomLesson = pseudoLesson;
                 if (typeof openLearningScreen === 'function') {
                     openLearningScreen(pseudoLesson);
@@ -1498,5 +1542,5 @@ window.addEventListener('DOMContentLoaded', () => {
                 console.error("Sound Quest 連携エラー:", e);
             }
         }
-    }, 800); // 画面が完全にロードされてから発動させる
+    }, 800); 
 });
