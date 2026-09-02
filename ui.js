@@ -1283,31 +1283,116 @@ function toggleFsOriginalAudio() {
 }
 
 // ==========================================
-// ★追加・改修: 未発話語彙リストと個別発音練習機能
+// ★追加・改修: 未発話語彙リストと個別発音練習機能（爆速判定・サウンド・大文字維持 対応版）
 // ==========================================
+
+// 🌟 1. 心地よい正解サウンドを生成する関数
+function playMwSuccessSound() {
+    try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContext) return;
+        const ctx = new AudioContext();
+        
+        // ピロン♪ という明るい和音（A5, C#6, E6）を鳴らす
+        [880, 1108.73, 1318.51].forEach((freq, i) => { 
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.value = freq;
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(ctx.currentTime + i * 0.05);
+            gain.gain.setValueAtTime(0.2, ctx.currentTime + i * 0.05);
+            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + i * 0.05 + 0.5);
+            osc.stop(ctx.currentTime + i * 0.05 + 0.5);
+        });
+    } catch(e) { console.log("Audio not supported"); }
+}
+
 let currentMissingWords = [];
 let currentMissingWordIndex = 0;
 let mwRecognition = null;
 let isMissingWordRecording = false;
 
+// 未発話リスト専用の音声認識エンジンを初期化
 if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     mwRecognition = new SpeechRecognition();
     mwRecognition.continuous = false;
-    mwRecognition.interimResults = false;
+    
+    // 【レスポンス高速化】途中経過をリアルタイムで取得する
+    mwRecognition.interimResults = true; 
 
     mwRecognition.onresult = (event) => {
-        const transcript = event.results[0][0].transcript.toLowerCase().replace(/[^a-z0-9\u00C0-\u017F\u0900-\u097F']/gi, '');
         const targetWord = currentMissingWords[currentMissingWordIndex].toLowerCase();
         const feedbackEl = document.getElementById('mwFeedback');
+        const wordDisplayEl = document.getElementById('mwTargetWord');
 
-        if (transcript.includes(targetWord) || targetWord === transcript) {
-            feedbackEl.innerHTML = `<span class="text-emerald-600 text-lg">✨ CLEAR!</span> <span class="text-xs text-stone-400 block mt-1">(Recognized: ${transcript})</span>`;
-        } else {
-            feedbackEl.innerHTML = `<span class="text-orange-500 text-lg">❌ Close...</span> <span class="text-xs text-stone-400 block mt-1">(Recognized: ${transcript})</span>`;
+        // 🌟 同音異義語（文脈なしの単語発音時にAIが誤変換しやすい語）の救済リスト
+        const homophones = {
+            "to": ["two", "too", "to"],
+            "two": ["to", "too", "two"],
+            "too": ["to", "two", "too"],
+            "for": ["four", "for"],
+            "four": ["for", "four"],
+            "there": ["their", "they're", "there"],
+            "their": ["there", "they're", "their"],
+            "they're": ["there", "their", "they're"],
+            "i": ["eye", "i"],
+            "eye": ["i", "eye"],
+            "be": ["bee", "be"],
+            "bee": ["be", "bee"],
+            "know": ["no", "know"],
+            "no": ["know", "no"],
+            "here": ["hear", "here"],
+            "hear": ["here", "hear"],
+            "right": ["write", "right"],
+            "write": ["right", "write"],
+            "sea": ["see", "sea"],
+            "see": ["sea", "see"],
+            "sun": ["son", "sun"],
+            "son": ["sun", "son"],
+            "one": ["won", "one"],
+            "won": ["one", "won"],
+            "a": ["uh", "ah", "a"]
+        };
+
+        // ターゲット単語が救済リストにあればその配列を、なければターゲット単語のみを許可リストとする
+        const acceptableWords = homophones[targetWord] || [targetWord];
+
+        // 話している途中のテキストも含めてリアルタイムで判定ループ
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+            const rawTranscript = event.results[i][0].transcript.toLowerCase();
+            
+            // 🌟 修正ポイント: \s を追加してスペースを消さずに残し、単語ごとに配列（リスト）に分割する
+            const spokenWords = rawTranscript.replace(/[^a-z0-9\u00C0-\u017F\u0900-\u097F\s']/gi, '').split(/\s+/).filter(w => w);
+
+            // 🌟 修正ポイント: 「部分一致」ではなく、独立した単語として「完全一致」するかをチェックする
+            const isMatch = spokenWords.some(w => acceptableWords.includes(w));
+
+            if (isMatch) {
+                mwRecognition.stop(); 
+                playMwSuccessSound(); // サウンド再生
+                
+                feedbackEl.innerHTML = `<span class="text-emerald-600 text-2xl font-black inline-block">✨ CLEAR!</span> <span class="text-xs text-stone-400 block mt-1">(Recognized: ${rawTranscript})</span>`;
+                
+                // 単語を緑色にしてポンッと弾ませるアニメーション
+                if(wordDisplayEl) {
+                    wordDisplayEl.classList.add('text-emerald-600');
+                    wordDisplayEl.style.transform = "scale(1.2)";
+                    setTimeout(() => { wordDisplayEl.style.transform = "scale(1)"; }, 300);
+                }
+
+                isMissingWordRecording = false;
+                updateMwMicBtnUI();
+                return; // 正解したらここで処理終了
+            } else if (event.results[i].isFinal) {
+                // 最終結果までいってもダメだった場合のみ❌を出す
+                feedbackEl.innerHTML = `<span class="text-orange-500 text-lg">❌ Close...</span> <span class="text-xs text-stone-400 block mt-1">(Recognized: ${rawTranscript})</span>`;
+                isMissingWordRecording = false;
+                updateMwMicBtnUI();
+            }
         }
-        isMissingWordRecording = false;
-        updateMwMicBtnUI();
     };
 
     mwRecognition.onerror = (event) => {
@@ -1329,15 +1414,25 @@ function openMissingWordsModal() {
 
     if (!currentCustomLesson || !currentCustomLesson.eng) return;
 
-    const targetText = currentCustomLesson.eng.toLowerCase().replace(/[^a-z0-9\u00C0-\u017F\u0900-\u097F\s']/gi, '');
-    const targetWords = targetText.split(/\s+/).filter(w => w);
+    // 🌟 4. 【大文字・小文字の維持】お手本の英文から「元のケース（大文字・小文字）を維持したまま」抽出
+    const originalWords = currentCustomLesson.eng.replace(/[^a-zA-Z0-9\u00C0-\u017F\u0900-\u097F\s']/g, '').split(/\s+/).filter(w => w);
 
+    // 認識された音声テキストを抽出（比較用なので小文字化）
     const recDisplay = document.getElementById('recognizedTextDisplay');
     const spokenText = (recDisplay && !recDisplay.innerText.includes('※')) ? recDisplay.innerText.toLowerCase().replace(/[^a-z0-9\u00C0-\u017F\u0900-\u097F\s']/gi, '') : '';
     const spokenWords = spokenText.split(/\s+/).filter(w => w);
 
-    const missingWords = targetWords.filter(word => !spokenWords.includes(word));
-    currentMissingWords = [...new Set(missingWords)];
+    // 小文字同士で比較しつつ、表示用には「元の単語」を残す
+    const missingWords = originalWords.filter(word => !spokenWords.includes(word.toLowerCase()));
+    
+    // 大文字小文字の違いによる重複（例: "The" と "the"）を防ぐ
+    const uniqueMap = new Map();
+    missingWords.forEach(w => {
+        if (!uniqueMap.has(w.toLowerCase())) {
+            uniqueMap.set(w.toLowerCase(), w);
+        }
+    });
+    currentMissingWords = Array.from(uniqueMap.values());
 
     const modal = document.createElement('div');
     modal.id = 'missingWordsModal';
@@ -1347,6 +1442,7 @@ function openMissingWordsModal() {
     renderMissingWordsListView();
 }
 
+// リスト表示モード
 function renderMissingWordsListView() {
     const modal = document.getElementById('missingWordsModal');
     if (!modal) return;
@@ -1377,11 +1473,13 @@ function renderMissingWordsListView() {
     `;
 }
 
+// ドリル練習モードの開始
 function startMissingWordPractice(index) {
     currentMissingWordIndex = index;
     renderMissingWordPracticeView();
 }
 
+// ドリル練習モードUI
 function renderMissingWordPracticeView() {
     const modal = document.getElementById('missingWordsModal');
     if (!modal) return;
@@ -1401,7 +1499,8 @@ function renderMissingWordPracticeView() {
 
             <div class="text-center py-6">
                 <p class="text-[10px] text-stone-400 font-bold tracking-widest uppercase mb-1">Target Word</p>
-                <h3 class="text-4xl md:text-5xl font-black text-stone-800 mb-6 serif-font tracking-tight capitalize" id="mwTargetWord">${word}</h3>
+                <!-- 🌟 5. 大文字を勝手に変換していた「capitalize」クラスを削除 -->
+                <h3 class="text-4xl md:text-5xl font-black text-stone-800 mb-6 serif-font tracking-tight transition-all duration-300" id="mwTargetWord">${word}</h3>
 
                 <div class="flex justify-center gap-3 md:gap-4 mb-4">
                     <button onclick="speakWord('${escapedWord}')" class="px-4 py-2.5 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold rounded-full transition text-sm flex items-center gap-1.5 border border-stone-300 shadow-sm">
@@ -1426,7 +1525,7 @@ function renderMissingWordPracticeView() {
 }
 
 function navMissingWord(dir) {
-    if (isMissingWordRecording) toggleMissingWordMic();
+    if (isMissingWordRecording) toggleMissingWordMic(); // 録音中なら止める
     currentMissingWordIndex += dir;
     if (currentMissingWordIndex < 0) currentMissingWordIndex = 0;
     if (currentMissingWordIndex >= currentMissingWords.length) currentMissingWordIndex = currentMissingWords.length - 1;
@@ -1442,6 +1541,11 @@ function toggleMissingWordMic() {
         mwRecognition.stop();
     } else {
         const feedbackEl = document.getElementById('mwFeedback');
+        const wordDisplayEl = document.getElementById('mwTargetWord');
+        // 再録音時に文字の色とアニメーションを元に戻す
+        if(wordDisplayEl) wordDisplayEl.classList.remove('text-emerald-600');
+        if(wordDisplayEl) wordDisplayEl.style.transform = "scale(1)";
+        
         if(feedbackEl) feedbackEl.innerHTML = `<span class="text-blue-500 animate-pulse text-lg">Listening...</span>`;
         
         if (currentCustomLesson && currentCustomLesson.lang) {
