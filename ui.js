@@ -24,6 +24,113 @@ function showMsg(message) {
     setTimeout(() => toast.classList.remove('show-toast'), 3000);
 }
 
+
+// ==========================================
+// ★多言語対応: 音声認識・採点用ターゲットの共通生成
+// speech.js と同じ Intl.Segmenter / Unicode 正規化方針で targetTextArray を作る
+// ==========================================
+function normalizeUiTargetToken(token, lang = 'en-US') {
+    if (!token) return '';
+
+    let normalized = String(token).normalize('NFKC');
+
+    try {
+        normalized = normalized.toLocaleLowerCase(lang);
+    } catch (e) {
+        normalized = normalized.toLowerCase();
+    }
+
+    // speech.js と同じく、文字・結合文字・数字だけを比較対象にする。
+    // apostrophe / hyphen は ASR の表記揺れを吸収するため比較時には除去する。
+    return normalized
+        .replace(/[’'\-‐‑‒–—―]/g, '')
+        .replace(/[^\p{L}\p{M}\p{N}]/gu, '');
+}
+
+function segmentUiTargetText(text, lang = 'en-US') {
+    const sourceText = String(text || '');
+    if (!sourceText) return [];
+
+    // speech.js が読み込み済みなら、その分割ロジックをそのまま再利用する。
+    if (typeof segmentSpeechText === 'function') {
+        try {
+            return segmentSpeechText(sourceText, lang).map(segment => ({
+                text: segment.text,
+                isWord: segment.isWord === true,
+                normalized: segment.normalized || ''
+            }));
+        } catch (e) {
+            console.warn('segmentSpeechText fallback:', e);
+        }
+    }
+
+    // speech.js が未読込でも ui.js 単体で同じ考え方の分割ができるようにする。
+    if (typeof Intl !== 'undefined' && typeof Intl.Segmenter === 'function') {
+        try {
+            const segmenter = new Intl.Segmenter(lang || 'en-US', { granularity: 'word' });
+            return Array.from(segmenter.segment(sourceText)).map(item => {
+                const normalized = item.isWordLike === true
+                    ? normalizeUiTargetToken(item.segment, lang)
+                    : '';
+                return {
+                    text: item.segment,
+                    isWord: item.isWordLike === true && normalized !== '',
+                    normalized
+                };
+            });
+        } catch (e) {
+            console.warn('Intl.Segmenter target fallback:', e);
+        }
+    }
+
+    // 古いブラウザ向け fallback。
+    // 日本語・中国語・韓国語・タイ語は文字単位、それ以外は空白単位で分割する。
+    const hasNoSpaceScript = /[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af\u0e00-\u0e7f]/u.test(sourceText);
+
+    if (hasNoSpaceScript) {
+        return Array.from(sourceText).map(char => {
+            const normalized = normalizeUiTargetToken(char, lang);
+            return {
+                text: char,
+                isWord: normalized !== '',
+                normalized
+            };
+        });
+    }
+
+    return sourceText.split(/(\s+)/).map(part => {
+        const normalized = normalizeUiTargetToken(part, lang);
+        return {
+            text: part,
+            isWord: normalized !== '',
+            normalized
+        };
+    });
+}
+
+function buildMultilingualTargetTextArray(lesson) {
+    if (!lesson) return [];
+
+    const lang = lesson.lang || 'en-US';
+    const tokens = [];
+
+    const addTextTokens = (text) => {
+        segmentUiTargetText(text || '', lang).forEach(segment => {
+            if (segment.isWord && segment.normalized) {
+                tokens.push(segment.normalized);
+            }
+        });
+    };
+
+    if (lesson.type === 'dialogue' && Array.isArray(lesson.dialogue)) {
+        lesson.dialogue.forEach(line => addTextTokens(line && line.text ? line.text : ''));
+    } else {
+        addTextTokens(lesson.eng || '');
+    }
+
+    return tokens;
+}
+
 function switchScreen(screenId) {
     document.querySelectorAll('.screen').forEach(el => {
         el.style.display = 'none';
@@ -87,18 +194,10 @@ function openLearningScreen(lesson) {
 
     setLearningMode('reading');
     
-    // 🌟 修正: 会話文(Dialogue)かどうかで判定ターゲットの作り方を変える
-    targetTextArray = [];
-    if (lesson.type === 'dialogue' && lesson.dialogue) {
-        // 会話文の場合は、各セリフのテキストだけを抽出してターゲットにする
-        lesson.dialogue.forEach(line => {
-            const words = line.text.toLowerCase().replace(/[^a-z0-9\u00C0-\u017F\u0900-\u097F\s]/gi, '').split(/\s+/).filter(w => w);
-            targetTextArray = targetTextArray.concat(words);
-        });
-    } else {
-        // 標準テキストの場合
-        targetTextArray = lesson.eng.toLowerCase().replace(/[^a-z0-9\u00C0-\u017F\u0900-\u097F\s]/gi, '').split(/\s+/).filter(w => w);
-    }
+    // 🌟 多言語対応: 音声認識・採点用ターゲットを教材言語に合わせて生成
+    // speech.js の segmentSpeechText() が利用できる場合は同じ分割・正規化ロジックを使う。
+    // 読み込み順などで未定義の場合は ui.js 側のフォールバック処理を使う。
+    targetTextArray = buildMultilingualTargetTextArray(lesson);
     
     switchScreen('learningScreen');
     const mainScrollArea = document.getElementById('mainScrollArea');
@@ -1414,7 +1513,7 @@ let mwRecognition = null;
 let isMissingWordRecording = false;
 
 // 未発話リスト専用の音声認識エンジンを初期化
-if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+if (typeof window.SpeechRecognition === 'function' || typeof window.webkitSpeechRecognition === 'function') {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     mwRecognition = new SpeechRecognition();
     mwRecognition.continuous = false;
