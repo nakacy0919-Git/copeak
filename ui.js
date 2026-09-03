@@ -156,6 +156,69 @@ function updateTargetWpm(val) {
     if (selectEl) selectEl.value = targetWpm;
 }
 
+// ==========================================
+// ★多言語Vanish対応: 言語ごとの単語境界をブラウザ標準APIで取得
+// ==========================================
+function segmentTextForVanish(text, lang = 'en-US') {
+    const sourceText = String(text || '');
+    if (!sourceText) return [];
+
+    // Intl.Segmenter が利用できるブラウザでは、英語だけでなく
+    // 日本語・中国語・韓国語・タイ語なども言語に応じた単位で分割する
+    if (typeof Intl !== 'undefined' && typeof Intl.Segmenter === 'function') {
+        try {
+            const segmenter = new Intl.Segmenter(lang || 'en-US', { granularity: 'word' });
+            const rawSegments = Array.from(segmenter.segment(sourceText)).map(item => ({
+                text: item.segment,
+                isWord: item.isWordLike === true
+            }));
+
+            // ハイフン等でつながった語（例: well-known / teman-teman）は
+            // 従来のVanishと同じく、できるだけ1つの消去単位として扱う
+            const mergedSegments = [];
+            for (let i = 0; i < rawSegments.length; i++) {
+                const current = rawSegments[i];
+                if (
+                    current.isWord &&
+                    i + 2 < rawSegments.length &&
+                    /^[\-‐‑‒–—]$/u.test(rawSegments[i + 1].text) &&
+                    rawSegments[i + 2].isWord
+                ) {
+                    let mergedText = current.text;
+                    while (
+                        i + 2 < rawSegments.length &&
+                        /^[\-‐‑‒–—]$/u.test(rawSegments[i + 1].text) &&
+                        rawSegments[i + 2].isWord
+                    ) {
+                        mergedText += rawSegments[i + 1].text + rawSegments[i + 2].text;
+                        i += 2;
+                    }
+                    mergedSegments.push({ text: mergedText, isWord: true });
+                } else {
+                    mergedSegments.push(current);
+                }
+            }
+            return mergedSegments;
+        } catch (e) {
+            console.warn('Intl.Segmenter fallback:', e);
+        }
+    }
+
+    // フォールバック1: スペース区切りがある言語
+    if (/\s/u.test(sourceText)) {
+        return sourceText.split(/(\s+)/u).map(part => ({
+            text: part,
+            isWord: /[\p{L}\p{M}\p{N}]/u.test(part)
+        }));
+    }
+
+    // フォールバック2: 日本語・中国語など、スペースがない文章は文字単位で処理
+    return Array.from(sourceText).map(char => ({
+        text: char,
+        isWord: /[\p{L}\p{M}\p{N}]/u.test(char)
+    }));
+}
+
 function renderTargetText() {
     if (!currentCustomLesson) return;
     const engContainer = document.getElementById('engContainer');
@@ -165,25 +228,61 @@ function renderTargetText() {
 
     let finalHtml = "";
 
-    // 🌟 単語ごとの処理を行う内部関数
+    // 🌟 テキスト描画処理
+    // Read / Paced は従来処理を維持し、Vanish のときだけ多言語分割を使用する
     const processWords = (text) => {
-        const words = text.split(/(\s+)/); 
-        return words.map((word, index) => {
-            if (word.trim() === "") return word; 
-            let finalWord = word;
-            if (currentMode === 'memo' && currentMemoLevel > 0) {
-                const threshold = currentMemoLevel * 0.2; 
-                let hash = 0;
-                for (let i = 0; i < word.length; i++) hash = word.charCodeAt(i) + ((hash << 5) - hash);
-                const pseudoRandom = Math.abs(hash + index * 137) % 100 / 100;
-                if (pseudoRandom < threshold) {
-                    finalWord = word.replace(/[a-zA-Z0-9\u00C0-\u017F\u0900-\u097F']+/g, match => {
-                        return `<span class="bg-stone-300 text-transparent rounded-sm select-none">${match}</span>`;
-                    });
+        // Vanish以外は既存の表示・Paced挙動をそのまま維持
+        if (currentMode !== 'memo' || currentMemoLevel <= 0) {
+            const words = text.split(/(\s+)/);
+            return words.map(word => {
+                if (word.trim() === "") return word;
+                return `<span class="pace-word">${word}</span>`;
+            }).join('').replace(/([.?!]["']?)<\/span>\s+/g, "$1</span><br><br>");
+        }
+
+        // Vanish時はブラウザ標準の多言語単語分割を使用
+        const lang = currentCustomLesson.lang || 'en-US';
+        const segments = segmentTextForVanish(text, lang);
+        const threshold = currentMemoLevel * 0.2;
+        let wordIndex = 0;
+
+        return segments.map((segment, segmentIndex) => {
+            const segmentText = segment.text;
+
+            // 空白・句読点などは消さない
+            if (!segment.isWord) {
+                // 文末記号と閉じ引用符が別segmentになるケースにも対応
+                const prevText = segmentIndex > 0 ? segments[segmentIndex - 1].text : '';
+                const nextText = segmentIndex + 1 < segments.length ? segments[segmentIndex + 1].text : '';
+                const isSentenceEnd = /^[.?!。！？؟۔।॥]$/u.test(segmentText);
+                const isClosingQuote = /^["'”’»」』】）》〉]$/u.test(segmentText);
+                const nextIsClosingQuote = /^["'”’»」』】）》〉]$/u.test(nextText);
+                const prevIsSentenceEnd = /^[.?!。！？؟۔।॥]$/u.test(prevText);
+
+                if (isSentenceEnd && !nextIsClosingQuote) {
+                    return `${segmentText}<br><br>`;
                 }
+                if (isClosingQuote && prevIsSentenceEnd) {
+                    return `${segmentText}<br><br>`;
+                }
+                return segmentText;
             }
+
+            const index = wordIndex++;
+            let hash = 0;
+            for (let i = 0; i < segmentText.length; i++) {
+                hash = segmentText.charCodeAt(i) + ((hash << 5) - hash);
+            }
+
+            const pseudoRandom = Math.abs(hash + index * 137) % 100 / 100;
+            let finalWord = segmentText;
+
+            if (pseudoRandom < threshold) {
+                finalWord = `<span class="bg-stone-300 text-transparent rounded-sm select-none">${segmentText}</span>`;
+            }
+
             return `<span class="pace-word">${finalWord}</span>`;
-        }).join('').replace(/([.?!]["']?)<\/span>\s+/g, "$1</span><br><br>");
+        }).join('');
     };
 
     // 🌟 分岐: 会話文か、標準テキストか
