@@ -353,26 +353,138 @@ function startCustomLesson(lesson) {
     if (typeof openLearningScreen === 'function') openLearningScreen(lesson);
 }
 
-// ==========================================
-// ★追加機能: 魔法のリンク (URLパラメータ) の受け取り処理
-// ==========================================
-function checkUrlParameters() {
+async function checkUrlParameters() {
     const urlParams = new URLSearchParams(window.location.search);
+
+    // ★ Quick Share: ?l=XXXXXXXXXX
+    if (urlParams.has('l')) {
+        const shareId = urlParams.get('l')?.trim();
+        if (!shareId) return;
+
+        try {
+            // まず端末内に同じQuick Share教材があるか確認
+            const lessons = await new Promise((resolve, reject) => {
+                const tx = db.transaction([storeName], "readonly");
+                const req = tx.objectStore(storeName).getAll();
+                req.onsuccess = () => resolve(req.result);
+                req.onerror = () => reject(req.error);
+            });
+
+            const existingLesson = lessons.find(lesson => lesson.sourceShareId === shareId);
+
+            // すでに保存済みならAppwriteへアクセスしない
+            if (existingLesson) {
+                window.history.replaceState({}, document.title, window.location.pathname);
+                if (typeof showMsg === 'function') showMsg("このQuick Share教材はすでにLibraryにあります");
+                startCustomLesson(existingLesson);
+                return;
+            }
+
+            if (typeof window.fetchQuickShareLesson !== 'function') {
+                throw new Error("quickshare_not_ready");
+            }
+
+            // Appwriteから取得
+            const result = await window.fetchQuickShareLesson(shareId);
+
+            // quickshare.jsが { ok:false, reason:"..." } を返す場合
+            if (result?.ok === false) {
+                throw new Error(result.reason || "quickshare_failed");
+            }
+
+            // { ok:true, lesson:{...} } と lesson直返しの両方に対応
+            const cloudLesson = result?.lesson || result;
+            if (!cloudLesson) throw new Error("not_found");
+
+            // Dialogue復元
+            let dialogueData = [];
+            if (cloudLesson.dialogueJson) {
+                try {
+                    dialogueData = JSON.parse(cloudLesson.dialogueJson);
+                } catch (e) {
+                    console.error("Dialogue parse error", e);
+                }
+            } else if (Array.isArray(cloudLesson.dialogue)) {
+                dialogueData = cloudLesson.dialogue;
+            }
+
+            const newLessonData = {
+                title: "🔗 " + (cloudLesson.title || "Shared Lesson"),
+                eng: cloudLesson.eng || "",
+                jpn: cloudLesson.jpn || "",
+                audioBlob: null,
+                audioUrl: null,
+                lang: cloudLesson.lang || "en-US",
+                langName: "🌐 Shared Material",
+                formUrl: cloudLesson.formUrl || null,
+                type: cloudLesson.type || "standard",
+                dialogue: dialogueData,
+                memoImage: null,
+                sourceShareId: shareId,
+                history: [],
+                createdAt: Date.now()
+            };
+
+            // IndexedDBへ保存
+            const newId = await new Promise((resolve, reject) => {
+                const tx = db.transaction([storeName], "readwrite");
+                const req = tx.objectStore(storeName).add(newLessonData);
+                req.onsuccess = e => resolve(e.target.result);
+                req.onerror = () => reject(req.error);
+            });
+
+            newLessonData.id = newId;
+
+            // URLから ?l=... を消す
+            window.history.replaceState({}, document.title, window.location.pathname);
+
+            if (typeof showMsg === 'function') {
+                showMsg("📥 Quick Share教材をLibraryに追加しました！");
+            }
+
+            loadSavedLessons();
+            startCustomLesson(newLessonData);
+
+        } catch (e) {
+            console.error("Quick Share receive error:", e);
+
+            const errorText = `${e?.message || ""} ${e?.reason || ""}`.toLowerCase();
+
+            let message = "Quick Share教材を読み込めませんでした";
+
+            if (errorText.includes("expired")) {
+                message = "このQuick Shareリンクは期限切れです";
+            } else if (
+                errorText.includes("not_found") ||
+                errorText.includes("not found")
+            ) {
+                message = "共有教材が見つかりません";
+            }
+
+            if (typeof showMsg === 'function') showMsg(message);
+        }
+
+        return;
+    }
+
+    // ★ Classic Share: ここから下は従来機能
     if (urlParams.has('eng')) {
         const title = urlParams.get('title') || 'Shared Lesson';
         const engText = urlParams.get('eng');
         const lang = urlParams.get('lang') || 'en-US';
-        const formUrl = urlParams.get('form') || null; 
-        const audioUrl = urlParams.get('audioUrl') || null; 
+        const formUrl = urlParams.get('form') || null;
+        const audioUrl = urlParams.get('audioUrl') || null;
         const jpnText = urlParams.get('jpn') || "先生からの共有教材です。";
 
-        // 🌟 追加: URLから会話モードの情報を受け取り復元する
         const lessonType = urlParams.get('type') || 'standard';
         let dialogueData = [];
+
         if (urlParams.has('dialogue')) {
             try {
                 dialogueData = JSON.parse(urlParams.get('dialogue'));
-            } catch(e) { console.error("Dialogue parse error"); }
+            } catch(e) {
+                console.error("Dialogue parse error");
+            }
         }
 
         window.history.replaceState({}, document.title, window.location.pathname);
@@ -384,44 +496,56 @@ function checkUrlParameters() {
         request.onsuccess = () => {
             const lessons = request.result;
             const sharedTitle = "🔗 " + title;
-            
-            const existingLesson = lessons.find(l => l.title === sharedTitle && l.eng === engText);
+            const existingLesson = lessons.find(
+                l => l.title === sharedTitle && l.eng === engText
+            );
 
             if (existingLesson) {
                 existingLesson.formUrl = formUrl;
-                if (audioUrl) existingLesson.audioUrl = audioUrl; 
-                if (urlParams.has('jpn')) existingLesson.jpn = jpnText; 
-                
-                // 🌟 追加: 既存教材の場合でも会話モード情報を更新する
+                if (audioUrl) existingLesson.audioUrl = audioUrl;
+                if (urlParams.has('jpn')) existingLesson.jpn = jpnText;
+
                 existingLesson.type = lessonType;
-                if (dialogueData.length > 0) existingLesson.dialogue = dialogueData;
+                if (dialogueData.length > 0) {
+                    existingLesson.dialogue = dialogueData;
+                }
 
                 store.put(existingLesson);
-                if (typeof showMsg === 'function') showMsg("この共有教材はすでにLibraryにあります");
+
+                if (typeof showMsg === 'function') {
+                    showMsg("この共有教材はすでにLibraryにあります");
+                }
+
                 startCustomLesson(existingLesson);
+
             } else {
                 const newLessonData = {
-                    title: sharedTitle, 
-                    eng: engText, 
-                    jpn: jpnText, 
+                    title: sharedTitle,
+                    eng: engText,
+                    jpn: jpnText,
                     audioBlob: null,
-                    audioUrl: audioUrl, 
-                    lang: lang, 
+                    audioUrl: audioUrl,
+                    lang: lang,
                     langName: "🌐 Shared Material",
                     formUrl: formUrl,
-                    type: lessonType,       // 🌟 追加: 教材の種類
-                    dialogue: dialogueData, // 🌟 追加: 会話データ配列
-                    memoImage: null, // 画像はURL共有できないのでnull
-                    history: [], 
-                    createdAt: new Date().getTime()
+                    type: lessonType,
+                    dialogue: dialogueData,
+                    memoImage: null,
+                    history: [],
+                    createdAt: Date.now()
                 };
-                
+
                 const addReq = store.add(newLessonData);
-                addReq.onsuccess = (e) => {
+
+                addReq.onsuccess = e => {
                     newLessonData.id = e.target.result;
-                    if (typeof showMsg === 'function') showMsg("📥 共有教材をLibraryに追加しました！");
-                    loadSavedLessons(); 
-                    startCustomLesson(newLessonData); 
+
+                    if (typeof showMsg === 'function') {
+                        showMsg("📥 共有教材をLibraryに追加しました！");
+                    }
+
+                    loadSavedLessons();
+                    startCustomLesson(newLessonData);
                 };
             }
         };

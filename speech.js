@@ -2139,3 +2139,1035 @@ function updateHistoryUI() {
             adviceMsg;
     }
 }
+// ==========================================
+// ★ Copeak Simple Mic Check
+// 音読開始前に1回だけ音声認識を確認
+// ==========================================
+
+let micCheckRecognition = null;
+let micCheckPassed = false;
+let micCheckPassedLang = '';
+let micCheckTimer = null;
+
+const MIC_CHECK_WORDS = 5;
+const MIC_CHECK_PASS_RATIO = 0.6;
+const MIC_CHECK_TIMEOUT = 10000;
+
+
+// ==========================================
+// ★ 教材冒頭からMic Check用短文を取得
+// ==========================================
+function getMicCheckTargetText() {
+
+    if (
+        typeof currentCustomLesson === 'undefined' ||
+        !currentCustomLesson
+    ) {
+        return '';
+    }
+
+    let source = '';
+
+    if (
+        currentCustomLesson.type === 'dialogue' &&
+        Array.isArray(currentCustomLesson.dialogue)
+    ) {
+
+        const first =
+            currentCustomLesson.dialogue.find(
+                line =>
+                    line &&
+                    line.text &&
+                    line.text.trim()
+            );
+
+        source =
+            first
+                ? first.text
+                : '';
+
+    } else {
+
+        source =
+            currentCustomLesson.eng || '';
+    }
+
+
+    const segments =
+        segmentSpeechText(
+            source.trim(),
+            getCurrentLessonLang()
+        );
+
+
+    let count = 0;
+    let result = '';
+
+
+    for (const segment of segments) {
+
+        result += segment.text;
+
+        if (
+            segment.isWord &&
+            segment.normalized
+        ) {
+            count++;
+        }
+
+        if (
+            count >= MIC_CHECK_WORDS
+        ) {
+            break;
+        }
+    }
+
+
+    return result.trim();
+}
+
+
+// ==========================================
+// ★ 読み上げた内容との一致率
+// ==========================================
+function getMicCheckMatchRatio(
+    target,
+    spoken
+) {
+
+    const lang =
+        getCurrentLessonLang();
+
+
+    const toTokens = text =>
+        segmentSpeechText(
+            text,
+            lang
+        )
+        .filter(
+            item =>
+                item.isWord &&
+                item.normalized
+        )
+        .map(
+            item =>
+                item.normalized
+        );
+
+
+    const targetTokens =
+        toTokens(target);
+
+    const spokenTokens =
+        toTokens(spoken);
+
+
+    if (
+        targetTokens.length === 0 ||
+        spokenTokens.length === 0
+    ) {
+        return 0;
+    }
+
+
+    let matched = 0;
+    let position = 0;
+
+
+    for (const spokenWord of spokenTokens) {
+
+        for (
+            let i = position;
+            i < targetTokens.length;
+            i++
+        ) {
+
+            if (
+                spokenWord ===
+                targetTokens[i]
+            ) {
+
+                matched++;
+                position = i + 1;
+                break;
+            }
+        }
+    }
+
+
+    return (
+        matched /
+        targetTokens.length
+    );
+}
+
+
+// ==========================================
+// ★ シンプルなMic Check画面
+// ==========================================
+function ensureMicCheckUI() {
+
+    let modal =
+        document.getElementById(
+            'micCheckModal'
+        );
+
+
+    if (modal) {
+        return modal;
+    }
+
+
+    modal =
+        document.createElement('div');
+
+
+    modal.id =
+        'micCheckModal';
+
+
+    modal.className =
+        'hidden fixed inset-0 z-[30000] ' +
+        'bg-black/40 flex items-center justify-center p-4';
+
+
+    modal.innerHTML = `
+        <div class="
+            w-full
+            max-w-md
+            bg-white
+            rounded-2xl
+            shadow-2xl
+            p-6
+            text-center
+        ">
+
+            <div class="text-4xl mb-2">
+                🎙️
+            </div>
+
+            <h2 class="
+                text-xl
+                font-black
+                text-stone-800
+                mb-1
+            ">
+                音声チェック
+            </h2>
+
+            <p class="
+                text-sm
+                text-stone-500
+                mb-5
+            ">
+                下の部分を声に出して読んでください
+            </p>
+
+            <div
+                id="micCheckTarget"
+                class="
+                    bg-stone-50
+                    border
+                    border-stone-200
+                    rounded-xl
+                    p-4
+                    text-lg
+                    font-bold
+                    text-stone-800
+                    leading-relaxed
+                    mb-4
+                "
+            ></div>
+
+            <div
+                id="micCheckStatus"
+                class="
+                    text-sm
+                    font-bold
+                    text-blue-600
+                    min-h-[24px]
+                    mb-5
+                "
+            >
+                🎙️ 聞いています…
+            </div>
+
+            <div
+                id="micCheckActions"
+                class="hidden"
+            >
+
+                <button
+                    id="micCheckStartBtn"
+                    type="button"
+                    onclick="beginReadingAfterMicCheck()"
+                    class="
+                        hidden
+                        w-full
+                        py-3
+                        rounded-xl
+                        bg-emerald-700
+                        hover:bg-emerald-800
+                        text-white
+                        font-black
+                        mb-2
+                    "
+                >
+                    音読を始める
+                </button>
+
+                <button
+                    id="micCheckRetryBtn"
+                    type="button"
+                    onclick="startMicCheck()"
+                    class="
+                        hidden
+                        w-full
+                        py-3
+                        rounded-xl
+                        bg-stone-200
+                        hover:bg-stone-300
+                        text-stone-700
+                        font-bold
+                        mb-2
+                    "
+                >
+                    もう一度確認する
+                </button>
+
+                <button
+                    type="button"
+                    onclick="cancelMicCheck()"
+                    class="
+                        text-sm
+                        text-stone-400
+                        hover:text-stone-600
+                    "
+                >
+                    キャンセル
+                </button>
+
+            </div>
+
+        </div>
+    `;
+
+
+    document.body.appendChild(
+        modal
+    );
+
+
+    return modal;
+}
+
+
+// ==========================================
+// ★ ステータス表示
+// ==========================================
+function setMicCheckStatus(
+    type,
+    message
+) {
+
+    const el =
+        document.getElementById(
+            'micCheckStatus'
+        );
+
+
+    if (!el) return;
+
+
+    el.textContent =
+        message;
+
+
+    const colors = {
+
+        listening:
+            'text-blue-600',
+
+        success:
+            'text-emerald-700',
+
+        error:
+            'text-red-600'
+    };
+
+
+    el.className =
+        'text-sm font-bold min-h-[24px] mb-5 ' +
+        (
+            colors[type] ||
+            'text-stone-500'
+        );
+}
+
+
+// ==========================================
+// ★ Mic Check開始
+// ==========================================
+function startMicCheck() {
+
+    if (
+        !window.SpeechRecognition
+    ) {
+
+        if (
+            typeof showMsg === 'function'
+        ) {
+
+            showMsg(
+                'お使いのブラウザは音声認識に対応していません'
+            );
+        }
+
+        return;
+    }
+
+
+    const target =
+        getMicCheckTargetText();
+
+
+    // Mic Check用の文章が作れない場合は
+    // 従来どおりそのまま音読開始
+    if (!target) {
+
+        startRecordingSession();
+        return;
+    }
+
+
+    // ------------------------------------------
+    // 古いMic Checkを停止
+    // ------------------------------------------
+    if (micCheckRecognition) {
+
+        const oldRec =
+            micCheckRecognition;
+
+        micCheckRecognition =
+            null;
+
+        try {
+            oldRec.abort();
+        } catch (e) {}
+    }
+
+
+    if (micCheckTimer) {
+
+        clearTimeout(
+            micCheckTimer
+        );
+
+        micCheckTimer = null;
+    }
+
+
+    micCheckPassed =
+        false;
+
+
+    // ------------------------------------------
+    // UI
+    // ------------------------------------------
+    const modal =
+        ensureMicCheckUI();
+
+
+    modal.classList.remove(
+        'hidden'
+    );
+
+
+    const targetEl =
+        document.getElementById(
+            'micCheckTarget'
+        );
+
+
+    const actions =
+        document.getElementById(
+            'micCheckActions'
+        );
+
+
+    const startBtn =
+        document.getElementById(
+            'micCheckStartBtn'
+        );
+
+
+    const retryBtn =
+        document.getElementById(
+            'micCheckRetryBtn'
+        );
+
+
+    if (targetEl) {
+
+        targetEl.textContent =
+            target;
+    }
+
+
+    actions?.classList.add(
+        'hidden'
+    );
+
+
+    startBtn?.classList.add(
+        'hidden'
+    );
+
+
+    retryBtn?.classList.add(
+        'hidden'
+    );
+
+
+    setMicCheckStatus(
+        'listening',
+        '🎙️ 聞いています…'
+    );
+
+
+    setRecognitionHealth(
+        'checking',
+        '音声を確認しています…'
+    );
+
+
+    // ------------------------------------------
+    // 本番とは別のSpeechRecognition
+    // ------------------------------------------
+    const rec =
+        new window.SpeechRecognition();
+
+
+    rec.lang =
+        getCurrentLessonLang();
+
+
+    rec.interimResults =
+        true;
+
+
+    rec.continuous =
+        true;
+
+
+    micCheckRecognition =
+        rec;
+
+
+    // ======================================
+    // Recognition結果
+    // ======================================
+    rec.onresult =
+        event => {
+
+            if (
+                rec !==
+                micCheckRecognition
+            ) {
+                return;
+            }
+
+
+            let spoken =
+                '';
+
+
+            for (
+                let i = 0;
+                i < event.results.length;
+                i++
+            ) {
+
+                const transcript =
+                    event.results[i][0]
+                        ?.transcript || '';
+
+
+                if (
+                    transcript.trim()
+                ) {
+
+                    spoken =
+                        joinTranscript(
+                            spoken,
+                            transcript
+                        );
+                }
+            }
+
+
+            if (
+                !spoken.trim()
+            ) {
+                return;
+            }
+
+
+            setMicCheckStatus(
+                'listening',
+                '聞き取っています…'
+            );
+
+
+            const ratio =
+                getMicCheckMatchRatio(
+                    target,
+                    spoken
+                );
+
+
+            // ==================================
+            // 成功
+            // ==================================
+            if (
+                ratio >=
+                MIC_CHECK_PASS_RATIO
+            ) {
+
+                micCheckPassed =
+                    true;
+
+
+                micCheckPassedLang =
+                    getCurrentLessonLang();
+
+
+                if (micCheckTimer) {
+
+                    clearTimeout(
+                        micCheckTimer
+                    );
+
+                    micCheckTimer =
+                        null;
+                }
+
+
+                // 先に切り離してからstop
+                // onendによる誤動作防止
+                micCheckRecognition =
+                    null;
+
+
+                try {
+
+                    rec.stop();
+
+                } catch (e) {}
+
+
+                setMicCheckStatus(
+                    'success',
+                    '✓ 音声認識OK'
+                );
+
+
+                actions?.classList.remove(
+                    'hidden'
+                );
+
+
+                startBtn?.classList.remove(
+                    'hidden'
+                );
+
+
+                retryBtn?.classList.add(
+                    'hidden'
+                );
+
+
+                setRecognitionHealth(
+                    'done',
+                    '音声認識チェックOK ✓'
+                );
+            }
+        };
+
+
+    // ======================================
+    // Recognition ERROR
+    // ======================================
+    rec.onerror =
+        event => {
+
+            if (
+                rec !==
+                micCheckRecognition
+            ) {
+                return;
+            }
+
+
+            const error =
+                event?.error || '';
+
+
+            if (
+                error === 'aborted'
+            ) {
+                return;
+            }
+
+
+            if (
+                error === 'not-allowed' ||
+                error === 'denied' ||
+                error ===
+                    'service-not-allowed'
+            ) {
+
+                showMicCheckFailure(
+                    'マイクの使用を許可してください。'
+                );
+
+                return;
+            }
+
+
+            if (
+                error ===
+                'audio-capture'
+            ) {
+
+                showMicCheckFailure(
+                    'マイクを確認できませんでした。端末のマイク設定を確認してください。'
+                );
+
+                return;
+            }
+
+
+            // no-speechは10秒タイマーに任せる
+            if (
+                error === 'no-speech'
+            ) {
+                return;
+            }
+
+
+            showMicCheckFailure(
+                '声を確認できませんでした。もう一度お試しください。'
+            );
+        };
+
+
+    // ======================================
+    // 10秒間確認できなかった場合
+    // ======================================
+    micCheckTimer =
+        setTimeout(() => {
+
+            if (
+                !micCheckPassed
+            ) {
+
+                showMicCheckFailure(
+                    '声を確認できませんでした。マイクに向かって、もう一度読んでみてください。'
+                );
+            }
+
+        }, MIC_CHECK_TIMEOUT);
+
+
+    // ======================================
+    // START
+    // ======================================
+    try {
+
+        rec.start();
+
+    } catch (e) {
+
+        showMicCheckFailure(
+            '音声認識を開始できませんでした。もう一度お試しください。'
+        );
+    }
+}
+
+
+// ==========================================
+// ★ Mic Check失敗
+// ==========================================
+function showMicCheckFailure(
+    message
+) {
+
+    micCheckPassed =
+        false;
+
+
+    if (micCheckTimer) {
+
+        clearTimeout(
+            micCheckTimer
+        );
+
+        micCheckTimer =
+            null;
+    }
+
+
+    if (micCheckRecognition) {
+
+        const rec =
+            micCheckRecognition;
+
+
+        micCheckRecognition =
+            null;
+
+
+        try {
+
+            rec.abort();
+
+        } catch (e) {}
+    }
+
+
+    setMicCheckStatus(
+        'error',
+        `⚠ ${message}`
+    );
+
+
+    const actions =
+        document.getElementById(
+            'micCheckActions'
+        );
+
+
+    const startBtn =
+        document.getElementById(
+            'micCheckStartBtn'
+        );
+
+
+    const retryBtn =
+        document.getElementById(
+            'micCheckRetryBtn'
+        );
+
+
+    actions?.classList.remove(
+        'hidden'
+    );
+
+
+    startBtn?.classList.add(
+        'hidden'
+    );
+
+
+    retryBtn?.classList.remove(
+        'hidden'
+    );
+
+
+    setRecognitionHealth(
+        'error',
+        message
+    );
+}
+
+
+// ==========================================
+// ★ Mic Check成功後
+// ユーザーが押してから本番開始
+// ==========================================
+function beginReadingAfterMicCheck() {
+
+    if (
+        !micCheckPassed
+    ) {
+        return;
+    }
+
+
+    document
+        .getElementById(
+            'micCheckModal'
+        )
+        ?.classList.add(
+            'hidden'
+        );
+
+
+    // ======================================
+    // Mic Checkの認識内容を
+    // 本番スコアへ絶対に持ち込まない
+    // ======================================
+    accumulatedTranscript =
+        '';
+
+
+    currentInterim =
+        '';
+
+
+    recordStartTime =
+        0;
+
+
+    startRecordingSession();
+}
+
+
+// ==========================================
+// ★ キャンセル
+// ==========================================
+function cancelMicCheck() {
+
+    if (micCheckTimer) {
+
+        clearTimeout(
+            micCheckTimer
+        );
+
+        micCheckTimer =
+            null;
+    }
+
+
+    if (micCheckRecognition) {
+
+        const rec =
+            micCheckRecognition;
+
+
+        micCheckRecognition =
+            null;
+
+
+        try {
+
+            rec.abort();
+
+        } catch (e) {}
+    }
+
+
+    document
+        .getElementById(
+            'micCheckModal'
+        )
+        ?.classList.add(
+            'hidden'
+        );
+
+
+    setRecognitionHealth(
+        'idle',
+        '音読開始前です'
+    );
+}
+
+
+// ==========================================
+// ★ 本番Recognition障害時
+// 次回はMic Checkをやり直す
+// ==========================================
+const originalFailRecognitionForMicCheck =
+    failRecognition;
+
+
+failRecognition =
+    function(message) {
+
+        micCheckPassed =
+            false;
+
+
+        micCheckPassedLang =
+            '';
+
+
+        return originalFailRecognitionForMicCheck(
+            message
+        );
+    };
+
+
+// ==========================================
+// ★ START / FINISH
+// ==========================================
+toggleRecording =
+    function() {
+
+        if (
+            !window.SpeechRecognition
+        ) {
+
+            if (
+                typeof showMsg ===
+                'function'
+            ) {
+
+                showMsg(
+                    'お使いのブラウザは音声認識に対応していません'
+                );
+            }
+
+            return;
+        }
+
+
+        // ======================================
+        // 録音中 → FINISH
+        // ======================================
+        if (
+            isMainRecording
+        ) {
+
+            finishRecordingSession();
+            return;
+        }
+
+
+        // ======================================
+        // 同じセッション・同じ言語で
+        // Mic Check済みなら省略
+        // ======================================
+        if (
+            micCheckPassed &&
+            micCheckPassedLang ===
+                getCurrentLessonLang()
+        ) {
+
+            startRecordingSession();
+            return;
+        }
+
+
+        // ======================================
+        // 初回
+        // ======================================
+        startMicCheck();
+    };
+
+
+// ==========================================
+// ★ 外部からも使用可能にする
+// ==========================================
+window.toggleRecording =
+    toggleRecording;
+
+window.startMicCheck =
+    startMicCheck;
+
+window.beginReadingAfterMicCheck =
+    beginReadingAfterMicCheck;
+
+window.cancelMicCheck =
+    cancelMicCheck;
