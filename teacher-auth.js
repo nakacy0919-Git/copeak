@@ -26,9 +26,17 @@ async function checkTeacherGoogleConnection() {
         const session = await teacherAccount.getSession('current');
 
         const el = document.getElementById('teacherGoogleStatus');
+        const btn = document.getElementById('teacherGoogleConnectBtn');
+
         if (el) {
             el.textContent = `✅ Google接続済み：${user.email}`;
             el.classList.remove('hidden');
+        }
+
+        if (btn) {
+            btn.textContent = 'Google再接続';
+            btn.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+            btn.classList.add('bg-stone-500', 'hover:bg-stone-600');
         }
 
         console.log('Google OAuth OK', {
