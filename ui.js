@@ -1617,6 +1617,7 @@ async function submitScoreToForm() {
     formData.append('entry.70481568', profile.number);
     formData.append('entry.1056156063', profile.name);
     formData.append('entry.1259267878', lessonTitle); 
+    formData.append('entry.222722906', currentCustomLesson.eng || '');
     formData.append('entry.145428349', accuracy);
     formData.append('entry.928123739', wpm);
     formData.append('entry.1611039041', comp);
