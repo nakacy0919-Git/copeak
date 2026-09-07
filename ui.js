@@ -1301,9 +1301,10 @@ async function generateShareLink() {
     }
 
     const savedFormUrl = localStorage.getItem('copeak_teacher_form_url');
+    const formUrl = currentCustomLesson.formUrl || savedFormUrl || '';
 
-    if (savedFormUrl) {
-        paramsConfig.form = savedFormUrl;
+    if (formUrl) {
+        paramsConfig.form = formUrl;
     }
 
     if (currentCustomLesson.type === 'dialogue' && currentCustomLesson.dialogue) {
@@ -1320,7 +1321,7 @@ async function generateShareLink() {
 
         if (typeof showMsg === 'function') {
 
-            if (savedFormUrl) {
+            if (formUrl) {
                 showMsg("🔗 【成績送信付き】リンクをコピーしました！");
             } else {
                 showMsg("🔗 リンクをコピーしました！");
