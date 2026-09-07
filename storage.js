@@ -35,6 +35,8 @@ function editLesson(event, id) {
         document.getElementById('customTitle').value = lesson.title;
         document.getElementById('customLang').value = lesson.lang;
         document.getElementById('customJpn').value = lesson.jpn || "";
+        const formUrlInput = document.getElementById('customFormUrl');
+        if (formUrlInput) formUrlInput.value = lesson.formUrl || "";
         
         // セキュリティ上、ファイルinputは空にしておきます
         document.getElementById('customAudio').value = "";
@@ -152,6 +154,7 @@ function cancelEdit(isSilent = false) {
 async function saveCustomLesson() {
     const title = document.getElementById("customTitle").value.trim();
     const jpnText = document.getElementById("customJpn").value.trim();
+    const formUrl = document.getElementById("customFormUrl")?.value.trim() || "";
     const audioFile = document.getElementById("customAudio").files[0];
     
     const langSelect = document.getElementById("customLang");
@@ -198,6 +201,7 @@ async function saveCustomLesson() {
             lesson.title = title;
             lesson.eng = engText; // リスト表示用
             lesson.jpn = jpnText;
+            lesson.formUrl = formUrl || null;
             lesson.lang = selectedLang;
             lesson.langName = selectedLangName;
             
@@ -216,6 +220,7 @@ async function saveCustomLesson() {
             title: title, 
             eng: engText, // リスト表示用
             jpn: jpnText,
+            formUrl: formUrl || null,
             audioBlob: audioFile || null,
             lang: selectedLang, 
             langName: selectedLangName,
