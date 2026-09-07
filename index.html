@@ -53,36 +53,183 @@
         .accordion-content.is-open { grid-template-rows: 1fr; opacity: 1; }
         .accordion-inner { min-height: 0; overflow: hidden; padding-bottom: 0; transition: padding-bottom 0.3s ease-out; }
         .accordion-content.is-open .accordion-inner { padding-bottom: 1.5rem; }
+ /* ==========================================
+   ★ Smartphone Learning UI
+   639px以下だけに適用
+========================================== */
+@media (max-width: 639px) {
+
+    /* ① Libraryを右から出るDrawerにする */
+    #playlistSidebar {
+        position: fixed !important;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: auto;
+        width: min(88vw, 360px) !important;
+        height: 100dvh !important;
+        z-index: 15000 !important;
+        transform: translateX(105%);
+        border-radius: 0 !important;
+        box-shadow: -12px 0 30px rgba(28,25,23,.25);
+    }
+
+    #playlistSidebar.mobile-open {
+        transform: translateX(0);
+    }
+
+    /* ② START / STOPを画面下に固定 */
+    #mobileMicBar {
+        position: fixed !important;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 14000 !important;
+        padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+        background: rgba(250,248,245,.98);
+        box-shadow: 0 -6px 18px rgba(28,25,23,.18);
+    }
+
+    #mobileMicBar #micBtn {
+        max-width: none !important;
+        min-height: 52px;
+    }
+
+    /* 固定ボタン＋Voiceバーで本文末尾が隠れないようにする */
+    #mainScrollArea {
+        padding-bottom: 170px !important;
+    }
+
+    /* ③ Accuracy / WPM / Compを横一列 */
+    #scoreSummaryRow {
+        flex-direction: row !important;
+        gap: 0 !important;
+        padding: 12px 8px !important;
+    }
+
+    #scoreSummaryRow > div {
+        width: 33.333% !important;
+        padding: 0 4px !important;
+        border-top: 0 !important;
+        border-bottom: 0 !important;
+    }
+
+    #scoreSummaryRow > div:nth-of-type(2) {
+        border-left: 1px solid #44403c !important;
+        border-right: 1px solid #44403c !important;
+    }
+
+    #bigAccValue,
+    #bigWpmValue,
+    #bigCompValue {
+        font-size: 2rem !important;
+        line-height: 1.1 !important;
+    }
+
+    #scoreSummaryRow [data-i18n="score_accuracy"],
+    #scoreSummaryRow [data-i18n="score_wpm"],
+    #scoreSummaryRow [data-i18n="score_comp"] {
+        font-size: 8px !important;
+        letter-spacing: .05em !important;
+    }
+
+    /* ④ Your Voiceを小さなLiveバーにする */
+    #yourVoiceWrapper:not(.hidden) {
+        display: flex !important;
+        position: fixed !important;
+        left: 8px;
+        right: 8px;
+        bottom: calc(72px + env(safe-area-inset-bottom));
+        z-index: 13900 !important;
+        width: auto !important;
+        min-height: 0 !important;
+        max-height: 86px !important;
+        padding: 8px 12px !important;
+        flex: none !important;
+        background: rgba(255,255,255,.97);
+        box-shadow: 0 -3px 16px rgba(28,25,23,.15);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+
+    #yourVoiceWrapper:not(.hidden) > div:first-child {
+        margin-bottom: 3px !important;
+        padding-bottom: 3px !important;
+    }
+
+    #recognizedTextDisplay {
+        font-size: 13px !important;
+        line-height: 1.35 !important;
+        max-height: 38px !important;
+        overflow: hidden !important;
+    }
+
+    /* 結果画面ではLive Voiceバーを消す */
+    #resultScoreBoard:not(.hidden) + #learningContentArea #yourVoiceWrapper {
+        display: none !important;
+    }
+}   
     </style>
 </head>
 <body class="text-stone-800 pb-10 relative transition-colors duration-500">
     <div id="toast">メッセージ</div>
 
     <div id="homeScreen" class="screen active max-w-[1400px] w-[95%] mx-auto mt-6 md:mt-10 p-6 md:p-12 bg-[#faf8f5] rounded-sm iron-border min-h-[80vh] flex flex-col">
-        <div class="flex items-center justify-between mb-6 md:mb-8 border-b-2 border-stone-200 pb-4">
-            <div class="flex items-center gap-3 md:gap-4">
-                <img src="logo.png" alt="Copeak Logo" class="w-10 h-10 md:w-14 md:h-14 object-contain">
-                <div class="flex flex-col sm:flex-row sm:items-baseline sm:gap-3">
-                    <h1 class="text-2xl md:text-4xl font-bold text-stone-900 serif-font tracking-wide">Copeak</h1>
-                    <p class="text-[10px] md:text-sm text-emerald-700 font-bold tracking-tight opacity-80 uppercase">AI English Shadowing Platform</p>
-                </div>
-            </div>
-            <div class="flex items-center gap-2">
-                <div class="flex items-center gap-1 sm:gap-2">
-                    <button id="btn-open-trouble" class="text-red-600 hover:bg-red-50 transition-all bg-white/95 px-2 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2.5 rounded-full backdrop-blur-sm shadow-md border-2 border-red-300 flex items-center justify-center gap-1 sm:gap-2 animate-pulse hover:animate-none z-50 shrink-0" title="Troubleshooting">
-                        <span class="text-lg sm:text-xl md:text-2xl leading-none shrink-0">🆘</span>
-                        <div class="flex flex-col text-left whitespace-nowrap">
-                            <span class="text-[10px] sm:text-[11px] md:text-xs font-black leading-tight">音声トラブル時はこちら</span>
-                            <span class="text-[8px] sm:text-[9px] md:text-[10px] font-bold text-gray-500 leading-tight">（iPad・iPhone用）</span>
-                        </div>
-                    </button>
-                </div>
-                <select id="appLangSelector" onchange="if(typeof changeAppLanguage === 'function') changeAppLanguage(this.value)" class="text-xs font-bold bg-[#faf8f5] border-2 border-stone-800 text-stone-800 rounded-sm px-2 py-1 outline-none cursor-pointer">
-                    <option value="ja">🇯🇵 日本語</option><option value="en">🇺🇸 English</option><option value="zh-TW">🇹🇼 繁體中文</option><option value="vi">🇻🇳 Tiếng Việt</option><option value="id">🇮🇩 Indonesia</option><option value="tl">🇵🇭 Tagalog</option><option value="hi">🇮🇳 हिन्दी</option>
-                </select>
-                <span data-i18n="nav_my_library" class="bg-stone-800 text-stone-100 text-[10px] md:text-xs font-bold px-3 py-1.5 md:px-4 md:py-2 rounded-sm uppercase tracking-widest shrink-0">My Library</span>
-            </div>
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-3 mb-6 md:mb-8 border-b-2 border-stone-200 pb-4">
+
+    <!-- Copeak Brand -->
+    <div class="flex items-center gap-3 md:gap-4 min-w-0">
+        <img src="logo.png" alt="Copeak Logo" class="w-10 h-10 md:w-14 md:h-14 object-contain shrink-0">
+        <div class="min-w-0">
+            <h1 class="text-2xl md:text-4xl font-bold text-stone-900 serif-font tracking-wide leading-none">Copeak</h1>
+            <p class="mt-1 text-[10px] md:text-sm text-emerald-700 font-bold tracking-tight opacity-80 uppercase leading-tight">
+                AI English Shadowing Platform
+            </p>
         </div>
+    </div>
+
+    <!-- Header Controls -->
+    <div class="flex items-center gap-2 w-full sm:w-auto">
+
+        <!-- SOS -->
+        <button id="btn-open-trouble"
+            class="flex-1 sm:flex-none min-h-[44px] text-red-600 hover:bg-red-50 transition-all bg-white/95 px-3 py-2 rounded-lg sm:rounded-full backdrop-blur-sm shadow-sm border border-red-300 sm:border-2 flex items-center justify-center gap-2 hover:animate-none z-50"
+            title="Troubleshooting">
+
+            <span class="text-lg sm:text-xl md:text-2xl leading-none shrink-0">🆘</span>
+
+            <div class="flex flex-col text-left min-w-0">
+                <span class="text-[11px] md:text-xs font-black leading-tight whitespace-nowrap">
+                    音声トラブル
+                    <span class="hidden sm:inline">時はこちら</span>
+                </span>
+                <span class="hidden sm:block text-[9px] md:text-[10px] font-bold text-gray-500 leading-tight whitespace-nowrap">
+                    （iPad・iPhone用）
+                </span>
+            </div>
+        </button>
+
+        <!-- Language -->
+        <select id="appLangSelector"
+            onchange="if(typeof changeAppLanguage === 'function') changeAppLanguage(this.value)"
+            class="flex-1 sm:flex-none min-w-0 min-h-[44px] text-xs font-bold bg-[#faf8f5] border-2 border-stone-800 text-stone-800 rounded-lg sm:rounded-sm px-2 py-2 outline-none cursor-pointer">
+            <option value="ja">🇯🇵 日本語</option>
+            <option value="en">🇺🇸 English</option>
+            <option value="zh-TW">🇹🇼 繁體中文</option>
+            <option value="vi">🇻🇳 Tiếng Việt</option>
+            <option value="id">🇮🇩 Indonesia</option>
+            <option value="tl">🇵🇭 Tagalog</option>
+            <option value="hi">🇮🇳 हिन्दी</option>
+        </select>
+
+        <!-- PC / Tablet only -->
+        <span data-i18n="nav_my_library"
+            class="hidden sm:inline-flex bg-stone-800 text-stone-100 text-[10px] md:text-xs font-bold px-3 py-2 md:px-4 rounded-sm uppercase tracking-widest shrink-0">
+            My Library
+        </span>
+
+    </div>
+</div>
 
         <div class="mb-10 space-y-1">
             <div class="border-b-2 border-stone-200">
@@ -577,6 +724,11 @@
             <button onclick="backToHome()" class="flex items-center gap-2 px-4 py-2 bg-stone-800 hover:bg-stone-700 text-stone-200 rounded-sm font-bold transition border border-stone-600 mb-2 sm:mb-0 text-xs md:text-sm uppercase tracking-wider">◀ <span data-i18n="learn_back">Back</span></button>
             <h2 id="learningTitle" class="text-xl md:text-2xl font-bold text-stone-100 serif-font truncate px-2 md:px-4 flex-1 text-center">Title</h2>
             <div class="flex items-center gap-2">
+                
+                <button type="button" onclick="toggleMobileLibrary()" class="sm:hidden flex items-center justify-center px-3 py-2 bg-stone-700 hover:bg-stone-600 text-white rounded-sm font-bold text-xs shadow-md whitespace-nowrap">
+                    📚 教材
+                </button>
+
                 <button onclick="openMultiplaySetup()" class="flex items-center gap-2 px-3 py-2 bg-emerald-700 hover:bg-emerald-600 text-white rounded-sm font-bold transition text-xs md:text-sm shadow-md whitespace-nowrap">👥 共同モード</button>
                 <button onclick="generateShareLink()" class="flex items-center gap-2 px-3 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-sm font-bold transition text-xs md:text-sm shadow-md whitespace-nowrap">🔗 <span data-i18n="learn_share">共有</span></button>
             </div>
@@ -602,7 +754,7 @@
                         </div>
                     </div>
                     <div id="resultScoreBoard" class="hidden flex-col gap-4 shrink-0">
-                        <div class="bg-stone-900 p-4 md:p-6 rounded-sm shadow-xl border-2 border-stone-700 flex flex-col md:flex-row items-center relative gap-4 md:gap-0">
+                        <div id="scoreSummaryRow" class="bg-stone-900 p-4 md:p-6 rounded-sm shadow-xl border-2 border-stone-700 flex flex-col md:flex-row items-center relative gap-4 md:gap-0">
                             <button onclick="openChartModal()" class="absolute -top-3 -right-3 md:-top-4 md:-right-4 bg-[#faf8f5] hover:bg-white text-stone-800 iron-border-sm p-2 md:p-3 rounded-full shadow-lg transition transform hover:scale-110 flex items-center justify-center z-10" title="学習推移グラフを見る"><span class="text-lg md:text-xl">📊</span></button>
                             <div class="flex-1 text-center w-full"><div data-i18n="score_accuracy" class="text-stone-400 font-bold tracking-widest text-[10px] md:text-xs mb-1 uppercase">Accuracy</div><div id="bigAccValue" class="text-4xl sm:text-5xl md:text-6xl font-bold text-emerald-400 serif-font relative inline-block">0%</div></div>
                             <div class="flex-1 text-center border-t border-b md:border-t-0 md:border-b-0 md:border-l md:border-r border-stone-700 py-3 md:py-0 w-full"><div data-i18n="score_wpm" class="text-stone-400 font-bold tracking-widest text-[10px] md:text-xs mb-1 uppercase">WPM</div><div id="bigWpmValue" class="text-4xl sm:text-5xl md:text-6xl font-bold text-blue-400 serif-font relative inline-block">0</div></div>
@@ -668,15 +820,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-[#faf8f5] border-t-2 border-stone-200 p-3 md:p-4 flex justify-center shrink-0 relative z-30">
+                <div id="mobileMicBar" class="bg-[#faf8f5] border-t-2 border-stone-200 p-3 md:p-4 flex justify-center shrink-0 relative z-30">
                     <button id="micBtn" onclick="toggleRecording()" class="flex items-center justify-center gap-2 md:gap-3 w-full max-w-sm py-2.5 md:py-3 bg-emerald-800 hover:bg-emerald-900 text-white rounded-sm font-bold text-base md:text-lg shadow-md border-2 border-emerald-950 transition transform hover:-translate-y-1 uppercase tracking-widest">
                         <span class="text-xl md:text-2xl">🎙</span> <span id="micBtnText" data-i18n="btn_start_text">START</span>
                     </button>
                 </div>
             </div>
             <div id="playlistSidebar" class="w-full lg:w-[22%] h-[35vh] lg:h-full bg-[#faf8f5] rounded-sm iron-border flex flex-col overflow-hidden transition-all duration-500">
-                <div class="p-3 md:p-4 border-b-2 border-stone-200 bg-white shrink-0">
+                <div class="p-3 md:p-4 border-b-2 border-stone-200 bg-white shrink-0 flex items-center justify-between gap-2">
                     <h3 class="font-bold text-stone-800 serif-font uppercase tracking-widest text-xs md:text-sm">📚 <span data-i18n="sidebar_playlist">Library</span></h3>
+                    <button type="button" onclick="toggleMobileLibrary(true)" class="sm:hidden w-11 h-11 flex items-center justify-center bg-stone-100 text-stone-600 font-bold text-xl rounded-sm border border-stone-300">✕</button>
                 </div>
                 <div id="sidebarLessonList" class="flex-1 overflow-y-auto p-3 md:p-4 space-y-2 md:space-y-3"></div>
             </div>

@@ -251,7 +251,20 @@ function switchScreen(screenId) {
     window.scrollTo(0, 0);
 }
 
+function toggleMobileLibrary(forceClose = false) {
+    const sidebar = document.getElementById('playlistSidebar');
+    if (!sidebar) return;
+
+    if (forceClose) {
+        sidebar.classList.remove('mobile-open');
+        return;
+    }
+
+    sidebar.classList.toggle('mobile-open');
+}
+
 function backToHome() {
+    toggleMobileLibrary(true);
     if (typeof isMainRecording !== 'undefined' && isMainRecording) {
         if (typeof toggleRecording === 'function') toggleRecording();
     }
@@ -270,6 +283,7 @@ function backToHome() {
 }
 
 function openLearningScreen(lesson) {
+    toggleMobileLibrary(true);
     document.getElementById('learningTitle').innerText = lesson.title;
     
     document.getElementById('engContainer').style.fontSize = engFontSize + 'px';
