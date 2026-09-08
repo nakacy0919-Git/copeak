@@ -449,8 +449,14 @@ function savePracticeLog(lessonId, logData, onComplete) {
     const getReq = store.get(lessonId);
     
     getReq.onsuccess = () => {
-        const lesson = getReq.result;
-        if (!lesson.history) lesson.history = [];
+    const lesson = getReq.result;
+
+    if (!lesson) {
+        if (onComplete) onComplete();
+        return;
+    }
+
+    if (!lesson.history) lesson.history = [];
         lesson.history.push(logData);
         lesson.lastPracticed = new Date().getTime(); 
         

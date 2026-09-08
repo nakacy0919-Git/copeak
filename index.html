@@ -1679,13 +1679,16 @@ window.startQuestLesson = function(index) {
     };
     
     const pseudoLesson = {
-        id: "quest_stage_" + lessonData.stage,
-        title: lessonData.title,
-        eng: lessonData.eng,
-        jpn: `【QUEST STAGE ${lessonData.stage}】目標: Accuracy ${lessonData.goalAcc}% 以上 / WPM ${lessonData.goalWpm} 以上`,
-        lang: "en-US",
-        target: "quest"
-    };
+    id: `quest_stage_${currentQuestPkgId}_${lessonData.stage}`,
+    title: lessonData.title,
+    eng: lessonData.eng,
+    jpn: `【QUEST STAGE ${lessonData.stage}】目標: Accuracy ${lessonData.goalAcc}% 以上 / WPM ${lessonData.goalWpm} 以上`,
+    lang: "en-US",
+    type: "standard",
+    history: [],
+    isQuest: true,
+    target: "quest"
+};
     
     currentCustomLesson = pseudoLesson;
 

@@ -1809,7 +1809,8 @@ function processSpeechMatch(spokenText, isFinalResult = false) {
         // 履歴保存
         // ==========================================
         if (
-            currentCustomLesson
+           currentCustomLesson &&
+           !currentCustomLesson.isQuest
         ) {
 
             const todayStr =
