@@ -8,6 +8,189 @@ let db;
 let currentCustomLesson = null;
 let editingLessonId = null; 
 
+const LIBRARY_FOLDERS_KEY = 'copeak_library_folders';
+const UNFILED_FOLDER_ID = '__unfiled__';
+const SAMPLE_FOLDER_ID = '__samples__';
+
+let currentLibraryFolderId = null;
+let pendingMoveLessonId = null;
+
+function getLibraryFolders() {
+    let folders = [];
+
+    try {
+        folders = JSON.parse(
+            localStorage.getItem(LIBRARY_FOLDERS_KEY) || '[]'
+        );
+
+        if (!Array.isArray(folders)) folders = [];
+    } catch (e) {
+        folders = [];
+    }
+
+    // ★ Copeak標準のサンプルフォルダを必ず用意
+    if (!folders.some(folder => folder.id === SAMPLE_FOLDER_ID)) {
+        folders.unshift({
+            id: SAMPLE_FOLDER_ID,
+            name: 'サンプル教材',
+            system: true
+        });
+
+        localStorage.setItem(
+            LIBRARY_FOLDERS_KEY,
+            JSON.stringify(folders)
+        );
+    }
+
+    return folders;
+}
+
+function saveLibraryFolders(folders) {
+    localStorage.setItem(LIBRARY_FOLDERS_KEY, JSON.stringify(folders));
+}
+
+function escapeLibraryHtml(text) {
+    return String(text || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+
+function createLibraryFolder() {
+    const name = prompt('新しいフォルダ名を入力してください');
+    if (!name || !name.trim()) return;
+
+    const folders = getLibraryFolders();
+
+    folders.push({
+        id: `folder_${Date.now()}`,
+        name: name.trim()
+    });
+
+    saveLibraryFolders(folders);
+    currentLibraryFolderId = null;
+    loadSavedLessons();
+}
+
+function openLibraryRoot() {
+    currentLibraryFolderId = null;
+    loadSavedLessons();
+}
+
+function openLibraryFolder(folderId) {
+    currentLibraryFolderId = folderId;
+    loadSavedLessons();
+}
+
+function renameLibraryFolder(event, folderId) {
+    event.stopPropagation();
+
+    const folders = getLibraryFolders();
+    const folder = folders.find(f => f.id === folderId);
+    if (!folder) return;
+
+    const name = prompt('フォルダ名を変更', folder.name);
+    if (!name || !name.trim()) return;
+
+    folder.name = name.trim();
+    saveLibraryFolders(folders);
+    loadSavedLessons();
+}
+
+function deleteLibraryFolder(event, folderId) {
+    event.stopPropagation();
+
+    const folders = getLibraryFolders();
+    const folder = folders.find(f => f.id === folderId);
+    if (!folder) return;
+
+    if (!confirm(`「${folder.name}」を削除しますか？\n中の教材は「未整理」へ移動します。`)) return;
+
+    const tx = db.transaction([storeName], 'readwrite');
+    const store = tx.objectStore(storeName);
+    const req = store.getAll();
+
+    req.onsuccess = () => {
+        req.result.forEach(lesson => {
+            if (lesson.folderId === folderId) {
+                lesson.folderId = null;
+                store.put(lesson);
+            }
+        });
+    };
+
+    tx.oncomplete = () => {
+        saveLibraryFolders(folders.filter(f => f.id !== folderId));
+
+        if (currentLibraryFolderId === folderId) {
+            currentLibraryFolderId = null;
+        }
+
+        loadSavedLessons();
+    };
+}
+
+function openMoveLessonModal(event, lessonId) {
+    event.stopPropagation();
+
+    pendingMoveLessonId = lessonId;
+
+    const select = document.getElementById('moveLessonFolderSelect');
+    const modal = document.getElementById('moveLessonModal');
+    if (!select || !modal) return;
+
+    const folders = getLibraryFolders();
+
+    select.innerHTML =
+        `<option value="">📂 未整理</option>` +
+        folders.map(folder =>
+            `<option value="${folder.id}">📁 ${escapeLibraryHtml(folder.name)}</option>`
+        ).join('');
+
+    const tx = db.transaction([storeName], 'readonly');
+    const req = tx.objectStore(storeName).get(lessonId);
+
+    req.onsuccess = () => {
+        select.value = req.result?.folderId || '';
+        modal.classList.remove('hidden');
+    };
+}
+
+function closeMoveLessonModal() {
+    pendingMoveLessonId = null;
+    document.getElementById('moveLessonModal')?.classList.add('hidden');
+}
+
+function confirmMoveLesson() {
+    if (!pendingMoveLessonId) return;
+
+    const select = document.getElementById('moveLessonFolderSelect');
+    const folderId = select?.value || null;
+
+    const tx = db.transaction([storeName], 'readwrite');
+    const store = tx.objectStore(storeName);
+    const req = store.get(pendingMoveLessonId);
+
+    req.onsuccess = () => {
+        const lesson = req.result;
+        if (!lesson) return;
+
+        lesson.folderId = folderId;
+        store.put(lesson);
+    };
+
+    tx.oncomplete = () => {
+        closeMoveLessonModal();
+        loadSavedLessons();
+
+        if (typeof showMsg === 'function') {
+            showMsg('📁 教材を移動しました');
+        }
+    };
+}
+
 const initDB = () => {
     return new Promise((resolve, reject) => {
         const request = indexedDB.open(dbName, 1);
@@ -104,8 +287,24 @@ function editLesson(event, id) {
             }
         }
         
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        if (typeof showMsg === 'function') showMsg("✏️ 編集モードに入りました（既存の音声や画像は保持されています）");
+const formContent = document.getElementById('acc-form-content');
+const formIcon = document.getElementById('acc-form-icon');
+
+if (formContent && !formContent.classList.contains('is-open')) {
+    formContent.classList.add('is-open');
+    if (formIcon) formIcon.textContent = '－';
+}
+
+setTimeout(() => {
+    document.getElementById('customMaterialForm')?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    });
+}, 350);
+
+if (typeof showMsg === 'function') {
+    showMsg("✏️ 編集する教材を開きました");
+}
     };
 }
 
@@ -221,6 +420,7 @@ async function saveCustomLesson() {
             eng: engText, // リスト表示用
             jpn: jpnText,
             formUrl: formUrl || null,
+            folderId: null,
             audioBlob: audioFile || null,
             lang: selectedLang, 
             langName: selectedLangName,
@@ -269,78 +469,285 @@ function loadSavedLessons() {
     request.onsuccess = () => {
         const lessons = request.result;
         lessons.sort((a, b) => b.createdAt - a.createdAt);
-        
+
         const homeList = document.getElementById("savedLessonsList");
         const sidebarList = document.getElementById("sidebarLessonList");
 
-        if (homeList) homeList.innerHTML = ""; 
-        if (sidebarList) sidebarList.innerHTML = "";
+        if (homeList) {
+            homeList.innerHTML = "";
+            renderHomeLibrary(lessons, homeList);
+        }
 
-        if (lessons.length === 0) {
-            if (homeList) homeList.innerHTML = `<div class="text-gray-400 text-center py-10 bg-white rounded-2xl border border-dashed border-gray-300 col-span-full"><p class="text-4xl mb-2">📂</p><p class="font-bold">まだ教材がありません</p></div>`;
-            if (sidebarList) sidebarList.innerHTML = `<p class="text-center text-sm text-gray-400 mt-4">空っぽです</p>`;
+        if (sidebarList) {
+            sidebarList.innerHTML = "";
+
+            if (lessons.length === 0) {
+                sidebarList.innerHTML =
+                    `<p class="text-center text-sm text-gray-400 mt-4">空っぽです</p>`;
+            } else {
+                lessons.forEach(lesson => {
+                    const hasAudioIcon = lesson.audioBlob ? '🎵' : '📄';
+                    const hasImageIcon = lesson.memoImage
+                        ? '<span class="bg-purple-50 text-purple-600 px-2 py-1 rounded-sm ml-1">🖼️</span>'
+                        : '';
+
+                    const langDisplay = lesson.langName || '🇺🇸 English (US)';
+                    const playCount = lesson.history ? lesson.history.length : 0;
+                    const isActive =
+                        (currentCustomLesson && currentCustomLesson.id === lesson.id)
+                            ? "sidebar-active"
+                            : "";
+
+                    const sideCard = document.createElement("div");
+
+                    sideCard.className =
+                        `p-3 bg-white border border-stone-200 hover:border-emerald-700 rounded-sm cursor-pointer shadow-sm transition group ${isActive}`;
+
+                    sideCard.innerHTML = `
+                        <div class="flex justify-between items-center">
+                            <h4 class="font-bold text-sm text-stone-800 group-hover:text-emerald-800 truncate">
+                                ${lesson.title}
+                            </h4>
+                        </div>
+
+                        <div class="flex gap-2 mt-1.5 text-[10px] font-bold text-stone-400 items-center">
+                            <span class="bg-[#faf8f5] px-1.5 py-0.5 rounded-sm border border-stone-200">
+                                ${langDisplay.split(' ')[0]}
+                            </span>
+                            <span class="${lesson.audioBlob ? 'text-emerald-600' : ''}">
+                                ${hasAudioIcon}
+                            </span>
+                            ${hasImageIcon}
+                            ${playCount > 0
+                                ? `<span class="text-yellow-600 ml-auto">★${playCount}</span>`
+                                : ''}
+                        </div>
+                    `;
+
+                    sideCard.onclick = () => startCustomLesson(lesson);
+                    sidebarList.appendChild(sideCard);
+                });
+            }
+        }
+    };
+}
+
+function renderHomeLibrary(lessons, homeList) {
+    const folders = getLibraryFolders();
+
+    const title = document.getElementById('libraryViewTitle');
+    const hint = document.getElementById('libraryViewHint');
+    const backBtn = document.getElementById('libraryBackBtn');
+
+    if (currentLibraryFolderId === null) {
+        if (title) title.textContent = 'Library';
+        if (hint) hint.textContent = 'フォルダを選んで教材を開きます';
+        if (backBtn) {
+            backBtn.classList.add('hidden');
+            backBtn.classList.remove('flex');
+        }
+
+        folders.forEach(folder => {
+            const count = lessons.filter(
+                lesson => lesson.folderId === folder.id
+            ).length;
+
+            const folderCard = document.createElement('div');
+
+            folderCard.className =
+                'p-5 bg-white border border-stone-200 hover:border-emerald-700 rounded-sm cursor-pointer shadow-sm hover:shadow-md transition flex items-center justify-between gap-3';
+
+            folderCard.innerHTML = `
+                <div class="flex items-center gap-4 min-w-0">
+                    <div class="text-4xl shrink-0">📁</div>
+
+                    <div class="min-w-0">
+                        <h3 class="font-extrabold text-base md:text-lg text-stone-800 truncate">
+                            ${escapeLibraryHtml(folder.name)}
+                        </h3>
+                        <p class="text-xs text-stone-400 mt-1">
+                            ${count} 教材
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-1 shrink-0">
+                    <button type="button"
+                        onclick="renameLibraryFolder(event, '${folder.id}')"
+                        class="w-10 h-10 flex items-center justify-center text-stone-400 hover:text-blue-600 hover:bg-blue-50 rounded-sm"
+                        title="フォルダ名を変更">
+                        ✏️
+                    </button>
+
+                    <button type="button"
+                        onclick="deleteLibraryFolder(event, '${folder.id}')"
+                        class="w-10 h-10 flex items-center justify-center text-stone-400 hover:text-red-600 hover:bg-red-50 rounded-sm"
+                        title="フォルダを削除">
+                        🗑
+                    </button>
+                </div>
+            `;
+
+            folderCard.onclick = e => {
+                if (!e.target.closest('button')) {
+                    openLibraryFolder(folder.id);
+                }
+            };
+
+            homeList.appendChild(folderCard);
+        });
+
+        const unfiledCount = lessons.filter(
+            lesson => !lesson.folderId
+        ).length;
+
+        const unfiledCard = document.createElement('div');
+
+        unfiledCard.className =
+            'p-5 bg-stone-50 border border-dashed border-stone-300 hover:border-emerald-700 rounded-sm cursor-pointer transition flex items-center justify-between';
+
+        unfiledCard.innerHTML = `
+            <div class="flex items-center gap-4">
+                <div class="text-4xl">📂</div>
+                <div>
+                    <h3 class="font-extrabold text-base md:text-lg text-stone-700">
+                        未整理
+                    </h3>
+                    <p class="text-xs text-stone-400 mt-1">
+                        ${unfiledCount} 教材
+                    </p>
+                </div>
+            </div>
+        `;
+
+        unfiledCard.onclick = () =>
+            openLibraryFolder(UNFILED_FOLDER_ID);
+
+        homeList.appendChild(unfiledCard);
+        return;
+    }
+
+    let selectedLessons = [];
+    let folderName = '未整理';
+
+    if (currentLibraryFolderId === UNFILED_FOLDER_ID) {
+        selectedLessons = lessons.filter(lesson => !lesson.folderId);
+    } else {
+        const folder = folders.find(
+            f => f.id === currentLibraryFolderId
+        );
+
+        if (!folder) {
+            currentLibraryFolderId = null;
+            loadSavedLessons();
             return;
         }
 
-        lessons.forEach(lesson => {
-            const hasAudioIcon = lesson.audioBlob ? '🎵' : '📄';
-            // 🌟 画像アイコンも表示するように追加
-            const hasImageIcon = lesson.memoImage ? '<span class="bg-purple-50 text-purple-600 px-2 py-1 rounded-sm ml-1">🖼️</span>' : '';
-            
-            const langDisplay = lesson.langName || '🇺🇸 English (US)';
-            const playCount = lesson.history ? lesson.history.length : 0;
-            const badgeHtml = playCount > 0 ? `<span class="bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded text-[10px] font-black">★ ${playCount}回</span>` : '';
+        folderName = folder.name;
 
-            if (homeList) {
-                const homeCard = document.createElement("div");
-                homeCard.className = "p-5 bg-white border border-gray-100 hover:border-emerald-700 rounded-sm cursor-pointer shadow-sm hover:shadow-md transition group flex justify-between items-center";
-                
-                homeCard.innerHTML = `
-                    <div class="flex-1 overflow-hidden pr-4">
-                        <div class="flex items-center gap-2">
-                            <h3 class="font-extrabold text-lg text-stone-800 group-hover:text-emerald-800 truncate transition-colors">${lesson.title}</h3>
-                            ${badgeHtml}
-                        </div>
-                        <p class="text-sm text-stone-400 truncate mt-1 font-medium">${lesson.eng}</p>
-                        <div class="flex gap-2 mt-3 text-[11px] font-bold text-stone-500 items-center">
-                            <span class="bg-stone-100 px-2 py-1 rounded-sm text-stone-600">${langDisplay.split(' ')[0]}</span>
-                            <span class="bg-emerald-50 text-emerald-600 px-2 py-1 rounded-sm">${hasAudioIcon}</span>
-                            ${hasImageIcon}
-                        </div>
-                    </div>
-                    <div class="flex flex-col md:flex-row gap-1">
-                        <button onclick="editLesson(event, ${lesson.id})" class="p-2 md:p-3 text-stone-300 hover:text-blue-600 hover:bg-blue-50 rounded-sm transition" title="編集">
-                            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
-                        </button>
-                        <button onclick="deleteLesson(event, ${lesson.id})" class="p-2 md:p-3 text-stone-300 hover:text-red-500 hover:bg-red-50 rounded-sm transition" title="削除">
-                            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                        </button>
-                    </div>
-                `;
-                homeCard.onclick = (e) => { if(!e.target.closest('button')) startCustomLesson(lesson); };
-                homeList.appendChild(homeCard);
-            }
+        selectedLessons = lessons.filter(
+            lesson => lesson.folderId === currentLibraryFolderId
+        );
+    }
 
-            if (sidebarList) {
-                const isActive = (currentCustomLesson && currentCustomLesson.id === lesson.id) ? "sidebar-active" : "";
-                const sideCard = document.createElement("div");
-                sideCard.className = `p-3 bg-white border border-stone-200 hover:border-emerald-700 rounded-sm cursor-pointer shadow-sm transition group ${isActive}`;
-                sideCard.innerHTML = `
-                    <div class="flex justify-between items-center">
-                        <h4 class="font-bold text-sm text-stone-800 group-hover:text-emerald-800 truncate">${lesson.title}</h4>
-                    </div>
-                    <div class="flex gap-2 mt-1.5 text-[10px] font-bold text-stone-400 items-center">
-                        <span class="bg-[#faf8f5] px-1.5 py-0.5 rounded-sm border border-stone-200">${langDisplay.split(' ')[0]}</span>
-                        <span class="${lesson.audioBlob ? 'text-emerald-600' : ''}">${hasAudioIcon}</span>
-                        ${hasImageIcon}
-                        ${playCount > 0 ? `<span class="text-yellow-600 ml-auto">★${playCount}</span>` : ''}
-                    </div>
-                `;
-                sideCard.onclick = () => startCustomLesson(lesson);
-                sidebarList.appendChild(sideCard);
-            }
-        });
+    if (title) title.textContent = folderName;
+    if (hint) hint.textContent = `${selectedLessons.length} 教材`;
+    if (backBtn) {
+        backBtn.classList.remove('hidden');
+        backBtn.classList.add('flex');
+    }
+
+    if (selectedLessons.length === 0) {
+        homeList.innerHTML = `
+            <div class="col-span-full text-center py-12 bg-white border border-dashed border-stone-300 rounded-sm">
+                <div class="text-4xl mb-3">📭</div>
+                <p class="font-bold text-stone-500">このフォルダは空です</p>
+            </div>
+        `;
+        return;
+    }
+
+    selectedLessons.forEach(lesson => {
+        createHomeLessonCard(lesson, homeList);
+    });
+}
+
+function createHomeLessonCard(lesson, homeList) {
+    const hasAudioIcon = lesson.audioBlob ? '🎵' : '📄';
+
+    const hasImageIcon = lesson.memoImage
+        ? '<span class="bg-purple-50 text-purple-600 px-2 py-1 rounded-sm ml-1">🖼️</span>'
+        : '';
+
+    const langDisplay =
+        lesson.langName || '🇺🇸 English (US)';
+
+    const playCount =
+        lesson.history ? lesson.history.length : 0;
+
+    const badgeHtml = playCount > 0
+        ? `<span class="bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded text-[10px] font-black">★ ${playCount}回</span>`
+        : '';
+
+    const homeCard = document.createElement("div");
+
+    homeCard.className =
+        "p-5 bg-white border border-gray-100 hover:border-emerald-700 rounded-sm cursor-pointer shadow-sm hover:shadow-md transition group flex justify-between items-center";
+
+    homeCard.innerHTML = `
+        <div class="flex-1 overflow-hidden pr-3">
+            <div class="flex items-center gap-2">
+                <h3 class="font-extrabold text-lg text-stone-800 group-hover:text-emerald-800 truncate transition-colors">
+                    ${lesson.title}
+                </h3>
+                ${badgeHtml}
+            </div>
+
+            <p class="text-sm text-stone-400 truncate mt-1 font-medium">
+                ${lesson.eng}
+            </p>
+
+            <div class="flex gap-2 mt-3 text-[11px] font-bold text-stone-500 items-center">
+                <span class="bg-stone-100 px-2 py-1 rounded-sm text-stone-600">
+                    ${langDisplay.split(' ')[0]}
+                </span>
+                <span class="bg-emerald-50 text-emerald-600 px-2 py-1 rounded-sm">
+                    ${hasAudioIcon}
+                </span>
+                ${hasImageIcon}
+            </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-1 shrink-0">
+
+            <button onclick="openMoveLessonModal(event, ${lesson.id})"
+                class="p-2 md:p-3 text-stone-300 hover:text-emerald-700 hover:bg-emerald-50 rounded-sm transition"
+                title="フォルダを移動">
+                📁
+            </button>
+
+            <button onclick="editLesson(event, ${lesson.id})"
+                class="p-2 md:p-3 text-stone-300 hover:text-blue-600 hover:bg-blue-50 rounded-sm transition"
+                title="編集">
+                ✏️
+            </button>
+
+            <button onclick="deleteLesson(event, ${lesson.id})"
+                class="p-2 md:p-3 text-stone-300 hover:text-red-500 hover:bg-red-50 rounded-sm transition"
+                title="削除">
+                🗑
+            </button>
+
+        </div>
+    `;
+
+    homeCard.onclick = e => {
+        if (!e.target.closest('button')) {
+            startCustomLesson(lesson);
+        }
     };
+
+    homeList.appendChild(homeCard);
 }
 
 function deleteLesson(event, id) {
@@ -660,6 +1067,37 @@ async function injectPresetLessons() {
             createdAt: Date.now() - 5000 
         }
     ];
+     // ★ (sample) 教材は最初から「サンプル教材」フォルダへ
+    presetDataList.forEach(preset => {
+        if (preset.title && preset.title.includes('(sample)')) {
+            preset.folderId = SAMPLE_FOLDER_ID;
+            preset.isPreset = true;
+        }
+    });
+
+        // ★ 既存ユーザーのサンプル教材も「サンプル教材」へ自動移動
+    const sampleLessonsToMove = existingLessons.filter(lesson =>
+        lesson.title &&
+        lesson.title.includes('(sample)') &&
+        lesson.folderId !== SAMPLE_FOLDER_ID
+    );
+
+    if (sampleLessonsToMove.length > 0) {
+        await new Promise((resolve, reject) => {
+            const tx = db.transaction([storeName], 'readwrite');
+            const store = tx.objectStore(storeName);
+
+            sampleLessonsToMove.forEach(lesson => {
+                lesson.folderId = SAMPLE_FOLDER_ID;
+                lesson.isPreset = true;
+                store.put(lesson);
+            });
+
+            tx.oncomplete = resolve;
+            tx.onerror = () => reject(tx.error);
+            tx.onabort = () => reject(tx.error);
+        });
+    }
 
     // 3. 現在のLibraryに「無い」サンプルだけを絞り込む（タイトルで判定）
     const presetsToAdd = presetDataList.filter(preset => 
@@ -667,7 +1105,12 @@ async function injectPresetLessons() {
     );
 
     // 全てのサンプルがすでに揃っている場合は、ここで処理を終了（無駄な通信を防ぐ）
-    if (presetsToAdd.length === 0) return;
+    if (presetsToAdd.length === 0) {
+    if (sampleLessonsToMove.length > 0) {
+        loadSavedLessons();
+    }
+    return;
+}
 
     // 4. 足りないサンプルの音声だけをダウンロード（Fetch）する
     const fetchAudioBlob = async (path) => {
