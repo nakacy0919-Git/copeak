@@ -46,7 +46,86 @@
             .format(num);
     }
 
+　　    // ==========================================
+    // Country Mini Map
+    // ==========================================
 
+    function buildCountryMapUrl(country) {
+
+        const lat =
+            Number(
+                country
+                    ?.geography
+                    ?.coordinates
+                    ?.lat
+            );
+
+        const lng =
+            Number(
+                country
+                    ?.geography
+                    ?.coordinates
+                    ?.lng
+            );
+
+
+        if (
+            !Number.isFinite(lat) ||
+            !Number.isFinite(lng)
+        ) {
+            return "";
+        }
+
+
+        const latSpan = 5;
+        const lngSpan = 8;
+
+
+        const south =
+            Math.max(
+                -85,
+                lat - latSpan
+            );
+
+        const north =
+            Math.min(
+                85,
+                lat + latSpan
+            );
+
+        const west =
+            Math.max(
+                -180,
+                lng - lngSpan
+            );
+
+        const east =
+            Math.min(
+                180,
+                lng + lngSpan
+            );
+
+
+        const params =
+            new URLSearchParams({
+
+                bbox:
+                    `${west},${south},${east},${north}`,
+
+                layer:
+                    "mapnik",
+
+                marker:
+                    `${lat},${lng}`
+
+            });
+
+
+        return (
+            "https://www.openstreetmap.org/export/embed.html?" +
+            params.toString()
+        );
+    }
     // ==========================================
     // Modal
     // ==========================================
@@ -416,6 +495,11 @@
             country
                 .geography
                 ?.areaKm2;
+        
+        const mapUrl =
+    buildCountryMapUrl(
+        country
+    );
 
 
         const summaryEn =
@@ -659,7 +743,50 @@
 
                 </div>
 
+                ${
+                    mapUrl
+                        ? `
+                            <div
+                                class="cr-section"
+                            >
 
+                                <div
+                                    class="cr-section-title"
+                                >
+                                    📍 World Location
+                                </div>
+
+
+                                <div
+                                    class="cr-map-wrap"
+                                >
+
+                                    <iframe
+                                        class="cr-map-frame"
+                                        src="${escapeHtml(mapUrl)}"
+                                        loading="lazy"
+                                        title="${escapeHtml(nameEn)} location map"
+                                    ></iframe>
+
+
+                                    <div
+                                        class="cr-map-caption"
+                                    >
+                                        ${escapeHtml(
+                                            nameEn
+                                        )}
+                                        ·
+                                        ${escapeHtml(
+                                            subregionEn
+                                        )}
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        `
+                        : ""
+                }
                 <div
                     class="cr-section"
                 >

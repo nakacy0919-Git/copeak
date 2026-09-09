@@ -1687,3 +1687,81 @@
             47px;
     }
 }
+/* ==========================================
+   Country Mini Map
+   ========================================== */
+
+.cr-map-wrap {
+    position: relative;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.09);
+
+    border-radius: 18px;
+
+    background:
+        #111827;
+}
+
+
+.cr-map-frame {
+    display: block;
+
+    width: 100%;
+    height: 260px;
+
+    border: 0;
+
+    filter:
+        saturate(.82)
+        contrast(1.05);
+}
+
+
+.cr-map-caption {
+    position: absolute;
+
+    left: 14px;
+    bottom: 14px;
+
+    padding:
+        7px 11px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(9,14,24,.84);
+
+    backdrop-filter:
+        blur(8px);
+
+    color: white;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing:
+        .6px;
+
+    pointer-events: none;
+}
+
+
+@media (
+    max-width: 639px
+) {
+
+    .cr-map-frame {
+        height:
+            220px;
+    }
+
+}
