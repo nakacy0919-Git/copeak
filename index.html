@@ -18,6 +18,7 @@
     <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/appwrite@17.0.0"></script>
+    <link rel="stylesheet" href="rewards.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,700;1,500&family=Noto+Sans+JP:wght@400;500;700&display=swap');
         body { font-family: 'Noto Sans JP', sans-serif; background-color: #292524; background-image: radial-gradient(#44403c 1px, transparent 1px); background-size: 20px 20px; min-height: 100vh; }
@@ -221,7 +222,26 @@
             <option value="tl">🇵🇭 Tagalog</option>
             <option value="hi">🇮🇳 हिन्दी</option>
         </select>
+<!-- Copeak World Collection -->
+<button
+    id="btnWorldCollection"
+    type="button"
+    onclick="CopeakRewardsUI.showCollection()"
+    class="shrink-0 min-h-[44px] px-3 py-2 bg-stone-900 hover:bg-stone-800 text-white rounded-lg sm:rounded-sm border border-yellow-600 shadow-sm transition flex items-center gap-2"
+>
+    <span class="text-lg">🌍</span>
 
+    <span class="hidden md:inline text-[10px] font-black tracking-wider">
+        WORLD COLLECTION
+    </span>
+
+    <span
+        id="worldCollectionSp"
+        class="text-[10px] font-black text-yellow-300 whitespace-nowrap"
+    >
+        0 SP
+    </span>
+</button>
         <!-- PC / Tablet only -->
         <span data-i18n="nav_my_library"
             class="hidden sm:inline-flex bg-stone-800 text-stone-100 text-[10px] md:text-xs font-bold px-3 py-2 md:px-4 rounded-sm uppercase tracking-widest shrink-0">
@@ -685,8 +705,12 @@
     
     <div id="multiplayLobbyScreen" class="screen max-w-[1000px] w-[95%] mx-auto mt-6 md:mt-10 p-6 md:p-10 bg-[#faf8f5] rounded-sm iron-border min-h-[60vh] flex flex-col justify-between hidden">
         <div class="border-b-2 border-stone-200 pb-4 mb-6 flex justify-between items-center">
-            <h2 class="text-xl md:text-2xl font-bold text-stone-800 serif-font flex items-center gap-2"><span>👥</span> 共同モード待合室 (Lobby)</h2>
-            <button onclick="backToHome()" class="px-4 py-2 bg-stone-200 hover:bg-stone-300 text-stone-700 text-xs font-bold rounded-sm transition iron-border-sm">◀ 退出する</button>
+            <h2 class="text-xl md:text-2xl font-bold text-stone-800 serif-font flex items-center gap-2">
+    <span>👥</span>
+    <span>Copeak Together</span>
+    <span class="text-[10px] bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full font-bold">2–3 Players</span>
+</h2>
+<button onclick="exitMultiplayMode(); backToHome()" class="px-4 py-2 bg-stone-200 hover:bg-stone-300 text-stone-700 text-xs font-bold rounded-sm transition iron-border-sm">◀ 退出する</button>
         </div>
         <div class="flex flex-col lg:flex-row gap-6 flex-1 items-stretch">
             <div class="w-full lg:w-1/2 flex flex-col gap-4">
@@ -717,8 +741,12 @@
                         <span>Connected Players (最大3人)</span><span id="connection-role" class="text-stone-500 text-[9px]">未接続</span>
                     </div>
                     <div id="player-list-container" class="space-y-2.5">
-                        <div class="flex items-center justify-between text-stone-200 text-sm font-bold bg-stone-800/60 p-2.5 rounded-sm border border-stone-800">
-                            <span class="flex items-center gap-2">🟢 <span id="p1-name">あなた</span></span><span id="p1-status" class="text-[10px] text-emerald-400 bg-emerald-950/50 px-2 py-0.5 rounded-sm border border-emerald-900/30 font-bold tracking-wider">READY</span>
+                        <div id="p1-row" class="flex items-center justify-between text-stone-600 text-sm font-bold border border-dashed border-stone-800 p-2.5 rounded-sm opacity-40 transition-all duration-300">
+                            <span class="flex items-center gap-2">
+                                <span id="p1-dot">⚪️</span>
+                                <span id="p1-name">Player 1</span>
+                            </span>
+                            <span id="p1-status" class="text-[10px] font-bold tracking-wider">WAITING</span>
                         </div>
                         <div id="p2-row" class="flex items-center justify-between text-stone-600 text-sm font-bold border border-dashed border-stone-800 p-2.5 rounded-sm opacity-40 transition-all duration-300">
                             <span class="flex items-center gap-2"><span id="p2-dot">⚪️</span> <span id="p2-name">Player 2 を待機中...</span></span><span id="p2-status" class="text-[10px] font-bold tracking-wider">WAITING</span>
@@ -728,16 +756,41 @@
                         </div>
                     </div>
                 </div>
-                <div class="mt-4 border-t border-stone-800 pt-4">
-                    <button id="btn-sync-start" disabled onclick="triggerSyncStart()" class="w-full py-3.5 bg-stone-800 text-stone-500 font-bold text-sm rounded-sm tracking-widest uppercase cursor-not-allowed border border-stone-700 transition-all text-center">メンバーの接続を待っています</button>
+                <div class="mt-4 border-t border-stone-800 pt-4 space-y-3">
+
+                <div class="bg-stone-800/70 border border-stone-700 rounded-sm p-3">
+                    <div class="text-[9px] text-stone-500 font-black tracking-widest uppercase mb-1">
+                        Together Material
+                    </div>
+                    <div id="together-lesson-title" class="text-xs md:text-sm text-stone-200 font-bold truncate">
+                        教材を確認中...
+                    </div>
                 </div>
+
+                <button id="btn-together-mic-check"
+                    type="button"
+                    disabled
+                    onclick="startMultiplayMicCheck()"
+                    class="w-full py-3 bg-stone-800 text-stone-500 font-bold text-sm rounded-sm border border-stone-700 cursor-not-allowed">
+                    🎙 接続後にマイク確認
+                </button>
+
+                <button id="btn-sync-start"
+                    type="button"
+                    disabled
+                    onclick="triggerSyncStart()"
+                    class="w-full py-3.5 bg-stone-800 text-stone-500 font-bold text-sm rounded-sm tracking-widest uppercase cursor-not-allowed border border-stone-700 transition-all text-center">
+                    メンバーの接続を待っています
+                </button>
+
+            </div>
             </div>
         </div>
     </div>
 
     <div id="sync-countdown-overlay" class="fixed inset-0 z-[200] bg-black/90 backdrop-blur-xl flex flex-col items-center justify-center hidden">
         <div id="countdown-number" class="text-8xl md:text-9xl font-black text-emerald-400 serif-font select-none scale-75 transition-all duration-300">3</div>
-        <div class="text-stone-400 font-bold text-xs md:text-sm tracking-[0.3em] uppercase mt-8 select-none animate-pulse">Synchronizing Audio Playback...</div>
+        <div class="text-stone-400 font-bold text-xs md:text-sm tracking-[0.3em] uppercase mt-8 select-none animate-pulse">Synchronizing Reading Start...</div>
     </div>
 
     <div id="learningScreen" class="screen max-w-[1800px] w-[98%] mx-auto mt-2 md:mt-4 px-1 md:px-2 h-auto min-h-[90vh]">
@@ -1324,6 +1377,11 @@
     <script src="ui.js"></script>
     <script src="quickshare.js"></script>
     <script src="teacher-auth.js"></script>
+    <!-- Copeak Rewards -->
+    <script src="rewards-config.js"></script>
+    <script src="rewards-storage.js"></script>
+    <script src="rewards.js"></script>
+    <script src="rewards-ui.js"></script>
     <script src="speech.js"></script>
     <script src="lang.js"></script>
     <script src="multiplay.js"></script>

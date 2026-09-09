@@ -10,9 +10,17 @@ let currentRoomId = "";
 
 // スコア同期のためのデータ保持変数
 let myLatestResult = null;
-let partnerLatestResult = null;
-let isSyncModeActive = false; // ★追加: 共同モード中かどうかを判定するフラグ
+let partnerResults = {};
+let isSyncModeActive = false;
 
+let myPlayerSlot = 1;
+let roomPlayersState = [];
+let myMicReady = false;
+
+let currentRunId = "";
+let expectedRunPlayers = [];
+
+let lessonBeforeMultiplay = null;
 // ------------------------------------------
 // 1. UI制御（ロビー画面を開く）
 // ------------------------------------------
@@ -31,28 +39,153 @@ function openMultiplaySetup() {
         lobby.style.display = 'flex';
         lobby.classList.add('active');
     }
+    lessonBeforeMultiplay =
+    currentCustomLesson;
     resetLobbyUI();
 }
 
 function resetLobbyUI() {
+
     document.getElementById('host-id-display').classList.add('hidden');
     document.getElementById('btn-create-room').disabled = false;
     document.getElementById('btn-create-room').innerText = "🔑 ルームを作成してIDを発行";
     document.getElementById('btn-join-room').disabled = false;
     document.getElementById('btn-join-room').innerText = "接続する";
     document.getElementById('input-room-id').disabled = false;
-    
+
     myLatestResult = null;
-    partnerLatestResult = null;
-    
-    updatePlayerListUI(1); 
-    
+    partnerResults = {};
+    roomPlayersState = [];
+    myMicReady = false;
+    currentRunId = "";
+    expectedRunPlayers = [];
+
+    updatePlayerListUI();
+
     const startBtn = document.getElementById('btn-sync-start');
+
     if (startBtn) {
         startBtn.disabled = true;
         startBtn.className = "w-full mt-4 py-3.5 bg-stone-800 text-stone-500 font-bold text-sm rounded-sm tracking-widest uppercase cursor-not-allowed border border-stone-700 transition-all text-center";
         startBtn.innerText = "メンバーの接続を待っています";
     }
+
+    // ★ Together Mic Checkも毎回初期化
+    const micBtn = document.getElementById('btn-together-mic-check');
+
+    if (micBtn) {
+        micBtn.disabled = true;
+        micBtn.innerText = "🎙 接続後にマイク確認";
+        micBtn.className = "w-full py-3 bg-stone-800 text-stone-500 font-bold text-sm rounded-sm border border-stone-700 cursor-not-allowed";
+    }
+}
+function getHostRoomState() {
+
+    if (!isHost || !peer) return roomPlayersState;
+
+    const players = [{
+        id: peer.id,
+        slot: 1,
+        micReady: myMicReady
+    }];
+
+    hostConnections.forEach(conn => {
+
+        if (conn.open) {
+
+            players.push({
+                id: conn.peer,
+                slot: conn._playerSlot,
+                micReady: !!conn._micReady
+            });
+        }
+    });
+
+    return players;
+}
+
+function broadcastRoomState() {
+
+    if (!isHost) return;
+
+    roomPlayersState = getHostRoomState();
+
+    broadcast({
+        type: 'ROOM_STATE',
+        players: roomPlayersState
+    });
+
+    updatePlayerListUI();
+}
+
+function canStartTogether() {
+
+    const players = getHostRoomState();
+
+    return (
+         isHost &&
+        currentRunId === "" &&
+        players.length >= 2 &&
+        players.length <= 3 &&
+        players.every(p => p.micReady)
+    );
+}
+
+function startMultiplayMicCheck() {
+
+    window.copeakMicCheckReadyOnly = true;
+    window.copeakMicCheckReadyCallback = markMultiplayMicReady;
+
+    if (typeof startMicCheck === 'function') {
+        startMicCheck();
+    }
+}
+
+function markMultiplayMicReady() {
+
+    myMicReady = true;
+
+    if (isHost) {
+
+        broadcastRoomState();
+
+    } else if (myConnection && myConnection.open) {
+
+        roomPlayersState = roomPlayersState.map(p =>
+            p.id === peer.id
+                ? { ...p, micReady: true }
+                : p
+        );
+
+        updatePlayerListUI();
+
+        myConnection.send({
+            type: 'MIC_READY'
+        });
+    }
+
+    const btn = document.getElementById('btn-together-mic-check');
+
+    if (btn) {
+        btn.disabled = true;
+        btn.innerText = "✅ マイク確認完了 / READY";
+        btn.className = "w-full py-3 bg-emerald-700 text-white font-bold text-sm rounded-sm";
+    }
+}
+
+function getMultiplayLessonPayload() {
+
+    return {
+        title: currentCustomLesson.title || '',
+        eng: currentCustomLesson.eng || '',
+        jpn: currentCustomLesson.jpn || '',
+        lang: currentCustomLesson.lang || 'en-US',
+        type: currentCustomLesson.type || 'standard',
+        dialogue: Array.isArray(currentCustomLesson.dialogue)
+            ? currentCustomLesson.dialogue
+            : [],
+        formUrl: currentCustomLesson.formUrl || null
+    };
 }
 
 // ------------------------------------------
@@ -69,23 +202,56 @@ function createMultiplayRoom() {
     peer = new Peer(peerId);
 
     peer.on('open', (id) => {
-        isHost = true;
-        document.getElementById('host-id-display').classList.remove('hidden');
-        document.getElementById('my-room-id').innerText = currentRoomId;
-        btn.innerText = "✅ ルーム作成完了";
-        document.getElementById('connection-role').innerText = "HOST";
-        if (typeof showMsg === 'function') showMsg("🔑 ルームを作成しました！仲間に番号を伝えてください。");
-    });
+
+    isHost = true;
+    myPlayerSlot = 1;
+
+    document.getElementById('host-id-display').classList.remove('hidden');
+    document.getElementById('my-room-id').innerText = currentRoomId;
+    btn.innerText = "✅ ルーム作成完了";
+    document.getElementById('connection-role').innerText = "HOST";
+
+    // ★ Host自身をPlayer 1としてLobbyへ反映
+    updatePlayerListUI();
+
+    // ★ 教材名表示
+    const togetherTitle =
+        document.getElementById('together-lesson-title');
+
+    if (togetherTitle && currentCustomLesson) {
+        togetherTitle.innerText =
+            currentCustomLesson.title;
+    }
+
+    if (typeof showMsg === 'function') {
+        showMsg("🔑 ルームを作成しました！仲間に番号を伝えてください。");
+    }
+});
 
     peer.on('connection', (conn) => {
-        if (hostConnections.length >= 2) {
-            conn.send({ type: 'ERROR', message: 'ルームは満員です' });
+
+    if (hostConnections.length >= 2) {
+
+        conn.on('open', () => {
+
+            conn.send({
+                type: 'ERROR',
+                message: 'ルームは満員です'
+            });
+
             setTimeout(() => conn.close(), 500);
-            return;
-        }
-        hostConnections.push(conn);
-        setupConnectionEvents(conn);
-    });
+        });
+
+        return;
+    }
+
+    conn._playerSlot = hostConnections.length + 2;
+    conn._micReady = false;
+
+    hostConnections.push(conn);
+
+    setupConnectionEvents(conn);
+});
 
     peer.on('error', (err) => {
         console.error(err);
@@ -132,33 +298,149 @@ function joinMultiplayRoom() {
 // 4. 通信イベントの共通処理
 // ------------------------------------------
 function setupConnectionEvents(conn) {
+
     conn.on('open', () => {
-        if (!isHost) {
+
+        if (isHost) {
+
+            conn.send({
+                type: 'INIT_ROOM',
+                slot: conn._playerSlot,
+                lesson: getMultiplayLessonPayload(),
+                players: getHostRoomState()
+            });
+
+            broadcastRoomState();
+
+            if (typeof showMsg === 'function') {
+                showMsg(`🤝 Player ${conn._playerSlot} が接続しました`);
+            }
+
+        } else {
+
             document.getElementById('btn-join-room').innerText = "✅ 接続完了";
             document.getElementById('connection-role').innerText = "GUEST";
-            if (typeof showMsg === 'function') showMsg("🤝 ルームに接続しました！ホストのスタートを待機中...");
-        } else {
-            if (typeof showMsg === 'function') showMsg("🤝 メンバーが接続しました！");
-            broadcast({ type: 'UPDATE_PLAYERS', count: hostConnections.length + 1 });
         }
-        updatePlayerListUI(isHost ? hostConnections.length + 1 : 2);
     });
 
-    conn.on('data', (data) => {
-        if (data.type === 'UPDATE_PLAYERS' && !isHost) {
-            updatePlayerListUI(data.count);
+
+    conn.on('data', data => {
+
+        if (!data || !data.type) return;
+
+
+        // Host教材をGuestへ同期
+        if (data.type === 'INIT_ROOM' && !isHost) {
+
+            myPlayerSlot = data.slot;
+
+            currentCustomLesson = {
+                id: `multiplay_${Date.now()}`,
+                ...data.lesson,
+                history: [],
+                isMultiplayTemporary: true,
+                skipLocalHistory: true
+            };
+
+            roomPlayersState = data.players || [];
+
+            const title =
+                document.getElementById('together-lesson-title');
+
+            if (title) {
+                title.innerText = currentCustomLesson.title;
+            }
+
+            const micBtn =
+                document.getElementById('btn-together-mic-check');
+
+            if (micBtn) {
+                micBtn.disabled = false;
+                micBtn.innerText = "🎙 マイクを確認してREADY";
+            }
+
+            updatePlayerListUI();
+
+            return;
         }
+
+
+        // Player状態同期
+        if (data.type === 'ROOM_STATE' && !isHost) {
+
+            roomPlayersState = data.players || [];
+            updatePlayerListUI();
+
+            return;
+        }
+
+
+        // GuestのMIC READY
+        if (data.type === 'MIC_READY' && isHost) {
+
+            conn._micReady = true;
+            broadcastRoomState();
+
+            return;
+        }
+
+
+        // 同時START
         if (data.type === 'START_SYNCHRO') {
-            executeSyncStart(); 
+
+            currentRunId = data.runId;
+            expectedRunPlayers = data.players || [];
+
+            executeSyncStart();
+
+            return;
         }
-        if (data.type === 'SYNC_RESULT') {
-            handlePartnerResult(data); 
+
+
+        // Guest → Host 結果
+        if (data.type === 'SYNC_RESULT' && isHost) {
+
+            handlePartnerResult(data, conn);
+
+            return;
+        }
+
+
+        // Host → 全員 結果一覧
+        if (data.type === 'SYNC_RESULT_STATE' && !isHost) {
+
+            partnerResults = {};
+
+            (data.results || []).forEach(result => {
+                partnerResults[result.id] = result;
+            });
+
+            checkSynchroResults();
         }
     });
+
 
     conn.on('close', () => {
-        exitMultiplayMode(true); // 通信が切れたら強制解除
-        if (typeof showMsg === 'function') showMsg("⚠️ パートナーとの通信が切断されました");
+
+        if (isHost) {
+
+            hostConnections =
+                hostConnections.filter(c => c !== conn);
+
+            broadcastRoomState();
+
+            if (typeof showMsg === 'function') {
+                showMsg("⚠️ メンバーが退出しました");
+            }
+
+        } else {
+
+            exitMultiplayMode(true);
+
+            if (typeof showMsg === 'function') {
+                showMsg("⚠️ ホストとの通信が切断されました");
+            }
+        }
     });
 }
 
@@ -172,39 +454,192 @@ function broadcast(data) {
 // ------------------------------------------
 // 5. プレイヤーリストUIの更新
 // ------------------------------------------
-function updatePlayerListUI(playerCount) {
-    const p2Row = document.getElementById('p2-row');
-    const p2Name = document.getElementById('p2-name');
-    const p2Status = document.getElementById('p2-status');
-    const p2Dot = document.getElementById('p2-dot');
-    
-    if (playerCount >= 2) {
-        p2Row.classList.remove('opacity-40', 'border-dashed', 'border-stone-800');
-        p2Row.classList.add('bg-stone-800/60', 'border-stone-800');
-        p2Name.innerText = "Player 2";
-        p2Name.classList.add('text-stone-200');
-        p2Dot.innerText = "🟢";
-        p2Status.innerText = "READY";
-        p2Status.className = "text-[10px] text-emerald-400 bg-emerald-950/50 px-2 py-0.5 rounded-sm border border-emerald-900/30 font-bold tracking-wider";
-    } else {
-        p2Row.className = "flex items-center justify-between text-stone-600 text-sm font-bold border border-dashed border-stone-800 p-2.5 rounded-sm opacity-40 transition-all duration-300";
-        p2Name.innerText = "Player 2 を待機中...";
-        p2Name.classList.remove('text-stone-200');
-        p2Dot.innerText = "⚪️";
-        p2Status.innerText = "WAITING";
-        p2Status.className = "text-[10px] font-bold tracking-wider";
+function updatePlayerListUI() {
+
+    const players =
+        isHost
+            ? getHostRoomState()
+            : roomPlayersState;
+
+
+    for (let slot = 1; slot <= 3; slot++) {
+
+        const player =
+            players.find(p => p.slot === slot);
+
+        const name =
+            document.getElementById(`p${slot}-name`);
+
+        const status =
+            document.getElementById(`p${slot}-status`);
+
+        const row =
+            document.getElementById(`p${slot}-row`);
+
+        const dot =
+            document.getElementById(`p${slot}-dot`);
+
+
+        if (!name || !status) continue;
+
+
+        if (player) {
+
+            name.innerText =
+                peer &&
+                player.id === peer.id
+                    ? "あなた"
+                    : `Player ${slot}`;
+
+
+            if (dot) {
+                dot.innerText =
+                    player.micReady
+                        ? "🟢"
+                        : "🟡";
+            }
+
+
+            status.innerText =
+                player.micReady
+                    ? "MIC OK"
+                    : "MIC CHECK";
+
+
+            status.className =
+                player.micReady
+                    ? "text-[10px] text-emerald-400 font-bold tracking-wider"
+                    : "text-[10px] text-yellow-400 font-bold tracking-wider";
+
+
+            if (row) {
+
+                row.classList.remove(
+                    'opacity-40',
+                    'border-dashed'
+                );
+            }
+
+
+        } else {
+
+            name.innerText =
+                `Player ${slot} を待機中...`;
+
+            if (dot) {
+                dot.innerText = "⚪️";
+            }
+
+            status.innerText =
+                "WAITING";
+
+            status.className =
+                "text-[10px] font-bold tracking-wider";
+
+            if (row) {
+                row.classList.add(
+                    'opacity-40',
+                    'border-dashed'
+                );
+            }
+        }
     }
 
-    if (isHost) {
-        const startBtn = document.getElementById('btn-sync-start');
-        if (playerCount >= 2) {
-            startBtn.disabled = false;
-            startBtn.className = "w-full mt-4 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-base rounded-sm tracking-widest uppercase shadow-lg transition-all text-center animate-pulse";
-            startBtn.innerText = "🚀 SYNC START (同期音読を開始)";
+
+    const micBtn =
+        document.getElementById(
+            'btn-together-mic-check'
+        );
+
+
+    if (
+    micBtn &&
+    peer
+) {
+
+    const me =
+        players.find(
+            p => p.id === peer.id
+        );
+
+    if (me) {
+
+        if (me.micReady) {
+
+            micBtn.disabled = true;
+            micBtn.innerText =
+                "✅ マイク確認完了 / READY";
+
+            micBtn.className =
+                "w-full py-3 bg-emerald-700 text-white font-bold text-sm rounded-sm";
+
         } else {
-            startBtn.disabled = true;
-            startBtn.className = "w-full mt-4 py-3.5 bg-stone-800 text-stone-500 font-bold text-sm rounded-sm tracking-widest uppercase cursor-not-allowed border border-stone-700 transition-all text-center";
-            startBtn.innerText = "メンバーの接続を待っています";
+
+            micBtn.disabled = false;
+            micBtn.innerText =
+                "🎙 マイクを確認してREADY";
+
+            micBtn.className =
+                "w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-sm transition";
+        }
+    }
+}
+
+
+    const startBtn =
+        document.getElementById(
+            'btn-sync-start'
+        );
+
+
+    if (!startBtn) return;
+
+
+    if (!isHost) {
+
+        startBtn.disabled =
+            true;
+
+        startBtn.innerText =
+            "⏳ ホストのSTARTを待っています";
+
+        return;
+    }
+
+
+    if (canStartTogether()) {
+
+        startBtn.disabled =
+            false;
+
+        startBtn.className =
+            "w-full mt-3 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-base rounded-sm tracking-widest shadow-lg";
+
+        startBtn.innerText =
+            `🚀 START TOGETHER (${players.length}人)`;
+
+
+    } else {
+
+        startBtn.disabled =
+            true;
+
+        startBtn.className =
+            "w-full mt-3 py-3.5 bg-stone-800 text-stone-500 font-bold text-sm rounded-sm border border-stone-700 cursor-not-allowed";
+
+
+        if (
+            players.length <
+            2
+        ) {
+
+            startBtn.innerText =
+                "メンバーの接続を待っています";
+
+        } else {
+
+            startBtn.innerText =
+                "🎙 全員のMIC READYを待っています";
         }
     }
 }
@@ -213,22 +648,73 @@ function updatePlayerListUI(playerCount) {
 // 6. 同期音読 (Synchro Reading) の開始プロセス
 // ------------------------------------------
 function triggerSyncStart() {
-    if (!isHost) return;
-    broadcast({ type: 'START_SYNCHRO' }); 
-    executeSyncStart(); 
+
+    if (!canStartTogether()) {
+
+        if (typeof showMsg === 'function') {
+            showMsg("⚠️ 全員のMIC READYを確認してください");
+        }
+
+        return;
+    }
+
+
+    currentRunId =
+        `run_${Date.now()}`;
+
+    expectedRunPlayers =
+        getHostRoomState()
+            .map(p => ({
+                id: p.id,
+                slot: p.slot
+            }));
+
+    partnerResults = {};
+    myLatestResult = null;
+
+
+    broadcast({
+        type: 'START_SYNCHRO',
+        runId: currentRunId,
+        players: expectedRunPlayers
+    });
+
+
+    executeSyncStart();
 }
 
 function executeSyncStart() {
     isSyncModeActive = true; // ★共同モード状態をON
     myLatestResult = null;
-    partnerLatestResult = null;
+    partnerResults = {};
 
     // 前回のカスタムリザルトUIがあれば消す
     const customBoard = document.getElementById('sync-custom-board');
     if (customBoard) customBoard.remove();
 
-    switchScreen('learningScreen');
-    if (typeof setLearningMode === 'function') setLearningMode('reading');
+    if (
+    typeof openLearningScreen === 'function' &&
+    currentCustomLesson
+) {
+
+    openLearningScreen(
+        currentCustomLesson
+    );
+
+} else {
+
+    switchScreen(
+        'learningScreen'
+    );
+}
+
+if (
+    typeof setLearningMode === 'function'
+) {
+    setLearningMode(
+        'reading'
+    );
+}
     
     const overlay = document.getElementById('sync-countdown-overlay');
     const numberEl = document.getElementById('countdown-number');
@@ -258,12 +744,13 @@ function executeSyncStart() {
                     clearInterval(countInterval);
                     overlay.classList.add('hidden');
                     
-                    if (typeof toggleRecording === 'function') {
-                        // 既に録音中なら一度止めてから（一応の安全策）、スタートする
-                        if(typeof isMainRecording !== 'undefined' && isMainRecording) {
-                            window.originalToggleRecording();
-                        }
-                        window.originalToggleRecording(); // ★ハイジャック前の元の関数を直接呼んで録音開始！
+                    if (typeof startRecordingSession === 'function') {
+
+                        startRecordingSession();
+
+                    } else if (typeof window.originalToggleRecording === 'function') {
+
+                        window.originalToggleRecording();
                     }
                 }
             }, 100); 
@@ -275,84 +762,351 @@ function executeSyncStart() {
 // 7. シンクロ判定 (スコアの送受信と並列UI表示)
 // ------------------------------------------
 
-function sendMyResultToPartner(myAccuracy, myWpm) {
-    if (!isSyncModeActive) return; // 共同モードじゃなければ送らない
+function sendMyResultToPartner(
+    myAccuracy,
+    myWpm
+) {
 
-    myLatestResult = { accuracy: myAccuracy, wpm: myWpm };
+    if (
+        !isSyncModeActive ||
+        !currentRunId ||
+        !peer
+    ) return;
 
-    if (!myConnection && !isHost) return; 
-    if (hostConnections.length === 0 && isHost) return;
 
-    const myResultData = { type: 'SYNC_RESULT', accuracy: myAccuracy, wpm: myWpm };
+    const result = {
 
-    if (isHost) broadcast(myResultData);
-    else myConnection.send(myResultData);
-    
-    if (partnerLatestResult) showSynchroResultUI();
+        id:
+            peer.id,
+
+        slot:
+            myPlayerSlot,
+
+        accuracy:
+            myAccuracy,
+
+        wpm:
+            myWpm
+    };
+
+
+    myLatestResult =
+        result;
+
+
+    if (isHost) {
+
+        partnerResults[
+            peer.id
+        ] =
+            result;
+
+        publishSynchroResults();
+
+
+    } else if (
+        myConnection &&
+        myConnection.open
+    ) {
+
+        myConnection.send({
+
+            type:
+                'SYNC_RESULT',
+
+            runId:
+                currentRunId,
+
+            accuracy:
+                myAccuracy,
+
+            wpm:
+                myWpm
+        });
+    }
 }
 
-function handlePartnerResult(data) {
-    partnerLatestResult = { accuracy: data.accuracy, wpm: data.wpm };
-    if (myLatestResult) showSynchroResultUI();
+
+function handlePartnerResult(
+    data,
+    conn
+) {
+
+    if (
+        data.runId !==
+        currentRunId
+    ) return;
+
+
+    partnerResults[
+        conn.peer
+    ] = {
+
+        id:
+            conn.peer,
+
+        slot:
+            conn._playerSlot,
+
+        accuracy:
+            data.accuracy,
+
+        wpm:
+            data.wpm
+    };
+
+
+    publishSynchroResults();
 }
 
-// ★修正: リザルトボードを上書きして、Team Synchroを上に、個人のスコアを小さく横に並べる
-function showSynchroResultUI() {
-    if (!myLatestResult || !partnerLatestResult) return;
 
-    const resultContainer = document.getElementById('resultScoreBoard');
+function publishSynchroResults() {
+
+    if (!isHost) return;
+
+
+    const results =
+        Object.values(
+            partnerResults
+        );
+
+
+    broadcast({
+
+        type:
+            'SYNC_RESULT_STATE',
+
+        runId:
+            currentRunId,
+
+        results:
+            results
+    });
+
+
+    checkSynchroResults();
+}
+
+
+function checkSynchroResults() {
+
+    const results =
+        Object.values(
+            partnerResults
+        );
+
+
+    if (
+        results.length !==
+        expectedRunPlayers.length
+    ) {
+
+        return;
+    }
+
+
+    showSynchroResultUI(
+        results
+            .sort(
+                (
+                    a,
+                    b
+                ) =>
+                    a.slot -
+                    b.slot
+            )
+    );
+    currentRunId = "";
+}
+
+
+
+function showSynchroResultUI(
+    results
+) {
+
+    if (
+        !results ||
+        results.length <
+        2
+    ) return;
+
+
+    const resultContainer =
+        document.getElementById(
+            'resultScoreBoard'
+        );
+
+
     if (!resultContainer) return;
 
-    // 1. 通常のソロ用スコアボード（子要素）を一旦隠す
-    Array.from(resultContainer.children).forEach(child => {
-        if(child.id !== 'sync-custom-board') {
-            child.style.display = 'none';
-            child.classList.add('sync-hidden-elem'); // 復元用の目印
+
+    Array.from(
+        resultContainer.children
+    ).forEach(child => {
+
+        if (
+            child.id !==
+            'sync-custom-board'
+        ) {
+
+            child.style.display =
+                'none';
+
+            child.classList.add(
+                'sync-hidden-elem'
+            );
         }
     });
 
-    // 既に表示されていれば消す
-    const existingSync = document.getElementById('sync-custom-board');
-    if (existingSync) existingSync.remove();
 
-    const synchroRate = Math.round((myLatestResult.accuracy + partnerLatestResult.accuracy) / 2);
+    document
+        .getElementById(
+            'sync-custom-board'
+        )
+        ?.remove();
 
-    // 2. 完全に新しい「共同モード専用のリザルトHTML」を作成
-    const syncHtml = `
-        <div id="sync-custom-board" class="w-full flex flex-col gap-4 animate-fadeIn">
-            <div class="p-6 md:p-8 border-4 border-yellow-400 bg-yellow-50 rounded-xl text-center shadow-lg relative overflow-hidden">
-                <div class="absolute -top-10 -right-10 text-9xl opacity-10 select-none">🤝</div>
-                <h3 class="text-sm md:text-base font-black text-yellow-600 tracking-[0.2em] uppercase mb-2">Team Synchro Rate</h3>
-                <div class="text-7xl md:text-8xl font-black text-yellow-500 serif-font drop-shadow-md">${synchroRate}<span class="text-4xl">%</span></div>
+
+    const accuracyAvg =
+        Math.round(
+
+            results.reduce(
+                (
+                    total,
+                    r
+                ) =>
+                    total +
+                    r.accuracy,
+                0
+            ) /
+
+            results.length
+        );
+
+
+    const wpms =
+        results.map(
+            r =>
+                r.wpm
+        );
+
+
+    const maxWpm =
+        Math.max(
+            ...wpms
+        );
+
+
+    const minWpm =
+        Math.min(
+            ...wpms
+        );
+
+
+    const paceMatch =
+        maxWpm >
+        0
+            ? Math.round(
+                minWpm /
+                maxWpm *
+                100
+            )
+            : 0;
+
+
+    const teamScore =
+        Math.round(
+            accuracyAvg *
+            0.7 +
+            paceMatch *
+            0.3
+        );
+
+
+    const cards =
+        results
+            .map(
+                result => {
+
+                    const label =
+                        peer &&
+                        result.id ===
+                            peer.id
+                            ? 'あなた'
+                            : `Player ${result.slot}`;
+
+
+                    return `
+                        <div class="flex-1 bg-white p-4 rounded-xl border-2 border-stone-200 text-center">
+                            <div class="text-xs font-black text-stone-500">
+                                ${label}
+                            </div>
+
+                            <div class="text-3xl font-black text-emerald-700 mt-2">
+                                ${result.accuracy}%
+                            </div>
+
+                            <div class="text-xs font-bold text-stone-500">
+                                ${result.wpm} WPM
+                            </div>
+                        </div>
+                    `;
+                }
+            )
+            .join(
+                ''
+            );
+
+
+    resultContainer.insertAdjacentHTML(
+
+        'afterbegin',
+
+        `
+        <div id="sync-custom-board" class="w-full flex flex-col gap-4">
+
+            <div class="p-6 border-4 border-yellow-400 bg-yellow-50 rounded-xl text-center">
+
+                <div class="text-xs font-black text-yellow-700 tracking-widest">
+                    TOGETHER SCORE
+                </div>
+
+                <div class="text-7xl font-black text-yellow-500">
+                    ${teamScore}
+                </div>
+
+                <div class="flex justify-center gap-4 text-xs font-bold text-stone-600 mt-2">
+                    <span>Accuracy ${accuracyAvg}%</span>
+                    <span>Pace Match ${paceMatch}%</span>
+                </div>
+
             </div>
 
-            <div class="flex flex-col sm:flex-row gap-4 w-full">
-                <div class="flex-1 bg-white p-4 rounded-xl border-2 border-emerald-400 shadow-sm text-center relative mt-3 sm:mt-0">
-                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-emerald-400 text-white text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest whitespace-nowrap">あなた</div>
-                    <div class="mt-2 text-3xl md:text-4xl font-bold text-emerald-600 serif-font">${myLatestResult.accuracy}%</div>
-                    <div class="text-xs text-stone-500 font-bold mt-1">${myLatestResult.wpm} WPM</div>
-                </div>
-                
-                <div class="flex-1 bg-white p-4 rounded-xl border-2 border-blue-400 shadow-sm text-center relative mt-3 sm:mt-0 opacity-90">
-                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-400 text-white text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest whitespace-nowrap">パートナー</div>
-                    <div class="mt-2 text-3xl md:text-4xl font-bold text-blue-600 serif-font">${partnerLatestResult.accuracy}%</div>
-                    <div class="text-xs text-stone-500 font-bold mt-1">${partnerLatestResult.wpm} WPM</div>
-                </div>
+            <div class="flex flex-col sm:flex-row gap-3">
+                ${cards}
             </div>
 
-            <button onclick="exitMultiplayMode()" class="mt-4 w-full py-3 bg-stone-200 hover:bg-stone-300 text-stone-600 font-bold text-sm rounded-lg transition-all border border-stone-300">
-                ❌ 共同モードを終了してソロに戻る
+            <button
+                onclick="exitMultiplayMode()"
+                class="w-full py-3 bg-stone-200 text-stone-600 font-bold rounded-lg">
+
+                ❌ 共同モードを終了
+
             </button>
+
         </div>
-    `;
+        `
+    );
 
-    // コンテナの「一番上」に挿入
-    resultContainer.insertAdjacentHTML('afterbegin', syncHtml);
-    
-    // UIの強制更新（黄金のRetryボタンに切り替えるため）
-    if (typeof window.updateMicButtonUI === 'function') window.updateMicButtonUI();
+
+    if (
+        typeof window.updateMicButtonUI ===
+        'function'
+    ) {
+
+        window.updateMicButtonUI();
+    }
 }
-
 // ------------------------------------------
 // 8. 共同モードの解除と後片付け
 // ------------------------------------------
@@ -361,10 +1115,28 @@ function exitMultiplayMode(isForce = false) {
     if (isHost) {
         hostConnections.forEach(c => c.close());
         hostConnections = [];
-        if(peer) peer.destroy();
+        if (peer) {
+    peer.destroy();
+    peer = null;
+}
     }
     
     isSyncModeActive = false; // フラグOFF
+    isHost = false;
+    myMicReady = false;
+    myPlayerSlot = 1;
+    roomPlayersState = [];
+    partnerResults = {};
+    currentRunId = "";
+    expectedRunPlayers = [];
+    if (
+    currentCustomLesson &&
+    currentCustomLesson.isMultiplayTemporary &&
+    lessonBeforeMultiplay
+) {
+    currentCustomLesson =
+        lessonBeforeMultiplay;
+}
     
     // 隠していたソロ用UIを復活させる
     const resultContainer = document.getElementById('resultScoreBoard');

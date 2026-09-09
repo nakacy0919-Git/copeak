@@ -1804,13 +1804,27 @@ function processSpeechMatch(spokenText, isFinalResult = false) {
                 "text-5xl md:text-6xl font-bold text-red-400 serif-font";
         }
 
-
+        // ==========================================
+        // Copeak Rewards
+        // ==========================================
+        if (
+            typeof window.processCopeakReward === 'function' &&
+            currentCustomLesson
+        ) {
+            window.processCopeakReward({
+                lessonId: currentCustomLesson.id,
+                accuracy: currentAccuracy,
+                wpm: currentWpm,
+                transcript: spokenText
+            });
+        }
         // ==========================================
         // 履歴保存
         // ==========================================
         if (
-           currentCustomLesson &&
-           !currentCustomLesson.isQuest
+            currentCustomLesson &&
+            !currentCustomLesson.isQuest &&
+            !currentCustomLesson.skipLocalHistory
         ) {
 
             const todayStr =
@@ -2606,6 +2620,12 @@ function startMicCheck() {
         document.getElementById(
             'micCheckRetryBtn'
         );
+        if (startBtn) {
+    startBtn.innerText =
+        window.copeakMicCheckReadyOnly === true
+            ? '✅ READYにする'
+            : '音読を始める';
+}
 
 
     if (targetEl) {
@@ -3018,10 +3038,25 @@ function beginReadingAfterMicCheck() {
 
 
     recordStartTime =
-        0;
+    0;
 
+// ★ Togetherモードではここで本番を開始せずREADYだけ通知
+if (window.copeakMicCheckReadyOnly === true) {
 
-    startRecordingSession();
+    const callback =
+        window.copeakMicCheckReadyCallback;
+
+    window.copeakMicCheckReadyOnly = false;
+    window.copeakMicCheckReadyCallback = null;
+
+    if (typeof callback === 'function') {
+        callback();
+    }
+
+    return;
+}
+
+startRecordingSession();
 }
 
 
@@ -3067,6 +3102,8 @@ function cancelMicCheck() {
             'hidden'
         );
 
+    window.copeakMicCheckReadyOnly = false;
+    window.copeakMicCheckReadyCallback = null;
 
     setRecognitionHealth(
         'idle',
