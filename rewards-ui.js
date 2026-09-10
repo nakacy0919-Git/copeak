@@ -2612,7 +2612,243 @@ const balls =
                 false;
         }
     }
+    
+    // ==========================================
+// World Collection Map
+// ==========================================
 
+function initCollectionWorldMap(
+    countries,
+    owned
+) {
+
+    const container =
+        document.getElementById(
+            "crWorldCollectionMap"
+        );
+
+
+    if (!container) {
+        return;
+    }
+
+
+    const VectorMap =
+        window.jsVectorMap;
+
+
+    if (
+        typeof VectorMap !==
+        "function"
+    ) {
+
+        container.innerHTML = `
+            <div class="cr-world-map-error">
+                World Mapを読み込めませんでした。
+            </div>
+        `;
+
+        return;
+    }
+
+
+    // ======================================
+    // ISO2コード → countryデータ
+    // ======================================
+
+    const countryByCode =
+        new Map();
+
+
+    const ownedCodes =
+        new Set();
+
+
+    countries.forEach(
+        country => {
+
+            const code =
+                String(
+                    country.code2 ||
+                    ""
+                )
+                .trim()
+                .toUpperCase();
+
+
+            if (!code) {
+                return;
+            }
+
+
+            countryByCode.set(
+                code,
+                country
+            );
+
+
+            const count =
+                Number(
+                    owned[
+                        country.id
+                    ] ||
+                    0
+                );
+
+
+            if (count > 0) {
+
+                ownedCodes.add(
+                    code
+                );
+            }
+        }
+    );
+
+
+    // ======================================
+    // Map
+    // ======================================
+
+    new VectorMap({
+
+        selector:
+            "#crWorldCollectionMap",
+
+        map:
+            "world",
+
+        backgroundColor:
+            "transparent",
+
+        draggable:
+            true,
+
+        zoomButtons:
+            true,
+
+        zoomOnScroll:
+            false,
+
+        showTooltip:
+            true,
+
+
+        regionStyle: {
+
+            initial: {
+
+                fill:
+                    "#182333",
+
+                stroke:
+                    "#4b586a",
+
+                strokeWidth:
+                    0.35,
+
+                fillOpacity:
+                    1
+            },
+
+            hover: {
+
+                fillOpacity:
+                    1
+            }
+        },
+
+
+        // ==================================
+        // 描画後に獲得済み国へclass追加
+        // ==================================
+
+        onLoaded() {
+
+            container
+                .querySelectorAll(
+                    ".jvm-region"
+                )
+                .forEach(
+                    region => {
+
+                        const code =
+                            String(
+                                region.getAttribute(
+                                    "data-code"
+                                ) ||
+                                ""
+                            )
+                            .toUpperCase();
+
+
+                        const isOwned =
+                            ownedCodes.has(
+                                code
+                            );
+
+
+                        region.classList.toggle(
+                            "cr-map-owned",
+                            isOwned
+                        );
+
+
+                        region.classList.toggle(
+                            "cr-map-locked",
+                            !isOwned
+                        );
+
+                    }
+                );
+        },
+
+
+        // ==================================
+        // 国をクリック
+        // ==================================
+
+        onRegionClick(
+            event,
+            code
+        ) {
+
+            const normalizedCode =
+                String(
+                    code ||
+                    ""
+                )
+                .toUpperCase();
+
+
+            // 未取得国は反応しない
+            if (
+                !ownedCodes.has(
+                    normalizedCode
+                )
+            ) {
+                return;
+            }
+
+
+            const country =
+                countryByCode.get(
+                    normalizedCode
+                );
+
+
+            if (!country) {
+                return;
+            }
+
+
+            showCountryById(
+                country.id
+            );
+        }
+
+    });
+}
         // ==========================================
     // World Collection
     // ==========================================
@@ -3107,7 +3343,52 @@ const canOpenCapsule =
     </button>
 
 </div>
+<section class="cr-world-map-panel">
 
+    <div class="cr-world-map-header">
+
+        <div>
+
+            <div class="cr-world-map-kicker">
+                DISCOVERY MAP
+            </div>
+
+            <div class="cr-world-map-title">
+                あなたが発見した世界
+            </div>
+
+        </div>
+
+
+        <div class="cr-world-map-legend">
+
+            <span>
+                <i class="cr-map-dot is-owned"></i>
+                獲得済み
+            </span>
+
+            <span>
+                <i class="cr-map-dot is-locked"></i>
+                未発見
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="crWorldCollectionMap"
+        class="cr-world-map-canvas"
+    ></div>
+
+
+    <div class="cr-world-map-hint">
+        ✦ 色のついた国をクリックすると、
+        Country Cardを見ることができます。
+    </div>
+
+</section>
 
                 <div
                     class="
@@ -3129,6 +3410,10 @@ const canOpenCapsule =
             </div>
         `);
 
+        initCollectionWorldMap(
+        countries,
+        owned
+    );
 
         const overlay =
             document.getElementById(
