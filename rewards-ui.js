@@ -1467,9 +1467,7 @@ function showGashaponMachine() {
         );
 
 
-    if (
-        sp < cost
-    ) {
+    if (sp < cost) {
 
         alert(
             `あと ${cost - sp} SP必要です。`
@@ -1479,112 +1477,233 @@ function showGashaponMachine() {
     }
 
 
-    openModal(`
-        <div class="cr-gashapon-screen">
+    // ======================================
+    // ドーム内のカプセル
+    // Talk Gacha風に毎回少し配置を変える
+    // ======================================
 
-            <div class="cr-gashapon-eyebrow">
+    const colors = [
+        "#c99e42",
+        "#356d73",
+        "#405f8b",
+        "#765c7c",
+        "#8b6942"
+    ];
+
+
+    const balls =
+        Array.from(
+            { length: 22 },
+            (_, i) => {
+
+                const left =
+                    7 +
+                    Math.random() * 86;
+
+                const top =
+                    48 +
+                    Math.random() * 42;
+
+                const rotate =
+                    -40 +
+                    Math.random() * 80;
+
+                const scale =
+                    0.78 +
+                    Math.random() * 0.40;
+
+
+                return `
+                    <span
+                        class="cr-gacha2-ball"
+                        style="
+                            left:${left.toFixed(1)}%;
+                            top:${top.toFixed(1)}%;
+                            --cr-ball-color:${colors[i % colors.length]};
+                            transform:
+                                translate(-50%,-50%)
+                                rotate(${rotate.toFixed(0)}deg)
+                                scale(${scale.toFixed(2)});
+                            z-index:${Math.round(top)};
+                        "
+                    ></span>
+                `;
+            }
+        )
+        .join("");
+
+
+    openModal(`
+        <div class="cr-gacha2-screen">
+
+            <div class="cr-gacha2-eyebrow">
                 COPEAK WORLD CAPSULE
             </div>
 
-            <div class="cr-gashapon-heading">
+            <div class="cr-gacha2-title">
                 TURN THE HANDLE
             </div>
 
-            <div class="cr-gashapon-sub">
-                ハンドルを回して、世界へのカプセルを取り出そう。
+            <div class="cr-gacha2-sub">
+                ハンドルを右に1回転させて、
+                世界へのカプセルを取り出そう。
             </div>
 
 
-            <div class="cr-gashapon-stage">
+            <div class="cr-gacha2-stage">
 
                 <div
-                    class="cr-gashapon-machine"
-                    id="crGashaponMachine"
+                    class="cr-gacha2-machine"
+                    id="crGacha2Machine"
                 >
 
-                    <div class="cr-gashapon-dome">
+                    <!-- Glass Dome -->
+                    <div class="cr-gacha2-dome">
 
-                        <span class="cr-gashapon-ball ball-1"></span>
-                        <span class="cr-gashapon-ball ball-2"></span>
-                        <span class="cr-gashapon-ball ball-3"></span>
-                        <span class="cr-gashapon-ball ball-4"></span>
-                        <span class="cr-gashapon-ball ball-5"></span>
+                        <div class="cr-gacha2-inventory">
+                            ${balls}
+                        </div>
 
-                        <div class="cr-gashapon-world">
+                        <div class="cr-gacha2-world">
                             🌍
                         </div>
+
+                        <div class="cr-gacha2-glass-shine"></div>
 
                     </div>
 
 
-                    <div class="cr-gashapon-body">
+                    <!-- Control Body -->
+                    <div class="cr-gacha2-body">
 
-                        <div class="cr-gashapon-brand">
-                            COPEAK
+                        <div class="cr-gacha2-price">
+
+                            <small>
+                                WORLD CAPSULE
+                            </small>
+
+                            <strong>
+                                ${cost} SP
+                            </strong>
+
                         </div>
 
 
-                        <button
-                            type="button"
-                            class="cr-gashapon-handle"
-                            id="crGashaponHandle"
-                            aria-label="Turn handle"
-                        >
+                        <div class="cr-gacha2-handle-zone">
 
-                            <span class="cr-handle-disc">
+                            <div
+                                class="cr-gacha2-handle"
+                                id="crGacha2Handle"
+                                role="button"
+                                tabindex="0"
+                                aria-label="Turn the gacha handle"
+                            >
 
-                                <span class="cr-handle-grip"></span>
+                                <span class="cr-gacha2-handle-ring"></span>
 
-                            </span>
+                                <span
+                                    class="
+                                        cr-gacha2-handle-arm
+                                        is-horizontal
+                                    "
+                                ></span>
 
-                        </button>
+                                <span
+                                    class="
+                                        cr-gacha2-handle-arm
+                                        is-vertical
+                                    "
+                                ></span>
 
+                                <span class="cr-gacha2-handle-hub">
+                                    ↻
+                                </span>
 
-                        <div class="cr-gashapon-turn-label">
-                            TURN
+                            </div>
+
+                            <div class="cr-gacha2-turn">
+                                TURN RIGHT →
+                            </div>
+
                         </div>
 
 
-                        <div class="cr-gashapon-chute">
-                            ▼
+                        <div class="cr-gacha2-chute">
+
+                            <small>
+                                CAPSULE
+                            </small>
+
+                            <div>
+                                ▼
+                            </div>
+
                         </div>
 
                     </div>
 
                 </div>
 
-
-                <button
-                    type="button"
-                    class="cr-drop-capsule"
-                    id="crDroppedCapsule"
-                    disabled
-                    aria-label="Open capsule"
-                >
-                    <span>🌍</span>
-                </button>
-
             </div>
 
 
             <div
-                class="cr-gashapon-status"
-                id="crGashaponStatus"
+                class="cr-gacha2-status"
+                id="crGacha2Status"
             >
                 HANDLE READY
             </div>
 
+
             <div
-                class="cr-gashapon-status-ja"
-                id="crGashaponStatusJa"
+                class="cr-gacha2-status-ja"
+                id="crGacha2StatusJa"
             >
-                丸いハンドルを押して回してください
+                ハンドルをつかんで右に回してください
+            </div>
+
+
+            <!-- Capsule Reveal -->
+            <div
+                class="cr-gacha2-reveal"
+                id="crGacha2Reveal"
+            >
+
+                <div class="cr-gacha2-rays"></div>
+
+
+                <button
+                    type="button"
+                    class="cr-gacha2-big-capsule"
+                    id="crGacha2Capsule"
+                    aria-label="Open capsule"
+                >
+
+                    <span class="cr-gacha2-capsule-world">
+                        🌍
+                    </span>
+
+                    <span class="cr-gacha2-tap-badge">
+                        TAP!
+                    </span>
+
+                </button>
+
+
+                <div class="cr-gacha2-reveal-title">
+                    CAPSULE DISPENSED!
+                </div>
+
+                <div class="cr-gacha2-reveal-ja">
+                    カプセルをタップして世界を開こう
+                </div>
+
             </div>
 
 
             <div
-                class="cr-capsule-flash"
-                id="crGashaponFlash"
+                class="cr-gacha2-flash"
+                id="crGacha2Flash"
             ></div>
 
         </div>
@@ -1593,65 +1712,436 @@ function showGashaponMachine() {
 
     const machine =
         document.getElementById(
-            "crGashaponMachine"
+            "crGacha2Machine"
         );
 
 
     const handle =
         document.getElementById(
-            "crGashaponHandle"
-        );
-
-
-    const capsule =
-        document.getElementById(
-            "crDroppedCapsule"
+            "crGacha2Handle"
         );
 
 
     const status =
         document.getElementById(
-            "crGashaponStatus"
+            "crGacha2Status"
         );
 
 
     const statusJa =
         document.getElementById(
-            "crGashaponStatusJa"
+            "crGacha2StatusJa"
         );
 
 
-    let turned =
-        false;
+    const reveal =
+        document.getElementById(
+            "crGacha2Reveal"
+        );
 
 
-    let opening =
-        false;
+    const capsule =
+        document.getElementById(
+            "crGacha2Capsule"
+        );
+    const turnSfx = new Audio('./gatch.mp3');
+    const openSfx = new Audio('./bright.mp3');
+
+    turnSfx.preload = 'auto';
+    openSfx.preload = 'auto';
+
+    function playSfx(audio) {
+        if (!audio) return;
+        try {
+            audio.currentTime = 0;
+            audio.play();
+        } catch (e) {
+            console.warn('SFX play error:', e);
+        }
+    }
+
+    let dragging = false;
+
+    let dispensed = false;
+
+    let opening = false;
+
+    let rotation = 0;
+
+    let cumulativeRotation = 0;
+
+    let lastAngle = 0;
+
+    let lastTick = 0;
+
+    let turnSfxPlayed = false;
 
 
     // ======================================
-    // Handle
+    // Pointer角度
     // ======================================
 
-    handle?.addEventListener(
-        "click",
-        () => {
+    function getAngle(event) {
 
-            if (turned) {
+        const rect =
+            handle.getBoundingClientRect();
+
+
+        const centerX =
+            rect.left +
+            rect.width / 2;
+
+
+        const centerY =
+            rect.top +
+            rect.height / 2;
+
+
+        return (
+            Math.atan2(
+                event.clientY - centerY,
+                event.clientX - centerX
+            ) *
+            180 /
+            Math.PI
+        );
+    }
+
+
+    // ======================================
+    // Capsule排出
+    // ======================================
+
+    function dispenseCapsule() {
+
+        if (dispensed) {
+            return;
+        }
+
+
+        dispensed = true;
+
+        dragging = false;
+
+
+        handle.classList.remove(
+            "is-dragging"
+        );
+
+
+        handle.classList.add(
+            "is-complete"
+        );
+
+
+        machine.classList.add(
+            "is-rumbling"
+        );
+
+
+        status.textContent =
+            "GACHA... GACHA...";
+
+
+        statusJa.textContent =
+            "カプセルを取り出しています";
+
+
+        if (
+            navigator.vibrate
+        ) {
+
+            navigator.vibrate(
+                [80, 40, 100]
+            );
+        }
+
+
+        setTimeout(
+            () => {
+
+                machine.classList.remove(
+                    "is-rumbling"
+                );
+
+
+                reveal.classList.add(
+                    "is-visible"
+                );
+
+
+                status.textContent =
+                    "CAPSULE DISPENSED!";
+
+
+                statusJa.textContent =
+                    "カプセルをタップして開けよう！";
+
+            },
+            850
+        );
+    }
+
+
+    // ======================================
+    // Start Drag
+    // ======================================
+
+    handle.addEventListener(
+        "pointerdown",
+        event => {
+
+            if (dispensed) {
                 return;
             }
 
 
-            turned =
-                true;
+            dragging = true;
+            turnSfxPlayed = false;
 
 
-            handle.disabled =
-                true;
+            lastAngle =
+                getAngle(
+                    event
+                );
 
 
             handle.classList.add(
-                "is-turning"
+                "is-dragging"
+            );
+
+
+            try {
+
+                handle.setPointerCapture(
+                    event.pointerId
+                );
+
+            } catch (_) {}
+
+
+            event.preventDefault();
+        }
+    );
+
+
+    // ======================================
+    // Turn Handle
+    // ======================================
+
+    handle.addEventListener(
+        "pointermove",
+        event => {
+
+            if (
+                !dragging ||
+                dispensed
+            ) {
+                return;
+            }
+                        if (!turnSfxPlayed) {
+                playSfx(turnSfx);
+                turnSfxPlayed = true;
+            }
+
+            const currentAngle =
+                getAngle(
+                    event
+                );
+
+
+            let delta =
+                currentAngle -
+                lastAngle;
+
+
+            // -180 / 180 の境界補正
+            if (delta > 180) {
+                delta -= 360;
+            }
+
+            if (delta < -180) {
+                delta += 360;
+            }
+
+
+            rotation +=
+                delta;
+
+
+            cumulativeRotation =
+                Math.max(
+                    0,
+                    cumulativeRotation +
+                    delta
+                );
+
+
+            lastAngle =
+                currentAngle;
+
+
+            handle.style.setProperty(
+                "--cr-gacha2-rotation",
+                `${rotation}deg`
+            );
+
+
+            const progress =
+                Math.min(
+                    100,
+                    Math.round(
+                        cumulativeRotation /
+                        360 *
+                        100
+                    )
+                );
+
+
+            status.textContent =
+                `TURN RIGHT → ${progress}%`;
+
+
+            statusJa.textContent =
+                progress < 100
+                    ? "そのまま右へ回そう"
+                    : "OK!";
+
+
+            // Talk Gachaと同じ感覚で
+            // 約60度ごとに小さく振動
+            const tick =
+                Math.floor(
+                    cumulativeRotation /
+                    60
+                );
+
+
+            if (
+                tick >
+                lastTick
+            ) {
+
+                lastTick =
+                    tick;
+
+
+                machine.classList.add(
+                    "is-ticking"
+                );
+
+
+                setTimeout(
+                    () => {
+
+                        machine
+                            .classList
+                            .remove(
+                                "is-ticking"
+                            );
+
+                    },
+                    70
+                );
+
+
+                if (
+                    navigator.vibrate
+                ) {
+
+                    navigator.vibrate(
+                        6
+                    );
+                }
+            }
+
+
+            if (
+                cumulativeRotation >=
+                360
+            ) {
+
+                dispenseCapsule();
+            }
+
+
+            event.preventDefault();
+        }
+    );
+
+
+    // ======================================
+    // End Drag
+    // ======================================
+
+    function stopDragging(
+        event
+    ) {
+
+        dragging = false;
+
+
+        handle.classList.remove(
+            "is-dragging"
+        );
+
+
+        if (
+            event &&
+            event.pointerId !==
+            undefined
+        ) {
+
+            try {
+
+                handle.releasePointerCapture(
+                    event.pointerId
+                );
+
+            } catch (_) {}
+        }
+    }
+
+
+    handle.addEventListener(
+        "pointerup",
+        stopDragging
+    );
+
+
+    handle.addEventListener(
+        "pointercancel",
+        stopDragging
+    );
+
+
+    // ======================================
+    // Keyboard fallback
+    // ======================================
+
+    handle.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                dispensed ||
+                (
+                    event.key !==
+                    "Enter" &&
+                    event.key !==
+                    " "
+                )
+            ) {
+                return;
+            }
+
+
+            event.preventDefault();
+
+            playSfx(turnSfx);
+
+            handle.classList.add(
+                "is-auto-turning"
             );
 
 
@@ -1660,96 +2150,40 @@ function showGashaponMachine() {
 
 
             statusJa.textContent =
-                "ガシャガシャ……";
+                "ハンドルを回しています";
 
 
             setTimeout(
-                () => {
-
-                    machine?.classList.add(
-                        "is-rumbling"
-                    );
-
-
-                    if (
-                        navigator.vibrate
-                    ) {
-
-                        navigator.vibrate(
-                            [40, 40, 50]
-                        );
-                    }
-
-                },
-                350
+                dispenseCapsule,
+                950
             );
-
-
-            setTimeout(
-                () => {
-
-                    machine?.classList.remove(
-                        "is-rumbling"
-                    );
-
-
-                    capsule.disabled =
-                        false;
-
-
-                    capsule.classList.add(
-                        "is-dropped"
-                    );
-
-
-                    status.textContent =
-                        "CAPSULE READY!";
-
-
-                    statusJa.textContent =
-                        "カプセルをタップして開けよう！";
-
-
-                    if (
-                        navigator.vibrate
-                    ) {
-
-                        navigator.vibrate(
-                            80
-                        );
-                    }
-
-                },
-                1250
-            );
-
         }
     );
 
 
     // ======================================
-    // Capsule
+    // Open Capsule
     // ======================================
 
-    capsule?.addEventListener(
+    capsule.addEventListener(
         "click",
         async () => {
 
             if (
-                !turned ||
+                !dispensed ||
                 opening
             ) {
                 return;
             }
 
 
-            opening =
-                true;
+            opening = true;
 
 
             capsule.disabled =
                 true;
-
+            
+            playSfx(openSfx);
 
             status.textContent =
                 "OPENING...";
@@ -1788,7 +2222,7 @@ function showGashaponMachine() {
 
             document
                 .getElementById(
-                    "crGashaponFlash"
+                    "crGacha2Flash"
                 )
                 ?.classList
                 .add(
@@ -1814,9 +2248,8 @@ function showGashaponMachine() {
                     );
 
                 },
-                750
+                700
             );
-
         }
     );
 }

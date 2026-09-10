@@ -2956,3 +2956,1125 @@
     }
 
 }
+/* ==========================================
+   COPEAK WORLD GACHA 2
+   Talk Gacha inspired interaction
+   ========================================== */
+
+.cr-gacha2-screen {
+    position: relative;
+    min-height: 720px;
+    overflow: hidden;
+    padding: 28px 26px 34px;
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 28%,
+            #1b2b47 0%,
+            #0d1625 48%,
+            #070b12 82%
+        );
+}
+
+
+/* Header */
+
+.cr-gacha2-eyebrow {
+    color: var(--cr-gold);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 2.5px;
+}
+
+.cr-gacha2-title {
+    margin-top: 5px;
+
+    color: white;
+    font-size: 27px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.cr-gacha2-sub {
+    margin-top: 6px;
+
+    color: var(--cr-muted);
+    font-size: 11px;
+}
+
+
+/* ==========================================
+   Machine
+   ========================================== */
+
+.cr-gacha2-stage {
+    width: min(600px, 100%);
+    margin: 22px auto 0;
+}
+
+.cr-gacha2-machine {
+    position: relative;
+
+    width: min(560px, 100%);
+
+    margin: 0 auto;
+
+    filter:
+        drop-shadow(
+            0 28px 30px
+            rgba(0,0,0,.48)
+        );
+}
+
+
+/* ==========================================
+   Dome
+   ========================================== */
+
+.cr-gacha2-dome {
+    position: relative;
+
+    height: 285px;
+
+    overflow: hidden;
+
+    border: 4px solid #b68a30;
+
+    border-radius:
+        220px 220px
+        28px 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.17),
+            rgba(41,56,81,.45) 45%,
+            rgba(10,18,31,.75)
+        );
+
+    box-shadow:
+        inset 0 0 45px
+        rgba(255,255,255,.07);
+}
+
+.cr-gacha2-inventory {
+    position: absolute;
+    inset: 0;
+}
+
+.cr-gacha2-world {
+    position: absolute;
+
+    top: 42px;
+    left: 50%;
+
+    z-index: 80;
+
+    transform:
+        translateX(-50%);
+
+    font-size: 67px;
+
+    filter:
+        drop-shadow(
+            0 8px 12px
+            rgba(0,0,0,.30)
+        );
+}
+
+
+/* Capsule inside dome */
+
+.cr-gacha2-ball {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgba(255,255,255,.32);
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.95) 0 49%,
+            var(--cr-ball-color) 50% 100%
+        );
+    box-shadow:
+        inset -8px -8px 14px rgba(0,0,0,.16),
+        inset 8px 8px 14px rgba(255,255,255,.10),
+        0 8px 14px rgba(0,0,0,.28);
+}
+
+.cr-gacha2-ball::before {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 16px;
+    left: 10px;
+    top: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.48);
+    filter: blur(1px);
+}
+
+.cr-gacha2-ball::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 49%;
+    height: 2px;
+    background: rgba(255,255,255,.30);
+    box-shadow: 0 -1px 0 rgba(255,255,255,.12);
+}
+
+
+/* Glass reflection */
+
+.cr-gacha2-glass-shine {
+    position: absolute;
+
+    top: -30px;
+    left: 45px;
+
+    z-index: 100;
+
+    width: 75px;
+    height: 340px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.14),
+            transparent
+        );
+
+    transform:
+        rotate(18deg);
+
+    pointer-events: none;
+}
+
+
+/* ==========================================
+   Control Body
+   ========================================== */
+
+.cr-gacha2-body {
+    position: relative;
+
+    height: 275px;
+
+    margin-top: -3px;
+
+    border: 4px solid #b68a30;
+
+    border-radius:
+        22px 22px
+        38px 38px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #263650,
+            #131d2d 55%,
+            #0c121e
+        );
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255,255,255,.08);
+}
+
+
+/* SP panel */
+
+.cr-gacha2-price {
+    position: absolute;
+
+    left: 28px;
+    top: 37px;
+
+    width: 115px;
+
+    padding: 13px 8px;
+
+    border:
+        1px solid
+        rgba(232,197,106,.32);
+
+    border-radius: 12px;
+
+    background:
+        rgba(0,0,0,.28);
+}
+
+.cr-gacha2-price small {
+    display: block;
+
+    color: var(--cr-muted);
+
+    font-size: 7px;
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+.cr-gacha2-price strong {
+    display: block;
+
+    margin-top: 6px;
+
+    color: var(--cr-gold-light);
+
+    font-size: 17px;
+    font-weight: 900;
+}
+
+
+/* ==========================================
+   Huge Handle
+   ========================================== */
+
+.cr-gacha2-handle-zone {
+    position: absolute;
+
+    top: 18px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+}
+
+.cr-gacha2-handle {
+    --cr-gacha2-rotation: 0deg;
+
+    position: relative;
+
+    width:
+        clamp(
+            190px,
+            25vw,
+            240px
+        );
+
+    aspect-ratio: 1;
+
+    border:
+        9px solid
+        #d1ad59;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #47556a 0 30%,
+            #1a2433 31% 64%,
+            #0c121d 65%
+        );
+
+    box-shadow:
+        0 20px 32px
+        rgba(0,0,0,.45),
+
+        inset 0 4px 12px
+        rgba(255,255,255,.18),
+
+        0 0 0 6px
+        rgba(232,197,106,.08);
+
+    transform:
+        rotate(
+            var(--cr-gacha2-rotation)
+        );
+
+    cursor: grab;
+
+    touch-action: none;
+
+    user-select: none;
+
+    will-change: transform;
+}
+
+.cr-gacha2-handle.is-dragging {
+    cursor: grabbing;
+
+    box-shadow:
+        0 20px 35px
+        rgba(0,0,0,.48),
+
+        0 0 32px
+        rgba(232,197,106,.28);
+}
+
+
+/* dashed ring */
+
+.cr-gacha2-handle-ring {
+    position: absolute;
+
+    inset: 15px;
+
+    border:
+        3px dashed
+        rgba(232,197,106,.28);
+
+    border-radius: 50%;
+}
+
+
+/* Cross handle */
+
+.cr-gacha2-handle-arm {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    border:
+        2px solid
+        rgba(255,255,255,.20);
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #d5b463,
+            #866420
+        );
+
+    box-shadow:
+        0 8px 14px
+        rgba(0,0,0,.30);
+
+    transform:
+        translate(-50%,-50%);
+}
+
+.cr-gacha2-handle-arm.is-horizontal {
+    width: 88%;
+    height: 58px;
+}
+
+.cr-gacha2-handle-arm.is-vertical {
+    width: 58px;
+    height: 88%;
+}
+
+.cr-gacha2-handle-hub {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    z-index: 4;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 88px;
+    height: 88px;
+
+    border:
+        6px solid
+        #f0d98f;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #354760,
+            #111a28
+        );
+
+    color:
+        var(--cr-gold-light);
+
+    font-size: 37px;
+    font-weight: 900;
+
+    transform:
+        translate(-50%,-50%);
+
+    box-shadow:
+        0 10px 20px
+        rgba(0,0,0,.4);
+}
+
+.cr-gacha2-turn {
+    margin-top: 14px;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 2;
+    color: var(--cr-gold-light);
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+
+/* ==========================================
+   Capsule chute
+   ========================================== */
+
+.cr-gacha2-chute {
+    position: absolute;
+
+    right: 28px;
+    top: 45px;
+
+    width: 110px;
+
+    padding: 12px 8px 14px;
+
+    border:
+        2px solid
+        rgba(232,197,106,.32);
+
+    border-radius: 12px;
+
+    background:
+        rgba(5,10,17,.65);
+
+    color:
+        var(--cr-gold);
+}
+
+.cr-gacha2-chute small {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color:
+        var(--cr-muted);
+
+    font-size: 7px;
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+.cr-gacha2-chute div {
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background:
+        #05090f;
+
+    font-size: 18px;
+
+    box-shadow:
+        inset 0 6px 12px
+        rgba(0,0,0,.55);
+}
+
+
+/* ==========================================
+   Status
+   ========================================== */
+
+.cr-gacha2-status {
+    margin-top: 30px;
+    color: var(--cr-gold-light);
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    position: relative;
+    z-index: 2;
+}
+
+.cr-gacha2-status-ja {
+    margin-top: 6px;
+    color: var(--cr-muted);
+    font-size: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+
+/* ==========================================
+   Capsule Reveal
+   ========================================== */
+
+.cr-gacha2-reveal {
+    position: absolute;
+
+    inset:
+        75px 0 0;
+
+    z-index: 40;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        rgba(3,7,13,.88);
+
+    backdrop-filter:
+        blur(12px);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity .3s ease;
+}
+
+.cr-gacha2-reveal.is-visible {
+    opacity: 1;
+
+    pointer-events: auto;
+}
+
+
+/* Light rays */
+
+.cr-gacha2-rays {
+    position: absolute;
+
+    width: 680px;
+    height: 680px;
+
+    border-radius: 50%;
+
+    background:
+        repeating-conic-gradient(
+            from 0deg,
+            rgba(232,197,106,.15)
+            0 8deg,
+
+            transparent
+            8deg 22deg
+        );
+
+    animation:
+        crGacha2RaySpin
+        12s linear
+        infinite;
+
+    opacity: .55;
+}
+
+
+/* Giant capsule */
+
+.cr-gacha2-big-capsule {
+    position: relative;
+
+    z-index: 3;
+
+    width:
+        clamp(
+            235px,
+            36vw,
+            330px
+        );
+
+    aspect-ratio: 1;
+
+    overflow: hidden;
+
+    border:
+        11px solid
+        #f2dc98;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.42)
+            0 49%,
+
+            #b68a30
+            50% 100%
+        );
+
+    box-shadow:
+        0 0 75px
+        rgba(232,197,106,.50),
+
+        0 25px 55px
+        rgba(0,0,0,.55),
+
+        inset -12px -10px 24px
+        rgba(0,0,0,.20);
+
+    cursor: pointer;
+
+    animation:
+        crGacha2CapsulePop
+        .65s
+        cubic-bezier(.2,.9,.25,1.25);
+}
+
+.cr-gacha2-big-capsule::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    top: 49%;
+
+    height: 6px;
+
+    background:
+        rgba(20,25,32,.25);
+
+    box-shadow:
+        0 -2px 0
+        rgba(255,255,255,.25);
+}
+
+.cr-gacha2-capsule-world {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    z-index: 4;
+
+    transform:
+        translate(-50%,-50%);
+
+    font-size: 68px;
+
+    filter:
+        drop-shadow(
+            0 8px 10px
+            rgba(0,0,0,.35)
+        );
+}
+
+.cr-gacha2-tap-badge {
+    position: absolute;
+
+    left: 50%;
+    bottom: 31px;
+
+    z-index: 5;
+
+    transform:
+        translateX(-50%)
+        rotate(-4deg);
+
+    padding:
+        8px 20px;
+
+    border-radius:
+        999px;
+
+    background:
+        #fff;
+
+    color:
+        #111827;
+
+    font-size: 13px;
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+    box-shadow:
+        0 8px 18px
+        rgba(0,0,0,.28);
+}
+
+.cr-gacha2-reveal-title {
+    position: relative;
+
+    z-index: 3;
+
+    margin-top: 22px;
+
+    color:
+        var(--cr-gold-light);
+
+    font-size: 18px;
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+}
+
+.cr-gacha2-reveal-ja {
+    position: relative;
+
+    z-index: 3;
+
+    margin-top: 6px;
+
+    color:
+        var(--cr-muted);
+
+    font-size: 10px;
+}
+
+
+/* ==========================================
+   Flash
+   ========================================== */
+
+.cr-gacha2-flash {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 80;
+
+    background:
+        white;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+.cr-gacha2-flash.is-active {
+    animation:
+        crGacha2Flash
+        .7s ease-out
+        forwards;
+}
+
+
+/* ==========================================
+   Movement
+   ========================================== */
+
+.cr-gacha2-machine.is-ticking {
+    transform:
+        translateY(2px);
+}
+
+.cr-gacha2-machine.is-rumbling {
+    animation:
+        crGacha2Rumble
+        .11s linear
+        8;
+}
+
+.cr-gacha2-machine.is-rumbling
+.cr-gacha2-ball {
+    animation:
+        crGacha2BallRumble
+        .14s linear
+        7;
+}
+
+.cr-gacha2-handle.is-auto-turning {
+    animation:
+        crGacha2AutoTurn
+        .9s cubic-bezier(.25,.8,.3,1)
+        forwards;
+}
+
+.cr-gacha2-big-capsule.is-opening {
+    animation:
+        crGacha2Open
+        .7s ease-out
+        forwards;
+}
+
+
+/* ==========================================
+   Animations
+   ========================================== */
+
+@keyframes crGacha2RaySpin {
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+}
+
+
+@keyframes crGacha2Rumble {
+
+    0% {
+        transform:
+            translate(0,0);
+    }
+
+    25% {
+        transform:
+            translate(-5px,2px);
+    }
+
+    50% {
+        transform:
+            translate(5px,-2px);
+    }
+
+    75% {
+        transform:
+            translate(-4px,-1px);
+    }
+
+    100% {
+        transform:
+            translate(4px,2px);
+    }
+}
+
+
+@keyframes crGacha2BallRumble {
+
+    0%,
+    100% {
+        translate:
+            0 0;
+    }
+
+    50% {
+        translate:
+            0 -12px;
+    }
+}
+
+
+@keyframes crGacha2CapsulePop {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            scale(.25)
+            rotate(-20deg);
+    }
+
+    65% {
+        opacity: 1;
+
+        transform:
+            scale(1.12)
+            rotate(6deg);
+    }
+
+    100% {
+        transform:
+            scale(1)
+            rotate(0);
+    }
+}
+
+
+@keyframes crGacha2Open {
+
+    0% {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+
+    45% {
+        transform:
+            scale(1.22);
+
+        filter:
+            brightness(2);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            scale(1.8);
+
+        filter:
+            brightness(5);
+    }
+}
+
+
+@keyframes crGacha2Flash {
+
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: .96;
+    }
+
+    55% {
+        opacity: .78;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+@keyframes crGacha2AutoTurn {
+
+    from {
+        transform:
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+}
+
+
+/* ==========================================
+   Smartphone
+   ========================================== */
+
+@media (max-width: 700px) {
+
+    .cr-gacha2-screen {
+        min-height: 650px;
+
+        padding:
+            24px 12px 28px;
+    }
+
+    .cr-gacha2-title {
+        font-size:
+            22px;
+    }
+
+    .cr-gacha2-machine {
+        width:
+            min(330px, 100%);
+    }
+
+    .cr-gacha2-dome {
+        height:
+            215px;
+
+        border-radius:
+            150px 150px
+            22px 22px;
+    }
+
+    .cr-gacha2-world {
+        top: 31px;
+
+        font-size:
+            52px;
+    }
+
+        .cr-gacha2-ball {
+        width: 48px;
+        height: 48px;
+    }
+
+    .cr-gacha2-body {
+        height:
+            225px;
+    }
+
+    .cr-gacha2-handle-zone {
+        top:
+            22px;
+    }
+
+    .cr-gacha2-handle {
+        width:
+            155px;
+
+        border-width:
+            7px;
+    }
+
+    .cr-gacha2-handle-arm.is-horizontal {
+        height:
+            42px;
+    }
+
+    .cr-gacha2-handle-arm.is-vertical {
+        width:
+            42px;
+    }
+
+    .cr-gacha2-handle-hub {
+        width:
+            67px;
+
+        height:
+            67px;
+
+        font-size:
+            29px;
+    }
+
+    .cr-gacha2-price {
+        left:
+            10px;
+
+        top:
+            32px;
+
+        width:
+            76px;
+
+        padding:
+            9px 4px;
+    }
+
+    .cr-gacha2-price strong {
+        font-size:
+            12px;
+    }
+
+    .cr-gacha2-price small {
+        font-size:
+            5px;
+    }
+
+    .cr-gacha2-chute {
+        right:
+            10px;
+
+        top:
+            32px;
+
+        width:
+            76px;
+
+        padding:
+            8px 5px 10px;
+    }
+
+    .cr-gacha2-chute div {
+        height:
+            37px;
+    }
+
+    .cr-gacha2-rays {
+        width:
+            450px;
+
+        height:
+            450px;
+    }
+
+    .cr-gacha2-big-capsule {
+        width:
+            235px;
+    }
+}
