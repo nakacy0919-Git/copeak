@@ -968,7 +968,33 @@
                                 readingJa
                             )}
                         </div>
+                        <div
+    class="cr-read-action"
+>
+    <button
+        type="button"
+        class="cr-read-in-copeak"
+        onclick="CopeakRewardsUI.startCountryReading('${escapeHtml(country.id)}')"
+    >
+        <span class="cr-read-button-icon">
+            🎙️
+        </span>
 
+        <span>
+            <strong>
+                READ IN COPEAK
+            </strong>
+
+            <small>
+                この英文をCopeakで音読する
+            </small>
+        </span>
+
+        <span class="cr-read-button-arrow">
+            →
+        </span>
+    </button>
+</div>
                     </div>
 
                 </div>
@@ -1178,87 +1204,379 @@
             }
         );
     }
+    
+        // ==========================================
+    // Country Card → Copeak Reading
+    // ==========================================
 
+    async function startCountryReading(
+        countryId
+    ) {
+
+        if (
+            !countryId ||
+            !window.CopeakRewards
+        ) {
+            return;
+        }
+
+
+        const countries =
+            await window
+                .CopeakRewards
+                .loadCountries();
+
+
+        const country =
+            countries.find(
+                item =>
+                    item.id ===
+                    countryId
+            );
+
+
+        if (!country) {
+
+            console.warn(
+                "[Copeak Rewards UI] Country not found:",
+                countryId
+            );
+
+            return;
+        }
+
+
+        const readingEn =
+            country
+                .readAloud
+                ?.full
+                ?.en ||
+            "";
+
+
+        if (!readingEn.trim()) {
+
+            alert(
+                "この国の英語音読データがありません。"
+            );
+
+            return;
+        }
+
+
+        const nameEn =
+            country.name?.en ||
+            country.id;
+
+
+        const nameJa =
+            country.name?.ja ||
+            "";
+
+
+        // Libraryには保存しない一時教材
+        const lesson = {
+
+            id:
+                `world_country_${country.id}`,
+
+            title:
+                `🌍 ${nameEn}`,
+
+            eng:
+                readingEn,
+
+            jpn:
+                country
+                    .readAloud
+                    ?.full
+                    ?.ja ||
+                "",
+
+            lang:
+                "en-US",
+
+            langName:
+                "🇺🇸 English (US)",
+
+            type:
+                "standard",
+
+            dialogue:
+                [],
+
+            history:
+                [],
+
+            audioBlob:
+                null,
+
+            audioUrl:
+                null,
+
+            memoImage:
+                null,
+
+            isWorldCountry:
+                true,
+
+            countryId:
+                country.id,
+
+            countryNameEn:
+                nameEn,
+
+            countryNameJa:
+                nameJa
+
+        };
+
+
+        closeModal();
+
+
+        // 既存Copeakの教材開始処理をそのまま利用
+        if (
+            typeof startCustomLesson ===
+            "function"
+        ) {
+
+            startCustomLesson(
+                lesson
+            );
+
+            return;
+        }
+
+
+        // 念のためのfallback
+        if (
+            typeof openLearningScreen ===
+            "function"
+        ) {
+
+            if (
+                typeof currentCustomLesson !==
+                "undefined"
+            ) {
+
+                currentCustomLesson =
+                    lesson;
+            }
+
+
+            openLearningScreen(
+                lesson
+            );
+        }
+    }
         // ==========================================
     // Capsule Opening Animation
     // ==========================================
 
     function showCapsuleOpening() {
 
-        return new Promise(
-            resolve => {
+    return new Promise(
+        resolve => {
 
-                openModal(`
-                    <div class="cr-capsule-opening">
+            openModal(`
+                <div class="cr-capsule-opening">
 
-                        <div class="cr-capsule-label">
-                            COPEAK WORLD CAPSULE
-                        </div>
+                    <div class="cr-capsule-space">
 
-                        <div class="cr-capsule-stage">
+                        <div class="cr-capsule-ring ring-1"></div>
+                        <div class="cr-capsule-ring ring-2"></div>
+                        <div class="cr-capsule-ring ring-3"></div>
 
-                            <div class="cr-capsule-glow"></div>
+                        <div class="cr-capsule-rays"></div>
 
-                            <div class="cr-capsule-orb">
+                        <div class="cr-capsule-orb">
 
-                                <div class="cr-capsule-top">
-                                    🌍
-                                </div>
+                            <div class="cr-capsule-top">
+                                🌍
+                            </div>
 
-                                <div class="cr-capsule-line"></div>
+                            <div class="cr-capsule-line"></div>
 
-                                <div class="cr-capsule-bottom">
-                                    COPEAK
-                                </div>
-
+                            <div class="cr-capsule-bottom">
+                                COPEAK
                             </div>
 
                         </div>
 
-                        <div class="cr-capsule-opening-title">
-                            DISCOVERING YOUR WORLD...
-                        </div>
+                    </div>
 
-                        <div class="cr-capsule-opening-ja">
-                            新しい世界を探索しています
-                        </div>
 
-                        <div class="cr-capsule-dots">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
+                    <div
+                        class="cr-capsule-status"
+                        id="crCapsuleStatus"
+                    >
+                        WORLD SIGNAL SEARCHING...
+                    </div>
+
+
+                    <div
+                        class="cr-capsule-status-ja"
+                        id="crCapsuleStatusJa"
+                    >
+                        世界からシグナルを探しています
+                    </div>
+
+
+                    <div class="cr-capsule-scan">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
 
                     </div>
-                `);
 
 
-                setTimeout(
-                    () => {
+                    <div
+                        class="cr-capsule-flash"
+                        id="crCapsuleFlash"
+                    ></div>
 
-                        const orb =
-                            document.querySelector(
-                                ".cr-capsule-orb"
-                            );
+                </div>
+            `);
 
-                        if (orb) {
-                            orb.classList.add(
-                                "is-opening"
-                            );
-                        }
 
-                    },
-                    900
+            const orb =
+                document.querySelector(
+                    ".cr-capsule-orb"
+                );
+
+            const status =
+                document.getElementById(
+                    "crCapsuleStatus"
+                );
+
+            const statusJa =
+                document.getElementById(
+                    "crCapsuleStatusJa"
                 );
 
 
-                setTimeout(
-                    resolve,
-                    1700
-                );
-            }
-        );
-    }
+            // Stage 1
+            setTimeout(
+                () => {
+
+                    if (status) {
+                        status.textContent =
+                            "SIGNAL DETECTED";
+                    }
+
+                    if (statusJa) {
+                        statusJa.textContent =
+                            "シグナルを発見しました";
+                    }
+
+                    orb?.classList.add(
+                        "is-charging"
+                    );
+
+                },
+                900
+            );
+
+
+            // Stage 2
+            setTimeout(
+                () => {
+
+                    if (status) {
+                        status.textContent =
+                            "LOCKING WORLD COORDINATES...";
+                    }
+
+                    if (statusJa) {
+                        statusJa.textContent =
+                            "世界の座標を特定しています";
+                    }
+
+                    orb?.classList.add(
+                        "is-shaking"
+                    );
+
+                },
+                1800
+            );
+
+
+            // Stage 3
+            setTimeout(
+                () => {
+
+                    if (status) {
+                        status.textContent =
+                            "DISCOVERY READY";
+                    }
+
+                    if (statusJa) {
+                        statusJa.textContent =
+                            "新しい発見が目前です";
+                    }
+
+                    orb?.classList.add(
+                        "is-critical"
+                    );
+
+                    if (
+                        navigator.vibrate
+                    ) {
+                        navigator.vibrate(
+                            [40, 40, 80]
+                        );
+                    }
+
+                },
+                2700
+            );
+
+
+            // Burst
+            setTimeout(
+                () => {
+
+                    if (status) {
+                        status.textContent =
+                            "OPEN!";
+                    }
+
+                    if (statusJa) {
+                        statusJa.textContent =
+                            "";
+                    }
+
+                    orb?.classList.add(
+                        "is-opening"
+                    );
+
+
+                    document
+                        .getElementById(
+                            "crCapsuleFlash"
+                        )
+                        ?.classList
+                        .add(
+                            "is-active"
+                        );
+
+                },
+                3300
+            );
+
+
+            // Result
+            setTimeout(
+                resolve,
+                3900
+            );
+
+        }
+    );
+}
 
 
     // ==========================================
@@ -2168,6 +2486,8 @@
     showCountryById,
 
     showCollection,
+
+    startCountryReading,
 
     updateHeader:
         updateRewardHeader,

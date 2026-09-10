@@ -1302,7 +1302,9 @@
    ========================================== */
 
 .cr-capsule-opening {
-    min-height: 560px;
+    position: relative;
+
+    min-height: 570px;
 
     display: flex;
     flex-direction: column;
@@ -1310,33 +1312,29 @@
     align-items: center;
     justify-content: center;
 
-    padding: 40px 24px;
+    overflow: hidden;
+
+    padding: 40px 20px;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            #192742 0%,
+            #0c1422 40%,
+            #070b12 75%
+        );
 
     text-align: center;
-
-    overflow: hidden;
 }
 
 
-.cr-capsule-label {
-    margin-bottom: 30px;
+/* Space */
 
-    color: var(--cr-gold);
-
-    font-size: 11px;
-    font-weight: 900;
-
-    letter-spacing: 2.5px;
-}
-
-
-/* Stage */
-
-.cr-capsule-stage {
+.cr-capsule-space {
     position: relative;
 
-    width: 260px;
-    height: 260px;
+    width: 300px;
+    height: 300px;
 
     display: flex;
     align-items: center;
@@ -1344,28 +1342,76 @@
 }
 
 
-/* Glow */
+/* Rings */
 
-.cr-capsule-glow {
+.cr-capsule-ring {
     position: absolute;
 
-    width: 200px;
-    height: 200px;
+    border:
+        1px solid
+        rgba(232,197,106,.25);
+
+    border-radius: 50%;
+
+    animation:
+        crRingPulse
+        2.2s ease-out
+        infinite;
+}
+
+
+.cr-capsule-ring.ring-1 {
+    width: 180px;
+    height: 180px;
+}
+
+
+.cr-capsule-ring.ring-2 {
+    width: 225px;
+    height: 225px;
+
+    animation-delay:
+        .35s;
+}
+
+
+.cr-capsule-ring.ring-3 {
+    width: 270px;
+    height: 270px;
+
+    animation-delay:
+        .7s;
+}
+
+
+/* Light rays */
+
+.cr-capsule-rays {
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
 
     border-radius: 50%;
 
     background:
-        radial-gradient(
-            circle,
-            rgba(255, 224, 133, 0.34),
-            rgba(232, 197, 106, 0.12) 42%,
-            transparent 72%
+        conic-gradient(
+            from 0deg,
+            transparent,
+            rgba(255,220,120,.13),
+            transparent 18%,
+            transparent 35%,
+            rgba(255,220,120,.12),
+            transparent 52%,
+            transparent 70%,
+            rgba(255,220,120,.12),
+            transparent
         );
 
     animation:
-        crCapsuleGlow
-        1.2s ease-in-out
-        infinite alternate;
+        crRaysSpin
+        7s linear
+        infinite;
 }
 
 
@@ -1374,7 +1420,7 @@
 .cr-capsule-orb {
     position: relative;
 
-    z-index: 2;
+    z-index: 4;
 
     width: 145px;
     height: 175px;
@@ -1383,7 +1429,7 @@
 
     border:
         2px solid
-        rgba(255, 222, 126, 0.85);
+        rgba(255,222,126,.9);
 
     border-radius:
         72px;
@@ -1391,24 +1437,24 @@
     background:
         linear-gradient(
             145deg,
-            #26354c,
+            #293952,
             #101827 58%,
-            #080d15
+            #070b12
         );
 
     box-shadow:
         0 0 0 5px
-        rgba(232,197,106,0.08),
+        rgba(232,197,106,.07),
 
-        0 20px 45px
-        rgba(0,0,0,0.5),
+        0 0 45px
+        rgba(232,197,106,.18),
 
-        inset 0 0 30px
-        rgba(255,255,255,0.05);
+        0 25px 50px
+        rgba(0,0,0,.55);
 
     animation:
         crCapsuleFloat
-        1.6s ease-in-out
+        1.8s ease-in-out
         infinite;
 }
 
@@ -1421,13 +1467,6 @@
     justify-content: center;
 
     font-size: 55px;
-
-    background:
-        radial-gradient(
-            circle at 50% 60%,
-            rgba(59,130,246,0.15),
-            transparent 60%
-        );
 }
 
 
@@ -1444,13 +1483,13 @@
         linear-gradient(
             90deg,
             transparent,
-            #f5d678,
+            #ffe39a,
             transparent
         );
 
     box-shadow:
-        0 0 14px
-        rgba(245,214,120,0.8);
+        0 0 12px
+        rgba(255,225,145,.9);
 }
 
 
@@ -1464,7 +1503,7 @@
     padding-top: 22px;
 
     color:
-        rgba(255,240,179,0.8);
+        var(--cr-gold-light);
 
     font-size: 10px;
     font-weight: 900;
@@ -1473,83 +1512,159 @@
 }
 
 
-/* 開く瞬間 */
+/* Stage 1 */
+
+.cr-capsule-orb.is-charging {
+    box-shadow:
+        0 0 20px
+        rgba(232,197,106,.5),
+
+        0 0 70px
+        rgba(232,197,106,.3),
+
+        0 25px 50px
+        rgba(0,0,0,.55);
+}
+
+
+/* Stage 2 */
+
+.cr-capsule-orb.is-shaking {
+    animation:
+        crCapsuleShake
+        .16s linear
+        infinite;
+}
+
+
+/* Stage 3 */
+
+.cr-capsule-orb.is-critical {
+    border-color:
+        #fff2b7;
+
+    box-shadow:
+        0 0 30px
+        rgba(255,235,165,.9),
+
+        0 0 100px
+        rgba(232,197,106,.7);
+
+    animation:
+        crCapsuleCritical
+        .28s ease-in-out
+        infinite;
+}
+
+
+/* Opening */
 
 .cr-capsule-orb.is-opening {
     animation:
-        crCapsuleOpen
-        .75s
+        crCapsuleBurst
+        .6s
         cubic-bezier(.2,.9,.25,1)
         forwards;
 }
 
 
-/* Text */
+/* Status */
 
-.cr-capsule-opening-title {
-    margin-top: 20px;
+.cr-capsule-status {
+    min-height: 24px;
+
+    margin-top: 5px;
 
     color:
         var(--cr-gold-light);
 
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 900;
 
-    letter-spacing: 1.3px;
+    letter-spacing: 1.5px;
 }
 
 
-.cr-capsule-opening-ja {
-    margin-top: 8px;
+.cr-capsule-status-ja {
+    min-height: 20px;
+
+    margin-top: 7px;
 
     color:
         var(--cr-muted);
 
-    font-size: 12px;
+    font-size: 11px;
 }
 
 
-/* Dots */
+/* Scanner */
 
-.cr-capsule-dots {
+.cr-capsule-scan {
     display: flex;
 
     gap: 7px;
 
-    margin-top: 20px;
+    margin-top: 24px;
 }
 
 
-.cr-capsule-dots span {
-    width: 6px;
-    height: 6px;
+.cr-capsule-scan span {
+    width: 36px;
+    height: 4px;
 
-    border-radius: 50%;
+    border-radius: 10px;
 
     background:
-        var(--cr-gold);
+        rgba(255,255,255,.10);
 
     animation:
-        crCapsuleDots
-        .9s ease-in-out
+        crScanSegment
+        1.1s ease-in-out
         infinite;
 }
 
 
-.cr-capsule-dots span:nth-child(2) {
-    animation-delay:
-        .15s;
+.cr-capsule-scan span:nth-child(2) {
+    animation-delay: .15s;
+}
+
+.cr-capsule-scan span:nth-child(3) {
+    animation-delay: .30s;
+}
+
+.cr-capsule-scan span:nth-child(4) {
+    animation-delay: .45s;
 }
 
 
-.cr-capsule-dots span:nth-child(3) {
-    animation-delay:
-        .30s;
+/* Screen Flash */
+
+.cr-capsule-flash {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 20;
+
+    background:
+        white;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+.cr-capsule-flash.is-active {
+    animation:
+        crScreenFlash
+        .65s ease-out
+        forwards;
 }
 
 
 /* ==========================================
-   Animations
+   Keyframes
    ========================================== */
 
 @keyframes crCapsuleFloat {
@@ -1557,85 +1672,109 @@
     0%,
     100% {
         transform:
-            translateY(0)
-            rotate(-1deg);
+            translateY(0);
     }
 
     50% {
         transform:
-            translateY(-10px)
+            translateY(-10px);
+    }
+}
+
+
+@keyframes crRingPulse {
+
+    0% {
+        transform:
+            scale(.72);
+
+        opacity:
+            0;
+    }
+
+    35% {
+        opacity:
+            .8;
+    }
+
+    100% {
+        transform:
+            scale(1.15);
+
+        opacity:
+            0;
+    }
+}
+
+
+@keyframes crRaysSpin {
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+}
+
+
+@keyframes crCapsuleShake {
+
+    0% {
+        transform:
+            translate(0,0)
+            rotate(0);
+    }
+
+    25% {
+        transform:
+            translate(-4px,2px)
+            rotate(-2deg);
+    }
+
+    50% {
+        transform:
+            translate(4px,-2px)
+            rotate(2deg);
+    }
+
+    75% {
+        transform:
+            translate(-3px,-1px)
+            rotate(-1deg);
+    }
+
+    100% {
+        transform:
+            translate(3px,2px)
             rotate(1deg);
     }
 }
 
 
-@keyframes crCapsuleGlow {
-
-    from {
-        transform:
-            scale(.9);
-
-        opacity:
-            .55;
-    }
-
-    to {
-        transform:
-            scale(1.15);
-
-        opacity:
-            1;
-    }
-}
-
-
-@keyframes crCapsuleDots {
+@keyframes crCapsuleCritical {
 
     0%,
     100% {
-        opacity:
-            .25;
-
         transform:
-            translateY(0);
+            scale(1.02);
     }
 
     50% {
-        opacity:
-            1;
-
         transform:
-            translateY(-5px);
+            scale(1.09);
     }
 }
 
 
-@keyframes crCapsuleOpen {
+@keyframes crCapsuleBurst {
 
     0% {
         transform:
-            scale(1)
-            rotate(0);
+            scale(1);
     }
 
-    30% {
+    45% {
         transform:
-            scale(1.05)
-            rotate(-5deg);
-    }
-
-    55% {
-        transform:
-            scale(1.08)
-            rotate(6deg);
-
-        filter:
-            brightness(1.3);
-    }
-
-    78% {
-        transform:
-            scale(1.15);
+            scale(1.18);
 
         filter:
             brightness(2);
@@ -1643,35 +1782,77 @@
 
     100% {
         transform:
-            scale(1.6);
+            scale(1.8);
+
+        filter:
+            brightness(6);
 
         opacity:
             0;
-
-        filter:
-            brightness(4);
     }
 }
 
 
-@media (
-    max-width: 639px
-) {
+@keyframes crScanSegment {
+
+    0%,
+    100% {
+        background:
+            rgba(255,255,255,.10);
+
+        box-shadow:
+            none;
+    }
+
+    50% {
+        background:
+            var(--cr-gold);
+
+        box-shadow:
+            0 0 14px
+            rgba(232,197,106,.8);
+    }
+}
+
+
+@keyframes crScreenFlash {
+
+    0% {
+        opacity:
+            0;
+    }
+
+    20% {
+        opacity:
+            .95;
+    }
+
+    55% {
+        opacity:
+            .75;
+    }
+
+    100% {
+        opacity:
+            0;
+    }
+}
+
+
+@media (max-width: 639px) {
 
     .cr-capsule-opening {
         min-height:
-            480px;
+            500px;
     }
 
-
-    .cr-capsule-stage {
+    .cr-capsule-space {
         width:
-            220px;
+            250px;
 
         height:
-            220px;
+            250px;
     }
-
 
     .cr-capsule-orb {
         width:
@@ -1681,11 +1862,14 @@
             155px;
     }
 
+    .cr-capsule-ring.ring-3 {
+        width:
+            225px;
 
-    .cr-capsule-top {
-        font-size:
-            47px;
+        height:
+            225px;
     }
+
 }
 /* ==========================================
    Country Mini Map
@@ -1764,4 +1948,118 @@
             220px;
     }
 
+}
+/* ==========================================
+   Read Country in Copeak
+   ========================================== */
+
+.cr-read-action {
+    margin-top: 20px;
+}
+
+
+.cr-read-in-copeak {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 15px 18px;
+
+    border:
+        1px solid
+        var(--cr-gold);
+
+    border-radius:
+        14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #b88a2c,
+            #e1bd62
+        );
+
+    color:
+        #111827;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px
+        rgba(0,0,0,.25);
+
+    transition:
+        transform .18s ease,
+        box-shadow .18s ease,
+        filter .18s ease;
+}
+
+
+.cr-read-in-copeak:hover {
+    transform:
+        translateY(-2px);
+
+    filter:
+        brightness(1.08);
+
+    box-shadow:
+        0 14px 32px
+        rgba(0,0,0,.34);
+}
+
+
+.cr-read-button-icon {
+    font-size:
+        25px;
+
+    flex-shrink:
+        0;
+}
+
+
+.cr-read-in-copeak strong {
+    display: block;
+
+    font-size:
+        13px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        1px;
+}
+
+
+.cr-read-in-copeak small {
+    display: block;
+
+    margin-top:
+        3px;
+
+    font-size:
+        10px;
+
+    font-weight:
+        700;
+
+    opacity:
+        .72;
+}
+
+
+.cr-read-button-arrow {
+    margin-left:
+        auto;
+
+    font-size:
+        20px;
+
+    font-weight:
+        900;
 }

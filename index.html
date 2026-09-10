@@ -169,6 +169,205 @@
     #resultScoreBoard:not(.hidden) + #learningContentArea #yourVoiceWrapper {
         display: none !important;
     }
+    
+}
+/* ==========================================
+   Top Action Bar
+   ========================================== */
+
+.copeak-top-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.copeak-top-pill,
+.copeak-top-select,
+.copeak-world-btn {
+    height: 56px;
+    border-radius: 16px;
+    box-sizing: border-box;
+}
+
+/* SOS */
+.copeak-top-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 18px;
+    text-decoration: none;
+    background: #fff8f8;
+    border: 2px solid #f3b3b3;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.copeak-top-pill:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+}
+
+.copeak-pill-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border: 1.5px solid #ef7f7f;
+    border-radius: 10px;
+    color: #e85c5c;
+    font-weight: 900;
+    font-size: 15px;
+    background: white;
+    flex-shrink: 0;
+}
+
+.copeak-pill-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.copeak-pill-text strong {
+    font-size: 15px;
+    font-weight: 900;
+    color: #e85c5c;
+}
+
+.copeak-pill-text small {
+    margin-top: 3px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #8b8b8b;
+}
+
+/* Language */
+.copeak-top-lang-wrap {
+    display: flex;
+    align-items: center;
+}
+
+.copeak-top-select {
+    min-width: 134px;
+    padding: 0 14px;
+    background: #ffffff;
+    border: 2px solid #3a312d;
+    color: #2f2926;
+    font-size: 15px;
+    font-weight: 800;
+    outline: none;
+}
+
+/* World Collection */
+.copeak-world-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 16px;
+    border: 2px solid #b88917;
+    background: linear-gradient(135deg, #1d1a19, #101725);
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+    transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+
+.copeak-world-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.24);
+    filter: brightness(1.04);
+}
+
+.copeak-world-icon {
+    font-size: 19px;
+    line-height: 1;
+}
+
+.copeak-world-label {
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: .5px;
+    white-space: nowrap;
+}
+
+.copeak-sp-badge {
+    margin-left: 2px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 64px;
+    height: 30px;
+    padding: 0 10px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #f2c94c, #c89314);
+    color: #1e1b18;
+    font-size: 13px;
+    font-weight: 900;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.35);
+}
+
+/* SPがあるとき少し目立たせる */
+.copeak-world-btn.has-sp .copeak-sp-badge {
+    animation: copeakSpPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes copeakSpPulse {
+    0%, 100% {
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 0 0 rgba(242,201,76,0);
+    }
+    50% {
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 0 16px rgba(242,201,76,.45);
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .copeak-top-actions {
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    .copeak-top-pill,
+    .copeak-top-select,
+    .copeak-world-btn {
+        height: auto;
+        min-height: 52px;
+    }
+
+    .copeak-top-pill {
+        width: 100%;
+        padding: 10px 14px;
+    }
+
+    .copeak-top-lang-wrap {
+        flex: 1 1 140px;
+    }
+
+    .copeak-top-select {
+        width: 100%;
+        min-width: 0;
+        height: 52px;
+    }
+
+    .copeak-world-btn {
+        flex: 1 1 220px;
+        justify-content: space-between;
+        width: 100%;
+        min-height: 52px;
+        padding: 10px 14px;
+    }
+
+    .copeak-world-label {
+        font-size: 13px;
+    }
+
+    .copeak-sp-badge {
+        min-width: 60px;
+        height: 28px;
+        font-size: 12px;
+    }
 }   
     </style>
 </head>
@@ -189,31 +388,40 @@
         </div>
     </div>
 
-    <!-- Header Controls -->
-    <div class="flex items-center gap-2 w-full sm:w-auto">
+<!-- Header Controls -->
+<div class="copeak-top-actions">
 
-        <!-- SOS -->
-        <button id="btn-open-trouble"
-            class="flex-1 sm:flex-none min-h-[44px] text-red-600 hover:bg-red-50 transition-all bg-white/95 px-3 py-2 rounded-lg sm:rounded-full backdrop-blur-sm shadow-sm border border-red-300 sm:border-2 flex items-center justify-center gap-2 hover:animate-none z-50"
-            title="Troubleshooting">
+    <!-- SOS -->
+    <button
+        id="btn-open-trouble"
+        type="button"
+        class="copeak-top-pill copeak-top-pill-sos"
+        title="Troubleshooting"
+    >
+        <span class="copeak-pill-icon">
+            SOS
+        </span>
 
-            <span class="text-lg sm:text-xl md:text-2xl leading-none shrink-0">🆘</span>
+        <span class="copeak-pill-text">
+            <strong>
+                音声トラブル時はこちら
+            </strong>
 
-            <div class="flex flex-col text-left min-w-0">
-                <span class="text-[11px] md:text-xs font-black leading-tight whitespace-nowrap">
-                    音声トラブル
-                    <span class="hidden sm:inline">時はこちら</span>
-                </span>
-                <span class="hidden sm:block text-[9px] md:text-[10px] font-bold text-gray-500 leading-tight whitespace-nowrap">
-                    （iPad・iPhone用）
-                </span>
-            </div>
-        </button>
+            <small>
+                iPad・iPhone用
+            </small>
+        </span>
+    </button>
 
-        <!-- Language -->
-        <select id="appLangSelector"
+
+    <!-- Language -->
+    <div class="copeak-top-lang-wrap">
+
+        <select
+            id="appLangSelector"
             onchange="if(typeof changeAppLanguage === 'function') changeAppLanguage(this.value)"
-            class="flex-1 sm:flex-none min-w-0 min-h-[44px] text-xs font-bold bg-[#faf8f5] border-2 border-stone-800 text-stone-800 rounded-lg sm:rounded-sm px-2 py-2 outline-none cursor-pointer">
+            class="copeak-top-select"
+        >
             <option value="ja">🇯🇵 日本語</option>
             <option value="en">🇺🇸 English</option>
             <option value="zh-TW">🇹🇼 繁體中文</option>
@@ -222,33 +430,36 @@
             <option value="tl">🇵🇭 Tagalog</option>
             <option value="hi">🇮🇳 हिन्दी</option>
         </select>
-<!-- Copeak World Collection -->
-<button
-    id="btnWorldCollection"
-    type="button"
-    onclick="CopeakRewardsUI.showCollection()"
-    class="shrink-0 min-h-[44px] px-3 py-2 bg-stone-900 hover:bg-stone-800 text-white rounded-lg sm:rounded-sm border border-yellow-600 shadow-sm transition flex items-center gap-2"
->
-    <span class="text-lg">🌍</span>
-
-    <span class="hidden md:inline text-[10px] font-black tracking-wider">
-        WORLD COLLECTION
-    </span>
-
-    <span
-        id="worldCollectionSp"
-        class="text-[10px] font-black text-yellow-300 whitespace-nowrap"
-    >
-        0 SP
-    </span>
-</button>
-        <!-- PC / Tablet only -->
-        <span data-i18n="nav_my_library"
-            class="hidden sm:inline-flex bg-stone-800 text-stone-100 text-[10px] md:text-xs font-bold px-3 py-2 md:px-4 rounded-sm uppercase tracking-widest shrink-0">
-            My Library
-        </span>
 
     </div>
+
+
+    <!-- World Collection -->
+    <button
+        id="btnWorldCollection"
+        type="button"
+        onclick="CopeakRewardsUI.showCollection()"
+        class="copeak-world-btn"
+    >
+
+        <span class="copeak-world-icon">
+            🌍
+        </span>
+
+        <span class="copeak-world-label">
+            WORLD COLLECTION
+        </span>
+
+        <span
+            id="worldCollectionSp"
+            class="copeak-sp-badge"
+        >
+            0 SP
+        </span>
+
+    </button>
+
+</div>
 </div>
 
         <div class="mb-10 space-y-1">
