@@ -98,7 +98,7 @@ window.COPEAK_REWARDS_CONFIG = {
     capsule: {
 
         // 1回のガチャに必要なSP
-        costSP: 150,
+        costSP: 100,
 
 
         // ----------------------------------

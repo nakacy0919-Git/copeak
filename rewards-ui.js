@@ -1429,6 +1429,24 @@ function showCapsuleResult(
 }
 
 
+const CR_GACHA_CAPSULE_PALETTE = [
+    "#ff6b6b",
+    "#ffd43b",
+    "#4dabf7",
+    "#63e6be",
+    "#b197fc",
+    "#ffa94d",
+    "#f783ac",
+    "#38d9a9",
+    "#748ffc",
+    "#ffd8a8"
+];
+
+function getRandomCapsuleColor() {
+    return CR_GACHA_CAPSULE_PALETTE[
+        Math.floor(Math.random() * CR_GACHA_CAPSULE_PALETTE.length)
+    ];
+}
 
 // ==========================================
 // World Gashapon Machine
@@ -1483,54 +1501,76 @@ function showGashaponMachine() {
     // ======================================
 
     const colors = [
-        "#c99e42",
-        "#356d73",
-        "#405f8b",
-        "#765c7c",
-        "#8b6942"
-    ];
+    "#ff4d4f", // Red
+    "#ff85a1", // Pink
+    "#ff9f43", // Orange
+    "#ffd43b", // Yellow
+    "#73d13d", // Green
+    "#38d9a9", // Mint
+    "#22b8cf", // Cyan
+    "#4dabf7", // Blue
+    "#748ffc", // Indigo
+    "#b197fc", // Purple
+    "#e64980", // Deep Pink
+    "#a9e34b"  // Lime
+];
 
 
-    const balls =
-        Array.from(
-            { length: 22 },
-            (_, i) => {
+const rowBases = [82, 74, 67];
+const balls =
+    Array.from(
+        { length: 36 },
+        (_, i) => {
+            const row =
+                Math.floor(Math.random() * rowBases.length);
 
-                const left =
-                    7 +
-                    Math.random() * 86;
+            const left =
+                6 + Math.random() * 88;
 
-                const top =
-                    48 +
-                    Math.random() * 42;
+            const top =
+                rowBases[row] + Math.random() * 4;
 
-                const rotate =
-                    -40 +
-                    Math.random() * 80;
+            const rotate =
+                -55 + Math.random() * 110;
 
-                const scale =
-                    0.78 +
-                    Math.random() * 0.40;
+            const scale =
+                row === 0 ? 1.02 + Math.random() * 0.08 :
+                row === 1 ? 0.94 + Math.random() * 0.08 :
+                row === 2 ? 0.86 + Math.random() * 0.08 :
+                            0.78 + Math.random() * 0.08;
 
+            const opacity =
+                row === 0 ? 0.98 :
+                row === 1 ? 0.92 :
+                row === 2 ? 0.88 :
+                            0.84;
 
-                return `
-                    <span
-                        class="cr-gacha2-ball"
-                        style="
-                            left:${left.toFixed(1)}%;
-                            top:${top.toFixed(1)}%;
-                            --cr-ball-color:${colors[i % colors.length]};
-                            transform:
-                                translate(-50%,-50%)
-                                rotate(${rotate.toFixed(0)}deg)
-                                scale(${scale.toFixed(2)});
-                            z-index:${Math.round(top)};
-                        "
-                    ></span>
-                `;
-            }
-        )
-        .join("");
+            const color =
+                colors[
+                    Math.floor(
+                        Math.random() * colors.length
+                    )
+                ];
+
+            return `
+                <span
+                    class="cr-gacha2-ball"
+                    style="
+                        left:${left.toFixed(1)}%;
+                        top:${top.toFixed(1)}%;
+                        --cr-ball-color:${color};
+                        opacity:${opacity.toFixed(2)};
+                        transform:
+                            translate(-50%,-50%)
+                            rotate(${rotate.toFixed(0)}deg)
+                            scale(${scale.toFixed(2)});
+                        z-index:${Math.round(top * 10)};
+                    "
+                ></span>
+            `;
+        }
+    )
+    .join("");
 
 
     openModal(`
@@ -2996,7 +3036,7 @@ const canOpenCapsule =
 
         <div class="cr-guide-text">
             Copeakで音読するとSPがたまります。
-            150SPでWorld Capsuleを1回開けて、
+            100SPでWorld Capsuleを1回開けて、
             世界197カ国のCountry Cardを集めることができます。
             手に入れたカードでは、その国について学び、
             英文をそのままCopeakで音読できます。
