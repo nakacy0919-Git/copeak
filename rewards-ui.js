@@ -1370,6 +1370,456 @@
             );
         }
     }
+    // ==========================================
+// Capsule Result
+// ==========================================
+
+function showCapsuleResult(
+    result
+) {
+
+    if (
+        !result ||
+        result.success !== true
+    ) {
+        return;
+    }
+
+
+    if (
+        result.type ===
+        "country"
+    ) {
+
+        showCountry(
+            result.country,
+            {
+                isNew:
+                    result.isNew,
+
+                count:
+                    result.count
+            }
+        );
+
+
+        if (
+            result.isNew
+        ) {
+
+            setTimeout(
+                celebrateDiscovery,
+                250
+            );
+        }
+
+        return;
+    }
+
+
+    if (
+        result.type ===
+        "mini"
+    ) {
+
+        showMiniReward(
+            result
+        );
+    }
+}
+
+
+
+// ==========================================
+// World Gashapon Machine
+// ==========================================
+
+function showGashaponMachine() {
+
+    if (
+        !window.CopeakRewards ||
+        !window.CopeakRewardsStorage
+    ) {
+        return;
+    }
+
+
+    const cost =
+        Number(
+            window
+                .COPEAK_REWARDS_CONFIG
+                ?.capsule
+                ?.costSP ||
+            150
+        );
+
+
+    const data =
+        window
+            .CopeakRewardsStorage
+            .load();
+
+
+    const sp =
+        Number(
+            data.spBalance ||
+            0
+        );
+
+
+    if (
+        sp < cost
+    ) {
+
+        alert(
+            `あと ${cost - sp} SP必要です。`
+        );
+
+        return;
+    }
+
+
+    openModal(`
+        <div class="cr-gashapon-screen">
+
+            <div class="cr-gashapon-eyebrow">
+                COPEAK WORLD CAPSULE
+            </div>
+
+            <div class="cr-gashapon-heading">
+                TURN THE HANDLE
+            </div>
+
+            <div class="cr-gashapon-sub">
+                ハンドルを回して、世界へのカプセルを取り出そう。
+            </div>
+
+
+            <div class="cr-gashapon-stage">
+
+                <div
+                    class="cr-gashapon-machine"
+                    id="crGashaponMachine"
+                >
+
+                    <div class="cr-gashapon-dome">
+
+                        <span class="cr-gashapon-ball ball-1"></span>
+                        <span class="cr-gashapon-ball ball-2"></span>
+                        <span class="cr-gashapon-ball ball-3"></span>
+                        <span class="cr-gashapon-ball ball-4"></span>
+                        <span class="cr-gashapon-ball ball-5"></span>
+
+                        <div class="cr-gashapon-world">
+                            🌍
+                        </div>
+
+                    </div>
+
+
+                    <div class="cr-gashapon-body">
+
+                        <div class="cr-gashapon-brand">
+                            COPEAK
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="cr-gashapon-handle"
+                            id="crGashaponHandle"
+                            aria-label="Turn handle"
+                        >
+
+                            <span class="cr-handle-disc">
+
+                                <span class="cr-handle-grip"></span>
+
+                            </span>
+
+                        </button>
+
+
+                        <div class="cr-gashapon-turn-label">
+                            TURN
+                        </div>
+
+
+                        <div class="cr-gashapon-chute">
+                            ▼
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="cr-drop-capsule"
+                    id="crDroppedCapsule"
+                    disabled
+                    aria-label="Open capsule"
+                >
+                    <span>🌍</span>
+                </button>
+
+            </div>
+
+
+            <div
+                class="cr-gashapon-status"
+                id="crGashaponStatus"
+            >
+                HANDLE READY
+            </div>
+
+            <div
+                class="cr-gashapon-status-ja"
+                id="crGashaponStatusJa"
+            >
+                丸いハンドルを押して回してください
+            </div>
+
+
+            <div
+                class="cr-capsule-flash"
+                id="crGashaponFlash"
+            ></div>
+
+        </div>
+    `);
+
+
+    const machine =
+        document.getElementById(
+            "crGashaponMachine"
+        );
+
+
+    const handle =
+        document.getElementById(
+            "crGashaponHandle"
+        );
+
+
+    const capsule =
+        document.getElementById(
+            "crDroppedCapsule"
+        );
+
+
+    const status =
+        document.getElementById(
+            "crGashaponStatus"
+        );
+
+
+    const statusJa =
+        document.getElementById(
+            "crGashaponStatusJa"
+        );
+
+
+    let turned =
+        false;
+
+
+    let opening =
+        false;
+
+
+    // ======================================
+    // Handle
+    // ======================================
+
+    handle?.addEventListener(
+        "click",
+        () => {
+
+            if (turned) {
+                return;
+            }
+
+
+            turned =
+                true;
+
+
+            handle.disabled =
+                true;
+
+
+            handle.classList.add(
+                "is-turning"
+            );
+
+
+            status.textContent =
+                "TURNING...";
+
+
+            statusJa.textContent =
+                "ガシャガシャ……";
+
+
+            setTimeout(
+                () => {
+
+                    machine?.classList.add(
+                        "is-rumbling"
+                    );
+
+
+                    if (
+                        navigator.vibrate
+                    ) {
+
+                        navigator.vibrate(
+                            [40, 40, 50]
+                        );
+                    }
+
+                },
+                350
+            );
+
+
+            setTimeout(
+                () => {
+
+                    machine?.classList.remove(
+                        "is-rumbling"
+                    );
+
+
+                    capsule.disabled =
+                        false;
+
+
+                    capsule.classList.add(
+                        "is-dropped"
+                    );
+
+
+                    status.textContent =
+                        "CAPSULE READY!";
+
+
+                    statusJa.textContent =
+                        "カプセルをタップして開けよう！";
+
+
+                    if (
+                        navigator.vibrate
+                    ) {
+
+                        navigator.vibrate(
+                            80
+                        );
+                    }
+
+                },
+                1250
+            );
+
+        }
+    );
+
+
+    // ======================================
+    // Capsule
+    // ======================================
+
+    capsule?.addEventListener(
+        "click",
+        async () => {
+
+            if (
+                !turned ||
+                opening
+            ) {
+                return;
+            }
+
+
+            opening =
+                true;
+
+
+            capsule.disabled =
+                true;
+
+
+            status.textContent =
+                "OPENING...";
+
+
+            statusJa.textContent =
+                "世界を開いています";
+
+
+            const result =
+                await window
+                    .CopeakRewards
+                    .openCapsule();
+
+
+            if (
+                !result ||
+                result.success !== true
+            ) {
+
+                alert(
+                    "World Capsuleを開けませんでした。"
+                );
+
+
+                showCollection();
+
+                return;
+            }
+
+
+            capsule.classList.add(
+                "is-opening"
+            );
+
+
+            document
+                .getElementById(
+                    "crGashaponFlash"
+                )
+                ?.classList
+                .add(
+                    "is-active"
+                );
+
+
+            if (
+                navigator.vibrate
+            ) {
+
+                navigator.vibrate(
+                    [60, 30, 120]
+                );
+            }
+
+
+            setTimeout(
+                () => {
+
+                    showCapsuleResult(
+                        result
+                    );
+
+                },
+                750
+            );
+
+        }
+    );
+}
         // ==========================================
     // Capsule Opening Animation
     // ==========================================
@@ -1678,55 +2128,9 @@
             await showCapsuleOpening();
 
 
-            // ======================================
-            // Country Card
-            // ======================================
-
-            if (
-                result.type ===
-                "country"
-            ) {
-
-                showCountry(
-                    result.country,
-                    {
-                        isNew:
-                            result.isNew,
-
-                        count:
-                            result.count
-                    }
-                );
-
-
-                if (
-                    result.isNew
-                ) {
-
-                    setTimeout(
-                        celebrateDiscovery,
-                        250
-                    );
-                }
-
-
-                return;
-            }
-
-
-            // ======================================
-            // Mini Reward
-            // ======================================
-
-            if (
-                result.type ===
-                "mini"
-            ) {
-
-                showMiniReward(
-                    result
-                );
-            }
+            showCapsuleResult(
+    result
+);
 
 
         } finally {
@@ -1797,7 +2201,19 @@
                 rewardData.spBalance ||
                 0
             );
+        const capsuleCost =
+    Number(
+        window
+            .COPEAK_REWARDS_CONFIG
+            ?.capsule
+            ?.costSP ||
+        150
+    );
 
+
+const canOpenCapsule =
+    spBalance >=
+    capsuleCost;
 
         const regions = [
             "ALL",
@@ -2133,21 +2549,91 @@
                         "
                     ></div>
                 </div>
+<div class="cr-collection-guide">
+
+    <div class="cr-guide-copy">
+
+        <div class="cr-guide-kicker">
+            READ · EARN · DISCOVER
+        </div>
+
+        <div class="cr-guide-title">
+            音読して、世界を集めよう。
+        </div>
+
+        <div class="cr-guide-text">
+            Copeakで音読するとSPがたまります。
+            150SPでWorld Capsuleを1回開けて、
+            世界197カ国のCountry Cardを集めることができます。
+            手に入れたカードでは、その国について学び、
+            英文をそのままCopeakで音読できます。
+        </div>
+
+    </div>
 
 
-                <div
-                    class="
-                        cr-capsule-area
-                    "
-                >
-                    <button
-    type="button"
-    class="cr-capsule-button"
-    id="crOpenCapsuleBtn"
->
-    🎁 OPEN WORLD CAPSULE · 150 SP
-</button>
-                </div>
+    <div class="cr-guide-steps">
+
+        <div class="cr-guide-step">
+            <span class="cr-guide-number">1</span>
+            <span class="cr-guide-icon">🎙️</span>
+            <strong>READ</strong>
+            <small>Copeakで音読</small>
+        </div>
+
+        <div class="cr-guide-arrow">
+            →
+        </div>
+
+        <div class="cr-guide-step">
+            <span class="cr-guide-number">2</span>
+            <span class="cr-guide-icon">✨</span>
+            <strong>EARN</strong>
+            <small>SPをためる</small>
+        </div>
+
+        <div class="cr-guide-arrow">
+            →
+        </div>
+
+        <div class="cr-guide-step">
+            <span class="cr-guide-number">3</span>
+            <span class="cr-guide-icon">🌍</span>
+            <strong>DISCOVER</strong>
+            <small>世界を発見</small>
+        </div>
+
+    </div>
+
+
+    <div class="cr-guide-note">
+        ※ 同じ国が出ることもあります。新しい国を発見するとCollectionが増えます。
+    </div>
+
+<div class="cr-capsule-area">
+
+    <button
+        type="button"
+        class="cr-capsule-button ${canOpenCapsule ? "is-ready" : "is-locked"}"
+        id="crOpenCapsuleBtn"
+        ${canOpenCapsule ? "" : "disabled"}
+    >
+
+        <span>
+            🎁 OPEN WORLD CAPSULE · ${capsuleCost} SP
+        </span>
+
+        <small>
+            ${
+                canOpenCapsule
+                    ? "READY! TURN THE HANDLE"
+                    : `あと ${capsuleCost - spBalance} SP`
+            }
+        </small>
+
+    </button>
+
+</div>
 
 
                 <div
@@ -2234,18 +2720,18 @@
 
 
         // Capsule
-        overlay
-            ?.querySelector(
-                "#crOpenCapsuleBtn"
-            )
-            ?.addEventListener(
-                "click",
-                async () => {
+overlay
+    ?.querySelector(
+        "#crOpenCapsuleBtn"
+    )
+    ?.addEventListener(
+        "click",
+        () => {
 
-                    await openCapsule();
+            showGashaponMachine();
 
-                }
-            );
+        }
+    );
     }
         // ==========================================
     // Header SP
@@ -2486,6 +2972,8 @@
     showCountryById,
 
     showCollection,
+    
+    showGashaponMachine,
 
     startCountryReading,
 

@@ -2063,3 +2063,896 @@
     font-weight:
         900;
 }
+/* ==========================================
+   World Collection Guide
+   ========================================== */
+
+.cr-collection-guide {
+    margin-bottom: 24px;
+    padding: 20px;
+
+    border: 1px solid rgba(232,197,106,.22);
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(232,197,106,.07),
+            rgba(59,130,246,.04)
+        );
+}
+
+.cr-guide-kicker {
+    color: var(--cr-gold);
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.cr-guide-title {
+    margin-top: 5px;
+
+    color: white;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.cr-guide-text {
+    margin-top: 8px;
+
+    max-width: 760px;
+
+    color: #c7d0dd;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.cr-guide-steps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 18px;
+}
+
+.cr-guide-step {
+    position: relative;
+
+    min-width: 130px;
+
+    padding: 12px 15px;
+
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 14px;
+
+    background: rgba(255,255,255,.035);
+
+    text-align: center;
+}
+
+.cr-guide-number {
+    position: absolute;
+
+    top: 7px;
+    left: 9px;
+
+    color: var(--cr-gold);
+
+    font-size: 9px;
+    font-weight: 900;
+}
+
+.cr-guide-icon {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: 22px;
+}
+
+.cr-guide-step strong {
+    display: block;
+
+    color: var(--cr-gold-light);
+
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.cr-guide-step small {
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--cr-muted);
+
+    font-size: 9px;
+}
+
+.cr-guide-arrow {
+    color: var(--cr-gold);
+
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.cr-guide-note {
+    margin-top: 14px;
+
+    color: var(--cr-muted);
+
+    font-size: 9px;
+
+    text-align: center;
+}
+
+
+/* Capsule button states */
+
+.cr-capsule-button {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 3px;
+}
+
+.cr-capsule-button small {
+    font-size: 8px;
+    font-weight: 900;
+
+    letter-spacing: 1.2px;
+
+    opacity: .8;
+}
+
+.cr-capsule-button.is-ready {
+    animation:
+        crReadyPulse
+        1.8s ease-in-out
+        infinite;
+}
+
+.cr-capsule-button.is-locked {
+    border-color:
+        rgba(255,255,255,.12);
+
+    background:
+        #202733;
+
+    color:
+        #778293;
+
+    box-shadow:
+        none;
+
+    cursor:
+        not-allowed;
+
+    opacity:
+        .72;
+}
+
+
+/* ==========================================
+   Gashapon
+   ========================================== */
+
+.cr-gashapon-screen {
+    position: relative;
+
+    min-height: 620px;
+
+    overflow: hidden;
+
+    padding:
+        36px 20px 30px;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            #17253d,
+            #0b121f 48%,
+            #070b12 80%
+        );
+
+    text-align: center;
+}
+
+.cr-gashapon-eyebrow {
+    color:
+        var(--cr-gold);
+
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: 2.4px;
+}
+
+.cr-gashapon-heading {
+    margin-top: 7px;
+
+    color: white;
+
+    font-size: 25px;
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+.cr-gashapon-sub {
+    margin-top: 5px;
+
+    color:
+        var(--cr-muted);
+
+    font-size: 11px;
+}
+
+
+/* Stage */
+
+.cr-gashapon-stage {
+    position: relative;
+
+    width: 310px;
+    height: 420px;
+
+    margin:
+        20px auto 0;
+}
+
+
+/* Machine */
+
+.cr-gashapon-machine {
+    position: relative;
+
+    width: 240px;
+
+    margin: auto;
+
+    filter:
+        drop-shadow(
+            0 24px 28px
+            rgba(0,0,0,.45)
+        );
+}
+
+
+/* Glass dome */
+
+.cr-gashapon-dome {
+    position: relative;
+
+    height: 175px;
+
+    overflow: hidden;
+
+    border:
+        3px solid
+        #b58c35;
+
+    border-radius:
+        105px 105px
+        28px 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.18),
+            rgba(38,54,78,.55)
+        );
+
+    box-shadow:
+        inset 0 0 35px
+        rgba(255,255,255,.08);
+}
+
+.cr-gashapon-dome::after {
+    content: "";
+
+    position: absolute;
+
+    top: 14px;
+    left: 28px;
+
+    width: 38px;
+    height: 110px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.16),
+            transparent
+        );
+
+    transform:
+        rotate(20deg);
+}
+
+.cr-gashapon-world {
+    position: absolute;
+
+    top: 38px;
+    left: 50%;
+
+    z-index: 3;
+
+    transform:
+        translateX(-50%);
+
+    font-size:
+        58px;
+}
+
+
+/* Capsules inside */
+
+.cr-gashapon-ball {
+    position: absolute;
+
+    width: 50px;
+    height: 34px;
+
+    border:
+        2px solid
+        rgba(255,255,255,.30);
+
+    border-radius:
+        999px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #e5c05b 0 50%,
+            #293750 50% 100%
+        );
+
+    box-shadow:
+        0 6px 10px
+        rgba(0,0,0,.28);
+}
+
+.ball-1 {
+    left: 18px;
+    bottom: 14px;
+
+    transform:
+        rotate(-16deg);
+}
+
+.ball-2 {
+    left: 72px;
+    bottom: 3px;
+
+    transform:
+        rotate(8deg);
+}
+
+.ball-3 {
+    right: 18px;
+    bottom: 14px;
+
+    transform:
+        rotate(18deg);
+}
+
+.ball-4 {
+    left: 38px;
+    bottom: 52px;
+
+    transform:
+        rotate(14deg);
+}
+
+.ball-5 {
+    right: 39px;
+    bottom: 50px;
+
+    transform:
+        rotate(-13deg);
+}
+
+
+/* Machine body */
+
+.cr-gashapon-body {
+    position: relative;
+
+    height: 165px;
+
+    margin-top:
+        -3px;
+
+    border:
+        3px solid
+        #b58c35;
+
+    border-radius:
+        18px 18px
+        26px 26px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #222f45,
+            #111928
+        );
+}
+
+.cr-gashapon-brand {
+    padding-top: 13px;
+
+    color:
+        var(--cr-gold-light);
+
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: 3px;
+}
+
+
+/* Handle */
+
+.cr-gashapon-handle {
+    position: absolute;
+
+    top: 47px;
+    left: 50%;
+
+    width: 78px;
+    height: 78px;
+
+    padding: 0;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    transform:
+        translateX(-50%);
+
+    cursor: pointer;
+}
+
+.cr-handle-disc {
+    position: relative;
+
+    display: block;
+
+    width: 78px;
+    height: 78px;
+
+    border:
+        4px solid
+        #d5aa45;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #3a4657 0 35%,
+            #151d2a 36%
+        );
+
+    box-shadow:
+        0 7px 15px
+        rgba(0,0,0,.45);
+}
+
+.cr-handle-grip {
+    position: absolute;
+
+    top: 7px;
+    left: 50%;
+
+    width: 15px;
+    height: 34px;
+
+    border-radius: 8px;
+
+    background:
+        #e5c05b;
+
+    transform:
+        translateX(-50%);
+
+    box-shadow:
+        0 3px 7px
+        rgba(0,0,0,.35);
+}
+
+.cr-gashapon-handle:hover
+.cr-handle-disc {
+    filter:
+        brightness(1.14);
+}
+
+.cr-gashapon-handle.is-turning
+.cr-handle-disc {
+    animation:
+        crHandleTurn
+        1.05s
+        cubic-bezier(.25,.8,.3,1)
+        forwards;
+}
+
+.cr-gashapon-turn-label {
+    position: absolute;
+
+    top: 128px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    color:
+        var(--cr-muted);
+
+    font-size: 8px;
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+
+/* Chute */
+
+.cr-gashapon-chute {
+    position: absolute;
+
+    right: 17px;
+    bottom: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 55px;
+    height: 38px;
+
+    border:
+        2px solid
+        rgba(232,197,106,.4);
+
+    border-radius:
+        8px;
+
+    background:
+        #080d15;
+
+    color:
+        var(--cr-gold);
+
+    font-size:
+        14px;
+}
+
+
+/* Dropped capsule */
+
+.cr-drop-capsule {
+    position: absolute;
+
+    left: 50%;
+    bottom: 0;
+
+    z-index: 8;
+
+    width: 72px;
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        2px solid
+        #ffe28a;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #d7aa3f 0 49%,
+            #1d2a40 50% 100%
+        );
+
+    color: white;
+
+    font-size:
+        26px;
+
+    opacity: 0;
+
+    transform:
+        translate(
+            -50%,
+            -110px
+        )
+        scale(.65);
+
+    box-shadow:
+        0 15px 30px
+        rgba(0,0,0,.5);
+
+    pointer-events:
+        none;
+}
+
+.cr-drop-capsule.is-dropped {
+    pointer-events:
+        auto;
+
+    cursor: pointer;
+
+    animation:
+        crCapsuleDrop
+        .72s
+        cubic-bezier(.2,.9,.25,1.2)
+        forwards;
+}
+
+.cr-drop-capsule.is-dropped:hover {
+    filter:
+        brightness(1.18);
+}
+
+.cr-drop-capsule.is-opening {
+    animation:
+        crGashaponOpen
+        .75s ease-out
+        forwards;
+}
+
+
+/* Status */
+
+.cr-gashapon-status {
+    margin-top: 4px;
+
+    color:
+        var(--cr-gold-light);
+
+    font-size: 14px;
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+}
+
+.cr-gashapon-status-ja {
+    margin-top: 5px;
+
+    color:
+        var(--cr-muted);
+
+    font-size: 10px;
+}
+
+
+/* Machine movement */
+
+.cr-gashapon-machine.is-rumbling {
+    animation:
+        crMachineRumble
+        .12s linear
+        7;
+}
+
+.cr-gashapon-machine.is-rumbling
+.cr-gashapon-ball {
+    animation:
+        crBallRumble
+        .16s linear
+        6;
+}
+
+
+/* ==========================================
+   Gashapon Animations
+   ========================================== */
+
+@keyframes crReadyPulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 10px 28px
+            rgba(0,0,0,.3);
+    }
+
+    50% {
+        box-shadow:
+            0 10px 32px
+            rgba(232,197,106,.45);
+    }
+}
+
+
+@keyframes crHandleTurn {
+
+    from {
+        transform:
+            rotate(0);
+    }
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+}
+
+
+@keyframes crMachineRumble {
+
+    0% {
+        transform:
+            translate(0,0);
+    }
+
+    25% {
+        transform:
+            translate(-4px,1px);
+    }
+
+    50% {
+        transform:
+            translate(4px,-1px);
+    }
+
+    75% {
+        transform:
+            translate(-3px,-1px);
+    }
+
+    100% {
+        transform:
+            translate(3px,1px);
+    }
+}
+
+
+@keyframes crBallRumble {
+
+    0%,
+    100% {
+        translate:
+            0 0;
+    }
+
+    50% {
+        translate:
+            0 -7px;
+    }
+}
+
+
+@keyframes crCapsuleDrop {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(
+                -50%,
+                -120px
+            )
+            scale(.65);
+    }
+
+    55% {
+        opacity: 1;
+
+        transform:
+            translate(
+                -50%,
+                8px
+            )
+            scale(1.08);
+    }
+
+    75% {
+        transform:
+            translate(
+                -50%,
+                -8px
+            )
+            scale(.96);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translate(
+                -50%,
+                0
+            )
+            scale(1);
+    }
+}
+
+
+@keyframes crGashaponOpen {
+
+    0% {
+        opacity: 1;
+
+        transform:
+            translate(-50%,0)
+            scale(1);
+    }
+
+    45% {
+        transform:
+            translate(-50%,0)
+            scale(1.22);
+
+        filter:
+            brightness(2);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(-50%,0)
+            scale(1.8);
+
+        filter:
+            brightness(5);
+    }
+}
+
+
+/* Smartphone */
+
+@media (max-width: 700px) {
+
+    .cr-guide-steps {
+        gap: 5px;
+    }
+
+    .cr-guide-step {
+        min-width: 0;
+
+        flex: 1;
+
+        padding:
+            10px 5px;
+    }
+
+    .cr-guide-arrow {
+        font-size:
+            13px;
+    }
+
+    .cr-gashapon-screen {
+        min-height:
+            580px;
+    }
+
+    .cr-gashapon-stage {
+        transform:
+            scale(.92);
+
+        transform-origin:
+            top center;
+
+        margin-bottom:
+            -25px;
+    }
+
+}
