@@ -974,6 +974,42 @@ async function checkUrlParameters() {
 window.addEventListener('DOMContentLoaded', async () => {
     try { 
         await initDB(); 
+        // ==========================================
+// Past Practice Bonus
+// 過去の音読回数 × 10SP
+// 初回のみ
+// ==========================================
+
+if (
+    window.CopeakRewardsStorage
+        ?.importPastPracticeBonus
+) {
+
+    const bonusResult =
+        await window
+            .CopeakRewardsStorage
+            .importPastPracticeBonus(
+                db,
+                storeName
+            );
+
+
+    if (
+        bonusResult?.imported &&
+        bonusResult.bonusSP > 0
+    ) {
+
+        if (
+            typeof showMsg ===
+            "function"
+        ) {
+
+            showMsg(
+                `🎁 Past Practice Bonus！ ${bonusResult.pastReads}回 × 10SP = +${bonusResult.bonusSP} SP`
+            );
+        }
+    }
+}
         
         injectPresetLessons(); // ★追加：ここでサンプル教材の補充スイッチをオンにします！
         

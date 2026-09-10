@@ -28,6 +28,12 @@
             explorerLevel: 1,
             lessonStats: {},
 
+            // 過去練習ボーナス
+            pastPracticeBonusImported: false,
+            pastPracticeReads: 0,
+            pastPracticeBonusSP: 0,
+            pastPracticeImportedAt: null,
+
             // World Collection
             countries: {},
             capsulesOpened: 0,
@@ -207,6 +213,243 @@ return normalized;
         );
     }
 
+    // ==========================================
+// 過去の音読履歴 → SP
+// 初回のみ実行
+// ==========================================
+
+async function importPastPracticeBonus(
+    db,
+    storeName = "CustomLessons"
+) {
+
+    if (!db) {
+        console.warn(
+            "[Copeak Rewards] IndexedDB is not ready."
+        );
+
+        return null;
+    }
+
+
+    const current =
+        loadRewards();
+
+
+    // すでに移行済み
+    if (
+        current.pastPracticeBonusImported ===
+        true
+    ) {
+
+        return {
+            imported: false,
+            reason: "already_imported",
+            reads:
+                Number(
+                    current.pastPracticeReads ||
+                    0
+                ),
+            bonusSP:
+                Number(
+                    current.pastPracticeBonusSP ||
+                    0
+                )
+        };
+    }
+
+
+    // ======================================
+    // Libraryの全教材を取得
+    // ======================================
+
+    const lessons =
+        await new Promise(
+            (resolve, reject) => {
+
+                try {
+
+                    const transaction =
+                        db.transaction(
+                            [storeName],
+                            "readonly"
+                        );
+
+
+                    const store =
+                        transaction
+                            .objectStore(
+                                storeName
+                            );
+
+
+                    const request =
+                        store.getAll();
+
+
+                    request.onsuccess =
+                        () => {
+
+                            resolve(
+                                Array.isArray(
+                                    request.result
+                                )
+                                    ? request.result
+                                    : []
+                            );
+                        };
+
+
+                    request.onerror =
+                        () => {
+
+                            reject(
+                                request.error
+                            );
+                        };
+
+                } catch (error) {
+
+                    reject(
+                        error
+                    );
+                }
+            }
+        );
+
+
+    // ======================================
+    // history.length を全部合計
+    // ======================================
+
+    const historyReads =
+        lessons.reduce(
+            (total, lesson) => {
+
+                const history =
+                    Array.isArray(
+                        lesson?.history
+                    )
+                        ? lesson.history
+                        : [];
+
+
+                return (
+                    total +
+                    history.length
+                );
+            },
+            0
+        );
+
+
+    /*
+     * Rewards導入後にすでに音読した分が
+     * historyにも入っている場合の二重計上防止。
+     */
+    const alreadyRewardedReads =
+        Math.max(
+            0,
+            Math.floor(
+                Number(
+                    current.totalReads ||
+                    0
+                )
+            )
+        );
+
+
+    const pastReads =
+        Math.max(
+            0,
+            historyReads -
+            alreadyRewardedReads
+        );
+
+
+    const bonusSP =
+        pastReads * 10;
+
+
+    // ======================================
+    // 一度だけ付与
+    // ======================================
+
+    const saved =
+        updateRewards(
+            data => {
+
+                // 二重実行防止
+                if (
+                    data.pastPracticeBonusImported ===
+                    true
+                ) {
+                    return data;
+                }
+
+
+                data.spBalance =
+                    Number(
+                        data.spBalance ||
+                        0
+                    ) +
+                    bonusSP;
+
+
+                data.lifetimeSP =
+                    Number(
+                        data.lifetimeSP ||
+                        0
+                    ) +
+                    bonusSP;
+
+
+                data.pastPracticeBonusImported =
+                    true;
+
+
+                data.pastPracticeReads =
+                    pastReads;
+
+
+                data.pastPracticeBonusSP =
+                    bonusSP;
+
+
+                data.pastPracticeImportedAt =
+                    new Date()
+                        .toISOString();
+
+
+                return data;
+            }
+        );
+
+
+    if (!saved) {
+        return null;
+    }
+
+
+    console.log(
+        "[Copeak Rewards] Past Practice Bonus:",
+        {
+            historyReads,
+            alreadyRewardedReads,
+            pastReads,
+            bonusSP
+        }
+    );
+
+
+    return {
+        imported: true,
+        historyReads,
+        pastReads,
+        bonusSP
+    };
+}
+
     function resetRewards() {
         const fresh =
             createDefaultRewardsData();
@@ -215,12 +458,13 @@ return normalized;
     }
 
     window.CopeakRewardsStorage = {
-        load: loadRewards,
-        save: saveRewards,
-        update: updateRewards,
-        snapshot: getSnapshot,
-        reset: resetRewards,
-        createDefault: createDefaultRewardsData
-    };
+    load: loadRewards,
+    save: saveRewards,
+    update: updateRewards,
+    snapshot: getSnapshot,
+    reset: resetRewards,
+    createDefault: createDefaultRewardsData,
+    importPastPracticeBonus: importPastPracticeBonus
+};
 
 })();
