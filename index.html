@@ -569,7 +569,7 @@
                                     <div class="w-full md:w-1/2 h-48 md:h-full relative z-10"><canvas id="targetScoreChart"></canvas></div>
                                     <div class="w-full md:w-1/2 h-48 md:h-full flex flex-col bg-stone-900 rounded-xl border-2 border-stone-700 cursor-pointer group overflow-hidden transition-all duration-300 hover:border-emerald-500 hover:shadow-[0_0_15px_rgba(52,211,153,0.3)] z-10" onclick="openSlaModalAtCurrent()" title="クリックして大画面で解説を見る">
                                         <div class="w-full flex-1 relative bg-white flex items-center justify-center overflow-hidden pointer-events-none">
-                                            <img id="level-preview-img" src="assets/images/level1.webp" alt="Level Image" class="absolute w-full h-full object-contain p-1 group-hover:scale-105 transition-transform duration-500">
+                                            <img id="level-preview-img" data-src="assets/images/level1.webp" alt="Level Image" class="absolute w-full h-full object-contain p-1 group-hover:scale-105 transition-transform duration-500">
                                         </div>
                                         <div class="w-full py-2.5 bg-stone-900 border-t border-stone-800 flex justify-center items-center text-stone-400 text-[10px] md:text-xs font-bold group-hover:text-emerald-400 transition-colors shrink-0 pointer-events-none">
                                             <span class="text-sm">🔍</span> 画像をタップして拡大解説を見る
@@ -1456,9 +1456,21 @@
         const slaSlides = document.querySelectorAll('#sla-slides .sla-slide');
         const slaDots = document.getElementById('sla-dots');
         let currentSlaSlide = 0;
+        // 必要になった画像だけ初めて読み込む
+function loadDeferredImage(container) {
+    if (!container) return;
 
+    const img = container.querySelector('img[data-src]');
+
+    if (img && img.dataset.src) {
+        img.src = img.dataset.src;
+        img.removeAttribute('data-src');
+    }
+}
         window.showSlaSlideGlobally = function(index) {
-            if (!slaSlides.length) return;
+    if (!slaSlides.length) return;
+
+    loadDeferredImage(slaSlides[index]);
             slaSlides.forEach((slide, i) => {
                 if (i === index) { slide.classList.remove('opacity-0', 'pointer-events-none'); slide.classList.add('opacity-100', 'z-10'); } 
                 else { slide.classList.remove('opacity-100', 'z-10'); slide.classList.add('opacity-0', 'pointer-events-none'); }
@@ -1492,7 +1504,9 @@
         let currentTroubleSlide = 0;
 
         function showTroubleSlide(index) {
-            if(!troubleSlides.length) return;
+    if(!troubleSlides.length) return;
+
+    loadDeferredImage(troubleSlides[index]);
             troubleSlides.forEach((s, i) => {
                 if (i === index) { s.classList.remove('opacity-0', 'pointer-events-none'); s.classList.add('opacity-100', 'z-10'); } 
                 else { s.classList.remove('opacity-100', 'z-10'); s.classList.add('opacity-0', 'pointer-events-none'); }
