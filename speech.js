@@ -162,6 +162,284 @@ function joinTranscript(...parts) {
         .trim();
 }
 
+// ==========================================
+// ★ Android SpeechRecognition 重複対策
+// ==========================================
+function isAndroidSpeechRecognition() {
+    return /Android/i.test(
+        navigator.userAgent || ''
+    );
+}
+
+function mergeAndroidRecognitionChunk(
+    baseText,
+    nextText
+) {
+    const base =
+        String(baseText || '')
+            .replace(/\s+/g, ' ')
+            .trim();
+
+    const next =
+        String(nextText || '')
+            .replace(/\s+/g, ' ')
+            .trim();
+
+    if (!base) return next;
+    if (!next) return base;
+
+    const lang =
+        getCurrentLessonLang();
+
+    const toWords = text =>
+        segmentSpeechText(
+            text,
+            lang
+        )
+        .filter(
+            item =>
+                item.isWord &&
+                item.normalized
+        )
+        .map(
+            item =>
+                item.normalized
+        );
+
+    const baseWords =
+        toWords(base);
+
+    const nextWords =
+        toWords(next);
+
+    if (
+        baseWords.length === 0 ||
+        nextWords.length === 0
+    ) {
+        return joinTranscript(
+            base,
+            next
+        );
+    }
+
+    const startsWith =
+        (full, prefix) => {
+
+            if (
+                prefix.length >
+                full.length
+            ) {
+                return false;
+            }
+
+            return prefix.every(
+                (word, index) =>
+                    full[index] ===
+                    word
+            );
+        };
+
+    // 完全に同じ結果が再送された
+    if (
+        baseWords.length ===
+            nextWords.length &&
+        baseWords.every(
+            (word, index) =>
+                word ===
+                nextWords[index]
+        )
+    ) {
+        return base;
+    }
+
+    // Androidの典型例
+    // "the"
+    // → "the sustainable"
+    // → "the sustainable development"
+    if (
+        startsWith(
+            nextWords,
+            baseWords
+        )
+    ) {
+        return next;
+    }
+
+    // 古い短い結果が後から再送された
+    if (
+        startsWith(
+            baseWords,
+            nextWords
+        )
+    ) {
+        return base;
+    }
+
+    return joinTranscript(
+        base,
+        next
+    );
+}
+
+function mergeRecognitionChunk(
+    baseText,
+    nextText
+) {
+    if (
+        !isAndroidSpeechRecognition()
+    ) {
+        return joinTranscript(
+            baseText,
+            nextText
+        );
+    }
+
+    return mergeAndroidRecognitionChunk(
+        baseText,
+        nextText
+    );
+}
+
+// Androidの再接続境界だけ、前後2語以上の重複も除去
+function mergeRecognitionBoundary(
+    baseText,
+    nextText
+) {
+    if (!isAndroidSpeechRecognition()) {
+        return joinTranscript(
+            baseText,
+            nextText
+        );
+    }
+
+    const base =
+        String(baseText || '')
+            .replace(/\s+/g, ' ')
+            .trim();
+
+    const next =
+        String(nextText || '')
+            .replace(/\s+/g, ' ')
+            .trim();
+
+    const simpleMerged =
+        mergeAndroidRecognitionChunk(
+            base,
+            next
+        );
+
+    const plainMerged =
+        joinTranscript(
+            base,
+            next
+        );
+
+    // 完全一致・前方一致は既存処理を優先
+    if (
+        simpleMerged !==
+        plainMerged
+    ) {
+        return simpleMerged;
+    }
+
+    const lang =
+        getCurrentLessonLang();
+
+    const toWords = text =>
+        segmentSpeechText(
+            text,
+            lang
+        )
+        .filter(
+            item =>
+                item.isWord &&
+                item.normalized
+        )
+        .map(
+            item =>
+                item.normalized
+        );
+
+    const baseWords =
+        toWords(base);
+
+    const nextWords =
+        toWords(next);
+
+    let overlap = 0;
+
+    const maxOverlap =
+        Math.min(
+            baseWords.length,
+            nextWords.length
+        );
+
+    // 1語だけの一致は
+    // 本当に繰り返して読んだ可能性があるので残す
+    for (
+        let size = maxOverlap;
+        size >= 2;
+        size--
+    ) {
+
+        const matched =
+            baseWords
+                .slice(-size)
+                .every(
+                    (word, index) =>
+                        word ===
+                        nextWords[index]
+                );
+
+        if (matched) {
+            overlap = size;
+            break;
+        }
+    }
+
+    if (!overlap) {
+        return plainMerged;
+    }
+
+    const segments =
+        segmentSpeechText(
+            next,
+            lang
+        );
+
+    let skip =
+        overlap;
+
+    let remainder =
+        '';
+
+    for (
+        const segment
+        of segments
+    ) {
+
+        if (skip > 0) {
+
+            if (
+                segment.isWord &&
+                segment.normalized
+            ) {
+                skip--;
+            }
+
+            continue;
+        }
+
+        remainder +=
+            segment.text;
+    }
+
+    return joinTranscript(
+        base,
+        remainder
+    );
+}
+
 function clearRecognitionTimer(type) {
     const timers = {
         start: recognitionStartTimer,
@@ -191,7 +469,8 @@ function createMainRecognition() {
 
     const rec = new window.SpeechRecognition();
 
-    rec.interimResults = true;
+    rec.interimResults =
+    !isAndroidSpeechRecognition();
     rec.continuous = true;
     rec.lang = getCurrentLessonLang();
 
@@ -262,6 +541,14 @@ function createMainRecognition() {
 
         clearRecognitionTimer('speech');
 
+        // AndroidはinterimResults=falseのため、
+        // 読み続けている最中に5秒タイムアウトさせない
+        if (
+            isAndroidSpeechRecognition()
+        ) {
+            return;
+        }
+
         recognitionSpeechTimer = setTimeout(() => {
 
             if (
@@ -306,18 +593,18 @@ function createMainRecognition() {
             if (e.results[i].isFinal) {
 
                 finalText =
-                    joinTranscript(
-                        finalText,
-                        transcript
-                    );
+    mergeRecognitionChunk(
+        finalText,
+        transcript
+    );
 
             } else {
 
                 interimText =
-                    joinTranscript(
-                        interimText,
-                        transcript
-                    );
+    mergeRecognitionChunk(
+        interimText,
+        transcript
+    );
             }
         }
 
@@ -326,20 +613,20 @@ function createMainRecognition() {
         // 確定結果 + 再接続以前の結果
         // ==========================================
         accumulatedTranscript =
-            joinTranscript(
-                recognitionBase,
-                finalText
-            );
+    mergeRecognitionBoundary(
+        recognitionBase,
+        finalText
+    );
 
         currentInterim =
             interimText;
 
 
         const liveText =
-            joinTranscript(
-                accumulatedTranscript,
-                currentInterim
-            );
+    mergeRecognitionChunk(
+        accumulatedTranscript,
+        currentInterim
+    );
 
         if (!liveText) return;
 
@@ -706,7 +993,7 @@ function recoverRecognition(
     ) {
 
         accumulatedTranscript =
-            joinTranscript(
+            mergeRecognitionChunk(
                 accumulatedTranscript,
                 currentInterim
             );
@@ -930,7 +1217,7 @@ function finalizeRecognition() {
     ) {
 
         accumulatedTranscript =
-            joinTranscript(
+            mergeRecognitionChunk(
                 accumulatedTranscript,
                 currentInterim
             );
@@ -966,6 +1253,107 @@ function finalizeRecognition() {
         } catch (e) {}
     }
 
+    // ==========================================
+    // ★ 異常な認識結果は採点・保存しない
+    // ==========================================
+
+    const targetWordCount =
+        getLessonTargetTokens()
+            .length;
+
+    const elapsedSeconds =
+        recordStartTime > 0
+            ? (
+                Date.now() -
+                recordStartTime
+            ) / 1000
+            : 0;
+
+    const estimatedWpm =
+        elapsedSeconds > 0
+            ? Math.round(
+                recognizedWords.length *
+                60 /
+                elapsedSeconds
+            )
+            : 0;
+
+    const tooManyRecognizedWords =
+        targetWordCount > 0 &&
+        recognizedWords.length >
+            Math.max(
+                Math.ceil(
+                    targetWordCount *
+                    2.2
+                ),
+                targetWordCount +
+                    25
+            );
+
+    const impossibleEnglishWpm =
+        /^en(?:-|$)/i.test(
+            getCurrentLessonLang()
+        ) &&
+        targetWordCount >= 20 &&
+        recognizedWords.length >= 10 &&
+        estimatedWpm > 500;
+
+
+    if (
+        tooManyRecognizedWords ||
+        impossibleEnglishWpm
+    ) {
+
+        console.warn(
+            '[Copeak] Abnormal speech result rejected',
+            {
+                recognizedWords:
+                    recognizedWords.length,
+
+                targetWordCount,
+
+                estimatedWpm
+            }
+        );
+
+        accumulatedTranscript =
+            '';
+
+        currentInterim =
+            '';
+
+        recordStartTime =
+            0;
+
+        setRecognitionHealth(
+            'error',
+            '音声認識の重複を検出しました'
+        );
+
+        if (
+            typeof resetLearningState ===
+            'function'
+        ) {
+            resetLearningState();
+
+        } else if (
+            typeof showPreReadingState ===
+            'function'
+        ) {
+            showPreReadingState();
+        }
+
+        if (
+            typeof showMsg ===
+            'function'
+        ) {
+            showMsg(
+                '⚠️ 音声認識結果が重複したため、今回は採点・保存していません。もう一度お試しください。'
+            );
+        }
+
+        return;
+    }
 
     // ==========================================
     // ★ 1語も認識できなかった場合
