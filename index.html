@@ -6404,11 +6404,65 @@ window.startQuestLesson = function(index) {
         openLearningScreen(pseudoLesson);
     }
 }
-// --- Quest用：マップを閉じて完全にホーム画面に戻る ---
+// --- Quest用：リロードせずホーム画面に戻る ---
 window.closeQuestMap = function() {
-    // URLの「?pkg=...」を消して、完全な初期状態でリロードするのが最も安全
-    window.location.href = window.location.pathname.split('?')[0];
-}
+
+    // Quest Mapを閉じる
+    const mapModal = document.getElementById('questMapModal');
+    if (mapModal) {
+        mapModal.classList.add('hidden');
+        mapModal.style.display = 'none';
+    }
+
+    // 判定モーダルも念のため閉じる
+    const judgeModal = document.getElementById('questJudgeModal');
+    if (judgeModal) {
+        judgeModal.classList.add('hidden');
+        judgeModal.style.display = 'none';
+    }
+
+    // 学習画面を閉じる
+    const learningScreen = document.getElementById('learningScreen');
+    if (learningScreen) {
+        learningScreen.classList.remove('active');
+        learningScreen.style.removeProperty('display');
+    }
+
+    // すべての通常画面を一度非表示
+    document.querySelectorAll('.screen').forEach(screen => {
+        screen.classList.remove('active');
+    });
+
+    // ホーム画面を表示
+    const homeScreen = document.getElementById('homeScreen');
+    if (homeScreen) {
+        homeScreen.classList.add('active');
+        homeScreen.style.removeProperty('display');
+    }
+
+    // Quest用表示状態を解除
+    document.body.style.overflow = '';
+    document.body.classList.remove('immersive-mode');
+    activeQuestGoal = null;
+
+    // ?pkg=xxxxx だけURLから削除（ページはリロードしない）
+    const url = new URL(window.location.href);
+    url.searchParams.delete('pkg');
+
+    history.replaceState(
+        {},
+        '',
+        url.pathname +
+        (url.search ? url.search : '') +
+        url.hash
+    );
+
+    // ページ上部へ
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+};
 
 // --- Quest用：即座にマップに戻る（リロードなしの瞬間移動） ---
 window.returnToQuestMap = function() {
