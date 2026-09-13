@@ -168,20 +168,21 @@ window.COPEAK_REWARDS_CONFIG = {
 
     collection: {
 
-        totalCountries: 197,
+    totalCountries: 197,
 
-        countryDataPath: "countries.json",
+    // 大容量の国データはVercelではなくjsDelivr CDNから取得
+    countryDataPath:
+        "https://cdn.jsdelivr.net/gh/nakacy0919-Git/copeak@501a89a588d4d781c095086abd494eabe6e6f468/countries.json",
 
-        regions: [
-            "Africa",
-            "Americas",
-            "Asia",
-            "Europe",
-            "Oceania"
-        ]
+    regions: [
+        "Africa",
+        "Americas",
+        "Asia",
+        "Europe",
+        "Oceania"
+    ]
 
-    },
-
+},
 
     // --------------------------------------
     // 7. Debug
