@@ -4791,6 +4791,207 @@
     }
 }
 /* ==========================================
+   Smartphone Compact Top Actions
+   Profile / SOS / Language / World を1行表示
+   ========================================== */
+
+@media (max-width: 639px) {
+
+    .copeak-top-actions {
+        width: 100%;
+
+        display: grid;
+        grid-template-columns:
+            1fr
+            .62fr
+            1.08fr
+            1.25fr;
+
+        align-items: center;
+
+        gap: 5px;
+
+        flex-wrap: nowrap;
+
+        margin-top: 2px;
+    }
+
+
+    /* ----------------------------------
+       全項目共通
+       ---------------------------------- */
+
+    .copeak-top-actions > * {
+        min-width: 0;
+    }
+
+
+    /* ----------------------------------
+       Student Profile
+       例：👤 3-2 / 17
+       ---------------------------------- */
+
+    .copeak-top-actions
+    .copeak-student-chip {
+
+        width: 100%;
+        height: 44px;
+
+        min-width: 0;
+
+        padding: 0 5px;
+
+        justify-content: center;
+
+        gap: 3px;
+
+        border-radius: 12px;
+
+        font-size: 10px;
+    }
+
+    .copeak-top-actions
+    .copeak-student-icon {
+
+        width: 20px;
+        height: 20px;
+
+        font-size: 11px;
+    }
+
+    .copeak-top-actions
+    .copeak-student-lock {
+        display: none;
+    }
+
+
+    /* ----------------------------------
+       SOS
+       長い説明を隠し、SOSだけ表示
+       ---------------------------------- */
+
+    .copeak-top-actions
+    .copeak-top-pill {
+
+        width: 100%;
+
+        min-width: 0;
+        min-height: 44px;
+        height: 44px;
+
+        padding: 0;
+
+        justify-content: center;
+
+        gap: 0;
+
+        border-radius: 12px;
+    }
+
+    .copeak-top-actions
+    .copeak-pill-text {
+        display: none;
+    }
+
+    .copeak-top-actions
+    .copeak-pill-icon {
+
+        width: 29px;
+        height: 29px;
+
+        border-radius: 9px;
+
+        font-size: 11px;
+    }
+
+
+    /* ----------------------------------
+       Language
+       ---------------------------------- */
+
+    .copeak-top-actions
+    .copeak-top-lang-wrap {
+
+        width: 100%;
+
+        min-width: 0;
+
+        flex: none;
+    }
+
+    .copeak-top-actions
+    .copeak-top-select {
+
+        width: 100%;
+        min-width: 0;
+
+        height: 44px;
+        min-height: 44px;
+
+        padding:
+            0 3px;
+
+        border-radius: 12px;
+
+        font-size: 10px;
+        font-weight: 800;
+    }
+
+
+    /* ----------------------------------
+       World Collection
+       WORLD COLLECTIONの文字は隠す
+       🌍 + SPだけ表示
+       ---------------------------------- */
+
+    .copeak-top-actions
+    .copeak-world-btn {
+
+        width: 100%;
+
+        min-width: 0;
+        min-height: 44px;
+        height: 44px;
+
+        padding:
+            0 5px;
+
+        justify-content: center;
+
+        gap: 4px;
+
+        border-radius: 12px;
+    }
+
+    .copeak-top-actions
+    .copeak-world-label {
+        display: none;
+    }
+
+    .copeak-top-actions
+    .copeak-world-icon {
+
+        font-size: 14px;
+    }
+
+    .copeak-top-actions
+    .copeak-sp-badge {
+
+        min-width: 43px;
+
+        height: 22px;
+
+        margin-left: 0;
+
+        padding:
+            0 5px;
+
+        font-size: 9px;
+
+        white-space: nowrap;
+    }
+}
+/* ==========================================
    Library Font
    ========================================== */
 
