@@ -5,9 +5,26 @@
 
 (() => {
 
-    const FINAL_IMAGE =
-        'opening-final.png';
+    const FINAL_IMAGE_DESKTOP =
+    'opening-final.png';
 
+const FINAL_IMAGE_MOBILE =
+    'opening-final-mobile.png';
+
+function getResponsiveFinalImage() {
+
+    const isPortraitPhone =
+        window.matchMedia(
+            '(max-width: 900px) and (orientation: portrait)'
+        ).matches;
+
+    return isPortraitPhone
+        ? FINAL_IMAGE_MOBILE
+        : FINAL_IMAGE_DESKTOP;
+}
+
+const FINAL_IMAGE =
+    getResponsiveFinalImage();
     const STYLE_ID =
         'copeak-opening-final-style';
 
@@ -304,7 +321,55 @@
             /* ----------------------------------
                reduced motion
                ---------------------------------- */
+/* ==================================
+   Smartphone Portrait Opening
+   縦型専用画像を全面表示
+   ================================== */
 
+@media
+(max-width: 700px)
+and
+(orientation: portrait) {
+
+    #copeakOpeningFinal {
+        background: #020817;
+    }
+
+    .copeak-opening-final-stage {
+        width: 100vw;
+        height: 100dvh;
+
+        max-width: none;
+        max-height: none;
+
+        background: #020817;
+    }
+
+    .copeak-opening-final-image {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+
+    .copeak-opening-final-enter-hit {
+        left: 50%;
+    }
+
+    .copeak-opening-enter-hit {
+        left: 50%;
+        top: 40%;
+
+        width: 52%;
+        height: 8%;
+
+        transform:
+            translateX(-50%);
+    }
+}
             @media
             (prefers-reduced-motion: reduce) {
 
@@ -329,12 +394,21 @@
     }
 
 
-    // 画像を早めに読み込む
+    // ==========================================
+// 横型・縦型の両方を先に読み込む
+// ==========================================
+
+[
+    FINAL_IMAGE_DESKTOP,
+    FINAL_IMAGE_MOBILE
+].forEach(src => {
+
     const preload =
         new Image();
 
     preload.src =
-        FINAL_IMAGE;
+        src;
+});
 
 
     // ==========================================
@@ -412,7 +486,7 @@
             );
 
         image.src =
-            FINAL_IMAGE;
+            getResponsiveFinalImage();
 
         image.alt =
             'Welcome to Copeak';
@@ -420,6 +494,39 @@
         image.className =
             'copeak-opening-final-image';
 
+            // ==========================================
+// 端末を回転したときにも画像を切り替える
+// ==========================================
+
+function updateOpeningImage() {
+
+    const nextImage =
+        getResponsiveFinalImage();
+
+    if (
+        image.getAttribute('src') !==
+        nextImage
+    ) {
+        image.src =
+            nextImage;
+    }
+}
+
+window.addEventListener(
+    'orientationchange',
+    () => {
+
+        setTimeout(
+            updateOpeningImage,
+            150
+        );
+    }
+);
+
+window.addEventListener(
+    'resize',
+    updateOpeningImage
+);
 
         const glow =
             document.createElement(
@@ -516,7 +623,7 @@
 
                 setTimeout(
                     revealFinal,
-                    2100
+                    1400
                 );
             };
 
@@ -544,8 +651,8 @@
                 () => {
 
                     console.error(
-                        '[Copeak Opening] opening-final.png could not be loaded'
-                    );
+    '[Copeak Opening] final opening image could not be loaded'
+);
 
                 },
                 {
