@@ -4557,7 +4557,6 @@
 
     /* ④ Your Voiceを小さなLiveバーにする */
     #yourVoiceWrapper:not(.hidden) {
-        display: flex !important;
         position: fixed !important;
         left: 8px;
         right: 8px;
@@ -5004,6 +5003,632 @@
 #libraryBackBtn {
     font-family: 'Noto Sans JP', sans-serif !important;
 }   
+
+/* ==========================================
+   Mobile Fix: Learning Screen Layout
+   READ / PACED / VANISH / SHADOW
+   Target Text / Your Voice / Missing Words
+   ========================================== */
+@media (max-width: 639px) {
+
+    /* ----------------------------------
+   1) モードタブ
+   READ / PACED / VANISH / SHADOW / ?
+   スマホでは5つを1列表示
+   ---------------------------------- */
+
+#learningTabs {
+    display: grid;
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr))
+        34px;
+
+    align-items: center;
+
+    gap: 3px;
+
+    padding: 5px;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+}
+
+
+/* 4モードを包んでいる既存divを
+   レイアウト上だけ透明化して、
+   4ボタンを親gridへ直接参加させる */
+#learningTabs > div:first-child {
+    display: contents;
+}
+
+
+/* READ / PACED / VANISH / SHADOW */
+#learningTabs > div:first-child button {
+    min-width: 0;
+    width: 100%;
+
+    height: 36px;
+
+    padding:
+        0 2px;
+
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 2px;
+
+    font-size: 9px;
+
+    line-height: 1;
+
+    letter-spacing: 0;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+}
+
+
+/* ? */
+#learningTabs > button:last-child {
+    width: 34px;
+    height: 36px;
+
+    min-width: 34px;
+
+    padding: 0;
+
+    margin: 0;
+
+    font-size: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+}
+
+
+    /* ----------------------------------
+       2) 学習本文エリア全体
+       ---------------------------------- */
+    #mainScrollArea {
+        padding: 10px;
+        gap: 12px;
+    }
+
+    #learningContentArea {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        min-height: auto;
+    }
+
+
+    /* ----------------------------------
+       3) Target Text を先、Your Voice を後
+       両方とも full width にして見やすく
+       ---------------------------------- */
+    #targetTextWrapper {
+        order: 1;
+        width: 100%;
+        flex: none;
+        min-height: auto;
+        gap: 12px;
+    }
+
+    #yourVoiceWrapper {
+        order: 2;
+        width: 100%;
+        flex: none;
+        min-height: auto;
+    }
+
+    #targetTextWrapper > div:first-child,
+    #yourVoiceWrapper {
+        min-height: auto;
+    }
+
+
+    /* ----------------------------------
+       4) Target Text / Your Voice の中身の高さ
+       スマホで重ならないように固定気味に調整
+       ---------------------------------- */
+    #engContainer,
+    #recognizedTextDisplay {
+        min-height: 170px;
+        max-height: 220px;
+        overflow-y: auto;
+        font-size: 20px !important;
+        line-height: 1.6;
+    }
+
+    #jpnContainer {
+        max-height: 140px;
+        overflow-y: auto;
+    }
+
+
+    /* ----------------------------------
+       5) Target Text 上部の操作ボタン
+       小画面で折り返しやすくする
+       ---------------------------------- */
+    #targetTextWrapper .flex.justify-between.items-center {
+        align-items: flex-start;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    #targetTextWrapper .flex.items-center.gap-2.md\:gap-3.flex-wrap {
+        width: 100%;
+        gap: 6px;
+    }
+
+    #targetTextWrapper .flex.gap-1.md\:gap-2.shrink-0 {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+
+    /* ----------------------------------
+       6) 未発話リストボタンの重なり解消
+       浮かせず、通常レイアウト内に置く
+       ---------------------------------- */
+    #missingWordsBtnContainer {
+        position: static !important;
+        inset: auto !important;
+        margin-top: 10px !important;
+        width: 100%;
+        display: block !important;
+        z-index: auto !important;
+    }
+
+    #missingWordsBtnContainer button {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        border-radius: 10px !important;
+        font-size: 12px !important;
+        padding: 10px 12px !important;
+    }
+
+
+    /* ----------------------------------
+       7) 未発話モーダルもスマホで見やすく
+       ---------------------------------- */
+    #missingWordsModal {
+        padding: 12px !important;
+        align-items: flex-end !important;
+    }
+
+    #missingWordsModal > div {
+        width: 100% !important;
+        max-width: 100% !important;
+        max-height: 80vh !important;
+        overflow-y: auto !important;
+        border-radius: 14px !important;
+    }
+
+
+    /* ----------------------------------
+       8) 下の START ボタン
+       少し余白を調整
+       ---------------------------------- */
+    #micBtn {
+        max-width: none;
+        font-size: 18px;
+    }
+}
+/* ==========================================
+   Mobile Fix: Reading Submit Button
+   音読中の赤いSubmitボタンを画面下部へ固定
+   ========================================== */
+
+@media (max-width: 639px) {
+
+    #fullscreenFinishBtn {
+        position: fixed !important;
+
+        left: 50% !important;
+        right: auto !important;
+
+        bottom:
+            calc(
+                env(safe-area-inset-bottom, 0px)
+                + 14px
+            ) !important;
+
+        transform:
+            translateX(-50%) !important;
+
+        z-index: 10050 !important;
+
+        width:
+            calc(100vw - 28px) !important;
+
+        max-width: 420px !important;
+
+        margin: 0 !important;
+
+        padding:
+            13px 18px !important;
+
+        min-height: 54px;
+
+        border-radius:
+            9999px !important;
+
+        font-size:
+            15px !important;
+
+        line-height: 1.3;
+
+        box-shadow:
+            0 10px 28px
+            rgba(0,0,0,.28) !important;
+    }
+
+
+    /* Submitボタンの後ろに本文が隠れないよう
+       最下部にスクロール余白を確保 */
+    #targetTextWrapper
+    > div:first-child {
+
+        padding-bottom:
+            calc(
+                100px
+                + env(
+                    safe-area-inset-bottom,
+                    0px
+                )
+            ) !important;
+    }
+}
+
+/* ==========================================
+   Mobile Fix: Your Voice + Submit Button
+   文字起こしを枠内スクロールに固定
+   ========================================== */
+
+@media (max-width: 639px) {
+
+    /* ----------------------------------
+       Your Voice ボックス自体の高さを固定
+       ---------------------------------- */
+
+    #yourVoiceWrapper {
+        box-sizing: border-box !important;
+
+        width: 100% !important;
+
+        height: 165px !important;
+        min-height: 165px !important;
+        max-height: 165px !important;
+
+        flex: 0 0 165px !important;
+
+        overflow: hidden !important;
+
+        position: relative !important;
+        z-index: 20 !important;
+
+        margin-bottom:
+            calc(
+                82px
+                + env(
+                    safe-area-inset-bottom,
+                    0px
+                )
+            ) !important;
+    }
+
+
+    /* YOUR VOICE タイトル部分 */
+    #yourVoiceWrapper > div:first-child {
+        flex: 0 0 auto !important;
+        min-height: 28px;
+    }
+
+
+    /* ----------------------------------
+       文字起こし本文
+       必ずボックス内に収め、
+       中だけ縦スクロール
+       ---------------------------------- */
+
+    #recognizedTextDisplay {
+        display: block !important;
+
+        flex: 1 1 auto !important;
+
+        width: 100% !important;
+
+        min-width: 0 !important;
+        min-height: 0 !important;
+
+        height: auto !important;
+        max-height: none !important;
+
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+
+        overscroll-behavior: contain;
+
+        -webkit-overflow-scrolling:
+            touch;
+
+        padding:
+            4px 4px 10px 0 !important;
+
+        box-sizing:
+            border-box !important;
+
+        position: relative !important;
+        z-index: 1 !important;
+
+        line-height: 1.5 !important;
+
+        overflow-wrap: anywhere;
+        word-break: normal;
+    }
+
+
+    /* ----------------------------------
+       赤い提出ボタン
+       必ず最前面でタップできる
+       ---------------------------------- */
+
+    #fullscreenFinishBtn {
+        position: fixed !important;
+
+        left: 50% !important;
+
+        bottom:
+            calc(
+                12px
+                + env(
+                    safe-area-inset-bottom,
+                    0px
+                )
+            ) !important;
+
+        transform:
+            translateX(-50%) !important;
+
+        width:
+            calc(100vw - 28px) !important;
+
+        max-width: 420px !important;
+
+        min-height: 54px !important;
+
+        margin: 0 !important;
+
+        padding:
+            12px 18px !important;
+
+        z-index: 2147483000 !important;
+
+        pointer-events: auto !important;
+
+        touch-action: manipulation;
+
+        border-radius:
+            9999px !important;
+    }
+
+
+    /* 下部固定ボタン用のスペース */
+    #learningContentArea {
+        padding-bottom:
+            calc(
+                80px
+                + env(
+                    safe-area-inset-bottom,
+                    0px
+                )
+            ) !important;
+    }
+}
+/* ==========================================
+   FINAL Mobile Recording Layout Fix
+   Your Voiceを完全に枠内スクロール化
+   Submitを常に操作可能にする
+   ========================================== */
+
+@media (max-width: 639px) {
+
+    /* ======================================
+       YOUR VOICE 外枠
+       ====================================== */
+
+    #yourVoiceWrapper {
+        box-sizing: border-box !important;
+
+        width: 100% !important;
+
+        height: 165px !important;
+        min-height: 165px !important;
+        max-height: 165px !important;
+
+        flex: 0 0 165px !important;
+
+        padding: 10px 12px !important;
+
+        margin: 0 0 86px 0 !important;
+
+        position: relative !important;
+
+        overflow: hidden !important;
+
+        contain: layout paint !important;
+
+        z-index: 20 !important;
+    }
+
+
+    /* ======================================
+       YOUR VOICEタイトル
+       ====================================== */
+
+    #yourVoiceWrapper > div:first-child {
+        height: 27px !important;
+        min-height: 27px !important;
+        max-height: 27px !important;
+
+        flex: 0 0 27px !important;
+
+        margin-bottom: 5px !important;
+        padding-bottom: 4px !important;
+
+        overflow: hidden !important;
+    }
+
+
+    /* ======================================
+       認識された文字だけスクロール
+       ====================================== */
+
+    #recognizedTextDisplay {
+        display: block !important;
+
+        box-sizing: border-box !important;
+
+        width: 100% !important;
+
+        height: 105px !important;
+        min-height: 0 !important;
+        max-height: 105px !important;
+
+        flex: 0 0 105px !important;
+
+        margin: 0 !important;
+
+        padding:
+            2px 8px 8px 0 !important;
+
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+
+        overscroll-behavior: contain;
+
+        -webkit-overflow-scrolling:
+            touch;
+
+        position: relative !important;
+
+        z-index: 1 !important;
+
+        font-size: 18px !important;
+
+        line-height: 1.45 !important;
+
+        overflow-wrap: anywhere !important;
+        word-break: normal !important;
+
+        white-space: normal !important;
+    }
+
+
+    /* ======================================
+       Submitボタン
+       必ず最前面
+       ====================================== */
+
+    #fullscreenFinishBtn {
+        position: fixed !important;
+
+        left: 50% !important;
+        right: auto !important;
+
+        bottom:
+            calc(
+                10px
+                + env(
+                    safe-area-inset-bottom,
+                    0px
+                )
+            ) !important;
+
+        transform:
+            translateX(-50%) !important;
+
+        width:
+            calc(100vw - 28px) !important;
+
+        max-width:
+            420px !important;
+
+        min-height:
+            56px !important;
+
+        margin:
+            0 !important;
+
+        padding:
+            11px 18px !important;
+
+        border-radius:
+            9999px !important;
+
+        font-size:
+            15px !important;
+
+        line-height:
+            1.25 !important;
+
+        z-index:
+            2147483640 !important;
+
+        pointer-events:
+            auto !important;
+
+        touch-action:
+            manipulation !important;
+
+        isolation:
+            isolate !important;
+    }
+
+
+    /* ======================================
+       Submitの後ろに内容が入り込まない
+       ====================================== */
+
+    #targetTextWrapper {
+        padding-bottom:
+            calc(
+                88px
+                + env(
+                    safe-area-inset-bottom,
+                    0px
+                )
+            ) !important;
+    }
+
+
+    #learningContentArea {
+        padding-bottom:
+            calc(
+                88px
+                + env(
+                    safe-area-inset-bottom,
+                    0px
+                )
+            ) !important;
+    }
+}
     </style>
 </head>
 <body class="text-stone-800 pb-10 relative transition-colors duration-500">
