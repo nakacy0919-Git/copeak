@@ -1359,15 +1359,15 @@ function getLessonTargetTokens() {
 }
 
 function refreshRecognitionTargetTextArray() {
-    const multilingualTargets = getLessonTargetTokens();
 
-    // ui.js の targetTextArray が存在する場合は同じ配列へ反映する。
-    // これにより旧来の英語用生成処理が残っていても、録音開始時に正しい多言語配列へ更新される。
-    if (typeof targetTextArray !== 'undefined') {
-        targetTextArray = multilingualTargets;
-    }
-
-    return multilingualTargets;
+    // ==========================================
+    // ★ 採点用ターゲットは現在教材から直接生成する
+    //
+    // targetTextArray は UI 側の通常トークンとして保持し、
+    // __i_am__ / __num_2012__ などの
+    // 採点専用内部トークンでは上書きしない。
+    // ==========================================
+    return getLessonTargetTokens();
 }
 
 function escapeSpeechHtml(text) {
