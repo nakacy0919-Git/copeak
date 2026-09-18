@@ -23,7 +23,7 @@ let recognitionSpeechTimer = null;
 let recognitionFinishTimer = null;
 
 const RECOGNITION_START_TIMEOUT_MS = 8000;
-const RECOGNITION_SPEECH_TIMEOUT_MS = 5000;
+const RECOGNITION_SPEECH_TIMEOUT_MS = 15000;
 const RECOGNITION_FINISH_WAIT_MS = 1500;
 const MAX_RECOGNITION_RETRIES = 2;
 const MAX_PASSIVE_RESTARTS = 3;
@@ -101,23 +101,981 @@ function segmentSpeechText(text, lang = 'en-US') {
     });
 }
 
-function getLessonTargetTokens() {
-    if (typeof currentCustomLesson === 'undefined' || !currentCustomLesson) return [];
+// ==========================================
+// ★ 英語の数字・序数表現を共通化
+// 9th = ninth
+// 2012 = two thousand twelve = twenty twelve
+// ==========================================
 
-    const lang = getCurrentLessonLang();
-    const tokens = [];
+const ENGLISH_SMALL_NUMBERS = {
+    zero: 0,
+    one: 1,
+    two: 2,
+    three: 3,
+    four: 4,
+    five: 5,
+    six: 6,
+    seven: 7,
+    eight: 8,
+    nine: 9,
+    ten: 10,
+    eleven: 11,
+    twelve: 12,
+    thirteen: 13,
+    fourteen: 14,
+    fifteen: 15,
+    sixteen: 16,
+    seventeen: 17,
+    eighteen: 18,
+    nineteen: 19
+};
 
-    if (currentCustomLesson.type === 'dialogue' && Array.isArray(currentCustomLesson.dialogue)) {
-        currentCustomLesson.dialogue.forEach(line => {
-            segmentSpeechText(line && line.text ? line.text : '', lang).forEach(segment => {
-                if (segment.isWord && segment.normalized) tokens.push(segment.normalized);
+
+const ENGLISH_TENS = {
+    twenty: 20,
+    thirty: 30,
+    forty: 40,
+    fifty: 50,
+    sixty: 60,
+    seventy: 70,
+    eighty: 80,
+    ninety: 90
+};
+
+
+const ENGLISH_ORDINALS = {
+    first: 1,
+    second: 2,
+    third: 3,
+    fourth: 4,
+    fifth: 5,
+    sixth: 6,
+    seventh: 7,
+    eighth: 8,
+    ninth: 9,
+    tenth: 10,
+    eleventh: 11,
+    twelfth: 12,
+    thirteenth: 13,
+    fourteenth: 14,
+    fifteenth: 15,
+    sixteenth: 16,
+    seventeenth: 17,
+    eighteenth: 18,
+    nineteenth: 19,
+    twentieth: 20,
+    thirtieth: 30,
+    fortieth: 40,
+    fiftieth: 50,
+    sixtieth: 60,
+    seventieth: 70,
+    eightieth: 80,
+    ninetieth: 90
+};
+
+
+function parseEnglishSmallNumber(
+    words,
+    startIndex
+) {
+
+    const first =
+        words[startIndex]
+            ?.normalized;
+
+
+    if (!first) {
+        return null;
+    }
+
+
+    if (
+        Object.prototype.hasOwnProperty.call(
+            ENGLISH_SMALL_NUMBERS,
+            first
+        )
+    ) {
+
+        return {
+            value:
+                ENGLISH_SMALL_NUMBERS[first],
+
+            consumed:
+                1
+        };
+    }
+
+
+    if (
+        Object.prototype.hasOwnProperty.call(
+            ENGLISH_TENS,
+            first
+        )
+    ) {
+
+        let value =
+            ENGLISH_TENS[first];
+
+
+        const second =
+            words[startIndex + 1]
+                ?.normalized;
+
+
+        if (
+            second &&
+            Object.prototype.hasOwnProperty.call(
+                ENGLISH_SMALL_NUMBERS,
+                second
+            ) &&
+            ENGLISH_SMALL_NUMBERS[second] >= 1 &&
+            ENGLISH_SMALL_NUMBERS[second] <= 9
+        ) {
+
+            value +=
+                ENGLISH_SMALL_NUMBERS[
+                    second
+                ];
+
+
+            return {
+                value,
+                consumed: 2
+            };
+        }
+
+
+        return {
+            value,
+            consumed: 1
+        };
+    }
+
+
+    return null;
+}
+
+
+function parseEnglishUnderThousand(
+    words,
+    startIndex
+) {
+
+    const first =
+        words[startIndex]
+            ?.normalized;
+
+
+    const second =
+        words[startIndex + 1]
+            ?.normalized;
+
+
+    if (
+        first &&
+        second === 'hundred' &&
+        ENGLISH_SMALL_NUMBERS[first] >= 1 &&
+        ENGLISH_SMALL_NUMBERS[first] <= 9
+    ) {
+
+        let value =
+            ENGLISH_SMALL_NUMBERS[first] *
+            100;
+
+
+        let position =
+            startIndex + 2;
+
+
+        if (
+            words[position]
+                ?.normalized ===
+            'and'
+        ) {
+
+            position++;
+        }
+
+
+        const rest =
+            parseEnglishSmallNumber(
+                words,
+                position
+            );
+
+
+        if (rest) {
+
+            value +=
+                rest.value;
+
+
+            return {
+                value,
+
+                consumed:
+                    (
+                        position -
+                        startIndex
+                    ) +
+                    rest.consumed
+            };
+        }
+
+
+        return {
+            value,
+            consumed: 2
+        };
+    }
+
+
+    return parseEnglishSmallNumber(
+        words,
+        startIndex
+    );
+}
+
+
+function getEnglishNumberComparisonUnit(
+    words,
+    startIndex
+) {
+
+    const current =
+        words[startIndex];
+
+
+    if (!current) {
+        return null;
+    }
+
+
+    const raw =
+        String(
+            current.text || ''
+        )
+        .normalize('NFKC')
+        .toLowerCase()
+        .replace(/,/g, '')
+        .replace(/’/g, "'")
+        .replace(
+            /[^\p{L}\p{N}']/gu,
+            ''
+        );
+
+
+    // ======================================
+    // 9th / 21st / 3rd など
+    // ======================================
+    const digitOrdinal =
+        raw.match(
+            /^(\d+)(st|nd|rd|th)$/
+        );
+
+
+    if (digitOrdinal) {
+
+        return {
+            token:
+                `__ord_${Number(
+                    digitOrdinal[1]
+                )}__`,
+
+            consumed:
+                1,
+
+            sourceWordIndexes: [
+                current.wordIndex
+            ]
+        };
+    }
+
+
+    // ======================================
+    // 数字そのもの
+    // 2012 / 25 / 100 など
+    // ======================================
+    if (/^\d+$/.test(raw)) {
+
+        return {
+            token:
+                `__num_${Number(raw)}__`,
+
+            consumed:
+                1,
+
+            sourceWordIndexes: [
+                current.wordIndex
+            ]
+        };
+    }
+
+
+    // ======================================
+    // ninth / twentieth など
+    // ======================================
+    if (
+        Object.prototype.hasOwnProperty.call(
+            ENGLISH_ORDINALS,
+            current.normalized
+        )
+    ) {
+
+        return {
+            token:
+                `__ord_${
+                    ENGLISH_ORDINALS[
+                        current.normalized
+                    ]
+                }__`,
+
+            consumed:
+                1,
+
+            sourceWordIndexes: [
+                current.wordIndex
+            ]
+        };
+    }
+
+
+    // ======================================
+    // twenty first / thirty second など
+    // ======================================
+    if (
+        Object.prototype.hasOwnProperty.call(
+            ENGLISH_TENS,
+            current.normalized
+        )
+    ) {
+
+        const next =
+            words[startIndex + 1];
+
+
+        if (
+            next &&
+            Object.prototype.hasOwnProperty.call(
+                ENGLISH_ORDINALS,
+                next.normalized
+            ) &&
+            ENGLISH_ORDINALS[
+                next.normalized
+            ] >= 1 &&
+            ENGLISH_ORDINALS[
+                next.normalized
+            ] <= 9
+        ) {
+
+            const value =
+                ENGLISH_TENS[
+                    current.normalized
+                ] +
+                ENGLISH_ORDINALS[
+                    next.normalized
+                ];
+
+
+            return {
+                token:
+                    `__ord_${value}__`,
+
+                consumed:
+                    2,
+
+                sourceWordIndexes: [
+                    current.wordIndex,
+                    next.wordIndex
+                ]
+            };
+        }
+    }
+
+
+    // ======================================
+    // 2012 → two thousand twelve
+    // 1999 → one thousand nine hundred...
+    // ======================================
+    const thousandLead =
+        ENGLISH_SMALL_NUMBERS[
+            current.normalized
+        ];
+
+
+    if (
+        thousandLead >= 1 &&
+        thousandLead <= 9 &&
+        words[startIndex + 1]
+            ?.normalized ===
+            'thousand'
+    ) {
+
+        let value =
+            thousandLead *
+            1000;
+
+
+        let position =
+            startIndex + 2;
+
+
+        if (
+            words[position]
+                ?.normalized ===
+            'and'
+        ) {
+
+            position++;
+        }
+
+
+        const rest =
+            parseEnglishUnderThousand(
+                words,
+                position
+            );
+
+
+        let consumed;
+
+
+        if (rest) {
+
+            value +=
+                rest.value;
+
+
+            consumed =
+                (
+                    position -
+                    startIndex
+                ) +
+                rest.consumed;
+
+        } else {
+
+            consumed =
+                2;
+        }
+
+
+        const indexes =
+            words
+                .slice(
+                    startIndex,
+                    startIndex +
+                        consumed
+                )
+                .map(
+                    word =>
+                        word.wordIndex
+                );
+
+
+        return {
+            token:
+                `__num_${value}__`,
+
+            consumed,
+
+            sourceWordIndexes:
+                indexes
+        };
+    }
+
+
+    // ======================================
+    // 年号読み
+    // nineteen ninety nine → 1999
+    // twenty twelve → 2012
+    // ======================================
+    const yearPrefixMap = {
+        seventeen: 17,
+        eighteen: 18,
+        nineteen: 19,
+        twenty: 20
+    };
+
+
+    const yearPrefix =
+        yearPrefixMap[
+            current.normalized
+        ];
+
+
+    if (yearPrefix) {
+
+        const rest =
+            parseEnglishSmallNumber(
+                words,
+                startIndex + 1
+            );
+
+
+        if (
+            rest &&
+            rest.value >= 10 &&
+            rest.value <= 99
+        ) {
+
+            const value =
+                (
+                    yearPrefix *
+                    100
+                ) +
+                rest.value;
+
+
+            const consumed =
+                1 +
+                rest.consumed;
+
+
+            return {
+                token:
+                    `__num_${value}__`,
+
+                consumed,
+
+                sourceWordIndexes:
+                    words
+                        .slice(
+                            startIndex,
+                            startIndex +
+                                consumed
+                        )
+                        .map(
+                            word =>
+                                word.wordIndex
+                        )
+            };
+        }
+    }
+
+
+    // ======================================
+    // one hundred twenty / twenty five 等
+    // ======================================
+    const cardinal =
+        parseEnglishUnderThousand(
+            words,
+            startIndex
+        );
+
+
+    if (cardinal) {
+
+        return {
+            token:
+                `__num_${cardinal.value}__`,
+
+            consumed:
+                cardinal.consumed,
+
+            sourceWordIndexes:
+                words
+                    .slice(
+                        startIndex,
+                        startIndex +
+                            cardinal.consumed
+                    )
+                    .map(
+                        word =>
+                            word.wordIndex
+                    )
+        };
+    }
+
+
+    return null;
+}
+// ==========================================
+// ★ 英語の短縮形・展開形を同一として比較
+// I'm = I am
+// can't = can not / cannot
+// he's = he is / he has など
+// ==========================================
+function buildSpeechComparisonUnits(
+    text,
+    lang = 'en-US'
+) {
+
+    const segments =
+        segmentSpeechText(
+            text,
+            lang
+        );
+
+
+    const words = [];
+
+    let wordIndex = 0;
+
+
+    segments.forEach(
+        segment => {
+
+            if (
+                segment.isWord &&
+                segment.normalized
+            ) {
+
+                words.push({
+                    text: segment.text,
+                    normalized:
+                        segment.normalized,
+                    wordIndex
+                });
+
+                wordIndex++;
+            }
+        }
+    );
+
+
+    // 英語以外は従来どおり
+    if (
+        !/^en(?:-|$)/i.test(lang)
+    ) {
+
+        return words.map(
+            word => ({
+                token:
+                    word.normalized,
+
+                sourceWordIndexes: [
+                    word.wordIndex
+                ]
+            })
+        );
+    }
+
+
+    const normalizeRaw =
+        value =>
+            String(value || '')
+                .normalize('NFKC')
+                .toLowerCase()
+                .replace(/’/g, "'");
+
+
+    // ======================================
+    // 短縮形そのもの
+    // ======================================
+    const contractionAliases = {
+
+        "i'm": "__i_am__",
+        "you're": "__you_are__",
+        "we're": "__we_are__",
+        "they're": "__they_are__",
+
+        "he's": "__he_s__",
+        "she's": "__she_s__",
+        "it's": "__it_s__",
+        "that's": "__that_s__",
+        "there's": "__there_s__",
+        "what's": "__what_s__",
+        "who's": "__who_s__",
+
+        "i'll": "__i_will__",
+        "you'll": "__you_will__",
+        "he'll": "__he_will__",
+        "she'll": "__she_will__",
+        "we'll": "__we_will__",
+        "they'll": "__they_will__",
+
+        "i've": "__i_have__",
+        "you've": "__you_have__",
+        "we've": "__we_have__",
+        "they've": "__they_have__",
+
+        "i'd": "__i_d__",
+        "you'd": "__you_d__",
+        "he'd": "__he_d__",
+        "she'd": "__she_d__",
+        "we'd": "__we_d__",
+        "they'd": "__they_d__",
+
+        "can't": "__can_not__",
+        "couldn't": "__could_not__",
+        "won't": "__will_not__",
+        "wouldn't": "__would_not__",
+        "shouldn't": "__should_not__",
+
+        "don't": "__do_not__",
+        "doesn't": "__does_not__",
+        "didn't": "__did_not__",
+
+        "isn't": "__is_not__",
+        "aren't": "__are_not__",
+        "wasn't": "__was_not__",
+        "weren't": "__were_not__",
+
+        "haven't": "__have_not__",
+        "hasn't": "__has_not__",
+        "hadn't": "__had_not__",
+
+        "mustn't": "__must_not__",
+
+        "let's": "__let_us__"
+    };
+
+
+    // ======================================
+    // SpeechRecognitionが展開して返した場合
+    // ======================================
+    const phraseAliases = {
+
+        "i am": "__i_am__",
+        "you are": "__you_are__",
+        "we are": "__we_are__",
+        "they are": "__they_are__",
+
+        "he is": "__he_s__",
+        "he has": "__he_s__",
+        "she is": "__she_s__",
+        "she has": "__she_s__",
+        "it is": "__it_s__",
+        "it has": "__it_s__",
+
+        "that is": "__that_s__",
+        "that has": "__that_s__",
+        "there is": "__there_s__",
+        "there has": "__there_s__",
+        "what is": "__what_s__",
+        "what has": "__what_s__",
+        "who is": "__who_s__",
+        "who has": "__who_s__",
+
+        "i will": "__i_will__",
+        "you will": "__you_will__",
+        "he will": "__he_will__",
+        "she will": "__she_will__",
+        "we will": "__we_will__",
+        "they will": "__they_will__",
+
+        "i have": "__i_have__",
+        "you have": "__you_have__",
+        "we have": "__we_have__",
+        "they have": "__they_have__",
+
+        "i would": "__i_d__",
+        "i had": "__i_d__",
+        "you would": "__you_d__",
+        "you had": "__you_d__",
+        "he would": "__he_d__",
+        "he had": "__he_d__",
+        "she would": "__she_d__",
+        "she had": "__she_d__",
+        "we would": "__we_d__",
+        "we had": "__we_d__",
+        "they would": "__they_d__",
+        "they had": "__they_d__",
+
+        "can not": "__can_not__",
+        "could not": "__could_not__",
+        "will not": "__will_not__",
+        "would not": "__would_not__",
+        "should not": "__should_not__",
+
+        "do not": "__do_not__",
+        "does not": "__does_not__",
+        "did not": "__did_not__",
+
+        "is not": "__is_not__",
+        "are not": "__are_not__",
+        "was not": "__was_not__",
+        "were not": "__were_not__",
+
+        "have not": "__have_not__",
+        "has not": "__has_not__",
+        "had not": "__had_not__",
+
+        "must not": "__must_not__",
+
+        "let us": "__let_us__"
+    };
+
+
+    const units = [];
+
+
+    for (
+        let i = 0;
+        i < words.length;
+        i++
+    ) {
+
+        const current =
+            words[i];
+
+
+        const raw =
+            normalizeRaw(
+                current.text
+            );
+
+        const numberUnit =
+    getEnglishNumberComparisonUnit(
+        words,
+        i
+    );
+
+
+if (numberUnit) {
+
+    units.push({
+        token:
+            numberUnit.token,
+
+        sourceWordIndexes:
+            numberUnit
+                .sourceWordIndexes
+    });
+
+
+    i +=
+        numberUnit.consumed -
+        1;
+
+
+    continue;
+}
+
+        // 短縮形そのもの
+        if (
+            contractionAliases[raw]
+        ) {
+
+            units.push({
+                token:
+                    contractionAliases[raw],
+
+                sourceWordIndexes: [
+                    current.wordIndex
+                ]
             });
-        });
-    } else {
-        segmentSpeechText(currentCustomLesson.eng || '', lang).forEach(segment => {
-            if (segment.isWord && segment.normalized) tokens.push(segment.normalized);
+
+            continue;
+        }
+
+
+        // 2語の展開形
+        if (
+            i + 1 <
+            words.length
+        ) {
+
+            const next =
+                words[i + 1];
+
+
+            const phrase =
+                `${current.normalized} ${next.normalized}`;
+
+
+            if (
+                phraseAliases[phrase]
+            ) {
+
+                units.push({
+                    token:
+                        phraseAliases[phrase],
+
+                    sourceWordIndexes: [
+                        current.wordIndex,
+                        next.wordIndex
+                    ]
+                });
+
+                i++;
+
+                continue;
+            }
+        }
+
+
+        // cannot は can't と同一扱い
+        const token =
+            current.normalized ===
+                'cannot'
+                ? '__can_not__'
+                : current.normalized;
+
+
+        units.push({
+            token,
+
+            sourceWordIndexes: [
+                current.wordIndex
+            ]
         });
     }
+
+
+    return units;
+}
+
+function getLessonTargetTokens() {
+
+    if (
+        typeof currentCustomLesson ===
+            'undefined' ||
+        !currentCustomLesson
+    ) {
+        return [];
+    }
+
+
+    const lang =
+        getCurrentLessonLang();
+
+
+    const tokens = [];
+
+
+    if (
+        currentCustomLesson.type ===
+            'dialogue' &&
+        Array.isArray(
+            currentCustomLesson.dialogue
+        )
+    ) {
+
+        currentCustomLesson.dialogue
+            .forEach(
+                line => {
+
+                    buildSpeechComparisonUnits(
+                        line && line.text
+                            ? line.text
+                            : '',
+                        lang
+                    )
+                    .forEach(
+                        unit =>
+                            tokens.push(
+                                unit.token
+                            )
+                    );
+                }
+            );
+
+    } else {
+
+        buildSpeechComparisonUnits(
+            currentCustomLesson.eng || '',
+            lang
+        )
+        .forEach(
+            unit =>
+                tokens.push(
+                    unit.token
+                )
+        );
+    }
+
 
     return tokens;
 }
@@ -300,17 +1258,16 @@ function mergeRecognitionChunk(
     );
 }
 
-// Androidの再接続境界だけ、前後2語以上の重複も除去
+// ==========================================
+// ★ SpeechRecognition 再接続境界の重複対策
+// Android / Safari / Chrome / Edge 共通
+// 前の認識結果の末尾と、新しい認識結果の先頭が
+// 2語以上重複した場合に重複部分を除去する
+// ==========================================
 function mergeRecognitionBoundary(
     baseText,
     nextText
 ) {
-    if (!isAndroidSpeechRecognition()) {
-        return joinTranscript(
-            baseText,
-            nextText
-        );
-    }
 
     const base =
         String(baseText || '')
@@ -322,11 +1279,18 @@ function mergeRecognitionBoundary(
             .replace(/\s+/g, ' ')
             .trim();
 
+
+    if (!base) return next;
+    if (!next) return base;
+
+
+    // 完全一致・累積結果などを先に処理
     const simpleMerged =
         mergeAndroidRecognitionChunk(
             base,
             next
         );
+
 
     const plainMerged =
         joinTranscript(
@@ -334,16 +1298,19 @@ function mergeRecognitionBoundary(
             next
         );
 
-    // 完全一致・前方一致は既存処理を優先
+
     if (
         simpleMerged !==
         plainMerged
     ) {
+
         return simpleMerged;
     }
 
+
     const lang =
         getCurrentLessonLang();
+
 
     const toWords = text =>
         segmentSpeechText(
@@ -360,13 +1327,18 @@ function mergeRecognitionBoundary(
                 item.normalized
         );
 
+
     const baseWords =
         toWords(base);
+
 
     const nextWords =
         toWords(next);
 
-    let overlap = 0;
+
+    let overlap =
+        0;
+
 
     const maxOverlap =
         Math.min(
@@ -374,8 +1346,10 @@ function mergeRecognitionBoundary(
             nextWords.length
         );
 
-    // 1語だけの一致は
-    // 本当に繰り返して読んだ可能性があるので残す
+
+    // 前回結果の末尾と
+    // 新しい結果の先頭が
+    // 2語以上一致する場合だけ重複除去
     for (
         let size = maxOverlap;
         size >= 2;
@@ -391,15 +1365,22 @@ function mergeRecognitionBoundary(
                         nextWords[index]
                 );
 
+
         if (matched) {
-            overlap = size;
+
+            overlap =
+                size;
+
             break;
         }
     }
 
+
     if (!overlap) {
+
         return plainMerged;
     }
+
 
     const segments =
         segmentSpeechText(
@@ -407,11 +1388,14 @@ function mergeRecognitionBoundary(
             lang
         );
 
+
     let skip =
         overlap;
 
+
     let remainder =
         '';
+
 
     for (
         const segment
@@ -424,15 +1408,18 @@ function mergeRecognitionBoundary(
                 segment.isWord &&
                 segment.normalized
             ) {
+
                 skip--;
             }
 
             continue;
         }
 
+
         remainder +=
             segment.text;
     }
+
 
     return joinTranscript(
         base,
@@ -542,7 +1529,7 @@ function createMainRecognition() {
         clearRecognitionTimer('speech');
 
         // AndroidはinterimResults=falseのため、
-        // 読み続けている最中に5秒タイムアウトさせない
+        // 読み続けている最中にタイムアウトさせない
         if (
             isAndroidSpeechRecognition()
         ) {
@@ -1828,6 +2815,107 @@ function updateMicButtonUI() {
     }
 }
 
+// ==========================================
+// ★ 音声認識結果と教材本文を順序を保って最適照合
+// 認識抜け・途中開始・余分な認識があっても
+// 後半で正常に再同期できるようにする
+// ==========================================
+function alignSpeechTokens(spokenWords, targetWords) {
+
+    const spokenLength = spokenWords.length;
+    const targetLength = targetWords.length;
+
+    if (
+        spokenLength === 0 ||
+        targetLength === 0
+    ) {
+        return {
+            matchCount: 0,
+            matchedSpokenIndexes: new Set()
+        };
+    }
+
+    // LCS (Longest Common Subsequence)
+    // 音読教材程度の長さなら十分軽量
+    const dp = Array.from(
+        { length: spokenLength + 1 },
+        () => new Uint16Array(targetLength + 1)
+    );
+
+    for (
+        let i = spokenLength - 1;
+        i >= 0;
+        i--
+    ) {
+
+        for (
+            let j = targetLength - 1;
+            j >= 0;
+            j--
+        ) {
+
+            if (
+                spokenWords[i] ===
+                targetWords[j]
+            ) {
+
+                dp[i][j] =
+                    dp[i + 1][j + 1] + 1;
+
+            } else {
+
+                dp[i][j] =
+                    Math.max(
+                        dp[i + 1][j],
+                        dp[i][j + 1]
+                    );
+            }
+        }
+    }
+
+    const matchedSpokenIndexes =
+        new Set();
+
+    let spokenIndex = 0;
+    let targetIndex = 0;
+
+    while (
+        spokenIndex < spokenLength &&
+        targetIndex < targetLength
+    ) {
+
+        if (
+            spokenWords[spokenIndex] ===
+            targetWords[targetIndex]
+        ) {
+
+            matchedSpokenIndexes.add(
+                spokenIndex
+            );
+
+            spokenIndex++;
+            targetIndex++;
+
+        } else if (
+            dp[spokenIndex + 1][targetIndex] >=
+            dp[spokenIndex][targetIndex + 1]
+        ) {
+
+            spokenIndex++;
+
+        } else {
+
+            targetIndex++;
+        }
+    }
+
+    return {
+        matchCount:
+            matchedSpokenIndexes.size,
+
+        matchedSpokenIndexes
+    };
+}
 
 // ==========================================
 // ★ 音声照合・採点
@@ -1894,27 +2982,78 @@ function processSpeechMatch(spokenText, isFinalResult = false) {
                 segment.normalized
         );
 
+    // ==========================================
+    // ★ 教材本文との最適照合
+    // ==========================================
 
-    let matchCount =
-        0;
+    const spokenComparisonUnits =
+    buildSpeechComparisonUnits(
+        spokenText,
+        lang
+    );
+
+
+const spokenWords =
+    spokenComparisonUnits.map(
+        unit =>
+            unit.token
+    );
+
+
+    const alignment =
+        alignSpeechTokens(
+            spokenWords,
+            scoringTargetArray
+        );
+
+
+    const matchCount =
+        alignment.matchCount;
+
+
+    const matchedComparisonIndexes =
+    alignment.matchedSpokenIndexes;
+
+
+const matchedSpokenIndexes =
+    new Set();
+
+
+spokenComparisonUnits.forEach(
+    (unit, index) => {
+
+        if (
+            !matchedComparisonIndexes.has(
+                index
+            )
+        ) {
+            return;
+        }
+
+
+        unit.sourceWordIndexes
+            .forEach(
+                wordIndex =>
+                    matchedSpokenIndexes.add(
+                        wordIndex
+                    )
+            );
+    }
+);
 
 
     let htmlOutput =
         [];
 
 
-    let searchIndex =
+    let spokenWordIndex =
         0;
 
 
-    // ==========================================
-    // ★ 教材本文との照合
-    // ==========================================
     spokenSegments.forEach(
         segment => {
 
-            // 空白・句読点等は
-            // 元の表示をそのまま維持
+            // 空白・句読点等はそのまま表示
             if (
                 !segment.isWord ||
                 !segment.normalized
@@ -1930,61 +3069,13 @@ function processSpeechMatch(spokenText, isFinalResult = false) {
             }
 
 
-            const cleanSpoken =
-                segment.normalized;
-
-
-            let isMatched =
-                false;
-
-
-            let foundIndex =
-                -1;
-
-
-            const lookaheadLimit =
-                Math.min(
-                    searchIndex +
-                        10,
-                    scoringTargetArray.length
+            const isMatched =
+                matchedSpokenIndexes.has(
+                    spokenWordIndex
                 );
 
 
-            for (
-                let i =
-                    searchIndex;
-                i <
-                    lookaheadLimit;
-                i++
-            ) {
-
-                if (
-                    scoringTargetArray[i] ===
-                    cleanSpoken
-                ) {
-
-                    foundIndex =
-                        i;
-
-                    break;
-                }
-            }
-
-
-            if (
-                foundIndex !==
-                -1
-            ) {
-
-                isMatched =
-                    true;
-
-                matchCount++;
-
-                searchIndex =
-                    foundIndex +
-                    1;
-            }
+            spokenWordIndex++;
 
 
             const safeOriginal =
@@ -2009,8 +3100,6 @@ function processSpeechMatch(spokenText, isFinalResult = false) {
             }
         }
     );
-
-
     // 日本語・中国語なども
     // 元の空白・句読点配置を維持して表示
     recDisplay.innerHTML =
@@ -2907,6 +3996,54 @@ function setMicCheckStatus(
         );
 }
 
+// ==========================================
+// ★ Mic Check完全終了後に成功UIを表示
+// ==========================================
+function completeMicCheckSuccess(
+    rec,
+    actions,
+    startBtn,
+    retryBtn
+) {
+
+    if (
+        rec !==
+        micCheckRecognition
+    ) {
+        return;
+    }
+
+
+    micCheckRecognition =
+        null;
+
+
+    setMicCheckStatus(
+        'success',
+        '✓ 音声認識OK'
+    );
+
+
+    actions?.classList.remove(
+        'hidden'
+    );
+
+
+    startBtn?.classList.remove(
+        'hidden'
+    );
+
+
+    retryBtn?.classList.add(
+        'hidden'
+    );
+
+
+    setRecognitionHealth(
+        'done',
+        '音声認識チェックOK ✓'
+    );
+}
 
 // ==========================================
 // ★ Mic Check開始
@@ -3139,71 +4276,84 @@ function startMicCheck() {
             // 成功
             // ==================================
             if (
-                ratio >=
-                MIC_CHECK_PASS_RATIO
-            ) {
+    ratio >=
+    MIC_CHECK_PASS_RATIO
+) {
 
-                micCheckPassed =
-                    true;
-
-
-                micCheckPassedLang =
-                    getCurrentLessonLang();
+    micCheckPassed =
+        true;
 
 
-                if (micCheckTimer) {
-
-                    clearTimeout(
-                        micCheckTimer
-                    );
-
-                    micCheckTimer =
-                        null;
-                }
+    micCheckPassedLang =
+        getCurrentLessonLang();
 
 
-                // 先に切り離してからstop
-                // onendによる誤動作防止
-                micCheckRecognition =
-                    null;
+    if (micCheckTimer) {
+
+        clearTimeout(
+            micCheckTimer
+        );
+
+        micCheckTimer =
+            null;
+    }
 
 
-                try {
-
-                    rec.stop();
-
-                } catch (e) {}
-
-
-                setMicCheckStatus(
-                    'success',
-                    '✓ 音声認識OK'
-                );
+    // ======================================
+    // Mic Check Recognitionが
+    // 完全終了するまでSTARTさせない
+    // ======================================
+    setMicCheckStatus(
+        'listening',
+        '✓ 音声認識OK・終了処理中…'
+    );
 
 
-                actions?.classList.remove(
-                    'hidden'
-                );
+    actions?.classList.add(
+        'hidden'
+    );
 
 
-                startBtn?.classList.remove(
-                    'hidden'
-                );
+    try {
 
+        rec.stop();
 
-                retryBtn?.classList.add(
-                    'hidden'
-                );
+    } catch (e) {
 
-
-                setRecognitionHealth(
-                    'done',
-                    '音声認識チェックOK ✓'
-                );
-            }
+        completeMicCheckSuccess(
+            rec,
+            actions,
+            startBtn,
+            retryBtn
+        );
+    }
+}
         };
+// ======================================
+// Mic Check Recognition完全終了
+// ======================================
+rec.onend = () => {
+
+    if (
+        rec !==
+        micCheckRecognition
+    ) {
+        return;
+    }
 
 
+    if (
+        micCheckPassed
+    ) {
+
+        completeMicCheckSuccess(
+            rec,
+            actions,
+            startBtn,
+            retryBtn
+        );
+    }
+};
     // ======================================
     // Recognition ERROR
     // ======================================
