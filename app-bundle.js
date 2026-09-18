@@ -14259,27 +14259,26 @@ function getMicCheckMatchRatio(
         getCurrentLessonLang();
 
 
-    const toTokens = text =>
-        segmentSpeechText(
-            text,
+    const targetTokens =
+        buildSpeechComparisonUnits(
+            target,
             lang
         )
-        .filter(
-            item =>
-                item.isWord &&
-                item.normalized
-        )
         .map(
-            item =>
-                item.normalized
+            unit =>
+                unit.token
         );
 
 
-    const targetTokens =
-        toTokens(target);
-
     const spokenTokens =
-        toTokens(spoken);
+        buildSpeechComparisonUnits(
+            spoken,
+            lang
+        )
+        .map(
+            unit =>
+                unit.token
+        );
 
 
     if (
@@ -14290,37 +14289,18 @@ function getMicCheckMatchRatio(
     }
 
 
-    let matched = 0;
-    let position = 0;
-
-
-    for (const spokenWord of spokenTokens) {
-
-        for (
-            let i = position;
-            i < targetTokens.length;
-            i++
-        ) {
-
-            if (
-                spokenWord ===
-                targetTokens[i]
-            ) {
-
-                matched++;
-                position = i + 1;
-                break;
-            }
-        }
-    }
+    const alignment =
+        alignSpeechTokens(
+            spokenTokens,
+            targetTokens
+        );
 
 
     return (
-        matched /
+        alignment.matchCount /
         targetTokens.length
     );
 }
-
 
 // ==========================================
 // ★ シンプルなMic Check画面
@@ -14524,6 +14504,55 @@ function setMicCheckStatus(
         );
 }
 
+
+// ==========================================
+// ★ Mic Check完全終了後に成功UIを表示
+// ==========================================
+function completeMicCheckSuccess(
+    rec,
+    actions,
+    startBtn,
+    retryBtn
+) {
+
+    if (
+        rec !==
+        micCheckRecognition
+    ) {
+        return;
+    }
+
+
+    micCheckRecognition =
+        null;
+
+
+    setMicCheckStatus(
+        'success',
+        '✓ 音声認識OK'
+    );
+
+
+    actions?.classList.remove(
+        'hidden'
+    );
+
+
+    startBtn?.classList.remove(
+        'hidden'
+    );
+
+
+    retryBtn?.classList.add(
+        'hidden'
+    );
+
+
+    setRecognitionHealth(
+        'done',
+        '音声認識チェックOK ✓'
+    );
+}
 
 // ==========================================
 // ★ Mic Check開始
@@ -14756,71 +14785,84 @@ function startMicCheck() {
             // 成功
             // ==================================
             if (
-                ratio >=
-                MIC_CHECK_PASS_RATIO
-            ) {
+    ratio >=
+    MIC_CHECK_PASS_RATIO
+) {
 
-                micCheckPassed =
-                    true;
-
-
-                micCheckPassedLang =
-                    getCurrentLessonLang();
+    micCheckPassed =
+        true;
 
 
-                if (micCheckTimer) {
-
-                    clearTimeout(
-                        micCheckTimer
-                    );
-
-                    micCheckTimer =
-                        null;
-                }
+    micCheckPassedLang =
+        getCurrentLessonLang();
 
 
-                // 先に切り離してからstop
-                // onendによる誤動作防止
-                micCheckRecognition =
-                    null;
+    if (micCheckTimer) {
+
+        clearTimeout(
+            micCheckTimer
+        );
+
+        micCheckTimer =
+            null;
+    }
 
 
-                try {
-
-                    rec.stop();
-
-                } catch (e) {}
-
-
-                setMicCheckStatus(
-                    'success',
-                    '✓ 音声認識OK'
-                );
+    // ======================================
+    // Mic Check Recognitionが
+    // 完全終了するまでSTARTさせない
+    // ======================================
+    setMicCheckStatus(
+        'listening',
+        '✓ 音声認識OK・終了処理中…'
+    );
 
 
-                actions?.classList.remove(
-                    'hidden'
-                );
+    actions?.classList.add(
+        'hidden'
+    );
 
 
-                startBtn?.classList.remove(
-                    'hidden'
-                );
+    try {
 
+        rec.stop();
 
-                retryBtn?.classList.add(
-                    'hidden'
-                );
+    } catch (e) {
 
-
-                setRecognitionHealth(
-                    'done',
-                    '音声認識チェックOK ✓'
-                );
-            }
+        completeMicCheckSuccess(
+            rec,
+            actions,
+            startBtn,
+            retryBtn
+        );
+    }
+}
         };
+// ======================================
+// Mic Check Recognition完全終了
+// ======================================
+rec.onend = () => {
+
+    if (
+        rec !==
+        micCheckRecognition
+    ) {
+        return;
+    }
 
 
+    if (
+        micCheckPassed
+    ) {
+
+        completeMicCheckSuccess(
+            rec,
+            actions,
+            startBtn,
+            retryBtn
+        );
+    }
+};
     // ======================================
     // Recognition ERROR
     // ======================================

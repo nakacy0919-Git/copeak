@@ -3731,27 +3731,26 @@ function getMicCheckMatchRatio(
         getCurrentLessonLang();
 
 
-    const toTokens = text =>
-        segmentSpeechText(
-            text,
+    const targetTokens =
+        buildSpeechComparisonUnits(
+            target,
             lang
         )
-        .filter(
-            item =>
-                item.isWord &&
-                item.normalized
-        )
         .map(
-            item =>
-                item.normalized
+            unit =>
+                unit.token
         );
 
 
-    const targetTokens =
-        toTokens(target);
-
     const spokenTokens =
-        toTokens(spoken);
+        buildSpeechComparisonUnits(
+            spoken,
+            lang
+        )
+        .map(
+            unit =>
+                unit.token
+        );
 
 
     if (
@@ -3762,37 +3761,18 @@ function getMicCheckMatchRatio(
     }
 
 
-    let matched = 0;
-    let position = 0;
-
-
-    for (const spokenWord of spokenTokens) {
-
-        for (
-            let i = position;
-            i < targetTokens.length;
-            i++
-        ) {
-
-            if (
-                spokenWord ===
-                targetTokens[i]
-            ) {
-
-                matched++;
-                position = i + 1;
-                break;
-            }
-        }
-    }
+    const alignment =
+        alignSpeechTokens(
+            spokenTokens,
+            targetTokens
+        );
 
 
     return (
-        matched /
+        alignment.matchCount /
         targetTokens.length
     );
 }
-
 
 // ==========================================
 // ★ シンプルなMic Check画面
