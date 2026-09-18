@@ -351,7 +351,7 @@ function getEnglishNumberComparisonUnit(
     }
 
 
-    const raw =
+        const rawSource =
         String(
             current.text || ''
         )
@@ -359,7 +359,39 @@ function getEnglishNumberComparisonUnit(
         .toLowerCase()
         .replace(/,/g, '')
         .replace(/’/g, "'")
-        .replace(
+        .trim();
+
+
+    // ======================================
+    // 小数表記
+    // 3.5 / 1.25 / 2.0 など
+    // ======================================
+    const digitDecimal =
+        rawSource.match(
+            /^(\d+)\.(\d+)$/
+        );
+
+
+    if (digitDecimal) {
+
+        return {
+            token:
+                `__decimal_${Number(
+                    digitDecimal[1]
+                )}_${digitDecimal[2]}__`,
+
+            consumed:
+                1,
+
+            sourceWordIndexes: [
+                current.wordIndex
+            ]
+        };
+    }
+
+
+    const raw =
+        rawSource.replace(
             /[^\p{L}\p{N}']/gu,
             ''
         );
@@ -489,6 +521,112 @@ function getEnglishNumberComparisonUnit(
                     next.wordIndex
                 ]
             };
+        }
+    }
+
+    // ======================================
+    // 小数の読み
+    // three point five → 3.5
+    // one point two five → 1.25
+    // ======================================
+    const decimalInteger =
+        parseEnglishUnderThousand(
+            words,
+            startIndex
+        );
+
+
+    if (decimalInteger) {
+
+        const pointIndex =
+            startIndex +
+            decimalInteger.consumed;
+
+
+        if (
+            words[pointIndex]
+                ?.normalized ===
+            'point'
+        ) {
+
+            let position =
+                pointIndex + 1;
+
+            let fractionDigits =
+                '';
+
+
+            while (
+                position <
+                words.length
+            ) {
+
+                const digitWord =
+                    words[position]
+                        ?.normalized;
+
+
+                if (
+                    !Object.prototype
+                        .hasOwnProperty.call(
+                            ENGLISH_SMALL_NUMBERS,
+                            digitWord
+                        )
+                ) {
+                    break;
+                }
+
+
+                const digitValue =
+                    ENGLISH_SMALL_NUMBERS[
+                        digitWord
+                    ];
+
+
+                if (
+                    digitValue < 0 ||
+                    digitValue > 9
+                ) {
+                    break;
+                }
+
+
+                fractionDigits +=
+                    String(
+                        digitValue
+                    );
+
+
+                position++;
+            }
+
+
+            if (fractionDigits) {
+
+                const consumed =
+                    position -
+                    startIndex;
+
+
+                return {
+                    token:
+                        `__decimal_${decimalInteger.value}_${fractionDigits}__`,
+
+                    consumed,
+
+                    sourceWordIndexes:
+                        words
+                            .slice(
+                                startIndex,
+                                startIndex +
+                                    consumed
+                            )
+                            .map(
+                                word =>
+                                    word.wordIndex
+                            )
+                };
+            }
         }
     }
 
