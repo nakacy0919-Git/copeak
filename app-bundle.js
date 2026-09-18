@@ -11425,9 +11425,40 @@ function buildSpeechComparisonUnits(
         "has not": "__has_not__",
         "had not": "__had_not__",
 
-        "must not": "__must_not__",
+                "must not": "__must_not__",
 
         "let us": "__let_us__"
+    };
+
+
+    // ==========================================
+    // ★ 主語 + 否定短縮形の重なり対策
+    // I won't = I will not
+    // He hasn't = He has not
+    // We aren't = We are not
+    // ==========================================
+    const negativeContractionAuxAliases = {
+
+        "can't": "can",
+        "couldn't": "could",
+        "won't": "will",
+        "wouldn't": "would",
+        "shouldn't": "should",
+
+        "don't": "do",
+        "doesn't": "does",
+        "didn't": "did",
+
+        "isn't": "is",
+        "aren't": "are",
+        "wasn't": "was",
+        "weren't": "were",
+
+        "haven't": "have",
+        "hasn't": "has",
+        "hadn't": "had",
+
+        "mustn't": "must"
     };
 
 
@@ -11444,10 +11475,82 @@ function buildSpeechComparisonUnits(
             words[i];
 
 
-        const raw =
+                const raw =
             normalizeRaw(
                 current.text
             );
+
+
+        // ======================================
+        // ★ 主語 + 否定短縮形を
+        // 主語 + 助動詞 + not と同一化
+        //
+        // I won't
+        // → __i_will__ + not
+        //
+        // I will not
+        // → __i_will__ + not
+        // ======================================
+        const nextWord =
+            words[i + 1];
+
+
+        const nextRaw =
+            nextWord
+                ? normalizeRaw(
+                    nextWord.text
+                )
+                : '';
+
+
+        const expandedAux =
+            negativeContractionAuxAliases[
+                nextRaw
+            ];
+
+
+        const subjectAuxPhrase =
+            expandedAux
+                ? `${current.normalized} ${expandedAux}`
+                : '';
+
+
+        if (
+            nextWord &&
+            expandedAux &&
+            phraseAliases[
+                subjectAuxPhrase
+            ]
+        ) {
+
+            units.push({
+                token:
+                    phraseAliases[
+                        subjectAuxPhrase
+                    ],
+
+                sourceWordIndexes: [
+                    current.wordIndex,
+                    nextWord.wordIndex
+                ]
+            });
+
+
+            units.push({
+                token:
+                    'not',
+
+                sourceWordIndexes: [
+                    nextWord.wordIndex
+                ]
+            });
+
+
+            i++;
+
+            continue;
+        }
+
 
         const numberUnit =
     getEnglishNumberComparisonUnit(
