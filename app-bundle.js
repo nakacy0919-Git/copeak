@@ -11617,7 +11617,44 @@ function buildSpeechComparisonUnits(
             normalizeRaw(
                 current.text
             );
+        // ======================================
+        // ★ 数字 + 1文字の英字
+        // 3D = three d / 3 d
+        // 4K = four k
+        // 5G = five g
+        // ======================================
+        const numberLetter =
+            raw.match(
+                /^(\d+)([a-z])$/
+            );
 
+
+        if (numberLetter) {
+
+            units.push({
+                token:
+                    `__num_${Number(
+                        numberLetter[1]
+                    )}__`,
+
+                sourceWordIndexes: [
+                    current.wordIndex
+                ]
+            });
+
+
+            units.push({
+                token:
+                    numberLetter[2],
+
+                sourceWordIndexes: [
+                    current.wordIndex
+                ]
+            });
+
+
+            continue;
+        }
 
         // ======================================
         // ★ 主語 + 否定短縮形を
