@@ -11949,14 +11949,24 @@ function isAndroidSpeechRecognition() {
 // Macintoshとして識別される場合もあるため、
 // maxTouchPointsも併用する。
 // ==========================================
-function isAppleMobileSpeechRecognition() {
+// ==========================================
+// ★ iPad SpeechRecognition 判定
+//
+// iPadOSではSafariの設定によって
+// Macintoshとして識別される場合があるため、
+// maxTouchPointsも併用する。
+//
+// iPhoneはここに含めない。
+// iPhoneは従来のRecognition処理を使用する。
+// ==========================================
+function isIPadSpeechRecognition() {
 
     const userAgent =
         navigator.userAgent || '';
 
 
-    const isIOSDevice =
-        /iPhone|iPad|iPod/i.test(
+    const isIPad =
+        /iPad/i.test(
             userAgent
         );
 
@@ -11969,7 +11979,7 @@ function isAppleMobileSpeechRecognition() {
 
 
     return (
-        isIOSDevice ||
+        isIPad ||
         isIPadDesktopMode
     );
 }
@@ -12298,21 +12308,27 @@ function createMainRecognition() {
 
     const rec = new window.SpeechRecognition();
 
-    const isAppleMobile =
-        isAppleMobileSpeechRecognition();
+        const isIPad =
+        isIPadSpeechRecognition();
 
 
     // ==========================================
-    // ★ Android / iPhone / iPad
+    // ★ Recognitionモード
     //
-    // モバイル環境では中間結果が安定して
-    // 返らない場合があるため、
-    // final result を中心に処理する。
+    // Android:
+    // interimResults=false
+    //
+    // iPad:
+    // 現在実機で成功している
+    // final result中心の設定を維持
+    //
+    // iPhone:
+    // 従来どおりinterimResults=true
     // ==========================================
     rec.interimResults =
         !(
             isAndroidSpeechRecognition() ||
-            isAppleMobile
+            isIPad
         );
 
 
@@ -12399,9 +12415,9 @@ function createMainRecognition() {
         //
         // 正常な音読を15秒で切断しない。
         // ==========================================
-        if (
+                if (
             isAndroidSpeechRecognition() ||
-            isAppleMobileSpeechRecognition()
+            isIPadSpeechRecognition()
         ) {
             return;
         }
@@ -15574,7 +15590,7 @@ toggleRecording =
         // で監視する。
         // ======================================
         if (
-            isAppleMobileSpeechRecognition()
+            isIPadSpeechRecognition()
         ) {
 
             startRecordingSession();
