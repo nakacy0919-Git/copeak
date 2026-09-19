@@ -11941,6 +11941,40 @@ function isAndroidSpeechRecognition() {
     );
 }
 
+
+// ==========================================
+// ★ iPhone / iPad SpeechRecognition 判定
+//
+// iPadOSでは「デスクトップ用Webサイト」により
+// Macintoshとして識別される場合もあるため、
+// maxTouchPointsも併用する。
+// ==========================================
+function isAppleMobileSpeechRecognition() {
+
+    const userAgent =
+        navigator.userAgent || '';
+
+
+    const isIOSDevice =
+        /iPhone|iPad|iPod/i.test(
+            userAgent
+        );
+
+
+    const isIPadDesktopMode =
+        /Macintosh/i.test(
+            userAgent
+        ) &&
+        navigator.maxTouchPoints > 1;
+
+
+    return (
+        isIOSDevice ||
+        isIPadDesktopMode
+    );
+}
+
+
 function mergeAndroidRecognitionChunk(
     baseText,
     nextText
@@ -12264,10 +12298,30 @@ function createMainRecognition() {
 
     const rec = new window.SpeechRecognition();
 
+    const isAppleMobile =
+        isAppleMobileSpeechRecognition();
+
+
+    // ==========================================
+    // ★ Android / iPhone / iPad
+    //
+    // モバイル環境では中間結果が安定して
+    // 返らない場合があるため、
+    // final result を中心に処理する。
+    // ==========================================
     rec.interimResults =
-    !isAndroidSpeechRecognition();
-    rec.continuous = true;
-    rec.lang = getCurrentLessonLang();
+        !(
+            isAndroidSpeechRecognition() ||
+            isAppleMobile
+        );
+
+
+    rec.continuous =
+        true;
+
+
+    rec.lang =
+        getCurrentLessonLang();
 
 
     // ==========================================
@@ -12336,10 +12390,18 @@ function createMainRecognition() {
 
         clearRecognitionTimer('speech');
 
-        // AndroidはinterimResults=falseのため、
-        // 読み続けている最中にタイムアウトさせない
+                // ==========================================
+        // ★ Android / iPhone / iPad
+        //
+        // final result中心の端末では、
+        // 長文を読んでいる最中に結果がまだ
+        // 返っていないこと自体は異常ではない。
+        //
+        // 正常な音読を15秒で切断しない。
+        // ==========================================
         if (
-            isAndroidSpeechRecognition()
+            isAndroidSpeechRecognition() ||
+            isAppleMobileSpeechRecognition()
         ) {
             return;
         }
@@ -15497,7 +15559,27 @@ toggleRecording =
             return;
         }
 
+        // ======================================
+        // ★ iPhone / iPad
+        //
+        // Apple端末ではMic Check用Recognitionと
+        // 本番Recognitionを別セッションで
+        // 連続起動しない。
+        //
+        // START操作そのものから
+        // 本番Recognitionを直接開始する。
+        //
+        // マイク状態は本番Recognitionの
+        // onstart / onaudiostart / onspeechstart
+        // で監視する。
+        // ======================================
+        if (
+            isAppleMobileSpeechRecognition()
+        ) {
 
+            startRecordingSession();
+            return;
+        }
         // ======================================
         // 同じセッション・同じ言語で
         // Mic Check済みなら省略
