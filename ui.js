@@ -760,18 +760,51 @@ function showRecordingState() {
 
     resultScoreBoard.style.display = 'none'; 
 
-    if (currentMode !== 'shadowing') {
+   if (currentMode !== 'shadowing') {
 
-        yourVoiceWrapper.style.display = 'none'; 
+    // ==========================================
+    // ★ 音読中のリアルタイム文字起こしを表示
+    //
+    // SpeechRecognitionのonresultで更新されている
+    // recognizedTextDisplay を、
+    // 本文の下部に常時見える形で表示する。
+    // ==========================================
+    yourVoiceWrapper.style.display = 'flex';
 
-        if (micBtn) {
-            micBtn.style.display = 'none';
-        }
+    yourVoiceWrapper.className =
+        "fixed left-2 right-2 bottom-2 " +
+        "md:left-1/2 md:right-auto md:-translate-x-1/2 " +
+        "md:w-[min(900px,calc(100vw-3rem))] " +
+        "z-[10020] " +
+        "max-h-[22vh] " +
+        "p-3 md:p-4 " +
+        "bg-white/95 " +
+        "rounded-xl " +
+        "border border-stone-300 " +
+        "border-l-4 border-l-emerald-700 " +
+        "shadow-2xl " +
+        "flex flex-col " +
+        "transition-all duration-300 " +
+        "pointer-events-none";
 
-        targetTextWrapper.style.display = 'flex';
+    if (micBtn) {
+        micBtn.style.display = 'none';
+    }
 
-        targetTextWrapper.className = "fixed inset-0 z-[9999] w-full h-[100dvh] flex flex-col bg-[#faf8f5] p-2 md:p-8 lg:p-16 overflow-y-auto transition-all duration-500 shadow-2xl";
-        
+    targetTextWrapper.style.display = 'flex';
+
+    targetTextWrapper.className =
+        "fixed inset-0 z-[9999] " +
+        "w-full h-[100dvh] " +
+        "flex flex-col " +
+        "bg-[#faf8f5] " +
+        "p-2 pb-[24vh] " +
+        "md:p-8 md:pb-[24vh] " +
+        "lg:p-16 lg:pb-[24vh] " +
+        "overflow-y-auto " +
+        "transition-all duration-500 " +
+        "shadow-2xl";
+
         const engContainer = document.getElementById('engContainer');
 
         if (engContainer) {
