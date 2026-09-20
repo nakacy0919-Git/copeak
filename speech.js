@@ -21,6 +21,9 @@ let recognitionPassiveRestartCount = 0;
 let recognitionStartTimer = null;
 let recognitionSpeechTimer = null;
 let recognitionFinishTimer = null;
+// iPhone Mic Check start() 監視用
+let micCheckStartWatchdogTimer = null;
+let iPhoneMicCheckRecoveryAttempts = 0;
 // Mic Checkと本番で同じSpeechRecognitionを使うため、
 // 本番ではMic Check分のresultを読み飛ばす。
 let recognitionResultStartIndex = 0;
@@ -30,6 +33,10 @@ const RECOGNITION_SPEECH_TIMEOUT_MS = 5000;
 const RECOGNITION_FINISH_WAIT_MS = 1500;
 const MAX_RECOGNITION_RETRIES = 2;
 const MAX_PASSIVE_RESTARTS = 3;
+// iPhoneだけMic Check開始を監視
+const IPHONE_MIC_CHECK_START_WATCHDOG_MS = 4500;
+const IPHONE_MIC_RESTART_DELAY_MS = 500;
+const MAX_IPHONE_MIC_CHECK_RECOVERIES = 1;
 
 
 // ==========================================
@@ -1410,6 +1417,22 @@ function isAndroidSpeechRecognition() {
     );
 }
 
+
+// ==========================================
+// ★ iPhone SpeechRecognition 判定
+//
+// iPhoneだけに限定する。
+// iPadはここには含めない。
+// Chrome on iPhoneもWebKitを使用するため対象。
+// ==========================================
+function isIPhoneSpeechRecognition() {
+
+    return /iPhone|iPod/i.test(
+        navigator.userAgent || ''
+    );
+}
+
+
 function mergeAndroidRecognitionChunk(
     baseText,
     nextText
@@ -1727,7 +1750,20 @@ function clearRecognitionTimers() {
     clearRecognitionTimer('speech');
     clearRecognitionTimer('finish');
 }
+function clearMicCheckStartWatchdog() {
 
+    if (
+        micCheckStartWatchdogTimer
+    ) {
+
+        clearTimeout(
+            micCheckStartWatchdogTimer
+        );
+
+        micCheckStartWatchdogTimer =
+            null;
+    }
+}
 
 // ==========================================
 // ★ SpeechRecognition生成
@@ -1905,10 +1941,15 @@ function createMainRecognition() {
     // ==========================================
     // 音声認識結果
     // ==========================================
-    rec.onresult = event => {
+    rec.onresult =
+    event => {
+
+        markMicCheckStarted();
+
 
         if (
-            rec !== mainRecognition
+            rec !==
+                mainRecognition
         ) {
             return;
         }
@@ -2045,7 +2086,10 @@ for (
     // ==========================================
     // Recognition ERROR
     // ==========================================
-    rec.onerror = event => {
+    rec.onerror =
+    event => {
+
+        clearMicCheckStartWatchdog();
 
         if (
             rec !== mainRecognition ||
@@ -2132,16 +2176,26 @@ for (
 
 
     // ==========================================
-    // Recognition END
+// Recognition END
+// ==========================================
+rec.onend = () => {
+
     // ==========================================
-    rec.onend = () => {
+    // ★ Recognitionが正常に終了したことを記録
+    //
+    // iPhoneでは終了済みRecognitionへ
+    // さらにabort()を重ねないために使用する。
+    // PC / iPadでは判定に使用しない。
+    // ==========================================
+    rec.__copeakEnded =
+        true;
 
-        if (
-            rec !== mainRecognition
-        ) {
-            return;
-        }
 
+    if (
+        rec !== mainRecognition
+    ) {
+        return;
+    }
 
         // ==========================================
         // FINISH操作による終了
@@ -2185,20 +2239,38 @@ for (
 function startRecognitionEngine() {
 
     const oldRec =
-        mainRecognition;
-
-    // 古いRecognitionから遅延イベントが来ても
-    // 新しいセッションへ混ざらないように先に切り離す。
-    mainRecognition =
-        null;
+    mainRecognition;
 
 
-    if (oldRec) {
+mainRecognition =
+    null;
 
-        try {
-            oldRec.abort();
-        } catch (e) {}
-    }
+
+// ==========================================
+// ★ iPhone終了済みRecognitionの二重abort防止
+//
+// iPhoneでonendまで正常終了している場合は
+// ここで再度abort()を実行しない。
+//
+// iPad / PC / Androidは従来どおりabort()する。
+// またiPhoneでもonend前にfinalizeされた場合は
+// 従来どおりabort()して確実に終了させる。
+// ==========================================
+if (
+    oldRec &&
+    !(
+        isIPhoneSpeechRecognition() &&
+        oldRec.__copeakEnded ===
+            true
+    )
+) {
+
+    try {
+
+        oldRec.abort();
+
+    } catch (e) {}
+}
 
 
     const rec =
@@ -4477,13 +4549,188 @@ function setMicCheckStatus(
         );
 }
 
+// ==========================================
+// ★ iPhone Mic Check 自動復旧
+//
+// start()後にイベントが返らない場合だけ実行。
+// iPad / PC / Androidでは呼ばれない。
+// ==========================================
+async function recoverIPhoneMicCheckStart(
+    staleRec
+) {
 
+    if (
+        !isIPhoneSpeechRecognition() ||
+        staleRec !==
+            mainRecognition ||
+        micCheckPassed
+    ) {
+
+        return;
+    }
+
+
+    clearMicCheckStartWatchdog();
+
+
+    // ==========================================
+    // ★ 無限再起動防止
+    // 1回だけ自動復旧を許可する
+    // ==========================================
+    if (
+        iPhoneMicCheckRecoveryAttempts >=
+            MAX_IPHONE_MIC_CHECK_RECOVERIES
+    ) {
+
+        showMicCheckFailure(
+            'iPhoneの音声認識を再接続できませんでした。もう一度お試しください。'
+        );
+
+        return;
+    }
+
+
+    iPhoneMicCheckRecoveryAttempts++;
+
+
+    if (
+        micCheckTimer
+    ) {
+
+        clearTimeout(
+            micCheckTimer
+        );
+
+        micCheckTimer =
+            null;
+    }
+
+
+    // ==========================================
+    // ★ 古いRecognitionを先に切り離す
+    // ==========================================
+    mainRecognition =
+        null;
+
+
+    // 遅れてイベントが届いても
+    // 新しいRecognitionへ干渉させない
+    staleRec.onstart =
+        null;
+
+    staleRec.onaudiostart =
+        null;
+
+    staleRec.onresult =
+        null;
+
+    staleRec.onerror =
+        null;
+
+    staleRec.onend =
+        null;
+
+
+    try {
+
+        staleRec.abort();
+
+    } catch (e) {}
+
+
+    setMicCheckStatus(
+        'listening',
+        '🎙️ iPhoneのマイクを再接続しています…'
+    );
+
+
+    setRecognitionHealth(
+        'reconnecting',
+        'iPhoneの音声認識を再接続しています…'
+    );
+
+
+    // ==========================================
+    // ★ iPhoneの音声入力セッションを
+    // 一度起こして、すぐ解放する
+    // ==========================================
+    if (
+        navigator.mediaDevices &&
+        typeof navigator.mediaDevices
+            .getUserMedia ===
+            'function'
+    ) {
+
+        try {
+
+            const stream =
+                await navigator
+                    .mediaDevices
+                    .getUserMedia({
+                        audio: true
+                    });
+
+
+            stream
+                .getTracks()
+                .forEach(
+                    track =>
+                        track.stop()
+                );
+
+        } catch (e) {
+
+            console.warn(
+                '[Copeak] iPhone mic reset failed:',
+                e
+            );
+        }
+    }
+
+
+    // ==========================================
+    // ★ WebKitに少し解放時間を与えてから
+    // 新しいRecognitionを作る
+    // ==========================================
+    setTimeout(
+        () => {
+
+            if (
+                mainRecognition ||
+                micCheckPassed
+            ) {
+
+                return;
+            }
+
+
+            startMicCheck(
+                true
+            );
+
+        },
+        IPHONE_MIC_RESTART_DELAY_MS
+    );
+}
 // ==========================================
 // ★ Mic Check開始
 // 本番と同じSpeechRecognitionを使用する
 // ==========================================
-function startMicCheck() {
+function startMicCheck(
+    isIPhoneRecovery = false
+) {
+    clearMicCheckStartWatchdog();
 
+
+    // 生徒が通常STARTした場合だけ
+    // 自動復旧回数をリセットする
+    if (
+        !isIPhoneRecovery
+    ) {
+
+        iPhoneMicCheckRecoveryAttempts =
+            0;
+    }
     if (
         !window.SpeechRecognition
     ) {
@@ -4686,18 +4933,67 @@ function startMicCheck() {
 
 
     // ==========================================
-    // 本番用handlerを保存
-    // ==========================================
-    const mainOnResult =
-        rec.onresult;
+// 本番用handlerを保存
+// ==========================================
+const mainOnStart =
+    rec.onstart;
 
 
-    const mainOnError =
-        rec.onerror;
+const mainOnAudioStart =
+    rec.onaudiostart;
 
 
-    const mainOnEnd =
-        rec.onend;
+const mainOnResult =
+    rec.onresult;
+
+
+const mainOnError =
+    rec.onerror;
+
+
+const mainOnEnd =
+    rec.onend;
+
+
+// ==========================================
+// ★ Mic Checkが本当に開始されたら
+// iPhone Watchdogを解除する
+// ==========================================
+const markMicCheckStarted =
+    () => {
+
+        clearMicCheckStartWatchdog();
+    };
+
+
+rec.onstart =
+    () => {
+
+        markMicCheckStarted();
+
+        if (
+            typeof mainOnStart ===
+                'function'
+        ) {
+
+            mainOnStart();
+        }
+    };
+
+
+rec.onaudiostart =
+    () => {
+
+        markMicCheckStarted();
+
+        if (
+            typeof mainOnAudioStart ===
+                'function'
+        ) {
+
+            mainOnAudioStart();
+        }
+    };
 
 
     // ==========================================
@@ -4833,16 +5129,24 @@ function startMicCheck() {
             //
             // 同じRecognitionをそのまま本番用handlerへ戻す。
             // ======================================
-            rec.onresult =
-                mainOnResult;
+            rec.onstart =
+    mainOnStart;
 
 
-            rec.onerror =
-                mainOnError;
+rec.onaudiostart =
+    mainOnAudioStart;
 
 
-            rec.onend =
-                mainOnEnd;
+rec.onresult =
+    mainOnResult;
+
+
+rec.onerror =
+    mainOnError;
+
+
+rec.onend =
+    mainOnEnd;
 
 
             setMicCheckStatus(
@@ -4997,14 +5301,58 @@ function startMicCheck() {
 
     try {
 
-        rec.start();
+    rec.start();
 
-    } catch (e) {
 
-        showMicCheckFailure(
-            '音声認識を開始できませんでした。もう一度お試しください。'
-        );
+    // ==========================================
+    // ★ iPhoneだけ start() の実起動を監視
+    //
+    // PC / iPad / Androidでは一切実行しない。
+    // ==========================================
+    if (
+        isIPhoneSpeechRecognition()
+    ) {
+
+        clearMicCheckStartWatchdog();
+
+
+        micCheckStartWatchdogTimer =
+            setTimeout(
+                () => {
+
+                    if (
+                        rec !==
+                            mainRecognition ||
+                        micCheckPassed
+                    ) {
+
+                        return;
+                    }
+
+
+                    console.warn(
+    '[Copeak] iPhone Mic Check start timeout'
+);
+
+
+recoverIPhoneMicCheckStart(
+    rec
+);
+
+                },
+                IPHONE_MIC_CHECK_START_WATCHDOG_MS
+            );
     }
+
+} catch (e) {
+
+    clearMicCheckStartWatchdog();
+
+
+    showMicCheckFailure(
+        '音声認識を開始できませんでした。もう一度お試しください。'
+    );
+}
 }
 
 
@@ -5014,6 +5362,9 @@ function startMicCheck() {
 function showMicCheckFailure(
     message
 ) {
+
+    clearMicCheckStartWatchdog();
+
 
     micCheckPassed =
         false;
@@ -5111,7 +5462,11 @@ function showMicCheckFailure(
 // ★ Mic Check成功 → 同じRecognitionで本番
 // ==========================================
 function beginReadingAfterMicCheck() {
+clearMicCheckStartWatchdog();
 
+
+iPhoneMicCheckRecoveryAttempts =
+    0;
     if (
         !micCheckPassed ||
         !mainRecognition
@@ -5220,7 +5575,11 @@ function beginReadingAfterMicCheck() {
 // ★ Mic Checkキャンセル
 // ==========================================
 function cancelMicCheck() {
+ clearMicCheckStartWatchdog();
 
+
+    iPhoneMicCheckRecoveryAttempts =
+        0;
     if (
         micCheckTimer
     ) {
