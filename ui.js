@@ -625,7 +625,10 @@ function stopPacedReading() {
 // ★ 録音前
 // ==========================================
 function showPreReadingState() {
-    document.body.classList.remove('immersive-mode');
+    document.body.classList.remove(
+    'immersive-mode',
+    'recording-layout-active'
+);
 
     hideMicHealthSensor();
 
@@ -699,163 +702,469 @@ function showPreReadingState() {
 }
 
 
-// ==========================================
-// ★ 録音中
-// ==========================================
 function showRecordingState() {
-    document.body.classList.add('immersive-mode');
+
+    document.body.classList.add(
+        'immersive-mode'
+    );
+
+    document.body.classList.add(
+        'recording-layout-active'
+    );
+
 
     ensureMicHealthSensor();
 
-    const targetTextWrapper = document.getElementById('targetTextWrapper'); 
-    const yourVoiceWrapper = document.getElementById('yourVoiceWrapper');
-    const jpnWrapper = document.getElementById('jpnWrapper');
-    const resultScoreBoard = document.getElementById('resultScoreBoard');
-    const mainPane = document.getElementById('mainLearningPane');
-    const sidebar = document.getElementById('playlistSidebar');
-    const toggleBtn = document.getElementById('toggleJpnBtn');
-    
-    const micBtn = document.getElementById('micBtn'); 
 
-    const oldBtnContainer = document.getElementById('missingWordsBtnContainer');
-    if (oldBtnContainer) oldBtnContainer.remove();
+    const targetTextWrapper =
+        document.getElementById(
+            'targetTextWrapper'
+        );
 
-    const oldModal = document.getElementById('missingWordsModal');
-    if (oldModal) oldModal.remove();
 
-    // ★追加: 左上のキャンセル（中止）ボタンを生成・表示
-    let cancelBtn = document.getElementById('cancelRecordingBtn');
+    const yourVoiceWrapper =
+        document.getElementById(
+            'yourVoiceWrapper'
+        );
 
-    if (!cancelBtn) {
-        cancelBtn = document.createElement('button');
-        cancelBtn.id = 'cancelRecordingBtn';
-        cancelBtn.innerHTML = "✕";
-        cancelBtn.title = "音読を中止する";
-        cancelBtn.onclick = cancelRecording;
-        document.body.appendChild(cancelBtn);
+
+    const learningContentArea =
+        document.getElementById(
+            'learningContentArea'
+        );
+
+
+    const jpnWrapper =
+        document.getElementById(
+            'jpnWrapper'
+        );
+
+
+    const resultScoreBoard =
+        document.getElementById(
+            'resultScoreBoard'
+        );
+
+
+    const mainPane =
+        document.getElementById(
+            'mainLearningPane'
+        );
+
+
+    const sidebar =
+        document.getElementById(
+            'playlistSidebar'
+        );
+
+
+    const toggleBtn =
+        document.getElementById(
+            'toggleJpnBtn'
+        );
+
+
+    const micBtn =
+        document.getElementById(
+            'micBtn'
+        );
+
+
+    const oldBtnContainer =
+        document.getElementById(
+            'missingWordsBtnContainer'
+        );
+
+
+    if (
+        oldBtnContainer
+    ) {
+
+        oldBtnContainer.remove();
     }
 
-    // 左上に完全固定するスタイル
-    cancelBtn.className = "fixed top-3 left-3 md:top-6 md:left-6 z-[20000] w-10 h-10 md:w-12 md:h-12 bg-white hover:bg-red-50 text-stone-500 hover:text-red-600 font-bold text-xl md:text-2xl rounded-full shadow-xl border border-stone-200 flex items-center justify-center transition-all transform hover:scale-105 cursor-pointer";
-    cancelBtn.style.display = 'flex';
 
-    const previewBtn = document.querySelector('button[onclick="openFullscreenPreview()"]');
-    if (previewBtn) previewBtn.style.display = 'none';
+    const oldModal =
+        document.getElementById(
+            'missingWordsModal'
+        );
 
-    if (mainPane) {
-        mainPane.className = "w-full flex flex-col h-full bg-[#faf8f5] rounded-sm iron-border overflow-hidden relative transition-all duration-500";
+
+    if (
+        oldModal
+    ) {
+
+        oldModal.remove();
     }
 
-    if (sidebar) {
-        sidebar.style.display = 'none';
-    }
-
-    if (jpnWrapper) {
-        jpnWrapper.classList.add('hidden');
-    }
-
-    if (toggleBtn) {
-        toggleBtn.classList.add('hidden');
-    }
-
-    resultScoreBoard.style.display = 'none'; 
-
-   if (currentMode !== 'shadowing') {
 
     // ==========================================
-    // ★ 音読中のリアルタイム文字起こしを表示
-    //
-    // SpeechRecognitionのonresultで更新されている
-    // recognizedTextDisplay を、
-    // 本文の下部に常時見える形で表示する。
+    // 左上キャンセルボタン
     // ==========================================
-    yourVoiceWrapper.style.display = 'flex';
+    let cancelBtn =
+        document.getElementById(
+            'cancelRecordingBtn'
+        );
 
-    yourVoiceWrapper.className =
-        "fixed left-2 right-2 bottom-2 " +
-        "md:left-1/2 md:right-auto md:-translate-x-1/2 " +
-        "md:w-[min(900px,calc(100vw-3rem))] " +
-        "z-[10020] " +
-        "max-h-[22vh] " +
-        "p-3 md:p-4 " +
-        "bg-white/95 " +
-        "rounded-xl " +
-        "border border-stone-300 " +
-        "border-l-4 border-l-emerald-700 " +
-        "shadow-2xl " +
-        "flex flex-col " +
-        "transition-all duration-300 " +
-        "pointer-events-none";
 
-    if (micBtn) {
-        micBtn.style.display = 'none';
+    if (
+        !cancelBtn
+    ) {
+
+        cancelBtn =
+            document.createElement(
+                'button'
+            );
+
+
+        cancelBtn.id =
+            'cancelRecordingBtn';
+
+
+        cancelBtn.innerHTML =
+            "✕";
+
+
+        cancelBtn.title =
+            "音読を中止する";
+
+
+        cancelBtn.onclick =
+            cancelRecording;
+
+
+        document.body.appendChild(
+            cancelBtn
+        );
     }
 
-    targetTextWrapper.style.display = 'flex';
 
-    targetTextWrapper.className =
-        "fixed inset-0 z-[9999] " +
-        "w-full h-[100dvh] " +
-        "flex flex-col " +
-        "bg-[#faf8f5] " +
-        "p-2 pb-[24vh] " +
-        "md:p-8 md:pb-[24vh] " +
-        "lg:p-16 lg:pb-[24vh] " +
-        "overflow-y-auto " +
-        "transition-all duration-500 " +
-        "shadow-2xl";
+    cancelBtn.className =
+        "fixed top-3 left-3 " +
+        "md:top-6 md:left-6 " +
+        "z-[20000] " +
+        "w-10 h-10 md:w-12 md:h-12 " +
+        "bg-white hover:bg-red-50 " +
+        "text-stone-500 hover:text-red-600 " +
+        "font-bold text-xl md:text-2xl " +
+        "rounded-full shadow-xl " +
+        "border border-stone-200 " +
+        "flex items-center justify-center " +
+        "transition-all transform " +
+        "hover:scale-105 cursor-pointer";
 
-        const engContainer = document.getElementById('engContainer');
 
-        if (engContainer) {
-            engContainer.style.overflowY = 'visible';
-            engContainer.style.flex = 'none';
-            engContainer.style.height = 'auto';
+    cancelBtn.style.display =
+        'flex';
+
+
+    const previewBtn =
+        document.querySelector(
+            'button[onclick="openFullscreenPreview()"]'
+        );
+
+
+    if (
+        previewBtn
+    ) {
+
+        previewBtn.style.display =
+            'none';
+    }
+
+
+    if (
+        mainPane
+    ) {
+
+        mainPane.className =
+            "w-full flex flex-col h-full " +
+            "bg-[#faf8f5] rounded-sm " +
+            "iron-border overflow-hidden " +
+            "relative transition-all duration-500";
+    }
+
+
+    if (
+        sidebar
+    ) {
+
+        sidebar.style.display =
+            'none';
+    }
+
+
+    if (
+        jpnWrapper
+    ) {
+
+        jpnWrapper.classList.add(
+            'hidden'
+        );
+    }
+
+
+    if (
+        toggleBtn
+    ) {
+
+        toggleBtn.classList.add(
+            'hidden'
+        );
+    }
+
+
+    if (
+        resultScoreBoard
+    ) {
+
+        resultScoreBoard.style.display =
+            'none';
+    }
+
+
+    // ==========================================
+    // READ / PACED / VANISH
+    // ==========================================
+    if (
+        currentMode !==
+            'shadowing'
+    ) {
+
+
+        // ==========================================
+        // Target Text
+        // ==========================================
+        targetTextWrapper.style.display =
+            'flex';
+
+
+        targetTextWrapper.className =
+            "w-full flex flex-col gap-3 min-h-0";
+
+
+        // ==========================================
+        // Your Voice
+        // ==========================================
+        yourVoiceWrapper.style.display =
+            'flex';
+
+
+        yourVoiceWrapper.className =
+            "w-full bg-white rounded-xl " +
+            "border border-stone-300 " +
+            "border-l-4 border-l-emerald-700 " +
+            "shadow-lg flex flex-col min-h-0";
+
+
+        // ==========================================
+        // 通常STARTボタンは録音中は隠す
+        // ==========================================
+        if (
+            micBtn
+        ) {
+
+            micBtn.style.display =
+                'none';
         }
-        
-        if (targetTextWrapper.firstElementChild) {
-            targetTextWrapper.firstElementChild.style.flex = 'none';
-            targetTextWrapper.firstElementChild.style.height = 'auto';
-            targetTextWrapper.firstElementChild.style.minHeight = '80vh';
+
+
+        // ==========================================
+        // Target Text本文
+        // ==========================================
+        const engContainer =
+            document.getElementById(
+                'engContainer'
+            );
+
+
+        if (
+            engContainer
+        ) {
+
+            engContainer.style.overflowY =
+                'auto';
+
+
+            engContainer.style.flex =
+                '1 1 auto';
+
+
+            engContainer.style.height =
+                'auto';
+
+
+            engContainer.style.minHeight =
+                '0';
         }
 
-        let finishBtn = document.getElementById('fullscreenFinishBtn');
 
-        if (!finishBtn) {
-            finishBtn = document.createElement('button');
-            finishBtn.id = 'fullscreenFinishBtn';
+        if (
+            targetTextWrapper
+                .firstElementChild
+        ) {
 
-            finishBtn.onclick = () => {
-                if (typeof toggleRecording === 'function') {
-                    toggleRecording();
-                }
-            };
-            
-            if (targetTextWrapper.firstElementChild) {
-                targetTextWrapper.firstElementChild.appendChild(finishBtn);
-            } else {
-                targetTextWrapper.appendChild(finishBtn);
-            }
+            targetTextWrapper
+                .firstElementChild
+                .style.flex =
+                    '1 1 auto';
+
+
+            targetTextWrapper
+                .firstElementChild
+                .style.height =
+                    'auto';
+
+
+            targetTextWrapper
+                .firstElementChild
+                .style.minHeight =
+                    '0';
         }
-        
-        finishBtn.innerHTML = "⏹ 音読を提出する (Submit)";
-        finishBtn.className = "mt-16 mb-8 mx-auto px-10 py-5 bg-red-600 hover:bg-red-700 text-white font-bold text-lg md:text-xl rounded-full shadow-xl transform hover:scale-105 transition-all flex items-center justify-center gap-3 w-[90%] md:w-auto shrink-0 cursor-pointer";
-        finishBtn.style.display = 'flex';
-        
-        targetTextWrapper.scrollTop = 0;
 
+
+        // ==========================================
+        // Submitボタン
+        // ==========================================
+        let finishBtn =
+            document.getElementById(
+                'fullscreenFinishBtn'
+            );
+
+
+        if (
+            !finishBtn
+        ) {
+
+            finishBtn =
+                document.createElement(
+                    'button'
+                );
+
+
+            finishBtn.id =
+                'fullscreenFinishBtn';
+
+
+            finishBtn.onclick =
+                () => {
+
+                    if (
+                        typeof toggleRecording ===
+                            'function'
+                    ) {
+
+                        toggleRecording();
+                    }
+                };
+        }
+
+
+        // ==========================================
+        // ★重要
+        //
+        // SubmitをTarget Textの中ではなく
+        // Target / Voiceと同じ親へ置く
+        // ==========================================
+        if (
+            learningContentArea &&
+            finishBtn.parentElement !==
+                learningContentArea
+        ) {
+
+            learningContentArea
+                .appendChild(
+                    finishBtn
+                );
+        }
+
+
+        finishBtn.innerHTML =
+            "⏹ 音読を提出する (Submit)";
+
+
+        finishBtn.className =
+            "w-full max-w-3xl mx-auto " +
+            "px-6 py-3 md:py-4 " +
+            "bg-red-600 hover:bg-red-700 " +
+            "text-white font-bold " +
+            "text-base md:text-lg " +
+            "rounded-full shadow-xl " +
+            "transition-all " +
+            "flex items-center justify-center " +
+            "gap-3 shrink-0 cursor-pointer";
+
+
+        finishBtn.style.display =
+            'flex';
+
+
+        // ==========================================
+        // 開始時は本文先頭
+        // ==========================================
+        if (
+            engContainer
+        ) {
+
+            engContainer.scrollTop =
+                0;
+        }
+
+
+    // ==========================================
+    // SHADOWING
+    // ==========================================
     } else {
-        targetTextWrapper.style.display = 'none'; 
-        yourVoiceWrapper.style.display = 'flex';
 
-        yourVoiceWrapper.className = "w-full max-w-5xl mx-auto p-4 md:p-12 bg-white rounded-sm border-l-4 border-stone-800 shadow-sm iron-border-sm flex flex-col min-h-[300px] md:min-h-[400px] transition-all duration-300 opacity-100 relative z-10";
 
-        if (micBtn) {
-            micBtn.style.display = '';
+        document.body.classList.remove(
+            'recording-layout-active'
+        );
+
+
+        targetTextWrapper.style.display =
+            'none';
+
+
+        yourVoiceWrapper.style.display =
+            'flex';
+
+
+        yourVoiceWrapper.className =
+            "w-full max-w-5xl mx-auto " +
+            "p-4 md:p-12 bg-white " +
+            "rounded-sm border-l-4 " +
+            "border-stone-800 shadow-sm " +
+            "iron-border-sm flex flex-col " +
+            "min-h-[300px] md:min-h-[400px] " +
+            "transition-all duration-300 " +
+            "opacity-100 relative z-10";
+
+
+        const finishBtn =
+            document.getElementById(
+                'fullscreenFinishBtn'
+            );
+
+
+        if (
+            finishBtn
+        ) {
+
+            finishBtn.style.display =
+                'none';
+        }
+
+
+        if (
+            micBtn
+        ) {
+
+            micBtn.style.display =
+                '';
         }
     }
 }
-
 
 // ==========================================
 // ★ 結果画面
@@ -887,7 +1196,10 @@ function showResultState() {
         return;
     }
 
-    document.body.classList.remove('immersive-mode');
+    document.body.classList.remove(
+    'immersive-mode',
+    'recording-layout-active'
+);
 
     const targetTextWrapper = document.getElementById('targetTextWrapper'); 
     const yourVoiceWrapper = document.getElementById('yourVoiceWrapper');

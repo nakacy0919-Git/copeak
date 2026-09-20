@@ -5629,6 +5629,453 @@
             ) !important;
     }
 }
+/* ==========================================
+   Recording Workspace v2
+   Target Text / Your Voice / Submit
+   PC・iPad・Smartphone 共通
+   ========================================== */
+
+
+/* ==========================================
+   録音中の全体画面
+   ========================================== */
+
+body.recording-layout-active #learningContentArea {
+
+    position: fixed !important;
+
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+
+    z-index: 9999 !important;
+
+    width: 100vw !important;
+    height: 100dvh !important;
+
+    min-height: 0 !important;
+
+    display: grid !important;
+
+    grid-template-rows:
+        minmax(0, 1fr)
+        clamp(140px, 22dvh, 210px)
+        auto !important;
+
+    gap: 10px !important;
+
+    padding:
+        calc(
+            68px +
+            env(
+                safe-area-inset-top,
+                0px
+            )
+        )
+        12px
+        calc(
+            10px +
+            env(
+                safe-area-inset-bottom,
+                0px
+            )
+        )
+        12px !important;
+
+    box-sizing: border-box !important;
+
+    background:
+        #faf8f5 !important;
+
+    overflow:
+        hidden !important;
+}
+
+
+/* ==========================================
+   Target Text
+   ========================================== */
+
+body.recording-layout-active
+#learningContentArea
+#targetTextWrapper {
+
+    order: 1 !important;
+
+    position: relative !important;
+
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    min-height: 0 !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    overflow: hidden !important;
+
+    flex: none !important;
+
+    z-index: 1 !important;
+}
+
+
+/* Target Text の白いカード */
+
+body.recording-layout-active
+#targetTextWrapper
+> div:first-child {
+
+    width: 100% !important;
+    height: 100% !important;
+
+    min-height: 0 !important;
+
+    margin: 0 !important;
+
+    padding:
+        14px !important;
+
+    overflow:
+        hidden !important;
+
+    display:
+        flex !important;
+
+    flex-direction:
+        column !important;
+}
+
+
+/* ==========================================
+   本文のみスクロール
+   ========================================== */
+
+body.recording-layout-active
+#engContainer {
+
+    flex:
+        1 1 auto !important;
+
+    min-height:
+        0 !important;
+
+    height:
+        auto !important;
+
+    max-height:
+        none !important;
+
+    overflow-y:
+        auto !important;
+
+    overflow-x:
+        hidden !important;
+
+    -webkit-overflow-scrolling:
+        touch;
+
+    overscroll-behavior:
+        contain;
+
+    padding-right:
+        5px !important;
+}
+
+
+/* ==========================================
+   Your Voice
+   ========================================== */
+
+body.recording-layout-active
+#learningContentArea
+#yourVoiceWrapper:not(.hidden) {
+
+    order: 2 !important;
+
+    position: relative !important;
+
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+
+    transform:
+        none !important;
+
+    width:
+        100% !important;
+
+    max-width:
+        none !important;
+
+    height:
+        100% !important;
+
+    min-height:
+        0 !important;
+
+    max-height:
+        none !important;
+
+    margin:
+        0 !important;
+
+    padding:
+        10px 14px !important;
+
+    box-sizing:
+        border-box !important;
+
+    overflow:
+        hidden !important;
+
+    flex:
+        none !important;
+
+    z-index:
+        2 !important;
+
+    pointer-events:
+        auto !important;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            .98
+        ) !important;
+
+    box-shadow:
+        0 5px 18px
+        rgba(
+            28,
+            25,
+            23,
+            .12
+        ) !important;
+}
+
+
+/* YOUR VOICE タイトル */
+
+body.recording-layout-active
+#yourVoiceWrapper
+> div:first-child {
+
+    height:
+        auto !important;
+
+    min-height:
+        26px !important;
+
+    max-height:
+        none !important;
+
+    flex:
+        0 0 auto !important;
+
+    margin-bottom:
+        5px !important;
+
+    padding-bottom:
+        5px !important;
+
+    overflow:
+        hidden !important;
+}
+
+
+/* ==========================================
+   文字起こしだけスクロール
+   ========================================== */
+
+body.recording-layout-active
+#recognizedTextDisplay {
+
+    display:
+        block !important;
+
+    width:
+        100% !important;
+
+    height:
+        auto !important;
+
+    min-width:
+        0 !important;
+
+    min-height:
+        0 !important;
+
+    max-height:
+        none !important;
+
+    flex:
+        1 1 auto !important;
+
+    margin:
+        0 !important;
+
+    padding:
+        3px 5px 4px 0 !important;
+
+    overflow-y:
+        auto !important;
+
+    overflow-x:
+        hidden !important;
+
+    -webkit-overflow-scrolling:
+        touch;
+
+    overscroll-behavior:
+        contain;
+
+    font-size:
+        clamp(
+            17px,
+            2vw,
+            22px
+        ) !important;
+
+    line-height:
+        1.5 !important;
+
+    overflow-wrap:
+        anywhere !important;
+
+    word-break:
+        normal !important;
+
+    white-space:
+        normal !important;
+}
+
+
+/* ==========================================
+   Submit Button
+   ========================================== */
+
+body.recording-layout-active
+#learningContentArea
+#fullscreenFinishBtn {
+
+    order:
+        3 !important;
+
+    position:
+        relative !important;
+
+    top:
+        auto !important;
+
+    left:
+        auto !important;
+
+    right:
+        auto !important;
+
+    bottom:
+        auto !important;
+
+    transform:
+        none !important;
+
+    width:
+        100% !important;
+
+    max-width:
+        720px !important;
+
+    min-height:
+        56px !important;
+
+    margin:
+        0 auto !important;
+
+    padding:
+        12px 20px !important;
+
+    flex:
+        none !important;
+
+    z-index:
+        3 !important;
+
+    pointer-events:
+        auto !important;
+
+    touch-action:
+        manipulation !important;
+}
+
+
+/* ==========================================
+   iPad / PC
+   ========================================== */
+
+@media (min-width: 768px) {
+
+    body.recording-layout-active
+    #learningContentArea {
+
+        grid-template-rows:
+            minmax(0, 1fr)
+            clamp(
+                150px,
+                22dvh,
+                220px
+            )
+            auto !important;
+
+        gap:
+            14px !important;
+
+        padding:
+            calc(
+                82px +
+                env(
+                    safe-area-inset-top,
+                    0px
+                )
+            )
+            24px
+            calc(
+                16px +
+                env(
+                    safe-area-inset-bottom,
+                    0px
+                )
+            )
+            24px !important;
+    }
+
+
+    body.recording-layout-active
+    #targetTextWrapper
+    > div:first-child {
+
+        padding:
+            20px 24px !important;
+    }
+
+
+    body.recording-layout-active
+    #learningContentArea
+    #yourVoiceWrapper:not(.hidden) {
+
+        padding:
+            12px 18px !important;
+    }
+}
     </style>
 </head>
 <body class="text-stone-800 pb-10 relative transition-colors duration-500">
