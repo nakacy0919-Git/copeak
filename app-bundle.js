@@ -2252,16 +2252,15 @@ function showRecordingState() {
         // Target / Voiceと同じ親へ置く
         // ==========================================
         if (
-            learningContentArea &&
-            finishBtn.parentElement !==
-                learningContentArea
-        ) {
+    engContainer &&
+    finishBtn.parentElement !==
+        engContainer
+) {
 
-            learningContentArea
-                .appendChild(
-                    finishBtn
-                );
-        }
+    engContainer.appendChild(
+        finishBtn
+    );
+}
 
 
         finishBtn.innerHTML =
@@ -2269,15 +2268,16 @@ function showRecordingState() {
 
 
         finishBtn.className =
-            "w-full max-w-3xl mx-auto " +
-            "px-6 py-3 md:py-4 " +
-            "bg-red-600 hover:bg-red-700 " +
-            "text-white font-bold " +
-            "text-base md:text-lg " +
-            "rounded-full shadow-xl " +
-            "transition-all " +
-            "flex items-center justify-center " +
-            "gap-3 shrink-0 cursor-pointer";
+    "w-[94%] max-w-xl mx-auto " +
+    "mt-10 mb-5 " +
+    "px-6 py-4 " +
+    "bg-red-600 hover:bg-red-700 " +
+    "text-white font-bold " +
+    "text-base md:text-lg " +
+    "rounded-full shadow-xl " +
+    "transition-all " +
+    "flex items-center justify-center " +
+    "gap-3 cursor-pointer";
 
 
         finishBtn.style.display =

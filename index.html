@@ -5630,17 +5630,18 @@
     }
 }
 /* ==========================================
-   Recording Workspace v2
-   Target Text / Your Voice / Submit
-   PC・iPad・Smartphone 共通
+   Recording Workspace v3
+   Target Text → Submit
+   Your Voice = Fixed Bottom Panel
    ========================================== */
 
 
 /* ==========================================
-   録音中の全体画面
+   Recording Workspace 全体
    ========================================== */
 
-body.recording-layout-active #learningContentArea {
+body.recording-layout-active
+#learningContentArea {
 
     position: fixed !important;
 
@@ -5654,20 +5655,13 @@ body.recording-layout-active #learningContentArea {
     width: 100vw !important;
     height: 100dvh !important;
 
-    min-height: 0 !important;
+    display: block !important;
 
-    display: grid !important;
-
-    grid-template-rows:
-        minmax(0, 1fr)
-        clamp(140px, 22dvh, 210px)
-        auto !important;
-
-    gap: 10px !important;
+    box-sizing: border-box !important;
 
     padding:
         calc(
-            68px +
+            70px +
             env(
                 safe-area-inset-top,
                 0px
@@ -5675,15 +5669,13 @@ body.recording-layout-active #learningContentArea {
         )
         12px
         calc(
-            10px +
+            170px +
             env(
                 safe-area-inset-bottom,
                 0px
             )
         )
         12px !important;
-
-    box-sizing: border-box !important;
 
     background:
         #faf8f5 !important;
@@ -5694,71 +5686,102 @@ body.recording-layout-active #learningContentArea {
 
 
 /* ==========================================
+   通常の下部 START バーは録音中は消す
+   ========================================== */
+
+body.recording-layout-active
+#mobileMicBar {
+
+    display:
+        none !important;
+}
+
+
+/* ==========================================
    Target Text
    ========================================== */
 
 body.recording-layout-active
-#learningContentArea
 #targetTextWrapper {
 
-    order: 1 !important;
+    position:
+        relative !important;
 
-    position: relative !important;
+    inset:
+        auto !important;
 
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    bottom: auto !important;
+    width:
+        100% !important;
 
-    width: 100% !important;
-    height: 100% !important;
+    height:
+        100% !important;
 
-    min-height: 0 !important;
+    min-height:
+        0 !important;
 
-    margin: 0 !important;
-    padding: 0 !important;
+    margin:
+        0 !important;
 
-    overflow: hidden !important;
+    padding:
+        0 !important;
 
-    flex: none !important;
+    display:
+        flex !important;
 
-    z-index: 1 !important;
+    overflow:
+        hidden !important;
+
+    z-index:
+        1 !important;
 }
 
 
-/* Target Text の白いカード */
+/* Target Text 白カード */
 
 body.recording-layout-active
 #targetTextWrapper
 > div:first-child {
 
-    width: 100% !important;
-    height: 100% !important;
+    width:
+        100% !important;
 
-    min-height: 0 !important;
+    height:
+        100% !important;
 
-    margin: 0 !important;
+    min-height:
+        0 !important;
+
+    margin:
+        0 !important;
 
     padding:
         14px !important;
-
-    overflow:
-        hidden !important;
 
     display:
         flex !important;
 
     flex-direction:
         column !important;
+
+    overflow:
+        hidden !important;
 }
 
 
 /* ==========================================
-   本文のみスクロール
+   本文
+   ここだけスクロール
+   Submitもこの中の最後に存在する
    ========================================== */
 
 body.recording-layout-active
 #engContainer {
+
+    display:
+        block !important;
+
+    width:
+        100% !important;
 
     flex:
         1 1 auto !important;
@@ -5785,44 +5808,120 @@ body.recording-layout-active
         contain;
 
     padding-right:
-        5px !important;
+        6px !important;
+
+    padding-bottom:
+        16px !important;
+
+    box-sizing:
+        border-box !important;
 }
 
 
 /* ==========================================
-   Your Voice
+   Submit
+   本文の一番最後
+   fixed にしない
+   ========================================== */
+
+body.recording-layout-active
+#engContainer
+#fullscreenFinishBtn {
+
+    position:
+        relative !important;
+
+    top:
+        auto !important;
+
+    left:
+        auto !important;
+
+    right:
+        auto !important;
+
+    bottom:
+        auto !important;
+
+    transform:
+        none !important;
+
+    display:
+        flex !important;
+
+    width:
+        94% !important;
+
+    max-width:
+        620px !important;
+
+    min-height:
+        56px !important;
+
+    margin:
+        42px auto 18px auto !important;
+
+    padding:
+        13px 20px !important;
+
+    z-index:
+        2 !important;
+
+    pointer-events:
+        auto !important;
+
+    touch-action:
+        manipulation !important;
+}
+
+
+/* ==========================================
+   YOUR VOICE
+   常に画面最下部
    ========================================== */
 
 body.recording-layout-active
 #learningContentArea
 #yourVoiceWrapper:not(.hidden) {
 
-    order: 2 !important;
+    position:
+        fixed !important;
 
-    position: relative !important;
+    left:
+        12px !important;
 
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    bottom: auto !important;
+    right:
+        12px !important;
+
+    bottom:
+        calc(
+            10px +
+            env(
+                safe-area-inset-bottom,
+                0px
+            )
+        ) !important;
+
+    top:
+        auto !important;
 
     transform:
         none !important;
 
-    width:
-        100% !important;
+    z-index:
+        15000 !important;
 
-    max-width:
-        none !important;
+    width:
+        auto !important;
 
     height:
-        100% !important;
+        145px !important;
 
     min-height:
-        0 !important;
+        145px !important;
 
     max-height:
-        none !important;
+        145px !important;
 
     margin:
         0 !important;
@@ -5833,14 +5932,14 @@ body.recording-layout-active
     box-sizing:
         border-box !important;
 
+    display:
+        flex !important;
+
+    flex-direction:
+        column !important;
+
     overflow:
         hidden !important;
-
-    flex:
-        none !important;
-
-    z-index:
-        2 !important;
 
     pointer-events:
         auto !important;
@@ -5853,13 +5952,16 @@ body.recording-layout-active
             .98
         ) !important;
 
+    border-radius:
+        14px !important;
+
     box-shadow:
-        0 5px 18px
+        0 8px 26px
         rgba(
             28,
             25,
             23,
-            .12
+            .17
         ) !important;
 }
 
@@ -5871,22 +5973,22 @@ body.recording-layout-active
 > div:first-child {
 
     height:
-        auto !important;
+        28px !important;
 
     min-height:
-        26px !important;
-
-    max-height:
-        none !important;
+        28px !important;
 
     flex:
-        0 0 auto !important;
+        0 0 28px !important;
 
-    margin-bottom:
-        5px !important;
+    margin:
+        0 0 5px 0 !important;
 
-    padding-bottom:
-        5px !important;
+    padding:
+        0 0 5px 0 !important;
+
+    box-sizing:
+        border-box !important;
 
     overflow:
         hidden !important;
@@ -5894,7 +5996,8 @@ body.recording-layout-active
 
 
 /* ==========================================
-   文字起こしだけスクロール
+   文字起こし
+   YOUR VOICE の中だけスクロール
    ========================================== */
 
 body.recording-layout-active
@@ -5940,20 +6043,13 @@ body.recording-layout-active
         contain;
 
     font-size:
-        clamp(
-            17px,
-            2vw,
-            22px
-        ) !important;
+        18px !important;
 
     line-height:
-        1.5 !important;
+        1.45 !important;
 
     overflow-wrap:
         anywhere !important;
-
-    word-break:
-        normal !important;
 
     white-space:
         normal !important;
@@ -5961,83 +6057,13 @@ body.recording-layout-active
 
 
 /* ==========================================
-   Submit Button
-   ========================================== */
-
-body.recording-layout-active
-#learningContentArea
-#fullscreenFinishBtn {
-
-    order:
-        3 !important;
-
-    position:
-        relative !important;
-
-    top:
-        auto !important;
-
-    left:
-        auto !important;
-
-    right:
-        auto !important;
-
-    bottom:
-        auto !important;
-
-    transform:
-        none !important;
-
-    width:
-        100% !important;
-
-    max-width:
-        720px !important;
-
-    min-height:
-        56px !important;
-
-    margin:
-        0 auto !important;
-
-    padding:
-        12px 20px !important;
-
-    flex:
-        none !important;
-
-    z-index:
-        3 !important;
-
-    pointer-events:
-        auto !important;
-
-    touch-action:
-        manipulation !important;
-}
-
-
-/* ==========================================
-   iPad / PC
+   Tablet / PC
    ========================================== */
 
 @media (min-width: 768px) {
 
     body.recording-layout-active
     #learningContentArea {
-
-        grid-template-rows:
-            minmax(0, 1fr)
-            clamp(
-                150px,
-                22dvh,
-                220px
-            )
-            auto !important;
-
-        gap:
-            14px !important;
 
         padding:
             calc(
@@ -6049,7 +6075,7 @@ body.recording-layout-active
             )
             24px
             calc(
-                16px +
+                205px +
                 env(
                     safe-area-inset-bottom,
                     0px
@@ -6072,8 +6098,40 @@ body.recording-layout-active
     #learningContentArea
     #yourVoiceWrapper:not(.hidden) {
 
+        left:
+            24px !important;
+
+        right:
+            24px !important;
+
+        bottom:
+            calc(
+                16px +
+                env(
+                    safe-area-inset-bottom,
+                    0px
+                )
+            ) !important;
+
+        height:
+            170px !important;
+
+        min-height:
+            170px !important;
+
+        max-height:
+            170px !important;
+
         padding:
             12px 18px !important;
+    }
+
+
+    body.recording-layout-active
+    #recognizedTextDisplay {
+
+        font-size:
+            20px !important;
     }
 }
     </style>
