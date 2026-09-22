@@ -1810,6 +1810,11 @@ function stopPacedReading() {
 // ★ 録音前
 // ==========================================
 function showPreReadingState() {
+
+    document.body.classList.remove(
+    'result-layout-active'
+);
+
     document.body.classList.remove(
     'immersive-mode',
     'recording-layout-active'
@@ -1888,6 +1893,10 @@ function showPreReadingState() {
 
 
 function showRecordingState() {
+
+    document.body.classList.remove(
+    'result-layout-active'
+);
 
     document.body.classList.add(
         'immersive-mode'
@@ -2384,6 +2393,10 @@ function showResultState() {
     document.body.classList.remove(
     'immersive-mode',
     'recording-layout-active'
+);
+
+document.body.classList.add(
+    'result-layout-active'
 );
 
     const targetTextWrapper = document.getElementById('targetTextWrapper'); 
