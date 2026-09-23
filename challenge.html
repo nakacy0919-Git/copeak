@@ -3,30 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>National Copeak Challenge - 特設会場</title>
+    <title>National Copeak Contest #3 - Arthur C. Brooks</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,700;1,500&family=Noto+Sans+JP:wght@400;500;700&display=swap');
         body { font-family: 'Noto Sans JP', sans-serif; background-color: #0f172a; color: #f8fafc; min-height: 100vh; }
         .serif-font { font-family: 'Lora', serif; }
-        
+
         .ticker-wrap { overflow: hidden; white-space: nowrap; width: 100%; box-sizing: border-box; }
         .ticker { display: inline-block; padding-left: 100%; animation: ticker 25s linear infinite; }
         @keyframes ticker { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-100%, 0, 0); } }
-        
+
         body.arena-recording .hide-during-record { display: none !important; }
         body.arena-recording .expand-during-record { width: 100% !important; max-width: 100% !important; margin: 0 auto; }
-        
-        .matched-word { color: #34d399; font-weight: 700; } 
+
+        .matched-word { color: #34d399; font-weight: 700; }
         .unmatched-word { color: inherit; text-decoration: none; opacity: 1; }
-        
+
         .custom-scrollbar::-webkit-scrollbar { width: 6px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: #1e293b; border-radius: 4px; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #475569; border-radius: 4px; }
 
         #entranceView {
             background-color: #0f172a;
-            background-image: 
+            background-image:
                 radial-gradient(circle at 20% 30%, rgba(56, 189, 248, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, rgba(232, 121, 249, 0.1) 0%, transparent 40%),
                 url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Cg fill-rule="evenodd"%3E%3Cg fill="%23475569" fill-opacity="0.1"%3E%3Cpath opacity=".5" d="M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h8v-1h1V95zm1 1h8v-9h-8v9zm1 1h9V85h-9v9zm1 1h8v-9h-8v9zm1 1h9V75h-9v9zm1 1h8v-9h-8v9zm1 1h9V65h-9v9zm1 1h8v-9h-8v9zm1 1h9V55h-9v9zm1 1h8v-9h-8v9zm1 1h9V45h-9v9zm1 1h8v-9h-8v9zm1 1h9V35h-9v9zm1 1h8v-9h-8v9zm1 1h9V25h-9v9zm1 1h8v-9h-8v9zm1 1h9V15h-9v9zm1 1h8v-9h-8v9zm1 1h9V5h-9v9zM1 1h8V0H1v1zm1 1h9v-9H2v9zm1 1h8V0H3v1zm1 1h9v-9H4v9zm1 1h8V0H5v1zm1 1h9v-9H6v9zm1 1h8V0H7v1zm1 1h9v-9H8v9zm1 1h8V0H9v1z" fill-rule="evenodd"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
@@ -53,11 +53,14 @@
             <div class="flex items-center gap-2 sm:gap-3">
                 <button onclick="window.location.href='index.html'" class="px-2 sm:px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-[10px] sm:text-xs font-bold rounded-sm border border-slate-600 transition shrink-0">◀ ホーム</button>
                 <h1 class="text-base sm:text-xl md:text-2xl font-black text-white serif-font tracking-wide flex items-center gap-1 sm:gap-2 truncate">
-                    <span class="text-yellow-400">N</span>ational <span class="text-emerald-400">C</span>opeak <span class="text-blue-400 hidden sm:inline">C</span><span class="hidden sm:inline">hallenge</span>
+                    <span class="text-yellow-400">N</span>ational <span class="text-emerald-400">C</span>opeak <span class="text-blue-400 hidden sm:inline">C</span><span class="hidden sm:inline">ontest</span>
                 </h1>
             </div>
             <div class="flex items-center gap-3 sm:gap-6">
-                <a href="challenge-archive-taylor.html" class="text-[10px] sm:text-xs text-slate-400 hover:text-emerald-400 font-bold underline transition">📚 過去の課題 (Taylor)</a>
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <a href="challenge-archive-taylor.html" class="text-[9px] sm:text-xs text-slate-400 hover:text-emerald-400 font-bold underline transition">📚 Taylor</a>
+                    <a href="challenge-archive-harrison.html" class="text-[9px] sm:text-xs text-slate-400 hover:text-emerald-400 font-bold underline transition">📚 Harrison</a>
+                </div>
                 <div class="text-[10px] sm:text-xs text-slate-400 font-bold truncate max-w-[120px] sm:max-w-none">
                     <span class="hidden sm:inline">エントリーネーム: </span><span id="display-player-name" class="text-white">未登録</span>
                 </div>
@@ -74,25 +77,25 @@
     </div>
 
     <div class="max-w-[1600px] mx-auto p-3 sm:p-4 mt-2 sm:mt-4 flex flex-col lg:flex-row gap-4 sm:gap-6 relative">
-        
+
         <div class="w-full lg:w-[70%] flex flex-col gap-4 transition-all duration-500 expand-during-record" id="arenaMainPane">
-            
+
             <div id="entranceView" class="min-h-[70vh] sm:min-h-[75vh] flex flex-col items-center justify-center p-4 sm:p-6 md:p-10 relative overflow-hidden transition-all duration-1000 rounded-xl border border-slate-700 shadow-xl">
                 <button id="bgmToggle" class="absolute top-4 right-4 md:top-6 md:right-6 z-50 p-2 sm:p-3 bg-slate-800/80 hover:bg-slate-700 text-slate-500 rounded-full border border-slate-700 transition flex items-center gap-1 sm:gap-2">
                     <span id="bgmIcon" class="text-sm sm:text-base">🔇</span> <span class="text-[10px] sm:text-xs font-bold hidden sm:inline">BGM</span>
                 </button>
 
-                <h2 class="text-4xl md:text-6xl font-black text-white serif-font tracking-widest mb-1 sm:mb-2 text-center drop-shadow-lg z-10">Harrison Ford</h2>
-                <p class="text-emerald-400 text-xs sm:text-base md:text-lg font-bold tracking-widest uppercase mb-8 sm:mb-12 text-center z-10">ASU Commencement Speech</p>
-                
+                <h2 class="text-4xl md:text-6xl font-black text-white serif-font tracking-widest mb-1 sm:mb-2 text-center drop-shadow-lg z-10">Arthur C. Brooks</h2>
+                <p class="text-emerald-400 text-xs sm:text-base md:text-lg font-bold tracking-widest uppercase mb-8 sm:mb-12 text-center z-10">REAL LIFE OR DIGITAL LIFE?</p>
+
                 <div id="flyerContainer" class="w-full max-w-4xl mb-10 sm:mb-16 shadow-[0_0_40px_rgba(162,28,175,0.4)] md:shadow-[0_0_60px_rgba(162,28,175,0.4)] rounded-xl overflow-hidden border-2 border-slate-600 transition hover:scale-105 cursor-pointer z-10">
                     <img src="flyer.png" alt="Challenge Flyer" class="w-full object-cover" onerror="this.src='https://placehold.co/1200x1200/1e293b/a21caf?text=Flyer'">
                 </div>
-                
+
                 <button onclick="enterArena()" class="w-full max-w-md py-4 sm:py-5 md:py-6 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white rounded-full font-black text-sm sm:text-lg md:text-2xl shadow-[0_0_30px_rgba(79,70,229,0.5)] transition transform hover:-translate-y-1 tracking-widest flex items-center justify-center gap-2 sm:gap-3 z-10 px-2">
                     📖 スピーチ原稿と解説を確認 ➔
                 </button>
-              
+
                 <div id="fullscreenOverlay" class="hidden fixed inset-0 bg-black/95 z-[9999] flex items-center justify-center p-2 sm:p-4 cursor-pointer transition-opacity">
                     <img src="flyer.png" class="max-w-full max-h-full rounded-lg shadow-2xl" onerror="this.src='https://placehold.co/1200x1200/1e293b/a21caf?text=Flyer'">
                     <button class="absolute top-4 right-4 sm:top-6 sm:right-6 p-3 sm:p-4 bg-slate-800/80 text-white rounded-full text-xl sm:text-2xl font-bold hover:bg-slate-700">✕</button>
@@ -107,13 +110,13 @@
                 </div>
 
                 <div class="bg-gradient-to-r from-purple-900 to-blue-900 p-3 sm:p-4 md:p-6 rounded-xl border border-slate-700 shadow-xl mb-1 sm:mb-2 hide-during-record flex flex-col items-center justify-center">
-                    <h2 class="text-xl sm:text-2xl md:text-3xl font-black text-white serif-font tracking-widest drop-shadow-lg text-center">Harrison Ford</h2>
-                    <p class="text-blue-200 text-[10px] sm:text-xs md:text-sm font-bold tracking-widest uppercase mt-1 text-center">ASU Commencement Speech</p>
+                    <h2 class="text-xl sm:text-2xl md:text-3xl font-black text-white serif-font tracking-widest drop-shadow-lg text-center">Arthur C. Brooks</h2>
+                    <p class="text-blue-200 text-[10px] sm:text-xs md:text-sm font-bold tracking-widest uppercase mt-1 text-center">REAL LIFE OR DIGITAL LIFE?</p>
                 </div>
 
                 <div id="resultScoreBoard" class="hidden bg-slate-900 p-4 sm:p-6 md:p-10 rounded-xl border-2 border-yellow-600 shadow-[0_0_30px_rgba(202,138,4,0.2)] flex flex-col items-center mb-4 sm:mb-6">
                     <h3 class="text-yellow-400 font-black text-lg sm:text-xl md:text-2xl mb-4 sm:mb-6 tracking-widest uppercase">Result</h3>
-                    
+
                     <div class="flex w-full justify-between items-center px-1 sm:px-2 md:px-6">
                         <div class="text-center flex-1">
                             <div class="text-slate-400 text-[9px] sm:text-[10px] md:text-sm font-bold tracking-widest uppercase mb-1 sm:mb-2">Accuracy</div>
@@ -128,7 +131,7 @@
                             <div id="bigCompValue" class="text-4xl sm:text-5xl md:text-6xl font-bold text-yellow-400 serif-font">0%</div>
                         </div>
                     </div>
-                    
+
                     <div class="mt-6 sm:mt-10 flex flex-col gap-3 sm:gap-4 w-full max-w-md mx-auto">
                         <button id="submitChallengeBtn" onclick="window.handleScoreSubmit()" class="w-full py-3 sm:py-4 md:py-5 bg-yellow-500 hover:bg-yellow-400 text-yellow-900 rounded-full font-black text-sm sm:text-base md:text-xl shadow-[0_0_20px_rgba(234,179,8,0.4)] transition flex items-center justify-center gap-2 animate-bounce">
                             🚀 記録を全国ランキングに送信！
@@ -144,7 +147,7 @@
                         <h2 class="font-bold text-emerald-400 tracking-widest text-xs sm:text-sm md:text-base uppercase flex items-center gap-2">
                             <span class="bg-emerald-500/20 px-2 py-1 rounded text-emerald-300">Task</span> Tournament Script
                         </h2>
-                        
+
                         <div class="flex gap-2 w-full sm:w-auto">
                             <button onclick="document.getElementById('jpModal').classList.remove('hidden')" class="flex-1 sm:flex-none px-2 sm:px-4 py-2 bg-slate-700 hover:bg-slate-600 text-slate-200 text-[10px] sm:text-xs font-bold rounded-lg border border-slate-600 transition flex items-center justify-center gap-1 sm:gap-2">
                                 🇯🇵 日本語訳
@@ -156,9 +159,9 @@
                     </div>
 
                     <div class="mb-4 sm:mb-6 bg-slate-900/80 p-2 sm:p-3 rounded-lg border border-slate-700 hide-during-record">
-                        <p class="text-[10px] sm:text-xs text-slate-400 font-bold mb-2 tracking-widest uppercase flex items-center gap-2">🎙 YouTube Practice <span class="text-[9px] sm:text-[10px] bg-red-500/20 text-red-400 px-1.5 py-0.5 rounded">6:56~</span></p>
+                        <p class="text-[10px] sm:text-xs text-slate-400 font-bold mb-2 tracking-widest uppercase flex items-center gap-2">🎙 YouTube Practice <span class="text-[9px] sm:text-[10px] bg-red-500/20 text-red-400 px-1.5 py-0.5 rounded">10:29 - 11:59</span></p>
                         <div class="aspect-video w-full">
-                            <iframe class="w-full h-full rounded-md" src="https://www.youtube.com/embed/se_5nWXcgKg?start=416" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe class="w-full h-full rounded-md" src="https://www.youtube.com/embed/PfTcgYwW14E?start=628&end=721" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
 
@@ -177,7 +180,7 @@
                         🎙 <span id="micBtnText">挑戦をスタートする</span>
                     </button>
                 </div>
-                
+
                 <button id="cancelRecordingBtn" onclick="cancelChallengeRecording()" class="hidden fixed top-3 right-3 sm:top-4 sm:right-4 z-[9999] w-10 h-10 sm:w-14 sm:h-14 bg-slate-800 text-slate-400 hover:text-red-500 font-bold text-xl sm:text-2xl rounded-full border border-slate-600 flex items-center justify-center transition-all shadow-xl">✕</button>
             </div>
 
@@ -196,114 +199,315 @@
 
     <div id="jpModal" class="hidden fixed inset-0 bg-black/90 z-[99999] flex justify-center items-center p-2 sm:p-4 transition-opacity">
         <div class="bg-slate-800 p-4 sm:p-6 md:p-10 rounded-2xl border border-slate-600 shadow-2xl w-full max-w-3xl max-h-[90vh] flex flex-col relative">
-            <button onclick="document.getElementById('jpModal').classList.add('hidden')" class="absolute top-2 right-2 sm:top-4 sm:right-4 w-8 h-8 sm:w-10 sm:h-10 bg-slate-700 rounded-full text-white font-bold hover:bg-slate-600 transition flex items-center justify-center">✕</button>
-            <h2 class="text-lg sm:text-xl font-bold text-emerald-400 mb-3 sm:mb-4 border-b border-slate-700 pb-2">🇯🇵 日本語訳 (Japanese Translation)</h2>
+
+            <button onclick="document.getElementById('jpModal').classList.add('hidden')" class="absolute top-2 right-2 sm:top-4 sm:right-4 w-8 h-8 sm:w-10 sm:h-10 bg-slate-700 rounded-full text-white font-bold hover:bg-slate-600 transition flex items-center justify-center">
+                ✕
+            </button>
+
+            <h2 class="text-lg sm:text-xl font-bold text-emerald-400 mb-3 sm:mb-4 border-b border-slate-700 pb-2">
+                🇯🇵 日本語訳 (Japanese Translation)
+            </h2>
+
             <div class="overflow-y-auto custom-scrollbar pr-2 text-slate-200 text-xs sm:text-sm md:text-base leading-relaxed md:leading-loose space-y-4 md:space-y-6 font-medium">
-                <p>人類は自然の一部であり、自然の上に立つものではありません。私たちには、大量絶滅を防ぎ、地球の温暖化を遅らせるために、2030年までに世界の陸と海の30%を保護するという不可欠な使命があります。しかし、新たな科学や新たな政策があるにもかかわらず、私たちは依然として、暴利を貪る行為、汚職、紛争によって自然を失い続けています。これには、書面上はすでに保護されている土地も含まれます。こうした取り組みは重要ですが、十分ではありません。私たちには文化的な変化が必要です。</p>
-                <p>私たちは社会正義を拡大する必要があります。私たちは、周縁化され、多くの場合、冷酷に殺害されている先住民の人々を尊重し、地位を向上させる必要があります。これらのコミュニティは、木々、山、水、土壌が商品ではないことを古くから理解してきました。それらは、次の世代が受け入れ、保護するために大切にされるべき親族なのです。</p>
-                <p>私たちは皆、地球を愛し、自然の権威、彼女の寛大さ、彼女が私たちに与えてくれる恵み、そして彼女が示す正義を尊重することによって、その知恵を日常生活に取り入れる役割を果たすことができます。なぜなら、あなたがたが足を踏み入れようとしている世界、私の世代があなたがたに残した世界は、本当にめちゃくちゃだからです。</p>
-                <p>自然を救うことだけが私たちの仕事ではありません。社会、ビジネス、私たちが送る生活の中には、受け入れるべき機会があります。だから、自分の居場所を見つけてください。どんな才能や野心を持っていようと、それを活かす方法を見つけてください。昨日存在しなかったものを築き上げてください。自分のために立ち上がれない人のために立ち上がってください。以前は話をしなかった人々を一つにまとめてください。それがリーダーシップです。それが状況を好転させるのです。</p>
-                <p>あなたがたの世代は、あなたがたが思っている以上にはるかに大きな力を持っています。そして、もしその力を活用し、自分のリーダーシップ、自分の課題、自分の声を見つければ、世界はあなたがたを無視できなくなるでしょう。世界はあなたがたを受け入れざるを得なくなります。信じてください、私はそれが真実だと知っています。待ってはいけません。機会が訪れたら、それに気づいてください。今があなたがたの時です。それを自分のものにしてください。その1秒1秒を楽しんでください。なぜなら、人生の終わりに辿り着き、自分の人生を十分に生きていなかったと気づくことほど、最悪なことはないからです。</p>
-                <p>おめでとうございます。さあ、世界を変えに行ってください。</p>
+
+                <p>
+                    私は学生たちに、「今日はどんなふうに一日を過ごしたの？」と尋ねます。
+                    「起きました。スマホが目覚まし時計です。朝食を食べながらスマホをスクロールしました。
+                    Zoomで仕事をしました。アプリでデートをしました。SNSで友達を見ました。
+                    YouTube Shortsを見ました。そして寝ました。」
+                </p>
+
+                <p>
+                    それは本当の人生とは言えません。
+                    では、何が問題なのでしょうか。
+                    皆さんは人生で何を求めているのか分かっているはずです。
+                    たくさんの物を持っている。それはそれでいい。
+                    しかし、本当に求めているのは、現実の生活の中での愛です。
+                    本当に求めているのは、私たちを超えた存在、神聖なもの、神への深い信仰です。
+                </p>
+
+                <p>
+                    しかし、それは一日に何度も端末を確認し、脳の左半球を
+                    情報や物事へと向かわせ続ける生活の中にはありません。
+                </p>
+
+                <p>
+                    そして、そのような生活は人生についての一つの「公式」を作り出します。
+                    今日の若者が抱えている問題を知りたいなら、
+                    彼らが「よい人生」について間違った、偽物の公式を持っていることです。
+                </p>
+
+                <p>
+                    それが左半球中心の幸福の公式です。
+                    <strong class="text-yellow-300">
+                        「物を愛する。人を利用する。自分自身を崇拝する。」
+                    </strong>
+                </p>
+
+                <p>
+                    これがオンライン上の人生なのです。
+                    そして、そこには人生の意味が完全に欠けています。
+                </p>
+
+                <p>
+                    人々の人生から「意味」を取り去ったら、どうなるでしょうか。
+                    人は叫びます。もっと何かが欲しいと感じます。
+                    そんな状態には耐えられません。幸せではないからです。
+                    そのため、人はそれが健全なものであろうとなかろうと、
+                    「人生の意味」として差し出されたものなら何にでも頼ろうとしてしまうのです。
+                </p>
+
             </div>
         </div>
     </div>
 
     <div id="expModal" class="hidden fixed inset-0 bg-black/90 z-[99999] flex justify-center items-center p-2 sm:p-4 transition-opacity">
+
         <div class="bg-slate-800 p-4 sm:p-6 md:p-8 rounded-2xl border border-blue-900 shadow-2xl w-full max-w-6xl max-h-[95vh] flex flex-col relative overflow-hidden">
-            <button onclick="document.getElementById('expModal').classList.add('hidden')" class="absolute top-2 right-2 sm:top-4 sm:right-4 w-8 h-8 sm:w-10 sm:h-10 bg-slate-700 rounded-full text-white font-bold hover:bg-slate-600 transition z-20 flex items-center justify-center">✕</button>
-            <h2 class="text-lg sm:text-xl font-bold text-blue-400 mb-4 sm:mb-6 border-b border-slate-700 pb-2 shrink-0 pr-8">💡 表現解説 (Expressions & Idioms)</h2>
-            
+
+            <button onclick="document.getElementById('expModal').classList.add('hidden')" class="absolute top-2 right-2 sm:top-4 sm:right-4 w-8 h-8 sm:w-10 sm:h-10 bg-slate-700 rounded-full text-white font-bold hover:bg-slate-600 transition z-20 flex items-center justify-center">
+                ✕
+            </button>
+
+            <h2 class="text-lg sm:text-xl font-bold text-blue-400 mb-4 sm:mb-6 border-b border-slate-700 pb-2 shrink-0 pr-8">
+                💡 表現解説 (Expressions & Idioms)
+            </h2>
+
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8 flex-1 overflow-hidden">
+
+                <!-- LEFT: Original Text -->
                 <div class="bg-slate-900/50 p-4 sm:p-6 rounded-xl border border-slate-700 flex flex-col overflow-hidden">
-                    <h3 class="text-slate-400 text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-2 sm:mb-4 shrink-0">Original Text</h3>
+
+                    <h3 class="text-slate-400 text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-2 sm:mb-4 shrink-0">
+                        Original Text
+                    </h3>
+
                     <div class="text-slate-300 text-sm sm:text-base md:text-lg serif-font leading-relaxed md:leading-loose space-y-4 md:space-y-6 flex-1 overflow-y-auto custom-scrollbar pr-2">
-                        <p>Humanity is a part of nature, not above it. We have an <span class="text-blue-400 font-bold border-b border-blue-400/50">essential mandate</span> to protect 30% of the world's land and sea by 2030 to prevent the <span class="text-blue-400 font-bold border-b border-blue-400/50">mass extinction</span>, to slow the warming of our planet. Still, despite new science, new policies, we are still losing nature to <span class="text-blue-400 font-bold border-b border-blue-400/50">profiteering</span>, corruption, conflict, including land that is already protected <span class="text-blue-400 font-bold border-b border-blue-400/50">on paper</span>. These efforts matter, but they're not enough. We need cultural change.</p>
-                        <p>We need to extend social justice. We need to respect and elevate the indigenous people that are being <span class="text-blue-400 font-bold border-b border-blue-400/50">marginalized</span> and, in many cases, killed <span class="text-blue-400 font-bold border-b border-blue-400/50">in cold blood</span>. These communities have long understood that the trees, the mountain, water, soil are not <span class="text-blue-400 font-bold border-b border-blue-400/50">commodities</span>. They are relatives to be <span class="text-blue-400 font-bold border-b border-blue-400/50">cherished</span> for following generations to embrace and protect.</p>
-                        <p>We can all play our role by embracing that wisdom in our day-to-day lives, by loving the planet, by honoring nature's authority, her generosity, the <span class="text-blue-400 font-bold border-b border-blue-400/50">bounty</span> she affords us, the justice of her example. Because the world you're stepping into, the world my generation left you, is a <span class="text-blue-400 font-bold border-b border-blue-400/50">real mess</span>.</p>
-                        <p>Saving nature isn't our only job. There are opportunities to be embraced in society, in business, in the kind of lives we live. So find a place for yourself. Whatever talent or ambition you have, find some way to put it to work. Build something that didn't exist yesterday. Stand up for someone who can't stand up for themselves. Bring people together who weren't talking before. That's leadership. That's what <span class="text-blue-400 font-bold border-b border-blue-400/50">moves the needle</span>.</p>
-                        <p>Your generation has far more power than you may realize. And if you <span class="text-blue-400 font-bold border-b border-blue-400/50">harness</span> that power, if you find your leadership, your issues, your voice, the world will not be able to ignore you. You will have to be <span class="text-blue-400 font-bold border-b border-blue-400/50">accommodated</span>. Believe me, I know that's true. Don't wait. When opportunity presents, recognize it. This is your time. <span class="text-blue-400 font-bold border-b border-blue-400/50">Own it</span>. Enjoy every second of it. Because what could be worse than getting to the end of your life and realizing that you haven't fully lived it.</p>
-                        <p>Congratulations. Go change the world.</p>
+
+                        <p>
+                            I ask my students, "<span class="text-blue-400 font-bold border-b border-blue-400/50">How did you spend your day?</span>"
+                            I woke up. My phone is my alarm clock.
+                            I <span class="text-blue-400 font-bold border-b border-blue-400/50">scrolled my phone over breakfast</span>.
+                            I went to work on Zoom.
+                            I <span class="text-blue-400 font-bold border-b border-blue-400/50">dated on the apps</span>.
+                            I saw my friends on social media.
+                            I watched YouTube Shorts.
+                            And I went to bed.
+                        </p>
+
+                        <p>
+                            That is <span class="text-blue-400 font-bold border-b border-blue-400/50">not a real life</span>.
+                            Now, what's the problem with that?
+                            You know what you want in life.
+                            You have lots of things. Good.
+                            But what you want is <span class="text-blue-400 font-bold border-b border-blue-400/50">in real life love</span>.
+                            What you want is deep faith in
+                            <span class="text-blue-400 font-bold border-b border-blue-400/50">the transcendent</span>,
+                            in the divine, in God.
+                        </p>
+
+                        <p>
+                            And that's absent in the 205 checks in the
+                            <span class="text-blue-400 font-bold border-b border-blue-400/50">left hemisphere</span>
+                            of your brain being pushed by your devices to the information and things of life.
+                        </p>
+
+                        <p>
+                            And what that does is that creates
+                            <span class="text-blue-400 font-bold border-b border-blue-400/50">a formula for life</span>.
+                            If you want to know the problem that young people have today,
+                            it's that they have a mistaken,
+                            <span class="text-blue-400 font-bold border-b border-blue-400/50">a counterfeit formula for a good life</span>.
+                            Here it is.
+                            The left hemisphere life formula for happiness.
+                            <span class="text-yellow-300 font-black">
+                                Love things. Use people. Worship yourself.
+                            </span>
+                        </p>
+
+                        <p>
+                            That's life online, my friends.
+                            And that is utterly
+                            <span class="text-blue-400 font-bold border-b border-blue-400/50">bereft of meaning</span>.
+                        </p>
+
+                        <p>
+                            When you take meaning out of people's lives, what do they do?
+                            They <span class="text-blue-400 font-bold border-b border-blue-400/50">cry out</span>.
+                            They want something more.
+                            They can't stand it.
+                            They're unhappy.
+                            And so they'll turn to anything offered to them
+                            <span class="text-blue-400 font-bold border-b border-blue-400/50">as a source of meaning</span>,
+                            whether it's healthy or not.
+                        </p>
+
                     </div>
                 </div>
-                
+
+
+                <!-- RIGHT -->
                 <div class="flex flex-col gap-2 sm:gap-4 overflow-hidden">
+
                     <div class="flex justify-between items-center bg-slate-700/50 p-3 sm:p-4 rounded-xl border border-slate-700 shrink-0">
-                        <h3 id="expTitle" class="text-slate-400 text-[10px] sm:text-sm font-bold tracking-widest uppercase">Key Expressions</h3>
+
+                        <h3 id="expTitle" class="text-slate-400 text-[10px] sm:text-sm font-bold tracking-widest uppercase">
+                            Key Expressions
+                        </h3>
+
                         <button id="toggleTranslationBtn" class="px-2 sm:px-4 py-1.5 sm:py-2 bg-blue-900/50 hover:bg-blue-800/60 text-blue-300 text-[10px] sm:text-xs font-bold rounded-full border border-blue-700/50 transition truncate max-w-[140px] sm:max-w-none">
                             🇯🇵 和訳表示に切替
                         </button>
+
                     </div>
-                    
+
+
                     <div id="englishExplanations" class="space-y-2 sm:space-y-3 custom-scrollbar flex-1 overflow-y-auto pr-2">
-                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50 hover:bg-slate-700/50 transition">
-                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">essential mandate</div>
-                            <div class="text-slate-200 text-xs sm:text-sm">不可避の使命・義務。自然を守ることが人類にとって「避けては通れない命令」であることを強調しています。</div>
+
+                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50">
+                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">How did you spend your day?</div>
+                            <div class="text-slate-200 text-xs sm:text-sm">
+                                「今日はどのように一日を過ごしましたか？」。
+                                spend + 時間 で「時間を過ごす」という基本表現です。
+                            </div>
                         </div>
-                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50 hover:bg-slate-700/50 transition">
-                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">mass extinction</div>
-                            <div class="text-slate-200 text-xs sm:text-sm">大量絶滅。（動植物の）種が一度に大量に滅びることを指す環境用語です。</div>
+
+                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50">
+                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">scroll my phone</div>
+                            <div class="text-slate-200 text-xs sm:text-sm">
+                                スマホ画面をスクロールして見ること。
+                                現代のデジタル生活を表す日常的な表現です。
+                            </div>
                         </div>
-                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50 hover:bg-slate-700/50 transition">
-                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">profiteering</div>
-                            <div class="text-slate-200 text-xs sm:text-sm">不当な利益を得ること、暴利をむさぼること。環境を犠牲にしてお金儲けをする人々を批判しています。</div>
+
+                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50">
+                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">date on the apps</div>
+                            <div class="text-slate-200 text-xs sm:text-sm">
+                                アプリを使って人と出会ったりデートしたりすること。
+                                Brooksは人間関係までオンライン化している例として挙げています。
+                            </div>
                         </div>
-                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50 hover:bg-slate-700/50 transition">
-                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">on paper</div>
-                            <div class="text-slate-200 text-xs sm:text-sm">書面上は、理論上は。法律などで「保護区」と決められていても、実際には守られていないという皮肉が込められています。</div>
+
+                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50">
+                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">in real life</div>
+                            <div class="text-slate-200 text-xs sm:text-sm">
+                                「現実の生活で」「実際に」。
+                                オンライン上の体験と現実世界の体験を対比するときによく使います。
+                            </div>
                         </div>
-                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50 hover:bg-slate-700/50 transition">
-                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">marginalize</div>
-                            <div class="text-slate-200 text-xs sm:text-sm">（社会の）周縁に追いやる、無視する。先住民などの社会的弱者が排除されている状態を指します。</div>
+
+                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50">
+                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">the transcendent</div>
+                            <div class="text-slate-200 text-xs sm:text-sm">
+                                「人間の日常的な経験を超越したもの」。
+                                ここでは信仰・神聖なもの・神と結びつく概念として使われています。
+                            </div>
                         </div>
-                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50 hover:bg-slate-700/50 transition">
-                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">in cold blood</div>
-                            <div class="text-slate-200 text-xs sm:text-sm">冷酷に、情け容赦なく。「冷血に」という直訳の通り、無慈悲な行動を表す強い表現です。</div>
+
+                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50">
+                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">left hemisphere</div>
+                            <div class="text-slate-200 text-xs sm:text-sm">
+                                「脳の左半球」。
+                                このスピーチでは、情報や物事を扱う側として説明されています。
+                            </div>
                         </div>
-                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50 hover:bg-slate-700/50 transition">
-                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">commodity</div>
-                            <div class="text-slate-200 text-xs sm:text-sm">商品、日用品。自然を「単なる売り物・利益の対象」として見てはいけないという戒めです。</div>
+
+                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50">
+                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">a formula for life</div>
+                            <div class="text-slate-200 text-xs sm:text-sm">
+                                直訳は「人生の公式」。
+                                ここでは「こうすればよい人生になる」という価値観や考え方を意味しています。
+                            </div>
                         </div>
-                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50 hover:bg-slate-700/50 transition">
-                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">cherish</div>
-                            <div class="text-slate-200 text-xs sm:text-sm">大切にする、慈しむ。単に保護する(protect)だけでなく、愛情を持って扱うニュアンスが含まれます。</div>
+
+                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50">
+                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">counterfeit</div>
+                            <div class="text-slate-200 text-xs sm:text-sm">
+                                「偽物の、偽造された」。
+                                本物らしく見えるけれど、本当ではないものを表す強い語です。
+                            </div>
                         </div>
-                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50 hover:bg-slate-700/50 transition">
-                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">bounty</div>
-                            <div class="text-slate-200 text-xs sm:text-sm">自然の恵み、豊かな恩恵。「賞金」という意味もありますが、ここでは地球が与えてくれる豊かさを指します。</div>
+
+                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50">
+                            <div class="text-yellow-300 font-black text-base sm:text-lg mb-1">Love things. Use people. Worship yourself.</div>
+                            <div class="text-slate-200 text-xs sm:text-sm">
+                                「物を愛し、人を利用し、自分自身を崇拝する」。
+                                Brooksが“counterfeit formula for a good life”として示す中心メッセージです。
+                            </div>
                         </div>
-                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50 hover:bg-slate-700/50 transition">
-                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">real mess</div>
-                            <div class="text-slate-200 text-xs sm:text-sm">本当にめちゃくちゃな状態。上の世代が環境を壊してしまったことを謝罪するような文脈で使われています。</div>
+
+                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50">
+                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">bereft of meaning</div>
+                            <div class="text-slate-200 text-xs sm:text-sm">
+                                「意味を失っている」「意味が完全に欠けている」。
+                                bereft of ～ は「～を失った、～を欠いた」という表現です。
+                            </div>
                         </div>
-                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50 hover:bg-slate-700/50 transition">
-                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">move the needle</div>
-                            <div class="text-slate-200 text-xs sm:text-sm">状況を好転させる、目に見える変化をもたらす。（計器の針(needle)が動く＝明確な違いが生まれる、という意味のイディオムです）</div>
+
+                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50">
+                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">cry out</div>
+                            <div class="text-slate-200 text-xs sm:text-sm">
+                                「叫ぶ、強く訴える」。
+                                ここでは人生の意味を失った人が心の中で助けや意味を求めるイメージです。
+                            </div>
                         </div>
-                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50 hover:bg-slate-700/50 transition">
-                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">harness</div>
-                            <div class="text-slate-200 text-xs sm:text-sm">（自然力や感情などを）動力化する、利用する、活用する。持っているポテンシャルを引き出して使うことを意味します。</div>
+
+                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50">
+                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">a source of meaning</div>
+                            <div class="text-slate-200 text-xs sm:text-sm">
+                                「人生の意味を与えてくれるもの・意味の源」。
+                                source of ～ は「～の源、原因」という表現です。
+                            </div>
                         </div>
-                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50 hover:bg-slate-700/50 transition">
-                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">accommodate</div>
-                            <div class="text-slate-200 text-xs sm:text-sm">便宜を図る、適応させる、受け入れる。ここでは「世界はあなたがたの存在を無視できず、受け入れて対応せざるを得なくなる」という意味です。</div>
-                        </div>
-                        <div class="bg-slate-700/30 p-3 sm:p-4 rounded-lg border border-slate-600/50 hover:bg-slate-700/50 transition">
-                            <div class="text-blue-300 font-bold text-base sm:text-lg mb-1">Own it.</div>
-                            <div class="text-slate-200 text-xs sm:text-sm">自分のものにしろ。責任を持って自分の人生や時間を主導権を握って生きなさい、という強いメッセージです。</div>
+
+                    </div>
+
+
+                    <div id="japaneseTranslationForPair" class="hidden flex-1 overflow-y-auto custom-scrollbar pr-2">
+
+                        <div class="space-y-4 md:space-y-6 text-slate-200 text-sm sm:text-base md:text-lg serif-font leading-relaxed md:leading-loose font-medium">
+
+                            <p>
+                                私は学生たちに、「今日はどんなふうに一日を過ごしたの？」と尋ねます。
+                                「起きました。スマホが目覚まし時計です。朝食を食べながらスマホをスクロールしました。
+                                Zoomで仕事をしました。アプリでデートをしました。
+                                SNSで友達を見ました。YouTube Shortsを見ました。そして寝ました。」
+                            </p>
+
+                            <p>
+                                それは本当の人生とは言えません。
+                                本当に求めているのは、現実の生活の中での愛です。
+                                そして、私たちを超えたもの、神聖なもの、神への深い信仰です。
+                            </p>
+
+                            <p>
+                                しかし、端末によって脳を情報や物事へ向かわせ続ける生活では、
+                                そうしたものが失われてしまいます。
+                            </p>
+
+                            <p>
+                                そこから「よい人生」についての偽物の公式が生まれます。
+                                それが、
+                                <strong class="text-yellow-300">
+                                    「物を愛する。人を利用する。自分自身を崇拝する。」
+                                </strong>
+                                という考え方です。
+                            </p>
+
+                            <p>
+                                Brooksは、それがオンライン中心の人生であり、
+                                そこには人生の意味が完全に欠けていると述べています。
+                            </p>
+
+                            <p>
+                                人生から意味を失った人は、もっと何かを求めます。
+                                そして、それが健全なものであるかどうかにかかわらず、
+                                「意味を与えてくれそうなもの」に頼ってしまうことがあるのです。
+                            </p>
+
                         </div>
                     </div>
 
-                    <div id="japaneseTranslationForPair" class="hidden flex-1 overflow-y-auto custom-scrollbar pr-2">
-                        <div class="space-y-4 md:space-y-6 text-slate-200 text-sm sm:text-base md:text-lg serif-font leading-relaxed md:leading-loose font-medium">
-                            <p>人類は自然の一部であり、自然の上に立つものではありません。私たちには、大量絶滅を防ぎ、地球の温暖化を遅らせるために、2030年までに世界の陸と海の30%を保護するという不可欠な使命があります。しかし、新たな科学や新たな政策があるにもかかわらず、私たちは依然として、暴利を貪る行為、汚職、紛争によって自然を失い続けています。これには、書面上はすでに保護されている土地も含まれます。こうした取り組みは重要ですが、十分ではありません。私たちには文化的な変化が必要です。</p>
-                            <p>私たちは社会正義を拡大する必要があります。私たちは、周縁化され、多くの場合、冷酷に殺害されている先住民の人々を尊重し、地位を向上させる必要があります。これらのコミュニティは、木々、山、水、土壌が商品ではないことを古くから理解してきました。それらは、次の世代が受け入れ、保護するために大切にされるべき親族なのです。</p>
-                            <p>私たちは皆、地球を愛し、自然の権威、彼女の寛大さ、彼女が私たちに与えてくれる恵み、そして彼女が示す正義を尊重することによって、その知恵を日常生活に取り入れる役割を果たすことができます。なぜなら、あなたがたが足を踏み入れようとしている世界、私の世代があなたがたに残した世界は、本当にめちゃくちゃだからです。</p>
-                            <p>自然を救うことだけが私たちの仕事ではありません。社会、ビジネス、私たちが送る生活の中には、受け入れるべき機会があります。だから、自分の居場所を見つけてください。どんな才能や野心を持っていようと、それを活かす方法を見つけてください。昨日存在しなかったものを築き上げてください。自分のために立ち上がれない人のために立ち上がってください。以前は話をしなかった人々を一つにまとめてください。それがリーダーシップです。それが状況を好転させるのです。</p>
-                            <p>あなたがたの世代は、あなたがたが思っている以上にはるかに大きな力を持っています。そして、もしその力を活用し、自分のリーダーシップ、自分の課題、自分の声を見つければ、世界はあなたがたを無視できなくなるでしょう。世界はあなたがたを受け入れざるを得なくなります。信じてください、私はそれが真実だと知っています。待ってはいけません。機会が訪れたら、それに気づいてください。今があなたがたの時です。それを自分のものにしてください。その1秒1秒を楽しんでください。なぜなら、人生の終わりに辿り着き、自分の人生を十分に生きていなかったと気づくことほど、最悪なことはないからです。</p>
-                            <p>おめでとうございます。さあ、世界を変えに行ってください。</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -349,7 +553,7 @@
     </audio>
 
     <script src="storage.js"></script>
-    <script src="speech.js"></script>
+    <script src="challenge-speech.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
 
@@ -471,36 +675,34 @@
         } catch(e) { window.nccProfile = null; }
 
         window.savePracticeLog = function(lessonId, data, callback) {
-            if (callback) callback(); 
+            if (callback) callback();
         };
 
         window.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
-                currentMode = 'reading'; 
+                currentMode = 'reading';
                 currentMemoLevel = 0;
                 targetWpm = 120;
                 if (typeof isMobile !== 'undefined') isMobile = window.innerWidth < 768;
 
                 currentCustomLesson = {
-                    id: "arena-task-harrison-01",
-                    title: "Harrison Ford ASU Speech",
+                    id: "arena-task-brooks-03",
+                    title: "Arthur C. Brooks - Real Life or Digital Life?",
                     lang: "en-US",
-                    eng: `Humanity is a part of nature, not above it. We have an essential mandate to protect 30% of the world's land and sea by 2030 to prevent the mass extinction, to slow the warming of our planet. Still, despite new science, new policies, we are still losing nature to profiteering, corruption, conflict, including land that is already protected on paper. These efforts matter, but they're not enough. We need cultural change.
+                    eng: `I ask my students, "How did you spend your day?" I woke up. My phone is my alarm clock. I scrolled my phone over breakfast. I went to work on Zoom. I dated on the apps. I saw my friends on social media. I watched YouTube Shorts. And I went to bed.
 
-We need to extend social justice. We need to respect and elevate the indigenous people that are being marginalized and, in many cases, killed in cold blood. These communities have long understood that the trees, the mountain, water, soil are not commodities. They are relatives to be cherished for following generations to embrace and protect.
+That is not a real life. Now, what's the problem with that? You know what you want in life. You have lots of things. Good. But what you want is in real life love. What you want is deep faith in the transcendent, in the divine, in God. And that's absent in the 205 checks in the left hemisphere of your brain being pushed by your devices to the information and things of life.
 
-We can all play our role by embracing that wisdom in our day-to-day lives, by loving the planet, by honoring nature's authority, her generosity, the bounty she affords us, the justice of her example. Because the world you're stepping into, the world my generation left you, is a real mess.
+And what that does is that creates a formula for life. If you want to know the problem that young people have today, it's that they have a mistaken, a counterfeit formula for a good life. Here it is. The left hemisphere life formula for happiness. Love things. Use people. Worship yourself.
 
-Saving nature isn't our only job. There are opportunities to be embraced in society, in business, in the kind of lives we live. So find a place for yourself. Whatever talent or ambition you have, find some way to put it to work. Build something that didn't exist yesterday. Stand up for someone who can't stand up for themselves. Bring people together who weren't talking before. That's leadership. That's what moves the needle.
+That's life online, my friends. And that is utterly bereft of meaning.
 
-Your generation has far more power than you may realize. And if you harness that power, if you find your leadership, your issues, your voice, the world will not be able to ignore you. You will have to be accommodated. Believe me, I know that's true. Don't wait. When opportunity presents, recognize it. This is your time. Own it. Enjoy every second of it. Because what could be worse than getting to the end of your life and realizing that you haven't fully lived it.
-
-Congratulations. Go change the world.`,
+When you take meaning out of people's lives, what do they do? They cry out. They want something more. They can't stand it. They're unhappy. And so they'll turn to anything offered to them as a source of meaning, whether it's healthy or not.`,
                     history: []
                 };
 
                 targetTextArray = currentCustomLesson.eng.toLowerCase().replace(/[^a-z0-9\u00C0-\u017F\u0900-\u097F\s]/gi, '').split(/\s+/).filter(w => w);
-                    
+
                 const engContainer = document.getElementById('engContainer');
                 if (engContainer) {
                     const paragraphs = currentCustomLesson.eng.split(/\n+/);
@@ -518,7 +720,50 @@ Congratulations. Go change the world.`,
             }, 100);
         });
 
-        function showMsg(msg) { console.log(msg); }
+        function showMsg(msg) {
+            console.log(msg);
+
+            let toast =
+                document.getElementById(
+                    'nccMessageToast'
+                );
+
+            if (!toast) {
+                toast =
+                    document.createElement(
+                        'div'
+                    );
+
+                toast.id =
+                    'nccMessageToast';
+
+                toast.className =
+                    'fixed top-4 left-1/2 -translate-x-1/2 z-[100000] ' +
+                    'max-w-[92vw] sm:max-w-xl px-4 py-3 rounded-xl ' +
+                    'bg-slate-900 border border-red-500 text-white ' +
+                    'text-xs sm:text-sm font-bold shadow-2xl text-center';
+
+                document.body.appendChild(
+                    toast
+                );
+            }
+
+            toast.innerText = msg;
+            toast.style.display = 'block';
+
+            clearTimeout(
+                window.nccMessageToastTimer
+            );
+
+            window.nccMessageToastTimer =
+                setTimeout(
+                    () => {
+                        toast.style.display =
+                            'none';
+                    },
+                    5000
+                );
+        }
 
         function showPreReadingState() {
             document.body.classList.remove('arena-recording');
@@ -526,22 +771,62 @@ Congratulations. Go change the world.`,
             const resultBoard = document.getElementById('resultScoreBoard');
             if(resultBoard) { resultBoard.classList.add('hidden'); resultBoard.style.display = 'none'; }
             document.getElementById('cancelRecordingBtn').style.display = 'none';
-            
+
             const micBtn = document.getElementById('micBtn');
             if(micBtn) micBtn.style.display = 'flex';
             const txt = document.getElementById('micBtnText');
             if(txt) txt.innerText = "挑戦をスタートする";
-            
+
             const engContainer = document.getElementById('engContainer');
             if(engContainer) engContainer.innerHTML = engContainer.innerHTML.replace(/matched-word/g, '').replace(/unmatched-word/g, '');
         }
 
         function showRecordingState() {
-            document.body.classList.add('arena-recording'); 
+            document.body.classList.add('arena-recording');
             document.getElementById('yourVoiceWrapper').style.display = 'flex';
             const resultBoard = document.getElementById('resultScoreBoard');
             if(resultBoard) { resultBoard.classList.add('hidden'); resultBoard.style.display = 'none'; }
             document.getElementById('cancelRecordingBtn').style.display = 'flex';
+
+            // NCC: 録音開始時は必ず原稿冒頭を表示
+            const nccEngContainer =
+                document.getElementById(
+                    'engContainer'
+                );
+
+            if (nccEngContainer) {
+                nccEngContainer.scrollTop = 0;
+            }
+
+            const nccRecDisplay =
+                document.getElementById(
+                    'recognizedTextDisplay'
+                );
+
+            if (nccRecDisplay) {
+                nccRecDisplay.scrollTop = 0;
+            }
+
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+
+                    const targetWrapper =
+                        document.getElementById(
+                            'targetTextWrapper'
+                        );
+
+                    if (targetWrapper) {
+                        targetWrapper.scrollIntoView({
+                            behavior: 'auto',
+                            block: 'start'
+                        });
+                    }
+
+                    if (nccEngContainer) {
+                        nccEngContainer.scrollTop = 0;
+                    }
+                });
+            });
 
             const iframes = document.querySelectorAll('iframe');
             iframes.forEach(iframe => {
@@ -563,13 +848,26 @@ Congratulations. Go change the world.`,
             }
             document.body.classList.remove('arena-recording');
             document.getElementById('yourVoiceWrapper').style.display = 'flex';
-            
+
             const resultBoard = document.getElementById('resultScoreBoard');
             if(resultBoard) { resultBoard.classList.remove('hidden'); resultBoard.style.display = 'flex'; }
-            
+
             document.getElementById('cancelRecordingBtn').style.display = 'none';
             const micBtn = document.getElementById('micBtn');
-            if(micBtn) micBtn.style.display = 'none'; 
+            if(micBtn) micBtn.style.display = 'none';
+
+            // NCC: 採点後は必ずResultを表示
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+
+                    if (resultBoard) {
+                        resultBoard.scrollIntoView({
+                            behavior: 'auto',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
         }
 
         function cancelChallengeRecording() {
@@ -586,19 +884,19 @@ Congratulations. Go change the world.`,
             const recDisplay = document.getElementById('recognizedTextDisplay');
             if (recDisplay) {
                 recDisplay.innerHTML = '※Press START to begin';
-                recDisplay.style.color = '#64748b'; 
+                recDisplay.style.color = '#64748b';
             }
             showPreReadingState();
 
             if (autoStart) {
-                setTimeout(() => { if (typeof toggleRecording === 'function') toggleRecording(); }, 400); 
+                setTimeout(() => { if (typeof toggleRecording === 'function') toggleRecording(); }, 400);
             }
         };
 
         function resetLearningState() { retryChallenge(); }
 
         window.handleScoreSubmit = function() {
-            if (!window.nccProfile || !window.nccProfile.grade) { 
+            if (!window.nccProfile || !window.nccProfile.grade) {
                 const modal = document.getElementById('entryModal');
                 if (modal) modal.classList.remove('hidden');
             } else {
@@ -619,10 +917,10 @@ Congratulations. Go change the world.`,
 
             window.nccProfile = { name, grade, pref, school };
             localStorage.setItem('nccProfile', JSON.stringify(window.nccProfile));
-            
+
             const nameDisplay = document.getElementById('display-player-name');
             if(nameDisplay) nameDisplay.innerText = name;
-            
+
             document.getElementById('entryModal').classList.add('hidden');
             window.sendDataToFirebase();
         };
@@ -649,7 +947,7 @@ Congratulations. Go change the world.`,
 
             try {
                 // 🌟 新しいコレクションに保存し、ランキングをリセット
-                await challengeDb.collection('challenge_scores_v2').add(scoreData);
+                await challengeDb.collection('challenge_scores_v3').add(scoreData);
                 if(submitBtn) {
                     submitBtn.innerText = "送信完了！";
                     submitBtn.classList.replace('bg-yellow-500', 'bg-slate-600');
@@ -670,7 +968,7 @@ Congratulations. Go change the world.`,
 
             try {
                 // 🌟 新しいコレクションから取得
-                const snap = await challengeDb.collection('challenge_scores_v2').orderBy('comp', 'desc').limit(20).get();
+                const snap = await challengeDb.collection('challenge_scores_v3').orderBy('comp', 'desc').limit(20).get();
                 let rankHtml = '';
                 let rank = 1;
                 snap.forEach(doc => {
@@ -696,7 +994,7 @@ Congratulations. Go change the world.`,
                 const lbContainer = document.getElementById('leaderboard-container');
                 if(lbContainer) lbContainer.innerHTML = rankHtml || '<div class="text-center text-slate-500 text-xs sm:text-sm mt-10 font-bold">まだ記録がありません。</div>';
 
-                const recentSnap = await challengeDb.collection('challenge_scores_v2').orderBy('timestamp', 'desc').limit(5).get();
+                const recentSnap = await challengeDb.collection('challenge_scores_v3').orderBy('timestamp', 'desc').limit(5).get();
                 let tickerText = '';
                 recentSnap.forEach(doc => {
                     const d = doc.data();
