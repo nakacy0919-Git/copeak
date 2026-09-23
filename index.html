@@ -4439,6 +4439,7 @@
     }
 
 }
+
 </style>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,700;1,500&family=Noto+Sans+JP:wght@400;500;700&display=swap');
@@ -5143,14 +5144,13 @@
        4) Target Text / Your Voice の中身の高さ
        スマホで重ならないように固定気味に調整
        ---------------------------------- */
-    #engContainer,
-    #recognizedTextDisplay {
-        min-height: 170px;
-        max-height: 220px;
-        overflow-y: auto;
-        font-size: 20px !important;
-        line-height: 1.6;
-    }
+    #engContainer {
+    min-height: 170px;
+    max-height: 220px;
+    overflow-y: auto;
+    font-size: 20px !important;
+    line-height: 1.6;
+}
 
     #jpnContainer {
         max-height: 140px;
@@ -5230,217 +5230,7 @@
         font-size: 18px;
     }
 }
-/* ==========================================
-   Mobile Fix: Reading Submit Button
-   音読中の赤いSubmitボタンを画面下部へ固定
-   ========================================== */
 
-@media (max-width: 639px) {
-
-    #fullscreenFinishBtn {
-        position: fixed !important;
-
-        left: 50% !important;
-        right: auto !important;
-
-        bottom:
-            calc(
-                env(safe-area-inset-bottom, 0px)
-                + 14px
-            ) !important;
-
-        transform:
-            translateX(-50%) !important;
-
-        z-index: 10050 !important;
-
-        width:
-            calc(100vw - 28px) !important;
-
-        max-width: 420px !important;
-
-        margin: 0 !important;
-
-        padding:
-            13px 18px !important;
-
-        min-height: 54px;
-
-        border-radius:
-            9999px !important;
-
-        font-size:
-            15px !important;
-
-        line-height: 1.3;
-
-        box-shadow:
-            0 10px 28px
-            rgba(0,0,0,.28) !important;
-    }
-
-
-    /* Submitボタンの後ろに本文が隠れないよう
-       最下部にスクロール余白を確保 */
-    #targetTextWrapper
-    > div:first-child {
-
-        padding-bottom:
-            calc(
-                100px
-                + env(
-                    safe-area-inset-bottom,
-                    0px
-                )
-            ) !important;
-    }
-}
-
-/* ==========================================
-   Mobile Fix: Your Voice + Submit Button
-   文字起こしを枠内スクロールに固定
-   ========================================== */
-
-@media (max-width: 639px) {
-
-    /* ----------------------------------
-       Your Voice ボックス自体の高さを固定
-       ---------------------------------- */
-
-    #yourVoiceWrapper {
-        box-sizing: border-box !important;
-
-        width: 100% !important;
-
-        height: 165px !important;
-        min-height: 165px !important;
-        max-height: 165px !important;
-
-        flex: 0 0 165px !important;
-
-        overflow: hidden !important;
-
-        position: relative !important;
-        z-index: 20 !important;
-
-        margin-bottom:
-            calc(
-                82px
-                + env(
-                    safe-area-inset-bottom,
-                    0px
-                )
-            ) !important;
-    }
-
-
-    /* YOUR VOICE タイトル部分 */
-    #yourVoiceWrapper > div:first-child {
-        flex: 0 0 auto !important;
-        min-height: 28px;
-    }
-
-
-    /* ----------------------------------
-       文字起こし本文
-       必ずボックス内に収め、
-       中だけ縦スクロール
-       ---------------------------------- */
-
-    #recognizedTextDisplay {
-        display: block !important;
-
-        flex: 1 1 auto !important;
-
-        width: 100% !important;
-
-        min-width: 0 !important;
-        min-height: 0 !important;
-
-        height: auto !important;
-        max-height: none !important;
-
-        overflow-y: auto !important;
-        overflow-x: hidden !important;
-
-        overscroll-behavior: contain;
-
-        -webkit-overflow-scrolling:
-            touch;
-
-        padding:
-            4px 4px 10px 0 !important;
-
-        box-sizing:
-            border-box !important;
-
-        position: relative !important;
-        z-index: 1 !important;
-
-        line-height: 1.5 !important;
-
-        overflow-wrap: anywhere;
-        word-break: normal;
-    }
-
-
-    /* ----------------------------------
-       赤い提出ボタン
-       必ず最前面でタップできる
-       ---------------------------------- */
-
-    #fullscreenFinishBtn {
-        position: fixed !important;
-
-        left: 50% !important;
-
-        bottom:
-            calc(
-                12px
-                + env(
-                    safe-area-inset-bottom,
-                    0px
-                )
-            ) !important;
-
-        transform:
-            translateX(-50%) !important;
-
-        width:
-            calc(100vw - 28px) !important;
-
-        max-width: 420px !important;
-
-        min-height: 54px !important;
-
-        margin: 0 !important;
-
-        padding:
-            12px 18px !important;
-
-        z-index: 2147483000 !important;
-
-        pointer-events: auto !important;
-
-        touch-action: manipulation;
-
-        border-radius:
-            9999px !important;
-    }
-
-
-    /* 下部固定ボタン用のスペース */
-    #learningContentArea {
-        padding-bottom:
-            calc(
-                80px
-                + env(
-                    safe-area-inset-bottom,
-                    0px
-                )
-            ) !important;
-    }
-}
 /* ==========================================
    FINAL Mobile Recording Layout Fix
    Your Voiceを完全に枠内スクロール化
@@ -6565,6 +6355,417 @@ body.result-layout-active
 
         line-height:
             1.5 !important;
+    }
+}
+/* ==========================================
+   Result Mobile v2
+   Smartphone Result UI
+   ========================================== */
+
+@media (max-width: 767px) {
+
+    /* ======================================
+       Header
+       ====================================== */
+
+    body.result-layout-active
+    #learningHeader {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+
+        gap: 5px !important;
+
+        margin-bottom: 8px !important;
+        padding: 7px 10px !important;
+    }
+
+
+    /* Back */
+    body.result-layout-active
+    #learningHeader
+    > button:first-child {
+        align-self: flex-start !important;
+
+        margin: 0 !important;
+        padding: 5px 9px !important;
+
+        font-size: 10px !important;
+    }
+
+
+    /* 教材タイトルを省略しない */
+    body.result-layout-active
+    #learningTitle {
+        width: 100% !important;
+
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+
+        padding: 2px 4px !important;
+
+        font-size: 16px !important;
+        line-height: 1.3 !important;
+
+        text-align: center !important;
+
+        overflow-wrap: anywhere !important;
+    }
+
+
+    /* Resultでは教材 / 共同モード / 共有を隠す */
+    body.result-layout-active
+    #learningHeader
+    > div:last-child {
+        display: none !important;
+    }
+
+
+    /* ======================================
+       Mode Tabs
+       結果確認中は不要
+       ====================================== */
+
+    body.result-layout-active
+    #learningTabs {
+        display: none !important;
+    }
+
+
+    /* ======================================
+       Result main area
+       ====================================== */
+
+    body.result-layout-active
+    #mainScrollArea {
+        padding: 10px !important;
+        padding-bottom: 10px !important;
+
+        gap: 10px !important;
+        row-gap: 10px !important;
+    }
+
+
+    /* ======================================
+       Score first
+       ====================================== */
+
+    body.result-layout-active
+    #resultScoreBoard {
+        order: 1 !important;
+
+        gap: 7px !important;
+
+        margin: 0 !important;
+    }
+
+
+    body.result-layout-active
+    #scoreSummaryRow {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: stretch !important;
+
+        gap: 0 !important;
+
+        min-height: 82px !important;
+
+        padding: 10px 6px !important;
+
+        border-width: 1px !important;
+    }
+
+
+    body.result-layout-active
+    #scoreSummaryRow
+    > div {
+        width: 33.333% !important;
+
+        flex: 1 1 0 !important;
+
+        padding: 3px 4px !important;
+
+        border-top: 0 !important;
+        border-bottom: 0 !important;
+    }
+
+
+    body.result-layout-active
+    #scoreSummaryRow
+    > div:nth-of-type(2) {
+        border-left:
+            1px solid #44403c !important;
+
+        border-right:
+            1px solid #44403c !important;
+    }
+
+
+    body.result-layout-active
+    #scoreSummaryRow
+    [data-i18n="score_accuracy"],
+
+    body.result-layout-active
+    #scoreSummaryRow
+    [data-i18n="score_wpm"],
+
+    body.result-layout-active
+    #scoreSummaryRow
+    [data-i18n="score_comp"] {
+        margin-bottom: 4px !important;
+
+        font-size: 8px !important;
+        line-height: 1.15 !important;
+
+        letter-spacing: .05em !important;
+    }
+
+
+    body.result-layout-active
+    #bigAccValue,
+
+    body.result-layout-active
+    #bigWpmValue,
+
+    body.result-layout-active
+    #bigCompValue {
+        font-size: 27px !important;
+        line-height: 1 !important;
+    }
+
+
+    /* ======================================
+       Reading count / Practice icons
+       ====================================== */
+
+    body.result-layout-active
+    #practiceIconsContainer {
+        min-height: 0 !important;
+        max-height: 28px !important;
+
+        margin: 0 !important;
+        padding: 0 2px !important;
+
+        gap: 2px !important;
+
+        align-items: center !important;
+
+        overflow: hidden !important;
+    }
+
+
+    body.result-layout-active
+    #practiceIconsContainer
+    > * {
+        margin: 0 !important;
+
+        padding: 2px 4px !important;
+
+        font-size: 9px !important;
+        line-height: 1.1 !important;
+    }
+
+
+    body.result-layout-active
+    #practiceIconsContainer:empty {
+        display: none !important;
+    }
+
+
+    /* ======================================
+       Learning Feedback
+       ====================================== */
+
+    body.result-layout-active
+    #slaAdviceContainer {
+        padding: 7px 9px !important;
+
+        gap: 7px !important;
+
+        align-items: flex-start !important;
+
+        border-left-width: 3px !important;
+    }
+
+
+    body.result-layout-active
+    #slaAdviceContainer
+    > span {
+        margin-top: 2px !important;
+
+        font-size: 17px !important;
+        line-height: 1 !important;
+    }
+
+
+    body.result-layout-active
+    #slaAdviceContainer h4 {
+        margin-bottom: 2px !important;
+
+        font-size: 9px !important;
+        line-height: 1.2 !important;
+    }
+
+
+    body.result-layout-active
+    #slaAdviceText {
+        font-size: 11px !important;
+        line-height: 1.4 !important;
+    }
+
+
+    /* ======================================
+       Score submit
+       ====================================== */
+
+    body.result-layout-active
+    #submitScoreTriggerBtn {
+        margin-top: 3px !important;
+
+        padding-top: 9px !important;
+        padding-bottom: 9px !important;
+
+        font-size: 11px !important;
+    }
+
+
+    /* ======================================
+       Model Audio
+       Score / Feedbackの後
+       ====================================== */
+
+    body.result-layout-active
+    #audioContainer {
+        order: 2 !important;
+
+        margin: 0 !important;
+        padding: 6px 8px !important;
+    }
+
+
+    body.result-layout-active
+    #audioContainer audio {
+        height: 36px !important;
+    }
+
+
+    body.result-layout-active
+    #aiVoiceBtn {
+        height: 36px !important;
+
+        padding-left: 9px !important;
+        padding-right: 9px !important;
+
+        font-size: 10px !important;
+    }
+
+
+    /* ======================================
+       Your Voice / Target Text
+       ====================================== */
+
+    body.result-layout-active
+    #learningContentArea {
+        order: 3 !important;
+
+        margin: 0 !important;
+    }
+
+
+    /* ======================================
+       RETRY READING
+       ====================================== */
+
+    body.result-layout-active
+    #mobileMicBar {
+        position: relative !important;
+
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+
+        width: 100% !important;
+
+        margin: 0 !important;
+
+        padding:
+            9px 11px
+            calc(
+                9px +
+                env(
+                    safe-area-inset-bottom,
+                    0px
+                )
+            ) !important;
+
+        background:
+            rgba(
+                250,
+                248,
+                245,
+                .98
+            ) !important;
+
+        border-top:
+            1px solid #e7e5e4 !important;
+
+        box-shadow: none !important;
+
+        z-index: 30 !important;
+    }
+
+
+    body.result-layout-active
+    #micBtn {
+        width: 100% !important;
+        max-width: none !important;
+
+        min-height: 56px !important;
+
+        margin: 0 !important;
+        padding: 13px 18px !important;
+
+        border: 0 !important;
+        border-radius: 15px !important;
+
+        background:
+            #047857 !important;
+
+        color:
+            white !important;
+
+        box-shadow:
+            0 6px 16px
+            rgba(
+                4,
+                120,
+                87,
+                .22
+            ) !important;
+
+        font-size: 16px !important;
+        font-weight: 800 !important;
+
+        letter-spacing: .03em !important;
+
+        transform: none !important;
+
+        touch-action: manipulation !important;
+    }
+
+
+    body.result-layout-active
+    #micBtn:active {
+        transform:
+            scale(.98) !important;
+    }
+
+
+    body.result-layout-active
+    #micBtnText {
+        font-size: 16px !important;
+        font-weight: 800 !important;
     }
 }
     </style>

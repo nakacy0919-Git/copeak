@@ -1070,10 +1070,9 @@ function showRecordingState() {
 
 
         // ==========================================
-        // ★重要
-        //
-        // SubmitをTarget Textの中ではなく
-        // Target / Voiceと同じ親へ置く
+       // ★重要
+// SubmitをTarget Text本文（engContainer）の
+// 一番最後へ配置する
         // ==========================================
         if (
     engContainer &&
@@ -1210,8 +1209,9 @@ function showResultState() {
     'recording-layout-active'
 );
 
-document.body.classList.add(
-    'result-layout-active'
+document.body.classList.toggle(
+    'result-layout-active',
+    currentMode !== 'shadowing'
 );
 
     const targetTextWrapper = document.getElementById('targetTextWrapper'); 
@@ -1301,20 +1301,60 @@ document.body.classList.add(
 
         const btnContainer = document.createElement('div');
 
-        btnContainer.id = 'missingWordsBtnContainer';
-        btnContainer.className = 'absolute bottom-4 left-4 md:bottom-8 md:left-8 z-[100]';
-        
-        btnContainer.innerHTML = `
-            <button onclick="openMissingWordsModal()" class="px-4 py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-full md:rounded-sm text-[11px] md:text-xs transition shadow-lg flex items-center gap-1.5 transform hover:scale-105 duration-200 border border-orange-400">
-                <span class="text-sm leading-none">⚠️</span> 
-                <span class="hidden md:inline">未発話・認識されなかった語彙リスト</span>
-                <span class="md:hidden">未発話リスト</span>
-            </button>
-        `;
+btnContainer.id = 'missingWordsBtnContainer';
 
-        if (mainPane) {
-            mainPane.appendChild(btnContainer);
-        }
+btnContainer.className =
+    'mt-2 flex items-center';
+
+btnContainer.innerHTML = `
+    <button
+        onclick="openMissingWordsModal()"
+        class="
+            px-3 py-2
+            bg-orange-50
+            hover:bg-orange-100
+            text-orange-700
+            font-bold
+            rounded-lg
+            text-[10px] md:text-xs
+            transition
+            flex items-center
+            gap-1.5
+            border border-orange-200
+        "
+    >
+        <span>⚠️</span>
+        <span class="hidden md:inline">
+            未発話・認識されなかった語彙リスト
+        </span>
+        <span class="md:hidden">
+            未発話リストを見る
+        </span>
+    </button>
+`;
+
+const feedbackArea =
+    document.getElementById(
+        'slaAdviceContainer'
+    );
+
+const feedbackContent =
+    feedbackArea
+        ? feedbackArea.querySelector('div')
+        : null;
+
+if (feedbackContent) {
+
+    feedbackContent.appendChild(
+        btnContainer
+    );
+
+} else if (mainPane) {
+
+    mainPane.appendChild(
+        btnContainer
+    );
+}
     }
 }
 
