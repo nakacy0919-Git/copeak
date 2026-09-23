@@ -4619,15 +4619,11 @@ line-clamp: 2;
     }
 
     /* 固定ボタン＋Voiceバーで本文末尾が隠れないようにする */
-    #mainScrollArea {
-    padding-bottom:
-        calc(
-            82px +
-            env(
-                safe-area-inset-bottom,
-                0px
-            )
-        ) !important;
+    /* 通常の音読準備画面では
+   TARGET TEXTを下まで使えるようにする */
+body:not(.recording-layout-active):not(.result-layout-active)
+#mainScrollArea {
+    padding-bottom: 10px !important;
 }
 
     /* ③ Accuracy / WPM / Compを横一列 */
@@ -5207,80 +5203,114 @@ line-clamp: 2;
 
 
     /* ----------------------------------
-       2) 学習本文エリア全体
-       ---------------------------------- */
-    #mainScrollArea {
-        padding: 10px;
-        gap: 12px;
-    }
+   2) 学習本文エリア全体
+   Smartphone Pre-reading
+   ---------------------------------- */
 
-    #learningContentArea {
-    display: flex;
-    flex-direction: column;
+body:not(.recording-layout-active):not(.result-layout-active)
+#mainScrollArea {
+    padding: 10px;
+    padding-bottom: 10px !important;
+
     gap: 12px;
 
-    flex: 1 1 auto;
-
     min-height: 0;
+
+    /* 外側ではなくTARGET TEXT内部をスクロール */
+    overflow-y: hidden !important;
 }
 
 
-    /* ----------------------------------
-       3) Target Text を先、Your Voice を後
-       両方とも full width にして見やすく
-       ---------------------------------- */
-    #targetTextWrapper {
+body:not(.recording-layout-active):not(.result-layout-active)
+#learningContentArea {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    /* 残っている高さをすべて使用 */
+    flex: 1 1 0;
+
+    min-height: 0;
+
+    overflow: hidden;
+}
+
+
+/* ----------------------------------
+   3) Target Text
+   残り高さをすべて使用
+   ---------------------------------- */
+
+body:not(.recording-layout-active):not(.result-layout-active)
+#targetTextWrapper {
     order: 1;
 
     width: 100%;
 
-    flex: 1 1 auto;
+    flex: 1 1 0;
 
     min-height: 0;
 
     gap: 12px;
-}
 
-    #yourVoiceWrapper {
-        order: 2;
-        width: 100%;
-        flex: none;
-        min-height: auto;
-    }
-
-    #targetTextWrapper
-> div:first-child {
-    flex: 1 1 auto;
-
-    min-height: 0;
+    overflow: hidden;
 }
 
 
 #yourVoiceWrapper {
+    order: 2;
+
+    width: 100%;
+
+    flex: none;
+
     min-height: auto;
 }
 
 
-    /* ----------------------------------
-       4) Target Text / Your Voice の中身の高さ
-       スマホで重ならないように固定気味に調整
-       ---------------------------------- */
-    #engContainer {
-    flex: 1 1 auto;
+/* TARGET TEXT 白いカード */
+body:not(.recording-layout-active):not(.result-layout-active)
+#targetTextWrapper
+> div:first-child {
+    flex: 1 1 0;
 
     min-height: 0;
+
+    overflow: hidden;
+}
+
+
+/* ----------------------------------
+   4) TARGET TEXT 本文
+   ここだけスクロール
+   ---------------------------------- */
+
+body:not(.recording-layout-active):not(.result-layout-active)
+#engContainer {
+    flex: 1 1 0;
+
+    min-height: 0;
+
     max-height: none;
 
-    overflow-y: auto;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+
+    -webkit-overflow-scrolling: touch;
 
     font-size: 20px !important;
+
     line-height: 1.6;
 }
 
-    #jpnContainer {
-        max-height: 140px;
-        overflow-y: auto;
-    }
+
+#jpnContainer {
+    max-height: 140px;
+
+    overflow-y: auto;
+}
 
 
     /* ----------------------------------
