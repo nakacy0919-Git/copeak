@@ -14022,7 +14022,9 @@ function finalizeRecognition() {
 
 
     if (
-        oldRec
+        oldRec &&
+        oldRec.__copeakEnded !==
+            true
     ) {
 
         try {
@@ -16095,7 +16097,9 @@ function startMicCheck(
 
 
     if (
-        oldRec
+        oldRec &&
+        oldRec.__copeakEnded !==
+            true
     ) {
 
         try {
