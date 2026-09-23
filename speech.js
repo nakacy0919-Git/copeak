@@ -1944,9 +1944,6 @@ function createMainRecognition() {
     rec.onresult =
     event => {
 
-        markMicCheckStarted();
-
-
         if (
             rec !==
                 mainRecognition
@@ -5001,6 +4998,9 @@ rec.onaudiostart =
     // ==========================================
     rec.onresult =
         event => {
+
+            markMicCheckStarted();
+
 
             if (
                 rec !==
