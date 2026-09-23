@@ -5688,3 +5688,115 @@ window.beginReadingAfterMicCheck =
 
 window.cancelMicCheck =
     cancelMicCheck;
+
+// NCC_IPHONE_SPEECH_RELEASE
+// ==========================================
+// NCCページを離れる際にSpeechRecognitionを
+// 明示的に解放する
+//
+// iPhone / Safari(WebKit)でRecognitionが残り、
+// 次のCopeak音声認識を妨げることを防止する。
+// ==========================================
+function releaseNccSpeechRecognition() {
+
+    // 本番認識として復旧処理が走らないよう先に解除
+    isMainRecording =
+        false;
+
+    recognitionFinishing =
+        false;
+
+    recognitionRecovering =
+        false;
+
+
+    // Mic Check関連タイマー
+    if (
+        typeof clearMicCheckStartWatchdog ===
+            'function'
+    ) {
+
+        clearMicCheckStartWatchdog();
+    }
+
+
+    if (
+        typeof micCheckTimer !==
+            'undefined' &&
+        micCheckTimer
+    ) {
+
+        clearTimeout(
+            micCheckTimer
+        );
+
+        micCheckTimer =
+            null;
+    }
+
+
+    // 通常Recognition関連タイマー
+    if (
+        typeof clearRecognitionTimers ===
+            'function'
+    ) {
+
+        clearRecognitionTimers();
+    }
+
+
+    const rec =
+        mainRecognition;
+
+    mainRecognition =
+        null;
+
+
+    if (
+        !rec
+    ) {
+
+        return;
+    }
+
+
+    // abort後のonend等から復旧処理が再発火しないよう
+    // NCC終了時だけhandlerを外す
+    try {
+
+        rec.onstart =
+            null;
+
+        rec.onaudiostart =
+            null;
+
+        rec.onresult =
+            null;
+
+        rec.onerror =
+            null;
+
+        rec.onend =
+            null;
+
+    } catch (e) {}
+
+
+    try {
+
+        rec.abort();
+
+    } catch (e) {}
+}
+
+
+// Safari / Chrome on iPhone共通
+window.addEventListener(
+    'pagehide',
+    releaseNccSpeechRecognition
+);
+
+window.addEventListener(
+    'beforeunload',
+    releaseNccSpeechRecognition
+);
