@@ -6567,8 +6567,8 @@ body.result-layout-active
 
 
 /* ==========================================
-   iPad / PC
-   左右比較にする
+   iPad / PC Result Comparison
+   768px以上 = 左右2カラム
    ========================================== */
 
 @media (min-width: 768px) {
@@ -6576,11 +6576,19 @@ body.result-layout-active
     body.result-layout-active
     #learningContentArea {
 
+        display: flex !important;
+
         flex-direction:
             row !important;
 
         align-items:
             stretch !important;
+
+        width:
+            100% !important;
+
+        min-width:
+            0 !important;
 
         gap:
             16px !important;
@@ -6588,13 +6596,23 @@ body.result-layout-active
 
 
     body.result-layout-active
+    #learningContentArea
     #yourVoiceWrapper {
 
         order:
             1 !important;
 
+        position:
+            relative !important;
+
         width:
-            50% !important;
+            calc(50% - 8px) !important;
+
+        min-width:
+            0 !important;
+
+        max-width:
+            none !important;
 
         height:
             300px !important;
@@ -6611,13 +6629,23 @@ body.result-layout-active
 
 
     body.result-layout-active
+    #learningContentArea
     #targetTextWrapper {
 
         order:
             2 !important;
 
+        position:
+            relative !important;
+
         width:
-            50% !important;
+            calc(50% - 8px) !important;
+
+        min-width:
+            0 !important;
+
+        max-width:
+            none !important;
 
         height:
             300px !important;
@@ -6635,6 +6663,7 @@ body.result-layout-active
 
     body.result-layout-active
     #recognizedTextDisplay,
+
     body.result-layout-active
     #engContainer {
 
