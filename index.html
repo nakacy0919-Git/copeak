@@ -4482,6 +4482,106 @@
 ========================================== */
 @media (max-width: 639px) {
 
+/* ======================================
+   Learning Header
+   Smartphone
+   ====================================== */
+
+#learningHeader {
+    display: grid !important;
+
+    grid-template-columns:
+        auto 1fr auto;
+
+    grid-template-rows:
+        auto auto;
+
+    align-items: center !important;
+
+    gap: 6px 8px !important;
+
+    margin-bottom: 8px !important;
+    padding: 8px 10px !important;
+}
+
+
+/* BACK */
+#learningHeader
+> button:first-child {
+    grid-column: 1;
+    grid-row: 1;
+
+    margin: 0 !important;
+
+    padding: 6px 9px !important;
+
+    font-size: 10px !important;
+}
+
+
+/* 教材タイトル */
+#learningTitle {
+    grid-column: 1 / -1;
+    grid-row: 2;
+
+    width: 100% !important;
+
+    margin: 0 !important;
+    padding: 2px 4px !important;
+
+    white-space: normal !important;
+    overflow: hidden !important;
+    text-overflow: clip !important;
+
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical;
+-webkit-line-clamp: 2;
+line-clamp: 2;
+
+    font-size: 17px !important;
+    line-height: 1.25 !important;
+
+    text-align: left !important;
+}
+
+
+/* 右側操作エリア */
+#learningHeader
+> div:last-child {
+    grid-column: 3;
+    grid-row: 1;
+
+    display: flex !important;
+
+    justify-content: flex-end !important;
+
+    gap: 0 !important;
+}
+
+
+/* 教材ボタンだけ残す */
+#learningHeader
+> div:last-child
+> button:first-child {
+    display: flex !important;
+
+    padding: 6px 9px !important;
+
+    font-size: 10px !important;
+}
+
+
+/* 共同モード / 共有はスマホでは非表示 */
+#learningHeader
+> div:last-child
+> button:nth-child(2),
+
+#learningHeader
+> div:last-child
+> button:nth-child(3) {
+    display: none !important;
+}
+
     /* ① Libraryを右から出るDrawerにする */
     #playlistSidebar {
         position: fixed !important;
@@ -4520,8 +4620,15 @@
 
     /* 固定ボタン＋Voiceバーで本文末尾が隠れないようにする */
     #mainScrollArea {
-        padding-bottom: 170px !important;
-    }
+    padding-bottom:
+        calc(
+            82px +
+            env(
+                safe-area-inset-bottom,
+                0px
+            )
+        ) !important;
+}
 
     /* ③ Accuracy / WPM / Compを横一列 */
     #scoreSummaryRow {
@@ -5108,11 +5215,14 @@
     }
 
     #learningContentArea {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        min-height: auto;
-    }
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    flex: 1 1 auto;
+
+    min-height: 0;
+}
 
 
     /* ----------------------------------
@@ -5120,12 +5230,16 @@
        両方とも full width にして見やすく
        ---------------------------------- */
     #targetTextWrapper {
-        order: 1;
-        width: 100%;
-        flex: none;
-        min-height: auto;
-        gap: 12px;
-    }
+    order: 1;
+
+    width: 100%;
+
+    flex: 1 1 auto;
+
+    min-height: 0;
+
+    gap: 12px;
+}
 
     #yourVoiceWrapper {
         order: 2;
@@ -5134,10 +5248,17 @@
         min-height: auto;
     }
 
-    #targetTextWrapper > div:first-child,
-    #yourVoiceWrapper {
-        min-height: auto;
-    }
+    #targetTextWrapper
+> div:first-child {
+    flex: 1 1 auto;
+
+    min-height: 0;
+}
+
+
+#yourVoiceWrapper {
+    min-height: auto;
+}
 
 
     /* ----------------------------------
@@ -5145,9 +5266,13 @@
        スマホで重ならないように固定気味に調整
        ---------------------------------- */
     #engContainer {
-    min-height: 170px;
-    max-height: 220px;
+    flex: 1 1 auto;
+
+    min-height: 0;
+    max-height: none;
+
     overflow-y: auto;
+
     font-size: 20px !important;
     line-height: 1.6;
 }
@@ -5162,21 +5287,65 @@
        5) Target Text 上部の操作ボタン
        小画面で折り返しやすくする
        ---------------------------------- */
-    #targetTextWrapper .flex.justify-between.items-center {
-        align-items: flex-start;
-        gap: 8px;
-        flex-wrap: wrap;
-    }
+    #targetTextWrapper
+.flex.justify-between.items-center {
+    align-items: center;
 
-    #targetTextWrapper .flex.items-center.gap-2.md\:gap-3.flex-wrap {
-        width: 100%;
-        gap: 6px;
-    }
+    gap: 6px;
 
-    #targetTextWrapper .flex.gap-1.md\:gap-2.shrink-0 {
-        width: 100%;
-        justify-content: flex-end;
-    }
+    flex-wrap: nowrap;
+}
+
+
+/* TARGET TEXT / 訳 / 予行練習 */
+#targetTextWrapper
+.flex.items-center.gap-2.md\:gap-3.flex-wrap {
+    width: 100%;
+
+    gap: 5px;
+
+    flex-wrap: wrap;
+}
+
+
+/* TARGET TEXT 見出し */
+#targetTextWrapper
+[data-i18n="label_target_text"] {
+    margin-right: 2px;
+
+    font-size: 11px !important;
+
+    letter-spacing: .12em !important;
+}
+
+
+/* 訳を表示 */
+#toggleJpnBtn {
+    padding:
+        4px 7px !important;
+
+    font-size:
+        9px !important;
+}
+
+
+/* 予行練習 */
+#targetTextWrapper
+button[onclick="openFullscreenPreview()"] {
+    padding:
+        4px 7px !important;
+
+    font-size:
+        9px !important;
+}
+
+
+/* 📊 / A- / A+ はスマホでは非表示 */
+#targetTextWrapper
+.flex.gap-1.md\:gap-2.shrink-0 {
+    display:
+        none !important;
+}
 
 
     /* ----------------------------------
@@ -5229,7 +5398,96 @@
         max-width: none;
         font-size: 18px;
     }
+
+/* ======================================
+   Home Lesson Card
+   Smartphone
+   ====================================== */
+
+.home-lesson-card {
+    padding: 11px 10px !important;
+    align-items: flex-start !important;
+    gap: 7px !important;
 }
+
+.home-lesson-title {
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical;
+-webkit-line-clamp: 2;
+line-clamp: 2;
+overflow: hidden !important;
+
+    font-size: 15px !important;
+    line-height: 1.3 !important;
+    white-space: normal !important;
+}
+
+.home-lesson-preview {
+    display: block !important;
+    overflow: hidden !important;
+
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+
+    font-size: 11px !important;
+    line-height: 1.35 !important;
+    margin-top: 4px !important;
+}
+
+.lesson-play-count {
+    margin-top: 1px !important;
+    padding: 3px 6px !important;
+
+    font-size: 9px !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+}
+
+.home-lesson-card
+button[aria-label="教材メニュー"] {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+
+    padding: 0 !important;
+
+    font-size: 20px !important;
+    line-height: 1 !important;
+}
+
+.lesson-action-menu {
+    min-width: 155px !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+}
+
+.lesson-action-menu button {
+    min-height: 40px !important;
+    padding: 9px 12px !important;
+
+    font-size: 11px !important;
+    line-height: 1.25 !important;
+}
+
+.home-lesson-card
+> div:first-child
+> div:last-child {
+    margin-top: 7px !important;
+    gap: 5px !important;
+}
+
+.home-lesson-card
+> div:first-child
+> div:last-child
+span {
+    padding: 3px 6px !important;
+    font-size: 9px !important;
+}
+
+
+/* ← この下の } は消さない */
+}
+
 
 /* ==========================================
    FINAL Mobile Recording Layout Fix
@@ -6613,9 +6871,10 @@ body.result-layout-active
     display: -webkit-box !important;
 
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+-webkit-line-clamp: 3;
+line-clamp: 3;
 
-    overflow: hidden !important;
+overflow: hidden !important;
 
     font-size: 11px !important;
     line-height: 1.4 !important;
@@ -6629,8 +6888,9 @@ body.result-layout-active
     display: block !important;
 
     -webkit-line-clamp: unset;
+line-clamp: unset;
 
-    overflow: visible !important;
+overflow: visible !important;
 }
 
 
@@ -6956,13 +7216,12 @@ body.result-layout-active
                     <span class="flex items-center gap-3 font-bold text-stone-800 text-base md:text-lg group-hover:text-amber-600 transition-colors">
                         <span class="text-xl">⚠️</span> <span data-i18n="warning_title">データの保存に関する重要なお願い</span>
                     </span>
-                    <span id="acc-warning-icon" class="text-3xl text-amber-600 font-normal leading-none group-hover:scale-110 transition-transform">－</span>
+                    <span id="acc-warning-icon" class="text-3xl text-amber-600 font-normal leading-none group-hover:scale-110 transition-transform">＋</span>
                 </button>
-                <div id="acc-warning-content" class="accordion-content is-open">
+                <div id="acc-warning-content" class="accordion-content">
                     <div class="accordion-inner pb-6">
                         <div class="bg-amber-50 border-l-4 border-amber-500 p-4 md:p-5 rounded-sm shadow-sm iron-border-sm">
                             <ul class="text-xs md:text-sm text-stone-700 space-y-2 ml-2 md:ml-6 list-disc font-medium">
-                                <li><strong class="text-stone-900" data-i18n="warning_ipad_bold">iPad / スマホの方:</strong> <span data-i18n="warning_ipad_desc">最初にブラウザのメニューから<strong class="text-amber-700">「ホーム画面に追加」</strong>を行い、必ずそのアイコンからアプリを開いてください。</span></li>
                                 <li><strong class="text-stone-900" data-i18n="warning_pc_bold">PCの方:</strong> <span data-i18n="warning_pc_desc">ブックマークに登録し、常に同じブラウザを使用してください。</span></li>
                             </ul>
                         </div>
@@ -6975,9 +7234,9 @@ body.result-layout-active
                     <span class="flex items-center gap-3 font-bold text-stone-800 text-base md:text-lg group-hover:text-indigo-600 transition-colors">
                         <span class="text-xl">🏆</span> <span>National Copeak Challenge 開催中！</span>
                     </span>
-                    <span id="acc-ncc-icon" class="text-3xl text-indigo-600 font-normal leading-none group-hover:scale-110 transition-transform">－</span>
+                    <span id="acc-ncc-icon" class="text-3xl text-indigo-600 font-normal leading-none group-hover:scale-110 transition-transform">＋</span>
                 </button>
-                <div id="acc-ncc-content" class="accordion-content is-open">
+                <div id="acc-ncc-content" class="accordion-content">
                     <div class="accordion-inner pb-6">
                         <div class="bg-gradient-to-r from-blue-700 via-indigo-600 to-purple-700 p-[3px] rounded-sm shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl cursor-pointer group/ncc" onclick="window.location.href='challenge.html'">
                             <div class="bg-stone-900 px-5 py-6 md:px-8 md:py-8 rounded-sm flex flex-col md:flex-row items-center justify-between gap-5 relative overflow-hidden">

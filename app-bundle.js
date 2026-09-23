@@ -679,82 +679,442 @@ function renderHomeLibrary(lessons, homeList) {
 }
 
 function createHomeLessonCard(lesson, homeList) {
-    const hasAudioIcon = lesson.audioBlob ? '🎵' : '📄';
 
-    const hasImageIcon = lesson.memoImage
-        ? '<span class="bg-purple-50 text-purple-600 px-2 py-1 rounded-sm ml-1">🖼️</span>'
-        : '';
+    const hasAudioIcon =
+        lesson.audioBlob
+            ? '🎵'
+            : '📄';
+
+    const hasImageIcon =
+        lesson.memoImage
+            ? '<span class="bg-purple-50 text-purple-600 px-2 py-1 rounded-sm ml-1">🖼️</span>'
+            : '';
 
     const langDisplay =
-        lesson.langName || '🇺🇸 English (US)';
+        lesson.langName ||
+        '🇺🇸 English (US)';
 
     const playCount =
-        lesson.history ? lesson.history.length : 0;
+        lesson.history
+            ? lesson.history.length
+            : 0;
 
-    const badgeHtml = playCount > 0
-        ? `<span class="bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded text-[10px] font-black">★ ${playCount}回</span>`
-        : '';
+    const badgeHtml =
+        playCount > 0
+            ? `
+                <span class="
+                    lesson-play-count
+                    bg-yellow-100
+                    text-yellow-700
+                    px-2 py-0.5
+                    rounded
+                    text-[10px]
+                    font-black
+                    shrink-0
+                ">
+                    ★ ${playCount}回
+                </span>
+            `
+            : '';
 
-    const homeCard = document.createElement("div");
+    const homeCard =
+        document.createElement(
+            "div"
+        );
 
     homeCard.className =
-        "p-5 bg-white border border-gray-100 hover:border-emerald-700 rounded-sm cursor-pointer shadow-sm hover:shadow-md transition group flex justify-between items-center";
+        "home-lesson-card " +
+        "relative " +
+        "p-3 md:p-5 " +
+        "bg-white " +
+        "border border-gray-100 " +
+        "hover:border-emerald-700 " +
+        "rounded-sm " +
+        "cursor-pointer " +
+        "shadow-sm hover:shadow-md " +
+        "transition group " +
+        "flex justify-between " +
+        "items-start md:items-center";
 
     homeCard.innerHTML = `
-        <div class="flex-1 overflow-hidden pr-3">
-            <div class="flex items-center gap-2">
-                <h3 class="font-extrabold text-lg text-stone-800 group-hover:text-emerald-800 truncate transition-colors">
+
+        <div class="
+            flex-1
+            min-w-0
+            overflow-hidden
+            pr-2 md:pr-3
+        ">
+
+            <div class="
+                flex
+                items-start
+                gap-2
+            ">
+
+                <h3 class="
+                    home-lesson-title
+                    min-w-0
+                    flex-1
+                    font-extrabold
+                    text-base md:text-lg
+                    text-stone-800
+                    group-hover:text-emerald-800
+                    transition-colors
+                ">
                     ${lesson.title}
                 </h3>
+
                 ${badgeHtml}
+
             </div>
 
-            <p class="text-sm text-stone-400 truncate mt-1 font-medium">
+
+            <p class="
+                home-lesson-preview
+                text-xs md:text-sm
+                text-stone-400
+                mt-1
+                font-medium
+            ">
                 ${lesson.eng}
             </p>
 
-            <div class="flex gap-2 mt-3 text-[11px] font-bold text-stone-500 items-center">
-                <span class="bg-stone-100 px-2 py-1 rounded-sm text-stone-600">
+
+            <div class="
+                flex
+                gap-2
+                mt-2 md:mt-3
+                text-[11px]
+                font-bold
+                text-stone-500
+                items-center
+            ">
+
+                <span class="
+                    bg-stone-100
+                    px-2 py-1
+                    rounded-sm
+                    text-stone-600
+                ">
                     ${langDisplay.split(' ')[0]}
                 </span>
-                <span class="bg-emerald-50 text-emerald-600 px-2 py-1 rounded-sm">
+
+                <span class="
+                    bg-emerald-50
+                    text-emerald-600
+                    px-2 py-1
+                    rounded-sm
+                ">
                     ${hasAudioIcon}
                 </span>
+
                 ${hasImageIcon}
+
             </div>
+
         </div>
 
-        <div class="flex flex-col md:flex-row gap-1 shrink-0">
 
-            <button onclick="openMoveLessonModal(event, ${lesson.id})"
-                class="p-2 md:p-3 text-stone-300 hover:text-emerald-700 hover:bg-emerald-50 rounded-sm transition"
-                title="フォルダを移動">
+        <!-- PC / iPad -->
+        <div class="
+            hidden sm:flex
+            flex-col md:flex-row
+            gap-1
+            shrink-0
+        ">
+
+            <button
+                onclick="
+                    openMoveLessonModal(
+                        event,
+                        ${lesson.id}
+                    )
+                "
+                class="
+                    p-2 md:p-3
+                    text-stone-300
+                    hover:text-emerald-700
+                    hover:bg-emerald-50
+                    rounded-sm
+                    transition
+                "
+                title="フォルダを移動"
+            >
                 📁
             </button>
 
-            <button onclick="editLesson(event, ${lesson.id})"
-                class="p-2 md:p-3 text-stone-300 hover:text-blue-600 hover:bg-blue-50 rounded-sm transition"
-                title="編集">
+            <button
+                onclick="
+                    editLesson(
+                        event,
+                        ${lesson.id}
+                    )
+                "
+                class="
+                    p-2 md:p-3
+                    text-stone-300
+                    hover:text-blue-600
+                    hover:bg-blue-50
+                    rounded-sm
+                    transition
+                "
+                title="編集"
+            >
                 ✏️
             </button>
 
-            <button onclick="deleteLesson(event, ${lesson.id})"
-                class="p-2 md:p-3 text-stone-300 hover:text-red-500 hover:bg-red-50 rounded-sm transition"
-                title="削除">
+            <button
+                onclick="
+                    deleteLesson(
+                        event,
+                        ${lesson.id}
+                    )
+                "
+                class="
+                    p-2 md:p-3
+                    text-stone-300
+                    hover:text-red-500
+                    hover:bg-red-50
+                    rounded-sm
+                    transition
+                "
+                title="削除"
+            >
                 🗑
             </button>
 
         </div>
+
+
+        <!-- Smartphone -->
+        <div class="
+            sm:hidden
+            relative
+            shrink-0
+        ">
+
+            <button
+                type="button"
+                onclick="
+                    toggleLessonActionMenu(
+                        event,
+                        ${lesson.id}
+                    )
+                "
+                class="
+                    w-9 h-9
+                    flex
+                    items-center
+                    justify-center
+                    text-xl
+                    font-black
+                    text-stone-500
+                    bg-stone-50
+                    border
+                    border-stone-200
+                    rounded-full
+                "
+                aria-label="教材メニュー"
+            >
+                ⋯
+            </button>
+
+
+            <div
+                id="lessonActionMenu-${lesson.id}"
+                class="
+                    lesson-action-menu
+                    hidden
+                    absolute
+                    right-0
+                    top-10
+                    z-50
+                    w-40
+                    bg-white
+                    border
+                    border-stone-200
+                    rounded-sm
+                    shadow-xl
+                    overflow-hidden
+                "
+            >
+
+                <button
+                    type="button"
+                    onclick="
+                        openMoveLessonModal(
+                            event,
+                            ${lesson.id}
+                        )
+                    "
+                    class="
+                        w-full
+                        px-4 py-3
+                        text-left
+                        text-xs
+                        font-bold
+                        text-stone-700
+                        hover:bg-stone-50
+                    "
+                >
+                    📁 フォルダを移動
+                </button>
+
+                <button
+                    type="button"
+                    onclick="
+                        editLesson(
+                            event,
+                            ${lesson.id}
+                        )
+                    "
+                    class="
+                        w-full
+                        px-4 py-3
+                        text-left
+                        text-xs
+                        font-bold
+                        text-stone-700
+                        hover:bg-stone-50
+                    "
+                >
+                    ✏️ 教材を編集
+                </button>
+
+                <button
+                    type="button"
+                    onclick="
+                        deleteLesson(
+                            event,
+                            ${lesson.id}
+                        )
+                    "
+                    class="
+                        w-full
+                        px-4 py-3
+                        text-left
+                        text-xs
+                        font-bold
+                        text-red-600
+                        hover:bg-red-50
+                    "
+                >
+                    🗑 教材を削除
+                </button>
+
+            </div>
+
+        </div>
     `;
 
-    homeCard.onclick = e => {
-        if (!e.target.closest('button')) {
-            startCustomLesson(lesson);
-        }
-    };
 
-    homeList.appendChild(homeCard);
+    homeCard.onclick =
+        e => {
+
+            if (
+                !e.target.closest(
+                    'button'
+                )
+            ) {
+
+                startCustomLesson(
+                    lesson
+                );
+            }
+        };
+
+
+    homeList.appendChild(
+        homeCard
+    );
 }
+
+function toggleLessonActionMenu(
+    event,
+    lessonId
+) {
+
+    event.stopPropagation();
+
+
+    const targetId =
+        `lessonActionMenu-${lessonId}`;
+
+
+    document
+        .querySelectorAll(
+            '.lesson-action-menu'
+        )
+        .forEach(
+            menu => {
+
+                if (
+                    menu.id !==
+                    targetId
+                ) {
+
+                    menu.classList.add(
+                        'hidden'
+                    );
+                }
+            }
+        );
+
+
+    const menu =
+        document.getElementById(
+            targetId
+        );
+
+
+    if (!menu) {
+        return;
+    }
+
+
+    menu.classList.toggle(
+        'hidden'
+    );
+}
+
+// ==========================================
+// Home Lesson Card
+// 3点メニューを外側タップで閉じる
+// ==========================================
+
+document.addEventListener(
+    'click',
+    event => {
+
+        if (
+            event.target.closest(
+                '.lesson-action-menu'
+            )
+        ) {
+            return;
+        }
+
+        if (
+            event.target.closest(
+                'button[aria-label="教材メニュー"]'
+            )
+        ) {
+            return;
+        }
+
+        document
+            .querySelectorAll(
+                '.lesson-action-menu'
+            )
+            .forEach(
+                menu => {
+                    menu.classList.add(
+                        'hidden'
+                    );
+                }
+            );
+    }
+);
 
 function deleteLesson(event, id) {
     event.stopPropagation(); 
@@ -1181,7 +1541,6 @@ async function injectPresetLessons() {
         if (typeof showMsg === 'function') showMsg(`📚 サンプル教材を ${presetsToAdd.length} 件追加しました！`);
     };
 }
-
 
 // ==========================================
 // ui.js: 画面切り替え、モード設定、およびグラフ描画
