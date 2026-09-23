@@ -1803,9 +1803,24 @@ function backToHome() {
     }
 
     const audioPlayer = document.getElementById('audioPlayer');
+
     if (audioPlayer) {
-        audioPlayer.pause();
-        audioPlayer.src = "";
+
+        // Apple WebKitでは不要なpause()が
+        // 次のSpeechRecognitionを停止させる場合がある
+        if (
+            !audioPlayer.paused
+        ) {
+            audioPlayer.pause();
+        }
+
+        // Apple端末では次教材のopenLearningScreenで
+        // srcを上書きするため、ここでは触らない
+        if (
+            !isAppleMobileSpeechRecognition()
+        ) {
+            audioPlayer.src = "";
+        }
     }
     
     currentCustomLesson = null;
@@ -11360,9 +11375,9 @@ const RECOGNITION_FINISH_WAIT_MS = 1500;
 const MAX_RECOGNITION_RETRIES = 2;
 const MAX_PASSIVE_RESTARTS = 3;
 // iPhoneだけMic Check開始を監視
-const IPHONE_MIC_CHECK_START_WATCHDOG_MS = 4500;
-const IPHONE_MIC_RESTART_DELAY_MS = 500;
-const MAX_IPHONE_MIC_CHECK_RECOVERIES = 1;
+const IPHONE_MIC_CHECK_START_WATCHDOG_MS = 6000;
+const IPHONE_MIC_RESTART_DELAY_MS = 1500;
+const MAX_IPHONE_MIC_CHECK_RECOVERIES = 2;
 
 
 // ==========================================
@@ -12755,6 +12770,30 @@ function isIPhoneSpeechRecognition() {
 
     return /iPhone|iPod/i.test(
         navigator.userAgent || ''
+    );
+}
+
+
+// ==========================================
+// ★ Apple mobile SpeechRecognition 判定
+// iPhone / iPad / iPadOS desktop UA
+// ==========================================
+function isAppleMobileSpeechRecognition() {
+
+    const ua =
+        navigator.userAgent || '';
+
+    return (
+        /iPhone|iPad|iPod/i.test(
+            ua
+        ) ||
+        (
+            /Macintosh/i.test(
+                ua
+            ) &&
+            navigator.maxTouchPoints >
+                1
+        )
     );
 }
 
@@ -15881,7 +15920,7 @@ async function recoverIPhoneMicCheckStart(
 ) {
 
     if (
-        !isIPhoneSpeechRecognition() ||
+        !isAppleMobileSpeechRecognition() ||
         staleRec !==
             mainRecognition ||
         micCheckPassed
@@ -16292,8 +16331,6 @@ const markMicCheckStarted =
 rec.onstart =
     () => {
 
-        markMicCheckStarted();
-
         if (
             typeof mainOnStart ===
                 'function'
@@ -16306,8 +16343,6 @@ rec.onstart =
 
 rec.onaudiostart =
     () => {
-
-        markMicCheckStarted();
 
         if (
             typeof mainOnAudioStart ===
@@ -16638,7 +16673,7 @@ rec.onend =
     // PC / iPad / Androidでは一切実行しない。
     // ==========================================
     if (
-        isIPhoneSpeechRecognition()
+        isAppleMobileSpeechRecognition()
     ) {
 
         clearMicCheckStartWatchdog();
