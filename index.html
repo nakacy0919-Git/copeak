@@ -6609,10 +6609,41 @@ body.result-layout-active
 
 
     body.result-layout-active
-    #slaAdviceText {
-        font-size: 11px !important;
-        line-height: 1.4 !important;
-    }
+#slaAdviceText {
+    display: -webkit-box !important;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+
+    overflow: hidden !important;
+
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+}
+
+
+/* 詳細表示中 */
+body.result-layout-active
+#slaAdviceContainer.feedback-expanded
+#slaAdviceText {
+    display: block !important;
+
+    -webkit-line-clamp: unset;
+
+    overflow: visible !important;
+}
+
+
+/* 詳細を見る */
+body.result-layout-active
+#feedbackToggleBtn {
+    margin-top: 5px !important;
+
+    padding: 2px 0 !important;
+
+    font-size: 10px !important;
+    line-height: 1.2 !important;
+}
 
 
     /* ======================================
@@ -6660,7 +6691,65 @@ body.result-layout-active
         font-size: 10px !important;
     }
 
+/* ======================================
+   Target Text controls
+   Resultでは本文確認だけにする
+   ====================================== */
 
+body.result-layout-active
+#toggleJpnBtn {
+    display: none !important;
+}
+
+
+/* 予行練習 */
+body.result-layout-active
+#targetTextWrapper
+button[onclick="openFullscreenPreview()"] {
+    display: none !important;
+}
+
+
+/* Paced / Vanish の設定 */
+body.result-layout-active
+#pacedModeControls,
+
+body.result-layout-active
+#vanishModeControls {
+    display: none !important;
+}
+
+
+/* 📊 学習ログ / A- / A+ */
+body.result-layout-active
+#targetTextWrapper
+> div:first-child
+> div:first-child
+> div:last-child {
+    display: none !important;
+}
+
+
+/* TARGET TEXT見出しをシンプルに */
+body.result-layout-active
+#targetTextWrapper
+> div:first-child
+> div:first-child {
+    justify-content: flex-start !important;
+
+    margin-bottom: 7px !important;
+    padding-bottom: 6px !important;
+}
+
+
+/* 見出し左側の余白も整理 */
+body.result-layout-active
+#targetTextWrapper
+> div:first-child
+> div:first-child
+> div:first-child {
+    gap: 0 !important;
+}
     /* ======================================
        Your Voice / Target Text
        ====================================== */
@@ -7446,9 +7535,37 @@ body.result-layout-active
                         </div>
                         <div id="practiceIconsContainer" class="flex flex-wrap gap-1 px-2"></div>
                         <div id="slaAdviceContainer" class="bg-emerald-50 border-l-4 border-emerald-600 p-3 md:p-4 rounded-sm shadow-sm flex items-start gap-3 md:gap-4 iron-border-sm">
-                            <span class="text-2xl md:text-3xl mt-0 md:mt-1">💡</span>
-                            <div><h4 data-i18n="score_feedback" class="font-bold text-emerald-900 text-xs md:text-sm tracking-widest uppercase mb-1">Learning Feedback</h4><p id="slaAdviceText" class="text-stone-700 text-xs md:text-sm leading-relaxed font-medium"></p></div>
-                        </div>
+
+    <span class="text-2xl md:text-3xl mt-0 md:mt-1">
+        💡
+    </span>
+
+    <div class="min-w-0 flex-1">
+
+        <h4
+            data-i18n="score_feedback"
+            class="font-bold text-emerald-900 text-xs md:text-sm tracking-widest uppercase mb-1"
+        >
+            Learning Feedback
+        </h4>
+
+        <p
+            id="slaAdviceText"
+            class="text-stone-700 text-xs md:text-sm leading-relaxed font-medium"
+        ></p>
+
+        <button
+            id="feedbackToggleBtn"
+            type="button"
+            onclick="toggleResultFeedback()"
+            class="md:hidden mt-2 text-[10px] font-bold text-emerald-700 hover:text-emerald-900 transition"
+        >
+            ＋ 詳細を見る
+        </button>
+
+    </div>
+
+</div>
                         <button id="submitScoreTriggerBtn" onclick="openReflectionWrapper()" class="hidden w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-sm shadow-md transition-all flex items-center justify-center gap-2 animate-bounce">
                             🚀 <span data-i18n="btn_submit_score">先生に成績を提出する（振り返り入力へ）</span>
                         </button>

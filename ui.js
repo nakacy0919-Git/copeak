@@ -1177,6 +1177,33 @@ function showRecordingState() {
 // ==========================================
 // ★ 結果画面
 // ==========================================
+function toggleResultFeedback() {
+
+    const container =
+        document.getElementById(
+            'slaAdviceContainer'
+        );
+
+    const button =
+        document.getElementById(
+            'feedbackToggleBtn'
+        );
+
+    if (!container || !button) {
+        return;
+    }
+
+    const expanded =
+        container.classList.toggle(
+            'feedback-expanded'
+        );
+
+    button.textContent =
+        expanded
+            ? '− 閉じる'
+            : '＋ 詳細を見る';
+}
+
 function showResultState() {
     hideMicHealthSensor();
 
@@ -1261,6 +1288,27 @@ document.body.classList.toggle(
     }
 
     resultScoreBoard.style.display = 'flex';
+
+    const feedbackContainer =
+    document.getElementById(
+        'slaAdviceContainer'
+    );
+
+const feedbackToggleBtn =
+    document.getElementById(
+        'feedbackToggleBtn'
+    );
+
+if (feedbackContainer) {
+    feedbackContainer.classList.remove(
+        'feedback-expanded'
+    );
+}
+
+if (feedbackToggleBtn) {
+    feedbackToggleBtn.textContent =
+        '＋ 詳細を見る';
+}
 
     const accEl = document.getElementById('bigAccValue');
     const wpmEl = document.getElementById('bigWpmValue');
