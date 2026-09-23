@@ -769,17 +769,6 @@ function createHomeLessonCard(lesson, homeList) {
             </div>
 
 
-            <p class="
-                home-lesson-preview
-                text-xs md:text-sm
-                text-stone-400
-                mt-1
-                font-medium
-            ">
-                ${lesson.eng}
-            </p>
-
-
             <div class="
                 flex
                 gap-2
