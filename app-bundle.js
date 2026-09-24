@@ -11350,6 +11350,12 @@ let recognitionFinishTimer = null;
 // iPhone Mic Check start() 監視用
 let micCheckStartWatchdogTimer = null;
 let iPhoneMicCheckRecoveryAttempts = 0;
+
+// ==========================================
+// ? ??????????????????
+// ???????? false ???
+// ==========================================
+let speechVerifiedForPage = false;
 // Mic Checkと本番で同じSpeechRecognitionを使うため、
 // 本番ではMic Check分のresultを読み飛ばす。
 let recognitionResultStartIndex = 0;
@@ -13362,6 +13368,13 @@ for (
             return;
         }
 
+        // ==========================================
+        // ? ?????????????
+        // ?????????Mic Check???
+        // ==========================================
+        speechVerifiedForPage =
+            true;
+
 
         recognitionHasResult =
             true;
@@ -13861,6 +13874,14 @@ function stopReadingMedia() {
 // ★ Recognition完全失敗
 // ==========================================
 function failRecognition(message) {
+
+    // ==========================================
+    // ? Recognition????
+    // ??START??Mic Check???
+    // ==========================================
+    speechVerifiedForPage =
+        false;
+
 
     clearRecognitionTimers();
 
@@ -14646,6 +14667,25 @@ function toggleRecording() {
 
     // ==========================================
     // ★ 毎回、本番前に実際の音声認識を確認する
+    // ==========================================
+    if (
+        speechVerifiedForPage
+    ) {
+
+        // ==========================================
+        // ? 2????
+        // Mic Check??????Recognition???
+        // ==========================================
+        startRecordingSession(
+            false
+        );
+
+        return;
+    }
+
+
+    // ==========================================
+    // ? ??????????1???Mic Check
     // ==========================================
     startMicCheck();
 }
