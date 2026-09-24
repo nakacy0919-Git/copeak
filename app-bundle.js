@@ -11347,6 +11347,7 @@ let recognitionPassiveRestartCount = 0;
 let recognitionStartTimer = null;
 let recognitionSpeechTimer = null;
 let recognitionFinishTimer = null;
+let recognitionResultWatchdogTimer = null;
 // iPhone Mic Check start() 監視用
 let micCheckStartWatchdogTimer = null;
 let iPhoneMicCheckRecoveryAttempts = 0;
@@ -11363,6 +11364,7 @@ let recognitionResultStartIndex = 0;
 const RECOGNITION_START_TIMEOUT_MS = 8000;
 const RECOGNITION_SPEECH_TIMEOUT_MS = 5000;
 const RECOGNITION_FINISH_WAIT_MS = 1500;
+const RECOGNITION_RESULT_WATCHDOG_MS = 9000;
 const MAX_RECOGNITION_RETRIES = 2;
 const MAX_PASSIVE_RESTARTS = 3;
 // iPhoneだけMic Check開始を監視
@@ -13081,6 +13083,11 @@ function clearRecognitionTimers() {
     clearRecognitionTimer('start');
     clearRecognitionTimer('speech');
     clearRecognitionTimer('finish');
+
+    if (recognitionResultWatchdogTimer) {
+        clearTimeout(recognitionResultWatchdogTimer);
+        recognitionResultWatchdogTimer = null;
+    }
 }
 function clearMicCheckStartWatchdog() {
 
@@ -13367,7 +13374,18 @@ for (
         ) {
             return;
         }
+        
+        if (
+    recognitionResultWatchdogTimer
+) {
 
+    clearTimeout(
+        recognitionResultWatchdogTimer
+    );
+
+    recognitionResultWatchdogTimer =
+        null;
+}
         // ==========================================
         // ? ?????????????
         // ?????????Mic Check???
@@ -13632,9 +13650,65 @@ recognitionResultStartIndex =
 
         rec.start();
 
-        clearRecognitionTimer(
-            'start'
+clearRecognitionTimer(
+    'start'
+);
+
+
+// ==========================================
+// ★ 2回目以降の文字起こし監視
+//
+// onstartだけ来てonresultが来ない
+// WebKit停止状態を検出する。
+// ==========================================
+if (
+    speechVerifiedForPage
+) {
+
+    if (
+        recognitionResultWatchdogTimer
+    ) {
+        clearTimeout(
+            recognitionResultWatchdogTimer
         );
+    }
+
+
+    recognitionResultWatchdogTimer =
+        setTimeout(() => {
+
+            recognitionResultWatchdogTimer =
+                null;
+
+
+            if (
+                rec !== mainRecognition ||
+                !isMainRecording ||
+                recognitionFinishing ||
+                recognitionHasResult
+            ) {
+                return;
+            }
+
+
+            console.warn(
+                '[Copeak] No recognition result - restarting SpeechRecognition'
+            );
+
+
+            setRecognitionHealth(
+                'warning',
+                '音声認識を再接続しています…'
+            );
+
+
+            recoverRecognition(
+                'result-timeout',
+                true
+            );
+
+        }, RECOGNITION_RESULT_WATCHDOG_MS);
+}
 
 
         // ==========================================
@@ -13791,19 +13865,19 @@ function recoverRecognition(
 
 
     const oldRec =
-        mainRecognition;
+    mainRecognition;
 
 
-    mainRecognition =
-        null;
+mainRecognition =
+    null;
 
 
-    if (oldRec) {
+if (oldRec) {
 
-        try {
-            oldRec.abort();
-        } catch (e) {}
-    }
+    try {
+        oldRec.abort();
+    } catch (e) {}
+}
 
 
     // ==========================================
@@ -14035,23 +14109,28 @@ function finalizeRecognition() {
 
 
         const oldRec =
-        mainRecognition;
+    mainRecognition;
 
 
-    mainRecognition =
-        null;
+mainRecognition =
+    null;
 
 
-    if (
-        oldRec
-    ) {
+// ==========================================
+// ★ onendまで完了したRecognitionには
+// 再度abort()しない
+// ==========================================
+if (
+    oldRec &&
+    oldRec.__copeakEnded !== true
+) {
 
-        try {
+    try {
 
-            oldRec.abort();
+        oldRec.abort();
 
-        } catch (e) {}
-    }
+    } catch (e) {}
+}
 
 
     // ==========================================
