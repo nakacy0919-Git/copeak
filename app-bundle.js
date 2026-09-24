@@ -12766,6 +12766,70 @@ function isIPhoneSpeechRecognition() {
     );
 }
 
+// ==========================================
+// ★ iPhone / iPad 判定
+// iPadのデスクトップUAにも対応
+// ==========================================
+function isAppleMobileSpeechRecognition() {
+
+    const ua =
+        navigator.userAgent || '';
+
+    const isiPhoneOrIPad =
+        /iPhone|iPad|iPod/i.test(ua);
+
+    const isIPadDesktopMode =
+        navigator.platform === 'MacIntel' &&
+        navigator.maxTouchPoints > 1;
+
+    return (
+        isiPhoneOrIPad ||
+        isIPadDesktopMode
+    );
+}
+
+
+// ==========================================
+// ★ Safariメジャーバージョン取得
+//
+// Safari 26以降はiOS番号がUA上で固定されるため
+// "iPhone OS 27"ではなくVersion/27を見る。
+// ==========================================
+function getSafariMajorVersion() {
+
+    const ua =
+        navigator.userAgent || '';
+
+    // Chrome / Firefox / Edge on iOSは
+    // Safariとして判定しない
+    if (
+        /CriOS|FxiOS|EdgiOS/i.test(ua)
+    ) {
+        return null;
+    }
+
+    const match =
+        ua.match(
+            /Version\/(\d+)/i
+        );
+
+    return match
+        ? Number(match[1])
+        : null;
+}
+
+
+function isSafari27PlusOnAppleMobile() {
+
+    const version =
+        getSafariMajorVersion();
+
+    return (
+        isAppleMobileSpeechRecognition() &&
+        version !== null &&
+        version >= 27
+    );
+}
 
 function mergeAndroidRecognitionChunk(
     baseText,
@@ -13839,7 +13903,17 @@ function recoverRecognition(
         'speech'
     );
 
+if (
+    recognitionResultWatchdogTimer
+) {
 
+    clearTimeout(
+        recognitionResultWatchdogTimer
+    );
+
+    recognitionResultWatchdogTimer =
+        null;
+}
     // ==========================================
     // 再接続直前のInterim結果を失わない
     // ==========================================
@@ -13879,7 +13953,50 @@ if (oldRec) {
     } catch (e) {}
 }
 
+// ==========================================
+// ★ Apple SpeechRecognition recovery delay
+//
+// 正常なiOS 26には通常影響しない。
+// 本番認識成功後に復旧が必要になった場合だけ
+// WebKitのAudioSession解放時間を長くする。
+// ==========================================
+let recoveryDelay =
+    300;
 
+if (
+    isAppleMobileSpeechRecognition() &&
+    speechVerifiedForPage
+) {
+
+    // 1回目の復旧
+    if (
+        recognitionRetryCount <= 1
+    ) {
+
+        recoveryDelay =
+            1200;
+
+    } else {
+
+        // 2回目の復旧
+        recoveryDelay =
+            3000;
+    }
+
+
+    console.warn(
+        '[Copeak] Apple SpeechRecognition recovery',
+        {
+            reason,
+            retry:
+                recognitionRetryCount,
+            delay:
+                recoveryDelay,
+            safari:
+                getSafariMajorVersion()
+        }
+    );
+}
     // ==========================================
     // 少し待って新しいRecognitionを作る
     // ==========================================
@@ -13907,7 +14024,7 @@ if (oldRec) {
             );
         }
 
-    }, 300);
+   }, recoveryDelay);
 }
 
 
@@ -14354,7 +14471,6 @@ function finishRecordingSession() {
     clearRecognitionTimer(
         'speech'
     );
-
 
     updateMicButtonUI();
 
