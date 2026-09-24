@@ -16574,37 +16574,10 @@ setRecognitionHealth(
 
 
 // ======================================
-// ★ Mic Check成功後は自動開始しない
-// 生徒がNEXTを押してから本番を開始する。
-// SpeechRecognition自体は切らず、そのまま維持。
+// ★ Mic Check成功後、そのまま本番へ移行
+// 同じRecognitionセッションを維持する。
 // ======================================
-const actions =
-    document.getElementById(
-        'micCheckActions'
-    );
-
-const startBtn =
-    document.getElementById(
-        'micCheckStartBtn'
-    );
-
-const retryBtn =
-    document.getElementById(
-        'micCheckRetryBtn'
-    );
-
-
-actions?.classList.remove(
-    'hidden'
-);
-
-startBtn?.classList.remove(
-    'hidden'
-);
-
-retryBtn?.classList.add(
-    'hidden'
-);
+beginReadingAfterMicCheck();
         };
 
 
