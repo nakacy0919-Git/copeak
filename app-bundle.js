@@ -13569,6 +13569,9 @@ rec.onend = () => {
     rec.__copeakEnded =
         true;
 
+     // ★ iPhoneでは終了後5秒間、
+    // 次のRecognition開始を待つ
+    startIPhoneRecognitionCooldown();
 
     if (
         rec !== mainRecognition
@@ -14678,6 +14681,53 @@ if (
     }
 }
 
+// ==========================================
+// ★ iPhone SpeechRecognition Cooldown
+// 前回の音声認識終了直後の再STARTを防ぐ
+// ==========================================
+
+const IPHONE_RECOGNITION_COOLDOWN_MS =
+    5000;
+
+let iPhoneRecognitionCooldownUntil =
+    0;
+
+
+function startIPhoneRecognitionCooldown() {
+
+    if (
+        !isIPhoneSpeechRecognition()
+    ) {
+        return;
+    }
+
+
+    iPhoneRecognitionCooldownUntil =
+        Date.now() +
+        IPHONE_RECOGNITION_COOLDOWN_MS;
+
+
+    console.log(
+        '[Copeak] iPhone SpeechRecognition cooldown started'
+    );
+}
+
+
+function getIPhoneRecognitionCooldownRemaining() {
+
+    if (
+        !isIPhoneSpeechRecognition()
+    ) {
+        return 0;
+    }
+
+
+    return Math.max(
+        0,
+        iPhoneRecognitionCooldownUntil -
+        Date.now()
+    );
+}
 
 // ==========================================
 // ★ START / FINISH
@@ -14700,6 +14750,49 @@ function toggleRecording() {
 
 
         return;
+    }
+
+        // ★ iPhone終了直後の再STARTを防止
+    // ==========================================
+
+    if (
+        !isMainRecording
+    ) {
+
+        const cooldownRemaining =
+            getIPhoneRecognitionCooldownRemaining();
+
+
+        if (
+            cooldownRemaining >
+            0
+        ) {
+
+            const seconds =
+                Math.ceil(
+                    cooldownRemaining /
+                    1000
+                );
+
+
+            console.warn(
+                `[Copeak] iPhone cooldown: ${seconds}s remaining`
+            );
+
+
+            if (
+                typeof showMsg ===
+                'function'
+            ) {
+
+                showMsg(
+                    `🎙 マイクを準備しています。あと約${seconds}秒お待ちください。`
+                );
+            }
+
+
+            return;
+        }
     }
 
 
