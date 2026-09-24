@@ -16537,28 +16537,17 @@ rec.onaudiostart =
 
 
             // ======================================
-            // ★ stop()しない
-            //
-            // 同じRecognitionをそのまま本番用handlerへ戻す。
-            // ======================================
-            rec.onstart =
-    mainOnStart;
+// ★ iOS 27対策
+// Mic Check用Recognitionは本番へ使い回さない。
+// Mic Check成功後に一度完全に切り離し、
+// NEXT後に本番専用Recognitionを新しく作る。
+// ======================================
+mainRecognition =
+    null;
 
-
-rec.onaudiostart =
-    mainOnAudioStart;
-
-
-rec.onresult =
-    mainOnResult;
-
-
-rec.onerror =
-    mainOnError;
-
-
-rec.onend =
-    mainOnEnd;
+try {
+    rec.abort();
+} catch (e) {}
 
 
             setMicCheckStatus(
