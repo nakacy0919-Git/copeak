@@ -5,49 +5,40 @@
 
 (() => {
 
+  // ========================================
+  // 起動時URLのClassroom情報
+  // ========================================
   const params =
     new URLSearchParams(
       window.location.search
     );
 
 
-  const assignmentId =
+  const initialAssignmentId =
     params.get(
       'classroom_assignment'
     );
 
 
-  const source =
+  const initialSource =
     params.get(
       'source'
     );
 
 
-  // ========================================
-  // Copeak Classroom経由でなければ何もしない
-  // ========================================
-  if (
-    !assignmentId ||
-    source !==
-      'copeak-classroom'
-  ) {
-    return;
-  }
-
-
-  const DEFAULT_CLASSROOM_ORIGIN =
-    'https://cc.pic-speak-story.com';
-
-
-  const requestedOrigin =
+  const initialRequestedOrigin =
     params.get(
       'classroom_origin'
     );
 
 
   // ========================================
-  // 許可するClassroomドメイン
+  // Classroomドメイン設定
   // ========================================
+  const DEFAULT_CLASSROOM_ORIGIN =
+    'https://cc.pic-speak-story.com';
+
+
   const allowedOrigins =
     new Set([
       DEFAULT_CLASSROOM_ORIGIN,
@@ -55,14 +46,96 @@
     ]);
 
 
-  const classroomOrigin =
-    allowedOrigins.has(
+  function resolveClassroomOrigin(
+    requestedOrigin
+  ) {
+
+    return allowedOrigins.has(
       requestedOrigin
     )
-
       ? requestedOrigin
-
       : DEFAULT_CLASSROOM_ORIGIN;
+  }
+
+
+  // ========================================
+  // 起動時のClassroom Context
+  // ========================================
+  const initialContext =
+    (
+      initialAssignmentId &&
+      initialSource ===
+        'copeak-classroom'
+    )
+      ? {
+          assignmentId:
+            initialAssignmentId,
+
+          classroomOrigin:
+            resolveClassroomOrigin(
+              initialRequestedOrigin
+            )
+        }
+      : null;
+
+
+  // ========================================
+  // 現在開いている教材の
+  // Classroom Contextを取得
+  //
+  // startCustomLesson() が
+  // window.__copeakClassroomContext を
+  // 更新する
+  // ========================================
+  function getActiveClassroomContext() {
+
+    // startCustomLesson() が一度でも
+    // Contextを設定した後はこちらを優先する
+    const hasRuntimeContext =
+      Object.prototype
+        .hasOwnProperty
+        .call(
+          window,
+          '__copeakClassroomContext'
+        );
+
+
+    if (
+      hasRuntimeContext
+    ) {
+
+      const runtimeContext =
+        window
+          .__copeakClassroomContext;
+
+
+      // 普通の教材ならnull
+      if (
+        !runtimeContext ||
+        !runtimeContext.assignmentId
+      ) {
+        return null;
+      }
+
+
+      return {
+
+        assignmentId:
+          runtimeContext.assignmentId,
+
+        classroomOrigin:
+          resolveClassroomOrigin(
+            runtimeContext.classroomOrigin
+          )
+
+      };
+    }
+
+
+    // startCustomLesson() が動く前は
+    // 起動時URLの情報を使用
+    return initialContext;
+  }
 
 
   let lastSignature =
@@ -153,7 +226,33 @@
   // ========================================
   function sendResultToClassroom() {
 
-    // 呼び出し元Classroomが存在しない
+    // ======================================
+    // 現在の教材が
+    // Classroom課題か確認
+    // ======================================
+    const context =
+      getActiveClassroomContext();
+
+
+    // 普通の教材なら送信しない
+    if (
+      !context
+    ) {
+      return;
+    }
+
+
+    const assignmentId =
+      context.assignmentId;
+
+
+    const classroomOrigin =
+      context.classroomOrigin;
+
+
+    // ======================================
+    // 呼び出し元Classroomが存在するか
+    // ======================================
     if (
       !window.opener ||
       window.opener.closed
@@ -219,17 +318,19 @@
 
     // ======================================
     // 二重送信防止
+    //
+    // assignmentIdも含めることで
+    // 別の課題で同じ点数だった場合に
+    // 誤って送信を止めない
     // ======================================
     const signature =
-      `${accuracy}|${wpm}|${comprehension}`;
+      `${assignmentId}|${accuracy}|${wpm}|${comprehension}`;
 
 
     const now =
       Date.now();
 
 
-    // DOMが連続更新されても1回だけ送る
-    // 数秒後に同じスコアを再挑戦した場合は許可
     if (
       signature ===
         lastSignature &&
@@ -292,6 +393,9 @@
 
   // ========================================
   // processSpeechMatchを包む
+  //
+  // 音声認識ロジック自体は変更しない
+  // 採点終了を検知するだけ
   // ========================================
   function installProcessSpeechMatchWrapper() {
 
@@ -341,8 +445,9 @@
           isFinalResult
         ) {
 
-          // Copeakが画面へ
-          // Accuracy/WPM/Compを描画するのを待つ
+          // Copeakが
+          // Accuracy/WPM/Compを
+          // 画面へ描画するのを待つ
           setTimeout(
             sendResultToClassroom,
             80
@@ -467,6 +572,9 @@
 
   // ========================================
   // Bridge開始
+  //
+  // ★ 通常のCopeak起動時でも
+  // Bridgeを終了させない
   // ========================================
   if (
     !installProcessSpeechMatchWrapper()
@@ -495,7 +603,8 @@
           }
 
 
-          // 約3秒待っても見つからなければ
+          // 約3秒待っても
+          // processSpeechMatchが見つからなければ
           // DOM監視方式へ
           if (
             tries >=
@@ -522,9 +631,20 @@
     'message',
     event => {
 
+      const context =
+        getActiveClassroomContext();
+
+
+      if (
+        !context
+      ) {
+        return;
+      }
+
+
       if (
         event.origin !==
-        classroomOrigin
+        context.classroomOrigin
       ) {
         return;
       }
@@ -539,7 +659,7 @@
         data.type !==
           'copeak-classroom-saved' ||
         data.assignmentId !==
-          assignmentId
+          context.assignmentId
       ) {
         return;
       }
@@ -564,6 +684,11 @@
         '[Copeak Classroom] submission saved'
       );
     }
+  );
+
+
+  console.log(
+    '[Copeak Classroom] bridge initialized'
   );
 
 })();

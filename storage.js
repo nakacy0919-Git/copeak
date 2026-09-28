@@ -462,7 +462,7 @@ function savePracticeLog(lessonId, logData, onComplete) {
         
         store.put(lesson);
         currentCustomLesson = lesson; 
-        
+
         if (onComplete) onComplete();
     };
 }
@@ -1115,9 +1115,52 @@ function deleteLesson(event, id) {
 }
 
 function startCustomLesson(lesson) {
-    currentCustomLesson = lesson; 
-    loadSavedLessons(); 
-    if (typeof openLearningScreen === 'function') openLearningScreen(lesson);
+
+    currentCustomLesson = lesson;
+
+
+    // ==========================================
+    // Copeak Classroom Context
+    // ==========================================
+
+    if (
+        lesson?.classroomSource &&
+        lesson?.classroomAssignmentId
+    ) {
+
+        window.__copeakClassroomContext = {
+
+            assignmentId:
+                lesson.classroomAssignmentId,
+
+            classroomOrigin:
+                lesson.classroomOrigin || ''
+
+        };
+
+        console.log(
+            '[Copeak Classroom] active assignment',
+            window.__copeakClassroomContext
+        );
+
+    } else {
+
+        window.__copeakClassroomContext =
+            null;
+    }
+
+
+    loadSavedLessons();
+
+    if (
+        typeof openLearningScreen ===
+        'function'
+    ) {
+
+        openLearningScreen(
+            lesson
+        );
+    }
 }
 
 async function checkUrlParameters() {
@@ -1243,6 +1286,19 @@ async function checkUrlParameters() {
         const audioUrl = urlParams.get('audioUrl') || null;
         const jpnText = urlParams.get('jpn') || "先生からの共有教材です。";
 
+                // ==========================================
+        // Copeak Classroom information
+        // ==========================================
+        const classroomAssignmentId =
+            urlParams.get('classroom_assignment');
+
+        const classroomOrigin =
+            urlParams.get('classroom_origin');
+
+        const classroomSource =
+            urlParams.get('source') ===
+            'copeak-classroom';
+
         const lessonType = urlParams.get('type') || 'standard';
         let dialogueData = [];
 
@@ -1277,6 +1333,20 @@ async function checkUrlParameters() {
                     existingLesson.dialogue = dialogueData;
                 }
 
+                                // Classroomから開いた教材なら
+                // Classroom課題情報を教材に保持
+                if (classroomSource) {
+
+                    existingLesson.classroomAssignmentId =
+                        classroomAssignmentId;
+
+                    existingLesson.classroomOrigin =
+                        classroomOrigin;
+
+                    existingLesson.classroomSource =
+                        true;
+                }
+
                 store.put(existingLesson);
 
                 if (typeof showMsg === 'function') {
@@ -1287,20 +1357,45 @@ async function checkUrlParameters() {
 
             } else {
                 const newLessonData = {
-                    title: sharedTitle,
-                    eng: engText,
-                    jpn: jpnText,
-                    audioBlob: null,
-                    audioUrl: audioUrl,
-                    lang: lang,
-                    langName: "🌐 Shared Material",
-                    formUrl: formUrl,
-                    type: lessonType,
-                    dialogue: dialogueData,
-                    memoImage: null,
-                    history: [],
-                    createdAt: Date.now()
-                };
+
+    title: sharedTitle,
+    eng: engText,
+    jpn: jpnText,
+
+    audioBlob: null,
+    audioUrl: audioUrl,
+
+    lang: lang,
+    langName: "🌐 Shared Material",
+
+    formUrl: formUrl,
+
+    type: lessonType,
+    dialogue: dialogueData,
+
+    // ======================================
+    // Copeak Classroom
+    // ======================================
+    classroomAssignmentId:
+        classroomSource
+            ? classroomAssignmentId
+            : null,
+
+    classroomOrigin:
+        classroomSource
+            ? classroomOrigin
+            : null,
+
+    classroomSource:
+        classroomSource,
+
+    memoImage: null,
+
+    history: [],
+
+    createdAt:
+        Date.now()
+};
 
                 const addReq = store.add(newLessonData);
 

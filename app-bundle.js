@@ -1129,6 +1129,35 @@ function startCustomLesson(lesson) {
     currentCustomLesson =
         lesson;
 
+        // ==========================================
+    // Copeak Classroom Context
+    // ==========================================
+
+    if (
+        lesson?.classroomSource &&
+        lesson?.classroomAssignmentId
+    ) {
+
+        window.__copeakClassroomContext = {
+
+            assignmentId:
+                lesson.classroomAssignmentId,
+
+            classroomOrigin:
+                lesson.classroomOrigin || ''
+
+        };
+
+        console.log(
+            '[Copeak Classroom] active assignment',
+            window.__copeakClassroomContext
+        );
+
+    } else {
+
+        window.__copeakClassroomContext =
+            null;
+    }
 
     // ==========================================
     // ★ 教材が変わったときだけ
@@ -1291,6 +1320,20 @@ async function checkUrlParameters() {
         const formUrl = urlParams.get('form') || null;
         const audioUrl = urlParams.get('audioUrl') || null;
         const jpnText = urlParams.get('jpn') || "先生からの共有教材です。";
+        
+                // ==========================================
+        // Copeak Classroom information
+        // ==========================================
+
+        const classroomAssignmentId =
+            urlParams.get('classroom_assignment');
+
+        const classroomOrigin =
+            urlParams.get('classroom_origin');
+
+        const classroomSource =
+            urlParams.get('source') ===
+            'copeak-classroom';
 
         const lessonType = urlParams.get('type') || 'standard';
         let dialogueData = [];
@@ -1325,7 +1368,19 @@ async function checkUrlParameters() {
                 if (dialogueData.length > 0) {
                     existingLesson.dialogue = dialogueData;
                 }
+                                // Classroomから開いた教材なら
+                // Classroom課題情報を教材に保持
+                if (classroomSource) {
 
+                    existingLesson.classroomAssignmentId =
+                        classroomAssignmentId;
+
+                    existingLesson.classroomOrigin =
+                        classroomOrigin;
+
+                    existingLesson.classroomSource =
+                        true;
+                }
                 store.put(existingLesson);
 
                 if (typeof showMsg === 'function') {
@@ -1346,6 +1401,20 @@ async function checkUrlParameters() {
                     formUrl: formUrl,
                     type: lessonType,
                     dialogue: dialogueData,
+
+                                        classroomAssignmentId:
+                        classroomSource
+                            ? classroomAssignmentId
+                            : null,
+
+                    classroomOrigin:
+                        classroomSource
+                            ? classroomOrigin
+                            : null,
+
+                    classroomSource:
+                        classroomSource,
+
                     memoImage: null,
                     history: [],
                     createdAt: Date.now()
