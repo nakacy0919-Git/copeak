@@ -1339,6 +1339,91 @@ async function checkUrlParameters() {
         const formUrl = urlParams.get('form') || null;
         const audioUrl = urlParams.get('audioUrl') || null;
         const jpnText = urlParams.get('jpn') || "先生からの共有教材です。";
+        // ==========================================
+// YouTube Clip
+// Copeak Classroom
+// ==========================================
+
+const rawYoutubeId =
+    urlParams.get(
+        'youtube_id'
+    );
+
+
+const youtubeVideoId =
+    /^[A-Za-z0-9_-]{11}$/.test(
+        rawYoutubeId || ''
+    )
+        ? rawYoutubeId
+        : null;
+
+
+const youtubeStartRaw =
+    urlParams.get(
+        'youtube_start'
+    );
+
+
+const youtubeEndRaw =
+    urlParams.get(
+        'youtube_end'
+    );
+
+
+let youtubeStartSeconds =
+    null;
+
+let youtubeEndSeconds =
+    null;
+
+
+if (youtubeVideoId) {
+
+    const parsedStart =
+        Number(
+            youtubeStartRaw
+        );
+
+
+    youtubeStartSeconds =
+        (
+            youtubeStartRaw !== null &&
+            Number.isFinite(
+                parsedStart
+            ) &&
+            parsedStart >= 0
+        )
+            ? parsedStart
+            : 0;
+
+
+    const parsedEnd =
+        Number(
+            youtubeEndRaw
+        );
+
+
+    if (
+        youtubeEndRaw !== null &&
+        Number.isFinite(
+            parsedEnd
+        ) &&
+        parsedEnd >
+            youtubeStartSeconds
+    ) {
+
+        youtubeEndSeconds =
+            parsedEnd;
+    }
+}
+
+
+const youtubeLoop =
+    youtubeVideoId
+        ? urlParams.get(
+            'youtube_loop'
+        ) === '1'
+        : false;
 
                 // ==========================================
         // Copeak Classroom information
@@ -1476,6 +1561,52 @@ async function checkUrlParameters() {
                 lessonType;
 
 
+
+
+
+            existingLesson.youtubeVideoId =
+
+
+                youtubeVideoId;
+
+
+
+            existingLesson.youtubeStartSeconds =
+
+
+                youtubeVideoId
+
+
+                    ? youtubeStartSeconds
+
+
+                    : null;
+
+
+
+            existingLesson.youtubeEndSeconds =
+
+
+                youtubeVideoId
+
+
+                    ? youtubeEndSeconds
+
+
+                    : null;
+
+
+
+            existingLesson.youtubeLoop =
+
+
+                youtubeVideoId
+
+
+                    ? youtubeLoop
+
+
+                    : false;
             if (
                 dialogueData.length > 0
             ) {
@@ -1722,6 +1853,23 @@ async function checkUrlParameters() {
             classroomSource:
                 classroomSource,
 
+
+            youtubeVideoId: youtubeVideoId,
+
+            youtubeStartSeconds:
+                youtubeVideoId
+                    ? youtubeStartSeconds
+                    : null,
+
+            youtubeEndSeconds:
+                youtubeVideoId
+                    ? youtubeEndSeconds
+                    : null,
+
+            youtubeLoop:
+                youtubeVideoId
+                    ? youtubeLoop
+                    : false,
 
             memoImage:
                 null,

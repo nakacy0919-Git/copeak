@@ -3095,10 +3095,10 @@
 }
 
 .cr-gacha2-world {
-    position: absolute;
+position: absolute;
 
     top: 42px;
-    left: 50%;
+left: 50%;
 
     z-index: 80;
 
@@ -4439,7 +4439,304 @@
     }
 
 }
+/* ==========================================
+   YouTube Lesson Layout
+   ========================================== */
 
+.youtube-lesson-pane {
+    min-width: 0;
+    min-height: 0;
+    flex-direction: column;
+}
+
+
+.youtube-lesson-card {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 12px;
+
+    background: #ffffff;
+
+    border-left: 4px solid #dc2626;
+    border-radius: 3px;
+
+    box-shadow:
+        0 1px 4px
+        rgba(28, 25, 23, 0.12);
+
+    overflow: hidden;
+}
+
+
+.youtube-lesson-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-bottom: 10px;
+
+    color: #991b1b;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: .08em;
+}
+
+
+.youtube-clip-time {
+    color: #78716c;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 0;
+}
+
+
+.youtube-player-wrapper {
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    background: #111111;
+
+    overflow: hidden;
+}
+
+
+#youtubePlayer,
+#youtubePlayer iframe {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+
+.youtube-lesson-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 8px;
+
+    margin-top: 10px;
+}
+
+
+#youtubeReplayBtn {
+    padding: 7px 12px;
+
+    border: 1px solid #d6d3d1;
+    border-radius: 4px;
+
+    background: #fafaf9;
+
+    color: #44403c;
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+
+.youtube-loop-status {
+    padding: 5px 9px;
+
+    border-radius: 999px;
+
+    background: #ecfdf5;
+
+    color: #047857;
+
+    font-size: 10px;
+    font-weight: 800;
+}
+
+
+/* ==========================================
+   YouTube教材のみ
+   右側Playlistを消して全幅化
+   ========================================== */
+
+body.youtube-lesson-active
+#playlistSidebar {
+    display: none !important;
+}
+
+body.youtube-lesson-active
+#mobileLibraryBtn {
+    display: none !important;
+}
+
+body.youtube-lesson-active
+#mainLearningPane {
+    width: 100% !important;
+    max-width: none !important;
+
+    flex: 1 1 100% !important;
+}
+
+
+body.youtube-lesson-active
+#mainLayoutWrapper {
+    gap: 0 !important;
+}
+
+
+/* YouTube教材ではMP3バーを重複表示しない */
+
+body.youtube-lesson-active
+#audioContainer {
+    display: none !important;
+}
+
+
+/* ==========================================
+   PC / iPad Landscape
+   YouTube 42% : Target Text 58%
+   ========================================== */
+
+@media (min-width: 900px) and (orientation: landscape) {
+
+    body.youtube-lesson-active:not(.recording-layout-active):not(.result-layout-active)
+    #learningContentArea {
+
+        display: flex !important;
+
+        flex-direction: row !important;
+
+        align-items: stretch !important;
+
+        gap: 18px !important;
+
+        width: 100% !important;
+
+        min-width: 0 !important;
+        min-height: 0 !important;
+    }
+
+
+    body.youtube-lesson-active:not(.recording-layout-active):not(.result-layout-active)
+    #youtubeLessonPane {
+
+        display: flex !important;
+
+        width: 42% !important;
+
+        flex:
+            0 0 42% !important;
+
+        min-width: 0 !important;
+    }
+
+
+    body.youtube-lesson-active:not(.recording-layout-active):not(.result-layout-active)
+    #targetTextWrapper {
+
+        width: 58% !important;
+
+        flex:
+            1 1 58% !important;
+
+        min-width: 0 !important;
+    }
+}
+
+
+/* ==========================================
+   Smartphone / iPad Portrait
+   YouTube → Target Text の上下配置
+   ========================================== */
+
+@media (max-width: 899px),
+       (min-width: 900px) and (orientation: portrait) {
+
+    body.youtube-lesson-active:not(.recording-layout-active):not(.result-layout-active)
+#mainScrollArea {
+
+    overflow-y:
+        auto !important;
+
+    padding-bottom:
+        calc(
+            88px +
+            env(
+                safe-area-inset-bottom,
+                0px
+            )
+        ) !important;
+
+    -webkit-overflow-scrolling:
+        touch;
+
+    overscroll-behavior-y:
+        contain;
+}
+
+
+    body.youtube-lesson-active:not(.recording-layout-active):not(.result-layout-active)
+    #learningContentArea {
+
+        display:
+            flex !important;
+
+        flex-direction:
+            column !important;
+
+        gap:
+            12px !important;
+
+        overflow:
+            visible !important;
+    }
+
+
+    body.youtube-lesson-active:not(.recording-layout-active):not(.result-layout-active)
+    #youtubeLessonPane {
+
+        display:
+            flex !important;
+
+        width:
+            100% !important;
+
+        flex:
+            0 0 auto !important;
+    }
+
+
+    body.youtube-lesson-active:not(.recording-layout-active):not(.result-layout-active)
+    #targetTextWrapper {
+
+        width:
+            100% !important;
+
+        min-height:
+            300px !important;
+
+        flex:
+            0 0 auto !important;
+    }
+}
+/* ==========================================
+   YouTube教材
+   録音中・結果画面では動画を表示しない
+   ========================================== */
+
+body.youtube-lesson-active.recording-layout-active
+#youtubeLessonPane,
+
+body.youtube-lesson-active.result-layout-active
+#youtubeLessonPane {
+    display: none !important;
+}
 </style>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,700;1,500&family=Noto+Sans+JP:wght@400;500;700&display=swap');
@@ -7816,9 +8113,14 @@ body.result-layout-active
             <h2 id="learningTitle" class="text-xl md:text-2xl font-bold text-stone-100 serif-font truncate px-2 md:px-4 flex-1 text-center">Title</h2>
             <div class="flex items-center gap-2">
                 
-                <button type="button" onclick="toggleMobileLibrary()" class="sm:hidden flex items-center justify-center px-3 py-2 bg-stone-700 hover:bg-stone-600 text-white rounded-sm font-bold text-xs shadow-md whitespace-nowrap">
-                    📚 教材
-                </button>
+                <button
+    id="mobileLibraryBtn"
+    type="button"
+    onclick="toggleMobileLibrary()"
+    class="sm:hidden flex items-center justify-center px-3 py-2 bg-stone-700 hover:bg-stone-600 text-white rounded-sm font-bold text-xs shadow-md whitespace-nowrap"
+>
+    📚 教材
+</button>
 
                 <button onclick="openMultiplaySetup()" class="flex items-center gap-2 px-3 py-2 bg-emerald-700 hover:bg-emerald-600 text-white rounded-sm font-bold transition text-xs md:text-sm shadow-md whitespace-nowrap">👥 共同モード</button>
                 <button onclick="generateShareLink()" class="flex items-center gap-2 px-3 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-sm font-bold transition text-xs md:text-sm shadow-md whitespace-nowrap">🔗 <span data-i18n="learn_share">共有</span></button>
@@ -7888,7 +8190,70 @@ body.result-layout-active
                             🚀 <span data-i18n="btn_submit_score">先生に成績を提出する（振り返り入力へ）</span>
                         </button>
                     </div>
+
                     <div id="learningContentArea" class="relative flex flex-col lg:flex-row gap-4 md:gap-6 flex-1 w-full min-h-0">
+                        <!-- ==========================================
+     YouTube Lesson Pane
+     Classroom YouTube教材のみ表示
+     ========================================== -->
+
+<div
+    id="youtubeLessonPane"
+    class="hidden youtube-lesson-pane"
+>
+
+    <div class="youtube-lesson-card">
+
+        <div class="youtube-lesson-header">
+
+            <span>
+                ▶ YouTube Clip
+            </span>
+
+            <span
+                id="youtubeClipTime"
+                class="youtube-clip-time"
+            ></span>
+
+        </div>
+
+
+        <div
+            id="youtubePlayerWrapper"
+            class="youtube-player-wrapper"
+        >
+
+            <div
+                id="youtubePlayer"
+            ></div>
+
+        </div>
+
+
+        <div
+            class="youtube-lesson-controls"
+        >
+
+            <button
+                type="button"
+                id="youtubeReplayBtn"
+            >
+                ↺ Replay
+            </button>
+
+
+            <span
+                id="youtubeLoopStatus"
+                class="youtube-loop-status"
+            >
+                Loop
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
                         <div id="yourVoiceWrapper" class="hidden w-full lg:w-1/2 p-4 md:p-6 bg-white rounded-sm border-l-4 border-stone-800 shadow-sm iron-border-sm flex-col transition-all duration-300 flex-1 min-h-[200px] md:min-h-[300px]">
                             <div class="flex justify-between items-center mb-2 md:mb-4 border-b border-stone-100 pb-2 shrink-0"><div data-i18n="label_your_voice" class="text-xs md:text-sm text-stone-800 font-bold uppercase tracking-widest">Your Voice</div></div>
                             <div id="recognizedTextDisplay" class="text-stone-500 leading-relaxed font-medium transition-all duration-200 serif-font flex-1 overflow-y-auto" style="font-size: 24px;"><span data-i18n="msg_press_start">※Press START to begin</span></div>

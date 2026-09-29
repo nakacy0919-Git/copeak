@@ -6,7 +6,7 @@ const dbName = "CopeakDB";
 const storeName = "CustomLessons";
 let db;
 let currentCustomLesson = null;
-let editingLessonId = null; 
+let editingLessonId = null;
 
 const LIBRARY_FOLDERS_KEY = 'copeak_library_folders';
 const UNFILED_FOLDER_ID = '__unfiled__';
@@ -210,22 +210,22 @@ function editLesson(event, id) {
     const transaction = db.transaction([storeName], "readonly");
     const store = transaction.objectStore(storeName);
     const request = store.get(id);
-    
+
     request.onsuccess = () => {
         const lesson = request.result;
         if (!lesson) return;
-        
+
         document.getElementById('customTitle').value = lesson.title;
         document.getElementById('customLang').value = lesson.lang;
         document.getElementById('customJpn').value = lesson.jpn || "";
         const formUrlInput = document.getElementById('customFormUrl');
         if (formUrlInput) formUrlInput.value = lesson.formUrl || "";
-        
+
         // セキュリティ上、ファイルinputは空にしておきます
         document.getElementById('customAudio').value = "";
         const memoInput = document.getElementById('customMemoImage');
         if(memoInput) memoInput.value = "";
-        
+
         // 🌟 追加：教材のタイプによってUIを切り替えてデータを流し込む
         if (lesson.type === 'dialogue') {
             if (typeof toggleMaterialType === 'function') toggleMaterialType('dialogue');
@@ -244,7 +244,7 @@ function editLesson(event, id) {
             if (typeof toggleMaterialType === 'function') toggleMaterialType('standard');
             document.getElementById('customEng').value = lesson.eng || "";
         }
-        
+
         // 🌟 追加：メモ画像を読み込んでプレビュー表示する
         const memoPreview = document.getElementById('memoImagePreview');
         const imageMark = document.getElementById('imageRegisteredMark');
@@ -263,14 +263,14 @@ function editLesson(event, id) {
             }
             if (imageMark) imageMark.classList.add('hidden');
         }
-        
+
         editingLessonId = id;
-        
+
         // ボタンとマークの表示を更新
         const btn = document.getElementById('saveMaterialBtn');
         const cancelBtn = document.getElementById('cancelEditBtn');
         const audioMark = document.getElementById('audioRegisteredMark');
-        
+
         if(btn) {
             btn.innerHTML = "Update Material (更新)";
             btn.classList.replace('bg-emerald-800', 'bg-blue-600');
@@ -286,7 +286,7 @@ function editLesson(event, id) {
                 audioMark.classList.add('hidden');
             }
         }
-        
+
 const formContent = document.getElementById('acc-form-content');
 const formIcon = document.getElementById('acc-form-icon');
 
@@ -310,8 +310,8 @@ if (typeof showMsg === 'function') {
 
 function cancelEdit(isSilent = false) {
     document.getElementById("customMaterialForm").reset();
-    document.getElementById('customAudio').value = ""; 
-    
+    document.getElementById('customAudio').value = "";
+
     // 🌟 追加：画像プレビューと保存データのクリア
     const memoInput = document.getElementById('customMemoImage');
     if(memoInput) memoInput.value = "";
@@ -355,7 +355,7 @@ async function saveCustomLesson() {
     const jpnText = document.getElementById("customJpn").value.trim();
     const formUrl = document.getElementById("customFormUrl")?.value.trim() || "";
     const audioFile = document.getElementById("customAudio").files[0];
-    
+
     const langSelect = document.getElementById("customLang");
     const selectedLang = langSelect.value;
     const selectedLangName = langSelect.options[langSelect.selectedIndex].text;
@@ -381,7 +381,7 @@ async function saveCustomLesson() {
             if (spk || txt) {
                 dialogueData.push({ speaker: spk, text: txt });
                 // リストのプレビュー表示用にテキストを結合しておく
-                engText += `${spk ? spk + ': ' : ''}${txt} `; 
+                engText += `${spk ? spk + ': ' : ''}${txt} `;
             }
         }
         if (!title || dialogueData.length === 0) {
@@ -403,31 +403,31 @@ async function saveCustomLesson() {
             lesson.formUrl = formUrl || null;
             lesson.lang = selectedLang;
             lesson.langName = selectedLangName;
-            
+
             // 🌟 追加：会話文データとメモ画像を保存
             lesson.type = lessonType;
             lesson.dialogue = dialogueData;
-            lesson.memoImage = window.currentMemoImageBase64 || null; 
-            
+            lesson.memoImage = window.currentMemoImageBase64 || null;
+
             if (audioFile) lesson.audioBlob = audioFile;
-            
+
             store.put(lesson);
             finishSaveProcess(transaction, "✅ 教材を更新しました！");
         };
     } else {
         const lessonData = {
-            title: title, 
+            title: title,
             eng: engText, // リスト表示用
             jpn: jpnText,
             formUrl: formUrl || null,
             folderId: null,
             audioBlob: audioFile || null,
-            lang: selectedLang, 
+            lang: selectedLang,
             langName: selectedLangName,
             type: lessonType, // 教材の種類
             dialogue: dialogueData, // 会話データ
             memoImage: window.currentMemoImageBase64 || null, // 🌟 追加：メモ画像
-            history: [], 
+            history: [],
             createdAt: new Date().getTime()
         };
         store.add(lessonData);
@@ -438,7 +438,7 @@ async function saveCustomLesson() {
 function finishSaveProcess(transaction, msg) {
     transaction.oncomplete = () => {
         if (typeof showMsg === 'function') showMsg(msg);
-        cancelEdit(true); 
+        cancelEdit(true);
         loadSavedLessons();
     };
 }
@@ -447,7 +447,7 @@ function savePracticeLog(lessonId, logData, onComplete) {
     const transaction = db.transaction([storeName], "readwrite");
     const store = transaction.objectStore(storeName);
     const getReq = store.get(lessonId);
-    
+
     getReq.onsuccess = () => {
     const lesson = getReq.result;
 
@@ -458,11 +458,11 @@ function savePracticeLog(lessonId, logData, onComplete) {
 
     if (!lesson.history) lesson.history = [];
         lesson.history.push(logData);
-        lesson.lastPracticed = new Date().getTime(); 
-        
+        lesson.lastPracticed = new Date().getTime();
+
         store.put(lesson);
-        currentCustomLesson = lesson; 
-        
+        currentCustomLesson = lesson;
+
         if (onComplete) onComplete();
     };
 }
@@ -1106,7 +1106,7 @@ document.addEventListener(
 );
 
 function deleteLesson(event, id) {
-    event.stopPropagation(); 
+    event.stopPropagation();
     if(!confirm("本当にこの教材を削除しますか？\n（学習記録もすべて消去されます）")) return;
     const transaction = db.transaction([storeName], "readwrite");
     const store = transaction.objectStore(storeName);
@@ -1373,6 +1373,91 @@ async function checkUrlParameters() {
         const formUrl = urlParams.get('form') || null;
         const audioUrl = urlParams.get('audioUrl') || null;
         const jpnText = urlParams.get('jpn') || "先生からの共有教材です。";
+        // ==========================================
+// YouTube Clip
+// Copeak Classroom
+// ==========================================
+
+const rawYoutubeId =
+    urlParams.get(
+        'youtube_id'
+    );
+
+
+const youtubeVideoId =
+    /^[A-Za-z0-9_-]{11}$/.test(
+        rawYoutubeId || ''
+    )
+        ? rawYoutubeId
+        : null;
+
+
+const youtubeStartRaw =
+    urlParams.get(
+        'youtube_start'
+    );
+
+
+const youtubeEndRaw =
+    urlParams.get(
+        'youtube_end'
+    );
+
+
+let youtubeStartSeconds =
+    null;
+
+let youtubeEndSeconds =
+    null;
+
+
+if (youtubeVideoId) {
+
+    const parsedStart =
+        Number(
+            youtubeStartRaw
+        );
+
+
+    youtubeStartSeconds =
+        (
+            youtubeStartRaw !== null &&
+            Number.isFinite(
+                parsedStart
+            ) &&
+            parsedStart >= 0
+        )
+            ? parsedStart
+            : 0;
+
+
+    const parsedEnd =
+        Number(
+            youtubeEndRaw
+        );
+
+
+    if (
+        youtubeEndRaw !== null &&
+        Number.isFinite(
+            parsedEnd
+        ) &&
+        parsedEnd >
+            youtubeStartSeconds
+    ) {
+
+        youtubeEndSeconds =
+            parsedEnd;
+    }
+}
+
+
+const youtubeLoop =
+    youtubeVideoId
+        ? urlParams.get(
+            'youtube_loop'
+        ) === '1'
+        : false;
 
                 // ==========================================
         // Copeak Classroom information
@@ -1510,6 +1595,52 @@ async function checkUrlParameters() {
                 lessonType;
 
 
+
+
+
+            existingLesson.youtubeVideoId =
+
+
+                youtubeVideoId;
+
+
+
+            existingLesson.youtubeStartSeconds =
+
+
+                youtubeVideoId
+
+
+                    ? youtubeStartSeconds
+
+
+                    : null;
+
+
+
+            existingLesson.youtubeEndSeconds =
+
+
+                youtubeVideoId
+
+
+                    ? youtubeEndSeconds
+
+
+                    : null;
+
+
+
+            existingLesson.youtubeLoop =
+
+
+                youtubeVideoId
+
+
+                    ? youtubeLoop
+
+
+                    : false;
             if (
                 dialogueData.length > 0
             ) {
@@ -1757,6 +1888,23 @@ async function checkUrlParameters() {
                 classroomSource,
 
 
+            youtubeVideoId: youtubeVideoId,
+
+            youtubeStartSeconds:
+                youtubeVideoId
+                    ? youtubeStartSeconds
+                    : null,
+
+            youtubeEndSeconds:
+                youtubeVideoId
+                    ? youtubeEndSeconds
+                    : null,
+
+            youtubeLoop:
+                youtubeVideoId
+                    ? youtubeLoop
+                    : false,
+
             memoImage:
                 null,
 
@@ -1865,8 +2013,8 @@ async function checkUrlParameters() {
 
 // アプリ起動時の処理（URLチェックを最後に追加）
 window.addEventListener('DOMContentLoaded', async () => {
-    try { 
-        await initDB(); 
+    try {
+        await initDB();
         // ==========================================
 // Past Practice Bonus
 // 過去の音読回数 × 10SP
@@ -1903,12 +2051,12 @@ if (
         }
     }
 }
-        
+
         injectPresetLessons(); // ★追加：ここでサンプル教材の補充スイッチをオンにします！
-        
-        loadSavedLessons(); 
+
+        loadSavedLessons();
         checkUrlParameters(); // ← URLにデータがあればここで保存処理が走ります
-    } 
+    }
     catch (e) { alert("エラー: 保存機能が利用できません。"); }
 });
 
@@ -1948,7 +2096,7 @@ async function injectPresetLessons() {
             langName: "🇺🇸 English (US)",
             audioPath: './audio/malala.mp3',
             history: [],
-            createdAt: Date.now() - 1000 
+            createdAt: Date.now() - 1000
         },
         {
             title: "🌍 (sample) Introduction to SDGs",
@@ -1977,18 +2125,18 @@ async function injectPresetLessons() {
             jpn: `私の経験上、間違いが人生の最高の物事につながりました。失敗して恥ずかしい思いをすることは、人間の経験の一部です。立ち上がり、土埃を払い落とし、その後でも誰が自分と一緒にいて笑い合ってくれるかを確認すること、それは神様からの贈り物です。私が「ノー」と言われたとき、仲間に入れてもらえなかったとき、選ばれなかったとき、勝てなかったとき、合格しなかったとき…振り返ってみると、そうした瞬間は、「イエス」と言われた瞬間と同じくらい、あるいはそれ以上に重要だったと心から感じます。私が伝えたいのは、失うことは単に失うことだけを意味しないということです。多くの場合、私たちは何かを失うとき、同時に何かを得ているのです。\n\n進歩と改革の名の下に、古い考え方を捨てるのが正しいこともあります。また、先人たちの知恵に腰を下ろして耳を傾けるのが正しいこともあります。このような重要な瞬間に、どうやって正しい選択が分かるのでしょうか？ 分かりません。こんなに多くの人たちの人生の選択について、どうやってアドバイスをすればいいのでしょうか？ しません。怖いお知らせは、皆さんはもう自分一人だということです。でも、素晴らしいお知らせは、皆さんはもう自分一人だということです。\n\n最後にこの言葉を残します。私たちは、直感や直観、欲望や恐れ、傷跡や夢に導かれています。そして、皆さんも時に失敗するでしょう。私も失敗します。そして私が失敗したときは、どうせ皆さんはインターネットでそれを読むことになるでしょう。私たちにはつらいことも起こります。しかし、私たちは立ち直ります。そこから学びます。そこからさらに強い回復力を身につけます。そして、息をする幸運に恵まれている限り、私たちは息を吸い、息を通し、深く息をし、そして息を吐きます。`,
             lang: "en-US",
             langName: "🇺🇸 English (US)",
-            audioPath: "taylor.mp3", 
+            audioPath: "taylor.mp3",
             history: [],
             createdAt: Date.now()
         },
         {
             title: "🗣️ (sample) Conversation: New Job",
-            type: "dialogue", 
+            type: "dialogue",
             eng: "Nick: How's the new job going, Mackenzie? Mackenzie: I'm finding it hard, actually. Nick: Are things hectic there? Mackenzie: Not really. The workload's probably lighter than in my last job. It's the overall atmosphere that's the problem. Nick: What's wrong with it? Mackenzie: Everyone's extremely competitive, and there's constant tension between teams, especially among the managers. Nick: That sounds tough.",
             jpn: "ニック: 新しい仕事の調子はどう、マッケンジー？\nマッケンジー: 実は、結構大変なんだよね。\nニック: あちこちバタバタして忙しい感じ？\nマッケンジー: いや、そうでもないかな。仕事量はたぶん前の仕事より少ないくらい。問題なのは、全体の雰囲気なんだ。\nニック: 雰囲気の何が悪いの？\nマッケンジー: みんなものすごく競争心が強くて、チーム間に常に緊張感があるんだよ。特にマネージャーたちの間でね。\nニック: それはきつそうだね。",
             lang: "en-US",
             langName: "🇺🇸 English (US)",
-            audioPath: './audio/conversation.mp3', 
+            audioPath: './audio/conversation.mp3',
             dialogue: [
                 { speaker: "Nick", text: "How's the new job going, Mackenzie?" },
                 { speaker: "Mackenzie", text: "I'm finding it hard, actually." },
@@ -1999,7 +2147,7 @@ async function injectPresetLessons() {
                 { speaker: "Nick", text: "That sounds tough." }
             ],
             history: [],
-            createdAt: Date.now() - 5000 
+            createdAt: Date.now() - 5000
         }
     ];
      // ★ (sample) 教材は最初から「サンプル教材」フォルダへ
@@ -2035,7 +2183,7 @@ async function injectPresetLessons() {
     }
 
     // 3. 現在のLibraryに「無い」サンプルだけを絞り込む（タイトルで判定）
-    const presetsToAdd = presetDataList.filter(preset => 
+    const presetsToAdd = presetDataList.filter(preset =>
         !existingLessons.some(lesson => lesson.title === preset.title)
     );
 
@@ -2068,7 +2216,7 @@ async function injectPresetLessons() {
     const writeStore = writeTx.objectStore(storeName);
 
     presetsToAdd.forEach(preset => writeStore.add(preset));
-    
+
     writeTx.oncomplete = () => {
         loadSavedLessons(); // 画面を更新してサンプルを表示
         if (typeof showMsg === 'function') showMsg(`📚 サンプル教材を ${presetsToAdd.length} 件追加しました！`);
@@ -2080,13 +2228,13 @@ async function injectPresetLessons() {
 // ==========================================
 
 const isMobile = window.innerWidth < 768;
-let engFontSize = isMobile ? 18 : 24; 
+let engFontSize = isMobile ? 18 : 24;
 let jpnFontSize = isMobile ? 14 : 16;
-let recFontSize = isMobile ? 18 : 24; 
+let recFontSize = isMobile ? 18 : 24;
 
 let targetTextArray = [];
-let currentMode = 'reading'; 
-let currentMemoLevel = 0; 
+let currentMode = 'reading';
+let currentMemoLevel = 0;
 let progressChartInstance = null;
 
 let targetWpm = 120;
@@ -2314,7 +2462,1016 @@ function buildMultilingualTargetTextArray(lesson) {
 
     return tokens;
 }
+// ==========================================
+// YOUTUBE LESSON LAYOUT
+// ==========================================
 
+function applyYoutubeLessonLayout(
+    lesson
+) {
+
+    const youtubeId =
+        String(
+            lesson?.youtubeVideoId ||
+            ''
+        ).trim();
+
+
+    const hasYoutube =
+        /^[A-Za-z0-9_-]{11}$/.test(
+            youtubeId
+        );
+
+
+    // ======================================
+    // body class
+    // ======================================
+
+    document.body
+        .classList
+        .toggle(
+            'youtube-lesson-active',
+            hasYoutube
+        );
+
+
+    // ======================================
+    // YouTube Pane
+    // ======================================
+
+    const youtubePane =
+        document.getElementById(
+            'youtubeLessonPane'
+        );
+
+
+    if (youtubePane) {
+
+        youtubePane
+            .classList
+            .toggle(
+                'hidden',
+                !hasYoutube
+            );
+    }
+
+
+    // ======================================
+    // Clip Time / Loop表示
+    // ======================================
+
+    const clipTime =
+        document.getElementById(
+            'youtubeClipTime'
+        );
+
+
+    const loopStatus =
+        document.getElementById(
+            'youtubeLoopStatus'
+        );
+
+
+    // ======================================
+    // 通常教材
+    // ======================================
+
+    if (!hasYoutube) {
+
+        if (clipTime) {
+
+            clipTime.textContent =
+                '';
+        }
+
+
+        if (loopStatus) {
+
+            loopStatus.textContent =
+                '';
+        }
+
+
+        return;
+    }
+
+
+    // ======================================
+    // Start
+    // ======================================
+
+    let start =
+        0;
+
+
+    if (
+        lesson.youtubeStartSeconds !==
+            null &&
+        lesson.youtubeStartSeconds !==
+            undefined
+    ) {
+
+        const parsedStart =
+            Number(
+                lesson.youtubeStartSeconds
+            );
+
+
+        if (
+            Number.isFinite(
+                parsedStart
+            ) &&
+            parsedStart >= 0
+        ) {
+
+            start =
+                parsedStart;
+        }
+    }
+
+
+    // ======================================
+    // End
+    // ======================================
+
+    let end =
+        null;
+
+
+    if (
+        lesson.youtubeEndSeconds !==
+            null &&
+        lesson.youtubeEndSeconds !==
+            undefined
+    ) {
+
+        const parsedEnd =
+            Number(
+                lesson.youtubeEndSeconds
+            );
+
+
+        if (
+            Number.isFinite(
+                parsedEnd
+            ) &&
+            parsedEnd >
+                start
+        ) {
+
+            end =
+                parsedEnd;
+        }
+    }
+
+
+    // ======================================
+    // 秒 → 0:45 / 1:20
+    // ======================================
+
+    const formatTime =
+        seconds => {
+
+            const total =
+                Math.max(
+                    0,
+                    Math.floor(
+                        Number(
+                            seconds
+                        ) || 0
+                    )
+                );
+
+
+            const hours =
+                Math.floor(
+                    total / 3600
+                );
+
+
+            const minutes =
+                Math.floor(
+                    (
+                        total %
+                        3600
+                    ) /
+                    60
+                );
+
+
+            const secs =
+                String(
+                    total %
+                    60
+                ).padStart(
+                    2,
+                    '0'
+                );
+
+
+            if (
+                hours >
+                0
+            ) {
+
+                return (
+                    `${hours}:${String(
+                        minutes
+                    ).padStart(
+                        2,
+                        '0'
+                    )}:${secs}`
+                );
+            }
+
+
+            return (
+                `${minutes}:${secs}`
+            );
+        };
+
+
+    // ======================================
+    // Clip Time表示
+    // ======================================
+
+    if (clipTime) {
+
+        clipTime.textContent =
+            end !==
+                null
+
+                ? `${formatTime(
+                    start
+                )} – ${formatTime(
+                    end
+                )}`
+
+                : `${formatTime(
+                    start
+                )} –`;
+    }
+
+
+    // ======================================
+    // Loop表示
+    // ======================================
+
+    if (loopStatus) {
+
+        loopStatus.textContent =
+            lesson.youtubeLoop ===
+                true
+
+                ? '🔁 Loop ON'
+
+                : 'Loop OFF';
+    }
+}
+// ==========================================
+// YOUTUBE IFRAME PLAYER
+// ==========================================
+
+let youtubeLessonPlayer =
+    null;
+
+let youtubeLoopTimer =
+    null;
+
+let youtubeApiPromise =
+    null;
+
+let activeYoutubeLesson =
+    null;
+
+let youtubeSetupGeneration =
+    0;
+
+
+// ==========================================
+// YouTube IFrame API Loader
+// ==========================================
+
+function loadYoutubeIframeApi() {
+
+    if (
+        window.YT &&
+        typeof window.YT.Player ===
+            'function'
+    ) {
+
+        return Promise.resolve();
+    }
+
+
+    if (
+        youtubeApiPromise
+    ) {
+
+        return youtubeApiPromise;
+    }
+
+
+    youtubeApiPromise =
+        new Promise(
+            (
+                resolve,
+                reject
+            ) => {
+
+                const previousReady =
+                    window.onYouTubeIframeAPIReady;
+
+
+                window.onYouTubeIframeAPIReady =
+                    function () {
+
+                        if (
+                            typeof previousReady ===
+                            'function'
+                        ) {
+
+                            try {
+
+                                previousReady();
+
+                            } catch (
+                                error
+                            ) {
+
+                                console.warn(
+                                    'Previous YouTube ready handler:',
+                                    error
+                                );
+                            }
+                        }
+
+
+                        resolve();
+                    };
+
+
+                let script =
+                    document.querySelector(
+                        'script[src="https://www.youtube.com/iframe_api"]'
+                    );
+
+
+                if (!script) {
+
+                    script =
+                        document.createElement(
+                            'script'
+                        );
+
+
+                    script.src =
+                        'https://www.youtube.com/iframe_api';
+
+
+                    script.async =
+                        true;
+
+
+                    document.head.appendChild(
+                        script
+                    );
+                }
+
+
+                script.addEventListener(
+                    'error',
+                    () => {
+
+                        youtubeApiPromise =
+                            null;
+
+
+                        reject(
+                            new Error(
+                                'YouTube Player APIの読み込みに失敗しました。'
+                            )
+                        );
+                    },
+                    {
+                        once:
+                            true
+                    }
+                );
+            }
+        );
+
+
+    return youtubeApiPromise;
+}
+
+
+// ==========================================
+// YouTube Player用DIVを確保
+// ==========================================
+
+function ensureYoutubePlayerTarget() {
+
+    const wrapper =
+        document.getElementById(
+            'youtubePlayerWrapper'
+        );
+
+
+    if (!wrapper) {
+
+        return null;
+    }
+
+
+    let target =
+        document.getElementById(
+            'youtubePlayer'
+        );
+
+
+    if (!target) {
+
+        target =
+            document.createElement(
+                'div'
+            );
+
+
+        target.id =
+            'youtubePlayer';
+
+
+        wrapper.innerHTML =
+            '';
+
+
+        wrapper.appendChild(
+            target
+        );
+    }
+
+
+    return target;
+}
+
+
+// ==========================================
+// End位置監視を停止
+// ==========================================
+
+function stopYoutubeLoopWatch() {
+
+    if (
+        youtubeLoopTimer !==
+        null
+    ) {
+
+        clearInterval(
+            youtubeLoopTimer
+        );
+
+
+        youtubeLoopTimer =
+            null;
+    }
+}
+
+
+// ==========================================
+// YouTube Playerを破棄
+// ==========================================
+
+function destroyYoutubeLessonPlayer() {
+
+    youtubeSetupGeneration +=
+        1;
+
+
+    stopYoutubeLoopWatch();
+
+
+    if (
+        youtubeLessonPlayer &&
+        typeof youtubeLessonPlayer.destroy ===
+            'function'
+    ) {
+
+        try {
+
+            youtubeLessonPlayer.destroy();
+
+        } catch (
+            error
+        ) {
+
+            console.warn(
+                'YouTube player destroy:',
+                error
+            );
+        }
+    }
+
+
+    youtubeLessonPlayer =
+        null;
+
+
+    activeYoutubeLesson =
+        null;
+
+
+    ensureYoutubePlayerTarget();
+}
+
+
+// ==========================================
+// Start / End / Loop監視
+// ==========================================
+
+function startYoutubeLoopWatch() {
+
+    stopYoutubeLoopWatch();
+
+
+    youtubeLoopTimer =
+        setInterval(
+            () => {
+
+                if (
+                    !youtubeLessonPlayer ||
+                    !activeYoutubeLesson
+                ) {
+
+                    return;
+                }
+
+
+                if (
+                    typeof youtubeLessonPlayer.getCurrentTime !==
+                    'function'
+                ) {
+
+                    return;
+                }
+
+
+                let currentTime =
+                    null;
+
+
+                try {
+
+                    currentTime =
+                        youtubeLessonPlayer.getCurrentTime();
+
+                } catch (
+                    error
+                ) {
+
+                    return;
+                }
+
+
+                if (
+                    !Number.isFinite(
+                        currentTime
+                    )
+                ) {
+
+                    return;
+                }
+
+
+                const start =
+                    activeYoutubeLesson.startSeconds;
+
+
+                const end =
+                    activeYoutubeLesson.endSeconds;
+
+
+                // ----------------------------------
+                // 指定Startより前へ移動された場合
+                // ----------------------------------
+
+                if (
+                    currentTime <
+                    start - 0.5
+                ) {
+
+                    youtubeLessonPlayer.seekTo(
+                        start,
+                        true
+                    );
+
+
+                    return;
+                }
+
+
+                // ----------------------------------
+                // 指定Endに到達
+                // ----------------------------------
+
+                if (
+                    end !==
+                        null &&
+                    currentTime >=
+                        end - 0.15
+                ) {
+
+                    if (
+                        activeYoutubeLesson.loop
+                    ) {
+
+                        youtubeLessonPlayer.seekTo(
+                            start,
+                            true
+                        );
+
+
+                        youtubeLessonPlayer.playVideo();
+
+                    } else {
+
+                        youtubeLessonPlayer.pauseVideo();
+                    }
+                }
+
+            },
+            200
+        );
+}
+
+
+// ==========================================
+// YouTube教材をPlayerへセット
+// ==========================================
+
+async function setupYoutubeLessonPlayer(
+    lesson
+) {
+
+    destroyYoutubeLessonPlayer();
+
+
+    const videoId =
+        String(
+            lesson?.youtubeVideoId ||
+            ''
+        ).trim();
+
+
+    if (
+        !/^[A-Za-z0-9_-]{11}$/.test(
+            videoId
+        )
+    ) {
+
+        return;
+    }
+
+
+    // ======================================
+    // Start
+    // ======================================
+
+    let startSeconds =
+        0;
+
+
+    if (
+        lesson.youtubeStartSeconds !==
+            null &&
+        lesson.youtubeStartSeconds !==
+            undefined
+    ) {
+
+        const parsedStart =
+            Number(
+                lesson.youtubeStartSeconds
+            );
+
+
+        if (
+            Number.isFinite(
+                parsedStart
+            ) &&
+            parsedStart >=
+                0
+        ) {
+
+            startSeconds =
+                parsedStart;
+        }
+    }
+
+
+    // ======================================
+    // End
+    // ======================================
+
+    let endSeconds =
+        null;
+
+
+    if (
+        lesson.youtubeEndSeconds !==
+            null &&
+        lesson.youtubeEndSeconds !==
+            undefined
+    ) {
+
+        const parsedEnd =
+            Number(
+                lesson.youtubeEndSeconds
+            );
+
+
+        if (
+            Number.isFinite(
+                parsedEnd
+            ) &&
+            parsedEnd >
+                startSeconds
+        ) {
+
+            endSeconds =
+                parsedEnd;
+        }
+    }
+
+
+    activeYoutubeLesson = {
+
+        videoId:
+
+            videoId,
+
+        startSeconds:
+
+            startSeconds,
+
+        endSeconds:
+
+            endSeconds,
+
+        loop:
+
+            lesson.youtubeLoop ===
+            true
+    };
+
+
+    const generation =
+        youtubeSetupGeneration;
+
+
+    // ======================================
+    // YouTube API読み込み
+    // ======================================
+
+    try {
+
+        await loadYoutubeIframeApi();
+
+    } catch (
+        error
+    ) {
+
+        console.error(
+            'YouTube API:',
+            error
+        );
+
+
+        if (
+            typeof showMsg ===
+            'function'
+        ) {
+
+            showMsg(
+                '⚠️ YouTubeを読み込めませんでした'
+            );
+        }
+
+
+        return;
+    }
+
+
+    // 待っている間に別教材へ移動した場合
+    if (
+        generation !==
+            youtubeSetupGeneration ||
+        !activeYoutubeLesson ||
+        activeYoutubeLesson.videoId !==
+            videoId
+    ) {
+
+        return;
+    }
+
+
+    const target =
+        ensureYoutubePlayerTarget();
+
+
+    if (!target) {
+
+        console.warn(
+            'youtubePlayerWrapper が見つかりません'
+        );
+
+        return;
+    }
+
+
+    // ======================================
+    // Player作成
+    // ======================================
+
+    youtubeLessonPlayer =
+        new YT.Player(
+            target,
+            {
+
+                width:
+                    '100%',
+
+                height:
+                    '100%',
+
+
+                playerVars: {
+
+                    autoplay:
+                        0,
+
+                    controls:
+                        1,
+
+                    playsinline:
+                        1,
+
+                    rel:
+                        0
+                },
+
+
+                events: {
+
+                    // ==================================
+                    // Player準備完了
+                    // ==================================
+
+                    onReady:
+                        event => {
+
+                            const cueData = {
+
+                                videoId:
+
+                                    videoId,
+
+                                startSeconds:
+
+                                    startSeconds
+                            };
+
+
+                            if (
+                                endSeconds !==
+                                null
+                            ) {
+
+                                cueData.endSeconds =
+                                    endSeconds;
+                            }
+
+
+                            // 自動再生しない
+                            // iPhone / iPad対応
+                            event.target.cueVideoById(
+                                cueData
+                            );
+
+
+                            // --------------------------
+                            // Replayボタン
+                            // --------------------------
+
+                            const replayBtn =
+                                document.getElementById(
+                                    'youtubeReplayBtn'
+                                );
+
+
+                            if (
+                                replayBtn
+                            ) {
+
+                                replayBtn.onclick =
+                                    () => {
+
+                                        if (
+                                            !youtubeLessonPlayer ||
+                                            !activeYoutubeLesson
+                                        ) {
+
+                                            return;
+                                        }
+
+
+                                        youtubeLessonPlayer.seekTo(
+                                            activeYoutubeLesson.startSeconds,
+                                            true
+                                        );
+
+
+                                        youtubeLessonPlayer.playVideo();
+                                    };
+                            }
+                        },
+
+
+                    // ==================================
+                    // 再生状態
+                    // ==================================
+
+                    onStateChange:
+                        event => {
+
+                            if (
+                                event.data ===
+                                YT.PlayerState.PLAYING
+                            ) {
+
+                                startYoutubeLoopWatch();
+
+                                return;
+                            }
+
+
+                            if (
+                                event.data ===
+                                    YT.PlayerState.ENDED &&
+                                activeYoutubeLesson?.loop
+                            ) {
+
+                                youtubeLessonPlayer.seekTo(
+                                    activeYoutubeLesson.startSeconds,
+                                    true
+                                );
+
+
+                                youtubeLessonPlayer.playVideo();
+
+
+                                return;
+                            }
+
+
+                            if (
+                                event.data ===
+                                    YT.PlayerState.PAUSED ||
+                                event.data ===
+                                    YT.PlayerState.ENDED
+                            ) {
+
+                                stopYoutubeLoopWatch();
+                            }
+                        },
+
+
+                    // ==================================
+                    // YouTube Error
+                    // ==================================
+
+                    onError:
+                        event => {
+
+                            console.error(
+                                'YouTube Player Error:',
+                                event.data
+                            );
+
+
+                            if (
+                                typeof showMsg ===
+                                'function'
+                            ) {
+
+                                showMsg(
+                                    '⚠️ このYouTube動画を再生できません'
+                                );
+                            }
+                        }
+                }
+            }
+        );
+}
 function switchScreen(screenId) {
     document.querySelectorAll('.screen').forEach(el => {
         el.style.display = 'none';
@@ -2322,7 +3479,7 @@ function switchScreen(screenId) {
     });
 
     const targetScreen = document.getElementById(screenId);
-    targetScreen.style.display = 'flex'; 
+    targetScreen.style.display = 'flex';
     if (screenId === 'learningScreen') targetScreen.style.display = 'block';
     targetScreen.classList.add('active');
     window.scrollTo(0, 0);
@@ -2346,36 +3503,62 @@ function backToHome() {
         if (typeof toggleRecording === 'function') toggleRecording();
     }
 
-    const audioPlayer = document.getElementById('audioPlayer');
-    if (audioPlayer) {
-        audioPlayer.pause();
-        audioPlayer.src = "";
-    }
-    
-    currentCustomLesson = null;
+    const audioPlayer =
+    document.getElementById(
+        'audioPlayer'
+    );
 
-    if (typeof loadSavedLessons === 'function') loadSavedLessons(); 
+if (audioPlayer) {
+
+    audioPlayer.pause();
+
+    audioPlayer.src =
+        "";
+}
+
+
+// ==========================================
+// YouTube Playerを停止・破棄
+// ==========================================
+
+destroyYoutubeLessonPlayer();
+
+
+document.body
+    .classList
+    .remove(
+        'youtube-lesson-active'
+    );
+
+
+currentCustomLesson =
+    null;
+
+    if (typeof loadSavedLessons === 'function') loadSavedLessons();
 
     switchScreen('homeScreen');
 }
 
 function openLearningScreen(lesson) {
     toggleMobileLibrary(true);
+
+    applyYoutubeLessonLayout(
+    lesson
+);
+
     document.getElementById('learningTitle').innerText = lesson.title;
-    
     document.getElementById('engContainer').style.fontSize = engFontSize + 'px';
     document.getElementById('recognizedTextDisplay').style.fontSize = recFontSize + 'px';
-    
     const jpnWrapper = document.getElementById('jpnWrapper');
     const toggleBtn = document.getElementById('toggleJpnBtn');
-    
+
     if (lesson.jpn && lesson.jpn.trim() !== "") {
-        toggleBtn.classList.remove('hidden'); 
-        jpnWrapper.classList.add('hidden');   
-        
+        toggleBtn.classList.remove('hidden');
+        jpnWrapper.classList.add('hidden');
+
         toggleBtn.innerText = '🌐 訳を表示';
         toggleBtn.classList.remove('bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
-        
+
         document.getElementById('jpnContainer').innerHTML = lesson.jpn.replace(/([。？！])\s*/g, "$1<br>");
         document.getElementById('jpnContainer').style.fontSize = jpnFontSize + 'px';
     } else {
@@ -2385,7 +3568,7 @@ function openLearningScreen(lesson) {
 
     const audioContainer = document.getElementById('audioContainer');
     const audioPlayer = document.getElementById('audioPlayer');
-    
+
     if (lesson.audioBlob) {
         audioContainer.classList.remove('hidden');
         audioPlayer.src = URL.createObjectURL(lesson.audioBlob);
@@ -2398,16 +3581,43 @@ function openLearningScreen(lesson) {
     }
 
     setLearningMode('reading');
-    
+
     // 🌟 多言語対応: 音声認識・採点用ターゲットを教材言語に合わせて生成
     // speech.js の segmentSpeechText() が利用できる場合は同じ分割・正規化ロジックを使う。
     // 読み込み順などで未定義の場合は ui.js 側のフォールバック処理を使う。
-    targetTextArray = buildMultilingualTargetTextArray(lesson);
-    
-    switchScreen('learningScreen');
+    targetTextArray =
+    buildMultilingualTargetTextArray(
+        lesson
+    );
 
-    const mainScrollArea = document.getElementById('mainScrollArea');
-    if (mainScrollArea) mainScrollArea.scrollTop = 0;
+
+switchScreen(
+    'learningScreen'
+);
+
+
+// ==========================================
+// YouTube Player
+// ==========================================
+
+setupYoutubeLessonPlayer(
+    lesson
+);
+
+
+const mainScrollArea =
+    document.getElementById(
+        'mainScrollArea'
+    );
+
+
+if (
+    mainScrollArea
+) {
+
+    mainScrollArea.scrollTop =
+        0;
+}
 }
 
 function toggleTranslation() {
@@ -2415,7 +3625,7 @@ function toggleTranslation() {
 
     const jpnWrapper = document.getElementById('jpnWrapper');
     const btn = document.getElementById('toggleJpnBtn');
-    
+
     if (jpnWrapper.classList.contains('hidden')) {
         jpnWrapper.classList.remove('hidden');
         btn.innerText = '🌐 訳を隠す';
@@ -2429,7 +3639,7 @@ function toggleTranslation() {
 
 function updateMemoLevel(level) {
     currentMemoLevel = parseInt(level); // 数値として確実に処理する
-    
+
     // 古いボタンUI用のコード（念のため残していますが、画面には出ません）
     for (let i = 1; i <= 5; i++) {
         const btn = document.getElementById('lvlBtn' + i);
@@ -2447,13 +3657,13 @@ function updateMemoLevel(level) {
     if (selectEl) selectEl.value = currentMemoLevel;
 
     // ★抜け落ちていた処理：テキストの再描画
-    renderTargetText(); 
-} 
+    renderTargetText();
+}
 
 // ★追加: PacedのWPM数値を更新し、ドロップダウンとも連動させる
 function updateTargetWpm(val) {
     targetWpm = parseInt(val);
-    
+
     // 古い表示用（念のため残す）
     const display = document.getElementById('targetWpmDisplay');
     if (display) display.innerText = targetWpm + " WPM";
@@ -2542,7 +3752,7 @@ function renderTargetText() {
     if (!currentCustomLesson) return;
 
     const engContainer = document.getElementById('engContainer');
-    
+
     if (currentMode === 'paced') {
         engContainer.classList.add('karaoke-active');
     } else {
@@ -2646,7 +3856,7 @@ function closeWpmGuide() {
 }
 
 function startPacedReading() {
-    stopPacedReading(); 
+    stopPacedReading();
     currentPaceIndex = 0;
 
     const words = document.querySelectorAll('.pace-word');
@@ -2661,25 +3871,25 @@ function startPacedReading() {
 
             prevWord.classList.remove('paced-highlight');
             prevWord.classList.add('paced-read');
-            prevWord.style.transition = 'none'; 
+            prevWord.style.transition = 'none';
         }
-        
+
         if (currentPaceIndex < words.length) {
             const currentWordEl = words[currentPaceIndex];
-            
+
             currentWordEl.style.transition = `background-position ${msPerWord}ms linear`;
-            void currentWordEl.offsetWidth; 
+            void currentWordEl.offsetWidth;
             currentWordEl.classList.add('paced-highlight');
 
             currentWordEl.scrollIntoView({
                 behavior: 'smooth',
                 block: 'center'
             });
-            
+
             currentPaceIndex++;
 
         } else {
-            stopPacedReading(); 
+            stopPacedReading();
         }
 
     }, msPerWord);
@@ -2714,13 +3924,13 @@ function showPreReadingState() {
 
     hideMicHealthSensor();
 
-    const targetTextWrapper = document.getElementById('targetTextWrapper'); 
+    const targetTextWrapper = document.getElementById('targetTextWrapper');
     const yourVoiceWrapper = document.getElementById('yourVoiceWrapper');
     const resultScoreBoard = document.getElementById('resultScoreBoard');
     const mainPane = document.getElementById('mainLearningPane');
     const sidebar = document.getElementById('playlistSidebar');
     const toggleBtn = document.getElementById('toggleJpnBtn');
-    
+
     const micBtn = document.getElementById('micBtn');
 
     const oldBtnContainer = document.getElementById('missingWordsBtnContainer');
@@ -2767,9 +3977,9 @@ function showPreReadingState() {
         toggleBtn.classList.remove('hidden');
     }
 
-    resultScoreBoard.style.display = 'none'; 
+    resultScoreBoard.style.display = 'none';
 
-    renderTargetText(); 
+    renderTargetText();
 
     if (currentMode !== 'shadowing') {
         targetTextWrapper.style.display = 'flex';
@@ -2777,7 +3987,7 @@ function showPreReadingState() {
         yourVoiceWrapper.style.display = 'none';
 
     } else {
-        targetTextWrapper.style.display = 'none'; 
+        targetTextWrapper.style.display = 'none';
         yourVoiceWrapper.style.display = 'flex';
         yourVoiceWrapper.className = "w-full max-w-4xl mx-auto p-4 md:p-10 bg-white rounded-sm border-l-4 border-stone-800 shadow-sm iron-border-sm flex flex-col min-h-[300px] md:min-h-[400px] transition-all duration-300 opacity-100 relative z-10";
     }
@@ -3318,13 +4528,13 @@ document.body.classList.toggle(
     currentMode !== 'shadowing'
 );
 
-    const targetTextWrapper = document.getElementById('targetTextWrapper'); 
+    const targetTextWrapper = document.getElementById('targetTextWrapper');
     const yourVoiceWrapper = document.getElementById('yourVoiceWrapper');
     const resultScoreBoard = document.getElementById('resultScoreBoard');
     const mainPane = document.getElementById('mainLearningPane');
     const sidebar = document.getElementById('playlistSidebar');
     const toggleBtn = document.getElementById('toggleJpnBtn');
-    
+
     const micBtn = document.getElementById('micBtn');
 
     const cancelBtn = document.getElementById('cancelRecordingBtn');
@@ -3359,7 +4569,7 @@ document.body.classList.toggle(
     if (sidebar) {
         sidebar.style.display = 'none';
     }
-    
+
     if (toggleBtn && currentCustomLesson && currentCustomLesson.jpn) {
         toggleBtn.classList.remove('hidden');
     }
@@ -3393,7 +4603,7 @@ if (feedbackToggleBtn) {
     if (accEl && wpmEl) {
         const accVal = parseInt(accEl.innerText.replace('%', '')) || 0;
         const wpmVal = parseInt(wpmEl.innerText) || 0;
-        
+
         accEl.classList.remove('score-firework');
         wpmEl.classList.remove('score-firework');
 
@@ -3413,7 +4623,7 @@ if (feedbackToggleBtn) {
         yourVoiceWrapper.style.display = 'flex';
 
         yourVoiceWrapper.className = "w-full lg:w-1/2 p-4 md:p-8 bg-white rounded-sm border-l-4 border-stone-800 shadow-sm iron-border-sm flex flex-col transition-all duration-300 relative z-10 opacity-100 pointer-events-auto flex-1 min-h-[250px] md:min-h-[400px]";
-        
+
         targetTextWrapper.style.display = 'flex';
 
         targetTextWrapper.className = "w-full lg:w-1/2 flex flex-col gap-4 md:gap-6 transition-all duration-300 relative z-10 bg-transparent p-0 backdrop-blur-none border-none shadow-none flex-1 min-h-[250px] md:min-h-[400px]";
@@ -3497,11 +4707,11 @@ function setLearningMode(mode) {
     const tabP = document.getElementById('tabPaced');
     const tabM = document.getElementById('tabMemo');
     const tabS = document.getElementById('tabShadowing');
-    
+
     const btnText = document.getElementById('micBtnText');
     const vanishControls = document.getElementById('vanishModeControls');
-    const pacedControls = document.getElementById('pacedModeControls'); 
-    
+    const pacedControls = document.getElementById('pacedModeControls');
+
     const activeClass = "flex-1 px-1 md:px-4 py-2 rounded-sm font-bold text-[10px] md:text-sm transition-all duration-200 bg-stone-800 text-white uppercase tracking-wider shadow-md whitespace-nowrap";
 
     const inactiveClass = "flex-1 px-1 md:px-4 py-2 rounded-sm font-bold text-[10px] md:text-sm transition-all duration-200 text-stone-500 hover:text-stone-800 uppercase tracking-wider whitespace-nowrap";
@@ -3563,7 +4773,7 @@ function setLearningMode(mode) {
         }
 
         if (currentMemoLevel === 0) {
-            updateMemoLevel(1); 
+            updateMemoLevel(1);
         }
 
     } else {
@@ -3593,16 +4803,16 @@ function resetLearningState() {
     if (typeof accumulatedTranscript !== 'undefined') {
         accumulatedTranscript = '';
     }
-    
-    stopPacedReading(); 
+
+    stopPacedReading();
 
     const recDisplay = document.getElementById('recognizedTextDisplay');
 
     recDisplay.innerHTML = "※Press START to begin";
-    recDisplay.style.color = "#a8a29e"; 
-    
+    recDisplay.style.color = "#a8a29e";
+
     showPreReadingState();
-    
+
     const btn = document.getElementById('micBtn');
 
     if (btn) {
@@ -3673,7 +4883,7 @@ function renderChart() {
 
         return [`${index + 1}回目 (${modeStr})`, log.date];
     });
-    
+
     const accData = currentCustomLesson.history.map(log => log.score);
     const wpmData = currentCustomLesson.history.map(log => log.wpm);
     const compData = currentCustomLesson.history.map(log => log.comp);
@@ -3725,7 +4935,7 @@ function renderChart() {
 
         options: {
             responsive: true,
-            maintainAspectRatio: false, 
+            maintainAspectRatio: false,
 
             interaction: {
                 mode: 'index',
@@ -3737,8 +4947,8 @@ function renderChart() {
                 if (elements.length > 0) {
                     const dataIndex = elements[0].index;
 
-                    closeChartModal(); 
-                    
+                    closeChartModal();
+
                     const savedProfile = localStorage.getItem('copeak_student_profile');
 
                     if (!savedProfile) {
@@ -3820,9 +5030,9 @@ function closeModeGuide() {
 async function generateShareLink() {
 
     if (!currentCustomLesson) return;
-    
+
     const baseUrl = window.location.origin + window.location.pathname;
-    
+
     const paramsConfig = {
         title: currentCustomLesson.title.replace('🔗 ', ''),
         eng: currentCustomLesson.eng,
@@ -3848,10 +5058,10 @@ async function generateShareLink() {
         paramsConfig.type = 'dialogue';
         paramsConfig.dialogue = JSON.stringify(currentCustomLesson.dialogue);
     }
-    
+
     const params = new URLSearchParams(paramsConfig);
     const longUrl = `${baseUrl}?${params.toString()}`;
-    
+
     try {
 
         await navigator.clipboard.writeText(longUrl);
@@ -3878,9 +5088,9 @@ let aiUtterance = null;
 function toggleAIVoice() {
 
     if (!currentCustomLesson) return;
-    
+
     const btn = document.getElementById('aiVoiceBtn');
-    
+
     if (window.speechSynthesis.speaking) {
 
         window.speechSynthesis.cancel();
@@ -3895,8 +5105,8 @@ function toggleAIVoice() {
     aiUtterance = new SpeechSynthesisUtterance(currentCustomLesson.eng);
 
     aiUtterance.lang = currentCustomLesson.lang || 'en-US';
-    aiUtterance.rate = 0.9; 
-    
+    aiUtterance.rate = 0.9;
+
     aiUtterance.onend = () => {
         btn.innerHTML = '🤖 AI音声を再生';
         btn.classList.remove('bg-red-600', 'hover:bg-red-700');
@@ -3904,20 +5114,20 @@ function toggleAIVoice() {
     };
 
     window.speechSynthesis.speak(aiUtterance);
-    
+
     btn.innerHTML = '⏹ AI音声を停止';
     btn.classList.remove('bg-purple-600', 'hover:bg-purple-700');
     btn.classList.add('bg-red-600', 'hover:bg-red-700');
 }
 
-let selectedLogToSubmit = null; 
+let selectedLogToSubmit = null;
 
 const originalShowResultState = showResultState;
 
 showResultState = function() {
 
-    originalShowResultState(); 
-    
+    originalShowResultState();
+
     const submitBtn = document.getElementById('submitScoreTriggerBtn');
 
     if (!submitBtn) return;
@@ -3931,7 +5141,7 @@ showResultState = function() {
 
 function openReflectionWrapper() {
     const savedProfile = localStorage.getItem('copeak_student_profile');
-    
+
     if (!savedProfile) {
         document.getElementById('studentProfileModal').classList.remove('hidden');
     } else {
@@ -3957,10 +5167,10 @@ function saveStudentProfile() {
     };
 
     localStorage.setItem('copeak_student_profile', JSON.stringify(profile));
-    
+
     document.getElementById('studentProfileModal').classList.add('hidden');
 
-    openHistorySelectModal(); 
+    openHistorySelectModal();
 }
 
 function openHistorySelectModal() {
@@ -3975,7 +5185,7 @@ function openHistorySelectModal() {
 
     modal.id = 'historySelectModal';
     modal.className = 'fixed inset-0 z-[10000] bg-black/60 flex items-center justify-center p-4 backdrop-blur-sm';
-    
+
     let historyHtml = '';
 
     if (
@@ -4054,11 +5264,11 @@ function selectHistoryLog(index) {
     if (!currentCustomLesson || !currentCustomLesson.history) return;
 
     selectedLogToSubmit = currentCustomLesson.history[index];
-    selectedLogToSubmit.displayIndex = index + 1; 
-    
+    selectedLogToSubmit.displayIndex = index + 1;
+
     closeHistorySelectModal();
 
-    openReflectionModal(); 
+    openReflectionModal();
 }
 
 function openReflectionModal() {
@@ -4067,7 +5277,7 @@ function openReflectionModal() {
 
     const scoreText = `${selectedLogToSubmit.score}%`;
     const wpmText = `${selectedLogToSubmit.wpm}`;
-    
+
     let modeStr = '📖 Read';
 
     if (selectedLogToSubmit.mode === 'shadowing') {
@@ -4087,8 +5297,8 @@ function openReflectionModal() {
 
     document.getElementById('submitModePreview').innerText = modeStr;
 
-    document.getElementById('reflectionInput').value = ""; 
-    
+    document.getElementById('reflectionInput').value = "";
+
     document.getElementById('reflectionModal').classList.remove('hidden');
 }
 
@@ -4096,7 +5306,7 @@ function closeReflectionModal() {
 
     document.getElementById('reflectionModal').classList.add('hidden');
 
-    selectedLogToSubmit = null; 
+    selectedLogToSubmit = null;
 }
 
 async function submitScoreToForm() {
@@ -4146,7 +5356,7 @@ async function submitScoreToForm() {
 
     const lessonTitle = currentCustomLesson.title.replace('🔗 ', '');
 
-    let cleanFormUrl = currentCustomLesson.formUrl.split('?')[0]; 
+    let cleanFormUrl = currentCustomLesson.formUrl.split('?')[0];
     let postUrl = cleanFormUrl.replace('/viewform', '/formResponse');
 
     const formData = new URLSearchParams();
@@ -4154,7 +5364,7 @@ async function submitScoreToForm() {
     formData.append('entry.755665088', profile.class);
     formData.append('entry.70481568', profile.number);
     formData.append('entry.1056156063', profile.name);
-    formData.append('entry.1259267878', lessonTitle); 
+    formData.append('entry.1259267878', lessonTitle);
     formData.append('entry.222722906', currentCustomLesson.eng || '');
     formData.append('entry.145428349', accuracy);
     formData.append('entry.928123739', wpm);
@@ -4167,7 +5377,7 @@ async function submitScoreToForm() {
 
         await fetch(postUrl, {
             method: 'POST',
-            mode: 'no-cors', 
+            mode: 'no-cors',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
@@ -4179,13 +5389,13 @@ async function submitScoreToForm() {
         }
 
         closeReflectionModal();
-        
+
         const triggerBtn = document.getElementById('submitScoreTriggerBtn');
 
         if (triggerBtn) {
             triggerBtn.classList.add('hidden');
         }
-        
+
     } catch (error) {
 
         alert("⚠️ 送信に失敗しました。電波の良いところで再度お試しください。");
@@ -4214,7 +5424,7 @@ window.addEventListener('DOMContentLoaded', () => {
 function saveTeacherFormUrl() {
 
     const inputUrl = document.getElementById('teacherFormUrlInput').value.trim();
-    
+
     if (inputUrl === "") {
 
         localStorage.removeItem('copeak_teacher_form_url');
@@ -4368,7 +5578,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     splash.style.background =
         'radial-gradient(circle at center, #0f172a 0%, #020617 100%)';
-    
+
     splash.innerHTML = `
         <div class="absolute inset-0 z-0 flex items-center justify-center opacity-40 pointer-events-none">
             <div class="w-[40rem] h-[40rem] bg-emerald-500/20 rounded-full blur-3xl animate-pulse"></div>
@@ -4410,12 +5620,12 @@ window.addEventListener('DOMContentLoaded', () => {
 let fsAiUtterance = null;
 let isFsAudioPlaying = false;
 
-window.isFsImageShowing = false; 
+window.isFsImageShowing = false;
 
 function openFullscreenPreview() {
 
     if (!currentCustomLesson) return;
-    
+
     const oldOverlay = document.getElementById('fullscreenPreviewOverlay');
 
     if (oldOverlay) {
@@ -4428,7 +5638,7 @@ function openFullscreenPreview() {
 
     overlay.className =
         'fixed top-0 left-0 w-full h-[100dvh] z-[9999] bg-[#faf8f5] flex flex-col transition-all duration-300 opacity-0 overflow-hidden';
-    
+
     overlay.innerHTML = `
         <div class="flex items-center justify-between p-4 md:p-6 border-b border-stone-200 bg-white shadow-sm shrink-0 z-20">
 
@@ -4476,7 +5686,7 @@ function openFullscreenPreview() {
 
                 <div id="fsJpnContainer" class="text-base md:text-xl text-stone-500 max-w-4xl mx-auto border-t-2 border-dashed border-stone-300 pt-8 mt-8 hidden leading-relaxed"></div>
 
-                <div class="h-48 md:h-64 w-full shrink-0"></div> 
+                <div class="h-48 md:h-64 w-full shrink-0"></div>
 
             </div>
 
@@ -4489,17 +5699,17 @@ function openFullscreenPreview() {
         currentCustomLesson.title
             ? currentCustomLesson.title.replace('🔗 ', '')
             : 'Preview';
-    
+
     const fsToggleBtn = document.getElementById('fsToggleImageBtn');
     const fsImageDisplay = document.getElementById('fsMemoImageDisplay');
-    
+
     if (currentCustomLesson.memoImage) {
 
         fsImageDisplay.src = currentCustomLesson.memoImage;
 
         fsToggleBtn.classList.remove('hidden');
 
-        window.isFsImageShowing = false; 
+        window.isFsImageShowing = false;
 
         window.toggleFsMemoImage();
 
@@ -4507,7 +5717,7 @@ function openFullscreenPreview() {
 
         fsToggleBtn.classList.add('hidden');
 
-        window.isFsImageShowing = true; 
+        window.isFsImageShowing = true;
 
         window.toggleFsMemoImage();
     }
@@ -4544,7 +5754,7 @@ function openFullscreenPreview() {
     }
 
     document.getElementById('fsEngContainer').innerHTML = engHtml;
-    
+
     const jpnContainer = document.getElementById('fsJpnContainer');
 
     if (
@@ -4564,7 +5774,7 @@ function openFullscreenPreview() {
 
         jpnContainer.classList.add('hidden');
     }
-    
+
     const audioBtn = document.getElementById('fsOriginalAudioBtn');
     const audioPlayer = document.getElementById('audioPlayer');
 
@@ -4582,7 +5792,7 @@ function openFullscreenPreview() {
 
         audioBtn.classList.remove('hidden');
     }
-    
+
     document.body.style.overflow = 'hidden';
 
     requestAnimationFrame(() => {
@@ -4595,11 +5805,11 @@ function openFullscreenPreview() {
 window.toggleFsMemoImage = function() {
 
     window.isFsImageShowing = !window.isFsImageShowing;
-    
+
     const imgPane = document.getElementById('fsImagePane');
     const txtPane = document.getElementById('fsTextPane');
     const btn = document.getElementById('fsToggleImageBtn');
-    
+
     if (!imgPane || !txtPane || !btn) return;
 
     if (window.isFsImageShowing) {
@@ -4609,7 +5819,7 @@ window.toggleFsMemoImage = function() {
 
         txtPane.classList.remove('w-full');
         txtPane.classList.add('w-1/2');
-        
+
         btn.innerHTML =
             '🖼️ <span class="hidden sm:inline">画像 OFF</span>';
 
@@ -4624,7 +5834,7 @@ window.toggleFsMemoImage = function() {
 
         txtPane.classList.remove('w-1/2');
         txtPane.classList.add('w-full');
-        
+
         btn.innerHTML =
             '🖼️ <span class="hidden sm:inline">画像 ON</span>';
 
@@ -4639,7 +5849,7 @@ function closeFullscreenPreview() {
     const overlay = document.getElementById('fullscreenPreviewOverlay');
 
     if (!overlay) return;
-    
+
     if (window.speechSynthesis.speaking) {
         window.speechSynthesis.cancel();
     }
@@ -4651,12 +5861,12 @@ function closeFullscreenPreview() {
     }
 
     isFsAudioPlaying = false;
-    
+
     overlay.classList.remove('opacity-100');
     overlay.classList.add('opacity-0');
 
     setTimeout(() => {
-        overlay.remove(); 
+        overlay.remove();
         document.body.style.overflow = '';
     }, 300);
 }
@@ -4666,7 +5876,7 @@ function toggleFsAIVoice() {
     if (!currentCustomLesson) return;
 
     const btn = document.getElementById('fsAiVoiceBtn');
-    
+
     const audioPlayer = document.getElementById('audioPlayer');
 
     if (audioPlayer) {
@@ -4698,8 +5908,8 @@ function toggleFsAIVoice() {
     fsAiUtterance.lang =
         currentCustomLesson.lang || 'en-US';
 
-    fsAiUtterance.rate = 0.9; 
-    
+    fsAiUtterance.rate = 0.9;
+
     fsAiUtterance.onend = () => {
 
         btn.innerHTML =
@@ -4761,7 +5971,7 @@ function toggleFsOriginalAudio() {
         btn.classList.add('bg-red-600', 'hover:bg-red-700');
 
         isFsAudioPlaying = true;
-        
+
         audioPlayer.onended = () => {
 
             btn.innerHTML =
@@ -4793,9 +6003,9 @@ function playMwSuccessSound() {
 
         const ctx =
             new AudioContext();
-        
+
         // ピロン♪ という明るい和音（A5, C#6, E6）を鳴らす
-        [880, 1108.73, 1318.51].forEach((freq, i) => { 
+        [880, 1108.73, 1318.51].forEach((freq, i) => {
 
             const osc = ctx.createOscillator();
             const gain = ctx.createGain();
@@ -4851,9 +6061,9 @@ if (
         new SpeechRecognition();
 
     mwRecognition.continuous = false;
-    
+
     // 【レスポンス高速化】途中経過をリアルタイムで取得する
-    mwRecognition.interimResults = true; 
+    mwRecognition.interimResults = true;
 
     mwRecognition.onresult = (event) => {
 
@@ -4926,7 +6136,7 @@ if (
                 event.results[i][0]
                     .transcript
                     .toLowerCase();
-            
+
             // 🌟 修正ポイント:
             // \s を追加してスペースを消さずに残し、
             // 単語ごとに配列に分割する
@@ -4948,13 +6158,13 @@ if (
 
             if (isMatch) {
 
-                mwRecognition.stop(); 
+                mwRecognition.stop();
 
                 playMwSuccessSound();
-                
+
                 feedbackEl.innerHTML =
                     `<span class="text-emerald-600 text-2xl font-black inline-block">✨ CLEAR!</span> <span class="text-xs text-stone-400 block mt-1">(Recognized: ${rawTranscript})</span>`;
-                
+
                 if (wordDisplayEl) {
 
                     wordDisplayEl.classList.add(
@@ -5071,7 +6281,7 @@ function openMissingWordsModal() {
                     word.toLowerCase()
                 )
         );
-    
+
     // 大文字小文字の違いによる重複を防ぐ
     const uniqueMap =
         new Map();
@@ -5169,9 +6379,9 @@ function renderMissingWordsListView() {
                     💡 単語をタップすると個別発音練習ができます。
                 </strong>
             </p>
-            
+
             ${listHtml}
-            
+
             <button onclick="closeMissingWordsModal()" class="mt-5 w-full py-2.5 bg-stone-800 hover:bg-stone-900 text-white font-bold rounded-sm text-xs transition shadow-sm">
                 閉じる
             </button>
@@ -5346,12 +6556,12 @@ function toggleMissingWordMic() {
             wordDisplayEl.style.transform =
                 "scale(1)";
         }
-        
+
         if (feedbackEl) {
             feedbackEl.innerHTML =
                 `<span class="text-blue-500 animate-pulse text-lg">Listening...</span>`;
         }
-        
+
         if (
             currentCustomLesson &&
             currentCustomLesson.lang
@@ -5365,7 +6575,7 @@ function toggleMissingWordMic() {
             mwRecognition.lang =
                 'en-US';
         }
-        
+
         try {
 
             mwRecognition.start();
@@ -5478,7 +6688,7 @@ function speakWord(word) {
 // ==========================================
 // ★追加: 録音を途中でキャンセルして結果を残さずに戻る機能
 // ==========================================
-window.historyLengthBeforeCancel = 0; 
+window.historyLengthBeforeCancel = 0;
 
 function cancelRecording() {
 
@@ -5494,7 +6704,7 @@ function cancelRecording() {
             : 0;
 
     if (typeof toggleRecording === 'function') {
-        toggleRecording(); 
+        toggleRecording();
     }
 
     if (typeof resetLearningState === 'function') {
@@ -5520,7 +6730,7 @@ window.addEventListener('DOMContentLoaded', () => {
             sessionStorage.removeItem(
                 'copeak_sq_transfer'
             );
-            
+
             try {
 
                 const sqData =
@@ -5536,7 +6746,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     lang: "en-US",
                     target: "custom"
                 };
-                
+
                 currentCustomLesson =
                     pseudoLesson;
 
@@ -5569,7 +6779,7 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-    }, 800); 
+    }, 800);
 });
 
 // quickshare.js: Copeak Quick Share (Appwrite) Phase 1
@@ -8617,7 +9827,7 @@ return rewardResult;
             country
                 .geography
                 ?.areaKm2;
-        
+
         const mapUrl =
     buildCountryMapUrl(
         country
@@ -9326,7 +10536,7 @@ return rewardResult;
             }
         );
     }
-    
+
         // ==========================================
     // Country Card → Copeak Reading
     // ==========================================
@@ -10344,7 +11554,7 @@ const balls =
 
             capsule.disabled =
                 true;
-            
+
             playSfx(openSfx);
 
             status.textContent =
@@ -10734,7 +11944,7 @@ const balls =
                 false;
         }
     }
-    
+
     // ==========================================
 // World Collection Map
 // ==========================================
@@ -11852,7 +13062,7 @@ overlay
     showCountryById,
 
     showCollection,
-    
+
     showGashaponMachine,
 
     startCountryReading,
@@ -15343,7 +16553,7 @@ function updateMicButtonUI() {
     } else {
         btn.classList.remove('bg-stone-800', 'animate-pulse');
         btn.classList.add('bg-emerald-800');
-        
+
         if (currentMode === 'shadowing') {
             txt.innerText = accumulatedTranscript.trim() ? "RETRY SHADOWING" : "START SHADOWING";
         } else if (currentMode === 'memo') {
@@ -17760,7 +18970,7 @@ const dynamicDict = {
         lv3_desc: "【脱・ひっくり返し読み】英語の並び順のまま、左から右へリズムよく読み進める段階です。共通テストや英検の長文を読み切る基礎体力がつきます。",
         lv4_desc: "【脳の省エネモード】発音の処理が自動化され、脳のスタミナが残る段階です。試験本番で初めて見る英文に出会っても、焦らずスラスラ意味が頭に入ります。",
         lv5_desc: "【直読直解の極致】共通テストを時間内に余裕で解き切り、見直しの時間が10分余るレベルのスピードです。返り読み一切なしの「一生モノの英語脳」の完成！",
-        
+
         // SLA 脳内処理解説 (SLA Slides)
         sla1_title: "音韻符号化の起動フェーズ",
         sla1_desc: "英語の音読に強い苦手意識を持つ生徒向けのスタートライン。脳内では目から入った文字を「音」に変換する処理だけでメモリが一杯になっています。<br>ここでは文法や意味を考える余裕がないため、まずは点数やスピードを気にせず「声を出すこと」で脳の言語回路を起動させることがミッションです。",
@@ -17787,7 +18997,7 @@ const dynamicDict = {
         lv3_desc: "[No More Backwards Reading] Read rhythmically from left to right in the English word order. This builds the stamina needed for long reading tests.",
         lv4_desc: "[Brain Energy Saving] Pronunciation is automated, saving your brain's stamina. You can easily grasp the meaning of unseen texts without panicking.",
         lv5_desc: "[Ultimate Direct Reading] Speed to easily finish long tests with 10 minutes to spare. A lifelong 'English Brain' with zero backwards reading!",
-        
+
         // SLA Slides
         sla1_title: "Phonological Encoding Activation",
         sla1_desc: "The starting line. The brain's memory is fully occupied just converting visual letters into 'sounds'.<br>Since there's no room to process grammar or deep meaning yet, the mission here is simply to activate the brain's language circuit by 'speaking out loud', ignoring scores or speed.",
@@ -17812,10 +19022,10 @@ const dynamicDict = {
 // 言語切替時のイベントフック
 function updateDynamicTranslations(lang) {
     window.currentAppLang = dynamicDict[lang] ? lang : 'en'; // ja以外は一旦enにフォールバック
-    
+
     // 現在のレベルのテキストと画像を更新
     if (typeof switchTargetLevel === 'function') switchTargetLevel(window.currentPreviewLevel || 1);
-    
+
     // SLAスライドのテキストを更新
     if (typeof updateSlaModalTexts === 'function') updateSlaModalTexts();
 }
@@ -18546,7 +19756,7 @@ const i18n = {
 // 選択された言語を画面全体に適用する関数
 function changeAppLanguage(langCode) {
     if (!i18n[langCode]) return; // 辞書にない言語が選ばれたら何もしない
-    
+
     // 1. 選んだ言語をブラウザ（localStorage）に記憶させる
     localStorage.setItem('copeak_lang', langCode);
 
@@ -18576,10 +19786,10 @@ function changeAppLanguage(langCode) {
 window.addEventListener('DOMContentLoaded', () => {
     // 以前保存した言語があるかチェック（なければ日本語 'ja'）
     let savedLang = localStorage.getItem('copeak_lang');
-    
+
     if (!savedLang) {
         // もし保存された言語がなければ、ブラウザの基本言語設定をチェックして自動判定する
-        const userLang = navigator.language || navigator.userLanguage; 
+        const userLang = navigator.language || navigator.userLanguage;
         if (userLang.startsWith('en')) savedLang = 'en';
         else if (userLang.startsWith('zh')) savedLang = 'zh-TW';
         else if (userLang.startsWith('vi')) savedLang = 'vi';
@@ -18604,8 +19814,8 @@ window.addEventListener('DOMContentLoaded', () => {
 // ==========================================
 
 let peer = null;
-let myConnection = null; 
-let hostConnections = []; 
+let myConnection = null;
+let hostConnections = [];
 let isHost = false;
 let currentRoomId = "";
 
@@ -18630,7 +19840,7 @@ function openMultiplaySetup() {
         if (typeof showMsg === 'function') showMsg("⚠️ まずはプレイリストから読む教材を選択してください");
         return;
     }
-    
+
     document.querySelectorAll('.screen').forEach(el => {
         el.style.display = 'none';
         el.classList.remove('active');
@@ -19316,10 +20526,10 @@ if (
         'reading'
     );
 }
-    
+
     const overlay = document.getElementById('sync-countdown-overlay');
     const numberEl = document.getElementById('countdown-number');
-    
+
     if (overlay && numberEl) {
         overlay.classList.remove('hidden');
         numberEl.innerText = "3";
@@ -19331,7 +20541,7 @@ if (
             count--;
             numberEl.classList.remove('scale-100');
             numberEl.classList.add('scale-75');
-            
+
             setTimeout(() => {
                 if (count > 0) {
                     numberEl.innerText = count.toString();
@@ -19344,7 +20554,7 @@ if (
                 } else {
                     clearInterval(countInterval);
                     overlay.classList.add('hidden');
-                    
+
                     if (typeof startRecordingSession === 'function') {
 
                         startRecordingSession();
@@ -19354,7 +20564,7 @@ if (
                         window.originalToggleRecording();
                     }
                 }
-            }, 100); 
+            }, 100);
         }, 1000);
     }
 }
@@ -19721,7 +20931,7 @@ function exitMultiplayMode(isForce = false) {
     peer = null;
 }
     }
-    
+
     isSyncModeActive = false; // フラグOFF
     isHost = false;
     myMicReady = false;
@@ -19738,7 +20948,7 @@ function exitMultiplayMode(isForce = false) {
     currentCustomLesson =
         lessonBeforeMultiplay;
 }
-    
+
     // 隠していたソロ用UIを復活させる
     const resultContainer = document.getElementById('resultScoreBoard');
     if (resultContainer) {
@@ -19751,10 +20961,10 @@ function exitMultiplayMode(isForce = false) {
         const customBoard = document.getElementById('sync-custom-board');
         if (customBoard) customBoard.remove();
     }
-    
+
     // マイクボタンの色・文字を通常に戻す
     if (typeof window.updateMicButtonUI === 'function') window.updateMicButtonUI();
-    
+
     if (!isForce && typeof showMsg === 'function') showMsg("共同モードを解除しました");
 }
 
@@ -19765,10 +20975,10 @@ function exitMultiplayMode(isForce = false) {
 // 1. マイクボタン（スタート/リトライボタン）の見た目をハイジャック
 if (typeof window.updateMicButtonUI === 'function') {
     window.originalUpdateMicButtonUI = window.updateMicButtonUI; // 元の関数を保存
-    
+
     window.updateMicButtonUI = function() {
         window.originalUpdateMicButtonUI(); // まず通常の更新を走らせる
-        
+
         // もし「共同モード中」かつ「録音中ではない（=待機中・リザルト画面）」なら上書き！
         if (isSyncModeActive && typeof isMainRecording !== 'undefined' && !isMainRecording) {
             const btn = document.getElementById('micBtn');
@@ -19791,7 +21001,7 @@ if (typeof window.updateMicButtonUI === 'function') {
 // 2. マイクボタンを押した時の「動作」をハイジャック
 if (typeof window.toggleRecording === 'function') {
     window.originalToggleRecording = window.toggleRecording; // 元の関数を保存
-    
+
     window.toggleRecording = function() {
         // もし「共同モード中」かつ「これからスタートしようとしている」なら、ソロ開始をブロックする
         if (isSyncModeActive && typeof isMainRecording !== 'undefined' && !isMainRecording) {
@@ -19802,7 +21012,7 @@ if (typeof window.toggleRecording === 'function') {
             }
             return; // ここで処理を止めて、元のソロ用スタートは実行させない
         }
-        
+
         // それ以外（ソロモード、または共同モードの録音を「FINISH」する時）は通常通り動かす
         window.originalToggleRecording();
     };

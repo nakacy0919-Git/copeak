@@ -275,6 +275,15 @@ function backToHome() {
         audioPlayer.src = "";
     }
     
+    destroyYoutubeLessonPlayer();
+
+
+document.body
+    .classList
+    .remove(
+        'youtube-lesson-active'
+    );
+
     currentCustomLesson = null;
 
     if (typeof loadSavedLessons === 'function') loadSavedLessons(); 
@@ -282,8 +291,872 @@ function backToHome() {
     switchScreen('homeScreen');
 }
 
+// ==========================================
+// YOUTUBE IFRAME PLAYER
+// ==========================================
+
+let youtubeLessonPlayer =
+    null;
+
+let youtubeLoopTimer =
+    null;
+
+let youtubeApiPromise =
+    null;
+
+let activeYoutubeLesson =
+    null;
+
+let youtubeSetupGeneration =
+    0;
+
+
+// ==========================================
+// YouTube API Loader
+// ==========================================
+
+function loadYoutubeIframeApi() {
+
+    if (
+        window.YT &&
+        typeof window.YT.Player ===
+            'function'
+    ) {
+
+        return Promise.resolve();
+    }
+
+
+    if (
+        youtubeApiPromise
+    ) {
+
+        return youtubeApiPromise;
+    }
+
+
+    youtubeApiPromise =
+        new Promise(
+            (
+                resolve,
+                reject
+            ) => {
+
+                const previousReady =
+                    window
+                        .onYouTubeIframeAPIReady;
+
+
+                window
+                    .onYouTubeIframeAPIReady =
+                    function () {
+
+                        if (
+                            typeof previousReady ===
+                            'function'
+                        ) {
+
+                            try {
+
+                                previousReady();
+
+                            } catch (
+                                error
+                            ) {
+
+                                console.warn(
+                                    error
+                                );
+                            }
+                        }
+
+
+                        resolve();
+                    };
+
+
+                let script =
+                    document.querySelector(
+                        'script[src="https://www.youtube.com/iframe_api"]'
+                    );
+
+
+                if (!script) {
+
+                    script =
+                        document.createElement(
+                            'script'
+                        );
+
+
+                    script.src =
+                        'https://www.youtube.com/iframe_api';
+
+
+                    script.async =
+                        true;
+
+
+                    document.head
+                        .appendChild(
+                            script
+                        );
+                }
+
+
+                script.addEventListener(
+                    'error',
+                    () => {
+
+                        youtubeApiPromise =
+                            null;
+
+
+                        reject(
+                            new Error(
+                                'YouTube Player APIの読み込みに失敗しました。'
+                            )
+                        );
+                    },
+                    {
+                        once:
+                            true
+                    }
+                );
+            }
+        );
+
+
+    return youtubeApiPromise;
+}
+
+
+// ==========================================
+// Player targetを再生成
+// ==========================================
+
+function ensureYoutubePlayerTarget() {
+
+    const wrapper =
+        document.getElementById(
+            'youtubePlayerWrapper'
+        );
+
+
+    if (!wrapper) {
+
+        return null;
+    }
+
+
+    let target =
+        document.getElementById(
+            'youtubePlayer'
+        );
+
+
+    if (!target) {
+
+        target =
+            document.createElement(
+                'div'
+            );
+
+
+        target.id =
+            'youtubePlayer';
+
+
+        wrapper.innerHTML =
+            '';
+
+
+        wrapper.appendChild(
+            target
+        );
+    }
+
+
+    return target;
+}
+
+
+// ==========================================
+// Loop監視停止
+// ==========================================
+
+function stopYoutubeLoopWatch() {
+
+    if (
+        youtubeLoopTimer
+    ) {
+
+        clearInterval(
+            youtubeLoopTimer
+        );
+
+
+        youtubeLoopTimer =
+            null;
+    }
+}
+
+
+// ==========================================
+// Player破棄
+// ==========================================
+
+function destroyYoutubeLessonPlayer() {
+
+    youtubeSetupGeneration +=
+        1;
+
+
+    stopYoutubeLoopWatch();
+
+
+    if (
+        youtubeLessonPlayer &&
+        typeof youtubeLessonPlayer.destroy ===
+            'function'
+    ) {
+
+        try {
+
+            youtubeLessonPlayer
+                .destroy();
+
+        } catch (
+            error
+        ) {
+
+            console.warn(
+                'YouTube player destroy:',
+                error
+            );
+        }
+    }
+
+
+    youtubeLessonPlayer =
+        null;
+
+    activeYoutubeLesson =
+        null;
+
+
+    ensureYoutubePlayerTarget();
+}
+
+
+// ==========================================
+// Start / End監視
+// ==========================================
+
+function startYoutubeLoopWatch() {
+
+    stopYoutubeLoopWatch();
+
+
+    youtubeLoopTimer =
+        setInterval(
+            () => {
+
+                if (
+                    !youtubeLessonPlayer ||
+                    !activeYoutubeLesson
+                ) {
+
+                    return;
+                }
+
+
+                if (
+                    typeof youtubeLessonPlayer
+                        .getCurrentTime !==
+                    'function'
+                ) {
+
+                    return;
+                }
+
+
+                let currentTime;
+
+
+                try {
+
+                    currentTime =
+                        youtubeLessonPlayer
+                            .getCurrentTime();
+
+                } catch (
+                    error
+                ) {
+
+                    return;
+                }
+
+
+                if (
+                    !Number.isFinite(
+                        currentTime
+                    )
+                ) {
+
+                    return;
+                }
+
+
+                const start =
+                    activeYoutubeLesson
+                        .startSeconds;
+
+
+                const end =
+                    activeYoutubeLesson
+                        .endSeconds;
+
+
+                // --------------------------
+                // Startより前へ移動した場合
+                // --------------------------
+
+                if (
+                    currentTime <
+                    start - 0.5
+                ) {
+
+                    youtubeLessonPlayer
+                        .seekTo(
+                            start,
+                            true
+                        );
+
+
+                    return;
+                }
+
+
+                // --------------------------
+                // End到達
+                // --------------------------
+
+                if (
+                    end !==
+                        null &&
+                    currentTime >=
+                        end - 0.15
+                ) {
+
+                    if (
+                        activeYoutubeLesson
+                            .loop
+                    ) {
+
+                        youtubeLessonPlayer
+                            .seekTo(
+                                start,
+                                true
+                            );
+
+
+                        youtubeLessonPlayer
+                            .playVideo();
+
+                    } else {
+
+                        youtubeLessonPlayer
+                            .pauseVideo();
+                    }
+                }
+
+            },
+            200
+        );
+}
+
+
+// ==========================================
+// YouTube Player Setup
+// ==========================================
+
+async function setupYoutubeLessonPlayer(
+    lesson
+) {
+
+    destroyYoutubeLessonPlayer();
+
+
+    const videoId =
+        String(
+            lesson?.youtubeVideoId ||
+            ''
+        ).trim();
+
+
+    if (
+        !/^[A-Za-z0-9_-]{11}$/.test(
+            videoId
+        )
+    ) {
+
+        return;
+    }
+
+
+    const startSeconds =
+        Number.isFinite(
+            Number(
+                lesson.youtubeStartSeconds
+            )
+        )
+            ? Math.max(
+                0,
+                Number(
+                    lesson.youtubeStartSeconds
+                )
+            )
+            : 0;
+
+
+    let endSeconds =
+        null;
+
+
+    if (
+        lesson.youtubeEndSeconds !==
+            null &&
+        lesson.youtubeEndSeconds !==
+            undefined
+    ) {
+
+        const parsedEnd =
+            Number(
+                lesson.youtubeEndSeconds
+            );
+
+
+        if (
+            Number.isFinite(
+                parsedEnd
+            ) &&
+            parsedEnd >
+                startSeconds
+        ) {
+
+            endSeconds =
+                parsedEnd;
+        }
+    }
+
+
+    activeYoutubeLesson = {
+
+        videoId,
+
+        startSeconds,
+
+        endSeconds,
+
+        loop:
+            lesson.youtubeLoop ===
+            true
+    };
+
+
+    const generation =
+        youtubeSetupGeneration;
+
+
+    try {
+
+        await loadYoutubeIframeApi();
+
+    } catch (
+        error
+    ) {
+
+        console.error(
+            error
+        );
+
+
+        if (
+            typeof showMsg ===
+            'function'
+        ) {
+
+            showMsg(
+                '⚠️ YouTubeを読み込めませんでした'
+            );
+        }
+
+
+        return;
+    }
+
+
+    // 別教材へ切り替わっていた場合
+    if (
+        generation !==
+            youtubeSetupGeneration ||
+        !activeYoutubeLesson ||
+        activeYoutubeLesson.videoId !==
+            videoId
+    ) {
+
+        return;
+    }
+
+
+    const target =
+        ensureYoutubePlayerTarget();
+
+
+    if (!target) {
+
+        return;
+    }
+
+
+    youtubeLessonPlayer =
+        new YT.Player(
+            target,
+            {
+
+                width:
+                    '100%',
+
+                height:
+                    '100%',
+
+
+                playerVars: {
+
+                    autoplay:
+                        0,
+
+                    controls:
+                        1,
+
+                    playsinline:
+                        1,
+
+                    rel:
+                        0,
+
+                    origin:
+                        window.location.origin
+                },
+
+
+                events: {
+
+                    onReady:
+                        event => {
+
+                            const cueData = {
+
+                                videoId,
+
+                                startSeconds
+                            };
+
+
+                            if (
+                                endSeconds !==
+                                null
+                            ) {
+
+                                cueData.endSeconds =
+                                    endSeconds;
+                            }
+
+
+                            // 自動再生しない
+                            // iPhone / iPad対策
+                            event.target
+                                .cueVideoById(
+                                    cueData
+                                );
+
+
+                            const replayBtn =
+                                document.getElementById(
+                                    'youtubeReplayBtn'
+                                );
+
+
+                            if (
+                                replayBtn
+                            ) {
+
+                                replayBtn.onclick =
+                                    () => {
+
+                                        if (
+                                            !youtubeLessonPlayer ||
+                                            !activeYoutubeLesson
+                                        ) {
+
+                                            return;
+                                        }
+
+
+                                        youtubeLessonPlayer
+                                            .seekTo(
+                                                activeYoutubeLesson
+                                                    .startSeconds,
+                                                true
+                                            );
+
+
+                                        youtubeLessonPlayer
+                                            .playVideo();
+                                    };
+                            }
+                        },
+
+
+                    onStateChange:
+                        event => {
+
+                            if (
+                                event.data ===
+                                YT.PlayerState
+                                    .PLAYING
+                            ) {
+
+                                startYoutubeLoopWatch();
+
+                                return;
+                            }
+
+
+                            if (
+                                event.data ===
+                                YT.PlayerState
+                                    .ENDED &&
+                                activeYoutubeLesson?.loop
+                            ) {
+
+                                youtubeLessonPlayer
+                                    .seekTo(
+                                        activeYoutubeLesson
+                                            .startSeconds,
+                                        true
+                                    );
+
+
+                                youtubeLessonPlayer
+                                    .playVideo();
+
+
+                                return;
+                            }
+
+
+                            if (
+                                event.data ===
+                                    YT.PlayerState
+                                        .PAUSED ||
+                                event.data ===
+                                    YT.PlayerState
+                                        .ENDED
+                            ) {
+
+                                stopYoutubeLoopWatch();
+                            }
+                        },
+
+
+                    onError:
+                        event => {
+
+                            console.error(
+                                'YouTube Player Error:',
+                                event.data
+                            );
+
+
+                            if (
+                                typeof showMsg ===
+                                'function'
+                            ) {
+
+                                showMsg(
+                                    '⚠️ このYouTube動画を再生できません'
+                                );
+                            }
+                        }
+                }
+            }
+        );
+}
+
+// ==========================================
+// YOUTUBE LESSON LAYOUT
+// ==========================================
+
+function applyYoutubeLessonLayout(
+    lesson
+) {
+
+    const youtubeId =
+        String(
+            lesson?.youtubeVideoId ||
+            ''
+        ).trim();
+
+
+    const hasYoutube =
+        /^[A-Za-z0-9_-]{11}$/.test(
+            youtubeId
+        );
+
+
+    document.body
+        .classList
+        .toggle(
+            'youtube-lesson-active',
+            hasYoutube
+        );
+
+
+    const youtubePane =
+        document.getElementById(
+            'youtubeLessonPane'
+        );
+
+
+    if (youtubePane) {
+
+        youtubePane
+            .classList
+            .toggle(
+                'hidden',
+                !hasYoutube
+            );
+    }
+
+
+    const clipTime =
+        document.getElementById(
+            'youtubeClipTime'
+        );
+
+
+    const loopStatus =
+        document.getElementById(
+            'youtubeLoopStatus'
+        );
+
+
+    if (!hasYoutube) {
+
+        if (clipTime) {
+            clipTime.textContent =
+                '';
+        }
+
+
+        if (loopStatus) {
+            loopStatus.textContent =
+                '';
+        }
+
+
+        return;
+    }
+
+
+    const start =
+        Number.isFinite(
+            Number(
+                lesson.youtubeStartSeconds
+            )
+        )
+            ? Number(
+                lesson.youtubeStartSeconds
+            )
+            : 0;
+
+
+    const end =
+        Number.isFinite(
+            Number(
+                lesson.youtubeEndSeconds
+            )
+        )
+            ? Number(
+                lesson.youtubeEndSeconds
+            )
+            : null;
+
+
+    const formatTime =
+        seconds => {
+
+            const total =
+                Math.max(
+                    0,
+                    Math.floor(
+                        Number(
+                            seconds
+                        ) || 0
+                    )
+                );
+
+
+            const minutes =
+                Math.floor(
+                    total / 60
+                );
+
+
+            const secs =
+                String(
+                    total % 60
+                ).padStart(
+                    2,
+                    '0'
+                );
+
+
+            return (
+                `${minutes}:${secs}`
+            );
+        };
+
+
+    if (clipTime) {
+
+        clipTime.textContent =
+            end !== null
+
+                ? `${formatTime(start)} – ${formatTime(end)}`
+
+                : `${formatTime(start)} –`;
+    }
+
+
+    if (loopStatus) {
+
+        loopStatus.textContent =
+            lesson.youtubeLoop
+                ? '🔁 Loop ON'
+                : 'Loop OFF';
+    }
+}
+
 function openLearningScreen(lesson) {
     toggleMobileLibrary(true);
+
+    applyYoutubeLessonLayout(
+        lesson
+    );
+
     document.getElementById('learningTitle').innerText = lesson.title;
     
     document.getElementById('engContainer').style.fontSize = engFontSize + 'px';
@@ -327,9 +1200,24 @@ function openLearningScreen(lesson) {
     // 読み込み順などで未定義の場合は ui.js 側のフォールバック処理を使う。
     targetTextArray = buildMultilingualTargetTextArray(lesson);
     
-    switchScreen('learningScreen');
+    switchScreen(
+    'learningScreen'
+);
 
-    const mainScrollArea = document.getElementById('mainScrollArea');
+
+// ========================================
+// YouTube Player
+// ========================================
+
+setupYoutubeLessonPlayer(
+    lesson
+);
+
+
+const mainScrollArea =
+    document.getElementById(
+        'mainScrollArea'
+    );
     if (mainScrollArea) mainScrollArea.scrollTop = 0;
 }
 
