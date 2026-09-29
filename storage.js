@@ -1163,6 +1163,60 @@ function startCustomLesson(lesson) {
     }
 }
 
+// ==========================================
+// Copeak Classroom Audio Cache
+// Classroomの一時URLからMP3を取得し、
+// IndexedDBへ保存できるBlobに変換する
+// ==========================================
+
+async function fetchClassroomAudioBlob(
+    audioUrl
+) {
+
+    if (!audioUrl) {
+        return null;
+    }
+
+    try {
+
+        const response =
+            await fetch(
+                audioUrl
+            );
+
+        if (!response.ok) {
+
+            throw new Error(
+                `Audio download failed (${response.status})`
+            );
+        }
+
+        const blob =
+            await response.blob();
+
+        if (
+            !blob ||
+            blob.size <= 0
+        ) {
+
+            throw new Error(
+                'Downloaded audio is empty.'
+            );
+        }
+
+        return blob;
+
+    } catch (error) {
+
+        console.warn(
+            '[Copeak Classroom] audio cache failed:',
+            error
+        );
+
+        return null;
+    }
+}
+
 async function checkUrlParameters() {
     const urlParams = new URLSearchParams(window.location.search);
 
@@ -1312,105 +1366,466 @@ async function checkUrlParameters() {
 
         window.history.replaceState({}, document.title, window.location.pathname);
 
-        const transaction = db.transaction([storeName], "readwrite");
-        const store = transaction.objectStore(storeName);
-        const request = store.getAll();
+                // ==========================================
+        // Library内の教材を先に確認
+        // ==========================================
 
-        request.onsuccess = () => {
-            const lessons = request.result;
-            const sharedTitle = "🔗 " + title;
-            const existingLesson = lessons.find(
-                l => l.title === sharedTitle && l.eng === engText
+        const lessons =
+            await new Promise(
+                (resolve, reject) => {
+
+                    const tx =
+                        db.transaction(
+                            [storeName],
+                            "readonly"
+                        );
+
+                    const store =
+                        tx.objectStore(
+                            storeName
+                        );
+
+                    const request =
+                        store.getAll();
+
+
+                    request.onsuccess =
+                        () => {
+
+                            resolve(
+                                request.result || []
+                            );
+                        };
+
+
+                    request.onerror =
+                        () => {
+
+                            reject(
+                                request.error
+                            );
+                        };
+                }
             );
 
-            if (existingLesson) {
-                existingLesson.formUrl = formUrl;
-                if (audioUrl) existingLesson.audioUrl = audioUrl;
-                if (urlParams.has('jpn')) existingLesson.jpn = jpnText;
 
-                existingLesson.type = lessonType;
-                if (dialogueData.length > 0) {
-                    existingLesson.dialogue = dialogueData;
-                }
+        const sharedTitle =
+            "🔗 " + title;
 
-                                // Classroomから開いた教材なら
-                // Classroom課題情報を教材に保持
-                if (classroomSource) {
 
-                    existingLesson.classroomAssignmentId =
-                        classroomAssignmentId;
+        // ==========================================
+        // 既存教材を探す
+        //
+        // Classroomの場合は assignment ID を優先
+        // 通常Shareの場合はタイトル＋英文
+        // ==========================================
 
-                    existingLesson.classroomOrigin =
-                        classroomOrigin;
+        const existingLesson =
+            (
+                classroomSource &&
+                classroomAssignmentId
+            )
 
-                    existingLesson.classroomSource =
-                        true;
-                }
+                ? lessons.find(
+                    lesson =>
+                        lesson.classroomSource === true &&
+                        lesson.classroomAssignmentId ===
+                            classroomAssignmentId
+                )
 
-                store.put(existingLesson);
+                : lessons.find(
+                    lesson =>
+                        lesson.title ===
+                            sharedTitle &&
+                        lesson.eng ===
+                            engText
+                );
 
-                if (typeof showMsg === 'function') {
-                    showMsg("この共有教材はすでにLibraryにあります");
-                }
 
-                startCustomLesson(existingLesson);
+        // ==========================================
+        // 既存教材がある場合
+        // ==========================================
 
-            } else {
-                const newLessonData = {
+        if (existingLesson) {
 
-    title: sharedTitle,
-    eng: engText,
-    jpn: jpnText,
+                        existingLesson.title =
+                sharedTitle;
 
-    audioBlob: null,
-    audioUrl: audioUrl,
+            existingLesson.eng =
+                engText;
 
-    lang: lang,
-    langName: "🌐 Shared Material",
+            existingLesson.formUrl =
+                formUrl;
 
-    formUrl: formUrl,
+            existingLesson.lang =
+                lang;
 
-    type: lessonType,
-    dialogue: dialogueData,
 
-    // ======================================
-    // Copeak Classroom
-    // ======================================
-    classroomAssignmentId:
-        classroomSource
-            ? classroomAssignmentId
-            : null,
+            if (
+                urlParams.has(
+                    'jpn'
+                )
+            ) {
 
-    classroomOrigin:
-        classroomSource
-            ? classroomOrigin
-            : null,
+                existingLesson.jpn =
+                    jpnText;
+            }
 
-    classroomSource:
-        classroomSource,
 
-    memoImage: null,
+            existingLesson.type =
+                lessonType;
 
-    history: [],
 
-    createdAt:
-        Date.now()
-};
+            if (
+                dialogueData.length > 0
+            ) {
 
-                const addReq = store.add(newLessonData);
+                existingLesson.dialogue =
+                    dialogueData;
+            }
 
-                addReq.onsuccess = e => {
-                    newLessonData.id = e.target.result;
 
-                    if (typeof showMsg === 'function') {
-                        showMsg("📥 共有教材をLibraryに追加しました！");
+            let audioWasDownloaded =
+                false;
+
+
+            // ======================================
+            // Copeak Classroom
+            // ======================================
+
+            if (classroomSource) {
+
+                existingLesson.classroomAssignmentId =
+                    classroomAssignmentId;
+
+                existingLesson.classroomOrigin =
+                    classroomOrigin;
+
+                existingLesson.classroomSource =
+                    true;
+
+
+                // ==================================
+                // まだBlob保存されていない場合のみ
+                // R2からMP3を取得
+                // ==================================
+
+                if (
+                    audioUrl &&
+                    !existingLesson.audioBlob
+                ) {
+
+                    const downloadedBlob =
+                        await fetchClassroomAudioBlob(
+                            audioUrl
+                        );
+
+
+                    if (downloadedBlob) {
+
+                        existingLesson.audioBlob =
+                            downloadedBlob;
+
+                        existingLesson.audioUrl =
+                            null;
+
+                        audioWasDownloaded =
+                            true;
+
+                    } else {
+
+                        // Blob取得に失敗した場合だけ
+                        // 今回の一時URLを残す
+                        existingLesson.audioUrl =
+                            audioUrl;
                     }
 
-                    loadSavedLessons();
-                    startCustomLesson(newLessonData);
-                };
+                } else if (
+                    existingLesson.audioBlob
+                ) {
+
+                    // すでに端末保存済みなら
+                    // 期限付きURLは不要
+                    existingLesson.audioUrl =
+                        null;
+                }
+
+
+            } else if (audioUrl) {
+
+                // ==================================
+                // 従来のClassic Share
+                // 今まで通りURLを利用
+                // ==================================
+
+                existingLesson.audioUrl =
+                    audioUrl;
             }
+
+
+            // ======================================
+            // IndexedDBへ更新保存
+            // ======================================
+
+            await new Promise(
+                (resolve, reject) => {
+
+                    const tx =
+                        db.transaction(
+                            [storeName],
+                            "readwrite"
+                        );
+
+                    const store =
+                        tx.objectStore(
+                            storeName
+                        );
+
+
+                    store.put(
+                        existingLesson
+                    );
+
+
+                    tx.oncomplete =
+                        () => resolve();
+
+
+                    tx.onerror =
+                        () =>
+                            reject(
+                                tx.error
+                            );
+
+
+                    tx.onabort =
+                        () =>
+                            reject(
+                                tx.error
+                            );
+                }
+            );
+
+
+            if (
+                typeof showMsg ===
+                'function'
+            ) {
+
+                if (
+                    audioWasDownloaded
+                ) {
+
+                    showMsg(
+                        "🎧 Classroom音声を端末に保存しました"
+                    );
+
+                } else {
+
+                    showMsg(
+                        "この共有教材はすでにLibraryにあります"
+                    );
+                }
+            }
+
+
+            startCustomLesson(
+                existingLesson
+            );
+
+
+            return;
+        }
+
+
+        // ==========================================
+        // 新規教材
+        // ==========================================
+
+        let classroomAudioBlob =
+            null;
+
+
+        if (
+            classroomSource &&
+            audioUrl
+        ) {
+
+            classroomAudioBlob =
+                await fetchClassroomAudioBlob(
+                    audioUrl
+                );
+        }
+
+
+        const newLessonData = {
+
+            title:
+                sharedTitle,
+
+            eng:
+                engText,
+
+            jpn:
+                jpnText,
+
+
+            // Classroomの場合は
+            // ダウンロードしたBlobを保存
+            audioBlob:
+                classroomSource
+                    ? classroomAudioBlob
+                    : null,
+
+
+            // Blob取得成功時は
+            // 期限付きURLを保存しない
+            audioUrl:
+                (
+                    classroomSource &&
+                    classroomAudioBlob
+                )
+                    ? null
+                    : audioUrl,
+
+
+            lang:
+                lang,
+
+            langName:
+                "🌐 Shared Material",
+
+            formUrl:
+                formUrl,
+
+            type:
+                lessonType,
+
+            dialogue:
+                dialogueData,
+
+
+            // ======================================
+            // Copeak Classroom
+            // ======================================
+
+            classroomAssignmentId:
+                classroomSource
+                    ? classroomAssignmentId
+                    : null,
+
+            classroomOrigin:
+                classroomSource
+                    ? classroomOrigin
+                    : null,
+
+            classroomSource:
+                classroomSource,
+
+
+            memoImage:
+                null,
+
+            history:
+                [],
+
+            createdAt:
+                Date.now()
         };
+
+
+        // ==========================================
+        // IndexedDBへ新規保存
+        // ==========================================
+
+        const newId =
+            await new Promise(
+                (resolve, reject) => {
+
+                    const tx =
+                        db.transaction(
+                            [storeName],
+                            "readwrite"
+                        );
+
+                    const store =
+                        tx.objectStore(
+                            storeName
+                        );
+
+                    const request =
+                        store.add(
+                            newLessonData
+                        );
+
+
+                    let savedId =
+                        null;
+
+
+                    request.onsuccess =
+                        event => {
+
+                            savedId =
+                                event.target.result;
+                        };
+
+
+                    tx.oncomplete =
+                        () =>
+                            resolve(
+                                savedId
+                            );
+
+
+                    tx.onerror =
+                        () =>
+                            reject(
+                                tx.error
+                            );
+
+
+                    tx.onabort =
+                        () =>
+                            reject(
+                                tx.error
+                            );
+                }
+            );
+
+
+        newLessonData.id =
+            newId;
+
+
+        if (
+            typeof showMsg ===
+            'function'
+        ) {
+
+            if (
+                classroomAudioBlob
+            ) {
+
+                showMsg(
+                    "🎧 Classroom教材と音声を端末に保存しました"
+                );
+
+            } else {
+
+                showMsg(
+                    "📥 共有教材をLibraryに追加しました！"
+                );
+            }
+        }
+
+
+        loadSavedLessons();
+
+
+        startCustomLesson(
+            newLessonData
+        );
     }
 }
 
