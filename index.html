@@ -8140,21 +8140,38 @@ body.result-layout-active
                 <div id="mainScrollArea" class="flex-1 overflow-y-auto p-3 md:p-8 space-y-4 flex flex-col relative z-20">
                     <div id="audioContainer" class="hidden bg-stone-100 p-2 md:p-3 rounded-sm iron-border-sm shrink-0 w-full">
                         <div class="flex items-center gap-2 w-full">
-                            <audio id="audioPlayer" controls class="flex-1 min-w-0 h-10 outline-none"></audio>
-                            <div class="shrink-0 flex items-center gap-1 h-10 px-2 bg-white border border-stone-300 rounded-sm">
-                                <span class="text-[9px] md:text-[10px] font-bold text-stone-500">速度</span>
-                                <select id="aiVoiceRateSelect"
-                                    onchange="setAIVoiceRate(this.value)"
+
+                            <audio
+                                id="audioPlayer"
+                                controls
+                                class="flex-1 min-w-0 h-10 outline-none">
+                            </audio>
+
+                            <div
+                                class="shrink-0 inline-flex items-center h-8 px-1.5 bg-white border border-stone-300 rounded-sm">
+
+                                <span class="text-[11px] mr-1">🎧</span>
+
+                                <select
+                                    id="originalAudioRateSelect"
+                                    onchange="setOriginalAudioRate(this.value)"
+                                    aria-label="Original audio speed"
                                     class="bg-transparent text-[10px] md:text-xs font-bold text-stone-700 outline-none cursor-pointer">
+
                                     <option value="1" selected>1.0×</option>
                                     <option value="0.75">0.75×</option>
                                     <option value="0.5">0.5×</option>
                                     <option value="0.25">0.25×</option>
+
                                 </select>
+
                             </div>
-                            <button id="aiVoiceBtn" onclick="toggleAIVoice()" class="shrink-0 px-3 py-2 h-10 bg-purple-600 hover:bg-purple-700 text-white text-[10px] md:text-xs font-bold rounded-sm shadow-sm transition flex items-center justify-center whitespace-nowrap">
-                                🤖 <span data-i18n="btn_ai_voice" class="hidden sm:inline ml-1">AI音声を再生</span><span class="sm:hidden ml-1">AI再生</span>
-                            </button>
+
+                            <div
+                                id="aiVoiceAudioSlot"
+                                class="shrink-0">
+                            </div>
+
                         </div>
                     </div>
                     <div id="resultScoreBoard" class="hidden flex-col gap-4 shrink-0">
@@ -8274,8 +8291,43 @@ body.result-layout-active
                                <div class="flex justify-between items-center mb-2 md:mb-4 border-b border-stone-100 pb-2 shrink-0">
                                     <div class="flex items-center gap-2 md:gap-3 flex-wrap">
                                         <div data-i18n="label_target_text" class="text-xs md:text-sm text-emerald-800 font-bold uppercase tracking-widest">Target Text</div>
+                                        <span id="tapPronunciationHint" class="text-[9px] md:text-[10px] text-stone-400 font-medium whitespace-nowrap">🔊 <span class="hidden sm:inline">単語をタップすると発音が聞けます</span><span class="sm:hidden">単語タップで発音</span></span>
                                         <button id="toggleJpnBtn" onclick="toggleTranslation()" class="hidden text-[10px] md:text-xs font-bold text-stone-500 hover:text-emerald-700 bg-stone-100 px-2 md:px-3 py-1 rounded-sm transition border border-stone-200 whitespace-nowrap">🌐 <span data-i18n="btn_show_translation">訳を表示</span></button>
                                         <button onclick="openFullscreenPreview()" class="px-2 py-1 md:px-3 md:py-1 bg-stone-800 hover:bg-stone-700 text-white rounded-sm font-bold transition text-[10px] md:text-xs shadow-sm flex items-center gap-1.5 whitespace-nowrap">⛶ <span class="hidden sm:inline">フルスクリーンで予行練習</span><span class="sm:hidden">予行練習</span></button>
+                                        <div
+                                            id="aiVoiceHeaderSlot"
+                                            class="shrink-0">
+
+                                            <div
+                                                id="aiVoiceCompactControl"
+                                                class="inline-flex items-stretch h-7 md:h-8 overflow-hidden rounded-sm border border-purple-300 bg-purple-50 shadow-sm">
+
+                                                <button
+                                                    id="aiVoiceBtn"
+                                                    type="button"
+                                                    onclick="toggleAIVoice()"
+                                                    title="AI音声を再生 / 停止"
+                                                    class="px-2 md:px-3 bg-purple-600 hover:bg-purple-700 text-white text-[10px] md:text-xs font-bold transition flex items-center whitespace-nowrap">
+                                                    🤖 AI ▶
+                                                </button>
+
+                                                <select
+                                                    id="aiVoiceRateSelect"
+                                                    onchange="setAIVoiceRate(this.value)"
+                                                    aria-label="AI voice speed"
+                                                    class="px-1.5 bg-white text-[10px] md:text-xs font-bold text-purple-800 outline-none cursor-pointer border-l border-purple-200">
+
+                                                    <option value="1" selected>1.0×</option>
+                                                    <option value="0.75">0.75×</option>
+                                                    <option value="0.5">0.5×</option>
+                                                    <option value="0.25">0.25×</option>
+
+                                                </select>
+
+                                            </div>
+
+                                        </div>
+
                                         <div id="pacedModeControls" class="hidden">
                                             <div class="flex items-center gap-1 bg-purple-50 px-2 py-1 border border-purple-200 rounded-sm shrink-0">
                                                 <label for="pacedWpmSelect" class="text-[10px] font-bold text-purple-900 whitespace-nowrap flex items-center cursor-pointer">⚡️ WPM</label>

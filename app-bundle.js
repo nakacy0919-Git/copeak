@@ -3566,19 +3566,62 @@ function openLearningScreen(lesson) {
         jpnWrapper.classList.add('hidden');
     }
 
-    const audioContainer = document.getElementById('audioContainer');
-    const audioPlayer = document.getElementById('audioPlayer');
+    const audioContainer =
+        document.getElementById(
+            'audioContainer'
+        );
+
+    const audioPlayer =
+        document.getElementById(
+            'audioPlayer'
+        );
+
+
+    const hasOriginalAudio =
+        Boolean(
+            lesson.audioBlob ||
+            lesson.audioUrl
+        );
+
 
     if (lesson.audioBlob) {
-        audioContainer.classList.remove('hidden');
-        audioPlayer.src = URL.createObjectURL(lesson.audioBlob);
+
+        audioContainer.classList.remove(
+            'hidden'
+        );
+
+        audioPlayer.src =
+            URL.createObjectURL(
+                lesson.audioBlob
+            );
+
     } else if (lesson.audioUrl) {
-        audioContainer.classList.remove('hidden');
-        audioPlayer.src = lesson.audioUrl;
+
+        audioContainer.classList.remove(
+            'hidden'
+        );
+
+        audioPlayer.src =
+            lesson.audioUrl;
+
     } else {
-        audioContainer.classList.add('hidden');
-        audioPlayer.src = "";
+
+        audioContainer.classList.add(
+            'hidden'
+        );
+
+        audioPlayer.src =
+            "";
     }
+
+
+    audioPlayer.playbackRate =
+        originalAudioRate;
+
+
+    placeAIVoiceControl(
+        hasOriginalAudio
+    );
 
     setLearningMode('reading');
 
@@ -5184,6 +5227,97 @@ function setAIVoiceRate(value) {
     );
 }
 
+let originalAudioRate = 1.0;
+
+
+function setOriginalAudioRate(value) {
+
+    const nextRate =
+        Number(value);
+
+
+    if (
+        ![
+            0.25,
+            0.5,
+            0.75,
+            1
+        ].includes(nextRate)
+    ) {
+        return;
+    }
+
+
+    originalAudioRate =
+        nextRate;
+
+
+    const audioPlayer =
+        document.getElementById(
+            'audioPlayer'
+        );
+
+
+    if (audioPlayer) {
+        audioPlayer.playbackRate =
+            nextRate;
+    }
+
+
+    [
+        'originalAudioRateSelect',
+        'fsOriginalAudioRateSelect'
+    ].forEach(
+        selectId => {
+
+            const select =
+                document.getElementById(
+                    selectId
+                );
+
+
+            if (select) {
+                select.value =
+                    String(nextRate);
+            }
+        }
+    );
+}
+
+
+function placeAIVoiceControl(
+    hasOriginalAudio
+) {
+
+    const control =
+        document.getElementById(
+            'aiVoiceCompactControl'
+        );
+
+
+    const slot =
+        document.getElementById(
+            hasOriginalAudio
+                ? 'aiVoiceAudioSlot'
+                : 'aiVoiceHeaderSlot'
+        );
+
+
+    if (
+        !control ||
+        !slot ||
+        control.parentElement === slot
+    ) {
+        return;
+    }
+
+
+    slot.appendChild(
+        control
+    );
+}
+
+
 function toggleAIVoice() {
 
     if (!currentCustomLesson) return;
@@ -5194,7 +5328,7 @@ function toggleAIVoice() {
 
         window.speechSynthesis.cancel();
 
-        btn.innerHTML = '🤖 AI音声を再生';
+        btn.innerHTML = '🤖 AI ▶';
         btn.classList.remove('bg-red-600', 'hover:bg-red-700');
         btn.classList.add('bg-purple-600', 'hover:bg-purple-700');
 
@@ -5207,14 +5341,14 @@ function toggleAIVoice() {
     aiUtterance.rate = aiVoiceRate;
 
     aiUtterance.onend = () => {
-        btn.innerHTML = '🤖 AI音声を再生';
+        btn.innerHTML = '🤖 AI ▶';
         btn.classList.remove('bg-red-600', 'hover:bg-red-700');
         btn.classList.add('bg-purple-600', 'hover:bg-purple-700');
     };
 
     window.speechSynthesis.speak(aiUtterance);
 
-    btn.innerHTML = '⏹ AI音声を停止';
+    btn.innerHTML = '⏹ AI';
     btn.classList.remove('bg-purple-600', 'hover:bg-purple-700');
     btn.classList.add('bg-red-600', 'hover:bg-red-700');
 }
@@ -5721,6 +5855,255 @@ let isFsAudioPlaying = false;
 
 window.isFsImageShowing = false;
 
+function enableFullscreenTapPronunciation(
+    container
+) {
+
+    if (!container) {
+        return;
+    }
+
+
+    // ==========================================
+    // 表示済み本文のテキストノードだけを
+    // タップ可能な単語へ変換
+    // ==========================================
+
+    const walker =
+        document.createTreeWalker(
+            container,
+            NodeFilter.SHOW_TEXT
+        );
+
+
+    const textNodes = [];
+
+
+    while (
+        walker.nextNode()
+    ) {
+
+        const node =
+            walker.currentNode;
+
+
+        if (
+            node.textContent &&
+            node.textContent.trim()
+        ) {
+
+            textNodes.push(
+                node
+            );
+        }
+    }
+
+
+    textNodes.forEach(
+        node => {
+
+            const parent =
+                node.parentElement;
+
+
+            if (
+                !parent ||
+                parent.closest(
+                    '.fs-pronounce-word'
+                )
+            ) {
+
+                return;
+            }
+
+
+            const parts =
+                node.textContent.split(
+                    /(\s+)/
+                );
+
+
+            const fragment =
+                document.createDocumentFragment();
+
+
+            parts.forEach(
+                part => {
+
+                    if (!part) {
+                        return;
+                    }
+
+
+                    if (
+                        /^\s+$/.test(
+                            part
+                        )
+                    ) {
+
+                        fragment.appendChild(
+                            document.createTextNode(
+                                part
+                            )
+                        );
+
+                        return;
+                    }
+
+
+                    const span =
+                        document.createElement(
+                            'span'
+                        );
+
+
+                    span.className =
+                        'fs-pronounce-word cursor-pointer';
+
+
+                    span.title =
+                        'Tap to hear pronunciation';
+
+
+                    span.textContent =
+                        part;
+
+
+                    fragment.appendChild(
+                        span
+                    );
+                }
+            );
+
+
+            node.parentNode.replaceChild(
+                fragment,
+                node
+            );
+        }
+    );
+
+
+    // ==========================================
+    // 単語タップ
+    // ==========================================
+
+    container.onclick =
+        event => {
+
+            const wordElement =
+                event.target.closest(
+                    '.fs-pronounce-word'
+                );
+
+
+            if (
+                !wordElement ||
+                !container.contains(
+                    wordElement
+                )
+            ) {
+
+                return;
+            }
+
+
+            const word =
+                wordElement.textContent.trim();
+
+
+            if (!word) {
+                return;
+            }
+
+
+            // ----------------------------------
+            // 元音声が再生中なら停止
+            // ----------------------------------
+
+            const audioPlayer =
+                document.getElementById(
+                    'audioPlayer'
+                );
+
+
+            if (
+                audioPlayer &&
+                !audioPlayer.paused
+            ) {
+
+                audioPlayer.pause();
+
+
+                isFsAudioPlaying =
+                    false;
+
+
+                const originalBtn =
+                    document.getElementById(
+                        'fsOriginalAudioBtn'
+                    );
+
+
+                if (originalBtn) {
+
+                    originalBtn.innerHTML =
+                        '🎧 ▶';
+
+
+                    originalBtn.classList.remove(
+                        'bg-red-600',
+                        'hover:bg-red-700'
+                    );
+
+
+                    originalBtn.classList.add(
+                        'bg-blue-600',
+                        'hover:bg-blue-700'
+                    );
+                }
+            }
+
+
+            // ----------------------------------
+            // 全文AI音声の表示をリセット
+            // ----------------------------------
+
+            const aiBtn =
+                document.getElementById(
+                    'fsAiVoiceBtn'
+                );
+
+
+            if (aiBtn) {
+
+                aiBtn.innerHTML =
+                    '🤖 AI ▶';
+
+
+                aiBtn.classList.remove(
+                    'bg-red-600',
+                    'hover:bg-red-700'
+                );
+
+
+                aiBtn.classList.add(
+                    'bg-purple-600',
+                    'hover:bg-purple-700'
+                );
+            }
+
+
+            // ==================================
+            // 通常画面と同じ既存 speakWord()
+            // ==================================
+
+            speakWord(
+                word
+            );
+        };
+}
+
 function openFullscreenPreview() {
 
     if (!currentCustomLesson) return;
@@ -5757,15 +6140,58 @@ function openFullscreenPreview() {
                 Preview
             </h2>
 
-            <div class="flex gap-2">
+            <div class="flex items-center gap-1.5 md:gap-2 shrink-0">
 
-                <button id="fsAiVoiceBtn" onclick="toggleFsAIVoice()" class="px-3 md:px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-xs md:text-sm font-bold rounded-sm shadow-md transition flex items-center gap-1">
-                    🤖 <span class="hidden sm:inline">AI音声</span>
-                </button>
+                <div
+                    id="fsOriginalAudioControl"
+                    class="hidden inline-flex items-stretch h-8 overflow-hidden rounded-sm border border-blue-300 bg-blue-50 shadow-sm">
 
-                <button id="fsOriginalAudioBtn" onclick="toggleFsOriginalAudio()" class="hidden px-3 md:px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs md:text-sm font-bold rounded-sm shadow-md transition flex items-center gap-1">
-                    ▶️ <span class="hidden sm:inline">お手本再生</span>
-                </button>
+                    <button
+                        id="fsOriginalAudioBtn"
+                        onclick="toggleFsOriginalAudio()"
+                        class="px-2 md:px-3 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition whitespace-nowrap">
+                        🎧 ▶
+                    </button>
+
+                    <select
+                        id="fsOriginalAudioRateSelect"
+                        onchange="setOriginalAudioRate(this.value)"
+                        aria-label="Original audio speed"
+                        class="px-1.5 bg-white text-xs font-bold text-blue-800 outline-none cursor-pointer border-l border-blue-200">
+
+                        <option value="1">1.0×</option>
+                        <option value="0.75">0.75×</option>
+                        <option value="0.5">0.5×</option>
+                        <option value="0.25">0.25×</option>
+
+                    </select>
+
+                </div>
+
+                <div
+                    class="inline-flex items-stretch h-8 overflow-hidden rounded-sm border border-purple-300 bg-purple-50 shadow-sm">
+
+                    <button
+                        id="fsAiVoiceBtn"
+                        onclick="toggleFsAIVoice()"
+                        class="px-2 md:px-3 bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold transition whitespace-nowrap">
+                        🤖 AI ▶
+                    </button>
+
+                    <select
+                        id="fsAiVoiceRateSelect"
+                        onchange="setAIVoiceRate(this.value)"
+                        aria-label="AI voice speed"
+                        class="px-1.5 bg-white text-xs font-bold text-purple-800 outline-none cursor-pointer border-l border-purple-200">
+
+                        <option value="1">1.0×</option>
+                        <option value="0.75">0.75×</option>
+                        <option value="0.5">0.5×</option>
+                        <option value="0.25">0.25×</option>
+
+                    </select>
+
+                </div>
 
             </div>
 
@@ -5781,6 +6207,8 @@ function openFullscreenPreview() {
 
             <div id="fsTextPane" class="w-full h-full overflow-y-auto p-6 md:p-12 lg:p-16 pb-40 transition-all duration-300 relative" style="-webkit-overflow-scrolling: touch;">
 
+                <div class="max-w-4xl mx-auto w-full mb-2 text-right text-[10px] md:text-xs text-stone-400 font-medium">🔊 単語をタップすると発音が聞けます</div>
+
                 <div id="fsEngContainer" class="text-2xl md:text-4xl leading-relaxed md:leading-[2.5] text-stone-800 font-medium serif-font max-w-4xl mx-auto"></div>
 
                 <div id="fsJpnContainer" class="text-base md:text-xl text-stone-500 max-w-4xl mx-auto border-t-2 border-dashed border-stone-300 pt-8 mt-8 hidden leading-relaxed"></div>
@@ -5793,6 +6221,14 @@ function openFullscreenPreview() {
     `;
 
     document.body.appendChild(overlay);
+
+    setAIVoiceRate(
+        aiVoiceRate
+    );
+
+    setOriginalAudioRate(
+        originalAudioRate
+    );
 
     document.getElementById('fsTitleDisplay').innerText =
         currentCustomLesson.title
@@ -5852,7 +6288,19 @@ function openFullscreenPreview() {
                 );
     }
 
-    document.getElementById('fsEngContainer').innerHTML = engHtml;
+    const fsEngContainer =
+        document.getElementById(
+            'fsEngContainer'
+        );
+
+
+    fsEngContainer.innerHTML =
+        engHtml;
+
+
+    enableFullscreenTapPronunciation(
+        fsEngContainer
+    );
 
     const jpnContainer = document.getElementById('fsJpnContainer');
 
@@ -5874,22 +6322,30 @@ function openFullscreenPreview() {
         jpnContainer.classList.add('hidden');
     }
 
-    const audioBtn = document.getElementById('fsOriginalAudioBtn');
-    const audioPlayer = document.getElementById('audioPlayer');
+    const audioControl =
+        document.getElementById(
+            'fsOriginalAudioControl'
+        );
 
-    if (
-        currentCustomLesson.audioBlob ||
-        (
-            audioPlayer &&
-            audioPlayer.src &&
-            audioPlayer.src !== "" &&
-            !audioPlayer.src.endsWith(
-                window.location.host + "/"
-            )
-        )
-    ) {
 
-        audioBtn.classList.remove('hidden');
+    const hasOriginalAudio =
+        Boolean(
+            currentCustomLesson.audioBlob ||
+            currentCustomLesson.audioUrl
+        );
+
+
+    if (hasOriginalAudio) {
+
+        audioControl.classList.remove(
+            'hidden'
+        );
+
+    } else {
+
+        audioControl.classList.add(
+            'hidden'
+        );
     }
 
     document.body.style.overflow = 'hidden';
@@ -5984,7 +6440,7 @@ function toggleFsAIVoice() {
         isFsAudioPlaying = false;
 
         document.getElementById('fsOriginalAudioBtn').innerHTML =
-            '▶️ <span class="hidden sm:inline">お手本再生</span>';
+            '🎧 ▶';
     }
 
     if (window.speechSynthesis.speaking) {
@@ -5992,7 +6448,7 @@ function toggleFsAIVoice() {
         window.speechSynthesis.cancel();
 
         btn.innerHTML =
-            '🤖 <span class="hidden sm:inline">AI音声</span>';
+            '🤖 AI ▶';
 
         btn.classList.remove('bg-red-600', 'hover:bg-red-700');
         btn.classList.add('bg-purple-600', 'hover:bg-purple-700');
@@ -6012,7 +6468,7 @@ function toggleFsAIVoice() {
     fsAiUtterance.onend = () => {
 
         btn.innerHTML =
-            '🤖 <span class="hidden sm:inline">AI音声</span>';
+            '🤖 AI ▶';
 
         btn.classList.remove('bg-red-600', 'hover:bg-red-700');
         btn.classList.add('bg-purple-600', 'hover:bg-purple-700');
@@ -6021,7 +6477,7 @@ function toggleFsAIVoice() {
     window.speechSynthesis.speak(fsAiUtterance);
 
     btn.innerHTML =
-        '⏹ <span class="hidden sm:inline">AI停止</span>';
+        '⏹ AI';
 
     btn.classList.remove('bg-purple-600', 'hover:bg-purple-700');
     btn.classList.add('bg-red-600', 'hover:bg-red-700');
@@ -6041,7 +6497,7 @@ function toggleFsOriginalAudio() {
         const aiBtn = document.getElementById('fsAiVoiceBtn');
 
         aiBtn.innerHTML =
-            '🤖 <span class="hidden sm:inline">AI音声</span>';
+            '🤖 AI ▶';
 
         aiBtn.classList.remove('bg-red-600', 'hover:bg-red-700');
         aiBtn.classList.add('bg-purple-600', 'hover:bg-purple-700');
@@ -6052,7 +6508,7 @@ function toggleFsOriginalAudio() {
         audioPlayer.pause();
 
         btn.innerHTML =
-            '▶️ <span class="hidden sm:inline">お手本再生</span>';
+            '🎧 ▶';
 
         btn.classList.remove('bg-red-600', 'hover:bg-red-700');
         btn.classList.add('bg-blue-600', 'hover:bg-blue-700');
@@ -6064,7 +6520,7 @@ function toggleFsOriginalAudio() {
         audioPlayer.play();
 
         btn.innerHTML =
-            '⏹ <span class="hidden sm:inline">再生停止</span>';
+            '🎧 ⏹';
 
         btn.classList.remove('bg-blue-600', 'hover:bg-blue-700');
         btn.classList.add('bg-red-600', 'hover:bg-red-700');
@@ -6074,7 +6530,7 @@ function toggleFsOriginalAudio() {
         audioPlayer.onended = () => {
 
             btn.innerHTML =
-                '▶️ <span class="hidden sm:inline">お手本再生</span>';
+                '🎧 ▶';
 
             btn.classList.remove('bg-red-600', 'hover:bg-red-700');
             btn.classList.add('bg-blue-600', 'hover:bg-blue-700');
