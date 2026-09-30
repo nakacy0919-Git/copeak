@@ -3843,6 +3843,54 @@ function renderTargetText() {
     }
 
     engContainer.innerHTML = finalHtml;
+
+
+    // ==========================================
+    // Tap Target Text word to hear pronunciation
+    // 録音中はAI音声を無効化
+    // ==========================================
+
+    engContainer.onclick =
+        event => {
+
+            if (
+                document.body.classList.contains(
+                    'recording-layout-active'
+                )
+            ) {
+                return;
+            }
+
+
+            const wordElement =
+                event.target.closest(
+                    '.pace-word'
+                );
+
+
+            if (
+                !wordElement ||
+                !engContainer.contains(
+                    wordElement
+                )
+            ) {
+                return;
+            }
+
+
+            const word =
+                wordElement.textContent.trim();
+
+
+            if (!word) {
+                return;
+            }
+
+
+            speakWord(
+                word
+            );
+        };
 }
 
 function openWpmGuide() {
@@ -5084,6 +5132,57 @@ async function generateShareLink() {
 }
 
 let aiUtterance = null;
+let aiVoiceRate = 1.0;
+
+function setAIVoiceRate(value) {
+
+    const nextRate =
+        Number(value);
+
+
+    if (
+        ![
+            0.25,
+            0.5,
+            0.75,
+            1
+        ].includes(
+            nextRate
+        )
+    ) {
+
+        return;
+    }
+
+
+    aiVoiceRate =
+        nextRate;
+
+
+    [
+        'aiVoiceRateSelect',
+        'fsAiVoiceRateSelect'
+    ].forEach(
+        selectId => {
+
+            const select =
+                document.getElementById(
+                    selectId
+                );
+
+
+            if (
+                select &&
+                Number(select.value) !==
+                    nextRate
+            ) {
+
+                select.value =
+                    String(nextRate);
+            }
+        }
+    );
+}
 
 function toggleAIVoice() {
 
@@ -5105,7 +5204,7 @@ function toggleAIVoice() {
     aiUtterance = new SpeechSynthesisUtterance(currentCustomLesson.eng);
 
     aiUtterance.lang = currentCustomLesson.lang || 'en-US';
-    aiUtterance.rate = 0.9;
+    aiUtterance.rate = aiVoiceRate;
 
     aiUtterance.onend = () => {
         btn.innerHTML = '🤖 AI音声を再生';
@@ -5908,7 +6007,7 @@ function toggleFsAIVoice() {
     fsAiUtterance.lang =
         currentCustomLesson.lang || 'en-US';
 
-    fsAiUtterance.rate = 0.9;
+    fsAiUtterance.rate = aiVoiceRate;
 
     fsAiUtterance.onend = () => {
 
@@ -6675,8 +6774,7 @@ function speakWord(word) {
                 ? currentCustomLesson.lang
                 : 'en-US';
 
-        utterance.rate =
-            0.9;
+        utterance.rate = aiVoiceRate;
 
         window.speechSynthesis.speak(
             utterance
