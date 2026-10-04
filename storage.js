@@ -1217,6 +1217,109 @@ async function fetchClassroomAudioBlob(
     }
 }
 
+
+// ==========================================
+// Copeak Classroom Image Cache
+// Classroomの期限付き画像URLを取得して
+// memoImage用Data URLとしてIndexedDBへ保存
+// ==========================================
+
+async function fetchClassroomImageDataUrl(
+    imageUrl
+) {
+
+    if (!imageUrl) {
+        return null;
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                imageUrl
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                `Image download failed (${response.status})`
+            );
+        }
+
+
+        const blob =
+            await response.blob();
+
+
+        if (
+            !blob ||
+            blob.size <= 0
+        ) {
+
+            throw new Error(
+                'Downloaded image is empty.'
+            );
+        }
+
+
+        if (
+            !String(
+                blob.type || ''
+            ).startsWith(
+                'image/'
+            )
+        ) {
+
+            throw new Error(
+                'Downloaded file is not an image.'
+            );
+        }
+
+
+        return await new Promise(
+            (resolve, reject) => {
+
+                const reader =
+                    new FileReader();
+
+
+                reader.onload =
+                    () =>
+                        resolve(
+                            reader.result
+                        );
+
+
+                reader.onerror =
+                    () =>
+                        reject(
+                            reader.error
+                        );
+
+
+                reader.readAsDataURL(
+                    blob
+                );
+            }
+        );
+
+    } catch (
+        error
+    ) {
+
+        console.warn(
+            '[Copeak Classroom] image cache failed:',
+            error
+        );
+
+
+        return null;
+    }
+}
+
+
 async function checkUrlParameters() {
     const urlParams = new URLSearchParams(window.location.search);
 
@@ -1272,7 +1375,23 @@ async function checkUrlParameters() {
                 dialogueData = cloudLesson.dialogue;
             }
 
-            const newLessonData = {
+            let classroomMemoImage =
+            null;
+
+
+        if (
+            classroomSource &&
+            imageUrl
+        ) {
+
+            classroomMemoImage =
+                await fetchClassroomImageDataUrl(
+                    imageUrl
+                );
+        }
+
+
+        const newLessonData = {
                 title: "🔗 " + (cloudLesson.title || "Shared Lesson"),
                 eng: cloudLesson.eng || "",
                 jpn: cloudLesson.jpn || "",
@@ -1338,6 +1457,7 @@ async function checkUrlParameters() {
         const lang = urlParams.get('lang') || 'en-US';
         const formUrl = urlParams.get('form') || null;
         const audioUrl = urlParams.get('audioUrl') || null;
+        const imageUrl = urlParams.get('image_url') || null;
         const jpnText = urlParams.get('jpn') || "先生からの共有教材です。";
         // ==========================================
 // YouTube Clip
@@ -1616,6 +1736,49 @@ const youtubeLoop =
             }
 
 
+            let imageWasDownloaded =
+                false;
+
+
+            // ======================================
+            // Classroom Support Image
+            // ======================================
+
+            if (
+                classroomSource
+            ) {
+
+                if (
+                    imageUrl
+                ) {
+
+                    const downloadedImage =
+                        await fetchClassroomImageDataUrl(
+                            imageUrl
+                        );
+
+
+                    if (
+                        downloadedImage
+                    ) {
+
+                        existingLesson.memoImage =
+                            downloadedImage;
+
+                        imageWasDownloaded =
+                            true;
+                    }
+
+                } else {
+
+                    // Classroom側で画像が削除された場合は
+                    // Copeak側にも反映
+                    existingLesson.memoImage =
+                        null;
+                }
+            }
+
+
             let audioWasDownloaded =
                 false;
 
@@ -1872,7 +2035,9 @@ const youtubeLoop =
                     : false,
 
             memoImage:
-                null,
+                classroomSource
+                    ? classroomMemoImage
+                    : null,
 
             history:
                 [],

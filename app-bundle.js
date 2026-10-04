@@ -3539,12 +3539,559 @@ currentCustomLesson =
     switchScreen('homeScreen');
 }
 
+
+// ==========================================
+// Classroom / Memo Support Image
+// 通常学習 + 本番音読
+// ==========================================
+
+function ensureLessonSupportImageUI() {
+
+    // --------------------------------------
+    // CSS
+    // --------------------------------------
+
+    if (
+        !document.getElementById(
+            'lessonSupportImageStyles'
+        )
+    ) {
+
+        const style =
+            document.createElement(
+                'style'
+            );
+
+
+        style.id =
+            'lessonSupportImageStyles';
+
+
+        style.textContent = `
+
+/* ==========================================
+   Copeak Support Image Layout
+========================================== */
+
+#lessonSupportImagePane {
+    min-width: 0;
+    min-height: 0;
+}
+
+#lessonSupportImagePane img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Imageが表示中ならYouTubeと同じ左枠を利用 */
+body.support-image-visible
+#youtubeLessonPane {
+    display: none !important;
+}
+
+
+/* ==========================================
+   Normal Learning
+   PC / iPad landscape
+========================================== */
+
+@media (min-width: 900px) {
+
+    body.support-image-visible:not(.recording-layout-active):not(.result-layout-active)
+    #learningContentArea {
+
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: stretch !important;
+
+        gap: 18px !important;
+
+        width: 100% !important;
+
+        min-width: 0 !important;
+        min-height: 0 !important;
+    }
+
+
+    body.support-image-visible:not(.recording-layout-active):not(.result-layout-active)
+    #lessonSupportImagePane {
+
+        display: flex !important;
+
+        width: 42% !important;
+
+        flex: 0 0 42% !important;
+
+        min-width: 0 !important;
+    }
+
+
+    body.support-image-visible:not(.recording-layout-active):not(.result-layout-active)
+    #targetTextWrapper {
+
+        width: 58% !important;
+
+        flex: 1 1 58% !important;
+
+        min-width: 0 !important;
+    }
+}
+
+
+/* ==========================================
+   Smartphone / Portrait
+========================================== */
+
+@media (max-width: 899px) {
+
+    body.support-image-visible:not(.recording-layout-active):not(.result-layout-active)
+    #learningContentArea {
+
+        display: flex !important;
+
+        flex-direction: column !important;
+
+        gap: 12px !important;
+    }
+
+
+    body.support-image-visible:not(.recording-layout-active):not(.result-layout-active)
+    #lessonSupportImagePane {
+
+        display: flex !important;
+
+        width: 100% !important;
+
+        min-height: 220px !important;
+        max-height: 42vh !important;
+
+        flex: 0 0 auto !important;
+    }
+
+
+    body.support-image-visible:not(.recording-layout-active):not(.result-layout-active)
+    #targetTextWrapper {
+
+        width: 100% !important;
+
+        flex: 1 1 auto !important;
+    }
+}
+
+
+/* ==========================================
+   Recording
+   PC / iPad = 左画像 + 右本文
+========================================== */
+
+body.support-image-visible.recording-layout-active
+#learningContentArea {
+
+    display: grid !important;
+
+    grid-template-columns:
+        minmax(240px, 42%)
+        minmax(0, 1fr) !important;
+
+    gap: 16px !important;
+}
+
+
+body.support-image-visible.recording-layout-active
+#lessonSupportImagePane {
+
+    display: flex !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    min-width: 0 !important;
+    min-height: 0 !important;
+
+    overflow: hidden !important;
+}
+
+
+body.support-image-visible.recording-layout-active
+#targetTextWrapper {
+
+    position: relative !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    min-width: 0 !important;
+    min-height: 0 !important;
+
+    inset: auto !important;
+}
+
+
+/* Smartphone recording */
+
+@media (max-width: 767px) {
+
+    body.support-image-visible.recording-layout-active
+    #learningContentArea {
+
+        grid-template-columns:
+            1fr !important;
+
+        grid-template-rows:
+            minmax(120px, 30%)
+            minmax(0, 1fr) !important;
+
+        gap: 9px !important;
+    }
+
+
+    body.support-image-visible.recording-layout-active
+    #lessonSupportImagePane {
+
+        min-height: 120px !important;
+    }
+}
+
+
+/* 結果画面では画像は消す */
+
+body.result-layout-active
+#lessonSupportImagePane {
+
+    display: none !important;
+}
+
+
+/* 録音中もImage ON/OFFを操作可能 */
+
+body.support-image-available.recording-layout-active
+#toggleLessonSupportImageBtn {
+
+    position: fixed !important;
+
+    top:
+        calc(
+            12px +
+            env(
+                safe-area-inset-top,
+                0px
+            )
+        ) !important;
+
+    right: 12px !important;
+
+    z-index: 2147483641 !important;
+
+    display: inline-flex !important;
+}
+
+`;
+
+
+        document.head.appendChild(
+            style
+        );
+    }
+
+
+    // --------------------------------------
+    // Image Pane
+    // --------------------------------------
+
+    let pane =
+        document.getElementById(
+            'lessonSupportImagePane'
+        );
+
+
+    if (!pane) {
+
+        const learningArea =
+            document.getElementById(
+                'learningContentArea'
+            );
+
+
+        const target =
+            document.getElementById(
+                'targetTextWrapper'
+            );
+
+
+        if (
+            learningArea &&
+            target
+        ) {
+
+            pane =
+                document.createElement(
+                    'div'
+                );
+
+
+            pane.id =
+                'lessonSupportImagePane';
+
+
+            pane.className =
+                'hidden bg-stone-100 rounded-sm border-l-4 border-emerald-700 shadow-sm p-3 md:p-5 flex-col min-h-[220px]';
+
+
+            pane.innerHTML = `
+                <div
+                    class="flex items-center justify-between mb-2 pb-2 border-b border-stone-200 shrink-0"
+                >
+                    <span
+                        class="text-[10px] md:text-xs font-black tracking-widest text-emerald-800 uppercase"
+                    >
+                        🖼 Support Image
+                    </span>
+                </div>
+
+                <div
+                    class="flex-1 min-h-0 flex items-center justify-center overflow-hidden"
+                >
+                    <img
+                        id="lessonSupportImage"
+                        src=""
+                        alt="Support Image"
+                        class="w-full h-full object-contain rounded-sm"
+                    >
+                </div>
+            `;
+
+
+            learningArea.insertBefore(
+                pane,
+                target
+            );
+        }
+    }
+
+
+    // --------------------------------------
+    // Toggle button
+    // --------------------------------------
+
+    let button =
+        document.getElementById(
+            'toggleLessonSupportImageBtn'
+        );
+
+
+    if (!button) {
+
+        const previewButton =
+            document.querySelector(
+                '#targetTextWrapper button[onclick="openFullscreenPreview()"]'
+            );
+
+
+        if (previewButton) {
+
+            button =
+                document.createElement(
+                    'button'
+                );
+
+
+            button.id =
+                'toggleLessonSupportImageBtn';
+
+
+            button.type =
+                'button';
+
+
+            button.className =
+                'hidden px-2 py-1 md:px-3 md:py-1 bg-emerald-100 hover:bg-emerald-200 text-emerald-700 rounded-sm font-bold transition text-[10px] md:text-xs border border-emerald-200 shadow-sm items-center gap-1 whitespace-nowrap';
+
+
+            button.onclick =
+                window.toggleLessonSupportImage;
+
+
+            previewButton.insertAdjacentElement(
+                'afterend',
+                button
+            );
+        }
+    }
+}
+
+
+function updateLessonSupportImageButton() {
+
+    const button =
+        document.getElementById(
+            'toggleLessonSupportImageBtn'
+        );
+
+
+    if (!button) {
+        return;
+    }
+
+
+    if (
+        document.body.classList.contains(
+            'support-image-visible'
+        )
+    ) {
+
+        button.innerHTML =
+            '🖼 <span class="hidden sm:inline">Image OFF</span>';
+
+    } else {
+
+        button.innerHTML =
+            '🖼 <span class="hidden sm:inline">Image ON</span>';
+    }
+}
+
+
+window.toggleLessonSupportImage =
+    function() {
+
+        if (
+            !document.body.classList.contains(
+                'support-image-available'
+            )
+        ) {
+            return;
+        }
+
+
+        const pane =
+            document.getElementById(
+                'lessonSupportImagePane'
+            );
+
+
+        const willShow =
+            !document.body.classList.contains(
+                'support-image-visible'
+            );
+
+
+        document.body.classList.toggle(
+            'support-image-visible',
+            willShow
+        );
+
+
+        pane
+            ?.classList
+            .toggle(
+                'hidden',
+                !willShow
+            );
+
+
+        updateLessonSupportImageButton();
+    };
+
+
+function applyLessonSupportImage(
+    lesson
+) {
+
+    ensureLessonSupportImageUI();
+
+
+    const image =
+        document.getElementById(
+            'lessonSupportImage'
+        );
+
+
+    const pane =
+        document.getElementById(
+            'lessonSupportImagePane'
+        );
+
+
+    const button =
+        document.getElementById(
+            'toggleLessonSupportImageBtn'
+        );
+
+
+    const imageSource =
+        String(
+            lesson?.memoImage || ''
+        ).trim();
+
+
+    const hasImage =
+        Boolean(
+            imageSource
+        );
+
+
+    document.body.classList.toggle(
+        'support-image-available',
+        hasImage
+    );
+
+
+    document.body.classList.toggle(
+        'support-image-visible',
+        hasImage
+    );
+
+
+    if (
+        image
+    ) {
+
+        if (
+            hasImage
+        ) {
+
+            image.src =
+                imageSource;
+
+        } else {
+
+            image.removeAttribute(
+                'src'
+            );
+        }
+    }
+
+
+    pane
+        ?.classList
+        .toggle(
+            'hidden',
+            !hasImage
+        );
+
+
+    button
+        ?.classList
+        .toggle(
+            'hidden',
+            !hasImage
+        );
+
+
+    updateLessonSupportImageButton();
+}
+
+
 function openLearningScreen(lesson) {
     toggleMobileLibrary(true);
 
     applyYoutubeLessonLayout(
     lesson
 );
+
+    applyLessonSupportImage(
+        lesson
+    );
 
     document.getElementById('learningTitle').innerText = lesson.title;
     document.getElementById('engContainer').style.fontSize = engFontSize + 'px';
