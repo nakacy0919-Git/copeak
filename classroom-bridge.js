@@ -33,6 +33,391 @@
 
 
   // ========================================
+  // Copeak Classroom Support Image Bridge
+  // ========================================
+
+  const initialImageUrl =
+    params.get(
+      'image_url'
+    );
+
+
+  async function fetchSupportImageDataUrl(
+    imageUrl
+  ) {
+
+    if (!imageUrl) {
+      return null;
+    }
+
+
+    try {
+
+      const response =
+        await fetch(
+          imageUrl,
+          {
+            cache: 'no-store'
+          }
+        );
+
+
+      if (!response.ok) {
+        throw new Error(
+          `Image download failed (${response.status})`
+        );
+      }
+
+
+      const blob =
+        await response.blob();
+
+
+      if (
+        !blob ||
+        blob.size <= 0 ||
+        !String(
+          blob.type || ''
+        ).startsWith(
+          'image/'
+        )
+      ) {
+
+        throw new Error(
+          'Invalid image response.'
+        );
+      }
+
+
+      return await new Promise(
+        (
+          resolve,
+          reject
+        ) => {
+
+          const reader =
+            new FileReader();
+
+
+          reader.onload =
+            () =>
+              resolve(
+                reader.result
+              );
+
+
+          reader.onerror =
+            () =>
+              reject(
+                reader.error
+              );
+
+
+          reader.readAsDataURL(
+            blob
+          );
+        }
+      );
+
+    } catch (error) {
+
+      console.warn(
+        '[Copeak Classroom] support image cache failed:',
+        error
+      );
+
+
+      return null;
+    }
+  }
+
+
+  function persistSupportImageLesson(
+    lesson
+  ) {
+
+    if (
+      !lesson ||
+      lesson.id === undefined ||
+      lesson.id === null
+    ) {
+      return;
+    }
+
+
+    try {
+
+      const request =
+        indexedDB.open(
+          'CopeakDB'
+        );
+
+
+      request.onsuccess =
+        () => {
+
+          const database =
+            request.result;
+
+
+          if (
+            !database
+              .objectStoreNames
+              .contains(
+                'CustomLessons'
+              )
+          ) {
+
+            database.close();
+            return;
+          }
+
+
+          const tx =
+            database.transaction(
+              ['CustomLessons'],
+              'readwrite'
+            );
+
+
+          tx
+            .objectStore(
+              'CustomLessons'
+            )
+            .put(
+              lesson
+            );
+
+
+          tx.oncomplete =
+            () =>
+              database.close();
+
+
+          tx.onerror =
+            () =>
+              database.close();
+
+
+          tx.onabort =
+            () =>
+              database.close();
+        };
+
+
+      request.onerror =
+        () => {
+
+          console.warn(
+            '[Copeak Classroom] support image DB open failed'
+          );
+        };
+
+    } catch (error) {
+
+      console.warn(
+        '[Copeak Classroom] support image save failed:',
+        error
+      );
+    }
+  }
+
+
+  function refreshSupportImageUi(
+    lesson
+  ) {
+
+    const image =
+      document.getElementById(
+        'lessonSupportImage'
+      );
+
+
+    if (
+      image &&
+      lesson?.memoImage
+    ) {
+
+      image.src =
+        lesson.memoImage;
+    }
+  }
+
+
+  function installSupportImageBridge() {
+
+    const original =
+      window.startCustomLesson;
+
+
+    if (
+      typeof original !==
+      'function'
+    ) {
+      return false;
+    }
+
+
+    if (
+      original
+        .__copeakClassroomImageBridge
+    ) {
+      return true;
+    }
+
+
+    const wrapped =
+      function(
+        lesson,
+        ...args
+      ) {
+
+        const isClassroomLesson =
+          (
+            initialSource ===
+              'copeak-classroom' &&
+            initialAssignmentId &&
+            lesson
+          );
+
+
+        if (
+          !isClassroomLesson
+        ) {
+
+          return original.call(
+            this,
+            lesson,
+            ...args
+          );
+        }
+
+
+        // Classroom????????
+        // ????URL????????????
+        // ???????????????????
+        lesson.memoImage =
+          initialImageUrl ||
+          null;
+
+
+        const result =
+          original.call(
+            this,
+            lesson,
+            ...args
+          );
+
+
+        if (
+          !initialImageUrl
+        ) {
+
+          persistSupportImageLesson(
+            lesson
+          );
+
+
+          return result;
+        }
+
+
+        // ????URL?Data URL???
+        // IndexedDB??????
+        void fetchSupportImageDataUrl(
+          initialImageUrl
+        )
+          .then(
+            dataUrl => {
+
+              if (
+                !dataUrl
+              ) {
+                return;
+              }
+
+
+              lesson.memoImage =
+                dataUrl;
+
+
+              persistSupportImageLesson(
+                lesson
+              );
+
+
+              refreshSupportImageUi(
+                lesson
+              );
+
+
+              console.log(
+                '[Copeak Classroom] support image cached'
+              );
+            }
+          );
+
+
+        return result;
+      };
+
+
+    wrapped
+      .__copeakClassroomImageBridge =
+      true;
+
+
+    wrapped
+      .__copeakClassroomImageOriginal =
+      original;
+
+
+    window.startCustomLesson =
+      wrapped;
+
+
+    console.log(
+      '[Copeak Classroom] support image bridge ready'
+    );
+
+
+    return true;
+  }
+
+
+  if (
+    !installSupportImageBridge()
+  ) {
+
+    let tries =
+      0;
+
+
+    const timer =
+      setInterval(
+        () => {
+
+          tries++;
+
+
+          if (
+            installSupportImageBridge() ||
+            tries >= 40
+          ) {
+
+            clearInterval(
+              timer
+            );
+          }
+
+        },
+        50
+      );
+  }
+
+
+
+  // ========================================
   // Classroomドメイン設定
   // ========================================
   const DEFAULT_CLASSROOM_ORIGIN =
