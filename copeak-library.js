@@ -20,6 +20,18 @@
 
     const FOLDERS_KEY = 'copeak_library_folders';
 
+    // ==========================================
+    // Copeak Original 親フォルダ
+    // ==========================================
+
+    const COPEAK_ROOT_FOLDER = {
+        id: '__copeak_original__',
+        name: '📚 Copeak Original教材',
+        system: true
+    };
+
+    let copeakNestedViewPatched = false;
+
 
     // ==========================================
     // Libraryフォルダを既存Libraryへ追加
@@ -77,6 +89,370 @@
             JSON.stringify(
                 [...byId.values()]
             )
+        );
+
+    }
+
+
+
+    // ==========================================
+    // Copeak Original教材
+    // 親フォルダ → ジャンル の2階層表示
+    // ==========================================
+
+    function installCopeakNestedFolderView(library) {
+
+        if (copeakNestedViewPatched) {
+            return;
+        }
+
+        if (
+            typeof renderHomeLibrary !== 'function' ||
+            typeof openLibraryFolder !== 'function'
+        ) {
+            console.warn(
+                '📚 Copeak nested folder view: Library functions are not ready.'
+            );
+            return;
+        }
+
+
+        const childFolders =
+            Array.isArray(library.folders)
+                ? library.folders
+                : [];
+
+
+        const childFolderIds =
+            new Set(
+                childFolders.map(
+                    folder => folder.id
+                )
+            );
+
+
+        const originalRenderHomeLibrary =
+            renderHomeLibrary;
+
+
+        // --------------------------------------
+        // Folderカード生成
+        // --------------------------------------
+
+        function createCopeakFolderCard(
+            folder,
+            lessons
+        ) {
+
+            const count =
+                lessons.filter(
+                    lesson =>
+                        lesson.folderId ===
+                        folder.id
+                ).length;
+
+
+            const card =
+                document.createElement('div');
+
+
+            card.className =
+                'p-5 bg-white border border-stone-200 hover:border-emerald-700 rounded-sm cursor-pointer shadow-sm hover:shadow-md transition flex items-center justify-between gap-3';
+
+
+            card.innerHTML = `
+                <div class="flex items-center gap-4 min-w-0">
+
+                    <div class="text-4xl shrink-0">
+                        📁
+                    </div>
+
+                    <div class="min-w-0">
+
+                        <h3 class="font-extrabold text-base md:text-lg text-stone-800 truncate">
+                            ${escapeLibraryHtml(folder.name)}
+                        </h3>
+
+                        <p class="text-xs text-stone-400 mt-1">
+                            ${count} 教材
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="text-xl text-stone-300 font-bold">
+                    ›
+                </div>
+            `;
+
+
+            card.onclick =
+                () => {
+
+                    openLibraryFolder(
+                        folder.id
+                    );
+
+                };
+
+
+            return card;
+
+        }
+
+
+        // --------------------------------------
+        // 親フォルダ内部を表示
+        // --------------------------------------
+
+        function renderCopeakCategoryFolders(
+            lessons,
+            homeList
+        ) {
+
+            const title =
+                document.getElementById(
+                    'libraryViewTitle'
+                );
+
+            const hint =
+                document.getElementById(
+                    'libraryViewHint'
+                );
+
+            const backBtn =
+                document.getElementById(
+                    'libraryBackBtn'
+                );
+
+
+            if (title) {
+                title.textContent =
+                    'Copeak Original教材';
+            }
+
+
+            if (hint) {
+                hint.textContent =
+                    'ジャンルを選んで教材を開きます';
+            }
+
+
+            if (backBtn) {
+
+                backBtn.classList.remove(
+                    'hidden'
+                );
+
+                backBtn.classList.add(
+                    'flex'
+                );
+
+                backBtn.onclick =
+                    () => {
+
+                        openLibraryRoot();
+
+                    };
+
+            }
+
+
+            homeList.innerHTML = '';
+
+
+            childFolders.forEach(
+                folder => {
+
+                    homeList.appendChild(
+                        createCopeakFolderCard(
+                            folder,
+                            lessons
+                        )
+                    );
+
+                }
+            );
+
+        }
+
+
+        // --------------------------------------
+        // Root画面
+        // 9ジャンルを隠して親フォルダ1個にまとめる
+        // --------------------------------------
+
+        function cleanRootFolderView(
+            homeList
+        ) {
+
+            if (!homeList) {
+                return;
+            }
+
+
+            const cards =
+                Array.from(
+                    homeList.children
+                );
+
+
+            let parentCard = null;
+
+
+            cards.forEach(card => {
+
+                const heading =
+                    card.querySelector('h3');
+
+                if (!heading) {
+                    return;
+                }
+
+
+                const name =
+                    heading.textContent.trim();
+
+
+                const childFolder =
+                    childFolders.find(
+                        folder =>
+                            folder.name ===
+                            name
+                    );
+
+
+                if (childFolder) {
+
+                    card.remove();
+
+                    return;
+
+                }
+
+
+                if (
+                    name ===
+                    COPEAK_ROOT_FOLDER.name
+                ) {
+
+                    parentCard =
+                        card;
+
+                    const countText =
+                        parentCard.querySelector('p');
+
+                    if (countText) {
+                        countText.textContent =
+                            `${(library.items || []).length} 教材`;
+                    }
+
+                }
+
+            });
+
+
+            // 親フォルダは編集・削除させない
+            if (parentCard) {
+
+                parentCard
+                    .querySelectorAll('button')
+                    .forEach(
+                        button =>
+                            button.remove()
+                    );
+
+            }
+
+        }
+
+
+        // --------------------------------------
+        // 既存renderHomeLibraryをラップ
+        // --------------------------------------
+
+        window.renderHomeLibrary =
+            function (
+                lessons,
+                homeList
+            ) {
+
+                // 親フォルダを開いた場合
+                if (
+                    currentLibraryFolderId ===
+                    COPEAK_ROOT_FOLDER.id
+                ) {
+
+                    renderCopeakCategoryFolders(
+                        lessons,
+                        homeList
+                    );
+
+                    return;
+
+                }
+
+
+                // 通常Library描画
+                originalRenderHomeLibrary(
+                    lessons,
+                    homeList
+                );
+
+
+                // Rootなら9ジャンルを隠す
+                if (
+                    currentLibraryFolderId ===
+                    null
+                ) {
+
+                    cleanRootFolderView(
+                        homeList
+                    );
+
+                    return;
+
+                }
+
+
+                // 子ジャンルなら戻る先を親フォルダへ
+                if (
+                    childFolderIds.has(
+                        currentLibraryFolderId
+                    )
+                ) {
+
+                    const backBtn =
+                        document.getElementById(
+                            'libraryBackBtn'
+                        );
+
+
+                    if (backBtn) {
+
+                        backBtn.onclick =
+                            () => {
+
+                                openLibraryFolder(
+                                    COPEAK_ROOT_FOLDER.id
+                                );
+
+                            };
+
+                    }
+
+                }
+
+            };
+
+
+        copeakNestedViewPatched =
+            true;
+
+
+        console.info(
+            '📚 Copeak nested folder view enabled'
         );
 
     }
@@ -378,7 +754,20 @@
             // ==================================
 
             mergeLibraryFolders(
-                library.folders || []
+                [
+                    COPEAK_ROOT_FOLDER,
+                    ...(library.folders || [])
+                ]
+            );
+
+
+            // ==================================
+            // Copeak Original教材
+            // 親 → ジャンル の2階層表示
+            // ==================================
+
+            installCopeakNestedFolderView(
+                library
             );
 
 
