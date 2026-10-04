@@ -31,6 +31,7 @@
     };
 
     let copeakNestedViewPatched = false;
+    let copeakCardMetadataPatched = false;
 
 
     // ==========================================
@@ -416,12 +417,65 @@
                 }
 
 
-                // 子ジャンルなら戻る先を親フォルダへ
+                // 子ジャンルなら表示説明＋戻る先を親フォルダへ
                 if (
                     childFolderIds.has(
                         currentLibraryFolderId
                     )
                 ) {
+
+                    // ----------------------------------
+                    // 表示の見方
+                    // ----------------------------------
+
+                    if (
+                        homeList &&
+                        !homeList.querySelector(
+                            '[data-copeak-reading-guide]'
+                        )
+                    ) {
+
+                        const guide =
+                            document.createElement('div');
+
+                        guide.setAttribute(
+                            'data-copeak-reading-guide',
+                            'true'
+                        );
+
+                        guide.className =
+                            'md:col-span-2 p-4 md:p-5 bg-emerald-50 border border-emerald-200 rounded-sm';
+
+                        guide.innerHTML = `
+                            <div class="font-extrabold text-emerald-900 mb-2">
+                                📖 表示の見方
+                            </div>
+
+                            <div class="text-xs md:text-sm text-stone-700 leading-relaxed">
+                                <span class="font-bold">レベル</span>
+                                ＝日本の英語学習段階の目安　
+                                
+                                <span class="font-bold">CEFR</span>
+                                ＝世界共通の英語力レベル　
+                                
+                                <span class="font-bold">語数</span>
+                                ＝本文の英単語数　
+                                
+                                <span class="font-bold">WPM</span>
+                                ＝1分間に読む語数
+                            </div>
+
+                            <div class="text-xs text-emerald-800 mt-2 font-semibold">
+                                💡 まず正確に読み、慣れたら「目標WPM」を目指しましょう。
+                            </div>
+                        `;
+
+                        homeList.prepend(
+                            guide
+                        );
+
+                    }
+
 
                     const backBtn =
                         document.getElementById(
@@ -453,6 +507,255 @@
 
         console.info(
             '📚 Copeak nested folder view enabled'
+        );
+
+    }
+
+
+
+    // ==========================================
+    // Copeak Original 教材カード情報
+    // 級相当 / CEFR / 語数 / 目標WPM
+    // ==========================================
+
+    function installCopeakLessonCardMetadata() {
+
+        if (copeakCardMetadataPatched) {
+            return;
+        }
+
+        if (
+            typeof createHomeLessonCard !== 'function'
+        ) {
+            console.warn(
+                '📚 Copeak metadata: createHomeLessonCard is not ready.'
+            );
+            return;
+        }
+
+
+        const originalCreateHomeLessonCard =
+            createHomeLessonCard;
+
+
+        function escapeMetaText(value) {
+
+            return String(value ?? '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+
+        }
+
+
+        function makeMetaBadge(
+            text,
+            className
+        ) {
+
+            return `
+                <span class="
+                    inline-flex
+                    items-center
+                    px-2.5
+                    py-1
+                    rounded-full
+                    border
+                    text-[11px]
+                    md:text-xs
+                    font-bold
+                    ${className}
+                ">
+                    ${escapeMetaText(text)}
+                </span>
+            `;
+
+        }
+
+
+        window.createHomeLessonCard =
+            function (
+                lesson,
+                homeList
+            ) {
+
+                const beforeCount =
+                    homeList?.children?.length || 0;
+
+
+                const result =
+                    originalCreateHomeLessonCard.apply(
+                        this,
+                        arguments
+                    );
+
+
+                // Copeak Original教材だけ対象
+                if (
+                    !lesson ||
+                    !lesson.copeakLibrary ||
+                    !homeList
+                ) {
+                    return result;
+                }
+
+
+                // 今追加されたカードを取得
+                const card =
+                    homeList.children[beforeCount] ||
+                    homeList.lastElementChild;
+
+
+                if (!card) {
+                    return result;
+                }
+
+
+                // 二重追加防止
+                if (
+                    card.querySelector(
+                        '[data-copeak-library-meta]'
+                    )
+                ) {
+                    return result;
+                }
+
+
+                const title =
+                    card.querySelector(
+                        '.home-lesson-title'
+                    );
+
+
+                if (!title) {
+                    return result;
+                }
+
+
+                const titleRow =
+                    title.parentElement;
+
+
+                if (!titleRow) {
+                    return result;
+                }
+
+
+                const badges = [];
+
+
+                // ------------------------------
+                // 級・難易度
+                // ------------------------------
+
+                if (lesson.levelLabel) {
+
+                    badges.push(
+                        makeMetaBadge(
+                            `レベル：${lesson.levelLabel}`,
+                            'bg-amber-50 text-amber-700 border-amber-200'
+                        )
+                    );
+
+                }
+
+
+                // ------------------------------
+                // CEFR
+                // ------------------------------
+
+                if (lesson.cefr) {
+
+                    badges.push(
+                        makeMetaBadge(
+                            `CEFR：${lesson.cefr}`,
+                            'bg-sky-50 text-sky-700 border-sky-200'
+                        )
+                    );
+
+                }
+
+
+                // ------------------------------
+                // Word Count
+                // ------------------------------
+
+                if (
+                    Number(lesson.wordCount) > 0
+                ) {
+
+                    badges.push(
+                        makeMetaBadge(
+                            `語数：${lesson.wordCount}`,
+                            'bg-stone-50 text-stone-600 border-stone-200'
+                        )
+                    );
+
+                }
+
+
+                // ------------------------------
+                // Target WPM
+                // ------------------------------
+
+                if (
+                    Number(lesson.targetWpm) > 0
+                ) {
+
+                    badges.push(
+                        makeMetaBadge(
+                            `目標：${lesson.targetWpm} WPM`,
+                            'bg-emerald-50 text-emerald-700 border-emerald-200'
+                        )
+                    );
+
+                }
+
+
+                if (badges.length === 0) {
+                    return result;
+                }
+
+
+                const meta =
+                    document.createElement(
+                        'div'
+                    );
+
+
+                meta.setAttribute(
+                    'data-copeak-library-meta',
+                    'true'
+                );
+
+
+                meta.className =
+                    'flex flex-wrap items-center gap-1.5 mt-3 mb-1';
+
+
+                meta.innerHTML =
+                    badges.join('');
+
+
+                titleRow.insertAdjacentElement(
+                    'afterend',
+                    meta
+                );
+
+
+                return result;
+
+            };
+
+
+        copeakCardMetadataPatched =
+            true;
+
+
+        console.info(
+            '📚 Copeak lesson metadata enabled'
         );
 
     }
@@ -769,6 +1072,9 @@
             installCopeakNestedFolderView(
                 library
             );
+
+
+            installCopeakLessonCardMetadata();
 
 
             // ==================================
