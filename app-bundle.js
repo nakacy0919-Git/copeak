@@ -15026,6 +15026,441 @@ function getEnglishNumberComparisonUnit(
     return null;
 }
 // ==========================================
+// ★ ASR EQUIVALENCE v2
+//
+// SpeechRecognitionによる数字・年号表記揺れを
+// 採点上で同一化する。
+//
+// 2020
+// twenty twenty
+// 20 20
+// twenty 20
+// two zero two zero
+// 2 0 2 0
+// two thousand twenty
+// 2 thousand 20
+// ==========================================
+function getEnglishAsrYearComparisonUnit(
+    words,
+    startIndex
+) {
+
+    const current =
+        words[startIndex];
+
+
+    if (!current) {
+        return null;
+    }
+
+
+    const normalizeRaw =
+        value =>
+            String(value || '')
+                .normalize('NFKC')
+                .toLowerCase()
+                .replace(/’/g, "'");
+
+
+    const digitWordMap = {
+        zero: 0,
+        oh: 0,
+        o: 0,
+        one: 1,
+        two: 2,
+        three: 3,
+        four: 4,
+        five: 5,
+        six: 6,
+        seven: 7,
+        eight: 8,
+        nine: 9
+    };
+
+
+    const readSingleDigit =
+        word => {
+
+            if (!word) {
+                return null;
+            }
+
+
+            const raw =
+                normalizeRaw(
+                    word.text
+                );
+
+
+            if (/^\d$/.test(raw)) {
+
+                return Number(raw);
+            }
+
+
+            if (
+                Object.prototype
+                    .hasOwnProperty.call(
+                        digitWordMap,
+                        word.normalized
+                    )
+            ) {
+
+                return digitWordMap[
+                    word.normalized
+                ];
+            }
+
+
+            return null;
+        };
+
+
+    const readSmallNumber =
+        index => {
+
+            const word =
+                words[index];
+
+
+            if (!word) {
+                return null;
+            }
+
+
+            const raw =
+                normalizeRaw(
+                    word.text
+                );
+
+
+            if (/^\d{1,3}$/.test(raw)) {
+
+                return {
+                    value:
+                        Number(raw),
+
+                    consumed:
+                        1
+                };
+            }
+
+
+            const parsed =
+                parseEnglishUnderThousand(
+                    words,
+                    index
+                );
+
+
+            if (!parsed) {
+                return null;
+            }
+
+
+            return {
+                value:
+                    parsed.value,
+
+                consumed:
+                    parsed.consumed
+            };
+        };
+
+
+    // ======================================
+    // 2 0 2 0
+    // two zero two zero
+    // ======================================
+    const digitSequence =
+        [];
+
+
+    for (
+        let offset = 0;
+        offset < 4;
+        offset++
+    ) {
+
+        const digit =
+            readSingleDigit(
+                words[
+                    startIndex +
+                    offset
+                ]
+            );
+
+
+        if (digit === null) {
+            break;
+        }
+
+
+        digitSequence.push(
+            digit
+        );
+    }
+
+
+    if (
+        digitSequence.length ===
+        4
+    ) {
+
+        const value =
+            Number(
+                digitSequence.join('')
+            );
+
+
+        if (
+            value >= 1000 &&
+            value <= 2999
+        ) {
+
+            return {
+                token:
+                    `__num_${value}__`,
+
+                consumed:
+                    4,
+
+                sourceWordIndexes:
+                    words
+                        .slice(
+                            startIndex,
+                            startIndex + 4
+                        )
+                        .map(
+                            word =>
+                                word.wordIndex
+                        )
+            };
+        }
+    }
+
+
+    // ======================================
+    // 2 thousand 20
+    // two thousand twenty
+    // ======================================
+    const thousandLead =
+        readSingleDigit(
+            current
+        );
+
+
+    if (
+        thousandLead !== null &&
+        thousandLead >= 1 &&
+        thousandLead <= 9 &&
+        words[startIndex + 1]
+            ?.normalized ===
+            'thousand'
+    ) {
+
+        let position =
+            startIndex + 2;
+
+
+        if (
+            words[position]
+                ?.normalized ===
+            'and'
+        ) {
+
+            position++;
+        }
+
+
+        const rest =
+            readSmallNumber(
+                position
+            );
+
+
+        if (rest) {
+
+            const value =
+                (
+                    thousandLead *
+                    1000
+                ) +
+                rest.value;
+
+
+            const consumed =
+                (
+                    position -
+                    startIndex
+                ) +
+                rest.consumed;
+
+
+            return {
+                token:
+                    `__num_${value}__`,
+
+                consumed,
+
+                sourceWordIndexes:
+                    words
+                        .slice(
+                            startIndex,
+                            startIndex +
+                                consumed
+                        )
+                        .map(
+                            word =>
+                                word.wordIndex
+                        )
+            };
+        }
+    }
+
+
+    // ======================================
+    // 20 20
+    // twenty twenty
+    // twenty 20
+    // 20 twenty
+    // nineteen ninety nine
+    // ======================================
+    const first =
+        readSmallNumber(
+            startIndex
+        );
+
+
+    if (
+        first &&
+        first.value >= 17 &&
+        first.value <= 21
+    ) {
+
+        const secondIndex =
+            startIndex +
+            first.consumed;
+
+
+        // twenty oh five / twenty zero five
+        const zeroWord =
+            words[
+                secondIndex
+            ];
+
+
+        const zeroValue =
+            readSingleDigit(
+                zeroWord
+            );
+
+
+        if (
+            zeroValue === 0
+        ) {
+
+            const lastDigit =
+                readSingleDigit(
+                    words[
+                        secondIndex +
+                        1
+                    ]
+                );
+
+
+            if (
+                lastDigit !== null &&
+                lastDigit >= 1 &&
+                lastDigit <= 9
+            ) {
+
+                const value =
+                    (
+                        first.value *
+                        100
+                    ) +
+                    lastDigit;
+
+
+                const consumed =
+                    first.consumed +
+                    2;
+
+
+                return {
+                    token:
+                        `__num_${value}__`,
+
+                    consumed,
+
+                    sourceWordIndexes:
+                        words
+                            .slice(
+                                startIndex,
+                                startIndex +
+                                    consumed
+                            )
+                            .map(
+                                word =>
+                                    word.wordIndex
+                            )
+                };
+            }
+        }
+
+
+        const second =
+            readSmallNumber(
+                secondIndex
+            );
+
+
+        if (
+            second &&
+            second.value >= 10 &&
+            second.value <= 99
+        ) {
+
+            const value =
+                (
+                    first.value *
+                    100
+                ) +
+                second.value;
+
+
+            const consumed =
+                first.consumed +
+                second.consumed;
+
+
+            return {
+                token:
+                    `__num_${value}__`,
+
+                consumed,
+
+                sourceWordIndexes:
+                    words
+                        .slice(
+                            startIndex,
+                            startIndex +
+                                consumed
+                        )
+                        .map(
+                            word =>
+                                word.wordIndex
+                        )
+            };
+        }
+    }
+
+
+    return null;
+}
+
+// ==========================================
 // ★ 英語の短縮形・展開形を同一として比較
 // I'm = I am
 // can't = can not / cannot
@@ -15264,6 +15699,25 @@ function buildSpeechComparisonUnits(
     };
 
 
+    // ==========================================
+    // ★ ASR EQUIVALENCE v2
+    //
+    // SpeechRecognitionが複合語を分割した場合を吸収。
+    //
+    // bioprinting ↔ bio printing
+    // bioink      ↔ bio ink
+    // microorganism ↔ micro organism
+    // ==========================================
+    const asrJoinablePrefixes =
+        new Set([
+            'bio',
+            'micro',
+            'nano',
+            'multi',
+            'semi',
+            'non'
+        ]);
+
     const units = [];
 
 
@@ -15282,10 +15736,15 @@ function buildSpeechComparisonUnits(
                 current.text
             );
         // ======================================
-        // ★ 数字 + 1文字の英字
-        // 3D = three d / 3 d
-        // 4K = four k
-        // 5G = five g
+        // ★ ASR EQUIVALENCE v2
+        // 数字 + 1文字英字を1つの論理単位にする
+        //
+        // 3D
+        // 3 D
+        // three d
+        // three dee
+        //
+        // → __alnum_3_d__
         // ======================================
         const numberLetter =
             raw.match(
@@ -15297,19 +15756,9 @@ function buildSpeechComparisonUnits(
 
             units.push({
                 token:
-                    `__num_${Number(
+                    `__alnum_${Number(
                         numberLetter[1]
-                    )}__`,
-
-                sourceWordIndexes: [
-                    current.wordIndex
-                ]
-            });
-
-
-            units.push({
-                token:
-                    numberLetter[2],
+                    )}_${numberLetter[2]}__`,
 
                 sourceWordIndexes: [
                     current.wordIndex
@@ -15318,6 +15767,87 @@ function buildSpeechComparisonUnits(
 
 
             continue;
+        }
+
+
+        const asrLetterAliases = {
+            dee: 'd',
+            kay: 'k',
+            gee: 'g'
+        };
+
+
+        const numberForAlnum =
+            getEnglishNumberComparisonUnit(
+                words,
+                i
+            );
+
+
+        if (numberForAlnum) {
+
+            const numberMatch =
+                numberForAlnum.token
+                    .match(
+                        /^__num_(\d+)__$/
+                    );
+
+
+            const letterWord =
+                words[
+                    i +
+                    numberForAlnum.consumed
+                ];
+
+
+            if (
+                numberMatch &&
+                letterWord
+            ) {
+
+                const letterRaw =
+                    normalizeRaw(
+                        letterWord.text
+                    );
+
+
+                const letter =
+                    /^[a-z]$/.test(
+                        letterRaw
+                    )
+                        ? letterRaw
+                        : (
+                            asrLetterAliases[
+                                letterRaw
+                            ] ||
+                            ''
+                        );
+
+
+                if (letter) {
+
+                    units.push({
+                        token:
+                            `__alnum_${Number(
+                                numberMatch[1]
+                            )}_${letter}__`,
+
+                        sourceWordIndexes: [
+                            ...numberForAlnum
+                                .sourceWordIndexes,
+                            letterWord
+                                .wordIndex
+                        ]
+                    });
+
+
+                    i +=
+                        numberForAlnum.consumed;
+
+
+                    continue;
+                }
+            }
         }
 
         // ======================================
@@ -15341,6 +15871,37 @@ function buildSpeechComparisonUnits(
                 )
                 : '';
 
+
+        // ======================================
+        // ★ ASR EQUIVALENCE v2
+        // bio printing → bioprinting
+        // bio ink      → bioink
+        // ======================================
+        if (
+            nextWord &&
+            asrJoinablePrefixes.has(
+                current.normalized
+            ) &&
+            /^[a-z]+$/.test(
+                nextWord.normalized
+            )
+        ) {
+
+            units.push({
+                token:
+                    `${current.normalized}${nextWord.normalized}`,
+
+                sourceWordIndexes: [
+                    current.wordIndex,
+                    nextWord.wordIndex
+                ]
+            });
+
+
+            i++;
+
+            continue;
+        }
 
         const expandedAux =
             negativeContractionAuxAliases[
@@ -15390,6 +15951,37 @@ function buildSpeechComparisonUnits(
             continue;
         }
 
+
+        // ======================================
+        // ★ ASR EQUIVALENCE v2
+        // 年号のSpeechRecognition表記揺れを先に吸収
+        // ======================================
+        const asrYearUnit =
+            getEnglishAsrYearComparisonUnit(
+                words,
+                i
+            );
+
+
+        if (asrYearUnit) {
+
+            units.push({
+                token:
+                    asrYearUnit.token,
+
+                sourceWordIndexes:
+                    asrYearUnit
+                        .sourceWordIndexes
+            });
+
+
+            i +=
+                asrYearUnit.consumed -
+                1;
+
+
+            continue;
+        }
 
         const numberUnit =
     getEnglishNumberComparisonUnit(
