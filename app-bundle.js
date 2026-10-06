@@ -4267,6 +4267,394 @@ function updateTargetWpm(val) {
 // ==========================================
 // ★多言語Vanish対応: 言語ごとの単語境界をブラウザ標準APIで取得
 // ==========================================
+// ==========================================
+// COPEAK CLASSROOM PRACTICE POLICY API
+// Classroomから指定されたPractice Modeを
+// Copeak本体の内部モードへ安全に変換する
+// ==========================================
+
+let classroomRequiredPracticeMode =
+    'free';
+
+let classroomModeLocked =
+    false;
+
+
+// ==========================================
+// CLASSROOM MODE LOCK UI
+// ==========================================
+
+function getClassroomRequiredInternalMode() {
+
+    if (
+        classroomRequiredPracticeMode ===
+        'free'
+    ) {
+
+        return null;
+    }
+
+
+    return (
+        classroomRequiredPracticeMode ===
+            'vanish'
+
+            ? 'memo'
+
+            : classroomRequiredPracticeMode
+    );
+}
+
+
+function getClassroomPracticeModeLabel() {
+
+    switch (
+        classroomRequiredPracticeMode
+    ) {
+
+        case 'reading':
+            return 'Reading';
+
+        case 'paced':
+            return 'Paced';
+
+        case 'vanish':
+            return 'Vanish';
+
+        case 'shadowing':
+            return 'Shadowing';
+
+        default:
+            return 'Practice';
+    }
+}
+
+
+function applyClassroomModeLockUi() {
+
+    const requiredMode =
+        getClassroomRequiredInternalMode();
+
+
+    const locked =
+        (
+            classroomModeLocked ===
+                true &&
+            requiredMode
+        );
+
+
+    const tabs = [
+
+        [
+            document.getElementById(
+                'tabReading'
+            ),
+            'reading'
+        ],
+
+        [
+            document.getElementById(
+                'tabPaced'
+            ),
+            'paced'
+        ],
+
+        [
+            document.getElementById(
+                'tabMemo'
+            ),
+            'memo'
+        ],
+
+        [
+            document.getElementById(
+                'tabShadowing'
+            ),
+            'shadowing'
+        ]
+
+    ];
+
+
+    tabs.forEach(
+        ([tab, mode]) => {
+
+            if (!tab) {
+                return;
+            }
+
+
+            const shouldDisable =
+                Boolean(
+                    locked &&
+                    mode !==
+                        requiredMode
+                );
+
+
+            tab.disabled =
+                shouldDisable;
+
+
+            tab.setAttribute(
+                'aria-disabled',
+                shouldDisable
+                    ? 'true'
+                    : 'false'
+            );
+
+
+            if (
+                shouldDisable
+            ) {
+
+                tab.style.opacity =
+                    '0.38';
+
+                tab.style.cursor =
+                    'not-allowed';
+
+                tab.title =
+                    `Classroom課題: ${getClassroomPracticeModeLabel()} モードに固定されています`;
+
+            } else {
+
+                tab.style.opacity =
+                    '';
+
+                tab.style.cursor =
+                    '';
+
+                tab.title =
+                    '';
+            }
+        }
+    );
+}
+
+
+function clearClassroomPracticePolicy() {
+
+    classroomRequiredPracticeMode =
+        'free';
+
+
+    classroomModeLocked =
+        false;
+
+
+    applyClassroomModeLockUi();
+}
+
+function normalizeClassroomPracticeMode(
+    value
+) {
+
+    const mode =
+        String(
+            value ||
+            'free'
+        )
+            .toLowerCase();
+
+
+    return (
+        [
+            'free',
+            'reading',
+            'paced',
+            'vanish',
+            'shadowing'
+        ]
+            .includes(
+                mode
+            )
+
+            ? mode
+
+            : 'free'
+    );
+}
+
+
+function getClassroomPracticeState() {
+
+    const practiceMode =
+        currentMode ===
+            'memo'
+
+            ? 'vanish'
+
+            : (
+                [
+                    'reading',
+                    'paced',
+                    'shadowing'
+                ]
+                    .includes(
+                        currentMode
+                    )
+
+                    ? currentMode
+
+                    : 'reading'
+            );
+
+
+    return {
+
+        practiceMode,
+
+        requiredPracticeMode:
+            classroomRequiredPracticeMode,
+
+        modeLocked:
+            classroomModeLocked,
+
+        pacedTargetWpm:
+            practiceMode ===
+                'paced'
+
+                ? targetWpm
+
+                : null,
+
+        vanishLevel:
+            practiceMode ===
+                'vanish'
+
+                ? currentMemoLevel
+
+                : null
+    };
+}
+
+
+function applyClassroomPracticePolicy(
+    policy = {}
+) {
+
+    const practiceMode =
+        normalizeClassroomPracticeMode(
+            policy.practiceMode
+        );
+
+
+    classroomRequiredPracticeMode =
+        practiceMode;
+
+
+    classroomModeLocked =
+        (
+            practiceMode !==
+                'free' &&
+            policy.modeLocked ===
+                true
+        );
+
+
+    // Free Practiceの場合は
+    // 従来のCopeakの自由なモード選択を維持
+    if (
+        practiceMode ===
+        'free'
+    ) {
+
+        applyClassroomModeLockUi();
+
+        return getClassroomPracticeState();
+    }
+
+
+    const internalMode =
+        practiceMode ===
+            'vanish'
+
+            ? 'memo'
+
+            : practiceMode;
+
+
+    // Paced設定
+    if (
+        practiceMode ===
+        'paced'
+    ) {
+
+        const requestedWpm =
+            Number(
+                policy.pacedTargetWpm
+            );
+
+
+        if (
+            Number.isInteger(
+                requestedWpm
+            ) &&
+            requestedWpm >= 40 &&
+            requestedWpm <= 300
+        ) {
+
+            updateTargetWpm(
+                requestedWpm
+            );
+        }
+    }
+
+
+    // Copeak内部モードを変更
+    setLearningMode(
+        internalMode
+    );
+
+
+    // Vanish設定
+    // setLearningMode('memo') の後に設定する
+    if (
+        practiceMode ===
+        'vanish'
+    ) {
+
+        const requestedLevel =
+            Number(
+                policy.vanishLevel
+            );
+
+
+        if (
+            Number.isInteger(
+                requestedLevel
+            ) &&
+            requestedLevel >= 1 &&
+            requestedLevel <= 5
+        ) {
+
+            updateMemoLevel(
+                requestedLevel
+            );
+        }
+    }
+
+
+    return getClassroomPracticeState();
+}
+
+
+// classroom-bridge.js から使用する公開窓口
+window.CopeakClassroomPractice = {
+
+    applyPolicy:
+        applyClassroomPracticePolicy,
+
+    getState:
+        getClassroomPracticeState,
+
+    clearPolicy:
+        clearClassroomPracticePolicy
+
+};
+
 function segmentTextForVanish(text, lang = 'en-US') {
     const sourceText = String(text || '');
     if (!sourceText) return [];
@@ -5333,6 +5721,34 @@ if (feedbackContent) {
 
 function setLearningMode(mode) {
 
+    const requiredClassroomMode =
+        getClassroomRequiredInternalMode();
+
+
+    if (
+        classroomModeLocked ===
+            true &&
+        requiredClassroomMode &&
+        mode !==
+            requiredClassroomMode
+    ) {
+
+        if (
+            typeof showMsg ===
+            'function'
+        ) {
+
+            showMsg(
+                `🔒 この課題は ${getClassroomPracticeModeLabel()} モードに固定されています`
+            );
+        }
+
+
+        applyClassroomModeLockUi();
+
+        return;
+    }
+
     if (typeof isMainRecording !== 'undefined' && isMainRecording) {
         if (typeof toggleRecording === 'function') {
             toggleRecording();
@@ -5430,6 +5846,8 @@ function setLearningMode(mode) {
     }
 
     resetLearningState();
+
+    applyClassroomModeLockUi();
 }
 
 function resetLearningState() {

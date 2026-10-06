@@ -33,6 +33,183 @@
 
 
   // ========================================
+  // CLASSROOM PRACTICE POLICY PARAMETERS
+  // ========================================
+
+  const rawInitialPracticeMode =
+    String(
+      params.get(
+        'practice_mode'
+      ) ||
+      'free'
+    )
+      .toLowerCase();
+
+
+  const initialPracticeMode =
+    [
+      'free',
+      'reading',
+      'paced',
+      'vanish',
+      'shadowing'
+    ]
+      .includes(
+        rawInitialPracticeMode
+      )
+
+      ? rawInitialPracticeMode
+
+      : 'free';
+
+
+  const initialModeLocked =
+    (
+      initialPracticeMode !==
+        'free' &&
+      params.get(
+        'mode_locked'
+      ) ===
+        '1'
+    );
+
+
+  const parsedInitialPacedTargetWpm =
+    Number(
+      params.get(
+        'paced_target_wpm'
+      )
+    );
+
+
+  const initialPacedTargetWpm =
+    (
+      Number.isInteger(
+        parsedInitialPacedTargetWpm
+      ) &&
+      parsedInitialPacedTargetWpm >=
+        40 &&
+      parsedInitialPacedTargetWpm <=
+        300
+    )
+
+      ? parsedInitialPacedTargetWpm
+
+      : null;
+
+
+  const parsedInitialVanishLevel =
+    Number(
+      params.get(
+        'vanish_level'
+      )
+    );
+
+
+  const initialVanishLevel =
+    (
+      Number.isInteger(
+        parsedInitialVanishLevel
+      ) &&
+      parsedInitialVanishLevel >=
+        1 &&
+      parsedInitialVanishLevel <=
+        5
+    )
+
+      ? parsedInitialVanishLevel
+
+      : null;
+
+
+  const initialPracticePolicy = {
+
+    practiceMode:
+      initialPracticeMode,
+
+    modeLocked:
+      initialModeLocked,
+
+    pacedTargetWpm:
+      initialPacedTargetWpm,
+
+    vanishLevel:
+      initialVanishLevel
+
+  };
+
+
+  function applyInitialPracticePolicy(
+    lesson
+  ) {
+
+    const isMatchingClassroomLesson =
+      (
+        initialSource ===
+          'copeak-classroom' &&
+        initialAssignmentId &&
+        lesson?.classroomSource ===
+          true &&
+        lesson?.classroomAssignmentId ===
+          initialAssignmentId
+      );
+
+
+    if (
+      !isMatchingClassroomLesson
+    ) {
+
+      const practiceApi =
+        window
+          .CopeakClassroomPractice;
+
+
+      if (
+        practiceApi &&
+        typeof practiceApi.clearPolicy ===
+          'function'
+      ) {
+
+        practiceApi.clearPolicy();
+      }
+
+
+      return;
+    }
+
+
+    const api =
+      window
+        .CopeakClassroomPractice;
+
+
+    if (
+      !api ||
+      typeof api.applyPolicy !==
+        'function'
+    ) {
+
+      console.warn(
+        '[Copeak Classroom] Practice Policy API not ready'
+      );
+
+      return;
+    }
+
+
+    const state =
+      api.applyPolicy(
+        initialPracticePolicy
+      );
+
+
+    console.log(
+      '[Copeak Classroom] practice policy applied',
+      state
+    );
+  }
+
+  // ========================================
   // Copeak Classroom Support Image Bridge
   // ========================================
 
@@ -308,6 +485,15 @@
             ...args
           );
 
+
+        // ====================================
+        // Classroom Practice Mode
+        // 教材画面を開いた後に適用する
+        // ====================================
+
+        applyInitialPracticePolicy(
+          lesson
+        );
 
         if (
           !initialImageUrl
@@ -708,9 +894,102 @@
     // 別の課題で同じ点数だった場合に
     // 誤って送信を止めない
     // ======================================
-    const signature =
-      `${assignmentId}|${accuracy}|${wpm}|${comprehension}`;
+    // ======================================
+    // ACTUAL PRACTICE MODE RESULT
+    // ======================================
 
+    const practiceApi =
+      window
+        .CopeakClassroomPractice;
+
+
+    const practiceState =
+      (
+        practiceApi &&
+        typeof practiceApi.getState ===
+          'function'
+      )
+
+        ? practiceApi.getState()
+
+        : null;
+
+
+    const actualPracticeMode =
+      (
+        practiceState &&
+        [
+          'reading',
+          'paced',
+          'vanish',
+          'shadowing'
+        ]
+          .includes(
+            practiceState.practiceMode
+          )
+      )
+
+        ? practiceState.practiceMode
+
+        : 'reading';
+
+
+    const pacedValue =
+      Number(
+        practiceState
+          ?.pacedTargetWpm
+      );
+
+
+    const actualPacedTargetWpm =
+      (
+        actualPracticeMode ===
+          'paced' &&
+        Number.isInteger(
+          pacedValue
+        ) &&
+        pacedValue >= 40 &&
+        pacedValue <= 300
+      )
+
+        ? pacedValue
+
+        : null;
+
+
+    const vanishValue =
+      Number(
+        practiceState
+          ?.vanishLevel
+      );
+
+
+    const actualVanishLevel =
+      (
+        actualPracticeMode ===
+          'vanish' &&
+        Number.isInteger(
+          vanishValue
+        ) &&
+        vanishValue >= 1 &&
+        vanishValue <= 5
+      )
+
+        ? vanishValue
+
+        : null;
+
+    const signature =
+      [
+        assignmentId,
+        actualPracticeMode,
+        actualPacedTargetWpm ?? '',
+        actualVanishLevel ?? '',
+        accuracy,
+        wpm,
+        comprehension
+      ]
+        .join('|');
 
     const now =
       Date.now();
@@ -754,6 +1033,14 @@
 
       comprehension,
 
+      practiceMode:
+        actualPracticeMode,
+
+      pacedTargetWpm:
+        actualPacedTargetWpm,
+
+      vanishLevel:
+        actualVanishLevel,
       submittedAt:
         new Date()
           .toISOString()
