@@ -47,16 +47,25 @@
 
   async function updateQueue(row) {
     const database = await openSyncDb();
-    await new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       const tx = database.transaction('results', 'readwrite');
       const store = tx.objectStore('results');
+      let savedRow = row;
       const request = store.get(row.resultId);
       request.onsuccess = () => {
-        // Another tab may already have acknowledged this exact result.
-        if (request.result?.status === 'synced' && row.status !== 'synced') return;
-        store.put(row);
+        const existing = request.result;
+        // Preserve acknowledgements and renewed credentials across concurrent tabs.
+        if (existing && row.status !== 'synced' &&
+            (existing.status === 'synced' || existing.credentialId !== row.credentialId)) {
+          savedRow = existing;
+          return;
+        }
+        if (existing && row.status === 'synced') {
+          savedRow = { ...existing, status: 'synced', error: null };
+        }
+        store.put(savedRow);
       };
-      tx.oncomplete = resolve;
+      tx.oncomplete = () => resolve(savedRow);
       tx.onerror = tx.onabort = () => reject(tx.error);
     });
   }
@@ -106,6 +115,37 @@
     await updateLesson(lesson.id, apply);
     if (activeLesson?.id === lesson.id) window.CopeakClassroomPractice?.applyPolicy(credential.practicePolicy);
     refreshLibrary();
+    await resumeCredentialResults(credential);
+  }
+
+  async function resumeCredentialResults(credential) {
+    if (Date.parse(credential.expiresAt) <= Date.now()) return;
+    // Include pending journals whose first queue write was interrupted.
+    await recover();
+    const database = await openSyncDb();
+    const resumed = await new Promise((resolve, reject) => {
+      const tx = database.transaction('results', 'readwrite');
+      const store = tx.objectStore('results');
+      const rows = [];
+      const request = store.getAll();
+      request.onsuccess = () => {
+        for (const row of request.result) {
+          if (row.transport !== 'direct' || row.studentId !== credential.studentId ||
+              row.result.assignmentId !== credential.assignmentId ||
+              row.credentialId === credential.id ||
+              !(row.status === 'pending' ||
+                (row.status === 'blocked' && row.error === 'credential_expired'))) continue;
+          const updated = { ...row, credentialId: credential.id,
+            status: 'pending', error: null, attempts: 0, nextAttemptAt: 0 };
+          store.put(updated);
+          rows.push(updated);
+        }
+      };
+      tx.oncomplete = () => resolve(rows);
+      tx.onerror = tx.onabort = () => reject(tx.error);
+    });
+    for (const row of resumed) await saveOutcome(row, 'pending');
+    if (resumed.length) await flush(true);
   }
 
   function prepareResult(lesson, log) {
@@ -171,12 +211,13 @@
       updated.attempts = (row.attempts || 0) + 1;
       updated.nextAttemptAt = Date.now() + Math.min(300000, 2000 * 2 ** Math.min(updated.attempts, 7));
     }
-    await updateQueue(updated);
-    await updateLesson(row.lessonId, lesson => {
-      const log = lesson.history?.find(h => h.classroomSync?.result.resultId === row.resultId);
-      if (log && (log.classroomSync.status !== 'synced' || status === 'synced')) {
-        log.classroomSync.status = status;
-        log.classroomSync.error = error || null;
+    const saved = await updateQueue(updated);
+    await updateLesson(saved.lessonId, lesson => {
+      const log = lesson.history?.find(h => h.classroomSync?.result.resultId === saved.resultId);
+      if (log && (log.classroomSync.status !== 'synced' || saved.status === 'synced')) {
+        log.classroomSync.status = saved.status;
+        log.classroomSync.error = saved.error || null;
+        log.classroomSync.credentialId = saved.credentialId;
       }
     });
     refreshLibrary();
@@ -219,6 +260,11 @@
               resultId: row.resultId,
               nonce: launch.nonce
             }, launch.origin);
+          }
+        } else if (response.status === 401 && body.error === 'credential_expired') {
+          await saveOutcome(row, 'blocked', 'credential_expired');
+          if (activeLesson?.id === row.lessonId) {
+            showStatus('⚠ 同期の認証情報が期限切れです。Classroomからこの課題を開き直してください');
           }
         } else if ([400, 401, 403, 409, 413].includes(response.status)) {
           await saveOutcome(row, 'blocked', body.error || 'submission_rejected');
