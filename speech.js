@@ -3851,6 +3851,7 @@ spokenComparisonUnits.forEach(
 
 
             const logData = {
+                classroomPractice: window.CopeakClassroomPractice?.getState() || null,
 
                 date:
                     todayStr,

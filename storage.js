@@ -200,7 +200,11 @@ const initDB = () => {
                 db.createObjectStore(storeName, { keyPath: "id", autoIncrement: true });
             }
         };
-        request.onsuccess = (e) => { db = e.target.result; resolve(); };
+        request.onsuccess = (e) => {
+            db = e.target.result;
+            resolve();
+            window.dispatchEvent(new Event("copeak-storage-ready"));
+        };
         request.onerror = (e) => reject(e);
     });
 };
@@ -447,24 +451,53 @@ function savePracticeLog(lessonId, logData, onComplete) {
     const transaction = db.transaction([storeName], "readwrite");
     const store = transaction.objectStore(storeName);
     const getReq = store.get(lessonId);
-    
+    let saved = false;
+
     getReq.onsuccess = () => {
-    const lesson = getReq.result;
-
-    if (!lesson) {
-        if (onComplete) onComplete();
-        return;
-    }
-
-    if (!lesson.history) lesson.history = [];
+        const lesson = getReq.result;
+        if (!lesson) return;
+        window.CopeakDirectSync?.prepareResult(lesson, logData);
+        if (!lesson.history) lesson.history = [];
         lesson.history.push(logData);
-        lesson.lastPracticed = new Date().getTime(); 
-        
+        lesson.lastPracticed = Date.now();
         store.put(lesson);
-        currentCustomLesson = lesson; 
-
-        if (onComplete) onComplete();
+        if (currentCustomLesson?.id === lessonId) currentCustomLesson = lesson;
+        saved = true;
     };
+
+    transaction.oncomplete = () => {
+        if (onComplete) onComplete();
+        if (saved) {
+            void window.CopeakDirectSync?.onHistorySaved(lessonId, logData).catch(() => {
+                if (typeof showMsg === 'function') {
+                    showMsg('⚠ 同期は保留中です。端末の空き容量と通信を確認してください');
+                }
+            });
+        }
+    };
+
+    transaction.onerror = transaction.onabort = () => {
+        if (typeof showMsg === 'function') {
+            showMsg('⚠ 音読履歴を保存できません。端末の空き容量を確認してください');
+        }
+    };
+}
+
+function classroomLessonBadge(lesson) {
+    if (!lesson.classroomSource || !lesson.classroomAssignmentId) return '';
+    const records = (lesson.history || []).map(log => log.classroomSync).filter(Boolean);
+    const pending = records.filter(
+        record => record.transport === 'direct' && record.status === 'pending'
+    ).length;
+    const blocked = records.filter(record => record.status === 'blocked').length;
+    const label = !lesson.classroomCredentialId
+        ? '↗ Classroomから開き直して連携'
+        : blocked ? `⚠ ${blocked} results need attention`
+        : pending ? `⚠ ${pending} results waiting to sync`
+        : records.some(record => record.status === 'synced')
+            ? '✓ Classroom Synced' : 'Direct Sync ready';
+    return `<div class="mt-2 text-[10px] font-bold text-emerald-700">📗 Classroom Assignment</div>` +
+        `<div class="mt-1 text-[10px] text-stone-500" role="status">${label}</div>`;
 }
 
 function loadSavedLessons() {
@@ -530,6 +563,7 @@ function loadSavedLessons() {
                         </div>
                     `;
 
+                    sideCard.innerHTML += classroomLessonBadge(lesson);
                     sideCard.onclick = () => startCustomLesson(lesson);
                     sidebarList.appendChild(sideCard);
                 });
@@ -997,7 +1031,11 @@ function createHomeLessonCard(lesson, homeList) {
     `;
 
 
-    homeCard.onclick =
+        const classroomBadge = document.createElement('div');
+    classroomBadge.innerHTML = classroomLessonBadge(lesson);
+    homeCard.firstElementChild.appendChild(classroomBadge);
+
+homeCard.onclick =
         e => {
 
             if (
@@ -1161,6 +1199,11 @@ function startCustomLesson(lesson) {
             lesson
         );
     }
+    void window.CopeakDirectSync?.onLessonOpened(lesson).catch(() => {
+        if (typeof showMsg === 'function') {
+            showMsg('⚠ Classroom同期データを確認できません');
+        }
+    });
 }
 
 // ==========================================
@@ -1553,6 +1596,15 @@ const youtubeLoop =
 
         const classroomOrigin =
             urlParams.get('classroom_origin');
+        const classroomStudentId = urlParams.get('classroom_student');
+        const classroomPracticePolicy = {
+            practiceMode: urlParams.get('practice_mode') || 'free',
+            modeLocked: urlParams.get('mode_locked') === '1',
+            pacedTargetWpm: urlParams.has('paced_target_wpm')
+                ? Number(urlParams.get('paced_target_wpm')) : null,
+            vanishLevel: urlParams.has('vanish_level')
+                ? Number(urlParams.get('vanish_level')) : null
+        };
 
         const classroomSource =
             urlParams.get('source') ===
@@ -1634,9 +1686,18 @@ const youtubeLoop =
                 ? lessons.find(
                     lesson =>
                         lesson.classroomSource === true &&
-                        lesson.classroomAssignmentId ===
-                            classroomAssignmentId
-                )
+                        lesson.classroomAssignmentId === classroomAssignmentId &&
+                        (!classroomStudentId || !lesson.classroomStudentId ||
+                         lesson.classroomStudentId === classroomStudentId)
+                ) || (() => {
+                    // Upgrade only one exact matching old material.
+                    const candidates = lessons.filter(
+                        lesson => !lesson.classroomAssignmentId &&
+                            lesson.title === sharedTitle &&
+                            lesson.eng === engText
+                    );
+                    return candidates.length === 1 ? candidates[0] : null;
+                })()
 
                 : lessons.find(
                     lesson =>
@@ -1797,6 +1858,9 @@ const youtubeLoop =
 
                 existingLesson.classroomSource =
                     true;
+                existingLesson.classroomStudentId =
+                    classroomStudentId || existingLesson.classroomStudentId || null;
+                existingLesson.classroomPracticePolicy = classroomPracticePolicy;
 
 
                 // ==================================
@@ -1876,9 +1940,15 @@ const youtubeLoop =
                         );
 
 
-                    store.put(
-                        existingLesson
-                    );
+                    const latest = store.get(existingLesson.id);
+                    latest.onsuccess = () => {
+                        if (latest.result) {
+                            // Preserve history updated while media was loading.
+                            existingLesson.history = latest.result.history || [];
+                            existingLesson.lastPracticed = latest.result.lastPracticed;
+                        }
+                        store.put(existingLesson);
+                    };
 
 
                     tx.oncomplete =
@@ -2015,6 +2085,8 @@ const youtubeLoop =
 
             classroomSource:
                 classroomSource,
+            classroomStudentId: classroomSource ? classroomStudentId : null,
+            classroomPracticePolicy: classroomSource ? classroomPracticePolicy : null,
 
 
             youtubeVideoId: youtubeVideoId,

@@ -357,13 +357,14 @@
             );
 
 
-          tx
-            .objectStore(
-              'CustomLessons'
-            )
-            .put(
-              lesson
-            );
+          const store = tx.objectStore('CustomLessons');
+          const saved = store.get(lesson.id);
+          saved.onsuccess = () => {
+            if (!saved.result) return;
+            // Update only the image; preserve newer history and credentials.
+            saved.result.memoImage = lesson.memoImage;
+            store.put(saved.result);
+          };
 
 
           tx.oncomplete =
@@ -454,7 +455,7 @@
             initialSource ===
               'copeak-classroom' &&
             initialAssignmentId &&
-            lesson
+            lesson?.classroomAssignmentId === initialAssignmentId
           );
 
 
@@ -796,6 +797,7 @@
   // Classroomへ送信
   // ========================================
   function sendResultToClassroom() {
+    if (window.CopeakDirectSync) return;
 
     // ======================================
     // 現在の教材が
