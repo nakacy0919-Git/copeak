@@ -7902,6 +7902,13 @@ body.result-layout-active
                                 <div id="dialogueLinesContainer" class="flex-1 overflow-y-auto space-y-3 p-2 md:p-3 bg-[#faf8f5] border border-stone-300 rounded-sm h-40 md:h-64 custom-scrollbar"></div>
                                 <button type="button" onclick="addDialogueLine()" class="mt-2 py-2 w-full bg-stone-200 hover:bg-stone-300 text-stone-700 font-bold text-xs rounded-sm transition border border-stone-300 border-dashed">＋ セリフを追加する</button>
                             </div>
+                            <div class="p-3 rounded-sm border border-blue-200 bg-blue-50 space-y-2">
+                                <label for="customScoreExclusions" class="block text-sm font-bold text-blue-900">採点しない固有名詞（任意）</label>
+                                <p class="text-xs text-blue-800">1行に1語句。本文はそのまま表示・音読し、Accuracyの対象からだけ除外します。候補は先生が確認してください。</p>
+                                <button type="button" id="suggestCustomScoreExclusions" class="bg-white border border-blue-300 rounded-sm px-3 py-1 text-sm font-bold text-blue-800">固有名詞の候補を表示</button>
+                                <textarea id="customScoreExclusions" rows="3" placeholder="New York&#10;Mr. Tanaka" class="w-full border border-blue-200 rounded-sm p-2 text-sm bg-white"></textarea>
+                                <p class="text-xs text-blue-700">最大20件・各60文字。候補の誤検出に注意してください。</p>
+                            </div>
                             <div>
                                 <label data-i18n="form_label_translation" class="block text-xs font-bold text-stone-500 mb-1 uppercase tracking-wider">Translation (日本語訳など)</label>
                                 <textarea id="customJpn" data-i18n-placeholder="form_placeholder_jpn" placeholder="母語での訳を貼り付け (任意)" rows="2" class="w-full p-3 md:p-4 bg-[#faf8f5] border border-stone-300 rounded-sm focus:ring-2 focus:ring-emerald-800 outline-none transition resize-y"></textarea>
@@ -8872,6 +8879,7 @@ function loadDeferredImage(container) {
     </script>
 
     <!-- Copeak Main Bundle -->
+<script src="js/scoring-exclusions.js"></script>
 <script src="app-bundle.js"></script>
 <script src="speech-debug.js"></script>
 <script src="opening-final.js"></script>

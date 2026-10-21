@@ -222,6 +222,8 @@ function editLesson(event, id) {
         document.getElementById('customTitle').value = lesson.title;
         document.getElementById('customLang').value = lesson.lang;
         document.getElementById('customJpn').value = lesson.jpn || "";
+        const exclusionInput = document.getElementById('customScoreExclusions');
+        if (exclusionInput) exclusionInput.value = (lesson.scoreExclusions || []).join('\n');
         const formUrlInput = document.getElementById('customFormUrl');
         if (formUrlInput) formUrlInput.value = lesson.formUrl || "";
 
@@ -354,11 +356,34 @@ function cancelEdit(isSilent = false) {
     }
 }
 
+document.getElementById('suggestCustomScoreExclusions')?.addEventListener('click', () => {
+    const dialogue = window.currentMaterialType === 'dialogue';
+    const source = dialogue
+      ? [...document.querySelectorAll('.dialogue-text')].map(el => el.value).join(' ')
+      : (document.getElementById('customEng')?.value || '');
+    const textarea = document.getElementById('customScoreExclusions');
+    if (!textarea) return;
+    const candidates = globalThis.CopeakScoreExclusions.suggestNames(source);
+    const combined = globalThis.CopeakScoreExclusions.parseList([...globalThis.CopeakScoreExclusions.parseList(textarea.value), ...candidates]);
+    if (combined.length > globalThis.CopeakScoreExclusions.MAX_PHRASES) {
+        if (typeof showMsg === 'function') showMsg('⚠️ 候補が20件を超えました。不要な候補を手動で削除してください。');
+    }
+    textarea.value = combined.join('\n');
+    if (typeof showMsg === 'function') showMsg('候補を入力しました。必ず内容を確認してから保存してください。');
+});
+
 async function saveCustomLesson() {
     const title = document.getElementById("customTitle").value.trim();
     const jpnText = document.getElementById("customJpn").value.trim();
     const formUrl = document.getElementById("customFormUrl")?.value.trim() || "";
     const audioFile = document.getElementById("customAudio").files[0];
+    let scoreExclusions;
+    try {
+        scoreExclusions = globalThis.CopeakScoreExclusions.validateList(document.getElementById('customScoreExclusions')?.value || '');
+    } catch (error) {
+        if (typeof showMsg === 'function') showMsg('⚠️ ' + error.message);
+        return;
+    }
 
     const langSelect = document.getElementById("customLang");
     const selectedLang = langSelect.value;
@@ -405,6 +430,7 @@ async function saveCustomLesson() {
             lesson.eng = engText; // リスト表示用
             lesson.jpn = jpnText;
             lesson.formUrl = formUrl || null;
+            lesson.scoreExclusions = scoreExclusions;
             lesson.lang = selectedLang;
             lesson.langName = selectedLangName;
 
@@ -424,6 +450,7 @@ async function saveCustomLesson() {
             eng: engText, // リスト表示用
             jpn: jpnText,
             formUrl: formUrl || null,
+            scoreExclusions,
             folderId: null,
             audioBlob: audioFile || null,
             lang: selectedLang,
@@ -1523,6 +1550,11 @@ const youtubeLoop =
         const classroomSource =
             urlParams.get('source') ===
             'copeak-classroom';
+        // Score-exclusion metadata from the trusted lesson source, not speech text.
+        let incomingScoreExclusions = [];
+        try {
+            incomingScoreExclusions = globalThis.CopeakScoreExclusions.safeList(JSON.parse(urlParams.get('score_exclusions') || '[]'));
+        } catch (_) { incomingScoreExclusions = []; }
 
         const lessonType = urlParams.get('type') || 'standard';
         let dialogueData = [];
@@ -1654,6 +1686,9 @@ const youtubeLoop =
 
             existingLesson.type =
                 lessonType;
+            if (classroomSource || urlParams.has('score_exclusions')) {
+                existingLesson.scoreExclusions = incomingScoreExclusions;
+            }
 
 
 
@@ -1935,6 +1970,8 @@ const youtubeLoop =
 
             type:
                 lessonType,
+
+            scoreExclusions: incomingScoreExclusions,
 
             dialogue:
                 dialogueData,
@@ -18765,7 +18802,8 @@ function alignSpeechTokens(spokenWords, targetWords) {
     ) {
         return {
             matchCount: 0,
-            matchedSpokenIndexes: new Set()
+            matchedSpokenIndexes: new Set(),
+            matchedTargetIndexes: new Set()
         };
     }
 
@@ -18809,6 +18847,7 @@ function alignSpeechTokens(spokenWords, targetWords) {
 
     const matchedSpokenIndexes =
         new Set();
+    const matchedTargetIndexes = new Set();
 
     let spokenIndex = 0;
     let targetIndex = 0;
@@ -18826,6 +18865,7 @@ function alignSpeechTokens(spokenWords, targetWords) {
             matchedSpokenIndexes.add(
                 spokenIndex
             );
+            matchedTargetIndexes.add(targetIndex);
 
             spokenIndex++;
             targetIndex++;
@@ -18847,7 +18887,8 @@ function alignSpeechTokens(spokenWords, targetWords) {
         matchCount:
             matchedSpokenIndexes.size,
 
-        matchedSpokenIndexes
+        matchedSpokenIndexes,
+        matchedTargetIndexes
     };
 }
 
@@ -18934,6 +18975,13 @@ const spokenWords =
     );
 
 
+    // Align once using the full text; exclude selected target indices only
+    // from the Accuracy numerator and denominator. Full text remains visible.
+    const exclusionPlan = globalThis.CopeakScoreExclusions.selectScoredTokens(
+        scoringTargetArray,
+        currentCustomLesson?.scoreExclusions || [],
+        phrase => buildSpeechComparisonUnits(phrase, lang).map(unit => unit.token)
+    );
     const alignment =
         alignSpeechTokens(
             spokenWords,
@@ -18941,8 +18989,9 @@ const spokenWords =
         );
 
 
-    const matchCount =
-        alignment.matchCount;
+    const excludedTargetIndexes = new Set(exclusionPlan.excludedIndexes);
+    const matchCount = [...alignment.matchedTargetIndexes]
+        .filter(index => !excludedTargetIndexes.has(index)).length;
 
 
     const matchedComparisonIndexes =
@@ -19054,7 +19103,7 @@ spokenComparisonUnits.forEach(
     // Accuracy
     // ==========================================
     const validTargetWordCount =
-        scoringTargetArray.length;
+        exclusionPlan.tokens.length;
 
 
     const percentage =
