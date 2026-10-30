@@ -58,7 +58,7 @@ body.copeak-home-mode #homeScreen.cp-section-mode.active{
 #copeakHomeHub .cp-brand-sub{color:#239981;letter-spacing:.06em}
 #copeakHomeHub .cp-home-header{height:clamp(82px,13dvh,120px);min-height:0}
 #copeakHomeHub .cp-header-actions{align-self:center;padding:0}
-#copeakHomeHub{grid-template-rows:auto minmax(0,1fr) clamp(126px,22dvh,187px) auto}
+#copeakHomeHub{grid-template-rows:auto minmax(0,1fr) clamp(153px,27dvh,233px) auto}
 #copeakHomeHub .cp-home-extras{min-height:0;grid-template-columns:1.4fr 1fr}
 #copeakHomeHub .cp-extra{min-height:0;display:block;overflow:hidden;padding:13px 17px}
 #copeakHomeHub .cp-extra h3{font-size:14px}
@@ -78,7 +78,7 @@ body.copeak-home-mode #homeScreen.cp-section-mode.active{
 .cp-home-menu{z-index:100}
 .cp-home-menu[hidden]{display:none!important}
 @media(max-width:700px){
- #copeakHomeHub{grid-template-rows:auto minmax(0,1fr) clamp(110px,19dvh,148px) auto;gap:8px}
+ #copeakHomeHub{grid-template-rows:auto minmax(0,1fr) clamp(148px,25dvh,188px) auto;gap:8px}
  #copeakHomeHub .cp-home-header{height:clamp(69px,10dvh,84px)}
  #copeakHomeHub .cp-brand-logo{width:40px;height:40px}
  #copeakHomeHub .cp-brand-word{font-size:clamp(27px,6.8vw,34px)}
@@ -112,7 +112,7 @@ body.copeak-home-mode #homeScreen.cp-section-mode.active{
 }
 @media(max-height:620px){
  #copeakHomeHub .cp-home-extras{display:grid}
- #copeakHomeHub{grid-template-rows:68px minmax(0,1fr) 80px 48px;gap:5px}
+ #copeakHomeHub{grid-template-rows:62px minmax(0,1fr) clamp(110px,24dvh,141px) 45px;gap:5px}
  #copeakHomeHub .cp-extra{padding:7px 10px}
  .cp-recent-list{margin-top:3px;gap:0}
  .cp-recent-row:nth-child(n+3){display:none}
@@ -125,3 +125,39 @@ body.copeak-home-mode #homeScreen.cp-section-mode.active{
 
 /* Use Copeak's familiar subtle dotted texture behind the redesigned panels. */
 body.copeak-home-mode{background-color:#eef4f7!important;background-image:radial-gradient(#d2e3ee 0.65px,transparent 0.65px)!important;background-size:19px 19px!important}
+
+/* Expanded activity panels and real locally calculated learning metrics. */
+#copeakHomeHub .cp-home-extras { align-items:stretch; }
+#copeakHomeHub .cp-extra{height:100%}
+#copeakHomeHub .cp-recent-list{margin-top:12px;gap:7px}
+#copeakHomeHub .cp-recent-row{padding:8px 2px}
+#copeakHomeHub .cp-record-content{height:calc(100% - 30px);gap:clamp(10px,1.4vw,20px);margin-top:8px}
+#copeakHomeHub .cp-progress-ring{width:clamp(70px,9.1vw,112px);height:clamp(70px,9.1vw,112px)}
+#copeakHomeHub .cp-record-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px 19px;align-content:center;flex:1;min-width:0}
+#copeakHomeHub .cp-record-stat{display:flex;flex-direction:column;gap:4px;min-width:0}
+#copeakHomeHub .cp-record-stat-label{font-size:clamp(10px,.9vw,12px);color:#71859c;font-weight:800;line-height:1.45}
+#copeakHomeHub .cp-record-stat-label small{font-size:10px;font-weight:650}
+#copeakHomeHub .cp-record-stat strong{color:#173e74;font-size:clamp(16px,2vw,24px);font-variant-numeric:tabular-nums;line-height:1.14}
+#copeakHomeHub .cp-record-stat:nth-child(2){grid-column:2;grid-row:1}
+#copeakHomeHub .cp-record-stat-total{grid-column:1;grid-row:2}
+@media(max-width:700px){
+ #copeakHomeHub .cp-extra{padding:10px 11px}
+ #copeakHomeHub .cp-recent-list{margin-top:5px;gap:2px}
+ #copeakHomeHub .cp-recent-row{padding:7px 0}
+ #copeakHomeHub .cp-record-content{display:flex;flex-direction:row;align-items:center;gap:6px;height:calc(100% - 22px);margin-top:3px}
+ #copeakHomeHub .cp-progress-ring{width:clamp(39px,11vw,53px);height:clamp(39px,11vw,53px);flex:none}
+ #copeakHomeHub .cp-progress-core{font-size:10px}
+ #copeakHomeHub .cp-record-metrics{display:flex;flex-direction:column;gap:5px;justify-content:center;min-width:0}
+ #copeakHomeHub .cp-record-stat{gap:0}
+ #copeakHomeHub .cp-record-stat-label{font-size:9px;line-height:1.25}
+ #copeakHomeHub .cp-record-stat-label small{display:none}
+ #copeakHomeHub .cp-record-stat strong{font-size:clamp(12px,3.4vw,16px)}
+}
+@media(max-height:620px){
+ #copeakHomeHub .cp-recent-list{margin-top:1px;gap:0}
+ #copeakHomeHub .cp-recent-row{padding:3px 0}
+ #copeakHomeHub .cp-progress-ring{width:38px;height:38px}
+ #copeakHomeHub .cp-record-metrics{gap:2px}
+ #copeakHomeHub .cp-record-stat-label{font-size:8px}
+ #copeakHomeHub .cp-record-stat strong{font-size:12px}
+}
