@@ -7475,6 +7475,11 @@ body.result-layout-active
 }
     </style>
     <link rel="stylesheet" href="copeak-home.css">
+    <link rel="stylesheet" href="copeak-pages.css">
+    <script>
+      try { if(localStorage.getItem('copeak_opening_seen_v1')==='1') document.documentElement.classList.add('cp-opening-seen'); }catch(_){}
+    </script>
+    <style>.cp-opening-seen #dynamicSplashScreen{display:none!important}</style>
 </head>
 <body class="text-stone-800 pb-10 relative transition-colors duration-500">
     <div id="toast">メッセージ</div>
@@ -9679,5 +9684,6 @@ window.openQuestReflection = function(acc, wpm) {
 };
 </script>
     <script src="copeak-home.js"></script>
+    <script src="copeak-pages.js"></script>
 </body>
 </html>
