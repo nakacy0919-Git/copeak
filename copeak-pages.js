@@ -129,7 +129,7 @@ function initCopeakDedicatedPages() {
   }
   const boxes=hub.querySelectorAll('.cp-home-extras .cp-extra');
   if(boxes[0])boxes[0].innerHTML='<h3>◷ 最近の課題</h3><p>この端末の教材・音読履歴</p><div id="cpRecentList" class="cp-recent-list">教材を確認しています…</div>';
-  if(boxes[1])boxes[1].innerHTML='<h3>▥ 学習の記録</h3><div class="cp-record-content"><div id="cpProgressRing" class="cp-progress-ring"><div class="cp-progress-core" id="cpProgressNum">0/7日</div></div><div class="cp-record-text" id="cpStreakText">連続 0日<small id="cpLearningTotal">この端末の音読記録</small></div></div>';
+  if(boxes[1])boxes[1].innerHTML='<h3>▥ 学習の記録</h3><div class="cp-record-content"><div id="cpProgressRing" class="cp-progress-ring"><div class="cp-progress-core" id="cpProgressNum">0/7日</div></div><div class="cp-record-metrics"><div class="cp-record-stat"><span class="cp-record-stat-label">連続学習</span><strong id="cpStreakText">0日</strong></div><div class="cp-record-stat"><span class="cp-record-stat-label">平均 Accuracy <small>（直近30回）</small></span><strong id="cpAverageAccuracy">—</strong></div><div class="cp-record-stat cp-record-stat-total"><span class="cp-record-stat-label">累計音読</span><strong id="cpLearningTotal">0回</strong></div></div></div>';
   const dateKey=value=>{
     const d=new Date(value);if(!Number.isFinite(d.getTime()))return null;
     return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');
@@ -177,8 +177,17 @@ function initCopeakDedicatedPages() {
     let streak=0;for(let i=days.has(dayAt(0))?0:1;i<3700;i++){if(!days.has(dayAt(i)))break;streak++;}
     const count=document.getElementById('cpProgressNum');if(count)count.textContent=`${week}/7日`;
     const circle=document.getElementById('cpProgressRing');if(circle)circle.style.setProperty('--cp-progress',Math.round(week/7*100)+'%');
-    const streakText=document.getElementById('cpStreakText');if(streakText)streakText.firstChild.textContent=`連続 ${streak}日`;
-    const total=document.getElementById('cpLearningTotal');if(total)total.textContent=`音読 ${times.length}回・この端末`;
+    const streakText=document.getElementById('cpStreakText');if(streakText)streakText.textContent=streak+'日';
+    const total=document.getElementById('cpLearningTotal');if(total)total.textContent=times.length+'回';
+    // A local, read-only calculation. Copeak stores Accuracy as history[].score (0-100).
+    // Exclude entries with no numeric score, rather than reporting a misleading 0%.
+    const scored=lessons.flatMap(l=>Array.isArray(l.history)?l.history.map(log=>({
+      score:typeof log?.score==='number'?log.score: (typeof log?.score==='string'&&log.score.trim()!==''?Number(log.score):NaN),
+      time:logTime(log)
+    })):[]).filter(x=>Number.isFinite(x.score)&&x.score>=0&&x.score<=100)
+      .sort((a,b)=>(b.time??0)-(a.time??0)).slice(0,30);
+    const average=document.getElementById('cpAverageAccuracy');
+    if(average)average.textContent=scored.length?(scored.reduce((sum,x)=>sum+x.score,0)/scored.length).toFixed(1)+'%':'—';
   }
   window.CopeakHomePages={open:go,refresh:refreshActivity};
   window.addEventListener('copeak-storage-ready',refreshActivity);
