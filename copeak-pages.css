@@ -49,10 +49,10 @@ body.copeak-home-mode #homeScreen.cp-section-mode.active{
 #cpCreateForm .iron-border-sm{border:1px solid #dce8f3}
 #cpCreateTeacher #teacherModeArea{border-radius:16px}
 #cpCreateTeacher[hidden]{display:none!important}
-#cpPageBottom{display:flex;align-items:center;justify-content:center;gap:clamp(8px,4vw,46px);background:#fff;border:1px solid #e0ebf5;padding:7px;border-radius:16px}
-#cpPageBottom button{display:flex;align-items:center;gap:7px;background:transparent;color:#59758e;font-weight:850;font-size:12px;border-radius:11px;padding:7px 15px;cursor:pointer}
-#cpPageBottom button[aria-current="page"]{background:#e9f5ff;color:#177cc7}
-#cpPageBottom button:hover{background:#eff7fe}
+.cp-page-bottom{display:flex;align-items:center;justify-content:center;gap:clamp(8px,4vw,46px);background:#fff;border:1px solid #e0ebf5;padding:7px;border-radius:16px}
+.cp-page-bottom button{display:flex;align-items:center;gap:7px;background:transparent;color:#59758e;font-weight:850;font-size:12px;border-radius:11px;padding:7px 15px;cursor:pointer}
+.cp-page-bottom button[aria-current="page"]{background:#e9f5ff;color:#177cc7}
+.cp-page-bottom button:hover{background:#eff7fe}
 #copeakHomeHub .cp-home-illustration{display:none!important}
 #copeakHomeHub .cp-brand-word{font-family:Georgia,"Times New Roman",serif;font-weight:800;letter-spacing:-.025em}
 #copeakHomeHub .cp-brand-sub{color:#239981;letter-spacing:.06em}
@@ -107,8 +107,8 @@ body.copeak-home-mode #homeScreen.cp-section-mode.active{
  .cp-panel{padding:13px;border-radius:17px}
  #cpReadFolders #savedLessonsList{grid-template-columns:1fr;gap:8px}
  #cpCreateForm #customMaterialForm{flex-direction:column;gap:12px}
- #cpPageBottom{gap:0;justify-content:space-around}
- #cpPageBottom button{font-size:11px;padding:8px 11px}
+ .cp-page-bottom{gap:0;justify-content:space-around}
+ .cp-page-bottom button{font-size:11px;padding:8px 11px}
 }
 @media(max-height:620px){
  #copeakHomeHub .cp-home-extras{display:grid}
