@@ -119,3 +119,9 @@ body.copeak-home-mode #homeScreen.cp-section-mode.active{
  .cp-progress-ring{width:48px;height:48px}
  #copeakHomeHub .cp-action-icon{width:36px;height:36px;font-size:26px}
 }
+
+/* Keep both recent activity and the live progress ring visible on phones. */
+@media(max-width:700px){#copeakHomeHub .cp-home-extras .cp-extra:nth-child(2){display:block!important}}
+
+/* Use Copeak's familiar subtle dotted texture behind the redesigned panels. */
+body.copeak-home-mode{background-color:#eef4f7!important;background-image:radial-gradient(#d2e3ee 0.65px,transparent 0.65px)!important;background-size:19px 19px!important}
