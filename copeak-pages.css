@@ -1,0 +1,121 @@
+
+/* Copeak dedicated reader/creator – retain all existing form and library IDs. */
+.cp-page[hidden],#copeakHomeHub[hidden]{display:none!important}
+body.copeak-home-mode #homeScreen.cp-section-mode.active{
+  width:100%!important;max-width:none!important;height:100dvh;min-height:0!important;overflow:hidden!important;
+  margin:0!important;padding:max(8px,env(safe-area-inset-top)) max(11px,env(safe-area-inset-right)) max(7px,env(safe-area-inset-bottom)) max(11px,env(safe-area-inset-left))!important;
+  border:0!important;border-radius:0!important;box-shadow:none!important;
+  background:linear-gradient(150deg,#f7fbff 0%,#eff7fc 50%,#f7fbf8 100%);
+}
+.cp-page{width:min(1260px,100%);height:100%;margin:auto;display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:12px;font-family:"Noto Sans JP",system-ui,sans-serif;color:#193457;min-height:0}
+.cp-page-head{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:8px 10px 11px;border-bottom:1px solid #dfebf7}
+.cp-page-head-main{display:flex;align-items:center;gap:16px;min-width:0}
+.cp-page-home{width:43px;height:43px;border-radius:15px;border:1px solid #bddbf2;color:#2072b1;background:white;box-shadow:0 5px 12px #2f76ac1a;font-size:23px;flex:none}
+.cp-page-eyebrow{font-size:10px;letter-spacing:.14em;font-weight:900;color:#268f85;text-transform:uppercase}
+.cp-page-head h2{margin:1px 0 0;font-size:clamp(20px,2.7vw,30px);font-weight:900;color:#153b6b;letter-spacing:-.03em}
+.cp-page-subtitle{font-size:12px;font-weight:600;color:#6a8299;margin-top:3px}
+.cp-page-brand{display:flex;align-items:center;gap:8px;color:#234c81;font-size:14px;font-weight:900;white-space:nowrap}
+.cp-page-brand img{height:35px;width:35px;object-fit:contain}
+.cp-page-scroll{min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-color:#b6d7ec transparent;scrollbar-width:thin;padding:4px 7px 22px}
+.cp-page-scroll > *{margin-bottom:13px}
+.cp-panel{background:#ffffffeb;border:1px solid #deebf8;border-radius:22px;padding:clamp(13px,2vw,24px);box-shadow:0 8px 28px #35699813;min-width:0}
+.cp-panel-title{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.cp-panel-title h3{font-size:17px;font-weight:900;letter-spacing:-.02em;color:#1c3c61}
+.cp-panel-title small{font-size:11px;color:#69829b;font-weight:650}
+.cp-link-pill{border-radius:99px;background:#e8f4ff;border:1px solid #d0e8f9;padding:8px 13px;color:#1d6dba;font-size:12px;font-weight:850;cursor:pointer}
+.cp-page-actions{display:flex;flex-wrap:wrap;gap:8px}
+.cp-page-actions button{border:1px solid #d9e8f4;border-radius:13px;padding:10px 13px;background:#f2f8fd;color:#214c75;font-size:12px;font-weight:800;cursor:pointer}
+.cp-page-actions button:hover,.cp-link-pill:hover{background:#dcefff}
+.cp-guide-section{display:none}.cp-guide-section.cp-is-visible{display:block}
+.cp-guide-section .border-b-2{border:0;border-bottom:1px solid #e4ebf2}
+.cp-guide-section .accordion-content .accordion-inner{overflow:visible}
+.cp-guide-section .is-open .accordion-inner{overflow:visible}
+.cp-guide-section .bg-stone-900{border-radius:16px}
+#cpReadFolders #savedLessonsList{padding-bottom:10px!important;gap:12px}
+#cpReadFolders #savedLessonsList>div{border-radius:16px!important;border:1px solid #deebf5!important;box-shadow:0 4px 14px #385e8712!important;background:linear-gradient(110deg,#fff,#fafdff)!important}
+#cpReadFolders #savedLessonsList>div:hover{border-color:#60b5ad!important}
+#cpReadFolders #savedLessonsList h3{font-family:"Noto Sans JP",sans-serif!important}
+#cpReadFolders #librarySectionTitle{font-family:"Noto Sans JP",sans-serif!important;font-size:17px!important}
+#cpReadFolders .iron-border-sm{border:1px solid #e0edf8}
+#cpReadFolders #questLibraryList{padding-bottom:5px!important}
+#cpReadFolders #questLibraryList>*{border-radius:16px!important}
+#cpCreateForm #customMaterialForm{border:0!important;border-radius:19px!important;box-shadow:none!important;padding:4px!important;background:transparent!important;gap:20px!important}
+#cpCreateForm #customMaterialForm input:not([type="checkbox"]),#cpCreateForm #customMaterialForm textarea,#cpCreateForm #customMaterialForm select{border-radius:12px!important;background:#fff!important}
+#cpCreateForm #customMaterialForm button{border-radius:12px!important}
+#cpCreateForm #acc-form-content{display:block!important;opacity:1!important;overflow:visible!important;grid-template-rows:none!important}
+#cpCreateForm #acc-form-content>.accordion-inner{min-height:0;overflow:visible!important;padding:0!important}
+#cpCreateForm .cp-form-section{display:block}
+#cpCreateForm #cpOriginalFormSection>button:first-child{display:none!important}
+#cpCreateForm .iron-border-sm{border:1px solid #dce8f3}
+#cpCreateTeacher #teacherModeArea{border-radius:16px}
+#cpCreateTeacher[hidden]{display:none!important}
+#cpPageBottom{display:flex;align-items:center;justify-content:center;gap:clamp(8px,4vw,46px);background:#fff;border:1px solid #e0ebf5;padding:7px;border-radius:16px}
+#cpPageBottom button{display:flex;align-items:center;gap:7px;background:transparent;color:#59758e;font-weight:850;font-size:12px;border-radius:11px;padding:7px 15px;cursor:pointer}
+#cpPageBottom button[aria-current="page"]{background:#e9f5ff;color:#177cc7}
+#cpPageBottom button:hover{background:#eff7fe}
+#copeakHomeHub .cp-home-illustration{display:none!important}
+#copeakHomeHub .cp-brand-word{font-family:Georgia,"Times New Roman",serif;font-weight:800;letter-spacing:-.025em}
+#copeakHomeHub .cp-brand-sub{color:#239981;letter-spacing:.06em}
+#copeakHomeHub .cp-home-header{height:clamp(82px,13dvh,120px);min-height:0}
+#copeakHomeHub .cp-header-actions{align-self:center;padding:0}
+#copeakHomeHub{grid-template-rows:auto minmax(0,1fr) clamp(126px,22dvh,187px) auto}
+#copeakHomeHub .cp-home-extras{min-height:0;grid-template-columns:1.4fr 1fr}
+#copeakHomeHub .cp-extra{min-height:0;display:block;overflow:hidden;padding:13px 17px}
+#copeakHomeHub .cp-extra h3{font-size:14px}
+#copeakHomeHub .cp-extra .cp-extra-link{display:none}
+.cp-recent-list{margin-top:8px;display:grid;gap:4px}
+.cp-recent-row{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:1px solid #eff3f9;padding:5px 1px;color:#244262;background:none;cursor:pointer;text-align:left;font-size:clamp(10px,1.1vw,13px);font-weight:750}
+.cp-recent-row:hover{color:#137ecf}
+.cp-recent-row .cp-recent-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.cp-recent-row small{font-size:10px;color:#7187a0;white-space:nowrap}
+.cp-record-content{display:flex;align-items:center;gap:15px;margin-top:5px}
+.cp-progress-ring{width:clamp(65px,8.5vw,96px);height:clamp(65px,8.5vw,96px);background:conic-gradient(#248df0 var(--cp-progress,0%),#e6edf6 0);border-radius:50%;display:grid;place-items:center;flex:none}
+.cp-progress-core{width:78%;height:78%;display:grid;place-items:center;border-radius:50%;background:#fff;color:#23517c;text-align:center;font-weight:900;font-size:clamp(13px,1.6vw,20px);line-height:1}
+.cp-record-text{color:#183d6d;font-size:clamp(13px,1.35vw,17px);font-weight:900}
+.cp-record-text small{display:block;color:#678199;font-size:11px;font-weight:650;margin-top:4px}
+.cp-world-home{display:flex;align-items:center;gap:8px;background:#17263c;color:white;border-radius:99px;border:1px solid #ddb146;padding:8px 12px;font-size:12px;font-weight:900;cursor:pointer;box-shadow:0 5px 14px #17263c24}
+.cp-world-home .cp-sp-count{background:#edb72d;border-radius:99px;padding:5px 8px;color:#282b34;font-size:10px;white-space:nowrap}
+.cp-home-menu{z-index:100}
+.cp-home-menu[hidden]{display:none!important}
+@media(max-width:700px){
+ #copeakHomeHub{grid-template-rows:auto minmax(0,1fr) clamp(110px,19dvh,148px) auto;gap:8px}
+ #copeakHomeHub .cp-home-header{height:clamp(69px,10dvh,84px)}
+ #copeakHomeHub .cp-brand-logo{width:40px;height:40px}
+ #copeakHomeHub .cp-brand-word{font-size:clamp(27px,6.8vw,34px)}
+ #copeakHomeHub .cp-brand-sub{font-size:8px}
+ #copeakHomeHub .cp-header-actions{gap:5px}
+ .cp-world-home{border-radius:14px;padding:6px 7px;font-size:10px;gap:3px}
+ .cp-world-home .cp-world-text{display:none}
+ .cp-world-home .cp-sp-count{font-size:9px;padding:4px}
+ #copeakHomeHub .cp-home-extras{display:grid;grid-template-columns:1.4fr 1fr;gap:7px}
+ #copeakHomeHub .cp-extra{padding:9px 10px;border-radius:16px}
+ #copeakHomeHub .cp-extra h3{font-size:11px}
+ #copeakHomeHub .cp-extra p{font-size:9px}
+ .cp-recent-row{font-size:10px;padding:4px 0}
+ .cp-recent-row small{font-size:9px}
+ .cp-record-content{gap:6px;margin-top:7px}
+ .cp-progress-ring{width:clamp(49px,13vw,63px);height:clamp(49px,13vw,63px)}
+ .cp-progress-core{font-size:11px}
+ .cp-record-text{font-size:10px}
+ .cp-record-text small{font-size:9px}
+ .cp-page-head{min-height:64px;padding:7px 4px;gap:4px}
+ .cp-page-head h2{font-size:20px}
+ .cp-page-eyebrow{font-size:9px}
+ .cp-page-brand{font-size:0}
+ .cp-page-brand img{width:32px;height:32px}
+ .cp-page-scroll{padding:2px 1px 13px}
+ .cp-panel{padding:13px;border-radius:17px}
+ #cpReadFolders #savedLessonsList{grid-template-columns:1fr;gap:8px}
+ #cpCreateForm #customMaterialForm{flex-direction:column;gap:12px}
+ #cpPageBottom{gap:0;justify-content:space-around}
+ #cpPageBottom button{font-size:11px;padding:8px 11px}
+}
+@media(max-height:620px){
+ #copeakHomeHub .cp-home-extras{display:grid}
+ #copeakHomeHub{grid-template-rows:68px minmax(0,1fr) 80px 48px;gap:5px}
+ #copeakHomeHub .cp-extra{padding:7px 10px}
+ .cp-recent-list{margin-top:3px;gap:0}
+ .cp-recent-row:nth-child(n+3){display:none}
+ .cp-progress-ring{width:48px;height:48px}
+ #copeakHomeHub .cp-action-icon{width:36px;height:36px;font-size:26px}
+}
