@@ -1,0 +1,71 @@
+/* Copeak clean information menu. Only scoped to the new page. */
+#cpInfoPage.cp-info-page{font-family:"Noto Sans JP",system-ui,sans-serif;color:#153857}
+#cpInfoPage[hidden]{display:none!important}
+#cpInfoPage .cp-info-head{border-color:#deebf7}
+#cpInfoPage .cp-page-scroll{padding:6px clamp(2px,.8vw,11px) 22px;overflow-y:auto;overscroll-behavior:contain}
+#cpInfoPage .cp-info-layout{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:clamp(12px,2vw,20px);align-items:start}
+#cpInfoPage .cp-info-column{display:flex;flex-direction:column;gap:clamp(12px,1.7vw,18px);min-width:0}
+#cpInfoPage .cp-info-panel{background:#fff;border:1px solid #dfebf6;border-radius:23px;padding:clamp(15px,2.1vw,24px);box-shadow:0 8px 29px rgba(42,90,142,.07);min-width:0}
+#cpInfoPage .cp-info-section-heading{margin-bottom:17px}
+#cpInfoPage .cp-info-kicker{font-size:10px;font-weight:900;letter-spacing:.14em;color:#299c8b}
+#cpInfoPage .cp-info-section-heading h3{margin:4px 0 0;font-size:clamp(17px,1.8vw,21px);letter-spacing:-.035em;font-weight:900;color:#173d67}
+#cpInfoPage .cp-info-app-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+#cpInfoPage a{text-decoration:none}
+#cpInfoPage .cp-info-app{min-height:120px;display:flex;align-items:center;gap:10px;padding:18px 13px;border-radius:19px;border:1px solid #deedfb;position:relative;transition:transform .16s ease,box-shadow .16s ease;color:#153b67}
+#cpInfoPage .cp-info-app:hover{transform:translateY(-2px);box-shadow:0 9px 20px rgba(40,89,138,.11)}
+#cpInfoPage .cp-info-app-pic{background:linear-gradient(125deg,#eaf2ff,#f5f8ff)}
+#cpInfoPage .cp-info-app-voca{background:linear-gradient(125deg,#e7f9f5,#f6fffb)}
+#cpInfoPage .cp-info-app-mark{flex:none;width:50px;height:50px;border-radius:16px;background:rgba(255,255,255,.78);display:grid;place-items:center;font-size:28px;box-shadow:0 3px 10px #2e65ab0b}
+#cpInfoPage .cp-info-app strong{display:block;font-size:clamp(14px,1.5vw,19px);font-weight:900;white-space:normal}
+#cpInfoPage .cp-info-app small{display:block;font-size:11px;margin-top:5px;color:#617b95;font-weight:700}
+#cpInfoPage .cp-info-chevron{font-size:22px;font-weight:700;color:#8aa1bd;margin-left:auto;flex:none}
+#cpInfoPage .cp-info-app .cp-info-chevron{position:absolute;right:12px;top:8px;font-size:15px}
+#cpInfoPage .cp-info-links{display:flex;flex-direction:column;gap:1px}
+#cpInfoPage .cp-info-link{width:100%;min-height:63px;display:flex;align-items:center;gap:14px;text-align:left;padding:10px 5px;border:0;border-bottom:1px solid #edf2f8;background:transparent;color:#284a70;font-family:inherit;cursor:pointer;transition:background .16s ease}
+#cpInfoPage .cp-info-link:last-child{border-bottom:0}
+#cpInfoPage .cp-info-link:hover{background:#f4f9fd;border-radius:12px}
+#cpInfoPage .cp-info-link:focus-visible,#cpInfoPage .cp-info-app:focus-visible,#cpInfoPage .cp-info-partner-link:focus-visible,#cpInfoPage button:focus-visible,#cpInfoPage summary:focus-visible{outline:3px solid #2997df;outline-offset:2px}
+#cpInfoPage .cp-info-line-icon{flex:none;width:41px;height:41px;border-radius:13px;display:grid;place-items:center;font-size:22px}
+#cpInfoPage .cp-info-ic-blue{background:#eaf3ff}
+#cpInfoPage .cp-info-ic-rose{background:#fff0f2}
+#cpInfoPage .cp-info-ic-gold{background:#fff6e2}
+#cpInfoPage .cp-info-ic-lavender{background:#f2edff}
+#cpInfoPage .cp-info-link-content{min-width:0;flex:1}
+#cpInfoPage .cp-info-link strong{font-size:clamp(12px,1.16vw,15px);font-weight:850;line-height:1.5;display:block}
+#cpInfoPage .cp-info-link small{display:block;font-size:11px;line-height:1.5;color:#7a8ca2;margin-top:2px}
+#cpInfoPage .cp-info-partner-link{display:flex;align-items:center;gap:18px;padding:15px;border:1px solid #e5ecf5;border-radius:15px;background:#f9fcff;color:#7489a2}
+#cpInfoPage .cp-info-partner-link:hover{border-color:#b5d5ee;background:#f3faff}
+#cpInfoPage .cp-info-partner-link>span:first-child{font-size:10px;font-weight:850;letter-spacing:.12em;white-space:nowrap}
+#cpInfoPage .cp-info-partner-link img{object-fit:contain;width:clamp(105px,14vw,165px);height:48px;max-width:50%}
+#cpInfoPage .cp-info-advanced{padding:0;overflow:hidden}
+#cpInfoPage .cp-info-advanced summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:18px 21px;font-size:13px;font-weight:850;color:#48637e}
+#cpInfoPage .cp-info-advanced summary::-webkit-details-marker{display:none}
+#cpInfoPage .cp-info-advanced[open] summary{border-bottom:1px solid #edf2f8}
+#cpInfoPage .cp-info-advanced .cp-info-links{padding:7px 18px}
+#cpInfoPage .cp-info-advanced .cp-info-link{gap:12px;min-height:47px;font-size:13px}
+#cpInfoPage .cp-info-advanced .cp-info-link strong{flex:1}
+#cpInfoPage .cp-info-copyright{color:#8b9bad;font-size:11px;font-weight:600;text-align:center;padding:6px 0 17px}
+#cpInfoPage .cp-info-copyright span{display:inline-block}
+#cpInfoPage .cp-info-bottom{min-height:56px;background:#fff;justify-content:space-evenly}
+#cpInfoPage .cp-info-bottom button{flex:1;max-width:150px;flex-direction:column;gap:2px;font-size:10px;line-height:1.3}
+#cpInfoPage .cp-info-nav-icon{font-size:19px}
+@media(max-width:750px){
+ #cpInfoPage .cp-info-layout{grid-template-columns:1fr;gap:10px}
+ #cpInfoPage .cp-info-column{gap:10px}
+ #cpInfoPage .cp-info-panel{border-radius:18px;padding:14px}
+ #cpInfoPage .cp-info-section-heading{margin-bottom:11px}
+ #cpInfoPage .cp-info-app{min-height:105px;padding:12px 10px;gap:8px;border-radius:15px}
+ #cpInfoPage .cp-info-app-mark{width:39px;height:39px;font-size:24px;border-radius:11px}
+ #cpInfoPage .cp-info-app strong{font-size:14px}
+ #cpInfoPage .cp-info-app small{font-size:10px}
+ #cpInfoPage .cp-info-link{min-height:57px}
+ #cpInfoPage .cp-info-partner-link{padding:10px}
+ #cpInfoPage .cp-info-partner-link img{height:36px}
+ #cpInfoPage .cp-info-copyright{padding:4px 0 10px}
+}
+@media(max-width:370px){
+ #cpInfoPage .cp-info-app-grid{gap:7px}
+ #cpInfoPage .cp-info-app{flex-direction:column;align-items:flex-start;min-height:122px}
+ #cpInfoPage .cp-info-app .cp-info-chevron{right:8px;top:8px}
+ #cpInfoPage .cp-info-link small{font-size:10px}
+}
