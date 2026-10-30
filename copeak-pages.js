@@ -13,7 +13,7 @@ function initCopeakDedicatedPages() {
       <button type="button" data-page-go="home" ${active==='home'?'aria-current="page"':''}>⌂ ホーム</button>
       <button type="button" data-page-go="read" ${active==='read'?'aria-current="page"':''}>📖 教材をよむ</button>
       <button type="button" data-page-go="create" ${active==='create'?'aria-current="page"':''}>✎ 教材を作る</button>
-      <button type="button" data-page-go="sound">🎙 Sound Quest</button></nav>`;
+      <button type="button" data-page-go="menu">☷ メニュー</button></nav>`;
     home.appendChild(el);return el;
   };
   const reader=page('cpReaderPage','READ • PRACTICE','音読教材をよむ','教材を選んで音読・シャドーイングを始めよう',
@@ -93,6 +93,7 @@ function initCopeakDedicatedPages() {
   function action(which){
     if(which==='home'||which==='read'||which==='create')go(which);
     else if(which==='sound')window.location.assign('sound-quest.html');
+    else if(which==='menu')window.CopeakInfoMenu?.open();
     else if(which==='target'||which==='ncc'||which==='warning')guide(which);
     else if(which==='teacher')teacher();
   }
