@@ -127,7 +127,13 @@
         case 'targets':showOriginal('acc-target-content','target');break;
         case 'quest':showOriginal('questLibraryList');break;
         case 'challenge':window.location.assign('challenge.html');break;
-        case 'teacher':showOriginal('teacherModeArea');break;
+        case 'teacher':
+          showOriginal('teacherModeArea');
+          if (typeof window.toggleTeacherMode==='function') {
+            const area=document.getElementById('teacherModeArea');
+            if(area && (area.style.display==='none' || area.style.display===''))window.toggleTeacherMode();
+          }
+          break;
         case 'legacy':showOriginal();break;
         case 'sos':menuOpen(false);document.getElementById('btn-open-trouble')?.click();break;
         case 'world':menuOpen(false);document.getElementById('btnWorldCollection')?.click();break;
@@ -159,8 +165,10 @@
     let leftHome=false;
     new MutationObserver(() => {
       const nowHome=home.classList.contains('active') && home.style.display!=='none';
-      if(!nowHome) leftHome=true;
-      else if(leftHome){leftHome=false;showHome();}
+      if(!nowHome) {
+        leftHome=true;
+        document.body.classList.remove('copeak-home-mode');
+      } else if(leftHome){leftHome=false;showHome();}
     }).observe(home,{attributes:true,attributeFilter:['class','style']});
     if(home.classList.contains('active') && home.style.display!=='none')showHome();
     else{hub.hidden=true;existing.hidden=false;back.hidden=true;}
