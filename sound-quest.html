@@ -25,6 +25,36 @@
         ::-webkit-scrollbar-thumb { background: #d6d3d1; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #a8a29e; }
         .hide-scroll::-webkit-scrollbar { display: none; }
+
+        /* Sound Quest → Copeak home: visual-only update, same destination. */
+        .sq-home-btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            gap: 8px; min-height: 40px; padding: 6px 16px 6px 7px;
+            border: 1px solid #d7e7f4; border-radius: 999px;
+            background: #fff; color: #173d67;
+            font: 700 13px/1.3 'Noto Sans JP', sans-serif;
+            white-space: nowrap; cursor: pointer;
+            box-shadow: 0 4px 12px rgba(32,72,117,.08);
+            transition: background-color .18s ease, border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+        }
+        .sq-home-btn:hover {
+            background: #f4f9ff; border-color: #bdd6ee;
+            box-shadow: 0 6px 16px rgba(32,72,117,.12);
+            transform: translateY(-1px);
+        }
+        .sq-home-btn:active { transform: translateY(0); }
+        .sq-home-btn:focus-visible { outline: 3px solid #298cdf; outline-offset: 3px; }
+        .sq-home-btn-icon {
+            display: grid; place-items: center; flex: none;
+            width: 27px; height: 27px; border-radius: 50%;
+            background: #eaf4ff; color: #1f7ed0;
+        }
+        @media (max-width: 639px) {
+            .sq-home-btn { min-height: 36px; gap: 5px; padding: 5px 10px 5px 5px; font-size: 11px; }
+            .sq-home-btn-icon { width: 25px; height: 25px; }
+            .sq-home-btn-icon svg { width: 15px; height: 15px; }
+        }
+
     </style>
 </head>
 <body class="min-h-screen text-stone-800 flex flex-col selection:bg-emerald-200 relative z-0">
@@ -46,8 +76,13 @@
                 <button id="btnHome" onclick="returnToSoundQuestHome()" class="hidden px-3 py-1.5 md:px-4 md:py-2 bg-white hover:bg-emerald-50 hover:border-emerald-200 text-stone-600 hover:text-emerald-700 text-[10px] md:text-xs font-bold rounded-full shadow-sm border border-stone-200 transition flex items-center gap-1.5">
                     <span>🎧</span> <span class="hidden sm:inline">コース選択へ</span>
                 </button>
-                <button onclick="window.location.href='index.html'" class="px-3 py-1.5 md:px-4 md:py-2 bg-stone-800 hover:bg-stone-700 text-white text-[10px] md:text-xs font-bold rounded-full shadow-sm transition flex items-center gap-1.5">
-                    <span>🏠</span> <span class="hidden sm:inline">Copeak本体へ</span>
+                <button type="button" onclick="window.location.href='index.html'" class="sq-home-btn" aria-label="Copeakホームへ">
+                    <span class="sq-home-btn-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m3 10 9-7 9 7"></path><path d="M5 9v11h14V9"></path><path d="M9 20v-7h6v7"></path>
+                        </svg>
+                    </span>
+                    <span>ホームへ</span>
                 </button>
             </div>
         </div>
