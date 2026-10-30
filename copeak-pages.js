@@ -1,4 +1,4 @@
-function init() {
+function initCopeakDedicatedPages() {
   'use strict';
   const home=document.getElementById('homeScreen'),hub=document.getElementById('copeakHomeHub');
   if(!home||!hub||document.getElementById('cpReaderPage'))return;
@@ -194,4 +194,4 @@ function init() {
   }).observe(home,{attributes:true,attributeFilter:['class','style']});
 }
 document.addEventListener('click',function(event){if(event.target.closest('#enterCopeakBtn,.copeak-opening-enter-hit')){try{localStorage.setItem('copeak_opening_seen_v1','1')}catch(_){}}},true);
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout((init),0));else setTimeout((init),0);
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(initCopeakDedicatedPages,0));else setTimeout(initCopeakDedicatedPages,0);
