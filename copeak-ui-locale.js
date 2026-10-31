@@ -79,7 +79,55 @@ function translatePage(page,root,lang){
   }
 }
 const storedOriginal=new WeakMap();
+const libraryUI={
+  choose:['フォルダを選んで教材を開きます','Choose a folder to open lessons','選擇資料夾以開啟教材','Chọn thư mục để mở bài học','Pilih folder untuk membuka materi','Pumili ng folder para buksan ang aralin','पाठ खोलने के लिए फ़ोल्डर चुनें'],
+  lessons:['教材','lessons','教材','bài học','materi','aralin','पाठ'],
+  unfiled:['未整理','Unfiled','未整理','Chưa phân loại','Belum dikelompokkan','Hindi pa nakaayos','बिना फ़ोल्डर'],
+  sample:['サンプル教材','Sample Lessons','範例教材','Bài học mẫu','Materi Contoh','Mga Halimbawang Aralin','नमूना पाठ'],
+  original:['Copeak Original教材','Copeak Original Lessons','Copeak 原創教材','Bài học gốc Copeak','Materi Asli Copeak','Orihinal na Aralin ng Copeak','Copeak मूल पाठ'],
+  empty:['このフォルダは空です','This folder is empty','此資料夾為空','Thư mục này trống','Folder ini kosong','Walang laman ang folder','यह फ़ोल्डर खाली है'],
+  rename:['フォルダ名を変更','Rename folder','重新命名資料夾','Đổi tên thư mục','Ubah nama folder','Palitan ang pangalan','फ़ोल्डर का नाम बदलें'],
+  remove:['フォルダを削除','Delete folder','刪除資料夾','Xóa thư mục','Hapus folder','Tanggalin ang folder','फ़ोल्डर हटाएँ']
+};
+const libOrig=new WeakMap();
+function localizeLibrary(lang){
+  const root=document.getElementById('cpReadFolders');if(!root)return;
+  const idx=languages.indexOf(lang);
+  const translateString=raw=>{
+    const trim=raw.trim();
+    const exact=Object.keys(libraryUI).find(k=>libraryUI[k].includes(trim));
+    if(exact)return libraryUI[exact][idx];
+    const count=trim.match(/^(\\d+)\\s*(教材|lessons|bài học|materi|aralin|पाठ)$/);
+    if(count)return count[1]+' '+libraryUI.lessons[idx];
+    const times=trim.match(/^★\\s*(\\d+)(回|times|次|lần|kali|beses|बार)$/);
+    if(times)return '★ '+times[1]+' '+t('times',lang);
+    return null;
+  };
+  for(const el of [document.getElementById('libraryViewHint'),document.getElementById('libraryViewTitle'),...root.querySelectorAll('h3,p,.lesson-play-count')]){
+    if(!el || el.classList.contains('home-lesson-title'))continue;
+    const current=el.textContent;
+    const original=libOrig.get(el)||current;
+    if(!libOrig.has(el))libOrig.set(el,original);
+    const value=translateString(original);
+    if(value!==null && value!==current)textIfChanged(el,value);
+  }
+  for(const el of root.querySelectorAll('[title]')){
+    const original=el.dataset.cpOrigTitle||el.getAttribute('title');
+    if(!el.dataset.cpOrigTitle)el.dataset.cpOrigTitle=original;
+    const v=translateString(original);
+    if(v!==null&&el.getAttribute('title')!==v)el.setAttribute('title',v);
+  }
+}
 function dynamicLocalize(lang){
+  const lessonContainer=document.getElementById('savedLessonsList');
+  if(lessonContainer){
+    let scheduled=false;
+    new MutationObserver(()=>{
+      if(scheduled)return;
+      scheduled=true;
+      queueMicrotask(()=>{scheduled=false;localizeLibrary(getLanguage());});
+    }).observe(lessonContainer,{childList:true,subtree:true});
+  }
   const list=document.getElementById('cpRecentList');
   if(list){
     const states=[...strings.noLesson,...strings.loadLesson,...strings.checkLesson,...strings.loadError];
@@ -139,6 +187,7 @@ function refresh(){
     selectorText(extras[1],'.cp-record-stat-total .cp-record-stat-label',t('total',lang));
   }
   dynamicLocalize(lang);
+  localizeLibrary(lang);
 }
 function init(){
   // The legacy i18n dictionary owns the old Copeak learning components.
