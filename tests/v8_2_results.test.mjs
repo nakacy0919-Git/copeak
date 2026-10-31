@@ -21,7 +21,7 @@ for(const name of ['Summary','Review']){
 for(const name of ['vcReviewChunk','vcReviewSentence','vcReviewMeaning','vcReviewSentenceJa','vcReviewPrev','vcReviewNext','vcReviewSentenceButton','vcReviewRecord','vcReadTranscript','vcReadPercent','vcGaugeProgress']){
  assert(html.includes('id="'+name+'"'),name);
 }
-assert(html.includes('vocabulary-check.js?v=8.3.0'));
+assert(html.includes('vocabulary-check.js?v=8.4.0'));
 assert(css.includes('body.vc-is-result #vcResult')&&css.includes('overflow:hidden'),'result shell should not scroll');
 assert(css.includes('.vc-result-tabs')&&css.includes('.vc-review-card'));
 
@@ -34,11 +34,11 @@ assert(js.includes("nextTarget(session.answers,session.estimate)"),'adaptive eng
 assert(js.includes('new Constructor()') && js.includes('rec.onresult=event=>'),'SpeechRecognition');
 assert(js.includes('vcSchoolLevel'),'visible school/Eiken level');
 assert(!html.includes('vcPilotExport')&&!html.includes('vcTabDetails'),'dev UI removed');
-assert(html.includes('vocabulary-reading.js?v=8.3.0'),'matching module');
+assert(html.includes('vocabulary-reading.js?v=8.4.0'),'matching module');
 const translation=JSON.parse(read('data/v8-2-example-ja.json'));
 const questions=JSON.parse(read('data/v8-diagnostic-800.json')).questions;
 const questionMap=new Map(questions.map(q=>[q.id,q]));
-assert.equal(translation.items.length,40);
+assert.equal(translation.items.length,41);
 for(const item of translation.items){
   assert.equal(questionMap.get(item.id)?.example_en,item.source_example_en,'English sentence changed');
   assert(item.example_ja.trim().length>=8);

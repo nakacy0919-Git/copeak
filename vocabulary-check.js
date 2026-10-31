@@ -132,7 +132,7 @@
     tabSummary:'診断結果',tabReview:'復習・音読',
     review:'復習・例文音読',reviewRecord:'音読スタート',reviewStop:'音読を終了',
     reviewMeaning:'チャンクの意味',reviewReady:'',reviewListening:'',
-    readingAccuracy:'音読一致率',recognizedWords:'認識された英語',
+    readingAccuracy:'Accuracy',transcriptPlaceholder:'音読すると認識された英語がここに表示されます',translationPending:'全文訳は確認中です。重要表現の意味：',recognizedWords:'認識された英語',
     readNoSpeech:'声を認識できませんでした。もう一度試してください。',
     readUnsupported:'この端末のブラウザでは音声認識を利用できません。',
     readMicDenied:'マイクが利用できません。Safariなどの設定を確認してください。',
@@ -144,7 +144,7 @@
     tabSummary:'Your result',tabReview:'Review & read',
     review:'Read aloud',reviewRecord:'Start reading',reviewStop:'Stop reading',
     reviewMeaning:'Expression meaning',reviewReady:'',reviewListening:'',
-    readingAccuracy:'Word match',recognizedWords:'Recognized words',
+    readingAccuracy:'Accuracy',transcriptPlaceholder:'Recognized words appear here when you read aloud.',translationPending:'Full Japanese translation pending. Expression meaning: ',recognizedWords:'Recognized words',
     readNoSpeech:'No speech recognized. Please try again.',
     readUnsupported:'Speech recognition is unavailable in this browser.',
     readMicDenied:'Microphone unavailable. Please check browser permissions.',
@@ -564,6 +564,47 @@
     const mark=document.createElement('mark');mark.textContent=sentence.slice(at,at+focus.length);
     target.appendChild(mark,document.createTextNode(sentence.slice(at+focus.length)));
   }
+  function resetReadingFeedback(){
+    $('vcReadingFeedback').hidden=false;
+    $('vcGaugeProgress').style.strokeDasharray='0 100';
+    setText($('vcReadPercent'),'0');
+    const box=$('vcReadTranscript');box.replaceChildren();
+    const placeholder=document.createElement('span');
+    placeholder.className='vc-transcript-placeholder';
+    placeholder.textContent=text('transcriptPlaceholder');
+    box.appendChild(placeholder);
+  }
+  function renderReviewJapanese(item){
+    const target=$('vcReviewSentenceJa');
+    target.replaceChildren();
+    const japanese=String(item.example_ja||'').trim();
+    if(!japanese){
+      target.classList.add('is-pending');
+      const prefix=document.createElement('span');
+      prefix.textContent=text('translationPending');
+      const meaning=document.createElement('u');
+      meaning.textContent=lang==='ja'?item.meaning_ja:item.meaning_en;
+      target.append(prefix,meaning);
+      return;
+    }
+    target.classList.remove('is-pending');
+    const focus=String(item.focus_ja||item.meaning_ja||'').replace(/[〜～]/g,'').trim();
+    const at=focus.length>=2?japanese.indexOf(focus):-1;
+    if(at>=0){
+      const underline=document.createElement('u');
+      underline.className='vc-chunk-ja-underline';
+      underline.textContent=japanese.slice(at,at+focus.length);
+      target.append(document.createTextNode(japanese.slice(0,at)),underline,document.createTextNode(japanese.slice(at+focus.length)));
+    }else{
+      target.textContent=japanese;
+      const note=document.createElement('span');
+      note.className='vc-chunk-ja-note';
+      const u=document.createElement('u');
+      u.textContent=item.meaning_ja;
+      note.append(document.createTextNode(' （重要表現：'),u,document.createTextNode('）'));
+      target.append(note);
+    }
+  }
   function renderReviewCard(){
     const available=reviewItems.length>0,item=available?reviewItems[reviewIndex]:null;
     setText($('vcReviewCount'),available?String(reviewIndex+1)+' / '+reviewItems.length:'0 / 0');
@@ -571,24 +612,19 @@
     $('vcReviewNext').disabled=!available||reviewIndex>=reviewItems.length-1;
     $('vcReviewSentenceButton').disabled=!available;
     $('vcReviewRecord').disabled=!available;
-    $('vcReadingFeedback').hidden=true;
-    $('vcReadTranscript').replaceChildren();
-    $('vcGaugeProgress').style.strokeDasharray='0 100';
-    setText($('vcReadPercent'),'0%');
+    resetReadingFeedback();
     setText($('vcReviewStatus'),'');
     if(!item){
       setText($('vcReviewChunk'),lang==='ja'?'復習する表現はありません！':'No expressions to review!');
       $('vcReviewSentence').replaceChildren();
       setText($('vcReviewMeaning'),'');
-      $('vcReviewSentenceJa').hidden=true;
+      $('vcReviewSentenceJa').replaceChildren();
       return;
     }
     setText($('vcReviewChunk'),item.highlight_en||item.chunk);
     highlightReview($('vcReviewSentence'),item);
     setText($('vcReviewMeaning'),lang==='ja'?item.meaning_ja:item.meaning_en);
-    const translation=String(item.example_ja||'').trim();
-    $('vcReviewSentenceJa').hidden=!translation;
-    if(translation)setText($('vcReviewSentenceJa'),translation);
+    renderReviewJapanese(item);
   }
   function updateReviewItems(summary){
     if(reviewSummary!==summary){stopReviewMedia();reviewSummary=summary;reviewIndex=0}
@@ -643,9 +679,8 @@
     const scoring=root.CopeakVocabularyReading;
     if(!scoring||!transcript.trim())return;
     const report=scoring.score(sentence,transcript);
-    $('vcReadingFeedback').hidden=false;
     $('vcGaugeProgress').style.strokeDasharray=String(report.percent)+' 100';
-    setText($('vcReadPercent'),String(report.percent)+'%');
+    setText($('vcReadPercent'),String(report.percent));
     const container=$('vcReadTranscript');container.replaceChildren();
     for(const word of report.wordMatches){
       const span=document.createElement('span');
@@ -667,9 +702,7 @@
     stopReviewMedia();
     const token=reviewToken;
     reviewFinal='';reviewInterim='';
-    $('vcReadingFeedback').hidden=true;
-    $('vcReadTranscript').replaceChildren();
-    $('vcGaugeProgress').style.strokeDasharray='0 100';
+    resetReadingFeedback();
     const rec=new Constructor();reviewRecognition=rec;
     rec.lang='en-US';rec.continuous=false;rec.interimResults=true;rec.maxAlternatives=1;
     rec.onstart=()=>{
@@ -798,7 +831,7 @@
             for(const item of bank){
               const ja=lookup.get(item.id);
               if(ja&&ja.source_example_en===item.example_en&&typeof ja.example_ja==='string')
-                item.example_ja=ja.example_ja;
+                {item.example_ja=ja.example_ja;item.focus_ja=String(ja.focus_ja||'');}
             }
           }
         }

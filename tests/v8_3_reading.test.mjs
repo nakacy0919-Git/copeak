@@ -28,9 +28,9 @@ const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
 assert.equal(ids.length,new Set(ids).size);
 const requested=[...page.matchAll(/\$\('([^']+)'\)/g)].map(m=>m[1]);
 assert(requested.filter(id=>!ids.includes(id)).every(id=>id==='vcLast'),'missing DOM element');
-assert(html.includes('vocabulary-reading.js?v=8.3.0'));
-assert(html.includes('vocabulary-check.js?v=8.3.0'));
-assert(html.includes('vocabulary-check.css?v=8.3.0'));
+assert(html.includes('vocabulary-reading.js?v=8.4.0'));
+assert(html.includes('vocabulary-check.js?v=8.4.0'));
+assert(html.includes('vocabulary-check.css?v=8.4.0'));
 for(const id of ['vcSchoolLevel','vcReviewSentenceButton','vcReviewSentence',
   'vcReviewRecord','vcReadingFeedback','vcReadPercent','vcGaugeProgress','vcReadTranscript']){
   assert(html.includes('id="'+id+'"'),id);
