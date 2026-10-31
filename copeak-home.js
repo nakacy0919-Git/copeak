@@ -25,7 +25,7 @@
         <div class="cp-brand"><img src="logo.png" alt="" class="cp-brand-logo">
           <div><div class="cp-brand-word">Co<span>peak</span></div><div class="cp-brand-sub">Read · Create · Practice</div></div>
         </div>
-        <img src="opening-final-mobile.png" alt="" class="cp-home-illustration" aria-hidden="true">
+        <img src="copeak-home-students-reading.png" alt="" class="cp-home-students-banner" aria-hidden="true" width="420" height="140" decoding="async">
         <div class="cp-header-actions">
           <button class="cp-profile-pill" type="button" data-cp-action="profile" aria-label="Profile"><span class="cp-profile-avatar">👤</span><span id="cpProfileLabel" data-cp-t="profile">プロフィール</span></button>
           <button class="cp-settings" type="button" data-cp-action="menu" aria-controls="cpHomeMenu" aria-expanded="false" aria-label="Menu">⚙</button>
@@ -90,6 +90,7 @@
       document.body.classList.add('copeak-home-mode');
       menuOpen(false);
       localize();
+      document.documentElement.classList.remove('cp-home-booting');
       window.scrollTo(0,0);
     }
     function showOriginal(anchorId,accordion) {
