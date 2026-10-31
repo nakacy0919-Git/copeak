@@ -1,6 +1,6 @@
 /* Copeak Chunk Vocabulary Check: standalone local-only prototype.
    NOT a standardized CEFR/Eiken test; difficulties are provisional.
-   Deliberately does not access CopeakDB, Classroom, Firebase, Supabase or audio.
+   Uses browser-provided text-to-speech and speech recognition; no Classroom/CopeakDB writes.
    v8.1: focused expression overrides and response-by-response adaptive selection. */
 (function (root) {
   'use strict';
@@ -593,7 +593,9 @@
   function updateReviewItems(summary){
     if(reviewSummary!==summary){stopReviewMedia();reviewSummary=summary;reviewIndex=0}
     const used=new Set();
-    reviewItems=(summary.answers||[]).filter(a=>!a.correct).map(a=>{
+    // Put missed chunks first, then allow practice of every sentence from the check.
+    const answers=summary.answers||[];
+    reviewItems=[...answers.filter(a=>!a.correct),...answers.filter(a=>a.correct)].map(a=>{
       if(used.has(a.id))return null;used.add(a.id);
       return bank.find(q=>q.id===a.id)||null;
     }).filter(Boolean);
