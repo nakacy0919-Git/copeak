@@ -2,7 +2,7 @@
    Does not touch study text, language of speech recognition, scoring or IndexedDB. */
 (function(){
 'use strict';
-const languages=['ja','en','zh-TW','vi','id','tl','hi'];
+const languages=['ja','en','zh-TW','vi','id','tl','hi',...(window.CopeakExtraLocales?.newCodes||[])];
 const strings={
   readerTitle:['音読教材をよむ','Read Aloud','朗讀教材','Đọc bài học','Baca Materi','Magbasa ng Aralin','पाठ पढ़ें'],
   readerSub:['教材を選んで音読・シャドーイングを始めよう','Choose a lesson and start reading or shadowing','選擇教材，開始朗讀或跟讀','Chọn bài học để đọc và luyện shadowing','Pilih materi untuk membaca dan shadowing','Pumili ng aralin para magbasa at mag-shadowing','पाठ चुनें और पढ़ना या शैडोइंग शुरू करें'],
@@ -47,7 +47,7 @@ function getLanguage(){
   return languages.includes(code)?code:'ja';
 }
 function t(key,lang){
-  const tuple=strings[key];return tuple?tuple[Math.max(0,languages.indexOf(lang||getLanguage()))]:key;
+  const tuple=strings[key];if(!tuple)return key;const chosen=lang||getLanguage();const idx=languages.indexOf(chosen);if(idx>=0&&idx<7)return tuple[idx];return window.CopeakExtraLocales?.sectionText('ui',chosen,key)||tuple[1];
 }
 const textIfChanged=(node,value)=>{
   if(node && typeof value==='string' && node.textContent!==value)node.textContent=value;
@@ -92,7 +92,7 @@ const libraryUI={
 };
 function localizeLibrary(lang){
   const root=document.getElementById('cpReadFolders');if(!root)return;
-  const idx=languages.indexOf(lang);
+  const idx=languages.indexOf(lang)<7?languages.indexOf(lang):1;
   const translateString=raw=>{
     const trim=raw.trim();
     const exact=Object.keys(libraryUI).find(k=>libraryUI[k].includes(trim));
@@ -141,7 +141,7 @@ function dynamicLocalize(lang){
       const n=original.match(/^(\d+)(?:回音読| times|次朗讀| lần đọc| kali baca| beses na pagbasa| बार पढ़ा)$/);
       if(n){
         const units={ja:'回音読',en:' times', 'zh-TW':'次朗讀',vi:' lần đọc',id:' kali baca',tl:' beses na pagbasa',hi:' बार पढ़ा'};
-        textIfChanged(el,n[1]+units[lang]);
+        textIfChanged(el,n[1]+(units[lang]||units.en));
       }else if(strings.notStarted.some(value=>value===original))textIfChanged(el,t('notStarted',lang));
     });
   }

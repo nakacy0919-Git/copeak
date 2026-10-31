@@ -2,7 +2,7 @@
    Reads Copeak's selected display locale; no network calls. */
 (function(){
   'use strict';
-  const languageCodes=['ja','en','zh-TW','vi','id','tl','hi'];
+  const languageCodes=['ja','en','zh-TW','vi','id','tl','hi',...(window.CopeakExtraLocales?.newCodes||[])];
   const items={
     'ホームへ':['ホームへ','Home','首頁','Trang chủ','Beranda','Home','होम'],
     'コース選択へ':['コース選択へ','Course Selection','選擇課程','Chọn bài','Pilih Kursus','Pumili ng Kurso','पाठ चुनें'],
@@ -42,6 +42,7 @@
     'Nice try! 繰り返し練習してさらに精度を上げましょう！💪':['Nice try! 繰り返し練習してさらに精度を上げましょう！💪','Nice try! Keep practicing to improve! 💪','繼續加油！透過練習提升準確度！💪','Tốt lắm! Tiếp tục luyện tập để tiến bộ! 💪','Bagus! Terus berlatih agar makin tepat! 💪','Magaling! Sanayin pa upang gumaling! 💪','अच्छा प्रयास! अभ्यास जारी रखें! 💪']
   };
   const originalTexts=new WeakMap();
+  const originalAttributes=new WeakMap();
   const reverse=new Map();
   for(const [ja,values] of Object.entries(items))for(const v of values)reverse.set(v,ja);
   const supported=()=>{let lang='ja';try{lang=localStorage.getItem('copeak_lang')||'ja';}catch(_){}return languageCodes.includes(lang)?lang:'ja';};
@@ -56,7 +57,7 @@
       if(!original)return;
       originalTexts.set(node,original);
     }
-    const target=items[original][idx];
+    const selected=languageCodes[idx];const target=(idx<7?items[original][idx]:window.CopeakExtraLocales?.soundText(selected,original,items[original][1]))||items[original][1];
     const white=raw.match(/^(\s*)/)[1],tail=raw.match(/(\s*)$/)[1];
     const next=white+target+tail;
     if(raw!==next)node.nodeValue=next;
@@ -68,8 +69,10 @@
     root.querySelectorAll('[title],[alt],[aria-label]').forEach(el=>{
       for(const attr of ['title','alt','aria-label']){
         const raw=el.getAttribute(attr);
-        const jp=reverse.get(raw);
-        if(jp){const value=items[jp][idx];if(value!==raw)el.setAttribute(attr,value);}
+        const saved=originalAttributes.get(el)||{};
+        const jp=saved[attr]||reverse.get(raw);
+        if(jp){saved[attr]=jp;originalAttributes.set(el,saved);}
+        if(jp){const value=(idx<7?items[jp][idx]:window.CopeakExtraLocales?.soundText(languageCodes[idx],jp,items[jp][1]))||items[jp][1];if(value!==raw)el.setAttribute(attr,value);}
       }
     });
   }

@@ -83,7 +83,7 @@
     const language=document.getElementById('appLangSelector');
     function translate(){
       const locale=language?.value||'ja';
-      const values={...strings.en,...(strings[locale]||{})};
+      const ext=window.CopeakExtraLocales;const extraValues=ext?.sectionText?Object.fromEntries(Object.keys(strings.en).map(k=>[k,ext.sectionText('info',locale,k)]).filter(([,v])=>v)):{};const values={...strings.en,...extraValues,...(strings[locale]||{})};
       panel.querySelectorAll('[data-info-t]').forEach(el=>{
         const v=values[el.dataset.infoT];if(v)el.textContent=v;
       });

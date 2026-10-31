@@ -2,7 +2,7 @@
    Presentation-only: never edit lesson text, user data, speech or scoring. */
 (function(){
   'use strict';
-  const locales=['ja','en','zh-TW','vi','id','tl','hi'];
+  const locales=['ja','en','zh-TW','vi','id','tl','hi',...(window.CopeakExtraLocales?.newCodes||[])];
   // All seven slots are required. Course names, lesson text and scoring remain untouched.
   const text={
     library:['教材','Library','教材','Thư viện','Perpustakaan','Aklatan','पाठ'],
@@ -63,13 +63,14 @@
   for(const [key,values] of Object.entries(text)){
     values.forEach(value=>reverses.set(value,key));
   }
+  for(const c of (window.CopeakExtraLocales?.newCodes||[]))for(const key of Object.keys(text)){const v=window.CopeakExtraLocales.sectionText("learning",c,key);if(v)reverses.set(v,key);}
   const lang=()=>{
     const selection=document.getElementById('appLangSelector')?.value;
     let code=selection;
     if(!locales.includes(code))try{code=localStorage.getItem('copeak_lang')}catch(_){}
     return locales.includes(code)?code:'ja';
   };
-  const value=(key)=>text[key]?.[locales.indexOf(lang())]||'';
+  const value=(key)=>{const selected=lang(),idx=locales.indexOf(selected);return (idx>=0&&idx<7?text[key]?.[idx]:window.CopeakExtraLocales?.sectionText('learning',selected,key))||text[key]?.[1]||'';};
   const put=(el,v)=>{
     if(el && v && el.textContent!==v) el.textContent=v;
   };
