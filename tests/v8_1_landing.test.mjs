@@ -1,0 +1,35 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+const dir=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const html=fs.readFileSync(path.join(dir,'vocabulary-check.html'),'utf8');
+const css=fs.readFileSync(path.join(dir,'vocabulary-check.css'),'utf8');
+const js=fs.readFileSync(path.join(dir,'vocabulary-check.js'),'utf8');
+const intro=html.split('<section class="vc-intro vc-landing" id="vcIntro">')[1]?.split('<section class="vc-quiz"')[0] || '';
+assert(intro,'Learner landing missing');
+const quick=intro.indexOf('id="vcQuick"'),deep=intro.indexOf('id="vcDeep"');
+assert(quick>0 && deep>quick,'25-question CTA must be shown first');
+assert(intro.includes('id="vcQuick" class="vc-start-button" type="button" disabled'));
+assert(intro.includes('id="vcDeep" class="vc-deep-button" type="button" disabled'));
+assert(intro.includes('id="vcLevelScale"'));
+assert.equal((intro.match(/data-level="[1-8]"/g)||[]).length,8);
+assert(intro.includes('id="vcTrendGraph"'));
+assert(intro.includes('id="vcDashboardLevel"'));
+assert(!intro.includes('vcFocusStats')&&!intro.includes('vc-v8-intro'));
+assert(!intro.includes('CHUNK VOCABULARY v8.1'));
+assert(html.includes('<details class="vc-technical-details">'));
+assert(html.includes('id="vcPilotExport"'));
+for(const id of ['vcQuiz','vcResult','vcError','vcUnknown','vcFeedback','vcRestart','vcQuick','vcDeep']){
+  assert(html.includes('id="'+id+'"'),id+' missing');
+}
+assert(js.includes("querySelectorAll('[data-level]')"));
+assert(js.includes("text('levelEmpty')"));
+assert(js.includes("setText($('vcLevelDescription')"));
+assert(js.includes("$('vcQuick').disabled=false")&&js.includes("$('vcDeep').disabled=false"));
+assert(js.includes('nextTarget(session.answers,session.estimate)'));
+assert(js.includes("const KEY = 'copeak_chunk_diagnosis_v1'"));
+assert(js.includes("const DIAGNOSTIC = 'data/v8-diagnostic-800.json'"));
+assert(js.includes("const FOCUS = 'data/v8-1-focus-overrides.json'"));
+assert(css.includes('.vc-start-button')&&css.includes('.vc-level-scale'));
+console.log('PASS v8.1 landing: CTA, 8-level visualization, history, technical detail disclosure, and original assessment engine.');

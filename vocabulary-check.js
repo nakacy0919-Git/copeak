@@ -44,6 +44,29 @@
     v8Insufficient:'Too few answers in this level to classify strengths or weaknesses.',
     v8LowConfidence:'Not a statistically calibrated confidence rating or a certified Eiken/grade result. v8 and v8.1 use different item pools; their levels are not directly comparable.'
   });
+  // Learner-first start screen. Keep technical bank stats off the public-facing landing.
+  Object.assign(LANGUAGES.ja,{
+    title:'あなたの語彙力、まず測ってみよう。',
+    intro:'例文の中の重要な英語表現を理解できるか。回答に合わせて難易度が変わる語彙診断です。',
+    ctaQuick:'25問で診断する',ctaQuickSub:'まずはこちら · Quick 診断',
+    ctaDeep:'もっと詳しく診断する',ctaDeepSub:'70問 · Deep 診断',
+    loadingFriendly:'問題を準備しています…',readyFriendly:'準備完了。下のボタンから始められます。',
+    levelStart:'基礎',levelEnd:'発展',notYet:'未診断',
+    levelEmpty:'診断を受けると、ここに推定レベルが表示されます。',
+    levelDescription:'あなたの学習記録に基づく目安です。'
+  });
+  Object.assign(LANGUAGES.en,{
+    title:'Find your current vocabulary level.',
+    intro:'Understand key English expressions in context. Questions adapt to your answers.',
+    ctaQuick:'Check in 25 questions',ctaQuickSub:'Recommended · Quick Check',
+    ctaDeep:'Get a deeper assessment',ctaDeepSub:'70 questions · Deep Check',
+    loadingFriendly:'Preparing questions…',readyFriendly:'Ready. Choose a check to begin.',
+    levelStart:'Foundation',levelEnd:'Advanced',notYet:'Not checked',
+    levelEmpty:'Complete a check to see your estimated level here.',
+    levelDescription:'A provisional guide based on your local learning history.'
+  });
+  LANGUAGES.ja.technicalDetails='診断の詳しい情報を見る';
+  LANGUAGES.en.technicalDetails='View assessment details';
   // A 4-option multiple-choice model with a fixed 24% guessing floor.
   // MAP estimate with a conservative prior; used ONLY as an uncalibrated prototype.
   const probability=(ability,level)=>0.24+0.72/(1+Math.exp(-1.2*(ability-level)));
@@ -274,13 +297,7 @@
   function translate(){
     document.documentElement.lang=lang; $('vcUILanguage').value=lang;updateSoundButton();
     for(const element of document.querySelectorAll('[data-t]'))setText(element,text(element.dataset.t));
-    const stats=root.CopeakVocabularyFocusStats;
-    if(stats){
-      const copy=$('vcFocusStats');
-      if(copy)copy.textContent=lang==='ja'?
-        `v8.1：短い核表現を持つ${stats.selected}問で診断（書き換え候補${stats.revised}問、長すぎる${stats.held}問は保留）。`:
-        `v8.1: ${stats.selected} focused questions in use (${stats.revised} focus rewrites; ${stats.held} long items held for review).`;
-    }
+    if($('vcLoadState'))setText($('vcLoadState'),bank.length?text('readyFriendly'):text('loadingFriendly'));
     if(currentSession)renderQuestion();else if(lastResult)renderResult(lastResult);
     else displayLast();
   }
@@ -308,7 +325,20 @@
   }
   function displayLast(){
     const history=loadHistory(),last=history[0],prev=history[1];
-    setText($('vcDashboardLevel'),last?'Lv.'+last.level:'—');
+    setText($('vcDashboardLevel'),last?'Lv.'+last.level:text('notYet'));
+    const levelGraph=$('vcLevelScale');
+    if(levelGraph){
+      const level=last?clamp(last.level,1,8):0;
+      levelGraph.querySelectorAll('[data-level]').forEach(cell=>{
+        const number=Number(cell.dataset.level);
+        cell.classList.toggle('is-achieved',Boolean(level)&&number<=level);
+        cell.classList.toggle('is-current',Boolean(level)&&number===level);
+      });
+      levelGraph.setAttribute('aria-label',last?
+        (lang==='ja'?'推定レベル ': 'Estimated level ')+level+' / 8':
+        text('levelEmpty'));
+    }
+    setText($('vcLevelDescription'),last?text('levelDescription'):text('levelEmpty'));
     setText($('vcDashboardPrevious'),prev?'Lv.'+prev.level:'—');
     setText($('vcDashboardCount'),String(history.length)+(history.length===40?'+':''));
     setText($('vcDashboardAccuracy'),last&&last.total?Math.round(last.correct/last.total*100)+'%':'—');
@@ -495,6 +525,9 @@
       const prepared=prepareFocusedBank(all,await focusResponse.json());
       bank=prepared.active;optionBank=prepared.all;
       root.CopeakVocabularyFocusStats=Object.freeze(prepared.stats);
+      $('vcQuick').disabled=false;
+      $('vcDeep').disabled=false;
+      setText($('vcLoadState'),text('readyFriendly'));
       displayLast();
     }catch(err){console.warn('[Copeak vocab] Failed to read test bank',err);showError(text('networkError')+' ('+err.message+')')}
   }

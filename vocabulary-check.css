@@ -216,3 +216,94 @@ body.vc-is-quiz .vc-footer{display:none}
 .vc-v8-pilot{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:15px 0}
 .vc-v8-pilot .vc-secondary{font-size:12px;white-space:normal;line-height:1.45}
 .vc-v8-pilot small{font-size:10px;color:#69819c;max-width:340px;line-height:1.6}
+
+
+/* v8.1 learner-first diagnostic landing — matches Copeak's airy blue/mint dashboard. */
+.vc-landing{padding:clamp(14px,3vh,32px) 0 8px!important}
+.vc-landing-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(12px,2vw,22px);align-items:stretch}
+.vc-start-panel,.vc-level-panel{min-width:0;background:#fff;border:1px solid #dae9f7;border-radius:26px;padding:clamp(19px,2.5vw,32px);box-shadow:0 14px 33px rgba(31,81,136,.09)}
+.vc-start-panel{display:flex;flex-direction:column;background:linear-gradient(150deg,#fff 32%,#f1f8ff)}
+.vc-landing-kicker{display:flex;align-items:center;gap:9px;font-size:10px;font-weight:900;letter-spacing:.115em;color:#267abe}
+.vc-status-dot{width:9px;height:9px;display:inline-block;background:#24a99b;border-radius:50%;box-shadow:0 0 0 4px #dff8f2}
+.vc-landing h1{font-family:"Noto Sans JP",system-ui,sans-serif;font-size:clamp(28px,3.1vw,43px);font-weight:900;letter-spacing:-.055em;color:#193e6c;line-height:1.35;margin:18px 0 12px}
+.vc-landing .vc-lead{font-size:clamp(12px,1.2vw,15px);line-height:1.85;color:#5b7391}
+.vc-start-actions{display:flex;flex-direction:column;gap:12px;margin-top:auto;padding-top:clamp(18px,3vh,34px)}
+.vc-start-button{width:100%;min-height:100px;border:0;border-radius:19px;background:linear-gradient(115deg,#1879d4,#168ce9);color:#fff;box-shadow:0 11px 24px rgba(30,111,205,.24);display:flex;align-items:center;gap:14px;text-align:left;padding:17px 19px;transition:transform .15s,box-shadow .15s}
+.vc-start-button:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 14px 29px rgba(30,111,205,.29)}
+.vc-start-symbol{flex:none;width:47px;height:47px;border-radius:14px;background:rgba(255,255,255,.18);display:grid;place-items:center;font-size:27px}
+.vc-start-copy{display:flex;flex-direction:column;gap:7px;flex:1;min-width:0}
+.vc-start-copy strong{font-size:clamp(19px,2vw,26px);line-height:1.35;font-weight:900}
+.vc-start-copy small{font-size:12px;font-weight:750;color:#e3f2ff}
+.vc-start-arrow{display:grid;place-items:center;width:38px;height:38px;flex:none;border-radius:50%;background:#fff;color:#147bd2;font-size:25px;font-weight:850}
+.vc-deep-button{width:100%;min-height:74px;display:flex;align-items:center;gap:12px;padding:13px 18px;text-align:left;background:#f2f7ff;color:#184674;border:1px solid #d7e8f9;border-radius:16px;transition:background .15s}
+.vc-deep-button:hover:not(:disabled){background:#e6f2ff}
+.vc-deep-mark{width:37px;height:37px;display:grid;place-items:center;border-radius:11px;background:#fff;color:#286fb9;font-size:22px}
+.vc-deep-button>span:nth-child(2){display:flex;flex:1;flex-direction:column;gap:2px}
+.vc-deep-button strong{font-size:14px;font-weight:900}
+.vc-deep-button small{font-size:11px;color:#6686a7}
+.vc-deep-arrow{font-size:22px;font-weight:800;color:#2f85d5}
+.vc-start-button:disabled,.vc-deep-button:disabled{opacity:.58;box-shadow:none;cursor:wait}
+.vc-load-state{font-size:11px;color:#7894ae;margin:10px 0 0;line-height:1.45}
+.vc-level-panel{background:linear-gradient(150deg,#fff 40%,#f5faff)}
+.vc-level-summary{display:flex;gap:8px;align-items:baseline;margin:15px 0 3px;min-height:67px}
+.vc-level-summary>strong{font-size:clamp(31px,4.4vw,54px);letter-spacing:-.055em;color:#1c59a9;font-weight:950;line-height:1.2}
+.vc-level-outof{color:#7e93ae;font-size:15px;font-weight:800}
+.vc-level-summary .vc-delta{font-size:12px!important;margin-left:auto}
+.vc-level-explanation{font-size:11px;color:#66829d;margin:0 0 16px;line-height:1.55;min-height:18px}
+.vc-level-scale{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:5px;width:100%}
+.vc-level-scale>span{display:grid;place-items:center;min-height:49px;border-radius:10px;background:#e9f1fb;color:#97aec9;border:1px solid #dbe8f5;font-size:13px;font-weight:900;position:relative}
+.vc-level-scale>span.is-achieved{background:linear-gradient(180deg,#6ab9f7,#2483db);color:white;border-color:#64a9e9}
+.vc-level-scale>span.is-current{background:linear-gradient(160deg,#1764c9,#144bba);outline:3px solid #aee5f1;outline-offset:2px;box-shadow:0 5px 13px rgba(32,105,210,.23)}
+.vc-level-scale>span.is-current:after{content:"";height:5px;width:5px;border-radius:50%;background:#fff;position:absolute;bottom:5px}
+.vc-scale-ends{display:flex;justify-content:space-between;color:#7f98b0;font-size:10px;font-weight:800;margin-top:8px}
+.vc-level-panel .vc-summary-metrics{margin:16px 0 0;padding:12px 0;border-top:1px solid #e4eef9;border-bottom:1px solid #e4eef9}
+.vc-level-panel .vc-summary-metrics b{font-size:17px}
+.vc-level-panel .vc-trend-title{margin:13px 0 5px}
+.vc-level-panel .vc-trend-graph{height:clamp(80px,12vh,119px)}
+.vc-landing .vc-dashboard-note{margin:13px 0 0;background:transparent;border:0;padding:2px 4px;color:#7589a1;font-size:11px}
+@media(max-width:750px){
+ .vc-landing-grid{grid-template-columns:1fr;gap:10px}
+ .vc-start-panel,.vc-level-panel{padding:18px;border-radius:21px}
+ .vc-landing h1{font-size:clamp(24px,5.8vw,34px);margin:10px 0 6px}
+ .vc-start-actions{padding-top:16px;gap:8px}
+ .vc-start-button{min-height:80px;padding:13px 15px}
+ .vc-start-copy strong{font-size:20px}
+ .vc-start-symbol{width:40px;height:40px;font-size:23px}
+ .vc-deep-button{min-height:60px}
+ .vc-level-summary{min-height:49px;margin:7px 0 2px}
+ .vc-level-summary>strong{font-size:40px}
+ .vc-level-scale>span{min-height:38px;border-radius:8px;font-size:12px}
+ .vc-level-explanation{margin-bottom:9px}
+ .vc-level-panel .vc-summary-metrics{margin-top:8px;padding:8px 0}
+ .vc-level-panel .vc-trend-graph{height:76px}
+ .vc-landing .vc-dashboard-note{font-size:10px}
+}
+@media(max-width:390px){
+ .vc-landing h1{font-size:23px}
+ .vc-start-panel,.vc-level-panel{padding:14px}
+ .vc-landing .vc-lead{font-size:12px}
+ .vc-start-copy strong{font-size:18px}
+ .vc-level-scale{gap:3px}
+ .vc-level-scale>span{min-height:34px}
+}
+@media(max-height:690px){
+ .vc-landing{padding:6px 0!important}
+ .vc-start-panel,.vc-level-panel{padding:14px}
+ .vc-landing h1{font-size:clamp(22px,2.8vw,32px);margin:8px 0 4px}
+ .vc-start-actions{padding-top:11px;gap:7px}
+ .vc-start-button{min-height:69px;padding:9px 13px}
+ .vc-deep-button{min-height:54px}
+ .vc-level-scale>span{min-height:33px}
+ .vc-level-panel .vc-trend-graph{height:66px}
+ .vc-level-panel .vc-summary-metrics{padding:6px 0}
+}
+@media(prefers-reduced-motion:reduce){.vc-start-button,.vc-deep-button{transition:none}}
+
+/* Keep learner guidance visible; fold researcher metadata away from first view. */
+.vc-learning-guidance{margin:16px 0 4px;background:linear-gradient(135deg,#eef8ff,#f0fcf9);border:1px solid #d5eae9;border-radius:17px;padding:15px 19px}
+.vc-learning-guidance h2{margin:0 0 7px;color:#184d77;font-size:15px}
+.vc-learning-guidance p{margin:0;color:#4c6c86;font-size:12px;line-height:1.75}
+.vc-technical-details{margin:18px 0;background:#f9fcff;border:1px solid #e0eaf7;border-radius:15px;padding:10px 15px}
+.vc-technical-details>summary{cursor:pointer;font-size:12px;color:#567995;font-weight:850;padding:7px 2px}
+.vc-technical-details>summary:focus-visible{outline:3px solid #428ee9;outline-offset:2px;border-radius:4px}
+.vc-technical-details .vc-v8-diagnostics{margin:9px 0}
