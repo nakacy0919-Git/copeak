@@ -132,6 +132,12 @@
         case 'world':menuOpen(false);document.getElementById('btnWorldCollection')?.click();break;
         case 'profile':
           menuOpen(false);
+          // Existing registrations must use the teacher-confirmed editing flow.
+          // Only students without a profile should see the first-registration form.
+          if (typeof window.openCopeakProtectedProfile === 'function' &&
+              window.openCopeakProtectedProfile()) {
+            break;
+          }
           document.getElementById('studentProfileModal')?.classList.remove('hidden');
           break;
         case 'menu':menuOpen(menu.hidden);break;
