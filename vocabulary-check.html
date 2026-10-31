@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ecf5ff">
+  <title>Copeak | Chunk Vocabulary Check</title>
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="vocabulary-check.css?v=8">
+  <script defer src="vocabulary-check.js?v=8"></script>
+</head>
+<body>
+  <main class="vc-shell">
+    <header class="vc-header">
+      <a class="vc-brand" href="index.html" aria-label="Copeak home">
+        <img src="logo.png" alt="" width="48" height="48">
+        <span><strong>Copeak</strong><small>VOCABULARY CHECK</small></span>
+      </a>
+      <div class="vc-header-right">
+        <label class="vc-lang-label" for="vcUILanguage">表示言語 / Language
+          <select id="vcUILanguage" aria-label="Display language">
+            <option value="ja">日本語</option><option value="en">English</option>
+          </select>
+        </label>
+        <a class="vc-home" href="index.html" data-t="back">← ホーム</a>
+      </div>
+    </header>
+    <div class="vc-body">
+      <section class="vc-intro" id="vcIntro">
+        <div class="vc-dashboard-header">
+          <div><div class="vc-kicker">COPEAK · CHUNK VOCABULARY</div>
+            <h1 data-t="title">意味のまとまりで測る、英語の力。</h1>
+            <p class="vc-lead" data-t="intro">例文の中のチャンクを理解できるか。正誤に応じて難易度が変わる診断です。</p>
+          </div><div class="vc-hero-symbol" aria-hidden="true"><span>✦</span><b>V</b><span>↗</span></div>
+        </div>
+        <div class="vc-dashboard-grid">
+          <section class="vc-overview" aria-label="Learning history">
+            <div class="vc-panel-head"><span class="vc-panel-label" data-t="currentLevel">現在の推定レベル</span><span class="vc-panel-muted" data-t="provisional">暫定・学習用</span></div>
+            <div class="vc-overview-primary"><strong id="vcDashboardLevel">—</strong><span> / Lv.8</span><span id="vcDashboardDelta" class="vc-delta" hidden></span></div>
+            <div class="vc-summary-metrics"><div><small data-t="previousLevel">ひとつ前</small><b id="vcDashboardPrevious">—</b></div><div><small data-t="attempts">受検回数</small><b id="vcDashboardCount">0</b></div><div><small data-t="recentAccuracy">直近の正答率</small><b id="vcDashboardAccuracy">—</b></div></div>
+            <div class="vc-trend-title"><span data-t="trend">成長の記録</span><small id="vcTrendNote"></small></div>
+            <div id="vcTrendGraph" class="vc-trend-graph" role="img" aria-label="Level progression history"></div>
+          </section>
+          <section class="vc-action-panel" aria-label="Choose diagnostic mode">
+            <span class="vc-panel-label" data-t="chooseMode">診断モードを選ぶ</span>
+            <button class="vc-mode vc-mode-quick" id="vcQuick" type="button"><span class="vc-mode-icon">⚡</span><span><strong data-t="quick">Quick 診断</strong><small data-t="quickDetail">25問・短時間で今の力を確認</small></span><span class="vc-arrow" aria-hidden="true">↗</span></button>
+            <button class="vc-mode" id="vcDeep" type="button"><span class="vc-mode-icon">▥</span><span><strong data-t="deep">Deep 診断</strong><small data-t="deepDetail">70問・より詳しく推定</small></span><span class="vc-arrow" aria-hidden="true">↗</span></button>
+            <div class="vc-mode-message"><span class="vc-mode-message-dot"></span><span data-t="modeNote">例文で理解を確認し、成長を記録します。</span></div>
+          </section>
+        </div>
+        <p class="vc-v8-intro" data-t="v8Intro">診断専用800候補／学習用5,000候補</p>
+        <p class="vc-note vc-dashboard-note"><strong data-t="important">重要：</strong><span data-t="caveat">問題の難易度は検証中です。結果は学習のための暫定目安で、公式のCEFR・英検判定ではありません。履歴はこのブラウザだけに保存されます。</span></p>
+      </section>
+      <section class="vc-quiz" id="vcQuiz" hidden aria-label="Vocabulary question">
+        <div class="vc-quiz-top">
+          <span class="vc-pill" id="vcModeName"></span>
+          <div class="vc-quiz-meta"><span class="vc-level" id="vcQuestionLevel">Lv.4 / 8</span>
+            <button id="vcSound" class="vc-sound" type="button" aria-pressed="true" aria-label="Toggle answer sounds" title="Toggle answer sounds"><span id="vcSoundIcon" aria-hidden="true">♫</span><span id="vcSoundLabel">効果音 ON</span></button>
+          </div>
+        </div>
+        <div class="vc-progress"><div id="vcProgressFill"></div></div>
+        <div class="vc-progress-copy"><span id="vcNumber">1 / 25</span><span data-t="adaptive">正誤によって難易度が変わります</span></div>
+        <div class="vc-question-card">
+          <p class="vc-question-help" data-t="question">次の英語のチャンクに最も近い意味を選んでください。</p>
+          <div class="vc-phrase-wrap"><div id="vcPhrase" class="vc-phrase vc-context-example" lang="en" tabindex="0"></div><div class="vc-micro-caption" aria-hidden="true"><span></span> CHUNK VOCABULARY <span></span></div></div>
+          <div id="vcOptions" class="vc-options" role="group" aria-label="Answer options"></div>
+          <button id="vcUnknown" class="vc-unknown" type="button" data-t="unknown">わからない</button>
+          <div id="vcFeedback" class="vc-feedback" role="status" aria-live="polite" hidden></div>
+          <div id="vcAnswerFlash" class="vc-answer-flash" hidden aria-hidden="true"><div class="vc-answer-inner"><div id="vcAnswerMark" class="vc-answer-mark">○</div><strong id="vcAnswerTitle">正解！</strong><div id="vcCorrectionBlock" class="vc-correction-block" hidden><span id="vcCorrectionLabel" class="vc-correction-label">正解のチャンク</span><b id="vcCorrectionChunk"></b><p id="vcCorrectionMeaning"></p></div><small id="vcAutoNext">自動で次の問題へ</small></div></div>
+        </div>
+        <button id="vcQuit" class="vc-quit" type="button" data-t="quit">診断を中断する（結果は保存しない）</button>
+      </section>
+      <section class="vc-result" id="vcResult" hidden aria-label="Diagnosis results">
+        <span class="vc-pill" data-t="completed">診断完了</span>
+        <h1 data-t="resultTitle">現在のチャンク語彙力</h1>
+        <div class="vc-score-card">
+          <div class="vc-score-main"><span data-t="estimated">推定レベル（暫定）</span><div><strong id="vcScoreLevel">Lv.4</strong><small> / 8</small></div></div>
+          <div class="vc-score-sub"><span data-t="estimateRange">推定の幅</span><strong id="vcRange">Lv.3–5</strong><span data-t="notCertified">参考値・公式認定ではありません</span></div>
+        </div>
+        <p class="vc-v8-reference" id="vcV8Reference"></p>
+        <div class="vc-result-grid">
+          <div><span data-t="correct">正解</span><strong id="vcRight">0 / 25</strong></div>
+          <div><span data-t="unknownCount">わからない</span><strong id="vcSkip">0</strong></div>
+          <div><span data-t="mode">モード</span><strong id="vcResultMode">Quick</strong></div>
+        </div>
+        <div class="vc-result-trend"><div class="vc-panel-head"><strong data-t="trend">成長の記録</strong><span id="vcResultDelta"></span></div><div id="vcResultTrendGraph" class="vc-trend-graph" role="img" aria-label="Result level progression"></div></div>
+        <h2 data-t="breakdown">出題レベルごとの結果</h2>
+        <div id="vcBreakdown" class="vc-breakdown"></div>
+        <section class="vc-v8-diagnostics" aria-label="Diagnostic evidence">
+          <h2 data-t="v8EvidenceTitle">判定の根拠と限界</h2>
+          <p id="vcV8Evidence"></p>
+          <h2 data-t="v8GuidanceTitle">次に学習するとよい領域</h2>
+          <p id="vcV8Guidance"></p>
+          <p id="vcV8Limit" class="vc-v8-limitation"></p>
+        </section>
+        <h2 data-t="review">復習したいチャンク</h2>
+        <ul id="vcReview" class="vc-review"></ul>
+        <div class="vc-v8-pilot"><button id="vcPilotExport" class="vc-secondary" type="button" data-t="v8Export">匿名の試行回答CSVを保存</button><small data-t="v8PilotNote">CSVは本人の操作時のみダウンロードされます。個人名・日時なし。</small></div>
+        <p class="vc-note" data-t="resultNote">診断結果はこのブラウザにのみ保存されます。ホーム画面に戻るとレベルが表示されます。</p>
+        <div class="vc-result-actions"><a href="index.html" class="vc-primary" data-t="backHome">Copeak ホームへ</a><button id="vcRestart" type="button" class="vc-secondary" data-t="restart">もう一度診断する</button></div>
+      </section>
+      <div class="vc-error" id="vcError" role="alert" hidden><strong data-t="errorTitle">問題を読み込めませんでした</strong><p id="vcErrorMessage"></p><a href="index.html" data-t="backHome">Copeak ホームへ</a></div>
+    </div>
+    <footer class="vc-footer">Copeak · Chunk Vocabulary Check <span data-t="prototype">診断レベルは検証中</span></footer>
+  </main>
+</body>
+</html>
