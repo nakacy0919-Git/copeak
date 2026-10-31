@@ -90,7 +90,6 @@ const libraryUI={
   rename:['フォルダ名を変更','Rename folder','重新命名資料夾','Đổi tên thư mục','Ubah nama folder','Palitan ang pangalan','फ़ोल्डर का नाम बदलें'],
   remove:['フォルダを削除','Delete folder','刪除資料夾','Xóa thư mục','Hapus folder','Tanggalin ang folder','फ़ोल्डर हटाएँ']
 };
-const libOrig=new WeakMap();
 function localizeLibrary(lang){
   const root=document.getElementById('cpReadFolders');if(!root)return;
   const idx=languages.indexOf(lang);
@@ -107,9 +106,9 @@ function localizeLibrary(lang){
   for(const el of [document.getElementById('libraryViewHint'),document.getElementById('libraryViewTitle'),...root.querySelectorAll('h3,p,.lesson-play-count')]){
     if(!el || el.classList.contains('home-lesson-title'))continue;
     const current=el.textContent;
-    const original=libOrig.get(el)||current;
-    if(!libOrig.has(el))libOrig.set(el,original);
-    const value=translateString(original);
+    // Counts and folder view names change during navigation. Always read
+    // the latest DOM value rather than retaining a stale first-folder label.
+    const value=translateString(current);
     if(value!==null && value!==current)textIfChanged(el,value);
   }
   for(const el of root.querySelectorAll('[title]')){
