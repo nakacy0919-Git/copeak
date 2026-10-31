@@ -356,6 +356,42 @@
             }
 
 
+            /* Close control for the original registration dialog. */
+            .copeak-registration-frame {
+                position: relative;
+                width: 100%;
+                max-width: 24rem;
+            }
+            .copeak-registration-frame > .bg-white {
+                width: 100%;
+            }
+            .copeak-registration-exit {
+                position: absolute;
+                top: -14px;
+                right: -12px;
+                z-index: 2;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 42px;
+                height: 42px;
+                border: 1px solid #d9e7f3;
+                border-radius: 50%;
+                background: white;
+                color: #23466b;
+                box-shadow: 0 5px 19px rgba(20,56,92,.2);
+                cursor: pointer;
+                transition: background-color .16s ease, transform .16s ease;
+            }
+            .copeak-registration-exit:hover { background: #eef7ff; transform: scale(1.06); }
+            .copeak-registration-exit:focus-visible {
+                outline: 3px solid #2787cb;
+                outline-offset: 3px;
+            }
+            @media (max-width: 430px) {
+                .copeak-registration-exit { top: -10px; right: -7px; width: 40px; height: 40px; }
+            }
+
             /* ==================================
                Registration warning
                ================================== */
@@ -1254,6 +1290,63 @@
 
 
     // ==========================================
+    // First-registration dialog: close without saving
+    // ==========================================
+
+    function addRegistrationClose() {
+        const modal = document.getElementById('studentProfileModal');
+        if (!modal || document.getElementById('copeakRegistrationClose')) return;
+
+        const originalCard = modal.firstElementChild;
+        if (!originalCard) return;
+
+        // Position the X *outside* the white card while retaining the
+        // existing content, inputs, submit button and save handler.
+        const frame = document.createElement('div');
+        frame.className = 'copeak-registration-frame';
+        modal.insertBefore(frame, originalCard);
+        frame.appendChild(originalCard);
+
+        const closeButton = document.createElement('button');
+        closeButton.id = 'copeakRegistrationClose';
+        closeButton.type = 'button';
+        closeButton.className = 'copeak-registration-exit';
+        closeButton.innerHTML = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg>';
+        frame.appendChild(closeButton);
+
+        const labels = {
+            ja: '保存せず閉じる', en: 'Close without saving',
+            'zh-TW': '不儲存並關閉', vi: 'Đóng mà không lưu',
+            id: 'Tutup tanpa menyimpan', tl: 'Isara nang hindi sine-save',
+            hi: 'सहेजे बिना बंद करें'
+        };
+        const selector = document.getElementById('appLangSelector');
+        const updateLabel = () => {
+            const value = labels[selector?.value] || labels.ja;
+            closeButton.setAttribute('aria-label', value);
+            closeButton.setAttribute('title', value);
+        };
+        updateLabel();
+        selector?.addEventListener('change', updateLabel);
+
+        const dismiss = () => {
+            // Do not call saveStudentProfile or openHistorySelectModal.
+            // An unregistered user still has to register before sending scores.
+            modal.classList.add('hidden');
+        };
+        closeButton.addEventListener('click', dismiss);
+        modal.addEventListener('click', event => {
+            if (event.target === modal) dismiss();
+        });
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+                event.preventDefault();
+                dismiss();
+            }
+        });
+    }
+
+    // ==========================================
     // 元のプロフィール保存処理を包む
     // 登録直後にヘッダー表示を更新
     // ==========================================
@@ -1315,6 +1408,8 @@
 
         addRegistrationWarning();
 
+        addRegistrationClose();
+
         wrapProfileSave();
 
         updateChip();
@@ -1322,6 +1417,14 @@
 
         window.updateStudentProfileChip =
             updateChip;
+
+        // Use the existing teacher-verified edit flow for saved profiles.
+        // Do not expose the first-registration form as an edit bypass.
+        window.openCopeakProtectedProfile = function() {
+            if (!getProfile()) return false;
+            renderView();
+            return true;
+        };
     }
 
 
