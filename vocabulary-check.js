@@ -67,6 +67,27 @@
   });
   LANGUAGES.ja.technicalDetails='診断の詳しい情報を見る';
   LANGUAGES.en.technicalDetails='View assessment details';
+  Object.assign(LANGUAGES.ja,{
+    landingEyebrow:'英語の語彙力診断',lastLevelLabel:'前回の診断レベル',historyDetails:'これまでの記録を見る',
+    historyWarning:'問題構成が違う診断回のレベルは直接比較できません。',aboutAssessment:'この診断について',
+    title:'あなたの語彙力、何レベル？',intro:'例文を読んで、意味を選ぶだけ！今の実力を楽しくチェック。',
+    ctaQuick:'診断スタート！',ctaQuickSub:'25問でさくっとチェック',
+    ctaDeep:'もっと詳しく診断',ctaDeepSub:'じっくり70問',
+    levelDescription:'前回の診断結果です。',
+    caveat:'この結果は語彙学習の目安です。英検・CEFRの公式判定ではありません。履歴はブラウザ内にのみ保存されます。',
+    estimated:'推定レベル',resultTitle:'あなたの診断結果'
+  });
+  Object.assign(LANGUAGES.en,{
+    landingEyebrow:'VOCABULARY LEVEL CHECK',lastLevelLabel:'Your last level',historyDetails:'See your progress',
+    historyWarning:'Levels from checks using different question pools are not directly comparable.',
+    aboutAssessment:'About this check',title:'What is your vocabulary level?',
+    intro:'Read a sentence, choose the meaning, and discover your current level!',
+    ctaQuick:'Start my check!',ctaQuickSub:'Quick check · 25 questions',
+    ctaDeep:'Try a deeper check',ctaDeepSub:'70 questions',
+    levelDescription:'Your most recent estimated result.',
+    caveat:'This is a learning estimate, not an official Eiken or CEFR assessment. History is stored only in this browser.',
+    estimated:'Estimated level',resultTitle:'Your check result'
+  });
   // A 4-option multiple-choice model with a fixed 24% guessing floor.
   // MAP estimate with a conservative prior; used ONLY as an uncalibrated prototype.
   const probability=(ability,level)=>0.24+0.72/(1+Math.exp(-1.2*(ability-level)));
