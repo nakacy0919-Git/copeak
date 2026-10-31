@@ -1,11 +1,13 @@
 /* Copeak Chunk Vocabulary Check: standalone local-only prototype.
    NOT a standardized CEFR/Eiken test; difficulties are provisional.
-   Deliberately does not access CopeakDB, Classroom, Firebase, Supabase or audio. */
+   Deliberately does not access CopeakDB, Classroom, Firebase, Supabase or audio.
+   v8.1: focused expression overrides and response-by-response adaptive selection. */
 (function (root) {
   'use strict';
   const KEY = 'copeak_chunk_diagnosis_v1';
   const BANK_MANIFEST = 'data/chunks-v7-manifest.json';
   const DIAGNOSTIC = 'data/v8-diagnostic-800.json';
+  const FOCUS = 'data/v8-1-focus-overrides.json';
   const V8_LEVELS = Object.freeze({
     ja:['中学初級・英検5級を参考','中学中級・英検4級を参考','中学卒業・英検3級を参考','高校中級・英検準2級を参考','高校上級・英検準2級プラスを参考','高校卒業・英検2級を参考','大学中級・英検準1級を参考','大学上級・英検1級を参考'],
     en:['Beginner secondary / Eiken Grade 5 reference','Intermediate secondary / Eiken Grade 4 reference','Secondary completion / Eiken Grade 3 reference','Upper secondary / Eiken Pre-2 reference','Upper secondary advanced / Eiken Pre-2 Plus reference','Upper secondary completion / Eiken Grade 2 reference','University intermediate / Eiken Pre-1 reference','University advanced / Eiken Grade 1 reference']
@@ -27,20 +29,20 @@
   LANGUAGES.ja.modeNote='例文で理解を確認し、成長を記録します。';LANGUAGES.en.modeNote='Read in context and track your learning.';
   LANGUAGES.ja.correctChunk='正解のチャンク';LANGUAGES.en.correctChunk='Correct chunk';
   Object.assign(LANGUAGES.ja,{
-    v8Intro:'診断用候補800件（各レベル100件）から出題します。既存5,000件は学習用として保持。',
+    v8Intro:'診断用候補800件を監査し、短い重要表現に絞った問題から出題します。長い未確認表現は一時保留。既存5,000件は保持。',
     v8EvidenceTitle:'判定の根拠と限界',v8GuidanceTitle:'次に学習するとよい領域',
     v8LevelReference:'学習段階の参考（未校正）',v8Export:'匿名の試行回答CSVを保存',
     v8PilotNote:'CSVは本人が操作したときだけ端末内に保存されます。氏名・メール・日時は含みません。',
     v8Insufficient:'このレベルの回答数が少ないため、得意・不得意を判断できません。',
-    v8LowConfidence:'これは統計的に校正された信頼度ではありません。英検の取得級や学年を断定するものではありません。'
+    v8LowConfidence:'これは統計的に校正された信頼度ではありません。英検の取得級や学年を断定するものではありません。v8とv8.1では出題範囲が異なるため履歴のレベルを直接比較できません。'
   });
   Object.assign(LANGUAGES.en,{
-    v8Intro:'Checks use 800 diagnostic candidates (100 per level). The full 5,000-item learning bank is preserved.',
+    v8Intro:'A focused subset of 800 candidate questions is used. Long, unreviewed targets are withheld. The full 5,000-item learning bank is preserved.',
     v8EvidenceTitle:'Evidence and limits',v8GuidanceTitle:'Recommended review',
     v8LevelReference:'Learning-stage reference (not calibrated)',v8Export:'Save anonymous pilot-response CSV',
     v8PilotNote:'The CSV downloads to your device only on request. It excludes names, emails and timestamps.',
     v8Insufficient:'Too few answers in this level to classify strengths or weaknesses.',
-    v8LowConfidence:'Not a statistically calibrated confidence rating. This is not a certified Eiken or school-grade result.'
+    v8LowConfidence:'Not a statistically calibrated confidence rating or a certified Eiken/grade result. v8 and v8.1 use different item pools; their levels are not directly comparable.'
   });
   // A 4-option multiple-choice model with a fixed 24% guessing floor.
   // MAP estimate with a conservative prior; used ONLY as an uncalibrated prototype.
@@ -132,6 +134,61 @@
     if(counts.some(n=>n!==100)||arr.some(q=>q.distractor_ids.some(id=>!seen.has(id))))throw new Error('V8 diagnostic level/choice coverage invalid');
     return arr;
   }
+  // v8.1: Unreviewed long highlights are NOT silently shortened. Where a short
+  // focus is offered, its Japanese and English answer meaning must be replaced
+  // together. Original 800 items and the 5,000-item study bank remain unchanged.
+  function prepareFocusedBank(original, payload){
+    if(!Array.isArray(original)||original.length!==800||
+       payload?.schemaVersion!==1||payload?.calibration!=='uncalibrated-teacher-review-required'||
+       !Array.isArray(payload.overrides))throw new Error('Invalid v8.1 focus review payload');
+    const map=new Map(original.map(q=>[q.id,q]));
+    const changes=new Map();
+    for(const change of payload.overrides){
+      const src=map.get(change?.id);
+      if(!src||changes.has(change.id)||change.review_status!=='EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW')throw new Error('Invalid focus ID '+change?.id);
+      const focus=String(change.focus_en||'').trim();
+      const words=focus.split(/\s+/).length;
+      const raw=src.example_en.toLowerCase();
+      const at=raw.indexOf(focus.toLowerCase());
+      const originalAt=src.highlight_en.toLowerCase().indexOf(focus.toLowerCase());
+      const beginning=at===0||/[^a-z]/.test(raw[at-1]);
+      const ending=at>=0&&(at+focus.length===raw.length||/[^a-z]/.test(raw[at+focus.length]));
+      if(words<2||words>5||at<0||originalAt<0||!beginning||!ending||
+         String(change.meaning_ja||'').trim().length<2||
+         String(change.meaning_en||'').trim().length<2)throw new Error('Invalid focus phrase '+change.id);
+      changes.set(change.id,change);
+    }
+    const all=original.map(q=>{
+      const change=changes.get(q.id);
+      return change?{...q,chunk:change.focus_en,highlight_en:change.focus_en,
+        meaning_ja:change.meaning_ja,meaning_en:change.meaning_en,
+        focus_status:'EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW',focus_source_id:q.id}:q;
+    });
+    const byId=new Map(all.map(q=>[q.id,q]));
+    const active=all.filter(q=>q.highlight_en.trim().split(/\s+/).length<=4||changes.has(q.id));
+    const levels=Array(8).fill(0);
+    for(const q of active){
+      levels[q.level-1]++;
+      if(q.highlight_en.trim().split(/\s+/).length>5)throw new Error('Overlong active target');
+      for(const key of ['meaning_ja','meaning_en']){
+        const labels=[q[key],...q.distractor_ids.map(id=>byId.get(id)?.[key])];
+        if(labels.some(v=>!v)||new Set(labels).size!==4)throw new Error('Ambiguous focus options '+q.id+'/'+key);
+      }
+    }
+    if(levels.some(n=>n<35)||active.length<400)throw new Error('Insufficient focused diagnostic coverage');
+    return {all,active,stats:{total:original.length,selected:active.length,held:original.length-active.length,
+      revised:changes.size,levelCounts:levels}};
+  }
+  // Every answered question affects the next question immediately, including
+  // Q1-Q8. One miss leads to a lower target; a correct answer leads higher.
+  // This is a provisional heuristic until empirical item calibration exists.
+  function nextTarget(answers,estimate){
+    if(!answers.length)return 4;
+    const last=answers[answers.length-1];
+    const center=clamp(Math.round(estimate.theta),1,8);
+    return last.correct ? clamp(Math.max(center,last.level+1),1,8)
+      : clamp(Math.min(center,last.level-1),1,8);
+  }
   function evidenceFor(summary){
     const answers=Array.isArray(summary.answers)?summary.answers:[];
     const ids=new Set(answers.map(a=>a.family_id||a.id));
@@ -149,15 +206,15 @@
     // Deliberately excludes timestamps, learner name, profile, device and browser data.
     const header=['diagnostic_version','mode','item_id','level','correct','unknown','response_ms'];
     const safe=(value)=>String(value).replace(/^[=+@-]/,'');
-    const records=(summary?.answers||[]).map(a=>['v8',summary.mode,a.id,a.level,Number(Boolean(a.correct)),Number(Boolean(a.unknown)),Math.max(0,Math.min(120000,Number(a.ms)||0))].map(safe).join(','));
+    const records=(summary?.answers||[]).map(a=>['v8.1',summary.mode,a.id,a.level,Number(Boolean(a.correct)),Number(Boolean(a.unknown)),Math.max(0,Math.min(120000,Number(a.ms)||0))].map(safe).join(','));
     return '\ufeff'+[header.join(','),...records].join('\r\n');
   }
   function loadHistory(){try{const a=JSON.parse(localStorage.getItem(KEY)||'[]');return Array.isArray(a)?a.filter(x=>x?.version===1&&['copeak-chunks-prototype-2026-10','copeak-chunks-context-2026-10'].includes(x.bank)&&Number.isInteger(x.level)&&x.level>=1&&x.level<=8).slice(0,40):[]}catch(_){return []}}
   function saveSummary(summary){try{localStorage.setItem(KEY,JSON.stringify([summary,...loadHistory()].slice(0,40)));return true}catch(_){return false}}
-  const CORE=Object.freeze({KEY,COUNTS,probability,posterior,similarity,validateBank,validateV8,evidenceFor,makePilotCSV,pickQuestion,makeOptions});
+  const CORE=Object.freeze({KEY,COUNTS,probability,posterior,similarity,validateBank,validateV8,prepareFocusedBank,nextTarget,evidenceFor,makePilotCSV,pickQuestion,makeOptions});
   root.CopeakChunkCore=CORE;
   if(typeof document==='undefined')return;
-  let bank=[],currentSession=null,lang='ja',mode='quick',lastResult=null;
+  let bank=[],optionBank=[],currentSession=null,lang='ja',mode='quick',lastResult=null;
   // Short feedback is intentional: choice -> clear visual/audio response -> next item.
   const AUTO_DELAY = Object.freeze({correct:680,wrong:2200,unknown:2000});
   const SOUND_KEY = 'copeak_vocab_sound_v1';
@@ -217,6 +274,13 @@
   function translate(){
     document.documentElement.lang=lang; $('vcUILanguage').value=lang;updateSoundButton();
     for(const element of document.querySelectorAll('[data-t]'))setText(element,text(element.dataset.t));
+    const stats=root.CopeakVocabularyFocusStats;
+    if(stats){
+      const copy=$('vcFocusStats');
+      if(copy)copy.textContent=lang==='ja'?
+        `v8.1：短い核表現を持つ${stats.selected}問で診断（書き換え候補${stats.revised}問、長すぎる${stats.held}問は保留）。`:
+        `v8.1: ${stats.selected} focused questions in use (${stats.revised} focus rewrites; ${stats.held} long items held for review).`;
+    }
     if(currentSession)renderQuestion();else if(lastResult)renderResult(lastResult);
     else displayLast();
   }
@@ -286,22 +350,21 @@
   function nextQuestion(){
     cancelAdvance();clearFlash();
     const session=currentSession;if(!session)return;
-    // Eight broad-range probes precede adaptive selection. They are not an Eiken equating process.
-    const probes=[4,2,6,1,8,3,7,5];
-    const target=session.answers.length<8?probes[session.answers.length]:
-      clamp(Math.round(session.estimate.theta+(session.lastCorrect===null?0:session.lastCorrect?0.4:-0.4)),1,8);
+    // v8.1: genuinely adaptive from question 2, not a fixed eight-question staircase.
+    const target=nextTarget(session.answers,session.estimate);
     const priorUsed=loadHistory().slice(0,5).flatMap(result=>Array.isArray(result.itemIds)?result.itemIds:[]);
     const item=pickQuestion(bank,session.used,target,priorUsed,Math.random,session.usedFamilies);
     if(!item){showError('Question pool exhausted');return;}
-    session.item=item;session.used.add(item.id);if(item.family_id)session.usedFamilies.add(item.family_id);session.options=makeOptions(item,bank,lang);session.responded=null;session.started=performance.now();
+    session.item=item;session.used.add(item.id);if(item.family_id)session.usedFamilies.add(item.family_id);session.options=makeOptions(item,optionBank,lang);session.responded=null;session.started=performance.now();
     renderQuestion();
   }
   function begin(nextMode){
     cancelAdvance();clearFlash();
     mode=nextMode;
     const total=COUNTS[mode];if(!bank.length){showError(text('networkError'));return;}
-    const previous=loadHistory()[0]?.estimate;
-    const prior=Number.isFinite(previous)?clamp((previous+4.4)/2,1,8):4.4;
+    // Preserve history for progress, but do not let a previous high/low score
+    // predetermine the next check. A fresh run begins at the same prior.
+    const prior=4.4;
     currentSession={mode,total,used:new Set(),usedFamilies:new Set(),answers:[],estimate:posterior([],prior),prior,item:null,responded:null,lastCorrect:null,started:0,options:[]};
     lastResult=null;show('vcQuiz');nextQuestion();window.scrollTo({top:0,behavior:'instant'});
   }
@@ -329,7 +392,7 @@
     const summary={version:1,bank:'copeak-chunks-context-2026-10',at:new Date().toISOString(),mode:s.mode,total:s.total,
       correct:s.answers.filter(a=>a.correct).length,unknown:s.answers.filter(a=>a.unknown).length,
       level:est.level,estimate:Number(est.theta.toFixed(2)),range:est.range,answers:s.answers.map(a=>({id:a.id,level:a.level,correct:a.correct,unknown:a.unknown,ms:a.ms})),
-      itemIds:s.answers.map(a=>a.id),diagnosticVersion:'v8',selectionPolicy:'800-provisional-distinct-family-probes',provisional:true};
+      itemIds:s.answers.map(a=>a.id),diagnosticVersion:'v8.1',selectionPolicy:'v8.1-focused-conditional-adaptive',provisional:true};
     const saved=saveSummary(summary);
     lastResult=summary;currentSession=null;show('vcResult');renderResult(summary);
     if(!saved){const p=document.createElement('p');p.className='vc-note';p.textContent=text('saveError');$('vcResult').appendChild(p);}
@@ -387,7 +450,7 @@
     $('vcUILanguage').addEventListener('change',()=>{
       // Switching language while answering must not change the selected answer.
       // Recompute visible choices only before a question is answered.
-      if(currentSession&&!currentSession.responded)currentSession.options=makeOptions(currentSession.item,bank,$('vcUILanguage').value);
+      if(currentSession&&!currentSession.responded)currentSession.options=makeOptions(currentSession.item,optionBank,$('vcUILanguage').value);
       lang=$('vcUILanguage').value;translate();
     });
     document.addEventListener('keydown',event=>{
@@ -423,11 +486,15 @@
   async function boot(){
     lang=readLanguage();translate();registerEvents();
     try{
-      const [original,diagnosticResponse]=await Promise.all([
-        readOriginalBank(),fetch(DIAGNOSTIC,{cache:'no-store'})]);
+      const [original,diagnosticResponse,focusResponse]=await Promise.all([
+        readOriginalBank(),fetch(DIAGNOSTIC,{cache:'no-store'}),fetch(FOCUS,{cache:'no-store'})]);
       if(!diagnosticResponse.ok)throw new Error('Diagnostic HTTP '+diagnosticResponse.status);
+      if(!focusResponse.ok)throw new Error('Focus HTTP '+focusResponse.status);
       const diagnosis=await diagnosticResponse.json();
-      bank=validateV8(diagnosis,original);
+      const all=validateV8(diagnosis,original);
+      const prepared=prepareFocusedBank(all,await focusResponse.json());
+      bank=prepared.active;optionBank=prepared.all;
+      root.CopeakVocabularyFocusStats=Object.freeze(prepared.stats);
       displayLast();
     }catch(err){console.warn('[Copeak vocab] Failed to read test bank',err);showError(text('networkError')+' ('+err.message+')')}
   }

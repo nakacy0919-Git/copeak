@@ -1,0 +1,574 @@
+{
+  "schemaVersion": 1,
+  "bankId": "copeak-v8.1-focus-candidates-20261031",
+  "sourceBank": "copeak-v8-diagnostic-800-candidates-20261031",
+  "calibration": "uncalibrated-teacher-review-required",
+  "selection": {
+    "defaultMaximumWords": 4,
+    "exception": "explicit editorial overrides only",
+    "longUnreviewedPolicy": "excluded-from-diagnostic-until-rewritten"
+  },
+  "description": "Focused underline and answer replacements proposed for teacher review. This is not a psychometrically calibrated question bank.",
+  "overrides": [
+    {
+      "id": "CK1-316",
+      "focus_en": "find my way to",
+      "meaning_ja": "〜への道を見つける",
+      "meaning_en": "find the route to a place",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK1-373",
+      "focus_en": "look through",
+      "meaning_ja": "〜に目を通す",
+      "meaning_en": "examine something briefly",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK1-393",
+      "focus_en": "bring along",
+      "meaning_ja": "〜を持参する",
+      "meaning_en": "bring something with you",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK1-367",
+      "focus_en": "carry away",
+      "meaning_ja": "〜を運び去る",
+      "meaning_en": "take something away by carrying it",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK1-386",
+      "focus_en": "look for",
+      "meaning_ja": "〜を探す",
+      "meaning_en": "search for something",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK1-379",
+      "focus_en": "hold up",
+      "meaning_ja": "〜を掲げる",
+      "meaning_en": "raise something for others to see",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK1-449",
+      "focus_en": "keep an eye on",
+      "meaning_ja": "〜を見守る",
+      "meaning_en": "watch something carefully",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK1-365",
+      "focus_en": "hand back",
+      "meaning_ja": "〜を返す",
+      "meaning_en": "return something to someone",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK1-354",
+      "focus_en": "put away",
+      "meaning_ja": "〜を片付ける",
+      "meaning_en": "put something in its proper place",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK1-410",
+      "focus_en": "put down",
+      "meaning_ja": "〜を下ろす",
+      "meaning_en": "place something down",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK1-618",
+      "focus_en": "help with",
+      "meaning_ja": "〜を手伝う",
+      "meaning_en": "give assistance with something",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK2-197",
+      "focus_en": "in a bad mood",
+      "meaning_ja": "機嫌が悪い",
+      "meaning_en": "feeling unhappy or irritable",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK2-170",
+      "focus_en": "check in",
+      "meaning_ja": "チェックインする",
+      "meaning_en": "register upon arrival",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK2-255",
+      "focus_en": "clear up",
+      "meaning_ja": "〜を明確にする",
+      "meaning_en": "clarify something",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK2-307",
+      "focus_en": "take photos of",
+      "meaning_ja": "〜の写真を撮る",
+      "meaning_en": "photograph something",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK2-288",
+      "focus_en": "sign up for",
+      "meaning_ja": "〜に申し込む",
+      "meaning_en": "register to take part in",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK2-473",
+      "focus_en": "be late for",
+      "meaning_ja": "〜に遅れる",
+      "meaning_en": "arrive late for something",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK2-398",
+      "focus_en": "pack away",
+      "meaning_ja": "〜をしまう",
+      "meaning_en": "put something into storage",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK2-404",
+      "focus_en": "switch on",
+      "meaning_ja": "〜の電源を入れる",
+      "meaning_en": "turn on a device",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK2-355",
+      "focus_en": "fill out",
+      "meaning_ja": "〜に記入する",
+      "meaning_en": "complete a form by writing information",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK2-464",
+      "focus_en": "make time for",
+      "meaning_ja": "〜のための時間を作る",
+      "meaning_en": "set aside time for something",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK2-369",
+      "focus_en": "check over",
+      "meaning_ja": "〜をよく確認する",
+      "meaning_en": "examine carefully for errors",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK3-135",
+      "focus_en": "get through",
+      "meaning_ja": "困難を乗り越える",
+      "meaning_en": "successfully deal with a difficulty",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK3-313",
+      "focus_en": "develop an interest in",
+      "meaning_ja": "〜に興味を持つようになる",
+      "meaning_en": "become interested in something",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK3-251",
+      "focus_en": "get involved in",
+      "meaning_ja": "〜に関わる",
+      "meaning_en": "take part in something",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK3-247",
+      "focus_en": "work together on",
+      "meaning_ja": "〜に協力して取り組む",
+      "meaning_en": "collaborate on something",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK3-220",
+      "focus_en": "raise questions about",
+      "meaning_ja": "〜について疑問を提起する",
+      "meaning_en": "question an issue",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK3-293",
+      "focus_en": "keep a record of",
+      "meaning_ja": "〜の記録を残す",
+      "meaning_en": "maintain a written record of",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK3-380",
+      "focus_en": "ask for feedback",
+      "meaning_ja": "意見や評価を求める",
+      "meaning_en": "request comments or evaluation",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK3-492",
+      "focus_en": "show respect for",
+      "meaning_ja": "〜に敬意を示す",
+      "meaning_en": "treat with respect",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK3-490",
+      "focus_en": "make friends with",
+      "meaning_ja": "〜と友達になる",
+      "meaning_en": "become friends with someone",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK3-451",
+      "focus_en": "look after",
+      "meaning_ja": "〜の世話をする",
+      "meaning_en": "care for someone",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK4-265",
+      "focus_en": "devote time to",
+      "meaning_ja": "〜に時間を割く",
+      "meaning_en": "allocate time to something",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK4-201",
+      "focus_en": "take responsibility for",
+      "meaning_ja": "〜に責任を持つ",
+      "meaning_en": "accept responsibility for something",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK4-227",
+      "focus_en": "draw attention to",
+      "meaning_ja": "〜に注意を向けさせる",
+      "meaning_en": "make people notice something",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK4-256",
+      "focus_en": "raise awareness about",
+      "meaning_ja": "〜についての認識を高める",
+      "meaning_en": "increase awareness of an issue",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK4-340",
+      "focus_en": "set priorities for",
+      "meaning_ja": "〜の優先順位を決める",
+      "meaning_en": "decide which goals matter most for",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK4-325",
+      "focus_en": "identify obstacles to",
+      "meaning_ja": "〜の障害を特定する",
+      "meaning_en": "find barriers to something",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK4-214",
+      "focus_en": "provide guidance on",
+      "meaning_ja": "〜について指導する",
+      "meaning_en": "offer advice about something",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK4-370",
+      "focus_en": "propose solutions to",
+      "meaning_ja": "〜の解決策を提案する",
+      "meaning_en": "suggest ways to solve something",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK4-409",
+      "focus_en": "measure progress toward",
+      "meaning_ja": "〜に向けた進捗を測る",
+      "meaning_en": "assess how far progress has been made toward",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK5-292",
+      "focus_en": "address concerns",
+      "meaning_ja": "懸念に対処する",
+      "meaning_en": "respond to worries or problems",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK5-286",
+      "focus_en": "consider trade-offs",
+      "meaning_ja": "得失を比較検討する",
+      "meaning_en": "weigh competing advantages and disadvantages",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK5-270",
+      "focus_en": "establish benchmarks",
+      "meaning_ja": "評価基準を設ける",
+      "meaning_en": "set standards for measuring progress",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK5-218",
+      "focus_en": "consider the implications of",
+      "meaning_ja": "〜が持つ影響を検討する",
+      "meaning_en": "consider possible consequences of",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK5-228",
+      "focus_en": "identify gaps in",
+      "meaning_ja": "〜の不足点を特定する",
+      "meaning_en": "find missing or inadequate parts of",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK5-456",
+      "focus_en": "minimize exposure to",
+      "meaning_ja": "〜にさらされる度合いを抑える",
+      "meaning_en": "reduce contact with a risk",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK5-479",
+      "focus_en": "raise concerns about",
+      "meaning_ja": "〜について懸念を表明する",
+      "meaning_en": "express worries about something",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK5-393",
+      "focus_en": "account for fluctuations in",
+      "meaning_ja": "〜の変動を説明する",
+      "meaning_en": "explain variation in something",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK6-271",
+      "focus_en": "reconcile differences",
+      "meaning_ja": "相違を調整する",
+      "meaning_en": "resolve differences between sides",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK6-281",
+      "focus_en": "establish criteria for",
+      "meaning_ja": "〜の判断基準を設ける",
+      "meaning_en": "define standards used to judge something",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK6-230",
+      "focus_en": "evaluate the feasibility of",
+      "meaning_ja": "〜の実現可能性を評価する",
+      "meaning_en": "assess whether something is practical",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK6-269",
+      "focus_en": "challenge prevailing views on",
+      "meaning_ja": "〜の通説に異議を唱える",
+      "meaning_en": "question commonly accepted views about",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK6-350",
+      "focus_en": "place greater emphasis on",
+      "meaning_ja": "〜をさらに重視する",
+      "meaning_en": "give more importance to something",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK6-244",
+      "focus_en": "assess potential risks",
+      "meaning_ja": "潜在的リスクを評価する",
+      "meaning_en": "evaluate possible dangers",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK6-216",
+      "focus_en": "identify factors influencing",
+      "meaning_ja": "〜に影響する要因を特定する",
+      "meaning_en": "identify causes affecting something",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK6-447",
+      "focus_en": "trace debates over",
+      "meaning_ja": "〜をめぐる議論の経緯をたどる",
+      "meaning_en": "follow the history of discussions about",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK7-053",
+      "focus_en": "at the heart of",
+      "meaning_ja": "〜の中心にある",
+      "meaning_en": "be central to something",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK7-080",
+      "focus_en": "in a position to",
+      "meaning_ja": "〜できる立場にある",
+      "meaning_en": "have the power or opportunity to",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK7-153",
+      "focus_en": "a conflict of interest",
+      "meaning_ja": "利益相反",
+      "meaning_en": "a situation in which interests conflict",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK7-067",
+      "focus_en": "weigh the pros and cons",
+      "meaning_ja": "長所と短所を比較検討する",
+      "meaning_en": "consider advantages and disadvantages",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK7-069",
+      "focus_en": "at the expense of",
+      "meaning_ja": "〜を犠牲にして",
+      "meaning_en": "at a cost or disadvantage to",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK7-102",
+      "focus_en": "in keeping with",
+      "meaning_ja": "〜と一致して",
+      "meaning_en": "consistent with something",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK7-319",
+      "focus_en": "address structural barriers",
+      "meaning_ja": "構造的障壁に対処する",
+      "meaning_en": "tackle systemic obstacles",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK7-259",
+      "focus_en": "expose the limitations of",
+      "meaning_ja": "〜の限界を明らかにする",
+      "meaning_en": "show the restrictions or weaknesses of",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK7-230",
+      "focus_en": "uncover the mechanisms behind",
+      "meaning_ja": "〜の背後の仕組みを解明する",
+      "meaning_en": "discover underlying processes behind",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK7-333",
+      "focus_en": "consider the ramifications of",
+      "meaning_ja": "〜の広範な影響を考慮する",
+      "meaning_en": "consider far-reaching consequences of",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK7-268",
+      "focus_en": "reconsider the rationale for",
+      "meaning_ja": "〜の根拠を再検討する",
+      "meaning_en": "re-evaluate the reasoning behind",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK8-168",
+      "focus_en": "within the bounds of",
+      "meaning_ja": "〜の範囲内で",
+      "meaning_en": "inside the accepted limits of",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK8-005",
+      "focus_en": "at the mercy of",
+      "meaning_ja": "〜に翻弄される",
+      "meaning_en": "without control over something",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK8-036",
+      "focus_en": "on the cusp of",
+      "meaning_ja": "〜の目前にある",
+      "meaning_en": "on the verge of something",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK8-038",
+      "focus_en": "in the throes of",
+      "meaning_ja": "〜の真っただ中にある",
+      "meaning_en": "in the middle of intense difficulty",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK8-053",
+      "focus_en": "tantamount to",
+      "meaning_ja": "〜も同然である",
+      "meaning_en": "equivalent in effect to",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK8-028",
+      "focus_en": "mindful of",
+      "meaning_ja": "〜を意識している",
+      "meaning_en": "aware of and careful about",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK8-133",
+      "focus_en": "skating on thin ice",
+      "meaning_ja": "非常に危ういことをしている",
+      "meaning_en": "taking a serious risk",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK8-237",
+      "focus_en": "reconcile the competing demands",
+      "meaning_ja": "競合する要求を調整する",
+      "meaning_en": "balance competing needs",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK8-230",
+      "focus_en": "call into question",
+      "meaning_ja": "〜に疑問を投げかける",
+      "meaning_en": "cast doubt on something",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK8-241",
+      "focus_en": "expose the inherent tensions",
+      "meaning_ja": "内在する緊張関係を明らかにする",
+      "meaning_en": "reveal underlying conflicts",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK8-285",
+      "focus_en": "problematize conventional accounts",
+      "meaning_ja": "従来の説明を批判的に問い直す",
+      "meaning_en": "critically challenge accepted explanations",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    },
+    {
+      "id": "CK8-205",
+      "focus_en": "foreground the ethical implications",
+      "meaning_ja": "倫理的な含意を前面に出す",
+      "meaning_en": "give prominence to ethical consequences",
+      "review_status": "EDITORIAL_CANDIDATE_NEEDS_TEACHER_REVIEW"
+    }
+  ]
+}
