@@ -38,7 +38,8 @@ const strings={
   loadError:['履歴を読み込めませんでした','Could not load history','無法載入紀錄','Không tải được lịch sử','Riwayat tidak dapat dimuat','Hindi ma-load ang kasaysayan','इतिहास लोड नहीं हो सका'],
   untitled:['無題の教材','Untitled Lesson','未命名教材','Bài học không tên','Materi Tanpa Judul','Araling Walang Pamagat','बिना शीर्षक पाठ'],
   homeBack:['ホームに戻る','Back to Home','返回首頁','Về trang chủ','Kembali ke Beranda','Bumalik sa Home','होम पर वापस जाएँ'],
-  lastSeven:['過去7日間','Last 7 days','過去7天','7 ngày qua','7 hari terakhir','Huling 7 araw','पिछले 7 दिन']
+  lastSeven:['過去7日間','Last 7 days','過去7天','7 ngày qua','7 hari terakhir','Huling 7 araw','पिछले 7 दिन'],
+  targetScore:['目標スコア','Target Scores','目標分數','Điểm mục tiêu','Target Skor','Target na Marka','लक्ष्य स्कोर']
 };
 function getLanguage(){
   let code=document.getElementById('appLangSelector')?.value;
@@ -186,6 +187,7 @@ function refresh(){
     }
     selectorText(extras[1],'.cp-record-stat-total .cp-record-stat-label',t('total',lang));
   }
+  selectorText(document,'[data-i18n="target_score_title"]',t('targetScore',lang));
   dynamicLocalize(lang);
   localizeLibrary(lang);
 }
