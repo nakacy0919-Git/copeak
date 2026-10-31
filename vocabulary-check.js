@@ -8,6 +8,7 @@
   const BANK_MANIFEST = 'data/chunks-v7-manifest.json';
   const DIAGNOSTIC = 'data/v8-diagnostic-800.json';
   const FOCUS = 'data/v8-1-focus-overrides.json';
+  const SENTENCE_JA = 'data/v8-2-example-ja.json';
   const V8_LEVELS = Object.freeze({
     ja:['中学初級・英検5級を参考','中学中級・英検4級を参考','中学卒業・英検3級を参考','高校中級・英検準2級を参考','高校上級・英検準2級プラスを参考','高校卒業・英検2級を参考','大学中級・英検準1級を参考','大学上級・英検1級を参考'],
     en:['Beginner secondary / Eiken Grade 5 reference','Intermediate secondary / Eiken Grade 4 reference','Secondary completion / Eiken Grade 3 reference','Upper secondary / Eiken Pre-2 reference','Upper secondary advanced / Eiken Pre-2 Plus reference','Upper secondary completion / Eiken Grade 2 reference','University intermediate / Eiken Pre-1 reference','University advanced / Eiken Grade 1 reference']
@@ -87,6 +88,45 @@
     levelDescription:'Your most recent estimated result.',
     caveat:'This is a learning estimate, not an official Eiken or CEFR assessment. History is stored only in this browser.',
     estimated:'Estimated level',resultTitle:'Your check result'
+  });
+  // Compact, tabbed results and opt-in read-aloud practice.
+  Object.assign(LANGUAGES.ja,{
+    tabSummary:'結果を見る',tabReview:'復習・音読',tabDetails:'詳しい分析',
+    resultInsight:'あなたの学習ヒント',correctRatio:'正解 / 出題',
+    reviewFocus:'今回の重要表現',reviewMeaning:'下線表現の意味',
+    reviewListen:'お手本を聞く',reviewRecord:'音読を録音',reviewStop:'録音を終了',
+    reviewPlayback:'録音を聞く',detailReference:'診断の参考情報',
+    reviewReady:'お手本を聞いて、自分でも音読してみましょう。',
+    reviewListening:'例文を読み上げています。',
+    reviewRecording:'録音中。もう一度押すと終了します。',
+    reviewRecorded:'録音できました。「録音を聞く」で確認できます。',
+    reviewMicDenied:'マイクを使えません。ブラウザの許可設定を確認してください。',
+    reviewMicUnsupported:'このブラウザは録音機能に対応していません。',
+    reviewTtsUnsupported:'このブラウザは音声読み上げに対応していません。',
+    reviewNoItems:'今回、復習が必要なチャンクはありません！',
+    reviewNoRecording:'録音がありません。',
+    reviewAudioError:'音声を再生できませんでした。音声設定を確認してください。',
+    reviewPlayRecording:'自分の音読を再生しています。',
+    reviewSentenceJa:'例文の日本語訳'
+  });
+  Object.assign(LANGUAGES.en,{
+    tabSummary:'Result',tabReview:'Review & read',tabDetails:'Details',
+    resultInsight:'Your learning tip',correctRatio:'Correct / Asked',
+    reviewFocus:'Key expression',reviewMeaning:'Meaning of the highlighted expression',
+    reviewListen:'Hear the model',reviewRecord:'Record my reading',reviewStop:'Stop recording',
+    reviewPlayback:'Play my reading',detailReference:'About this estimate',
+    reviewReady:'Listen to the sentence, then read it aloud.',
+    reviewListening:'Reading the example sentence.',
+    reviewRecording:'Recording. Press again to stop.',
+    reviewRecorded:'Recorded! Play your reading to check.',
+    reviewMicDenied:'Microphone unavailable. Check browser permissions.',
+    reviewMicUnsupported:'Recording is not supported in this browser.',
+    reviewTtsUnsupported:'Speech playback is not available in this browser.',
+    reviewNoItems:'No chunks to review this time!',
+    reviewNoRecording:'No recording available.',
+    reviewAudioError:'Unable to play audio. Check device sound settings.',
+    reviewPlayRecording:'Playing your reading.',
+    reviewSentenceJa:'Japanese sentence translation'
   });
   // A 4-option multiple-choice model with a fixed 24% guessing floor.
   // MAP estimate with a conservative prior; used ONLY as an uncalibrated prototype.
@@ -259,6 +299,8 @@
   root.CopeakChunkCore=CORE;
   if(typeof document==='undefined')return;
   let bank=[],optionBank=[],currentSession=null,lang='ja',mode='quick',lastResult=null;
+  let activeResultTab='summary',reviewSummary=null,reviewIndex=0,reviewItems=[];
+  let reviewRecorder=null,reviewStream=null,reviewChunks=[],reviewAudioUrl=null,reviewAudio=null,reviewToken=0;
   // Short feedback is intentional: choice -> clear visual/audio response -> next item.
   const AUTO_DELAY = Object.freeze({correct:680,wrong:2200,unknown:2000});
   const SOUND_KEY = 'copeak_vocab_sound_v1';
@@ -309,7 +351,7 @@
   const $=id=>document.getElementById(id);
   const text=(key)=>LANGUAGES[lang][key]||key;
   function setText(el,str){if(el)el.textContent=str;}
-  const show=(id)=>{for(const k of ['vcIntro','vcQuiz','vcResult','vcError'])$(k).hidden=k!==id;document.body.classList.toggle('vc-is-quiz',id==='vcQuiz');};
+  const show=(id)=>{if(id!=='vcResult')stopReviewMedia();for(const k of ['vcIntro','vcQuiz','vcResult','vcError'])$(k).hidden=k!==id;document.body.classList.toggle('vc-is-quiz',id==='vcQuiz');document.body.classList.toggle('vc-is-result',id==='vcResult');};
   function readLanguage(){
     const query=new URLSearchParams(location.search).get('ui');
     let saved=null;try{saved=localStorage.getItem('copeak_lang')}catch(_){/* no storage */}
@@ -445,7 +487,7 @@
       level:est.level,estimate:Number(est.theta.toFixed(2)),range:est.range,answers:s.answers.map(a=>({id:a.id,level:a.level,correct:a.correct,unknown:a.unknown,ms:a.ms})),
       itemIds:s.answers.map(a=>a.id),diagnosticVersion:'v8.1',selectionPolicy:'v8.1-focused-conditional-adaptive',provisional:true};
     const saved=saveSummary(summary);
-    lastResult=summary;currentSession=null;show('vcResult');renderResult(summary);
+    lastResult=summary;currentSession=null;show('vcResult');renderResult(summary);setResultTab('summary');
     if(!saved){const p=document.createElement('p');p.className='vc-note';p.textContent=text('saveError');$('vcResult').appendChild(p);}
     window.dispatchEvent(new Event('copeak:vocabulary-updated'));window.scrollTo({top:0,behavior:'instant'});
   }
@@ -470,21 +512,173 @@
       const entry=document.createElement('div'),heading=document.createElement('strong'),sub=document.createElement('span');
       heading.textContent=`Lv.${level}`;sub.textContent=`${subset.filter(a=>a.correct).length} / ${subset.length}`;entry.append(heading,sub);output.appendChild(entry);
     }
-    const review=$('vcReview');review.replaceChildren();const ids=new Set();
-    for(const a of s.answers){
-      if(a.correct||ids.has(a.id))continue;ids.add(a.id);const q=bank.find(x=>x.id===a.id);if(!q)continue;
-      const li=document.createElement('li'),label=document.createElement('b'),meaning=document.createElement('span'),example=document.createElement('small');label.textContent=q.chunk;meaning.textContent=lang==='ja'?q.meaning_ja:q.meaning_en;example.textContent=q.example_en||'';example.lang='en';li.append(label,meaning,example);review.appendChild(li);
-      if(ids.size>=12)break;
-    }
-    if(!review.children.length){const li=document.createElement('li');li.textContent=text('noReview');review.appendChild(li)}
+    $('vcReview').replaceChildren();updateReviewItems(s);
     const past=loadHistory();drawTrend($('vcResultTrendGraph'),past);
     const previous=past[1];const diff=previous?s.level-previous.level:null;
     setText($('vcResultDelta'),diff===null?'':diff>0?'↗ +'+diff:diff<0?'↘ '+diff:'→ ±0');
+  }
+
+  // Review uses the original diagnostic item by ID; audio is never uploaded.
+  function stopReviewMedia(){
+    reviewToken++;
+    try{root.speechSynthesis?.cancel()}catch(_){}
+    if(reviewRecorder&&reviewRecorder.state!=='inactive')try{reviewRecorder.stop()}catch(_){}
+    reviewRecorder=null;
+    if(reviewStream){try{reviewStream.getTracks().forEach(t=>t.stop())}catch(_){}reviewStream=null}
+    reviewChunks=[];
+    if(reviewAudio){try{reviewAudio.pause()}catch(_){}reviewAudio=null}
+    if(reviewAudioUrl){try{URL.revokeObjectURL(reviewAudioUrl)}catch(_){}reviewAudioUrl=null}
+    if($('vcReviewPlayback'))$('vcReviewPlayback').disabled=true;
+    if($('vcReviewRecordLabel'))setText($('vcReviewRecordLabel'),text('reviewRecord'));
+    $('vcReviewRecord')?.classList.remove('is-recording');
+  }
+  function highlightReview(target,item){
+    const sentence=String(item.example_en||''),focus=String(item.highlight_en||'');
+    const at=sentence.toLowerCase().indexOf(focus.toLowerCase());
+    target.replaceChildren();
+    if(!focus||at<0){target.textContent=sentence;return}
+    target.appendChild(document.createTextNode(sentence.slice(0,at)));
+    const mark=document.createElement('mark');mark.textContent=sentence.slice(at,at+focus.length);
+    target.appendChild(mark,document.createTextNode(sentence.slice(at+focus.length)));
+  }
+  function renderReviewCard(){
+    const has=reviewItems.length>0,item=has?reviewItems[reviewIndex]:null;
+    setText($('vcReviewCount'),has?String(reviewIndex+1)+' / '+reviewItems.length:'0 / 0');
+    $('vcReviewPrev').disabled=!has||reviewIndex===0;
+    $('vcReviewNext').disabled=!has||reviewIndex>=reviewItems.length-1;
+    $('vcReviewListen').disabled=!has;
+    $('vcReviewRecord').disabled=!has;
+    if(!item){
+      setText($('vcReviewChunk'),text('reviewNoItems'));
+      $('vcReviewSentence').replaceChildren();
+      setText($('vcReviewMeaning'),'');
+      $('vcReviewSentenceJa').hidden=true;
+      setText($('vcReviewStatus'),'');
+      return;
+    }
+    setText($('vcReviewChunk'),item.chunk);
+    highlightReview($('vcReviewSentence'),item);
+    setText($('vcReviewMeaning'),lang==='ja'?item.meaning_ja:item.meaning_en);
+    const sentenceJa=String(item.example_ja||'').trim();
+    $('vcReviewSentenceJa').hidden=!sentenceJa;
+    if(sentenceJa)setText($('vcReviewSentenceJa'),text('reviewSentenceJa')+'：'+sentenceJa);
+    setText($('vcReviewStatus'),text('reviewReady'));
+  }
+  function updateReviewItems(summary){
+    if(reviewSummary!==summary){stopReviewMedia();reviewSummary=summary;reviewIndex=0}
+    const ids=new Set();
+    reviewItems=summary.answers.filter(a=>!a.correct).map(a=>{
+      if(ids.has(a.id))return null;ids.add(a.id);
+      return bank.find(q=>q.id===a.id)||null;
+    }).filter(Boolean);
+    reviewIndex=clamp(reviewIndex,0,Math.max(0,reviewItems.length-1));
+    renderReviewCard();
+  }
+  function setResultTab(next){
+    if(!['summary','review','details'].includes(next))return;
+    if(activeResultTab==='review'&&next!=='review')stopReviewMedia();
+    activeResultTab=next;
+    for(const [key,suffix] of [['summary','Summary'],['review','Review'],['details','Details']]){
+      const selected=next===key,tab=$('vcTab'+suffix),panel=$('vcPanel'+suffix);
+      tab.setAttribute('aria-selected',String(selected));
+      tab.classList.toggle('is-active',selected);
+      tab.tabIndex=selected?0:-1;
+      panel.hidden=!selected;
+    }
+    if(next==='review')renderReviewCard();
+  }
+  function moveReview(delta){
+    if(!reviewItems.length)return;
+    const next=clamp(reviewIndex+delta,0,reviewItems.length-1);
+    if(next===reviewIndex)return;
+    stopReviewMedia();reviewIndex=next;renderReviewCard();
+  }
+  function speakReview(){
+    const q=reviewItems[reviewIndex];if(!q)return;
+    if(!root.speechSynthesis||!root.SpeechSynthesisUtterance){
+      setText($('vcReviewStatus'),text('reviewTtsUnsupported'));return;
+    }
+    try{
+      root.speechSynthesis.cancel();
+      const u=new root.SpeechSynthesisUtterance(q.example_en);
+      u.lang='en-US';u.rate=0.86;
+      const voices=root.speechSynthesis.getVoices?.()||[];
+      u.voice=voices.find(v=>v.lang?.toLowerCase().startsWith('en')&&v.localService)
+        ||voices.find(v=>v.lang?.toLowerCase().startsWith('en'))||null;
+      u.onerror=()=>setText($('vcReviewStatus'),text('reviewAudioError'));
+      root.speechSynthesis.speak(u);
+      setText($('vcReviewStatus'),text('reviewListening'));
+    }catch(_){setText($('vcReviewStatus'),text('reviewAudioError'))}
+  }
+  async function toggleReviewRecord(){
+    if(reviewRecorder&&reviewRecorder.state==='recording'){
+      try{reviewRecorder.stop()}catch(_){}
+      if(reviewStream){reviewStream.getTracks().forEach(t=>t.stop());reviewStream=null}
+      return;
+    }
+    if(!reviewItems.length)return;
+    if(!navigator.mediaDevices?.getUserMedia||typeof root.MediaRecorder!=='function'){
+      setText($('vcReviewStatus'),text('reviewMicUnsupported'));return;
+    }
+    stopReviewMedia();
+    const token=reviewToken;
+    try{
+      const stream=await navigator.mediaDevices.getUserMedia({audio:true,video:false});
+      if(token!==reviewToken||activeResultTab!=='review'||!lastResult){
+        stream.getTracks().forEach(t=>t.stop());return;
+      }
+      reviewStream=stream;reviewChunks=[];
+      const recorder=new root.MediaRecorder(stream);
+      reviewRecorder=recorder;
+      recorder.ondataavailable=e=>{if(e.data?.size)reviewChunks.push(e.data)};
+      recorder.onstop=()=>{
+        if(reviewStream){reviewStream.getTracks().forEach(t=>t.stop());reviewStream=null}
+        if(token!==reviewToken)return;
+        const chunks=reviewChunks.slice();reviewChunks=[];reviewRecorder=null;
+        $('vcReviewRecord').classList.remove('is-recording');
+        setText($('vcReviewRecordLabel'),text('reviewRecord'));
+        if(!chunks.length){setText($('vcReviewStatus'),text('reviewAudioError'));return}
+        if(reviewAudioUrl){URL.revokeObjectURL(reviewAudioUrl);reviewAudioUrl=null}
+        reviewAudioUrl=URL.createObjectURL(new Blob(chunks,{type:recorder.mimeType||'audio/webm'}));
+        $('vcReviewPlayback').disabled=false;
+        setText($('vcReviewStatus'),text('reviewRecorded'));
+      };
+      recorder.onerror=()=>{stopReviewMedia();setText($('vcReviewStatus'),text('reviewAudioError'))};
+      recorder.start();
+      $('vcReviewRecord').classList.add('is-recording');
+      setText($('vcReviewRecordLabel'),text('reviewStop'));
+      setText($('vcReviewStatus'),text('reviewRecording'));
+    }catch(_){setText($('vcReviewStatus'),text('reviewMicDenied'))}
+  }
+  function playReviewRecording(){
+    if(!reviewAudioUrl){setText($('vcReviewStatus'),text('reviewNoRecording'));return}
+    if(reviewAudio)try{reviewAudio.pause()}catch(_){}
+    reviewAudio=new root.Audio(reviewAudioUrl);
+    reviewAudio.onended=()=>setText($('vcReviewStatus'),text('reviewRecorded'));
+    reviewAudio.play().then(()=>setText($('vcReviewStatus'),text('reviewPlayRecording')))
+      .catch(()=>setText($('vcReviewStatus'),text('reviewAudioError')));
   }
   function showError(message){show('vcError');setText($('vcErrorMessage'),message)}
   function registerEvents(){
     $('vcQuick').addEventListener('click',()=>begin('quick'));$('vcDeep').addEventListener('click',()=>begin('deep'));
     $('vcUnknown').addEventListener('click',()=>submit(null));
+    for(const [name,key] of [['Summary','summary'],['Review','review'],['Details','details']]){
+      const tab=$('vcTab'+name);
+      tab.addEventListener('click',()=>setResultTab(key));
+      tab.addEventListener('keydown',event=>{
+        if(!['ArrowLeft','ArrowRight'].includes(event.key))return;
+        event.preventDefault();
+        const seq=['summary','review','details'],index=seq.indexOf(key);
+        const next=seq[(index+(event.key==='ArrowRight'?1:2))%3];
+        setResultTab(next);
+        $('vcTab'+next[0].toUpperCase()+next.slice(1)).focus();
+      });
+    }
+    $('vcReviewPrev').addEventListener('click',()=>moveReview(-1));
+    $('vcReviewNext').addEventListener('click',()=>moveReview(1));
+    $('vcReviewListen').addEventListener('click',speakReview);
+    $('vcReviewRecord').addEventListener('click',toggleReviewRecord);
+    $('vcReviewPlayback').addEventListener('click',playReviewRecording);
     $('vcSound').addEventListener('click',()=>{
       soundEnabled=!soundEnabled;
       try{localStorage.setItem(SOUND_KEY,soundEnabled?'on':'off')}catch(_){}
@@ -495,7 +689,7 @@
     $('vcPilotExport').addEventListener('click',()=>{
       if(!lastResult)return;
       const blob=new Blob([makePilotCSV(lastResult)],{type:'text/csv;charset=utf-8'});
-      const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='copeak_v8_anonymous_pilot.csv';document.body.appendChild(a);a.click();a.remove();
+      const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='copeak_v8_2_anonymous_pilot.csv';document.body.appendChild(a);a.click();a.remove();
       setTimeout(()=>URL.revokeObjectURL(url),1500);
     });
     $('vcUILanguage').addEventListener('change',()=>{
@@ -504,6 +698,7 @@
       if(currentSession&&!currentSession.responded)currentSession.options=makeOptions(currentSession.item,optionBank,$('vcUILanguage').value);
       lang=$('vcUILanguage').value;translate();
     });
+    root.addEventListener('pagehide',stopReviewMedia);
     document.addEventListener('keydown',event=>{
       if(!currentSession||currentSession.responded||event.altKey||event.metaKey||event.ctrlKey)return;
       if(/^[1-4]$/.test(event.key)){event.preventDefault();submit(Number(event.key)-1)}
@@ -545,6 +740,21 @@
       const all=validateV8(diagnosis,original);
       const prepared=prepareFocusedBank(all,await focusResponse.json());
       bank=prepared.active;optionBank=prepared.all;
+      // Optional draft translations: never attach to a changed English sentence.
+      try{
+        const resp=await fetch(SENTENCE_JA,{cache:'no-store'});
+        if(resp.ok){
+          const payload=await resp.json();
+          if(payload?.schemaVersion===1&&Array.isArray(payload.items)){
+            const lookup=new Map(payload.items.map(x=>[x.id,x]));
+            for(const item of bank){
+              const ja=lookup.get(item.id);
+              if(ja&&ja.source_example_en===item.example_en&&typeof ja.example_ja==='string')
+                item.example_ja=ja.example_ja;
+            }
+          }
+        }
+      }catch(_){/* The vocabulary test works even without draft sentence translations. */}
       root.CopeakVocabularyFocusStats=Object.freeze(prepared.stats);
       $('vcQuick').disabled=false;
       $('vcDeep').disabled=false;

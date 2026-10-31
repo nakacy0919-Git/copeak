@@ -68,5 +68,5 @@ const invalid=structuredClone(p);
 invalid.overrides[0].focus_en='this text is not in the original sentence';
 assert.throws(()=>core.prepareFocusedBank(initial,invalid));
 assert.equal(core.KEY,'copeak_chunk_diagnosis_v1');
-assert(fs.readFileSync(path.join(root,'vocabulary-check.html'),'utf8').includes('vocabulary-check.js?v=8.1'));
+assert(fs.readFileSync(path.join(root,'vocabulary-check.html'),'utf8').includes('vocabulary-check.js?v=8.2.0'));
 console.log('PASS v8.1:',result.active.length,'focused items;',completed,'full diagnosis scenarios; adaptive from question 2; history preserved.');

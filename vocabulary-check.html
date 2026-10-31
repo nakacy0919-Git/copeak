@@ -6,8 +6,8 @@
   <meta name="theme-color" content="#ecf5ff">
   <title>Copeak | 英語の語彙力診断</title>
   <link rel="icon" href="logo.png">
-  <link rel="stylesheet" href="vocabulary-check.css?v=8.1.2">
-  <script defer src="vocabulary-check.js?v=8.1.2"></script>
+  <link rel="stylesheet" href="vocabulary-check.css?v=8.2.0">
+  <script defer src="vocabulary-check.js?v=8.2.0"></script>
 </head>
 <body>
   <main class="vc-shell">
@@ -89,38 +89,75 @@
         <button id="vcQuit" class="vc-quit" type="button" data-t="quit">診断を中断する（結果は保存しない）</button>
       </section>
       <section class="vc-result" id="vcResult" hidden aria-label="Diagnosis results">
-        <span class="vc-pill" data-t="completed">診断完了</span>
-        <h1 data-t="resultTitle">現在のチャンク語彙力</h1>
-        <div class="vc-score-card">
-          <div class="vc-score-main"><span data-t="estimated">推定レベル（暫定）</span><div><strong id="vcScoreLevel">Lv.4</strong><small> / 8</small></div></div>
-          <div class="vc-score-sub"><span data-t="estimateRange">推定の幅</span><strong id="vcRange">Lv.3–5</strong><span data-t="notCertified">参考値・公式認定ではありません</span></div>
+        <header class="vc-result-head">
+          <div class="vc-result-title"><span class="vc-result-icon" aria-hidden="true">★</span>
+            <div><span class="vc-result-kicker" data-t="completed">診断完了！</span><h1 data-t="resultTitle">あなたの診断結果</h1></div>
+          </div>
+          <span class="vc-result-head-mode" id="vcResultMode">Quick</span>
+        </header>
+        <div class="vc-result-tabs" role="tablist" aria-label="Result sections">
+          <button type="button" id="vcTabSummary" class="vc-result-tab is-active" role="tab" aria-controls="vcPanelSummary" aria-selected="true" data-t="tabSummary">結果を見る</button>
+          <button type="button" id="vcTabReview" class="vc-result-tab" role="tab" aria-controls="vcPanelReview" aria-selected="false" data-t="tabReview">復習・音読</button>
+          <button type="button" id="vcTabDetails" class="vc-result-tab" role="tab" aria-controls="vcPanelDetails" aria-selected="false" data-t="tabDetails">詳しい分析</button>
         </div>
-        <p class="vc-v8-reference" id="vcV8Reference"></p>
-        <div class="vc-result-grid">
-          <div><span data-t="correct">正解</span><strong id="vcRight">0 / 25</strong></div>
-          <div><span data-t="unknownCount">わからない</span><strong id="vcSkip">0</strong></div>
-          <div><span data-t="mode">モード</span><strong id="vcResultMode">Quick</strong></div>
-        </div>
-        <div class="vc-result-trend"><div class="vc-panel-head"><strong data-t="trend">成長の記録</strong><span id="vcResultDelta"></span></div><div id="vcResultTrendGraph" class="vc-trend-graph" role="img" aria-label="Result level progression"></div></div>
-        <h2 data-t="breakdown">出題レベルごとの結果</h2>
-        <div id="vcBreakdown" class="vc-breakdown"></div>
-        <section class="vc-learning-guidance" aria-labelledby="vcNextStepHeading">
-          <h2 id="vcNextStepHeading" data-t="v8GuidanceTitle">次に学習するとよい領域</h2>
-          <p id="vcV8Guidance"></p>
-        </section>
-        <h2 data-t="review">復習したいチャンク</h2>
-        <ul id="vcReview" class="vc-review"></ul>
-        <details class="vc-technical-details">
-          <summary data-t="technicalDetails">診断の詳しい情報を見る</summary>
-          <section class="vc-v8-diagnostics" aria-label="Diagnostic evidence">
-            <h2 data-t="v8EvidenceTitle">判定の根拠と限界</h2>
-            <p id="vcV8Evidence"></p>
-            <p id="vcV8Limit" class="vc-v8-limitation"></p>
+        <div class="vc-result-panels">
+          <section id="vcPanelSummary" class="vc-result-panel vc-summary-panel" role="tabpanel" aria-labelledby="vcTabSummary">
+            <div class="vc-result-summary-grid">
+              <div class="vc-result-hero">
+                <span class="vc-result-overline" data-t="estimated">推定レベル</span>
+                <div class="vc-result-level"><strong id="vcScoreLevel">Lv.4</strong><span> / 8</span></div>
+                <div class="vc-result-range"><span data-t="estimateRange">推定の幅</span><strong id="vcRange">Lv.3–5</strong></div>
+                <div class="vc-result-stats">
+                  <div><small data-t="correct">正解</small><b id="vcRight">0 / 25</b></div>
+                  <div><small data-t="unknownCount">わからない</small><b id="vcSkip">0</b></div>
+                </div>
+              </div>
+              <div class="vc-result-insight">
+                <div class="vc-insight-heading"><span aria-hidden="true">✦</span><strong data-t="resultInsight">あなたの学習ヒント</strong></div>
+                <p id="vcV8Guidance"></p>
+                <div class="vc-insight-divider"></div>
+                <div class="vc-panel-head"><span data-t="breakdown">レベル別の正答</span><small data-t="correctRatio">正解 / 出題</small></div>
+                <div id="vcBreakdown" class="vc-breakdown"></div>
+                <div class="vc-result-trend"><div class="vc-panel-head"><strong data-t="trend">成長の記録</strong><span id="vcResultDelta"></span></div><div id="vcResultTrendGraph" class="vc-trend-graph" role="img" aria-label="Result level progression"></div></div>
+              </div>
+            </div>
           </section>
-          <div class="vc-v8-pilot"><button id="vcPilotExport" class="vc-secondary" type="button" data-t="v8Export">匿名の試行回答CSVを保存</button><small data-t="v8PilotNote">CSVは本人の操作時のみダウンロードされます。個人名・日時なし。</small></div>
-        </details>
-        <p class="vc-note" data-t="resultNote">診断結果はこのブラウザにのみ保存されます。ホーム画面に戻るとレベルが表示されます。</p>
-        <div class="vc-result-actions"><a href="index.html" class="vc-primary" data-t="backHome">Copeak ホームへ</a><button id="vcRestart" type="button" class="vc-secondary" data-t="restart">もう一度診断する</button></div>
+          <section id="vcPanelReview" class="vc-result-panel vc-review-panel" role="tabpanel" aria-labelledby="vcTabReview" hidden>
+            <div class="vc-review-stage">
+              <div class="vc-review-top"><div><strong data-t="review">復習したいチャンク</strong><span id="vcReviewCount" aria-live="polite">1 / 1</span></div>
+                <div class="vc-review-switch"><button id="vcReviewPrev" type="button" aria-label="Previous chunk">‹</button><button id="vcReviewNext" type="button" aria-label="Next chunk">›</button></div>
+              </div>
+              <div class="vc-review-card">
+                <span class="vc-review-focus-label" data-t="reviewFocus">今回の重要表現</span>
+                <strong id="vcReviewChunk" class="vc-review-chunk" lang="en">—</strong>
+                <p id="vcReviewSentence" class="vc-review-sentence" lang="en"></p>
+                <div class="vc-review-translation"><span data-t="reviewMeaning">日本語の意味</span><strong id="vcReviewMeaning">—</strong></div>
+                <p id="vcReviewSentenceJa" class="vc-review-example-ja" hidden></p>
+                <div class="vc-review-actions">
+                  <button id="vcReviewListen" class="vc-review-listen" type="button"><span aria-hidden="true">▶</span><span data-t="reviewListen">お手本を聞く</span></button>
+                  <button id="vcReviewRecord" class="vc-review-record" type="button"><span aria-hidden="true">●</span><span id="vcReviewRecordLabel" data-t="reviewRecord">自分の音読を録音</span></button>
+                  <button id="vcReviewPlayback" class="vc-review-playback" type="button" disabled><span aria-hidden="true">♫</span><span data-t="reviewPlayback">録音を聞く</span></button>
+                </div>
+                <p class="vc-review-status" id="vcReviewStatus" role="status" aria-live="polite"></p>
+              </div>
+            </div>
+          </section>
+          <section id="vcPanelDetails" class="vc-result-panel vc-details-panel" role="tabpanel" aria-labelledby="vcTabDetails" hidden>
+            <div class="vc-details-wrap">
+              <h2 data-t="detailReference">診断の参考情報</h2>
+              <p class="vc-v8-reference" id="vcV8Reference"></p>
+              <p id="vcV8Evidence"></p>
+              <p id="vcV8Limit" class="vc-v8-limitation"></p>
+              <p class="vc-result-note" data-t="notCertified">参考値・公式認定ではありません</p>
+              <div class="vc-v8-pilot"><button id="vcPilotExport" class="vc-secondary" type="button" data-t="v8Export">匿名の試行回答CSVを保存</button><small data-t="v8PilotNote">個人情報を含まず、端末にのみダウンロードされます。</small></div>
+              <ul id="vcReview" class="vc-review" hidden></ul>
+            </div>
+          </section>
+        </div>
+        <nav class="vc-result-actions" aria-label="Result actions">
+          <a href="index.html" class="vc-primary" data-t="backHome">Copeak ホームへ</a>
+          <button id="vcRestart" type="button" class="vc-secondary" data-t="restart">もう一度診断する</button>
+        </nav>
       </section>
       <div class="vc-error" id="vcError" role="alert" hidden><strong data-t="errorTitle">問題を読み込めませんでした</strong><p id="vcErrorMessage"></p><a href="index.html" data-t="backHome">Copeak ホームへ</a></div>
     </div>

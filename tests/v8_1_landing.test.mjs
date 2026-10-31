@@ -18,7 +18,8 @@ assert(intro.includes('id="vcTrendGraph"'));
 assert(intro.includes('id="vcDashboardLevel"'));
 assert(!intro.includes('vcFocusStats')&&!intro.includes('vc-v8-intro'));
 assert(!intro.includes('CHUNK VOCABULARY v8.1'));
-assert(html.includes('<details class="vc-technical-details">'));
+assert(html.includes('id="vcPanelDetails"') && html.includes('id="vcTabDetails"'));
+assert(html.includes('id="vcPanelReview"') && html.includes('id="vcTabReview"'));
 assert(html.includes('id="vcPilotExport"'));
 for(const id of ['vcQuiz','vcResult','vcError','vcUnknown','vcFeedback','vcRestart','vcQuick','vcDeep']){
   assert(html.includes('id="'+id+'"'),id+' missing');
