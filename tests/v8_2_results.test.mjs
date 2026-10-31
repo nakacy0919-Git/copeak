@@ -14,23 +14,27 @@ const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(a=>a[1]);
 assert.equal(ids.length,new Set(ids).size,'duplicate IDs');
 const refs=[...js.matchAll(/\$\('([^']+)'\)/g)].map(a=>a[1]);
 assert(refs.filter(id=>!ids.includes(id)).every(id=>id==='vcLast'),'missing required DOM IDs');
-for(const name of ['Summary','Review','Details']){
+for(const name of ['Summary','Review']){
  assert(html.includes('id="vcTab'+name+'"'));
  assert(html.includes('id="vcPanel'+name+'"'));
 }
-for(const name of ['vcReviewChunk','vcReviewSentence','vcReviewMeaning','vcReviewSentenceJa','vcReviewPrev','vcReviewNext','vcReviewListen','vcReviewRecord','vcReviewPlayback']){
+for(const name of ['vcReviewChunk','vcReviewSentence','vcReviewMeaning','vcReviewSentenceJa','vcReviewPrev','vcReviewNext','vcReviewSentenceButton','vcReviewRecord','vcReadTranscript','vcReadPercent','vcGaugeProgress']){
  assert(html.includes('id="'+name+'"'),name);
 }
-assert(html.includes('vocabulary-check.js?v=8.2.0'));
+assert(html.includes('vocabulary-check.js?v=8.3.0'));
 assert(css.includes('body.vc-is-result #vcResult')&&css.includes('overflow:hidden'),'result shell should not scroll');
 assert(css.includes('.vc-result-tabs')&&css.includes('.vc-review-card'));
-assert(js.includes("root.speechSynthesis.speak(u)"),'TTS');
-assert(js.includes("navigator.mediaDevices.getUserMedia({audio:true,video:false})"),'mic');
-assert(js.includes("new root.MediaRecorder(stream)"),'record');
-assert(js.includes("new root.Audio(reviewAudioUrl)"),'recording replay');
-assert(js.includes("getTracks().forEach(t=>t.stop())"),'mic cleanup');
-assert(js.includes("URL.revokeObjectURL(reviewAudioUrl)"),'recording cleanup');
+
+
+
+
+
+
 assert(js.includes("nextTarget(session.answers,session.estimate)"),'adaptive engine preserved');
+assert(js.includes('new Constructor()') && js.includes('rec.onresult=event=>'),'SpeechRecognition');
+assert(js.includes('vcSchoolLevel'),'visible school/Eiken level');
+assert(!html.includes('vcPilotExport')&&!html.includes('vcTabDetails'),'dev UI removed');
+assert(html.includes('vocabulary-reading.js?v=8.3.0'),'matching module');
 const translation=JSON.parse(read('data/v8-2-example-ja.json'));
 const questions=JSON.parse(read('data/v8-diagnostic-800.json')).questions;
 const questionMap=new Map(questions.map(q=>[q.id,q]));
@@ -42,4 +46,4 @@ for(const item of translation.items){
 for(const level of [2,4,6,8]){
  assert(core.nextTarget([{level,correct:false}],{theta:7.9})<level);
 }
-console.log('PASS v8.2: tabbed one-screen results, TTS, private microphone replay, 40 Japanese sentence drafts, unchanged adaptive diagnostic.');
+console.log('PASS v8.3: two-tab results, read-aloud scoring, 40 Japanese sentence drafts, unchanged adaptive diagnostic.');

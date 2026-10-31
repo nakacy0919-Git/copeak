@@ -6,8 +6,9 @@
   <meta name="theme-color" content="#ecf5ff">
   <title>Copeak | 英語の語彙力診断</title>
   <link rel="icon" href="logo.png">
-  <link rel="stylesheet" href="vocabulary-check.css?v=8.2.0">
-  <script defer src="vocabulary-check.js?v=8.2.0"></script>
+  <link rel="stylesheet" href="vocabulary-check.css?v=8.3.0">
+  <script defer src="vocabulary-reading.js?v=8.3.0"></script>
+  <script defer src="vocabulary-check.js?v=8.3.0"></script>
 </head>
 <body>
   <main class="vc-shell">
@@ -96,16 +97,16 @@
           <span class="vc-result-head-mode" id="vcResultMode">Quick</span>
         </header>
         <div class="vc-result-tabs" role="tablist" aria-label="Result sections">
-          <button type="button" id="vcTabSummary" class="vc-result-tab is-active" role="tab" aria-controls="vcPanelSummary" aria-selected="true" data-t="tabSummary">結果を見る</button>
+          <button type="button" id="vcTabSummary" class="vc-result-tab is-active" role="tab" aria-controls="vcPanelSummary" aria-selected="true" data-t="tabSummary">診断結果</button>
           <button type="button" id="vcTabReview" class="vc-result-tab" role="tab" aria-controls="vcPanelReview" aria-selected="false" data-t="tabReview">復習・音読</button>
-          <button type="button" id="vcTabDetails" class="vc-result-tab" role="tab" aria-controls="vcPanelDetails" aria-selected="false" data-t="tabDetails">詳しい分析</button>
         </div>
         <div class="vc-result-panels">
           <section id="vcPanelSummary" class="vc-result-panel vc-summary-panel" role="tabpanel" aria-labelledby="vcTabSummary">
             <div class="vc-result-summary-grid">
               <div class="vc-result-hero">
-                <span class="vc-result-overline" data-t="estimated">推定レベル</span>
+                <span class="vc-result-overline" data-t="estimated">あなたの語彙レベル</span>
                 <div class="vc-result-level"><strong id="vcScoreLevel">Lv.4</strong><span> / 8</span></div>
+                <strong class="vc-school-level" id="vcSchoolLevel"></strong>
                 <div class="vc-result-range"><span data-t="estimateRange">推定の幅</span><strong id="vcRange">Lv.3–5</strong></div>
                 <div class="vc-result-stats">
                   <div><small data-t="correct">正解</small><b id="vcRight">0 / 25</b></div>
@@ -124,33 +125,36 @@
           </section>
           <section id="vcPanelReview" class="vc-result-panel vc-review-panel" role="tabpanel" aria-labelledby="vcTabReview" hidden>
             <div class="vc-review-stage">
-              <div class="vc-review-top"><div><strong data-t="review">復習したいチャンク</strong><span id="vcReviewCount" aria-live="polite">1 / 1</span></div>
-                <div class="vc-review-switch"><button id="vcReviewPrev" type="button" aria-label="Previous chunk">‹</button><button id="vcReviewNext" type="button" aria-label="Next chunk">›</button></div>
+              <div class="vc-review-top">
+                <div><strong data-t="review">復習・例文音読</strong><span id="vcReviewCount" aria-live="polite">0 / 0</span></div>
+                <div class="vc-review-switch"><button id="vcReviewPrev" type="button" aria-label="前の例文">‹</button><button id="vcReviewNext" type="button" aria-label="次の例文">›</button></div>
               </div>
               <div class="vc-review-card">
                 <span class="vc-review-focus-label" data-t="reviewFocus">今回の重要表現</span>
                 <strong id="vcReviewChunk" class="vc-review-chunk" lang="en">—</strong>
-                <p id="vcReviewSentence" class="vc-review-sentence" lang="en"></p>
-                <div class="vc-review-translation"><span data-t="reviewMeaning">日本語の意味</span><strong id="vcReviewMeaning">—</strong></div>
+                <button id="vcReviewSentenceButton" class="vc-sentence-speaker" type="button" aria-label="例文をタップしてお手本を聞く">
+                  <span id="vcReviewSentence" class="vc-review-sentence" lang="en"></span>
+                  <span class="vc-inline-speaker" aria-hidden="true">🔊</span>
+                </button>
+                <div class="vc-review-translation"><span data-t="reviewMeaning">チャンクの意味</span><strong id="vcReviewMeaning">—</strong></div>
                 <p id="vcReviewSentenceJa" class="vc-review-example-ja" hidden></p>
-                <div class="vc-review-actions">
-                  <button id="vcReviewListen" class="vc-review-listen" type="button"><span aria-hidden="true">▶</span><span data-t="reviewListen">お手本を聞く</span></button>
-                  <button id="vcReviewRecord" class="vc-review-record" type="button"><span aria-hidden="true">●</span><span id="vcReviewRecordLabel" data-t="reviewRecord">自分の音読を録音</span></button>
-                  <button id="vcReviewPlayback" class="vc-review-playback" type="button" disabled><span aria-hidden="true">♫</span><span data-t="reviewPlayback">録音を聞く</span></button>
+                <div class="vc-reading-area">
+                  <button id="vcReviewRecord" class="vc-review-record vc-read-start" type="button">
+                    <span aria-hidden="true">●</span><span id="vcReviewRecordLabel" data-t="reviewRecord">音読スタート</span>
+                  </button>
+                  <div class="vc-reading-feedback" id="vcReadingFeedback" hidden>
+                    <div class="vc-reading-gauge" role="img" aria-label="音読一致率">
+                      <svg viewBox="0 0 220 115" aria-hidden="true">
+                        <path d="M 20 100 A 90 90 0 0 1 200 100" class="vc-gauge-bg" fill="none"/>
+                        <path d="M 20 100 A 90 90 0 0 1 200 100" id="vcGaugeProgress" class="vc-gauge-progress" fill="none" pathLength="100"/>
+                      </svg>
+                      <div class="vc-gauge-text"><strong id="vcReadPercent">0%</strong><small data-t="readingAccuracy">音読一致率</small></div>
+                    </div>
+                    <div class="vc-recognized-block"><small data-t="recognizedWords">認識された英語</small><div id="vcReadTranscript" class="vc-transcript-words" lang="en" aria-live="polite"></div></div>
+                  </div>
+                  <p class="vc-review-status" id="vcReviewStatus" role="status" aria-live="polite"></p>
                 </div>
-                <p class="vc-review-status" id="vcReviewStatus" role="status" aria-live="polite"></p>
               </div>
-            </div>
-          </section>
-          <section id="vcPanelDetails" class="vc-result-panel vc-details-panel" role="tabpanel" aria-labelledby="vcTabDetails" hidden>
-            <div class="vc-details-wrap">
-              <h2 data-t="detailReference">診断の参考情報</h2>
-              <p class="vc-v8-reference" id="vcV8Reference"></p>
-              <p id="vcV8Evidence"></p>
-              <p id="vcV8Limit" class="vc-v8-limitation"></p>
-              <p class="vc-result-note" data-t="notCertified">参考値・公式認定ではありません</p>
-              <div class="vc-v8-pilot"><button id="vcPilotExport" class="vc-secondary" type="button" data-t="v8Export">匿名の試行回答CSVを保存</button><small data-t="v8PilotNote">個人情報を含まず、端末にのみダウンロードされます。</small></div>
-              <ul id="vcReview" class="vc-review" hidden></ul>
             </div>
           </section>
         </div>
