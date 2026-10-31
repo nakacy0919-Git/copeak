@@ -91,7 +91,7 @@ body.copeak-home-mode {
 .cp-action-read { background:linear-gradient(120deg,#f5faff,#e4f1ff); }
 .cp-action-create { background:linear-gradient(120deg,#f7fffd,#e2f8f3); }
 .cp-action-sound { background:linear-gradient(120deg,#fffaf1,#fff0d9); }
-.cp-action-japeak { background:linear-gradient(120deg,#faf8ff,#eee9ff); }
+.cp-action-vocabulary { background:linear-gradient(120deg,#faf8ff,#eee9ff); }
 .cp-action-icon {
   width:clamp(62px,9vw,116px); height:clamp(62px,9vw,116px);
   display:grid;place-items:center;flex:none;border-radius:25%;
@@ -105,7 +105,7 @@ body.copeak-home-mode {
   width:clamp(33px,3.7vw,46px);height:clamp(33px,3.7vw,46px);border-radius:50%;display:grid;place-items:center;
   background:rgba(255,255,255,.64);font-size:clamp(20px,2.3vw,29px);font-weight:800;flex:none;color:#2589db;
 }
-.cp-action-create .cp-action-arrow{color:#159b83}.cp-action-sound .cp-action-arrow{color:#f19820}.cp-action-japeak .cp-action-arrow{color:#7964df}
+.cp-action-create .cp-action-arrow{color:#159b83}.cp-action-sound .cp-action-arrow{color:#f19820}.cp-action-vocabulary .cp-action-arrow{color:#7964df}
 .cp-home-extras {display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(9px,1.6vh,18px);min-height:88px;}
 .cp-extra {
   min-width:0; background:rgba(255,255,255,.87); border:1px solid #e4edf7;
@@ -192,8 +192,8 @@ body.copeak-home-mode {
 /* Home action PNG art: maintain original card sizing, alignment and tap targets. */
 #copeakHomeHub .cp-action-icon { overflow: hidden; }
 #copeakHomeHub .cp-action-icon img { display:block; width:88%; height:88%; max-width:100%; max-height:100%; object-fit:contain; object-position:center; pointer-events:none; user-select:none; }
-#copeakHomeHub .cp-action-japeak .cp-action-icon img { width:95%; height:95%; }
-@media (max-width:700px) { #copeakHomeHub .cp-action-icon img { width:92%; height:92%; } #copeakHomeHub .cp-action-japeak .cp-action-icon img { width:100%; height:100%; } }
+#copeakHomeHub .cp-action-vocabulary .cp-action-icon img { width:95%; height:95%; }
+@media (max-width:700px) { #copeakHomeHub .cp-action-icon img { width:92%; height:92%; } #copeakHomeHub .cp-action-vocabulary .cp-action-icon img { width:100%; height:100%; } }
 
 /* COPEAK HOME STUDENTS ART BEGIN */
 /* Decorative artwork, sized to the free center of the Copeak header. */
@@ -232,3 +232,6 @@ body.copeak-home-mode {
   #copeakHomeHub .cp-home-students-banner { animation: none; opacity: 1; }
 }
 /* COPEAK HOME STUDENTS ART END */
+
+/* Vocabulary Check replaces Japeak as the fourth main dashboard card. */
+#copeakHomeHub .cp-action-vocabulary .cp-action-icon img{width:88%;height:88%;object-fit:contain}

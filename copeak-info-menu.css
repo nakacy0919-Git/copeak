@@ -69,3 +69,7 @@
  #cpInfoPage .cp-info-app .cp-info-chevron{right:8px;top:8px}
  #cpInfoPage .cp-info-link small{font-size:10px}
 }
+
+/* Japeak moved from the dashboard into the visible Related Services group. */
+#cpInfoPage .cp-info-app-japeak{grid-column:1/-1;min-height:88px;background:linear-gradient(115deg,#f9f7ff,#efecff);border-color:#e1daf7}
+#cpInfoPage .cp-info-app-japeak .cp-info-app-mark img{display:block;width:90%;height:90%;object-fit:contain}
