@@ -18,6 +18,7 @@
     recordTip:['学習記録を見る','View learning records','查看學習記錄','Xem lịch sử học','Lihat riwayat belajar','Tingnan ang tala ng pag-aaral','अभ्यास रिकॉर्ड देखें'],
     aiTip:['AI音声を再生 / 停止','Play / stop AI audio','播放／停止 AI 語音','Phát / dừng giọng AI','Putar / hentikan suara AI','I-play / ihinto ang AI audio','AI आवाज़ चलाएँ / रोकें'],
     details:['詳細を見る','View Details','查看詳情','Xem chi tiết','Lihat detail','Tingnan ang detalye','विवरण देखें'],
+    closeDetails:['閉じる','Close','關閉','Đóng','Tutup','Isara','बंद करें'],
     lessDetails:['詳細を閉じる','Hide Details','收合詳情','Ẩn chi tiết','Tutup detail','Itago ang detalye','विवरण छिपाएँ'],
     moveMaterial:['教材を移動','Move Lesson','移動教材','Chuyển bài học','Pindahkan Materi','Ilipat ang Aralin','पाठ स्थानांतरित करें'],
     chooseFolder:['移動先のフォルダを選択してください。','Select the destination folder.','請選擇目的地資料夾。','Chọn thư mục đích.','Pilih folder tujuan.','Pumili ng folder na paglilipatan.','गंतव्य फ़ोल्डर चुनें।'],
@@ -81,7 +82,6 @@
     ['#targetTextWrapper button[onclick="openFullscreenPreview()"] span.sm\\:hidden','fullscreenShort',''],
     ['#feedbackToggleBtn','details','＋ '],
     ['#youtubeReplayBtn','replay','↺ '],
-    ['#youtubeLoopStatus','loop',''],
   ];
   // Add the few English-only labels here, without changing the course content.
   text.replay=['Replay','Replay','重播','Phát lại','Putar Ulang','Ulitin','फिर चलाएँ'];
@@ -125,13 +125,18 @@
       const el=document.querySelector(selector);
       if(!el)continue;
       if(key==='details'){
-        // Expanded feedback has its own opposite state.
-        const curr=el.textContent.trim();
-        const currentKey=reverses.get(curr.replace(/^[＋－]\s*/,''))||'details';
-        put(el,(currentKey==='lessDetails'?'－ ':'＋ ')+value(currentKey));
+        const expanded=document.getElementById('slaAdviceContainer')?.classList.contains('feedback-expanded');
+        put(el,(expanded?'− ':'＋ ')+value(expanded?'closeDetails':'details'));
       }else{
         put(el,prefix+value(key));
       }
+    }
+    const loop=document.getElementById('youtubeLoopStatus');
+    if(loop && loop.textContent.trim() && reverses.get(loop.textContent.trim())==='loop')put(loop,value('loop'));
+    for(const id of ['p2-name','p3-name','p1-status','p2-status','p3-status']){
+      const el=document.getElementById(id);
+      const key=el && reverses.get(el.textContent.trim());
+      if(key && ['player2','player3','waiting'].includes(key))put(el,value(key));
     }
     for(const [selector,key,attr] of tooltips){
       const el=document.querySelector(selector),v=value(key);
@@ -161,7 +166,11 @@
     }
     for(const selector of roots)translateStatic(document.querySelector(selector));
     const fs=document.querySelector('#fullscreenPreviewOverlay #fsTextPane > div:first-child');
-    if(fs && fs.textContent.includes('単語をタップすると発音が聞けます'))put(fs,'🔊 '+value('tap'));
+    if(fs){
+      const content=fs.textContent.trim();
+      const key=reverses.get(content.replace(/^🔊\s*/, ''));
+      if(key==='tap')put(fs,'🔊 '+value('tap'));
+    }
   }
   let scheduled=false;
   function schedule(){
@@ -187,8 +196,16 @@
     }
     // Fullscreen preview is generated dynamically as a direct body child.
     new MutationObserver(changes=>{
-      if(changes.some(change=>Array.from(change.addedNodes).some(
-        node=>node.nodeType===1&&(node.id==='fullscreenPreviewOverlay'||node.id==='moveLessonModal'))))schedule();
+      for(const change of changes){
+        for(const node of change.addedNodes){
+          if(node.nodeType!==1)continue;
+          if(node.id==='fullscreenPreviewOverlay'){
+            // Fullscreen image control is rebuilt on every toggle.
+            new MutationObserver(schedule).observe(node,{childList:true,subtree:true});
+            schedule();
+          }else if(node.id==='moveLessonModal'){schedule();}
+        }
+      }
     }).observe(document.body,{childList:true});
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initialize);
