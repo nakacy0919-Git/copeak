@@ -99,7 +99,7 @@ function localizeLibrary(lang){
     if(exact)return libraryUI[exact][idx];
     const count=trim.match(/^(\d+)\s*(教材|lessons|bài học|materi|aralin|पाठ)$/);
     if(count)return count[1]+' '+libraryUI.lessons[idx];
-    const times=trim.match(/^★\s*(\d+)(回|times|次|lần|kali|beses|बार)$/);
+    const times=trim.match(/^★\s*(\d+)\s*(回|times|次|lần|kali|beses|बार)$/);
     if(times)return '★ '+times[1]+' '+t('times',lang);
     return null;
   };
