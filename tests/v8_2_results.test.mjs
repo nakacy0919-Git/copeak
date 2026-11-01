@@ -38,7 +38,8 @@ assert(html.includes('vocabulary-reading.js?v=8.4.0'),'matching module');
 const translation=JSON.parse(read('data/v8-2-example-ja.json'));
 const questions=JSON.parse(read('data/v8-diagnostic-800.json')).questions;
 const questionMap=new Map(questions.map(q=>[q.id,q]));
-assert.equal(translation.items.length,41);
+assert.equal(translation.items.length,800);
+assert.equal(new Set(translation.items.map(item=>item.id)).size,800);
 for(const item of translation.items){
   assert.equal(questionMap.get(item.id)?.example_en,item.source_example_en,'English sentence changed');
   assert(item.example_ja.trim().length>=8);
@@ -46,4 +47,4 @@ for(const item of translation.items){
 for(const level of [2,4,6,8]){
  assert(core.nextTarget([{level,correct:false}],{theta:7.9})<level);
 }
-console.log('PASS v8.3: two-tab results, read-aloud scoring, 40 Japanese sentence drafts, unchanged adaptive diagnostic.');
+console.log('PASS v8.3: two-tab results, read-aloud scoring, 800 Japanese sentence drafts, unchanged adaptive diagnostic.');
