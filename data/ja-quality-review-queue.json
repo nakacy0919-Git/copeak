@@ -1,49 +1,9 @@
 {
   "status": "not_teacher_reviewed",
-  "remaining": 1521,
-  "diagnosticItems": 349,
+  "remaining": 1458,
+  "diagnosticItems": 286,
   "instruction": "Compare English and Japanese sentences; correct omitted meaning, tense, negation, idioms and unnatural literal rendering.",
   "items": [
-    {
-      "id": "CK8-014",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "The committee continues to be mired in controversy.",
-      "example_ja": "委員会は、論争で移動し続けています。",
-      "chunk_en": "be mired in controversy",
-      "chunk_meaning_ja": "論争から抜け出せない",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-015",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "The program appears to be beset by problems from the start.",
-      "example_ja": "スタートから問題が起きると、プログラムが設定されます。",
-      "chunk_en": "be beset by problems",
-      "chunk_meaning_ja": "多くの問題に悩まされる",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-016",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "A society should not be bereft of compassion.",
-      "example_ja": "社会は、思いやりを払わない。",
-      "chunk_en": "be bereft of",
-      "chunk_meaning_ja": "〜を欠いている",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-024",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "The next stage will be contingent on approval from the board.",
-      "example_ja": "次の段階は、ボードからの承認に関連します。",
-      "chunk_en": "be contingent on approval",
-      "chunk_meaning_ja": "承認を条件とする",
-      "reason": "semantic_review_pending"
-    },
     {
       "id": "CK8-027",
       "level": 8,
@@ -52,46 +12,6 @@
       "example_ja": "政策立案者は、意図されていない結果を認識しなければなりません。",
       "chunk_en": "be cognizant of",
       "chunk_meaning_ja": "〜を十分に認識している",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-028",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "Leaders should be mindful of the implications of automation.",
-      "example_ja": "リーダーは、自動化の意義に留意すべきである。",
-      "chunk_en": "be mindful of the implications",
-      "chunk_meaning_ja": "含意を慎重に意識する",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-029",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "We need to be circumspect about drawing broad conclusions.",
-      "example_ja": "広範囲の結論を描き出すことについて円滑にする必要があります。",
-      "chunk_en": "be circumspect about",
-      "chunk_meaning_ja": "〜に慎重である",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-030",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "The report must be unequivocal about the safety risks.",
-      "example_ja": "安全上のリスクについては、報告が必須である。",
-      "chunk_en": "be unequivocal about",
-      "chunk_meaning_ja": "〜について明確な態度を示す",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-032",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "Scientists would be hard pressed to justify such a claim.",
-      "example_ja": "サイエンティストは、そのような主張を正当化するために圧迫されるだろう.",
-      "chunk_en": "be hard pressed to",
-      "chunk_meaning_ja": "〜するのが非常に難しい",
       "reason": "semantic_review_pending"
     },
     {
@@ -105,86 +25,6 @@
       "reason": "semantic_review_pending"
     },
     {
-      "id": "CK8-036",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "Researchers appear to be on the cusp of a major discovery.",
-      "example_ja": "研究者は、主要な発見の要約に現れる。",
-      "chunk_en": "be on the cusp of",
-      "chunk_meaning_ja": "〜の目前にある",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-038",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "The industry continues to be in the throes of rapid change.",
-      "example_ja": "業界は急速な変化の危機に瀕しています。",
-      "chunk_en": "be in the throes of",
-      "chunk_meaning_ja": "〜の真っただ中にある",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-044",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "A sudden budget cut could throw a wrench into our plans.",
-      "example_ja": "突然の予算カットは、私たちの計画にレンチを投げることができます。",
-      "chunk_en": "throw a wrench into",
-      "chunk_meaning_ja": "〜を妨害する",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-047",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "The program was designed to run the gamut of student needs.",
-      "example_ja": "プログラムは、学生のニーズの全域を実行するために設計されました.",
-      "chunk_en": "run the gamut of",
-      "chunk_meaning_ja": "〜の全範囲に及ぶ",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-053",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "Silence could be tantamount to an admission of wrongdoing.",
-      "example_ja": "サイレンスは、不正行為の入場に立ち向かう可能性があります。",
-      "chunk_en": "be tantamount to an admission",
-      "chunk_meaning_ja": "認めたも同然である",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-079",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "Low-income families often bear the brunt of rising prices.",
-      "example_ja": "低所得の家族は頻繁に上昇価格の金を耐えます。",
-      "chunk_en": "bear the brunt of",
-      "chunk_meaning_ja": "〜の最も大きな打撃を受ける",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-080",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "Discrimination is antithetical to equal opportunity.",
-      "example_ja": "差別は等しい機会に反理論的です。",
-      "chunk_en": "is antithetical to",
-      "chunk_meaning_ja": "〜と根本的に相いれない",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-090",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "The exact cause is still open to conjecture.",
-      "example_ja": "正確な原因は、注射にはまだ開いています。",
-      "chunk_en": "open to conjecture",
-      "chunk_meaning_ja": "推測の余地がある",
-      "reason": "semantic_review_pending"
-    },
-    {
       "id": "CK8-091",
       "level": 8,
       "priority": "diagnostic_first",
@@ -195,166 +35,6 @@
       "reason": "semantic_review_pending"
     },
     {
-      "id": "CK8-096",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "The board may cede authority to local schools.",
-      "example_ja": "ボードは、地元の学校に権限を付与することができます。",
-      "chunk_en": "cede authority to",
-      "chunk_meaning_ja": "〜に権限を譲る",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-097",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "Public consultation can confer legitimacy on a decision.",
-      "example_ja": "公共の相談は、決定に合法性を付与することができます.",
-      "chunk_en": "confer legitimacy on",
-      "chunk_meaning_ja": "〜に正当性を与える",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-106",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "The action was taken in contravention of the agreement.",
-      "example_ja": "契約の矛盾に取り扱われた行為。",
-      "chunk_en": "in contravention of",
-      "chunk_meaning_ja": "〜に違反して",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-109",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "In the final analysis, fairness should guide the decision.",
-      "example_ja": "最終的な分析では、公平性は決定を導くべきです。",
-      "chunk_en": "in the final analysis",
-      "chunk_meaning_ja": "結局のところ",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-112",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "The essay managed to make a compelling distinction between the two views.",
-      "example_ja": "2つのビュー間の説得力のある区別をするために管理されたエッセイ。",
-      "chunk_en": "make a compelling distinction",
-      "chunk_meaning_ja": "説得力のある区別を示す",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-123",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "The program operates under the auspices of the university.",
-      "example_ja": "このプログラムは、大学の後援の下で動作します。",
-      "chunk_en": "under the auspices of",
-      "chunk_meaning_ja": "〜の後援・主催のもとで",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-125",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "The policy was drafted with due regard for student privacy.",
-      "example_ja": "本方針は、学生のプライバシーに関して規定されたものです。",
-      "chunk_en": "with due regard for",
-      "chunk_meaning_ja": "〜に十分配慮して",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-133",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "They were skating on thin ice by ignoring warnings.",
-      "example_ja": "警告を無視して薄い氷にスケートしていました。",
-      "chunk_en": "were skating on thin ice",
-      "chunk_meaning_ja": "非常に危ういことをしている",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-135",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "The new analyst felt out of her depth.",
-      "example_ja": "深みを感じられる、新しいアナリスト。",
-      "chunk_en": "out of her depth",
-      "chunk_meaning_ja": "力量以上の状況にある",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-137",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "The rescue team was up against it in the storm.",
-      "example_ja": "救助チームは嵐の中でそれに対して立ち上がりました。",
-      "chunk_en": "was up against it",
-      "chunk_meaning_ja": "厳しい状況に直面する",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-139",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "The audience was taken aback by the announcement.",
-      "example_ja": "発表までに聴衆が戻ってきました。",
-      "chunk_en": "was taken aback",
-      "chunk_meaning_ja": "面食らう",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-145",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "The minister was dogged by controversy.",
-      "example_ja": "論争でミニスターが頑張りました。",
-      "chunk_en": "was dogged by controversy",
-      "chunk_meaning_ja": "論争につきまとわれる",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-148",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "The proposal was stymied by opposition.",
-      "example_ja": "提案は反対側からスタイリングされた。",
-      "chunk_en": "was stymied by opposition",
-      "chunk_meaning_ja": "反対で行き詰まる",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-151",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "The original plan was overtaken by events.",
-      "example_ja": "オリジナルプランはイベントによって引き継がれていました。",
-      "chunk_en": "was overtaken by events",
-      "chunk_meaning_ja": "情勢の変化に追い越される",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-158",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "The sanctions were deemed appropriate by the panel.",
-      "example_ja": "パネルのサクションは適切と判断しました。",
-      "chunk_en": "were deemed appropriate",
-      "chunk_meaning_ja": "適切と判断される",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-162",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "Some diplomats are immune from prosecution.",
-      "example_ja": "いくつかの外交は、予防から免疫です。",
-      "chunk_en": "are immune from prosecution",
-      "chunk_meaning_ja": "訴追を免れる",
-      "reason": "semantic_review_pending"
-    },
-    {
       "id": "CK8-164",
       "level": 8,
       "priority": "diagnostic_first",
@@ -362,36 +42,6 @@
       "example_ja": "両当事者は合意に拘束されます。",
       "chunk_en": "are bound by an agreement",
       "chunk_meaning_ja": "合意に拘束される",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-167",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "The request was beyond the director's remit.",
-      "example_ja": "取締役の退任を過ぎた。",
-      "chunk_en": "beyond the director's remit",
-      "chunk_meaning_ja": "職務権限の範囲外にある",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-168",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "The action was within the bounds of the law.",
-      "example_ja": "訴訟は、法律の限界の中にありました。",
-      "chunk_en": "was within the bounds of",
-      "chunk_meaning_ja": "〜の範囲内である",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK8-183",
-      "level": 8,
-      "priority": "diagnostic_first",
-      "example_en": "Accurate data is the linchpin of the project.",
-      "example_ja": "正確なデータは、プロジェクトのピンです。",
-      "chunk_en": "is the linchpin of",
-      "chunk_meaning_ja": "〜の要となる",
       "reason": "semantic_review_pending"
     },
     {
@@ -425,36 +75,6 @@
       "reason": "semantic_review_pending"
     },
     {
-      "id": "CK7-020",
-      "level": 7,
-      "priority": "diagnostic_first",
-      "example_en": "Poor communication may exacerbate the problem.",
-      "example_ja": "貧しいコミュニケーションは問題を悪化させるかもしれません。",
-      "chunk_en": "exacerbate the problem",
-      "chunk_meaning_ja": "問題を悪化させる",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK7-021",
-      "level": 7,
-      "priority": "diagnostic_first",
-      "example_en": "Inaccurate reports can undermine confidence in science.",
-      "example_ja": "不正確なレポートは、科学の自信を損なうことができます。",
-      "chunk_en": "undermine confidence",
-      "chunk_meaning_ja": "信頼を損なう",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK7-048",
-      "level": 7,
-      "priority": "diagnostic_first",
-      "example_en": "Language support can be instrumental in successful integration.",
-      "example_ja": "言語サポートは、成功の統合に尽力できます。",
-      "chunk_en": "be instrumental in",
-      "chunk_meaning_ja": "〜に大きく貢献する",
-      "reason": "semantic_review_pending"
-    },
-    {
       "id": "CK7-051",
       "level": 7,
       "priority": "diagnostic_first",
@@ -462,36 +82,6 @@
       "example_ja": "ローカル教育者は、プロジェクトで重要な役割を果たしています。",
       "chunk_en": "play a pivotal role",
       "chunk_meaning_ja": "中心的な役割を果たす",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK7-053",
-      "level": 7,
-      "priority": "diagnostic_first",
-      "example_en": "Fair access should be at the heart of the debate.",
-      "example_ja": "フェアアクセスは、議論の中心にある必要があります。",
-      "chunk_en": "be at the heart of",
-      "chunk_meaning_ja": "〜の中心にある",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK7-057",
-      "level": 7,
-      "priority": "diagnostic_first",
-      "example_en": "Safety concerns may come to the fore during the review.",
-      "example_ja": "安全上の懸念事項は、審査中にフォアに来る可能性があります。",
-      "chunk_en": "come to the fore",
-      "chunk_meaning_ja": "表面化する",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK7-059",
-      "level": 7,
-      "priority": "diagnostic_first",
-      "example_en": "The findings must stand up to scrutiny.",
-      "example_ja": "調査結果は、失礼に立ち向かう必要があります。",
-      "chunk_en": "stand up to scrutiny",
-      "chunk_meaning_ja": "厳密な検証に耐える",
       "reason": "semantic_review_pending"
     },
     {
@@ -505,36 +95,6 @@
       "reason": "semantic_review_pending"
     },
     {
-      "id": "CK7-069",
-      "level": 7,
-      "priority": "diagnostic_first",
-      "example_en": "Success should not come at the expense of others.",
-      "example_ja": "成功は他人の費用で来るべきではありません。",
-      "chunk_en": "at the expense of others",
-      "chunk_meaning_ja": "他者を犠牲にして",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK7-070",
-      "level": 7,
-      "priority": "diagnostic_first",
-      "example_en": "The new figures remain under close examination.",
-      "example_ja": "新しい数字は、クローズド審査下にあります。",
-      "chunk_en": "under close examination",
-      "chunk_meaning_ja": "厳しく精査されて",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK7-077",
-      "level": 7,
-      "priority": "diagnostic_first",
-      "example_en": "The scientist advanced a hypothesis about language learning.",
-      "example_ja": "科学者は、言語学習に関する仮説を進めました。",
-      "chunk_en": "advanced a hypothesis",
-      "chunk_meaning_ja": "仮説を提示する",
-      "reason": "semantic_review_pending"
-    },
-    {
       "id": "CK7-080",
       "level": 7,
       "priority": "diagnostic_first",
@@ -542,26 +102,6 @@
       "example_ja": "教師は生徒の自信に影響を与える立場にあります。",
       "chunk_en": "in a position to influence",
       "chunk_meaning_ja": "〜に影響を与えられる立場にある",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK7-081",
-      "level": 7,
-      "priority": "diagnostic_first",
-      "example_en": "Research findings should be open to scrutiny.",
-      "example_ja": "調査結果は、スクラッチニーに開くべきです。",
-      "chunk_en": "be open to scrutiny",
-      "chunk_meaning_ja": "検証を受け入れる",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK7-085",
-      "level": 7,
-      "priority": "diagnostic_first",
-      "example_en": "The speaker worked to build a coherent case for reform.",
-      "example_ja": "スピーカーは、変革のための一貫したケースを構築しました。",
-      "chunk_en": "build a coherent case",
-      "chunk_meaning_ja": "筋の通った主張を組み立てる",
       "reason": "semantic_review_pending"
     },
     {
@@ -585,26 +125,6 @@
       "reason": "semantic_review_pending"
     },
     {
-      "id": "CK7-092",
-      "level": 7,
-      "priority": "diagnostic_first",
-      "example_en": "The project encountered unforeseen obstacles during testing.",
-      "example_ja": "実験中に予期しない障害が発生しました。",
-      "chunk_en": "encountered unforeseen obstacles",
-      "chunk_meaning_ja": "予期せぬ障害に直面する",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK7-095",
-      "level": 7,
-      "priority": "diagnostic_first",
-      "example_en": "The agency faced mounting criticism after the decision.",
-      "example_ja": "代理店は決定の後に批判を土台に直面しました。",
-      "chunk_en": "faced mounting criticism",
-      "chunk_meaning_ja": "強まる批判に直面する",
-      "reason": "semantic_review_pending"
-    },
-    {
       "id": "CK7-101",
       "level": 7,
       "priority": "diagnostic_first",
@@ -612,36 +132,6 @@
       "example_ja": "小さな選択肢は、時間が経つにつれて深い結果をもたらすことができます。",
       "chunk_en": "have profound consequences",
       "chunk_meaning_ja": "深刻な結果をもたらす",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK7-102",
-      "level": 7,
-      "priority": "diagnostic_first",
-      "example_en": "The conclusion is in keeping with the evidence.",
-      "example_ja": "結論は証拠を保ちつつあります。",
-      "chunk_en": "in keeping with the evidence",
-      "chunk_meaning_ja": "証拠と一致して",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK7-103",
-      "level": 7,
-      "priority": "diagnostic_first",
-      "example_en": "Officials should act in the public interest.",
-      "example_ja": "公務員は公益者に行動すべきである。",
-      "chunk_en": "in the public interest",
-      "chunk_meaning_ja": "公益のために",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK7-110",
-      "level": 7,
-      "priority": "diagnostic_first",
-      "example_en": "The technology may pose an ethical dilemma.",
-      "example_ja": "テクノロジーは、倫理的なジレンマをポーズすることができます。",
-      "chunk_en": "pose an ethical dilemma",
-      "chunk_meaning_ja": "倫理的なジレンマをもたらす",
       "reason": "semantic_review_pending"
     },
     {
@@ -665,36 +155,6 @@
       "reason": "semantic_review_pending"
     },
     {
-      "id": "CK7-136",
-      "level": 7,
-      "priority": "diagnostic_first",
-      "example_en": "The higher court may overturn a ruling.",
-      "example_ja": "高い裁判所は判決を上回るかもしれません。",
-      "chunk_en": "overturn a ruling",
-      "chunk_meaning_ja": "判決を覆す",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK7-137",
-      "level": 7,
-      "priority": "diagnostic_first",
-      "example_en": "The appeals court chose to uphold a ruling.",
-      "example_ja": "控訴裁判所は、判決を支持するために選ばれました.",
-      "chunk_en": "uphold a ruling",
-      "chunk_meaning_ja": "判決を支持する",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK7-143",
-      "level": 7,
-      "priority": "diagnostic_first",
-      "example_en": "The groups agreed to forge an alliance on the issue.",
-      "example_ja": "当社グループは、課題に関するアライアンスの推進に合意しました。",
-      "chunk_en": "forge an alliance",
-      "chunk_meaning_ja": "同盟を築く",
-      "reason": "semantic_review_pending"
-    },
-    {
       "id": "CK7-146",
       "level": 7,
       "priority": "diagnostic_first",
@@ -712,46 +172,6 @@
       "example_ja": "トレーニングは、新しいソフトウェアへの移行を容易にすることができます。",
       "chunk_en": "facilitate a transition",
       "chunk_meaning_ja": "移行を円滑にする",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK7-167",
-      "level": 7,
-      "priority": "diagnostic_first",
-      "example_en": "The town has undergone a shift toward tourism.",
-      "example_ja": "街は観光に向かった。",
-      "chunk_en": "undergone a shift",
-      "chunk_meaning_ja": "変化を経験する",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK7-171",
-      "level": 7,
-      "priority": "diagnostic_first",
-      "example_en": "The decision could spark controversy nationwide.",
-      "example_ja": "全国の論争をスパークできます。",
-      "chunk_en": "spark controversy",
-      "chunk_meaning_ja": "論争を巻き起こす",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK7-172",
-      "level": 7,
-      "priority": "diagnostic_first",
-      "example_en": "The proposal triggered a backlash from residents.",
-      "example_ja": "住民からバックラッシュをトリガーした提案",
-      "chunk_en": "triggered a backlash",
-      "chunk_meaning_ja": "反発を招く",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK7-174",
-      "level": 7,
-      "priority": "diagnostic_first",
-      "example_en": "The unusual spending may invite scrutiny.",
-      "example_ja": "珍しい支出は、スクラッチニーを誘う可能性があります。",
-      "chunk_en": "invite scrutiny",
-      "chunk_meaning_ja": "厳しい精査を招く",
       "reason": "semantic_review_pending"
     },
     {
@@ -775,26 +195,6 @@
       "reason": "semantic_review_pending"
     },
     {
-      "id": "CK7-199",
-      "level": 7,
-      "priority": "diagnostic_first",
-      "example_en": "Researchers can triangulate findings from interviews and surveys.",
-      "example_ja": "研究者は、インタビューやアンケートから調査結果をトリガーできます。",
-      "chunk_en": "triangulate findings",
-      "chunk_meaning_ja": "複数の方法で結果を検証する",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK7-200",
-      "level": 7,
-      "priority": "diagnostic_first",
-      "example_en": "The authors sought to reconcile apparent contradictions.",
-      "example_ja": "著者は明らかな矛盾を認めなければならない.",
-      "chunk_en": "reconcile apparent contradictions",
-      "chunk_meaning_ja": "一見した矛盾を整合させる",
-      "reason": "semantic_review_pending"
-    },
-    {
       "id": "CK6-003",
       "level": 6,
       "priority": "diagnostic_first",
@@ -805,26 +205,6 @@
       "reason": "semantic_review_pending"
     },
     {
-      "id": "CK6-007",
-      "level": 6,
-      "priority": "diagnostic_first",
-      "example_en": "Transport costs account for a large share of our budget.",
-      "example_ja": "予算の大きいシェアのための輸送コストアカウント。",
-      "chunk_en": "account for",
-      "chunk_meaning_ja": "〜の割合を占める",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK6-008",
-      "level": 6,
-      "priority": "diagnostic_first",
-      "example_en": "Researchers attribute the change to improved teaching methods.",
-      "example_ja": "研究者は、教育方法を改善するための変更を属性づけます。",
-      "chunk_en": "attribute the change to",
-      "chunk_meaning_ja": "…を〜のせいだと考える",
-      "reason": "semantic_review_pending"
-    },
-    {
       "id": "CK6-011",
       "level": 6,
       "priority": "diagnostic_first",
@@ -832,16 +212,6 @@
       "example_ja": "不公平なルールは、不必要な対立につながる可能性があります。",
       "chunk_en": "give rise to",
       "chunk_meaning_ja": "〜を生じさせる",
-      "reason": "semantic_review_pending"
-    },
-    {
-      "id": "CK6-013",
-      "level": 6,
-      "priority": "diagnostic_first",
-      "example_en": "The policy could come under scrutiny after the incident.",
-      "example_ja": "本方針は、事故後、廃棄される可能性があります。",
-      "chunk_en": "come under scrutiny",
-      "chunk_meaning_ja": "厳しい調査を受ける",
       "reason": "semantic_review_pending"
     },
     {

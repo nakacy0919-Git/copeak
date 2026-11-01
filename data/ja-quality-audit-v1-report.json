@@ -1,10 +1,10 @@
 {
   "date": "2026-11-01",
   "total": 5000,
-  "manuallyCorrected": 102,
+  "manuallyCorrected": 165,
   "structureBasedCorrected": 3337,
   "preservedEditorial": 40,
-  "untouchedMachineDraft": 1521,
+  "untouchedMachineDraft": 1458,
   "supportedTemplates": 164,
   "sourceExampleNotChanged": true,
   "manualByLevel": {
@@ -13,9 +13,9 @@
     "3": 4,
     "4": 11,
     "5": 1,
-    "6": 5,
-    "7": 23,
-    "8": 28
+    "6": 8,
+    "7": 48,
+    "8": 63
   },
   "structuralByLevel": {
     "1": 412,
@@ -33,16 +33,16 @@
     "3": 197,
     "4": 187,
     "5": 198,
-    "6": 192,
-    "7": 180,
-    "8": 171
+    "6": 189,
+    "7": 155,
+    "8": 136
   },
   "diagnosticTranslated": 800,
-  "diagnosticAlignedFocus": 526,
+  "diagnosticAlignedFocus": 577,
   "diagnosticStatuses": {
     "existing_editorial_draft": 41,
-    "machine_draft_needs_review": 349,
-    "assistant_semantically_checked_draft": 23,
+    "machine_draft_needs_review": 286,
+    "assistant_semantically_checked_draft": 86,
     "structure_based_draft_needs_review": 387
   },
   "manualExamples": [
