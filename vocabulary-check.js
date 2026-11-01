@@ -381,9 +381,24 @@
     let saved=null;try{saved=localStorage.getItem('copeak_lang')}catch(_){/* no storage */}
     return query==='ja'||query==='en'?query:(saved==='ja'||!saved?'ja':'en');
   }
+  function renderLandingTitle(){
+    const heading=$('vcLandingTitle');if(!heading)return;
+    const label=text('title');
+    // Keep the Japanese question together, including after language changes.
+    if(lang!=='ja'||!label.includes('、')){setText(heading,label);return}
+    const boundary=label.indexOf('、')+1;
+    const lines=[label.slice(0,boundary),label.slice(boundary)];
+    heading.replaceChildren(...lines.map(line=>{
+      const span=document.createElement('span');
+      span.className='vc-landing-title-line';
+      span.textContent=line;
+      return span;
+    }));
+  }
   function translate(){
     document.documentElement.lang=lang; $('vcUILanguage').value=lang;updateSoundButton();
     for(const element of document.querySelectorAll('[data-t]'))setText(element,text(element.dataset.t));
+    renderLandingTitle();
     if($('vcLoadState'))setText($('vcLoadState'),bank.length?text('readyFriendly'):text('loadingFriendly'));
     if(currentSession)renderQuestion();else if(lastResult)renderResult(lastResult);
     else displayLast();

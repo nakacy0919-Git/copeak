@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const read=p=>fs.readFileSync(path.join(root,p),'utf8');
+const html=read('vocabulary-check.html');
+const script=read('vocabulary-check.js');
+const css=read('vocabulary-check.css');
+assert.match(html,/<h1 id="vcLandingTitle" data-t="title"><span class="vc-landing-title-line">あなたの語彙力、<\/span><span class="vc-landing-title-line">何レベル？<\/span><\/h1>/);
+assert.match(script,/function renderLandingTitle\(\)/);
+assert(script.includes("if(lang!=='ja'||!label.includes('、'))"));
+assert.match(script,/renderLandingTitle\(\);/);
+assert.match(css,/#vcLandingTitle \.vc-landing-title-line\s*\{[^}]*display:block;[^}]*white-space:nowrap;/);
+assert.match(css,/#vcLandingTitle\{\s*font-size:clamp\(23px,2\.8vw,40px\)/);
+for(const asset of ['vocabulary-check.css','vocabulary-check.js'])assert(html.includes(asset+'?v=8.4.1'));
+console.log('PASS v8.4.1: complete Japanese heading, responsive two-line wrapping, language-toggle safe.');
