@@ -1,0 +1,286 @@
+{
+  "date": "2026-11-01",
+  "total": 5000,
+  "manuallyCorrected": 63,
+  "structureBasedCorrected": 3337,
+  "preservedEditorial": 40,
+  "untouchedMachineDraft": 1560,
+  "supportedTemplates": 164,
+  "sourceExampleNotChanged": true,
+  "manualByLevel": {
+    "1": 11,
+    "2": 8,
+    "3": 1,
+    "4": 9,
+    "6": 2,
+    "7": 15,
+    "8": 17
+  },
+  "structuralByLevel": {
+    "1": 412,
+    "2": 402,
+    "3": 419,
+    "4": 422,
+    "5": 421,
+    "6": 423,
+    "7": 417,
+    "8": 421
+  },
+  "remainingByLevel": {
+    "1": 197,
+    "2": 210,
+    "3": 200,
+    "4": 189,
+    "5": 199,
+    "6": 195,
+    "7": 188,
+    "8": 182
+  },
+  "diagnosticTranslated": 800,
+  "diagnosticAlignedFocus": 520,
+  "diagnosticStatuses": {
+    "existing_editorial_draft": 41,
+    "machine_draft_needs_review": 359,
+    "assistant_semantically_checked_draft": 13,
+    "structure_based_draft_needs_review": 387
+  },
+  "manualExamples": [
+    [
+      "CK1-001",
+      "Good morning, everyone! Our class begins at nine.",
+      "おはようございます、みなさん！私たちの授業は9時に始まります。"
+    ],
+    [
+      "CK1-002",
+      "Thank you very much for helping me carry these books.",
+      "これらの本を運ぶのを手伝ってくれて、本当にありがとうございます。"
+    ],
+    [
+      "CK1-003",
+      "See you later, Ken. Have a good afternoon!",
+      "またあとでね、ケン。楽しい午後を過ごしてね！"
+    ],
+    [
+      "CK1-004",
+      "How are you today? You look happy.",
+      "今日は元気ですか。うれしそうですね。"
+    ],
+    [
+      "CK1-005",
+      "Nice to meet you, Maria. I am Hana.",
+      "はじめまして、マリア。私はハナです。"
+    ],
+    [
+      "CK1-006",
+      "Please come here and look at this picture.",
+      "こちらに来て、この絵を見てください。"
+    ],
+    [
+      "CK1-007",
+      "You can sit down after the teacher calls your name.",
+      "先生に名前を呼ばれたら、座ってもいいですよ。"
+    ],
+    [
+      "CK1-008",
+      "Please stand up when the music starts.",
+      "音楽が始まったら、立ち上がってください。"
+    ],
+    [
+      "CK1-101",
+      "Please be kind to new students.",
+      "新しく入った生徒には親切にしてください。"
+    ],
+    [
+      "CK1-122",
+      "Just a moment, please. I need my notebook.",
+      "少々お待ちください。ノートが必要なのです。"
+    ],
+    [
+      "CK1-623",
+      "Please get information about the online workshop.",
+      "オンラインワークショップについての情報を集めてください。"
+    ],
+    [
+      "CK2-041",
+      "Please reply as soon as possible.",
+      "できるだけ早く返信してください。"
+    ]
+  ],
+  "templatedExamples": [
+    [
+      "CK1-162",
+      "Our class will visit a museum next Friday.",
+      "私たちのクラスは来週の金曜日に博物館を訪れる予定です。"
+    ],
+    [
+      "CK1-201",
+      "I always carry my notebook when I leave home.",
+      "私は家を出るときはいつもノートを持ち歩くようにしています。"
+    ],
+    [
+      "CK1-202",
+      "I always carry my backpack when I leave home.",
+      "私は家を出るときはいつもリュックを持ち歩くようにしています。"
+    ],
+    [
+      "CK1-203",
+      "I always carry my water bottle when I leave home.",
+      "私は家を出るときはいつも水筒を持ち歩くようにしています。"
+    ],
+    [
+      "CK1-204",
+      "I always carry my lunchbox when I leave home.",
+      "私は家を出るときはいつも弁当箱を持ち歩くようにしています。"
+    ],
+    [
+      "CK1-205",
+      "I always carry my pencil case when I leave home.",
+      "私は家を出るときはいつも筆箱を持ち歩くようにしています。"
+    ],
+    [
+      "CK1-206",
+      "I always carry my jacket when I leave home.",
+      "私は家を出るときはいつも上着を持ち歩くようにしています。"
+    ],
+    [
+      "CK1-207",
+      "I always carry my umbrella when I leave home.",
+      "私は家を出るときはいつも傘を持ち歩くようにしています。"
+    ],
+    [
+      "CK1-208",
+      "I always carry my headphones when I leave home.",
+      "私は家を出るときはいつもヘッドホンを持ち歩くようにしています。"
+    ],
+    [
+      "CK1-209",
+      "I always carry my house key when I leave home.",
+      "私は家を出るときはいつも家の鍵を持ち歩くようにしています。"
+    ],
+    [
+      "CK1-210",
+      "I always carry my sketchbook when I leave home.",
+      "私は家を出るときはいつもスケッチブックを持ち歩くようにしています。"
+    ],
+    [
+      "CK1-211",
+      "Please bring my notebook to school tomorrow.",
+      "明日、学校にノートを持ってくるようにしてください。"
+    ],
+    [
+      "CK1-351",
+      "In class, we will put away the new worksheet today.",
+      "今日は授業で新しいワークシートを片付ける予定です。"
+    ],
+    [
+      "CK1-601",
+      "I will care for the goldfish tomorrow.",
+      "私は明日、金魚の世話をする予定です。"
+    ],
+    [
+      "CK2-351",
+      "In class, we will fill out the application form today.",
+      "今日は授業で申請用紙に記入する予定です。"
+    ],
+    [
+      "CK2-601",
+      "I need to practice every day to improve my presentation skills.",
+      "私は私の発表力を伸ばすため毎日練習する必要があります。"
+    ],
+    [
+      "CK3-351",
+      "The students agreed to set goals for my listening skills as part of the project.",
+      "生徒たちはプロジェクトの一環として私のリスニング力の目標を立てることに同意しました。"
+    ],
+    [
+      "CK3-601",
+      "It may help to consider the advantages of an alternative solution.",
+      "別の解決策の利点を考えることが役に立つかもしれません。"
+    ],
+    [
+      "CK4-351",
+      "The students agreed to address the traffic problem as part of the project.",
+      "生徒たちはプロジェクトの一環として交通問題に対処することに同意しました。"
+    ],
+    [
+      "CK4-601",
+      "The group was asked to check the accuracy of the project results.",
+      "そのグループはプロジェクトの結果の正確さを確認するよう求められました。"
+    ],
+    [
+      "CK5-351",
+      "The research team aims to compile the survey responses in its next report.",
+      "研究チームは次の報告書でアンケート回答を取りまとめることを目指しています。"
+    ],
+    [
+      "CK5-601",
+      "The reviewers were asked to examine historical understandings of cultural identity.",
+      "審査担当者たちは文化的アイデンティティについての歴史的な理解を検討するよう求められました。"
+    ],
+    [
+      "CK6-351",
+      "The research team aims to assess implications for low-income families in its next report.",
+      "研究チームは次の報告書で低所得世帯への影響を評価することを目指しています。"
+    ],
+    [
+      "CK6-601",
+      "The review suggests that we should analyze emerging patterns in global migration.",
+      "この検討結果は、私たちが国際的な移住に生じる新たな傾向を分析するべきだと示唆しています。"
+    ]
+  ],
+  "remains": [
+    [
+      "CK1-009",
+      "Could you open the door for our guest?",
+      "ご宿泊者様のドアを開けることはできますか?"
+    ],
+    [
+      "CK1-010",
+      "Please close the window before you leave.",
+      "退去前に窓を閉じてください。"
+    ],
+    [
+      "CK1-011",
+      "I always wash my hands before eating.",
+      "食べる前に必ず手を洗う。"
+    ],
+    [
+      "CK1-012",
+      "I brush my teeth every morning and night.",
+      "朝から夜にかけて歯を磨きます。"
+    ],
+    [
+      "CK1-013",
+      "I go to school with my sister on weekdays.",
+      "平日に妹と一緒に学校に行く。"
+    ],
+    [
+      "CK1-014",
+      "I come back home before six on most days.",
+      "6日前までに帰宅します。"
+    ],
+    [
+      "CK1-015",
+      "I eat breakfast with my family every day.",
+      "毎日家族で朝食を食べます。"
+    ],
+    [
+      "CK1-016",
+      "You should drink some water after running.",
+      "ランニング後に水を飲む必要があります。"
+    ],
+    [
+      "CK1-017",
+      "We usually have lunch at noon.",
+      "昼食は昼過ぎです。"
+    ],
+    [
+      "CK1-018",
+      "I go to bed at ten on school nights.",
+      "学校の夜に10分で寝る。"
+    ]
+  ],
+  "semanticallyVerifiedByTeacher": 0,
+  "productionReady": false,
+  "remainingWarning": "Frame and manually repaired drafts still require a teacher to review semantics; other untranslated inaccuracies may remain."
+}

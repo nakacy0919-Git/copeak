@@ -1,21 +1,21 @@
 {
   "schemaVersion": 1,
-  "bankId": "copeak-v8-4-japanese-translations-full-800-draft",
-  "status": "MACHINE_DRAFT_REQUIRES_TEACHER_REVIEW",
-  "description": "All 800 diagnostic sentences have Japanese drafts. Most are offline machine translations; teacher review required before claiming publication-quality accuracy.",
+  "bankId": "copeak-ja-translation-quality-audit-v1",
+  "status": "MIXED_DRAFT_SEMANTIC_QA_IN_PROGRESS",
+  "description": "800 sentence translations: editorial, assistant-checked, reconstructed using aligned meanings and unreviewed machine drafts. All categories remain draft until full teacher verification.",
   "items": [
     {
       "id": "CK1-163",
       "source_example_en": "We ride the subway to the city center.",
       "example_ja": "私たちは地下鉄に乗って市の中心部へ行きます。",
-      "focus_ja": "地下鉄に乗って",
+      "focus_ja": "地下鉄に乗",
       "translation_status": "existing_editorial_draft"
     },
     {
       "id": "CK1-023",
       "source_example_en": "I listen to music while cleaning my room.",
       "example_ja": "私は部屋を掃除しながら音楽を聴きます。",
-      "focus_ja": "音楽を聴き",
+      "focus_ja": "音楽を聴",
       "translation_status": "existing_editorial_draft"
     },
     {
@@ -84,9 +84,9 @@
     {
       "id": "CK1-005",
       "source_example_en": "Nice to meet you, Maria. I am Hana.",
-      "example_ja": "あなたを満たすためにニース, マリア. 私は花です。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "はじめまして、マリア。私はハナです。",
+      "focus_ja": "はじめまして",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK1-112",
@@ -98,9 +98,9 @@
     {
       "id": "CK1-101",
       "source_example_en": "Please be kind to new students.",
-      "example_ja": "新入生の方へ",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "新しく入った生徒には親切にしてください。",
+      "focus_ja": "親切に",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK1-038",
@@ -217,9 +217,9 @@
     {
       "id": "CK1-002",
       "source_example_en": "Thank you very much for helping me carry these books.",
-      "example_ja": "大変お世話になりました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "これらの本を運ぶのを手伝ってくれて、本当にありがとうございます。",
+      "focus_ja": "本当にありがとうございます",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK1-031",
@@ -357,254 +357,254 @@
     {
       "id": "CK1-273",
       "source_example_en": "Could you print the project instructions for me?",
-      "example_ja": "プロジェクトの指示を印刷できますか?",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私のためにプロジェクトの説明書を印刷することはできますか。",
+      "focus_ja": "プロジェクトの説明書を印刷する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-330",
       "source_example_en": "I want to help an exchange student when they need help.",
-      "example_ja": "助けが必要な場合は、交換留学生の助けを借りたい。",
-      "focus_ja": "交換留学生",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私は相手が助けを必要とするときに交換留学生を手伝うと思っています。",
+      "focus_ja": "交換留学生を手伝う",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-291",
       "source_example_en": "We can enjoy a vegetable soup together after school.",
-      "example_ja": "学校の帰りに野菜スープを一緒に楽しめます。",
-      "focus_ja": "野菜スープを",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちは放課後に一緒に野菜スープを楽しむことができます。",
+      "focus_ja": "野菜スープを楽しむ",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-259",
       "source_example_en": "We have to read the club schedule carefully.",
-      "example_ja": "クラブスケジュールをよくお読み頂きます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちは注意深く部活動の予定を読む必要があります。",
+      "focus_ja": "部活動の予定を読む",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-340",
       "source_example_en": "We should welcome an exchange student with a smile.",
-      "example_ja": "笑顔で交換留学生をお迎えします。",
-      "focus_ja": "交換留学生を",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちは笑顔で交換留学生を歓迎するべきです。",
+      "focus_ja": "交換留学生を歓迎する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-218",
       "source_example_en": "Please bring my headphones to school tomorrow.",
-      "example_ja": "明日は学校にヘッドフォンを持参してください。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "明日、学校にヘッドホンを持ってくるようにしてください。",
+      "focus_ja": "ヘッドホンを持ってくる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-347",
       "source_example_en": "We will make a short video during art class.",
-      "example_ja": "アートクラスではショートビデオを制作します。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちは美術の授業で短い動画を作る予定です。",
+      "focus_ja": "短い動画を作る",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-263",
       "source_example_en": "We can share the project instructions with our group.",
-      "example_ja": "グループでプロジェクトの指示を共有できます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちはグループ内でプロジェクトの説明書を共有することができます。",
+      "focus_ja": "プロジェクトの説明書を共有する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-316",
       "source_example_en": "I can find my way to the community center using this map.",
-      "example_ja": "こちらの地図でコミュニティセンターに行きたいところが分かります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私はこの地図を使って地域センターへの道を見つけることができます。",
+      "focus_ja": "への道を見つける",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-303",
       "source_example_en": "Our class will visit the local park next Friday.",
-      "example_ja": "毎週金曜日は地元の公園を訪れるクラスです。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちのクラスは来週の金曜日に近所の公園を訪れる予定です。",
+      "focus_ja": "近所の公園を訪れる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-206",
       "source_example_en": "I always carry my jacket when I leave home.",
-      "example_ja": "帰りに必ずジャケットを運ぶ。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私は家を出るときはいつも上着を持ち歩くようにしています。",
+      "focus_ja": "上着を持ち歩く",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-238",
       "source_example_en": "I need to pack my gym clothes before leaving.",
-      "example_ja": "出発前にジムの服をパックする必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私は出発前に体操服をかばんに入れる必要があります。",
+      "focus_ja": "体操服をかばんに入れる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-451",
       "source_example_en": "In class, we will water the tomato plants today.",
-      "example_ja": "授業では、今日のトマトの植物を水に浸します。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "今日は授業でトマトの苗に水をやる予定です。",
+      "focus_ja": "トマトの苗に水をやる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-460",
       "source_example_en": "Please remember to feed the stray cats when needed.",
-      "example_ja": "必要に応じてストライ猫に餌をあげてください。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "必要なときに野良猫に餌をやることを忘れないでください。",
+      "focus_ja": "野良猫に餌をやる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-381",
       "source_example_en": "Please remember to keep the new worksheet when needed.",
-      "example_ja": "必要に応じて新しいワークシートを保管してください。",
-      "focus_ja": "新しいワークシートを保管",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "必要なときに新しいワークシートを保管することを忘れないでください。",
+      "focus_ja": "新しいワークシートを保管する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-373",
       "source_example_en": "We can look through the classroom dictionary together.",
-      "example_ja": "教室の辞書を一緒に見ていきます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちは一緒に教室の辞書に目を通すことができます。",
+      "focus_ja": "に目を通す",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-439",
       "source_example_en": "Our group needs to clean around the folding chair this week.",
-      "example_ja": "今週は、折り畳み椅子の周りを清掃する必要があります。",
-      "focus_ja": "折り畳み椅子の周りを",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちのグループは今週、折り畳み椅子の周りを掃除する必要があります。",
+      "focus_ja": "折り畳み椅子の周りを掃除する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-393",
       "source_example_en": "The teacher asked us to bring along the classroom dictionary.",
-      "example_ja": "先生は教室の辞典に沿ってお持ちください。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "先生は私たちに教室の辞書を持参するよう求めました。",
+      "focus_ja": "を持参する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-482",
       "source_example_en": "Please remember to play a board game when needed.",
-      "example_ja": "必要に応じてボードゲームをプレイしてください。",
-      "focus_ja": "ボードゲームを",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "必要なときにボードゲームをすることを忘れないでください。",
+      "focus_ja": "ボードゲームをする",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-367",
       "source_example_en": "The teacher asked us to carry away the sports bag.",
-      "example_ja": "先生はスポーツバッグを運ぶようお願いしました。",
-      "focus_ja": "スポーツバッグを運",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "先生は私たちにスポーツバッグを運び去るよう求めました。",
+      "focus_ja": "を運び去る",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-386",
       "source_example_en": "Our group needs to look for the new worksheet this week.",
-      "example_ja": "私たちのグループは今週の新作のワークシートを見る必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちのグループは今週、新しいワークシートを探す必要があります。",
+      "focus_ja": "を探す",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-379",
       "source_example_en": "In class, we will hold up the picture cards today.",
-      "example_ja": "授業では、今日は絵カードを保有します。",
-      "focus_ja": "絵カードを",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "今日は授業で絵カードを掲げる予定です。",
+      "focus_ja": "を掲げる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-480",
       "source_example_en": "In class, we will photograph a simple paper model today.",
-      "example_ja": "授業では、今日はシンプルな紙モデルを撮影します。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "今日は授業で簡単な紙の模型の写真を撮る予定です。",
+      "focus_ja": "簡単な紙の模型の写真を撮る",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-465",
       "source_example_en": "Our group needs to draw a simple paper model this week.",
-      "example_ja": "今週はシンプルな紙モデルを描いています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちのグループは今週、簡単な紙の模型を絵に描く必要があります。",
+      "focus_ja": "簡単な紙の模型を絵に描く",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-490",
       "source_example_en": "Our group needs to explain a memory game this week.",
-      "example_ja": "今週のメモリゲームについて説明する必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちのグループは今週、記憶ゲームのやり方を説明する必要があります。",
+      "focus_ja": "記憶ゲームのやり方を説明する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-449",
       "source_example_en": "We can keep an eye on the folding chair together.",
-      "example_ja": "折り畳み椅子を一緒に目元に保ちます。",
+      "example_ja": "私たちは一緒に折り畳み椅子から目を離さないことができます。",
       "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-365",
       "source_example_en": "Our group needs to hand back the reading textbook this week.",
-      "example_ja": "私たちのグループは、今週の読書のテキストブックを取り戻す必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちのグループは今週、読解の教科書を返す必要があります。",
+      "focus_ja": "を返す",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-466",
       "source_example_en": "The teacher asked us to decorate a paper bookmark.",
-      "example_ja": "先生は、紙のブックマークを飾るようにお願いしました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "先生は私たちに紙のしおりを飾り付けるよう求めました。",
+      "focus_ja": "紙のしおりを飾り付ける",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-354",
       "source_example_en": "In class, we will put away the picture cards today.",
-      "example_ja": "授業では、絵のカードをプレゼントします。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "今日は授業で絵カードを片付ける予定です。",
+      "focus_ja": "を片付ける",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-410",
       "source_example_en": "Please remember to put down the large basket when needed.",
-      "example_ja": "必要に応じて大きなバスケットを置きます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "必要なときに大きなかごを下ろすことを忘れないでください。",
+      "focus_ja": "を下ろす",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-602",
       "source_example_en": "We can learn about the school rabbits together.",
-      "example_ja": "一緒に学校のウサギについて学ぶことができます。",
+      "example_ja": "私たちは一緒に学校のウサギについて学ぶことができます。",
       "focus_ja": "学校のウサギについて学ぶ",
-      "translation_status": "machine_draft_needs_review"
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-555",
       "source_example_en": "I will clean the sports bag tomorrow.",
-      "example_ja": "明日はスポーツバッグを清掃します。",
-      "focus_ja": "スポーツバッグを",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私は明日、スポーツバッグを掃除する予定です。",
+      "focus_ja": "スポーツバッグを掃除する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-538",
       "source_example_en": "I will carry the small package tomorrow.",
-      "example_ja": "明日は小さな荷物を運びます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私は明日、小包を運ぶ予定です。",
+      "focus_ja": "小包を運ぶ",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-618",
       "source_example_en": "I will help with the school festival tomorrow.",
-      "example_ja": "明日は学校祭にご協力頂きます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私は明日、文化祭を手伝う予定です。",
+      "focus_ja": "を手伝う",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-564",
       "source_example_en": "I will fix the sports bag tomorrow.",
-      "example_ja": "明日はスポーツバッグを固定します。",
-      "focus_ja": "スポーツバッグを",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私は明日、スポーツバッグを修理する予定です。",
+      "focus_ja": "スポーツバッグを修理する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-576",
       "source_example_en": "We can prepare a bowl of noodles together.",
-      "example_ja": "麺のボウルを一緒に準備できます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちは一緒に一杯の麺料理を用意することができます。",
+      "focus_ja": "一杯の麺料理を用意する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-519",
@@ -616,37 +616,37 @@
     {
       "id": "CK1-592",
       "source_example_en": "I will find the way to the town museum tomorrow.",
-      "example_ja": "明日は町の博物館へ。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私は明日、町の博物館への道を見つける予定です。",
+      "focus_ja": "町の博物館への道を見つける",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-596",
       "source_example_en": "Please play with the school rabbits.",
-      "example_ja": "ウサギと一緒に遊んでください。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "学校のウサギと遊ぶようにしてください。",
+      "focus_ja": "学校のウサギと遊ぶ",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-570",
       "source_example_en": "Please order a bowl of noodles.",
-      "example_ja": "麺のボウルを注文してください。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "一杯の麺料理を注文するようにしてください。",
+      "focus_ja": "一杯の麺料理を注文する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-531",
       "source_example_en": "We can share my blue notebook together.",
-      "example_ja": "ブルーノートを一緒にシェアできます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちは一緒に私の青いノートを共有することができます。",
+      "focus_ja": "私の青いノートを共有する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-585",
       "source_example_en": "We can meet at the riverside park together.",
-      "example_ja": "川辺の公園で会うことができます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちは一緒に川沿いの公園で待ち合わせることができます。",
+      "focus_ja": "川沿いの公園で待ち合わせる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-547",
@@ -665,44 +665,44 @@
     {
       "id": "CK1-528",
       "source_example_en": "I will use my blue notebook tomorrow.",
-      "example_ja": "明日は青のノートブックを使います。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私は明日、私の青いノートを使う予定です。",
+      "focus_ja": "私の青いノートを使う",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-587",
       "source_example_en": "Please walk to the local library.",
-      "example_ja": "現地図書館へお進みください。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "地域の図書館まで歩くようにしてください。",
+      "focus_ja": "地域の図書館まで歩く",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-599",
       "source_example_en": "I will care for the school rabbits tomorrow.",
-      "example_ja": "明日は学校のウサギの世話をします。",
-      "focus_ja": "学校のウサギの世話を",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私は明日、学校のウサギの世話をする予定です。",
+      "focus_ja": "学校のウサギの世話をする",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-539",
       "source_example_en": "We can pack the heavy box together.",
-      "example_ja": "重い箱を一緒に詰めることができます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちは一緒に重い箱を荷造りすることができます。",
+      "focus_ja": "重い箱を荷造りする",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-609",
       "source_example_en": "I will take care of the garden flowers tomorrow.",
-      "example_ja": "明日は庭の花の世話をします。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私は明日、庭の花の手入れをする予定です。",
+      "focus_ja": "庭の花の手入れをする",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK1-581",
       "source_example_en": "I will go with friends to the local library tomorrow.",
-      "example_ja": "明日は地元の図書館に友達と一緒に行きます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私は明日、地域の図書館へ友達と行く予定です。",
+      "focus_ja": "地域の図書館へ友達と行く",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-064",
@@ -736,7 +736,7 @@
       "id": "CK2-081",
       "source_example_en": "We change seats every two weeks.",
       "example_ja": "私たちは2週間ごとに席替えをします。",
-      "focus_ja": "席替え",
+      "focus_ja": "",
       "translation_status": "existing_editorial_draft"
     },
     {
@@ -1044,7 +1044,7 @@
       "id": "CK2-170",
       "source_example_en": "We check in at a hotel in the afternoon.",
       "example_ja": "午後にホテルにチェックインします。",
-      "focus_ja": "",
+      "focus_ja": "チェックイン",
       "translation_status": "machine_draft_needs_review"
     },
     {
@@ -1057,212 +1057,212 @@
     {
       "id": "CK2-263",
       "source_example_en": "Could you explain the meeting agenda to the new members?",
-      "example_ja": "会議の議題を新しいメンバーに説明できますか?",
-      "focus_ja": "会議の議題を",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "新しいメンバーに会議の議題を説明することはできますか。",
+      "focus_ja": "会議の議題を説明する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-332",
       "source_example_en": "I need to review an unfamiliar expression before the test.",
-      "example_ja": "試験の前に、不慣れな表現を調べる必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私は試験前に見慣れない表現を復習する必要があります。",
+      "focus_ja": "見慣れない表現を復習する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-296",
       "source_example_en": "Our class will help organize a research presentation next month.",
-      "example_ja": "翌月、研究発表会を開催いたします。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちのクラスは来月研究発表の運営を手伝う予定です。",
+      "focus_ja": "研究発表の運営を手伝う",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-255",
       "source_example_en": "The teacher helped us clear up the interview question in class.",
-      "example_ja": "講師は、授業でインタビュー質問をクリアしました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "先生は授業中、私たちが面接の質問を明確にするのを手伝ってくれました。",
+      "focus_ja": "を明確にする",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-229",
       "source_example_en": "You can ask about the lesson start time at the front desk.",
-      "example_ja": "フロントにてレッスン開始時間についてお尋ねください。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "受付で授業開始時刻について尋ねることができます。",
+      "focus_ja": "授業開始時刻について尋ねる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-307",
       "source_example_en": "I hope we can take photos of a local campaign for our class blog.",
-      "example_ja": "ローカルキャンペーンの動画をぜひご覧ください。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "クラスのブログのために地域キャンペーンの写真を撮ることができればと思います。",
+      "focus_ja": "の写真を撮る",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-320",
       "source_example_en": "We might invite friends to a cultural festival this weekend.",
-      "example_ja": "今週末は文化祭に友達を招待するかもしれません。",
-      "focus_ja": "文化祭に友達を",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちは今週末に文化祭に友達を誘うかもしれません。",
+      "focus_ja": "文化祭に友達を誘う",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-273",
       "source_example_en": "Try to summarize the meeting agenda in two sentences.",
-      "example_ja": "会議の議題を2つの文でまとめてみる。",
-      "focus_ja": "会議の議題を",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "2文で会議の議題を要約するようにしてください。",
+      "focus_ja": "会議の議題を要約する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-218",
       "source_example_en": "Please double-check the event location before sending the message.",
-      "example_ja": "メッセージを送信する前に、イベントの場所をダブルクリックしてください。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "メッセージを送る前に行事の場所をもう一度確かめるようにしてください。",
+      "focus_ja": "行事の場所をもう一度確かめる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-288",
       "source_example_en": "My friend wants to sign up for a reading challenge this month.",
-      "example_ja": "今月は読書チャレンジに申し込むのが好きです。",
-      "focus_ja": "読書チャレンジに申し込む",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私の友人は今月読書チャレンジに申し込むと思っています。",
+      "focus_ja": "に申し込む",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-247",
       "source_example_en": "Let us talk over the misunderstanding before we vote.",
-      "example_ja": "投票前に誤解を招くようにしましょう。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "投票する前に誤解についてじっくり話し合うことにしましょう。",
+      "focus_ja": "誤解についてじっくり話し合う",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-330",
       "source_example_en": "We will practise a short summary for fifteen minutes.",
-      "example_ja": "要約15分。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "短い要約を15分間練習します。",
+      "focus_ja": "短い要約を15分間練習",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK2-473",
       "source_example_en": "Because the train was delayed, I might be late for the weekend seminar.",
-      "example_ja": "電車が遅れるので、週末のセミナーは遅れることもあります。",
-      "focus_ja": "週末のセミナー",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "電車が遅れたので、私は週末のセミナーに遅れるかもしれません。",
+      "focus_ja": "に遅れる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-398",
       "source_example_en": "We can pack away the hiking boots together.",
-      "example_ja": "ハイキングブーツを一緒にパックできます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちは一緒に登山靴をしまうことができます。",
+      "focus_ja": "をしまう",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-417",
       "source_example_en": "The teacher asked us to learn to use the presentation tablet.",
-      "example_ja": "講師は、プレゼンタブレットの使い方を学びました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "先生は私たちに発表用タブレットの使い方を学ぶよう求めました。",
+      "focus_ja": "発表用タブレットの使い方を学ぶ",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-404",
       "source_example_en": "In class, we will switch on the digital camera today.",
-      "example_ja": "授業では、今日のデジタルカメラを切り替えます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "今日は授業でデジタルカメラの電源を入れる予定です。",
+      "focus_ja": "の電源を入れる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-355",
       "source_example_en": "In class, we will fill out the homework packet today.",
-      "example_ja": "クラスでは、今日のホームワークパケットを埋めます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "今日は授業で宿題の一式に記入する予定です。",
+      "focus_ja": "に記入する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-464",
       "source_example_en": "Our group needs to make time for the cultural festival this week.",
-      "example_ja": "私たちのグループは、今週の文化祭に時間を作る必要があります。",
+      "example_ja": "私たちのグループは今週、文化祭のために時間を作る必要があります。",
       "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-497",
       "source_example_en": "We can thank our guest speaker together.",
-      "example_ja": "ゲストスピーカーの皆様にお礼申し上げます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちは一緒にゲスト講師に感謝することができます。",
+      "focus_ja": "ゲスト講師に感謝する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-413",
       "source_example_en": "Our group needs to connect to the classroom projector this week.",
-      "example_ja": "今週は、教室のプロジェクターに接続する必要があります。",
+      "example_ja": "私たちのグループは今週、教室のプロジェクターに接続する必要があります。",
       "focus_ja": "教室のプロジェクターに接続する",
-      "translation_status": "machine_draft_needs_review"
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-481",
       "source_example_en": "Please remember to listen to a new student when needed.",
-      "example_ja": "必要に応じて新しい学生を聞いてください。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "必要なときに新入生の話を聞くことを忘れないでください。",
+      "focus_ja": "新入生の話を聞く",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-369",
       "source_example_en": "The teacher asked us to check over the project report.",
-      "example_ja": "講師は、プロジェクトレポートを調べてもらいました。",
+      "example_ja": "先生は私たちにプロジェクトの報告書を確認するよう求めました。",
       "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-439",
       "source_example_en": "Our group needs to share details of the revised instructions this week.",
-      "example_ja": "当社グループは、今週の改定命令の詳細をお伝えします。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちのグループは今週、修正された指示の詳しい情報を共有する必要があります。",
+      "focus_ja": "修正された指示の詳しい情報を共有する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-495",
       "source_example_en": "The teacher asked us to introduce a younger teammate.",
-      "example_ja": "先生は、若いチームメイトの紹介をお願いしました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "先生は私たちに年下のチームメートを紹介するよう求めました。",
+      "focus_ja": "年下のチームメートを紹介する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-371",
       "source_example_en": "We can leave behind the new worksheet together.",
-      "example_ja": "新しいワークシートを一緒に残すことができます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちは一緒に新しいワークシートを置き忘れることができます。",
+      "focus_ja": "新しいワークシートを置き忘れる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-395",
       "source_example_en": "The teacher asked us to take off the wool scarf.",
-      "example_ja": "先生はウールのスカーフを脱いでくれました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "先生は私たちにウールのマフラーを脱ぐよう求めました。",
+      "focus_ja": "ウールのマフラーを脱ぐ",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-385",
       "source_example_en": "Please remember to try on the wool scarf when needed.",
-      "example_ja": "必要に応じてウールスカーフを試してみてください。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "必要なときにウールのマフラーを試着することを忘れないでください。",
+      "focus_ja": "ウールのマフラーを試着する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-359",
       "source_example_en": "Please remember to hand in the project report when needed.",
-      "example_ja": "必要に応じて、プロジェクトレポートにご連絡ください。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "必要なときにプロジェクトの報告書を提出することを忘れないでください。",
+      "focus_ja": "プロジェクトの報告書を提出する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-377",
       "source_example_en": "In class, we will pick out the raincoat today.",
-      "example_ja": "授業では、今日のレインコートをピックアップします。",
-      "focus_ja": "レインコートを",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "今日は授業でレインコートを選ぶ予定です。",
+      "focus_ja": "レインコートを選ぶ",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-480",
       "source_example_en": "In class, we will be involved in the volunteer orientation today.",
-      "example_ja": "授業では、今日のボランティア活動に参加します。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "今日は授業でボランティアの説明会に関わる予定です。",
+      "focus_ja": "ボランティアの説明会に関わる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-585",
@@ -1274,9 +1274,9 @@
     {
       "id": "CK2-594",
       "source_example_en": "I was asked to learn the basics of the presentation tablet.",
-      "example_ja": "プレゼンタブレットの基本を学びました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私は発表用タブレットの基本操作を学ぶよう頼まれました。",
+      "focus_ja": "発表用タブレットの基本操作を学ぶ",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-569",
@@ -1288,37 +1288,37 @@
     {
       "id": "CK2-548",
       "source_example_en": "I was asked to attach a note to the application form.",
-      "example_ja": "申請書にメモをつけてもらうようお願いしました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私は申請用紙にメモを添えるよう頼まれました。",
+      "focus_ja": "申請用紙にメモを添える",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-588",
       "source_example_en": "Please remember to read instructions for the presentation tablet.",
-      "example_ja": "プレゼンテーションタブレットの指示をお読みください。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "発表用タブレットの説明書を読むことを忘れないでください。",
+      "focus_ja": "発表用タブレットの説明書を読む",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-600",
       "source_example_en": "I need to practice every day to improve my reading speed.",
-      "example_ja": "読書速度を向上させるために毎日練習する必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私は私の読解速度を伸ばすため毎日練習する必要があります。",
+      "focus_ja": "私の読解速度を伸ばすため毎日練習する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-613",
       "source_example_en": "I was asked to ask someone about the visiting athlete.",
-      "example_ja": "訪問選手について誰かに尋ねてもらいました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私は訪問したスポーツ選手について誰かに尋ねるよう頼まれました。",
+      "focus_ja": "訪問したスポーツ選手について誰かに尋ねる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-540",
       "source_example_en": "I was asked to correct mistakes in the permission slip.",
-      "example_ja": "許可スリップで間違いを訂正するようにお願いしました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私は許可証の間違いを直すよう頼まれました。",
+      "focus_ja": "許可証の間違いを直す",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-572",
@@ -1330,44 +1330,44 @@
     {
       "id": "CK2-538",
       "source_example_en": "Our class agreed to read through the writing assignment.",
-      "example_ja": "筆記の代入から読み取れるクラスです。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちのクラスは英作文の課題を通読することに同意しました。",
+      "focus_ja": "英作文の課題を通読する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-558",
       "source_example_en": "I was asked to write your name on the permission slip.",
-      "example_ja": "許可伝票にお名前を書いてもらいました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私は許可証に名前を書くよう頼まれました。",
+      "focus_ja": "許可証に名前を書く",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-522",
       "source_example_en": "I was asked to prepare materials for the school festival.",
-      "example_ja": "学校の祭の資料を準備してもらいました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私は文化祭の資料を準備するよう頼まれました。",
+      "focus_ja": "文化祭の資料を準備する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-506",
       "source_example_en": "Our class agreed to look up information on the school festival.",
-      "example_ja": "当校の授業では、学校行事に関する情報をご覧いただけます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちのクラスは文化祭についての情報を調べることに同意しました。",
+      "focus_ja": "文化祭についての情報を調べる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-622",
       "source_example_en": "I was asked to greet the visiting athlete.",
-      "example_ja": "訪問選手の挨拶をお願いしました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私は訪問したスポーツ選手にあいさつするよう頼まれました。",
+      "focus_ja": "訪問したスポーツ選手にあいさつする",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-607",
       "source_example_en": "I need to notice improvements in my presentation skills.",
-      "example_ja": "プレゼンテーションスキルの改善に気づく必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私は私の発表力の向上に気づく必要があります。",
+      "focus_ja": "私の発表力の向上に気づく",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-614",
@@ -1379,23 +1379,23 @@
     {
       "id": "CK2-524",
       "source_example_en": "Please remember to share a photo of the online workshop.",
-      "example_ja": "オンラインワークショップの写真をシェアしてください。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "オンライン講習の写真を共有することを忘れないでください。",
+      "focus_ja": "オンライン講習の写真を共有する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-515",
       "source_example_en": "Please remember to ask questions about the debate practice.",
-      "example_ja": "議論の練習についての質問をしてください。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "ディベート練習について質問することを忘れないでください。",
+      "focus_ja": "ディベート練習について質問する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-603",
       "source_example_en": "I need to keep a record of my reading speed.",
-      "example_ja": "読み込み速度の記録を保持する必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私は私の読解速度を記録しておく必要があります。",
+      "focus_ja": "私の読解速度を記録しておく",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK2-533",
@@ -1422,7 +1422,7 @@
       "id": "CK3-015",
       "source_example_en": "The hall will be filled with music this evening.",
       "example_ja": "今晩、そのホールは音楽で満たされるでしょう。",
-      "focus_ja": "音楽で満たされる",
+      "focus_ja": "で満たされ",
       "translation_status": "existing_editorial_draft"
     },
     {
@@ -1436,7 +1436,7 @@
       "id": "CK3-101",
       "source_example_en": "Regular practice helped her get ahead.",
       "example_ja": "定期的な練習が彼女の前進を助けました。",
-      "focus_ja": "前進を助け",
+      "focus_ja": "",
       "translation_status": "existing_editorial_draft"
     },
     {
@@ -1610,9 +1610,9 @@
     {
       "id": "CK3-094",
       "source_example_en": "Watch out! The floor is wet.",
-      "example_ja": "お問い合わせ 床は濡れます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "気をつけて！床がぬれています。",
+      "focus_ja": "気をつけて",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK3-176",
@@ -1757,247 +1757,247 @@
     {
       "id": "CK3-313",
       "source_example_en": "Reading articles can help students develop an interest in student welfare.",
-      "example_ja": "読書の記事は学生の福祉に興味を持たせるのを助けることができます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "記事を読むことは、生徒が生徒の福祉に興味を持つようになる助けになります。",
+      "focus_ja": "に興味を持つようになる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-301",
       "source_example_en": "Our group could compare different approaches to climate adaptation this week.",
-      "example_ja": "私たちのグループは、今週の気候適応に異なるアプローチを比較することができます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちのグループは今週気候変動への適応への異なる方法を比較することができるかもしれません。",
+      "focus_ja": "気候変動への適応への異なる方法を比較する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-251",
       "source_example_en": "Students are encouraged to get involved in the pilot program after class.",
-      "example_ja": "生徒は、授業後にパイロットプログラムに参加することを奨励しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "生徒たちは授業後に試験的なプログラムに関わるよう勧められています。",
+      "focus_ja": "に関わる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-247",
       "source_example_en": "Different schools can work together on the research project online.",
-      "example_ja": "異なる学校は、オンライン研究プロジェクトで一緒に働くことができます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "異なる学校同士がオンラインで研究プロジェクトに協力して取り組むことができます。",
+      "focus_ja": "に協力して取り組む",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-220",
       "source_example_en": "The article may raise questions about online safety in our discussion.",
-      "example_ja": "この記事は、議論の中でオンライン安全に関する質問を提起することができます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この記事は話し合いの中でオンラインの安全について疑問を提起するかもしれません。",
+      "focus_ja": "について疑問を提起する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-341",
       "source_example_en": "We should reflect on greater fluency at the end of the unit.",
-      "example_ja": "ユニットの最後に、より大きな流暢さを反映させる必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちは単元の終わりに流暢さの向上について振り返るべきです。",
+      "focus_ja": "流暢さの向上について振り返る",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-293",
       "source_example_en": "The team will keep a record of student progress throughout the term.",
-      "example_ja": "チームでは、生徒の進捗状況を常に把握します。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "チームは学期を通して生徒の進歩の記録を残す予定です。",
+      "focus_ja": "の記録を残す",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-264",
       "source_example_en": "The team wants to make improvements to the student-led initiative next year.",
-      "example_ja": "来年の学生主導のイニシアチブへの改善をしたい。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "チームは来年生徒主導の取組を改善すると考えています。",
+      "focus_ja": "生徒主導の取組を改善する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-240",
       "source_example_en": "Many students want to learn more about online safety this term.",
-      "example_ja": "多くの学生は、この用語のオンライン安全についてもっと知りたいです。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "多くの生徒は今学期オンラインの安全についてさらに学ぶと考えています。",
+      "focus_ja": "オンラインの安全についてさらに学ぶ",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-276",
       "source_example_en": "We can share updates on the new curriculum at the weekly meeting.",
-      "example_ja": "週1回のミーティングで新しいカリキュラムの更新を共有できます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちは毎週の会議で新カリキュラムの進捗を共有することができます。",
+      "focus_ja": "新カリキュラムの進捗を共有する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-283",
       "source_example_en": "We need to set clear goals for the mentoring scheme before we begin.",
-      "example_ja": "メンタリングスキームの明確な目標を設定する必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちは始める前に指導支援制度の明確な目標を設定する必要があります。",
+      "focus_ja": "指導支援制度の明確な目標を設定する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-325",
       "source_example_en": "Regular practice can build confidence in asking questions over time.",
-      "example_ja": "定期的な練習は、質問に時間をかけて自信を持たせることができます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "定期的な練習は、時間をかけて質問することへの自信を育む助けになります。",
+      "focus_ja": "質問することへの自信を育む",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-411",
       "source_example_en": "We need to make an argument for an affordable plan before making a final decision.",
-      "example_ja": "最終的な決定を行う前に手頃な価格のプランの引数を作る必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "最終決定を下す前に費用を抑えた計画を支持する理由を述べる必要があります。",
+      "focus_ja": "費用を抑えた計画を支持する理由を述べる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-427",
       "source_example_en": "The students agreed to look for alternatives to a safer route as part of the project.",
-      "example_ja": "生徒は、プロジェクトの一環として、より安全なルートの代替品を探すことに合意しました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "生徒たちはプロジェクトの一環としてより安全な経路に代わる選択肢を探すことに同意しました。",
+      "focus_ja": "より安全な経路に代わる選択肢を探す",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-380",
       "source_example_en": "The students agreed to ask for feedback on my pronunciation as part of the project.",
-      "example_ja": "生徒は、プロジェクトの一部として発音のフィードバックを求めることに合意しました。",
+      "example_ja": "生徒たちはプロジェクトの一環として私の発音について意見を求めることに同意しました。",
       "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-492",
       "source_example_en": "The group was asked to show respect for a younger student during the workshop.",
-      "example_ja": "ワークショップ中は、若い学生に敬意を表してもらいました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "そのグループはワークショップ中に年下の生徒に敬意を示すよう求められました。",
+      "focus_ja": "に敬意を示す",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-490",
       "source_example_en": "We need to make friends with a first-time participant before making a final decision.",
-      "example_ja": "最終決定を行う前に、初めての参加者と友達を作る必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "最終決定を下す前に初参加の人と友達になる必要があります。",
+      "focus_ja": "と友達になる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-451",
       "source_example_en": "The students agreed to look after a nervous classmate as part of the project.",
-      "example_ja": "生徒は、プロジェクトの一部として神経のクラスメイトの後に見直すことに合意しました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "生徒たちはプロジェクトの一環として緊張した同級生の世話をすることに同意しました。",
+      "focus_ja": "の世話をする",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-407",
       "source_example_en": "Our team plans to take a fresh look at a safer route this term.",
-      "example_ja": "私たちのチームは、この用語の安全なルートを見て新鮮な外観を取ることを計画しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちのチームは今学期、より安全な経路を改めて見直す予定です。",
+      "focus_ja": "より安全な経路を改めて見直す",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-466",
       "source_example_en": "The group was asked to reach out to a nervous classmate during the workshop.",
-      "example_ja": "ワークショップ中に緊張したクラスメイトに手を差し伸べてもらいました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "そのグループはワークショップ中に緊張した同級生に連絡を取るよう求められました。",
+      "focus_ja": "緊張した同級生に連絡を取る",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-403",
       "source_example_en": "The students agreed to come up with an alternative solution as part of the project.",
-      "example_ja": "学生は、プロジェクトの一環として代替ソリューションを立ち上げることに同意しました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "生徒たちはプロジェクトの一環として別の解決策を考え出すことに同意しました。",
+      "focus_ja": "別の解決策を考え出す",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-389",
       "source_example_en": "We need to find ways to improve my time management before making a final decision.",
-      "example_ja": "最終決定を下す前に時間管理を改善する方法を見つける必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "最終決定を下す前に私の時間管理力を向上させる方法を見つける必要があります。",
+      "focus_ja": "私の時間管理力を向上させる方法を見つける",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-370",
       "source_example_en": "The group was asked to keep working on my pronunciation during the workshop.",
-      "example_ja": "ワークショップ中に発音を続けようという要望がありました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "そのグループはワークショップ中に私の発音に取り組み続けるよう求められました。",
+      "focus_ja": "私の発音に取り組み続ける",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-465",
       "source_example_en": "We need to give a warm welcome to a first-time participant before making a final decision.",
-      "example_ja": "最終決定をする前に、初めての参加者に温かい歓迎を贈る必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "最終決定を下す前に初参加の人を温かく歓迎する必要があります。",
+      "focus_ja": "初参加の人を温かく歓迎する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-441",
       "source_example_en": "The group was asked to reach an agreement on an affordable plan during the workshop.",
-      "example_ja": "ワークショップの期間中に手頃な価格のプランに合意をいただくようお願いしました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "そのグループはワークショップ中に費用を抑えた計画について合意するよう求められました。",
+      "focus_ja": "費用を抑えた計画について合意する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-434",
       "source_example_en": "Our team plans to make adjustments to a new timetable this term.",
-      "example_ja": "チームでは、この用語を新しいタイムテーブルに調整する予定です。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちのチームは今学期、新しい時間割を調整する予定です。",
+      "focus_ja": "新しい時間割を調整する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-423",
       "source_example_en": "It is important to consider the drawbacks of an alternative solution carefully.",
-      "example_ja": "代替ソリューションの欠点を慎重に検討することが重要です。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "注意深く別の解決策の欠点を検討することが重要です。",
+      "focus_ja": "別の解決策の欠点を検討する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-394",
       "source_example_en": "The group was asked to be proud of my time management during the workshop.",
-      "example_ja": "ワークショップ中にタイムマネジメントを誇りに思います。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "そのグループはワークショップ中に私の時間管理力を誇りに思うよう求められました。",
+      "focus_ja": "私の時間管理力を誇りに思う",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-371",
       "source_example_en": "It is important to be confident about my listening skills carefully.",
-      "example_ja": "自分のリスニングスキルを丁寧に自信を持てることが重要です。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "注意深く私のリスニング力に自信があることが重要です。",
+      "focus_ja": "私のリスニング力に自信がある",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-356",
       "source_example_en": "Our team plans to make progress in my listening skills this term.",
-      "example_ja": "今回、リスニングスキルの進歩を予定しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちのチームは今学期、私のリスニング力で上達する予定です。",
+      "focus_ja": "私のリスニング力で上達する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-512",
       "source_example_en": "They were encouraged to review the details of the school campaign.",
-      "example_ja": "学校のキャンペーンの詳細を確認することを奨励しました。",
-      "focus_ja": "学校のキャンペーンの詳細を",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "彼らは学校のキャンペーンの詳細を見直すよう勧められました。",
+      "focus_ja": "学校のキャンペーンの詳細を見直す",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-582",
       "source_example_en": "It may help to ask how you can help a younger student.",
-      "example_ja": "若い学生の助けを借りることができるかを尋ねるのを助けるかもしれません。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "年下の生徒にどう助けられるか尋ねることが役に立つかもしれません。",
+      "focus_ja": "年下の生徒にどう助けられるか尋ねる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-549",
       "source_example_en": "They were encouraged to volunteer at the student conference.",
-      "example_ja": "生徒会でボランティアを呼びかけました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "彼らは生徒の会議でボランティアをするよう勧められました。",
+      "focus_ja": "生徒の会議でボランティアをする",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-502",
       "source_example_en": "Our team decided to set a deadline for the travel schedule.",
-      "example_ja": "旅行スケジュールの期限を設定することにしました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちのチームは旅行日程の期限を決めることを決めました。",
+      "focus_ja": "旅行日程の期限を決める",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-579",
       "source_example_en": "Our team decided to listen to the concerns of a younger student.",
-      "example_ja": "若い学生の悩みを聞いてみることにしました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちのチームは年下の生徒の悩みに耳を傾けることを決めました。",
+      "focus_ja": "年下の生徒の悩みに耳を傾ける",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-597",
@@ -2009,106 +2009,106 @@
     {
       "id": "CK3-602",
       "source_example_en": "They were encouraged to set aside time to discuss an affordable plan.",
-      "example_ja": "手頃な価格のプランを議論する時間以外に設定することをお勧めします。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "彼らは費用を抑えた計画について話す時間を確保するよう勧められました。",
+      "focus_ja": "費用を抑えた計画について話す時間を確保する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-620",
       "source_example_en": "They were encouraged to come to a conclusion about an affordable plan.",
-      "example_ja": "彼らは手頃な価格の計画についての結論に来ることを奨励された.",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "彼らは費用を抑えた計画について結論を出すよう勧められました。",
+      "focus_ja": "費用を抑えた計画について結論を出す",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-545",
       "source_example_en": "It may help to inform others about the community fundraiser.",
-      "example_ja": "コミュニティの募金者について他の人に知らせるのを助けるかもしれません。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "地域の募金活動について他の人に知らせることが役に立つかもしれません。",
+      "focus_ja": "地域の募金活動について他の人に知らせる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-553",
       "source_example_en": "Our team decided to take responsibility for the weekend seminar.",
-      "example_ja": "週末のセミナーに弊社チームが責任を負い、",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちのチームは週末のセミナーの担当を引き受けることを決めました。",
+      "focus_ja": "週末のセミナーの担当を引き受ける",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-506",
       "source_example_en": "It may help to create a checklist for the travel schedule.",
-      "example_ja": "旅行スケジュールのチェックリストを作成するのに役立ちます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "旅行日程のチェックリストを作ることが役に立つかもしれません。",
+      "focus_ja": "旅行日程のチェックリストを作る",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-625",
       "source_example_en": "Our team decided to reach a compromise on an alternative solution.",
-      "example_ja": "私たちのチームは、代替ソリューションで妥協に達することにしました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちのチームは別の解決策について妥協点を見いだすことを決めました。",
+      "focus_ja": "別の解決策について妥協点を見いだす",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-531",
       "source_example_en": "They were encouraged to write a report on the travel schedule.",
-      "example_ja": "旅行スケジュールのレポートを書くことを奨励しました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "彼らは旅行日程について報告書を書くよう勧められました。",
+      "focus_ja": "旅行日程について報告書を書く",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-569",
       "source_example_en": "Our team decided to show patience with a nervous classmate.",
-      "example_ja": "私たちのチームは、神経のクラスメイトに忍耐を示すことにしました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちのチームは緊張した同級生に辛抱強く接することを決めました。",
+      "focus_ja": "緊張した同級生に辛抱強く接する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-555",
       "source_example_en": "It may help to collect feedback after the student conference.",
-      "example_ja": "学生会議の後にフィードバックを収集するのに役立ちます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "生徒の会議の後で感想を集めることが役に立つかもしれません。",
+      "focus_ja": "生徒の会議の後で感想を集める",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-525",
       "source_example_en": "Our team decided to suggest improvements to the travel schedule.",
-      "example_ja": "旅行スケジュールの改善を提案するチームです。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちのチームは旅行日程の改善案を提案することを決めました。",
+      "focus_ja": "旅行日程の改善案を提案する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-593",
       "source_example_en": "They were encouraged to keep in touch with a nervous classmate.",
-      "example_ja": "緊張したクラスメイトに触れてもらうことを奨励しました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "彼らは緊張した同級生と連絡を取り続けるよう勧められました。",
+      "focus_ja": "緊張した同級生と連絡を取り続ける",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-577",
       "source_example_en": "They were encouraged to be considerate of a new volunteer.",
-      "example_ja": "新たなボランティアを思い浮かべることができました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "彼らは新しいボランティアに配慮するよう勧められました。",
+      "focus_ja": "新しいボランティアに配慮する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-591",
       "source_example_en": "It may help to express gratitude to a younger student.",
-      "example_ja": "若い学生に感謝の気持ちを伝えるのに役立ちます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "年下の生徒に感謝の気持ちを伝えることが役に立つかもしれません。",
+      "focus_ja": "年下の生徒に感謝の気持ちを伝える",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK3-605",
       "source_example_en": "Our team decided to weigh the costs of an affordable plan.",
-      "example_ja": "私たちのチームは手頃な価格のプランのコストを秤量することを決めた。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちのチームは費用を抑えた計画にかかる費用を比較検討することを決めました。",
+      "focus_ja": "費用を抑えた計画にかかる費用を比較検討する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-051",
       "source_example_en": "I use a notebook to keep track of my progress.",
       "example_ja": "私は自分の進歩を記録して把握するためにノートを使います。",
-      "focus_ja": "進歩を記録して把握",
+      "focus_ja": "を記録して把握する",
       "translation_status": "existing_editorial_draft"
     },
     {
@@ -2122,7 +2122,7 @@
       "id": "CK4-028",
       "source_example_en": "Teachers can play a role in building confidence.",
       "example_ja": "教師は自信を育てるうえで役割を果たすことができます。",
-      "focus_ja": "役割を果たす",
+      "focus_ja": "で役割を果たす",
       "translation_status": "existing_editorial_draft"
     },
     {
@@ -2136,7 +2136,7 @@
       "id": "CK4-177",
       "source_example_en": "Our committee will organize an event in November.",
       "example_ja": "私たちの委員会は11月にイベントを企画・運営します。",
-      "focus_ja": "イベントを企画・運営",
+      "focus_ja": "イベントを企画",
       "translation_status": "existing_editorial_draft"
     },
     {
@@ -2282,9 +2282,9 @@
     {
       "id": "CK4-066",
       "source_example_en": "We used a tablet in place of paper worksheets.",
-      "example_ja": "紙ワークシートにタブレットを使用しました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちは紙のワークシートの代わりにタブレットを使いました。",
+      "focus_ja": "の代わりに",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK4-143",
@@ -2429,9 +2429,9 @@
     {
       "id": "CK4-007",
       "source_example_en": "Some learning difficulties result from unclear instructions.",
-      "example_ja": "一部の学習の難しさは、不明な指示から生じる。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "学習上の困難の中には、指示が不明確なことから生じるものがあります。",
+      "focus_ja": "から生じる",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK4-121",
@@ -2457,338 +2457,338 @@
     {
       "id": "CK4-265",
       "source_example_en": "We should devote time to the community project during the semester.",
-      "example_ja": "学期中にコミュニティプロジェクトに時間を捧げるべきです。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちは学期中に地域プロジェクトに時間を割くべきです。",
+      "focus_ja": "に時間を割く",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-349",
       "source_example_en": "The organizers will evaluate feedback on the public campaign before the next event.",
-      "example_ja": "主催者は、次のイベントの前に公開キャンペーンのフィードバックを評価します。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "主催者は次のイベント前に公共キャンペーンに関する意見を評価する予定です。",
+      "focus_ja": "公共キャンペーンに関する意見を評価する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-201",
       "source_example_en": "Each team should take responsibility for the pilot program throughout the project.",
-      "example_ja": "各チームは、プロジェクト全体でパイロットプログラムの責任を取る必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "各チームはプロジェクトを通じて試験的なプログラムに責任を持つべきです。",
+      "focus_ja": "に責任を持つ",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-227",
       "source_example_en": "The campaign aims to draw attention to rising energy costs this year.",
-      "example_ja": "今年は増加するエネルギーコストに注目すべきキャンペーンです。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "このキャンペーンは今年エネルギー費用の上昇に注意を向けさせることを目指しています。",
+      "focus_ja": "に注意を向けさせる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-320",
       "source_example_en": "Schools can introduce measures to improve digital literacy over several years.",
-      "example_ja": "数年以上にわたってデジタルリテラシーを改善する対策を導入できます。",
-      "focus_ja": "デジタルリテラシーを改善する対策を導入",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "学校は数年かけてデジタルリテラシーを改善する対策を導入することができます。",
+      "focus_ja": "デジタルリテラシーを改善する対策を導入する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-256",
       "source_example_en": "The students hope to raise awareness about water scarcity through their videos.",
-      "example_ja": "生徒は、動画を通して水不足の意識を高めることを願っています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "生徒たちは動画を通じて水不足についての認識を高めることを望んでいます。",
+      "focus_ja": "についての認識を高める",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-283",
       "source_example_en": "The council will organize consultations on student welfare before making decisions.",
-      "example_ja": "審議会は決定を行う前に学生福祉に関する相談を整理します。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "評議会は決定を下す前に生徒の福祉について協議を企画する予定です。",
+      "focus_ja": "生徒の福祉について協議を企画する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-293",
       "source_example_en": "The team will review progress on the mentoring scheme every Friday.",
-      "example_ja": "チームは毎週金曜日にメンタリングスキームの進捗状況を審査します。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "チームは毎週金曜日に指導支援制度の進捗を確認する予定です。",
+      "focus_ja": "指導支援制度の進捗を確認する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-340",
       "source_example_en": "The committee must set priorities for the exchange project before budgeting.",
-      "example_ja": "委員会は、予算のかかる前に、交換プロジェクトの優先順位を設定しなければなりません。",
+      "example_ja": "委員会は予算を組む前に交流プロジェクトの優先事項を定める必要があります。",
       "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-325",
       "source_example_en": "The report will identify obstacles to improved teamwork this month.",
-      "example_ja": "今回のレポートでは、チームワークを改善するために障害を特定します。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "報告書は今月チームワークの改善への障害を見つける予定です。",
+      "focus_ja": "の障害を",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-250",
       "source_example_en": "The committee will find practical solutions to youth unemployment this term.",
-      "example_ja": "当委員会は、青少年失業の実践的解決策をこの用語に見立てます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "委員会は今学期若者の失業への実用的な解決策を見つける予定です。",
+      "focus_ja": "若者の失業への実用的な解決策を見つける",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-214",
       "source_example_en": "Teachers can provide guidance on public transport during training.",
-      "example_ja": "教師は、トレーニング中に公共交通機関を案内することができます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "教師は研修中に公共交通について指導を行うことができます。",
+      "focus_ja": "について指導",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-396",
       "source_example_en": "It is important to monitor changes in the traffic problem carefully.",
-      "example_ja": "交通問題の変化を慎重に監視することが重要です。",
-      "focus_ja": "交通問題の変化を",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "注意深く交通問題の変化を追跡することが重要です。",
+      "focus_ja": "交通問題の変化を追跡する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-370",
       "source_example_en": "The group was asked to propose solutions to the shortage of volunteers during the workshop.",
-      "example_ja": "ワークショップ中にボランティアの不足を解決するよう依頼しました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "そのグループはワークショップ中にボランティア不足の解決策を提案するよう求められました。",
+      "focus_ja": "の解決策を提案する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-414",
       "source_example_en": "We need to create opportunities for lower energy use before making a final decision.",
-      "example_ja": "最終的な決定を行う前に、エネルギー使用量を下げる機会を作成する必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "最終決定を下す前にエネルギー使用量の削減の機会を作る必要があります。",
+      "focus_ja": "エネルギー使用量の削減の機会を作る",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-477",
       "source_example_en": "The students agreed to identify weaknesses in the community recycling program as part of the project.",
-      "example_ja": "学生は、プロジェクトの一環として、コミュニティリサイクルプログラムの弱点を特定することに同意した。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "生徒たちはプロジェクトの一環として地域のリサイクル制度の弱点を特定することに同意しました。",
+      "focus_ja": "地域のリサイクル制度の弱点を特定する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-409",
       "source_example_en": "Our team plans to measure progress toward lower energy use this term.",
-      "example_ja": "チームでは、この用語を使用するエネルギーを削減するための進捗を測定する予定です。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちのチームは今学期、エネルギー使用量の削減に向けた進捗を測る予定です。",
+      "focus_ja": "に向けた進捗を測る",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-378",
       "source_example_en": "The students agreed to respond promptly to the scheduling conflict as part of the project.",
-      "example_ja": "生徒は、プロジェクトの一部としてスケジューリングの紛争に迅速に対応することを合意しました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "生徒たちはプロジェクトの一環として日程の衝突に迅速に対応することに同意しました。",
+      "focus_ja": "日程の衝突に迅速に対応する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-424",
       "source_example_en": "It is important to work together toward lower energy use carefully.",
-      "example_ja": "低エネルギー使用に向けて、慎重に連携することが大切です。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "注意深くエネルギー使用量の削減に向けて協力することが重要です。",
+      "focus_ja": "エネルギー使用量の削減に向けて協力する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-353",
       "source_example_en": "The students agreed to address the scheduling conflict as part of the project.",
-      "example_ja": "生徒は、プロジェクトの一部としてスケジューリングの紛争に対処することに合意しました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "生徒たちはプロジェクトの一環として日程の衝突に対処することに同意しました。",
+      "focus_ja": "日程の衝突に対処する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-443",
       "source_example_en": "The group was asked to assess the need for stronger community ties during the workshop.",
-      "example_ja": "ワークショップでは、より強いコミュニティのつながりの必要性を評価するよう求められました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "そのグループはワークショップ中により強い地域のつながりの必要性を評価するよう求められました。",
+      "focus_ja": "より強い地域のつながりの必要性を評価する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-390",
       "source_example_en": "We need to look into possible reasons for the shortage of volunteers before making a final decision.",
-      "example_ja": "最終的な決定を下す前に、ボランティアの不足が考えられる理由を調べる必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "最終決定を下す前にボランティア不足の考えられる理由を調べる必要があります。",
+      "focus_ja": "ボランティア不足の考えられる理由を調べる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-474",
       "source_example_en": "It is important to explain the aims of the student support system carefully.",
-      "example_ja": "学生支援制度の趣旨を丁寧に説明することが重要です。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "注意深く生徒支援制度の目的を説明することが重要です。",
+      "focus_ja": "生徒支援制度の目的を説明する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-438",
       "source_example_en": "We need to seek public support for stronger community ties before making a final decision.",
-      "example_ja": "最終的な決定を下す前に、より強固なコミュニティのつながりに対する公的なサポートを求める必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "最終決定を下す前により強い地域のつながりへの市民の支持を求める必要があります。",
+      "focus_ja": "より強い地域のつながりへの市民の支持を求める",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-490",
       "source_example_en": "We need to compare alternatives to the digital privacy guidelines before making a final decision.",
-      "example_ja": "最終的な決定を行う前に、デジタル・プライバシー・ガイドラインの選択肢を比較する必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "最終決定を下す前にデジタルプライバシー指針に代わる方針を比較する必要があります。",
+      "focus_ja": "デジタルプライバシー指針に代わる方針を比較する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-401",
       "source_example_en": "The students agreed to support progress toward better school attendance as part of the project.",
-      "example_ja": "生徒は、プロジェクトの一環として、より良い学校への出席を支援することに同意しました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "生徒たちはプロジェクトの一環として出席状況の改善に向けた進展を支援することに同意しました。",
+      "focus_ja": "出席状況の改善に向けた進展を支援する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-462",
       "source_example_en": "We need to examine public responses to the community recycling program before making a final decision.",
-      "example_ja": "最終的な決定を下す前に、コミュニティのリサイクルプログラムに対するパブリックな対応を検討する必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "最終決定を下す前に地域のリサイクル制度への市民の反応を調べる必要があります。",
+      "focus_ja": "地域のリサイクル制度への市民の反応を調べる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-495",
       "source_example_en": "The group was asked to seek feedback on the digital privacy guidelines during the workshop.",
-      "example_ja": "ワークショップの期間中に、デジタル・プライバシー・ガイドラインのフィードバックを求められた。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "そのグループはワークショップ中にデジタルプライバシー指針について意見を求めるよう求められました。",
+      "focus_ja": "デジタルプライバシー指針について意見を求める",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-416",
       "source_example_en": "The group was asked to set clear targets for better school attendance during the workshop.",
-      "example_ja": "ワークショップの期間中に、より良い学校の出席のために明確な目標を設定するように依頼されました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "そのグループはワークショップ中に出席状況の改善の明確な目標値を設定するよう求められました。",
+      "focus_ja": "出席状況の改善の明確な目標値を設定する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-433",
       "source_example_en": "Our team plans to set out a plan for stronger community ties this term.",
-      "example_ja": "私たちのチームは、この用語の強いコミュニティのつながりのための計画を立てる予定です。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちのチームは今学期、より強い地域のつながりの計画を示す予定です。",
+      "focus_ja": "より強い地域のつながりの計画を示す",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-506",
       "source_example_en": "The group was asked to collect evidence about the food waste issue.",
-      "example_ja": "当社グループは、食品廃棄物問題に関するエビデンスを回収するよう求めた。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "そのグループは食品ロス問題について証拠を集めるよう求められました。",
+      "focus_ja": "食品ロス問題について証拠を集める",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-503",
       "source_example_en": "The committee plans to identify the main cause of the scheduling conflict.",
-      "example_ja": "委員会は、スケジューリング紛争の主な原因を特定する予定です。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "委員会は日程の衝突の主な原因を特定する予定です。",
+      "focus_ja": "日程の衝突の主な原因を特定する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-550",
       "source_example_en": "We need to secure funding for stronger community ties.",
-      "example_ja": "私たちは、より強力なコミュニティのつながりのために資金を確保する必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちはより強い地域のつながりの資金を確保する必要があります。",
+      "focus_ja": "より強い地域のつながりの資金を確保する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-612",
       "source_example_en": "We need to request confirmation of the class announcement.",
-      "example_ja": "クラス発表の確認をお願いしております。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちはクラスへのお知らせの確認を求める必要があります。",
+      "focus_ja": "クラスへのお知らせの確認を求める",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-622",
       "source_example_en": "We need to set expectations for the project results.",
-      "example_ja": "プロジェクト結果の期待を設定する必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちはプロジェクトの結果に関する期待を明確にする必要があります。",
+      "focus_ja": "プロジェクトの結果に関する期待を明確にする",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-560",
       "source_example_en": "The committee plans to balance competing priorities in better school attendance.",
-      "example_ja": "委員会は、より良い学校の出席における有能な優先順位のバランスをとる予定です。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "委員会は出席状況の改善で競合する優先事項のバランスを取る予定です。",
+      "focus_ja": "出席状況の改善で競合する優先事項のバランスを取る",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-572",
       "source_example_en": "The group was asked to invite comments on the school attendance policy.",
-      "example_ja": "学校の出席方針にコメントをお願いしました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "そのグループは学校の出席方針について意見を募るよう求められました。",
+      "focus_ja": "学校の出席方針について意見を募る",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-616",
       "source_example_en": "The committee plans to assess reactions to the project results.",
-      "example_ja": "委員会は、プロジェクト結果に対する反応を評価する予定です。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "委員会はプロジェクトの結果への反応を評価する予定です。",
+      "focus_ja": "プロジェクトの結果への反応を評価する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-542",
       "source_example_en": "The committee plans to track indicators of better school attendance.",
-      "example_ja": "より良い学校の出席の指標を追跡する委員会の計画.",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "委員会は出席状況の改善の指標を追跡する予定です。",
+      "focus_ja": "出席状況の改善の指標を追跡する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-526",
       "source_example_en": "The committee plans to investigate the extent of the scheduling conflict.",
-      "example_ja": "委員会は、スケジューリング紛争の程度を調査する予定です。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "委員会は日程の衝突の広がりを調べる予定です。",
+      "focus_ja": "日程の衝突の広がりを調べる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-565",
       "source_example_en": "The group was asked to assess long-term progress toward stronger community ties.",
-      "example_ja": "当社グループは、より強固なコミュニティへの長期的進捗状況を把握するよう求めた。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "そのグループはより強い地域のつながりに向けた長期的な進展を評価するよう求められました。",
+      "focus_ja": "より強い地域のつながりに向けた長期的な進展を評価する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-598",
       "source_example_en": "The committee plans to set a realistic timetable for the project results.",
-      "example_ja": "委員会は、プロジェクト結果の現実的なタイムテーブルを設定する予定です。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "委員会はプロジェクトの結果の現実的な日程を設定する予定です。",
+      "focus_ja": "プロジェクトの結果の現実的な日程を設定する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-531",
       "source_example_en": "We need to organize a discussion about the food waste issue.",
-      "example_ja": "食品廃棄物の問題に関する議論を整理する必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちは食品ロス問題についての討論を企画する必要があります。",
+      "focus_ja": "食品ロス問題についての討論を企画する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-582",
       "source_example_en": "The group was asked to consider exceptions to the community recycling program.",
-      "example_ja": "当社グループは、地域再生プログラムの例外を検討するよう求めた。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "そのグループは地域のリサイクル制度の例外を検討するよう求められました。",
+      "focus_ja": "地域のリサイクル制度の例外を検討する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-600",
       "source_example_en": "The group was asked to check the accuracy of the class announcement.",
-      "example_ja": "クラス発表の精度確認をお願いしました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "そのグループはクラスへのお知らせの正確さを確認するよう求められました。",
+      "focus_ja": "クラスへのお知らせの正確さを確認する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-604",
       "source_example_en": "We need to share the latest version of the project results.",
-      "example_ja": "プロジェクト結果の最新バージョンを共有する必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちはプロジェクトの結果の最新版を共有する必要があります。",
+      "focus_ja": "プロジェクトの結果の最新版を共有する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-512",
       "source_example_en": "We need to conduct interviews about the communication gap.",
-      "example_ja": "コミュニケーションギャップに関するインタビューを実施する必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちは意思疎通のずれについて聞き取り調査をする必要があります。",
+      "focus_ja": "意思疎通のずれについて聞き取り調査をする",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-515",
       "source_example_en": "The committee plans to outline the background to the scheduling conflict.",
-      "example_ja": "委員会は、スケジューリング紛争の背景を概説する計画です。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "委員会は日程の衝突の背景を概説する予定です。",
+      "focus_ja": "日程の衝突の背景を概説する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK4-553",
@@ -2800,9 +2800,9 @@
     {
       "id": "CK4-545",
       "source_example_en": "The group was asked to make long-term plans for better school attendance.",
-      "example_ja": "高校進学のための長期計画を策定するよう求めた。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "そのグループは出席状況の改善の長期計画を立てるよう求められました。",
+      "focus_ja": "出席状況の改善の長期計画を立てる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-154",
@@ -2815,7 +2815,7 @@
       "id": "CK5-112",
       "source_example_en": "I make a point of thanking my classmates.",
       "example_ja": "私はクラスメートに必ず感謝を伝えるようにしています。",
-      "focus_ja": "必ず感謝を伝える",
+      "focus_ja": "",
       "translation_status": "existing_editorial_draft"
     },
     {
@@ -3157,289 +3157,289 @@
     {
       "id": "CK5-307",
       "source_example_en": "Researchers aim to examine the causes of rising energy costs in several regions.",
-      "example_ja": "研究者は、複数の地域で増加するエネルギーコストの原因を調べることを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは複数の地域でエネルギー費用の上昇の原因を調べることを目指しています。",
+      "focus_ja": "エネルギー費用の上昇の原因を調べる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-292",
       "source_example_en": "Officials must address concerns surrounding rural depopulation openly.",
-      "example_ja": "公式は、農村の人口の周りの懸念を開放的に対処する必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "当局者は公開の場で地方の人口減少を取り巻く懸念に対処する必要があります。",
+      "focus_ja": "懸念に対処する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-338",
       "source_example_en": "Public agencies should promote transparency in healthcare access whenever possible.",
-      "example_ja": "公的機関は、可能な限り医療アクセスの透明性を促進する必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "公的機関は可能な限り医療へのアクセスの透明性を促進するべきです。",
+      "focus_ja": "医療へのアクセスの透明性を促進する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-315",
       "source_example_en": "The partner schools plan to strengthen cooperation on language education next year.",
-      "example_ja": "パートナースクールでは、来年度の語学教育のご協力を深める予定です。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "協力校は来年言語教育についての協力を強化する予定です。",
+      "focus_ja": "言語教育についての協力を強化する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-286",
       "source_example_en": "Leaders should consider trade-offs in environmental protection before choosing a policy.",
-      "example_ja": "リーダーは、ポリシーを選択する前に、環境保護のトレードオフを検討する必要があります。",
+      "example_ja": "指導者は方針を選ぶ前に環境保護に伴う得失を検討するべきです。",
       "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-270",
       "source_example_en": "The committee will establish benchmarks for digital literacy across all schools.",
-      "example_ja": "委員会は、すべての学校にデジタルリテラシーのためのベンチマークを確立します。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "委員会はすべての学校でデジタルリテラシーの評価基準を設ける予定です。",
+      "focus_ja": "評価基準を設ける",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-329",
       "source_example_en": "Teachers can measure improvements in language proficiency over a full term.",
-      "example_ja": "教師は、全期間にわたって言語能力の改善を測定することができます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "教師は1学期を通じて言語運用能力の改善度を測定することができます。",
+      "focus_ja": "言語運用能力の改善度を測定する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-342",
       "source_example_en": "The planning group must anticipate challenges to the school partnership early.",
-      "example_ja": "計画グループは、早期に学校のパートナーシップにチャレンジを期待しなければなりません。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "計画担当グループは早い段階で学校間連携への課題を予測する必要があります。",
+      "focus_ja": "学校間連携への課題を予測する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-218",
       "source_example_en": "Decision-makers must consider the implications of fast-moving technology carefully.",
-      "example_ja": "意思決定メーカーは、慎重に高速移動技術の影響を考慮する必要があります。.",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "意思決定者は慎重に急速に変化する技術が持つ影響を検討する必要があります。",
+      "focus_ja": "が持つ影響を検討する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-256",
       "source_example_en": "Experts need to evaluate alternative responses to water scarcity before acting.",
-      "example_ja": "専門家は、行動する前に水不足に対する代替応答を評価する必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "専門家は行動する前に水不足への代替的な対応を評価する必要があります。",
+      "focus_ja": "水不足への代替的な対応を評価する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-272",
       "source_example_en": "The ministry hopes to implement reforms in digital privacy gradually.",
-      "example_ja": "省庁は、デジタルプライバシーの変革を徐々に実現していきたいと考えています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "省は段階的にデジタル上のプライバシーに改革を実施することを望んでいます。",
+      "focus_ja": "デジタル上のプライバシーに改革を実施する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-228",
       "source_example_en": "The review seeks to identify gaps in healthcare access systematically.",
-      "example_ja": "このレビューでは、ヘルスケアアクセスのギャップを体系的に特定しようとしています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この検証は体系的に医療へのアクセスの不足点を特定することを目指しています。",
+      "focus_ja": "の不足点を特定する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-387",
       "source_example_en": "Analysts should visualize the interview transcripts to reach an informed conclusion.",
-      "example_ja": "アナリストは、インタビューのトランスクリプトを視覚化して、通知された結論に達する必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "分析担当者は十分な情報に基づく結論を出すためにインタビュー記録を可視化するべきです。",
+      "focus_ja": "インタビュー記録を可視化する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-358",
       "source_example_en": "The committee decided to interpret the attendance figures before changing the policy.",
-      "example_ja": "委員会は、本方針を変更する前に出席者の数字を解釈することを決定しました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "委員会は方針を変更する前に出席状況の数値を解釈することを決めました。",
+      "focus_ja": "出席状況の数値を解釈する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-365",
       "source_example_en": "Analysts should verify the budget estimates to reach an informed conclusion.",
-      "example_ja": "アナリストは、通知された結論に達するために予算の見積もりを検証する必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "分析担当者は十分な情報に基づく結論を出すために予算の推計値を検証するべきです。",
+      "focus_ja": "予算の推計値を検証する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-456",
       "source_example_en": "The committee decided to minimize exposure to data leakage before changing the policy.",
-      "example_ja": "委員会は、ポリシーを変更する前にデータ漏洩を最小限に抑えることにした。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "委員会は方針を変更する前にデータ漏えいにさらされる度合いを抑えることを決めました。",
+      "focus_ja": "にさらされる度合いを抑える",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-398",
       "source_example_en": "Experts were invited to analyze the distribution of the attendance figures during the review.",
-      "example_ja": "専門家は、審査中に出席者の図の分布を分析するために招待されました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "専門家は審査の過程で出席状況の数値の分布を分析するよう招かれました。",
+      "focus_ja": "出席状況の数値の分布を分析する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-470",
       "source_example_en": "The project seeks to anticipate long-term disruption through careful evaluation.",
-      "example_ja": "慎重な評価で長期破壊を予測するプロジェクト。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "このプロジェクトは慎重な評価を通じて長期的な混乱を予測することを目指しています。",
+      "focus_ja": "長期的な混乱を予測する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-493",
       "source_example_en": "The project seeks to prepare contingency plans for misleading information through careful evaluation.",
-      "example_ja": "慎重な評価を通じて、誤解を招く情報のためのコンテンシビリティ計画を準備するプロジェクトです。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "このプロジェクトは慎重な評価を通じて誤解を招く情報に備えた緊急時の計画を立てることを目指しています。",
+      "focus_ja": "誤解を招く情報に備えた緊急時の計画を立てる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-479",
       "source_example_en": "The research team aims to raise concerns about unfair treatment in its next report.",
-      "example_ja": "研究チームは、次の報告書で不公平な治療に関する懸念を高めることを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究チームは次の報告書で不公平な扱いについて懸念を表明することを目指しています。",
+      "focus_ja": "について懸念を表明する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-393",
       "source_example_en": "The project seeks to account for fluctuations in the attendance figures through careful evaluation.",
-      "example_ja": "本プロジェクトでは、出席者数の変動について、慎重に評価し検討しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "このプロジェクトは慎重な評価を通じて出席状況の数値の変動を説明することを目指しています。",
+      "focus_ja": "の変動を説明する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-423",
       "source_example_en": "Experts were invited to expand upon the interview series during the review.",
-      "example_ja": "エキスパートがインタビューシリーズにインタビューを重ねる機会に招待されました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "専門家は審査の過程で一連のインタビューを発展させるよう招かれました。",
+      "focus_ja": "一連のインタビューを発展させる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-453",
       "source_example_en": "The research team aims to mitigate misleading information in its next report.",
-      "example_ja": "研究チームは、次のレポートで誤解を招く情報を移行することを目指しています。",
-      "focus_ja": "誤解を招く情報を",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究チームは次の報告書で誤解を招く情報を軽減することを目指しています。",
+      "focus_ja": "誤解を招く情報を軽減する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-413",
       "source_example_en": "Analysts should draw lessons from the interview series to reach an informed conclusion.",
-      "example_ja": "アナリストは、インタビューシリーズからレッスンを描き、通知された結論に達する必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "分析担当者は十分な情報に基づく結論を出すために一連のインタビューから教訓を得るべきです。",
+      "focus_ja": "一連のインタビューから教訓を得る",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-408",
       "source_example_en": "The committee decided to present findings from the interview series before changing the policy.",
-      "example_ja": "本委員会は、政策変更前のインタビューシリーズの調査結果を発表することを決定しました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "委員会は方針を変更する前に一連のインタビューから得られた知見を示すことを決めました。",
+      "focus_ja": "一連のインタビューから得られた知見を示す",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-418",
       "source_example_en": "The project seeks to acknowledge limitations of the interview series through careful evaluation.",
-      "example_ja": "インタビューシリーズの限界を慎重に評価することで認めるプロジェクト。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "このプロジェクトは慎重な評価を通じて一連のインタビューの限界を認めることを目指しています。",
+      "focus_ja": "一連のインタビューの限界を認める",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-427",
       "source_example_en": "The research team aims to replicate aspects of the local survey in its next report.",
-      "example_ja": "研究チームは、次のレポートで現地調査の側面を再現することを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究チームは次の報告書で地域調査の一部を再現することを目指しています。",
+      "focus_ja": "地域調査の一部を再現する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-481",
       "source_example_en": "The committee decided to acknowledge the possibility of data leakage before changing the policy.",
-      "example_ja": "委員会は、ポリシーを変更する前に、データ漏洩の可能性を認識することを決定しました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "委員会は方針を変更する前にデータ漏えいの可能性を認めることを決めました。",
+      "focus_ja": "データ漏えいの可能性を認める",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-432",
       "source_example_en": "The committee decided to justify decisions using the local survey before changing the policy.",
-      "example_ja": "委員会は、政策変更前の現地調査による決定を正当化することを決定しました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "委員会は方針を変更する前に地域調査を用いて決定を正当化することを決めました。",
+      "focus_ja": "地域調査を用いて決定を正当化する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-500",
       "source_example_en": "Experts were invited to communicate the dangers of long-term disruption during the review.",
-      "example_ja": "専門家は、レビュー中に長期的混乱の危険性を伝えるために招待されました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "専門家は審査の過程で長期的な混乱の危険性を伝えるよう招かれました。",
+      "focus_ja": "長期的な混乱の危険性を伝える",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-531",
       "source_example_en": "The report attempts to document sources of the interview transcripts.",
-      "example_ja": "レポートは、インタビュートランスクリプトのソースを文書化しようとします。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この報告書ではインタビュー記録の出典を記録することを試みています。",
+      "focus_ja": "インタビュー記録の出典を記録する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-594",
       "source_example_en": "The report attempts to communicate preventive measures for avoidable accidents.",
-      "example_ja": "報告は、回避可能な事故の予防措置を伝えようとします。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この報告書では回避可能な事故の予防策を伝えることを試みています。",
+      "focus_ja": "回避可能な事故の予防策を伝える",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-548",
       "source_example_en": "The report attempts to compare outcomes from the pilot study.",
-      "example_ja": "報告書は、パイロット研究から成果を比較しようとする。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この報告書では予備調査の成果を比較することを試みています。",
+      "focus_ja": "予備調査の成果を比較する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-535",
       "source_example_en": "The research team plans to report uncertainty in the budget estimates.",
-      "example_ja": "研究チームは、予算の見積もりで不確実性を報告する予定です。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究チームは予算の推計値の不確実性を報告する予定です。",
+      "focus_ja": "予算の推計値の不確実性を報告する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-611",
       "source_example_en": "The report attempts to identify misconceptions about digital citizenship.",
-      "example_ja": "報告書は、デジタル市民権に関する誤解を特定しようとする。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この報告書ではデジタル市民性に関する誤解を特定することを試みています。",
+      "focus_ja": "デジタル市民性に関する誤解を特定する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-605",
       "source_example_en": "The research team plans to explore practical applications of digital citizenship.",
-      "example_ja": "リサーチチームは、デジタル市民権の実践的な応用を探求する計画です。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究チームはデジタル市民性の実践的応用を探る予定です。",
+      "focus_ja": "デジタル市民性の実践的応用を探る",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-588",
       "source_example_en": "The research team plans to prepare a response plan for avoidable accidents.",
-      "example_ja": "研究チームは、回避可能な事故の対応計画を準備する予定です。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究チームは回避可能な事故への対応計画を準備する予定です。",
+      "focus_ja": "回避可能な事故への対応計画を準備する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-527",
       "source_example_en": "The reviewers were asked to cross-check figures in the attendance figures.",
-      "example_ja": "審査官は、出席者図のクロスチェック図に尋ねられました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "審査担当者たちは出席状況の数値の数値を照合するよう求められました。",
+      "focus_ja": "出席状況の数値の数値を照合する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-515",
       "source_example_en": "The research team plans to identify missing values in the temperature measurements.",
-      "example_ja": "研究チームは、温度測定の欠損値を特定する予定です。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究チームは気温の測定値の欠損値を特定する予定です。",
+      "focus_ja": "気温の測定値の欠損値を特定する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-610",
       "source_example_en": "The reviewers were asked to connect the discussion to cultural identity.",
-      "example_ja": "審査官は、文化的アイデンティティへの議論を繋ぐよう求めた。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "審査担当者たちは議論を文化的アイデンティティにつなげるよう求められました。",
+      "focus_ja": "議論を文化的アイデンティティにつなげる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-581",
       "source_example_en": "The reviewers were asked to report incidents of data leakage.",
-      "example_ja": "審査官は、データ漏洩の事故を報告するよう求めた。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "審査担当者たちはデータ漏えいの発生事例を報告するよう求められました。",
+      "focus_ja": "データ漏えいの発生事例を報告する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-501",
@@ -3451,58 +3451,58 @@
     {
       "id": "CK5-512",
       "source_example_en": "The report attempts to compare samples of the temperature measurements.",
-      "example_ja": "報告書は温度測定のサンプルを比較しようとする。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この報告書では気温の測定値の標本を比較することを試みています。",
+      "focus_ja": "気温の測定値の標本を比較する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-624",
       "source_example_en": "The research team plans to illustrate the importance of social trust.",
-      "example_ja": "研究チームは、社会的信頼の重要性を明らかにする予定です。",
-      "focus_ja": "社会的信頼の重要性を",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究チームは社会的信頼の重要性を例示する予定です。",
+      "focus_ja": "社会的信頼の重要性を例示する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-579",
       "source_example_en": "The research team plans to outline responsibilities for preventing avoidable accidents.",
-      "example_ja": "研究チームは、回避可能な事故を防止するための責任を概説する予定です。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究チームは回避可能な事故を防ぐ役割分担を概説する予定です。",
+      "focus_ja": "回避可能な事故を防ぐ役割分担を概説する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-564",
       "source_example_en": "The reviewers were asked to draft recommendations based on the local survey.",
-      "example_ja": "現地調査に基づく提言書草案をお願いしました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "審査担当者たちは地域調査に基づく提言の草案を作るよう求められました。",
+      "focus_ja": "地域調査に基づく提言の草案を作る",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-524",
       "source_example_en": "The research team plans to explain discrepancies in the survey responses.",
-      "example_ja": "研究チームは、調査応答の矛盾を説明する予定です。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究チームはアンケート回答の食い違いを説明する予定です。",
+      "focus_ja": "アンケート回答の食い違いを説明する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-553",
       "source_example_en": "The research team plans to discuss ethical issues in the interview series.",
-      "example_ja": "研究チームは、インタビューシリーズの倫理的問題について議論する予定です。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究チームは一連のインタビューの倫理的問題を議論する予定です。",
+      "focus_ja": "一連のインタビューの倫理的問題を議論する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-556",
       "source_example_en": "The reviewers were asked to review participant responses to the interview series.",
-      "example_ja": "インタビューシリーズの参加者の回答を審査依頼しました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "審査担当者たちは一連のインタビューへの参加者の反応を検討するよう求められました。",
+      "focus_ja": "一連のインタビューへの参加者の反応を検討する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK5-508",
       "source_example_en": "The reviewers were asked to check for outliers in the survey responses.",
-      "example_ja": "調査結果の審査官は、調査結果のアウトリアをチェックするよう求めた。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "審査担当者たちはアンケート回答の外れ値を確認するよう求められました。",
+      "focus_ja": "アンケート回答の外れ値を確認する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-071",
@@ -3522,7 +3522,7 @@
       "id": "CK6-142",
       "source_example_en": "Experts began to sound the alarm last year.",
       "example_ja": "専門家たちは昨年、警鐘を鳴らし始めました。",
-      "focus_ja": "警鐘を鳴らし",
+      "focus_ja": "警鐘を鳴ら",
       "translation_status": "existing_editorial_draft"
     },
     {
@@ -3536,7 +3536,7 @@
       "id": "CK6-069",
       "source_example_en": "The policy was revised in the interests of students.",
       "example_ja": "その方針は生徒の利益のために改訂されました。",
-      "focus_ja": "生徒の利益のために",
+      "focus_ja": "の利益のために",
       "translation_status": "existing_editorial_draft"
     },
     {
@@ -3857,358 +3857,358 @@
     {
       "id": "CK6-271",
       "source_example_en": "The analysts tried to reconcile differences in survey findings across sources.",
-      "example_ja": "アナリストは、ソース全体で調査結果の差を調整しようとしました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "分析担当者たちは複数の資料間で調査結果の相違を調整することを試みました。",
+      "focus_ja": "相違を調整する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-281",
       "source_example_en": "The committee must establish criteria for the pilot program before selecting options.",
-      "example_ja": "委員会は、オプションを選択する前にパイロットプログラムの基準を確立しなければなりません。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "委員会は選択肢を決める前に試験的なプログラムの判断基準を設ける必要があります。",
+      "focus_ja": "の判断基準を設ける",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-339",
       "source_example_en": "The authors must explain discrepancies in independent evaluations before publication.",
-      "example_ja": "著者は、出版物の前に独立した評価で矛盾を記述しなければなりません。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "著者らは公表前に第三者評価における食い違いを説明する必要があります。",
+      "focus_ja": "第三者評価における食い違いを説明する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-313",
       "source_example_en": "The team will substantiate findings about student welfare with fieldwork.",
-      "example_ja": "フィールドワークで学生の福祉に関する調査を実施します。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "チームは現地調査によって生徒の福祉に関する知見を裏付ける予定です。",
+      "focus_ja": "生徒の福祉に関する知見を裏付ける",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-325",
       "source_example_en": "The paper attempts to investigate the origins of educational inequality in depth.",
-      "example_ja": "紙は、深さの教育的平等性の起源を調査しようとする。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この論文は教育格差の起源を調べることを詳しく試みています。",
+      "focus_ja": "教育格差の起源を調べる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-230",
       "source_example_en": "The committee will evaluate the feasibility of the exchange project before approving funds.",
-      "example_ja": "委員会は、資金を承認する前に、交換プロジェクトの実現可能性を評価します。",
+      "example_ja": "委員会は資金を承認する前に交流プロジェクトの実行可能性を評価する予定です。",
       "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-269",
       "source_example_en": "New studies can challenge prevailing views on teacher development.",
-      "example_ja": "新しい研究では、教師の発達に関する見解にチャレンジすることができます。",
+      "example_ja": "新たな研究によって教員の研修に関する一般的な見解に異議を唱えることができます。",
       "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-350",
       "source_example_en": "The updated policy may place greater emphasis on online safety from next year.",
-      "example_ja": "更新されたポリシーは、来年よりオンラインの安全性に重点を置く可能性があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "更新された方針は来年からオンラインの安全をさらに重視するかもしれません。",
+      "focus_ja": "をさらに重視する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-239",
       "source_example_en": "The study will analyze the relationship between language proficiency and regional differences.",
-      "example_ja": "語学力と地域差の関係を分析します。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "その研究では、語学力と地域差の関係を分析する予定です。",
+      "focus_ja": "関係を分析",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK6-307",
       "source_example_en": "The historian aims to trace the development of urban planning over several decades.",
-      "example_ja": "歴史家は、数十年以上にわたり都市計画の発展を追跡することを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "歴史研究者は数十年にわたって都市計画の発展過程をたどることを目指しています。",
+      "focus_ja": "都市計画の発展過程をたどる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-244",
       "source_example_en": "The review must assess potential risks to public transport before implementation.",
-      "example_ja": "レビューは、実装前に公共輸送に潜在的なリスクを評価する必要があります。",
+      "example_ja": "実施前の検証では公共交通への潜在的なリスクを評価する必要があります。",
       "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-216",
       "source_example_en": "Researchers need to identify factors influencing program costs across regions.",
-      "example_ja": "研究者は、地域全体のプログラムコストを影響する要因を特定する必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは地域を横断して事業費に影響する要因を特定する必要があります。",
+      "focus_ja": "に影響する要因を特定する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-431",
       "source_example_en": "The committee decided to explore tensions surrounding digital citizenship before changing the policy.",
-      "example_ja": "委員会は、政策を変更する前に、デジタル市民権を取り巻く緊張を調べることにした。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "委員会は方針を変更する前にデジタル市民性をめぐる緊張関係を検討することを決めました。",
+      "focus_ja": "デジタル市民性をめぐる緊張関係を検討する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-462",
       "source_example_en": "Analysts should introduce safeguards into curriculum development to reach an informed conclusion.",
-      "example_ja": "アナリストは、情報に基づいた結論に達するためにカリキュラムの開発に安全対策を導入する必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "分析担当者は十分な情報に基づく結論を出すために教育課程の開発に安全措置を取り入れるべきです。",
+      "focus_ja": "教育課程の開発に安全措置を取り入れる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-447",
       "source_example_en": "Experts were invited to trace debates over social trust during the review.",
-      "example_ja": "専門家は、レビュー中に社会的信頼に対する議論を追跡するために招待されました。",
+      "example_ja": "専門家は審査の過程で社会的信頼をめぐる議論をたどるよう招かれました。",
       "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-430",
       "source_example_en": "The research team aims to describe the evolution of collective responsibility in its next report.",
-      "example_ja": "研究チームは、次の報告書で集団責任の進化を記述することを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究チームは次の報告書で集団的な責任の変遷を説明することを目指しています。",
+      "focus_ja": "集団的な責任の変遷を説明する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-469",
       "source_example_en": "The project seeks to evaluate efficiency in policy implementation through careful evaluation.",
-      "example_ja": "本プロジェクトでは、慎重に評価することにより、ポリシーの実装の効率性を評価することを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "このプロジェクトは慎重な評価を通じて政策の実施の効率を評価することを目指しています。",
+      "focus_ja": "政策の実施の効率を評価する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-355",
       "source_example_en": "The research team aims to assess implications for older residents in its next report.",
-      "example_ja": "研究チームは、次のレポートで高齢者の遺言を評価することを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究チームは次の報告書で高齢の住民への影響を評価することを目指しています。",
+      "focus_ja": "高齢の住民への影響を評価する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-494",
       "source_example_en": "The project seeks to address delays in policy implementation through careful evaluation.",
-      "example_ja": "本プロジェクトでは、慎重に評価することにより、ポリシーの実装の遅延に対処します。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "このプロジェクトは慎重な評価を通じて政策の実施の遅延に対処することを目指しています。",
+      "focus_ja": "政策の実施の遅延に対処する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-363",
       "source_example_en": "Analysts should quantify costs borne by first-generation students to reach an informed conclusion.",
-      "example_ja": "アナリストは、第一世代の学生が情報に基づいた結論に達した費用を定量化する必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "分析担当者は十分な情報に基づく結論を出すために家族で初めて大学進学を目指す生徒が負担する費用を数値化するべきです。",
+      "focus_ja": "家族で初めて大学進学を目指す生徒が負担する費用を数値化する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-420",
       "source_example_en": "The project seeks to assess changes in collective responsibility through careful evaluation.",
-      "example_ja": "慎重に評価することで、集団の責任の変化を評価する。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "このプロジェクトは慎重な評価を通じて集団的な責任の変化を評価することを目指しています。",
+      "focus_ja": "集団的な責任の変化を評価する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-422",
       "source_example_en": "Experts were invited to question common beliefs about social trust during the review.",
-      "example_ja": "専門家は、レビュー中に社会的な信頼に関する共通の信念を質問するために招待されました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "専門家は審査の過程で社会的信頼についての一般的な考えを問い直すよう招かれました。",
+      "focus_ja": "社会的信頼についての一般的な考えを問い直す",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-478",
       "source_example_en": "The research team aims to outline key stages of community consultation in its next report.",
-      "example_ja": "研究チームは、次のレポートでコミュニティ協議の重要な段階を概説することを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究チームは次の報告書で地域との協議の主要な段階を概説することを目指しています。",
+      "focus_ja": "地域との協議の主要な段階を概説する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-415",
       "source_example_en": "Analysts should identify competing views of collective responsibility to reach an informed conclusion.",
-      "example_ja": "アナリストは、情報に基づいた結論に達するために、集団責任の有利な意見を識別する必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "分析担当者は十分な情報に基づく結論を出すために集団的な責任について対立する見解を特定するべきです。",
+      "focus_ja": "集団的な責任について対立する見解を特定する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-442",
       "source_example_en": "The project seeks to introduce a broader view of social trust through careful evaluation.",
-      "example_ja": "このプロジェクトでは、慎重な評価で、より広く社会的な信頼を呼び出すことを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "このプロジェクトは慎重な評価を通じて社会的信頼についてより広い視点を提示することを目指しています。",
+      "focus_ja": "社会的信頼についてより広い視点を提示する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-369",
       "source_example_en": "The project seeks to examine unequal outcomes for local small businesses through careful evaluation.",
-      "example_ja": "このプロジェクトでは、地域の中小企業の不等な成果を慎重に評価して検討しようとしています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "このプロジェクトは慎重な評価を通じて地域の小規模事業者に生じる不均等な結果を調べることを目指しています。",
+      "focus_ja": "地域の小規模事業者に生じる不均等な結果を調べる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-359",
       "source_example_en": "The committee decided to identify barriers facing local small businesses before changing the policy.",
-      "example_ja": "委員会は、政策を変更する前に、地域の中小企業に面した障壁を特定することにした。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "委員会は方針を変更する前に地域の小規模事業者が直面する障壁を特定することを決めました。",
+      "focus_ja": "地域の小規模事業者が直面する障壁を特定する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-437",
       "source_example_en": "Analysts should reconsider the value of social trust to reach an informed conclusion.",
-      "example_ja": "アナリストは、通知された結論に達するために、社会的信頼の価値を再考する必要があります。",
+      "example_ja": "分析担当者は十分な情報に基づく結論を出すために社会的信頼の価値を再考するべきです。",
       "focus_ja": "社会的信頼の価値を再考する",
-      "translation_status": "machine_draft_needs_review"
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-498",
       "source_example_en": "Experts were invited to strengthen oversight of community consultation during the review.",
-      "example_ja": "専門家は、レビュー中にコミュニティの相談の監督を強化するために招待されました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "専門家は審査の過程で地域との協議への監督を強化するよう招かれました。",
+      "focus_ja": "地域との協議への監督を強化する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-484",
       "source_example_en": "The committee decided to reassess priorities in policy implementation before changing the policy.",
-      "example_ja": "本委員会は、方針変更前の方針実施の優先事項を見直しました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "委員会は方針を変更する前に政策の実施の優先事項を再評価することを決めました。",
+      "focus_ja": "政策の実施の優先事項を再評価する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-622",
       "source_example_en": "The committee was invited to propose adaptive strategies for global migration.",
-      "example_ja": "委員会は、グローバルマイグレーションの適応戦略を提案しました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "委員会は国際的な移住への適応戦略を提案するよう求められました。",
+      "focus_ja": "国際的な移住への適応戦略を提案する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-563",
       "source_example_en": "The review suggests that we should review procedural safeguards in public decision-making.",
-      "example_ja": "このレビューは、公共の意思決定における手続き上の保護策を検討すべきであることを示唆しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この検討結果は、私たちが公共の意思決定の手続き上の保障を見直すべきだと示唆しています。",
+      "focus_ja": "公共の意思決定の手続き上の保障を見直す",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-619",
       "source_example_en": "The review suggests that we should document responses to global migration.",
-      "example_ja": "このレビューは、グローバルな移行に対する応答を文書化すべきであることを示唆しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この検討結果は、私たちが国際的な移住への対応を記録するべきだと示唆しています。",
+      "focus_ja": "国際的な移住への対応を記録する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-606",
       "source_example_en": "The researchers aim to assess the social consequences of rapid urbanization.",
-      "example_ja": "研究者は、急速な都市化の社会的な結果を評価することを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは急速な都市化の社会的影響を評価することを目指しています。",
+      "focus_ja": "急速な都市化の社会的影響を評価する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-585",
       "source_example_en": "The committee was invited to reconsider traditional perspectives on social trust.",
-      "example_ja": "委員会は、社会の信頼に関する伝統的な視点を見直して招待されました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "委員会は社会的信頼についての従来の見方を再考するよう求められました。",
+      "focus_ja": "社会的信頼についての従来の見方を再考する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-520",
       "source_example_en": "The review suggests that we should examine participation rates among local small businesses.",
-      "example_ja": "このレビューでは、現地の中小企業の参加率を調べるべきであることを示唆しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この検討結果は、私たちが地域の小規模事業者の参加率を調べるべきだと示唆しています。",
+      "focus_ja": "地域の小規模事業者の参加率を調べる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-523",
       "source_example_en": "The committee was invited to consider unintended impacts on first-generation students.",
-      "example_ja": "第一世代の学生に影響を及ぼす影響を未知に考えるよう求められた委員会。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "委員会は家族で初めて大学進学を目指す生徒への意図しない影響を考慮するよう求められました。",
+      "focus_ja": "家族で初めて大学進学を目指す生徒への意図しない影響を考慮する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-577",
       "source_example_en": "The committee was invited to distinguish competing meanings of cultural identity.",
-      "example_ja": "委員会は、文化的アイデンティティの有能な意味を区別するために招待されました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "委員会は文化的アイデンティティの競合する意味を区別するよう求められました。",
+      "focus_ja": "文化的アイデンティティの競合する意味を区別する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-531",
       "source_example_en": "The committee was invited to examine barriers to inclusion for remote communities.",
-      "example_ja": "当委員会は、遠隔地に埋め込むための障壁を調査するよう招待しました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "委員会は遠隔地域のコミュニティの包摂への障壁を検討するよう求められました。",
+      "focus_ja": "遠隔地域のコミュニティの包摂への障壁を検討する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-611",
       "source_example_en": "The committee was invited to identify drivers of population aging.",
-      "example_ja": "委員会は、人口老化の要因を特定するために招待されました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "委員会は人口の高齢化を促す要因を特定するよう求められました。",
+      "focus_ja": "人口の高齢化を促す要因を特定する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-551",
       "source_example_en": "The researchers aim to monitor implementation challenges in public decision-making.",
-      "example_ja": "研究者は、公共の意思決定における実施課題の監視を目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは公共の意思決定の実施上の課題を監視することを目指しています。",
+      "focus_ja": "公共の意思決定の実施上の課題を監視する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-528",
       "source_example_en": "The review suggests that we should analyze resource allocation for remote communities.",
-      "example_ja": "このレビューでは、リモートコミュニティのリソース割り当てを分析する必要があることを示唆しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この検討結果は、私たちが遠隔地域のコミュニティへの資源配分を分析するべきだと示唆しています。",
+      "focus_ja": "遠隔地域のコミュニティへの資源配分を分析する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-597",
       "source_example_en": "The researchers aim to gauge public reactions to rapid urbanization.",
-      "example_ja": "研究者は、急速な都市化に公共の反応を測ることを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは急速な都市化への世論の反応を調べることを目指しています。",
+      "focus_ja": "急速な都市化への世論の反応を調べる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-610",
       "source_example_en": "The review suggests that we should compare regional experiences of global migration.",
-      "example_ja": "このレビューでは、グローバルマイグレーションの地域体験を比較すべきであることを示唆しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この検討結果は、私たちが国際的な移住に関する地域ごとの経験を比較するべきだと示唆しています。",
+      "focus_ja": "国際的な移住に関する地域ごとの経験を比較する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-548",
       "source_example_en": "The committee was invited to identify conflicting incentives in public decision-making.",
-      "example_ja": "委員会は、公共の決定に反するインセンティブを識別するために招待されました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "委員会は公共の意思決定の相反する誘因を特定するよう求められました。",
+      "focus_ja": "公共の意思決定の相反する誘因を特定する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-567",
       "source_example_en": "The committee was invited to examine normative assumptions about social trust.",
-      "example_ja": "委員会は、社会の信頼に関する規範的な仮定を調べるために招待されました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "委員会は社会的信頼に関する規範的前提を検討するよう求められました。",
+      "focus_ja": "社会的信頼に関する規範的前提を検討する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-589",
       "source_example_en": "The researchers aim to articulate a nuanced understanding of cultural identity.",
-      "example_ja": "研究者は、文化的アイデンティティの微分な理解を認めることを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは文化的アイデンティティについて精緻な理解を示すことを目指しています。",
+      "focus_ja": "文化的アイデンティティについて精緻な理解を示す",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-569",
       "source_example_en": "The researchers aim to compare disciplinary perspectives on digital citizenship.",
-      "example_ja": "研究者は、デジタル市民権に関する懲戒観を比較することを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちはデジタル市民性に関する学問分野別の視点を比較することを目指しています。",
+      "focus_ja": "デジタル市民性に関する学問分野別の視点を比較する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-625",
       "source_example_en": "The researchers aim to examine intergenerational effects of global migration.",
-      "example_ja": "研究者は、グローバル移行のインタージェネレーション効果を調べることを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは国際的な移住の世代を超える影響を検討することを目指しています。",
+      "focus_ja": "国際的な移住の世代を超える影響を検討する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK6-544",
       "source_example_en": "The researchers aim to analyze institutional capacity for community consultation.",
-      "example_ja": "研究者は、地域相談のための機関の能力を分析することを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは地域との協議の制度的能力を分析することを目指しています。",
+      "focus_ja": "地域との協議の制度的能力を分析する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-142",
       "source_example_en": "The negotiators eventually reached a common understanding.",
       "example_ja": "交渉担当者たちは最終的に共通認識に至りました。",
-      "focus_ja": "共通認識に至り",
+      "focus_ja": "共通認識に至",
       "translation_status": "existing_editorial_draft"
     },
     {
@@ -4243,7 +4243,7 @@
       "id": "CK7-018",
       "source_example_en": "The school acted quickly to mitigate the impact of flooding.",
       "example_ja": "その学校は洪水の影響を緩和するために迅速に行動しました。",
-      "focus_ja": "影響を緩和",
+      "focus_ja": "影響を緩和する",
       "translation_status": "existing_editorial_draft"
     },
     {
@@ -4298,9 +4298,9 @@
     {
       "id": "CK7-006",
       "source_example_en": "Our committee plans to put forward a proposal next week.",
-      "example_ja": "来週の提案を予定しております。",
-      "focus_ja": "提案を",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちの委員会は来週、提案を提出する予定です。",
+      "focus_ja": "提案を提出",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK7-092",
@@ -4529,9 +4529,9 @@
     {
       "id": "CK7-002",
       "source_example_en": "New evidence could bring into question the original conclusion.",
-      "example_ja": "新しい証拠は、元の結論を疑問に抱くことができます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "新たな証拠によって、当初の結論に疑問が生じるかもしれません。",
+      "focus_ja": "疑問が生じる",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK7-011",
@@ -4557,352 +4557,352 @@
     {
       "id": "CK7-319",
       "source_example_en": "Reforms need to address structural barriers to greater cultural awareness in the long term.",
-      "example_ja": "長期的な文化的意識を高めるために、構造的な障壁に対処する必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "改革は長期的に異文化への理解の向上への構造的障壁に対処する必要があります。",
+      "focus_ja": "構造的障壁に対処する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-322",
       "source_example_en": "The historian will examine competing accounts of rural depopulation in the literature.",
-      "example_ja": "歴史家は、文学における農村の人口の有能なアカウントを調べます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "歴史研究者は文献の中で地方の人口減少について異なる説明を検証する予定です。",
+      "focus_ja": "地方の人口減少について異なる説明を検証する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-293",
       "source_example_en": "The investigation seeks to resolve inconsistencies in the stated objectives.",
-      "example_ja": "調査は、上記の目的の矛盾を解決しようとします。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この調査は明示された目標にある不一致を解消することを目指しています。",
+      "focus_ja": "明示された目標にある不一致を解消する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-342",
       "source_example_en": "The seminar will interrogate the concept of procedural fairness from several perspectives.",
-      "example_ja": "セミナーは、いくつかの観点から、手続きの公正の概念を遮断します。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "このセミナーでは複数の視点から手続きの公正さという概念を批判的に問い直す予定です。",
+      "focus_ja": "手続きの公正さという概念を批判的に問い直す",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-259",
       "source_example_en": "The review may expose the limitations of the proposed reforms.",
-      "example_ja": "このレビューは、提案された改革の制限を明らかにすることができる。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この検証は提案された改革の限界を明らかにするかもしれません。",
+      "focus_ja": "の限界を明らかにする",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-230",
       "source_example_en": "The research aims to uncover the mechanisms behind youth unemployment.",
-      "example_ja": "研究は、青少年失業の背後にあるメカニズムを明らかにすることを目指しています。",
+      "example_ja": "本研究は若者の失業の背後にある仕組みを解明することを目指しています。",
       "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-287",
       "source_example_en": "Independent reviewers will assess the credibility of comparative case studies.",
-      "example_ja": "独立した審査官は、比較ケーススタディの信頼性を評価します。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "独立した審査担当者が比較事例研究の信頼性を評価する予定です。",
+      "focus_ja": "比較事例研究の信頼性を評価する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-309",
       "source_example_en": "The additional data will help refine estimates of language proficiency.",
-      "example_ja": "追加のデータは、言語の能力の推定値を改善するのに役立ちます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "追加データは言語運用能力の推定値を精緻化する助けとなるでしょう。",
+      "focus_ja": "言語運用能力の推定値を精緻化する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-242",
       "source_example_en": "The analysts must evaluate the robustness of longitudinal data under different assumptions.",
-      "example_ja": "アナリストは、異なる仮定の下で縦方向のデータの堅牢性を評価する必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "分析担当者は異なる仮定の下で縦断的なデータの頑健性を評価する必要があります。",
+      "focus_ja": "縦断的なデータの頑健性を評価する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-333",
       "source_example_en": "Policy makers must consider the ramifications of limited funding carefully.",
-      "example_ja": "政策立案者は、限られた資金を慎重に検討する必要があります。",
+      "example_ja": "政策立案者は慎重に限られた資金が引き起こす広範な影響を考慮する必要があります。",
       "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-280",
       "source_example_en": "New safeguards could mitigate adverse effects on local livelihoods over time.",
-      "example_ja": "新しいセーフガードは、時間の経過とともに地元の生活習慣に悪影響を及ぼす可能性があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "新たな保護策は時間の経過とともに地域住民の暮らしへの悪影響を軽減する可能性があります。",
+      "focus_ja": "地域住民の暮らしへの悪影響を軽減する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-268",
       "source_example_en": "The committee will reconsider the rationale for the training program before proceeding.",
-      "example_ja": "委員会は、進行前にトレーニングプログラムの合理を見直します。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "委員会は次に進む前に研修プログラムの根拠を再検討する予定です。",
+      "focus_ja": "の根拠を再検討する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-434",
       "source_example_en": "Researchers aim to distinguish principles from procedures in the institutional framework in the final chapter.",
-      "example_ja": "研究者は、最終章の制度枠組みの手順から原則を区別することを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは最終章で制度的枠組みの原則と手続きとを区別することを目指しています。",
+      "focus_ja": "制度的枠組みの原則と手続きとを区別する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-400",
       "source_example_en": "The paper aims to contextualize debates about the prevailing interpretation from a broader perspective.",
-      "example_ja": "論文は、より広い視点から優先解釈に関する議論を文脈化することを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この論文はより広い視点から主流の解釈をめぐる議論を文脈の中で捉えることを目指しています。",
+      "focus_ja": "主流の解釈をめぐる議論を文脈の中で捉える",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-365",
       "source_example_en": "The authors attempt to challenge the validity of the prevailing interpretation with supporting evidence.",
-      "example_ja": "著者は、証拠を支持して優先解釈の妥当性に挑戦しようとする。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "著者らは裏付けとなる証拠を示しながら主流の解釈の妥当性に疑問を呈することを試みています。",
+      "focus_ja": "主流の解釈の妥当性に疑問を呈する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-382",
       "source_example_en": "Researchers aim to reconcile conflicting evidence about the dominant narrative in the final chapter.",
-      "example_ja": "研究者は、最終章の支配人に関する紛争の証拠を調整することを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは最終章で支配的な語りについて食い違う証拠を整合させることを目指しています。",
+      "focus_ja": "支配的な語りについて食い違う証拠を整合させる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-427",
       "source_example_en": "The study seeks to trace the evolution of the proposed legal framework through critical inquiry.",
-      "example_ja": "研究では、提案された法的枠組みの進化を重要な問い合わせを通じて追跡しようとしています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "本研究は批判的な検討を通じて提案された法的枠組みの変遷をたどることを目指しています。",
+      "focus_ja": "提案された法的枠組みの変遷をたどる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-418",
       "source_example_en": "Scholars were invited to examine the normative basis of the public health framework in their responses.",
-      "example_ja": "Scholarsは、その応答で公衆衛生枠の規範的な基礎を調べるために招待されました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは回答の中で公衆衛生の枠組みの規範的根拠を検討するよう求められました。",
+      "focus_ja": "公衆衛生の枠組みの規範的根拠を検討する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-474",
       "source_example_en": "The paper aims to examine regional differences in healthcare provision from a broader perspective.",
-      "example_ja": "紙は、より広い視点から医療提供の地域差を調べることを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この論文はより広い視点から医療サービスの提供の地域差を検討することを目指しています。",
+      "focus_ja": "医療サービスの提供の地域差を検討する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-478",
       "source_example_en": "The study seeks to explain historical patterns of employment opportunities through critical inquiry.",
-      "example_ja": "研究では、重要な問い合わせを通じて、雇用機会の歴史的パターンを説明しようとしています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "本研究は批判的な検討を通じて雇用機会の歴史的な傾向を説明することを目指しています。",
+      "focus_ja": "雇用機会の歴史的な傾向を説明する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-388",
       "source_example_en": "The authors attempt to propose alternatives to the widely held assumption with supporting evidence.",
-      "example_ja": "著者は、支持証拠と広く保持されている仮定に代替を提案しようとする.",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "著者らは裏付けとなる証拠を示しながら広く受け入れられた前提に代わる説明を提案することを試みています。",
+      "focus_ja": "広く受け入れられた前提に代わる説明を提案する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-488",
       "source_example_en": "The authors attempt to identify institutional obstacles to employment opportunities with supporting evidence.",
-      "example_ja": "著者は、支援証拠と雇用機会に機関の障害を識別しようとする.",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "著者らは裏付けとなる証拠を示しながら雇用機会への制度的障壁を特定することを試みています。",
+      "focus_ja": "雇用機会への制度的障壁を特定する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-404",
       "source_example_en": "The study seeks to formulate criteria for assessing the institutional framework through critical inquiry.",
-      "example_ja": "研究では、重要な問い合わせを通じて、機関の枠組みを評価するための基準を策定しようとしています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "本研究は批判的な検討を通じて制度的枠組みを評価する基準を策定することを目指しています。",
+      "focus_ja": "制度的枠組みを評価する基準を策定する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-496",
       "source_example_en": "The paper aims to examine cumulative disadvantage in access to higher education from a broader perspective.",
-      "example_ja": "紙は、より広い視点から高等教育へのアクセスで累積的な欠点を調べることを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この論文はより広い視点から高等教育へのアクセスにおける不利の累積を調べることを目指しています。",
+      "focus_ja": "高等教育へのアクセスにおける不利の累積を調べる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-411",
       "source_example_en": "The authors attempt to identify inconsistencies within the current assessment framework with supporting evidence.",
-      "example_ja": "著者は、現在のアセスメントフレームワーク内の不整合性を支持する証拠で特定しようとする。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "著者らは裏付けとなる証拠を示しながら現在の評価の枠組みの内部の不整合を特定することを試みています。",
+      "focus_ja": "現在の評価の枠組みの内部の不整合を特定する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-468",
       "source_example_en": "Scholars were invited to identify biases affecting employment opportunities in their responses.",
-      "example_ja": "Scholarsは、その応答における雇用機会に影響を与えるバイアスを識別するために招待されました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは回答の中で雇用機会に影響する偏りを特定するよう求められました。",
+      "focus_ja": "雇用機会に影響する偏りを特定する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-493",
       "source_example_en": "Scholars were invited to consider distributive justice in employment opportunities in their responses.",
-      "example_ja": "Scholarsは、彼らの応答で雇用機会に流通正義を検討するために招待されました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは回答の中で雇用機会における分配の公正を考慮するよう求められました。",
+      "focus_ja": "雇用機会における分配の公正を考慮する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-379",
       "source_example_en": "The study seeks to identify untested assumptions in the initial hypothesis through critical inquiry.",
-      "example_ja": "研究は、重要な問い合わせを通じて、初期仮説で未検査の仮定を識別しようとします。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "本研究は批判的な検討を通じて当初の仮説に含まれる未検証の前提を特定することを目指しています。",
+      "focus_ja": "当初の仮説に含まれる未検証の前提を特定する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-453",
       "source_example_en": "The study seeks to investigate disparities in employment opportunities through critical inquiry.",
-      "example_ja": "本研究では、重要な問い合わせを通じて、雇用機会の分散性を調査しようとしています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "本研究は批判的な検討を通じて雇用機会における格差を調査することを目指しています。",
+      "focus_ja": "雇用機会における格差を調査する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-457",
       "source_example_en": "Researchers aim to measure the unequal distribution of digital resources in schools in the final chapter.",
-      "example_ja": "研究者は、最終章の学校のデジタルリソースの不等分布を測定することを目的としています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは最終章で学校のデジタル資源の不均等な分布を測定することを目指しています。",
+      "focus_ja": "学校のデジタル資源の不均等な分布を測定する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-544",
       "source_example_en": "The analysis attempts to examine ethical trade-offs in the public health framework.",
-      "example_ja": "分析は、公衆衛生枠組みにおける倫理的な取引オフを検討しようとする。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この分析では公衆衛生の枠組みにおける倫理的なトレードオフを検討することを試みています。",
+      "focus_ja": "公衆衛生の枠組みにおける倫理的なトレードオフを検討する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-512",
       "source_example_en": "The researchers sought to consider alternative interpretations of the dominant narrative.",
-      "example_ja": "研究者は、優勢な物語の代替解釈を考慮する必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは支配的な語りの別の解釈を検討することを目指しました。",
+      "focus_ja": "支配的な語りの別の解釈を検討する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-579",
       "source_example_en": "The analysis attempts to question meritocratic explanations of digital resources in schools.",
-      "example_ja": "分析は、学校内のデジタルリソースの有力な説明を質問しようとします。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この分析では学校のデジタル資源に関する能力主義的説明を問い直すことを試みています。",
+      "focus_ja": "学校のデジタル資源に関する能力主義的説明を問い直す",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-503",
       "source_example_en": "The analysis attempts to evaluate evidentiary standards for the widely held assumption.",
-      "example_ja": "分析は、広く開催された仮定の証拠基準を評価する試みです。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この分析では広く受け入れられた前提を裏付ける証拠の基準を評価することを試みています。",
+      "focus_ja": "広く受け入れられた前提を裏付ける証拠の基準を評価する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-566",
       "source_example_en": "The researchers sought to examine intersectional dimensions of access to higher education.",
-      "example_ja": "研究者は、より高い教育へのアクセスの交差点の寸法を調べるべきです。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは高等教育へのアクセスの複合的な格差の側面を検討することを目指しました。",
+      "focus_ja": "高等教育へのアクセスの複合的な格差の側面を検討する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-517",
       "source_example_en": "The authors were asked to acknowledge uncertainty surrounding the official explanation.",
-      "example_ja": "著者は、公式の説明を取り巻く不確実性を認めるよう求めた。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "著者らは公式の説明に伴う不確実性を認めるよう求められました。",
+      "focus_ja": "公式の説明に伴う不確実性を認める",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-529",
       "source_example_en": "The authors were asked to explore counterarguments to the widely held assumption.",
-      "example_ja": "著書は、広く開催された前提に反論を探求するよう求めた。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "著者らは広く受け入れられた前提への反論を探るよう求められました。",
+      "focus_ja": "広く受け入れられた前提への反論を探る",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-604",
       "source_example_en": "The researchers sought to identify threats to validity in the research findings.",
-      "example_ja": "研究者は、調査結果の有効性に対する脅威を特定すべきである。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは研究結果の妥当性への脅威を特定することを目指しました。",
+      "focus_ja": "研究結果の妥当性への脅威を特定する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-616",
       "source_example_en": "The analysis attempts to distinguish robust findings from speculation in the research findings.",
-      "example_ja": "分析は、研究結果の推測から堅牢な発見を区別しようとする。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この分析では研究結果における確かな知見と推測を区別することを試みています。",
+      "focus_ja": "研究結果における確かな知見と推測を区別する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-590",
       "source_example_en": "The authors were asked to propose remedies for disparities in access to higher education.",
-      "example_ja": "著者は、高等教育へのアクセスに障がいのある救済策を提案するよう求めた。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "著者らは高等教育へのアクセスの格差への是正策を提案するよう求められました。",
+      "focus_ja": "高等教育へのアクセスの格差への是正策を提案する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-621",
       "source_example_en": "The researchers sought to identify limitations in interpreting the survey evidence.",
-      "example_ja": "研究者は、調査証拠を解釈する制限を特定すべきである。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは調査による証拠の解釈上の限界を特定することを目指しました。",
+      "focus_ja": "調査による証拠の解釈上の限界を特定する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-577",
       "source_example_en": "The researchers sought to investigate barriers affecting employment opportunities.",
-      "example_ja": "研究者は、雇用機会に影響を与える障壁を調査すべきである。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは雇用機会に関係する障壁を調査することを目指しました。",
+      "focus_ja": "雇用機会に関係する障壁を調査する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-554",
       "source_example_en": "The authors were asked to consider constraints on applying the current assessment framework.",
-      "example_ja": "著者は、現在の評価枠の適用に関する制約を検討するよう求めた。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "著者らは現在の評価の枠組みの適用上の制約を考慮するよう求められました。",
+      "focus_ja": "現在の評価の枠組みの適用上の制約を考慮する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-584",
       "source_example_en": "The researchers sought to assess systemic exclusion from access to higher education.",
-      "example_ja": "研究者は、高等教育へのアクセスから、全身の排除を評価する必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは高等教育へのアクセスからの制度的排除を評価することを目指しました。",
+      "focus_ja": "高等教育へのアクセスからの制度的排除を評価する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-606",
       "source_example_en": "The analysis attempts to contextualize findings in the survey evidence.",
-      "example_ja": "分析は、調査証拠の調査結果の文脈化を試みます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この分析では調査による証拠の発見を文脈に位置付けることを試みています。",
+      "focus_ja": "調査による証拠の発見を文脈に位置付ける",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-595",
       "source_example_en": "The researchers sought to interrogate definitions of fairness in employment opportunities.",
-      "example_ja": "研究者は、雇用機会における公正性の定義を侵害すべきである。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは雇用機会における公正の定義を批判的に検討することを目指しました。",
+      "focus_ja": "雇用機会における公正の定義を批判的に検討する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-599",
       "source_example_en": "The authors were asked to reconcile inconsistencies in the longitudinal data.",
-      "example_ja": "著者は、縦方向のデータに不整合性を調整するように求められました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "著者らは縦断的データの不整合を調整するよう求められました。",
+      "focus_ja": "縦断的データの不整合を調整する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-548",
       "source_example_en": "The researchers sought to identify blind spots in the current assessment framework.",
-      "example_ja": "研究者は、現在の評価枠の盲点を識別するために求めた。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは現在の評価の枠組みの見落としを特定することを目指しました。",
+      "focus_ja": "現在の評価の枠組みの見落としを特定する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-507",
       "source_example_en": "The authors were asked to distinguish inference from observation in the widely held assumption.",
-      "example_ja": "著者は、広く開催された前提で観察から推論を区別するように求められました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "著者らは広く受け入れられた前提における推論と観察を区別するよう求められました。",
+      "focus_ja": "広く受け入れられた前提における推論と観察を区別する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK7-561",
       "source_example_en": "The analysis attempts to analyze relationships among components of the proposed legal framework.",
-      "example_ja": "提案された法的枠組みのコンポーネント間の関係を分析しようとする分析。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この分析では提案された法的枠組みの構成要素間の関係を分析することを試みています。",
+      "focus_ja": "提案された法的枠組みの構成要素間の関係を分析する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-041",
@@ -4915,14 +4915,14 @@
       "id": "CK8-042",
       "source_example_en": "The new survey may bring into sharp relief unequal access.",
       "example_ja": "新しい調査は、利用機会の不平等を鮮明に浮かび上がらせるかもしれません。",
-      "focus_ja": "鮮明に浮かび上がらせる",
+      "focus_ja": "",
       "translation_status": "existing_editorial_draft"
     },
     {
       "id": "CK8-154",
       "source_example_en": "The restrictions were rendered ineffective by loopholes.",
       "example_ja": "その制限は抜け穴によって効力を失いました。",
-      "focus_ja": "効力を失い",
+      "focus_ja": "効力を失",
       "translation_status": "existing_editorial_draft"
     },
     {
@@ -4936,14 +4936,14 @@
       "id": "CK8-131",
       "source_example_en": "The theory may rest on precarious assumptions.",
       "example_ja": "その理論は危うい前提に依存している可能性があります。",
-      "focus_ja": "危うい前提に依存",
+      "focus_ja": "危うい前提に依存している",
       "translation_status": "existing_editorial_draft"
     },
     {
       "id": "CK8-140",
       "source_example_en": "The company was blindsided by the sudden rule change.",
       "example_ja": "その企業は突然の規則変更に不意を突かれました。",
-      "focus_ja": "不意を突かれ",
+      "focus_ja": "に不意を突かれ",
       "translation_status": "existing_editorial_draft"
     },
     {
@@ -4991,9 +4991,9 @@
     {
       "id": "CK8-005",
       "source_example_en": "Small businesses can be at the mercy of sudden price changes.",
-      "example_ja": "小企業は急な価格変更の慈悲にすることができます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "中小企業は突然の価格変動に翻弄されることがあります。",
+      "focus_ja": "に翻弄される",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK8-036",
@@ -5019,16 +5019,16 @@
     {
       "id": "CK8-002",
       "source_example_en": "The education crisis could call for a paradigm shift.",
-      "example_ja": "教育危機は、パラダイムシフトを呼び出すことができます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "教育危機を乗り越えるには、発想の枠組みを根本的に変える必要があるかもしれません。",
+      "focus_ja": "発想の枠組みを根本的に変える",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK8-011",
       "source_example_en": "This pattern could be symptomatic of deeper social problems.",
-      "example_ja": "このパターンは、より深い社会的問題の対称性である可能性があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この傾向は、より根深い社会問題の兆候かもしれません。",
+      "focus_ja": "兆候",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK8-038",
@@ -5257,352 +5257,352 @@
     {
       "id": "CK8-237",
       "source_example_en": "Decision-makers must reconcile the competing demands of short-term recovery and long-term resilience.",
-      "example_ja": "意思決定者は、短期回復と長期回復の能力の能力要件を調整しなければなりません。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "意思決定者は短期的な回復と長期的な強靭性という競合する要求を調整する必要があります。",
+      "focus_ja": "競合する要求を調整する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-278",
       "source_example_en": "The researchers hope to elucidate the causal pathways behind public misinformation.",
-      "example_ja": "研究者は、公序良俗の背後にある因果経路を解明したいと考えています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは公共の場の誤情報の背後にある因果経路を解明することを望んでいます。",
+      "focus_ja": "公共の場の誤情報の背後にある因果経路を解明する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-270",
       "source_example_en": "The paper invites readers to reassess the normative foundations of historical memory.",
-      "example_ja": "紙は、読者に歴史記憶の規範的な基盤を再評価するよう招待します。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この論文は読者に歴史的記憶の規範的基盤を再評価するよう促しています。",
+      "focus_ja": "歴史的記憶の規範的基盤を再評価する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-230",
       "source_example_en": "The findings could call into question the legitimacy of the methodological approach.",
-      "example_ja": "調査結果は、方法論的アプローチの正当性を問うことができます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この研究結果は方法論的なアプローチの正統性に疑問を投げかける可能性があります。",
+      "focus_ja": "に疑問を投げかける",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-260",
       "source_example_en": "The study aims to scrutinize the premises underlying the methodological approach.",
-      "example_ja": "研究は、方法論的アプローチの根本的なアプローチに基づいて施設を台無しにすることを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "本研究は方法論的なアプローチの根底にある前提を精査することを目指しています。",
+      "focus_ja": "方法論的なアプローチの根底にある前提を精査する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-241",
       "source_example_en": "The debate has begun to expose the inherent tensions in institutional legitimacy.",
-      "example_ja": "議論は、組織立法で固有の緊張を明らかにし始めています。",
+      "example_ja": "議論は制度的正統性に内在する緊張関係を露呈させるようになり始めています。",
       "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-285",
       "source_example_en": "The analysis seeks to problematize conventional accounts of educational inequality.",
-      "example_ja": "分析は、教育的平等性の慣習的なアカウントを問題にしようとします。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この分析は教育格差に関する従来の説明を批判的に問い直すことを目指しています。",
+      "focus_ja": "従来の説明を批判的に問い直す",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-325",
       "source_example_en": "Scholars should consider the epistemological limits of classroom observations.",
-      "example_ja": "教室の観察の疫学的限界を考慮する必要があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者は授業観察の認識論的限界を検討するべきです。",
+      "focus_ja": "授業観察の認識論的限界を検討する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-205",
       "source_example_en": "The report seeks to foreground the ethical implications of uncertain economic conditions.",
-      "example_ja": "報告書は、不確実な経済条件の倫理的影響を強調することを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この報告書は不透明な経済情勢の倫理的な含意を前面に出すことを目指しています。",
+      "focus_ja": "倫理的な含意を前面に出す",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-344",
       "source_example_en": "The authors attempt to articulate the unresolved contradictions in the regulatory framework.",
-      "example_ja": "著者は、規制枠組みの中で未解決の矛盾を提起しようとする。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "著者らは規制の枠組みに残る未解決の矛盾を明確に示すことを試みています。",
+      "focus_ja": "規制の枠組みに残る未解決の矛盾を明確に示す",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-216",
       "source_example_en": "The crisis may underscore the fragility of cultural continuity.",
-      "example_ja": "危機は、文化的な継続の豊饒を強調する可能性があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この危機は文化の継続性の脆さを強調するかもしれません。",
+      "focus_ja": "文化の継続性の脆さを強調する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-319",
       "source_example_en": "The commission will investigate the systemic roots of conflicting obligations.",
-      "example_ja": "手数料は、紛争の義務の系統的なルートを調査します。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "委員会は相反する義務の制度全体に関わる根本原因を調べる予定です。",
+      "focus_ja": "相反する義務の制度全体に関わる根本原因を調べる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-463",
       "source_example_en": "The authors attempt to articulate unresolved tensions in the governance model with supporting evidence.",
-      "example_ja": "著者は、証拠をサポートして、ガバナンスモデルの未解決の緊張を防止しようとします。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "著者らは裏付けとなる証拠を示しながら統治モデルに残る未解決の緊張を明確にすることを試みています。",
+      "focus_ja": "統治モデルに残る未解決の緊張を明確にする",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-448",
       "source_example_en": "The paper aims to evaluate the philosophical coherence of individual autonomy from a broader perspective.",
-      "example_ja": "紙は、より広い視点から、個々の自律性の哲学的共生を評価することを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この論文はより広い視点から個人の自律性の哲学的整合性を評価することを目指しています。",
+      "focus_ja": "個人の自律性の哲学的整合性を評価する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-485",
       "source_example_en": "Researchers aim to assess the epistemic limits of the policy narrative in the final chapter.",
-      "example_ja": "研究者は、最終的な章で政策の決定的限界を評価することを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは最終章で政策上の説明における認識上の限界を評価することを目指しています。",
+      "focus_ja": "政策上の説明における認識上の限界を評価する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-436",
       "source_example_en": "The authors attempt to examine rival justifications for procedural fairness with supporting evidence.",
-      "example_ja": "著者は、証拠を支持して手続き公正性のためのライバル正当性を調べようと試みています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "著者らは裏付けとなる証拠を示しながら手続き上の公正を支持する競合する根拠を検討することを試みています。",
+      "focus_ja": "手続き上の公正を支持する競合する根拠を検討する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-488",
       "source_example_en": "The authors attempt to reveal asymmetries embedded in the governance model with supporting evidence.",
-      "example_ja": "著者は、サポート証拠とガバナンスモデルに埋め込まれた非対称性を明らかにしようとする。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "著者らは裏付けとなる証拠を示しながら統治モデルに内在する非対称性を明らかにすることを試みています。",
+      "focus_ja": "統治モデルに内在する非対称性を明らかにする",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-497",
       "source_example_en": "The paper aims to interrogate the political economy of the development discourse from a broader perspective.",
-      "example_ja": "紙は、より広い視点から開発の議論の政治経済を横断することを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この論文はより広い視点から開発をめぐる言説の政治経済的構造を批判的に分析することを目指しています。",
+      "focus_ja": "開発をめぐる言説の政治経済的構造を批判的に分析する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-444",
       "source_example_en": "Scholars were invited to challenge reductive understandings of epistemic justice in their responses.",
-      "example_ja": "シュトララーは、その反応において、流行の正義の減少的理解に挑戦するために招待されました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは回答の中で認識上の正義を単純化した理解に異議を唱えるよう求められました。",
+      "focus_ja": "認識上の正義を単純化した理解に異議を唱える",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-493",
       "source_example_en": "Scholars were invited to trace shifts in the rhetoric of the governance model in their responses.",
-      "example_ja": "Scholarsは、その応答におけるガバナンスモデルの軌跡にシフトをトレースするように招待されました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは回答の中で統治モデルの語り口の変化をたどるよう求められました。",
+      "focus_ja": "統治モデルの語り口の変化をたどる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-472",
       "source_example_en": "The paper aims to critically appraise the internal logic of the development discourse from a broader perspective.",
-      "example_ja": "論文は、より広い視点から開発論の内部ロジックを批判的に評価することを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この論文はより広い視点から開発をめぐる言説の内的論理を批判的に評価することを目指しています。",
+      "focus_ja": "開発をめぐる言説の内的論理を批判的に評価する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-476",
       "source_example_en": "The study seeks to explore competing interests underlying the education reform agenda through critical inquiry.",
-      "example_ja": "研究では、重要な問い合わせを通じて、教育改革議題の根底にある有利な関心を探求しようとしています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "本研究は批判的な検討を通じて教育改革の議題の根底にある競合する利害を探ることを目指しています。",
+      "focus_ja": "教育改革の議題の根底にある競合する利害を探る",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-410",
       "source_example_en": "Researchers aim to articulate tensions surrounding intergenerational equity in the final chapter.",
-      "example_ja": "研究者は、最終章における世代間株式を取り巻く緊張を抑制することを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは最終章で世代間の公平性をめぐる緊張関係を明確に述べることを目指しています。",
+      "focus_ja": "世代間の公平性をめぐる緊張関係を明確に述べる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-375",
       "source_example_en": "The paper aims to reconsider the intellectual origins of linear models of progress from a broader perspective.",
-      "example_ja": "紙は、より広い視野から進展するリニアモデルの知的起源を再考することを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この論文はより広い視点から進歩を直線的に捉えるモデルの思想的起源を再検討することを目指しています。",
+      "focus_ja": "進歩を直線的に捉えるモデルの思想的起源を再検討する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-466",
       "source_example_en": "Scholars were invited to question the legitimacy of the education reform agenda in their responses.",
-      "example_ja": "Scholarsは、教育改革アジェンダの正当性を彼らの応答で質問するように招待されました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは回答の中で教育改革の議題の正統性に疑問を投げかけるよう求められました。",
+      "focus_ja": "教育改革の議題の正統性に疑問を投げかける",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-423",
       "source_example_en": "The paper aims to trace the institutionalization of individual autonomy from a broader perspective.",
-      "example_ja": "紙は、より広い視点から、個々の自律性の制度化を追跡することを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この論文はより広い視点から個人の自律性の制度化の過程をたどることを目指しています。",
+      "focus_ja": "個人の自律性の制度化の過程をたどる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-383",
       "source_example_en": "Researchers aim to critique simplistic interpretations of market fundamentalism in the final chapter.",
-      "example_ja": "研究者は、最終章における市場基本主義の単純解釈を批判することを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは最終章で市場原理主義に対する単純化した解釈を批判することを目指しています。",
+      "focus_ja": "市場原理主義に対する単純化した解釈を批判する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-453",
       "source_example_en": "The study seeks to examine hidden contradictions in the governance model through critical inquiry.",
-      "example_ja": "本研究では、重要な問い合わせを通じて、ガバナンスモデルにおける隠された矛盾を調べることを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "本研究は批判的な検討を通じて統治モデルに潜む矛盾を検討することを目指しています。",
+      "focus_ja": "統治モデルに潜む矛盾を検討する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-354",
       "source_example_en": "The study seeks to deconstruct dominant narratives about cultural essentialism through critical inquiry.",
-      "example_ja": "本研究では、重要な問い合わせを通じて、文化的本質主義に関する優勢な物語を再構築することを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "本研究は批判的な検討を通じて文化的本質主義に関する支配的な物語を解体して検討することを目指しています。",
+      "focus_ja": "文化的本質主義に関する支配的な物語を解体して検討する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-363",
       "source_example_en": "The authors attempt to challenge the universality of market fundamentalism with supporting evidence.",
-      "example_ja": "著者は、支持証拠と市場の根本主義の普遍性に挑戦しようとする。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "著者らは裏付けとなる証拠を示しながら市場原理主義の普遍性に異議を唱えることを試みています。",
+      "focus_ja": "市場原理主義の普遍性に異議を唱える",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-533",
       "source_example_en": "The article seeks to assess explanatory reductions inherent in technological determinism.",
-      "example_ja": "この記事では、技術的決定に固有の説明的削減を評価することを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この記事は技術決定論に内在する説明の単純化を評価することを目指しています。",
+      "focus_ja": "技術決定論に内在する説明の単純化を評価する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-518",
       "source_example_en": "Scholars were invited to question teleological accounts of methodological individualism.",
-      "example_ja": "Scholarsは、方法論的個性のテレロジーアカウントに招待されました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは方法論的個人主義の目的論的説明を問い直すよう招かれました。",
+      "focus_ja": "方法論的個人主義の目的論的説明を問い直す",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-538",
       "source_example_en": "Scholars were invited to interrogate competing claims to individual autonomy.",
-      "example_ja": "Scholarsは、個々の自律性に有能な主張を侵害するために招待されました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは個人の自律性に関する競合する主張を批判的に検討するよう招かれました。",
+      "focus_ja": "個人の自律性に関する競合する主張を批判的に検討する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-586",
       "source_example_en": "The authors attempt to reveal contradictions between stated aims and practices in the governance model.",
-      "example_ja": "著者は、指定された目的とガバナンスモデルにおける慣行の矛盾を明らかにしようとする。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "著者らは統治モデルの建前と実践の矛盾を明らかにすることを試みています。",
+      "focus_ja": "統治モデルの建前と実践の矛盾を明らかにする",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-557",
       "source_example_en": "The authors attempt to trace historical contestation over procedural fairness.",
-      "example_ja": "著者は、手続き上の公正性の上に歴史の競争を追跡しようとする.",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "著者らは手続き上の公正をめぐる歴史的な論争をたどることを試みています。",
+      "focus_ja": "手続き上の公正をめぐる歴史的な論争をたどる",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-510",
       "source_example_en": "The authors attempt to unpack the ideological commitments of methodological individualism.",
-      "example_ja": "著者は、方法論的個人主義の病理学的コミットメントを解凍しようとする。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "著者らは方法論的個人主義のイデオロギー的立場を解き明かすことを試みています。",
+      "focus_ja": "方法論的個人主義のイデオロギー的立場を解き明かす",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-502",
       "source_example_en": "The article seeks to revisit the ontological premises of methodological individualism.",
-      "example_ja": "本記事では、方法論的個人主義の局所を見直しることを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この記事は方法論的個人主義の存在論的前提を再検討することを目指しています。",
+      "focus_ja": "方法論的個人主義の存在論的前提を再検討する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-544",
       "source_example_en": "The article seeks to reconstruct philosophical arguments for individual autonomy.",
-      "example_ja": "この記事では、個々の自律性のための哲学的引数を再構築しようとしています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この記事は個人の自律性を支持する哲学的議論を再構成することを目指しています。",
+      "focus_ja": "個人の自律性を支持する哲学的議論を再構成する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-528",
       "source_example_en": "Scholars were invited to contrast rival genealogies of methodological individualism.",
-      "example_ja": "Scholarsは、方法論的個人主義の対照的なライバル遺伝学に招待されました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは方法論的個人主義の異なる系譜を対比するよう招かれました。",
+      "focus_ja": "方法論的個人主義の異なる系譜を対比する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-571",
       "source_example_en": "The article seeks to examine the discursive construction of the governance model.",
-      "example_ja": "この記事では、ガバナンスモデルの矛盾した構造を検討しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この記事は統治モデルの言説的構築を検討することを目指しています。",
+      "focus_ja": "統治モデルの言説的構築を検討する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-624",
       "source_example_en": "The article seeks to assess long-term institutional implications of informed consent.",
-      "example_ja": "この記事は、長期の機関の通知同意の含意を評価することを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この記事は十分な説明に基づく同意が制度にもたらす長期的影響を評価することを目指しています。",
+      "focus_ja": "十分な説明に基づく同意が制度にもたらす長期的影響を評価する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-608",
       "source_example_en": "Scholars were invited to assess institutional safeguards for algorithmic fairness.",
-      "example_ja": "研究者は、アルゴリズムフェアネスの機関防護策を評価するために招待されました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちはアルゴリズムの公正性の制度的保障を評価するよう招かれました。",
+      "focus_ja": "アルゴリズムの公正性の制度的保障を評価する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-531",
       "source_example_en": "The authors attempt to challenge hegemonic interpretations of methodological individualism.",
-      "example_ja": "著者は、方法論的個別主義のヘジモニック解釈に挑戦しようとする。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "著者らは方法論的個人主義に関する覇権的解釈に異議を唱えることを試みています。",
+      "focus_ja": "方法論的個人主義に関する覇権的解釈に異議を唱える",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-522",
       "source_example_en": "The authors attempt to examine conceptual tensions within methodological individualism.",
-      "example_ja": "著者は、方法論的個性の中で概念的な緊張を調べようとします。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "著者らは方法論的個人主義に内在する概念上の緊張を検討することを試みています。",
+      "focus_ja": "方法論的個人主義に内在する概念上の緊張を検討する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-565",
       "source_example_en": "Scholars were invited to articulate a pluralistic account of individual autonomy.",
-      "example_ja": "Scholarsは、個々の自律性の複数のアカウントを連結するために招待されました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちは個人の自律性について多元的な説明を明示するよう招かれました。",
+      "focus_ja": "個人の自律性について多元的な説明を明示する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-604",
       "source_example_en": "The authors attempt to examine contextual dependencies of researcher neutrality.",
-      "example_ja": "著者は、研究者の中立性の文脈依存性を調べる試みです。",
-      "focus_ja": "研究者の中立性の文脈依存性を",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "著者らは研究者の中立性の文脈依存性を検討することを試みています。",
+      "focus_ja": "研究者の中立性の文脈依存性を検討する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-614",
       "source_example_en": "The article seeks to examine tensions between autonomy and oversight in algorithmic fairness.",
-      "example_ja": "この記事では、自律性とアルゴリズムの公正性の過視間の緊張を調べることを目指しています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この記事はアルゴリズムの公正性の自律性と監督の緊張を検討することを目指しています。",
+      "focus_ja": "アルゴリズムの公正性の自律性と監督の緊張を検討する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-611",
       "source_example_en": "The authors attempt to interrogate power relations underlying algorithmic fairness.",
-      "example_ja": "著者は、アルゴリズムの公正性を根ざしたパワーリレーションを妨害しようとする。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "著者らはアルゴリズムの公正性の背後にある権力関係を批判的に分析することを試みています。",
+      "focus_ja": "アルゴリズムの公正性の背後にある権力関係を批判的に分析する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-580",
       "source_example_en": "The article seeks to examine underlying asymmetries of power in the governance model.",
-      "example_ja": "この記事では、ガバナンスモデルにおける電力の非対称性を検証しようとしています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "この記事は統治モデルの背後にある権力の非対称性を検討することを目指しています。",
+      "focus_ja": "統治モデルの背後にある権力の非対称性を検討する",
+      "translation_status": "structure_based_draft_needs_review"
     },
     {
       "id": "CK8-599",
       "source_example_en": "Scholars were invited to analyze accountability mechanisms for algorithmic fairness.",
-      "example_ja": "研究者は、アルゴリズムフェア性のための説明責任メカニズムを分析するために招待されました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究者たちはアルゴリズムの公正性の説明責任の仕組みを分析するよう招かれました。",
+      "focus_ja": "アルゴリズムの公正性の説明責任の仕組みを分析する",
+      "translation_status": "structure_based_draft_needs_review"
     }
   ]
 }
