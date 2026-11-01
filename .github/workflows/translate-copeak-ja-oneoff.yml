@@ -9,7 +9,7 @@ permissions:
   contents: write
 concurrency:
   group: copeak-ja-translation-oneoff
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   translate:
     runs-on: ubuntu-24.04
