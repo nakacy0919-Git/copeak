@@ -33,5 +33,7 @@ for(const q of diagnostic){
   assert(!gloss.focus_ja||gloss.example_ja.includes(gloss.focus_ja));
 }
 const machine=translations.filter(x=>x.translation_status==='machine_draft_needs_review');
-assert.equal(machine.length,759);
+assert.equal(translations.filter(x=>x.translation_status==='existing_editorial_draft').length,41);
+assert.equal(translations.filter(x=>x.translation_status!=='existing_editorial_draft').length,759);
+assert.equal(machine.length+translations.filter(x=>x.translation_status==='assistant_semantically_checked_draft'||x.translation_status==='structure_based_draft_needs_review').length,759);
 console.log('PASS: 5000/5000 study translations and 800/800 diagnostic translations exist, machine drafts require teacher review.');
