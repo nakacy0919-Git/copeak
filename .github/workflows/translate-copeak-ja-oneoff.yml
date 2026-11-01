@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - 'scripts/translate_copeak_examples.py'
+      - 'docs/vocabulary-check-v8.4/translation-trigger.md'
   workflow_dispatch:
 permissions:
   contents: write
