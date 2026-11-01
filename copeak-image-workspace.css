@@ -1,0 +1,46 @@
+/* Copeak image workspace: resizable image/script panes, 2026-11 */
+.copeak-image-toolbar{display:flex;align-items:center;gap:5px;flex-wrap:wrap;justify-content:flex-end}
+.copeak-image-toolbar button{display:inline-flex;align-items:center;justify-content:center;height:26px;min-width:26px;padding:0 6px;border:1px solid #d6d3d1;border-radius:4px;background:#fff;color:#334155;font-size:12px;font-weight:700;line-height:1;cursor:pointer}
+.copeak-image-toolbar button:hover:not(:disabled){background:#e7f5ef;border-color:#8bc7b1}
+.copeak-image-toolbar button:disabled{opacity:.4;cursor:default}
+.copeak-image-toolbar .copeak-zoom-value{font:700 10px system-ui,sans-serif;min-width:34px;text-align:center;color:#475569;font-variant-numeric:tabular-nums}
+#lessonSupportImagePane#lessonSupportImagePane>div:first-child{gap:8px;flex-wrap:wrap;align-items:center}
+#lessonSupportImagePane#lessonSupportImagePane>div:first-child .copeak-image-toolbar #toggleLessonSupportImageBtn{display:inline-flex;position:static!important;top:auto!important;right:auto!important;z-index:auto!important;min-height:26px}
+#copeak-image-return #toggleLessonSupportImageBtn{display:inline-flex;position:static!important;top:auto!important;right:auto!important;z-index:auto!important}
+#copeak-image-return{display:inline-flex;align-items:center}
+.copeak-preview-slot{display:inline-flex;align-items:center;flex:0 0 auto}
+.copeak-preview-slot button{max-width:100%;background:#1e3a8a!important}
+#targetTextWrapper#targetTextWrapper>div:first-child>div:first-child{gap:8px;flex-wrap:wrap}
+#targetTextWrapper#targetTextWrapper>div:first-child>div:first-child>div:last-child{align-items:center;flex-wrap:wrap;justify-content:flex-end;min-width:0}
+.copeak-image-grip{position:relative;display:none;flex:0 0 12px!important;min-width:12px;min-height:12px;align-self:stretch;background:linear-gradient(90deg,#e7e5e4,#f5f5f4);border:0;border-radius:5px;cursor:col-resize;touch-action:none;user-select:none;z-index:4}
+.copeak-image-grip:before{content:"";position:absolute;top:50%;left:50%;width:4px;height:54px;max-height:60%;border-left:2px solid #059669;border-right:1px solid #059669;border-radius:2px;transform:translate(-50%,-50%)}
+.copeak-image-grip:hover,.copeak-image-grip:focus-visible{background:#a7f3d0;outline:2px solid #059669;outline-offset:-2px}
+.copeak-image-grip[aria-orientation="horizontal"]{cursor:row-resize}
+.copeak-image-grip[aria-orientation="horizontal"]:before{width:54px;height:4px;max-width:60%;border-top:2px solid #059669;border-bottom:1px solid #059669;border-left:0;border-right:0}
+body.support-image-visible:not(.result-layout-active) #copeak-main-image-grip{display:block!important}
+body.support-image-visible:not(.result-layout-active) #learningContentArea#learningContentArea{display:grid!important;gap:0!important;align-items:stretch!important;min-width:0!important;min-height:0!important;grid-template-columns:minmax(0,var(--copeak-main-image-width,42%)) 12px minmax(0,1fr)!important}
+body.support-image-visible:not(.result-layout-active) #lessonSupportImagePane#lessonSupportImagePane{display:flex!important;flex-direction:column!important;width:100%!important;height:100%!important;min-width:0!important;min-height:0!important;max-height:none!important;overflow:hidden!important}
+body.support-image-visible:not(.result-layout-active) #targetTextWrapper#targetTextWrapper{width:100%!important;height:100%!important;min-width:0!important;min-height:0!important;max-height:none!important;flex:1 1 auto!important;overflow:hidden}
+body.support-image-visible:not(.result-layout-active) #lessonSupportImagePane#lessonSupportImagePane img{width:100%!important;height:100%!important;object-fit:contain!important;transform-origin:center center;will-change:transform;user-select:none;-webkit-user-drag:none}
+body.support-image-visible:not(.result-layout-active) #engContainer{min-width:0!important;overflow-wrap:break-word}
+body.support-image-available.recording-layout-active #toggleLessonSupportImageBtn{position:static!important;top:auto!important;right:auto!important;z-index:auto!important}
+#fullscreenPreviewOverlay .copeak-fs-content.copeak-fs-visible{display:grid!important;grid-template-columns:minmax(0,var(--copeak-fs-image-width,42%)) 12px minmax(0,1fr)!important;gap:0!important;min-height:0!important}
+#fullscreenPreviewOverlay .copeak-fs-content:not(.copeak-fs-visible){display:flex!important}
+#fullscreenPreviewOverlay .copeak-fs-content.copeak-fs-visible #copeak-full-image-grip{display:block!important}
+#fullscreenPreviewOverlay .copeak-fs-content.copeak-fs-visible #fsImagePane{display:flex!important;flex-direction:column!important;width:100%!important;height:100%!important;min-width:0!important;min-height:0!important;padding:12px!important;gap:8px}
+#fullscreenPreviewOverlay .copeak-fs-content #fsTextPane{width:100%!important;min-width:0!important;min-height:0!important;height:100%!important;container-type:inline-size}
+#fullscreenPreviewOverlay #fsEngContainer{font-size:clamp(18px,4.2cqw,36px)!important;line-height:1.7!important;overflow-wrap:break-word}
+#fullscreenPreviewOverlay #fsJpnContainer{font-size:clamp(14px,2.6cqw,21px)!important;overflow-wrap:break-word}
+.copeak-fs-image-stage{display:flex;flex:1 1 auto;align-items:center;justify-content:center;min-height:0;min-width:0;width:100%;overflow:hidden}
+.copeak-fs-image-stage img{width:100%!important;height:100%!important;object-fit:contain!important;transform-origin:center center;will-change:transform;user-select:none;-webkit-user-drag:none}
+@media(max-width:899px){
+ body.support-image-visible:not(.result-layout-active) #learningContentArea#learningContentArea{grid-template-columns:minmax(0,1fr)!important;grid-template-rows:minmax(0,var(--copeak-main-image-height,38%)) 12px minmax(0,1fr)!important}
+ body.support-image-visible:not(.result-layout-active) #lessonSupportImagePane#lessonSupportImagePane{min-height:0!important;max-height:none!important;height:100%!important}
+ body.support-image-visible:not(.result-layout-active) #targetTextWrapper#targetTextWrapper{min-height:0!important;height:100%!important}
+ body.support-image-visible:not(.result-layout-active) #targetTextWrapper#targetTextWrapper>div:first-child{min-height:0!important}
+}
+@media(max-width:767px){
+ #fullscreenPreviewOverlay .copeak-fs-content.copeak-fs-visible{grid-template-columns:minmax(0,1fr)!important;grid-template-rows:minmax(0,var(--copeak-fs-image-height,36%)) 12px minmax(0,1fr)!important}
+ #fullscreenPreviewOverlay .copeak-fs-content.copeak-fs-visible #fsImagePane{padding:8px!important}
+ #fullscreenPreviewOverlay #fsTextPane{padding:12px 14px 32px!important}
+}
