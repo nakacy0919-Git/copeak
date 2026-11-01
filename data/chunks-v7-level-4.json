@@ -897,9 +897,9 @@
       "example_en": "The classroom will be available for group work.",
       "source": "phase2-curated-draft",
       "highlight_en": "be available for",
-      "example_ja": "教室はグループワークでご利用いただけます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "その教室はグループ活動に利用できます。",
+      "focus_ja": "利用できます",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK4-070",
@@ -2300,9 +2300,9 @@
       "chunk_type": "phrase",
       "sense_id": "CK4-150:sense1",
       "distractor_exclusions": [],
-      "example_ja": "助けなしでグラフを解釈できますか?",
-      "focus_ja": "グラフを",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "助けを借りずにグラフを読み取れますか。",
+      "focus_ja": "グラフを読み取",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK4-151",

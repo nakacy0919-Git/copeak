@@ -117,9 +117,9 @@
       "example_en": "Could you open the door for our guest?",
       "source": "phase1-context-reviewed-draft",
       "highlight_en": "open the door",
-      "example_ja": "ご宿泊者様のドアを開けることはできますか?",
-      "focus_ja": "ドアを開ける",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "お客様のためにドアを開けていただけますか。",
+      "focus_ja": "ドアを開け",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK1-010",
@@ -130,9 +130,9 @@
       "example_en": "Please close the window before you leave.",
       "source": "phase1-context-reviewed-draft",
       "highlight_en": "close the window",
-      "example_ja": "退去前に窓を閉じてください。",
-      "focus_ja": "窓を閉",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "出かける前に窓を閉めてください。",
+      "focus_ja": "窓を閉めて",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK1-011",
@@ -143,9 +143,9 @@
       "example_en": "I always wash my hands before eating.",
       "source": "phase1-context-reviewed-draft",
       "highlight_en": "wash my hands",
-      "example_ja": "食べる前に必ず手を洗う。",
-      "focus_ja": "手を洗う",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私は食事の前にはいつも手を洗います。",
+      "focus_ja": "手を洗",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK1-012",
@@ -156,9 +156,9 @@
       "example_en": "I brush my teeth every morning and night.",
       "source": "phase1-context-reviewed-draft",
       "highlight_en": "brush my teeth",
-      "example_ja": "朝から夜にかけて歯を磨きます。",
+      "example_ja": "私は毎朝と毎晩、歯を磨きます。",
       "focus_ja": "歯を磨",
-      "translation_status": "machine_draft_needs_review"
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK1-013",
@@ -169,9 +169,9 @@
       "example_en": "I go to school with my sister on weekdays.",
       "source": "phase1-context-reviewed-draft",
       "highlight_en": "go to school",
-      "example_ja": "平日に妹と一緒に学校に行く。",
-      "focus_ja": "学校に行く",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私は平日に妹と一緒に学校へ行きます。",
+      "focus_ja": "学校へ行き",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK1-014",
@@ -182,9 +182,9 @@
       "example_en": "I come back home before six on most days.",
       "source": "phase1-context-reviewed-draft",
       "highlight_en": "come back home",
-      "example_ja": "6日前までに帰宅します。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私はたいていの日、6時前に帰宅します。",
+      "focus_ja": "帰宅",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK1-015",
@@ -208,9 +208,9 @@
       "example_en": "You should drink some water after running.",
       "source": "phase1-context-reviewed-draft",
       "highlight_en": "drink some water",
-      "example_ja": "ランニング後に水を飲む必要があります。",
-      "focus_ja": "水を飲む",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "走った後は水を飲むべきです。",
+      "focus_ja": "水を飲",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK1-017",
@@ -221,9 +221,9 @@
       "example_en": "We usually have lunch at noon.",
       "source": "phase1-context-reviewed-draft",
       "highlight_en": "have lunch",
-      "example_ja": "昼食は昼過ぎです。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちは普段、正午に昼食を食べます。",
+      "focus_ja": "昼食を食べ",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK1-018",
@@ -234,9 +234,9 @@
       "example_en": "I go to bed at ten on school nights.",
       "source": "phase1-context-reviewed-draft",
       "highlight_en": "go to bed",
-      "example_ja": "学校の夜に10分で寝る。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "学校がある日の前夜は、私は10時に寝ます。",
+      "focus_ja": "10時に寝",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK1-019",
@@ -2699,9 +2699,9 @@
       "chunk_type": "phrase",
       "sense_id": "CK1-169:sense1",
       "distractor_exclusions": [],
-      "example_ja": "土曜日にお住まいのお客様",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "私たちは土曜日に家の手伝いをします。",
+      "focus_ja": "家の手伝い",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK1-170",

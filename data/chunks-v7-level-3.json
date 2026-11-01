@@ -299,9 +299,9 @@
       "example_en": "It's easier to bring up a topic when everyone is relaxed.",
       "source": "phase1-context-reviewed-draft",
       "highlight_en": "bring up a topic",
-      "example_ja": "みんながリラックスした時に話題を上げやすくなります。",
-      "focus_ja": "話題を",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "みんながリラックスしていると、話題を持ち出しやすくなります。",
+      "focus_ja": "話題を持ち出し",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK3-024",
@@ -858,9 +858,9 @@
       "example_en": "You'll understand these phrases in no time.",
       "source": "phase2-curated-draft",
       "highlight_en": "in no time",
-      "example_ja": "これらのフレーズは時間なしで理解できます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "これらの表現はすぐに理解できるようになります。",
+      "focus_ja": "すぐに",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK3-067",
@@ -3098,9 +3098,9 @@
       "chunk_type": "phrase",
       "sense_id": "CK3-188:sense1",
       "distractor_exclusions": [],
-      "example_ja": "引数をサポートする研究を使用してください。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "研究成果を使って主張を裏付けてください。",
+      "focus_ja": "主張を裏付け",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK3-189",

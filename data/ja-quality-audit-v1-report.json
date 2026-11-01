@@ -1,20 +1,21 @@
 {
   "date": "2026-11-01",
   "total": 5000,
-  "manuallyCorrected": 63,
+  "manuallyCorrected": 102,
   "structureBasedCorrected": 3337,
   "preservedEditorial": 40,
-  "untouchedMachineDraft": 1560,
+  "untouchedMachineDraft": 1521,
   "supportedTemplates": 164,
   "sourceExampleNotChanged": true,
   "manualByLevel": {
-    "1": 11,
-    "2": 8,
-    "3": 1,
-    "4": 9,
-    "6": 2,
-    "7": 15,
-    "8": 17
+    "1": 21,
+    "2": 9,
+    "3": 4,
+    "4": 11,
+    "5": 1,
+    "6": 5,
+    "7": 23,
+    "8": 28
   },
   "structuralByLevel": {
     "1": 412,
@@ -27,21 +28,21 @@
     "8": 421
   },
   "remainingByLevel": {
-    "1": 197,
-    "2": 210,
-    "3": 200,
-    "4": 189,
-    "5": 199,
-    "6": 195,
-    "7": 188,
-    "8": 182
+    "1": 187,
+    "2": 209,
+    "3": 197,
+    "4": 187,
+    "5": 198,
+    "6": 192,
+    "7": 180,
+    "8": 171
   },
   "diagnosticTranslated": 800,
-  "diagnosticAlignedFocus": 520,
+  "diagnosticAlignedFocus": 526,
   "diagnosticStatuses": {
     "existing_editorial_draft": 41,
-    "machine_draft_needs_review": 359,
-    "assistant_semantically_checked_draft": 13,
+    "machine_draft_needs_review": 349,
+    "assistant_semantically_checked_draft": 23,
     "structure_based_draft_needs_review": 387
   },
   "manualExamples": [
@@ -86,24 +87,24 @@
       "音楽が始まったら、立ち上がってください。"
     ],
     [
-      "CK1-101",
-      "Please be kind to new students.",
-      "新しく入った生徒には親切にしてください。"
+      "CK1-009",
+      "Could you open the door for our guest?",
+      "お客様のためにドアを開けていただけますか。"
     ],
     [
-      "CK1-122",
-      "Just a moment, please. I need my notebook.",
-      "少々お待ちください。ノートが必要なのです。"
+      "CK1-010",
+      "Please close the window before you leave.",
+      "出かける前に窓を閉めてください。"
     ],
     [
-      "CK1-623",
-      "Please get information about the online workshop.",
-      "オンラインワークショップについての情報を集めてください。"
+      "CK1-011",
+      "I always wash my hands before eating.",
+      "私は食事の前にはいつも手を洗います。"
     ],
     [
-      "CK2-041",
-      "Please reply as soon as possible.",
-      "できるだけ早く返信してください。"
+      "CK1-012",
+      "I brush my teeth every morning and night.",
+      "私は毎朝と毎晩、歯を磨きます。"
     ]
   ],
   "templatedExamples": [
@@ -230,54 +231,54 @@
   ],
   "remains": [
     [
-      "CK1-009",
-      "Could you open the door for our guest?",
-      "ご宿泊者様のドアを開けることはできますか?"
-    ],
-    [
-      "CK1-010",
-      "Please close the window before you leave.",
-      "退去前に窓を閉じてください。"
-    ],
-    [
-      "CK1-011",
-      "I always wash my hands before eating.",
-      "食べる前に必ず手を洗う。"
-    ],
-    [
-      "CK1-012",
-      "I brush my teeth every morning and night.",
-      "朝から夜にかけて歯を磨きます。"
-    ],
-    [
-      "CK1-013",
-      "I go to school with my sister on weekdays.",
-      "平日に妹と一緒に学校に行く。"
-    ],
-    [
-      "CK1-014",
-      "I come back home before six on most days.",
-      "6日前までに帰宅します。"
-    ],
-    [
       "CK1-015",
       "I eat breakfast with my family every day.",
       "毎日家族で朝食を食べます。"
     ],
     [
-      "CK1-016",
-      "You should drink some water after running.",
-      "ランニング後に水を飲む必要があります。"
+      "CK1-019",
+      "I wake up early to catch the first train.",
+      "初めての電車を乗り切るのを早めに目覚めます。"
     ],
     [
-      "CK1-017",
-      "We usually have lunch at noon.",
-      "昼食は昼過ぎです。"
+      "CK1-020",
+      "I get dressed before I eat breakfast.",
+      "朝ごはんを食べる前にドレスアップ。"
     ],
     [
-      "CK1-018",
-      "I go to bed at ten on school nights.",
-      "学校の夜に10分で寝る。"
+      "CK1-021",
+      "Please put on shoes before you go outside.",
+      "靴を外へお預けください。"
+    ],
+    [
+      "CK1-022",
+      "We take off shoes at the entrance.",
+      "エントランスで靴を脱いでいます。"
+    ],
+    [
+      "CK1-024",
+      "We sometimes watch TV together after dinner.",
+      "夕食後にテレビを一緒に眺めることもあります。"
+    ],
+    [
+      "CK1-025",
+      "I like to read a book in the library.",
+      "図書館で本を読むのが好きです。"
+    ],
+    [
+      "CK1-026",
+      "I want to write a letter to my grandmother.",
+      "祖母に手紙を書きたい。"
+    ],
+    [
+      "CK1-027",
+      "We play soccer in the park on Sundays.",
+      "日曜日は公園でサッカーをしています。"
+    ],
+    [
+      "CK1-028",
+      "I can ride a bike to the station.",
+      "自転車を駅まで乗れます。"
     ]
   ],
   "semanticallyVerifiedByTeacher": 0,

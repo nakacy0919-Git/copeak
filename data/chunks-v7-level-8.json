@@ -234,9 +234,9 @@
       "example_en": "The report was found to be rife with factual errors.",
       "source": "phase1-context-reviewed-draft",
       "highlight_en": "be rife with",
-      "example_ja": "報告書は、実際のエラーでrifeであることが判明しました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "その報告書には事実誤認が多数あることが判明しました。",
+      "focus_ja": "事実誤認が多数",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK8-019",
@@ -260,9 +260,9 @@
       "example_en": "Some inequalities may be entrenched in long-standing practices.",
       "source": "phase1-context-reviewed-draft",
       "highlight_en": "be entrenched in",
-      "example_ja": "一部の不等性は、長期にわたる慣行にentrenched可能性があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "不平等の中には、長年の慣行に深く根付いているものもあります。",
+      "focus_ja": "深く根付いて",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK8-021",
@@ -650,9 +650,9 @@
       "example_en": "The ruling could set a precedent for future privacy cases.",
       "source": "phase1-context-reviewed-draft",
       "highlight_en": "set a precedent for",
-      "example_ja": "rulingは将来のプライバシーケースの優先順位を設定できます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "その判決は、将来のプライバシー訴訟に先例を作る可能性があります。",
+      "focus_ja": "先例を作る",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK8-051",
@@ -715,9 +715,9 @@
       "example_en": "The regulations may be in a state of flux.",
       "source": "phase2-curated-draft",
       "highlight_en": "be in a state of flux",
-      "example_ja": "規則はフラックスの状態にある場合があります。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "規則は現在、流動的な状態にあるかもしれません。",
+      "focus_ja": "流動的な状態",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK8-056",
@@ -962,9 +962,9 @@
       "example_en": "Relaxing the safeguards could be a slippery slope.",
       "source": "phase2-curated-draft",
       "highlight_en": "be a slippery slope",
-      "example_ja": "セーフガードをリラックスすると、滑りやすい斜面になることができます。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "安全対策を緩めることは、問題の連鎖を招く危険な一歩になるかもしれません。",
+      "focus_ja": "問題の連鎖を招く",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK8-075",
@@ -1551,9 +1551,9 @@
       "review_status": "draft",
       "topic": "general",
       "synonyms_en": [],
-      "example_ja": "新たな発見は、改革のための引数に重量を貸します。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "新たな研究結果は、改革を支持する主張の説得力を高めます。",
+      "focus_ja": "説得力を高め",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK8-112",
@@ -1583,9 +1583,9 @@
       "review_status": "draft",
       "topic": "general",
       "synonyms_en": [],
-      "example_ja": "異常な結果は、さらなるスカルチニーをmerit.",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "その異例の結果は、さらに厳密な検証を行う価値があります。",
+      "focus_ja": "厳密な検証を行う価値",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK8-114",
@@ -1615,9 +1615,9 @@
       "review_status": "draft",
       "topic": "general",
       "synonyms_en": [],
-      "example_ja": "安全チェックが完了したというprovisoへの旅行を承認しました。",
-      "focus_ja": "という",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "安全確認が完了することを条件に、彼らはその旅行を承認しました。",
+      "focus_ja": "ことを条件に",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK8-116",
@@ -2174,9 +2174,9 @@
       "chunk_type": "phrase",
       "sense_id": "CK8-144:sense1",
       "distractor_exclusions": [],
-      "example_ja": "このプロジェクトは、 setbacks によって悩まされています。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "そのプロジェクトはこれまで度重なる障害に悩まされてきました。",
+      "focus_ja": "障害に悩まされ",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK8-145",
@@ -2426,9 +2426,9 @@
       "chunk_type": "phrase",
       "sense_id": "CK8-156:sense1",
       "distractor_exclusions": [],
-      "example_ja": "契約は null と void を宣言しました。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "その契約は無効であると宣言されました。",
+      "focus_ja": "無効",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK8-157",
@@ -2909,9 +2909,9 @@
       "chunk_type": "phrase",
       "sense_id": "CK8-179:sense1",
       "distractor_exclusions": [],
-      "example_ja": "推薦は確立された方針とconsonantです。",
-      "focus_ja": "",
-      "translation_status": "machine_draft_needs_review"
+      "example_ja": "その勧告は既存の方針と一致しています。",
+      "focus_ja": "方針と一致",
+      "translation_status": "assistant_semantically_checked_draft"
     },
     {
       "id": "CK8-180",
