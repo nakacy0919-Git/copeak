@@ -213,9 +213,9 @@ const result={
   productionReady:false,
   remainingWarning:'Frame and manually repaired drafts still require a teacher to review semantics; other untranslated inaccuracies may remain.'
 };
-const diagnosticIds=new Set(diag.questions.map(q=>q.id));
+const diagnosticExamples=new Map(diag.questions.map(q=>[q.id,q.example_en]));
 const pendingReviewQueue=all.filter(q=>q.translation_status==='machine_draft_needs_review')
- .map(q=>({id:q.id,level:q.level,priority:diagnosticIds.has(q.id)?'diagnostic_first':'study_bank',
+ .map(q=>({id:q.id,level:q.level,priority:diagnosticExamples.get(q.id)===q.example_en?'diagnostic_first':'study_bank',
   example_en:q.example_en,example_ja:q.example_ja,
   chunk_en:q.highlight_en,chunk_meaning_ja:q.meaning_ja,
   reason:'semantic_review_pending'}))
