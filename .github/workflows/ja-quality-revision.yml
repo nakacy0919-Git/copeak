@@ -5,6 +5,7 @@ on:
     paths:
       - 'scripts/review_ja_translations.mjs'
       - 'data/ja-quality-templates-v1.json'
+      - 'tests/ja_translations_5000.test.mjs'
       - '.github/workflows/ja-quality-revision.yml'
   workflow_dispatch:
 permissions:
