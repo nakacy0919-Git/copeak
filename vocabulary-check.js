@@ -325,6 +325,7 @@
   let bank=[],optionBank=[],currentSession=null,lang='ja',mode='quick',lastResult=null;
   let activeResultTab='summary',reviewSummary=null,reviewIndex=0,reviewItems=[];
   let reviewRecognition=null,reviewToken=0,reviewFinal='',reviewInterim='',reviewStarting=false;
+  let reviewRequested=false,reviewStopRequested=false,reviewRestartTimer=null,reviewSegmentFinal='',reviewFatalError='';
   // Short feedback is intentional: choice -> clear visual/audio response -> next item.
   const AUTO_DELAY = Object.freeze({correct:680,wrong:2200,unknown:2000});
   const SOUND_KEY = 'copeak_vocab_sound_v1';
@@ -563,9 +564,12 @@
   // Copeak-style ordered LCS matching; score is recognized-word agreement.
   function stopReviewMedia(){
     reviewToken++;
+    reviewRequested=false;reviewStopRequested=false;reviewStarting=false;
+    if(reviewRestartTimer!==null){clearTimeout(reviewRestartTimer);reviewRestartTimer=null}
     try{root.speechSynthesis?.cancel()}catch(_){}
-    const r=reviewRecognition;reviewRecognition=null;reviewStarting=false;
+    const r=reviewRecognition;reviewRecognition=null;
     if(r){r.onend=null;r.onerror=null;r.onresult=null;try{r.abort()}catch(_){}}
+    reviewFinal='';reviewInterim='';reviewSegmentFinal='';reviewFatalError='';
     const label=$('vcReviewRecordLabel');if(label)setText(label,text('reviewRecord'));
     $('vcReviewRecord')?.classList.remove('is-recording');
     if($('vcReviewRecord'))$('vcReviewRecord').disabled=false;
@@ -582,7 +586,7 @@
   function resetReadingFeedback(){
     $('vcReadingFeedback').hidden=false;
     $('vcGaugeProgress').style.strokeDasharray='0 100';
-    setText($('vcReadPercent'),'0');
+    setText($('vcReadPercent'),'—');
     const box=$('vcReadTranscript');box.replaceChildren();
     const placeholder=document.createElement('span');
     placeholder.className='vc-transcript-placeholder';
@@ -611,13 +615,9 @@
       underline.textContent=japanese.slice(at,at+focus.length);
       target.append(document.createTextNode(japanese.slice(0,at)),underline,document.createTextNode(japanese.slice(at+focus.length)));
     }else{
+      // Full Japanese sentence stands alone when a literal phrase cannot be underlined.
+      // Do not append a second expression/gloss to the complete translation.
       target.textContent=japanese;
-      const note=document.createElement('span');
-      note.className='vc-chunk-ja-note';
-      const u=document.createElement('u');
-      u.textContent=item.meaning_ja;
-      note.append(document.createTextNode(' （重要表現：'),u,document.createTextNode('）'));
-      target.append(note);
     }
   }
   function renderReviewCard(){
@@ -690,12 +690,11 @@
       setText($('vcReviewStatus'),'');
     }catch(_){setText($('vcReviewStatus'),text('reviewAudioError'))}
   }
-  function displayReadingMatch(sentence,transcript){
+  // Live transcription updates while reading; the Accuracy arc is final-only.
+  function displayReadingMatch(sentence,transcript,finalScore=false){
     const scoring=root.CopeakVocabularyReading;
     if(!scoring||!transcript.trim())return;
     const report=scoring.score(sentence,transcript);
-    $('vcGaugeProgress').style.strokeDasharray=String(report.percent)+' 100';
-    setText($('vcReadPercent'),String(report.percent));
     const container=$('vcReadTranscript');container.replaceChildren();
     for(const word of report.wordMatches){
       const span=document.createElement('span');
@@ -703,10 +702,116 @@
       span.textContent=word.value;
       container.appendChild(span);
     }
+    // Never move the gauge while the pupil is still speaking.
+    if(finalScore){
+      $('vcGaugeProgress').style.strokeDasharray=String(report.percent)+' 100';
+      setText($('vcReadPercent'),String(report.percent));
+    }
+    container.scrollTop=container.scrollHeight;
+  }
+  function reviewTranscript(){
+    return [reviewFinal,reviewSegmentFinal,reviewInterim].filter(Boolean).join(' ').trim();
+  }
+  function completeReviewReading(item){
+    if(reviewRestartTimer!==null){clearTimeout(reviewRestartTimer);reviewRestartTimer=null}
+    reviewRequested=false;reviewStopRequested=false;reviewStarting=false;reviewRecognition=null;
+    const button=$('vcReviewRecord');
+    if(button){button.classList.remove('is-recording');button.disabled=false}
+    setText($('vcReviewRecordLabel'),text('readRetry'));
+    const heard=reviewFinal.trim();
+    if(heard){
+      displayReadingMatch(item.example_en,heard,true);
+      setText($('vcReviewStatus'),reviewFatalError||'');
+    }else{
+      resetReadingFeedback();
+      setText($('vcReviewStatus'),reviewFatalError||text('readNoSpeech'));
+    }
+    reviewFatalError='';
+  }
+  // Browsers may close one SpeechRecognition session automatically after silence.
+  // Restart that *recognizer* without clearing the transcript, until Stop is pressed.
+  function startReviewRecognition(item,token){
+    if(!reviewRequested||reviewStopRequested||token!==reviewToken||activeResultTab!=='review')return;
+    const Constructor=root.SpeechRecognition||root.webkitSpeechRecognition;
+    if(!Constructor){reviewFatalError=text('readUnsupported');completeReviewReading(item);return}
+    let rec;
+    try{rec=new Constructor()}catch(_){reviewFatalError=text('readUnsupported');completeReviewReading(item);return}
+    reviewRecognition=rec;reviewStarting=true;reviewSegmentFinal='';reviewInterim='';
+    rec.lang='en-US';rec.continuous=true;rec.interimResults=true;rec.maxAlternatives=1;
+    rec.onstart=()=>{
+      if(token!==reviewToken||!reviewRequested)return;
+      reviewStarting=false;
+      $('vcReviewRecord').classList.add('is-recording');
+      setText($('vcReviewRecordLabel'),text('reviewStop'));
+      setText($('vcReviewStatus'),text('readListening'));
+    };
+    rec.onresult=event=>{
+      if(token!==reviewToken||activeResultTab!=='review')return;
+      const finals=[],interims=[];
+      // Results are cumulative inside one session: recompute rather than append
+      // every interim/final callback (which would duplicate spoken words).
+      for(let i=0;i<event.results.length;i++){
+        const result=event.results[i],value=String(result?.[0]?.transcript||'').trim();
+        if(!value)continue;
+        (result.isFinal?finals:interims).push(value);
+      }
+      reviewSegmentFinal=finals.join(' ');reviewInterim=interims.join(' ');
+      displayReadingMatch(item.example_en,reviewTranscript(),false);
+    };
+    rec.onerror=event=>{
+      if(token!==reviewToken)return;
+      const kind=event?.error||'';
+      if(kind==='not-allowed'||kind==='service-not-allowed'||kind==='audio-capture'){
+        reviewFatalError=text('readMicDenied');
+        reviewRequested=false;reviewStopRequested=true;
+      }else if(kind==='network'){
+        reviewFatalError=text('readNetworkError');
+        reviewRequested=false;reviewStopRequested=true;
+      }
+      if(reviewFatalError)setText($('vcReviewStatus'),reviewFatalError);
+    };
+    rec.onend=()=>{
+      if(token!==reviewToken)return;
+      // Preserve the final result (or last interim text if the browser cut off).
+      const segment=(reviewSegmentFinal||reviewInterim).trim();
+      if(segment)reviewFinal=[reviewFinal,segment].filter(Boolean).join(' ').trim();
+      reviewSegmentFinal='';reviewInterim='';
+      reviewRecognition=null;reviewStarting=false;
+      if(reviewStopRequested||!reviewRequested){
+        completeReviewReading(item);
+        return;
+      }
+      displayReadingMatch(item.example_en,reviewFinal,false);
+      // SpeechRecognition can auto-end after silence even with continuous=true.
+      // No score is shown during reconnection; only the explicit Stop scores.
+      setText($('vcReviewStatus'),text('readListening'));
+      reviewRestartTimer=setTimeout(()=>{
+        reviewRestartTimer=null;
+        startReviewRecognition(item,token);
+      },250);
+    };
+    try{rec.start()}catch(_){
+      reviewRecognition=null;
+      reviewFatalError=text('readMicDenied');
+      completeReviewReading(item);
+    }
   }
   function toggleReviewRecord(){
-    if(reviewRecognition){
-      try{reviewRecognition.stop()}catch(_){}
+    if(reviewRequested){
+      // Explicit Stop: end recognition first, then score the final transcript.
+      reviewRequested=false;reviewStopRequested=true;
+      if(reviewRestartTimer!==null){clearTimeout(reviewRestartTimer);reviewRestartTimer=null}
+      setText($('vcReviewStatus'),lang==='ja'?'音声認識を終了しています…':'Finishing recognition…');
+      const rec=reviewRecognition;
+      if(rec){
+        try{rec.stop()}catch(_){
+          const item=reviewItems[reviewIndex];
+          if(item)completeReviewReading(item);
+        }
+      }else{
+        const item=reviewItems[reviewIndex];
+        if(item)completeReviewReading(item);
+      }
       return;
     }
     const item=reviewItems[reviewIndex];if(!item)return;
@@ -715,53 +820,13 @@
       setText($('vcReviewStatus'),text('readUnsupported'));return;
     }
     stopReviewMedia();
-    const token=reviewToken;
-    reviewFinal='';reviewInterim='';
+    reviewFinal='';reviewInterim='';reviewSegmentFinal='';reviewFatalError='';
+    reviewRequested=true;reviewStopRequested=false;
     resetReadingFeedback();
-    const rec=new Constructor();reviewRecognition=rec;
-    rec.lang='en-US';rec.continuous=false;rec.interimResults=true;rec.maxAlternatives=1;
-    rec.onstart=()=>{
-      if(token!==reviewToken)return;
-      $('vcReviewRecord').classList.add('is-recording');
-      setText($('vcReviewRecordLabel'),text('reviewStop'));
-      setText($('vcReviewStatus'),text('readListening'));
-    };
-    rec.onresult=event=>{
-      if(token!==reviewToken||activeResultTab!=='review')return;
-      let finals='',interims='';
-      for(let i=0;i<event.results.length;i++){
-        const result=event.results[i],value=String(result?.[0]?.transcript||'').trim();
-        if(!value)continue;
-        if(result.isFinal)finals+=(finals?' ':'')+value;
-        else interims+=(interims?' ':'')+value;
-      }
-      reviewFinal=finals;reviewInterim=interims;
-      displayReadingMatch(item.example_en,(finals+' '+interims).trim());
-    };
-    rec.onerror=event=>{
-      if(token!==reviewToken)return;
-      const kind=event?.error||'';
-      setText($('vcReviewStatus'),kind==='not-allowed'||kind==='service-not-allowed'?
-        text('readMicDenied'):kind==='network'?text('readNetworkError'):
-        kind==='no-speech'?text('readNoSpeech'):text('readNoSpeech'));
-    };
-    rec.onend=()=>{
-      if(token!==reviewToken)return;
-      reviewRecognition=null;
-      $('vcReviewRecord').classList.remove('is-recording');
-      setText($('vcReviewRecordLabel'),text('readRetry'));
-      const heard=(reviewFinal+' '+reviewInterim).trim();
-      if(heard){
-        displayReadingMatch(item.example_en,heard);
-        setText($('vcReviewStatus'),'');
-      } else if(!$('vcReviewStatus').textContent){
-        setText($('vcReviewStatus'),text('readNoSpeech'));
-      }
-    };
-    try{rec.start()}catch(_){
-      reviewRecognition=null;
-      setText($('vcReviewStatus'),text('readMicDenied'));
-    }
+    $('vcReviewRecord').classList.add('is-recording');
+    setText($('vcReviewRecordLabel'),text('reviewStop'));
+    setText($('vcReviewStatus'),text('readListening'));
+    startReviewRecognition(item,reviewToken);
   }
   function showError(message){show('vcError');setText($('vcErrorMessage'),message)}
   function registerEvents(){

@@ -599,3 +599,42 @@ body.vc-is-result #vcResult{display:grid;grid-template-rows:auto auto minmax(0,1
 @media(max-width:390px){
   .vc-landing-grid .vc-start-panel #vcLandingTitle{font-size:clamp(21px,6vw,23px)}
 }
+
+
+/* v8.5: complete full-sentence read-aloud, single phrase highlight, result-only gauge */
+#vcPanelReview .vc-review-focus-label,
+#vcPanelReview #vcReviewChunk {display:none!important}
+#vcPanelReview .vc-review-card {gap:clamp(10px,1.6vh,18px);align-items:stretch;overflow-y:auto;overflow-x:hidden}
+#vcPanelReview .vc-sentence-speaker{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;
+  width:min(930px,100%);align-self:center;text-align:left;align-items:center;min-width:0;
+  white-space:normal;overflow:visible;
+}
+#vcPanelReview .vc-sentence-speaker .vc-review-sentence {
+  display:block;flex:1 1 auto;min-width:0;width:100%;max-width:none;
+  white-space:normal!important;text-overflow:clip;overflow:visible;
+  overflow-wrap:break-word;word-break:normal;
+  font-size:clamp(17px,2vw,25px);line-height:1.55;text-align:left;
+}
+#vcPanelReview .vc-review-example-ja{
+  width:min(900px,100%);max-width:none;align-self:center;
+  white-space:normal;overflow-wrap:break-word;font-size:clamp(13px,1.5vw,16px);
+  text-align:left;line-height:1.7;
+}
+#vcPanelReview .vc-reading-area{align-self:center;width:min(930px,100%)}
+#vcPanelReview .vc-reading-feedback{width:100%;max-width:none}
+#vcPanelReview .vc-transcript-words{
+  max-height:clamp(80px,17vh,155px);
+  min-width:0;align-content:flex-start;overflow-y:auto;
+  overflow-wrap:anywhere;scrollbar-width:thin;
+}
+#vcPanelReview .vc-transcript-words span{white-space:normal;overflow-wrap:anywhere}
+@media(max-width:700px){
+  #vcPanelReview .vc-review-card{gap:8px}
+  #vcPanelReview .vc-sentence-speaker .vc-review-sentence{font-size:clamp(15px,3.8vw,19px);line-height:1.55}
+  #vcPanelReview .vc-review-example-ja{font-size:12px;line-height:1.6}
+  #vcPanelReview .vc-transcript-words{max-height:120px}
+}
+@media(prefers-reduced-motion:reduce){
+  #vcPanelReview .vc-gauge-progress{transition:none}
+}

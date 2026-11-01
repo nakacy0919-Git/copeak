@@ -6,9 +6,9 @@
   <meta name="theme-color" content="#ecf5ff">
   <title>Copeak | 英語の語彙力診断</title>
   <link rel="icon" href="logo.png">
-  <link rel="stylesheet" href="vocabulary-check.css?v=8.4.1">
-  <script defer src="vocabulary-reading.js?v=8.4.1"></script>
-  <script defer src="vocabulary-check.js?v=8.4.1"></script>
+  <link rel="stylesheet" href="vocabulary-check.css?v=8.5.0">
+  <script defer src="vocabulary-reading.js?v=8.5.0"></script>
+  <script defer src="vocabulary-check.js?v=8.5.0"></script>
 </head>
 <body>
   <main class="vc-shell">
@@ -130,8 +130,9 @@
                 <div class="vc-review-switch"><button id="vcReviewPrev" type="button" aria-label="前の例文">‹</button><button id="vcReviewNext" type="button" aria-label="次の例文">›</button></div>
               </div>
               <div class="vc-review-card">
-                <span class="vc-review-focus-label" data-t="reviewFocus">今回の重要表現</span>
-                <strong id="vcReviewChunk" class="vc-review-chunk" lang="en">—</strong>
+                <!-- The focus phrase is underlined inside the complete sentence; hide duplicate heading. -->
+                <span class="vc-review-focus-label" data-t="reviewFocus" hidden aria-hidden="true">今回の重要表現</span>
+                <strong id="vcReviewChunk" class="vc-review-chunk" lang="en" hidden aria-hidden="true">—</strong>
                 <button id="vcReviewSentenceButton" class="vc-sentence-speaker" type="button" aria-label="例文をタップしてお手本を聞く">
                   <span id="vcReviewSentence" class="vc-review-sentence" lang="en"></span>
                   <span class="vc-inline-speaker" aria-hidden="true">🔊</span>
