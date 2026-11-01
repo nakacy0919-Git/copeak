@@ -213,5 +213,20 @@ const result={
   productionReady:false,
   remainingWarning:'Frame and manually repaired drafts still require a teacher to review semantics; other untranslated inaccuracies may remain.'
 };
+const diagnosticIds=new Set(diag.questions.map(q=>q.id));
+const pendingReviewQueue=all.filter(q=>q.translation_status==='machine_draft_needs_review')
+ .map(q=>({id:q.id,level:q.level,priority:diagnosticIds.has(q.id)?'diagnostic_first':'study_bank',
+  example_en:q.example_en,example_ja:q.example_ja,
+  chunk_en:q.highlight_en,chunk_meaning_ja:q.meaning_ja,
+  reason:'semantic_review_pending'}))
+ .sort((a,b)=>(a.priority===b.priority?0:a.priority==='diagnostic_first'?-1:1)||b.level-a.level||a.id.localeCompare(b.id));
+assert.equal(pendingReviewQueue.length,changeSummary.untouchedMachineDraft);
+save('data/ja-quality-review-queue.json',{
+ status:'not_teacher_reviewed',
+ remaining:pendingReviewQueue.length,
+ diagnosticItems:pendingReviewQueue.filter(x=>x.priority==='diagnostic_first').length,
+ instruction:'Compare English and Japanese sentences; correct omitted meaning, tense, negation, idioms and unnatural literal rendering.',
+ items:pendingReviewQueue
+});
 save('data/ja-quality-audit-v1-report.json',result);
 console.log('PASS QA DRAFT:',JSON.stringify(result));
