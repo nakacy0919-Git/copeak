@@ -167,8 +167,13 @@ body.result-layout-active #scoreSummaryRow.cp-score-surface #bigCompValue {
   outline-offset: 2px;
 }
 #scoreSummaryRow.cp-score-surface .cp-score-celebration-layer {
-  position: absolute;
-  inset: 0;
+  position: absolute !important;
+  inset: 0 !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 !important;
+  border: 0 !important;
   overflow: hidden;
   pointer-events: none;
   z-index: 5;
