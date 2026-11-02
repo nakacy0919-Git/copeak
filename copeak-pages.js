@@ -128,7 +128,7 @@ function initCopeakDedicatedPages() {
     sync();if(source)new MutationObserver(sync).observe(source,{subtree:true,characterData:true,childList:true});
   }
   const boxes=hub.querySelectorAll('.cp-home-extras .cp-extra');
-  if(boxes[0])boxes[0].innerHTML='<h3>◷ 最近の課題</h3><p>この端末の教材・音読履歴</p><div id="cpRecentList" class="cp-recent-list">教材を確認しています…</div>';
+  if(boxes[0])boxes[0].innerHTML='<div class="cp-recent-heading"><h3>◷ 最近の課題</h3><small id="cpRecentCount"></small></div><p>この端末の教材・音読履歴</p><div id="cpRecentList" class="cp-recent-list" role="region" aria-label="最近の課題一覧" tabindex="0">教材を確認しています…</div>';
   if(boxes[1])boxes[1].innerHTML='<h3>▥ 学習の記録</h3><div class="cp-record-content"><div id="cpProgressRing" class="cp-progress-ring"><div class="cp-progress-core" id="cpProgressNum">0/7日</div></div><div class="cp-record-metrics"><div class="cp-record-stat"><span class="cp-record-stat-label">連続学習</span><strong id="cpStreakText">0日</strong></div><div class="cp-record-stat"><span class="cp-record-stat-label">平均 Accuracy <small>（直近30回）</small></span><strong id="cpAverageAccuracy">—</strong></div><div class="cp-record-stat cp-record-stat-total"><span class="cp-record-stat-label">累計音読</span><strong id="cpLearningTotal">0回</strong></div></div></div>';
   const dateKey=value=>{
     const d=new Date(value);if(!Number.isFinite(d.getTime()))return null;
@@ -154,10 +154,14 @@ function initCopeakDedicatedPages() {
   }
   function paint(lessons){
     const list=document.getElementById('cpRecentList');if(!list)return;
+    // Preserve scroll after refreshActivity reads IndexedDB on focus.
+    const previousScrollTop=list.scrollTop;
     list.replaceChildren();
     const recents=lessons.map(lesson=>({lesson,
       latest:Number(lesson.lastPracticed)||Math.max(0,...(Array.isArray(lesson.history)?lesson.history:[]).map(logTime).filter(Boolean))||Number(lesson.createdAt)||0
-    })).sort((a,b)=>b.latest-a.latest).slice(0,3);
+    })).sort((a,b)=>b.latest-a.latest);
+    const recentCount=document.getElementById('cpRecentCount');
+    if(recentCount)recentCount.textContent=recents.length>3 ? recents.length+'件 · ↕ スクロール' : recents.length+'件';
     if(!recents.length)list.textContent='教材はまだありません';
     else recents.forEach(({lesson})=>{
       const btn=document.createElement('button');btn.type='button';btn.className='cp-recent-row';
@@ -170,6 +174,7 @@ function initCopeakDedicatedPages() {
       });
       list.appendChild(btn);
     });
+    list.scrollTop=previousScrollTop;
     const times=lessons.flatMap(l=>Array.isArray(l.history)?l.history.map(logTime).filter(x=>x!=null):[]);
     const days=new Set(times.map(dateKey).filter(Boolean));
     const now=new Date(),dayAt=n=>dateKey(new Date(now.getFullYear(),now.getMonth(),now.getDate()-n));

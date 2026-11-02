@@ -115,7 +115,6 @@ body.copeak-home-mode #homeScreen.cp-section-mode.active{
  #copeakHomeHub{grid-template-rows:62px minmax(0,1fr) clamp(110px,24dvh,141px) 45px;gap:5px}
  #copeakHomeHub .cp-extra{padding:7px 10px}
  .cp-recent-list{margin-top:3px;gap:0}
- .cp-recent-row:nth-child(n+3){display:none}
  .cp-progress-ring{width:48px;height:48px}
  #copeakHomeHub .cp-action-icon{width:36px;height:36px;font-size:26px}
 }
@@ -160,4 +159,35 @@ body.copeak-home-mode{background-color:#eef4f7!important;background-image:radial
  #copeakHomeHub .cp-record-metrics{gap:2px}
  #copeakHomeHub .cp-record-stat-label{font-size:8px}
  #copeakHomeHub .cp-record-stat strong{font-size:12px}
+}
+
+
+/* Copeak Home: Recent assignments are independently scrollable on touch devices. */
+#copeakHomeHub .cp-home-extras > .cp-extra:first-child {
+ display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;
+ gap:0;min-width:0;min-height:0;overflow:hidden;
+}
+#copeakHomeHub .cp-recent-heading {
+ display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex:0 0 auto;
+}
+#copeakHomeHub .cp-recent-heading h3 {margin:0 0 4px}
+#copeakHomeHub .cp-recent-heading small {color:#6e879d;font-size:10px;font-weight:750;white-space:nowrap}
+#copeakHomeHub .cp-home-extras > .cp-extra:first-child > p {flex:0 0 auto}
+#copeakHomeHub #cpRecentList {
+ display:flex;flex-direction:column;flex:1 1 0;min-width:0;min-height:0;
+ width:100%;max-height:100%;gap:0;margin-top:clamp(5px,1vh,10px);
+ overflow-x:hidden;overflow-y:auto;
+ -webkit-overflow-scrolling:touch;touch-action:pan-y;overscroll-behavior:contain;
+ scrollbar-width:thin;scrollbar-color:#afccdf transparent;scrollbar-gutter:stable;
+ padding:0 5px 2px 0;
+}
+#copeakHomeHub #cpRecentList .cp-recent-row {
+ display:flex;flex:0 0 auto;min-height:32px;padding:7px 2px;
+}
+#copeakHomeHub #cpRecentList:focus-visible {
+ outline:2px solid #2188d7;outline-offset:-2px;border-radius:8px;
+}
+@media(max-height:620px) {
+ #copeakHomeHub #cpRecentList {margin-top:3px}
+ #copeakHomeHub #cpRecentList .cp-recent-row {min-height:28px;padding:4px 2px}
 }
