@@ -7673,7 +7673,7 @@ body.result-layout-active
                                 <div class="flex flex-row justify-around items-center w-full border-b border-stone-800 pb-4">
                                     <div class="text-center w-1/3"><div class="text-stone-400 font-bold tracking-widest text-[9px] md:text-xs mb-1 uppercase">Accuracy</div><div id="target-acc" class="text-3xl sm:text-4xl md:text-5xl font-bold text-emerald-400 serif-font drop-shadow-md transition-all duration-300">60%</div></div>
                                     <div class="text-center w-1/3 border-l border-r border-stone-700 px-2"><div class="text-stone-400 font-bold tracking-widest text-[9px] md:text-xs mb-1 uppercase">WPM</div><div id="target-wpm" class="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-400 serif-font drop-shadow-md transition-all duration-300">60</div></div>
-                                    <div class="text-center w-1/3"><div class="text-stone-400 font-bold tracking-widest text-[9px] md:text-xs mb-1 uppercase">Comp.</div><div id="target-comp" class="text-3xl sm:text-4xl md:text-5xl font-bold text-yellow-400 serif-font drop-shadow-md transition-all duration-300">70%</div></div>
+                                    <div class="text-center w-1/3"><div class="text-stone-400 font-bold tracking-widest text-[9px] md:text-xs mb-1 uppercase">Reading Performance</div><div id="target-comp" class="text-3xl sm:text-4xl md:text-5xl font-bold text-yellow-400 serif-font drop-shadow-md transition-all duration-300">28/100</div></div>
                                 </div>
                                 <div class="flex flex-col md:flex-row w-full gap-4 md:gap-6 pt-2 h-[380px] md:h-64">
                                     <div class="w-full md:w-1/2 h-48 md:h-full relative z-10"><canvas id="targetScoreChart"></canvas></div>
@@ -8848,7 +8848,7 @@ function loadDeferredImage(container) {
                 datasets: [
                     { label: 'Accuracy (%)', data: [60, 70, 80, 85, 90], borderColor: '#34d399', backgroundColor: gradAcc, borderWidth: 3, tension: 0.4, fill: true, yAxisID: 'y', pointRadius: [0,0,0,0,0], pointBackgroundColor: '#34d399', pointBorderColor: 'transparent', pointBorderWidth: 3 },
                     { label: 'WPM', data: [60, 80, 95, 110, 130], borderColor: '#60a5fa', backgroundColor: gradWpm, borderWidth: 3, borderDash: [5, 5], tension: 0.4, fill: true, yAxisID: 'y1', pointRadius: [0,0,0,0,0], pointBackgroundColor: '#60a5fa', pointBorderColor: 'transparent', pointBorderWidth: 3 },
-                    { label: 'Comprehension (%)', data: [70, 80, 85, 90, 95], borderColor: '#facc15', backgroundColor: gradComp, borderWidth: 3, tension: 0.4, fill: true, yAxisID: 'y', pointRadius: [0,0,0,0,0], pointBackgroundColor: '#facc15', pointBorderColor: 'transparent', pointBorderWidth: 3 }
+                    { label: 'Reading Performance (/100)', data: [28, 43, 58, 72, 90], borderColor: '#facc15', backgroundColor: gradComp, borderWidth: 3, tension: 0.4, fill: true, yAxisID: 'y', pointRadius: [0,0,0,0,0], pointBackgroundColor: '#facc15', pointBorderColor: 'transparent', pointBorderWidth: 3 }
                 ]
             },
             options: {
@@ -8868,11 +8868,12 @@ function loadDeferredImage(container) {
         const isJa = langKey === 'ja';
         const dict = (typeof dynamicDict !== 'undefined') ? dynamicDict[langKey] : null;
 
-        const levelScores = { 1: { acc: 60, wpm: 60, comp: 70 }, 2: { acc: 70, wpm: 80, comp: 80 }, 3: { acc: 80, wpm: 95, comp: 85 }, 4: { acc: 85, wpm: 110, comp: 90 }, 5: { acc: 90, wpm: 130, comp: 95 } };
+        // Illustrative Reading Performance targets assume a 130 WCPM benchmark.
+        const levelScores = { 1: { acc: 60, wpm: 60, comp: 28 }, 2: { acc: 70, wpm: 80, comp: 43 }, 3: { acc: 80, wpm: 95, comp: 58 }, 4: { acc: 85, wpm: 110, comp: 72 }, 5: { acc: 90, wpm: 130, comp: 90 } };
         const data = levelScores[level];
         
         if(dict) { document.getElementById('level-mission-desc').innerHTML = dict[`lv${level}_desc`]; }
-        document.getElementById('target-acc').innerText = data.acc + "%"; document.getElementById('target-wpm').innerText = data.wpm; document.getElementById('target-comp').innerText = data.comp + "%";
+        document.getElementById('target-acc').innerText = data.acc + "%"; document.getElementById('target-wpm').innerText = data.wpm; document.getElementById('target-comp').innerText = data.comp + "/100";
         
         const imgEl = document.getElementById('level-preview-img');
         const imgSuffix = isJa ? '' : '_eng';

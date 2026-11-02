@@ -6051,7 +6051,8 @@ function renderChart() {
 
     const accData = currentCustomLesson.history.map(log => log.score);
     const wpmData = currentCustomLesson.history.map(log => log.wpm);
-    const compData = currentCustomLesson.history.map(log => log.comp);
+    // Only WCPM-v1 results can be compared; keep older logs intact.
+    const compData = currentCustomLesson.history.map(log => log.readingPerformanceVersion === 'wcpm-v1' ? log.comp : null);
 
     progressChartInstance = new Chart(ctx, {
         type: 'line',
@@ -6061,7 +6062,7 @@ function renderChart() {
 
             datasets: [
                 {
-                    label: 'Comprehension (理解度 %)',
+                    label: 'Reading Performance (/100)',
                     data: compData,
                     borderColor: '#facc15',
                     backgroundColor: 'rgba(250, 204, 21, 0.2)',
