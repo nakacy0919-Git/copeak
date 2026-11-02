@@ -19168,46 +19168,18 @@ spokenComparisonUnits.forEach(
     }
 
 
-    let targetWpmToUse =
-        (
-            typeof targetWpm !==
-            'undefined'
-        )
-            ? targetWpm
-            : 130;
-
-
-    let wpmRatio =
-        Math.min(
-            currentWpm /
-                targetWpmToUse,
-            1.0
-        );
-
-
-    let comprehensionScore =
-        Math.round(
-            (
-                currentAccuracy *
-                0.6
-            ) +
-            (
-                wpmRatio *
-                100 *
-                0.4
-            )
-        );
-
-
-    if (
-        comprehensionScore >
-        100
-    ) {
-
-        comprehensionScore =
-            100;
-    }
-
+    // Reading Performance (0-100): WCPM against the target, capped by
+    // Accuracy. It is NOT a reading comprehension measurement.
+    const rawTargetWcpm = typeof targetWpm !== 'undefined' ? Number(targetWpm) : 130;
+    const targetWcpm = Number.isFinite(rawTargetWcpm) && rawTargetWcpm > 0
+        ? rawTargetWcpm : 130;
+    const elapsedReadingMinutes = recordStartTime > 0
+        ? Math.max((Date.now() - recordStartTime) / 60000, 0.01) : 0;
+    const correctWordsPerMinute = elapsedReadingMinutes > 0
+        ? matchCount / elapsedReadingMinutes : 0;
+    const readingPerformanceScore = Math.round(Math.max(0,
+        Math.min(currentAccuracy, 100 * correctWordsPerMinute / targetWcpm)
+    ));
 
     // ==========================================
     // Final Result
@@ -19239,11 +19211,11 @@ spokenComparisonUnits.forEach(
 
 
         compEl.innerText =
-            `${comprehensionScore}%`;
+            `${readingPerformanceScore}`;
 
 
         if (
-            comprehensionScore >=
+            readingPerformanceScore >=
             80
         ) {
 
@@ -19251,7 +19223,7 @@ spokenComparisonUnits.forEach(
                 "text-5xl md:text-6xl font-bold text-yellow-400 serif-font";
 
         } else if (
-            comprehensionScore >=
+            readingPerformanceScore >=
             50
         ) {
 
@@ -19308,7 +19280,9 @@ spokenComparisonUnits.forEach(
                     currentWpm,
 
                 comp:
-                    comprehensionScore,
+                    readingPerformanceScore,
+
+                readingPerformanceVersion: 'wcpm-v1',
 
                 timestamp:
                     new Date()
@@ -21314,7 +21288,7 @@ const i18n = {
         "btn_ai_voice": "AI音声を再生",
         "score_accuracy": "Accuracy",
         "score_wpm": "WPM",
-        "score_comp": "Comprehension",
+        "score_comp": "Reading Performance (/100)",
         "score_feedback": "Learning Feedback",
         "btn_submit_score": "先生に成績を提出する（振り返り入力へ）",
         "label_your_voice": "Your Voice",
@@ -21416,7 +21390,7 @@ const i18n = {
         "btn_ai_voice": "Play AI Voice",
         "score_accuracy": "Accuracy",
         "score_wpm": "WPM",
-        "score_comp": "Comprehension",
+        "score_comp": "Reading Performance (/100)",
         "score_feedback": "Learning Feedback",
         "btn_submit_score": "Submit Score to Teacher (Reflection)",
         "label_your_voice": "Your Voice",
@@ -21518,7 +21492,7 @@ const i18n = {
         "btn_ai_voice": "播放 AI 語音",
         "score_accuracy": "準確度",
         "score_wpm": "WPM",
-        "score_comp": "理解度",
+        "score_comp": "朗讀表現 (/100)",
         "score_feedback": "學習反饋",
         "btn_submit_score": "將成績提交給老師（填寫反思）",
         "label_your_voice": "您的語音",
@@ -21620,7 +21594,7 @@ const i18n = {
         "btn_ai_voice": "Phát giọng AI",
         "score_accuracy": "Độ chính xác",
         "score_wpm": "WPM",
-        "score_comp": "Mức độ hiểu",
+        "score_comp": "Hiệu suất đọc (/100)",
         "score_feedback": "Phản hồi học tập",
         "btn_submit_score": "Gửi điểm cho Giáo viên (Kèm đánh giá)",
         "label_your_voice": "Giọng của bạn",
@@ -21722,7 +21696,7 @@ const i18n = {
         "btn_ai_voice": "Putar Suara AI",
         "score_accuracy": "Akurasi",
         "score_wpm": "WPM",
-        "score_comp": "Pemahaman",
+        "score_comp": "Performa Membaca (/100)",
         "score_feedback": "Umpan Balik Belajar",
         "btn_submit_score": "Kirim Nilai ke Guru (Refleksi)",
         "label_your_voice": "Suara Anda",
@@ -21824,7 +21798,7 @@ const i18n = {
         "btn_ai_voice": "I-play ang AI Voice",
         "score_accuracy": "Katumpakan",
         "score_wpm": "WPM",
-        "score_comp": "Pag-unawa",
+        "score_comp": "Pagganap sa Pagbasa (/100)",
         "score_feedback": "Feedback sa Pag-aaral",
         "btn_submit_score": "Isumite ang Iskor sa Guro (Pagninilay)",
         "label_your_voice": "Iyong Boses",
@@ -21926,7 +21900,7 @@ const i18n = {
         "btn_ai_voice": "AI आवाज़ चलाएँ",
         "score_accuracy": "सटीकता (Accuracy)",
         "score_wpm": "WPM",
-        "score_comp": "समझ (Comprehension)",
+        "score_comp": "पठन प्रदर्शन (/100)",
         "score_feedback": "लर्निंग फीडबैक",
         "btn_submit_score": "टीचर को स्कोर भेजें (रिफ्लेक्शन)",
         "label_your_voice": "आपकी आवाज़",
