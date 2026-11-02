@@ -8370,7 +8370,7 @@ body.result-layout-active
 
 </div>
                         <div id="yourVoiceWrapper" class="hidden w-full lg:w-1/2 p-4 md:p-6 bg-white rounded-sm border-l-4 border-stone-800 shadow-sm iron-border-sm flex-col transition-all duration-300 flex-1 min-h-[200px] md:min-h-[300px]">
-                            <div class="flex justify-between items-center mb-2 md:mb-4 border-b border-stone-100 pb-2 shrink-0"><div data-i18n="label_your_voice" class="text-xs md:text-sm text-stone-800 font-bold uppercase tracking-widest">Your Voice</div></div>
+                            <div class="flex justify-between items-center mb-2 md:mb-4 border-b border-stone-100 pb-2 shrink-0"><div data-i18n="label_your_voice" class="text-xs md:text-sm text-stone-800 font-bold uppercase tracking-widest">Your Voice</div><button type="button" id="cpReviewOpenBtn" class="cp-review-open-btn" aria-haspopup="dialog" aria-controls="cpReviewDialog" title="2つの文章を大きく見比べる">⛶ 拡大して照合</button></div>
                             <div id="recognizedTextDisplay" class="text-stone-500 leading-relaxed font-medium transition-all duration-200 serif-font flex-1 overflow-y-auto" style="font-size: 24px;"><span data-i18n="msg_press_start">※Press START to begin</span></div>
                         </div>
                         <div id="targetTextWrapper" class="w-full flex flex-col gap-4 md:gap-6 transition-all duration-300 flex-1 min-h-[200px] md:min-h-[300px]">
@@ -8962,8 +8962,10 @@ function loadDeferredImage(container) {
     <!-- Copeak Main Bundle -->
 <script src="js/scoring-exclusions.js"></script>
 <link rel="stylesheet" href="score-gauges.css?v=20261103" />
+<link rel="stylesheet" href="review-comparison.css?v=20261103" />
 <script src="app-bundle.js"></script>
 <script src="score-gauges.js?v=20261103" defer></script>
+<script src="review-comparison.js?v=20261103" defer></script>
 <script src="speech-debug.js"></script>
 <script src="opening-final.js"></script>
 <script src="profile-lock.js"></script>
