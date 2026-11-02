@@ -1035,6 +1035,8 @@
 
       comprehension,
 
+      scoreVersion: 'wcpm-v1',
+
       practiceMode:
         actualPracticeMode,
 

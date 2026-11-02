@@ -3726,46 +3726,18 @@ spokenComparisonUnits.forEach(
     }
 
 
-    let targetWpmToUse =
-        (
-            typeof targetWpm !==
-            'undefined'
-        )
-            ? targetWpm
-            : 130;
-
-
-    let wpmRatio =
-        Math.min(
-            currentWpm /
-                targetWpmToUse,
-            1.0
-        );
-
-
-    let comprehensionScore =
-        Math.round(
-            (
-                currentAccuracy *
-                0.6
-            ) +
-            (
-                wpmRatio *
-                100 *
-                0.4
-            )
-        );
-
-
-    if (
-        comprehensionScore >
-        100
-    ) {
-
-        comprehensionScore =
-            100;
-    }
-
+    // Reading Performance (0-100): WCPM against the target, capped by
+    // Accuracy. It is NOT a reading comprehension measurement.
+    const rawTargetWcpm = typeof targetWpm !== 'undefined' ? Number(targetWpm) : 130;
+    const targetWcpm = Number.isFinite(rawTargetWcpm) && rawTargetWcpm > 0
+        ? rawTargetWcpm : 130;
+    const elapsedReadingMinutes = recordStartTime > 0
+        ? Math.max((Date.now() - recordStartTime) / 60000, 0.01) : 0;
+    const correctWordsPerMinute = elapsedReadingMinutes > 0
+        ? matchCount / elapsedReadingMinutes : 0;
+    const readingPerformanceScore = Math.round(Math.max(0,
+        Math.min(currentAccuracy, 100 * correctWordsPerMinute / targetWcpm)
+    ));
 
     // ==========================================
     // Final Result
@@ -3797,11 +3769,11 @@ spokenComparisonUnits.forEach(
 
 
         compEl.innerText =
-            `${comprehensionScore}%`;
+            `${readingPerformanceScore}`;
 
 
         if (
-            comprehensionScore >=
+            readingPerformanceScore >=
             80
         ) {
 
@@ -3809,7 +3781,7 @@ spokenComparisonUnits.forEach(
                 "text-5xl md:text-6xl font-bold text-yellow-400 serif-font";
 
         } else if (
-            comprehensionScore >=
+            readingPerformanceScore >=
             50
         ) {
 
@@ -3866,7 +3838,10 @@ spokenComparisonUnits.forEach(
                     currentWpm,
 
                 comp:
-                    comprehensionScore,
+                    readingPerformanceScore,
+
+                readingPerformanceVersion:
+                    'wcpm-v1',
 
                 timestamp:
                     new Date()

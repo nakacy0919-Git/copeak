@@ -157,6 +157,7 @@
       accuracy: Number(log.score),
       wpm: Number(log.wpm),
       comprehension: Number(log.comp),
+      scoreVersion: log.readingPerformanceVersion || 'legacy-comprehension',
       practiceMode: practice.practiceMode || (log.mode === 'memo' ? 'vanish' : log.mode || 'reading'),
       pacedTargetWpm: practice.pacedTargetWpm ?? null,
       vanishLevel: practice.vanishLevel ?? null
