@@ -73,3 +73,199 @@
 /* Japeak moved from the dashboard into the visible Related Services group. */
 #cpInfoPage .cp-info-app-japeak{grid-column:1/-1;min-height:88px;background:linear-gradient(115deg,#f9f7ff,#efecff);border-color:#e1daf7}
 #cpInfoPage .cp-info-app-japeak .cp-info-app-mark img{display:block;width:90%;height:90%;object-fit:contain}
+
+
+/* iPad / tablet information menu: all primary menu groups on one screen.
+   Keep the fixed bottom navigation, make tap targets usable, and preserve
+   scrolling on unusually short split-screen/browser windows. */
+@media (min-width: 700px) and (max-width: 1366px) {
+  #cpInfoPage.cp-info-page {
+    grid-template-rows: minmax(56px, auto) minmax(0, 1fr) minmax(49px, auto);
+    gap: clamp(5px, .75dvh, 10px);
+    width: min(1180px, 100%);
+    min-height: 0;
+    overflow: hidden;
+  }
+  #cpInfoPage .cp-info-head {
+    min-height: 56px;
+    padding: 4px 8px 6px;
+    gap: 10px;
+  }
+  #cpInfoPage .cp-info-head .cp-page-home {
+    width: 39px;
+    height: 39px;
+    border-radius: 12px;
+  }
+  #cpInfoPage .cp-info-head h2 {
+    font-size: clamp(19px, 2vw, 24px);
+  }
+  #cpInfoPage .cp-info-head .cp-page-subtitle {
+    margin-top: 1px;
+    font-size: 11px;
+  }
+  #cpInfoPage .cp-info-scroll {
+    padding: 2px 3px 5px;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  #cpInfoPage .cp-info-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.06fr) minmax(0, .94fr);
+    align-items: start;
+    gap: clamp(8px, 1.3vw, 14px);
+    min-width: 0;
+  }
+  #cpInfoPage .cp-info-column {
+    min-width: 0;
+    gap: clamp(7px, 1.2dvh, 12px);
+  }
+  #cpInfoPage .cp-info-panel {
+    padding: clamp(10px, 1.3vw, 15px);
+    border-radius: 16px;
+  }
+  #cpInfoPage .cp-info-section-heading {
+    margin-bottom: clamp(7px, .85dvh, 11px);
+  }
+  #cpInfoPage .cp-info-section-heading h3 {
+    margin-top: 1px;
+    font-size: clamp(15px, 1.45vw, 18px);
+    line-height: 1.32;
+  }
+  #cpInfoPage .cp-info-app-grid { gap: 7px; }
+  #cpInfoPage .cp-info-app {
+    min-width: 0;
+    min-height: 76px;
+    border-radius: 13px;
+    gap: 8px;
+    padding: 9px 10px;
+  }
+  #cpInfoPage .cp-info-app-japeak {
+    min-height: 58px;
+  }
+  #cpInfoPage .cp-info-app-mark {
+    width: 37px;
+    height: 37px;
+    border-radius: 10px;
+    font-size: 21px;
+  }
+  #cpInfoPage .cp-info-app strong {
+    font-size: clamp(12px, 1.18vw, 16px);
+    line-height: 1.35;
+  }
+  #cpInfoPage .cp-info-app small {
+    font-size: 10px;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+  #cpInfoPage .cp-info-link {
+    min-height: 49px;
+    gap: 9px;
+    padding: 5px 3px;
+  }
+  #cpInfoPage .cp-info-line-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    font-size: 18px;
+  }
+  #cpInfoPage .cp-info-link strong {
+    font-size: clamp(12px, 1.08vw, 14px);
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+  #cpInfoPage .cp-info-link small {
+    font-size: 10px;
+    line-height: 1.3;
+    margin-top: 1px;
+  }
+  #cpInfoPage .cp-info-partner-link {
+    min-width: 0;
+    gap: 9px;
+    padding: 8px 10px;
+  }
+  #cpInfoPage .cp-info-partner-link img {
+    height: 33px;
+    width: clamp(90px, 12vw, 135px);
+  }
+  #cpInfoPage .cp-info-advanced summary {
+    min-height: 46px;
+    padding: 10px 13px;
+    font-size: 12px;
+  }
+  #cpInfoPage .cp-info-copyright {
+    padding: 2px 0 5px;
+    font-size: 10px;
+  }
+  #cpInfoPage .cp-info-bottom {
+    min-height: 49px;
+    padding: 3px 6px;
+    border-radius: 13px;
+    flex-shrink: 0;
+  }
+  #cpInfoPage .cp-info-bottom button {
+    min-width: 0;
+    min-height: 43px;
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+  #cpInfoPage .cp-info-nav-icon { font-size: 17px; }
+}
+
+/* 9.7–11-inch iPads in landscape, or Safari with expanded browser chrome. */
+@media (min-width: 700px) and (max-width: 1366px) and (max-height: 900px) {
+  #cpInfoPage.cp-info-page {
+    grid-template-rows: minmax(48px, auto) minmax(0, 1fr) minmax(45px, auto);
+    gap: 5px;
+  }
+  #cpInfoPage .cp-info-head {
+    min-height: 48px;
+    padding: 2px 5px 4px;
+  }
+  #cpInfoPage .cp-info-head .cp-page-home { width: 35px; height: 35px; }
+  #cpInfoPage .cp-info-head .cp-page-brand img { height: 29px; width: 29px; }
+  #cpInfoPage .cp-info-head h2 { font-size: 19px; }
+  #cpInfoPage .cp-info-head .cp-page-eyebrow { font-size: 9px; }
+  #cpInfoPage .cp-info-head .cp-page-subtitle { font-size: 10px; }
+  #cpInfoPage .cp-info-scroll { padding-top: 0; padding-bottom: 2px; }
+  #cpInfoPage .cp-info-column { gap: 7px; }
+  #cpInfoPage .cp-info-panel { padding: 9px 11px; border-radius: 14px; }
+  #cpInfoPage .cp-info-section-heading { margin-bottom: 6px; }
+  #cpInfoPage .cp-info-kicker { font-size: 9px; }
+  #cpInfoPage .cp-info-section-heading h3 { font-size: 15px; }
+  #cpInfoPage .cp-info-app { min-height: 62px; padding: 7px 8px; }
+  #cpInfoPage .cp-info-app-japeak { min-height: 51px; }
+  #cpInfoPage .cp-info-app-mark { width: 34px; height: 34px; font-size: 19px; }
+  #cpInfoPage .cp-info-link { min-height: 44px; padding: 3px 2px; }
+  #cpInfoPage .cp-info-line-icon { width: 31px; height: 31px; font-size: 17px; }
+  #cpInfoPage .cp-info-advanced summary { min-height: 42px; padding: 8px 11px; }
+  #cpInfoPage .cp-info-partner-link img { height: 29px; }
+  #cpInfoPage .cp-info-bottom { min-height: 45px; padding: 2px 5px; }
+  #cpInfoPage .cp-info-bottom button { min-height: 40px; padding: 3px 7px; }
+  #cpInfoPage .cp-info-copyright { padding: 0; }
+}
+
+/* Existing phone styles are preserved; 700–750px iPad mini/zoomed portrait
+   must not inherit the single-column smartphone layout. */
+@media (min-width: 700px) and (max-width: 750px) {
+  #cpInfoPage .cp-info-layout {
+    grid-template-columns: minmax(0, 1.04fr) minmax(0, .96fr);
+    gap: 8px;
+  }
+  #cpInfoPage .cp-info-app {
+    flex-direction: row;
+    align-items: center;
+  }
+  #cpInfoPage .cp-info-app-grid { gap: 6px; }
+  #cpInfoPage .cp-info-app-mark { width: 32px; height: 32px; font-size: 18px; }
+}
+
+/* Accessibility: do not cut off content in small multitasking windows.
+   The top and bottom bars stay visible; only the middle column scrolls. */
+@media (min-width: 700px) and (max-height: 540px) {
+  #cpInfoPage .cp-info-scroll {
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+}
