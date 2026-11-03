@@ -662,7 +662,9 @@
     if(!focus||at<0){target.textContent=sentence;return}
     target.appendChild(document.createTextNode(sentence.slice(0,at)));
     const mark=document.createElement('mark');mark.textContent=sentence.slice(at,at+focus.length);
-    target.appendChild(mark,document.createTextNode(sentence.slice(at+focus.length)));
+    // Node.appendChild accepts only ONE node. Append both nodes so the
+    // sentence tail is always visible (and matches the scored full sentence).
+    target.append(mark,document.createTextNode(sentence.slice(at+focus.length)));
   }
   function resetReadingFeedback(){
     $('vcReadingFeedback').hidden=false;
