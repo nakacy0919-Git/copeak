@@ -323,6 +323,7 @@
   root.CopeakChunkCore=CORE;
   if(typeof document==='undefined')return;
   let bank=[],optionBank=[],currentSession=null,lang='ja',mode='quick',lastResult=null;
+  let diagnosticAudit=null;
   let activeResultTab='summary',reviewSummary=null,reviewIndex=0,reviewItems=[];
   let reviewRecognition=null,reviewToken=0,reviewFinal='',reviewInterim='',reviewStarting=false;
   let reviewRequested=false,reviewStopRequested=false,reviewRestartTimer=null,reviewSegmentFinal='',reviewFatalError='';
@@ -534,6 +535,12 @@
     drawTrend($('vcTrendGraph'),history);
     const old=$('vcLast');if(old)old.hidden=true;
     renderReviewGate();
+    const audit=$('vcAuditSummary');
+    if(audit&&diagnosticAudit){
+      audit.textContent=lang==='ja'?
+        '問題データ検査：'+diagnosticAudit.candidates+'候補・'+diagnosticAudit.active+'使用可能／形式チェック通過。ただし難易度は未校正です。':
+        'Item integrity passed: '+diagnosticAudit.candidates+' candidates, '+diagnosticAudit.active+' active. Difficulty is not empirically calibrated.';
+    }
   }
   function renderQuestion(){
     const session=currentSession;if(!session)return;
@@ -641,6 +648,20 @@
       const subset=s.answers.filter(a=>a.level===level);if(!subset.length)continue;
       const entry=document.createElement('div'),heading=document.createElement('strong'),sub=document.createElement('span');
       heading.textContent=`Lv.${level}`;sub.textContent=`${subset.filter(a=>a.correct).length} / ${subset.length}`;entry.append(heading,sub);output.appendChild(entry);
+    }
+    const quality=root.CopeakVocabularyQuality?.evidence(s);
+    if(quality){
+      const range=quality.range;
+      const caution=quality.cautions.length>0;
+      setText($('vcEvidenceSummary'),lang==='ja'?
+        quality.total+'問 / '+quality.uniqueFamilies+'種類の表現 / '+quality.coveredLevels+'段階を出題':
+        quality.total+' questions, '+quality.uniqueFamilies+' expression families, '+quality.coveredLevels+' levels sampled');
+      setText($('vcEvidenceRange'),lang==='ja'?
+        'モデル内の推定幅：Lv.'+range[0]+'～'+range[1]:
+        'Provisional model interval: Lv.'+range[0]+'–'+range[1]);
+      setText($('vcEvidenceWarning'),lang==='ja'?
+        (caution?'回答の偏りや推定幅が大きい可能性があります。Deep診断で追加確認をおすすめします。':'出題結果からの推定です。外部基準での妥当性検証は未実施です。'):
+        (caution?'The internal estimate may be unstable. Consider a Deep check.':'Model-based estimate only; no external validity calibration yet.'));
     }
     updateReviewItems(s);
     const past=loadHistory();drawTrend($('vcResultTrendGraph'),past);
@@ -1055,6 +1076,9 @@
       const all=validateV8(diagnosis,original);
       const prepared=prepareFocusedBank(all,await focusResponse.json());
       bank=prepared.active;optionBank=prepared.all;
+      // Structural validation, not psychometric calibration.
+      diagnosticAudit=root.CopeakVocabularyQuality?.audit(optionBank,bank)||null;
+      if(!diagnosticAudit?.pass)throw new Error('Vocabulary item integrity audit failed');
       // Optional draft translations: never attach to a changed English sentence.
       try{
         const resp=await fetch(SENTENCE_JA,{cache:'no-store'});

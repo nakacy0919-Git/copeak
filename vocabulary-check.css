@@ -770,3 +770,13 @@ body.vc-is-result #vcResult{display:grid;grid-template-rows:auto auto minmax(0,1
  #vcPanelReview .vc-reading-gauge.vc-celebrate .vc-gauge-progress{animation:none!important}
  #vcPanelReview .vc-review-next-passed{animation:none!important}
 }
+
+/* Copeak vocabulary evidence: interpretation, not false official certification */
+.vc-diagnosis-evidence{display:flex;flex-direction:column;gap:5px;margin-top:10px;padding:11px 15px;border:1px solid #ccdeef;border-radius:14px;background:linear-gradient(125deg,#eef7ff,#f8fbff)}
+.vc-evidence-header{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:space-between}
+.vc-evidence-header strong{font-size:13px;color:#27557c}
+.vc-evidence-header span{font-size:10px;font-weight:800;color:#9b6a2b;background:#ffeed6;padding:4px 9px;border-radius:999px}
+.vc-diagnosis-evidence p{font-size:12px;line-height:1.5;margin:0;color:#355a7a}
+.vc-diagnosis-evidence small{font-size:10px;line-height:1.55;color:#71869a}
+.vc-audit-summary{font-size:11px;line-height:1.5;color:#537b95;margin:8px 0 0}
+@media(max-height:650px){.vc-diagnosis-evidence{padding:6px 11px;margin-top:6px;gap:2px}.vc-diagnosis-evidence p{font-size:11px}}

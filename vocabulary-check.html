@@ -9,7 +9,8 @@
   <link rel="stylesheet" href="vocabulary-check.css?v=8.6.2">
   <script defer src="vocabulary-reading.js?v=8.6.0"></script>
   <script defer src="vocabulary-review.js?v=8.7.0"></script>
-  <script defer src="vocabulary-check.js?v=8.7.0"></script>
+  <script defer src="vocabulary-quality.js?v=8.7.0"></script>
+  <script defer src="vocabulary-check.js?v=8.7.1"></script>
 </head>
 <body>
   <main class="vc-shell">
@@ -74,7 +75,10 @@
             <div id="vcTrendGraph" class="vc-trend-graph" role="img" aria-label="Level progression history"></div><p class="vc-history-warning" data-t="historyWarning">問題構成が違う診断回のレベルは直接比較できません。</p></details>
           </section>
         </div>
-        <details class="vc-about-details"><summary data-t="aboutAssessment">この診断について</summary><p data-t="caveat">この結果は語彙学習の目安です。英検・CEFRの公式判定ではありません。履歴はブラウザ内にのみ保存されます。</p></details>
+        <details class="vc-about-details"><summary data-t="aboutAssessment">この診断について</summary>
+          <p data-t="caveat">この結果は語彙学習の目安です。英検・CEFRの公式判定ではありません。履歴はブラウザ内にのみ保存されます。</p>
+          <p id="vcAuditSummary" class="vc-audit-summary">出題データの形式と選択肢を検査しています。難易度の実測校正はまだ行われていません。</p>
+        </details>
       </section>
       <section class="vc-quiz" id="vcQuiz" hidden aria-label="Vocabulary question">
         <div class="vc-quiz-top">
@@ -128,6 +132,12 @@
                 <div class="vc-result-trend"><div class="vc-panel-head"><strong data-t="trend">成長の記録</strong><span id="vcResultDelta"></span></div><div id="vcResultTrendGraph" class="vc-trend-graph" role="img" aria-label="Result level progression"></div></div>
               </div>
             </div>
+            <section class="vc-diagnosis-evidence" aria-label="診断結果の根拠">
+              <div class="vc-evidence-header"><strong>診断の根拠</strong><span>暫定推定・難易度未校正</span></div>
+              <p id="vcEvidenceSummary">回答データを分析中です。</p>
+              <p id="vcEvidenceRange"></p>
+              <small id="vcEvidenceWarning">正式な英検・CEFRの判定ではありません。</small>
+            </section>
           </section>
           <section id="vcPanelReview" class="vc-result-panel vc-review-panel" role="tabpanel" aria-labelledby="vcTabReview" hidden>
             <div class="vc-review-stage">
