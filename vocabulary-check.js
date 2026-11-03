@@ -322,7 +322,7 @@
   const CORE=Object.freeze({KEY,COUNTS,probability,posterior,similarity,validateBank,validateV8,prepareFocusedBank,nextTarget,evidenceFor,makePilotCSV,pickQuestion,makeOptions});
   root.CopeakChunkCore=CORE;
   if(typeof document==='undefined')return;
-  let bank=[],optionBank=[],currentSession=null,lang='ja',mode='quick',lastResult=null;
+  let bank=[],optionBank=[],reviewBankById=new Map(),currentSession=null,lang='ja',mode='quick',lastResult=null;
   let diagnosticAudit=null;
   let activeResultTab='summary',reviewSummary=null,reviewIndex=0,reviewItems=[];
   let reviewRecognition=null,reviewToken=0,reviewFinal='',reviewInterim='',reviewStarting=false;
@@ -896,7 +896,7 @@
       [...answers.filter(a=>!a.correct),...answers.filter(a=>a.correct)];
     reviewItems=ordered.map(a=>{
       if(used.has(a.id))return null;used.add(a.id);
-      return bank.find(q=>q.id===a.id)||null;
+      return reviewBankById.get(a.id)||null;
     }).filter(Boolean);
     reviewIndex=clamp(reviewIndex,0,Math.max(0,reviewItems.length-1));
     if(activeResultTab==='review')renderReviewCard();
@@ -1168,6 +1168,10 @@
       const all=validateV8(diagnosis,original);
       const prepared=prepareFocusedBank(all,await focusResponse.json());
       bank=prepared.active;optionBank=prepared.all;
+      // All 5,000 prior items remain reviewable, even if an old item is no
+      // longer among the 505 active multiple-choice diagnostic candidates.
+      reviewBankById=new Map(original.map(q=>[q.id,q]));
+      for(const item of optionBank)reviewBankById.set(item.id,item);
       // Structural validation, not psychometric calibration.
       diagnosticAudit=root.CopeakVocabularyQuality?.audit(optionBank,bank)||null;
       if(!diagnosticAudit?.pass)throw new Error('Vocabulary item integrity audit failed');
@@ -1178,7 +1182,7 @@
           const payload=await resp.json();
           if(payload?.schemaVersion===1&&Array.isArray(payload.items)){
             const lookup=new Map(payload.items.map(x=>[x.id,x]));
-            for(const item of bank){
+            for(const item of optionBank){
               const ja=lookup.get(item.id);
               if(ja&&ja.source_example_en===item.example_en&&typeof ja.example_ja==='string')
                 {item.example_ja=ja.example_ja;item.focus_ja=String(ja.focus_ja||'');}
