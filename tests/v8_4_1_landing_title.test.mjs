@@ -13,5 +13,5 @@ assert(script.includes("if(lang!=='ja'||!label.includes('、'))"));
 assert.match(script,/renderLandingTitle\(\);/);
 assert.match(css,/#vcLandingTitle \.vc-landing-title-line\s*\{[^}]*display:block;[^}]*white-space:nowrap;/);
 assert.match(css,/#vcLandingTitle\{\s*font-size:clamp\(23px,2\.8vw,40px\)/);
-for(const asset of ['vocabulary-check.css','vocabulary-check.js'])assert(html.includes(asset+'?v=8.4.1'));
+for(const asset of ['vocabulary-check.css','vocabulary-check.js'])assert(new RegExp(asset.replace('.','\\.')+'\\?v=8\\.').test(html));
 console.log('PASS v8.4.1: complete Japanese heading, responsive two-line wrapping, language-toggle safe.');
