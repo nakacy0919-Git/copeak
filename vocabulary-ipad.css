@@ -1,0 +1,198 @@
+/* v8.5.1 — iPad vocabulary check: responsive, readable, and viewport-safe.
+   Keep the page fixed during a diagnosis; allow only the content region to
+   scroll when a long example, translated answer, or enlarged text needs it. */
+@media (min-width:701px) and (max-width:1400px) {
+  .vc-shell {
+    padding:
+      max(10px,env(safe-area-inset-top,0px))
+      clamp(12px,2vw,27px)
+      max(8px,env(safe-area-inset-bottom,0px));
+  }
+  .vc-body {min-width:0;width:min(1180px,100%)}
+  body.vc-is-quiz .vc-question-card {
+    min-width:0;
+    grid-template-rows:auto minmax(min-content,.85fr) minmax(175px,1.85fr) auto;
+    overflow-x:hidden;
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:thin;
+  }
+  body.vc-is-quiz .vc-phrase-wrap {min-width:0;min-height:min-content}
+  body.vc-is-quiz .vc-context-example {
+    max-width:100%;
+    font-size:clamp(21px,2.35vw,31px);
+    line-height:1.35;
+    overflow-wrap:anywhere;
+  }
+  body.vc-is-quiz .vc-options {
+    min-width:0;
+    min-height:165px;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-template-rows:repeat(2,minmax(72px,1fr));
+  }
+  body.vc-is-quiz .vc-option {
+    min-width:0;
+    padding:clamp(9px,1.2vw,14px);
+    font-size:clamp(14px,1.35vw,17px);
+    line-height:1.42;
+    overflow-wrap:anywhere;
+  }
+  body.vc-is-quiz .vc-unknown {min-height:40px}
+  body.vc-is-result .vc-summary-panel {
+    overflow-x:hidden;
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:thin;
+  }
+  body.vc-is-result .vc-result-insight {
+    min-width:0;
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    scrollbar-width:thin;
+  }
+  body.vc-is-result #vcV8Guidance {
+    max-height:none;
+    overflow:visible;
+  }
+  body.vc-is-result .vc-review-card {
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:thin;
+  }
+  body.vc-is-result .vc-result-actions {flex-shrink:0}
+}
+/* iPad mini / 10–11 inch portrait: readable start area, no cramped columns. */
+@media (min-width:701px) and (max-width:900px) and (orientation:portrait) {
+  body:not(.vc-is-quiz):not(.vc-is-result) .vc-body {
+    width:100%;
+    margin:clamp(8px,2vh,18px) auto;
+  }
+  .vc-landing-grid {
+    grid-template-columns:minmax(0,1fr);
+    gap:10px;
+    padding:14px;
+    border-radius:24px;
+  }
+  .vc-landing-grid>.vc-start-panel {
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);
+    grid-template-rows:auto auto auto auto;
+    align-items:center;
+    column-gap:16px;
+    row-gap:6px;
+    padding:6px;
+  }
+  .vc-landing-grid>.vc-start-panel::after {display:none}
+  .vc-landing-grid .vc-landing-kicker {
+    grid-column:1;grid-row:1;justify-self:start;
+    padding:6px 10px;font-size:10px;
+  }
+  .vc-landing-grid .vc-start-panel #vcLandingTitle {
+    grid-column:1;grid-row:2;
+    margin:4px 0;
+    font-size:clamp(25px,3.5vw,32px);
+  }
+  .vc-landing-grid .vc-start-panel .vc-lead {
+    grid-column:1;grid-row:3;
+    font-size:12px;line-height:1.55;
+  }
+  .vc-landing-grid .vc-start-actions {
+    grid-column:2;grid-row:1 / span 3;
+    align-self:center;
+    margin:0;padding-top:0;gap:8px;
+  }
+  .vc-landing-grid .vc-start-button {
+    min-height:70px;
+    padding:10px 12px;
+    gap:9px;
+    border-radius:17px;
+  }
+  .vc-landing-grid .vc-start-symbol {width:36px;height:36px;font-size:22px}
+  .vc-landing-grid .vc-start-copy strong {font-size:18px}
+  .vc-landing-grid .vc-start-copy small {font-size:10px}
+  .vc-landing-grid .vc-start-arrow {width:28px;height:28px;font-size:20px}
+  .vc-landing-grid .vc-deep-button {min-height:49px;padding:9px 10px;gap:8px}
+  .vc-landing-grid .vc-deep-mark {width:30px;height:30px;font-size:19px}
+  .vc-landing-grid .vc-load-state {
+    grid-column:2;grid-row:4;
+    margin:0;
+    font-size:10px;
+  }
+  .vc-landing-grid>.vc-level-panel {padding:14px 16px}
+  .vc-level-panel .vc-level-summary {min-height:0;margin:5px 0}
+  .vc-level-panel .vc-level-explanation {margin:3px 0 9px}
+  .vc-level-panel .vc-level-scale>span {min-height:39px}
+  .vc-level-panel .vc-scale-ends {margin:5px 0 8px}
+  .vc-history-details>summary {padding:9px 2px}
+  .vc-about-details {margin-top:6px}
+  body.vc-is-quiz .vc-question-card {
+    grid-template-rows:auto minmax(min-content,.9fr) minmax(240px,1.8fr) auto;
+    padding:18px 18px 14px;
+  }
+  body.vc-is-result .vc-result-summary-grid {
+    grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+    gap:10px;
+  }
+  body.vc-is-result .vc-result-hero,
+  body.vc-is-result .vc-result-insight {padding:13px;border-radius:18px}
+  body.vc-is-result .vc-result-level strong {font-size:clamp(42px,6vw,54px)}
+  body.vc-is-result .vc-result-stats {gap:6px}
+  body.vc-is-result .vc-result-stats>div {padding:8px 9px}
+  body.vc-is-result #vcResult .vc-breakdown {
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    overflow:visible;
+  }
+  body.vc-is-result #vcResult .vc-result-trend .vc-trend-graph {height:58px}
+}
+/* iPad landscape: preserve two panels, give answers room, reduce dead space. */
+@media (min-width:901px) and (max-width:1400px) and (max-height:850px) and (orientation:landscape) {
+  .vc-header {min-height:54px;padding-bottom:6px}
+  .vc-brand img {width:36px;height:36px}
+  .vc-brand strong {font-size:24px}
+  .vc-landing-grid {padding:12px 16px;gap:18px}
+  .vc-landing-grid>.vc-start-panel {padding:6px 0}
+  .vc-landing-grid .vc-start-panel #vcLandingTitle {
+    font-size:clamp(28px,2.8vw,36px);
+    margin:10px 0 8px;
+  }
+  .vc-landing-grid .vc-start-actions {padding-top:13px;gap:8px}
+  .vc-landing-grid .vc-start-button {min-height:74px;padding:10px 13px}
+  .vc-landing-grid .vc-deep-button {min-height:50px}
+  .vc-landing-grid>.vc-level-panel {padding:14px 17px}
+  .vc-level-panel .vc-level-explanation {margin-bottom:9px}
+  .vc-level-panel .vc-level-scale>span {min-height:39px}
+  .vc-level-panel .vc-scale-ends {margin:5px 0 7px}
+  .vc-history-details>summary {padding:8px 2px}
+  body.vc-is-quiz .vc-question-card {
+    grid-template-rows:auto minmax(min-content,.8fr) minmax(180px,1.6fr) auto;
+    padding:12px 20px;
+  }
+  body.vc-is-quiz .vc-options {grid-template-rows:repeat(2,minmax(70px,1fr))}
+  body.vc-is-result .vc-review-card {gap:7px;padding:12px 16px}
+}
+/* Split View and short browser windows: internal scroll prevents clipping. */
+@media (min-width:701px) and (max-height:700px) {
+  body.vc-is-quiz .vc-quiz {row-gap:5px;padding:5px 0 3px}
+  body.vc-is-quiz .vc-question-card {
+    grid-template-rows:auto minmax(min-content,auto) minmax(145px,1fr) auto;
+    padding:9px 12px;
+  }
+  body.vc-is-quiz .vc-options {
+    min-height:145px;
+    grid-template-rows:repeat(2,minmax(62px,1fr));
+  }
+  body.vc-is-quiz .vc-context-example {font-size:clamp(19px,2.2vw,27px)}
+  body.vc-is-result .vc-result-insight {gap:6px}
+}
+
+/* Keep the latest review-first entry gate in its dedicated portrait column. */
+@media (min-width:701px) and (max-width:900px) and (orientation:portrait) {
+  .vc-landing-grid .vc-review-gate:not([hidden]) {
+    grid-column:2;
+    grid-row:1 / span 3;
+    margin:0!important;
+    align-self:center;
+  }
+}
