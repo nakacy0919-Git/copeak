@@ -6,9 +6,9 @@
   <meta name="theme-color" content="#ecf5ff">
   <title>Copeak | 英語の語彙力診断</title>
   <link rel="icon" href="logo.png">
-  <link rel="stylesheet" href="vocabulary-check.css?v=8.6.0">
+  <link rel="stylesheet" href="vocabulary-check.css?v=8.6.2">
   <script defer src="vocabulary-reading.js?v=8.6.0"></script>
-  <script defer src="vocabulary-check.js?v=8.6.1"></script>
+  <script defer src="vocabulary-check.js?v=8.6.2"></script>
 </head>
 <body>
   <main class="vc-shell">
@@ -146,11 +146,17 @@
                 <div class="vc-review-translation" id="vcReviewMeaningFallback" hidden><span data-t="reviewMeaning">チャンクの意味</span><strong id="vcReviewMeaning">—</strong></div>
                 <p id="vcReviewSentenceJa" class="vc-review-example-ja" lang="ja" aria-live="polite"></p>
                 <div class="vc-reading-area">
-                  <button id="vcReviewRecord" class="vc-review-record vc-read-start" type="button">
-                    <span aria-hidden="true">●</span><span id="vcReviewRecordLabel" data-t="reviewRecord">音読スタート</span>
-                  </button>
+                  <div class="vc-review-transport">
+                    <button id="vcReviewRecord" class="vc-review-record vc-read-start" type="button">
+                      <span aria-hidden="true">●</span><span id="vcReviewRecordLabel" data-t="reviewRecord">音読スタート</span>
+                    </button>
+                    <button id="vcReviewNextPassed" class="vc-review-next-passed" type="button" hidden aria-label="Accuracyが80%以上の場合、次の例文へ">
+                      次の例文へ →
+                    </button>
+                  </div>
                   <div class="vc-reading-feedback" id="vcReadingFeedback">
-                    <div class="vc-recognized-block"><small data-t="recognizedWords">認識された英語</small><div id="vcReadTranscript" class="vc-transcript-words" lang="en" aria-live="polite"><span class="vc-transcript-placeholder" data-t="transcriptPlaceholder">音読すると認識された英語がここに表示されます</span></div></div>
+                    <div class="vc-read-confetti" id="vcReadConfetti" aria-hidden="true"></div>
+                    <div class="vc-recognized-block"><small data-t="recognizedWords">認識された英語</small><div id="vcReadTranscript" class="vc-transcript-words" lang="en" aria-live="polite"></div></div>
                     <div class="vc-reading-gauge" id="vcReadingGauge" role="img" aria-label="Accuracy">
                       <svg viewBox="0 0 220 115" aria-hidden="true">
                         <defs>

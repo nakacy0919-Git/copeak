@@ -326,6 +326,8 @@
   let activeResultTab='summary',reviewSummary=null,reviewIndex=0,reviewItems=[];
   let reviewRecognition=null,reviewToken=0,reviewFinal='',reviewInterim='',reviewStarting=false;
   let reviewRequested=false,reviewStopRequested=false,reviewRestartTimer=null,reviewSegmentFinal='',reviewFatalError='';
+  const REVIEW_NEXT_THRESHOLD=80,REVIEW_CONFETTI_THRESHOLD=90;
+  let reviewConfettiTimer=null;
   // Short feedback is intentional: choice -> clear visual/audio response -> next item.
   const AUTO_DELAY = Object.freeze({correct:680,wrong:2200,unknown:2000});
   // The diagnosis/review ledger never leaves the learner's browser.
@@ -670,13 +672,57 @@
     $('vcReadingFeedback').hidden=false;
     $('vcGaugeProgress').style.strokeDasharray='0 100';
     const glow=$('vcGaugeGlow');if(glow)glow.style.strokeDasharray='0 100';
-    $('vcReadingGauge')?.classList.remove('vc-achieved');
+    $('vcReadingGauge')?.classList.remove('vc-achieved','vc-celebrate');
     setText($('vcReadPercent'),'—');
-    const box=$('vcReadTranscript');box.replaceChildren();
-    const placeholder=document.createElement('span');
-    placeholder.className='vc-transcript-placeholder';
-    placeholder.textContent=text('transcriptPlaceholder');
-    box.appendChild(placeholder);
+    // The speech transcript is empty until recognition produces real words.
+    // Do not fill it with a large placeholder message.
+    $('vcReadTranscript').replaceChildren();
+    $('vcReviewNextPassed').hidden=true;
+    const confetti=$('vcReadConfetti');if(confetti)confetti.replaceChildren();
+    if(reviewConfettiTimer!==null){clearTimeout(reviewConfettiTimer);reviewConfettiTimer=null}
+  }
+  function showReviewNext(percent){
+    const next=$('vcReviewNextPassed');if(!next)return;
+    const passed=Number.isFinite(percent)&&percent>=REVIEW_NEXT_THRESHOLD&&reviewItems.length>0;
+    next.hidden=!passed;
+    if(!passed)return;
+    const last=reviewIndex>=reviewItems.length-1;
+    next.textContent=last?
+      (lang==='ja'?'✓ 音読を終了':'✓ Finish review'):
+      (lang==='ja'?'次の例文へ →':'Next sentence →');
+    next.disabled=reviewRequested||reviewStopRequested||reviewStarting;
+  }
+  function launchReviewConfetti(){
+    const layer=$('vcReadConfetti');if(!layer)return;
+    if(root.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)return;
+    layer.replaceChildren();
+    const colors=['#46dfcc','#56a6f6','#ffcc6d','#e9a6ff','#ffdff0','#8af2df'];
+    const fragments=document.createDocumentFragment();
+    for(let i=0;i<26;i++){
+      const particle=document.createElement('span');
+      particle.className='vc-confetti-particle';
+      particle.style.left=(8+(i*37)%84)+'%';
+      particle.style.setProperty('--vc-confetti-color',colors[i%colors.length]);
+      particle.style.setProperty('--vc-drift',((i*47)%165-82)+'px');
+      particle.style.setProperty('--vc-turn',((i%2?1:-1)*(200+(i*29)%450))+'deg');
+      particle.style.setProperty('--vc-delay',((i*31)%240)+'ms');
+      fragments.appendChild(particle);
+    }
+    layer.appendChild(fragments);
+    const gauge=$('vcReadingGauge');
+    if(gauge){gauge.classList.remove('vc-celebrate');void gauge.offsetWidth;gauge.classList.add('vc-celebrate')}
+    if(reviewConfettiTimer!==null)clearTimeout(reviewConfettiTimer);
+    reviewConfettiTimer=setTimeout(()=>{
+      layer.replaceChildren();gauge?.classList.remove('vc-celebrate');reviewConfettiTimer=null;
+    },2600);
+  }
+  function advancePassedReview(){
+    const next=$('vcReviewNextPassed');
+    if(!next||next.hidden||reviewRequested||reviewStopRequested||reviewStarting)return;
+    if(reviewIndex<reviewItems.length-1){moveReview(1);return}
+    // The last sentence is finished. Return to the intro; the pending
+    // review gate is re-evaluated from this device's local completion ledger.
+    stopReviewMedia();pendingOnlyReview=false;show('vcIntro');displayLast();
   }
   function renderReviewJapanese(item){
     const target=$('vcReviewSentenceJa');
@@ -798,6 +844,8 @@
       const gauge=$('vcReadingGauge');
       if(gauge)gauge.classList.toggle('vc-achieved',report.percent>=80);
       setText($('vcReadPercent'),String(report.percent));
+      showReviewNext(report.percent);
+      if(report.percent>=REVIEW_CONFETTI_THRESHOLD)launchReviewConfetti();
       const item=reviewItems[reviewIndex];
       if(item&&recordReviewCompletion(item,report.percent)){
         const rest=remainingReview().pending.length;
@@ -947,6 +995,7 @@
     $('vcReviewNext').addEventListener('click',()=>moveReview(1));
     $('vcReviewSentenceButton').addEventListener('click',speakReview);
     $('vcReviewRecord').addEventListener('click',toggleReviewRecord);
+    $('vcReviewNextPassed').addEventListener('click',advancePassedReview);
     $('vcSound').addEventListener('click',()=>{
       soundEnabled=!soundEnabled;
       try{localStorage.setItem(SOUND_KEY,soundEnabled?'on':'off')}catch(_){}
