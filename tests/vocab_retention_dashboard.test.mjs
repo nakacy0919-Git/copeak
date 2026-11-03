@@ -7,7 +7,7 @@ new vm.Script(js);new vm.Script(read('vocabulary-review.js'));new vm.Script(read
 const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
 assert.equal(new Set(ids).size,ids.length);
 for(const id of ['vcLearningInsights','vcInsightDue','vcInsightScheduled','vcInsightPracticed',
-'vcInsightConfirmed','vcWeaknessBars','vcInsightNextDue','vcInsightStartReview','vcBackupExport',
+'vcInsightConfirmed','vcWeaknessBars','vcInsightNextDue','vcGatePractice','vcBackupExport',
 'vcBackupImport','vcBackupFile','vcEvidenceSummary','vcEvidenceRange','vcEvidenceWarning','vcAuditSummary']){
  assert(ids.includes(id),id);
 }
@@ -19,4 +19,5 @@ assert(js.includes('function renderLearningInsights()'));
 assert(css.includes('.vc-learning-insights')&&css.includes('@media(max-width:700px)'));
 assert(html.includes('details class="vc-diagnosis-evidence"'),'reliability detail is collapsed');
 assert(html.includes('診断の根拠を見る'));
+assert(!html.includes('id="vcInsightStartReview"'),'duplicate review button should stay removed');
 console.log('PASS insights: visual metrics, offline backup, interim evidence and viewport-safe details.');
