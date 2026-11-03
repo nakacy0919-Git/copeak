@@ -10,7 +10,8 @@ function cloneReadable(source){
  holder.querySelectorAll('*').forEach(n=>{
   n.removeAttribute('id');n.removeAttribute('tabindex');
   Array.from(n.attributes).forEach(a=>{if(a.name.slice(0,2).toLowerCase()==='on')n.removeAttribute(a.name)});
-  if(n.matches('a[href],button,input,select,textarea')){n.removeAttribute('href');n.setAttribute('aria-hidden','true')}
+  if(n.matches('script,iframe,form,object,embed')){n.remove();return}
+  if(n.matches('a[href],button,input,select,textarea')){n.removeAttribute('href');n.setAttribute('aria-hidden','true');if('disabled' in n)n.disabled=true}
  });
  return holder;
 }
