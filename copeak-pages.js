@@ -129,7 +129,52 @@ function initCopeakDedicatedPages() {
   }
   const boxes=hub.querySelectorAll('.cp-home-extras .cp-extra');
   if(boxes[0])boxes[0].innerHTML='<h3>◷ 最近の課題</h3><p>この端末の教材・音読履歴</p><div id="cpRecentList" class="cp-recent-list">教材を確認しています…</div>';
-  if(boxes[1])boxes[1].innerHTML='<h3>▥ 学習の記録</h3><div class="cp-record-content"><div id="cpProgressRing" class="cp-progress-ring"><div class="cp-progress-core" id="cpProgressNum">0/7日</div></div><div class="cp-record-metrics"><div class="cp-record-stat"><span class="cp-record-stat-label">連続学習</span><strong id="cpStreakText">0日</strong></div><div class="cp-record-stat"><span class="cp-record-stat-label">平均 Accuracy <small>（直近30回）</small></span><strong id="cpAverageAccuracy">—</strong></div><div class="cp-record-stat cp-record-stat-total"><span class="cp-record-stat-label">累計音読</span><strong id="cpLearningTotal">0回</strong></div></div></div>';
+  if(boxes[1]){
+    boxes[1].classList.add('cp-activity-premium');
+    boxes[1].innerHTML=`
+      <div class="cp-record-header">
+        <h3><span class="cp-record-heading-mark" aria-hidden="true">▥</span> 学習の記録</h3>
+        <span class="cp-record-overline">LEARNING ACTIVITY</span>
+      </div>
+      <div class="cp-record-content">
+        <div class="cp-ring-stack">
+          <div id="cpProgressRing" class="cp-progress-ring" role="img" aria-label="直近7日の学習日数: 0日">
+            <svg class="cp-progress-svg" viewBox="0 0 120 120" focusable="false" aria-hidden="true">
+              <defs>
+                <linearGradient id="cp-activity-ring-gradient" x1="10%" y1="100%" x2="88%" y2="0%">
+                  <stop offset="0%" stop-color="#1677e8"/>
+                  <stop offset="43%" stop-color="#22b6df"/>
+                  <stop offset="76%" stop-color="#36d9c0"/>
+                  <stop offset="100%" stop-color="#92f0d0"/>
+                </linearGradient>
+              </defs>
+              <circle class="cp-ring-track" cx="60" cy="60" r="47" pathLength="100"/>
+              <circle class="cp-ring-halo" cx="60" cy="60" r="47" pathLength="100" stroke="url(#cp-activity-ring-gradient)" stroke-dasharray="0 100"/>
+              <circle class="cp-ring-progress" cx="60" cy="60" r="47" pathLength="100" stroke="url(#cp-activity-ring-gradient)" stroke-dasharray="0 100"/>
+            </svg>
+            <div class="cp-progress-core">
+              <strong id="cpProgressNum">0/7日</strong>
+              <small>直近7日</small>
+            </div>
+          </div>
+        </div>
+        <div class="cp-record-metrics">
+          <div class="cp-record-stat cp-record-streak">
+            <span class="cp-record-stat-label">連続学習</span>
+            <strong id="cpStreakText">0日</strong>
+          </div>
+          <div class="cp-record-stat cp-record-average">
+            <span class="cp-record-stat-label">平均 Accuracy <small>（直近30回）</small></span>
+            <strong id="cpAverageAccuracy">—</strong>
+            <div class="cp-average-meter" role="img" aria-label="平均Accuracy: データなし"><span id="cpAverageAccuracyFill" class="cp-average-meter-fill"></span></div>
+          </div>
+          <div class="cp-record-stat cp-record-stat-total">
+            <span class="cp-record-stat-label">累計音読</span>
+            <strong id="cpLearningTotal">0回</strong>
+          </div>
+        </div>
+      </div>`;
+  }
   const dateKey=value=>{
     const d=new Date(value);if(!Number.isFinite(d.getTime()))return null;
     return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');
@@ -176,7 +221,15 @@ function initCopeakDedicatedPages() {
     let week=0;for(let i=0;i<7;i++)if(days.has(dayAt(i)))week++;
     let streak=0;for(let i=days.has(dayAt(0))?0:1;i<3700;i++){if(!days.has(dayAt(i)))break;streak++;}
     const count=document.getElementById('cpProgressNum');if(count)count.textContent=`${week}/7日`;
-    const circle=document.getElementById('cpProgressRing');if(circle)circle.style.setProperty('--cp-progress',Math.round(week/7*100)+'%');
+    const circle=document.getElementById('cpProgressRing');
+    if(circle){
+      const progress=Math.round(week/7*100);
+      circle.style.setProperty('--cp-progress',progress+'%');
+      circle.setAttribute('aria-label','直近7日の学習日数: '+week+'日');
+      circle.querySelectorAll('.cp-ring-progress,.cp-ring-halo').forEach(arc=>{
+        arc.style.strokeDasharray=progress+' 100';
+      });
+    }
     const streakText=document.getElementById('cpStreakText');if(streakText)streakText.textContent=streak+'日';
     const total=document.getElementById('cpLearningTotal');if(total)total.textContent=times.length+'回';
     // A local, read-only calculation. Copeak stores Accuracy as history[].score (0-100).
@@ -187,7 +240,13 @@ function initCopeakDedicatedPages() {
     })):[]).filter(x=>Number.isFinite(x.score)&&x.score>=0&&x.score<=100)
       .sort((a,b)=>(b.time??0)-(a.time??0)).slice(0,30);
     const average=document.getElementById('cpAverageAccuracy');
-    if(average)average.textContent=scored.length?(scored.reduce((sum,x)=>sum+x.score,0)/scored.length).toFixed(1)+'%':'—';
+    const averageValue=scored.length?scored.reduce((sum,x)=>sum+x.score,0)/scored.length:null;
+    if(average)average.textContent=averageValue===null?'—':averageValue.toFixed(1)+'%';
+    const averageFill=document.getElementById('cpAverageAccuracyFill');
+    if(averageFill)averageFill.style.width=averageValue===null?'0%':Math.max(0,Math.min(100,averageValue))+'%';
+    const averageMeter=averageFill?.parentElement;
+    if(averageMeter)averageMeter.setAttribute('aria-label',
+      averageValue===null?'平均Accuracy: データなし':'直近30回の平均Accuracy: '+averageValue.toFixed(1)+'%');
   }
   window.CopeakHomePages={open:go,refresh:refreshActivity};
   window.addEventListener('copeak-storage-ready',refreshActivity);
