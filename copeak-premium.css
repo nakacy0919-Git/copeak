@@ -570,3 +570,55 @@ body.sq-premium #sqAppContainer :is(.bg-white,.bg-stone-50){
   body.vc-is-result #vcResult{height:auto;min-height:580px;overflow:visible}
   body.vc-is-result .vc-result-panels{min-height:400px}
 }
+
+
+/* ───── Copeak live reader: transcription, original text and lesson list ───── */
+#yourVoiceWrapper,
+#targetTextWrapper > div:first-child,
+#jpnWrapper,
+#playlistSidebar{
+  border:1px solid rgba(174,203,225,.68)!important;
+  border-radius:clamp(14px,1.45vw,20px)!important;
+  background:
+    radial-gradient(ellipse 65% 50% at 90% 0%,rgba(174,217,243,.12),transparent 79%),
+    linear-gradient(140deg,#fff,#f9fcff)!important;
+  box-shadow:0 8px 25px rgba(29,79,139,.075),inset 0 1px 0 rgba(255,255,255,.96)!important;
+}
+#yourVoiceWrapper{border-left:3px solid #4689c2!important}
+#targetTextWrapper > div:first-child{border-left:3px solid #19a89b!important}
+#jpnWrapper{
+  border-left:3px solid #9aa7b6!important;
+  background:linear-gradient(129deg,#f8fcff,#f1f7fc)!important;
+}
+#playlistSidebar{
+  background:linear-gradient(142deg,#fafdff,#f2f8fc)!important;
+  border-color:#cbddea!important;
+}
+#yourVoiceWrapper > div:first-child,
+#targetTextWrapper > div:first-child > div:first-child{
+  border-bottom-color:#e1eaf1!important;
+}
+#targetTextWrapper > div:first-child button:not(:disabled),
+#playlistSidebar button:not(:disabled){
+  transition:background .15s ease,border-color .15s ease,filter .15s ease;
+}
+#targetTextWrapper > div:first-child button:focus-visible,
+#playlistSidebar button:focus-visible{outline:2px solid #38a6cf;outline-offset:2px}
+#engContainer,#recognizedTextDisplay{scrollbar-width:thin;scrollbar-color:#b4d4e4 transparent}
+#mobileMicBar{
+  border-top:1px solid #d3e6ef!important;
+  background:linear-gradient(140deg,rgba(255,255,255,.98),rgba(239,247,251,.97))!important;
+  box-shadow:0 -6px 19px rgba(34,88,138,.04);
+}
+@media(min-width:768px) and (max-width:1023px){
+ #learningContentArea{gap:clamp(10px,1.4vh,18px)!important}
+ #yourVoiceWrapper,#targetTextWrapper{min-height:0}
+ #playlistSidebar{border-radius:16px!important}
+}
+@media(max-width:767px){
+ #learningContentArea{gap:9px!important}
+ #yourVoiceWrapper,#targetTextWrapper > div:first-child{border-radius:14px!important}
+ #yourVoiceWrapper,#targetTextWrapper > div:first-child{padding:clamp(11px,3vw,17px)!important}
+ #jpnWrapper{padding:10px 13px!important}
+ #playlistSidebar{border-radius:14px!important}
+}
