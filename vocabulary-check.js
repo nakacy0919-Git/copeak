@@ -330,63 +330,66 @@
   let reviewConfettiTimer=null;
   // Short feedback is intentional: choice -> clear visual/audio response -> next item.
   const AUTO_DELAY = Object.freeze({correct:680,wrong:2200,unknown:2000});
-  // The diagnosis/review ledger never leaves the learner's browser.
-  const REVIEW_KEY = 'copeak_vocab_review_progress_v1';
-  const REVIEW_PASS = 80;
-  let pendingOnlyReview = false;
-  let reviewProgressMemory = {completed:[], skippedAt:''};
+  // Device-only retention schedule; no submissions or analytics endpoints.
+  const REVIEW_KEY='copeak_vocab_review_progress_v2';
+  const LEGACY_REVIEW_KEY='copeak_vocab_review_progress_v1';
+  const REVIEW_PASS=80,REVIEW_INTERVALS=[1,3,7,14,30];
+  let pendingOnlyReview=false;
+  let reviewProgressMemory=null;
   function loadReviewLedger(){
-    try {
-      const value=JSON.parse(localStorage.getItem(REVIEW_KEY)||'null');
-      if(value&&value.version===1&&Array.isArray(value.completed)){
-        return {completed:value.completed.filter(x=>typeof x==='string').slice(-600),skippedAt:String(value.skippedAt||'')};
-      }
-    } catch(_){}
-    return reviewProgressMemory;
+    const scheduling=root.CopeakVocabularyReview;
+    if(!scheduling)return {version:2,items:{},skipFor:''};
+    let stored=null,legacy=null;
+    try{
+      stored=JSON.parse(localStorage.getItem(REVIEW_KEY)||'null');
+      if(!stored)legacy=JSON.parse(localStorage.getItem(LEGACY_REVIEW_KEY)||'null');
+    }catch(_){}
+    const previous=stored||legacy||reviewProgressMemory;
+    const current=scheduling.reconcile(scheduling.normalize(previous,loadHistory()),loadHistory());
+    reviewProgressMemory=current;
+    try{
+      const encoded=JSON.stringify(current);
+      if(localStorage.getItem(REVIEW_KEY)!==encoded)localStorage.setItem(REVIEW_KEY,encoded);
+    }catch(_){}
+    return current;
   }
   function saveReviewLedger(value){
     reviewProgressMemory=value;
-    try {localStorage.setItem(REVIEW_KEY,JSON.stringify({version:1,...value}));}catch(_){}
+    try{localStorage.setItem(REVIEW_KEY,JSON.stringify(value))}catch(_){}
+    root.dispatchEvent?.(new Event('copeak:vocabulary-updated'));
   }
   function remainingReview(){
+    const scheduling=root.CopeakVocabularyReview;
     const history=loadHistory();
-    const ledger=loadReviewLedger();
-    const complete=new Set(ledger.completed);
-    const seen=new Set();
-    const pending=[];
-    // Prioritize recent incorrect items while keeping the workload manageable.
-    for(const result of history.slice(0,3)){
-      for(const answer of result.answers||[]){
-        if(answer.correct||!answer.id||seen.has(answer.id))continue;
-        seen.add(answer.id);
-        if(!complete.has(answer.id)&&pending.length<20)pending.push(answer.id);
-      }
-    }
-    return {pending,skipped:history[0]&&ledger.skippedAt===history[0].at,history};
+    if(!scheduling)return {pending:[],skipped:false,history,total:0};
+    const schedule=loadReviewLedger(),due=scheduling.dueItems(schedule,Date.now(),20);
+    const count=scheduling.metrics(schedule).due;
+    return {pending:due.map(x=>x.id),total:count,
+      skipped:Boolean(history[0]&&schedule.skipFor===history[0].at),history};
   }
   function renderReviewGate(){
     const gate=$('vcReviewGate');if(!gate)return;
     const state=remainingReview();
-    const locked=state.pending.length>0&&!state.skipped;
+    const locked=state.total>0&&!state.skipped;
     gate.hidden=!locked;
     $('vcQuick').disabled=!bank.length||locked;
     $('vcDeep').disabled=!bank.length||locked;
-    const amount=state.pending.length;
-    setText($('vcGateCount'),lang==='ja'?'復習が必要な例文：'+amount+'文':'Sentences to review: '+amount);
+    setText($('vcGateCount'),lang==='ja'?'今日の復習：'+state.total+'文':'Due for review: '+state.total+' sentences');
     setText($('vcGateIntro'),lang==='ja'?
-      '前回までの診断で間違えた例文を、まず全文音読しましょう。Accuracy 80%以上で完了します。音声認識が使えない場合はスキップできます。':
-      'Read the full sentences missed in your recent checks. Reach 80% Accuracy to complete each, or use Skip if needed.');
-    setText($('vcGatePractice'),lang==='ja'?'復習音読を始める':'Review before next check');
-    setText($('vcGateSkip'),lang==='ja'?'今回はスキップして診断':'Skip this time');
+      '前回の誤答と復習予定の英文を、正しいフルセンテンスで音読しましょう。80%以上で次の復習日を予約します。必要ならスキップできます。':
+      'Read the complete sentences that you missed or are due again. Reach 80% to schedule the next review, or choose Skip.');
+    setText($('vcGatePractice'),lang==='ja'?'今日の復習音読を始める':'Review due sentences');
+    setText($('vcGateSkip'),lang==='ja'?'今回はスキップして診断':'Skip and take a check');
     if(locked){
-      setText($('vcLoadState'),lang==='ja'?'先に復習音読を行うか、スキップを選択してください。':'Review or skip to take another check.');
-    } else if(bank.length){
+      setText($('vcLoadState'),lang==='ja'?'復習音読を行うか、スキップを選択してください。':'Review or skip to take another check.');
+    }else if(bank.length){
       setText($('vcLoadState'),text('readyFriendly'));
     }
   }
   function startPendingReview(){
     const history=loadHistory(),last=history[0];
     if(!last||!bank.length)return;
+    const review=remainingReview();if(!review.pending.length)return;
     pendingOnlyReview=true;
     reviewSummary=null;reviewIndex=0;
     lastResult=last;currentSession=null;
@@ -396,16 +399,17 @@
   function skipPendingReview(){
     const latest=loadHistory()[0];if(!latest)return;
     const ledger=loadReviewLedger();
-    saveReviewLedger({...ledger,skippedAt:latest.at});
+    ledger.skipFor=latest.at;
+    saveReviewLedger(ledger);
     renderReviewGate();
   }
   function recordReviewCompletion(item,percent){
-    if(!item||percent<REVIEW_PASS)return false;
+    if(!item||!Number.isFinite(percent)||!root.CopeakVocabularyReview)return false;
     const ledger=loadReviewLedger();
-    if(ledger.completed.includes(item.id))return false;
-    saveReviewLedger({...ledger,completed:[...ledger.completed,item.id].slice(-600)});
-    // Keep the current item's success feedback visible; recalculate on return.
-    return true;
+    const before=root.CopeakVocabularyReview.dueItems(ledger,Date.now(),1200).some(x=>x.id===item.id);
+    const updated=root.CopeakVocabularyReview.applyReading(ledger,item.id,percent);
+    saveReviewLedger(updated);
+    return percent>=REVIEW_PASS&&before;
   }
   const SOUND_KEY = 'copeak_vocab_sound_v1';
   let soundEnabled=true, advanceTimer=null, audioContext=null;
