@@ -328,6 +328,83 @@
   let reviewRequested=false,reviewStopRequested=false,reviewRestartTimer=null,reviewSegmentFinal='',reviewFatalError='';
   // Short feedback is intentional: choice -> clear visual/audio response -> next item.
   const AUTO_DELAY = Object.freeze({correct:680,wrong:2200,unknown:2000});
+  // The diagnosis/review ledger never leaves the learner's browser.
+  const REVIEW_KEY = 'copeak_vocab_review_progress_v1';
+  const REVIEW_PASS = 80;
+  let pendingOnlyReview = false;
+  let reviewProgressMemory = {completed:[], skippedAt:''};
+  function loadReviewLedger(){
+    try {
+      const value=JSON.parse(localStorage.getItem(REVIEW_KEY)||'null');
+      if(value&&value.version===1&&Array.isArray(value.completed)){
+        return {completed:value.completed.filter(x=>typeof x==='string').slice(-600),skippedAt:String(value.skippedAt||'')};
+      }
+    } catch(_){}
+    return reviewProgressMemory;
+  }
+  function saveReviewLedger(value){
+    reviewProgressMemory=value;
+    try {localStorage.setItem(REVIEW_KEY,JSON.stringify({version:1,...value}));}catch(_){}
+  }
+  function remainingReview(){
+    const history=loadHistory();
+    const ledger=loadReviewLedger();
+    const complete=new Set(ledger.completed);
+    const seen=new Set();
+    const pending=[];
+    // Prioritize recent incorrect items while keeping the workload manageable.
+    for(const result of history.slice(0,3)){
+      for(const answer of result.answers||[]){
+        if(answer.correct||!answer.id||seen.has(answer.id))continue;
+        seen.add(answer.id);
+        if(!complete.has(answer.id)&&pending.length<20)pending.push(answer.id);
+      }
+    }
+    return {pending,skipped:history[0]&&ledger.skippedAt===history[0].at,history};
+  }
+  function renderReviewGate(){
+    const gate=$('vcReviewGate');if(!gate)return;
+    const state=remainingReview();
+    const locked=state.pending.length>0&&!state.skipped;
+    gate.hidden=!locked;
+    $('vcQuick').disabled=!bank.length||locked;
+    $('vcDeep').disabled=!bank.length||locked;
+    const amount=state.pending.length;
+    setText($('vcGateCount'),lang==='ja'?'復習が必要な例文：'+amount+'文':'Sentences to review: '+amount);
+    setText($('vcGateIntro'),lang==='ja'?
+      '前回までの診断で間違えた例文を、まず全文音読しましょう。Accuracy 80%以上で完了します。音声認識が使えない場合はスキップできます。':
+      'Read the full sentences missed in your recent checks. Reach 80% Accuracy to complete each, or use Skip if needed.');
+    setText($('vcGatePractice'),lang==='ja'?'復習音読を始める':'Review before next check');
+    setText($('vcGateSkip'),lang==='ja'?'今回はスキップして診断':'Skip this time');
+    if(locked){
+      setText($('vcLoadState'),lang==='ja'?'先に復習音読を行うか、スキップを選択してください。':'Review or skip to take another check.');
+    } else if(bank.length){
+      setText($('vcLoadState'),text('readyFriendly'));
+    }
+  }
+  function startPendingReview(){
+    const history=loadHistory(),last=history[0];
+    if(!last||!bank.length)return;
+    pendingOnlyReview=true;
+    reviewSummary=null;reviewIndex=0;
+    lastResult=last;currentSession=null;
+    show('vcResult');renderResult(last);setResultTab('review');
+    window.scrollTo({top:0,behavior:'instant'});
+  }
+  function skipPendingReview(){
+    const latest=loadHistory()[0];if(!latest)return;
+    const ledger=loadReviewLedger();
+    saveReviewLedger({...ledger,skippedAt:latest.at});
+    renderReviewGate();
+  }
+  function recordReviewCompletion(item,percent){
+    if(!item||percent<REVIEW_PASS)return false;
+    const ledger=loadReviewLedger();
+    if(ledger.completed.includes(item.id))return false;
+    saveReviewLedger({...ledger,completed:[...ledger.completed,item.id].slice(-600)});
+    // Keep the current item's success feedback visible; recalculate on return.
+    return true;
+  }
   const SOUND_KEY = 'copeak_vocab_sound_v1';
   let soundEnabled=true, advanceTimer=null, audioContext=null;
   try { soundEnabled=localStorage.getItem(SOUND_KEY)!=='off'; } catch (_) { /* storage may be blocked */ }
@@ -450,6 +527,7 @@
     setText($('vcTrendNote'),history.length>1?(lang==='ja'?'直近'+Math.min(8,history.length)+'回':'Last '+Math.min(8,history.length)):'');
     drawTrend($('vcTrendGraph'),history);
     const old=$('vcLast');if(old)old.hidden=true;
+    renderReviewGate();
   }
   function renderQuestion(){
     const session=currentSession;if(!session)return;
@@ -494,6 +572,8 @@
   function begin(nextMode){
     cancelAdvance();clearFlash();
     mode=nextMode;
+    if(remainingReview().pending.length&&!remainingReview().skipped){renderReviewGate();$('vcReviewGate')?.scrollIntoView({behavior:'smooth',block:'center'});return;}
+    pendingOnlyReview=false;
     const total=COUNTS[mode];if(!bank.length){showError(text('networkError'));return;}
     // Preserve history for progress, but do not let a previous high/low score
     // predetermine the next check. A fresh run begins at the same prior.
@@ -527,6 +607,7 @@
       level:est.level,estimate:Number(est.theta.toFixed(2)),range:est.range,answers:s.answers.map(a=>({id:a.id,level:a.level,correct:a.correct,unknown:a.unknown,ms:a.ms})),
       itemIds:s.answers.map(a=>a.id),diagnosticVersion:'v8.1',selectionPolicy:'v8.1-focused-conditional-adaptive',provisional:true};
     const saved=saveSummary(summary);
+    pendingOnlyReview=false;
     lastResult=summary;currentSession=null;show('vcResult');renderResult(summary);setResultTab('summary');
     if(!saved){const p=document.createElement('p');p.className='vc-note';p.textContent=text('saveError');$('vcResult').appendChild(p);}
     window.dispatchEvent(new Event('copeak:vocabulary-updated'));window.scrollTo({top:0,behavior:'instant'});
@@ -586,6 +667,8 @@
   function resetReadingFeedback(){
     $('vcReadingFeedback').hidden=false;
     $('vcGaugeProgress').style.strokeDasharray='0 100';
+    const glow=$('vcGaugeGlow');if(glow)glow.style.strokeDasharray='0 100';
+    $('vcReadingGauge')?.classList.remove('vc-achieved');
     setText($('vcReadPercent'),'—');
     const box=$('vcReadTranscript');box.replaceChildren();
     const placeholder=document.createElement('span');
@@ -638,6 +721,7 @@
     }
     setText($('vcReviewChunk'),item.highlight_en||item.chunk);
     highlightReview($('vcReviewSentence'),item);
+    const hint=$('vcFullSentenceHint');if(hint)hint.textContent=lang==='ja'?'青い下線の表現だけでなく、英文を最後まで音読してください。':'Read the entire sentence, not only the underlined phrase.';
     setText($('vcReviewMeaning'),lang==='ja'?item.meaning_ja:item.meaning_en);
     renderReviewJapanese(item);
   }
@@ -646,7 +730,10 @@
     const used=new Set();
     // Put missed chunks first, then allow practice of every sentence from the check.
     const answers=summary.answers||[];
-    reviewItems=[...answers.filter(a=>!a.correct),...answers.filter(a=>a.correct)].map(a=>{
+    const ordered=pendingOnlyReview?
+      remainingReview().pending.map(id=>({id})):
+      [...answers.filter(a=>!a.correct),...answers.filter(a=>a.correct)];
+    reviewItems=ordered.map(a=>{
       if(used.has(a.id))return null;used.add(a.id);
       return bank.find(q=>q.id===a.id)||null;
     }).filter(Boolean);
@@ -705,7 +792,17 @@
     // Never move the gauge while the pupil is still speaking.
     if(finalScore){
       $('vcGaugeProgress').style.strokeDasharray=String(report.percent)+' 100';
+      const glow=$('vcGaugeGlow');if(glow)glow.style.strokeDasharray=String(report.percent)+' 100';
+      const gauge=$('vcReadingGauge');
+      if(gauge)gauge.classList.toggle('vc-achieved',report.percent>=80);
       setText($('vcReadPercent'),String(report.percent));
+      const item=reviewItems[reviewIndex];
+      if(item&&recordReviewCompletion(item,report.percent)){
+        const rest=remainingReview().pending.length;
+        setText($('vcReviewStatus'),lang==='ja'?
+          '復習達成！'+(rest?'残り'+rest+'文です。':'すべての復習が完了しました。次の診断に進めます。'):
+          'Review completed! '+(rest?rest+' sentences remain.':'Ready for your next check.'));
+      }
     }
     container.scrollTop=container.scrollHeight;
   }
@@ -721,7 +818,7 @@
     const heard=reviewFinal.trim();
     if(heard){
       displayReadingMatch(item.example_en,heard,true);
-      setText($('vcReviewStatus'),reviewFatalError||'');
+      if(reviewFatalError)setText($('vcReviewStatus'),reviewFatalError);
     }else{
       resetReadingFeedback();
       setText($('vcReviewStatus'),reviewFatalError||text('readNoSpeech'));
@@ -831,6 +928,8 @@
   function showError(message){show('vcError');setText($('vcErrorMessage'),message)}
   function registerEvents(){
     $('vcQuick').addEventListener('click',()=>begin('quick'));$('vcDeep').addEventListener('click',()=>begin('deep'));
+    $('vcGatePractice').addEventListener('click',startPendingReview);
+    $('vcGateSkip').addEventListener('click',skipPendingReview);
     $('vcUnknown').addEventListener('click',()=>submit(null));
     for(const [name,key] of [['Summary','summary'],['Review','review']]){
       const tab=$('vcTab'+name);

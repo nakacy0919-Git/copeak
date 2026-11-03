@@ -638,3 +638,32 @@ body.vc-is-result #vcResult{display:grid;grid-template-rows:auto auto minmax(0,1
 @media(prefers-reduced-motion:reduce){
   #vcPanelReview .vc-gauge-progress{transition:none}
 }
+
+/* Vocabulary Check v8.6 — full sentence first, gradient Accuracy and local review gate */
+.vc-review-gate[hidden]{display:none!important}
+.vc-review-gate{margin-top:15px;padding:clamp(12px,1.4vw,19px);border-radius:18px;border:1px solid #a8dfe0;background:linear-gradient(125deg,#e6fcf7,#eaf4ff 68%,#f8fbff);box-shadow:0 9px 25px #397fa720}
+.vc-gate-banner{display:flex;gap:12px;align-items:flex-start}
+.vc-gate-banner strong{display:block;color:#154974;font-size:clamp(13px,1.3vw,17px)}
+.vc-gate-banner p{margin:5px 0;color:#4b718c;font-size:clamp(11px,.9vw,13px);line-height:1.65}
+.vc-gate-icon{display:grid;place-items:center;flex:none;width:35px;height:35px;border-radius:11px;color:#0d8f90;background:linear-gradient(145deg,#baf9d5,#c6e9ff);font-size:22px}
+.vc-gate-actions{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0 8px}
+.vc-gate-actions button{border-radius:11px;padding:10px 14px;font-size:12px;font-weight:850;cursor:pointer}
+.vc-gate-start{background:linear-gradient(115deg,#167acb,#20b7b2);color:white;border:1px solid #1595b4;box-shadow:0 5px 13px #1b8cb72b}
+.vc-gate-skip{color:#376a91;background:white;border:1px solid #b8d0e4}
+.vc-review-gate>small{font-size:10px;color:#7891a8;line-height:1.4}
+#vcPanelReview .vc-full-sentence-hint{width:min(930px,100%);margin:-5px auto 0;font-size:clamp(11px,.9vw,13px);color:#27749c;text-align:left}
+#vcPanelReview .vc-sentence-speaker{height:auto!important;min-height:72px!important;max-height:none!important;overflow:visible!important;flex-shrink:0;align-self:center;grid-auto-rows:auto}
+#vcPanelReview .vc-sentence-speaker .vc-review-sentence{display:block!important;max-height:none!important;min-height:0!important;line-clamp:unset!important;-webkit-line-clamp:unset!important;white-space:normal!important;overflow:visible!important;text-overflow:clip!important;word-break:normal!important;overflow-wrap:break-word!important}
+#vcPanelReview .vc-review-card{overflow:auto!important;min-height:0;align-items:stretch;justify-content:flex-start;scrollbar-width:thin}
+#vcPanelReview .vc-review-sentence mark{font-weight:800}
+#vcPanelReview .vc-reading-gauge{isolation:isolate;align-self:center}
+#vcPanelReview .vc-gauge-bg{stroke:#dce8f1;stroke-width:13px;stroke-linecap:round}
+#vcPanelReview .vc-gauge-progress{stroke:url(#vcAccuracyAurora)!important;stroke-width:13px;stroke-linecap:round;stroke-dasharray:0 100;transition:stroke-dasharray 1000ms cubic-bezier(.19,.76,.28,1);filter:drop-shadow(0 2px 3px #149fbb40)}
+#vcPanelReview .vc-gauge-glow{stroke-width:18px;stroke-linecap:round;opacity:.24;filter:blur(4px);transition:stroke-dasharray 1000ms cubic-bezier(.19,.76,.28,1)}
+#vcPanelReview .vc-reading-gauge.vc-achieved .vc-gauge-progress{filter:drop-shadow(0 0 6px #31d8c27b)}
+#vcPanelReview .vc-reading-gauge.vc-achieved .vc-gauge-value{animation:vc-accuracy-bloom .95s ease-out}
+#vcPanelReview .vc-gauge-value strong{background:linear-gradient(130deg,#1666b3,#238fee 60%,#14bbaf);background-clip:text;-webkit-background-clip:text;color:transparent}
+#vcPanelReview .vc-gauge-percent{color:#2879ba}
+@keyframes vc-accuracy-bloom{0%{transform:scale(.94);filter:brightness(.8)}45%{transform:scale(1.08);filter:brightness(1.22)}100%{transform:scale(1);filter:brightness(1)}}
+@media(max-width:700px){.vc-review-gate{padding:11px}.vc-gate-actions button{font-size:11px;padding:8px 11px}#vcPanelReview .vc-full-sentence-hint{font-size:11px}#vcPanelReview .vc-sentence-speaker{min-height:56px!important}}
+@media(prefers-reduced-motion:reduce){#vcPanelReview .vc-gauge-progress,#vcPanelReview .vc-gauge-glow{transition:none!important}#vcPanelReview .vc-reading-gauge.vc-achieved .vc-gauge-value{animation:none!important}}

@@ -6,9 +6,9 @@
   <meta name="theme-color" content="#ecf5ff">
   <title>Copeak | 英語の語彙力診断</title>
   <link rel="icon" href="logo.png">
-  <link rel="stylesheet" href="vocabulary-check.css?v=8.5.0">
-  <script defer src="vocabulary-reading.js?v=8.5.0"></script>
-  <script defer src="vocabulary-check.js?v=8.5.0"></script>
+  <link rel="stylesheet" href="vocabulary-check.css?v=8.6.0">
+  <script defer src="vocabulary-reading.js?v=8.6.0"></script>
+  <script defer src="vocabulary-check.js?v=8.6.0"></script>
 </head>
 <body>
   <main class="vc-shell">
@@ -44,6 +44,11 @@
                 <span><strong data-t="ctaDeep">もっと詳しく診断</strong><small data-t="ctaDeepSub">じっくり70問</small></span>
                 <span class="vc-deep-arrow" aria-hidden="true">→</span>
               </button>
+            </div>
+            <div id="vcReviewGate" class="vc-review-gate" hidden>
+              <div class="vc-gate-banner"><span class="vc-gate-icon" aria-hidden="true">✦</span><div><strong id="vcGateCount">復習が必要な例文</strong><p id="vcGateIntro">前回の例文を音読してから診断しましょう。</p></div></div>
+              <div class="vc-gate-actions"><button type="button" id="vcGatePractice" class="vc-gate-start">復習音読を始める</button><button type="button" id="vcGateSkip" class="vc-gate-skip">今回はスキップして診断</button></div>
+              <small>この復習履歴は端末内にのみ保存されます。新たなサーバー保存はありません。</small>
             </div>
             <p id="vcLoadState" class="vc-load-state" role="status" aria-live="polite" data-t="loadingFriendly">問題を準備しています…</p>
           </section>
@@ -137,6 +142,7 @@
                   <span id="vcReviewSentence" class="vc-review-sentence" lang="en"></span>
                   <span class="vc-inline-speaker" aria-hidden="true">🔊</span>
                 </button>
+                <p class="vc-full-sentence-hint" id="vcFullSentenceHint">青い下線の表現だけでなく、英文を最後まで音読してください。</p>
                 <div class="vc-review-translation" id="vcReviewMeaningFallback" hidden><span data-t="reviewMeaning">チャンクの意味</span><strong id="vcReviewMeaning">—</strong></div>
                 <p id="vcReviewSentenceJa" class="vc-review-example-ja" lang="ja" aria-live="polite"></p>
                 <div class="vc-reading-area">
@@ -145,10 +151,16 @@
                   </button>
                   <div class="vc-reading-feedback" id="vcReadingFeedback">
                     <div class="vc-recognized-block"><small data-t="recognizedWords">認識された英語</small><div id="vcReadTranscript" class="vc-transcript-words" lang="en" aria-live="polite"><span class="vc-transcript-placeholder" data-t="transcriptPlaceholder">音読すると認識された英語がここに表示されます</span></div></div>
-                    <div class="vc-reading-gauge" role="img" aria-label="Accuracy">
+                    <div class="vc-reading-gauge" id="vcReadingGauge" role="img" aria-label="Accuracy">
                       <svg viewBox="0 0 220 115" aria-hidden="true">
-                        <path d="M 20 100 A 90 90 0 0 1 200 100" class="vc-gauge-bg" fill="none"/>
-                        <path d="M 20 100 A 90 90 0 0 1 200 100" id="vcGaugeProgress" class="vc-gauge-progress" fill="none" pathLength="100"/>
+                        <defs>
+                          <linearGradient id="vcAccuracyAurora" x1="0%" y1="100%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#1573d7"/><stop offset="48%" stop-color="#14b7bc"/><stop offset="100%" stop-color="#78edbd"/>
+                          </linearGradient>
+                        </defs>
+                        <path d="M 20 100 A 90 90 0 0 1 200 100" class="vc-gauge-bg" fill="none" pathLength="100"/>
+                        <path d="M 20 100 A 90 90 0 0 1 200 100" id="vcGaugeGlow" stroke="url(#vcAccuracyAurora)" class="vc-gauge-glow" fill="none" pathLength="100" stroke-dasharray="0 100"/>
+                        <path d="M 20 100 A 90 90 0 0 1 200 100" id="vcGaugeProgress" stroke="url(#vcAccuracyAurora)" class="vc-gauge-progress" fill="none" pathLength="100"/>
                       </svg>
                       <div class="vc-gauge-text"><div class="vc-gauge-value"><strong id="vcReadPercent">0</strong><span class="vc-gauge-percent" aria-hidden="true">%</span></div><small data-t="readingAccuracy">Accuracy</small></div>
                     </div>
