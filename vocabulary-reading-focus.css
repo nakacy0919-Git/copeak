@@ -1,0 +1,255 @@
+/* Copeak v8.8 — focused reading workspace.
+   Loaded after premium and iPad styles; no changes to diagnostic scoring. */
+body.vc-is-result .vc-result-head-mode{display:none!important}
+body.vc-is-result.vc-review-focus .vc-result-head,
+body.vc-is-result.vc-review-focus .vc-result-tabs,
+body.vc-is-result.vc-review-focus .vc-result-actions,
+body.vc-is-result.vc-review-focus .vc-footer{display:none!important}
+
+body.vc-is-result.vc-review-focus .vc-shell{
+  grid-template-rows:auto minmax(0,1fr);
+  height:100dvh;max-height:100dvh;
+  padding-block:max(6px,env(safe-area-inset-top,0px))
+                max(6px,env(safe-area-inset-bottom,0px));
+}
+body.vc-is-result.vc-review-focus .vc-header{
+  min-height:clamp(44px,6dvh,62px);
+  padding-bottom:6px;
+}
+body.vc-is-result.vc-review-focus .vc-body{
+  width:min(1420px,100%);
+  min-width:0;
+  height:100%;
+}
+body.vc-is-result.vc-review-focus #vcResult{
+  height:100%;min-height:0;
+  padding:clamp(5px,.9dvh,9px) 0 0;
+  display:grid;
+  grid-template-rows:minmax(0,1fr);
+  row-gap:0;
+}
+body.vc-is-result.vc-review-focus .vc-result-panels{
+  min-height:0;height:100%;overflow:hidden;
+}
+body.vc-is-result.vc-review-focus #vcPanelReview{
+  min-width:0;min-height:0;height:100%;overflow:hidden;
+}
+body.vc-is-result.vc-review-focus #vcPanelReview .vc-review-stage{
+  display:grid;
+  grid-template-rows:auto minmax(0,1fr);
+  gap:clamp(6px,1dvh,12px);
+  height:100%;min-height:0;
+}
+body.vc-is-result.vc-review-focus #vcPanelReview .vc-review-top{
+  display:grid;
+  grid-template-columns:minmax(125px,1fr) auto minmax(125px,1fr);
+  align-items:center;
+  gap:clamp(8px,1.4vw,20px);
+  min-height:clamp(42px,6dvh,58px);
+  padding:0 clamp(3px,.8vw,13px);
+}
+#vcPanelReview .vc-review-back{
+  justify-self:start;
+  background:linear-gradient(130deg,#fff,#f1f7ff);
+  border:1px solid #cde2f2;
+  border-radius:12px;
+  color:#336b95;
+  font-weight:850;font-size:clamp(11px,1.1vw,14px);
+  min-height:39px;padding:8px 14px;
+  box-shadow:0 3px 9px rgba(23,86,147,.06);
+}
+#vcPanelReview .vc-review-back:hover{background:#eaf4ff}
+#vcPanelReview .vc-review-back:focus-visible{outline:3px solid #459ee3;outline-offset:2px}
+#vcPanelReview .vc-review-heading{
+  display:flex;align-items:baseline;justify-content:center;gap:12px;
+  min-width:0;white-space:nowrap;color:#1c527c;
+}
+#vcPanelReview .vc-review-heading strong{
+  font-size:clamp(17px,2vw,25px);letter-spacing:-.035em;
+}
+#vcPanelReview .vc-review-heading #vcReviewCount{
+  font-size:clamp(11px,1vw,13px);font-variant-numeric:tabular-nums;color:#7091ad;
+}
+body.vc-review-focus #vcPanelReview .vc-review-switch{justify-self:end}
+body.vc-review-focus #vcPanelReview .vc-review-switch button{
+  min-width:43px;min-height:40px;
+  background:linear-gradient(125deg,#f2faff,#e4f2ff);
+}
+body.vc-review-focus #vcPanelReview .vc-review-card{
+  display:flex;flex-direction:column;
+  justify-content:space-between;align-items:stretch;
+  min-width:0;min-height:0;height:100%;
+  gap:clamp(9px,1.5dvh,18px);
+  padding:clamp(12px,1.6vw,23px);
+  overflow-x:hidden!important;overflow-y:auto!important;
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+  border-radius:clamp(18px,2vw,27px);
+  background:linear-gradient(137deg,#ffffff,#f5faff 58%,#f1fcfa);
+  scrollbar-width:thin;
+}
+body.vc-review-focus #vcPanelReview .vc-reading-sentence-card{
+  width:100%;min-width:0;
+  flex:1 0 auto;
+  min-height:clamp(170px,27dvh,310px);
+  padding:clamp(19px,3.3dvh,43px) clamp(18px,4vw,65px);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:clamp(15px,2.1dvh,26px);
+  border:1px solid rgba(182,216,240,.9);
+  border-radius:clamp(16px,1.8vw,25px);
+  background:
+    radial-gradient(ellipse 70% 60% at 98% 0%,rgba(187,232,248,.18),transparent 72%),
+    linear-gradient(140deg,#fff,#f6fbff);
+  box-shadow:inset 0 1px 0 #fff,0 9px 22px rgba(35,107,174,.07);
+}
+body.vc-review-focus #vcPanelReview .vc-sentence-speaker{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;text-align:left;
+  width:min(1160px,100%);max-width:none;
+  min-height:0!important;height:auto!important;
+  flex:0 0 auto;gap:clamp(14px,2.1vw,30px);
+  padding:0;
+  border:0;background:transparent;box-shadow:none;
+  overflow:visible!important;
+}
+body.vc-review-focus #vcPanelReview .vc-sentence-speaker:hover:not(:disabled){
+  background:transparent;
+}
+body.vc-review-focus #vcPanelReview .vc-sentence-speaker .vc-review-sentence{
+  display:block;width:100%;max-width:none;
+  white-space:normal!important;
+  overflow-wrap:break-word;word-break:normal;
+  font-size:clamp(23px,2.75vw,39px)!important;
+  line-height:1.5;
+  text-align:left;
+  color:#1e456f;
+}
+body.vc-review-focus #vcPanelReview .vc-inline-speaker{
+  font-size:clamp(22px,2.6vw,32px);
+  align-self:start;
+  margin-top:3px;
+}
+body.vc-review-focus #vcPanelReview .vc-review-example-ja{
+  width:min(1160px,100%);max-width:none;
+  font-size:clamp(15px,1.55vw,20px)!important;
+  line-height:1.75;
+  padding-top:clamp(11px,1.7dvh,21px);
+  border-top:1px solid #dce9f4;
+  margin:0;color:#476782;text-align:left;
+}
+body.vc-review-focus #vcPanelReview .vc-full-sentence-hint{display:none!important}
+body.vc-review-focus #vcPanelReview .vc-reading-area{
+  width:100%;max-width:none;min-width:0;
+  flex:0 0 auto;align-self:stretch;gap:clamp(8px,1.1dvh,12px);
+}
+body.vc-review-focus #vcPanelReview .vc-review-transport{
+  display:flex;gap:12px;justify-content:center;
+  min-height:48px;
+}
+body.vc-review-focus #vcPanelReview .vc-read-start{
+  min-height:clamp(47px,5.4dvh,58px);
+  min-width:clamp(200px,23vw,290px);
+  border-radius:999px;
+  font-size:clamp(15px,1.5vw,18px);
+  padding:10px 24px;
+}
+body.vc-review-focus #vcPanelReview .vc-reading-feedback{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) clamp(132px,15vw,175px);
+  align-items:center;
+  width:100%;max-width:none;
+  min-height:clamp(110px,17dvh,158px);
+  gap:clamp(12px,2.3vw,26px);
+  padding:clamp(10px,1.3vw,17px) clamp(13px,2vw,24px);
+  background:linear-gradient(140deg,#fff,#f8fcff);
+  border-radius:18px;
+}
+body.vc-review-focus #vcPanelReview .vc-recognized-block{
+  align-self:stretch;justify-content:flex-start;gap:10px;
+}
+body.vc-review-focus #vcPanelReview .vc-recognized-block>small{
+  font-size:clamp(12px,1.15vw,15px);
+  color:#466d8e;
+}
+body.vc-review-focus #vcPanelReview .vc-transcript-words{
+  max-height:clamp(60px,10dvh,125px);
+  overflow-y:auto;align-content:flex-start;
+}
+body.vc-review-focus #vcPanelReview .vc-transcript-words span{
+  font-size:clamp(15px,1.4vw,20px);
+}
+body.vc-review-focus #vcPanelReview .vc-reading-gauge{
+  width:clamp(132px,15vw,175px);min-height:105px;
+  justify-self:center;align-self:center;
+}
+body.vc-review-focus #vcPanelReview .vc-reading-gauge svg{
+  width:100%;height:102px;
+}
+body.vc-review-focus #vcPanelReview .vc-gauge-value strong{font-size:clamp(29px,3vw,42px)}
+body.vc-review-focus #vcPanelReview .vc-review-status{
+  min-height:0;margin:0;
+  font-size:clamp(11px,1vw,13px);
+}
+@media(max-height:720px) and (min-width:701px){
+  body.vc-review-focus #vcPanelReview .vc-review-stage{gap:5px}
+  body.vc-review-focus #vcPanelReview .vc-review-top{min-height:38px}
+  body.vc-review-focus #vcPanelReview .vc-review-card{
+    padding:10px 14px;gap:8px;
+  }
+  body.vc-review-focus #vcPanelReview .vc-reading-sentence-card{
+    min-height:140px;padding:12px clamp(18px,3vw,40px);gap:9px;
+  }
+  body.vc-review-focus #vcPanelReview .vc-sentence-speaker .vc-review-sentence{
+    font-size:clamp(21px,2.4vw,32px)!important;
+    line-height:1.37;
+  }
+  body.vc-review-focus #vcPanelReview .vc-review-example-ja{padding-top:8px;font-size:clamp(14px,1.5vw,18px)!important}
+  body.vc-review-focus #vcPanelReview .vc-read-start{min-height:41px;padding:7px 15px}
+  body.vc-review-focus #vcPanelReview .vc-reading-feedback{min-height:99px;padding:8px 12px}
+  body.vc-review-focus #vcPanelReview .vc-reading-gauge{min-height:87px}
+  body.vc-review-focus #vcPanelReview .vc-reading-gauge svg{height:85px}
+}
+@media(max-width:700px){
+  body.vc-review-focus #vcPanelReview .vc-review-top{
+    grid-template-columns:auto 1fr auto;
+    min-height:40px;gap:6px;padding:0 2px;
+  }
+  #vcPanelReview .vc-review-back{font-size:10px;padding:6px 8px;min-height:36px}
+  #vcPanelReview .vc-review-heading{gap:5px}
+  #vcPanelReview .vc-review-heading strong{font-size:15px}
+  #vcPanelReview .vc-review-heading #vcReviewCount{font-size:10px}
+  body.vc-review-focus #vcPanelReview .vc-review-switch{gap:4px}
+  body.vc-review-focus #vcPanelReview .vc-review-switch button{width:32px;min-width:32px;min-height:35px;height:35px}
+  body.vc-review-focus #vcPanelReview .vc-review-card{padding:9px;gap:8px}
+  body.vc-review-focus #vcPanelReview .vc-reading-sentence-card{
+    min-height:170px;padding:16px 13px;gap:13px;
+  }
+  body.vc-review-focus #vcPanelReview .vc-sentence-speaker .vc-review-sentence{
+    font-size:clamp(19px,4.5vw,28px)!important;line-height:1.45;
+  }
+  body.vc-review-focus #vcPanelReview .vc-review-example-ja{
+    font-size:clamp(13px,3.3vw,16px)!important;line-height:1.6;
+  }
+  body.vc-review-focus #vcPanelReview .vc-read-start{min-width:165px;min-height:43px}
+  body.vc-review-focus #vcPanelReview .vc-reading-feedback{
+    grid-template-columns:minmax(0,1fr) 100px;
+    min-height:96px;gap:6px;padding:8px;
+  }
+  body.vc-review-focus #vcPanelReview .vc-reading-gauge{width:100px;min-height:77px}
+  body.vc-review-focus #vcPanelReview .vc-reading-gauge svg{height:73px}
+  body.vc-review-focus #vcPanelReview .vc-gauge-value strong{font-size:28px}
+  body.vc-review-focus #vcPanelReview .vc-transcript-words{max-height:95px}
+}
+@media(max-width:420px){
+  body.vc-review-focus #vcPanelReview .vc-review-top{
+    grid-template-columns:auto auto;
+    grid-template-areas:"title nav" "back back";row-gap:4px;
+  }
+  body.vc-review-focus #vcPanelReview .vc-review-back{grid-area:back}
+  body.vc-review-focus #vcPanelReview .vc-review-heading{grid-area:title;justify-content:flex-start}
+  body.vc-review-focus #vcPanelReview .vc-review-switch{grid-area:nav}
+}
+@media(prefers-reduced-motion:reduce){
+  body.vc-review-focus #vcPanelReview .vc-reading-sentence-card{scroll-behavior:auto}
+}

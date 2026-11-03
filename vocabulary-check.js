@@ -461,7 +461,7 @@
   const $=id=>document.getElementById(id);
   const text=(key)=>LANGUAGES[lang][key]||key;
   function setText(el,str){if(el)el.textContent=str;}
-  const show=(id)=>{if(id!=='vcResult')stopReviewMedia();for(const k of ['vcIntro','vcQuiz','vcResult','vcError'])$(k).hidden=k!==id;document.body.classList.toggle('vc-is-quiz',id==='vcQuiz');document.body.classList.toggle('vc-is-result',id==='vcResult');};
+  const show=(id)=>{if(id!=='vcResult'){stopReviewMedia();document.body.classList.remove('vc-review-focus')}for(const k of ['vcIntro','vcQuiz','vcResult','vcError'])$(k).hidden=k!==id;document.body.classList.toggle('vc-is-quiz',id==='vcQuiz');document.body.classList.toggle('vc-is-result',id==='vcResult');};
   function readLanguage(){
     const query=new URLSearchParams(location.search).get('ui');
     let saved=null;try{saved=localStorage.getItem('copeak_lang')}catch(_){/* no storage */}
@@ -748,7 +748,7 @@
       (lang==='ja'?'復習したい表現が'+incorrect+'件あります。「復習・音読」で例文を声に出して練習しましょう。':
        'You have '+incorrect+' expressions to review. Practice the sentences on the Review & read tab.'));
     setText($('vcScoreLevel'),`Lv.${s.level}`);setText($('vcRange'),`Lv.${s.range[0]}–${s.range[1]}`);
-    setText($('vcRight'),`${s.correct} / ${s.total}`);setText($('vcSkip'),String(s.unknown));setText($('vcResultMode'),s.mode==='quick'?'Quick':'Deep');
+    setText($('vcRight'),`${s.correct} / ${s.total}`);setText($('vcSkip'),String(s.unknown));
     const output=$('vcBreakdown');output.replaceChildren();
     for(let level=1;level<=8;level++){
       const subset=s.answers.filter(a=>a.level===level);if(!subset.length)continue;
@@ -923,6 +923,7 @@
     if(!['summary','review'].includes(next))return;
     if(activeResultTab==='review'&&next!=='review')stopReviewMedia();
     activeResultTab=next;
+    document.body.classList.toggle('vc-review-focus',next==='review');
     for(const [key,suffix] of [['summary','Summary'],['review','Review']]){
       const selected=next===key,tab=$('vcTab'+suffix),panel=$('vcPanel'+suffix);
       tab.setAttribute('aria-selected',String(selected));
@@ -1125,6 +1126,7 @@
         setResultTab(next);$('vcTab'+next[0].toUpperCase()+next.slice(1)).focus();
       });
     }
+    $('vcReviewBack').addEventListener('click',()=>setResultTab('summary'));
     $('vcReviewPrev').addEventListener('click',()=>moveReview(-1));
     $('vcReviewNext').addEventListener('click',()=>moveReview(1));
     $('vcReviewSentenceButton').addEventListener('click',speakReview);

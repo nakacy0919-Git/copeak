@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="vocabulary-check.css?v=8.7.4">
   <link rel="stylesheet" href="copeak-premium.css?v=20261103">
   <link rel="stylesheet" href="vocabulary-ipad.css?v=8.7.5">
+  <link rel="stylesheet" href="vocabulary-reading-focus.css?v=8.8.0">
   <script defer src="vocabulary-reading.js?v=8.6.0"></script>
   <script defer src="vocabulary-review.js?v=8.7.0"></script>
   <script defer src="vocabulary-quality.js?v=8.7.0"></script>
@@ -139,7 +140,6 @@
           <div class="vc-result-title"><span class="vc-result-icon" aria-hidden="true">★</span>
             <div><span class="vc-result-kicker" data-t="completed">診断完了！</span><h1 data-t="resultTitle">あなたの診断結果</h1></div>
           </div>
-          <span class="vc-result-head-mode" id="vcResultMode">Quick</span>
         </header>
         <div class="vc-result-tabs" role="tablist" aria-label="Result sections">
           <button type="button" id="vcTabSummary" class="vc-result-tab is-active" role="tab" aria-controls="vcPanelSummary" aria-selected="true" data-t="tabSummary">レベル・分析</button>
@@ -178,20 +178,23 @@
           <section id="vcPanelReview" class="vc-result-panel vc-review-panel" role="tabpanel" aria-labelledby="vcTabReview" hidden>
             <div class="vc-review-stage">
               <div class="vc-review-top">
-                <div><strong data-t="review">例文</strong><span id="vcReviewCount" aria-live="polite">0 / 0</span></div>
+                <button id="vcReviewBack" class="vc-review-back" type="button" data-vc-en="← Results">← 診断結果へ</button>
+                <div class="vc-review-heading"><strong data-vc-en="Reading practice">復習・音読</strong><span id="vcReviewCount" aria-live="polite">0 / 0</span></div>
                 <div class="vc-review-switch"><button id="vcReviewPrev" type="button" aria-label="前の例文">‹</button><button id="vcReviewNext" type="button" aria-label="次の例文">›</button></div>
               </div>
               <div class="vc-review-card">
                 <!-- The focus phrase is underlined inside the complete sentence; hide duplicate heading. -->
                 <span class="vc-review-focus-label" data-t="reviewFocus" hidden aria-hidden="true">今回の重要表現</span>
                 <strong id="vcReviewChunk" class="vc-review-chunk" lang="en" hidden aria-hidden="true">—</strong>
-                <button id="vcReviewSentenceButton" class="vc-sentence-speaker" type="button" aria-label="例文をタップしてお手本を聞く">
-                  <span id="vcReviewSentence" class="vc-review-sentence" lang="en"></span>
-                  <span class="vc-inline-speaker" aria-hidden="true">🔊</span>
-                </button>
-                <p class="vc-full-sentence-hint" id="vcFullSentenceHint">英文を最後まで読みましょう。</p>
-                <div class="vc-review-translation" id="vcReviewMeaningFallback" hidden><span data-t="reviewMeaning">チャンクの意味</span><strong id="vcReviewMeaning">—</strong></div>
-                <p id="vcReviewSentenceJa" class="vc-review-example-ja" lang="ja" aria-live="polite"></p>
+                <div class="vc-reading-sentence-card">
+                  <button id="vcReviewSentenceButton" class="vc-sentence-speaker" type="button" aria-label="例文をタップしてお手本を聞く">
+                    <span id="vcReviewSentence" class="vc-review-sentence" lang="en"></span>
+                    <span class="vc-inline-speaker" aria-hidden="true">🔊</span>
+                  </button>
+                  <p id="vcReviewSentenceJa" class="vc-review-example-ja" lang="ja" aria-live="polite"></p>
+                  <p class="vc-full-sentence-hint" id="vcFullSentenceHint" hidden>英文を最後まで読みましょう。</p>
+                  <div class="vc-review-translation" id="vcReviewMeaningFallback" hidden><span data-t="reviewMeaning">チャンクの意味</span><strong id="vcReviewMeaning">—</strong></div>
+                </div>
                 <div class="vc-reading-area">
                   <div class="vc-review-transport">
                     <button id="vcReviewRecord" class="vc-review-record vc-read-start" type="button">
