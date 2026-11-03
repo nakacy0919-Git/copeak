@@ -841,3 +841,15 @@ body.vc-is-result #vcResult{display:grid;grid-template-rows:auto auto minmax(0,1
  .vc-record-backup{margin-top:6px}
 }
 @media(prefers-reduced-motion:reduce){.vc-weakness-track span{transition:none!important}}
+
+/* Keep the small-screen one-viewport result: evidence expands only on demand. */
+#vcPanelSummary .vc-result-insight{overflow-y:auto;overflow-x:hidden;scrollbar-width:thin}
+#vcPanelSummary details.vc-diagnosis-evidence{display:block;flex:0 0 auto;margin-top:2px;padding:6px 10px;border-radius:10px}
+#vcPanelSummary .vc-diagnosis-evidence>summary{display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;list-style:auto;font-size:11px;font-weight:800;color:#2f668f}
+#vcPanelSummary .vc-diagnosis-evidence>summary span{font-size:9px;color:#96713c;white-space:nowrap;font-weight:750}
+#vcPanelSummary .vc-diagnosis-evidence:not([open]) > :not(summary){display:none!important}
+#vcPanelSummary .vc-diagnosis-evidence[open] p{margin-top:6px}
+@media(max-width:700px){
+ #vcPanelSummary details.vc-diagnosis-evidence{padding:5px 9px;margin-top:1px}
+ #vcPanelSummary .vc-diagnosis-evidence>summary{font-size:10px}
+}

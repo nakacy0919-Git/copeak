@@ -165,14 +165,15 @@
                 <div class="vc-panel-head"><span data-t="breakdown">レベル別の正答</span><small data-t="correctRatio">正解 / 出題</small></div>
                 <div id="vcBreakdown" class="vc-breakdown"></div>
                 <div class="vc-result-trend"><div class="vc-panel-head"><strong data-t="trend">成長の記録</strong><span id="vcResultDelta"></span></div><div id="vcResultTrendGraph" class="vc-trend-graph" role="img" aria-label="Result level progression"></div></div>
-              </div>
-            </div>
-            <section class="vc-diagnosis-evidence" aria-label="診断結果の根拠">
-              <div class="vc-evidence-header"><strong>診断の根拠</strong><span>暫定推定・難易度未校正</span></div>
+            <details class="vc-diagnosis-evidence" aria-label="診断結果の根拠"><summary>診断の根拠を見る <span>暫定推定・未校正</span></summary>
+              
               <p id="vcEvidenceSummary">回答データを分析中です。</p>
               <p id="vcEvidenceRange"></p>
               <small id="vcEvidenceWarning">正式な英検・CEFRの判定ではありません。</small>
-            </section>
+            </details>
+              </div>
+            </div>
+
           </section>
           <section id="vcPanelReview" class="vc-result-panel vc-review-panel" role="tabpanel" aria-labelledby="vcTabReview" hidden>
             <div class="vc-review-stage">
