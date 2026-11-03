@@ -10,7 +10,7 @@
   <script defer src="vocabulary-reading.js?v=8.6.0"></script>
   <script defer src="vocabulary-review.js?v=8.7.0"></script>
   <script defer src="vocabulary-quality.js?v=8.7.0"></script>
-  <script defer src="vocabulary-check.js?v=8.7.2"></script>
+  <script defer src="vocabulary-check.js?v=8.7.3"></script>
 </head>
 <body>
   <main class="vc-shell">
@@ -78,35 +78,35 @@
 
         <section class="vc-learning-insights" id="vcLearningInsights" aria-labelledby="vcLearningInsightsTitle">
           <header class="vc-learning-insights-head">
-            <div><small>MY LEARNING JOURNEY</small><h2 id="vcLearningInsightsTitle">復習と学習の進捗</h2></div>
-            <span class="vc-insight-device">この端末に保存</span>
+            <div><small>MY LEARNING JOURNEY</small><h2 id="vcLearningInsightsTitle" data-vc-en="Review & Learning Progress">復習と学習の進捗</h2></div>
+            <span class="vc-insight-device" data-vc-en="Saved on this device">この端末に保存</span>
           </header>
           <div class="vc-learning-stats">
-            <div class="vc-learning-stat due"><small>今日の復習</small><strong id="vcInsightDue">0</strong><span>例文</span></div>
-            <div class="vc-learning-stat upcoming"><small>復習予定</small><strong id="vcInsightScheduled">0</strong><span>例文</span></div>
-            <div class="vc-learning-stat practiced"><small>音読80%以上</small><strong id="vcInsightPracticed">0</strong><span>表現</span></div>
-            <div class="vc-learning-stat confirmed"><small>後日の再診断で正解</small><strong id="vcInsightConfirmed">0</strong><span>表現</span></div>
+            <div class="vc-learning-stat due"><small data-vc-en="Due today">今日の復習</small><strong id="vcInsightDue">0</strong><span data-vc-en="sentences">例文</span></div>
+            <div class="vc-learning-stat upcoming"><small data-vc-en="Scheduled">復習予定</small><strong id="vcInsightScheduled">0</strong><span data-vc-en="sentences">例文</span></div>
+            <div class="vc-learning-stat practiced"><small data-vc-en="Reading ≥80%">音読80%以上</small><strong id="vcInsightPracticed">0</strong><span data-vc-en="expressions">表現</span></div>
+            <div class="vc-learning-stat confirmed"><small data-vc-en="Later check: correct">後日の再診断で正解</small><strong id="vcInsightConfirmed">0</strong><span data-vc-en="expressions">表現</span></div>
           </div>
           <div class="vc-learning-detail">
             <div class="vc-learning-weakness">
-              <strong>最近の苦手レベル <small>（直近5回の診断）</small></strong>
+              <strong><span data-vc-en="Weaker levels">最近の苦手レベル</span> <small data-vc-en="(last 5 checks)">（直近5回の診断）</small></strong>
               <div id="vcWeaknessBars" class="vc-weakness-bars"></div>
             </div>
             <div class="vc-learning-schedule">
-              <strong>次の学習</strong>
+              <strong data-vc-en="Next practice">次の学習</strong>
               <p id="vcInsightNextDue">復習予定を確認しています。</p>
-              <button type="button" id="vcInsightStartReview" class="vc-insight-start" disabled>今日の復習音読を始める <span aria-hidden="true">→</span></button>
-              <small>翌日・3日後・7日後などに再提示。音読と語彙の理解度は別々に記録します。</small>
+              <button type="button" id="vcInsightStartReview" class="vc-insight-start" disabled><span data-vc-en="Review due sentences">今日の復習音読を始める</span> <span aria-hidden="true">→</span></button>
+              <small data-vc-en="Next-day, 3-day and 7-day reviews. Reading and vocabulary recognition are tracked separately.">翌日・3日後・7日後などに再提示。音読と語彙の理解度は別々に記録します。</small>
             </div>
           </div>
           <details class="vc-record-backup" id="vcRecordBackup">
-            <summary>端末内の学習記録をバックアップ・復元</summary>
+            <summary data-vc-en="Export or restore local learning records">端末内の学習記録をバックアップ・復元</summary>
             <div class="vc-record-backup-actions">
-              <button id="vcBackupExport" type="button">記録をJSONで保存</button>
-              <button id="vcBackupImport" type="button">JSONから復元</button>
+              <button id="vcBackupExport" type="button" data-vc-en="Export JSON backup">記録をJSONで保存</button>
+              <button id="vcBackupImport" type="button" data-vc-en="Restore from JSON">JSONから復元</button>
               <input id="vcBackupFile" type="file" accept=".json,application/json" hidden>
             </div>
-            <p id="vcBackupStatus" role="status">ファイルはこの端末で処理します。Copeakのサーバーには送信しません。</p>
+            <p id="vcBackupStatus" role="status" data-vc-en="Files are processed on your device, not uploaded to a Copeak server.">ファイルはこの端末で処理します。Copeakのサーバーには送信しません。</p>
           </details>
         </section>
 
@@ -165,7 +165,7 @@
                 <div class="vc-panel-head"><span data-t="breakdown">レベル別の正答</span><small data-t="correctRatio">正解 / 出題</small></div>
                 <div id="vcBreakdown" class="vc-breakdown"></div>
                 <div class="vc-result-trend"><div class="vc-panel-head"><strong data-t="trend">成長の記録</strong><span id="vcResultDelta"></span></div><div id="vcResultTrendGraph" class="vc-trend-graph" role="img" aria-label="Result level progression"></div></div>
-            <details class="vc-diagnosis-evidence" aria-label="診断結果の根拠"><summary>診断の根拠を見る <span>暫定推定・未校正</span></summary>
+            <details class="vc-diagnosis-evidence" aria-label="診断結果の根拠"><summary><span data-vc-en="How this estimate was made">診断の根拠を見る</span> <span data-vc-en="Provisional · uncalibrated">暫定推定・未校正</span></summary>
               
               <p id="vcEvidenceSummary">回答データを分析中です。</p>
               <p id="vcEvidenceRange"></p>

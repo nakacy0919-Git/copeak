@@ -483,6 +483,11 @@
   function translate(){
     document.documentElement.lang=lang; $('vcUILanguage').value=lang;updateSoundButton();
     for(const element of document.querySelectorAll('[data-t]'))setText(element,text(element.dataset.t));
+    for(const element of document.querySelectorAll('[data-vc-en]')){
+      // Store the authored Japanese label before the first language switch.
+      if(!element.dataset.vcJa)element.dataset.vcJa=element.textContent;
+      element.textContent=lang==='ja'?element.dataset.vcJa:element.dataset.vcEn;
+    }
     renderLandingTitle();
     if($('vcLoadState'))setText($('vcLoadState'),bank.length?text('readyFriendly'):text('loadingFriendly'));
     if(currentSession)renderQuestion();else if(lastResult)renderResult(lastResult);
@@ -609,7 +614,10 @@
       const history=input.history;
       for(const run of history){
         if(run.version!==1||!['copeak-chunks-prototype-2026-10','copeak-chunks-context-2026-10'].includes(run.bank)||
-          !Number.isInteger(run.level)||run.level<1||run.level>8||!Array.isArray(run.answers)||run.answers.length>70||
+          !['quick','deep'].includes(run.mode)||!Number.isFinite(Date.parse(run.at))||
+          !Number.isInteger(run.level)||run.level<1||run.level>8||
+          !Array.isArray(run.range)||run.range.length!==2||run.range.some(x=>!Number.isInteger(x)||x<1||x>8)||
+          ![25,70].includes(run.total)||!Array.isArray(run.answers)||run.answers.length!==run.total||
           run.answers.some(a=>!/^CK[1-8]-\d{3}$/.test(a.id)||!Number.isInteger(a.level)||a.level<1||a.level>8||typeof a.correct!=='boolean')){
           throw new Error('Invalid record');
         }
@@ -617,9 +625,20 @@
       if(!confirm(lang==='ja'?'端末内のVocabulary Check記録をバックアップの内容に置き換えますか？':'Replace device-only Vocabulary Check records with the backup?'))return;
       const schedule=root.CopeakVocabularyReview;
       const restored=schedule.reconcile(schedule.normalize(input.review,history),history);
-      // Validate both payloads before writing either key.
-      localStorage.setItem(KEY,JSON.stringify(history));
-      saveReviewLedger(restored);
+      // Keep the two localStorage keys consistent even when the device is full.
+      const beforeHistory=localStorage.getItem(KEY),beforeReview=localStorage.getItem(REVIEW_KEY);
+      try{
+        localStorage.setItem(KEY,JSON.stringify(history));
+        localStorage.setItem(REVIEW_KEY,JSON.stringify(restored));
+      }catch(storageError){
+        try{
+          if(beforeHistory===null)localStorage.removeItem(KEY);else localStorage.setItem(KEY,beforeHistory);
+          if(beforeReview===null)localStorage.removeItem(REVIEW_KEY);else localStorage.setItem(REVIEW_KEY,beforeReview);
+        }catch(_){}
+        throw storageError;
+      }
+      reviewProgressMemory=restored;
+      root.dispatchEvent?.(new Event('copeak:vocabulary-updated'));
       lastResult=null;reviewSummary=null;pendingOnlyReview=false;currentSession=null;
       show('vcIntro');displayLast();
       setText(note,lang==='ja'?'学習記録を端末に復元しました。':'Vocabulary records restored on this device.');
