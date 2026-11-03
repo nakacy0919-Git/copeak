@@ -853,3 +853,22 @@ body.vc-is-result #vcResult{display:grid;grid-template-rows:auto auto minmax(0,1
  #vcPanelSummary details.vc-diagnosis-evidence{padding:5px 9px;margin-top:1px}
  #vcPanelSummary .vc-diagnosis-evidence>summary{font-size:10px}
 }
+
+/* v8.7.4: one focused action on the landing screen, concise labels */
+body.vc-review-required #vcIntro .vc-start-actions{display:none!important}
+#vcIntro .vc-review-gate[hidden],#vcIntro .vc-load-state[hidden]{display:none!important}
+#vcIntro .vc-review-gate:not([hidden]){margin:clamp(18px,2.2vh,28px) 0 0;max-width:100%;padding:clamp(14px,1.5vw,20px)}
+#vcIntro .vc-gate-actions{margin-bottom:0}
+#vcIntro .vc-gate-banner p{max-width:54ch}
+#vcIntro .vc-learning-insights-head h2{margin-top:0}
+#vcIntro .vc-learning-detail{grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);align-items:start}
+#vcIntro .vc-weakness-heading{display:flex;justify-content:space-between;gap:10px;align-items:baseline;flex-wrap:wrap}
+#vcIntro .vc-weakness-heading>small{color:#829ab0;font-size:10px;font-weight:700}
+#vcIntro .vc-learning-schedule{border-left:1px solid #dbeaf2;padding-left:clamp(10px,1.3vw,18px)}
+#vcIntro .vc-learning-schedule small{color:#879caf}
+#vcIntro .vc-landing-grid .vc-start-panel:after{opacity:.25}
+@media(max-width:700px){
+ #vcIntro .vc-learning-detail{grid-template-columns:1fr}
+ #vcIntro .vc-learning-schedule{border-left:0;border-top:1px solid #dbeaf2;padding:9px 0 0}
+ #vcIntro .vc-weakness-heading>small{font-size:9px}
+}

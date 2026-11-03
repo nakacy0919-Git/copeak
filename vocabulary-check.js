@@ -75,7 +75,7 @@
     ctaQuick:'診断スタート！',ctaQuickSub:'25問でさくっとチェック',
     ctaDeep:'もっと詳しく診断',ctaDeepSub:'じっくり70問',
     levelDescription:'前回の診断結果です。',
-    caveat:'この結果は語彙学習の目安です。英検・CEFRの公式判定ではありません。履歴はブラウザ内にのみ保存されます。',
+    caveat:'この結果は学習の参考値であり、英検・CEFRの公式判定ではありません。',
     estimated:'推定レベル',resultTitle:'あなたの診断結果'
   });
   Object.assign(LANGUAGES.en,{
@@ -86,7 +86,7 @@
     ctaQuick:'Start my check!',ctaQuickSub:'Quick check · 25 questions',
     ctaDeep:'Try a deeper check',ctaDeepSub:'70 questions',
     levelDescription:'Your most recent estimated result.',
-    caveat:'This is a learning estimate, not an official Eiken or CEFR assessment. History is stored only in this browser.',
+    caveat:'This is a learning estimate, not an official Eiken or CEFR assessment.',
     estimated:'Estimated level',resultTitle:'Your check result'
   });
   // Compact, tabbed results and opt-in read-aloud practice.
@@ -129,8 +129,8 @@
     reviewSentenceJa:'Japanese sentence translation'
   });
   Object.assign(LANGUAGES.ja,{
-    tabSummary:'診断結果',tabReview:'復習・音読',
-    review:'復習・例文音読',reviewRecord:'音読スタート',reviewStop:'音読を終了',
+    tabSummary:'レベル・分析',tabReview:'復習・音読',
+    review:'例文',reviewRecord:'音読スタート',reviewStop:'音読を終了',
     reviewMeaning:'チャンクの意味',reviewReady:'',reviewListening:'',
     readingAccuracy:'Accuracy',transcriptPlaceholder:'音読すると認識された英語がここに表示されます',translationPending:'全文訳は確認中です。重要表現の意味：',recognizedWords:'認識された英語',
     readNoSpeech:'声を認識できませんでした。もう一度試してください。',
@@ -141,8 +141,8 @@
     levelIntro:'英語レベルの目安'
   });
   Object.assign(LANGUAGES.en,{
-    tabSummary:'Your result',tabReview:'Review & read',
-    review:'Read aloud',reviewRecord:'Start reading',reviewStop:'Stop reading',
+    tabSummary:'Level & Analysis',tabReview:'Review & read',
+    review:'Sentence',reviewRecord:'Start reading',reviewStop:'Stop reading',
     reviewMeaning:'Expression meaning',reviewReady:'',reviewListening:'',
     readingAccuracy:'Accuracy',transcriptPlaceholder:'Recognized words appear here when you read aloud.',translationPending:'Full Japanese translation pending. Expression meaning: ',recognizedWords:'Recognized words',
     readNoSpeech:'No speech recognized. Please try again.',
@@ -373,19 +373,20 @@
     const state=remainingReview();
     const locked=state.total>0&&!state.skipped;
     gate.hidden=!locked;
+    document.body.classList.toggle('vc-review-required',locked);
     $('vcQuick').disabled=!bank.length||locked;
     $('vcDeep').disabled=!bank.length||locked;
-    setText($('vcGateCount'),lang==='ja'?'今日の復習：'+state.total+'文':'Due for review: '+state.total+' sentences');
+    const shown=state.pending.length;
+    setText($('vcGateCount'),lang==='ja'?
+      '復習が必要：'+state.total+'文'+(state.total>shown?'（今回'+shown+'文）':''):
+      'Due for review: '+state.total+(state.total>shown?' (up to '+shown+' now)':''));
     setText($('vcGateIntro'),lang==='ja'?
-      '前回の誤答と復習予定の英文を、正しいフルセンテンスで音読しましょう。80%以上で次の復習日を予約します。必要ならスキップできます。':
-      'Read the complete sentences that you missed or are due again. Reach 80% to schedule the next review, or choose Skip.');
-    setText($('vcGatePractice'),lang==='ja'?'今日の復習音読を始める':'Review due sentences');
-    setText($('vcGateSkip'),lang==='ja'?'今回はスキップして診断':'Skip and take a check');
-    if(locked){
-      setText($('vcLoadState'),lang==='ja'?'復習音読を行うか、スキップを選択してください。':'Review or skip to take another check.');
-    }else if(bank.length){
-      setText($('vcLoadState'),text('readyFriendly'));
-    }
+      '全文を音読し、Accuracy 80%以上を目指しましょう。スキップして診断することもできます。':
+      'Read each full sentence. Reach 80% Accuracy, or skip to take a check.');
+    setText($('vcGatePractice'),lang==='ja'?'復習音読を始める':'Start reading review');
+    setText($('vcGateSkip'),lang==='ja'?'今回はスキップ':'Skip this time');
+    const loading=$('vcLoadState');if(loading)loading.hidden=Boolean(bank.length);
+    if(!bank.length)setText(loading,text('loadingFriendly'));
   }
   function startPendingReview(){
     const history=loadHistory(),last=history[0];
@@ -559,13 +560,11 @@
     setText($('vcInsightScheduled'),String(stats.scheduled));
     setText($('vcInsightPracticed'),String(stats.practiced));
     setText($('vcInsightConfirmed'),String(stats.laterCorrect));
-    const button=$('vcInsightStartReview');
-    if(button)button.disabled=stats.due===0||!bank.length;
     const date=stats.nextDue?new Date(stats.nextDue).toLocaleDateString(lang==='ja'?'ja-JP':'en-US',
       {month:'short',day:'numeric'}):'';
     setText($('vcInsightNextDue'),lang==='ja'?
-      (stats.due?stats.due+'文の復習があります。':date?'次の復習予定：'+date:'現在、復習予定はありません。'):
-      (stats.due?stats.due+' sentences due.':date?'Next planned review: '+date:'No reviews scheduled.'));
+      (date?'次回：'+date:stats.due?'音読後に次回の日付が決まります。':'次回の予定はありません。'):
+      (date?'Next: '+date:stats.due?'Next date is set after reading practice.':'No upcoming review scheduled.'));
     const target=$('vcWeaknessBars');
     if(!target)return;
     target.replaceChildren();
@@ -761,7 +760,7 @@
       const range=quality.range;
       const caution=quality.cautions.length>0;
       setText($('vcEvidenceSummary'),lang==='ja'?
-        quality.total+'問 / '+quality.uniqueFamilies+'種類の表現 / '+quality.coveredLevels+'段階を出題':
+        quality.total+'問・'+quality.uniqueFamilies+'表現・'+quality.coveredLevels+'段階':
         quality.total+' questions, '+quality.uniqueFamilies+' expression families, '+quality.coveredLevels+' levels sampled');
       setText($('vcEvidenceRange'),lang==='ja'?
         'モデル内の推定幅：Lv.'+range[0]+'～'+range[1]:
@@ -901,7 +900,7 @@
     }
     setText($('vcReviewChunk'),item.highlight_en||item.chunk);
     highlightReview($('vcReviewSentence'),item);
-    const hint=$('vcFullSentenceHint');if(hint)hint.textContent=lang==='ja'?'青い下線の表現だけでなく、英文を最後まで音読してください。':'Read the entire sentence, not only the underlined phrase.';
+    const hint=$('vcFullSentenceHint');if(hint)hint.textContent=lang==='ja'?'英文を最後まで読みましょう。':'Read the full sentence.';
     setText($('vcReviewMeaning'),lang==='ja'?item.meaning_ja:item.meaning_en);
     renderReviewJapanese(item);
   }
@@ -1112,7 +1111,6 @@
     $('vcQuick').addEventListener('click',()=>begin('quick'));$('vcDeep').addEventListener('click',()=>begin('deep'));
     $('vcGatePractice').addEventListener('click',startPendingReview);
     $('vcGateSkip').addEventListener('click',skipPendingReview);
-    $('vcInsightStartReview').addEventListener('click',startPendingReview);
     $('vcBackupExport').addEventListener('click',exportLearningBackup);
     $('vcBackupImport').addEventListener('click',()=>$('vcBackupFile').click());
     $('vcBackupFile').addEventListener('change',event=>importLearningBackup(event.target.files?.[0]));
