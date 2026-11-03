@@ -44,7 +44,7 @@ function normalize(input,history=[],now=Date.now()){
     for(const id of input.completed.slice(-MAX_ITEMS)){
       if(!validId(id))continue;
       state.items[id]={...safeItem({}),step:1,dueAt:new Date(now).toISOString(),
-        lastDiagnosisAt:recent.get(id)||'',passes:1,readings:1};
+        lastDiagnosisAt:recent.get(id)||'',lastMissAt:recent.get(id)||'',mistakes:1,passes:1,readings:1};
     }
   }
   return state;
