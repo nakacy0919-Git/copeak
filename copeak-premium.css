@@ -1,0 +1,572 @@
+/*
+ * Copeak Prism — premium shared UI layer (2026-11-03).
+ * Visual-only; no data, scoring, local storage or microphone selectors.
+ * Scoped to the home/dashboard, reader/creator, Vocabulary Check and Sound Quest.
+ * Responsive width + height rules prevent wasted desktop space and clipped iPad content.
+ */
+:root{
+  --cp-prism-navy:#163a60;
+  --cp-prism-blue:#237edb;
+  --cp-prism-teal:#13a69d;
+  --cp-prism-ice:#f4f9ff;
+  --cp-prism-border:rgba(155,191,221,.40);
+  --cp-prism-shadow:0 16px 44px rgba(28,78,134,.105),0 3px 9px rgba(33,92,153,.045),inset 0 1px 0 rgba(255,255,255,.95);
+  --cp-prism-radius:clamp(16px,1.8vw,25px);
+  --cp-prism-gloss:radial-gradient(ellipse 85% 90% at 95% -30%,rgba(130,208,255,.2),transparent 76%),linear-gradient(145deg,rgba(255,255,255,.98),rgba(243,249,255,.95));
+}
+@media(prefers-reduced-motion:reduce){
+  #copeakHomeHub .cp-action,
+  .cp-page .cp-panel,
+  .vc-shell button,
+  .vc-shell .vc-learning-stat,
+  body.sq-premium #sqAppContainer button{transition:none!important;animation:none!important}
+}
+
+/* ───── Main Copeak home: wide monitors, balanced cards and elegant surfaces ───── */
+body.copeak-home-mode{
+  background-color:#eff6fc!important;
+  background-image:
+    radial-gradient(ellipse 65% 55% at 3% 5%,rgba(135,204,242,.22),transparent 75%),
+    radial-gradient(ellipse 55% 60% at 97% 94%,rgba(113,220,201,.12),transparent 70%),
+    linear-gradient(135deg,#f7fbff,#eef6fc 57%,#f6fafc)!important;
+}
+#homeScreen.cp-dashboard-mode.active{
+  background:
+    radial-gradient(ellipse 58% 65% at 5% 0%,rgba(160,212,249,.28),transparent 83%),
+    radial-gradient(ellipse 56% 54% at 92% 96%,rgba(144,230,210,.16),transparent 80%),
+    linear-gradient(137deg,#f8fcff,#eff6fd 62%,#f7fbfb)!important;
+  padding:clamp(9px,1.5vh,20px) clamp(12px,2.15vw,34px)!important;
+}
+#copeakHomeHub{
+  width:min(1480px,100%);
+  gap:clamp(7px,1.15vh,14px);
+  grid-template-rows:auto minmax(0,1fr) clamp(145px,22dvh,220px) auto;
+}
+#copeakHomeHub .cp-home-header{
+  height:clamp(72px,11dvh,105px);
+  min-height:0;
+  gap:clamp(9px,1.3vw,19px);
+}
+#copeakHomeHub .cp-brand-logo{
+  width:clamp(48px,5.4vw,74px);
+  height:clamp(48px,5.4vw,74px);
+  filter:drop-shadow(0 5px 8px rgba(22,112,168,.15));
+}
+#copeakHomeHub .cp-brand-word{
+  font-size:clamp(31px,3.8vw,49px);
+  background:linear-gradient(110deg,#12365f,#267bb6 75%,#16a79d);
+  background-clip:text;-webkit-background-clip:text;color:transparent;
+}
+#copeakHomeHub .cp-brand-sub{font-size:clamp(9px,.8vw,12px);letter-spacing:.09em}
+#copeakHomeHub .cp-home-cards{
+  gap:clamp(9px,1.2vw,18px);
+  grid-template-rows:repeat(2,minmax(0,1fr));
+  min-width:0;
+}
+#copeakHomeHub .cp-action{
+  position:relative;isolation:isolate;
+  padding:clamp(13px,1.8vw,27px);
+  gap:clamp(10px,1.4vw,23px);
+  border:1px solid rgba(195,216,231,.82);
+  border-radius:var(--cp-prism-radius);
+  box-shadow:var(--cp-prism-shadow);
+  transition:transform .17s ease,box-shadow .17s ease,border-color .17s ease;
+}
+#copeakHomeHub .cp-action-read{
+  background:radial-gradient(ellipse 70% 92% at 94% 0%,rgba(158,207,255,.52),transparent 72%),linear-gradient(125deg,#fbfdff,#e9f4ff);
+}
+#copeakHomeHub .cp-action-create{
+  background:radial-gradient(ellipse 70% 92% at 94% 0%,rgba(117,231,197,.36),transparent 72%),linear-gradient(125deg,#fbfffd,#e9faf3);
+}
+#copeakHomeHub .cp-action-sound{
+  background:radial-gradient(ellipse 70% 92% at 94% 0%,rgba(255,205,143,.48),transparent 72%),linear-gradient(125deg,#fffdf8,#fff2df);
+}
+#copeakHomeHub .cp-action-vocabulary{
+  background:radial-gradient(ellipse 70% 92% at 94% 0%,rgba(194,186,255,.46),transparent 72%),linear-gradient(125deg,#fdfcff,#f2eeff);
+}
+#copeakHomeHub .cp-action:hover:not(:disabled){
+  transform:translateY(-2px);
+  box-shadow:0 20px 46px rgba(30,91,148,.155),inset 0 1px 0 #fff;
+  border-color:rgba(131,184,225,.68);
+}
+#copeakHomeHub .cp-action:active:not(:disabled){transform:translateY(0) scale(.992)}
+#copeakHomeHub .cp-action-icon{
+  width:clamp(64px,7.6vw,106px);
+  height:clamp(64px,7.6vw,106px);
+  border:1px solid rgba(255,255,255,.85);
+  border-radius:26%;
+  background:linear-gradient(143deg,rgba(255,255,255,.9),rgba(255,255,255,.27));
+  box-shadow:0 7px 24px rgba(52,122,177,.075),inset 0 1px 0 rgba(255,255,255,.96);
+}
+#copeakHomeHub .cp-action-title{
+  color:#193a63;
+  font-size:clamp(17px,1.85vw,27px);
+  line-height:1.27;
+  letter-spacing:-.04em;
+}
+#copeakHomeHub .cp-action-sub{
+  color:#607c95;
+  font-size:clamp(11px,1.02vw,15px);
+  line-height:1.5;
+}
+#copeakHomeHub .cp-action-arrow{
+  background:linear-gradient(140deg,rgba(255,255,255,.95),rgba(255,255,255,.55));
+  box-shadow:0 3px 10px rgba(21,90,146,.08);
+}
+#copeakHomeHub .cp-home-extras{
+  min-height:0;
+  grid-template-columns:minmax(0,1.16fr) minmax(0,1fr);
+  gap:clamp(9px,1.2vw,18px);
+}
+#copeakHomeHub .cp-extra{
+  min-width:0;
+  border:1px solid var(--cp-prism-border);
+  background:var(--cp-prism-gloss);
+  border-radius:var(--cp-prism-radius);
+  box-shadow:var(--cp-prism-shadow);
+  padding:clamp(10px,1.25vw,19px);
+}
+#copeakHomeHub .cp-recent-list{
+  margin-top:clamp(5px,1vh,11px);
+  gap:clamp(2px,.55vh,6px);
+}
+#copeakHomeHub .cp-recent-row{padding:clamp(3px,.55vh,7px) 1px}
+#copeakHomeHub .cp-home-bottom,
+#copeakHomeHub .cp-profile-pill,
+#copeakHomeHub .cp-settings{
+  background:linear-gradient(143deg,rgba(255,255,255,.98),rgba(244,250,255,.92));
+  border-color:var(--cp-prism-border);
+  box-shadow:0 4px 14px rgba(32,92,148,.075),inset 0 1px 0 #fff;
+}
+#copeakHomeHub .cp-home-bottom{min-height:48px;border-radius:16px;padding:3px 8px}
+#copeakHomeHub .cp-nav[aria-current="page"]{
+  color:#176fac;background:linear-gradient(125deg,#e2f6ff,#e7f8f2);
+}
+#copeakHomeHub .cp-home-menu{border:1px solid #c7dfef;background:#fffffffa;box-shadow:0 23px 60px rgba(23,65,113,.19)}
+/* ───── Copeak reader + creator: same design language, no form ID changes ───── */
+body.copeak-home-mode #homeScreen.cp-section-mode.active{
+  background:
+    radial-gradient(ellipse 68% 80% at 9% 0%,rgba(159,217,245,.2),transparent 75%),
+    linear-gradient(140deg,#f8fcff,#eef6fc 62%,#f7fcf9)!important;
+}
+.cp-page{width:min(1480px,100%);gap:clamp(7px,1.15vh,13px)}
+.cp-page-head{
+  min-height:clamp(61px,9.2dvh,83px);
+  gap:clamp(10px,1.45vw,19px);
+  border-bottom-color:#d5e7f3;
+}
+.cp-page-head h2{
+  font-size:clamp(19px,2.2vw,28px);
+  background:linear-gradient(112deg,#153c69,#2374ad);
+  background-clip:text;-webkit-background-clip:text;color:transparent;
+}
+.cp-page-head .cp-page-home,
+.cp-page-bottom{
+  border-color:var(--cp-prism-border);
+  background:linear-gradient(135deg,#fff,#f3f9ff);
+  box-shadow:0 4px 12px rgba(37,93,151,.065),inset 0 1px 0 #fff;
+}
+.cp-page-scroll{padding:3px 4px 13px}
+.cp-page-scroll>*{margin-bottom:clamp(9px,1.25vh,15px)}
+.cp-page .cp-panel{
+  border:1px solid var(--cp-prism-border);
+  border-radius:var(--cp-prism-radius);
+  background:var(--cp-prism-gloss);
+  box-shadow:var(--cp-prism-shadow);
+  padding:clamp(13px,1.7vw,25px);
+}
+.cp-page .cp-panel-title{margin-bottom:clamp(8px,1.1vh,13px)}
+.cp-page .cp-panel-title h3{color:#1a4570;font-size:clamp(15px,1.25vw,18px)}
+.cp-page .cp-page-actions button,
+.cp-page .cp-link-pill{
+  border-color:#c9e2f2;
+  background:linear-gradient(125deg,#fff,#edf7ff);
+  color:#226da9;
+  box-shadow:inset 0 1px 0 #fff,0 3px 9px rgba(38,102,167,.06);
+  transition:background .15s ease,transform .15s ease,border-color .15s ease;
+}
+.cp-page .cp-page-actions button:hover,
+.cp-page .cp-link-pill:hover{background:linear-gradient(135deg,#e8f8ff,#eaf9f4);border-color:#92c9df}
+.cp-page :is(input:not([type="checkbox"]),textarea,select):focus-visible{
+  outline:2px solid #60b5e4;outline-offset:2px;box-shadow:0 0 0 3px rgba(89,173,220,.09);
+}
+#cpReadFolders #savedLessonsList>div,
+#cpReadFolders #questLibraryList>*{
+  border-color:rgba(180,210,231,.7)!important;
+  background:linear-gradient(132deg,#fff,#f5faff)!important;
+  box-shadow:0 6px 20px rgba(27,85,143,.075)!important;
+}
+#cpCreateForm #customMaterialForm input:not([type="checkbox"]),
+#cpCreateForm #customMaterialForm :is(textarea,select){
+  border:1px solid #cbddeb!important;
+  border-radius:12px!important;
+  background:linear-gradient(145deg,#fff,#fbfdff)!important;
+}
+
+/* ───── Reading results: preserve score/timing behavior and dark graph contrast ───── */
+body.result-layout-active #scoreSummaryRow.cp-score-surface{
+  border:1px solid rgba(167,202,225,.28)!important;
+  box-shadow:0 17px 36px rgba(11,26,46,.21),inset 0 1px 0 rgba(255,255,255,.13)!important;
+}
+body.result-layout-active #slaAdviceContainer{
+  border:1px solid #bce8dc!important;
+  border-left:3px solid #13af99!important;
+  border-radius:16px!important;
+  background:linear-gradient(119deg,#f2fffa,#eafaf6 68%,#f3fcff)!important;
+  box-shadow:0 7px 20px rgba(32,122,113,.07);
+}
+body.result-layout-active #learningContentArea{
+  gap:clamp(10px,1.5vw,22px)!important;
+}
+body.result-layout-active #recognizedTextDisplay,
+body.result-layout-active #engContainer{
+  overflow-wrap:anywhere;
+}
+body.result-layout-active #cpReviewOpenBtn{
+  background:linear-gradient(112deg,#ecfff7,#e7f6ff);
+  border-color:#aeddd6;
+}
+
+/* ───── Vocabulary Check: shared visual language and better width/height use ───── */
+body:has(.vc-shell){
+  background:
+    radial-gradient(ellipse 55% 50% at 4% 4%,rgba(136,208,251,.24),transparent 77%),
+    radial-gradient(ellipse 52% 55% at 96% 92%,rgba(117,224,204,.16),transparent 80%),
+    linear-gradient(138deg,#f8fcff,#eef6fc 60%,#f6fbfb);
+}
+.vc-shell{
+  max-width:1500px;
+  width:100%;
+  padding:clamp(9px,1.4vh,19px) clamp(14px,2.3vw,34px);
+}
+.vc-header{
+  min-height:clamp(57px,8.5dvh,78px);
+  border-bottom:1px solid rgba(154,193,223,.43);
+  padding-bottom:clamp(7px,1.1vh,13px);
+}
+.vc-brand strong{
+  background:linear-gradient(115deg,#153963,#1e74ad 75%,#16a49b);
+  background-clip:text;-webkit-background-clip:text;color:transparent;
+}
+.vc-home,.vc-lang-label select{
+  border-color:var(--cp-prism-border);
+  background:linear-gradient(135deg,#fff,#f1f8ff);
+  box-shadow:0 4px 12px rgba(29,102,167,.07),inset 0 1px 0 #fff;
+}
+.vc-home:hover{background:linear-gradient(135deg,#eef9ff,#effbf6);border-color:#96cdd8}
+.vc-body{width:min(1350px,100%);}
+body:not(.vc-is-quiz):not(.vc-is-result) .vc-body{margin:clamp(10px,1.6vh,20px) auto;justify-content:flex-start}
+.vc-landing-grid{
+  grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+  gap:clamp(12px,2vw,27px);
+  padding:clamp(14px,2vw,27px);
+  border:1px solid rgba(173,207,231,.68);
+  border-radius:clamp(19px,2.3vw,29px);
+  background:
+    radial-gradient(ellipse 70% 90% at 92% -20%,rgba(134,211,242,.2),transparent 82%),
+    linear-gradient(125deg,#fff,#f4faff 58%,#effbf8);
+  box-shadow:var(--cp-prism-shadow);
+}
+.vc-landing-grid>.vc-start-panel{padding:clamp(6px,1.2vw,15px) 0}
+.vc-landing-grid>.vc-start-panel::after{opacity:.24}
+.vc-landing-grid .vc-start-panel h1{
+  font-size:clamp(29px,3.15vw,45px);
+  line-height:1.25;
+  margin:clamp(10px,1.7vh,19px) 0 clamp(7px,1.1vh,13px);
+}
+.vc-landing-grid .vc-lead{
+  max-width:59ch;
+  line-height:1.62;
+  font-size:clamp(12px,1.08vw,15px);
+}
+.vc-landing-grid .vc-start-actions{
+  padding-top:clamp(10px,2.2vh,22px);
+  gap:clamp(8px,1.3vh,13px);
+}
+.vc-landing-grid .vc-start-button{
+  min-height:clamp(76px,10dvh,98px);
+  border:1px solid rgba(66,165,224,.5);
+  border-radius:19px;
+  background:
+    radial-gradient(ellipse 65% 65% at 87% 0%,rgba(195,240,255,.35),transparent 80%),
+    linear-gradient(117deg,#1b9ed1,#167fd5 58%,#2265c9);
+  box-shadow:0 13px 27px rgba(32,122,204,.23),inset 0 1px 0 rgba(255,255,255,.32);
+}
+.vc-landing-grid .vc-start-button:hover:not(:disabled){box-shadow:0 16px 31px rgba(28,121,197,.31)}
+.vc-landing-grid .vc-start-copy strong{font-size:clamp(19px,1.9vw,26px)}
+.vc-landing-grid .vc-deep-button{
+  min-height:clamp(53px,7dvh,67px);
+  background:linear-gradient(127deg,#fff,#eaf6ff);
+  border:1px solid #c8e1f3;
+  box-shadow:0 4px 13px rgba(41,108,165,.06),inset 0 1px 0 #fff;
+}
+.vc-landing-grid>.vc-level-panel{
+  padding:clamp(14px,1.8vw,25px);
+  border:1px solid rgba(181,211,234,.72);
+  background:
+    radial-gradient(ellipse 70% 45% at 96% 0%,rgba(181,228,249,.19),transparent 83%),
+    linear-gradient(140deg,rgba(255,255,255,.97),rgba(246,250,255,.96));
+  box-shadow:0 8px 23px rgba(38,101,152,.065),inset 0 1px 0 #fff;
+}
+.vc-level-panel .vc-overview-primary{margin:clamp(9px,1.3vh,16px) 0 5px;min-height:0}
+.vc-level-panel .vc-level-explanation{margin-bottom:clamp(11px,1.6vh,17px)}
+.vc-level-panel .vc-scale-ends{margin:8px 0 12px}
+.vc-history-details{background:linear-gradient(140deg,#f8fcff,#eff7ff);border-color:#d5e7f4}
+.vc-learning-insights{
+  margin-top:clamp(10px,1.5vh,16px);
+  border-color:rgba(177,208,230,.7);
+  background:
+    radial-gradient(ellipse 70% 90% at 95% -30%,rgba(118,219,208,.19),transparent 74%),
+    linear-gradient(125deg,#fbfdff,#f0f8ff 63%,#f0fcfa);
+  box-shadow:var(--cp-prism-shadow);
+}
+.vc-learning-stat{
+  background:linear-gradient(137deg,rgba(255,255,255,1),rgba(245,250,255,.98));
+  border-color:#d5e7f4;
+  box-shadow:0 5px 14px rgba(36,106,158,.055),inset 0 1px 0 #fff;
+}
+.vc-learning-insights .vc-weakness-track{
+  background:linear-gradient(90deg,#e7eef8,#e0ebf5);
+  box-shadow:inset 0 1px 2px rgba(36,84,145,.08);
+}
+.vc-learning-insights .vc-record-backup{margin-top:clamp(9px,1.3vh,14px)}
+.vc-question-card{
+  border-color:rgba(182,209,232,.76);
+  background:
+    radial-gradient(ellipse 65% 60% at 96% 0%,rgba(177,223,251,.15),transparent 83%),
+    linear-gradient(138deg,#fff,#f9fcff);
+  box-shadow:var(--cp-prism-shadow);
+  border-radius:var(--cp-prism-radius);
+}
+.vc-option{
+  border-color:#d2e3f2;
+  background:linear-gradient(137deg,#fff,#f3f9ff);
+  box-shadow:0 4px 12px rgba(34,96,153,.04),inset 0 1px 0 #fff;
+}
+.vc-option:hover:not(:disabled){border-color:#8bbfdf;box-shadow:0 7px 20px rgba(36,111,179,.13)}
+.vc-progress>div{
+  background:linear-gradient(90deg,#16b7ac 0%,#2eacdd 53%,#3980ea);
+  box-shadow:0 0 12px rgba(43,161,222,.25);
+}
+body.vc-is-quiz .vc-body{width:min(1140px,100%)}
+body.vc-is-result .vc-body{width:min(1370px,100%)}
+.vc-result-hero{
+  background:
+    radial-gradient(ellipse 95% 65% at 100% 0%,rgba(108,208,227,.20),transparent 75%),
+    linear-gradient(134deg,#edf8ff,#e8f3ff 65%,#f4fbfc);
+  border-color:#bfdcec;
+  box-shadow:var(--cp-prism-shadow);
+}
+.vc-result-insight{
+  background:linear-gradient(145deg,#fff,#f8fbff);
+  border-color:#d1e3f0;
+  box-shadow:var(--cp-prism-shadow);
+}
+.vc-result-tab[aria-selected="true"]{
+  background:linear-gradient(110deg,#188bd3,#2180dc 63%,#2871ce);
+  box-shadow:0 5px 14px rgba(31,122,207,.21),inset 0 1px 0 rgba(255,255,255,.28);
+}
+.vc-result-level strong{
+  background:linear-gradient(108deg,#175bbb,#2494d6 72%,#22bba7);
+  background-clip:text;-webkit-background-clip:text;color:transparent;
+}
+#vcPanelReview .vc-review-card{
+  border-color:#cfe3f0;
+  background:linear-gradient(140deg,#fff,#f9fcff);
+  box-shadow:var(--cp-prism-shadow);
+}
+#vcPanelReview .vc-sentence-speaker{
+  border-color:#c5e1f4;
+  background:linear-gradient(115deg,#f5fbff,#eaf6ff);
+  box-shadow:inset 0 1px 0 #fff,0 4px 16px rgba(34,102,177,.07);
+}
+#vcPanelReview .vc-reading-feedback{
+  background:linear-gradient(126deg,#fff,#f5faff);
+  border-color:#d0e3f0;
+  box-shadow:0 6px 20px rgba(28,100,158,.065),inset 0 1px 0 #fff;
+}
+#vcPanelReview .vc-read-start{
+  background:linear-gradient(115deg,#178dc9,#2288db);
+  border-color:#1b83cc;
+  box-shadow:0 6px 17px rgba(33,115,199,.16),inset 0 1px 0 rgba(255,255,255,.25);
+}
+#vcPanelReview .vc-read-start.is-recording{background:#ce505d;box-shadow:0 0 0 4px rgba(251,225,229,.85)}
+#vcPanelReview .vc-review-next-passed{box-shadow:0 8px 17px rgba(31,144,150,.19),inset 0 1px 0 rgba(255,255,255,.35)}
+
+/* ───── Sound Quest: retain course artwork and interactive game colors ───── */
+body.sq-premium{
+  background:
+    radial-gradient(ellipse 60% 60% at 4% 0%,rgba(152,217,248,.23),transparent 75%),
+    radial-gradient(ellipse 55% 62% at 96% 90%,rgba(116,219,196,.14),transparent 83%),
+    linear-gradient(135deg,#f8fbff,#f0f7fb)!important;
+}
+body.sq-premium>header{
+  background:linear-gradient(128deg,rgba(255,255,255,.97),rgba(243,251,255,.96))!important;
+  border-bottom-color:#d8e8f3!important;
+  box-shadow:0 5px 17px rgba(32,86,140,.07)!important;
+}
+body.sq-premium>header>div,
+body.sq-premium #sqAppContainer{max-width:1460px!important}
+body.sq-premium #sqAppContainer{
+  padding:clamp(10px,1.6vw,26px)!important;
+}
+body.sq-premium .sq-home-btn{
+  background:linear-gradient(122deg,#fff,#eff8ff);
+  border-color:#c8dfef;
+  box-shadow:0 4px 13px rgba(30,97,157,.065),inset 0 1px 0 #fff;
+}
+body.sq-premium #sqAppContainer :is(.bg-white,.bg-stone-50){
+  box-shadow:0 9px 28px rgba(31,80,131,.075),inset 0 1px 0 rgba(255,255,255,.9);
+}
+
+/* ───── iPad and small laptops: independent responsive width and height ───── */
+@media(min-width:761px) and (max-width:1199px){
+  #copeakHomeHub{width:100%}
+  #copeakHomeHub .cp-home-header{height:clamp(65px,10dvh,87px)}
+  #copeakHomeHub .cp-home-extras{grid-template-columns:minmax(0,1.12fr) minmax(0,1fr)}
+  #copeakHomeHub .cp-action{padding:clamp(10px,1.5vw,19px)}
+  #copeakHomeHub .cp-action-icon{width:clamp(54px,7vw,84px);height:clamp(54px,7vw,84px)}
+  #copeakHomeHub .cp-action-title{font-size:clamp(17px,2.2vw,23px)}
+  .vc-landing-grid{gap:clamp(10px,1.7vw,20px);padding:clamp(13px,1.7vw,23px)}
+  .vc-landing-grid .vc-start-panel h1{font-size:clamp(25px,3vw,37px)}
+  .vc-landing-grid .vc-start-copy strong{font-size:clamp(17px,2.1vw,22px)}
+  .vc-learning-insights{padding:clamp(11px,1.5vw,18px)}
+}
+@media(min-width:761px) and (max-width:930px){
+  /* iPad portrait: split landing and result panels become comfortably stacked. */
+  .vc-landing-grid{grid-template-columns:minmax(0,1fr)}
+  .vc-landing-grid>.vc-start-panel{
+    padding:2px 0;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(225px,.83fr);
+    column-gap:16px;
+    align-items:center;
+  }
+  .vc-landing-grid .vc-landing-kicker,
+  .vc-landing-grid .vc-start-panel h1,
+  .vc-landing-grid .vc-lead{grid-column:1}
+  .vc-landing-grid .vc-start-panel h1{font-size:clamp(25px,3.4vw,34px);margin:6px 0}
+  .vc-landing-grid .vc-start-actions{grid-column:2;grid-row:1 / span 3;padding:0;align-self:center}
+  .vc-landing-grid .vc-review-gate:not([hidden]){grid-column:2;grid-row:1 / span 3;margin:0!important;align-self:center}
+  .vc-landing-grid>.vc-level-panel{padding:15px 19px}
+  .vc-level-panel .vc-level-explanation{margin-bottom:7px}
+  .vc-level-panel .vc-scale-ends{margin:5px 0 9px}
+}
+@media(max-width:930px){
+  /* Result panel can scroll if vertically stacked; keep its header and actions. */
+  body.vc-is-result #vcPanelSummary{
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:thin;
+  }
+  body.vc-is-result #vcPanelSummary .vc-result-summary-grid{
+    height:auto;
+    min-height:100%;
+    grid-template-columns:minmax(0,1fr);
+    align-content:start;
+  }
+  body.vc-is-result #vcPanelSummary .vc-result-hero{
+    min-height:0;
+    justify-content:flex-start;
+  }
+  body.vc-is-result #vcPanelSummary .vc-result-insight{min-height:0;overflow:visible}
+  body.vc-is-result #vcPanelSummary .vc-result-trend{display:block}
+  body.vc-is-result #vcPanelSummary .vc-result-insight #vcV8Guidance{max-height:none}
+  body.vc-is-result #vcPanelReview .vc-review-card{overflow-y:auto}
+}
+@media(max-width:760px){
+  #copeakHomeHub{gap:clamp(5px,1vh,9px);grid-template-rows:auto minmax(0,1fr) clamp(137px,24dvh,188px) auto}
+  #copeakHomeHub .cp-home-header{height:clamp(62px,10dvh,82px)}
+  #copeakHomeHub .cp-brand-logo{width:40px;height:40px}
+  #copeakHomeHub .cp-brand-word{font-size:clamp(26px,6.1vw,36px)}
+  #copeakHomeHub .cp-action{padding:clamp(8px,1.2vw,13px);gap:5px}
+  #copeakHomeHub .cp-action-icon{width:clamp(45px,10vw,62px);height:clamp(45px,10vw,62px)}
+  #copeakHomeHub .cp-action-title{font-size:clamp(13px,3.05vw,18px)}
+  #copeakHomeHub .cp-action-sub{font-size:clamp(10px,2.2vw,12px)}
+  #copeakHomeHub .cp-home-extras{grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);gap:7px}
+  #copeakHomeHub .cp-extra{padding:9px 10px}
+  #copeakHomeHub .cp-home-bottom{min-height:44px}
+  .cp-page{gap:8px}
+  .cp-page-head{min-height:58px;padding:4px}
+  .cp-page-scroll{padding:2px 1px 10px}
+  .vc-shell{padding:9px clamp(9px,2.2vw,16px)}
+  .vc-header{min-height:55px}
+  .vc-body{width:100%}
+  .vc-landing-grid{grid-template-columns:minmax(0,1fr);padding:clamp(12px,3vw,18px);gap:12px}
+  .vc-landing-grid>.vc-start-panel{display:block;padding:4px 0}
+  .vc-landing-grid .vc-start-panel h1{font-size:clamp(24px,5.5vw,35px);margin:8px 0}
+  .vc-landing-grid .vc-start-actions{padding-top:12px}
+  .vc-landing-grid .vc-start-button{min-height:74px}
+  .vc-landing-grid>.vc-level-panel{padding:13px 15px}
+  .vc-learning-insights{padding:12px}
+  .vc-learning-detail{grid-template-columns:1fr}
+  .vc-result-summary-grid{grid-template-columns:1fr}
+  .vc-result-hero,.vc-result-insight{border-radius:18px}
+  .vc-quiz .vc-question-card{padding:clamp(11px,2vh,20px)}
+  .vc-quiz .vc-options{gap:clamp(6px,1.3vh,11px)}
+  .vc-quiz .vc-option{padding:clamp(7px,1.3vh,12px)}
+}
+@media(max-width:480px){
+  /* Phones: show every metric and both secondary panels rather than clipping. */
+  #homeScreen.cp-dashboard-mode.active{overflow-y:auto!important;overscroll-behavior:contain}
+  #copeakHomeHub{
+    height:auto;
+    min-height:100%;
+    grid-template-rows:auto auto auto auto;
+    gap:9px;
+  }
+  #copeakHomeHub .cp-home-cards{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-template-rows:repeat(2,minmax(145px,1fr));
+    gap:8px;
+  }
+  #copeakHomeHub .cp-home-extras{grid-template-columns:minmax(0,1fr);gap:8px}
+  #copeakHomeHub .cp-extra{min-height:115px}
+  #copeakHomeHub .cp-home-bottom{min-height:47px}
+  #copeakHomeHub .cp-recent-row{padding:4px 0}
+  .vc-landing-grid .vc-start-panel h1{font-size:clamp(23px,6.2vw,29px)}
+  .vc-learning-stats{gap:6px}
+  .vc-learning-stat{padding:9px}
+  .vc-learning-stat strong{font-size:clamp(20px,5.8vw,26px)}
+  .vc-result-panel .vc-result-hero{padding:11px}
+  .vc-result-panel .vc-result-insight{padding:11px}
+  .vc-quiz .vc-option{font-size:clamp(12px,3.1vw,14px)}
+}
+@media(max-height:700px) and (min-width:481px){
+  /* Short laptop / landscape iPad: compact chrome, keep content scrollable. */
+  #homeScreen.cp-dashboard-mode.active{overflow-y:auto!important}
+  #copeakHomeHub{
+    min-height:100%;
+    height:auto;
+    grid-template-rows:minmax(64px,auto) minmax(245px,1fr) minmax(115px,auto) auto;
+    gap:7px;
+  }
+  #copeakHomeHub .cp-home-header{height:64px}
+  #copeakHomeHub .cp-action-icon{width:clamp(45px,5vw,69px);height:clamp(45px,5vw,69px)}
+  #copeakHomeHub .cp-home-extras{min-height:115px}
+  #copeakHomeHub .cp-home-bottom{min-height:44px}
+  .vc-landing-grid{padding:11px 14px}
+  .vc-landing-grid .vc-start-actions{padding-top:6px}
+  .vc-landing-grid .vc-start-button{min-height:70px}
+  .vc-landing-grid .vc-deep-button{min-height:46px}
+  .vc-landing-grid>.vc-level-panel{padding:12px}
+  .vc-learning-insights{padding:10px 13px}
+  .vc-learning-stats{margin-top:8px}
+}
+@media(max-height:600px){
+  /* No hidden sections: scrolling only when the viewport truly cannot fit. */
+  body.vc-is-quiz{overflow-y:auto}
+  body.vc-is-quiz .vc-shell{height:auto;min-height:100dvh}
+  body.vc-is-quiz .vc-body{height:auto;min-height:0}
+  body.vc-is-quiz .vc-quiz{
+    height:auto;
+    min-height:480px;
+    grid-template-rows:auto 7px auto minmax(320px,1fr) auto;
+  }
+  body.vc-is-result{overflow-y:auto}
+  body.vc-is-result .vc-shell{height:auto;min-height:100dvh;overflow:visible}
+  body.vc-is-result .vc-body{height:auto;min-height:0}
+  body.vc-is-result #vcResult{height:auto;min-height:580px;overflow:visible}
+  body.vc-is-result .vc-result-panels{min-height:400px}
+}
