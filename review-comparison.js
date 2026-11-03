@@ -14,6 +14,13 @@ function cloneReadable(source){
  });
  return holder;
 }
+function displayWord(token){
+ const t=String(token||'');
+ const number=t.match(/^__num_(.*?)__$/);
+ if(number)return number[1];
+ const alias=t.match(/^__(.*?)__$/);
+ return alias?alias[1].replace(/_/g,' '):t;
+}
 function checkMissed(){
  try{
   if(typeof getLessonTargetTokens!=='function'||typeof alignSpeechTokens!=='function'||typeof buildSpeechComparisonUnits!=='function')return [];
@@ -28,7 +35,7 @@ function checkMissed(){
   for(let i=0;i<target.length&&list.length<80;i++){
    if(same.has(i))continue;
    const word=String(target[i]);
-   if(word)list.push({index:i,word:word,words:target.slice(Math.max(0,i-4),Math.min(target.length,i+5)).map(String)});
+   if(word)list.push({index:i,token:word,word:displayWord(word),words:target.slice(Math.max(0,i-4),Math.min(target.length,i+5)).map(displayWord)});
   }
   return list;
  }catch(e){console.warn('[Copeak Review] missing word comparison failed',e);return []}
