@@ -535,11 +535,99 @@
     drawTrend($('vcTrendGraph'),history);
     const old=$('vcLast');if(old)old.hidden=true;
     renderReviewGate();
+    renderLearningInsights();
     const audit=$('vcAuditSummary');
     if(audit&&diagnosticAudit){
       audit.textContent=lang==='ja'?
         '問題データ検査：'+diagnosticAudit.candidates+'候補・'+diagnosticAudit.active+'使用可能／形式チェック通過。ただし難易度は未校正です。':
         'Item integrity passed: '+diagnosticAudit.candidates+' candidates, '+diagnosticAudit.active+' active. Difficulty is not empirically calibrated.';
+    }
+  }
+
+  function renderLearningInsights(){
+    const rootEl=$('vcLearningInsights');
+    const review=root.CopeakVocabularyReview;
+    if(!rootEl||!review)return;
+    const data=loadReviewLedger();
+    const stats=review.metrics(data);
+    setText($('vcInsightDue'),String(stats.due));
+    setText($('vcInsightScheduled'),String(stats.scheduled));
+    setText($('vcInsightPracticed'),String(stats.practiced));
+    setText($('vcInsightConfirmed'),String(stats.laterCorrect));
+    const button=$('vcInsightStartReview');
+    if(button)button.disabled=stats.due===0||!bank.length;
+    const date=stats.nextDue?new Date(stats.nextDue).toLocaleDateString(lang==='ja'?'ja-JP':'en-US',
+      {month:'short',day:'numeric'}):'';
+    setText($('vcInsightNextDue'),lang==='ja'?
+      (stats.due?stats.due+'文の復習があります。':date?'次の復習予定：'+date:'現在、復習予定はありません。'):
+      (stats.due?stats.due+' sentences due.':date?'Next planned review: '+date:'No reviews scheduled.'));
+    const target=$('vcWeaknessBars');
+    if(!target)return;
+    target.replaceChildren();
+    const levels=review.levelAnalysis(loadHistory()).filter(x=>x.questions>=3)
+      .sort((a,b)=>b.wrong/b.questions-a.wrong/a.questions||b.questions-a.questions).slice(0,3);
+    if(!levels.length){
+      const empty=document.createElement('p');
+      empty.className='vc-weakness-empty';
+      empty.textContent=lang==='ja'?'診断を受けると、苦手レベルがここに表示されます。':
+        'Take a check to see your weaker levels here.';
+      target.appendChild(empty);
+      return;
+    }
+    for(const level of levels){
+      const row=document.createElement('div');row.className='vc-weakness-row';
+      const name=document.createElement('strong');name.textContent='Lv.'+level.level;
+      const track=document.createElement('div');track.className='vc-weakness-track';
+      const fill=document.createElement('span');fill.style.width=(100*level.wrong/level.questions).toFixed(1)+'%';
+      track.appendChild(fill);
+      const number=document.createElement('small');
+      number.textContent=level.wrong+'/'+level.questions;
+      number.title=lang==='ja'?'誤答数 / 出題数':'Incorrect / Questions';
+      row.append(name,track,number);target.appendChild(row);
+    }
+  }
+  function exportLearningBackup(){
+    // Explicit user action; JSON remains on the device. No remote upload.
+    const payload={schema:'copeak-vocabulary-local-backup-v1',createdAt:new Date().toISOString(),
+      history:loadHistory(),review:loadReviewLedger()};
+    const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
+    const url=URL.createObjectURL(blob);
+    const anchor=document.createElement('a');anchor.href=url;
+    anchor.download='Copeak_Vocabulary_Backup_'+new Date().toISOString().slice(0,10)+'.json';
+    document.body.appendChild(anchor);anchor.click();anchor.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),1000);
+    setText($('vcBackupStatus'),lang==='ja'?'端末にバックアップファイルを保存しました。':'A backup file was saved on your device.');
+  }
+  async function importLearningBackup(file){
+    if(!file)return;
+    const note=$('vcBackupStatus');
+    try{
+      if(file.size>3000000)throw new Error('File too large');
+      const input=JSON.parse(await file.text());
+      if(input.schema!=='copeak-vocabulary-local-backup-v1'||!Array.isArray(input.history)||input.history.length>40)
+        throw new Error('Unknown backup format');
+      const history=input.history;
+      for(const run of history){
+        if(run.version!==1||!['copeak-chunks-prototype-2026-10','copeak-chunks-context-2026-10'].includes(run.bank)||
+          !Number.isInteger(run.level)||run.level<1||run.level>8||!Array.isArray(run.answers)||run.answers.length>70||
+          run.answers.some(a=>!/^CK[1-8]-\d{3}$/.test(a.id)||!Number.isInteger(a.level)||a.level<1||a.level>8||typeof a.correct!=='boolean')){
+          throw new Error('Invalid record');
+        }
+      }
+      if(!confirm(lang==='ja'?'端末内のVocabulary Check記録をバックアップの内容に置き換えますか？':'Replace device-only Vocabulary Check records with the backup?'))return;
+      const schedule=root.CopeakVocabularyReview;
+      const restored=schedule.reconcile(schedule.normalize(input.review,history),history);
+      // Validate both payloads before writing either key.
+      localStorage.setItem(KEY,JSON.stringify(history));
+      saveReviewLedger(restored);
+      lastResult=null;reviewSummary=null;pendingOnlyReview=false;currentSession=null;
+      show('vcIntro');displayLast();
+      setText(note,lang==='ja'?'学習記録を端末に復元しました。':'Vocabulary records restored on this device.');
+    }catch(err){
+      setText(note,lang==='ja'?'復元できませんでした。ファイル形式と保存容量を確認してください。':
+        'Import failed. Check the JSON format and device storage.');
+    }finally{
+      if($('vcBackupFile'))$('vcBackupFile').value='';
     }
   }
   function renderQuestion(){
@@ -1005,6 +1093,10 @@
     $('vcQuick').addEventListener('click',()=>begin('quick'));$('vcDeep').addEventListener('click',()=>begin('deep'));
     $('vcGatePractice').addEventListener('click',startPendingReview);
     $('vcGateSkip').addEventListener('click',skipPendingReview);
+    $('vcInsightStartReview').addEventListener('click',startPendingReview);
+    $('vcBackupExport').addEventListener('click',exportLearningBackup);
+    $('vcBackupImport').addEventListener('click',()=>$('vcBackupFile').click());
+    $('vcBackupFile').addEventListener('change',event=>importLearningBackup(event.target.files?.[0]));
     $('vcUnknown').addEventListener('click',()=>submit(null));
     for(const [name,key] of [['Summary','summary'],['Review','review']]){
       const tab=$('vcTab'+name);

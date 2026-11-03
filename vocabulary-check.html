@@ -6,11 +6,11 @@
   <meta name="theme-color" content="#ecf5ff">
   <title>Copeak | 英語の語彙力診断</title>
   <link rel="icon" href="logo.png">
-  <link rel="stylesheet" href="vocabulary-check.css?v=8.6.2">
+  <link rel="stylesheet" href="vocabulary-check.css?v=8.7.2">
   <script defer src="vocabulary-reading.js?v=8.6.0"></script>
   <script defer src="vocabulary-review.js?v=8.7.0"></script>
   <script defer src="vocabulary-quality.js?v=8.7.0"></script>
-  <script defer src="vocabulary-check.js?v=8.7.1"></script>
+  <script defer src="vocabulary-check.js?v=8.7.2"></script>
 </head>
 <body>
   <main class="vc-shell">
@@ -75,6 +75,41 @@
             <div id="vcTrendGraph" class="vc-trend-graph" role="img" aria-label="Level progression history"></div><p class="vc-history-warning" data-t="historyWarning">問題構成が違う診断回のレベルは直接比較できません。</p></details>
           </section>
         </div>
+
+        <section class="vc-learning-insights" id="vcLearningInsights" aria-labelledby="vcLearningInsightsTitle">
+          <header class="vc-learning-insights-head">
+            <div><small>MY LEARNING JOURNEY</small><h2 id="vcLearningInsightsTitle">復習と学習の進捗</h2></div>
+            <span class="vc-insight-device">この端末に保存</span>
+          </header>
+          <div class="vc-learning-stats">
+            <div class="vc-learning-stat due"><small>今日の復習</small><strong id="vcInsightDue">0</strong><span>例文</span></div>
+            <div class="vc-learning-stat upcoming"><small>復習予定</small><strong id="vcInsightScheduled">0</strong><span>例文</span></div>
+            <div class="vc-learning-stat practiced"><small>音読80%以上</small><strong id="vcInsightPracticed">0</strong><span>表現</span></div>
+            <div class="vc-learning-stat confirmed"><small>後日の再診断で正解</small><strong id="vcInsightConfirmed">0</strong><span>表現</span></div>
+          </div>
+          <div class="vc-learning-detail">
+            <div class="vc-learning-weakness">
+              <strong>最近の苦手レベル <small>（直近5回の診断）</small></strong>
+              <div id="vcWeaknessBars" class="vc-weakness-bars"></div>
+            </div>
+            <div class="vc-learning-schedule">
+              <strong>次の学習</strong>
+              <p id="vcInsightNextDue">復習予定を確認しています。</p>
+              <button type="button" id="vcInsightStartReview" class="vc-insight-start" disabled>今日の復習音読を始める <span aria-hidden="true">→</span></button>
+              <small>翌日・3日後・7日後などに再提示。音読と語彙の理解度は別々に記録します。</small>
+            </div>
+          </div>
+          <details class="vc-record-backup" id="vcRecordBackup">
+            <summary>端末内の学習記録をバックアップ・復元</summary>
+            <div class="vc-record-backup-actions">
+              <button id="vcBackupExport" type="button">記録をJSONで保存</button>
+              <button id="vcBackupImport" type="button">JSONから復元</button>
+              <input id="vcBackupFile" type="file" accept=".json,application/json" hidden>
+            </div>
+            <p id="vcBackupStatus" role="status">ファイルはこの端末で処理します。Copeakのサーバーには送信しません。</p>
+          </details>
+        </section>
+
         <details class="vc-about-details"><summary data-t="aboutAssessment">この診断について</summary>
           <p data-t="caveat">この結果は語彙学習の目安です。英検・CEFRの公式判定ではありません。履歴はブラウザ内にのみ保存されます。</p>
           <p id="vcAuditSummary" class="vc-audit-summary">出題データの形式と選択肢を検査しています。難易度の実測校正はまだ行われていません。</p>

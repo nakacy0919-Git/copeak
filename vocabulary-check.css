@@ -780,3 +780,64 @@ body.vc-is-result #vcResult{display:grid;grid-template-rows:auto auto minmax(0,1
 .vc-diagnosis-evidence small{font-size:10px;line-height:1.55;color:#71869a}
 .vc-audit-summary{font-size:11px;line-height:1.5;color:#537b95;margin:8px 0 0}
 @media(max-height:650px){.vc-diagnosis-evidence{padding:6px 11px;margin-top:6px;gap:2px}.vc-diagnosis-evidence p{font-size:11px}}
+
+/* Stage 3 — visualization from the device-only history and spaced review schedule */
+.vc-learning-insights{
+  margin:13px auto 0;padding:clamp(12px,1.5vw,21px);
+  background:linear-gradient(120deg,#f9fcff,#eef8ff 54%,#effcf9);
+  border:1px solid #d2e6f4;border-radius:22px;
+  box-shadow:0 9px 25px rgba(37,113,181,.075);
+  color:#244c72;
+}
+.vc-learning-insights-head{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.vc-learning-insights-head small{display:block;color:#5c99b7;font-size:9px;font-weight:850;letter-spacing:.15em}
+.vc-learning-insights-head h2{margin:4px 0 0;font-size:clamp(15px,1.45vw,19px);color:#154b79;line-height:1.2;font-weight:900}
+.vc-insight-device{padding:5px 11px;border-radius:999px;color:#18796c;border:1px solid #bce5db;background:#e5fbf2;font-size:10px;font-weight:850;white-space:nowrap}
+.vc-learning-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(7px,1.1vw,14px);margin-top:14px}
+.vc-learning-stat{min-width:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 5px;padding:clamp(10px,1.15vw,16px);background:#fff;border:1px solid #dbe9f5;border-radius:14px;box-shadow:0 3px 10px rgba(38,116,189,.045)}
+.vc-learning-stat small{display:block;width:100%;font-size:clamp(9px,.83vw,12px);font-weight:750;color:#7190a8}
+.vc-learning-stat strong{font:850 clamp(22px,2.7vw,34px)/1.15 system-ui,"Segoe UI",sans-serif;font-variant-numeric:tabular-nums;letter-spacing:-.06em;color:#2863a9}
+.vc-learning-stat span{font-size:10px;color:#85a0b5;font-weight:750}
+.vc-learning-stat.due strong{color:#c17c1e}
+.vc-learning-stat.upcoming strong{color:#3577c6}
+.vc-learning-stat.practiced strong{color:#139e94}
+.vc-learning-stat.confirmed strong{color:#6d65b8}
+.vc-learning-detail{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(12px,2vw,25px);margin-top:14px}
+.vc-learning-detail>div{min-width:0}
+.vc-learning-detail strong{font-size:12px;color:#285c83;font-weight:850}
+.vc-learning-detail strong small{color:#91a3b5;font-size:10px}
+.vc-weakness-bars{margin-top:8px;display:grid;gap:7px}
+.vc-weakness-row{display:grid;grid-template-columns:40px minmax(0,1fr) 45px;gap:8px;align-items:center}
+.vc-weakness-row strong{font-size:11px;color:#456884}
+.vc-weakness-row small{font-size:11px;color:#748ba0;text-align:right}
+.vc-weakness-track{height:9px;position:relative;overflow:hidden;border-radius:999px;background:#dfeaf5}
+.vc-weakness-track span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#69a9e8,#33b7d5 62%,#2ed2ae);box-shadow:0 0 8px #3ebcca77;transition:width 650ms ease-out}
+.vc-weakness-empty{font-size:11px;color:#7690a6;margin:6px 0}
+.vc-learning-schedule{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.vc-learning-schedule p{font-size:12px;color:#5a7b94;margin:0;line-height:1.45}
+.vc-learning-schedule small{font-size:10px;color:#7790a3;line-height:1.5}
+.vc-insight-start{display:flex;align-items:center;justify-content:center;gap:11px;border:0;border-radius:10px;background:linear-gradient(105deg,#107eb8,#18aaa9);padding:9px 13px;color:#fff;font-size:11px;font-weight:850;cursor:pointer;min-height:33px;box-shadow:0 4px 12px #168aa62e}
+.vc-insight-start:disabled{opacity:.5;cursor:default;box-shadow:none}
+.vc-insight-start:not(:disabled):hover{filter:brightness(1.08)}
+.vc-record-backup{margin-top:13px;padding:8px 12px;border-top:1px solid #cbdfee}
+.vc-record-backup>summary{font-size:11px;font-weight:800;color:#5b8aa6;cursor:pointer}
+.vc-record-backup-actions{display:flex;gap:8px;flex-wrap:wrap;padding:10px 0 3px}
+.vc-record-backup-actions button{padding:8px 11px;border:1px solid #bfd6e9;border-radius:8px;background:#fff;color:#376990;font-size:11px;font-weight:800;cursor:pointer}
+.vc-record-backup p{font-size:10px;line-height:1.5;color:#64829c;margin:3px 0}
+@media(max-width:700px){
+ .vc-learning-insights{padding:11px;border-radius:17px}
+ .vc-learning-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:9px}
+ .vc-learning-detail{grid-template-columns:1fr;gap:12px}
+ .vc-learning-stat{padding:10px}
+ .vc-learning-stat strong{font-size:25px}
+ .vc-learning-schedule{gap:7px}
+}
+@media(max-height:680px) and (min-width:701px){
+ .vc-learning-insights{padding:9px 13px}
+ .vc-learning-stats{margin-top:8px}
+ .vc-learning-detail{margin-top:7px}
+ .vc-learning-stat{padding:8px}
+ .vc-learning-stat strong{font-size:22px}
+ .vc-record-backup{margin-top:6px}
+}
+@media(prefers-reduced-motion:reduce){.vc-weakness-track span{transition:none!important}}
