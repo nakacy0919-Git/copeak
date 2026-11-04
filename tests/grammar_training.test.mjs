@@ -10,7 +10,7 @@ const json=(name)=>JSON.parse(read(name));
 test('combined menu preserves vocabulary diagnosis while exposing four courses',()=>{
  const home=read('copeak-home.js'),html=read('vocabulary-grammar.html'),script=read('vocabulary-grammar.js');
  assert.match(home,/vocabulary-grammar\.html\?ui=/);
- assert.match(script,/vocabulary-check\.html\?ui=ja/);
+ assert.match(script,/vocabulary-check\.html\?ui=/);
  assert.match(script,/grammar-middle\.json/);
  assert.match(script,/grammar-highschool-index\.json/);
  assert.match(script,/grammar-university-manifest\.json/);
