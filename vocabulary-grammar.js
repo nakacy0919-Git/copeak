@@ -33,7 +33,7 @@ function showHome(){
  add(root,heading('CHOOSE YOUR TRAINING','Vocabulary & Grammar Training','学習したいコースを選択してください。'));
  const grid=el('div','gt-courses');
  const a=el('a','gt-course gt-course-teal');
- a.href='vocabulary-check.html?ui=ja';
+ a.href='vocabulary-check.html?ui='+((new URLSearchParams(window.location?.search||'')).get('ui')==='en'?'en':'ja');
  add(a,el('span','gt-course-icon','🧩'),el('strong','','Vocabulary Check'),el('small','','既存の語彙診断（Quick 25 / Deep 70）をそのまま利用'),el('span','gt-course-arrow','›'));
  grid.append(a);
  add(grid,
