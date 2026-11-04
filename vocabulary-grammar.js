@@ -64,10 +64,18 @@ function smallCard(id,title,detail,onClick){
 async function loadCurriculum(name){
  course=name;view='loading';clear();add(root,el('div','gt-loading','教材を読み込んでいます…'));
  try{
-  chapterData=await loadJson(name==='middle'?'data/grammar-middle.json':'data/grammar-highschool.json');
+  chapterData=await loadJson(name==='middle'?'data/grammar-middle.json':'data/grammar-highschool-index.json');
   if(!Array.isArray(chapterData.sections))throw Error('Missing sections');
   section=null;point=null;page=0;view='sections';renderList();
  }catch(e){showError(e.message,showHome);}
+}
+async function selectSection(selected){
+ if(!selected.file){section=selected;page=0;view='points';renderList();return;}
+ view='loading';clear();root.append(el('div','gt-loading','章の例文を読み込んでいます…'));
+ try{const payload=await loadJson(selected.file);section=(payload.sections||[]).find(x=>x.id===selected.id);
+ if(!section||!Array.isArray(section.points))throw Error('Missing chapter '+selected.id);
+ page=0;view='points';renderList();
+ }catch(e){showError(e.message,()=>{view='sections';renderList();});}
 }
 async function loadUniversity(){
  course='university';view='loading';clear();add(root,el('div','gt-loading','大学入試問題を読み込んでいます…'));
@@ -81,7 +89,7 @@ function renderList(){
  if(view==='sections'){
   const all=chapterData.sections;
   root.append(heading('GRAMMAR READING',course==='middle'?'中学英文法':'高校英文法','単元を選んで、例文を5段階で音読します。',showHome));
-  listPager(all,x=>smallCard(x.id,x.title,x.subtitle||String((x.points||[]).length)+'ポイント',()=>{section=x;page=0;view='points';renderList();}));
+  listPager(all,x=>smallCard(x.id,x.title,x.subtitle||String((x.points||[]).length)+'ポイント',()=>selectSection(x)));
  }else if(view==='points'){
   root.append(heading(section.id,section.title,'例文を選ぶと音読練習が始まります。',()=>{view='sections';page=0;renderList();}));
   listPager(section.points||[],x=>smallCard(x.id,x.title,String((x.examples||[]).length)+'例文',()=>{point=x;beginReading(x.examples||[],'course');}));
