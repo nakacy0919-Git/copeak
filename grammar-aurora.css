@@ -1,0 +1,21 @@
+/* Copeak Prism Aurora: a visual-only Accuracy enhancement for grammar practice.
+   It never changes the score, stage thresholds, speech recognition or local progress. */
+.gt-score-panel{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse 96% 70% at 50% -20%,rgba(72,192,219,.15),transparent 78%),linear-gradient(142deg,#fcfeff,#eff8ff);border-color:rgba(112,170,209,.34);box-shadow:inset 0 1px 0 rgba(255,255,255,.97),0 9px 28px rgba(26,103,166,.09)}
+.gt-score-panel .gt-result-label{position:relative;z-index:2;color:#3c739b}
+.gt-score-panel .gt-meter{z-index:2;filter:drop-shadow(0 7px 11px rgba(16,122,180,.12))}
+.gt-score-panel .gt-meter-base{stroke:#daebf6;stroke-width:16}
+.gt-score-panel .gt-meter-fill,.gt-score-panel .gt-meter-halo{fill:none;stroke-linecap:round;stroke-dasharray:0 100;stroke-width:16;transition:none}
+.gt-score-panel .gt-meter-fill{stroke:url(#gtArcGradient);filter:drop-shadow(0 1px 2px rgba(46,179,198,.35))}
+.gt-score-panel .gt-meter-fill.is-pass{stroke:url(#gtArcPassGradient)}
+.gt-score-panel .gt-meter-halo{stroke:url(#gtArcGradient);stroke-width:22;opacity:.37;filter:blur(7px)}
+.gt-score-panel.is-achieved .gt-meter-number{color:#108893;text-shadow:0 0 12px rgba(49,215,186,.26)}
+.gt-score-panel.is-blooming .gt-meter{animation:gt-aurora-bloom 1800ms ease-out both}
+.gt-score-panel.is-blooming .gt-meter-fill{filter:drop-shadow(0 0 8px rgba(73,229,201,.7))}
+.gt-score-panel.is-blooming::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 85% 75% at 50% 42%,rgba(91,234,204,.24),transparent 75%);animation:gt-aurora-light 1800ms ease-out both}
+.gt-score-panel .gt-celebration{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:3}
+.gt-score-panel .gt-confetti-piece{position:absolute;top:22%;width:5px;height:8px;border-radius:2px;background:var(--gt-particle-color);opacity:0;box-shadow:0 0 7px var(--gt-particle-color);animation:gt-aurora-confetti 2000ms var(--gt-delay) cubic-bezier(.18,.78,.24,1) both}
+.gt-score-panel .gt-confetti-piece:nth-child(3n){height:4px;width:4px;border-radius:50%}
+@keyframes gt-aurora-bloom{0%{transform:scale(.96)}35%{transform:scale(1.04)}100%{transform:scale(1)}}
+@keyframes gt-aurora-light{0%,100%{opacity:0}32%{opacity:1}}
+@keyframes gt-aurora-confetti{0%{opacity:0;transform:translate3d(0,-9px,0) rotate(0deg) scale(.6)}14%,77%{opacity:1}100%{opacity:0;transform:translate3d(var(--gt-drift),155px,0) rotate(var(--gt-spin)) scale(1)}}
+@media(prefers-reduced-motion:reduce){.gt-score-panel .gt-meter,.gt-score-panel .gt-meter-fill,.gt-score-panel .gt-confetti-piece,.gt-score-panel::before{animation:none!important;transition:none!important}}

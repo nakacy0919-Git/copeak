@@ -56,13 +56,13 @@
       card.append(copy, link);
       extras.appendChild(card);
     }
-    card.querySelector('h3').textContent = ja ? '🧩 チャンク語彙力診断' : '🧩 Chunk Vocabulary Check';
+    card.querySelector('h3').textContent = ja ? '📊 語彙診断の記録' : '📊 Vocabulary Check History';
     card.querySelector('p').textContent = result ?
       ((ja ? '前回の暫定レベル：' : 'Last provisional level: ') + 'Lv.' + result.level + '/8') :
-      (ja ? '例文で英語表現を確認 · 5,000件の候補バンク' : 'Learn English in context · 5,000 candidate items');
+      (ja ? '25問または70問の診断でレベルを確認' : 'Check your level with 25 or 70 questions');
     const link = card.querySelector('a');
     link.href = 'vocabulary-check.html?ui=' + (ja ? 'ja' : 'en');
-    link.textContent = ja ? '診断を始める' : 'Start check';
+    link.textContent = ja ? (result ? '診断結果を見る' : '診断を始める') : (result ? 'View results' : 'Start check');
     link.setAttribute('aria-label', ja ? 'チャンク語彙診断を開く' : 'Open vocabulary check');
     return true;
   }
