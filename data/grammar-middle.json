@@ -1,0 +1,426 @@
+{
+  "schema_version": "1.0",
+  "total_examples": 57,
+  "sections": [
+    {
+      "id": "JH1",
+      "title": "中学1年生",
+      "subtitle": "9単元",
+      "points": [
+        {
+          "id": "JH1-01",
+          "title": "英語の語順",
+          "examples": [
+            {
+              "id": "JH1-01-01",
+              "en": "I play soccer after school.",
+              "ja": "私は放課後にサッカーをします。"
+            },
+            {
+              "id": "JH1-01-02",
+              "en": "My sister has a small dog.",
+              "ja": "妹は小さな犬を飼っています。"
+            },
+            {
+              "id": "JH1-01-03",
+              "en": "We study English together.",
+              "ja": "私たちは一緒に英語を勉強します。"
+            }
+          ]
+        },
+        {
+          "id": "JH1-02",
+          "title": "be動詞と一般動詞",
+          "examples": [
+            {
+              "id": "JH1-02-01",
+              "en": "I am a student.",
+              "ja": "私は生徒です。"
+            },
+            {
+              "id": "JH1-02-02",
+              "en": "He is very kind.",
+              "ja": "彼はとても親切です。"
+            },
+            {
+              "id": "JH1-02-03",
+              "en": "They like music.",
+              "ja": "彼らは音楽が好きです。"
+            }
+          ]
+        },
+        {
+          "id": "JH1-03",
+          "title": "疑問文と疑問詞",
+          "examples": [
+            {
+              "id": "JH1-03-01",
+              "en": "What do you do on Sundays?",
+              "ja": "日曜日には何をしますか。"
+            },
+            {
+              "id": "JH1-03-02",
+              "en": "Where is your school?",
+              "ja": "あなたの学校はどこですか。"
+            },
+            {
+              "id": "JH1-03-03",
+              "en": "How old is your brother?",
+              "ja": "あなたの弟は何歳ですか。"
+            }
+          ]
+        },
+        {
+          "id": "JH1-04",
+          "title": "名詞と冠詞",
+          "examples": [
+            {
+              "id": "JH1-04-01",
+              "en": "This is an interesting book.",
+              "ja": "これは面白い本です。"
+            },
+            {
+              "id": "JH1-04-02",
+              "en": "There are three apples on the table.",
+              "ja": "テーブルの上にリンゴが3つあります。"
+            },
+            {
+              "id": "JH1-04-03",
+              "en": "I bought a new notebook.",
+              "ja": "私は新しいノートを買いました。"
+            }
+          ]
+        },
+        {
+          "id": "JH1-05",
+          "title": "三人称単数現在形",
+          "examples": [
+            {
+              "id": "JH1-05-01",
+              "en": "My father works at a hospital.",
+              "ja": "父は病院で働いています。"
+            },
+            {
+              "id": "JH1-05-02",
+              "en": "She does not eat meat.",
+              "ja": "彼女は肉を食べません。"
+            },
+            {
+              "id": "JH1-05-03",
+              "en": "Does your friend speak English?",
+              "ja": "あなたの友達は英語を話しますか。"
+            }
+          ]
+        },
+        {
+          "id": "JH1-06",
+          "title": "代名詞",
+          "examples": [
+            {
+              "id": "JH1-06-01",
+              "en": "Please give me your pen.",
+              "ja": "あなたのペンを私に貸してください。"
+            },
+            {
+              "id": "JH1-06-02",
+              "en": "Those bags are ours.",
+              "ja": "あれらのバッグは私たちのものです。"
+            },
+            {
+              "id": "JH1-06-03",
+              "en": "I often talk with her.",
+              "ja": "私はよく彼女と話します。"
+            }
+          ]
+        },
+        {
+          "id": "JH1-07",
+          "title": "現在進行形",
+          "examples": [
+            {
+              "id": "JH1-07-01",
+              "en": "My brother is playing the piano.",
+              "ja": "弟はピアノを弾いているところです。"
+            },
+            {
+              "id": "JH1-07-02",
+              "en": "We are waiting for the bus.",
+              "ja": "私たちはバスを待っています。"
+            },
+            {
+              "id": "JH1-07-03",
+              "en": "Are they studying now?",
+              "ja": "彼らは今勉強していますか。"
+            }
+          ]
+        },
+        {
+          "id": "JH1-08",
+          "title": "一般動詞の過去形",
+          "examples": [
+            {
+              "id": "JH1-08-01",
+              "en": "I visited my grandparents yesterday.",
+              "ja": "私は昨日祖父母を訪ねました。"
+            },
+            {
+              "id": "JH1-08-02",
+              "en": "She went to Kyoto last month.",
+              "ja": "彼女は先月京都に行きました。"
+            },
+            {
+              "id": "JH1-08-03",
+              "en": "Did you watch the game?",
+              "ja": "あなたはその試合を見ましたか。"
+            }
+          ]
+        },
+        {
+          "id": "JH1-09",
+          "title": "be動詞の過去・過去進行形",
+          "examples": [
+            {
+              "id": "JH1-09-01",
+              "en": "I was tired after practice.",
+              "ja": "私は練習後に疲れていました。"
+            },
+            {
+              "id": "JH1-09-02",
+              "en": "They were at the library.",
+              "ja": "彼らは図書館にいました。"
+            },
+            {
+              "id": "JH1-09-03",
+              "en": "We were having lunch at noon.",
+              "ja": "私たちは正午に昼食を食べていました。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "JH2",
+      "title": "中学2年生",
+      "subtitle": "6単元",
+      "points": [
+        {
+          "id": "JH2-01",
+          "title": "五文型",
+          "examples": [
+            {
+              "id": "JH2-01-01",
+              "en": "My mother gave me a book.",
+              "ja": "母は私に本をくれました。"
+            },
+            {
+              "id": "JH2-01-02",
+              "en": "The news made us happy.",
+              "ja": "その知らせは私たちを幸せにしました。"
+            },
+            {
+              "id": "JH2-01-03",
+              "en": "The flowers smell sweet.",
+              "ja": "その花は甘い香りがします。"
+            }
+          ]
+        },
+        {
+          "id": "JH2-02",
+          "title": "接続詞",
+          "examples": [
+            {
+              "id": "JH2-02-01",
+              "en": "I stayed home because it was raining.",
+              "ja": "雨が降っていたので家にいました。"
+            },
+            {
+              "id": "JH2-02-02",
+              "en": "If it is sunny, we will play outside.",
+              "ja": "晴れたら外で遊びます。"
+            },
+            {
+              "id": "JH2-02-03",
+              "en": "When I got home, my sister was cooking.",
+              "ja": "家に帰ると妹が料理をしていました。"
+            }
+          ]
+        },
+        {
+          "id": "JH2-03",
+          "title": "不定詞",
+          "examples": [
+            {
+              "id": "JH2-03-01",
+              "en": "I want to visit Canada.",
+              "ja": "私はカナダを訪れたいです。"
+            },
+            {
+              "id": "JH2-03-02",
+              "en": "She has a lot of homework to finish.",
+              "ja": "彼女には終わらせる宿題がたくさんあります。"
+            },
+            {
+              "id": "JH2-03-03",
+              "en": "He got up early to catch the train.",
+              "ja": "彼は電車に乗るため早起きしました。"
+            }
+          ]
+        },
+        {
+          "id": "JH2-04",
+          "title": "助動詞",
+          "examples": [
+            {
+              "id": "JH2-04-01",
+              "en": "You must wear a helmet.",
+              "ja": "あなたはヘルメットをかぶらなければなりません。"
+            },
+            {
+              "id": "JH2-04-02",
+              "en": "We should help each other.",
+              "ja": "私たちは互いに助け合うべきです。"
+            },
+            {
+              "id": "JH2-04-03",
+              "en": "Can I open the window?",
+              "ja": "窓を開けてもいいですか。"
+            }
+          ]
+        },
+        {
+          "id": "JH2-05",
+          "title": "比較",
+          "examples": [
+            {
+              "id": "JH2-05-01",
+              "en": "This book is more interesting than that one.",
+              "ja": "この本はあの本より面白いです。"
+            },
+            {
+              "id": "JH2-05-02",
+              "en": "She runs as fast as her brother.",
+              "ja": "彼女は兄と同じくらい速く走ります。"
+            },
+            {
+              "id": "JH2-05-03",
+              "en": "This is the highest mountain in Japan.",
+              "ja": "これは日本で一番高い山です。"
+            }
+          ]
+        },
+        {
+          "id": "JH2-06",
+          "title": "受動態",
+          "examples": [
+            {
+              "id": "JH2-06-01",
+              "en": "This bridge was built fifty years ago.",
+              "ja": "この橋は50年前に建てられました。"
+            },
+            {
+              "id": "JH2-06-02",
+              "en": "English is spoken in many countries.",
+              "ja": "英語は多くの国で話されています。"
+            },
+            {
+              "id": "JH2-06-03",
+              "en": "The room is cleaned every morning.",
+              "ja": "その部屋は毎朝掃除されます。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "JH3",
+      "title": "中学3年生",
+      "subtitle": "4単元",
+      "points": [
+        {
+          "id": "JH3-01",
+          "title": "現在完了・現在完了進行",
+          "examples": [
+            {
+              "id": "JH3-01-01",
+              "en": "I have lived here for five years.",
+              "ja": "私はここに5年間住んでいます。"
+            },
+            {
+              "id": "JH3-01-02",
+              "en": "She has just finished her homework.",
+              "ja": "彼女はちょうど宿題を終えたところです。"
+            },
+            {
+              "id": "JH3-01-03",
+              "en": "They have been studying since morning.",
+              "ja": "彼らは朝からずっと勉強しています。"
+            }
+          ]
+        },
+        {
+          "id": "JH3-02",
+          "title": "不定詞の発展",
+          "examples": [
+            {
+              "id": "JH3-02-01",
+              "en": "It is important to listen carefully.",
+              "ja": "注意深く聞くことが大切です。"
+            },
+            {
+              "id": "JH3-02-02",
+              "en": "I want you to join our team.",
+              "ja": "私はあなたに私たちのチームに参加してほしいです。"
+            },
+            {
+              "id": "JH3-02-03",
+              "en": "She knows how to use this app.",
+              "ja": "彼女はこのアプリの使い方を知っています。"
+            }
+          ]
+        },
+        {
+          "id": "JH3-03",
+          "title": "後置修飾・関係代名詞",
+          "examples": [
+            {
+              "id": "JH3-03-01",
+              "en": "The boy playing tennis is my cousin.",
+              "ja": "テニスをしている少年は私のいとこです。"
+            },
+            {
+              "id": "JH3-03-02",
+              "en": "This is a picture taken by my father.",
+              "ja": "これは父が撮った写真です。"
+            },
+            {
+              "id": "JH3-03-03",
+              "en": "I met a teacher who speaks three languages.",
+              "ja": "私は3か国語を話す先生に会いました。"
+            }
+          ]
+        },
+        {
+          "id": "JH3-04",
+          "title": "仮定法",
+          "examples": [
+            {
+              "id": "JH3-04-01",
+              "en": "If I were you, I would ask for help.",
+              "ja": "もし私があなたなら助けを求めるでしょう。"
+            },
+            {
+              "id": "JH3-04-02",
+              "en": "I wish I could speak French.",
+              "ja": "フランス語を話せたらいいのにと思います。"
+            },
+            {
+              "id": "JH3-04-03",
+              "en": "If I had more time, I would read more books.",
+              "ja": "もっと時間があれば、もっと本を読むでしょう。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
