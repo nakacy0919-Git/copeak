@@ -32,7 +32,7 @@
         metrics.appendChild(cell);
       }
       const a = cell.querySelector('a');
-      a.href = 'vocabulary-check.html?ui=' + (ja ? 'ja' : 'en');
+      a.href = 'grammar-training.html?ui=' + (ja ? 'ja' : 'en');
       a.setAttribute('aria-label', ja ? 'チャンク語彙診断を開く' : 'Open vocabulary check');
       cell.querySelector('#cpVocabularyLabel').textContent = ja ? 'CHUNK 語彙力' : 'CHUNK VOCABULARY';
       cell.querySelector('#cpVocabularyLevel').textContent = result ? 'Lv.' + result.level + ' / 8' : (ja ? '未診断' : 'Not checked');
@@ -56,13 +56,13 @@
       card.append(copy, link);
       extras.appendChild(card);
     }
-    card.querySelector('h3').textContent = ja ? '🧩 チャンク語彙力診断' : '🧩 Chunk Vocabulary Check';
+    card.querySelector('h3').textContent = ja ? '📘 語彙・文法トレーニング' : '📘 Vocabulary & Grammar Training';
     card.querySelector('p').textContent = result ?
       ((ja ? '前回の暫定レベル：' : 'Last provisional level: ') + 'Lv.' + result.level + '/8') :
       (ja ? '例文で英語表現を確認 · 5,000件の候補バンク' : 'Learn English in context · 5,000 candidate items');
     const link = card.querySelector('a');
-    link.href = 'vocabulary-check.html?ui=' + (ja ? 'ja' : 'en');
-    link.textContent = ja ? '診断を始める' : 'Start check';
+    link.href = 'grammar-training.html?ui=' + (ja ? 'ja' : 'en');
+    link.textContent = ja ? '学習メニューを開く' : 'Open training';
     link.setAttribute('aria-label', ja ? 'チャンク語彙診断を開く' : 'Open vocabulary check');
     return true;
   }
