@@ -1,0 +1,60 @@
+/* Copeak Grammar Navigation 2026-11-05 — premium card-first interaction.
+   Font fallback uses existing OS fonts; no external font dependency. */
+:root{--gt-ud:"BIZ UDPGothic","BIZ UDゴシック","UD デジタル 教科書体 NP-R","Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif;}
+body,.gt-wrap,.gt-sidebar,.gt-mode-card,.gt-content,.gt-choice,button,select{font-family:var(--gt-ud)}
+[hidden]{display:none!important}
+.gt-wrap{max-width:1500px;margin-inline:auto}
+.gt-landing{padding:clamp(15px,2.2vw,30px) 0}
+.gt-landing .gt-eyebrow{font-size:.76rem;color:#5688af;letter-spacing:.16em}
+.gt-landing h1{font-size:clamp(2rem,4.1vw,3.7rem);font-weight:900;line-height:1.17;letter-spacing:-.055em;margin:10px 0 clamp(20px,3vw,34px);color:#173955}
+.gt-cards{gap:clamp(10px,1.45vw,20px)}
+.gt-mode-card{min-height:222px;border-radius:23px;gap:8px;justify-content:flex-start;padding:clamp(16px,2vw,28px);background:radial-gradient(circle at 90% 0%,rgba(255,255,255,.96),transparent 45%),linear-gradient(135deg,#f9fdff,#eaf6ff);box-shadow:0 18px 38px rgba(25,92,149,.09),inset 0 1px 0 #fff}
+.gt-mode-card.gt-junior{background:radial-gradient(circle at 100% 0%,#fff,transparent 55%),linear-gradient(135deg,#f4fcff,#e1f5f6)}
+.gt-mode-card.gt-senior{background:radial-gradient(circle at 100% 0%,#fff,transparent 55%),linear-gradient(135deg,#f6faff,#e7eeff)}
+.gt-mode-card.gt-entrance{background:radial-gradient(circle at 100% 0%,#fff,transparent 55%),linear-gradient(135deg,#fbfaff,#efeaff)}
+.gt-mode-card .gt-card-icon{width:54px;height:54px;border-radius:17px;margin-bottom:5px;font-family:var(--gt-ud);font-size:1.65rem;font-weight:900;box-shadow:inset 0 1px 0 #fff,0 7px 16px rgba(46,122,170,.13)}
+.gt-mode-card strong{font-family:var(--gt-ud);font-size:clamp(1.16rem,1.55vw,1.48rem);font-weight:900;line-height:1.4;margin:4px 0;letter-spacing:-.03em}
+.gt-mode-card .gt-card-copy{font-size:.83rem;line-height:1.45;flex:0 1 auto}
+.gt-mode-card .gt-card-arrow{margin-top:auto}
+.gt-workspace-title{margin:3px 0 17px;gap:12px}
+.gt-workspace-title h1{font-family:var(--gt-ud);font-weight:900}
+.gt-layout{display:flex;flex-direction:column;gap:13px}
+.gt-picker{display:block;position:static;top:auto;max-height:none;min-height:0;width:100%;overflow:visible;padding:clamp(14px,2.1vw,27px);background:linear-gradient(135deg,rgba(255,255,255,.98),rgba(246,251,255,.96));border:1px solid rgba(134,185,221,.4);border-radius:24px;box-shadow:0 16px 36px rgba(38,98,149,.095),inset 0 1px 0 #fff}
+.gt-picker-heading{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.gt-picker-heading h2{font-size:clamp(1.1rem,2.1vw,1.55rem);font-weight:900;letter-spacing:-.035em;line-height:1.3;color:#204466;margin:0}
+.gt-picker-step{display:grid;place-items:center;width:37px;height:37px;flex:none;border-radius:12px;background:linear-gradient(140deg,#2086bc,#3a6ac3);color:#fff;font-size:.92rem;font-weight:900;box-shadow:0 5px 14px rgba(44,119,185,.18)}
+.gt-category-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,205px),1fr));gap:clamp(9px,1.15vw,15px)}
+.gt-category-card{--gt-card-a:#f6fbff;--gt-card-b:#ebf4ff;position:relative;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;min-width:0;min-height:111px;gap:10px;padding:17px 19px;border-radius:19px;border:1px solid #d4e6f4;background:radial-gradient(circle at 98% 0%,rgba(255,255,255,.95),transparent 62%),linear-gradient(137deg,var(--gt-card-a),var(--gt-card-b));box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 6px 17px rgba(33,99,161,.075);color:#1c4668;text-align:left;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.gt-category-card:nth-child(4n+2){--gt-card-a:#f7fdff;--gt-card-b:#e7f9f7}
+.gt-category-card:nth-child(4n+3){--gt-card-a:#fbfaff;--gt-card-b:#eeeefe}
+.gt-category-card:nth-child(4n+4){--gt-card-a:#fcfdff;--gt-card-b:#f1f4fc}
+.gt-category-card .gt-card-code{font-size:.76rem;font-weight:900;letter-spacing:.1em;color:#668eab}
+.gt-category-card .gt-card-name{font-family:var(--gt-ud);font-size:clamp(1.12rem,1.45vw,1.43rem);line-height:1.45;font-weight:900;letter-spacing:-.035em;overflow-wrap:anywhere}
+.gt-category-card .gt-card-meta{font-size:.73rem;font-weight:750;color:#6884a2}
+.gt-category-card:hover{transform:translateY(-2px);border-color:#85bbe2;box-shadow:0 13px 26px rgba(28,99,157,.15),inset 0 1px 0 #fff}
+.gt-category-card.is-selected{background:radial-gradient(circle at 98% 0%,rgba(255,255,255,.15),transparent 65%),linear-gradient(135deg,#176d9d,#356ec0 62%,#6665bc);border-color:#3b82c0;color:#fff;box-shadow:0 12px 28px rgba(38,100,174,.23),inset 0 1px 0 rgba(255,255,255,.25)}
+.gt-category-card.is-selected .gt-card-code,.gt-category-card.is-selected .gt-card-meta{color:#e3f5ff}
+.gt-category-card:focus-visible,.gt-unit-item:focus-visible,.gt-back-topics:focus-visible{outline:3px solid #2288d0;outline-offset:3px}
+.gt-units-panel{margin-top:22px;padding-top:20px;border-top:1px solid #d8e6f3}
+.gt-units-panel .gt-picker-heading{flex-wrap:wrap}
+.gt-units-panel .gt-picker-step{background:linear-gradient(135deg,#158fa0,#35b8a9)}
+.gt-units-panel .gt-unit-meta{margin-left:auto;font-size:.78rem;font-weight:750;line-height:1.3;color:#6b8196}
+.gt-unit-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:clamp(9px,1.15vw,14px);max-height:none;overflow:visible}
+.gt-unit-item{position:relative;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:8px;min-height:105px;width:100%;border-radius:18px;border:1px solid rgba(147,184,216,.42);padding:16px 19px;background:radial-gradient(circle at 100% 0%,rgba(255,255,255,.97),transparent 65%),linear-gradient(138deg,#f7fbff,#eef5ff);box-shadow:0 7px 18px rgba(30,94,149,.08),inset 0 1px 0 #fff;color:#244e73;text-align:left;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.gt-unit-item:nth-child(3n+2){background:radial-gradient(circle at 100% 0%,rgba(255,255,255,.97),transparent 65%),linear-gradient(138deg,#f8feff,#ecf9f6)}
+.gt-unit-item:nth-child(3n+3){background:radial-gradient(circle at 100% 0%,rgba(255,255,255,.97),transparent 65%),linear-gradient(138deg,#fbfaff,#f0effb)}
+.gt-unit-item .gt-unit-id{font-size:.73rem;font-weight:850;color:#678cac;letter-spacing:.05em;line-height:1.2}
+.gt-unit-item .gt-unit-name{font-family:var(--gt-ud);font-size:clamp(1.04rem,1.4vw,1.35rem);line-height:1.5;font-weight:900;color:#204767;overflow-wrap:anywhere}
+.gt-unit-item .gt-unit-count{font-size:.73rem;color:#6c90a6;line-height:1.2;font-weight:750}
+.gt-unit-item:hover{transform:translateY(-2px);border-color:#69b2c6;box-shadow:0 13px 23px rgba(27,105,147,.16)}
+.gt-unit-item.is-selected{border-color:#438ba7;background:linear-gradient(135deg,#e7f9ff,#dff4f1);box-shadow:0 0 0 2px rgba(62,157,187,.15),0 9px 20px rgba(31,124,155,.14)}
+.gt-study-bar{display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:11px 14px;border-radius:16px;background:linear-gradient(110deg,#edf8ff,#e9f6f6);border:1px solid #d1e4ef}
+.gt-back-topics{border:1px solid #c8dce9;border-radius:11px;padding:10px 14px;background:#fff;color:#246d9e;font-size:.92rem;font-weight:850;cursor:pointer}
+.gt-study-path{display:flex;flex-direction:column;gap:3px;min-width:0}
+.gt-study-path span{font-size:.76rem;color:#5782a0;font-weight:750}
+.gt-study-path strong{font-family:var(--gt-ud);font-size:1.02rem;color:#214d6a;line-height:1.35}
+.gt-layout #gtContent{width:100%;min-height:0}
+.gt-legacy-controls{display:none!important}
+@media(max-width:960px){.gt-category-cards{grid-template-columns:repeat(3,minmax(0,1fr))}.gt-unit-list{grid-template-columns:repeat(2,minmax(0,1fr))}.gt-mode-card{min-height:205px}}
+@media(max-width:620px){.gt-category-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.gt-category-card{padding:13px;min-height:106px}.gt-category-card .gt-card-name{font-size:1.08rem}.gt-unit-list{grid-template-columns:repeat(1,minmax(0,1fr))}.gt-unit-item{min-height:89px;padding:14px 16px}.gt-workspace-title h1{font-size:1.25rem}.gt-mode-card{min-height:170px}.gt-landing h1{font-size:1.85rem}.gt-study-path strong{font-size:.94rem}}
+@media(prefers-reduced-motion:reduce){.gt-category-card,.gt-unit-item,.gt-mode-card{transition:none;transform:none!important}}
