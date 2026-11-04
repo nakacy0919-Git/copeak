@@ -1,0 +1,87 @@
+/* Copeak Vocabulary & Grammar Training — compact, paginated Gothic UI.
+   Loaded after grammar-navigation.css; the scoring and data layers are unchanged. */
+:root{--gt-ud:"Inter","Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif}
+body,.gt-wrap,.gt-sidebar,.gt-mode-card,.gt-content,button,select{font-family:var(--gt-ud)}
+[hidden]{display:none!important}
+.gt-header{min-height:55px}
+.gt-wrap{padding:clamp(8px,1.2vw,16px)}
+.gt-landing{padding:clamp(7px,1vw,14px) 0;margin:0 auto}
+.gt-landing h1{font-family:var(--gt-ud);font-weight:900;font-size:clamp(1.65rem,3.4vw,2.65rem);margin:7px 0 19px;text-align:center;letter-spacing:-.045em}
+.gt-landing .gt-eyebrow{text-align:center;display:block;letter-spacing:.12em;font-size:.72rem;font-weight:800}
+.gt-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(9px,1.4vw,17px);max-width:855px;margin:0 auto}
+.gt-mode-card{min-height:clamp(172px,calc((100dvh - 290px)/2),245px);max-height:255px;gap:6px;padding:clamp(13px,1.6vw,23px);border-radius:22px;justify-content:flex-start}
+.gt-mode-card strong{font-family:var(--gt-ud);font-weight:900;font-size:clamp(1.03rem,1.8vw,1.38rem);line-height:1.4;letter-spacing:-.035em}
+.gt-mode-card .gt-card-icon{width:clamp(38px,5vh,50px);height:clamp(38px,5vh,50px);font-family:Inter,system-ui,sans-serif;font-size:1.4rem;margin-bottom:1px}
+.gt-mode-card .gt-card-type{font-family:Inter,system-ui,sans-serif;font-weight:900;font-size:.64rem}
+.gt-mode-card .gt-card-copy{font-size:clamp(.74rem,.93vw,.87rem);font-weight:600;line-height:1.4}
+.gt-mode-card .gt-card-arrow{font-weight:800;font-size:.78rem;margin-top:auto}
+.gt-landing .gt-footer-note{max-width:900px;margin:13px auto 0;font-size:.71rem;text-align:center;line-height:1.5}
+.gt-workspace-title{margin:2px 0 12px}
+.gt-workspace-title h1{font-family:var(--gt-ud);font-weight:900;letter-spacing:-.04em;font-size:clamp(1.25rem,2.3vw,1.9rem)}
+.gt-picker{padding:clamp(11px,1.35vw,18px);border-radius:22px;overflow:visible}
+.gt-picker-heading{margin-bottom:10px;gap:10px}
+.gt-picker-heading h2{font-family:var(--gt-ud);font-size:clamp(1.05rem,1.8vw,1.35rem);font-weight:900;letter-spacing:-.045em}
+.gt-picker-step{width:31px;height:31px;flex:none;font-size:.8rem;border-radius:10px}
+.gt-categories-panel,.gt-units-panel{width:100%;margin:0;padding:0;border:0}
+.gt-picker .gt-category-cards,.gt-picker .gt-unit-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));align-content:stretch;width:100%;max-width:880px;height:clamp(260px,calc(100dvh - 288px),545px);max-height:none;overflow:visible;margin:0 auto;gap:clamp(8px,1.4vh,15px)}
+.gt-picker .gt-category-card,.gt-picker .gt-unit-item{min-height:0;max-height:none;min-width:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:clamp(4px,1vh,10px);padding:clamp(12px,1.6vw,24px);border-radius:clamp(14px,1.8vw,22px);text-align:left;box-shadow:0 8px 24px rgba(22,87,145,.10),inset 0 1px 0 rgba(255,255,255,.97)}
+.gt-picker .gt-category-card .gt-card-name,.gt-picker .gt-unit-item .gt-unit-name{font-family:var(--gt-ud);font-weight:900;letter-spacing:-.045em;line-height:1.45;overflow-wrap:anywhere;word-break:normal}
+.gt-picker .gt-category-card .gt-card-name{font-size:clamp(1.18rem,1.9vw,1.58rem)}
+.gt-picker .gt-unit-item .gt-unit-name{font-size:clamp(1.07rem,1.65vw,1.42rem)}
+.gt-picker .gt-category-card .gt-card-code,.gt-picker .gt-unit-item .gt-unit-id{font-family:Inter,system-ui,sans-serif;font-weight:900;letter-spacing:.06em;font-size:.75rem}
+.gt-picker .gt-category-card .gt-card-meta,.gt-picker .gt-unit-item .gt-unit-count{font-weight:750;font-size:clamp(.73rem,.85vw,.82rem)}
+.gt-picker .gt-category-card:hover,.gt-picker .gt-unit-item:hover{box-shadow:0 13px 29px rgba(26,99,159,.17),inset 0 1px 0 #fff}
+.gt-picker .gt-unit-item{border-color:rgba(120,173,218,.48)}
+.gt-card-pager{display:flex;align-items:center;justify-content:center;gap:clamp(16px,3vw,33px);min-height:49px;margin:9px auto 0;font-family:Inter,system-ui,sans-serif}
+.gt-card-pager button{display:grid;place-items:center;flex:none;width:43px;height:43px;border:1px solid #afcfe9;border-radius:14px;background:linear-gradient(135deg,#fff,#eaf6ff);font-family:Inter,system-ui,sans-serif;font-size:1.8rem;font-weight:800;line-height:1;color:#2b74ab;box-shadow:0 6px 15px rgba(27,105,166,.08);transition:transform .18s,box-shadow .18s}
+.gt-card-pager button:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 9px 20px rgba(37,103,167,.16)}
+.gt-card-pager button:disabled{opacity:.32;box-shadow:none;cursor:default}
+.gt-card-pager span{font-size:.84rem;font-weight:800;color:#4d7195;min-width:55px;text-align:center}
+.gt-card-pager button:focus-visible{outline:3px solid #2288d0;outline-offset:3px}
+.gt-units-panel .gt-picker-heading .gt-unit-meta{margin-left:auto;font-weight:750;font-size:.75rem}
+.gt-units-panel .gt-back-categories{background:linear-gradient(135deg,#fff,#ecf7ff);font-weight:800}
+@media(max-width:760px){
+.gt-landing h1{font-size:clamp(1.45rem,4vw,2.05rem)}
+.gt-workspace-title{margin-bottom:7px;gap:8px}
+.gt-picker .gt-category-cards,.gt-picker .gt-unit-list{height:clamp(252px,calc(100dvh - 268px),570px);gap:9px}
+.gt-picker .gt-category-card .gt-card-name{font-size:clamp(1.07rem,2.25vw,1.3rem)}
+.gt-picker .gt-unit-item .gt-unit-name{font-size:clamp(1rem,2vw,1.2rem)}
+.gt-mode-card{min-height:clamp(165px,calc((100dvh - 260px)/2),230px)}
+}
+@media(max-width:520px){
+.gt-header{min-height:48px}
+.gt-wrap{padding:8px}
+.gt-landing h1{font-size:1.5rem;margin-bottom:12px}
+.gt-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.gt-mode-card{min-height:clamp(160px,calc((100dvh - 255px)/2),225px);max-height:230px;padding:11px;border-radius:16px}
+.gt-mode-card .gt-card-icon{width:35px;height:35px;border-radius:10px;font-size:1.1rem}
+.gt-mode-card strong{font-size:clamp(.92rem,3.1vw,1.08rem);line-height:1.36}
+.gt-mode-card .gt-card-type{font-size:.56rem;letter-spacing:.025em}
+.gt-mode-card .gt-card-copy{font-size:.66rem}
+.gt-mode-card .gt-card-arrow{font-size:.68rem}
+.gt-landing .gt-footer-note{font-size:.62rem}
+.gt-picker{padding:10px;border-radius:16px}
+.gt-picker-heading{gap:6px;margin-bottom:7px}
+.gt-picker-heading h2{font-size:1rem}
+.gt-picker-step{width:27px;height:27px;font-size:.68rem}
+.gt-picker .gt-category-cards,.gt-picker .gt-unit-list{height:clamp(250px,calc(100dvh - 244px),440px);gap:8px}
+.gt-picker .gt-category-card,.gt-picker .gt-unit-item{padding:12px;border-radius:15px;gap:5px}
+.gt-picker .gt-category-card .gt-card-name{font-size:clamp(.99rem,3vw,1.15rem);line-height:1.38}
+.gt-picker .gt-unit-item .gt-unit-name{font-size:clamp(.92rem,2.8vw,1.1rem);line-height:1.37}
+.gt-picker .gt-category-card .gt-card-code,.gt-picker .gt-unit-item .gt-unit-id{font-size:.66rem}
+.gt-picker .gt-category-card .gt-card-meta,.gt-picker .gt-unit-item .gt-unit-count{font-size:.64rem}
+.gt-card-pager{margin-top:7px;min-height:39px;gap:20px}
+.gt-card-pager button{width:38px;height:38px;font-size:1.5rem;border-radius:11px}
+.gt-units-panel .gt-picker-heading{flex-wrap:wrap}
+.gt-units-panel .gt-unit-meta{margin-left:auto}
+.gt-units-panel .gt-back-categories{margin-left:auto}
+}
+@media(max-height:620px){
+.gt-picker .gt-category-cards,.gt-picker .gt-unit-list{height:clamp(214px,calc(100dvh - 220px),380px)}
+.gt-picker .gt-category-card,.gt-picker .gt-unit-item{padding:10px}
+.gt-picker .gt-category-card .gt-card-name,.gt-picker .gt-unit-item .gt-unit-name{font-size:clamp(.9rem,1.9vw,1.12rem);line-height:1.3}
+.gt-workspace-title{margin-bottom:4px}
+.gt-card-pager{min-height:32px;margin-top:4px}
+.gt-card-pager button{height:32px;width:37px}
+}
+@media(prefers-reduced-motion:reduce){.gt-card-pager button{transition:none;transform:none!important}}
