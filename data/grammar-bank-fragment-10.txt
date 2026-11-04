@@ -1,0 +1,687 @@
+      "answer_sentence_en": "The news that we heard yesterday turned out to be false.",
+      "answer_sentence_jp": "昨日聞いた知らせは誤りだと判明しました。",
+      "explanation_jp": "heard の目的語が欠けているため news を受ける目的格関係代名詞 that です。",
+      "wrong_choice_explanations_jp": {
+        "A": "「what」は不適切です。先行詞を含んで「〜するもの・こと」を表します。通常、直前の名詞を先行詞として修飾することはできません。 既にある先行詞を修飾するか、完全な節を導く必要があります。 正しくは「that」です。",
+        "C": "「why」は不適切です。理由を表す関係副詞で、基本的には reason が先行詞です。 既にある先行詞を修飾するか、完全な節を導く必要があります。 正しくは「that」です。",
+        "D": "「whose」は不適切です。所有格なので、原則として直後に名詞が必要です。主語・目的語・場所・時を単独で補う用法ではありません。 既にある先行詞を修飾するか、完全な節を導く必要があります。 正しくは「that」です。"
+      },
+      "extra_example_en": "The story that we heard was exaggerated.",
+      "extra_example_jp": "私たちが聞いた話は誇張されていました。",
+      "rule_jp": "関係代名詞・関係副詞は名詞を修飾するが、接続詞thatは完全な節を導く。疑問詞節whether/what/whereとの区別に注意。",
+      "source": "original"
+    },
+    {
+      "id": "B10-14-09",
+      "category_id": "B10",
+      "point_id": "B10-14",
+      "subtopic_jp": "関係詞と接続詞・間接疑問文の識別",
+      "level": "標準",
+      "question_jp": "（　　）に入る最も適切な語句をA〜Dから1つ選びなさい。",
+      "stem_en": "We are discussing (　　) the city should build a new library.",
+      "options": {
+        "A": "whom",
+        "B": "whose",
+        "C": "whether",
+        "D": "which"
+      },
+      "answer": "C",
+      "answer_sentence_en": "We are discussing whether the city should build a new library.",
+      "answer_sentence_jp": "市が新しい図書館を建てるべきかどうか話し合っています。",
+      "explanation_jp": "市が建てるべきかどうかという二者択一なので whether を選びます。",
+      "wrong_choice_explanations_jp": {
+        "A": "「whom」は不適切です。人を先行詞とする目的格です。関係詞節の主語を補う場合には使えません。 先行詞・節の構造・意味を合わせて判断してください。 正しくは「whether」です。",
+        "B": "「whose」は不適切です。所有格なので、原則として直後に名詞が必要です。主語・目的語・場所・時を単独で補う用法ではありません。 先行詞・節の構造・意味を合わせて判断してください。 正しくは「whether」です。",
+        "D": "「which」は不適切です。物・事を先行詞とする関係代名詞、または前節全体を受ける非制限用法で使います。人の先行詞や場所を表す副詞的な働きには使えません。 先行詞・節の構造・意味を合わせて判断してください。 正しくは「whether」です。"
+      },
+      "extra_example_en": "They discussed whether the project was affordable.",
+      "extra_example_jp": "彼らはその事業が予算的に可能か話し合いました。",
+      "rule_jp": "関係代名詞・関係副詞は名詞を修飾するが、接続詞thatは完全な節を導く。疑問詞節whether/what/whereとの区別に注意。",
+      "source": "original"
+    },
+    {
+      "id": "B10-14-10",
+      "category_id": "B10",
+      "point_id": "B10-14",
+      "subtopic_jp": "関係詞と接続詞・間接疑問文の識別",
+      "level": "標準",
+      "question_jp": "（　　）に入る最も適切な語句をA〜Dから1つ選びなさい。",
+      "stem_en": "The question (　　) the plan is realistic remains unanswered.",
+      "options": {
+        "A": "which",
+        "B": "whom",
+        "C": "whose",
+        "D": "whether"
+      },
+      "answer": "D",
+      "answer_sentence_en": "The question whether the plan is realistic remains unanswered.",
+      "answer_sentence_jp": "その計画が現実的かどうかという疑問は未解決です。",
+      "explanation_jp": "question の内容は「現実的かどうか」。完全な節を導く whether を使います。",
+      "wrong_choice_explanations_jp": {
+        "A": "「which」は不適切です。物・事を先行詞とする関係代名詞、または前節全体を受ける非制限用法で使います。人の先行詞や場所を表す副詞的な働きには使えません。 先行詞・節の構造・意味を合わせて判断してください。 正しくは「whether」です。",
+        "B": "「whom」は不適切です。人を先行詞とする目的格です。関係詞節の主語を補う場合には使えません。 先行詞・節の構造・意味を合わせて判断してください。 正しくは「whether」です。",
+        "C": "「whose」は不適切です。所有格なので、原則として直後に名詞が必要です。主語・目的語・場所・時を単独で補う用法ではありません。 先行詞・節の構造・意味を合わせて判断してください。 正しくは「whether」です。"
+      },
+      "extra_example_en": "The question whether the rule is fair is important.",
+      "extra_example_jp": "その規則が公平かどうかという問題は重要です。",
+      "rule_jp": "関係代名詞・関係副詞は名詞を修飾するが、接続詞thatは完全な節を導く。疑問詞節whether/what/whereとの区別に注意。",
+      "source": "original"
+    },
+    {
+      "id": "B10-14-11",
+      "category_id": "B10",
+      "point_id": "B10-14",
+      "subtopic_jp": "関係詞と接続詞・間接疑問文の識別",
+      "level": "標準",
+      "question_jp": "（　　）に入る最も適切な語句をA〜Dから1つ選びなさい。",
+      "stem_en": "I remember the day (　　) the exchange students arrived.",
+      "options": {
+        "A": "when",
+        "B": "which",
+        "C": "whom",
+        "D": "whose"
+      },
+      "answer": "A",
+      "answer_sentence_en": "I remember the day when the exchange students arrived.",
+      "answer_sentence_jp": "交換留学生が到着した日を覚えています。",
+      "explanation_jp": "day が先行詞。arrived は自動詞で完全な節なので when です。",
+      "wrong_choice_explanations_jp": {
+        "B": "「which」は不適切です。物・事を先行詞とする関係代名詞、または前節全体を受ける非制限用法で使います。人の先行詞や場所を表す副詞的な働きには使えません。 時を表す部分が必要で、節の主語・目的語は既にそろっています。 正しくは「when」です。",
+        "C": "「whom」は不適切です。人を先行詞とする目的格です。関係詞節の主語を補う場合には使えません。 時を表す部分が必要で、節の主語・目的語は既にそろっています。 正しくは「when」です。",
+        "D": "「whose」は不適切です。所有格なので、原則として直後に名詞が必要です。主語・目的語・場所・時を単独で補う用法ではありません。 時を表す部分が必要で、節の主語・目的語は既にそろっています。 正しくは「when」です。"
+      },
+      "extra_example_en": "I remember the week when we hosted visitors.",
+      "extra_example_jp": "訪問客を迎えた週を覚えています。",
+      "rule_jp": "関係代名詞・関係副詞は名詞を修飾するが、接続詞thatは完全な節を導く。疑問詞節whether/what/whereとの区別に注意。",
+      "source": "original"
+    },
+    {
+      "id": "B10-14-12",
+      "category_id": "B10",
+      "point_id": "B10-14",
+      "subtopic_jp": "関係詞と接続詞・間接疑問文の識別",
+      "level": "標準",
+      "question_jp": "（　　）に入る最も適切な語句をA〜Dから1つ選びなさい。",
+      "stem_en": "I cannot remember (　　) the exchange students arrived.",
+      "options": {
+        "A": "whom",
+        "B": "when",
+        "C": "whose",
+        "D": "which"
+      },
+      "answer": "B",
+      "answer_sentence_en": "I cannot remember when the exchange students arrived.",
+      "answer_sentence_jp": "交換留学生がいつ到着したか思い出せません。",
+      "explanation_jp": "先行詞 day がなく、remember の目的語として「いつ」を表す間接疑問節 when ... が必要です。",
+      "wrong_choice_explanations_jp": {
+        "A": "「whom」は不適切です。人を先行詞とする目的格です。関係詞節の主語を補う場合には使えません。 時を表す部分が必要で、節の主語・目的語は既にそろっています。 正しくは「when」です。",
+        "C": "「whose」は不適切です。所有格なので、原則として直後に名詞が必要です。主語・目的語・場所・時を単独で補う用法ではありません。 時を表す部分が必要で、節の主語・目的語は既にそろっています。 正しくは「when」です。",
+        "D": "「which」は不適切です。物・事を先行詞とする関係代名詞、または前節全体を受ける非制限用法で使います。人の先行詞や場所を表す副詞的な働きには使えません。 時を表す部分が必要で、節の主語・目的語は既にそろっています。 正しくは「when」です。"
+      },
+      "extra_example_en": "I forgot when the train departed.",
+      "extra_example_jp": "列車がいつ出発したか忘れました。",
+      "rule_jp": "関係代名詞・関係副詞は名詞を修飾するが、接続詞thatは完全な節を導く。疑問詞節whether/what/whereとの区別に注意。",
+      "source": "original"
+    },
+    {
+      "id": "B10-14-13",
+      "category_id": "B10",
+      "point_id": "B10-14",
+      "subtopic_jp": "関係詞と接続詞・間接疑問文の識別",
+      "level": "発展",
+      "question_jp": "（　　）に入る最も適切な語句をA〜Dから1つ選びなさい。",
+      "stem_en": "The fact (　　) the data were collected anonymously is important.",
+      "options": {
+        "A": "which",
+        "B": "what",
+        "C": "that",
+        "D": "where"
+      },
+      "answer": "C",
+      "answer_sentence_en": "The fact that the data were collected anonymously is important.",
+      "answer_sentence_jp": "データが匿名で収集されたという事実は重要です。",
+      "explanation_jp": "the data were collected anonymously は完全な節で、fact の具体的な内容を表す同格の that です。",
+      "wrong_choice_explanations_jp": {
+        "A": "「which」は不適切です。物・事を先行詞とする関係代名詞、または前節全体を受ける非制限用法で使います。人の先行詞や場所を表す副詞的な働きには使えません。 既にある先行詞を修飾するか、完全な節を導く必要があります。 正しくは「that」です。",
+        "B": "「what」は不適切です。先行詞を含んで「〜するもの・こと」を表します。通常、直前の名詞を先行詞として修飾することはできません。 既にある先行詞を修飾するか、完全な節を導く必要があります。 正しくは「that」です。",
+        "D": "「where」は不適切です。場所を表す関係副詞です。節内で主語や目的語そのものが欠けている場合には合いません。 既にある先行詞を修飾するか、完全な節を導く必要があります。 正しくは「that」です。"
+      },
+      "extra_example_en": "The fact that the results are public matters.",
+      "extra_example_jp": "結果が公開されているという事実は重要です。",
+      "rule_jp": "関係代名詞・関係副詞は名詞を修飾するが、接続詞thatは完全な節を導く。疑問詞節whether/what/whereとの区別に注意。",
+      "source": "original"
+    },
+    {
+      "id": "B10-14-14",
+      "category_id": "B10",
+      "point_id": "B10-14",
+      "subtopic_jp": "関係詞と接続詞・間接疑問文の識別",
+      "level": "発展",
+      "question_jp": "（　　）に入る最も適切な語句をA〜Dから1つ選びなさい。",
+      "stem_en": "The data (　　) were collected anonymously have been published.",
+      "options": {
+        "A": "what",
+        "B": "whether",
+        "C": "where",
+        "D": "that"
+      },
+      "answer": "D",
+      "answer_sentence_en": "The data that were collected anonymously have been published.",
+      "answer_sentence_jp": "匿名で収集されたデータは公開されました。",
+      "explanation_jp": "were collected の主語が欠け、data を受ける主格関係代名詞 that が必要です。",
+      "wrong_choice_explanations_jp": {
+        "A": "「what」は不適切です。先行詞を含んで「〜するもの・こと」を表します。通常、直前の名詞を先行詞として修飾することはできません。 既にある先行詞を修飾するか、完全な節を導く必要があります。 正しくは「that」です。",
+        "B": "「whether」は不適切です。「〜かどうか／〜であろうとなかろうと」です。関係代名詞として先行詞中の欠けた名詞を補いません。 既にある先行詞を修飾するか、完全な節を導く必要があります。 正しくは「that」です。",
+        "C": "「where」は不適切です。場所を表す関係副詞です。節内で主語や目的語そのものが欠けている場合には合いません。 既にある先行詞を修飾するか、完全な節を導く必要があります。 正しくは「that」です。"
+      },
+      "extra_example_en": "The samples that were kept cold remained stable.",
+      "extra_example_jp": "低温保存された試料は安定していました。",
+      "rule_jp": "関係代名詞・関係副詞は名詞を修飾するが、接続詞thatは完全な節を導く。疑問詞節whether/what/whereとの区別に注意。",
+      "source": "original"
+    },
+    {
+      "id": "B10-14-15",
+      "category_id": "B10",
+      "point_id": "B10-14",
+      "subtopic_jp": "関係詞と接続詞・間接疑問文の識別",
+      "level": "発展",
+      "question_jp": "（　　）に入る最も適切な語句をA〜Dから1つ選びなさい。",
+      "stem_en": "The belief (　　) hard work always guarantees success is questionable.",
+      "options": {
+        "A": "that",
+        "B": "which",
+        "C": "what",
+        "D": "when"
+      },
+      "answer": "A",
+      "answer_sentence_en": "The belief that hard work always guarantees success is questionable.",
+      "answer_sentence_jp": "努力すれば必ず成功するという考えには疑問の余地があります。",
+      "explanation_jp": "hard work ... success は完全な節。belief の内容を説明する接続詞 that を使います。",
+      "wrong_choice_explanations_jp": {
+        "B": "「which」は不適切です。物・事を先行詞とする関係代名詞、または前節全体を受ける非制限用法で使います。人の先行詞や場所を表す副詞的な働きには使えません。 既にある先行詞を修飾するか、完全な節を導く必要があります。 正しくは「that」です。",
+        "C": "「what」は不適切です。先行詞を含んで「〜するもの・こと」を表します。通常、直前の名詞を先行詞として修飾することはできません。 既にある先行詞を修飾するか、完全な節を導く必要があります。 正しくは「that」です。",
+        "D": "「when」は不適切です。時を表す関係副詞です。人・物・場所を修飾する関係代名詞ではありません。 既にある先行詞を修飾するか、完全な節を導く必要があります。 正しくは「that」です。"
+      },
+      "extra_example_en": "The assumption that all learners are alike is wrong.",
+      "extra_example_jp": "学習者は皆同じだという思い込みは誤りです。",
+      "rule_jp": "関係代名詞・関係副詞は名詞を修飾するが、接続詞thatは完全な節を導く。疑問詞節whether/what/whereとの区別に注意。",
+      "source": "original"
+    },
+    {
+      "id": "B10-14-16",
+      "category_id": "B10",
+      "point_id": "B10-14",
+      "subtopic_jp": "関係詞と接続詞・間接疑問文の識別",
+      "level": "発展",
+      "question_jp": "（　　）に入る最も適切な語句をA〜Dから1つ選びなさい。",
+      "stem_en": "The belief (　　) shaped his career began in childhood.",
+      "options": {
+        "A": "what",
+        "B": "that",
+        "C": "whether",
+        "D": "whose"
+      },
+      "answer": "B",
+      "answer_sentence_en": "The belief that shaped his career began in childhood.",
+      "answer_sentence_jp": "彼の経歴に影響を与えた信念は子どもの頃に生まれました。",
+      "explanation_jp": "shaped の主語が欠けています。belief を先行詞とする主格の that が必要です。",
+      "wrong_choice_explanations_jp": {
+        "A": "「what」は不適切です。先行詞を含んで「〜するもの・こと」を表します。通常、直前の名詞を先行詞として修飾することはできません。 既にある先行詞を修飾するか、完全な節を導く必要があります。 正しくは「that」です。",
+        "C": "「whether」は不適切です。「〜かどうか／〜であろうとなかろうと」です。関係代名詞として先行詞中の欠けた名詞を補いません。 既にある先行詞を修飾するか、完全な節を導く必要があります。 正しくは「that」です。",
+        "D": "「whose」は不適切です。所有格なので、原則として直後に名詞が必要です。主語・目的語・場所・時を単独で補う用法ではありません。 既にある先行詞を修飾するか、完全な節を導く必要があります。 正しくは「that」です。"
+      },
+      "extra_example_en": "The principle that guided her decisions was fairness.",
+      "extra_example_jp": "彼女の判断を導いた原則は公平さでした。",
+      "rule_jp": "関係代名詞・関係副詞は名詞を修飾するが、接続詞thatは完全な節を導く。疑問詞節whether/what/whereとの区別に注意。",
+      "source": "original"
+    },
+    {
+      "id": "B10-15-01",
+      "category_id": "B10",
+      "point_id": "B10-15",
+      "subtopic_jp": "関係詞の総合（不適切な構造の修正）",
+      "level": "基礎",
+      "question_jp": "（　　）に入る最も適切な語句をA〜Dから1つ選びなさい。",
+      "stem_en": "The school (　　) I studied as a child has been rebuilt.",
+      "options": {
+        "A": "which",
+        "B": "where",
+        "C": "whom",
+        "D": "whose"
+      },
+      "answer": "B",
+      "answer_sentence_en": "The school where I studied as a child has been rebuilt.",
+      "answer_sentence_jp": "子どもの頃に通った学校は建て直されました。",
+      "explanation_jp": "studied はここでは自動詞。学校という場所を表す where が必要で、目的格 which は使えません。",
+      "wrong_choice_explanations_jp": {
+        "A": "「which」は不適切です。物・事を先行詞とする関係代名詞、または前節全体を受ける非制限用法で使います。人の先行詞や場所を表す副詞的な働きには使えません。 場所を表す部分だけが欠け、主語と目的語は既にそろっています。 正しくは「where」です。",
+        "C": "「whom」は不適切です。人を先行詞とする目的格です。関係詞節の主語を補う場合には使えません。 場所を表す部分だけが欠け、主語と目的語は既にそろっています。 正しくは「where」です。",
+        "D": "「whose」は不適切です。所有格なので、原則として直後に名詞が必要です。主語・目的語・場所・時を単独で補う用法ではありません。 場所を表す部分だけが欠け、主語と目的語は既にそろっています。 正しくは「where」です。"
+      },
+      "extra_example_en": "The town where I grew up looks different now.",
+      "extra_example_jp": "育った町は今では様変わりしています。",
+      "rule_jp": "先行詞・関係詞節内の欠落要素・カンマ・前置詞・一致を同時に点検する。",
+      "source": "original"
+    },
+    {
+      "id": "B10-15-02",
+      "category_id": "B10",
+      "point_id": "B10-15",
+      "subtopic_jp": "関係詞の総合（不適切な構造の修正）",
+      "level": "基礎",
+      "question_jp": "（　　）に入る最も適切な語句をA〜Dから1つ選びなさい。",
+      "stem_en": "The school (　　) I attended as a child has been rebuilt.",
+      "options": {
+        "A": "where",
+        "B": "whose",
+        "C": "which",
+        "D": "when"
+      },
+      "answer": "C",
+      "answer_sentence_en": "The school which I attended as a child has been rebuilt.",
+      "answer_sentence_jp": "子どもの頃に通った学校は建て直されました。",
+      "explanation_jp": "attend は他動詞なので目的語 school が欠けています。where ではなく which です。",
+      "wrong_choice_explanations_jp": {
+        "A": "「where」は不適切です。場所を表す関係副詞です。節内で主語や目的語そのものが欠けている場合には合いません。 先行詞が物であるか、前節全体を補足する which が必要です。 正しくは「which」です。",
+        "B": "「whose」は不適切です。所有格なので、原則として直後に名詞が必要です。主語・目的語・場所・時を単独で補う用法ではありません。 先行詞が物であるか、前節全体を補足する which が必要です。 正しくは「which」です。",
+        "D": "「when」は不適切です。時を表す関係副詞です。人・物・場所を修飾する関係代名詞ではありません。 先行詞が物であるか、前節全体を補足する which が必要です。 正しくは「which」です。"
+      },
+      "extra_example_en": "The college which she attended is famous.",
+      "extra_example_jp": "彼女が通った大学は有名です。",
+      "rule_jp": "先行詞・関係詞節内の欠落要素・カンマ・前置詞・一致を同時に点検する。",
+      "source": "original"
+    },
+    {
+      "id": "B10-15-03",
+      "category_id": "B10",
+      "point_id": "B10-15",
+      "subtopic_jp": "関係詞の総合（不適切な構造の修正）",
+      "level": "基礎",
+      "question_jp": "（　　）に入る最も適切な語句をA〜Dから1つ選びなさい。",
+      "stem_en": "The scientist, (　　) discovery changed medicine, rarely gave interviews.",
+      "options": {
+        "A": "who",
+        "B": "which",
+        "C": "that",
+        "D": "whose"
+      },
+      "answer": "D",
+      "answer_sentence_en": "The scientist, whose discovery changed medicine, rarely gave interviews.",
+      "answer_sentence_jp": "発見が医学を変えた科学者はめったに取材に応じませんでした。",
+      "explanation_jp": "カンマ後でも所有格 whose を使います。discovery は scientist の発見です。",
+      "wrong_choice_explanations_jp": {
+        "A": "「who」は不適切です。人を先行詞とする主格が基本です。物を先行詞とするときや、前置詞の直後では選べません。 空所直後の名詞と先行詞の所有・所属関係を示す必要があります。 正しくは「whose」です。",
+        "B": "「which」は不適切です。物・事を先行詞とする関係代名詞、または前節全体を受ける非制限用法で使います。人の先行詞や場所を表す副詞的な働きには使えません。 空所直後の名詞と先行詞の所有・所属関係を示す必要があります。 正しくは「whose」です。",
+        "C": "「that」は不適切です。制限用法の関係代名詞や同格の接続詞に使えますが、カンマ後の非制限用法や前置詞の直後には使えません。 空所直後の名詞と先行詞の所有・所属関係を示す必要があります。 正しくは「whose」です。"
+      },
+      "extra_example_en": "The author, whose novel won a prize, remained modest.",
+      "extra_example_jp": "小説が賞を取った作家は謙虚なままでした。",
+      "rule_jp": "先行詞・関係詞節内の欠落要素・カンマ・前置詞・一致を同時に点検する。",
+      "source": "original"
+    },
+    {
+      "id": "B10-15-04",
+      "category_id": "B10",
+      "point_id": "B10-15",
+      "subtopic_jp": "関係詞の総合（不適切な構造の修正）",
+      "level": "基礎",
+      "question_jp": "（　　）に入る最も適切な語句をA〜Dから1つ選びなさい。",
+      "stem_en": "The conference at (　　) she presented her findings attracted many experts.",
+      "options": {
+        "A": "which",
+        "B": "where",
+        "C": "that",
+        "D": "whom"
+      },
+      "answer": "A",
+      "answer_sentence_en": "The conference at which she presented her findings attracted many experts.",
+      "answer_sentence_jp": "彼女が研究結果を発表した学会には多くの専門家が集まりました。",
+      "explanation_jp": "前置詞 at の直後には物を受ける which を使います。at where/at that は不可です。",
+      "wrong_choice_explanations_jp": {
+        "B": "「where」は不適切です。場所を表す関係副詞です。節内で主語や目的語そのものが欠けている場合には合いません。 前置詞の直後なので、物を受ける which を使います。 正しくは「which」です。",
+        "C": "「that」は不適切です。制限用法の関係代名詞や同格の接続詞に使えますが、カンマ後の非制限用法や前置詞の直後には使えません。 前置詞の直後なので、物を受ける which を使います。 正しくは「which」です。",
+        "D": "「whom」は不適切です。人を先行詞とする目的格です。関係詞節の主語を補う場合には使えません。 前置詞の直後なので、物を受ける which を使います。 正しくは「which」です。"
+      },
+      "extra_example_en": "The meeting at which we announced the plan was crowded.",
+      "extra_example_jp": "計画を発表した会合は混んでいました。",
+      "rule_jp": "先行詞・関係詞節内の欠落要素・カンマ・前置詞・一致を同時に点検する。",
+      "source": "original"
+    },
+    {
+      "id": "B10-15-05",
+      "category_id": "B10",
+      "point_id": "B10-15",
+      "subtopic_jp": "関係詞の総合（不適切な構造の修正）",
+      "level": "標準",
+      "question_jp": "（　　）に入る最も適切な語句をA〜Dから1つ選びなさい。",
+      "stem_en": "The guide described (　　) had happened during the storm.",
+      "options": {
+        "A": "which",
+        "B": "what",
+        "C": "that",
+        "D": "whose"
+      },
+      "answer": "B",
+      "answer_sentence_en": "The guide described what had happened during the storm.",
+      "answer_sentence_jp": "ガイドは嵐の間に起こったことを説明しました。",
+      "explanation_jp": "先行詞がなく、had happened の主語として「何が」を含む what が必要です。",
+      "wrong_choice_explanations_jp": {
+        "A": "「which」は不適切です。物・事を先行詞とする関係代名詞、または前節全体を受ける非制限用法で使います。人の先行詞や場所を表す副詞的な働きには使えません。 普通の先行詞が直前にないので、内容そのものを含む名詞節が必要です。 正しくは「what」です。",
+        "C": "「that」は不適切です。制限用法の関係代名詞や同格の接続詞に使えますが、カンマ後の非制限用法や前置詞の直後には使えません。 普通の先行詞が直前にないので、内容そのものを含む名詞節が必要です。 正しくは「what」です。",
+        "D": "「whose」は不適切です。所有格なので、原則として直後に名詞が必要です。主語・目的語・場所・時を単独で補う用法ではありません。 普通の先行詞が直前にないので、内容そのものを含む名詞節が必要です。 正しくは「what」です。"
+      },
+      "extra_example_en": "Tell us what caused the delay.",
+      "extra_example_jp": "遅延を引き起こしたことを教えてください。",
+      "rule_jp": "先行詞・関係詞節内の欠落要素・カンマ・前置詞・一致を同時に点検する。",
+      "source": "original"
+    },
+    {
+      "id": "B10-15-06",
+      "category_id": "B10",
+      "point_id": "B10-15",
+      "subtopic_jp": "関係詞の総合（不適切な構造の修正）",
+      "level": "標準",
+      "question_jp": "（　　）に入る最も適切な語句をA〜Dから1つ選びなさい。",
+      "stem_en": "The guide described the damage (　　) had occurred during the storm.",
+      "options": {
+        "A": "what",
+        "B": "whom",
+        "C": "that",
+        "D": "where"
+      },
+      "answer": "C",
+      "answer_sentence_en": "The guide described the damage that had occurred during the storm.",
+      "answer_sentence_jp": "ガイドは嵐の間に生じた被害を説明しました。",
+      "explanation_jp": "damage が先行詞としてあるので主格 that を使います。what は先行詞を含むため不可です。",
+      "wrong_choice_explanations_jp": {
+        "A": "「what」は不適切です。先行詞を含んで「〜するもの・こと」を表します。通常、直前の名詞を先行詞として修飾することはできません。 既にある先行詞を修飾するか、完全な節を導く必要があります。 正しくは「that」です。",
+        "B": "「whom」は不適切です。人を先行詞とする目的格です。関係詞節の主語を補う場合には使えません。 既にある先行詞を修飾するか、完全な節を導く必要があります。 正しくは「that」です。",
+        "D": "「where」は不適切です。場所を表す関係副詞です。節内で主語や目的語そのものが欠けている場合には合いません。 既にある先行詞を修飾するか、完全な節を導く必要があります。 正しくは「that」です。"
+      },
+      "extra_example_en": "The changes that occurred were unexpected.",
+      "extra_example_jp": "起きた変化は予想外でした。",
+      "rule_jp": "先行詞・関係詞節内の欠落要素・カンマ・前置詞・一致を同時に点検する。",
+      "source": "original"
+    },
+    {
+      "id": "B10-15-07",
+      "category_id": "B10",
+      "point_id": "B10-15",
+      "subtopic_jp": "関係詞の総合（不適切な構造の修正）",
+      "level": "標準",
+      "question_jp": "（　　）に入る最も適切な語句をA〜Dから1つ選びなさい。",
+      "stem_en": "This is the park (　　) we discussed renovating at the last meeting.",
+      "options": {
+        "A": "where",
+        "B": "whose",
+        "C": "when",
+        "D": "which"
+      },
+      "answer": "D",
+      "answer_sentence_en": "This is the park which we discussed renovating at the last meeting.",
+      "answer_sentence_jp": "ここは前回の会議で改修について話し合った公園です。",
+      "explanation_jp": "renovating の目的語 park が欠けています。場所でも目的格 which が必要です。",
+      "wrong_choice_explanations_jp": {
+        "A": "「where」は不適切です。場所を表す関係副詞です。節内で主語や目的語そのものが欠けている場合には合いません。 先行詞が物であるか、前節全体を補足する which が必要です。 正しくは「which」です。",
+        "B": "「whose」は不適切です。所有格なので、原則として直後に名詞が必要です。主語・目的語・場所・時を単独で補う用法ではありません。 先行詞が物であるか、前節全体を補足する which が必要です。 正しくは「which」です。",
+        "C": "「when」は不適切です。時を表す関係副詞です。人・物・場所を修飾する関係代名詞ではありません。 先行詞が物であるか、前節全体を補足する which が必要です。 正しくは「which」です。"
+      },
+      "extra_example_en": "This is the building which we proposed restoring.",
+      "extra_example_jp": "これが私たちが修復を提案した建物です。",
+      "rule_jp": "先行詞・関係詞節内の欠落要素・カンマ・前置詞・一致を同時に点検する。",
+      "source": "original"
+    },
+    {
+      "id": "B10-15-08",
+      "category_id": "B10",
+      "point_id": "B10-15",
+      "subtopic_jp": "関係詞の総合（不適切な構造の修正）",
+      "level": "標準",
+      "question_jp": "（　　）に入る最も適切な語句をA〜Dから1つ選びなさい。",
+      "stem_en": "This is the park (　　) we held the outdoor lesson.",
+      "options": {
+        "A": "where",
+        "B": "which",
+        "C": "whom",
+        "D": "whose"
+      },
+      "answer": "A",
+      "answer_sentence_en": "This is the park where we held the outdoor lesson.",
+      "answer_sentence_jp": "ここが屋外授業を行った公園です。",
+      "explanation_jp": "held の目的語 lesson は既にあるので、場所を補う where が適切です。",
+      "wrong_choice_explanations_jp": {
+        "B": "「which」は不適切です。物・事を先行詞とする関係代名詞、または前節全体を受ける非制限用法で使います。人の先行詞や場所を表す副詞的な働きには使えません。 場所を表す部分だけが欠け、主語と目的語は既にそろっています。 正しくは「where」です。",
+        "C": "「whom」は不適切です。人を先行詞とする目的格です。関係詞節の主語を補う場合には使えません。 場所を表す部分だけが欠け、主語と目的語は既にそろっています。 正しくは「where」です。",
+        "D": "「whose」は不適切です。所有格なので、原則として直後に名詞が必要です。主語・目的語・場所・時を単独で補う用法ではありません。 場所を表す部分だけが欠け、主語と目的語は既にそろっています。 正しくは「where」です。"
+      },
+      "extra_example_en": "This is the courtyard where we practiced.",
+      "extra_example_jp": "ここが私たちが練習した中庭です。",
+      "rule_jp": "先行詞・関係詞節内の欠落要素・カンマ・前置詞・一致を同時に点検する。",
+      "source": "original"
+    },
+    {
+      "id": "B10-15-09",
+      "category_id": "B10",
+      "point_id": "B10-15",
+      "subtopic_jp": "関係詞の総合（不適切な構造の修正）",
+      "level": "標準",
+      "question_jp": "（　　）に入る最も適切な語句をA〜Dから1つ選びなさい。",
+      "stem_en": "The manager praised everyone (　　) had stayed to help.",
+      "options": {
+        "A": "whom",
+        "B": "who",
+        "C": "whose",
+        "D": "where"
+      },
+      "answer": "B",
+      "answer_sentence_en": "The manager praised everyone who had stayed to help.",
+      "answer_sentence_jp": "責任者は手伝うために残った全員を褒めました。",
+      "explanation_jp": "had stayed の主語が欠けており、everyone は人なので who です。",
+      "wrong_choice_explanations_jp": {
+        "A": "「whom」は不適切です。人を先行詞とする目的格です。関係詞節の主語を補う場合には使えません。 節内の主語が欠けており、先行詞は人です。 正しくは「who」です。",
+        "C": "「whose」は不適切です。所有格なので、原則として直後に名詞が必要です。主語・目的語・場所・時を単独で補う用法ではありません。 節内の主語が欠けており、先行詞は人です。 正しくは「who」です。",
+        "D": "「where」は不適切です。場所を表す関係副詞です。節内で主語や目的語そのものが欠けている場合には合いません。 節内の主語が欠けており、先行詞は人です。 正しくは「who」です。"
+      },
+      "extra_example_en": "The teacher thanked everyone who contributed.",
+      "extra_example_jp": "先生は協力した全員に感謝しました。",
+      "rule_jp": "先行詞・関係詞節内の欠落要素・カンマ・前置詞・一致を同時に点検する。",
+      "source": "original"
+    },
+    {
+      "id": "B10-15-10",
+      "category_id": "B10",
+      "point_id": "B10-15",
+      "subtopic_jp": "関係詞の総合（不適切な構造の修正）",
+      "level": "標準",
+      "question_jp": "（　　）に入る最も適切な語句をA〜Dから1つ選びなさい。",
+      "stem_en": "The manager praised everyone (　　) the volunteers had helped.",
+      "options": {
+        "A": "whose",
+        "B": "which",
+        "C": "whom",
+        "D": "where"
+      },
+      "answer": "C",
+      "answer_sentence_en": "The manager praised everyone whom the volunteers had helped.",
+      "answer_sentence_jp": "責任者はボランティアが助けた人を全員褒めました。",
+      "explanation_jp": "主語 the volunteers と動詞 had helped があるので、欠けている人の目的語は whom です。",
+      "wrong_choice_explanations_jp": {
+        "A": "「whose」は不適切です。所有格なので、原則として直後に名詞が必要です。主語・目的語・場所・時を単独で補う用法ではありません。 人を受ける目的格が必要です。前置詞が直前にある場合にも whom を使います。 正しくは「whom」です。",
+        "B": "「which」は不適切です。物・事を先行詞とする関係代名詞、または前節全体を受ける非制限用法で使います。人の先行詞や場所を表す副詞的な働きには使えません。 人を受ける目的格が必要です。前置詞が直前にある場合にも whom を使います。 正しくは「whom」です。",
+        "D": "「where」は不適切です。場所を表す関係副詞です。節内で主語や目的語そのものが欠けている場合には合いません。 人を受ける目的格が必要です。前置詞が直前にある場合にも whom を使います。 正しくは「whom」です。"
+      },
+      "extra_example_en": "We thanked everyone whom the team assisted.",
+      "extra_example_jp": "チームが手助けした人全員に感謝しました。",
+      "rule_jp": "先行詞・関係詞節内の欠落要素・カンマ・前置詞・一致を同時に点検する。",
+      "source": "original"
+    },
+    {
+      "id": "B10-15-11",
+      "category_id": "B10",
+      "point_id": "B10-15",
+      "subtopic_jp": "関係詞の総合（不適切な構造の修正）",
+      "level": "標準",
+      "question_jp": "（　　）に入る最も適切な語句をA〜Dから1つ選びなさい。",
+      "stem_en": "The explanation (　　) she gave was clearer than the original.",
+      "options": {
+        "A": "why",
+        "B": "whose",
+        "C": "when",
+        "D": "which"
+      },
+      "answer": "D",
+      "answer_sentence_en": "The explanation which she gave was clearer than the original.",
+      "answer_sentence_jp": "彼女が示した説明は元のものより明確でした。",
+      "explanation_jp": "gave の直接目的語 explanation が欠けています。理由の why ではなく which です。",
+      "wrong_choice_explanations_jp": {
+        "A": "「why」は不適切です。理由を表す関係副詞で、基本的には reason が先行詞です。 先行詞が物であるか、前節全体を補足する which が必要です。 正しくは「which」です。",
+        "B": "「whose」は不適切です。所有格なので、原則として直後に名詞が必要です。主語・目的語・場所・時を単独で補う用法ではありません。 先行詞が物であるか、前節全体を補足する which が必要です。 正しくは「which」です。",
+        "C": "「when」は不適切です。時を表す関係副詞です。人・物・場所を修飾する関係代名詞ではありません。 先行詞が物であるか、前節全体を補足する which が必要です。 正しくは「which」です。"
+      },
+      "extra_example_en": "The example which she gave helped us understand.",
+      "extra_example_jp": "彼女が挙げた例は理解の助けになりました。",
+      "rule_jp": "先行詞・関係詞節内の欠落要素・カンマ・前置詞・一致を同時に点検する。",
+      "source": "original"
+    },
+    {
+      "id": "B10-15-12",
+      "category_id": "B10",
+      "point_id": "B10-15",
+      "subtopic_jp": "関係詞の総合（不適切な構造の修正）",
+      "level": "標準",
+      "question_jp": "（　　）に入る最も適切な語句をA〜Dから1つ選びなさい。",
+      "stem_en": "The reason (　　) she gave for the delay was convincing.",
+      "options": {
+        "A": "which",
+        "B": "why",
+        "C": "whose",
+        "D": "where"
+      },
+      "answer": "A",
+      "answer_sentence_en": "The reason which she gave for the delay was convincing.",
+      "answer_sentence_jp": "彼女が遅延について挙げた理由は説得力がありました。",
+      "explanation_jp": "gave の目的語が reason なので which。the reason でも why が使えるのは後ろが完全な節のときです。",
+      "wrong_choice_explanations_jp": {
+        "B": "「why」は不適切です。理由を表す関係副詞で、基本的には reason が先行詞です。 先行詞が物であるか、前節全体を補足する which が必要です。 正しくは「which」です。",
+        "C": "「whose」は不適切です。所有格なので、原則として直後に名詞が必要です。主語・目的語・場所・時を単独で補う用法ではありません。 先行詞が物であるか、前節全体を補足する which が必要です。 正しくは「which」です。",
+        "D": "「where」は不適切です。場所を表す関係副詞です。節内で主語や目的語そのものが欠けている場合には合いません。 先行詞が物であるか、前節全体を補足する which が必要です。 正しくは「which」です。"
+      },
+      "extra_example_en": "The reason which he offered was reasonable.",
+      "extra_example_jp": "彼が示した理由はもっともでした。",
+      "rule_jp": "先行詞・関係詞節内の欠落要素・カンマ・前置詞・一致を同時に点検する。",
+      "source": "original"
+    },
+    {
+      "id": "B10-15-13",
+      "category_id": "B10",
+      "point_id": "B10-15",
+      "subtopic_jp": "関係詞の総合（不適切な構造の修正）",
+      "level": "発展",
+      "question_jp": "（　　）に入る最も適切な語句をA〜Dから1つ選びなさい。",
+      "stem_en": "The reason (　　) she arrived late was a train delay.",
+      "options": {
+        "A": "which",
+        "B": "why",
+        "C": "whom",
+        "D": "whose"
+      },
+      "answer": "B",
+      "answer_sentence_en": "The reason why she arrived late was a train delay.",
+      "answer_sentence_jp": "彼女が遅刻した理由は電車の遅延でした。",
+      "explanation_jp": "she arrived late は完全な節なので、理由を示す why が必要です。",
+      "wrong_choice_explanations_jp": {
+        "A": "「which」は不適切です。物・事を先行詞とする関係代名詞、または前節全体を受ける非制限用法で使います。人の先行詞や場所を表す副詞的な働きには使えません。 理由を説明する語が必要です。 正しくは「why」です。",
+        "C": "「whom」は不適切です。人を先行詞とする目的格です。関係詞節の主語を補う場合には使えません。 理由を説明する語が必要です。 正しくは「why」です。",
+        "D": "「whose」は不適切です。所有格なので、原則として直後に名詞が必要です。主語・目的語・場所・時を単独で補う用法ではありません。 理由を説明する語が必要です。 正しくは「why」です。"
+      },
+      "extra_example_en": "The reason why the bus stopped was mechanical trouble.",
+      "extra_example_jp": "バスが止まった理由は機械の故障でした。",
+      "rule_jp": "先行詞・関係詞節内の欠落要素・カンマ・前置詞・一致を同時に点検する。",
+      "source": "original"
+    },
+    {
+      "id": "B10-15-14",
+      "category_id": "B10",
+      "point_id": "B10-15",
+      "subtopic_jp": "関係詞の総合（不適切な構造の修正）",
+      "level": "発展",
+      "question_jp": "（　　）に入る最も適切な語句をA〜Dから1つ選びなさい。",
+      "stem_en": "Our team completed the project early, (　　) pleased the sponsors.",
+      "options": {
+        "A": "that",
+        "B": "who",
+        "C": "which",
+        "D": "whose"
+      },
+      "answer": "C",
+      "answer_sentence_en": "Our team completed the project early, which pleased the sponsors.",
+      "answer_sentence_jp": "私たちのチームは事業を早く終え、そのことが支援者を喜ばせました。",
+      "explanation_jp": "カンマ後の which は「早く完成した」という事実全体を受けます。that は不可です。",
+      "wrong_choice_explanations_jp": {
+        "A": "「that」は不適切です。制限用法の関係代名詞や同格の接続詞に使えますが、カンマ後の非制限用法や前置詞の直後には使えません。 先行詞が物であるか、前節全体を補足する which が必要です。 正しくは「which」です。",
+        "B": "「who」は不適切です。人を先行詞とする主格が基本です。物を先行詞とするときや、前置詞の直後では選べません。 先行詞が物であるか、前節全体を補足する which が必要です。 正しくは「which」です。",
+        "D": "「whose」は不適切です。所有格なので、原則として直後に名詞が必要です。主語・目的語・場所・時を単独で補う用法ではありません。 先行詞が物であるか、前節全体を補足する which が必要です。 正しくは「which」です。"
+      },
+      "extra_example_en": "The students passed the exam, which delighted their teacher.",
+      "extra_example_jp": "生徒たちは試験に合格し、そのことが先生を喜ばせました。",
+      "rule_jp": "先行詞・関係詞節内の欠落要素・カンマ・前置詞・一致を同時に点検する。",
+      "source": "original"
+    },
+    {
+      "id": "B10-15-15",
+      "category_id": "B10",
+      "point_id": "B10-15",
+      "subtopic_jp": "関係詞の総合（不適切な構造の修正）",
+      "level": "発展",
+      "question_jp": "（　　）に入る最も適切な語句をA〜Dから1つ選びなさい。",
+      "stem_en": "The person to (　　) you should address your complaint is the director.",
+      "options": {
+        "A": "who",
+        "B": "that",
+        "C": "whose",
+        "D": "whom"
+      },
+      "answer": "D",
+      "answer_sentence_en": "The person to whom you should address your complaint is the director.",
+      "answer_sentence_jp": "苦情を申し立てる相手は責任者です。",
+      "explanation_jp": "address A to B の to B を前に出し、先行詞 person に対する前置詞＋whom を使います。",
+      "wrong_choice_explanations_jp": {
+        "A": "「who」は不適切です。人を先行詞とする主格が基本です。物を先行詞とするときや、前置詞の直後では選べません。 人を受ける目的格が必要です。前置詞が直前にある場合にも whom を使います。 正しくは「whom」です。",
+        "B": "「that」は不適切です。制限用法の関係代名詞や同格の接続詞に使えますが、カンマ後の非制限用法や前置詞の直後には使えません。 人を受ける目的格が必要です。前置詞が直前にある場合にも whom を使います。 正しくは「whom」です。",
+        "C": "「whose」は不適切です。所有格なので、原則として直後に名詞が必要です。主語・目的語・場所・時を単独で補う用法ではありません。 人を受ける目的格が必要です。前置詞が直前にある場合にも whom を使います。 正しくは「whom」です。"
+      },
+      "extra_example_en": "The officer to whom you sent the request will reply.",
+      "extra_example_jp": "申請を送った職員が返答します。",
+      "rule_jp": "先行詞・関係詞節内の欠落要素・カンマ・前置詞・一致を同時に点検する。",
+      "source": "original"
+    },
+    {
+      "id": "B10-15-16",
+      "category_id": "B10",
+      "point_id": "B10-15",
+      "subtopic_jp": "関係詞の総合（不適切な構造の修正）",
+      "level": "発展",
+      "question_jp": "（　　）に入る最も適切な語句をA〜Dから1つ選びなさい。",
+      "stem_en": "However careful you are, there may be problems, (　　) is why we check everything twice.",
+      "options": {
+        "A": "which",
+        "B": "what",
+        "C": "who",
+        "D": "that"
+      },
+      "answer": "A",
+      "answer_sentence_en": "However careful you are, there may be problems, which is why we check everything twice.",
+      "answer_sentence_jp": "どんなに注意深くしても問題は起こり得ます。だから私たちはすべてを二度確認するのです。",
+      "explanation_jp": "which is why ... は前の内容全体を受け「だから〜なのだ」と説明します。",
+      "wrong_choice_explanations_jp": {
+        "B": "「what」は不適切です。先行詞を含んで「〜するもの・こと」を表します。通常、直前の名詞を先行詞として修飾することはできません。 先行詞が物であるか、前節全体を補足する which が必要です。 正しくは「which」です。",
+        "C": "「who」は不適切です。人を先行詞とする主格が基本です。物を先行詞とするときや、前置詞の直後では選べません。 先行詞が物であるか、前節全体を補足する which が必要です。 正しくは「which」です。",
+        "D": "「that」は不適切です。制限用法の関係代名詞や同格の接続詞に使えますが、カンマ後の非制限用法や前置詞の直後には使えません。 先行詞が物であるか、前節全体を補足する which が必要です。 正しくは「which」です。"
+      },
+      "extra_example_en": "Errors can occur, which is why we keep backups.",
+      "extra_example_jp": "間違いは起こり得るので、バックアップを保存します。",
+      "rule_jp": "先行詞・関係詞節内の欠落要素・カンマ・前置詞・一致を同時に点検する。",
+      "source": "original"
+    }
+  ]
+}
