@@ -34,11 +34,7 @@ function showHome(){
  const a=el('a','gt-course gt-course-teal');
  a.href='vocabulary-check.html?ui=ja';
  add(a,el('span','gt-course-icon','🧩'),el('strong','','Vocabulary Check'),el('small','','既存の語彙診断（Quick 25 / Deep 70）をそのまま利用'),el('span','gt-course-arrow','›'));
- add(grid,a,
-   buttonCard('middle','Junior High Grammar','中学校の英文法を学年・単元別に音読',''+false,'📗','gt-course-blue'),
- );
- // Replace the helper card with an event-bound choice.
- grid.lastChild.remove();
+ grid.append(a);
  add(grid,
    buttonCard('middle','Junior High Grammar','中1・中2・中3の例文音読',()=>loadCurriculum('middle'),'📗','gt-course-blue'),
    buttonCard('high','High School Grammar','高校英文法の基本例文・5段階音読',()=>loadCurriculum('high'),'📘','gt-course-purple'),
