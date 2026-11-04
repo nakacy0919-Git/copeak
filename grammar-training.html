@@ -8,38 +8,43 @@
 <link rel="icon" href="logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&family=Noto+Sans+JP:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="grammar-training.css?v=20261105-2">
 <link rel="stylesheet" href="grammar-aurora.css?v=20261105-1">
-<link rel="stylesheet" href="grammar-navigation.css?v=20261105-3">
+<link rel="stylesheet" href="grammar-navigation.css?v=20261105-4">
+<link rel="stylesheet" href="grammar-pagination.css?v=20261105-4">
 <script defer src="vocabulary-reading.js?v=8.3"></script>
 <script defer src="grammar-training-core.js?v=20261105-2"></script>
-<script defer src="grammar-training.js?v=20261105-3"></script>
+<script defer src="grammar-training.js?v=20261105-4"></script>
 <script defer src="grammar-aurora.js?v=20261105-1"></script>
 </head>
 <body>
 <header class="gt-header"><a class="gt-logo" href="index.html"><img src="logo.png" width="38" height="38" alt=""><span>Co<span class="gt-logo-blue">peak</span></span></a><div class="gt-header-links"><a href="vocabulary-check.html" id="gtDiagnosticShortcut">語彙診断</a><a href="index.html">← ホーム</a></div></header>
 <main class="gt-wrap">
 <section id="gtLanding" class="gt-landing">
- <span class="gt-eyebrow">COPEAK LEARNING STUDIO</span>
- <h1>Vocabulary &amp; Grammar Training</h1>
+ <span class="gt-eyebrow">VOCABULARY &amp; GRAMMAR</span>
+ <h1>語彙・文法トレーニング</h1>
  <div class="gt-cards" id="gtMenuCards">
-  <a class="gt-mode-card gt-vocab" href="vocabulary-check.html"><span class="gt-card-icon" aria-hidden="true">V</span><span class="gt-card-type">VOCABULARY</span><strong>Vocabulary Check</strong><span class="gt-card-copy">Quick 25 / Deep 70</span><span class="gt-card-arrow">Open ›</span></a>
-  <button class="gt-mode-card gt-junior" data-gt-mode="junior" type="button"><span class="gt-card-icon" aria-hidden="true">J</span><span class="gt-card-type">READ ALOUD</span><strong>Junior High Grammar</strong><span class="gt-card-copy">中学1〜3年 · 144例文</span><span class="gt-card-arrow">Explore ›</span></button>
-  <button class="gt-mode-card gt-senior" data-gt-mode="senior" type="button"><span class="gt-card-icon" aria-hidden="true">H</span><span class="gt-card-type">READ ALOUD</span><strong>High School Grammar</strong><span class="gt-card-copy">高校英文法 · 1,830例文</span><span class="gt-card-arrow">Explore ›</span></button>
-  <button class="gt-mode-card gt-entrance" data-gt-mode="entrance" type="button"><span class="gt-card-icon" aria-hidden="true">E</span><span class="gt-card-type">QUIZ + READ ALOUD</span><strong>University Entrance Grammar</strong><span class="gt-card-copy">大学入試 · 1,840問</span><span class="gt-card-arrow">Explore ›</span></button>
+  <a class="gt-mode-card gt-vocab" href="vocabulary-check.html"><span class="gt-card-icon" aria-hidden="true">V</span><span class="gt-card-type">VOCABULARY CHECK</span><strong>語彙力診断</strong><span class="gt-card-copy">Quick 25問 / Deep 70問</span><span class="gt-card-arrow">進む ›</span></a>
+  <button class="gt-mode-card gt-junior" data-gt-mode="junior" type="button"><span class="gt-card-icon" aria-hidden="true">J</span><span class="gt-card-type">JUNIOR HIGH</span><strong>中学校の基礎英文法音読</strong><span class="gt-card-copy">中1〜中3 · 144例文</span><span class="gt-card-arrow">進む ›</span></button>
+  <button class="gt-mode-card gt-senior" data-gt-mode="senior" type="button"><span class="gt-card-icon" aria-hidden="true">H</span><span class="gt-card-type">HIGH SCHOOL</span><strong>高校の基礎英文法音読</strong><span class="gt-card-copy">高校英文法 · 1,830例文</span><span class="gt-card-arrow">進む ›</span></button>
+  <button class="gt-mode-card gt-entrance" data-gt-mode="entrance" type="button"><span class="gt-card-icon" aria-hidden="true">E</span><span class="gt-card-type">ENTRANCE EXAM</span><strong>大学入試英文法問題</strong><span class="gt-card-copy">4択問題＋音読 · 1,840問</span><span class="gt-card-arrow">進む ›</span></button>
  </div>
  <p class="gt-footer-note">Accuracyは音声認識した単語の一致率です。発音品質そのものの評価ではありません。学習記録はこの端末に保存されます。</p>
 </section>
 <section id="gtWorkspace" class="gt-workspace" hidden>
- <div class="gt-workspace-title"><button id="gtBackHome" class="gt-text-button" type="button">← Training Menu</button><div><h1 id="gtModeTitle">文法音読</h1></div><div class="gt-total" id="gtModeTotal"></div></div>
+ <div class="gt-workspace-title"><button id="gtBackHome" class="gt-text-button" type="button">← 学習メニュー</button><div><h1 id="gtModeTitle">文法音読</h1></div><div class="gt-total" id="gtModeTotal"></div></div>
  <div class="gt-layout">
   <section id="gtPicker" class="gt-sidebar gt-picker" aria-label="文法カテゴリーと学習項目">
-   <div class="gt-picker-heading"><span class="gt-picker-step">01</span><h2>Grammar Categories</h2></div>
-   <div id="gtCategoryCards" class="gt-category-cards" role="group" aria-label="文法カテゴリー"></div>
+   <div id="gtCategoriesPanel" class="gt-categories-panel">
+    <div class="gt-picker-heading"><span class="gt-picker-step">01</span><h2>文法カテゴリーを選ぶ</h2></div>
+    <div id="gtCategoryCards" class="gt-category-cards" role="group" aria-label="文法カテゴリー"></div>
+    <nav id="gtCategoryPager" class="gt-card-pager" aria-label="カテゴリーのページ切り替え"><button id="gtPrevCategories" type="button" aria-label="前のカテゴリーのページ">‹</button><span id="gtCategoryPage" role="status" aria-live="polite">1 / 1</span><button id="gtNextCategories" type="button" aria-label="次のカテゴリーのページ">›</button></nav>
+   </div>
    <div id="gtUnitsPanel" class="gt-units-panel" hidden>
-    <div class="gt-picker-heading"><span class="gt-picker-step">02</span><h2>Grammar Topics</h2><span id="gtUnitMeta" class="gt-unit-meta" aria-live="polite"></span><button id="gtBackToCategories" class="gt-back-categories" type="button">↑ Categories</button></div>
+    <div class="gt-picker-heading"><span class="gt-picker-step">02</span><h2>文法項目を選ぶ</h2><span id="gtUnitMeta" class="gt-unit-meta" aria-live="polite"></span><button id="gtBackToCategories" class="gt-back-categories" type="button">← カテゴリーへ</button></div>
     <div id="gtUnitList" class="gt-unit-list" role="group" aria-label="文法項目"></div>
+    <nav id="gtUnitPager" class="gt-card-pager" aria-label="文法項目のページ切り替え"><button id="gtPrevUnits" type="button" aria-label="前の文法項目ページ">‹</button><span id="gtUnitPage" role="status" aria-live="polite">1 / 1</span><button id="gtNextUnits" type="button" aria-label="次の文法項目ページ">›</button></nav>
    </div>
    <div class="gt-legacy-controls" hidden aria-hidden="true">
     <select id="gtCategory" tabindex="-1" aria-label="カテゴリー（内部用）"></select>
@@ -47,7 +52,7 @@
     <button id="gtStart" type="button" tabindex="-1">Start</button>
    </div>
   </section>
-  <div id="gtStudyBar" class="gt-study-bar" hidden><button id="gtBackToTopics" class="gt-back-topics" type="button">← Grammar Topics</button></div>
+  <div id="gtStudyBar" class="gt-study-bar" hidden><button id="gtBackToTopics" class="gt-back-topics" type="button">← 文法項目へ</button></div>
   <section id="gtContent" class="gt-content" aria-label="文法問題・音読練習" hidden>
    <div id="gtWelcome" class="gt-welcome" hidden><h2>学習が完了しました</h2><p></p></div>
    <div id="gtLesson" class="gt-lesson" hidden>
