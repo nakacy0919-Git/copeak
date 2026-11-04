@@ -4,6 +4,7 @@ const root=document.getElementById('gtRoot');
 const STORAGE='copeak-grammar-progress-v1';
 const pageSize=6;
 const stages=['Read','Chunk','Vanish','Shadowing','Challenge'];
+const stageThresholds=[80,90,90,95,100];
 const SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;
 let view='home',course='',section=null,point=null,manifest=null,chapterData=null,categoryQuestions=[],category=null,questionIndex=0,answer='',page=0;
 let examples=[],exampleIndex=0,stageIndex=0,readingBack=null,readingMode='course',transcript='',interim='',recognition=null,recording=false,closing=false,lastReadScore=null;
@@ -152,14 +153,16 @@ function chooseAnswer(q,key){
 function beginReading(items,mode){
  if(!items.length){showError('この単元にまだ例文がありません。',()=>{view='points';renderList();});return;}
  readingMode=mode;examples=items.filter(x=>x.en&&x.ja);if(!examples.length){showError('例文・日本語訳が不足しています。',()=>{view='points';renderList();});return;}
- exampleIndex=0;stageIndex=0;transcript='';interim='';lastReadScore=null;view='read';
+ exampleIndex=0;stageIndex=Math.min(4,readProgress(examples[0].id).stage||0);transcript='';interim='';lastReadScore=null;view='read';
  renderReading();
 }
 function currentExample(){return examples[exampleIndex];}
 function readingText(text,stage){
- if(stage===2)return text.split(' ').map((w,i)=>i%2===1?'____':w).join(' ');
- if(stage>=3)return '••••  ••••  ••••';
- return text;
+ const ratio=[0,.25,.5,.75,1][stage]||0;
+ if(!ratio)return text;
+ const words=text.split(/\s+/),hidden=Math.round(words.length*ratio);
+ const indexes=new Set(Array.from({length:hidden},(_,i)=>Math.min(words.length-1,Math.floor((i+.5)*words.length/hidden))));
+ return words.map((word,i)=>indexes.has(i)?'____':word).join(' ');
 }
 function readProgress(id){return state.reading[id]||{best:0,stage:0,attempts:0};}
 function renderReading(){
@@ -187,9 +190,9 @@ function renderReading(){
  add(gauge,el('small','',' Accuracy / 認識一致率'));gauge.id='gtAccuracy';results.append(gauge);
  results.append(el('p','gt-muted','最高記録：'+saved.best+'% ／ 挑戦回数：'+saved.attempts));
  const nav=el('div','gt-quiz-buttons');
- const prev=btn('gt-mini','◀ 前の例文',()=>{exampleIndex--;stageIndex=0;lastReadScore=null;renderReading();});prev.disabled=exampleIndex===0;
- const next=btn('gt-action','次の例文 ▶',()=>{exampleIndex++;stageIndex=0;lastReadScore=null;renderReading();});next.disabled=exampleIndex===examples.length-1;
- const nextStage=btn('gt-mini','次のステージ →',()=>{stageIndex++;lastReadScore=null;renderReading();});nextStage.disabled=stageIndex===stages.length-1 || (lastReadScore===null||lastReadScore<90);
+ const prev=btn('gt-mini','◀ 前の例文',()=>{exampleIndex--;stageIndex=Math.min(4,readProgress(examples[exampleIndex].id).stage||0);lastReadScore=null;renderReading();});prev.disabled=exampleIndex===0;
+ const next=btn('gt-action','次の例文 ▶',()=>{exampleIndex++;stageIndex=Math.min(4,readProgress(examples[exampleIndex].id).stage||0);lastReadScore=null;renderReading();});next.disabled=exampleIndex===examples.length-1;
+ const nextStage=btn('gt-mini','次のステージ →',()=>{stageIndex++;lastReadScore=null;renderReading();});nextStage.disabled=stageIndex===stages.length-1 || (lastReadScore===null||lastReadScore<stageThresholds[stageIndex]);
  add(nav,prev,nextStage,next);results.append(nav);
  add(content,sentence,results);root.append(content);
 }
@@ -238,13 +241,13 @@ function finishRecognition(){
  lastReadScore=result.percent;
  const record=readProgress(q.id);
  record.best=Math.max(record.best||0,result.percent);record.attempts=(record.attempts||0)+1;
- if(result.percent>=90)record.stage=Math.max(record.stage||0,stageIndex+1);
+ if(result.percent>=stageThresholds[stageIndex])record.stage=Math.max(record.stage||0,stageIndex+1);
  state.reading[q.id]=record;put();
  const g=document.getElementById('gtAccuracy');if(g)g.firstChild.textContent=result.percent+'%';
  const t=document.getElementById('gtTranscript');
  if(t){t.replaceChildren();for(const w of result.wordMatches){const span=el('span',w.matched?'gt-word-good':'gt-word-bad',w.value+' ');t.append(span);}}
- if(status)status.textContent=result.percent>=90?'合格！ 次のステージに進めます。':'90%以上を目指してもう一度音読しましょう。';
- const nav=document.querySelector('.gt-results .gt-quiz-buttons');if(nav){const b=nav.children[1];if(b)b.disabled=stageIndex===stages.length-1||result.percent<90;}
+ if(status)status.textContent=result.percent>=stageThresholds[stageIndex]?'合格！ 次のステージに進めます。':stageThresholds[stageIndex]+'%以上を目指してもう一度音読しましょう。';
+ const nav=document.querySelector('.gt-results .gt-quiz-buttons');if(nav){const b=nav.children[1];if(b)b.disabled=stageIndex===stages.length-1||result.percent<stageThresholds[stageIndex];}
  const meta=document.querySelector('.gt-results>.gt-muted');if(meta)meta.textContent='最高記録：'+record.best+'% ／ 挑戦回数：'+record.attempts;
 }
 window.addEventListener('beforeunload',()=>{stopRecognition(true);if('speechSynthesis'in window)speechSynthesis.cancel();});
