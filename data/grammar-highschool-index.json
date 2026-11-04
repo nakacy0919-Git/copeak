@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0",
+  "total_examples": 1830,
+  "total_points": 366,
+  "sections": [
+    {
+      "id": "HS-01",
+      "title": "主語・動詞・基本文型",
+      "subtitle": "34項目・170例文",
+      "file": "data/grammar-highschool.json"
+    },
+    {
+      "id": "HS-02",
+      "title": "時を表す表現",
+      "subtitle": "28項目・140例文",
+      "file": "data/grammar-highschool.json"
+    },
+    {
+      "id": "HS-03",
+      "title": "助動詞",
+      "subtitle": "30項目・150例文",
+      "file": "data/grammar-highschool-HS-03.json"
+    },
+    {
+      "id": "HS-04",
+      "title": "受動態",
+      "subtitle": "13項目・65例文",
+      "file": "data/grammar-highschool-HS-04.json"
+    },
+    {
+      "id": "HS-05",
+      "title": "不定詞",
+      "subtitle": "19項目・95例文",
+      "file": "data/grammar-highschool-HS-05.json"
+    },
+    {
+      "id": "HS-06",
+      "title": "動名詞",
+      "subtitle": "9項目・45例文",
+      "file": "data/grammar-highschool-HS-06.json"
+    },
+    {
+      "id": "HS-07",
+      "title": "分詞",
+      "subtitle": "14項目・70例文",
+      "file": "data/grammar-highschool-HS-07.json"
+    },
+    {
+      "id": "HS-08",
+      "title": "比較",
+      "subtitle": "20項目・100例文",
+      "file": "data/grammar-highschool-HS-08.json"
+    },
+    {
+      "id": "HS-09",
+      "title": "関係詞",
+      "subtitle": "20項目・100例文",
+      "file": "data/grammar-highschool-HS-09.json"
+    },
+    {
+      "id": "HS-10",
+      "title": "仮定法",
+      "subtitle": "13項目・65例文",
+      "file": "data/grammar-highschool-HS-10.json"
+    },
+    {
+      "id": "HS-11",
+      "title": "否定",
+      "subtitle": "14項目・70例文",
+      "file": "data/grammar-highschool-HS-11.json"
+    },
+    {
+      "id": "HS-12",
+      "title": "疑問詞・疑問文",
+      "subtitle": "14項目・70例文",
+      "file": "data/grammar-highschool-HS-12.json"
+    },
+    {
+      "id": "HS-13",
+      "title": "強調・倒置・省略・話法など",
+      "subtitle": "20項目・100例文",
+      "file": "data/grammar-highschool-HS-13.json"
+    },
+    {
+      "id": "HS-14",
+      "title": "名詞",
+      "subtitle": "35項目・175例文",
+      "file": "data/grammar-highschool-HS-14.json"
+    },
+    {
+      "id": "HS-15",
+      "title": "形容詞",
+      "subtitle": "12項目・60例文",
+      "file": "data/grammar-highschool-HS-15.json"
+    },
+    {
+      "id": "HS-16",
+      "title": "副詞",
+      "subtitle": "15項目・75例文",
+      "file": "data/grammar-highschool-HS-16.json"
+    },
+    {
+      "id": "HS-17",
+      "title": "前置詞",
+      "subtitle": "35項目・175例文",
+      "file": "data/grammar-highschool-HS-17.json"
+    },
+    {
+      "id": "HS-18",
+      "title": "接続詞",
+      "subtitle": "21項目・105例文",
+      "file": "data/grammar-highschool-HS-18.json"
+    }
+  ]
+}

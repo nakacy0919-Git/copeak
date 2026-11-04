@@ -1,0 +1,25 @@
+/* Copeak Prism-style Reading Studio: keeps the existing 5 stages and score engine intact. */
+.gt-review{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;gap:12px}
+.gt-review .gt-sentence{min-height:210px;justify-content:center;background:radial-gradient(ellipse 90% 80% at 100% -20%,rgba(94,210,227,.1),transparent 75%),linear-gradient(135deg,#f8fcff,#f1f9ff 70%,#f8fcf9);border:1px solid rgba(104,169,213,.38);box-shadow:inset 0 1px 0 white,0 8px 24px rgba(30,98,158,.07)}
+.gt-review .gt-results{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(210px,.75fr);grid-template-rows:auto minmax(105px,1fr) auto auto;gap:8px 13px;align-content:stretch;background:radial-gradient(ellipse 88% 60% at 70% -30%,rgba(90,201,218,.16),transparent 80%),linear-gradient(145deg,#fbfeff,#edf7ff);border:1px solid #c9e1ed}
+.gt-review .gt-results>h3{grid-area:1/1;margin:0;align-self:end}
+.gt-review .gt-results>.gt-transcript{grid-area:2/1;max-height:170px;min-height:105px}
+.gt-review .gt-results>.gt-aurora-gauge{grid-area:1/2/3/3}
+.gt-review .gt-results>.gt-muted{grid-area:3/2;text-align:center}
+.gt-review .gt-results>.gt-quiz-buttons{grid-area:4/1/5/3;justify-content:space-between}
+.gt-aurora-gauge{position:relative;isolation:isolate;min-height:164px!important;margin:0!important;display:grid;grid-template-rows:minmax(112px,1fr) auto;align-items:end;justify-items:center;font-size:clamp(1.8rem,3vw,2.5rem)!important;color:#194c76;line-height:1.1;overflow:hidden;border-radius:16px;border:1px solid rgba(113,171,208,.33);background:linear-gradient(135deg,#f9fdff,#eef9f6);box-shadow:inset 0 1px 0 #fff,0 6px 18px #2767a510;padding:6px 10px 10px}
+.gt-aurora-gauge>small{position:relative;z-index:2;grid-row:2;margin:4px 0 0;text-align:center;color:#507c91}
+.gt-aurora-gauge>svg{position:absolute;z-index:1;top:0;left:50%;transform:translateX(-50%);height:130px;width:min(205px,100%);overflow:visible;pointer-events:none}
+.gt-aurora-gauge .gt-a-base,.gt-aurora-gauge .gt-a-fill,.gt-aurora-gauge .gt-a-halo{fill:none;stroke-linecap:round;stroke-width:16;stroke-dasharray:0 100}
+.gt-aurora-gauge .gt-a-base{stroke:#d7e9f5}
+.gt-aurora-gauge .gt-a-fill{stroke:url(#gtAuroraGradient);filter:drop-shadow(0 1px 2px rgba(34,155,205,.4))}
+.gt-aurora-gauge .gt-a-halo{stroke:url(#gtAuroraGradient);stroke-width:24;filter:blur(7px);opacity:.33}
+.gt-aurora-gauge.is-achieved{color:#087d8f;text-shadow:0 0 9px rgba(43,201,191,.2)}
+.gt-aurora-gauge.is-blooming{animation:gt-a-bloom 1750ms ease-out}
+.gt-aurora-gauge .gt-a-particles{position:absolute;inset:0;z-index:3;pointer-events:none;overflow:hidden}
+.gt-aurora-gauge .gt-a-piece{position:absolute;top:18%;width:5px;height:8px;opacity:0;background:var(--gt-a-color);box-shadow:0 0 6px var(--gt-a-color);border-radius:2px;animation:gt-a-fly 2000ms var(--gt-a-delay) ease-out both}
+.gt-aurora-gauge .gt-a-piece:nth-child(3n){border-radius:50%;width:4px;height:4px}
+@keyframes gt-a-bloom{0%,100%{filter:brightness(1);transform:scale(1)}35%{filter:brightness(1.1);transform:scale(1.025)}}
+@keyframes gt-a-fly{0%{opacity:0;transform:translate(0,-7px) rotate(0)}12%,75%{opacity:1}100%{opacity:0;transform:translate(var(--gt-a-drift),135px) rotate(var(--gt-a-rot))}}
+@media(max-width:680px){.gt-review .gt-results{grid-template-columns:minmax(0,1fr) minmax(118px,.65fr);gap:7px;padding:10px}.gt-review .gt-results>.gt-transcript{font-size:.85rem;min-height:95px}.gt-aurora-gauge{min-height:150px!important;font-size:1.5rem!important}.gt-aurora-gauge>svg{height:105px}.gt-aurora-gauge>small{font-size:.65rem!important}.gt-review .gt-sentence{min-height:180px;padding:13px}}
+@media(prefers-reduced-motion:reduce){.gt-aurora-gauge,.gt-aurora-gauge .gt-a-piece{animation:none!important;transition:none!important}}

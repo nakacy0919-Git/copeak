@@ -1,0 +1,662 @@
+{
+  "schema_version": "1.0",
+  "total_questions": 1840,
+  "point_count": 115,
+  "categories": [
+    {
+      "id": "A01",
+      "title": "文型・基本構造",
+      "count": 144,
+      "file": "data/grammar-university-A01.json",
+      "points": [
+        {
+          "id": "A01-01",
+          "title": "第1〜第5文型の識別",
+          "count": 16
+        },
+        {
+          "id": "A01-02",
+          "title": "目的語と補語",
+          "count": 16
+        },
+        {
+          "id": "A01-03",
+          "title": "知覚動詞",
+          "count": 16
+        },
+        {
+          "id": "A01-04",
+          "title": "使役動詞",
+          "count": 16
+        },
+        {
+          "id": "A01-05",
+          "title": "形式主語 it",
+          "count": 16
+        },
+        {
+          "id": "A01-06",
+          "title": "形式目的語 it",
+          "count": 16
+        },
+        {
+          "id": "A01-07",
+          "title": "There構文",
+          "count": 16
+        },
+        {
+          "id": "A01-08",
+          "title": "自動詞と他動詞",
+          "count": 16
+        },
+        {
+          "id": "A01-09",
+          "title": "文型の書き換え",
+          "count": 16
+        }
+      ]
+    },
+    {
+      "id": "A02",
+      "title": "時制",
+      "count": 192,
+      "file": "data/grammar-university-A02.json",
+      "points": [
+        {
+          "id": "A02-01",
+          "title": "現在形",
+          "count": 16
+        },
+        {
+          "id": "A02-02",
+          "title": "過去形",
+          "count": 16
+        },
+        {
+          "id": "A02-03",
+          "title": "未来表現",
+          "count": 16
+        },
+        {
+          "id": "A02-04",
+          "title": "現在進行形",
+          "count": 16
+        },
+        {
+          "id": "A02-05",
+          "title": "過去進行形",
+          "count": 16
+        },
+        {
+          "id": "A02-06",
+          "title": "未来進行形",
+          "count": 16
+        },
+        {
+          "id": "A02-07",
+          "title": "現在完了",
+          "count": 16
+        },
+        {
+          "id": "A02-08",
+          "title": "過去完了",
+          "count": 16
+        },
+        {
+          "id": "A02-09",
+          "title": "未来完了",
+          "count": 16
+        },
+        {
+          "id": "A02-10",
+          "title": "完了進行形",
+          "count": 16
+        },
+        {
+          "id": "A02-11",
+          "title": "時・条件の副詞節と名詞節",
+          "count": 16
+        },
+        {
+          "id": "A02-12",
+          "title": "時制の総合",
+          "count": 16
+        }
+      ]
+    },
+    {
+      "id": "A03",
+      "title": "受動態",
+      "count": 144,
+      "file": "data/grammar-university-A03.json",
+      "points": [
+        {
+          "id": "A03-01",
+          "title": "基本の受動態",
+          "count": 16
+        },
+        {
+          "id": "A03-02",
+          "title": "進行形の受動態",
+          "count": 16
+        },
+        {
+          "id": "A03-03",
+          "title": "完了形の受動態",
+          "count": 16
+        },
+        {
+          "id": "A03-04",
+          "title": "助動詞と受動態",
+          "count": 16
+        },
+        {
+          "id": "A03-05",
+          "title": "第4文型の受動態",
+          "count": 16
+        },
+        {
+          "id": "A03-06",
+          "title": "第5文型の受動態",
+          "count": 16
+        },
+        {
+          "id": "A03-07",
+          "title": "群動詞の受動態",
+          "count": 16
+        },
+        {
+          "id": "A03-08",
+          "title": "伝聞の受動構文",
+          "count": 16
+        },
+        {
+          "id": "A03-09",
+          "title": "受動態にならない動詞",
+          "count": 16
+        }
+      ]
+    },
+    {
+      "id": "A04",
+      "title": "助動詞",
+      "count": 192,
+      "file": "data/grammar-university-A04.json",
+      "points": [
+        {
+          "id": "A04-01",
+          "title": "can・could",
+          "count": 16
+        },
+        {
+          "id": "A04-02",
+          "title": "may・might",
+          "count": 16
+        },
+        {
+          "id": "A04-03",
+          "title": "must",
+          "count": 16
+        },
+        {
+          "id": "A04-04",
+          "title": "have to",
+          "count": 16
+        },
+        {
+          "id": "A04-05",
+          "title": "should・ought to",
+          "count": 16
+        },
+        {
+          "id": "A04-06",
+          "title": "had better",
+          "count": 16
+        },
+        {
+          "id": "A04-07",
+          "title": "need・dare",
+          "count": 16
+        },
+        {
+          "id": "A04-08",
+          "title": "used to・would",
+          "count": 16
+        },
+        {
+          "id": "A04-09",
+          "title": "would rather・prefer",
+          "count": 16
+        },
+        {
+          "id": "A04-10",
+          "title": "助動詞＋have＋過去分詞",
+          "count": 16
+        },
+        {
+          "id": "A04-11",
+          "title": "推量の強さ・否定",
+          "count": 16
+        },
+        {
+          "id": "A04-12",
+          "title": "依頼・許可・提案",
+          "count": 16
+        }
+      ]
+    },
+    {
+      "id": "A05",
+      "title": "仮定法",
+      "count": 176,
+      "file": "data/grammar-university-A05.json",
+      "points": [
+        {
+          "id": "A05-01",
+          "title": "仮定法過去",
+          "count": 16
+        },
+        {
+          "id": "A05-02",
+          "title": "仮定法過去完了",
+          "count": 16
+        },
+        {
+          "id": "A05-03",
+          "title": "混合仮定法",
+          "count": 16
+        },
+        {
+          "id": "A05-04",
+          "title": "I wish",
+          "count": 16
+        },
+        {
+          "id": "A05-05",
+          "title": "as if・as though",
+          "count": 16
+        },
+        {
+          "id": "A05-06",
+          "title": "If only",
+          "count": 16
+        },
+        {
+          "id": "A05-07",
+          "title": "without・but for",
+          "count": 16
+        },
+        {
+          "id": "A05-08",
+          "title": "otherwise・or else",
+          "count": 16
+        },
+        {
+          "id": "A05-09",
+          "title": "仮定法の倒置",
+          "count": 16
+        },
+        {
+          "id": "A05-10",
+          "title": "提案・要求のthat節",
+          "count": 16
+        },
+        {
+          "id": "A05-11",
+          "title": "未来の仮定",
+          "count": 16
+        }
+      ]
+    },
+    {
+      "id": "B06",
+      "title": "不定詞",
+      "count": 224,
+      "file": "data/grammar-university-B06.json",
+      "points": [
+        {
+          "id": "B06-01",
+          "title": "名詞的用法",
+          "count": 16
+        },
+        {
+          "id": "B06-02",
+          "title": "形容詞的用法",
+          "count": 16
+        },
+        {
+          "id": "B06-03",
+          "title": "副詞的用法",
+          "count": 16
+        },
+        {
+          "id": "B06-04",
+          "title": "意味上の主語",
+          "count": 16
+        },
+        {
+          "id": "B06-05",
+          "title": "不定詞の否定",
+          "count": 16
+        },
+        {
+          "id": "B06-06",
+          "title": "完了不定詞",
+          "count": 16
+        },
+        {
+          "id": "B06-07",
+          "title": "受動不定詞",
+          "count": 16
+        },
+        {
+          "id": "B06-08",
+          "title": "原形不定詞",
+          "count": 16
+        },
+        {
+          "id": "B06-09",
+          "title": "疑問詞＋to",
+          "count": 16
+        },
+        {
+          "id": "B06-10",
+          "title": "too ... to",
+          "count": 16
+        },
+        {
+          "id": "B06-11",
+          "title": "enough to",
+          "count": 16
+        },
+        {
+          "id": "B06-12",
+          "title": "only to",
+          "count": 16
+        },
+        {
+          "id": "B06-13",
+          "title": "独立不定詞",
+          "count": 16
+        },
+        {
+          "id": "B06-14",
+          "title": "不定詞を目的語に取る動詞",
+          "count": 16
+        }
+      ]
+    },
+    {
+      "id": "B07",
+      "title": "動名詞",
+      "count": 160,
+      "file": "data/grammar-university-B07.json",
+      "points": [
+        {
+          "id": "B07-01",
+          "title": "動名詞の主語・補語",
+          "count": 16
+        },
+        {
+          "id": "B07-02",
+          "title": "動詞の目的語",
+          "count": 16
+        },
+        {
+          "id": "B07-03",
+          "title": "前置詞＋動名詞",
+          "count": 16
+        },
+        {
+          "id": "B07-04",
+          "title": "意味上の主語",
+          "count": 16
+        },
+        {
+          "id": "B07-05",
+          "title": "動名詞の否定",
+          "count": 16
+        },
+        {
+          "id": "B07-06",
+          "title": "完了動名詞",
+          "count": 16
+        },
+        {
+          "id": "B07-07",
+          "title": "受動動名詞",
+          "count": 16
+        },
+        {
+          "id": "B07-08",
+          "title": "動名詞を取る重要動詞",
+          "count": 16
+        },
+        {
+          "id": "B07-09",
+          "title": "不定詞と動名詞の違い",
+          "count": 16
+        },
+        {
+          "id": "B07-10",
+          "title": "慣用表現",
+          "count": 16
+        }
+      ]
+    },
+    {
+      "id": "B08",
+      "title": "分詞",
+      "count": 176,
+      "file": "data/grammar-university-B08.json",
+      "points": [
+        {
+          "id": "B08-01",
+          "title": "現在分詞",
+          "count": 16
+        },
+        {
+          "id": "B08-02",
+          "title": "過去分詞",
+          "count": 16
+        },
+        {
+          "id": "B08-03",
+          "title": "限定用法・後置修飾",
+          "count": 16
+        },
+        {
+          "id": "B08-04",
+          "title": "叙述用法・補語",
+          "count": 16
+        },
+        {
+          "id": "B08-05",
+          "title": "感情を表す分詞",
+          "count": 16
+        },
+        {
+          "id": "B08-06",
+          "title": "知覚動詞＋分詞",
+          "count": 16
+        },
+        {
+          "id": "B08-07",
+          "title": "分詞構文",
+          "count": 16
+        },
+        {
+          "id": "B08-08",
+          "title": "完了分詞構文",
+          "count": 16
+        },
+        {
+          "id": "B08-09",
+          "title": "独立分詞構文",
+          "count": 16
+        },
+        {
+          "id": "B08-10",
+          "title": "with＋O＋C",
+          "count": 16
+        },
+        {
+          "id": "B08-11",
+          "title": "慣用的分詞構文",
+          "count": 16
+        }
+      ]
+    },
+    {
+      "id": "B09",
+      "title": "比較",
+      "count": 192,
+      "file": "data/grammar-university-B09.json",
+      "points": [
+        {
+          "id": "B09-01",
+          "title": "原級比較",
+          "count": 16
+        },
+        {
+          "id": "B09-02",
+          "title": "比較級",
+          "count": 16
+        },
+        {
+          "id": "B09-03",
+          "title": "最上級",
+          "count": 16
+        },
+        {
+          "id": "B09-04",
+          "title": "倍数表現",
+          "count": 16
+        },
+        {
+          "id": "B09-05",
+          "title": "as ... as の重要表現",
+          "count": 16
+        },
+        {
+          "id": "B09-06",
+          "title": "否定の原級比較",
+          "count": 16
+        },
+        {
+          "id": "B09-07",
+          "title": "比較級の強調",
+          "count": 16
+        },
+        {
+          "id": "B09-08",
+          "title": "the＋比較級",
+          "count": 16
+        },
+        {
+          "id": "B09-09",
+          "title": "比較級＋and＋比較級",
+          "count": 16
+        },
+        {
+          "id": "B09-10",
+          "title": "no more than / no less than",
+          "count": 16
+        },
+        {
+          "id": "B09-11",
+          "title": "more A than B",
+          "count": 16
+        },
+        {
+          "id": "B09-12",
+          "title": "最上級相当表現",
+          "count": 16
+        }
+      ]
+    },
+    {
+      "id": "B10",
+      "title": "関係詞",
+      "count": 240,
+      "file": "data/grammar-university-B10.json",
+      "points": [
+        {
+          "id": "B10-01",
+          "title": "主格の関係代名詞",
+          "count": 16
+        },
+        {
+          "id": "B10-02",
+          "title": "目的格の関係代名詞",
+          "count": 16
+        },
+        {
+          "id": "B10-03",
+          "title": "所有格 whose",
+          "count": 16
+        },
+        {
+          "id": "B10-04",
+          "title": "関係代名詞 what",
+          "count": 16
+        },
+        {
+          "id": "B10-05",
+          "title": "関係副詞",
+          "count": 16
+        },
+        {
+          "id": "B10-06",
+          "title": "関係詞の省略",
+          "count": 16
+        },
+        {
+          "id": "B10-07",
+          "title": "前置詞＋関係代名詞",
+          "count": 16
+        },
+        {
+          "id": "B10-08",
+          "title": "制限用法",
+          "count": 16
+        },
+        {
+          "id": "B10-09",
+          "title": "非制限用法",
+          "count": 16
+        },
+        {
+          "id": "B10-10",
+          "title": "文全体を受けるwhich",
+          "count": 16
+        },
+        {
+          "id": "B10-11",
+          "title": "複合関係代名詞",
+          "count": 16
+        },
+        {
+          "id": "B10-12",
+          "title": "複合関係副詞",
+          "count": 16
+        },
+        {
+          "id": "B10-13",
+          "title": "先行詞を含む関係詞",
+          "count": 16
+        },
+        {
+          "id": "B10-14",
+          "title": "関係詞と接続詞の区別",
+          "count": 16
+        },
+        {
+          "id": "B10-15",
+          "title": "関係詞の総合",
+          "count": 16
+        }
+      ]
+    }
+  ]
+}
