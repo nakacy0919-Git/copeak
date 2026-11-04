@@ -1,20 +1,69 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Copeak | Vocabulary & Grammar Training</title><link rel="icon" href="logo.png">
-<style>
-:root{font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif;color:#14243b;background:#f5f8fd}*{box-sizing:border-box}body{margin:0}header{display:flex;align-items:center;justify-content:space-between;padding:18px max(20px,calc((100vw - 1120px)/2));background:#fff;border-bottom:1px solid #dfe7f1}a{color:#2558a6;text-decoration:none}.wrap{max-width:1120px;margin:auto;padding:28px 20px}.eyebrow{color:#55718e;font-size:.8rem;font-weight:700;letter-spacing:.1em}h1{font-size:clamp(1.7rem,4vw,2.6rem);margin:.3em 0}h2{font-size:1.25rem}.lead{color:#587087;line-height:1.7}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:14px}.card,.panel{background:#fff;border:1px solid #dce5f0;border-radius:18px;padding:22px;box-shadow:0 6px 25px #1234560b}.card{display:block;color:inherit;min-height:145px}.card:hover,.card:focus-visible{border-color:#5b8bcc;outline:2px solid transparent;box-shadow:0 6px 25px #477ec333}.card b{display:block;font-size:1.13rem;margin:12px 0 7px}.card small{color:#5d7288}.pill{display:inline-block;border-radius:20px;background:#e8f0ff;padding:5px 12px;color:#305c9c;font-size:.8rem}button,select,input[type=file]{font:inherit}button{border:1px solid #b9cce4;background:#fff;border-radius:12px;padding:12px 16px;cursor:pointer}button.primary{background:#245baf;color:white;border-color:#245baf}button:disabled{opacity:.5;cursor:not-allowed}.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0}.hidden{display:none!important}.question{font-size:1.35rem;line-height:1.7}.choices{display:grid;gap:9px;margin:16px 0}.choices button{text-align:left}.choices button[aria-pressed=true]{border-color:#245baf;background:#e8f0ff}.explain{background:#f2f6fc;border-radius:14px;padding:16px;line-height:1.7;margin-top:15px}.muted{color:#64778b}.point{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:12px;border-bottom:1px solid #e6edf5}.point:last-child{border:0}#readingText{font-size:clamp(1.4rem,3vw,2rem);line-height:1.7}.note{font-size:.9rem;color:#5b6e83}#feedback{white-space:pre-wrap} @media(max-width:640px){header{padding:14px 18px}.wrap{padding:20px 14px}.panel{padding:16px}}
-</style></head><body>
-<header><a href="index.html"><strong>Copeak</strong></a><a href="index.html">← ホーム</a></header>
-<main class="wrap"><div class="eyebrow">VOCABULARY & GRAMMAR TRAINING</div><h1>語彙・文法トレーニング</h1><p class="lead">分野を選び、理解し、例文を音読して定着させよう。</p>
-<section id="menu" class="grid" aria-label="Training categories">
-<a class="card" href="vocabulary-check.html"><span class="pill">既存機能を維持</span><b>Vocabulary Check</b><small>語彙力診断（25問／70問）</small></a>
-<button class="card" data-mode="junior"><span class="pill">Reading</span><b>中学校英文法</b><small>学年・単元別の基礎例文音読</small></button>
-<button class="card" data-mode="senior"><span class="pill">Reading</span><b>高校英文法</b><small>単元別の基礎例文音読</small></button>
-<button class="card" data-mode="entrance"><span class="pill">4-choice + Reading</span><b>大学入試英文法</b><small>分野別4択・解説・復習音読</small></button>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f5f8fd">
+<title>Copeak | Vocabulary &amp; Grammar Training</title>
+<link rel="icon" href="logo.png" type="image/png">
+<link rel="stylesheet" href="grammar-training.css?v=20261105-2">
+<script defer src="vocabulary-reading.js?v=8.3"></script>
+<script defer src="grammar-training-core.js?v=20261105-2"></script>
+<script defer src="grammar-training.js?v=20261105-2"></script>
+</head>
+<body>
+<header class="gt-header"><a class="gt-logo" href="index.html"><img src="logo.png" width="38" height="38" alt=""><span>Co<span class="gt-logo-blue">peak</span></span></a><div class="gt-header-links"><a href="vocabulary-check.html" id="gtDiagnosticShortcut">語彙診断</a><a href="index.html">← ホーム</a></div></header>
+<main class="gt-wrap">
+<section id="gtLanding" class="gt-landing">
+ <span class="gt-eyebrow">VOCABULARY &amp; GRAMMAR TRAINING</span>
+ <h1>英語を、理解から音読へ。</h1>
+ <p class="gt-lead">語彙を診断し、文法を選び、声に出して身につける。中学の基礎から大学入試まで、学ぶ分野を選んでください。</p>
+ <div class="gt-cards" id="gtMenuCards">
+  <a class="gt-mode-card gt-vocab" href="vocabulary-check.html"><span class="gt-card-icon" aria-hidden="true">◈</span><span class="gt-card-type">CHECK</span><strong>語彙力診断</strong><span class="gt-card-copy">既存のVocabulary Check。Quick 25問 / Deep 70問、結果と復習音読はこれまでどおり。</span><span class="gt-card-arrow">診断を開く ›</span></a>
+  <button class="gt-mode-card gt-junior" data-gt-mode="junior" type="button"><span class="gt-card-icon" aria-hidden="true">Ⅰ</span><span class="gt-card-type">JUNIOR HIGH · READ ALOUD</span><strong>中学校の基礎英文法</strong><span class="gt-card-copy">中1〜中3、学年・文法分野別。短い基本例文を5段階で音読。</span><span class="gt-card-arrow">学習を始める ›</span></button>
+  <button class="gt-mode-card gt-senior" data-gt-mode="senior" type="button"><span class="gt-card-icon" aria-hidden="true">Ⅱ</span><span class="gt-card-type">HIGH SCHOOL · READ ALOUD</span><strong>高校英文法の音読</strong><span class="gt-card-copy">全18章・366ポイント・1,830例文。基本から応用まで分野別に練習。</span><span class="gt-card-arrow">学習を始める ›</span></button>
+  <button class="gt-mode-card gt-entrance" data-gt-mode="entrance" type="button"><span class="gt-card-icon" aria-hidden="true">Ⅲ</span><span class="gt-card-type">UNIVERSITY ENTRANCE · QUIZ + READ</span><strong>大学入試英文法</strong><span class="gt-card-copy">1,840問の4択演習。正答・誤答の理由を確認し、例文を音読。</span><span class="gt-card-arrow">問題に挑戦する ›</span></button>
+ </div>
+ <p class="gt-footer-note">※ 学習記録はこの端末のブラウザーに保存します。音声認識のAccuracyは認識された単語の一致率であり、発音の専門評価ではありません。</p>
 </section>
-<section id="workspace" class="hidden"><div class="toolbar"><button id="back">← 分野一覧</button><strong id="heading"></strong></div>
-<div class="panel"><div class="toolbar"><label for="unit">学習ポイント：</label><select id="unit"></select><button id="begin" class="primary">学習開始</button></div>
-<p id="status" class="note" role="status"></p><div id="pointList"></div>
-<div id="activity" class="hidden"><p id="counter" class="muted"></p><p id="question" class="question" lang="en"></p><div id="choices" class="choices"></div><div id="feedback" class="explain hidden" aria-live="polite"></div><div id="reading" class="hidden"><h2>例文音読</h2><p id="readingText" lang="en"></p><p id="readingJa"></p><div class="toolbar"><button id="listen">▶ お手本を聞く</button><button id="record">● 音読開始</button><button id="stop" disabled>■ 終了・判定</button></div><p id="transcript" class="note" aria-live="polite"></p></div><div class="toolbar"><button id="next" class="primary">次の問題 →</button></div></div>
-</div></section></main>
-<script src="grammar-training.js?v=20261105" defer></script></body></html>
+<section id="gtWorkspace" class="gt-workspace" hidden>
+ <div class="gt-workspace-title"><button id="gtBackHome" class="gt-text-button" type="button">← 4つの学習メニューへ</button><div><span class="gt-eyebrow">COPEAK PRACTICE STUDIO</span><h1 id="gtModeTitle">文法音読</h1></div><div class="gt-total" id="gtModeTotal"></div></div>
+ <div class="gt-layout">
+  <aside class="gt-sidebar" aria-label="学習分野・単元を選択">
+   <label for="gtCategory">章・カテゴリー</label>
+   <select id="gtCategory"></select>
+   <label for="gtUnit">文法ポイント</label>
+   <select id="gtUnit"></select>
+   <div class="gt-unit-meta" id="gtUnitMeta" aria-live="polite"></div>
+   <button class="gt-primary gt-start" id="gtStart" type="button">この分野を学習する</button>
+   <div class="gt-list-label">ポイント一覧</div>
+   <div class="gt-unit-list" id="gtUnitList"></div>
+  </aside>
+  <section class="gt-content" aria-label="文法問題・音読練習">
+   <div id="gtWelcome" class="gt-welcome"><span class="gt-welcome-icon">✦</span><h2>学習する文法ポイントを選んでください</h2><p>左側の一覧から分野を選び、「この分野を学習する」で始めましょう。</p></div>
+   <div id="gtLesson" class="gt-lesson" hidden>
+    <div class="gt-lesson-top"><div><span id="gtTopicLabel" class="gt-topic-label"></span><h2 id="gtLessonTitle"></h2></div><span class="gt-count" id="gtProgressText"></span></div>
+    <div class="gt-progress-track" aria-hidden="true"><div id="gtProgressBar"></div></div>
+    <div id="gtQuiz" class="gt-quiz" hidden>
+     <p id="gtInstruction" class="gt-instruction"></p>
+     <p id="gtStem" class="gt-stem" lang="en"></p>
+     <div class="gt-choices" id="gtOptions" role="group" aria-label="解答を選択"></div>
+     <section id="gtFeedback" class="gt-feedback" hidden aria-live="polite"><h3 id="gtFeedbackTitle"></h3><p id="gtExplanation"></p><p id="gtRule"></p><p id="gtAnswerSentence"></p><p id="gtAnswerJapanese"></p><div id="gtWrongExplanations" class="gt-wrongs"></div></section>
+    </div>
+    <div id="gtReading" class="gt-reading" hidden>
+     <div class="gt-reading-head"><div><span class="gt-section-label">READ ALOUD · 5 STAGES</span><h3>音読ミッション</h3></div><span id="gtPassCondition" class="gt-pass"></span></div>
+     <div id="gtStageTabs" class="gt-stage-tabs" role="group" aria-label="音読段階"></div>
+     <div class="gt-sentence-panel"><div class="gt-sentence-top"><span id="gtReadingHeading" class="gt-reading-label">基本例文</span><button id="gtListen" type="button" class="gt-listen" aria-label="英文のお手本を聞く" title="英文のお手本を聞く">🔊 <span>聞く</span></button></div><p id="gtReadingText" class="gt-reading-text" lang="en"></p><p id="gtJapanese" class="gt-japanese" lang="ja"></p><div id="gtSentenceSwitcher" class="gt-sentence-switcher" hidden><button id="gtMainSentence" type="button" aria-pressed="true">完成英文</button><button id="gtExtraSentence" type="button" aria-pressed="false">別例文</button></div></div>
+     <div class="gt-record-buttons"><button id="gtRecord" class="gt-primary" type="button">● 音読スタート</button><button id="gtStop" type="button" disabled>■ 終了・判定</button><span id="gtRecognitionStatus" role="status" aria-live="polite"></span></div>
+     <div class="gt-results"><div class="gt-transcript-panel"><div class="gt-result-label">YOUR SPEECH / 文字起こし</div><div id="gtTranscript" class="gt-transcript" aria-live="polite">音読を始めると、認識された英語がここに表示されます。</div></div><div class="gt-score-panel"><div class="gt-result-label">ACCURACY <span class="gt-score-best" id="gtBestAccuracy"></span></div><div id="gtScoreMeter" class="gt-meter" role="meter" aria-label="音読の単語一致率" aria-valuemin="0" aria-valuemax="100" aria-valuetext="まだ判定されていません"><svg viewBox="0 0 200 112" aria-hidden="true"><path class="gt-meter-base" d="M 18 100 A 82 82 0 0 1 182 100" pathLength="100"/><path id="gtScoreArc" class="gt-meter-fill" d="M 18 100 A 82 82 0 0 1 182 100" pathLength="100"/></svg><div id="gtScoreNumber" class="gt-meter-number">—</div></div><p id="gtScoreNote" class="gt-score-note">音読終了後に結果を表示します。</p></div></div>
+     <div class="gt-stage-actions"><button id="gtNextStage" type="button" hidden>次のステージへ →</button></div>
+    </div>
+    <div class="gt-lesson-footer"><span id="gtQuizScore" class="gt-quiz-score"></span><button id="gtLessonNext" class="gt-primary" type="button">次の英文へ →</button></div>
+   </div>
+  </section>
+ </div>
+ <p class="gt-footer-note">大学入試・高校文法データは教師確認用の教材原稿を収録しています。Accuracyは音声認識結果との単語一致率であり、発音品質そのものの評価ではありません。</p>
+</section>
+</main>
+</body>
+</html>
