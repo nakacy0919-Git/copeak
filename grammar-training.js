@@ -55,7 +55,7 @@ async function loadCategory(id){
   if(!bank){bank=await getJson(meta.url);state.cache.set(key,bank);}
   if(token!==state.fetchToken)return;
   if(state.mode==='entrance'){
-   state.units=[...core.groupedQuestions(bank.questions).entries()].map(([pid,qs])=>({id:pid,title:pid+' · '+(qs[0].subtopic||'文法演習'),items:qs}));
+   state.units=[...core.groupedQuestions(bank.questions).entries()].map(([pid,qs])=>({id:pid,title:pid+' · '+((state.manifest.point_titles||{})[pid]||qs[0].subtopic||'文法演習'),items:qs}));
   }else if(state.mode==='senior'){
    state.units=(bank.topics||[]).map(t=>({id:id+'-'+t.fact_id,title:'FACT '+t.fact_id+' · '+t.title,items:(t.sentences||[]).map(core.makeReading).filter(Boolean)}));
   }else{
