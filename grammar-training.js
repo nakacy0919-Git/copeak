@@ -25,6 +25,7 @@ function renderOverallProgress(){
   const total=state.totals[mode]||DEFAULT_TOTALS[mode];
   const stat=progressEngine.overall(state.progress.records,mode,total);
   $('gtOverall'+cap).textContent='学習済み '+stat.studied.toLocaleString('ja-JP')+' / '+stat.total.toLocaleString('ja-JP');
+  if(mode==='entrance')$('gtEntranceQuestionCount').textContent=Number(total).toLocaleString('ja-JP');
   $('gtOverallRate'+cap).textContent=stat.rate+'%';
   $('gtOverallBar'+cap).style.width=stat.percent+'%';
  }
