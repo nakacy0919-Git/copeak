@@ -42,3 +42,14 @@
  .gt-speech-pipeline span {font-size:.64rem;padding:4px 6px}
  #gtMicTestResult {display:block;margin:5px 0 0}
 }
+
+.gt-speech-retry {
+ display:inline-flex;align-items:center;justify-content:center;
+ min-height:40px;margin:10px 0 0;padding:9px 15px;
+ border-radius:12px;border:1px solid #e6bf90;
+ background:linear-gradient(125deg,#fff9ea,#ffe6d2);
+ color:#8c542c;font:850 .83rem/1.3 Inter,"Noto Sans JP",system-ui,sans-serif;
+ box-shadow:0 5px 14px rgba(170,108,50,.12);
+}
+.gt-speech-retry:hover{filter:brightness(.985)}
+.gt-speech-retry:focus-visible,#gtMicTest:focus-visible{outline:3px solid #3996d0;outline-offset:2px}
