@@ -194,6 +194,22 @@ const retry=recognizers.at(-1);assert(retry!==denied&&retry.started);
 ready(retry);transcribe(retry,phrase);els.gtStop.click();retry.onend();
 assert.equal(els.gtScoreNumber.textContent,'100%');
 
+
+// Reproduce the reported problem: the recognizer says it started, but produces
+// no onresult on the following attempt. The private event trace must explain
+// the missing callback, without retaining the sentence text.
+const deaf=getNew();ready(deaf);
+const logAfterStart=els.gtSpeechTraceOutput.textContent.split('\n');
+const lastSessionStart=logAfterStart.findLastIndex(entry=>entry.includes('session.begin'));
+const thisAttempt=logAfterStart.slice(lastSessionStart);
+assert(thisAttempt.some(entry=>entry.includes('recognizer.onstart')));
+assert(thisAttempt.some(entry=>entry.includes('recognizer.onaudiostart')));
+assert(!thisAttempt.some(entry=>entry.includes('recognizer.onresult')));
+els.gtStop.click();deaf.onend();
+assert.equal(els.gtRecord.disabled,false,'silent recognition must permit a fresh tap');
+assert(els.gtRecognitionStatus.textContent.includes('再挑戦'));
+assert(!els.gtSpeechTraceOutput.textContent.includes(phrase));
+
 // None of Copeak's old timer-driven stops may remain.
 assert(!timers.some(t=>t.active&&[6500,7000,18000].includes(t.ms)));
 assert(source('grammar-safari-guide.css').includes('prefers-reduced-motion:reduce'));
