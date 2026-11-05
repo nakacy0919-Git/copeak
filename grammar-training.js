@@ -10,7 +10,7 @@ const SETTINGS={
  entrance:{name:'大学入試英文法',url:'data/grammar/entrance/manifest.json',group:'categories'}
 };
 function restore(){try{const x=JSON.parse(localStorage.getItem(KEY)||'{}');return x.version===2&&x.records&&typeof x.records==='object'?x:{version:2,records:{}};}catch{return{version:2,records:{}};}}
-const state={mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,examCorrect:null,missionSkipped:false,missionCleared:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,transcript:'',error:'',cache:new Map(),progress:restore()};
+const state={mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,examCorrect:null,missionSkipped:false,missionCleared:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,micPhase:'idle',micReadyTimer:null,stopRequested:false,transcript:'',interimTranscript:'',error:'',cache:new Map(),progress:restore()};
 const node=(tag,className,text)=>{const n=document.createElement(tag);if(className)n.className=className;if(text!==undefined)n.textContent=text;return n;};
 function progress(id){return state.progress.records[id]||{};}
 function save(id,patch){state.progress.records[id]=Object.assign({},progress(id),patch,{updated:new Date().toISOString()});try{localStorage.setItem(KEY,JSON.stringify(state.progress));}catch(e){console.warn('Grammar progress not saved',e);}}
@@ -146,6 +146,38 @@ function showTopicPicker(){
 }
 function unitStatus(s){$('gtUnitMeta').textContent=s;}
 function micStatus(s){$('gtRecognitionStatus').textContent=s||'';}
+
+function clearMicReadyTimer(){
+ if(state.micReadyTimer!==null){window.clearTimeout(state.micReadyTimer);state.micReadyTimer=null;}
+}
+function micButtons(phase){
+ state.micPhase=phase;
+ $('gtRecord').disabled=phase!=='idle';
+ $('gtStop').disabled=phase!=='listening';
+ $('gtRecord').textContent=phase==='starting'||phase==='connecting'?'● マイク準備中…':phase==='listening'||phase==='stopping'?'● 録音中':'● 音読スタート';
+ $('gtStop').textContent=phase==='stopping'?'■ 終了処理中…':'■ 終了・判定';
+ $('gtRecognitionStatus').setAttribute('data-mic-state',phase);
+}
+function micReady(token){
+ if(token!==state.micToken||!state.recognition||state.micPhase==='stopping'||state.micPhase==='idle')return;
+ clearMicReadyTimer();
+ if(state.micPhase!=='listening'){
+  state.recording=true;micButtons('listening');
+  micStatus('● マイク準備完了。ここから英文を話してください。終了まで音声認識を続けます。');
+ }
+}
+function speechErrorMessage(code){
+ const map={
+  'not-allowed':'マイクの利用が許可されていません。ブラウザーのマイク権限を確認してください。',
+  'service-not-allowed':'音声認識サービスを利用できません。ブラウザーの設定を確認してください。',
+  'audio-capture':'マイクから音声を取得できません。接続や別のアプリの使用状況を確認してください。',
+  'network':'音声認識の通信に失敗しました。ネットワークを確認して再試行してください。',
+  'no-speech':'音声が検出されませんでした。マイク準備完了を確認してから話してください。',
+  'aborted':'音声認識が中断されました。'
+ };
+ return map[code]||'音声認識でエラーが発生しました（'+code+'）。もう一度お試しください。';
+}
+
 async function getJson(url){const res=await fetch(url,{cache:'no-store'});if(!res.ok)throw Error('HTTP '+res.status+' '+url);return await res.json();}
 function resetReading(){
  state.score=null;$('gtScoreNumber').textContent='—';$('gtScoreArc').style.strokeDasharray='0 100';$('gtScoreArc').classList.remove('is-pass');
@@ -154,8 +186,11 @@ function resetReading(){
  $('gtTranscript').textContent='音読を始めると、認識された英語がここに表示されます。';$('gtNextStage').hidden=true;
 }
 function cancelRecognition(){
- state.micToken++;const r=state.recognition;state.recognition=null;state.recording=false;
- if(r){try{r.abort();}catch(_){}}$('gtRecord').disabled=false;$('gtStop').disabled=true;
+ state.micToken++;clearMicReadyTimer();
+ const r=state.recognition;state.recognition=null;state.recording=false;
+ state.stopRequested=false;state.interimTranscript='';
+ if(r){try{r.abort();}catch(_){}}
+ micButtons('idle');
 }
 async function changeMode(mode){
  if(!SETTINGS[mode])return;closeReadingMission();closeExplanation();cancelRecognition();if(window.speechSynthesis)window.speechSynthesis.cancel();
@@ -296,36 +331,75 @@ function speak(){
 }
 function beginSpeech(){
  const Speech=window.SpeechRecognition||window.webkitSpeechRecognition,q=readingItem();
- if(!q||state.recording)return;
+ if(!q||state.recording||state.recognition||state.micPhase!=='idle')return;
  if(!Speech){micStatus('このブラウザーでは音声認識を使用できません。Chromeなどでお試しください。');return;}
- const token=++state.micToken,r=new Speech();r.lang='en-US';r.continuous=true;r.interimResults=true;
- state.recognition=r;state.error='';state.transcript='';resetReading();
+ const token=++state.micToken,r=new Speech();
+ r.lang='en-US';r.continuous=true;r.interimResults=true;
+ state.recognition=r;state.recording=false;state.error='';
+ state.transcript='';state.interimTranscript='';state.stopRequested=false;
+ resetReading();micButtons('starting');
+ micStatus('マイクを準備中です。「マイク準備完了」と表示されるまで話し始めずにお待ちください。');
+ r.onstart=()=>{
+  if(token!==state.micToken||!state.recognition||state.micPhase==='listening')return;
+  micButtons('connecting');
+  micStatus('マイクを接続中です。準備完了が表示されてから話してください。');
+  clearMicReadyTimer();
+  // Some WebKit implementations do not dispatch onaudiostart.
+  // After onstart, fall back only if an explicit audio-start event was not received.
+  state.micReadyTimer=window.setTimeout(()=>micReady(token),850);
+ };
+ r.onaudiostart=()=>micReady(token);
  r.onresult=event=>{
   if(token!==state.micToken)return;
+  micReady(token);
   const finals=[],interims=[];
-  for(let i=0;i<event.results.length;i++){const row=event.results[i],text=row[0]&&row[0].transcript||'';(row.isFinal?finals:interims).push(text);}
+  for(let i=0;i<event.results.length;i++){
+   const row=event.results[i],text=row[0]&&row[0].transcript||'';
+   (row.isFinal?finals:interims).push(text);
+  }
   state.transcript=finals.join(' ').trim();
-  $('gtTranscript').textContent=(state.transcript+' '+interims.join(' ')).trim()||'音声を認識しています…';
+  state.interimTranscript=interims.join(' ').trim();
+  $('gtTranscript').textContent=[state.transcript,state.interimTranscript].filter(Boolean).join(' ')||'音声を認識しています…';
  };
- r.onerror=e=>{if(token!==state.micToken)return;state.error=e.error||'unknown';micStatus('音声認識エラー：'+state.error);};
+ r.onerror=e=>{
+  if(token!==state.micToken)return;
+  state.error=e.error||'unknown';clearMicReadyTimer();
+  micStatus(speechErrorMessage(state.error));
+ };
  r.onend=()=>{
-  if(token!==state.micToken)return;state.recording=false;state.recognition=null;
-  $('gtRecord').disabled=false;$('gtStop').disabled=true;
-  if(state.error){micStatus('音声認識が正常に終了しませんでした。もう一度お試しください。');return;}
-  if(!state.transcript.trim()){micStatus('音声を認識できませんでした。もう一度音読してください。');return;}
-  finishSpeech(q,state.transcript);
+  if(token!==state.micToken)return;
+  clearMicReadyTimer();state.recording=false;state.recognition=null;
+  micButtons('idle');
+  if(state.error){micStatus(speechErrorMessage(state.error));return;}
+  const confirmed=state.transcript.trim(),pending=state.interimTranscript.trim();
+  const spoken=[confirmed,pending].filter(Boolean).join(' ').trim();
+  if(!spoken){
+   micStatus('音声を認識できませんでした。次回は「マイク準備完了」を確認してから話し始めてください。');
+   return;
+  }
+  finishSpeech(q,spoken,Boolean(pending));
  };
  try{
-  if(window.speechSynthesis)window.speechSynthesis.cancel();r.start();state.recording=true;
-  $('gtRecord').disabled=true;$('gtStop').disabled=false;micStatus('● 音声認識中… 終了ボタンを押すまで継続します。');
- }catch(e){state.recognition=null;state.recording=false;$('gtRecord').disabled=false;$('gtStop').disabled=true;micStatus('マイクを開始できませんでした：'+e.message);}
+  if(window.speechSynthesis)window.speechSynthesis.cancel();
+  r.start();
+ }catch(e){
+  if(token!==state.micToken)return;
+  clearMicReadyTimer();state.recognition=null;state.recording=false;
+  micButtons('idle');micStatus('マイクを開始できませんでした：'+e.message);
+ }
 }
 function endSpeech(){
- if(!state.recognition||!state.recording)return;
- micStatus('音声認識を終了して判定しています…');
- try{state.recognition.stop();}catch(e){micStatus('音声認識を終了できませんでした。');cancelRecognition();}
+ if(!state.recognition||state.micPhase!=='listening'||state.stopRequested)return;
+ const r=state.recognition;
+ state.stopRequested=true;micButtons('stopping');
+ micStatus('音声認識の最終結果を受信しています。判定までお待ちください。');
+ try{r.stop();}
+ catch(e){
+  micStatus('音声認識の終了に失敗しました。もう一度お試しください。');
+  cancelRecognition();
+ }
 }
-function finishSpeech(q,spoken){
+function finishSpeech(q,spoken,usedInterim=false){
  if(!scoreEngine()?.score){micStatus('Accuracy判定モジュールがありません。');return;}
  const result=scoreEngine().score(q.sentence,spoken),percent=result.percent,passed=core.stageCanAdvance(state.stage,percent);
  state.score=percent;
@@ -335,7 +409,7 @@ function finishSpeech(q,spoken){
  $('gtScoreArc').classList.toggle('is-pass',passed);
  $('gtScoreMeter').setAttribute('aria-valuenow',String(percent));$('gtScoreMeter').setAttribute('aria-valuetext','単語一致率 '+percent+'パーセント');
  $('gtScoreNote').textContent=passed?'合格！ 次のステージに挑戦しましょう。':'基準 '+core.STAGES[state.stage-1].threshold+'% を目指してもう一度音読しましょう。';
- micStatus('音読終了。認識一致 '+result.matchCount+' / '+result.targetCount+' 語（発音品質評価ではありません）。');
+ micStatus((usedInterim?'未確定の認識結果を一部利用しました。':'音読終了。')+'認識一致 '+result.matchCount+' / '+result.targetCount+' 語（発音品質評価ではありません）。');
  const prev=progress(q.id);
  save(q.id,{readingAttempts:(prev.readingAttempts||0)+1,lastAccuracy:percent,bestAccuracy:Math.max(Number(prev.bestAccuracy)||0,percent),cleared:passed?Math.max(Number(prev.cleared)||0,state.stage):Number(prev.cleared)||0});
  renderStage();
@@ -391,9 +465,9 @@ $('gtListen').addEventListener('click',speak);
 $('gtRecord').addEventListener('click',beginSpeech);
 $('gtStop').addEventListener('click',endSpeech);
 $('gtNextStage').addEventListener('click',nextStage);
-document.addEventListener('visibilitychange',()=>{if(document.hidden&&state.recording)cancelRecognition();});
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&state.recognition)cancelRecognition();});
 window.addEventListener('pagehide',()=>{closeReadingMission();closeExplanation();cancelRecognition();});
 window.addEventListener('resize',()=>{if(!$('gtCategoriesPanel').hidden)fitGrid($('gtCategoryCards'),state.categories.length);if(!$('gtUnitsPanel').hidden)fitGrid($('gtUnitList'),state.units.length);});
-resetReading();
+micButtons('idle');resetReading();
 const query=new URLSearchParams(window.location.search);if(SETTINGS[query.get('mode')])changeMode(query.get('mode'));
 })();
