@@ -212,7 +212,7 @@ function micButtons(phase){
  $('gtRecognitionStatus').setAttribute('data-mic-state',phase);
 }
 function micReady(token,estimated=false){
- if(token!==state.micToken||!state.recognition||state.micPhase==='stopping'||state.micPhase==='idle')return;
+ if(token!==state.micToken||!state.recognition||state.error||state.micPhase==='stopping'||state.micPhase==='idle')return;
  clearMicReadyTimer();clearMicWatchdogs();
  if(state.micPhase!=='listening'){
   state.recording=true;micButtons('listening');
@@ -395,7 +395,7 @@ function beginSpeech(){
  resetReading();micButtons('starting');
  micStatus('マイクを準備中です。「マイク準備完了」と表示されるまで話し始めずにお待ちください。');
  r.onstart=()=>{
-  if(token!==state.micToken||!state.recognition||state.micPhase==='listening')return;
+  if(token!==state.micToken||!state.recognition||state.micPhase==='listening'||state.stopRequested||state.micPhase==='stopping')return;
   if(state.micStartTimer!==null){window.clearTimeout(state.micStartTimer);state.micStartTimer=null;}
   micButtons('connecting');
   micStatus('マイクを接続中です。準備完了が表示されてから話してください。');
