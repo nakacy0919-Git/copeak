@@ -32,7 +32,7 @@ assert(css.includes('.gt-reading-modal-footer #gtMissionStatus'));
 assert(css.includes('justify-content:flex-end'));
 
 // Ensure updated assets reach iPad caches.
-assert(html.includes('grammar-ui-cleanup.css?v=20261105-19'));
+assert(html.includes('grammar-ui-cleanup.css?v=20261105-20'));
 assert(html.includes('grammar-training.js?v=20261105-19'));
 assert(js.includes("scoreEngine().score(q.sentence,spoken)"));
 assert(js.includes('state.micRestartTimer=window.setTimeout(listen,250)'));
