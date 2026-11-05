@@ -20,12 +20,13 @@
 <link rel="stylesheet" href="grammar-premium-controls.css?v=20261105-10">
 <link rel="stylesheet" href="grammar-safari-guide.css?v=20261105-11">
 <link rel="stylesheet" href="grammar-speech-diagnostics.css?v=20261105-12">
-<link rel="stylesheet" href="grammar-ui-cleanup.css?v=20261105-20">
+<link rel="stylesheet" href="grammar-ui-cleanup.css?v=20261105-21">
 <script defer src="vocabulary-reading.js?v=8.3"></script>
-<script defer src="grammar-training-core.js?v=20261105-2"></script>
+<script defer src="grammar-practice-engine.js?v=20261105-1"></script>
+<script defer src="grammar-training-core.js?v=20261105-21"></script>
 <script defer src="grammar-progress.js?v=20261105-8"></script>
 <script defer src="grammar-card-icons.js?v=20261105-9"></script>
-<script defer src="grammar-training.js?v=20261105-19"></script>
+<script defer src="grammar-training.js?v=20261105-21"></script>
 <script defer src="grammar-aurora.js?v=20261105-1"></script>
 </head>
 <body>
@@ -77,7 +78,7 @@
      <div class="gt-reading-head"><span id="gtPassCondition" class="gt-pass"></span></div>
      <div id="gtStageTabs" class="gt-stage-tabs" role="group" aria-label="音読段階"></div>
      <div class="gt-sentence-panel"><div class="gt-sentence-top"><span id="gtReadingHeading" class="gt-reading-label">基本例文</span><button id="gtListen" type="button" class="gt-listen" aria-label="英文のお手本を聞く" title="英文のお手本を聞く">🔊 <span>聞く</span></button></div><p id="gtReadingText" class="gt-reading-text" lang="en"></p><p id="gtJapanese" class="gt-japanese" lang="ja"></p><div id="gtSentenceSwitcher" class="gt-sentence-switcher" hidden><button id="gtMainSentence" type="button" aria-pressed="true">完成英文</button><button id="gtExtraSentence" type="button" aria-pressed="false">別例文</button></div></div>
-     <div class="gt-record-buttons"><div class="gt-record-actions"><button id="gtRecord" class="gt-primary" type="button">● 音読スタート</button><button id="gtStop" type="button" disabled>■ 終了・判定</button></div><span id="gtRecognitionStatus" role="status" aria-live="polite"></span></div>
+     <div class="gt-record-buttons"><button id="gtSoundToggle" class="gt-sound-toggle" type="button" aria-pressed="true">効果音 ON</button><div class="gt-record-actions"><button id="gtRecord" class="gt-primary" type="button">● 音読スタート</button><button id="gtStop" type="button" disabled>■ 終了・判定</button></div><span id="gtRecognitionStatus" role="status" aria-live="polite"></span></div>
      <div class="gt-results"><div class="gt-transcript-panel"><div class="gt-result-label">YOUR SPEECH / 文字起こし</div><div class="gt-speech-pipeline" aria-label="音声認識の状態">
  <span id="gtSignalAudio" data-status="idle">マイク：待機</span>
  <span id="gtSignalVoice" data-status="idle">発話：未確認</span>
@@ -89,7 +90,7 @@
  <button id="gtMicTest" type="button">マイク音量を確認（3秒）</button>
  <span id="gtMicTestResult" role="status" aria-live="polite"></span>
  </details></div><div id="gtScorePanel" class="gt-score-panel"><div class="gt-result-label">ACCURACY <span class="gt-score-best" id="gtBestAccuracy"></span></div><div id="gtScoreMeter" class="gt-meter" role="meter" aria-label="音読の単語一致率" aria-valuemin="0" aria-valuemax="100" aria-valuetext="まだ判定されていません"><svg viewBox="0 0 200 112" aria-hidden="true"><defs><linearGradient id="gtArcGradient" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#2876c5"/><stop offset="55%" stop-color="#2fbad3"/><stop offset="100%" stop-color="#68e0cb"/></linearGradient><linearGradient id="gtArcPassGradient" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#218bc2"/><stop offset="48%" stop-color="#1ebda7"/><stop offset="100%" stop-color="#a5f0cc"/></linearGradient></defs><path class="gt-meter-base" d="M 18 100 A 82 82 0 0 1 182 100" pathLength="100"/><path class="gt-meter-halo" id="gtScoreHalo" d="M 18 100 A 82 82 0 0 1 182 100" pathLength="100"/><path id="gtScoreArc" class="gt-meter-fill" d="M 18 100 A 82 82 0 0 1 182 100" pathLength="100"/></svg><div id="gtScoreNumber" class="gt-meter-number">—</div></div><p id="gtScoreNote" class="gt-score-note">音読終了後に結果を表示します。</p><div id="gtCelebration" class="gt-celebration" aria-hidden="true"></div></div></div>
-     <div class="gt-stage-actions"><button id="gtNextStage" type="button" hidden>次のステージへ →</button></div>
+     <div class="gt-stage-actions"><button id="gtNextStage" type="button" hidden>次のレベルへ →</button></div>
     </div>
     <div class="gt-lesson-footer"><span id="gtQuizScore" class="gt-quiz-score"></span><div class="gt-quiz-actions"><button id="gtOpenReading" class="gt-reading-reopen" type="button" hidden>音読ミッションを開く</button><button id="gtLessonNext" class="gt-primary" type="button">次の英文へ →</button></div></div>
    </div>
