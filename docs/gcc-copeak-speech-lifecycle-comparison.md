@@ -1,38 +1,28 @@
-# GCC Practice English vs Copeak Grammar Training — speech recognition comparison
+# GCC Practice English and Copeak Grammar Training — recognition lifecycle parity
 
-Date: 2026-11-05
+Updated: 2026-11-05
 
-## Verified active GCC implementation
+## Reference implementation
 
-GCC route imports and binds \`src/pages/public/PracticePageV170.js\` from \`src/app.js\`. The working Practice English recorder uses:
+GCC routes Practice English to `src/pages/public/PracticePageV170.js`, imported through `src/app.js`. Its microphone lifecycle is: begin -> cancel speech synthesis -> start recognizer -> show live transcript -> onend automatically starts a new recognizer after 250 ms while the student is still recording -> **only End & Score** finishes the logical recording and evaluates the combined transcript. Web Speech API settings: `lang='en-US'`, `continuous=true`, `interimResults=true`, `maxAlternatives=1`. End & Score has a 1600ms fallback for missing `onend`.
 
-- \`recognition.continuous = true\`, \`interimResults = true\`, \`maxAlternatives = 1\`.
-- A logical recording session (\`recording\` / \`ending\`) separate from each Web Speech API recognition instance.
-- \`onend\` re-creates the recognition instance after 250 ms when the learner has **not** pressed End & Score.
-- \`segments[]\` accumulates finalized transcript fragments using the event's \`resultIndex\`; interim text is shown live.
-- **Only** an explicit End & Score ends the logical recording and triggers scoring, with a 1.6 s final-result fallback.
+## Current Copeak implementation
 
-Source: \`src/pages/public/PracticePageV170.js\`, functions \`begin\`, \`listen\`, \`updateLive\`, \`finish\` and End handler.
+`grammar-training.js` now follows this exact sequence for iPad Safari, iPad Chrome and desktop. The learner's logical session (`state.recording`) is separate from each new `SpeechRecognition` instance (`state.recognition`). A browser-initiated `onend` does **not** score; if the learner has not pressed End & Score, the next recognizer is scheduled after 250 ms. The logical session accumulates finalized segments across restarts; final-result indices are deduplicated per recognizer to prevent repeating earlier text.
 
-## Copeak defects before the patch
+Starting the session cancels speech synthesis unconditionally, matching GCC. A user-triggered End & Score stops the active recognizer, cancels a pending restart, and scores on `onend` or after 1600 ms. End & Score is available immediately after the user starts a recording, including during the brief auto-restart gap. Navigating away or pressing a different stage cancels and detaches recognition without scoring.
 
-- iPad deliberately set \`continuous=false\`, unlike GCC.
-- Its recognizer \`onend\` immediately finalized the reading, even when no End & Score click occurred.
-- Its result handler replaced the finalized transcript with each event's current full results, with no accumulation across newly instantiated recognizers.
-- Its 3-second end watchdog was useful for hanging \`stop()\`, but did not cover ordinary browser auto-end on silence and did not keep a multi-recognizer reading session open.
+**Removed competing Copeak-only mic control:** startup watchdog, fabricated ready-state timeout, 7-second missing-transcript timer, 18-second silence timer, browser-specific `continuous=false` handling and automatic cancellation on `visibilitychange`. UI signal badges are purely observational; independent mic-volume test remains separate. No changes to the main Copeak `speech.js` or vocabulary-check's recognition controller.
 
-## Patched Copeak behavior
+Copeak's `vocabulary-reading.js` only evaluates the recognized text; its existing Accuracy, five-stage pass requirements, per-learner progress and saved attempts are unchanged. `grammar-training.html` cache-busts the replacement controller.
 
-- Use GCC's \`continuous=true\`, \`interimResults=true\`, \`maxAlternatives=1\` across iPad Safari, iPad Chrome, and desktop.
-- Keep the user's logical recording open across recognizer \`onend\` callbacks, auto-restarting a new instance after 250 ms unless the learner explicitly ended the reading.
-- Keep cumulative finalized transcript and show the current interim text without duplicating repeated finalized result indices.
-- Permit End & Score during the brief restart gap; cancel pending reconnect timers during navigation and when the learner stops.
-- Score exactly once following explicit End & Score; a 1.6-second watchdog preserves available transcript if WebKit omits its final \`onend\`.
-- Preserve the prior mic/event diagnostics, gentle Stop-button pulse, iPad no-result warning, manual reconnect, local progress and five-stage Accuracy thresholds.
-- Bump \`grammar-training.js\` URL version to prevent stale Safari browser caching.
+## Verification
 
-## Verification and limitation
+- Five repeated iPad-style reads with GCC-compatible synthesis reset, button states, explicit scoring and transcript display.
+- Browser automatic `onend` / 250ms restart / cumulative final fragments, without unintended scoring or duplicate final results.
+- Explicit stop during the 250ms restart gap and synchronous `onend` handling.
+- Next-stage recording, timeout fallback, stale event protection and fatal-mic-error reset.
+- Independent microphone diagnostic safely releases tracks and AudioContext.
+- The Copeak grammar page loads a standalone controller; `index.html`'s bundled primary speech and `speech-debug.js` are **not** loaded on this page.
 
-Simulated iPad/WebKit and standard Web Speech API lifecycles: three continuous readings; browser auto-end / restart / further speech / explicit stop; repeated \`resultIndex\` events without duplication; no-speech recovery; stop in restart gap; missing \`onend\`; timeout; stale event protection; new-stage capture; and standalone microphone check.
-
-**Real-device iPad Safari and Chrome speech-capture testing remains necessary.** This patch aligns Copeak with the currently working GCC implementation, but cannot repair a WebKit engine that stops emitting all speech recognition events.
+**Limit:** these are simulated event tests. Real iPad Safari and Chrome microphone input must still be verified. GCC-style controller parity cannot guarantee successful transcription if the browser service itself returns no speech result.

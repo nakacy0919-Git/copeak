@@ -83,95 +83,82 @@ const transcribe=(r,text)=>r.onresult({results:[{isFinal:true,0:{transcript:text
 modes[0].click();await tick();assert(els.gtCategoryCards.children.length>0);
 els.gtCategoryCards.children[0].click();await tick();assert(els.gtUnitList.children.length>0);
 els.gtUnitList.children[0].click();const phrase=els.gtReadingText.textContent;assert(phrase.length>5);
+// GCC has no browser-specific speech start/stop watchdogs. Safari and iPad Chrome
+// use exactly the same lifecycle as GCC Practice English.
 const initialSynthCancels=window.synthCancels||0;
-for(let attempt=0;attempt<3;attempt++){
- const r=getNew();assert.equal(r.continuous,true,'Safari must match GCC continuous recognizer');
- assert.equal(els.gtStop.disabled,true);
+for(let attempt=0;attempt<5;attempt++){
+ const rec=getNew();
+ assert.equal(rec.continuous,true);
+ assert.equal(rec.interimResults,true);
+ assert.equal(rec.maxAlternatives,1);
+ assert.equal(els.gtStop.disabled,false,'GCC enables End & Score as soon as Start is tapped');
+ assert(els.gtStop.classList.contains('is-recording-guide'));
+ ready(rec);transcribe(rec,phrase);
+ els.gtStop.click();
  assert.equal(els.gtStop.classList.contains('is-recording-guide'),false);
- ready(r);assert.equal(els.gtStop.disabled,false);
- assert.equal(els.gtStop.classList.contains('is-recording-guide'),true);
- transcribe(r,phrase);
- els.gtStop.click();assert.equal(els.gtStop.classList.contains('is-recording-guide'),false);r.onend();
- assert.equal(els.gtRecord.disabled,false);
+ rec.onend();
+ assert.equal(els.gtRecord.disabled,false,'record again after each assessment');
  assert.equal(els.gtScoreNumber.textContent,'100%');
 }
-assert.equal(window.synthCancels||0,initialSynthCancels,'Do not reset idle WebKit speech audio session on restart');
+assert.equal((window.synthCancels||0)-initialSynthCancels,5,'GCC cancels TTS before each recognition session');
 
-// Actual GCC pattern: browser can end recognition on a pause WITHOUT student ending the reading.
-// Copeak must transparently reopen recognition and accumulate across sessions.
-const autoFirst=getNew();
-ready(autoFirst);transcribe(autoFirst,'This is');
-autoFirst.onend();
-assert.equal(els.gtRecord.disabled,true,'browser auto-end must not finish student recording');
-assert.equal(els.gtScoreNumber.textContent,'—','automatic end must not score');
-assert(timers.some(timer=>timer.active&&timer.ms===250),'GCC-style 250ms restart required');
+// Automatic recognition end must not end the learner's logical recording.
+const first=getNew();ready(first);transcribe(first,'This is');
+first.onend();
+assert.equal(els.gtRecord.disabled,true);
+assert.equal(els.gtScoreNumber.textContent,'—');
+assert(timers.some(timer=>timer.active&&timer.ms===250),'GCC retries automatically');
 fire(250);
-const autoSecond=recognizers.at(-1);
-assert.notEqual(autoSecond,autoFirst);
-assert(autoSecond.started);
-ready(autoSecond);
-autoSecond.onresult({resultIndex:0,results:[{isFinal:true,0:{transcript:'a sentence'}}]});
-assert.equal(els.gtTranscript.textContent,'This is a sentence','transcript must accumulate');
-autoSecond.onresult({resultIndex:0,results:[{isFinal:true,0:{transcript:'a sentence'}}]});
-assert.equal(els.gtTranscript.textContent,'This is a sentence','do not duplicate repeated final results');
-els.gtStop.click();autoSecond.onend();
-assert.equal(els.gtRecord.disabled,false,'explicit End & Score releases recorder');
+const second=recognizers.at(-1);assert(second!==first&&second.started);
+ready(second);
+second.onresult({resultIndex:0,results:[{isFinal:true,0:{transcript:'a sentence'}}]});
+assert.equal(els.gtTranscript.textContent,'This is a sentence','cumulative transcript across recognizers');
+second.onresult({resultIndex:0,results:[{isFinal:true,0:{transcript:'a sentence'}}]});
+assert.equal(els.gtTranscript.textContent,'This is a sentence','no duplicate results');
+els.gtStop.click();second.onend();
+assert.equal(els.gtRecord.disabled,false);
 assert.equal(els.gtScoreNumber.textContent,'100%');
 
-// End & Score pressed during the 250ms reconnect gap must score immediately,
-// cancel the pending restart and not leave the learner trapped in a loading state.
+// End & Score during GCC's 250ms restart gap must complete without a microphone.
 const gap=getNew();ready(gap);transcribe(gap,phrase);gap.onend();
-const countBefore=recognizers.length;
+const count=recognizers.length;
 els.gtStop.click();
-assert.equal(els.gtRecord.disabled,false,'stop during reconnect gap releases start');
-assert.equal(els.gtScoreNumber.textContent,'100%');
+assert.equal(els.gtRecord.disabled,false);
 fire(250);
-assert.equal(recognizers.length,countBefore,'stop must cancel an unneeded reconnect');
+assert.equal(recognizers.length,count,'Stop cancels pending restart');
 
-
-
+// Empty WebKit events must preserve already recognized text.
 const partial=getNew();ready(partial);partial.onspeechstart();
 assert(els.gtSignalAudio.textContent.includes('起動'));
 assert(els.gtSignalVoice.textContent.includes('検出'));
-partial.onresult({results:[{isFinal:false,0:{transcript:'hello WebKit'}}]});
+partial.onresult({resultIndex:0,results:[{isFinal:false,0:{transcript:'hello WebKit'}}]});
 assert(els.gtTranscript.textContent.includes('hello WebKit'));
-partial.onresult({results:[{isFinal:false,0:{transcript:''}}]});
-assert(els.gtTranscript.textContent.includes('hello WebKit'),'blank result must not erase prior words');
-partial.onresult({results:[{isFinal:true,0:{transcript:phrase}}]});
-assert(els.gtSignalText.textContent.includes('受信'));
+partial.onresult({resultIndex:0,results:[{isFinal:false,0:{transcript:''}}]});
+assert(els.gtTranscript.textContent.includes('hello WebKit'));
+partial.onresult({resultIndex:0,results:[{isFinal:true,0:{transcript:phrase}}]});
+assert.equal(els.gtTranscript.textContent,phrase);
 els.gtStop.click();partial.onend();
-const stalled=getNew();ready(stalled);stalled.onspeechstart();
-assert(timers.some(t=>t.active&&t.ms===7000),'transcript watchdog must be active');
-fire(7000);
-assert.equal(els.gtRetrySpeech.hidden,false,'visible reconnect after missing onresult');
-assert(els.gtRecognitionStatus.textContent.includes('文字起こし'));
-els.gtRetrySpeech.click();
-assert(stalled.aborted,'reconnect must abort the stalled recognizer');
-const reconnected=recognizers.at(-1);
-assert(reconnected.started,'reconnect must synchronously start new recognition from tap');
-ready(reconnected);transcribe(reconnected,phrase);els.gtStop.click();reconnected.onend();
+
+// No-speech is nonfatal in GCC; onend retries.
+const silent=getNew();ready(silent);silent.onerror({error:'no-speech'});
+silent.onend();
+assert(timers.some(timer=>timer.active&&timer.ms===250));
+fire(250);
+const recovered=recognizers.at(-1);assert(recovered!==silent&&recovered.started);
+ready(recovered);transcribe(recovered,phrase);els.gtStop.click();recovered.onend();
 assert.equal(els.gtScoreNumber.textContent,'100%');
 
-// A Safari session can start while never producing onresult, onerror or onend.
-let r=getNew();ready(r);
-assert(timers.some(timer=>timer.active&&timer.ms===18000));
-fire(18000);
-assert.equal(r.aborted,true);
+// Fatal mic errors abort and allow a fresh attempt directly from the tap.
+const denied=getNew();ready(denied);denied.onerror({error:'audio-capture'});
 assert.equal(els.gtRecord.disabled,false);
-assert(els.gtRecognitionStatus.textContent.includes('iPad'));
-r.onend(); // Stale event from former session must not score.
-r=getNew();ready(r);transcribe(r,phrase);els.gtStop.click();r.onend();
+assert.equal(els.gtRetrySpeech.hidden,false);
+denied.onend();
+els.gtRetrySpeech.click();
+const retry=recognizers.at(-1);assert(retry!==denied&&retry.started);
+ready(retry);transcribe(retry,phrase);els.gtStop.click();retry.onend();
 assert.equal(els.gtScoreNumber.textContent,'100%');
-// Unlike the previous Copeak, GCC treats no-speech as nonfatal and reconnects.
-r=getNew();ready(r);r.onerror({error:'no-speech'});
-assert.equal(els.gtStop.classList.contains('is-recording-guide'),true);
-r.onend();
-assert(timers.some(t=>t.active&&t.ms===250),'nonfatal no-speech must auto-reconnect');
-fire(250);
-const recovered=recognizers.at(-1);
-assert(recovered!==r&&recovered.started);
-ready(recovered);transcribe(recovered,phrase);
-els.gtStop.click();recovered.onend();
-assert.equal(els.gtRecord.disabled,false);
+
+// None of Copeak's old timer-driven stops may remain.
+assert(!timers.some(t=>t.active&&[6500,7000,18000].includes(t.ms)));
 assert(source('grammar-safari-guide.css').includes('prefers-reduced-motion:reduce'));
-console.log('PASS iPad Safari: GCC auto-restart, cross-session cumulative transcript, explicit scoring, repeat 3x, no-result and no-speech recovery');
+console.log('PASS iPad GCC parity: 5 consecutive reads, TTS reset, 250ms restart, cumulative text, explicit stop, errors');

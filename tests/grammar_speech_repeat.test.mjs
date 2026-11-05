@@ -77,43 +77,63 @@ async function run(){
  modes[0].click();await tick();dom.gtCategoryCards.children[0].click();await tick();dom.gtUnitList.children[0].click();
  const phrase=dom.gtReadingText.textContent;
  assert(phrase.length>5);
- let s=start();ready(s);result(s,phrase);dom.gtStop.click();s.onend();
- assert.equal(dom.gtRecord.disabled,false,'first successful read must re-enable mic');
+
+ let r=start();assert.equal(dom.gtStop.disabled,false);
+ ready(r);result(r,phrase);dom.gtStop.click();r.onend();
+ assert.equal(dom.gtRecord.disabled,false);
  assert.equal(dom.gtScoreNumber.textContent,'100%');
  assert.equal(dom.gtNextStage.hidden,false);
- // Re-read the same stage even after scoring.
- s=start();ready(s);result(s,phrase);dom.gtStop.click();s.onend();
- assert.equal(dom.gtRecord.disabled,false,'same-stage repeat must be possible');
- dom.gtNextStage.click();
- assert(dom.gtReadingHeading.textContent.includes('25%'),'next stage should be unlocked');
- s=start();ready(s);result(s,phrase);dom.gtStop.click();s.onend();
- assert.equal(dom.gtRecord.disabled,false,'next-stage read must also restart');
- // Safari/WebKit: stop() fires no end event.
- s=start();ready(s);result(s,phrase);dom.gtStop.click();
- assert.equal(dom.gtRecord.disabled,true);
- assert(timers.some(t=>!t.canceled&&t.delay===1600),'stop recovery watchdog must be armed');
- s.onstart(); // delayed start event must NOT revert stopping state.
- assert.equal(dom.gtStop.disabled,true);
- fire(1600);
- assert(s.aborted,'recognizer must be released');
- assert.equal(dom.gtRecord.disabled,false,'must recover after missing onend');
- assert.equal(dom.gtScoreNumber.textContent,'100%','available transcript must still be scored');
  const recordId=fixture.units[0].sentences[0].id;
+ let attempts=JSON.parse(storage.copeak_grammar_training_v2).records[recordId].readingAttempts;
+
+ r=start();ready(r);result(r,phrase);dom.gtStop.click();r.onend();
+ assert.equal(dom.gtRecord.disabled,false,'same-stage reading can restart');
+ assert.equal(JSON.parse(storage.copeak_grammar_training_v2).records[recordId].readingAttempts,attempts+1);
+ dom.gtNextStage.click();
+ assert(dom.gtReadingHeading.textContent.includes('25%'),'stage advances');
+ r=start();ready(r);result(r,phrase);dom.gtStop.click();r.onend();
+ assert.equal(dom.gtScoreNumber.textContent,'100%');
+
+ // The browser can auto-end and re-open recognition without scoring.
+ r=start();ready(r);result(r,'I am');
+ r.onend();assert.equal(dom.gtScoreNumber.textContent,'—');
+ assert(timers.some(t=>!t.canceled&&t.delay===250));
+ fire(250);
+ let next=sessions.at(-1);assert.notEqual(next,r);assert(next.started);
+ ready(next);result(next,'a student');dom.gtStop.click();next.onend();
+ assert.equal(dom.gtRecord.disabled,false);
+ assert.equal(dom.gtScoreNumber.textContent,'100%');
+
+ // If Safari skips onend after stop, release after GCC's 1.6s safeguard.
+ r=start();ready(r);result(r,phrase);dom.gtStop.click();
+ assert(timers.some(t=>!t.canceled&&t.delay===1600));
+ fire(1600);assert(r.aborted);
+ assert.equal(dom.gtRecord.disabled,false);
  const count=JSON.parse(storage.copeak_grammar_training_v2).records[recordId].readingAttempts;
- s.onend();
- assert.equal(JSON.parse(storage.copeak_grammar_training_v2).records[recordId].readingAttempts,count,'stale onend must not rescore');
- // Stop with no speech should reset controls without recording success.
- s=start();ready(s);dom.gtStop.click();fire(1600);
+ r.onend();
+ assert.equal(JSON.parse(storage.copeak_grammar_training_v2).records[recordId].readingAttempts,count,'stale end cannot re-score');
+
+ // Stop without recognized words should not count as a completed attempt.
+ r=start();ready(r);dom.gtStop.click();r.onend();
  assert.equal(dom.gtRecord.disabled,false);
  assert(dom.gtRecognitionStatus.textContent.includes('再挑戦'));
- // Service never starts: timeout must release the microphone.
- s=start();fire(6500);
- assert(s.aborted);assert.equal(dom.gtRecord.disabled,false);
- // Error received, but browser omits end.
- s=start();s.onstart();s.onerror({error:'audio-capture'});fire(950);
+
+ // A fatal error aborts promptly; no legacy start/error timers involved.
+ r=start();ready(r);r.onerror({error:'audio-capture'});
+ assert(r.aborted);
  assert.equal(dom.gtRecord.disabled,false);
- s=start();ready(s);result(s,phrase);dom.gtStop.click();s.onend();
+ r.onend();
+ r=start();ready(r);result(r,phrase);dom.gtStop.click();r.onend();
+ assert.equal(dom.gtScoreNumber.textContent,'100%');
+
+ // A WebKit stop that ends synchronously must not retain a stray fallback timer.
+ r=start();ready(r);result(r,phrase);
+ r.stop=()=>{r.stopped=true;r.onend();};
+ dom.gtStop.click();
  assert.equal(dom.gtRecord.disabled,false);
- console.log('PASS: GCC parity repeat, next-stage, missing end watchdog, stale events, failed start and fatal error recovery');
+ assert.equal(timers.filter(t=>!t.canceled&&t.delay===1600).length,0);
+
+ assert(!timers.some(t=>!t.canceled&&[6500,7000,18000].includes(t.delay)));
+ console.log('PASS GCC controller: explicit scoring, same-stage retry, next-stage, auto-reconnect, stale events, stop fallback, fatal errors');
 }
 await run();
