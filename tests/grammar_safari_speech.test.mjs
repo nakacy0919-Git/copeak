@@ -118,6 +118,17 @@ els.gtStop.click();autoSecond.onend();
 assert.equal(els.gtRecord.disabled,false,'explicit End & Score releases recorder');
 assert.equal(els.gtScoreNumber.textContent,'100%');
 
+// End & Score pressed during the 250ms reconnect gap must score immediately,
+// cancel the pending restart and not leave the learner trapped in a loading state.
+const gap=getNew();ready(gap);transcribe(gap,phrase);gap.onend();
+const countBefore=recognizers.length;
+els.gtStop.click();
+assert.equal(els.gtRecord.disabled,false,'stop during reconnect gap releases start');
+assert.equal(els.gtScoreNumber.textContent,'100%');
+fire(250);
+assert.equal(recognizers.length,countBefore,'stop must cancel an unneeded reconnect');
+
+
 
 const partial=getNew();ready(partial);partial.onspeechstart();
 assert(els.gtSignalAudio.textContent.includes('起動'));
