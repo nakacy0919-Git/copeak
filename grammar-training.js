@@ -504,12 +504,18 @@ function switchSentence(extra){
 }
 function speak(){
  const q=readingItem();if(!q)return;
+ if(state.recognition){micStatus('音声認識中はお手本を再生できません。「終了・判定」を押してください。');return;}
  if(!('speechSynthesis' in window)){micStatus('読み上げ機能に対応していません。');return;}
- window.speechSynthesis.cancel();const utterance=new SpeechSynthesisUtterance(q.sentence);
+ if(window.speechSynthesis.speaking||window.speechSynthesis.pending)window.speechSynthesis.cancel();
+ const utterance=new SpeechSynthesisUtterance(q.sentence);
  utterance.lang='en-US';utterance.rate=.9;window.speechSynthesis.speak(utterance);
 }
 function beginSpeech(){
  closeMicDiagnostic();
+ if(isIOSWebKit&&window.speechSynthesis&&(window.speechSynthesis.speaking||window.speechSynthesis.pending)){
+  micStatus('お手本の再生中です。再生が終わってから「音読スタート」を押してください。');
+  return;
+ }
  const Speech=window.SpeechRecognition||window.webkitSpeechRecognition,q=readingItem();
  if(!q||state.recording||state.recognition||state.micPhase!=='idle')return;
  if(!Speech){micStatus('このブラウザーでは音声認識を使用できません。Chromeなどでお試しください。');return;}
