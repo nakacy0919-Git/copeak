@@ -158,12 +158,12 @@ function micButtons(phase){
  $('gtStop').textContent=phase==='stopping'?'■ 終了処理中…':'■ 終了・判定';
  $('gtRecognitionStatus').setAttribute('data-mic-state',phase);
 }
-function micReady(token){
+function micReady(token,estimated=false){
  if(token!==state.micToken||!state.recognition||state.micPhase==='stopping'||state.micPhase==='idle')return;
  clearMicReadyTimer();
  if(state.micPhase!=='listening'){
   state.recording=true;micButtons('listening');
-  micStatus('● マイク準備完了。ここから英文を話してください。終了まで音声認識を続けます。');
+  micStatus(estimated?'● 音声認識が開始されました。英文を話してください。':'● マイク準備完了。ここから英文を話してください。終了まで音声認識を続けます。');
  }
 }
 function speechErrorMessage(code){
@@ -346,7 +346,7 @@ function beginSpeech(){
   clearMicReadyTimer();
   // Some WebKit implementations do not dispatch onaudiostart.
   // After onstart, fall back only if an explicit audio-start event was not received.
-  state.micReadyTimer=window.setTimeout(()=>micReady(token),850);
+  state.micReadyTimer=window.setTimeout(()=>micReady(token,true),850);
  };
  r.onaudiostart=()=>micReady(token);
  r.onresult=event=>{
