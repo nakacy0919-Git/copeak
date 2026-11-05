@@ -79,3 +79,21 @@
 .gt-reading-modal-footer {
   justify-content:flex-end;
 }
+
+/* Keep category artwork, two-line titles and progress inside every iPad tile.
+   Page the category data instead of compressing six rows into the viewport. */
+.gt-picker .gt-category-cards{gap:12px!important}
+.gt-picker .gt-category-card.gt-square-tile{
+ justify-content:flex-start;gap:5px;padding:12px 10px 10px;
+}
+.gt-picker .gt-category-card.gt-square-tile .gt-pretty-icon{flex-shrink:0}
+.gt-picker .gt-category-card.gt-square-tile .gt-square-content{flex-shrink:0}
+.gt-picker .gt-category-card.gt-square-tile .gt-square-bottom{flex-shrink:0}
+.gt-picker #gtCategoryPager button{min-width:44px;min-height:44px}
+@media(max-width:650px){
+ .gt-picker .gt-category-cards{
+  height:var(--gt-grid-height)!important;max-height:none;
+  grid-template-rows:repeat(var(--gt-grid-rows),minmax(0,1fr))!important;
+  overflow:visible!important;
+ }
+}

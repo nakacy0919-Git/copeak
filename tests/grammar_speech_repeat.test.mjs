@@ -41,7 +41,7 @@ const document={
  querySelectorAll:s=>s==='[data-gt-mode]'?modes:[],
  addEventListener(){},body:new Element('body')
 };
-const data={'data/grammar/junior/manifest.json':manifest,'data/grammar/junior/J1.json':fixture};
+const data={'data/grammar/entrance/manifest.json':JSON.parse(read('data/grammar/entrance/manifest.json')),'data/grammar/junior/manifest.json':manifest,'data/grammar/junior/J1.json':fixture};
 const fetch=async url=>{assert(data[url],'unexpected fetch: '+url);return{ok:true,json:async()=>data[url]}};
 const timers=[],sessions=[],storage={},scored=[];
 const window={
@@ -152,6 +152,20 @@ async function run(){
  dom.gtStop.click();r.onend();assert.equal(scored.at(-1),'I am');
 
  assert(!timers.some(t=>!t.canceled&&[6500,7000,18000].includes(t.delay)));
+ // iPad category paging must expose every entry without squeezing the cards.
+ modes[2].click();await tick();
+ const found=new Set();
+ for(let page=0;page<10;page++){
+  assert(parseFloat(dom.gtCategoryCards.style['--gt-grid-height'])>=158);
+  dom.gtCategoryCards.children.forEach(c=>found.add(c.dataset.category));
+  if(dom.gtNextCategories.disabled)break;
+  dom.gtNextCategories.click();
+ }
+ assert.equal(found.size,26,'all entrance categories remain accessible');
+ assert.equal(dom.gtNextCategories.disabled,true);
+ dom.gtPrevCategories.click();assert.equal(dom.gtPrevCategories.disabled,true);
+ assert.equal(dom.gtCategoryCards.children[0].dataset.category,'A01');
+ console.log('PASS category pagination: all 26 categories, forward/back boundaries');
  console.log('PASS GCC controller: explicit scoring, same-stage retry, next-stage, auto-reconnect, stale events, stop fallback, fatal errors');
 }
 await run();

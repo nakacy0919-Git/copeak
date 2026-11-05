@@ -68,8 +68,20 @@ function fitGrid(grid,count){
  grid.classList.toggle('gt-dense-grid',count>25);
  grid.classList.toggle('gt-few-categories',isCategory&&count<=4);
 }
+function categoryLayout(){
+ const width=window.innerWidth||1280,height=window.innerHeight||850;
+ const cols=width>=1000?5:width>=700?4:2;
+ // Leave room for the workspace title, panel heading, padding and page controls.
+ const rows=Math.max(1,Math.min(4,Math.floor((height-225)/170)));
+ return {cols,rows,size:cols*rows};
+}
 function updatePager(kind){
- $(kind==='category'?'gtCategoryPager':'gtUnitPager').hidden=true;
+ if(kind!=='category'){$('gtUnitPager').hidden=true;return;}
+ const {size}=categoryLayout(),pages=Math.max(1,Math.ceil(state.categories.length/size));
+ $('gtCategoryPager').hidden=pages<=1;
+ $('gtCategoryPage').textContent=(state.categoryPage+1)+' / '+pages;
+ $('gtPrevCategories').disabled=state.categoryPage===0;
+ $('gtNextCategories').disabled=state.categoryPage>=pages-1;
 }
 let feedbackTimer=0;
 function closeExplanation(){
@@ -148,7 +160,10 @@ function skipReadingMission(){
 
 function renderCategoryCards(){
  const grid=$('gtCategoryCards'),fragment=document.createDocumentFragment();
- for(const [i,c] of state.categories.entries()){
+ const layout=categoryLayout();
+ state.categoryPage=Math.min(state.categoryPage,Math.max(0,Math.ceil(state.categories.length/layout.size)-1));
+ const visible=state.categories.slice(state.categoryPage*layout.size,(state.categoryPage+1)*layout.size);
+ for(const c of visible){
   const b=node('button','gt-category-card gt-square-tile');b.type='button';b.dataset.category=c.id;
   const count=state.mode==='entrance'?c.count+'問':(state.mode==='senior'?c.topics:c.units)+'項目';
   const total=state.mode==='entrance'?c.count:c.sentences;
@@ -162,7 +177,13 @@ function renderCategoryCards(){
   b.append(node('span','gt-card-code',c.id),premiumIcon(c.title,c.id),detail,bottom,strip.rail);
   b.addEventListener('click',()=>loadCategory(c.id));fragment.append(b);
  }
- grid.replaceChildren(fragment);fitGrid(grid,state.categories.length);markCategoryCards();updatePager('category');
+ grid.replaceChildren(fragment);
+ const rows=Math.max(1,Math.min(layout.rows,Math.ceil(state.categories.length/layout.cols)));
+ grid.style.setProperty('--gt-grid-cols',String(Math.min(layout.cols,state.categories.length)||1));
+ grid.style.setProperty('--gt-grid-rows',String(rows));
+ grid.style.setProperty('--gt-grid-height',String(rows*170-12)+'px');
+ grid.classList.toggle('gt-few-categories',state.categories.length<=4);
+ markCategoryCards();updatePager('category');
 }
 function renderUnitCards(){
  const list=$('gtUnitList'),fragment=document.createDocumentFragment();
@@ -626,6 +647,8 @@ $('gtReadingDialog').addEventListener('click',e=>{if(e.target===$('gtReadingDial
 $('gtReadingDialog').addEventListener('cancel',e=>{e.preventDefault();closeReadingMission();});
 $('gtBackToCategories').addEventListener('click',showCategoryPicker);
 
+$('gtPrevCategories').addEventListener('click',()=>{if(state.categoryPage>0){state.categoryPage--;renderCategoryCards();}});
+$('gtNextCategories').addEventListener('click',()=>{if((state.categoryPage+1)*categoryLayout().size<state.categories.length){state.categoryPage++;renderCategoryCards();}});
 $('gtBackToTopics').addEventListener('click',showTopicPicker);
 $('gtBackHome').addEventListener('click',()=>{
  if(!$('gtLesson').hidden){showTopicPicker();return;}
@@ -646,7 +669,7 @@ $('gtRetrySpeech').addEventListener('click',retrySpeechRecognition);
 $('gtMicTest').addEventListener('click',testMicInput);
 $('gtNextStage').addEventListener('click',nextStage);
 window.addEventListener('pagehide',()=>{closeReadingMission();closeExplanation();cancelRecognition();});
-window.addEventListener('resize',()=>{if(!$('gtCategoriesPanel').hidden)fitGrid($('gtCategoryCards'),state.categories.length);if(!$('gtUnitsPanel').hidden)fitGrid($('gtUnitList'),state.units.length);});
+window.addEventListener('resize',()=>{if(!$('gtCategoriesPanel').hidden)renderCategoryCards();if(!$('gtUnitsPanel').hidden)fitGrid($('gtUnitList'),state.units.length);});
 micButtons('idle');resetReading();updateSpeechSignals();renderOverallProgress();
 const query=new URLSearchParams(window.location.search);if(SETTINGS[query.get('mode')])changeMode(query.get('mode'));
 })();
