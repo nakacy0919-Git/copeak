@@ -55,6 +55,15 @@ const window={navigator:{userAgent:'Mozilla/5.0 (iPad; CPU OS 26_6 like Mac OS X
  setTimeout:(fn,ms)=>{const timer={fn,ms,active:true};timers.push(timer);return timer},
  clearTimeout:timer=>{if(timer)timer.active=false}};
 const fire=ms=>{for(const t of timers.filter(t=>t.active&&t.ms===ms)){t.active=false;t.fn()}};
+
+const playedNotes=[];
+class AudioContextMock{
+ constructor(){this.state='running';this.currentTime=0;this.destination={};}
+ createOscillator(){return {type:'sine',frequency:{value:0},connect(){},start(){playedNotes.push(this.frequency.value)},stop(){}}}
+ createGain(){return {gain:{setValueAtTime(){},exponentialRampToValueAtTime(){}},connect(){}}}
+}
+window.AudioContext=AudioContextMock;
+
 class Recognizer{
  constructor(){recognizers.push(this);this.started=false;this.aborted=false;this.stopped=false}
  start(){this.started=true}
@@ -101,6 +110,33 @@ for(let attempt=0;attempt<5;attempt++){
  assert.equal(els.gtScoreNumber.textContent,'100%');
 }
 assert.equal((window.synthCancels||0)-initialSynthCancels,5,'GCC cancels TTS before each recognition session');
+
+assert.equal(playedNotes.length,5*9,'GCC plays 2 start notes + 2 stop notes + 5 success notes per perfect read');
+assert.equal(playedNotes[0],523);
+assert.equal(playedNotes[1],659);
+assert.equal(playedNotes[2],523);
+assert.equal(playedNotes[3],659);
+assert.equal(playedNotes[4],523);
+assert.equal(playedNotes[8],1318,'GCC 100% fanfare finishes with its highest tone');
+
+// The audio toggle is opt-out and must never change recording results.
+els.gtSoundToggle.click();
+assert.equal(els.gtSoundToggle.attrs['aria-pressed'],'false');
+const noteCount=playedNotes.length;
+const muted=getNew();ready(muted);transcribe(muted,phrase);
+els.gtStop.click();muted.onend();
+assert.equal(els.gtScoreNumber.textContent,'100%');
+assert.equal(playedNotes.length,noteCount,'muted interaction has no oscillators');
+els.gtSoundToggle.click();
+assert.equal(els.gtSoundToggle.attrs['aria-pressed'],'true');
+assert.equal(playedNotes.length,noteCount+2,'enabling audio previews GCC two-note tap');
+assert(storage['copeak-grammar-sounds']==='on');
+
+// Diagnostic logs are event metadata only, not identifiable spoken text.
+assert(els.gtSpeechTraceOutput.textContent.includes('recognizer.onresult'));
+assert(els.gtSpeechTraceOutput.textContent.includes('session.finalize'));
+assert(!els.gtSpeechTraceOutput.textContent.includes(phrase),'never persist recognized sentences in diagnostic output');
+
 
 // Automatic recognition end must not end the learner's logical recording.
 const first=getNew();ready(first);transcribe(first,'This is');
@@ -161,4 +197,4 @@ assert.equal(els.gtScoreNumber.textContent,'100%');
 // None of Copeak's old timer-driven stops may remain.
 assert(!timers.some(t=>t.active&&[6500,7000,18000].includes(t.ms)));
 assert(source('grammar-safari-guide.css').includes('prefers-reduced-motion:reduce'));
-console.log('PASS iPad GCC parity: 5 consecutive reads, TTS reset, 250ms restart, cumulative text, explicit stop, errors');
+console.log('PASS GCC audio: 5x Start/End/Score tunes, muted mode, anonymized mic trace; iPad reconnect and transcript parity');
