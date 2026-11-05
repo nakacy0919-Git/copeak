@@ -63,9 +63,10 @@ function fitGrid(grid,count){
  grid.style.setProperty('--gt-grid-cols',String(Math.max(1,cols)));
  grid.style.setProperty('--gt-grid-rows',String(rows));
  const available=Math.max(260,(window.innerHeight||850)-(width<900?175:180));
- const targetRow=isCategory?(width<700?140:185):(width<700?92:96);
+ const targetRow=isCategory?(width<700?140:count<=4?220:185):(width<700?92:96);
  grid.style.setProperty('--gt-grid-height',Math.min(available,rows*targetRow)+'px');
  grid.classList.toggle('gt-dense-grid',count>25);
+ grid.classList.toggle('gt-few-categories',isCategory&&count<=4);
 }
 function updatePager(kind){
  $(kind==='category'?'gtCategoryPager':'gtUnitPager').hidden=true;
