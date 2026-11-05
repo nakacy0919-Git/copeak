@@ -43,7 +43,7 @@ const document={
 };
 const data={'data/grammar/junior/manifest.json':manifest,'data/grammar/junior/J1.json':fixture};
 const fetch=async url=>{assert(data[url],'unexpected fetch: '+url);return{ok:true,json:async()=>data[url]}};
-const timers=[],sessions=[],storage={};
+const timers=[],sessions=[],storage={},scored=[];
 const window={
  innerWidth:1440,innerHeight:875,location:{search:''},addEventListener(){},scrollTo(){},
  matchMedia:()=>({matches:false}),speechSynthesis:{cancel(){}},
@@ -57,7 +57,7 @@ class Recognizer {
 }
 window.SpeechRecognition=Recognizer;
 window.CopeakVocabularyReading={score:(sentence,spoken)=>{
- assert(spoken.length);
+ assert(spoken.length);scored.push(spoken);
  const words=sentence.trim().split(/\s+/);
  return {percent:100,matchCount:words.length,targetCount:words.length,wordMatches:words.map(value=>({value,matched:true}))};
 }};
@@ -132,6 +132,24 @@ async function run(){
  dom.gtStop.click();
  assert.equal(dom.gtRecord.disabled,false);
  assert.equal(timers.filter(t=>!t.canceled&&t.delay===1600).length,0);
+
+ // Preserve interim-only words when a service ends without a final result.
+ r=start();r.onstart();
+ assert(dom.gtSignalAudio.textContent.includes('待機'),'service start is not audio capture');
+ r.onaudiostart();
+ r.onresult({resultIndex:0,results:[{isFinal:false,0:{transcript:'I am'}}]});
+ r.onend();fire(250);next=sessions.at(-1);ready(next);result(next,'a student');
+ assert.equal(dom.gtTranscript.textContent,'I am a student');
+ dom.gtStop.click();next.onend();
+ assert.equal(scored.at(-1),'I am a student','score must receive the complete session');
+ assert(dom.gtRecognitionStatus.textContent.includes('未確定'));
+
+ // A cumulative final may be revised; use the current snapshot, not append-only indices.
+ r=start();ready(r);result(r,'I ham');result(r,'I am');
+ r.onresult({resultIndex:1,results:[{isFinal:true,0:{transcript:'I am'}},{isFinal:false,0:{transcript:'a student'}}]});
+ r.onresult({resultIndex:1,results:[{isFinal:true,0:{transcript:'I am'}}]});
+ assert.equal(dom.gtTranscript.textContent,'I am','removed interim results must disappear');
+ dom.gtStop.click();r.onend();assert.equal(scored.at(-1),'I am');
 
  assert(!timers.some(t=>!t.canceled&&[6500,7000,18000].includes(t.delay)));
  console.log('PASS GCC controller: explicit scoring, same-stage retry, next-stage, auto-reconnect, stale events, stop fallback, fatal errors');
