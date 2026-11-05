@@ -20,7 +20,7 @@ assert(!core.stageCanAdvance(4,90));
 assert(core.stageCanAdvance(5,100));
 
 const entrance=json('data/grammar/entrance/manifest.json');
-assert.equal(entrance.total_questions,1840);
+assert.equal(entrance.total_questions,4912);
 const ids=new Set(),points=new Map();
 let questions=0;
 for(const category of entrance.categories){
@@ -41,9 +41,9 @@ for(const category of entrance.categories){
     assert.equal(Object.keys(q.wrong).length,3,'wrong-answer explanations '+q.id);
   }
 }
-assert.equal(questions,1840);
-assert.equal(ids.size,1840);
-assert.equal(points.size,115);
+assert.equal(questions,4912);
+assert.equal(ids.size,4912);
+assert.equal(points.size,307);
 
 const senior=json('data/grammar/senior/manifest.json');
 assert.equal(senior.chapters.length,18);
@@ -93,4 +93,4 @@ assert(home.includes("case 'vocabulary':window.location.assign('grammar-training
 assert(read('vocabulary-check.html').includes('vocabulary-check.js'),'diagnostic remains accessible');
 assert.equal(json('vercel.json').git.deploymentEnabled,false,'production auto deploy must remain off');
 
-console.log('PASS grammar training: 1,840 entrance MCQs / 115 points, 1,830 HS sentences / 366 topics, 144 JHS sentences / 18 units, 5 reading stages, navigation and diagnosis preserved');
+console.log('PASS grammar training: 4,912 entrance MCQs / 307 points, 1,830 HS sentences / 366 topics, 144 JHS sentences / 18 units, 5 reading stages, navigation and diagnosis preserved');
