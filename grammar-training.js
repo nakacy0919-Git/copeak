@@ -265,7 +265,7 @@ function finalizeSpeechSession(token,q,timeout=false,reason=''){
  const spoken=[confirmed,pending].filter(Boolean).join(' ').trim();
  if(!spoken){
   $('gtRetrySpeech').hidden=false;
-  micStatus(reason==='silent'?'iPad Safariの音声認識から応答がありませんでした。録音を解除しました。「音読スタート」で再挑戦してください。':timeout?'音声認識が終了しなかったため録音を解除しました。もう一度「音読スタート」で再挑戦してください。':'音声を認識できませんでした。「音読スタート」で再挑戦してください。');
+  micStatus(reason==='silent'?'iPadの音声認識から応答がありませんでした。録音を解除しました。「音読スタート」で再挑戦してください。':timeout?'音声認識が終了しなかったため録音を解除しました。もう一度「音読スタート」で再挑戦してください。':'音声を認識できませんでした。「音読スタート」で再挑戦してください。');
   return;
  }
  finishSpeech(q,spoken,Boolean(pending));
