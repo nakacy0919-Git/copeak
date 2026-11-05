@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+const read=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
+const html=read('grammar-training.html');
+const js=read('grammar-training.js');
+const manifest=JSON.parse(read('data/grammar/entrance/manifest.json'));
+const sourceTotal=manifest.categories.reduce((sum,c)=>sum+(Number(c.count)||0),0);
+assert.equal(manifest.total_questions,4912);
+assert.equal(sourceTotal,4912,'category question counts match published total');
+assert(html.includes('id="gtEntranceQuestionCount">4,912</span>問'),'landing displays correct total on initial render');
+assert(!html.includes('1,840問'),'stale hardcoded count must not return');
+assert(js.includes("if(mode==='entrance')$('gtEntranceQuestionCount').textContent=Number(total).toLocaleString('ja-JP');"),'landing count updates with same total as progress');
+assert(js.includes("const total=mode==='entrance'?manifest.total_questions:manifest.total_sentences"),'mode load uses true manifest');
+assert(js.includes("if(Number(total)>0){state.totals[mode]=Number(total);renderOverallProgress();}"),'manifest refresh updates all progress and landing counters');
+assert(js.includes('DEFAULT_TOTALS={junior:144,senior:1830,entrance:4912}'),'initial numbers match manifest');
+assert(html.includes('grammar-training.js?v=20261106-3'),'iPad cached JS invalidated');
+console.log('PASS entrance landing total matches manifest and progress: 4,912 questions');
