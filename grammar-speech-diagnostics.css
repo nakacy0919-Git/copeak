@@ -1,0 +1,44 @@
+/* Grammar voice-recognition diagnostics: compact, legible on iPad Safari / Chrome. */
+.gt-speech-pipeline {
+ display:flex;flex-wrap:wrap;gap:5px;align-items:center;
+ margin-top:10px;
+}
+.gt-speech-pipeline span {
+ display:inline-flex;align-items:center;justify-content:center;
+ padding:4px 8px;min-height:26px;border-radius:999px;
+ border:1px solid #d7e4f1;background:linear-gradient(135deg,#f8fbff,#eef4fa);
+ font:750 clamp(.63rem,.8vw,.75rem)/1.25 Inter,"Noto Sans JP",system-ui,sans-serif;
+ color:#6b839d;white-space:nowrap;
+}
+.gt-speech-pipeline span[data-status="active"] {
+ background:linear-gradient(120deg,#e6fff4,#daf7e7);
+ border-color:#99dbc2;color:#217e60;
+}
+.gt-speech-pipeline span[data-status="pending"] {
+ background:linear-gradient(120deg,#fff9e9,#fff0d7);
+ border-color:#efd9a8;color:#997127;
+}
+.gt-speech-pipeline span[data-status="fail"] {
+ background:linear-gradient(120deg,#fff5ed,#ffe6de);
+ border-color:#e8b9a7;color:#a55a41;
+}
+.gt-speech-debug {
+ margin-top:10px;border-top:1px solid #e4edf5;padding-top:8px;
+ font-family:Inter,"Noto Sans JP",sans-serif;color:#5c7896;
+ font-size:clamp(.72rem,.85vw,.82rem);line-height:1.5;
+}
+.gt-speech-debug summary {cursor:pointer;display:list-item;width:fit-content;color:#437caa;font-weight:800;}
+.gt-speech-debug p {margin:6px 0;}
+#gtMicTest {
+ display:inline-flex;align-items:center;justify-content:center;
+ min-height:36px;border-radius:10px;
+ padding:7px 13px;border:1px solid #a3cddb;
+ background:linear-gradient(125deg,#f9fefe,#e7f8f7);color:#246c91;
+ font-weight:850;font-size:.79rem;
+}
+#gtMicTest:disabled{opacity:.55;cursor:not-allowed}
+#gtMicTestResult {display:inline-block;margin-left:8px;font-weight:760;overflow-wrap:anywhere;}
+@media(max-width:700px) {
+ .gt-speech-pipeline span {font-size:.64rem;padding:4px 6px}
+ #gtMicTestResult {display:block;margin:5px 0 0}
+}
