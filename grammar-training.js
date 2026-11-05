@@ -462,7 +462,7 @@ function finishSpeech(q,spoken,usedInterim=false){
  $('gtScoreArc').classList.toggle('is-pass',passed);
  $('gtScoreMeter').setAttribute('aria-valuenow',String(percent));$('gtScoreMeter').setAttribute('aria-valuetext','単語一致率 '+percent+'パーセント');
  $('gtScoreNote').textContent=passed?'合格！ 次のステージに挑戦しましょう。':'基準 '+core.STAGES[state.stage-1].threshold+'% を目指してもう一度音読しましょう。';
- micStatus((usedInterim?'未確定の認識結果を一部利用しました。':'音読終了。')+'認識一致 '+result.matchCount+' / '+result.targetCount+' 語（発音品質評価ではありません）。');
+ micStatus((usedInterim?'未確定の認識結果を一部利用しました。':'音読終了。')+'認識一致 '+result.matchCount+' / '+result.targetCount+' 語（発音品質評価ではありません）。「音読スタート」で再挑戦できます。');
  const prev=progress(q.id);
  save(q.id,{readingAttempts:(prev.readingAttempts||0)+1,lastAccuracy:percent,bestAccuracy:Math.max(Number(prev.bestAccuracy)||0,percent),cleared:passed?Math.max(Number(prev.cleared)||0,state.stage):Number(prev.cleared)||0});
  renderStage();
