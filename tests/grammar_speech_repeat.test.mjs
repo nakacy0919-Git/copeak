@@ -81,8 +81,10 @@ async function run(){
  assert(phrase.length>5);
 
  let r=start();assert.equal(dom.gtStop.disabled,false);
+ assert.equal(dom.gtRecord.hidden,true);assert.equal(dom.gtStop.hidden,false);
  ready(r);result(r,phrase);dom.gtStop.click();r.onend();
  assert.equal(dom.gtRecord.disabled,false);
+ assert.equal(dom.gtRecord.hidden,false);assert.equal(dom.gtStop.hidden,true);
  assert.equal(dom.gtScoreNumber.textContent,'100%');
  assert.equal(dom.gtNextStage.hidden,false);
  const recordId=fixture.units[0].sentences[0].id;
@@ -160,8 +162,9 @@ async function run(){
   r=start();ready(r);result(r,phrase);dom.gtStop.click();r.onend();
   assert.equal(dom.gtScoreNumber.textContent,'100%');
   assert(dom.gtReadingHeading.textContent.includes('Level '+level+' / 5'));
-  if(level<5){fire(2000);assert(dom.gtReadingHeading.textContent.includes('Level '+(level+1)+' / 5'));}
+  if(level<5){fire(1000);assert.equal(dom.gtLevelBanner.hidden,false);assert.equal(dom.gtLevelBannerTitle.textContent,'LEVEL '+(level+1)+' START!');assert.equal(dom.gtScoreNumber.textContent,'100%');fire(2000);assert.equal(dom.gtLevelBanner.hidden,true);assert(dom.gtReadingHeading.textContent.includes('Level '+(level+1)+' / 5'));}
  }
+ assert.equal(dom.gtReadingNext.hidden,false,'next sentence appears after Level 5 clear');
  // An iPad service that starts but supplies no results must not stay stuck forever.
  r=start();ready(r);const staleResult=r.onresult;
  fire(8000);assert(r.aborted);fire(500);
