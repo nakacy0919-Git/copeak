@@ -291,6 +291,58 @@ function micReady(token,estimated=false){
   monitorIOSSpeech(token,readingItem());scheduleTranscriptCheck(token);
  }
 }
+async function testMicInput(){
+ if(state.recognition||state.micPhase!=='idle'){
+  $('gtMicTestResult').textContent='先に「終了・判定」を押してください。';return;
+ }
+ const nav=window.navigator;
+ if(!nav?.mediaDevices?.getUserMedia){
+  $('gtMicTestResult').textContent='このブラウザーでは独立したマイク音量テストを利用できません。';return;
+ }
+ closeMicDiagnostic();
+ const token=state.micDiagnosticToken,button=$('gtMicTest');
+ button.disabled=true;$('gtMicTestResult').textContent='マイクの許可を確認中…';
+ let stream=null,ctx=null;
+ try{
+  stream=await nav.mediaDevices.getUserMedia({audio:true});
+  if(token!==state.micDiagnosticToken){
+   for(const track of stream.getTracks())track.stop();return;
+  }
+  state.micDiagnosticStream=stream;
+  const Audio=window.AudioContext||window.webkitAudioContext;
+  if(!Audio){
+   $('gtMicTestResult').textContent='マイクの権限を確認しました。音量測定には未対応です。';return;
+  }
+  ctx=new Audio();state.micDiagnosticContext=ctx;
+  if(ctx.state==='suspended'&&ctx.resume)await ctx.resume();
+  const src=ctx.createMediaStreamSource(stream),analyser=ctx.createAnalyser();
+  analyser.fftSize=512;src.connect(analyser);
+  const values=new Uint8Array(analyser.fftSize);
+  let peak=0;
+  $('gtMicTestResult').textContent='3秒間、英文を声に出してください…';
+  for(let i=0;i<20;i++){
+   if(token!==state.micDiagnosticToken)return;
+   analyser.getByteTimeDomainData(values);
+   let sum=0;
+   for(const value of values){const centered=(value-128)/128;sum+=centered*centered;}
+   peak=Math.max(peak,Math.sqrt(sum/values.length));
+   await new Promise(resolve=>window.setTimeout(resolve,150));
+  }
+  if(token!==state.micDiagnosticToken)return;
+  $('gtMicTestResult').textContent=peak>=0.016?
+   'マイク音量を検出しました。文字起こしが無反応ならブラウザー側の認識処理に問題がある可能性があります。':
+   '音量を検出できませんでした。もう一度、大きめの声でテストしてください。';
+ }catch(error){
+  if(token===state.micDiagnosticToken)
+   $('gtMicTestResult').textContent='マイク診断に失敗しました。Safari／Chromeのマイク権限を確認してください。';
+ }finally{
+  if(token===state.micDiagnosticToken)closeMicDiagnostic();
+ }
+}
+function retrySpeechRecognition(){
+ if(state.recognition)cancelRecognition();
+ beginSpeech(); // Initiated from the user's button tap, preserving WebKit user activation.
+}
 function speechErrorMessage(code){
  const map={
   'not-allowed':'マイクの利用が許可されていません。ブラウザーのマイク権限を確認してください。',
@@ -312,7 +364,7 @@ function resetReading(){
  $('gtRetrySpeech').hidden=true;
 }
 function cancelRecognition(){
- state.micToken++;clearMicReadyTimer();clearMicWatchdogs();
+ closeMicDiagnostic();state.micToken++;clearMicReadyTimer();clearMicWatchdogs();
  const r=state.recognition;state.recognition=null;state.recording=false;
  state.stopRequested=false;state.interimTranscript='';
  if(r){try{r.abort();}catch(_){}}
@@ -510,6 +562,7 @@ function beginSpeech(){
  };
  r.onerror=e=>{
   if(token!==state.micToken)return;
+  $('gtRetrySpeech').hidden=false;
   state.error=e.error||'unknown';clearMicReadyTimer();clearMicWatchdogs();
   micButtons('stopping');micStatus(speechErrorMessage(state.error));
   state.micStopTimer=window.setTimeout(()=>finalizeSpeechSession(token,q,true),950);
@@ -608,10 +661,12 @@ $('gtExtraSentence').addEventListener('click',()=>switchSentence(true));
 $('gtListen').addEventListener('click',speak);
 $('gtRecord').addEventListener('click',beginSpeech);
 $('gtStop').addEventListener('click',endSpeech);
+$('gtRetrySpeech').addEventListener('click',retrySpeechRecognition);
+$('gtMicTest').addEventListener('click',testMicInput);
 $('gtNextStage').addEventListener('click',nextStage);
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&state.recognition)cancelRecognition();});
 window.addEventListener('pagehide',()=>{closeReadingMission();closeExplanation();cancelRecognition();});
 window.addEventListener('resize',()=>{if(!$('gtCategoriesPanel').hidden)fitGrid($('gtCategoryCards'),state.categories.length);if(!$('gtUnitsPanel').hidden)fitGrid($('gtUnitList'),state.units.length);});
-micButtons('idle');resetReading();renderOverallProgress();
+micButtons('idle');resetReading();updateSpeechSignals();renderOverallProgress();
 const query=new URLSearchParams(window.location.search);if(SETTINGS[query.get('mode')])changeMode(query.get('mode'));
 })();
