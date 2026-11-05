@@ -59,7 +59,7 @@ const grouped=score('They counted one hundred and five books.','They counted 105
 assert.equal(grouped.targetCount,4,'one hundred and five counts as one semantic number, not five edits');
 assert.equal(grouped.matchCount,4);
 const expanded=score('They counted 105 books.','They counted one hundred and five books.');
-assert.equal(expanded.wordMatches.length,8,'keep every spoken word visible for highlighting');
+assert.equal(expanded.wordMatches.length,7,'keep every spoken word visible for highlighting');
 assert(expanded.wordMatches.every(w=>w.matched),'correct spoken number words remain highlighted');
 
 // Non-numeric GCC word-error behavior must not change.
