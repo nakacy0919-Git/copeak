@@ -1,0 +1,81 @@
+/* Copeak grammar UI refinement — 2026-11-05
+   Keep every category tile in the same soft visual family, and reduce
+   repeated labels in the read-aloud mission without touching its state. */
+
+/* Preserve the pastel waves and colored line icons. Never apply a saturated
+   blue/purple card fill to selected or legacy dark-tile category buttons. */
+.gt-picker .gt-category-card.gt-square-tile.gt-dark-tile,
+.gt-picker .gt-category-card.gt-square-tile.is-selected,
+.gt-picker .gt-category-card.gt-square-tile.gt-dark-tile.is-selected {
+  color:#17345c;
+  background:linear-gradient(140deg,#fff 30%,#f6f9ff 73%,#edf4fc);
+  border-color:#a9c9de;
+  box-shadow:0 10px 25px rgba(27,87,150,.09),inset 0 1px 0 #fff;
+}
+.gt-picker .gt-category-card.gt-square-tile.gt-dark-tile .gt-pretty-icon {
+  color:var(--gt-accent,#437dda);
+}
+.gt-picker .gt-category-card.gt-square-tile.gt-dark-tile .gt-card-code,
+.gt-picker .gt-category-card.gt-square-tile.gt-dark-tile .gt-card-progress-number,
+.gt-picker .gt-category-card.gt-square-tile.gt-dark-tile .gt-card-progress-rate {
+  color:#567ba4;
+}
+.gt-picker .gt-category-card.gt-square-tile.gt-dark-tile .gt-square-english,
+.gt-picker .gt-category-card.gt-square-tile.is-selected .gt-square-english {
+  color:#677fa4;
+}
+.gt-picker .gt-category-card.gt-square-tile.gt-dark-tile::before {
+  background:linear-gradient(60deg,color-mix(in srgb,var(--gt-tone-a) 20%,white),color-mix(in srgb,var(--gt-tone-b) 17%,white));
+  opacity:.74;
+}
+.gt-picker .gt-category-card.gt-square-tile.gt-dark-tile::after {
+  background:linear-gradient(115deg,transparent 10%,color-mix(in srgb,var(--gt-tone-b) 19%,white));
+  opacity:.64;
+}
+.gt-picker .gt-category-card.gt-square-tile.gt-dark-tile .gt-card-progress-rail {
+  background:linear-gradient(180deg,#dfe6f4,#e9eef7);
+}
+.gt-picker .gt-category-card.gt-square-tile.gt-dark-tile .gt-card-progress-fill {
+  background:linear-gradient(90deg,var(--gt-tone-a,#70c2ed),var(--gt-tone-b,#416fe3));
+}
+.gt-picker .gt-category-card.gt-square-tile.is-selected {
+  outline:2px solid rgba(43,167,157,.45);
+  outline-offset:0;
+}
+.gt-picker .gt-category-card.gt-square-tile.is-selected .gt-card-code,
+.gt-picker .gt-category-card.gt-square-tile.is-selected .gt-card-progress-number,
+.gt-picker .gt-category-card.gt-square-tile.is-selected .gt-card-progress-rate {
+  color:#456c95;
+}
+
+/* The top dialog already says 音読ミッション, so keep just the pass threshold
+   at the top of the embedded reading panel. */
+.gt-reading .gt-reading-head {
+  justify-content:flex-end;
+  min-height:22px;
+}
+
+/* These controls remain in the DOM because the existing lesson logic references
+   them, but are no longer shown as duplicate actions. */
+#gtSentenceSwitcher,
+.gt-reading .gt-speech-pipeline {
+  display:none!important;
+}
+
+/* Live-region messages and mission status still exist for assistive
+   technologies. They do not consume visual space in the modal. */
+.gt-reading #gtRecognitionStatus,
+.gt-reading-modal-footer #gtMissionStatus {
+  position:absolute!important;
+  width:1px!important;
+  height:1px!important;
+  padding:0!important;
+  margin:-1px!important;
+  overflow:hidden!important;
+  clip:rect(0,0,0,0)!important;
+  white-space:nowrap!important;
+  border:0!important;
+}
+.gt-reading-modal-footer {
+  justify-content:flex-end;
+}

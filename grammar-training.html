@@ -20,11 +20,12 @@
 <link rel="stylesheet" href="grammar-premium-controls.css?v=20261105-10">
 <link rel="stylesheet" href="grammar-safari-guide.css?v=20261105-11">
 <link rel="stylesheet" href="grammar-speech-diagnostics.css?v=20261105-12">
+<link rel="stylesheet" href="grammar-ui-cleanup.css?v=20261105-17">
 <script defer src="vocabulary-reading.js?v=8.3"></script>
 <script defer src="grammar-training-core.js?v=20261105-2"></script>
 <script defer src="grammar-progress.js?v=20261105-8"></script>
 <script defer src="grammar-card-icons.js?v=20261105-9"></script>
-<script defer src="grammar-training.js?v=20261105-16"></script>
+<script defer src="grammar-training.js?v=20261105-17"></script>
 <script defer src="grammar-aurora.js?v=20261105-1"></script>
 </head>
 <body>
@@ -73,7 +74,7 @@
      
     </div>
     <div id="gtReading" class="gt-reading" hidden>
-     <div class="gt-reading-head"><div><span class="gt-section-label">READ ALOUD · 5 STAGES</span><h3>音読ミッション</h3></div><span id="gtPassCondition" class="gt-pass"></span></div>
+     <div class="gt-reading-head"><span id="gtPassCondition" class="gt-pass"></span></div>
      <div id="gtStageTabs" class="gt-stage-tabs" role="group" aria-label="音読段階"></div>
      <div class="gt-sentence-panel"><div class="gt-sentence-top"><span id="gtReadingHeading" class="gt-reading-label">基本例文</span><button id="gtListen" type="button" class="gt-listen" aria-label="英文のお手本を聞く" title="英文のお手本を聞く">🔊 <span>聞く</span></button></div><p id="gtReadingText" class="gt-reading-text" lang="en"></p><p id="gtJapanese" class="gt-japanese" lang="ja"></p><div id="gtSentenceSwitcher" class="gt-sentence-switcher" hidden><button id="gtMainSentence" type="button" aria-pressed="true">完成英文</button><button id="gtExtraSentence" type="button" aria-pressed="false">別例文</button></div></div>
      <div class="gt-record-buttons"><div class="gt-record-actions"><button id="gtRecord" class="gt-primary" type="button">● 音読スタート</button><button id="gtStop" type="button" disabled>■ 終了・判定</button></div><span id="gtRecognitionStatus" role="status" aria-live="polite"></span></div>
