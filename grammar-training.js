@@ -1,8 +1,10 @@
 /* Copeak Grammar Training v1.0 - standalone local progress; no Classroom writes. */
 (function(){
 'use strict';
-const core=window.CopeakGrammarCore,progressEngine=window.CopeakGrammarProgress,cardIcons=window.CopeakGrammarCardIcons,scoreEngine=()=>window.CopeakVocabularyReading;
+const core=window.CopeakGrammarCore,progressEngine=window.CopeakGrammarProgress,cardIcons=window.CopeakGrammarCardIcons,scoreEngine=()=>window.CopeakGrammarPractice||window.CopeakVocabularyReading;
 if(!core||!progressEngine||!cardIcons){console.error('Missing Copeak grammar helpers');return;}
+const feedback=window.CopeakGrammarPractice?.createFeedback(window);
+const tone=kind=>feedback?.tone(kind);
 const $=id=>document.getElementById(id),KEY='copeak_grammar_training_v2';
 const SETTINGS={
  junior:{name:'中学校の基礎英文法',url:'data/grammar/junior/manifest.json',group:'grades'},
@@ -11,7 +13,7 @@ const SETTINGS={
 };
 const DEFAULT_TOTALS={junior:144,senior:1830,entrance:4912};
 function restore(){try{const x=JSON.parse(localStorage.getItem(KEY)||'{}');return x.version===2&&x.records&&typeof x.records==='object'?x:{version:2,records:{}};}catch{return{version:2,records:{}};}}
-const state={mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,examCorrect:null,missionSkipped:false,missionCleared:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,micPhase:'idle',micStopTimer:null,micRestartTimer:null,stopRequested:false,transcript:'',interimTranscript:'',usedInterim:false,micSignals:{audio:false,voice:false,text:false},micDiagnosticToken:0,micDiagnosticStream:null,micDiagnosticContext:null,cache:new Map(),progress:restore(),totals:{...DEFAULT_TOTALS}};
+const state={mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,examCorrect:null,missionSkipped:false,missionCleared:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,micPhase:'idle',micStopTimer:null,micRestartTimer:null,micHealthTimer:null,levelTimer:null,micRecoveries:0,effectTimer:null,stopRequested:false,transcript:'',interimTranscript:'',usedInterim:false,micSignals:{audio:false,voice:false,text:false},micDiagnosticToken:0,micDiagnosticStream:null,micDiagnosticContext:null,cache:new Map(),progress:restore(),totals:{...DEFAULT_TOTALS}};
 const node=(tag,className,text)=>{const n=document.createElement(tag);if(className)n.className=className;if(text!==undefined)n.textContent=text;return n;};
 function progress(id){return state.progress.records[id]||{};}
 function save(id,patch){state.progress.records[id]=Object.assign({},progress(id),patch,{updated:new Date().toISOString()});try{localStorage.setItem(KEY,JSON.stringify(state.progress));}catch(e){console.warn('Grammar progress not saved',e);}renderOverallProgress();}
@@ -237,6 +239,7 @@ function closeMicDiagnostic(){
  $('gtMicTest').disabled=false;
 }
 function clearMicWatchdogs(){
+ if(state.micHealthTimer!==null){window.clearTimeout(state.micHealthTimer);state.micHealthTimer=null;}
  if(state.micStopTimer!==null){window.clearTimeout(state.micStopTimer);state.micStopTimer=null;}
  if(state.micRestartTimer!==null){window.clearTimeout(state.micRestartTimer);state.micRestartTimer=null;}
 }
@@ -259,6 +262,7 @@ function finalizeSpeechSession(token,q,timeout=false){
  micButtons('idle');updateSpeechSignals();
  if(timeout&&recognizer)try{recognizer.abort();}catch(_){}
  if(!spoken){
+  tone('retry');
   $('gtRetrySpeech').hidden=false;
   micStatus('文字起こしを受信できませんでした。「音読スタート」で再挑戦してください。');
   return;
@@ -339,6 +343,8 @@ function resetReading(){
  $('gtRetrySpeech').hidden=true;
 }
 function cancelRecognition(){
+ if(state.effectTimer!==null){window.clearTimeout(state.effectTimer);state.effectTimer=null;}
+ if(state.levelTimer!==null){window.clearTimeout(state.levelTimer);state.levelTimer=null;}
  closeMicDiagnostic();state.micToken++;clearMicWatchdogs();
  const r=state.recognition;state.recognition=null;state.recording=false;
  state.stopRequested=false;state.interimTranscript='';
@@ -460,17 +466,17 @@ function prepareReading(){
 }
 function renderStage(){
  const q=readingItem();if(!q)return;const step=core.STAGES[state.stage-1],rec=progress(q.id),unlocked=Math.min(5,(rec.cleared||0)+1);
- $('gtReadingHeading').textContent=(state.mode==='entrance'?(state.extra?'別例文':'完成英文'):'基礎例文')+' · '+step.label;
+ $('gtReadingHeading').textContent=(state.mode==='entrance'?(state.extra?'別例文':'完成英文'):'基礎例文')+' · Level '+state.stage+' / 5 · '+step.label;
  $('gtReadingText').textContent=core.hideWords(q.sentence,state.stage);$('gtReadingText').classList.toggle('is-masked',state.stage>1);
  $('gtJapanese').textContent=q.japanese;$('gtPassCondition').textContent='合格基準：'+step.threshold+'% 以上';
  const tabs=$('gtStageTabs');tabs.replaceChildren();
  for(const s of core.STAGES){
-  const b=node('button','gt-stage-button',s.step+'/5 '+s.label);b.type='button';b.disabled=s.step>unlocked;
+  const b=node('button','gt-stage-button','Level '+s.step+' · '+s.label);b.type='button';b.disabled=s.step>unlocked;
   b.classList.toggle('is-current',s.step===state.stage);b.classList.toggle('is-cleared',s.step<unlocked);
   b.setAttribute('aria-pressed',String(s.step===state.stage));
   b.addEventListener('click',()=>{cancelRecognition();state.stage=s.step;resetReading();renderStage();});tabs.append(b);
  }
- $('gtBestAccuracy').textContent=Number.isFinite(rec.bestAccuracy)?'Best '+rec.bestAccuracy+'%':'';
+ $('gtBestAccuracy').textContent=Number.isFinite(rec.bestAccuracy)?'Level '+state.stage+' Best '+(rec.bestByLevel?.[state.stage-1]??rec.bestAccuracy)+'%':'';
  $('gtNextStage').hidden=true;
  if(!state.recording&&state.score===null)micStatus('お手本を聞いてから音読できます。');
 }
@@ -496,10 +502,11 @@ function beginSpeech(){
  const Speech=window.SpeechRecognition||window.webkitSpeechRecognition,q=readingItem();
  if(!q||state.recording||state.micPhase!=='idle')return;
  if(!Speech){micStatus('音声認識を利用できません。ブラウザーのマイク設定を確認してください。');return;}
+ tone('tap');
  closeMicDiagnostic();
  window.speechSynthesis?.cancel();
  cancelRecognition();
- state.recording=true;state.stopRequested=false;
+ state.recording=true;state.stopRequested=false;state.micRecoveries=0;
  state.transcript='';state.interimTranscript='';state.usedInterim=false;
  state.micSignals={audio:false,voice:false,text:false};
  const token=state.micToken;
@@ -521,6 +528,22 @@ function beginSpeech(){
   // Web Speech API result arrays are cumulative within one recognizer.
   // Rebuild this recognizer's portion without duplicating cumulative results.
   const previousTranscript=state.transcript;
+  // WebKit can send start/audiostart but never result, error or end.
+  // Bound recovery to one fresh recognizer; never leave the learner stuck.
+  state.micHealthTimer=window.setTimeout(()=>{
+   state.micHealthTimer=null;
+   if(!current()||state.stopRequested||state.micSignals.text)return;
+   if(state.micRecoveries>=1){
+    cancelRecognition();$('gtRetrySpeech').hidden=false;
+    micStatus('文字起こしが応答していません。「再接続して音読する」を押してください。');
+    return;
+   }
+   state.micRecoveries++;state.recognition=null;
+   r.onstart=r.onaudiostart=r.onspeechstart=r.onresult=r.onerror=r.onend=null;
+   try{r.abort();}catch(_){}
+   micStatus('文字起こしを再接続しています。接続後にもう一度読んでください。');
+   state.micRestartTimer=window.setTimeout(listen,500);
+  },8000);
   r.onstart=()=>{
    if(!current()||!state.recording)return;
    micStatus('音声認識サービスが開始しました。マイク入力・文字起こしを確認中です。');
@@ -546,6 +569,7 @@ function beginSpeech(){
    // Ignore empty WebKit placeholders, but honor a nonempty snapshot which
    // removes an earlier interim result.
    if(!finals.length&&!interims.length)return;
+   if(state.micHealthTimer!==null){window.clearTimeout(state.micHealthTimer);state.micHealthTimer=null;}
    state.transcript=[previousTranscript,...finals].filter(Boolean).join(' ').trim();
    state.interimTranscript=interims.join(' ');
    state.micSignals.audio=true;state.micSignals.voice=true;state.micSignals.text=true;
@@ -565,6 +589,7 @@ function beginSpeech(){
   };
   r.onend=()=>{
    if(!current())return;
+   if(state.micHealthTimer!==null){window.clearTimeout(state.micHealthTimer);state.micHealthTimer=null;}
    state.recognition=null;
    if(state.recording&&!state.stopRequested){
     // Some services end with only interim text. Keep it at the recognizer
@@ -589,6 +614,7 @@ function beginSpeech(){
 function endSpeech(){
  if(!state.recording||state.stopRequested)return;
  const q=readingItem(),token=state.micToken,r=state.recognition;
+ tone('tap');
  state.stopRequested=true;micButtons('stopping');updateSpeechSignals();
  micStatus('文字起こしの最終結果を取得して判定しています…');
  if(state.micRestartTimer!==null){window.clearTimeout(state.micRestartTimer);state.micRestartTimer=null;}
@@ -607,12 +633,23 @@ function finishSpeech(q,spoken,usedInterim=false){
  $('gtScoreNumber').textContent=percent+'%';$('gtScoreArc').style.strokeDasharray=percent+' 100';
  $('gtScoreArc').classList.toggle('is-pass',passed);
  $('gtScoreMeter').setAttribute('aria-valuenow',String(percent));$('gtScoreMeter').setAttribute('aria-valuetext','単語一致率 '+percent+'パーセント');
- $('gtScoreNote').textContent=passed?'合格！ 次のステージに挑戦しましょう。':'基準 '+core.STAGES[state.stage-1].threshold+'% を目指してもう一度音読しましょう。';
- micStatus((usedInterim?'未確定の認識結果を一部利用しました。':'音読終了。')+'認識一致 '+result.matchCount+' / '+result.targetCount+' 語（発音品質評価ではありません）。「音読スタート」で再挑戦できます。');
- const prev=progress(q.id);
- save(q.id,{readingAttempts:(prev.readingAttempts||0)+1,lastAccuracy:percent,bestAccuracy:Math.max(Number(prev.bestAccuracy)||0,percent),cleared:passed?Math.max(Number(prev.cleared)||0,state.stage):Number(prev.cleared)||0});
+ tone('rise');
+ $('gtScoreNote').textContent=passed?(state.stage===5?'Level 5 CLEAR！ 全レベル達成！':'Level '+state.stage+' CLEAR！ 次のレベルへ進みます。'):'基準 '+core.STAGES[state.stage-1].threshold+'% を目指してもう一度音読しましょう。';
+ micStatus((usedInterim?'未確定の認識結果を一部利用しました。':'音読終了。')+'Accuracy '+percent+'%（単語の抜け・置換・追加を判定。発音品質評価ではありません）。');
+ const prev=progress(q.id),bestByLevel=Array.from({length:5},(_,i)=>Number(prev.bestByLevel?.[i])||0);
+ bestByLevel[state.stage-1]=Math.max(bestByLevel[state.stage-1],percent);
+ save(q.id,{bestByLevel,readingAttempts:(prev.readingAttempts||0)+1,lastAccuracy:percent,bestAccuracy:Math.max(Number(prev.bestAccuracy)||0,percent),cleared:passed?Math.max(Number(prev.cleared)||0,state.stage):Number(prev.cleared)||0});
  renderStage();
- if(passed&&state.stage<5)$('gtNextStage').hidden=false;
+ if(passed&&state.stage<5){
+  $('gtNextStage').hidden=false;
+  const level=state.stage,id=q.id;
+  state.levelTimer=window.setTimeout(()=>{
+   state.levelTimer=null;
+   if(readingItem()?.id!==id||state.stage!==level||state.recording)return;
+   tone('next');nextStage();
+  },2000);
+ }
+ state.effectTimer=window.setTimeout(()=>{state.effectTimer=null;if(!state.recording&&readingItem()?.id===q.id)tone(percent>=90?(percent===100?'100':'90'):passed?'80':'retry');},700);
  if(state.mode==='entrance'&&passed&&state.stage===5){state.missionCleared=true;updateMissionActions();}
 }
 function nextStage(){
@@ -668,6 +705,10 @@ $('gtStop').addEventListener('click',endSpeech);
 $('gtRetrySpeech').addEventListener('click',retrySpeechRecognition);
 $('gtMicTest').addEventListener('click',testMicInput);
 $('gtNextStage').addEventListener('click',nextStage);
+if($('gtSoundToggle')&&feedback){
+ const sync=()=>{$('gtSoundToggle').textContent=feedback.enabled?'効果音 ON':'効果音 OFF';$('gtSoundToggle').setAttribute('aria-pressed',String(feedback.enabled));};
+ $('gtSoundToggle').addEventListener('click',()=>{feedback.toggle();sync();tone('tap');});sync();
+}
 window.addEventListener('pagehide',()=>{closeReadingMission();closeExplanation();cancelRecognition();});
 window.addEventListener('resize',()=>{if(!$('gtCategoriesPanel').hidden)renderCategoryCards();if(!$('gtUnitsPanel').hidden)fitGrid($('gtUnitList'),state.units.length);});
 micButtons('idle');resetReading();updateSpeechSignals();renderOverallProgress();

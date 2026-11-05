@@ -98,3 +98,14 @@
   overflow:visible!important;
  }
 }
+
+/* Keep reconnect/error feedback visible during repeated iPad reads. */
+.gt-reading #gtRecognitionStatus{
+ position:static!important;width:auto!important;height:auto!important;
+ padding:0!important;margin:5px 0 0!important;overflow:visible!important;
+ clip:auto!important;white-space:normal!important;
+ font-size:.72rem;line-height:1.4;max-width:100%;
+}
+.gt-sound-toggle{border:1px solid #b8d5e5;border-radius:10px;background:#f3faff;color:#3f6e8e;padding:7px 10px;font-size:.72rem;cursor:pointer}
+.gt-reading .gt-stage-tabs{flex-wrap:wrap;overflow:visible;gap:5px}
+.gt-reading .gt-stage-button{font-size:.7rem;min-width:0;padding:7px 9px}

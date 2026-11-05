@@ -17,6 +17,7 @@ class Element {
   this.classList={add:k=>set.add(k),remove:k=>set.delete(k),toggle:(k,yes)=>yes?set.add(k):set.delete(k)};
  }
  append(...xs){for(const x of xs.flatMap(y=>y?.tag==='fragment'?y.children.slice():[y])){if(!x)continue;if(x.parentElement)x.parentElement.children=x.parentElement.children.filter(z=>z!==x);this.children.push(x);x.parentElement=this;}}
+ appendChild(x){this.append(x);return x}
  replaceChildren(...xs){this.children=[];this.append(...xs)}
  after(x){const p=this.parentElement;assert(p);const at=p.children.indexOf(this);p.children.splice(at+1,0,x);x.parentElement=p}
  setAttribute(k,v){this.attrs[k]=String(v)}
@@ -42,6 +43,7 @@ const document={
  addEventListener(){},body:new Element('body')
 };
 const data={'data/grammar/entrance/manifest.json':JSON.parse(read('data/grammar/entrance/manifest.json')),'data/grammar/junior/manifest.json':manifest,'data/grammar/junior/J1.json':fixture};
+for(const file of ['data/grammar/senior/manifest.json','data/grammar/senior/HS-01.json','data/grammar/entrance/A01.json'])data[file]=JSON.parse(read(file));
 const fetch=async url=>{assert(data[url],'unexpected fetch: '+url);return{ok:true,json:async()=>data[url]}};
 const timers=[],sessions=[],storage={},scored=[];
 const window={
@@ -152,6 +154,27 @@ async function run(){
  dom.gtStop.click();r.onend();assert.equal(scored.at(-1),'I am');
 
  assert(!timers.some(t=>!t.canceled&&[6500,7000,18000].includes(t.delay)));
+ // Five consecutive logical reads automatically advance after displaying the score.
+ dom.gtStageTabs.children[0].click();
+ for(let level=1;level<=5;level++){
+  r=start();ready(r);result(r,phrase);dom.gtStop.click();r.onend();
+  assert.equal(dom.gtScoreNumber.textContent,'100%');
+  assert(dom.gtReadingHeading.textContent.includes('Level '+level+' / 5'));
+  if(level<5){fire(2000);assert(dom.gtReadingHeading.textContent.includes('Level '+(level+1)+' / 5'));}
+ }
+ // An iPad service that starts but supplies no results must not stay stuck forever.
+ r=start();ready(r);const staleResult=r.onresult;
+ fire(8000);assert(r.aborted);fire(500);
+ next=sessions.at(-1);assert.notEqual(next,r);ready(next);
+ staleResult({results:[{isFinal:true,0:{transcript:'stale words'}}]});
+ assert(!dom.gtTranscript.textContent.includes('stale words'));
+ result(next,phrase);dom.gtStop.click();next.onend();assert.equal(scored.at(-1),phrase);
+ // A second silent service stops bounded recovery and exposes the user-tap retry.
+ r=start();ready(r);fire(8000);fire(500);next=sessions.at(-1);ready(next);fire(8000);
+ assert(next.aborted);assert.equal(dom.gtRecord.disabled,false);assert.equal(dom.gtRetrySpeech.hidden,false);
+ dom.gtRetrySpeech.click();r=sessions.at(-1);ready(r);result(r,phrase);dom.gtStop.click();r.onend();
+ assert.equal(scored.at(-1),phrase);
+
  // iPad category paging must expose every entry without squeezing the cards.
  modes[2].click();await tick();
  const found=new Set();
@@ -165,6 +188,23 @@ async function run(){
  assert.equal(dom.gtNextCategories.disabled,true);
  dom.gtPrevCategories.click();assert.equal(dom.gtPrevCategories.disabled,true);
  assert.equal(dom.gtCategoryCards.children[0].dataset.category,'A01');
+ // Run the real GCC-style scorer through all three product entry points.
+ vm.runInNewContext(read('grammar-practice-engine.js'),{window});
+ for(const modeIndex of [0,1,2]){
+  modes[modeIndex].click();await tick();dom.gtCategoryCards.children[0].click();await tick();dom.gtUnitList.children[0].click();
+  let full;
+  if(modeIndex===2){
+   const question=data['data/grammar/entrance/A01.json'].questions[0];
+   dom.gtOptions.children['ABCD'.indexOf(question.answer||question.correct_answer)].click();
+   fire(950);dom.gtModalClose.click();full=question.answer_sentence_en;
+  }else full=dom.gtReadingText.textContent;
+  for(let level=1;level<=5;level++){
+   const rec=start();ready(rec);result(rec,full);dom.gtStop.click();rec.onend();
+   assert.equal(dom.gtScoreNumber.textContent,'100%',modes[modeIndex].dataset.gtMode+' level '+level);
+   if(level<5)fire(2000);
+  }
+ }
+ console.log('PASS real scoring and five consecutive levels in junior, senior and entrance modes');
  console.log('PASS category pagination: all 26 categories, forward/back boundaries');
  console.log('PASS GCC controller: explicit scoring, same-stage retry, next-stage, auto-reconnect, stale events, stop fallback, fatal errors');
 }
