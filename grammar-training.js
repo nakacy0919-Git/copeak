@@ -4,8 +4,6 @@
 const core=window.CopeakGrammarCore,progressEngine=window.CopeakGrammarProgress,cardIcons=window.CopeakGrammarCardIcons,scoreEngine=()=>window.CopeakVocabularyReading;
 if(!core||!progressEngine||!cardIcons){console.error('Missing Copeak grammar helpers');return;}
 const $=id=>document.getElementById(id),KEY='copeak_grammar_training_v2';
-const device=window.navigator||{},ua=device.userAgent||'';
-const isIOSWebKit=/iPad|iPhone|iPod/i.test(ua)||(device.platform==='MacIntel'&&Number(device.maxTouchPoints)>1);
 const SETTINGS={
  junior:{name:'中学校の基礎英文法',url:'data/grammar/junior/manifest.json',group:'grades'},
  senior:{name:'高校英文法の音読',url:'data/grammar/senior/manifest.json',group:'chapters'},
@@ -13,7 +11,7 @@ const SETTINGS={
 };
 const DEFAULT_TOTALS={junior:144,senior:1830,entrance:1840};
 function restore(){try{const x=JSON.parse(localStorage.getItem(KEY)||'{}');return x.version===2&&x.records&&typeof x.records==='object'?x:{version:2,records:{}};}catch{return{version:2,records:{}};}}
-const state={mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,examCorrect:null,missionSkipped:false,missionCleared:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,micPhase:'idle',micStopTimer:null,micRestartTimer:null,stopRequested:false,transcript:'',interimTranscript:'',micSignals:{audio:false,voice:false,text:false},micDiagnosticToken:0,micDiagnosticStream:null,micDiagnosticContext:null,error:'',cache:new Map(),progress:restore(),totals:{...DEFAULT_TOTALS}};
+const state={mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,examCorrect:null,missionSkipped:false,missionCleared:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,micPhase:'idle',micStopTimer:null,micRestartTimer:null,stopRequested:false,transcript:'',interimTranscript:'',micSignals:{audio:false,voice:false,text:false},micDiagnosticToken:0,micDiagnosticStream:null,micDiagnosticContext:null,cache:new Map(),progress:restore(),totals:{...DEFAULT_TOTALS}};
 const node=(tag,className,text)=>{const n=document.createElement(tag);if(className)n.className=className;if(text!==undefined)n.textContent=text;return n;};
 function progress(id){return state.progress.records[id]||{};}
 function save(id,patch){state.progress.records[id]=Object.assign({},progress(id),patch,{updated:new Date().toISOString()});try{localStorage.setItem(KEY,JSON.stringify(state.progress));}catch(e){console.warn('Grammar progress not saved',e);}renderOverallProgress();}
@@ -234,17 +232,11 @@ function finalizeSpeechSession(token,q,timeout=false){
  if(token!==state.micToken||!state.stopRequested)return;
  const recognizer=state.recognition;
  clearMicWatchdogs();
- const error=state.error;
  const spoken=[state.transcript,state.interimTranscript].filter(Boolean).join(' ').trim();
  const pending=Boolean(state.interimTranscript);
  state.micToken++;state.recognition=null;state.recording=false;state.stopRequested=false;
  micButtons('idle');updateSpeechSignals();
  if(timeout&&recognizer)try{recognizer.abort();}catch(_){}
- if(error){
-  $('gtRetrySpeech').hidden=false;
-  micStatus(speechErrorMessage(error)+' もう一度「音読スタート」で再挑戦してください。');
-  return;
- }
  if(!spoken){
   $('gtRetrySpeech').hidden=false;
   micStatus('文字起こしを受信できませんでした。「音読スタート」で再挑戦してください。');
@@ -486,7 +478,7 @@ function beginSpeech(){
  closeMicDiagnostic();
  window.speechSynthesis?.cancel();
  cancelRecognition();
- state.recording=true;state.stopRequested=false;state.error='';
+ state.recording=true;state.stopRequested=false;
  state.transcript='';state.interimTranscript='';
  state.micSignals={audio:false,voice:false,text:false};
  const token=state.micToken;
@@ -576,8 +568,9 @@ function endSpeech(){
  micStatus('文字起こしの最終結果を取得して判定しています…');
  if(state.micRestartTimer!==null){window.clearTimeout(state.micRestartTimer);state.micRestartTimer=null;}
  if(r){
-  try{r.stop();}catch(_){finalizeSpeechSession(token,q,true);return;}
+  // Install fallback first: synchronous onend also clears this timer.
   state.micStopTimer=window.setTimeout(()=>finalizeSpeechSession(token,q,true),1600);
+  try{r.stop();}catch(_){finalizeSpeechSession(token,q,true);}
  }else finalizeSpeechSession(token,q);
 }
 function finishSpeech(q,spoken,usedInterim=false){
