@@ -12,6 +12,7 @@
   color:#64839f;font-weight:750;min-width:0;
 }
 .gt-mode-progress-head strong{
+  margin:0;
   font-size:clamp(.74rem,.9vw,.87rem);
   color:#236c9a;font-weight:900;white-space:nowrap;
 }
