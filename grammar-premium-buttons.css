@@ -263,3 +263,8 @@
  .gt-picker .gt-unit-item.gt-compact-tile,.gt-picker .gt-category-card.gt-square-tile,
  .gt-picker .gt-card-progress-fill{transition:none;transform:none!important}
 }
+
+/* Prevent the three junior-grade squares from stretching to banner widths. */
+.gt-picker .gt-category-cards{max-width:1250px;margin-inline:auto}
+.gt-picker .gt-category-cards.gt-few-categories{max-width:790px;margin-inline:auto}
+@media(max-width:650px){.gt-picker .gt-category-cards.gt-few-categories{max-width:none}}
