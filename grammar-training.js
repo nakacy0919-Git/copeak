@@ -569,6 +569,12 @@ function beginSpeech(){
    traceSpeech('recognizer.onspeechstart');
    state.micSignals.voice=true;updateSpeechSignals();
   };
+  // Event-only diagnostics: pinpoint whether iPad captured sound,
+  // detected speech, or failed to send a transcript on attempt 2.
+  r.onsoundstart=()=>{if(current())traceSpeech('recognizer.onsoundstart');};
+  r.onsoundend=()=>{if(current())traceSpeech('recognizer.onsoundend');};
+  r.onspeechend=()=>{if(current())traceSpeech('recognizer.onspeechend');};
+  r.onaudioend=()=>{if(current())traceSpeech('recognizer.onaudioend');};
   r.onresult=event=>{
    if(!current()||!state.recording)return;
    let latest='',addedFinal=false;
