@@ -10,7 +10,7 @@ const SETTINGS={
  entrance:{name:'大学入試英文法',url:'data/grammar/entrance/manifest.json',group:'categories'}
 };
 function restore(){try{const x=JSON.parse(localStorage.getItem(KEY)||'{}');return x.version===2&&x.records&&typeof x.records==='object'?x:{version:2,records:{}};}catch{return{version:2,records:{}};}}
-const state={mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,transcript:'',error:'',cache:new Map(),progress:restore()};
+const state={mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,examCorrect:null,missionSkipped:false,missionCleared:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,transcript:'',error:'',cache:new Map(),progress:restore()};
 const node=(tag,className,text)=>{const n=document.createElement(tag);if(className)n.className=className;if(text!==undefined)n.textContent=text;return n;};
 function progress(id){return state.progress.records[id]||{};}
 function save(id,patch){state.progress.records[id]=Object.assign({},progress(id),patch,{updated:new Date().toISOString()});try{localStorage.setItem(KEY,JSON.stringify(state.progress));}catch(e){console.warn('Grammar progress not saved',e);}}
@@ -26,13 +26,13 @@ function markCategoryCards(){
 }
 function fitGrid(grid,count){
  const width=window.innerWidth||1280;
- const cols=count<=4?Math.max(1,count):width>=1400?(count<=10?5:count<=18?6:7):width>=900?(count<=10?5:6):width>=700?(count<=10?4:5):(count<=10?2:3);
+ const cols=count<=4?Math.max(1,count):width>=1400?(count<=10?5:count<=18?6:count<=24?5:6):width>=1000?(count<=10?4:count<=24?4:5):width>=700?(count<=10?3:4):(count<=10?2:3);
  const rows=Math.max(1,Math.ceil(count/cols));
  grid.style.setProperty('--gt-grid-cols',String(cols));
  grid.style.setProperty('--gt-grid-rows',String(rows));
  const available=Math.max(260,(window.innerHeight||850)-(width<900?170:175));
  grid.style.setProperty('--gt-grid-height',Math.min(available,rows*(width<900?102:119))+'px');
- grid.classList.toggle('gt-dense-grid',count>20);
+ grid.classList.toggle('gt-dense-grid',count>25);
 }
 function updatePager(kind){
  $(kind==='category'?'gtCategoryPager':'gtUnitPager').hidden=true;
@@ -64,6 +64,54 @@ function showAnswerFeedback(correct){
  }
 }
 function setHeaderBack(label){$('gtBackHome').textContent='← '+label;}
+
+function placeReading(){
+ const reading=$('gtReading'),mount=$('gtReadingModalMount');
+ if(state.mode==='entrance'){
+  if(reading.parentElement!==mount)mount.appendChild(reading);
+ }else if(reading.parentElement!==$('gtLesson')){
+  $('gtQuiz').after(reading);
+ }
+}
+function closeReadingMission(){
+ const dlg=$('gtReadingDialog');
+ if(dlg.open&&typeof dlg.close==='function')dlg.close();
+ else dlg.removeAttribute('open');
+ cancelRecognition();
+}
+function canAdvanceExam(){
+ return state.examCorrect===true||state.missionSkipped||state.missionCleared;
+}
+function updateMissionActions(){
+ if(state.mode!=='entrance')return;
+ const allowed=canAdvanceExam();
+ $('gtLessonNext').hidden=!allowed;$('gtLessonNext').disabled=!allowed;
+ $('gtModalNext').hidden=!allowed;
+ $('gtMissionNext').hidden=!allowed;
+ $('gtMissionSkip').hidden=state.missionSkipped||state.missionCleared;
+ $('gtOpenReading').hidden=!state.answered;
+ $('gtOpenReading').textContent=state.missionCleared?'音読ミッションを復習':state.missionSkipped?'音読をもう一度練習':'音読ミッションへ';
+ $('gtMissionStatus').textContent=state.missionCleared?'ミッションクリア！ 次の英文に進めます。':state.missionSkipped?'音読はスキップしました。次の英文に進めます。':state.examCorrect?'音読は任意です。次の英文に進むこともできます。':'5段階クリアで次の英文へ。スキップもできます。';
+}
+function openReadingMission(){
+ if(state.mode!=='entrance'||!state.answered)return;
+ closeExplanation();placeReading();
+ $('gtReading').hidden=false;updateMissionActions();
+ const dlg=$('gtReadingDialog');
+ if(!dlg.open){if(typeof dlg.showModal==='function')dlg.showModal();else dlg.setAttribute('open','');}
+}
+function leaveExplanation(){
+ if(state.mode==='entrance'&&state.answered)openReadingMission();
+ else closeExplanation();
+}
+function skipReadingMission(){
+ if(state.mode!=='entrance'||!state.answered||state.missionSkipped||state.missionCleared)return;
+ cancelRecognition();
+ state.missionSkipped=true;
+ const q=item();if(q){const prev=progress(q.id);save(q.id,{readingSkips:(prev.readingSkips||0)+1});}
+ updateMissionActions();
+}
+
 function renderCategoryCards(){
  const grid=$('gtCategoryCards'),fragment=document.createDocumentFragment();
  for(const c of state.categories){
@@ -78,6 +126,7 @@ function renderUnitCards(){
  const list=$('gtUnitList'),fragment=document.createDocumentFragment();
  for(const unit of state.units){
   const b=node('button','gt-unit-item');b.type='button';b.dataset.unit=unit.id;
+  if(topicName(unit).length>19)b.classList.add('gt-long-label');
   b.setAttribute('aria-pressed',String(state.unit?.id===unit.id));
   b.append(node('span','gt-unit-id',unit.id),node('strong','gt-unit-name',topicName(unit)),node('span','gt-unit-count',unit.items.length+(state.mode==='entrance'?'問':'例文')));
   b.addEventListener('click',()=>{selectUnit(unit.id);startLesson();});fragment.append(b);
@@ -85,13 +134,13 @@ function renderUnitCards(){
  list.replaceChildren(fragment);fitGrid(list,state.units.length);updatePager('unit');
 }
 function showCategoryPicker(){
- closeExplanation();cancelRecognition();state.fetchToken++;setHeaderBack('学習メニュー');
+ closeReadingMission();closeExplanation();cancelRecognition();state.fetchToken++;setHeaderBack('学習メニュー');
  $('gtLesson').hidden=true;$('gtContent').hidden=true;$('gtStudyBar').hidden=true;
  $('gtPicker').hidden=false;$('gtCategoriesPanel').hidden=false;$('gtUnitsPanel').hidden=true;
  renderCategoryCards();
 }
 function showTopicPicker(){
- closeExplanation();cancelRecognition();setHeaderBack('カテゴリーへ');
+ closeReadingMission();closeExplanation();cancelRecognition();setHeaderBack('カテゴリーへ');
  $('gtLesson').hidden=true;$('gtContent').hidden=true;$('gtStudyBar').hidden=true;
  $('gtPicker').hidden=false;$('gtCategoriesPanel').hidden=true;$('gtUnitsPanel').hidden=false;
 }
@@ -109,7 +158,7 @@ function cancelRecognition(){
  if(r){try{r.abort();}catch(_){}}$('gtRecord').disabled=false;$('gtStop').disabled=true;
 }
 async function changeMode(mode){
- if(!SETTINGS[mode])return;closeExplanation();cancelRecognition();if(window.speechSynthesis)window.speechSynthesis.cancel();
+ if(!SETTINGS[mode])return;closeReadingMission();closeExplanation();cancelRecognition();if(window.speechSynthesis)window.speechSynthesis.cancel();
  document.body.classList.add('gt-in-workspace');setHeaderBack('学習メニュー');
  state.mode=mode;state.categories=[];state.units=[];state.category='';state.unit=null;state.items=[];state.manifest=null;state.categoryPage=0;state.unitPage=0;
  $('gtLanding').hidden=true;$('gtWorkspace').hidden=false;$('gtWelcome').hidden=true;$('gtLesson').hidden=true;
@@ -170,13 +219,14 @@ function startLesson(){
 }
 function item(){return state.items[state.index]||null;}
 function renderItem(){
- closeExplanation();cancelRecognition();const q=item();if(!q){endLesson();return;}
- state.answered=false;state.extra=false;state.stage=1;state.score=null;
+ closeReadingMission();closeExplanation();cancelRecognition();const q=item();if(!q){endLesson();return;}
+ state.answered=false;state.examCorrect=null;state.missionSkipped=false;state.missionCleared=false;state.extra=false;state.stage=1;state.score=null;
+ placeReading();$('gtOpenReading').hidden=true;
  $('gtProgressText').textContent=(state.index+1)+' / '+state.items.length;
  $('gtProgressBar').style.width=(100*(state.index+1)/state.items.length)+'%';
  $('gtLessonNext').textContent=state.index===state.items.length-1?'学習を終える':'次の英文へ →';
  $('gtQuizScore').textContent=state.mode==='entrance'?'4択正解 '+state.sessionCorrect+' / '+state.sessionAnswered:'';
- const quiz=state.mode==='entrance';$('gtQuiz').hidden=!quiz;$('gtReading').hidden=quiz;$('gtLessonNext').disabled=quiz;
+ const quiz=state.mode==='entrance';$('gtQuiz').hidden=!quiz;$('gtReading').hidden=quiz;$('gtLessonNext').disabled=quiz;$('gtLessonNext').hidden=quiz;
  $('gtFeedback').hidden=true;$('gtWrongExplanations').replaceChildren();$('gtSelectedWrong').hidden=true;
  const details=$('gtWrongExplanations').closest('details');if(details)details.open=false;
  if(quiz){
@@ -186,7 +236,7 @@ function renderItem(){
  }else{prepareReading();}
 }
 function answer(i){
- if(state.answered)return;const q=item();state.answered=true;const ok=i===q.answerIndex;
+ if(state.answered)return;const q=item();state.answered=true;const ok=i===q.answerIndex;state.examCorrect=ok;
  state.sessionAnswered++;if(ok)state.sessionCorrect++;
  $('gtOptions').querySelectorAll('button').forEach((b,index)=>{b.disabled=true;if(index===q.answerIndex)b.classList.add('is-correct');else if(index===i)b.classList.add('is-wrong');b.setAttribute('aria-pressed',String(index===i));});
  $('gtModalQuestion').textContent=q.stem;
@@ -203,7 +253,9 @@ function answer(i){
  $('gtFeedback').hidden=false;$('gtQuizScore').textContent='4択正解 '+state.sessionCorrect+' / '+state.sessionAnswered;
  const prev=progress(q.id);
  save(q.id,{mcAttempts:(prev.mcAttempts||0)+1,mcCorrect:(prev.mcCorrect||0)+(ok?1:0),lastChoiceCorrect:ok});
- $('gtLessonNext').disabled=false;$('gtReading').hidden=false;prepareReading();showAnswerFeedback(ok);
+ $('gtReading').hidden=false;prepareReading();updateMissionActions();
+ $('gtModalClose').textContent=ok?'音読を練習する':'音読ミッションへ';
+ showAnswerFeedback(ok);
 }
 function readingItem(){
  const q=item();if(!q)return null;
@@ -288,6 +340,7 @@ function finishSpeech(q,spoken){
  save(q.id,{readingAttempts:(prev.readingAttempts||0)+1,lastAccuracy:percent,bestAccuracy:Math.max(Number(prev.bestAccuracy)||0,percent),cleared:passed?Math.max(Number(prev.cleared)||0,state.stage):Number(prev.cleared)||0});
  renderStage();
  if(passed&&state.stage<5)$('gtNextStage').hidden=false;
+ if(state.mode==='entrance'&&passed&&state.stage===5){state.missionCleared=true;updateMissionActions();}
 }
 function nextStage(){
  const q=readingItem();if(!q)return;
@@ -301,22 +354,31 @@ function endLesson(){
  // The same topic page remains visible after completing the lesson.
 }
 function nextItem(){
- if(state.mode==='entrance'&&!state.answered)return;
+ if(state.mode==='entrance'&&(!state.answered||!canAdvanceExam()))return;
+ closeReadingMission();closeExplanation();
  cancelRecognition();state.index++;if(state.index>=state.items.length){endLesson();return;}renderItem();
 }
 document.querySelectorAll('[data-gt-mode]').forEach(b=>b.addEventListener('click',()=>changeMode(b.dataset.gtMode)));
-$('gtModalClose').addEventListener('click',closeExplanation);
-$('gtModalCloseX').addEventListener('click',closeExplanation);
+$('gtModalClose').addEventListener('click',leaveExplanation);
+$('gtModalCloseX').addEventListener('click',leaveExplanation);
 $('gtModalNext').addEventListener('click',()=>{closeExplanation();nextItem();});
-$('gtExplanationDialog').addEventListener('click',e=>{if(e.target===$('gtExplanationDialog'))closeExplanation();});
+$('gtExplanationDialog').addEventListener('click',e=>{if(e.target===$('gtExplanationDialog'))leaveExplanation();});
+$('gtExplanationDialog').addEventListener('cancel',e=>{if(state.mode==='entrance'&&state.answered){e.preventDefault();leaveExplanation();}});
 $('gtExplanationDialog').addEventListener('close',()=>{$('gtSuccessCelebration').hidden=true;});
+$('gtOpenReading').addEventListener('click',openReadingMission);
+$('gtMissionClose').addEventListener('click',closeReadingMission);
+$('gtMissionCloseX').addEventListener('click',closeReadingMission);
+$('gtMissionSkip').addEventListener('click',skipReadingMission);
+$('gtMissionNext').addEventListener('click',()=>{closeReadingMission();nextItem();});
+$('gtReadingDialog').addEventListener('click',e=>{if(e.target===$('gtReadingDialog'))closeReadingMission();});
+$('gtReadingDialog').addEventListener('cancel',e=>{e.preventDefault();closeReadingMission();});
 $('gtBackToCategories').addEventListener('click',showCategoryPicker);
 
 $('gtBackToTopics').addEventListener('click',showTopicPicker);
 $('gtBackHome').addEventListener('click',()=>{
  if(!$('gtLesson').hidden){showTopicPicker();return;}
  if(!$('gtUnitsPanel').hidden){showCategoryPicker();return;}
- closeExplanation();cancelRecognition();state.fetchToken++;state.mode='';document.body.classList.remove('gt-in-workspace');
+ closeReadingMission();closeExplanation();cancelRecognition();state.fetchToken++;state.mode='';document.body.classList.remove('gt-in-workspace');
  $('gtWorkspace').hidden=true;$('gtLanding').hidden=false;$('gtLesson').hidden=true;$('gtContent').hidden=true;$('gtStudyBar').hidden=true;window.scrollTo({top:0,behavior:'instant'});
 });
 $('gtCategory').addEventListener('change',e=>loadCategory(e.target.value));
@@ -330,7 +392,7 @@ $('gtRecord').addEventListener('click',beginSpeech);
 $('gtStop').addEventListener('click',endSpeech);
 $('gtNextStage').addEventListener('click',nextStage);
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&state.recording)cancelRecognition();});
-window.addEventListener('pagehide',()=>{closeExplanation();cancelRecognition();});
+window.addEventListener('pagehide',()=>{closeReadingMission();closeExplanation();cancelRecognition();});
 window.addEventListener('resize',()=>{if(!$('gtCategoriesPanel').hidden)fitGrid($('gtCategoryCards'),state.categories.length);if(!$('gtUnitsPanel').hidden)fitGrid($('gtUnitList'),state.units.length);});
 resetReading();
 const query=new URLSearchParams(window.location.search);if(SETTINGS[query.get('mode')])changeMode(query.get('mode'));
