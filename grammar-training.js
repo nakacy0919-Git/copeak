@@ -13,7 +13,7 @@ const SETTINGS={
 };
 const DEFAULT_TOTALS={junior:144,senior:1830,entrance:1840};
 function restore(){try{const x=JSON.parse(localStorage.getItem(KEY)||'{}');return x.version===2&&x.records&&typeof x.records==='object'?x:{version:2,records:{}};}catch{return{version:2,records:{}};}}
-const state={mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,examCorrect:null,missionSkipped:false,missionCleared:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,micPhase:'idle',micReadyTimer:null,micStartTimer:null,micStopTimer:null,micSilenceTimer:null,stopRequested:false,transcript:'',interimTranscript:'',error:'',cache:new Map(),progress:restore(),totals:{...DEFAULT_TOTALS}};
+const state={mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,examCorrect:null,missionSkipped:false,missionCleared:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,micPhase:'idle',micReadyTimer:null,micStartTimer:null,micStopTimer:null,micSilenceTimer:null,micNoResultTimer:null,stopRequested:false,transcript:'',interimTranscript:'',micSignals:{audio:false,voice:false,text:false},micDiagnosticToken:0,micDiagnosticStream:null,micDiagnosticContext:null,error:'',cache:new Map(),progress:restore(),totals:{...DEFAULT_TOTALS}};
 const node=(tag,className,text)=>{const n=document.createElement(tag);if(className)n.className=className;if(text!==undefined)n.textContent=text;return n;};
 function progress(id){return state.progress.records[id]||{};}
 function save(id,patch){state.progress.records[id]=Object.assign({},progress(id),patch,{updated:new Date().toISOString()});try{localStorage.setItem(KEY,JSON.stringify(state.progress));}catch(e){console.warn('Grammar progress not saved',e);}renderOverallProgress();}
@@ -197,6 +197,42 @@ function showTopicPicker(){
 }
 function unitStatus(s){$('gtUnitMeta').textContent=s;}
 function micStatus(s){$('gtRecognitionStatus').textContent=s||'';}
+function updateSpeechSignals(){
+ const stages=[
+  ['gtSignalAudio',state.micSignals.audio,'マイク：起動通知','マイク：待機'],
+  ['gtSignalVoice',state.micSignals.voice,'発話：検出通知','発話：未確認'],
+  ['gtSignalText',state.micSignals.text,'文字起こし：受信','文字起こし：未受信']
+ ];
+ for(const [id,seen,yes,no] of stages){
+  $(id).textContent=seen?yes:no;
+  $(id).setAttribute('data-status',seen?'active':state.micPhase==='listening'?'pending':'idle');
+ }
+}
+function clearMicNoResultTimer(){
+ if(state.micNoResultTimer!==null){window.clearTimeout(state.micNoResultTimer);state.micNoResultTimer=null;}
+}
+function warnIfNoTranscript(token){
+ if(token!==state.micToken||state.micPhase!=='listening'||state.micSignals.text)return;
+ $('gtRetrySpeech').hidden=false;
+ const source=state.micSignals.voice?'発話の検出通知は届いていますが':'マイクの開始通知は届いていますが';
+ micStatus(source+'、文字起こしがまだ届いていません。再接続して読み直すことができます。');
+ $('gtTranscript').textContent='文字起こしを待っています。再接続する場合は下のボタンを押してください。';
+}
+function scheduleTranscriptCheck(token){
+ clearMicNoResultTimer();
+ if(!isIOSWebKit||state.micSignals.text)return;
+ state.micNoResultTimer=window.setTimeout(()=>{
+  state.micNoResultTimer=null;warnIfNoTranscript(token);
+ },7000);
+}
+function closeMicDiagnostic(){
+ state.micDiagnosticToken++;
+ const stream=state.micDiagnosticStream,context=state.micDiagnosticContext;
+ state.micDiagnosticStream=null;state.micDiagnosticContext=null;
+ if(stream)for(const track of stream.getTracks())try{track.stop();}catch(_){}
+ if(context)try{context.close();}catch(_){}
+ $('gtMicTest').disabled=false;
+}
 
 function clearMicReadyTimer(){
  if(state.micReadyTimer!==null){window.clearTimeout(state.micReadyTimer);state.micReadyTimer=null;}
@@ -205,6 +241,7 @@ function clearMicWatchdogs(){
  if(state.micStartTimer!==null){window.clearTimeout(state.micStartTimer);state.micStartTimer=null;}
  if(state.micStopTimer!==null){window.clearTimeout(state.micStopTimer);state.micStopTimer=null;}
  if(state.micSilenceTimer!==null){window.clearTimeout(state.micSilenceTimer);state.micSilenceTimer=null;}
+ clearMicNoResultTimer();
 }
 function monitorIOSSpeech(token,q){
  if(!isIOSWebKit||token!==state.micToken||state.micPhase!=='listening'||state.stopRequested)return;
@@ -227,6 +264,7 @@ function finalizeSpeechSession(token,q,timeout=false,reason=''){
  if(error){micStatus(speechErrorMessage(error)+' もう一度「音読スタート」で再挑戦できます。');return;}
  const spoken=[confirmed,pending].filter(Boolean).join(' ').trim();
  if(!spoken){
+  $('gtRetrySpeech').hidden=false;
   micStatus(reason==='silent'?'iPad Safariの音声認識から応答がありませんでした。録音を解除しました。「音読スタート」で再挑戦してください。':timeout?'音声認識が終了しなかったため録音を解除しました。もう一度「音読スタート」で再挑戦してください。':'音声を認識できませんでした。「音読スタート」で再挑戦してください。');
   return;
  }
@@ -250,7 +288,7 @@ function micReady(token,estimated=false){
   clearMicWatchdogs();
   state.recording=true;micButtons('listening');
   micStatus(estimated?'● 音声認識が開始されました。英文を話してください。':'● マイク準備完了。ここから英文を話してください。終了まで音声認識を続けます。');
-  monitorIOSSpeech(token,readingItem());
+  monitorIOSSpeech(token,readingItem());scheduleTranscriptCheck(token);
  }
 }
 function speechErrorMessage(code){
@@ -271,6 +309,7 @@ function resetReading(){
  $('gtScoreMeter').removeAttribute('aria-valuenow');$('gtScoreMeter').setAttribute('aria-valuetext','判定前');
  $('gtScoreNote').textContent='音読終了後に結果を表示します。';
  $('gtTranscript').textContent='音読を始めると、認識された英語がここに表示されます。';$('gtNextStage').hidden=true;
+ $('gtRetrySpeech').hidden=true;
 }
 function cancelRecognition(){
  state.micToken++;clearMicReadyTimer();clearMicWatchdogs();
@@ -418,6 +457,7 @@ function speak(){
  utterance.lang='en-US';utterance.rate=.9;window.speechSynthesis.speak(utterance);
 }
 function beginSpeech(){
+ closeMicDiagnostic();
  const Speech=window.SpeechRecognition||window.webkitSpeechRecognition,q=readingItem();
  if(!q||state.recording||state.recognition||state.micPhase!=='idle')return;
  if(!Speech){micStatus('このブラウザーでは音声認識を使用できません。Chromeなどでお試しください。');return;}
@@ -426,6 +466,7 @@ function beginSpeech(){
  // Use single-utterance recognition on iPad WebKit to avoid continuous-mode restarts.
  state.recognition=r;state.recording=false;state.error='';
  state.transcript='';state.interimTranscript='';state.stopRequested=false;
+ state.micSignals={audio:false,voice:false,text:false};updateSpeechSignals();
  clearMicReadyTimer();clearMicWatchdogs();
  resetReading();micButtons('starting');
  micStatus('マイクを準備中です。「マイク準備完了」と表示されるまで話し始めずにお待ちください。');
