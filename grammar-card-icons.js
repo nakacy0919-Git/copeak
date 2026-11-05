@@ -21,7 +21,10 @@
   check:['m5 12 5 5L20 7']
  };
  const rules=[
-  [/中[１２３1-3]|英文法の基礎|基本文型|文型|構文/, 'book','blue','Sentence Structure'],
+  [/^中[１1]$/, 'book','blue','Junior · Grade 1'],
+  [/^中[２2]$/, 'layers','mint','Junior · Grade 2'],
+  [/^中[３3]$/, 'sparkles','purple','Junior · Grade 3'],
+  [/英文法の基礎|基本文型|文型|構文/, 'book','blue','Sentence Structure'],
   [/関係副詞|関係詞|関係代名詞|who|whose|which/, 'link','indigo','Relative Clauses'],
   [/不定詞|to\s*不定詞/, 'link','purple','Infinitives'],
   [/動名詞|ing形/, 'infinity','cyan','Gerunds'],
