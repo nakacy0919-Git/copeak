@@ -15,9 +15,11 @@
 <link rel="stylesheet" href="grammar-pagination.css?v=20261105-4">
 <link rel="stylesheet" href="grammar-quiz-compact.css?v=20261105-5">
 <link rel="stylesheet" href="grammar-reading-modal.css?v=20261105-7">
+<link rel="stylesheet" href="grammar-progress.css?v=20261105-8">
 <script defer src="vocabulary-reading.js?v=8.3"></script>
 <script defer src="grammar-training-core.js?v=20261105-2"></script>
-<script defer src="grammar-training.js?v=20261105-7"></script>
+<script defer src="grammar-progress.js?v=20261105-8"></script>
+<script defer src="grammar-training.js?v=20261105-8"></script>
 <script defer src="grammar-aurora.js?v=20261105-1"></script>
 </head>
 <body>
@@ -27,9 +29,9 @@
  <h1>語彙・文法トレーニング</h1>
  <div class="gt-cards" id="gtMenuCards">
   <a class="gt-mode-card gt-vocab" href="vocabulary-check.html"><span class="gt-card-icon" aria-hidden="true">V</span><span class="gt-card-type">VOCABULARY CHECK</span><strong>語彙力診断</strong><span class="gt-card-copy">Quick 25問 / Deep 70問</span><span class="gt-card-arrow">進む ›</span></a>
-  <button class="gt-mode-card gt-junior" data-gt-mode="junior" type="button"><span class="gt-card-icon" aria-hidden="true">J</span><span class="gt-card-type">JUNIOR HIGH</span><strong>中学校の基礎英文法音読</strong><span class="gt-card-copy">中1〜中3 · 144例文</span><span class="gt-card-arrow">進む ›</span></button>
-  <button class="gt-mode-card gt-senior" data-gt-mode="senior" type="button"><span class="gt-card-icon" aria-hidden="true">H</span><span class="gt-card-type">HIGH SCHOOL</span><strong>高校の基礎英文法音読</strong><span class="gt-card-copy">高校英文法 · 1,830例文</span><span class="gt-card-arrow">進む ›</span></button>
-  <button class="gt-mode-card gt-entrance" data-gt-mode="entrance" type="button"><span class="gt-card-icon" aria-hidden="true">E</span><span class="gt-card-type">ENTRANCE EXAM</span><strong>大学入試英文法問題</strong><span class="gt-card-copy">4択問題＋音読 · 1,840問</span><span class="gt-card-arrow">進む ›</span></button>
+  <button class="gt-mode-card gt-junior" data-gt-mode="junior" type="button"><span class="gt-card-icon" aria-hidden="true">J</span><span class="gt-card-type">JUNIOR HIGH</span><strong>中学校の基礎英文法音読</strong><span class="gt-card-copy">中1〜中3 · 144例文</span><span class="gt-mode-progress" aria-label="学習進捗"><span class="gt-mode-progress-head"><span id="gtOverallJunior">学習済み 0 / —</span><strong id="gtOverallRateJunior">0%</strong></span><span class="gt-mode-track"><span id="gtOverallBarJunior"></span></span></span><span class="gt-card-arrow">進む ›</span></button>
+  <button class="gt-mode-card gt-senior" data-gt-mode="senior" type="button"><span class="gt-card-icon" aria-hidden="true">H</span><span class="gt-card-type">HIGH SCHOOL</span><strong>高校の基礎英文法音読</strong><span class="gt-card-copy">高校英文法 · 1,830例文</span><span class="gt-mode-progress" aria-label="学習進捗"><span class="gt-mode-progress-head"><span id="gtOverallSenior">学習済み 0 / —</span><strong id="gtOverallRateSenior">0%</strong></span><span class="gt-mode-track"><span id="gtOverallBarSenior"></span></span></span><span class="gt-card-arrow">進む ›</span></button>
+  <button class="gt-mode-card gt-entrance" data-gt-mode="entrance" type="button"><span class="gt-card-icon" aria-hidden="true">E</span><span class="gt-card-type">ENTRANCE EXAM</span><strong>大学入試英文法問題</strong><span class="gt-card-copy">4択問題＋音読 · 1,840問</span><span class="gt-mode-progress" aria-label="学習進捗"><span class="gt-mode-progress-head"><span id="gtOverallEntrance">学習済み 0 / —</span><strong id="gtOverallRateEntrance">0%</strong></span><span class="gt-mode-track"><span id="gtOverallBarEntrance"></span></span></span><span class="gt-card-arrow">進む ›</span></button>
  </div>
  <p class="gt-footer-note">Accuracyは音声認識した単語の一致率です。発音品質そのものの評価ではありません。学習記録はこの端末に保存されます。</p>
 </section>
