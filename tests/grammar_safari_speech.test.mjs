@@ -97,6 +97,29 @@ for(let attempt=0;attempt<3;attempt++){
  assert.equal(els.gtScoreNumber.textContent,'100%');
 }
 assert.equal(window.synthCancels||0,initialSynthCancels,'Do not reset idle WebKit speech audio session on restart');
+
+const partial=getNew();ready(partial);partial.onspeechstart();
+assert(els.gtSignalAudio.textContent.includes('起動'));
+assert(els.gtSignalVoice.textContent.includes('検出'));
+partial.onresult({results:[{isFinal:false,0:{transcript:'hello WebKit'}}]});
+assert(els.gtTranscript.textContent.includes('hello WebKit'));
+partial.onresult({results:[{isFinal:false,0:{transcript:''}}]});
+assert(els.gtTranscript.textContent.includes('hello WebKit'),'blank result must not erase prior words');
+partial.onresult({results:[{isFinal:true,0:{transcript:phrase}}]});
+assert(els.gtSignalText.textContent.includes('受信'));
+partial.onend();
+const stalled=getNew();ready(stalled);stalled.onspeechstart();
+assert(timers.some(t=>t.active&&t.ms===7000),'transcript watchdog must be active');
+fire(7000);
+assert.equal(els.gtRetrySpeech.hidden,false,'visible reconnect after missing onresult');
+assert(els.gtRecognitionStatus.textContent.includes('文字起こし'));
+els.gtRetrySpeech.click();
+assert(stalled.aborted,'reconnect must abort the stalled recognizer');
+const reconnected=recognizers.at(-1);
+assert(reconnected.started,'reconnect must synchronously start new recognition from tap');
+ready(reconnected);transcribe(reconnected,phrase);reconnected.onend();
+assert.equal(els.gtScoreNumber.textContent,'100%');
+
 // A Safari session can start while never producing onresult, onerror or onend.
 let r=getNew();ready(r);
 assert(timers.some(timer=>timer.active&&timer.ms===18000));
@@ -112,4 +135,4 @@ r=getNew();ready(r);r.onerror({error:'no-speech'});
 assert.equal(els.gtStop.classList.contains('is-recording-guide'),false);
 fire(950);assert.equal(els.gtRecord.disabled,false);
 assert(source('grammar-safari-guide.css').includes('prefers-reduced-motion:reduce'));
-console.log('PASS iPad Safari: repeat 3x, one-shot recognition, guided stop, 18s recovery, stale callbacks, error recovery, reduced motion');
+console.log('PASS iPad Safari: repeat 3x, transcript preservation, no-result indicator, tap-to-reconnect, 18s recovery, errors');

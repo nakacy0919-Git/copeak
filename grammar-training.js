@@ -13,7 +13,7 @@ const SETTINGS={
 };
 const DEFAULT_TOTALS={junior:144,senior:1830,entrance:1840};
 function restore(){try{const x=JSON.parse(localStorage.getItem(KEY)||'{}');return x.version===2&&x.records&&typeof x.records==='object'?x:{version:2,records:{}};}catch{return{version:2,records:{}};}}
-const state={mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,examCorrect:null,missionSkipped:false,missionCleared:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,micPhase:'idle',micReadyTimer:null,micStartTimer:null,micStopTimer:null,micSilenceTimer:null,stopRequested:false,transcript:'',interimTranscript:'',error:'',cache:new Map(),progress:restore(),totals:{...DEFAULT_TOTALS}};
+const state={mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,examCorrect:null,missionSkipped:false,missionCleared:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,micPhase:'idle',micReadyTimer:null,micStartTimer:null,micStopTimer:null,micSilenceTimer:null,micNoResultTimer:null,stopRequested:false,transcript:'',interimTranscript:'',micSignals:{audio:false,voice:false,text:false},micDiagnosticToken:0,micDiagnosticStream:null,micDiagnosticContext:null,error:'',cache:new Map(),progress:restore(),totals:{...DEFAULT_TOTALS}};
 const node=(tag,className,text)=>{const n=document.createElement(tag);if(className)n.className=className;if(text!==undefined)n.textContent=text;return n;};
 function progress(id){return state.progress.records[id]||{};}
 function save(id,patch){state.progress.records[id]=Object.assign({},progress(id),patch,{updated:new Date().toISOString()});try{localStorage.setItem(KEY,JSON.stringify(state.progress));}catch(e){console.warn('Grammar progress not saved',e);}renderOverallProgress();}
@@ -197,6 +197,42 @@ function showTopicPicker(){
 }
 function unitStatus(s){$('gtUnitMeta').textContent=s;}
 function micStatus(s){$('gtRecognitionStatus').textContent=s||'';}
+function updateSpeechSignals(){
+ const stages=[
+  ['gtSignalAudio',state.micSignals.audio,'マイク：起動通知','マイク：待機'],
+  ['gtSignalVoice',state.micSignals.voice,'発話：検出通知','発話：未確認'],
+  ['gtSignalText',state.micSignals.text,'文字起こし：受信','文字起こし：未受信']
+ ];
+ for(const [id,seen,yes,no] of stages){
+  $(id).textContent=seen?yes:no;
+  $(id).setAttribute('data-status',seen?'active':state.micPhase==='listening'?'pending':'idle');
+ }
+}
+function clearMicNoResultTimer(){
+ if(state.micNoResultTimer!==null){window.clearTimeout(state.micNoResultTimer);state.micNoResultTimer=null;}
+}
+function warnIfNoTranscript(token){
+ if(token!==state.micToken||state.micPhase!=='listening'||state.micSignals.text)return;
+ $('gtRetrySpeech').hidden=false;
+ const source=state.micSignals.voice?'発話の検出通知は届いていますが':'マイクの開始通知は届いていますが';
+ micStatus(source+'、文字起こしがまだ届いていません。再接続して読み直すことができます。');
+ $('gtTranscript').textContent='文字起こしを待っています。再接続する場合は下のボタンを押してください。';
+}
+function scheduleTranscriptCheck(token){
+ clearMicNoResultTimer();
+ if(!isIOSWebKit||state.micSignals.text)return;
+ state.micNoResultTimer=window.setTimeout(()=>{
+  state.micNoResultTimer=null;warnIfNoTranscript(token);
+ },7000);
+}
+function closeMicDiagnostic(){
+ state.micDiagnosticToken++;
+ const stream=state.micDiagnosticStream,context=state.micDiagnosticContext;
+ state.micDiagnosticStream=null;state.micDiagnosticContext=null;
+ if(stream)for(const track of stream.getTracks())try{track.stop();}catch(_){}
+ if(context)try{context.close();}catch(_){}
+ $('gtMicTest').disabled=false;
+}
 
 function clearMicReadyTimer(){
  if(state.micReadyTimer!==null){window.clearTimeout(state.micReadyTimer);state.micReadyTimer=null;}
@@ -205,6 +241,7 @@ function clearMicWatchdogs(){
  if(state.micStartTimer!==null){window.clearTimeout(state.micStartTimer);state.micStartTimer=null;}
  if(state.micStopTimer!==null){window.clearTimeout(state.micStopTimer);state.micStopTimer=null;}
  if(state.micSilenceTimer!==null){window.clearTimeout(state.micSilenceTimer);state.micSilenceTimer=null;}
+ clearMicNoResultTimer();
 }
 function monitorIOSSpeech(token,q){
  if(!isIOSWebKit||token!==state.micToken||state.micPhase!=='listening'||state.stopRequested)return;
@@ -227,7 +264,8 @@ function finalizeSpeechSession(token,q,timeout=false,reason=''){
  if(error){micStatus(speechErrorMessage(error)+' もう一度「音読スタート」で再挑戦できます。');return;}
  const spoken=[confirmed,pending].filter(Boolean).join(' ').trim();
  if(!spoken){
-  micStatus(reason==='silent'?'iPad Safariの音声認識から応答がありませんでした。録音を解除しました。「音読スタート」で再挑戦してください。':timeout?'音声認識が終了しなかったため録音を解除しました。もう一度「音読スタート」で再挑戦してください。':'音声を認識できませんでした。「音読スタート」で再挑戦してください。');
+  $('gtRetrySpeech').hidden=false;
+  micStatus(reason==='silent'?'iPadの音声認識から応答がありませんでした。録音を解除しました。「音読スタート」で再挑戦してください。':timeout?'音声認識が終了しなかったため録音を解除しました。もう一度「音読スタート」で再挑戦してください。':'音声を認識できませんでした。「音読スタート」で再挑戦してください。');
   return;
  }
  finishSpeech(q,spoken,Boolean(pending));
@@ -248,10 +286,62 @@ function micReady(token,estimated=false){
  clearMicReadyTimer();
  if(state.micPhase!=='listening'){
   clearMicWatchdogs();
-  state.recording=true;micButtons('listening');
+  state.recording=true;micButtons('listening');updateSpeechSignals();
   micStatus(estimated?'● 音声認識が開始されました。英文を話してください。':'● マイク準備完了。ここから英文を話してください。終了まで音声認識を続けます。');
-  monitorIOSSpeech(token,readingItem());
+  monitorIOSSpeech(token,readingItem());scheduleTranscriptCheck(token);
  }
+}
+async function testMicInput(){
+ if(state.recognition||state.micPhase!=='idle'){
+  $('gtMicTestResult').textContent='先に「終了・判定」を押してください。';return;
+ }
+ const nav=window.navigator;
+ if(!nav?.mediaDevices?.getUserMedia){
+  $('gtMicTestResult').textContent='このブラウザーでは独立したマイク音量テストを利用できません。';return;
+ }
+ closeMicDiagnostic();
+ const token=state.micDiagnosticToken,button=$('gtMicTest');
+ button.disabled=true;$('gtMicTestResult').textContent='マイクの許可を確認中…';
+ let stream=null,ctx=null;
+ try{
+  stream=await nav.mediaDevices.getUserMedia({audio:true});
+  if(token!==state.micDiagnosticToken){
+   for(const track of stream.getTracks())track.stop();return;
+  }
+  state.micDiagnosticStream=stream;
+  const Audio=window.AudioContext||window.webkitAudioContext;
+  if(!Audio){
+   $('gtMicTestResult').textContent='マイクの権限を確認しました。音量測定には未対応です。';return;
+  }
+  ctx=new Audio();state.micDiagnosticContext=ctx;
+  if(ctx.state==='suspended'&&ctx.resume)await ctx.resume();
+  const src=ctx.createMediaStreamSource(stream),analyser=ctx.createAnalyser();
+  analyser.fftSize=512;src.connect(analyser);
+  const values=new Uint8Array(analyser.fftSize);
+  let peak=0;
+  $('gtMicTestResult').textContent='3秒間、英文を声に出してください…';
+  for(let i=0;i<20;i++){
+   if(token!==state.micDiagnosticToken)return;
+   analyser.getByteTimeDomainData(values);
+   let sum=0;
+   for(const value of values){const centered=(value-128)/128;sum+=centered*centered;}
+   peak=Math.max(peak,Math.sqrt(sum/values.length));
+   await new Promise(resolve=>window.setTimeout(resolve,150));
+  }
+  if(token!==state.micDiagnosticToken)return;
+  $('gtMicTestResult').textContent=peak>=0.016?
+   'マイク音量を検出しました。文字起こしが無反応ならブラウザー側の認識処理に問題がある可能性があります。':
+   '音量を検出できませんでした。もう一度、大きめの声でテストしてください。';
+ }catch(error){
+  if(token===state.micDiagnosticToken)
+   $('gtMicTestResult').textContent='マイク診断に失敗しました。Safari／Chromeのマイク権限を確認してください。';
+ }finally{
+  if(token===state.micDiagnosticToken)closeMicDiagnostic();
+ }
+}
+function retrySpeechRecognition(){
+ if(state.recognition)cancelRecognition();
+ beginSpeech(); // Initiated from the user's button tap, preserving WebKit user activation.
 }
 function speechErrorMessage(code){
  const map={
@@ -271,9 +361,10 @@ function resetReading(){
  $('gtScoreMeter').removeAttribute('aria-valuenow');$('gtScoreMeter').setAttribute('aria-valuetext','判定前');
  $('gtScoreNote').textContent='音読終了後に結果を表示します。';
  $('gtTranscript').textContent='音読を始めると、認識された英語がここに表示されます。';$('gtNextStage').hidden=true;
+ $('gtRetrySpeech').hidden=true;
 }
 function cancelRecognition(){
- state.micToken++;clearMicReadyTimer();clearMicWatchdogs();
+ closeMicDiagnostic();state.micToken++;clearMicReadyTimer();clearMicWatchdogs();
  const r=state.recognition;state.recognition=null;state.recording=false;
  state.stopRequested=false;state.interimTranscript='';
  if(r){try{r.abort();}catch(_){}}
@@ -413,11 +504,18 @@ function switchSentence(extra){
 }
 function speak(){
  const q=readingItem();if(!q)return;
+ if(state.recognition){micStatus('音声認識中はお手本を再生できません。「終了・判定」を押してください。');return;}
  if(!('speechSynthesis' in window)){micStatus('読み上げ機能に対応していません。');return;}
- window.speechSynthesis.cancel();const utterance=new SpeechSynthesisUtterance(q.sentence);
+ if(window.speechSynthesis.speaking||window.speechSynthesis.pending)window.speechSynthesis.cancel();
+ const utterance=new SpeechSynthesisUtterance(q.sentence);
  utterance.lang='en-US';utterance.rate=.9;window.speechSynthesis.speak(utterance);
 }
 function beginSpeech(){
+ closeMicDiagnostic();
+ if(isIOSWebKit&&window.speechSynthesis&&(window.speechSynthesis.speaking||window.speechSynthesis.pending)){
+  micStatus('お手本の再生中です。再生が終わってから「音読スタート」を押してください。');
+  return;
+ }
  const Speech=window.SpeechRecognition||window.webkitSpeechRecognition,q=readingItem();
  if(!q||state.recording||state.recognition||state.micPhase!=='idle')return;
  if(!Speech){micStatus('このブラウザーでは音声認識を使用できません。Chromeなどでお試しください。');return;}
@@ -426,6 +524,7 @@ function beginSpeech(){
  // Use single-utterance recognition on iPad WebKit to avoid continuous-mode restarts.
  state.recognition=r;state.recording=false;state.error='';
  state.transcript='';state.interimTranscript='';state.stopRequested=false;
+ state.micSignals={audio:false,voice:false,text:false};updateSpeechSignals();
  clearMicReadyTimer();clearMicWatchdogs();
  resetReading();micButtons('starting');
  micStatus('マイクを準備中です。「マイク準備完了」と表示されるまで話し始めずにお待ちください。');
@@ -439,22 +538,38 @@ function beginSpeech(){
   // After onstart, fall back only if an explicit audio-start event was not received.
   state.micReadyTimer=window.setTimeout(()=>micReady(token,true),850);
  };
- r.onaudiostart=()=>micReady(token);
+ r.onaudiostart=()=>{
+  if(token!==state.micToken)return;
+  state.micSignals.audio=true;updateSpeechSignals();micReady(token);
+ };
+ r.onspeechstart=()=>{
+  if(token!==state.micToken)return;
+  state.micSignals.voice=true;updateSpeechSignals();
+ };
  r.onresult=event=>{
   if(token!==state.micToken)return;
   micReady(token);
-  monitorIOSSpeech(token,q);
-  const finals=[],interims=[];
-  for(let i=0;i<event.results.length;i++){
-   const row=event.results[i],text=row[0]&&row[0].transcript||'';
+  const finals=[],interims=[],rows=event&&event.results||[];
+  for(let i=0;i<rows.length;i++){
+   const row=rows[i],text=String(row&&row[0]&&row[0].transcript||'').trim();
+   if(!text)continue;
    (row.isFinal?finals:interims).push(text);
   }
-  state.transcript=finals.join(' ').trim();
-  state.interimTranscript=interims.join(' ').trim();
-  $('gtTranscript').textContent=[state.transcript,state.interimTranscript].filter(Boolean).join(' ')||'音声を認識しています…';
+  const confirmed=finals.join(' ').trim(),pending=interims.join(' ').trim();
+  // WebKit can issue a blank event after a useful partial transcript. Preserve it.
+  if(!confirmed&&!pending)return;
+  state.micSignals.audio=true;state.micSignals.voice=true;state.micSignals.text=true;
+  updateSpeechSignals();clearMicNoResultTimer();
+  $('gtRetrySpeech').hidden=true;
+  if(confirmed)state.transcript=confirmed;
+  if(pending)state.interimTranscript=pending;
+  else if(confirmed)state.interimTranscript='';
+  $('gtTranscript').textContent=[state.transcript,state.interimTranscript].filter(Boolean).join(' ');
+  monitorIOSSpeech(token,q);
  };
  r.onerror=e=>{
   if(token!==state.micToken)return;
+  $('gtRetrySpeech').hidden=false;
   state.error=e.error||'unknown';clearMicReadyTimer();clearMicWatchdogs();
   micButtons('stopping');micStatus(speechErrorMessage(state.error));
   state.micStopTimer=window.setTimeout(()=>finalizeSpeechSession(token,q,true),950);
@@ -553,10 +668,12 @@ $('gtExtraSentence').addEventListener('click',()=>switchSentence(true));
 $('gtListen').addEventListener('click',speak);
 $('gtRecord').addEventListener('click',beginSpeech);
 $('gtStop').addEventListener('click',endSpeech);
+$('gtRetrySpeech').addEventListener('click',retrySpeechRecognition);
+$('gtMicTest').addEventListener('click',testMicInput);
 $('gtNextStage').addEventListener('click',nextStage);
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&state.recognition)cancelRecognition();});
 window.addEventListener('pagehide',()=>{closeReadingMission();closeExplanation();cancelRecognition();});
 window.addEventListener('resize',()=>{if(!$('gtCategoriesPanel').hidden)fitGrid($('gtCategoryCards'),state.categories.length);if(!$('gtUnitsPanel').hidden)fitGrid($('gtUnitList'),state.units.length);});
-micButtons('idle');resetReading();renderOverallProgress();
+micButtons('idle');resetReading();updateSpeechSignals();renderOverallProgress();
 const query=new URLSearchParams(window.location.search);if(SETTINGS[query.get('mode')])changeMode(query.get('mode'));
 })();
