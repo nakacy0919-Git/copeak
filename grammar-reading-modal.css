@@ -242,3 +242,43 @@
 @media(prefers-reduced-motion:reduce){
   .gt-choice,.gt-picker .gt-unit-item{transition:none!important;transform:none!important}
 }
+
+
+/* Speech capture lifecycle: visually distinguish mic permission/boot from live capture. */
+#gtRecognitionStatus{
+  display:inline-flex;align-items:center;gap:7px;
+  min-height:26px;padding:5px 10px;
+  border-radius:10px;font-weight:750;
+  transition:background .2s,color .2s;
+}
+#gtRecognitionStatus[data-mic-state="starting"],
+#gtRecognitionStatus[data-mic-state="connecting"]{
+  color:#8c6727;background:linear-gradient(120deg,#fff9e8,#fff3d6);
+  border:1px solid #ebdba8;
+}
+#gtRecognitionStatus[data-mic-state="listening"]{
+  color:#177551;background:linear-gradient(120deg,#e8fff2,#d7f9e8);
+  border:1px solid #87dcb3;
+}
+#gtRecognitionStatus[data-mic-state="listening"]::before{
+  content:"";display:inline-block;width:9px;height:9px;border-radius:50%;
+  background:#15b879;box-shadow:0 0 0 3px rgba(23,184,118,.12);
+  animation:gt-mic-live-pulse 1.65s ease-in-out infinite;
+}
+#gtRecognitionStatus[data-mic-state="stopping"]{
+  color:#315f9b;background:#e8f2ff;border:1px solid #bad5f4;
+}
+.gt-record-buttons #gtRecord:disabled{
+  opacity:.85;cursor:wait;
+}
+.gt-record-buttons #gtStop:disabled{
+  opacity:.56;cursor:not-allowed;
+}
+@keyframes gt-mic-live-pulse{
+  0%,100%{box-shadow:0 0 0 3px rgba(23,184,118,.12)}
+  50%{box-shadow:0 0 0 7px rgba(23,184,118,.08)}
+}
+@media(prefers-reduced-motion:reduce){
+  #gtRecognitionStatus[data-mic-state="listening"]::before{animation:none}
+  #gtRecognitionStatus{transition:none}
+}
