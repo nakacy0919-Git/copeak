@@ -286,7 +286,7 @@ function micReady(token,estimated=false){
  clearMicReadyTimer();
  if(state.micPhase!=='listening'){
   clearMicWatchdogs();
-  state.recording=true;micButtons('listening');
+  state.recording=true;micButtons('listening');updateSpeechSignals();
   micStatus(estimated?'● 音声認識が開始されました。英文を話してください。':'● マイク準備完了。ここから英文を話してください。終了まで音声認識を続けます。');
   monitorIOSSpeech(token,readingItem());scheduleTranscriptCheck(token);
  }
@@ -552,7 +552,8 @@ function beginSpeech(){
   const confirmed=finals.join(' ').trim(),pending=interims.join(' ').trim();
   // WebKit can issue a blank event after a useful partial transcript. Preserve it.
   if(!confirmed&&!pending)return;
-  state.micSignals.text=true;updateSpeechSignals();clearMicNoResultTimer();
+  state.micSignals.audio=true;state.micSignals.voice=true;state.micSignals.text=true;
+  updateSpeechSignals();clearMicNoResultTimer();
   $('gtRetrySpeech').hidden=true;
   if(confirmed)state.transcript=confirmed;
   if(pending)state.interimTranscript=pending;
