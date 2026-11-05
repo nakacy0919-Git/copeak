@@ -11,7 +11,7 @@ const SETTINGS={
 };
 const DEFAULT_TOTALS={junior:144,senior:1830,entrance:4912};
 function restore(){try{const x=JSON.parse(localStorage.getItem(KEY)||'{}');return x.version===2&&x.records&&typeof x.records==='object'?x:{version:2,records:{}};}catch{return{version:2,records:{}};}}
-const state={mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,examCorrect:null,missionSkipped:false,missionCleared:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,micPhase:'idle',micStopTimer:null,micRestartTimer:null,stopRequested:false,transcript:'',interimTranscript:'',micSignals:{audio:false,voice:false,text:false},micDiagnosticToken:0,micDiagnosticStream:null,micDiagnosticContext:null,cache:new Map(),progress:restore(),totals:{...DEFAULT_TOTALS}};
+const state={mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,examCorrect:null,missionSkipped:false,missionCleared:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,micPhase:'idle',micStopTimer:null,micRestartTimer:null,stopRequested:false,transcript:'',interimTranscript:'',usedInterim:false,micSignals:{audio:false,voice:false,text:false},micDiagnosticToken:0,micDiagnosticStream:null,micDiagnosticContext:null,cache:new Map(),progress:restore(),totals:{...DEFAULT_TOTALS}};
 const node=(tag,className,text)=>{const n=document.createElement(tag);if(className)n.className=className;if(text!==undefined)n.textContent=text;return n;};
 function progress(id){return state.progress.records[id]||{};}
 function save(id,patch){state.progress.records[id]=Object.assign({},progress(id),patch,{updated:new Date().toISOString()});try{localStorage.setItem(KEY,JSON.stringify(state.progress));}catch(e){console.warn('Grammar progress not saved',e);}renderOverallProgress();}
@@ -233,7 +233,7 @@ function finalizeSpeechSession(token,q,timeout=false){
  const recognizer=state.recognition;
  clearMicWatchdogs();
  const spoken=[state.transcript,state.interimTranscript].filter(Boolean).join(' ').trim();
- const pending=Boolean(state.interimTranscript);
+ const pending=state.usedInterim||Boolean(state.interimTranscript);
  state.micToken++;state.recognition=null;state.recording=false;state.stopRequested=false;
  micButtons('idle');updateSpeechSignals();
  if(timeout&&recognizer)try{recognizer.abort();}catch(_){}
@@ -479,7 +479,7 @@ function beginSpeech(){
  window.speechSynthesis?.cancel();
  cancelRecognition();
  state.recording=true;state.stopRequested=false;
- state.transcript='';state.interimTranscript='';
+ state.transcript='';state.interimTranscript='';state.usedInterim=false;
  state.micSignals={audio:false,voice:false,text:false};
  const token=state.micToken;
  resetReading();micButtons('listening');updateSpeechSignals();
@@ -498,11 +498,11 @@ function beginSpeech(){
   }
   const current=()=>token===state.micToken&&state.recognition===r;
   // Web Speech API result arrays are cumulative within one recognizer.
-  // GCC's segment accumulation is preserved; index dedup prevents repeated finals.
-  const acceptedFinals=new Set();
+  // Rebuild this recognizer's portion without duplicating cumulative results.
+  const previousTranscript=state.transcript;
   r.onstart=()=>{
    if(!current()||!state.recording)return;
-   state.micSignals.audio=true;updateSpeechSignals();
+   micStatus('音声認識サービスが開始しました。マイク入力・文字起こしを確認中です。');
   };
   r.onaudiostart=()=>{
    if(!current()||!state.recording)return;
@@ -514,21 +514,19 @@ function beginSpeech(){
   };
   r.onresult=event=>{
    if(!current()||!state.recording)return;
-   let latest='',addedFinal=false;
-   const from=Number.isInteger(event.resultIndex)?event.resultIndex:0;
-   for(let i=from;i<event.results.length;i++){
+   // Read the complete current snapshot: resultIndex points to the first changed
+   // result, and earlier final results can be revised by the recognition service.
+   const finals=[],interims=[];
+   for(let i=0;i<event.results.length;i++){
     const result=event.results[i];
     const text=String(result&&result[0]&&result[0].transcript||'').trim();
-    if(!text)continue;
-    if(result.isFinal){
-     if(!acceptedFinals.has(i)){
-      state.transcript=[state.transcript,text].filter(Boolean).join(' ').trim();
-      acceptedFinals.add(i);addedFinal=true;
-     }
-    }else latest+=text+' ';
+    if(text)(result.isFinal?finals:interims).push(text);
    }
-   if(!addedFinal&&!latest.trim())return;
-   state.interimTranscript=latest.trim();
+   // Ignore empty WebKit placeholders, but honor a nonempty snapshot which
+   // removes an earlier interim result.
+   if(!finals.length&&!interims.length)return;
+   state.transcript=[previousTranscript,...finals].filter(Boolean).join(' ').trim();
+   state.interimTranscript=interims.join(' ');
    state.micSignals.audio=true;state.micSignals.voice=true;state.micSignals.text=true;
    updateSpeechSignals();$('gtRetrySpeech').hidden=true;
    $('gtTranscript').textContent=[state.transcript,state.interimTranscript].filter(Boolean).join(' ');
@@ -548,6 +546,12 @@ function beginSpeech(){
    if(!current())return;
    state.recognition=null;
    if(state.recording&&!state.stopRequested){
+    // Some services end with only interim text. Keep it at the recognizer
+    // boundary so the next instance cannot erase words already displayed.
+    if(state.interimTranscript){
+     state.transcript=[state.transcript,state.interimTranscript].filter(Boolean).join(' ');
+     state.interimTranscript='';state.usedInterim=true;
+    }
     state.micRestartTimer=window.setTimeout(listen,250);
    }else if(state.stopRequested){
     finalizeSpeechSession(token,q);
