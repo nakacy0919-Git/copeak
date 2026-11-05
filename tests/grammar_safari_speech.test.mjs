@@ -97,6 +97,28 @@ for(let attempt=0;attempt<3;attempt++){
 }
 assert.equal(window.synthCancels||0,initialSynthCancels,'Do not reset idle WebKit speech audio session on restart');
 
+// Actual GCC pattern: browser can end recognition on a pause WITHOUT student ending the reading.
+// Copeak must transparently reopen recognition and accumulate across sessions.
+const autoFirst=getNew();
+ready(autoFirst);transcribe(autoFirst,'This is');
+autoFirst.onend();
+assert.equal(els.gtRecord.disabled,true,'browser auto-end must not finish student recording');
+assert.equal(els.gtScoreNumber.textContent,'—','automatic end must not score');
+assert(timers.some(timer=>timer.active&&timer.ms===250),'GCC-style 250ms restart required');
+fire(250);
+const autoSecond=recognizers.at(-1);
+assert.notEqual(autoSecond,autoFirst);
+assert(autoSecond.started);
+ready(autoSecond);
+autoSecond.onresult({resultIndex:0,results:[{isFinal:true,0:{transcript:'a sentence'}}]});
+assert.equal(els.gtTranscript.textContent,'This is a sentence','transcript must accumulate');
+autoSecond.onresult({resultIndex:0,results:[{isFinal:true,0:{transcript:'a sentence'}}]});
+assert.equal(els.gtTranscript.textContent,'This is a sentence','do not duplicate repeated final results');
+els.gtStop.click();autoSecond.onend();
+assert.equal(els.gtRecord.disabled,false,'explicit End & Score releases recorder');
+assert.equal(els.gtScoreNumber.textContent,'100%');
+
+
 const partial=getNew();ready(partial);partial.onspeechstart();
 assert(els.gtSignalAudio.textContent.includes('起動'));
 assert(els.gtSignalVoice.textContent.includes('検出'));
@@ -141,4 +163,4 @@ ready(recovered);transcribe(recovered,phrase);
 els.gtStop.click();recovered.onend();
 assert.equal(els.gtRecord.disabled,false);
 assert(source('grammar-safari-guide.css').includes('prefers-reduced-motion:reduce'));
-console.log('PASS iPad Safari: GCC continuous config, explicit scoring, repeat 3x, transcript preservation, no-result reconnect and no-speech recovery');
+console.log('PASS iPad Safari: GCC auto-restart, cross-session cumulative transcript, explicit scoring, repeat 3x, no-result and no-speech recovery');
