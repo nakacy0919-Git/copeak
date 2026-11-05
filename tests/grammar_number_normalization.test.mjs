@@ -82,4 +82,19 @@ const normal=[
 ];
 for(const [a,b] of normal)assert.equal(score(a,b).percent,originalReference(a,b));
 
+
+// Exhaustively confirm common classroom integers work in both directions.
+const small=['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen'];
+const tens=['','','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety'];
+function spell(n){
+ if(n<20)return small[n];
+ if(n<100)return tens[Math.floor(n/10)]+(n%10?' '+small[n%10]:'');
+ return small[Math.floor(n/100)]+' hundred'+(n%100?' and '+spell(n%100):'');
+}
+for(let n=0;n<1000;n++){
+ const target='There are '+spell(n)+' books.',recognized='There are '+n+' books.';
+ assert.equal(score(target,recognized).percent,100,'number '+n+' as digits');
+ assert.equal(score(recognized,target).percent,100,'number '+n+' as words');
+}
+
 console.log('PASS grammar number normalization: '+(equivalent.length*2)+' equal number pairs, '+nonEquivalent.length+' distinct meanings, transcript highlighting and unchanged nonnumeric scoring');
