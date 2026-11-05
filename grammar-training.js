@@ -11,7 +11,7 @@ const SETTINGS={
 };
 const DEFAULT_TOTALS={junior:144,senior:1830,entrance:1840};
 function restore(){try{const x=JSON.parse(localStorage.getItem(KEY)||'{}');return x.version===2&&x.records&&typeof x.records==='object'?x:{version:2,records:{}};}catch{return{version:2,records:{}};}}
-const state={mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,examCorrect:null,missionSkipped:false,missionCleared:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,micPhase:'idle',micReadyTimer:null,stopRequested:false,transcript:'',interimTranscript:'',error:'',cache:new Map(),progress:restore(),totals:{...DEFAULT_TOTALS}};
+const state={mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,examCorrect:null,missionSkipped:false,missionCleared:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,micPhase:'idle',micReadyTimer:null,micStartTimer:null,micStopTimer:null,stopRequested:false,transcript:'',interimTranscript:'',error:'',cache:new Map(),progress:restore(),totals:{...DEFAULT_TOTALS}};
 const node=(tag,className,text)=>{const n=document.createElement(tag);if(className)n.className=className;if(text!==undefined)n.textContent=text;return n;};
 function progress(id){return state.progress.records[id]||{};}
 function save(id,patch){state.progress.records[id]=Object.assign({},progress(id),patch,{updated:new Date().toISOString()});try{localStorage.setItem(KEY,JSON.stringify(state.progress));}catch(e){console.warn('Grammar progress not saved',e);}renderOverallProgress();}
@@ -181,6 +181,28 @@ function micStatus(s){$('gtRecognitionStatus').textContent=s||'';}
 function clearMicReadyTimer(){
  if(state.micReadyTimer!==null){window.clearTimeout(state.micReadyTimer);state.micReadyTimer=null;}
 }
+function clearMicWatchdogs(){
+ if(state.micStartTimer!==null){window.clearTimeout(state.micStartTimer);state.micStartTimer=null;}
+ if(state.micStopTimer!==null){window.clearTimeout(state.micStopTimer);state.micStopTimer=null;}
+}
+function finalizeSpeechSession(token,q,timeout=false){
+ if(token!==state.micToken||!state.recognition)return;
+ clearMicReadyTimer();clearMicWatchdogs();
+ const recognizer=state.recognition;
+ const error=state.error,confirmed=state.transcript.trim(),pending=state.interimTranscript.trim();
+ state.micToken++;state.recognition=null;state.recording=false;state.stopRequested=false;
+ micButtons('idle');
+ if(timeout){try{recognizer.abort();}catch(_){}}
+ if(error){micStatus(speechErrorMessage(error)+' もう一度「音読スタート」で再挑戦できます。');return;}
+ const spoken=[confirmed,pending].filter(Boolean).join(' ').trim();
+ if(!spoken){
+  micStatus(timeout?'音声認識が終了しなかったため録音を解除しました。もう一度「音読スタート」で再挑戦してください。':'音声を認識できませんでした。「音読スタート」で再挑戦してください。');
+  return;
+ }
+ finishSpeech(q,spoken,Boolean(pending));
+ if(timeout)micStatus('終了通知が遅れたため、取得済みの文字起こしで判定しました。再度音読できます。');
+}
+
 function micButtons(phase){
  state.micPhase=phase;
  $('gtRecord').disabled=phase!=='idle';
@@ -190,8 +212,8 @@ function micButtons(phase){
  $('gtRecognitionStatus').setAttribute('data-mic-state',phase);
 }
 function micReady(token,estimated=false){
- if(token!==state.micToken||!state.recognition||state.micPhase==='stopping'||state.micPhase==='idle')return;
- clearMicReadyTimer();
+ if(token!==state.micToken||!state.recognition||state.error||state.micPhase==='stopping'||state.micPhase==='idle')return;
+ clearMicReadyTimer();clearMicWatchdogs();
  if(state.micPhase!=='listening'){
   state.recording=true;micButtons('listening');
   micStatus(estimated?'● 音声認識が開始されました。英文を話してください。':'● マイク準備完了。ここから英文を話してください。終了まで音声認識を続けます。');
@@ -217,7 +239,7 @@ function resetReading(){
  $('gtTranscript').textContent='音読を始めると、認識された英語がここに表示されます。';$('gtNextStage').hidden=true;
 }
 function cancelRecognition(){
- state.micToken++;clearMicReadyTimer();
+ state.micToken++;clearMicReadyTimer();clearMicWatchdogs();
  const r=state.recognition;state.recognition=null;state.recording=false;
  state.stopRequested=false;state.interimTranscript='';
  if(r){try{r.abort();}catch(_){}}
@@ -369,10 +391,12 @@ function beginSpeech(){
  r.lang='en-US';r.continuous=true;r.interimResults=true;
  state.recognition=r;state.recording=false;state.error='';
  state.transcript='';state.interimTranscript='';state.stopRequested=false;
+ clearMicReadyTimer();clearMicWatchdogs();
  resetReading();micButtons('starting');
  micStatus('マイクを準備中です。「マイク準備完了」と表示されるまで話し始めずにお待ちください。');
  r.onstart=()=>{
-  if(token!==state.micToken||!state.recognition||state.micPhase==='listening')return;
+  if(token!==state.micToken||!state.recognition||state.micPhase==='listening'||state.stopRequested||state.micPhase==='stopping')return;
+  if(state.micStartTimer!==null){window.clearTimeout(state.micStartTimer);state.micStartTimer=null;}
   micButtons('connecting');
   micStatus('マイクを接続中です。準備完了が表示されてから話してください。');
   clearMicReadyTimer();
@@ -395,36 +419,33 @@ function beginSpeech(){
  };
  r.onerror=e=>{
   if(token!==state.micToken)return;
-  state.error=e.error||'unknown';clearMicReadyTimer();
+  state.error=e.error||'unknown';clearMicReadyTimer();clearMicWatchdogs();
   micStatus(speechErrorMessage(state.error));
+  state.micStopTimer=window.setTimeout(()=>finalizeSpeechSession(token,q,true),950);
  };
- r.onend=()=>{
-  if(token!==state.micToken)return;
-  clearMicReadyTimer();state.recording=false;state.recognition=null;
-  micButtons('idle');
-  if(state.error){micStatus(speechErrorMessage(state.error));return;}
-  const confirmed=state.transcript.trim(),pending=state.interimTranscript.trim();
-  const spoken=[confirmed,pending].filter(Boolean).join(' ').trim();
-  if(!spoken){
-   micStatus('音声を認識できませんでした。次回は「マイク準備完了」を確認してから話し始めてください。');
-   return;
-  }
-  finishSpeech(q,spoken,Boolean(pending));
- };
+ r.onend=()=>finalizeSpeechSession(token,q);
  try{
   if(window.speechSynthesis)window.speechSynthesis.cancel();
   r.start();
+  // If the recognition service never sends onstart/onend, do not lock the next attempt.
+  state.micStartTimer=window.setTimeout(()=>{
+   if(token!==state.micToken||state.micPhase==='listening'||state.stopRequested)return;
+   finalizeSpeechSession(token,q,true);
+  },6500);
  }catch(e){
   if(token!==state.micToken)return;
-  clearMicReadyTimer();state.recognition=null;state.recording=false;
+  clearMicReadyTimer();clearMicWatchdogs();state.recognition=null;state.recording=false;state.stopRequested=false;
   micButtons('idle');micStatus('マイクを開始できませんでした：'+e.message);
  }
 }
 function endSpeech(){
  if(!state.recognition||state.micPhase!=='listening'||state.stopRequested)return;
- const r=state.recognition;
+ const r=state.recognition,q=readingItem(),token=state.micToken;
  state.stopRequested=true;micButtons('stopping');
  micStatus('音声認識の最終結果を受信しています。判定までお待ちください。');
+ clearMicWatchdogs();
+ // Safari/WebKit can omit onend after stop. Always release the controls.
+ state.micStopTimer=window.setTimeout(()=>finalizeSpeechSession(token,q,true),3000);
  try{r.stop();}
  catch(e){
   micStatus('音声認識の終了に失敗しました。もう一度お試しください。');
@@ -441,7 +462,7 @@ function finishSpeech(q,spoken,usedInterim=false){
  $('gtScoreArc').classList.toggle('is-pass',passed);
  $('gtScoreMeter').setAttribute('aria-valuenow',String(percent));$('gtScoreMeter').setAttribute('aria-valuetext','単語一致率 '+percent+'パーセント');
  $('gtScoreNote').textContent=passed?'合格！ 次のステージに挑戦しましょう。':'基準 '+core.STAGES[state.stage-1].threshold+'% を目指してもう一度音読しましょう。';
- micStatus((usedInterim?'未確定の認識結果を一部利用しました。':'音読終了。')+'認識一致 '+result.matchCount+' / '+result.targetCount+' 語（発音品質評価ではありません）。');
+ micStatus((usedInterim?'未確定の認識結果を一部利用しました。':'音読終了。')+'認識一致 '+result.matchCount+' / '+result.targetCount+' 語（発音品質評価ではありません）。「音読スタート」で再挑戦できます。');
  const prev=progress(q.id);
  save(q.id,{readingAttempts:(prev.readingAttempts||0)+1,lastAccuracy:percent,bestAccuracy:Math.max(Number(prev.bestAccuracy)||0,percent),cleared:passed?Math.max(Number(prev.cleared)||0,state.stage):Number(prev.cleared)||0});
  renderStage();
