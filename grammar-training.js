@@ -13,7 +13,7 @@ const SETTINGS={
 };
 const DEFAULT_TOTALS={junior:144,senior:1830,entrance:1840};
 function restore(){try{const x=JSON.parse(localStorage.getItem(KEY)||'{}');return x.version===2&&x.records&&typeof x.records==='object'?x:{version:2,records:{}};}catch{return{version:2,records:{}};}}
-const state={mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,examCorrect:null,missionSkipped:false,missionCleared:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,micPhase:'idle',micReadyTimer:null,micStartTimer:null,micStopTimer:null,micSilenceTimer:null,micNoResultTimer:null,stopRequested:false,transcript:'',interimTranscript:'',micSignals:{audio:false,voice:false,text:false},micDiagnosticToken:0,micDiagnosticStream:null,micDiagnosticContext:null,error:'',cache:new Map(),progress:restore(),totals:{...DEFAULT_TOTALS}};
+const state={mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,examCorrect:null,missionSkipped:false,missionCleared:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,micPhase:'idle',micReadyTimer:null,micStartTimer:null,micStopTimer:null,micRestartTimer:null,micSilenceTimer:null,micNoResultTimer:null,stopRequested:false,transcript:'',interimTranscript:'',micSignals:{audio:false,voice:false,text:false},micDiagnosticToken:0,micDiagnosticStream:null,micDiagnosticContext:null,error:'',cache:new Map(),progress:restore(),totals:{...DEFAULT_TOTALS}};
 const node=(tag,className,text)=>{const n=document.createElement(tag);if(className)n.className=className;if(text!==undefined)n.textContent=text;return n;};
 function progress(id){return state.progress.records[id]||{};}
 function save(id,patch){state.progress.records[id]=Object.assign({},progress(id),patch,{updated:new Date().toISOString()});try{localStorage.setItem(KEY,JSON.stringify(state.progress));}catch(e){console.warn('Grammar progress not saved',e);}renderOverallProgress();}
@@ -240,6 +240,7 @@ function clearMicReadyTimer(){
 function clearMicWatchdogs(){
  if(state.micStartTimer!==null){window.clearTimeout(state.micStartTimer);state.micStartTimer=null;}
  if(state.micStopTimer!==null){window.clearTimeout(state.micStopTimer);state.micStopTimer=null;}
+ if(state.micRestartTimer!==null){window.clearTimeout(state.micRestartTimer);state.micRestartTimer=null;}
  if(state.micSilenceTimer!==null){window.clearTimeout(state.micSilenceTimer);state.micSilenceTimer=null;}
  clearMicNoResultTimer();
 }
@@ -254,13 +255,13 @@ function monitorIOSSpeech(token,q){
  },18000);
 }
 function finalizeSpeechSession(token,q,timeout=false,reason=''){
- if(token!==state.micToken||!state.recognition)return;
+ if(token!==state.micToken||state.micPhase==='idle')return;
  clearMicReadyTimer();clearMicWatchdogs();
  const recognizer=state.recognition;
  const error=state.error,confirmed=state.transcript.trim(),pending=state.interimTranscript.trim();
  state.micToken++;state.recognition=null;state.recording=false;state.stopRequested=false;
  micButtons('idle');
- if(timeout){try{recognizer.abort();}catch(_){}}
+ if(timeout&&recognizer){try{recognizer.abort();}catch(_){}}
  if(error){micStatus(speechErrorMessage(error)+' もう一度「音読スタート」で再挑戦できます。');return;}
  const spoken=[confirmed,pending].filter(Boolean).join(' ').trim();
  if(!spoken){
@@ -504,104 +505,147 @@ function switchSentence(extra){
 }
 function speak(){
  const q=readingItem();if(!q)return;
- if(state.recognition){micStatus('音声認識中はお手本を再生できません。「終了・判定」を押してください。');return;}
+ if(state.micPhase!=='idle'){micStatus('音声認識中はお手本を再生できません。「終了・判定」を押してください。');return;}
  if(!('speechSynthesis' in window)){micStatus('読み上げ機能に対応していません。');return;}
  if(window.speechSynthesis.speaking||window.speechSynthesis.pending)window.speechSynthesis.cancel();
  const utterance=new SpeechSynthesisUtterance(q.sentence);
  utterance.lang='en-US';utterance.rate=.9;window.speechSynthesis.speak(utterance);
 }
+/* GCC Practice English voice lifecycle: a recognizer end is NOT a learner stop.
+   The reading stays open across service-level recognizer re-connections.
+   Only explicit End & Score scores the combined transcript. */
 function beginSpeech(){
+ if(state.micPhase!=='idle'||state.recording||state.recognition)return;
  closeMicDiagnostic();
  if(isIOSWebKit&&window.speechSynthesis&&(window.speechSynthesis.speaking||window.speechSynthesis.pending)){
   micStatus('お手本の再生中です。再生が終わってから「音読スタート」を押してください。');
   return;
  }
  const Speech=window.SpeechRecognition||window.webkitSpeechRecognition,q=readingItem();
- if(!q||state.recording||state.recognition||state.micPhase!=='idle')return;
+ if(!q)return;
  if(!Speech){micStatus('このブラウザーでは音声認識を使用できません。Chromeなどでお試しください。');return;}
- const token=++state.micToken,r=new Speech();
- r.lang='en-US';r.continuous=!isIOSWebKit;r.interimResults=true;
- // Use single-utterance recognition on iPad WebKit to avoid continuous-mode restarts.
- state.recognition=r;state.recording=false;state.error='';
+ const token=++state.micToken;
+ state.recognition=null;state.recording=false;state.error='';
  state.transcript='';state.interimTranscript='';state.stopRequested=false;
  state.micSignals={audio:false,voice:false,text:false};updateSpeechSignals();
  clearMicReadyTimer();clearMicWatchdogs();
  resetReading();micButtons('starting');
- micStatus('マイクを準備中です。「マイク準備完了」と表示されるまで話し始めずにお待ちください。');
- r.onstart=()=>{
-  if(token!==state.micToken||!state.recognition||state.micPhase==='listening'||state.stopRequested||state.micPhase==='stopping')return;
-  if(state.micStartTimer!==null){window.clearTimeout(state.micStartTimer);state.micStartTimer=null;}
-  micButtons('connecting');
-  micStatus('マイクを接続中です。準備完了が表示されてから話してください。');
-  clearMicReadyTimer();
-  // Some WebKit implementations do not dispatch onaudiostart.
-  // After onstart, fall back only if an explicit audio-start event was not received.
-  state.micReadyTimer=window.setTimeout(()=>micReady(token,true),850);
- };
- r.onaudiostart=()=>{
-  if(token!==state.micToken)return;
-  state.micSignals.audio=true;updateSpeechSignals();micReady(token);
- };
- r.onspeechstart=()=>{
-  if(token!==state.micToken)return;
-  state.micSignals.voice=true;updateSpeechSignals();
- };
- r.onresult=event=>{
-  if(token!==state.micToken)return;
-  micReady(token);
-  const finals=[],interims=[],rows=event&&event.results||[];
-  for(let i=0;i<rows.length;i++){
-   const row=rows[i],text=String(row&&row[0]&&row[0].transcript||'').trim();
-   if(!text)continue;
-   (row.isFinal?finals:interims).push(text);
+ micStatus('マイクを準備中です。開始後に英文を話し、終了・判定ボタンを押してください。');
+ if(window.speechSynthesis&&window.speechSynthesis.speaking)window.speechSynthesis.cancel();
+
+ const listen=()=>{
+  if(token!==state.micToken||state.stopRequested||state.micPhase==='idle'||state.micPhase==='stopping')return;
+  state.micRestartTimer=null;
+  let r;
+  try{
+   r=new Speech();
+   r.lang='en-US';
+   // Match the working GCC Practice English configuration on iPad Safari/Chrome.
+   r.continuous=true;r.interimResults=true;r.maxAlternatives=1;
+  }catch(e){
+   micStatus('マイクを準備できませんでした：'+e.message);
+   finalizeSpeechSession(token,q,true);return;
   }
-  const confirmed=finals.join(' ').trim(),pending=interims.join(' ').trim();
-  // WebKit can issue a blank event after a useful partial transcript. Preserve it.
-  if(!confirmed&&!pending)return;
-  state.micSignals.audio=true;state.micSignals.voice=true;state.micSignals.text=true;
-  updateSpeechSignals();clearMicNoResultTimer();
-  $('gtRetrySpeech').hidden=true;
-  if(confirmed)state.transcript=confirmed;
-  if(pending)state.interimTranscript=pending;
-  else if(confirmed)state.interimTranscript='';
-  $('gtTranscript').textContent=[state.transcript,state.interimTranscript].filter(Boolean).join(' ');
-  monitorIOSSpeech(token,q);
- };
- r.onerror=e=>{
-  if(token!==state.micToken)return;
-  $('gtRetrySpeech').hidden=false;
-  state.error=e.error||'unknown';clearMicReadyTimer();clearMicWatchdogs();
-  micButtons('stopping');micStatus(speechErrorMessage(state.error));
-  state.micStopTimer=window.setTimeout(()=>finalizeSpeechSession(token,q,true),950);
- };
- r.onend=()=>finalizeSpeechSession(token,q);
- try{
-  if(window.speechSynthesis&&window.speechSynthesis.speaking)window.speechSynthesis.cancel();
-  r.start();
-  // If the recognition service never sends onstart/onend, do not lock the next attempt.
-  state.micStartTimer=window.setTimeout(()=>{
-   if(token!==state.micToken||state.micPhase==='listening'||state.stopRequested)return;
+  state.recognition=r;
+  let finalCount=0;
+  const current=()=>token===state.micToken&&state.recognition===r;
+  r.onstart=()=>{
+   if(!current()||state.stopRequested)return;
+   if(state.micStartTimer!==null){window.clearTimeout(state.micStartTimer);state.micStartTimer=null;}
+   if(state.micPhase!=='listening'){
+    micButtons('connecting');
+    micStatus('マイクに接続しています。準備完了後に話してください。');
+    clearMicReadyTimer();
+    state.micReadyTimer=window.setTimeout(()=>{if(current())micReady(token,true);},850);
+   }
+  };
+  r.onaudiostart=()=>{
+   if(!current())return;
+   state.micSignals.audio=true;updateSpeechSignals();micReady(token);
+  };
+  r.onspeechstart=()=>{
+   if(!current())return;
+   state.micSignals.voice=true;updateSpeechSignals();
+  };
+  r.onresult=event=>{
+   if(!current()||state.stopRequested&&state.micPhase==='idle')return;
+   micReady(token);
+   const rows=event&&event.results||[],interims=[];
+   let newFinal=false;
+   // GCC's segment accumulator preserves speech across WebKit auto-end/restarts.
+   // Never re-append the same finalized resultIndex twice.
+   for(let i=0;i<rows.length;i++){
+    const row=rows[i],text=String(row&&row[0]&&row[0].transcript||'').trim();
+    if(!text)continue;
+    if(row.isFinal){
+     if(i>=finalCount){
+      state.transcript=[state.transcript,text].filter(Boolean).join(' ').trim();
+      finalCount=i+1;newFinal=true;
+     }
+    }else interims.push(text);
+   }
+   const pending=interims.join(' ').trim();
+   if(!newFinal&&!pending)return;
+   state.micSignals.audio=true;state.micSignals.voice=true;state.micSignals.text=true;
+   updateSpeechSignals();clearMicNoResultTimer();
+   $('gtRetrySpeech').hidden=true;
+   state.interimTranscript=pending;
+   $('gtTranscript').textContent=[state.transcript,state.interimTranscript].filter(Boolean).join(' ');
+   monitorIOSSpeech(token,q);
+  };
+  r.onerror=e=>{
+   if(!current())return;
+   const code=e.error||'unknown';
+   const fatal=['not-allowed','service-not-allowed','audio-capture','language-not-supported'].includes(code);
+   if(fatal){
+    state.error=code;clearMicReadyTimer();clearMicWatchdogs();
+    $('gtRetrySpeech').hidden=false;micButtons('stopping');micStatus(speechErrorMessage(code));
+    state.micStopTimer=window.setTimeout(()=>finalizeSpeechSession(token,q,true),950);
+   }else if(code!=='no-speech'&&code!=='aborted'){
+    micStatus('音声認識の接続が中断されました。自動で再接続します（'+code+'）。');
+   }
+  };
+  r.onend=()=>{
+   if(!current())return;
+   state.recognition=null;
+   if(state.stopRequested||state.error){
+    finalizeSpeechSession(token,q);
+   }else if(state.micPhase!=='idle'){
+    // GCC retries after the browser ends recognition on silence.
+    // Do not reset the visible transcript or the current stage.
+    clearMicReadyTimer();
+    if(state.micStartTimer!==null){window.clearTimeout(state.micStartTimer);state.micStartTimer=null;}
+    if(state.micPhase==='starting'||state.micPhase==='connecting')
+     micStatus('音声認識を再接続しています…');
+    state.micRestartTimer=window.setTimeout(listen,250);
+   }
+  };
+  try{
+   r.start();
+   state.micStartTimer=window.setTimeout(()=>{
+    if(!current()||state.micPhase==='listening'||state.stopRequested)return;
+    finalizeSpeechSession(token,q,true);
+   },6500);
+  }catch(e){
+   if(!current())return;
+   // A busy recognition service may be ending the previous attempt.
+   // Do not trap the UI in an unstartable session.
    finalizeSpeechSession(token,q,true);
-  },6500);
- }catch(e){
-  if(token!==state.micToken)return;
-  clearMicReadyTimer();clearMicWatchdogs();state.recognition=null;state.recording=false;state.stopRequested=false;
-  micButtons('idle');micStatus('マイクを開始できませんでした：'+e.message);
- }
+   micStatus('マイクの再接続に失敗しました。もう一度「音読スタート」を押してください。');
+  }
+ };
+ listen();
 }
 function endSpeech(){
- if(!state.recognition||state.micPhase!=='listening'||state.stopRequested)return;
+ if(state.micPhase!=='listening'||state.stopRequested)return;
  const r=state.recognition,q=readingItem(),token=state.micToken;
  state.stopRequested=true;micButtons('stopping');
  micStatus('音声認識の最終結果を受信しています。判定までお待ちください。');
  clearMicWatchdogs();
- // Safari/WebKit can omit onend after stop. Always release the controls.
- state.micStopTimer=window.setTimeout(()=>finalizeSpeechSession(token,q,true),3000);
+ state.micStopTimer=window.setTimeout(()=>finalizeSpeechSession(token,q,true),1600);
+ if(!r){finalizeSpeechSession(token,q);return;}
  try{r.stop();}
- catch(e){
-  micStatus('音声認識の終了に失敗しました。もう一度お試しください。');
-  cancelRecognition();
- }
+ catch(e){finalizeSpeechSession(token,q,true);}
 }
 function finishSpeech(q,spoken,usedInterim=false){
  if(!scoreEngine()?.score){micStatus('Accuracy判定モジュールがありません。');return;}
@@ -671,7 +715,7 @@ $('gtStop').addEventListener('click',endSpeech);
 $('gtRetrySpeech').addEventListener('click',retrySpeechRecognition);
 $('gtMicTest').addEventListener('click',testMicInput);
 $('gtNextStage').addEventListener('click',nextStage);
-document.addEventListener('visibilitychange',()=>{if(document.hidden&&state.recognition)cancelRecognition();});
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&state.micPhase!=='idle')cancelRecognition();});
 window.addEventListener('pagehide',()=>{closeReadingMission();closeExplanation();cancelRecognition();});
 window.addEventListener('resize',()=>{if(!$('gtCategoriesPanel').hidden)fitGrid($('gtCategoryCards'),state.categories.length);if(!$('gtUnitsPanel').hidden)fitGrid($('gtUnitList'),state.units.length);});
 micButtons('idle');resetReading();updateSpeechSignals();renderOverallProgress();
