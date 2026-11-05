@@ -52,7 +52,7 @@ body.gt-in-workspace .gt-wrap{padding:clamp(8px,1.1vw,16px) clamp(10px,1.6vw,24p
   grid-template-rows:repeat(var(--gt-grid-rows,3),minmax(0,1fr))!important;
   align-content:stretch;gap:clamp(7px,.9vw,12px);
   width:100%;max-width:none;
-  height:min(calc(100dvh - 175px),calc(var(--gt-grid-rows,3) * 119px))!important;
+  height:var(--gt-grid-height,420px)!important;
   min-height:0;max-height:none;overflow:visible!important;
   margin:0;
 }
