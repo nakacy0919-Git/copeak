@@ -1,8 +1,8 @@
 /* Copeak Grammar Training v1.0 - standalone local progress; no Classroom writes. */
 (function(){
 'use strict';
-const core=window.CopeakGrammarCore,progressEngine=window.CopeakGrammarProgress,scoreEngine=()=>window.CopeakVocabularyReading;
-if(!core||!progressEngine){console.error('Missing Copeak grammar core or progress helper');return;}
+const core=window.CopeakGrammarCore,progressEngine=window.CopeakGrammarProgress,cardIcons=window.CopeakGrammarCardIcons,scoreEngine=()=>window.CopeakVocabularyReading;
+if(!core||!progressEngine||!cardIcons){console.error('Missing Copeak grammar helpers');return;}
 const $=id=>document.getElementById(id),KEY='copeak_grammar_training_v2';
 const SETTINGS={
  junior:{name:'中学校の基礎英文法',url:'data/grammar/junior/manifest.json',group:'grades'},
@@ -28,12 +28,22 @@ function renderOverallProgress(){
  }
 }
 function progressStrip(stat){
- const meta=node('span','gt-card-progress-number',stat.studied+'/'+stat.total+' 学習済み');
+ const meta=node('span','gt-card-progress-number',stat.studied+' / '+stat.total);
+ const rate=node('strong','gt-card-progress-rate',stat.rate+'%');
  const rail=node('span','gt-card-progress-rail');
  const fill=node('span','gt-card-progress-fill');
  fill.style.width=stat.percent+'%';
  rail.append(fill);
- return{meta,rail};
+ return{meta,rate,rail};
+}
+function premiumIcon(title,id){
+ const icon=node('span','gt-pretty-icon');
+ icon.append(cardIcons.make(title,id));return icon;
+}
+function premiumArrow(stat){
+ const complete=stat.total>0&&stat.studied>=stat.total;
+ const arrow=node('span','gt-pretty-arrow'+(complete?' is-complete':''),complete?'✓':'›');
+ arrow.setAttribute('aria-hidden','true');return arrow;
 }
 
 function topicName(u){return String(u?.title||'').replace(/^[A-Z0-9-]+\s*(?:·|：)\s*/,'').replace(/^FACT\s*\d+\s*·\s*/i,'').trim();}
@@ -46,14 +56,17 @@ function markCategoryCards(){
  });
 }
 function fitGrid(grid,count){
- const width=window.innerWidth||1280;
- const cols=count<=4?Math.max(1,count):width>=1400?(count<=10?5:count<=18?6:count<=24?5:6):width>=1000?(count<=10?4:count<=24?4:5):width>=700?(count<=10?3:4):(count<=10?2:3);
- const rows=Math.max(1,Math.ceil(count/cols));
- grid.style.setProperty('--gt-grid-cols',String(cols));
+ const width=window.innerWidth||1280,isCategory=grid.id==='gtCategoryCards';
+ const cols=isCategory?(width>=1400?count<=4?count:count<=10?5:6:width>=1000?count<=4?count:count<=10?5:5:width>=700?count<=3?count:4:2):
+   (width>=1400?count<=4?count:count<=24?4:5:width>=1000?count<=4?count:count<=15?4:5:width>=700?count<=4?count:4:2);
+ const rows=Math.max(1,Math.ceil(count/Math.max(1,cols)));
+ grid.style.setProperty('--gt-grid-cols',String(Math.max(1,cols)));
  grid.style.setProperty('--gt-grid-rows',String(rows));
- const available=Math.max(260,(window.innerHeight||850)-(width<900?170:175));
- grid.style.setProperty('--gt-grid-height',Math.min(available,rows*(width<900?102:119))+'px');
+ const available=Math.max(260,(window.innerHeight||850)-(width<900?175:180));
+ const targetRow=isCategory?(width<700?140:count<=4?220:185):(width<700?92:96);
+ grid.style.setProperty('--gt-grid-height',Math.min(available,rows*targetRow)+'px');
  grid.classList.toggle('gt-dense-grid',count>25);
+ grid.classList.toggle('gt-few-categories',isCategory&&count<=4);
 }
 function updatePager(kind){
  $(kind==='category'?'gtCategoryPager':'gtUnitPager').hidden=true;
@@ -135,15 +148,18 @@ function skipReadingMission(){
 
 function renderCategoryCards(){
  const grid=$('gtCategoryCards'),fragment=document.createDocumentFragment();
- for(const c of state.categories){
-  const b=node('button','gt-category-card');b.type='button';b.dataset.category=c.id;
+ for(const [i,c] of state.categories.entries()){
+  const b=node('button','gt-category-card gt-square-tile');b.type='button';b.dataset.category=c.id;
   const count=state.mode==='entrance'?c.count+'問':(state.mode==='senior'?c.topics:c.units)+'項目';
   const total=state.mode==='entrance'?c.count:c.sentences;
   const stat=progressEngine.category(state.progress.records,state.mode,c.id,total);
-  const strip=progressStrip(stat),metrics=node('span','gt-card-metrics');
-  metrics.append(node('span','gt-card-meta',count),strip.meta);
-  b.setAttribute('aria-label',c.title+'。'+count+'、学習済み '+stat.studied+' / '+stat.total+'。進捗 '+stat.rate+'%。');
-  b.append(node('span','gt-card-code',c.id),node('strong','gt-card-name',c.title),metrics,strip.rail);
+  const info=cardIcons.describe(c.title,c.id);b.dataset.tone=info.tone;
+  if(i%5===1)b.classList.add('gt-dark-tile');
+  const strip=progressStrip(stat),detail=node('span','gt-square-content'),bottom=node('span','gt-square-bottom');
+  detail.append(node('strong','gt-card-name',c.title),node('span','gt-square-english',info.english));
+  bottom.append(node('span','gt-card-progress-number',stat.studied+' / '+stat.total),node('strong','gt-card-progress-rate',stat.rate+'%'));
+  b.setAttribute('aria-label',c.title+'。'+count+'。学習済み '+stat.studied+'/'+stat.total+'。進捗 '+stat.rate+'%。');
+  b.append(node('span','gt-card-code',c.id),premiumIcon(c.title,c.id),detail,bottom,strip.rail);
   b.addEventListener('click',()=>loadCategory(c.id));fragment.append(b);
  }
  grid.replaceChildren(fragment);fitGrid(grid,state.categories.length);markCategoryCards();updatePager('category');
@@ -151,14 +167,16 @@ function renderCategoryCards(){
 function renderUnitCards(){
  const list=$('gtUnitList'),fragment=document.createDocumentFragment();
  for(const unit of state.units){
-  const b=node('button','gt-unit-item');b.type='button';b.dataset.unit=unit.id;
-  if(topicName(unit).length>19)b.classList.add('gt-long-label');
+  const title=topicName(unit),stat=progressEngine.unit(state.progress.records,state.mode,unit.items);
+  const b=node('button','gt-unit-item gt-compact-tile');b.type='button';b.dataset.unit=unit.id;
+  const info=cardIcons.describe(title,unit.id);b.dataset.tone=info.tone;
+  if(title.length>19)b.classList.add('gt-long-label');
   b.setAttribute('aria-pressed',String(state.unit?.id===unit.id));
-  const stat=progressEngine.unit(state.progress.records,state.mode,unit.items);
-  const strip=progressStrip(stat),metrics=node('span','gt-card-metrics');
-  metrics.append(node('span','gt-unit-count',unit.items.length+(state.mode==='entrance'?'問':'例文')),strip.meta);
-  b.setAttribute('aria-label',topicName(unit)+'。学習済み '+stat.studied+' / '+stat.total+'。進捗 '+stat.rate+'%。');
-  b.append(node('span','gt-unit-id',unit.id),node('strong','gt-unit-name',topicName(unit)),metrics,strip.rail);
+  b.setAttribute('aria-label',title+'。学習済み '+stat.studied+'/'+stat.total+'。進捗 '+stat.rate+'%。');
+  const strip=progressStrip(stat),details=node('span','gt-compact-detail'),metrics=node('span','gt-compact-metrics');
+  metrics.append(strip.meta,strip.rate);
+  details.append(node('strong','gt-unit-name',title),metrics,strip.rail);
+  b.append(premiumIcon(title,unit.id),details,premiumArrow(stat));
   b.addEventListener('click',()=>{selectUnit(unit.id);startLesson();});fragment.append(b);
  }
  list.replaceChildren(fragment);fitGrid(list,state.units.length);updatePager('unit');
