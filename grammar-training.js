@@ -456,7 +456,7 @@ function beginSpeech(){
  r.onerror=e=>{
   if(token!==state.micToken)return;
   state.error=e.error||'unknown';clearMicReadyTimer();clearMicWatchdogs();
-  micStatus(speechErrorMessage(state.error));
+  micButtons('stopping');micStatus(speechErrorMessage(state.error));
   state.micStopTimer=window.setTimeout(()=>finalizeSpeechSession(token,q,true),950);
  };
  r.onend=()=>finalizeSpeechSession(token,q);
