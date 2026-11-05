@@ -4,6 +4,39 @@
 const core=window.CopeakGrammarCore,progressEngine=window.CopeakGrammarProgress,cardIcons=window.CopeakGrammarCardIcons,scoreEngine=()=>window.CopeakVocabularyReading;
 if(!core||!progressEngine||!cardIcons){console.error('Missing Copeak grammar helpers');return;}
 const $=id=>document.getElementById(id),KEY='copeak_grammar_training_v2';
+
+const SOUND_KEY='copeak-grammar-sounds';
+let soundEnabled=true,soundContext=null;
+try{soundEnabled=localStorage.getItem(SOUND_KEY)!=='off';}catch(_){}
+function tone(kind='tap'){
+ if(!soundEnabled)return;
+ try{
+  const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio)return;
+  if(!soundContext)soundContext=new Audio();
+  if(soundContext.state==='suspended')soundContext.resume().catch(()=>{});
+  // Frequencies and volume curves match GCC Practice English.
+  const notes=kind==='100'?[523,659,784,1046,1318]:kind==='90'?[493,659,880]:kind==='80'?[440,554,659]:kind==='retry'?[392,440]:kind==='next'?[587,784]:[523,659];
+  const gain=kind==='100'?.049:kind==='tap'?.025:.032;
+  notes.forEach((hz,i)=>{
+   const t=soundContext.currentTime+i*(kind==='tap'?.055:.093),osc=soundContext.createOscillator(),vol=soundContext.createGain();
+   osc.type='sine';osc.frequency.value=hz;
+   vol.gain.setValueAtTime(.0001,t);vol.gain.exponentialRampToValueAtTime(gain,t+.017);
+   vol.gain.exponentialRampToValueAtTime(.0001,t+(kind==='tap'?.13:.22));
+   osc.connect(vol);vol.connect(soundContext.destination);osc.start(t);osc.stop(t+.24);
+  });
+ }catch(_){/* Sound is optional and must not interrupt speech recognition. */}
+}
+function syncSoundToggle(){
+ const button=$('gtSoundToggle');if(!button)return;
+ button.textContent=soundEnabled?'♪ 操作音 ON':'♪ 操作音 OFF';
+ button.setAttribute('aria-pressed',String(soundEnabled));
+}
+function toggleSound(){
+ soundEnabled=!soundEnabled;
+ try{localStorage.setItem(SOUND_KEY,soundEnabled?'on':'off');}catch(_){}
+ syncSoundToggle();if(soundEnabled)tone();
+}
+
 const SETTINGS={
  junior:{name:'中学校の基礎英文法',url:'data/grammar/junior/manifest.json',group:'grades'},
  senior:{name:'高校英文法の音読',url:'data/grammar/senior/manifest.json',group:'chapters'},
@@ -11,7 +44,7 @@ const SETTINGS={
 };
 const DEFAULT_TOTALS={junior:144,senior:1830,entrance:4912};
 function restore(){try{const x=JSON.parse(localStorage.getItem(KEY)||'{}');return x.version===2&&x.records&&typeof x.records==='object'?x:{version:2,records:{}};}catch{return{version:2,records:{}};}}
-const state={mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,examCorrect:null,missionSkipped:false,missionCleared:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,micPhase:'idle',micStopTimer:null,micRestartTimer:null,stopRequested:false,transcript:'',interimTranscript:'',micSignals:{audio:false,voice:false,text:false},micDiagnosticToken:0,micDiagnosticStream:null,micDiagnosticContext:null,cache:new Map(),progress:restore(),totals:{...DEFAULT_TOTALS}};
+const state={mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,examCorrect:null,missionSkipped:false,missionCleared:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,micPhase:'idle',micStopTimer:null,micRestartTimer:null,stopRequested:false,transcript:'',interimTranscript:'',micSignals:{audio:false,voice:false,text:false},micDiagnosticToken:0,micDiagnosticStream:null,micDiagnosticContext:null,speechLog:[],recognizerCount:0,cache:new Map(),progress:restore(),totals:{...DEFAULT_TOTALS}};
 const node=(tag,className,text)=>{const n=document.createElement(tag);if(className)n.className=className;if(text!==undefined)n.textContent=text;return n;};
 function progress(id){return state.progress.records[id]||{};}
 function save(id,patch){state.progress.records[id]=Object.assign({},progress(id),patch,{updated:new Date().toISOString()});try{localStorage.setItem(KEY,JSON.stringify(state.progress));}catch(e){console.warn('Grammar progress not saved',e);}renderOverallProgress();}
@@ -195,6 +228,24 @@ function showTopicPicker(){
 }
 function unitStatus(s){$('gtUnitMeta').textContent=s;}
 function micStatus(s){$('gtRecognitionStatus').textContent=s||'';}
+
+function traceSpeech(event,detail=''){
+ // Event names, durations and status only. Never retain audio or spoken words.
+ const entry=[new Date().toISOString().slice(11,23),event,detail].filter(Boolean).join(' | ');
+ state.speechLog.push(entry);
+ if(state.speechLog.length>80)state.speechLog.shift();
+ const output=$('gtSpeechTraceOutput');if(output)output.textContent=state.speechLog.join('\n');
+}
+function copySpeechTrace(){
+ const data=state.speechLog.join('\n')||'音声認識イベントはまだありません。';
+ if(window.navigator?.clipboard?.writeText){
+  window.navigator.clipboard.writeText(data).then(
+   ()=>{$('gtSpeechTraceStatus').textContent='診断ログをコピーしました。';},
+   ()=>{$('gtSpeechTraceStatus').textContent='コピーできませんでした。ログを選択してコピーしてください。';}
+  );
+ }else $('gtSpeechTraceStatus').textContent='ログを選択してコピーしてください。';
+}
+
 function updateSpeechSignals(){
  const stages=[
   ['gtSignalAudio',state.micSignals.audio,'マイク：起動通知','マイク：待機'],
@@ -230,6 +281,7 @@ function micButtons(phase){
 }
 function finalizeSpeechSession(token,q,timeout=false){
  if(token!==state.micToken||!state.stopRequested)return;
+ traceSpeech('session.finalize',timeout?'stop-timeout':'onend');
  const recognizer=state.recognition;
  clearMicWatchdogs();
  const spoken=[state.transcript,state.interimTranscript].filter(Boolean).join(' ').trim();
@@ -447,7 +499,7 @@ function renderStage(){
   const b=node('button','gt-stage-button',s.step+'/5 '+s.label);b.type='button';b.disabled=s.step>unlocked;
   b.classList.toggle('is-current',s.step===state.stage);b.classList.toggle('is-cleared',s.step<unlocked);
   b.setAttribute('aria-pressed',String(s.step===state.stage));
-  b.addEventListener('click',()=>{cancelRecognition();state.stage=s.step;resetReading();renderStage();});tabs.append(b);
+  b.addEventListener('click',()=>{tone('next');cancelRecognition();state.stage=s.step;resetReading();renderStage();});tabs.append(b);
  }
  $('gtBestAccuracy').textContent=Number.isFinite(rec.bestAccuracy)?'Best '+rec.bestAccuracy+'%':'';
  $('gtNextStage').hidden=true;
@@ -475,9 +527,10 @@ function beginSpeech(){
  const Speech=window.SpeechRecognition||window.webkitSpeechRecognition,q=readingItem();
  if(!q||state.recording||state.micPhase!=='idle')return;
  if(!Speech){micStatus('音声認識を利用できません。ブラウザーのマイク設定を確認してください。');return;}
- closeMicDiagnostic();
+ tone('tap');
  window.speechSynthesis?.cancel();
  cancelRecognition();
+ traceSpeech('session.begin','stage='+state.stage);
  state.recording=true;state.stopRequested=false;
  state.transcript='';state.interimTranscript='';
  state.micSignals={audio:false,voice:false,text:false};
@@ -493,6 +546,7 @@ function beginSpeech(){
   try{
    r=new Speech();state.recognition=r;
    r.lang='en-US';r.continuous=true;r.interimResults=true;r.maxAlternatives=1;
+   traceSpeech('recognizer.create','cycle='+ ++state.recognizerCount);
   }catch(e){
    cancelRecognition();micStatus('マイクを準備できませんでした：'+e.message);return;
   }
@@ -502,14 +556,17 @@ function beginSpeech(){
   const acceptedFinals=new Set();
   r.onstart=()=>{
    if(!current()||!state.recording)return;
+   traceSpeech('recognizer.onstart');
    state.micSignals.audio=true;updateSpeechSignals();
   };
   r.onaudiostart=()=>{
    if(!current()||!state.recording)return;
+   traceSpeech('recognizer.onaudiostart');
    state.micSignals.audio=true;updateSpeechSignals();
   };
   r.onspeechstart=()=>{
    if(!current()||!state.recording)return;
+   traceSpeech('recognizer.onspeechstart');
    state.micSignals.voice=true;updateSpeechSignals();
   };
   r.onresult=event=>{
@@ -527,7 +584,8 @@ function beginSpeech(){
      }
     }else latest+=text+' ';
    }
-   if(!addedFinal&&!latest.trim())return;
+   if(!addedFinal&&!latest.trim()){traceSpeech('recognizer.onresult','empty');return;}
+   traceSpeech('recognizer.onresult','final='+String(addedFinal)+', interimChars='+String(latest.trim().length));
    state.interimTranscript=latest.trim();
    state.micSignals.audio=true;state.micSignals.voice=true;state.micSignals.text=true;
    updateSpeechSignals();$('gtRetrySpeech').hidden=true;
@@ -536,6 +594,7 @@ function beginSpeech(){
   r.onerror=event=>{
    if(!current())return;
    const error=event.error||'unknown';
+   traceSpeech('recognizer.onerror',error);
    if(['not-allowed','service-not-allowed','audio-capture','language-not-supported'].includes(error)){
     cancelRecognition();
     $('gtRetrySpeech').hidden=false;
@@ -546,6 +605,7 @@ function beginSpeech(){
   };
   r.onend=()=>{
    if(!current())return;
+   traceSpeech('recognizer.onend',state.stopRequested?'after-stop':'auto-reconnect');
    state.recognition=null;
    if(state.recording&&!state.stopRequested){
     state.micRestartTimer=window.setTimeout(listen,250);
@@ -553,8 +613,9 @@ function beginSpeech(){
     finalizeSpeechSession(token,q);
    }
   };
-  try{r.start();}
+  try{r.start();traceSpeech('recognizer.start-called');}
   catch(e){
+   traceSpeech('recognizer.start-failed',e.name||'unknown');
    cancelRecognition();
    micStatus('マイクを開始できませんでした：'+e.message);
   }
@@ -563,6 +624,7 @@ function beginSpeech(){
 }
 function endSpeech(){
  if(!state.recording||state.stopRequested)return;
+ tone('tap');traceSpeech('end.clicked');
  const q=readingItem(),token=state.micToken,r=state.recognition;
  state.stopRequested=true;micButtons('stopping');updateSpeechSignals();
  micStatus('文字起こしの最終結果を取得して判定しています…');
@@ -576,6 +638,8 @@ function endSpeech(){
 function finishSpeech(q,spoken,usedInterim=false){
  if(!scoreEngine()?.score){micStatus('Accuracy判定モジュールがありません。');return;}
  const result=scoreEngine().score(q.sentence,spoken),percent=result.percent,passed=core.stageCanAdvance(state.stage,percent);
+ traceSpeech('score','percent='+percent+', passed='+String(passed));
+ tone(passed?(percent===100?'100':percent>=90?'90':'80'):'retry');
  state.score=percent;
  const transcript=$('gtTranscript');transcript.replaceChildren();
  result.wordMatches.forEach((word,i)=>{if(i)transcript.append(document.createTextNode(' '));transcript.append(node('span',word.matched?'gt-word-ok':'gt-word-miss',word.value));});
@@ -593,7 +657,7 @@ function finishSpeech(q,spoken,usedInterim=false){
 function nextStage(){
  const q=readingItem();if(!q)return;
  if(state.stage<5&&(Number(progress(q.id).cleared)||0)>=state.stage){
-  cancelRecognition();state.stage++;resetReading();renderStage();
+  tone('next');cancelRecognition();state.stage++;resetReading();renderStage();
  }
 }
 function endLesson(){
@@ -640,9 +704,11 @@ $('gtRecord').addEventListener('click',beginSpeech);
 $('gtStop').addEventListener('click',endSpeech);
 $('gtRetrySpeech').addEventListener('click',retrySpeechRecognition);
 $('gtMicTest').addEventListener('click',testMicInput);
+$('gtSoundToggle').addEventListener('click',toggleSound);
+$('gtCopySpeechTrace').addEventListener('click',copySpeechTrace);
 $('gtNextStage').addEventListener('click',nextStage);
 window.addEventListener('pagehide',()=>{closeReadingMission();closeExplanation();cancelRecognition();});
 window.addEventListener('resize',()=>{if(!$('gtCategoriesPanel').hidden)fitGrid($('gtCategoryCards'),state.categories.length);if(!$('gtUnitsPanel').hidden)fitGrid($('gtUnitList'),state.units.length);});
-micButtons('idle');resetReading();updateSpeechSignals();renderOverallProgress();
+micButtons('idle');resetReading();updateSpeechSignals();syncSoundToggle();renderOverallProgress();
 const query=new URLSearchParams(window.location.search);if(SETTINGS[query.get('mode')])changeMode(query.get('mode'));
 })();
