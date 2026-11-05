@@ -154,7 +154,7 @@ function renderCategoryCards(){
   const total=state.mode==='entrance'?c.count:c.sentences;
   const stat=progressEngine.category(state.progress.records,state.mode,c.id,total);
   const info=cardIcons.describe(c.title,c.id);b.dataset.tone=info.tone;
-  if(i%5===1)b.classList.add('gt-dark-tile');
+  // Keep every grammar category on the same soft surface; avoid alternating saturated tiles.
   const strip=progressStrip(stat),detail=node('span','gt-square-content'),bottom=node('span','gt-square-bottom');
   detail.append(node('strong','gt-card-name',c.title),node('span','gt-square-english',info.english));
   bottom.append(node('span','gt-card-progress-number',stat.studied+' / '+stat.total),node('strong','gt-card-progress-rate',stat.rate+'%'));
