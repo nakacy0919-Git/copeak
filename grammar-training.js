@@ -3,7 +3,7 @@
 'use strict';
 const core=window.CopeakGrammarCore,scoreEngine=()=>window.CopeakVocabularyReading;
 if(!core){console.error('Missing Copeak grammar core');return;}
-const $=id=>document.getElementById(id),KEY='copeak_grammar_training_v2',PAGE_SIZE=4;
+const $=id=>document.getElementById(id),KEY='copeak_grammar_training_v2';
 const SETTINGS={
  junior:{name:'中学校の基礎英文法',url:'data/grammar/junior/manifest.json',group:'grades'},
  senior:{name:'高校英文法の音読',url:'data/grammar/senior/manifest.json',group:'chapters'},
@@ -24,44 +24,74 @@ function markCategoryCards(){
   b.setAttribute('aria-pressed',String(selected));
  });
 }
-function updatePager(kind){
- const category=kind==='category',array=category?state.categories:state.units;
- const key=category?'categoryPage':'unitPage',pages=Math.max(1,Math.ceil(array.length/PAGE_SIZE));
- state[key]=Math.min(Math.max(state[key],0),pages-1);
- const prefix=category?'Categories':'Units';
- $('gtPrev'+prefix).disabled=state[key]===0;
- $('gtNext'+prefix).disabled=state[key]>=pages-1;
- $(category?'gtCategoryPage':'gtUnitPage').textContent=(state[key]+1)+' / '+pages;
- $(category?'gtCategoryPager':'gtUnitPager').hidden=pages<2;
+function fitGrid(grid,count){
+ const width=window.innerWidth||1280;
+ const cols=count<=4?Math.max(1,count):width>=1400?(count<=10?5:count<=18?6:7):width>=900?(count<=10?5:6):width>=700?(count<=10?4:5):(count<=10?2:3);
+ const rows=Math.max(1,Math.ceil(count/cols));
+ grid.style.setProperty('--gt-grid-cols',String(cols));
+ grid.style.setProperty('--gt-grid-rows',String(rows));
+ const available=Math.max(260,(window.innerHeight||850)-(width<900?170:175));
+ grid.style.setProperty('--gt-grid-height',Math.min(available,rows*(width<900?102:119))+'px');
+ grid.classList.toggle('gt-dense-grid',count>20);
 }
+function updatePager(kind){
+ $(kind==='category'?'gtCategoryPager':'gtUnitPager').hidden=true;
+}
+let feedbackTimer=0;
+function closeExplanation(){
+ if(feedbackTimer){window.clearTimeout(feedbackTimer);feedbackTimer=0;}
+ $('gtSuccessCelebration').hidden=true;
+ const dialog=$('gtExplanationDialog');
+ if(dialog.open&&typeof dialog.close==='function')dialog.close();
+ else dialog.removeAttribute('open');
+}
+function openExplanation(){
+ const dialog=$('gtExplanationDialog');
+ if(!dialog.open){
+  if(typeof dialog.showModal==='function')dialog.showModal();
+  else dialog.setAttribute('open','');
+ }
+}
+function showAnswerFeedback(correct){
+ if(correct&&!reducedMotion()){
+  $('gtSuccessCelebration').hidden=false;
+  feedbackTimer=window.setTimeout(()=>{
+   feedbackTimer=0;$('gtSuccessCelebration').hidden=true;
+   if(state.answered&&state.mode==='entrance'&&!$('gtLesson').hidden)openExplanation();
+  },950);
+ }else{
+  openExplanation();
+ }
+}
+function setHeaderBack(label){$('gtBackHome').textContent='← '+label;}
 function renderCategoryCards(){
- const grid=$('gtCategoryCards'),fragment=document.createDocumentFragment(),offset=state.categoryPage*PAGE_SIZE;
- for(const c of state.categories.slice(offset,offset+PAGE_SIZE)){
+ const grid=$('gtCategoryCards'),fragment=document.createDocumentFragment();
+ for(const c of state.categories){
   const b=node('button','gt-category-card');b.type='button';b.dataset.category=c.id;
   const count=state.mode==='entrance'?c.count+'問':(state.mode==='senior'?c.topics:c.units)+'項目';
   b.append(node('span','gt-card-code',c.id),node('strong','gt-card-name',c.title),node('span','gt-card-meta',count));
   b.addEventListener('click',()=>loadCategory(c.id));fragment.append(b);
  }
- grid.replaceChildren(fragment);markCategoryCards();updatePager('category');
+ grid.replaceChildren(fragment);fitGrid(grid,state.categories.length);markCategoryCards();updatePager('category');
 }
 function renderUnitCards(){
- const list=$('gtUnitList'),fragment=document.createDocumentFragment(),offset=state.unitPage*PAGE_SIZE;
- for(const unit of state.units.slice(offset,offset+PAGE_SIZE)){
+ const list=$('gtUnitList'),fragment=document.createDocumentFragment();
+ for(const unit of state.units){
   const b=node('button','gt-unit-item');b.type='button';b.dataset.unit=unit.id;
   b.setAttribute('aria-pressed',String(state.unit?.id===unit.id));
   b.append(node('span','gt-unit-id',unit.id),node('strong','gt-unit-name',topicName(unit)),node('span','gt-unit-count',unit.items.length+(state.mode==='entrance'?'問':'例文')));
   b.addEventListener('click',()=>{selectUnit(unit.id);startLesson();});fragment.append(b);
  }
- list.replaceChildren(fragment);updatePager('unit');
+ list.replaceChildren(fragment);fitGrid(list,state.units.length);updatePager('unit');
 }
 function showCategoryPicker(){
- cancelRecognition();state.fetchToken++;
+ closeExplanation();cancelRecognition();state.fetchToken++;setHeaderBack('学習メニュー');
  $('gtLesson').hidden=true;$('gtContent').hidden=true;$('gtStudyBar').hidden=true;
  $('gtPicker').hidden=false;$('gtCategoriesPanel').hidden=false;$('gtUnitsPanel').hidden=true;
  renderCategoryCards();
 }
 function showTopicPicker(){
- cancelRecognition();
+ closeExplanation();cancelRecognition();setHeaderBack('カテゴリーへ');
  $('gtLesson').hidden=true;$('gtContent').hidden=true;$('gtStudyBar').hidden=true;
  $('gtPicker').hidden=false;$('gtCategoriesPanel').hidden=true;$('gtUnitsPanel').hidden=false;
 }
@@ -79,7 +109,8 @@ function cancelRecognition(){
  if(r){try{r.abort();}catch(_){}}$('gtRecord').disabled=false;$('gtStop').disabled=true;
 }
 async function changeMode(mode){
- if(!SETTINGS[mode])return;cancelRecognition();if(window.speechSynthesis)window.speechSynthesis.cancel();
+ if(!SETTINGS[mode])return;closeExplanation();cancelRecognition();if(window.speechSynthesis)window.speechSynthesis.cancel();
+ document.body.classList.add('gt-in-workspace');setHeaderBack('学習メニュー');
  state.mode=mode;state.categories=[];state.units=[];state.category='';state.unit=null;state.items=[];state.manifest=null;state.categoryPage=0;state.unitPage=0;
  $('gtLanding').hidden=true;$('gtWorkspace').hidden=false;$('gtWelcome').hidden=true;$('gtLesson').hidden=true;
  $('gtPicker').hidden=false;$('gtCategoriesPanel').hidden=false;$('gtUnitsPanel').hidden=true;$('gtContent').hidden=true;$('gtStudyBar').hidden=true;
@@ -133,20 +164,21 @@ function startLesson(){
  if(!state.unit)return;cancelRecognition();state.items=state.unit.items;state.index=0;state.sessionCorrect=0;state.sessionAnswered=0;
  $('gtLessonTitle').textContent=state.unit.title;
  $('gtTopicLabel').textContent=categoryName(state.categories.find(x=>x.id===state.category)||{});
- $('gtPicker').hidden=true;$('gtStudyBar').hidden=false;$('gtContent').hidden=false;
+ $('gtPicker').hidden=true;$('gtStudyBar').hidden=true;$('gtContent').hidden=false;setHeaderBack('文法項目へ');
  $('gtWelcome').hidden=true;$('gtLesson').hidden=false;renderItem();
- $('gtStudyBar').scrollIntoView({behavior:reducedMotion()?'instant':'smooth',block:'start'});
+ window.scrollTo({top:0,behavior:'instant'});
 }
 function item(){return state.items[state.index]||null;}
 function renderItem(){
- cancelRecognition();const q=item();if(!q){endLesson();return;}
+ closeExplanation();cancelRecognition();const q=item();if(!q){endLesson();return;}
  state.answered=false;state.extra=false;state.stage=1;state.score=null;
  $('gtProgressText').textContent=(state.index+1)+' / '+state.items.length;
  $('gtProgressBar').style.width=(100*(state.index+1)/state.items.length)+'%';
  $('gtLessonNext').textContent=state.index===state.items.length-1?'学習を終える':'次の英文へ →';
  $('gtQuizScore').textContent=state.mode==='entrance'?'4択正解 '+state.sessionCorrect+' / '+state.sessionAnswered:'';
  const quiz=state.mode==='entrance';$('gtQuiz').hidden=!quiz;$('gtReading').hidden=quiz;$('gtLessonNext').disabled=quiz;
- $('gtFeedback').hidden=true;$('gtWrongExplanations').replaceChildren();
+ $('gtFeedback').hidden=true;$('gtWrongExplanations').replaceChildren();$('gtSelectedWrong').hidden=true;
+ const details=$('gtWrongExplanations').closest('details');if(details)details.open=false;
  if(quiz){
   $('gtInstruction').textContent=q.instruction||'最も適切な選択肢を選びなさい。';$('gtStem').textContent=q.stem;
   $('gtOptions').replaceChildren();
@@ -157,15 +189,21 @@ function answer(i){
  if(state.answered)return;const q=item();state.answered=true;const ok=i===q.answerIndex;
  state.sessionAnswered++;if(ok)state.sessionCorrect++;
  $('gtOptions').querySelectorAll('button').forEach((b,index)=>{b.disabled=true;if(index===q.answerIndex)b.classList.add('is-correct');else if(index===i)b.classList.add('is-wrong');b.setAttribute('aria-pressed',String(index===i));});
+ $('gtModalQuestion').textContent=q.stem;
+ $('gtModalStatus').textContent=ok?'Correct! 正解！':'解答を確認しましょう';
+ $('gtModalStatus').classList.toggle('is-correct',ok);
  $('gtFeedbackTitle').textContent=(ok?'正解です！':'正解は '+core.LETTERS[q.answerIndex]+' です')+' ─ '+q.options[q.answerIndex];
  $('gtExplanation').textContent=q.explanation;$('gtRule').textContent=q.rule?'文法のポイント：'+q.rule:'';
  $('gtAnswerSentence').textContent='完成英文：'+q.sentence;$('gtAnswerJapanese').textContent='和訳：'+q.japanese;
+ const selectedReason=!ok&&q.wrong?q.wrong[core.LETTERS[i]]:null;
+ $('gtSelectedWrong').hidden=!selectedReason;
+ $('gtSelectedWrong').textContent=selectedReason?'選んだ答え：'+core.LETTERS[i]+'　'+selectedReason:'';
  const wrongs=$('gtWrongExplanations');wrongs.replaceChildren();
  core.LETTERS.forEach((letter,k)=>{if(k===q.answerIndex)return;const reason=q.wrong&&q.wrong[letter];if(reason)wrongs.append(node('div','',letter+'：'+reason));});
  $('gtFeedback').hidden=false;$('gtQuizScore').textContent='4択正解 '+state.sessionCorrect+' / '+state.sessionAnswered;
  const prev=progress(q.id);
  save(q.id,{mcAttempts:(prev.mcAttempts||0)+1,mcCorrect:(prev.mcCorrect||0)+(ok?1:0),lastChoiceCorrect:ok});
- $('gtLessonNext').disabled=false;$('gtReading').hidden=false;prepareReading();
+ $('gtLessonNext').disabled=false;$('gtReading').hidden=false;prepareReading();showAnswerFeedback(ok);
 }
 function readingItem(){
  const q=item();if(!q)return null;
@@ -267,13 +305,20 @@ function nextItem(){
  cancelRecognition();state.index++;if(state.index>=state.items.length){endLesson();return;}renderItem();
 }
 document.querySelectorAll('[data-gt-mode]').forEach(b=>b.addEventListener('click',()=>changeMode(b.dataset.gtMode)));
+$('gtModalClose').addEventListener('click',closeExplanation);
+$('gtModalCloseX').addEventListener('click',closeExplanation);
+$('gtModalNext').addEventListener('click',()=>{closeExplanation();nextItem();});
+$('gtExplanationDialog').addEventListener('click',e=>{if(e.target===$('gtExplanationDialog'))closeExplanation();});
+$('gtExplanationDialog').addEventListener('close',()=>{$('gtSuccessCelebration').hidden=true;});
 $('gtBackToCategories').addEventListener('click',showCategoryPicker);
-$('gtPrevCategories').addEventListener('click',()=>{if(state.categoryPage>0){state.categoryPage--;renderCategoryCards();}});
-$('gtNextCategories').addEventListener('click',()=>{if((state.categoryPage+1)*PAGE_SIZE<state.categories.length){state.categoryPage++;renderCategoryCards();}});
-$('gtPrevUnits').addEventListener('click',()=>{if(state.unitPage>0){state.unitPage--;renderUnitCards();}});
-$('gtNextUnits').addEventListener('click',()=>{if((state.unitPage+1)*PAGE_SIZE<state.units.length){state.unitPage++;renderUnitCards();}});
+
 $('gtBackToTopics').addEventListener('click',showTopicPicker);
-$('gtBackHome').addEventListener('click',()=>{cancelRecognition();state.fetchToken++;state.mode='';$('gtWorkspace').hidden=true;$('gtLanding').hidden=false;$('gtLesson').hidden=true;$('gtContent').hidden=true;$('gtStudyBar').hidden=true;window.scrollTo({top:0,behavior:'instant'});});
+$('gtBackHome').addEventListener('click',()=>{
+ if(!$('gtLesson').hidden){showTopicPicker();return;}
+ if(!$('gtUnitsPanel').hidden){showCategoryPicker();return;}
+ closeExplanation();cancelRecognition();state.fetchToken++;state.mode='';document.body.classList.remove('gt-in-workspace');
+ $('gtWorkspace').hidden=true;$('gtLanding').hidden=false;$('gtLesson').hidden=true;$('gtContent').hidden=true;$('gtStudyBar').hidden=true;window.scrollTo({top:0,behavior:'instant'});
+});
 $('gtCategory').addEventListener('change',e=>loadCategory(e.target.value));
 $('gtUnit').addEventListener('change',e=>selectUnit(e.target.value));
 $('gtStart').addEventListener('click',startLesson);
@@ -285,7 +330,8 @@ $('gtRecord').addEventListener('click',beginSpeech);
 $('gtStop').addEventListener('click',endSpeech);
 $('gtNextStage').addEventListener('click',nextStage);
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&state.recording)cancelRecognition();});
-window.addEventListener('pagehide',cancelRecognition);
+window.addEventListener('pagehide',()=>{closeExplanation();cancelRecognition();});
+window.addEventListener('resize',()=>{if(!$('gtCategoriesPanel').hidden)fitGrid($('gtCategoryCards'),state.categories.length);if(!$('gtUnitsPanel').hidden)fitGrid($('gtUnitList'),state.units.length);});
 resetReading();
 const query=new URLSearchParams(window.location.search);if(SETTINGS[query.get('mode')])changeMode(query.get('mode'));
 })();

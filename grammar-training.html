@@ -13,9 +13,10 @@
 <link rel="stylesheet" href="grammar-aurora.css?v=20261105-1">
 <link rel="stylesheet" href="grammar-navigation.css?v=20261105-4">
 <link rel="stylesheet" href="grammar-pagination.css?v=20261105-4">
+<link rel="stylesheet" href="grammar-quiz-compact.css?v=20261105-5">
 <script defer src="vocabulary-reading.js?v=8.3"></script>
 <script defer src="grammar-training-core.js?v=20261105-2"></script>
-<script defer src="grammar-training.js?v=20261105-4"></script>
+<script defer src="grammar-training.js?v=20261105-5"></script>
 <script defer src="grammar-aurora.js?v=20261105-1"></script>
 </head>
 <body>
@@ -61,7 +62,7 @@
      <p id="gtInstruction" class="gt-instruction"></p>
      <p id="gtStem" class="gt-stem" lang="en"></p>
      <div class="gt-choices" id="gtOptions" role="group" aria-label="解答を選択"></div>
-     <section id="gtFeedback" class="gt-feedback" hidden aria-live="polite"><h3 id="gtFeedbackTitle"></h3><p id="gtExplanation"></p><p id="gtRule"></p><p id="gtAnswerSentence"></p><p id="gtAnswerJapanese"></p><div id="gtWrongExplanations" class="gt-wrongs"></div></section>
+     
     </div>
     <div id="gtReading" class="gt-reading" hidden>
      <div class="gt-reading-head"><div><span class="gt-section-label">READ ALOUD · 5 STAGES</span><h3>音読ミッション</h3></div><span id="gtPassCondition" class="gt-pass"></span></div>
@@ -76,6 +77,25 @@
   </section>
  </div>
 </section>
+<dialog id="gtExplanationDialog" class="gt-explanation-dialog" aria-labelledby="gtFeedbackTitle" aria-describedby="gtModalQuestion">
+ <div class="gt-modal-shell">
+  <div class="gt-modal-header"><span id="gtModalStatus" class="gt-modal-status" role="status">解説</span><button id="gtModalCloseX" type="button" class="gt-modal-x" aria-label="解説を閉じる">×</button></div>
+  <p class="gt-modal-kicker">QUESTION &amp; EXPLANATION</p>
+  <p id="gtModalQuestion" class="gt-modal-question" lang="en"></p>
+  <div class="gt-modal-body">
+   <section id="gtFeedback" class="gt-feedback" hidden aria-live="polite">
+    <h3 id="gtFeedbackTitle"></h3>
+    <div class="gt-modal-columns">
+     <div class="gt-modal-explain"><p id="gtExplanation"></p><p id="gtRule"></p></div>
+     <div class="gt-modal-answers"><p id="gtAnswerSentence"></p><p id="gtAnswerJapanese"></p><p id="gtSelectedWrong" hidden></p></div>
+    </div>
+    <details class="gt-wrong-details"><summary>ほかの選択肢の解説を見る</summary><div id="gtWrongExplanations" class="gt-wrongs"></div></details>
+   </section>
+  </div>
+  <div class="gt-modal-actions"><button id="gtModalClose" type="button">閉じて音読へ</button><button id="gtModalNext" type="button">次の問題へ →</button></div>
+ </div>
+</dialog>
+<div id="gtSuccessCelebration" class="gt-success-celebration" hidden aria-hidden="true"><div class="gt-celebrate-burst"><span class="gt-celebrate-symbol">✦</span><strong>Correct!</strong><span>正解！</span></div></div>
 </main>
 </body>
 </html>
