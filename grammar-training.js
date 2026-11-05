@@ -13,7 +13,7 @@ const SETTINGS={
 };
 const DEFAULT_TOTALS={junior:144,senior:1830,entrance:4912};
 function restore(){try{const x=JSON.parse(localStorage.getItem(KEY)||'{}');return x.version===2&&x.records&&typeof x.records==='object'?x:{version:2,records:{}};}catch{return{version:2,records:{}};}}
-const state={mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,examCorrect:null,missionSkipped:false,missionCleared:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,micPhase:'idle',micStopTimer:null,micRestartTimer:null,micHealthTimer:null,levelTimer:null,micRecoveries:0,effectTimer:null,stopRequested:false,transcript:'',interimTranscript:'',usedInterim:false,micSignals:{audio:false,voice:false,text:false},micDiagnosticToken:0,micDiagnosticStream:null,micDiagnosticContext:null,cache:new Map(),progress:restore(),totals:{...DEFAULT_TOTALS}};
+const state={mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,examCorrect:null,missionSkipped:false,missionCleared:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,micPhase:'idle',micStopTimer:null,micRestartTimer:null,micHealthTimer:null,levelTimer:null,bannerTimer:null,bannerHideTimer:null,micRecoveries:0,effectTimer:null,stopRequested:false,transcript:'',interimTranscript:'',usedInterim:false,micSignals:{audio:false,voice:false,text:false},micDiagnosticToken:0,micDiagnosticStream:null,micDiagnosticContext:null,cache:new Map(),progress:restore(),totals:{...DEFAULT_TOTALS}};
 const node=(tag,className,text)=>{const n=document.createElement(tag);if(className)n.className=className;if(text!==undefined)n.textContent=text;return n;};
 function progress(id){return state.progress.records[id]||{};}
 function save(id,patch){state.progress.records[id]=Object.assign({},progress(id),patch,{updated:new Date().toISOString()});try{localStorage.setItem(KEY,JSON.stringify(state.progress));}catch(e){console.warn('Grammar progress not saved',e);}renderOverallProgress();}
@@ -245,6 +245,8 @@ function clearMicWatchdogs(){
 }
 function micButtons(phase){
  state.micPhase=phase;
+ $('gtRecord').hidden=phase!=='idle';
+ $('gtStop').hidden=phase==='idle';
  $('gtRecord').disabled=phase!=='idle';
  $('gtStop').disabled=phase!=='listening';
  $('gtStop').classList.toggle('is-recording-guide',phase==='listening');
@@ -343,6 +345,9 @@ function resetReading(){
  $('gtRetrySpeech').hidden=true;
 }
 function cancelRecognition(){
+ if(state.bannerTimer!==null){window.clearTimeout(state.bannerTimer);state.bannerTimer=null;}
+ if(state.bannerHideTimer!==null){window.clearTimeout(state.bannerHideTimer);state.bannerHideTimer=null;}
+ if($('gtLevelBanner'))$('gtLevelBanner').hidden=true;
  if(state.effectTimer!==null){window.clearTimeout(state.effectTimer);state.effectTimer=null;}
  if(state.levelTimer!==null){window.clearTimeout(state.levelTimer);state.levelTimer=null;}
  closeMicDiagnostic();state.micToken++;clearMicWatchdogs();
@@ -462,7 +467,14 @@ function prepareReading(){
  const q=item(),hasExtra=state.mode==='entrance'&&!!q.example;
  $('gtSentenceSwitcher').hidden=!hasExtra;
  $('gtMainSentence').setAttribute('aria-pressed',String(!state.extra));$('gtExtraSentence').setAttribute('aria-pressed',String(state.extra));
- resetReading();renderStage();
+ resetReading();renderStage();showLevelBanner(1,900);
+}
+function showLevelBanner(level,duration=0){
+ if(state.bannerHideTimer!==null)window.clearTimeout(state.bannerHideTimer);
+ $('gtLevelBannerTitle').textContent='LEVEL '+level+' START!';
+ $('gtLevelBannerTarget').textContent='目標 '+core.STAGES[level-1].threshold+'% · 次のチャレンジへ！';
+ $('gtLevelBanner').hidden=false;
+ if(duration)state.bannerHideTimer=window.setTimeout(()=>{state.bannerHideTimer=null;$('gtLevelBanner').hidden=true;},duration);
 }
 function renderStage(){
  const q=readingItem();if(!q)return;const step=core.STAGES[state.stage-1],rec=progress(q.id),unlocked=Math.min(5,(rec.cleared||0)+1);
@@ -478,6 +490,7 @@ function renderStage(){
  }
  $('gtBestAccuracy').textContent=Number.isFinite(rec.bestAccuracy)?'Level '+state.stage+' Best '+(rec.bestByLevel?.[state.stage-1]??rec.bestAccuracy)+'%':'';
  $('gtNextStage').hidden=true;
+ $('gtReadingNext').hidden=(Number(rec.cleared)||0)<5;
  if(!state.recording&&state.score===null)micStatus('お手本を聞いてから音読できます。');
 }
 function switchSentence(extra){
@@ -643,10 +656,16 @@ function finishSpeech(q,spoken,usedInterim=false){
  if(passed&&state.stage<5){
   $('gtNextStage').hidden=false;
   const level=state.stage,id=q.id;
+  state.bannerTimer=window.setTimeout(()=>{
+   state.bannerTimer=null;
+   if(readingItem()?.id!==id||state.stage!==level||state.recording)return;
+   $('gtRecord').disabled=true;
+   tone('next');showLevelBanner(level+1);
+  },1000);
   state.levelTimer=window.setTimeout(()=>{
    state.levelTimer=null;
    if(readingItem()?.id!==id||state.stage!==level||state.recording)return;
-   tone('next');nextStage();
+   nextStage();
   },2000);
  }
  state.effectTimer=window.setTimeout(()=>{state.effectTimer=null;if(!state.recording&&readingItem()?.id===q.id)tone(percent>=90?(percent===100?'100':'90'):passed?'80':'retry');},700);
@@ -705,6 +724,7 @@ $('gtStop').addEventListener('click',endSpeech);
 $('gtRetrySpeech').addEventListener('click',retrySpeechRecognition);
 $('gtMicTest').addEventListener('click',testMicInput);
 $('gtNextStage').addEventListener('click',nextStage);
+$('gtReadingNext').addEventListener('click',()=>{const q=readingItem();if(q&&(Number(progress(q.id).cleared)||0)>=5)nextItem();});
 if($('gtSoundToggle')&&feedback){
  const sync=()=>{$('gtSoundToggle').textContent=feedback.enabled?'効果音 ON':'効果音 OFF';$('gtSoundToggle').setAttribute('aria-pressed',String(feedback.enabled));};
  $('gtSoundToggle').addEventListener('click',()=>{feedback.toggle();sync();tone('tap');});sync();
