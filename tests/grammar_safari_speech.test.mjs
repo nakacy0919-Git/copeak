@@ -158,7 +158,7 @@ assert(timers.some(timer=>timer.active&&timer.ms===18000));
 fire(18000);
 assert.equal(r.aborted,true);
 assert.equal(els.gtRecord.disabled,false);
-assert(els.gtRecognitionStatus.textContent.includes('Safari'));
+assert(els.gtRecognitionStatus.textContent.includes('iPad'));
 r.onend(); // Stale event from former session must not score.
 r=getNew();ready(r);transcribe(r,phrase);els.gtStop.click();r.onend();
 assert.equal(els.gtScoreNumber.textContent,'100%');
