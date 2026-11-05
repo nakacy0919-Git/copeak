@@ -1,0 +1,247 @@
+/* Copeak grammar training — premium controls, iPad-first.
+   Reference: luminous icon tiles, gradient surfaces, restrained borders.
+   Presentation only; does not affect scoring, recording, progress, or storage. */
+:root {--gt-control-font: "Inter","Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif;}
+/* HOME: 2 x 2 wide horizontal studio tiles */
+.gt-landing .gt-cards{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+ max-width:1140px;width:100%;margin-inline:auto;
+ gap:clamp(12px,1.65vw,20px);
+}
+.gt-landing .gt-mode-card{
+ --gt-glow-a:#6dbbf3;--gt-glow-b:#4677dd;--gt-soft:#f1f8ff;
+ display:grid;
+ grid-template-columns:clamp(56px,5.4vw,68px) minmax(0,1fr) clamp(32px,3.2vw,42px);
+ grid-template-rows:auto auto auto minmax(0,1fr);
+ align-content:stretch;align-items:center;
+ column-gap:clamp(13px,1.5vw,20px);row-gap:4px;
+ width:100%;min-width:0;min-height:clamp(184px,20.5vh,218px);
+ max-height:none;
+ padding:clamp(15px,2vw,24px);
+ border:1px solid rgba(137,171,224,.52);border-radius:23px;
+ background:
+   radial-gradient(ellipse 56% 72% at 102% -15%,rgba(255,255,255,.98),transparent 80%),
+   linear-gradient(133deg,#fff 10%,var(--gt-soft) 100%);
+ box-shadow:0 13px 27px rgba(24,76,145,.09),0 3px 10px rgba(58,102,158,.045),inset 0 1px 0 #fff;
+ text-align:left;overflow:hidden;isolation:isolate;
+ transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+.gt-landing .gt-mode-card::before{
+ content:"";position:absolute;inset:auto -12% -77% -8%;
+ height:110%;border-radius:50% 50% 0 0;z-index:-1;
+ background:linear-gradient(110deg,color-mix(in srgb,var(--gt-glow-a) 12%,white),color-mix(in srgb,var(--gt-glow-b) 10%,white));
+ transform:rotate(-8deg);pointer-events:none;
+}
+.gt-landing .gt-mode-card.gt-vocab{--gt-glow-a:#8bc9f3;--gt-glow-b:#4b80e0;--gt-soft:#eff7ff}
+.gt-landing .gt-mode-card.gt-junior{--gt-glow-a:#77ded1;--gt-glow-b:#2fa9c9;--gt-soft:#eefbf7}
+.gt-landing .gt-mode-card.gt-senior{--gt-glow-a:#84a9f5;--gt-glow-b:#6b7ee7;--gt-soft:#f0f4ff}
+.gt-landing .gt-mode-card.gt-entrance{--gt-glow-a:#bc9cf8;--gt-glow-b:#845ed9;--gt-soft:#f6f0ff}
+.gt-landing .gt-mode-card:hover{
+ transform:translateY(-3px);border-color:var(--gt-glow-b);
+ box-shadow:0 19px 38px rgba(34,89,150,.17),0 4px 13px rgba(73,99,151,.05),inset 0 1px 0 #fff;
+}
+.gt-landing .gt-mode-card:focus-visible{outline:3px solid #358dcc;outline-offset:3px}
+.gt-landing .gt-mode-card .gt-card-icon{
+ display:grid;place-items:center;
+ grid-column:1;grid-row:1 / 4;
+ width:clamp(55px,5.3vw,68px);height:clamp(55px,5.3vw,68px);
+ border:1px solid rgba(255,255,255,.5);border-radius:19px;
+ margin:0;color:#fff;
+ background:linear-gradient(135deg,var(--gt-glow-a),var(--gt-glow-b));
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 -3px 8px rgba(20,59,110,.065),0 9px 17px color-mix(in srgb,var(--gt-glow-b) 23%,transparent);
+}
+.gt-landing .gt-mode-card .gt-card-icon svg{width:36px;height:36px;display:block}
+.gt-landing .gt-mode-card .gt-card-type{
+ grid-column:2;grid-row:1;
+ margin:0;font-family:var(--gt-control-font);
+ font-size:clamp(.68rem,.88vw,.79rem);letter-spacing:.085em;
+ font-weight:900;color:#6587aa;line-height:1.2;
+}
+.gt-landing .gt-mode-card strong{
+ grid-column:2;grid-row:2;
+ min-width:0;margin:0;
+ font-family:var(--gt-control-font);
+ font-size:clamp(1.02rem,1.72vw,1.47rem);
+ font-weight:900;letter-spacing:-.038em;line-height:1.38;
+ color:#163657;overflow-wrap:anywhere;
+}
+.gt-landing .gt-mode-card .gt-card-copy{
+ grid-column:2;grid-row:3;
+ flex:none;margin:0;font-size:clamp(.75rem,.97vw,.88rem);
+ color:#637e99;font-weight:700;line-height:1.4;
+}
+.gt-landing .gt-mode-card .gt-card-arrow{
+ grid-column:3;grid-row:1 / 4;justify-self:end;
+ display:grid;place-items:center;width:clamp(32px,3vw,40px);height:clamp(32px,3vw,40px);
+ margin:0;padding:0;border-radius:50%;
+ color:var(--gt-glow-b);font-size:2rem;font-weight:650;
+ line-height:.8;background:linear-gradient(130deg,#fff,#e8eefb);
+ box-shadow:inset 0 1px 3px rgba(78,117,174,.15),0 3px 10px rgba(54,106,161,.07);
+}
+.gt-landing .gt-mode-card .gt-mode-progress{
+ grid-column:1 / -1;grid-row:4;align-self:end;
+ width:100%;margin:clamp(6px,1vw,11px) 0 0;gap:8px;
+}
+.gt-landing .gt-mode-card .gt-mode-progress-head{
+ font-size:clamp(.68rem,.87vw,.78rem);color:#587898;font-weight:750;
+}
+.gt-landing .gt-mode-card .gt-mode-progress-head strong{
+ margin:0;font-size:clamp(.75rem,.96vw,.9rem);color:#2d75aa;
+}
+.gt-landing .gt-mode-card .gt-mode-track{
+ height:7px;border-radius:100px;
+ background:rgba(94,150,207,.13);
+}
+.gt-landing .gt-mode-card.gt-vocab .gt-card-arrow{grid-row:1 / 4}
+.gt-landing .gt-mode-card.gt-vocab .gt-card-copy{align-self:center}
+
+/* UNIVERSITY QUIZ: larger tap targets, wider choices and generous prompt spacing. */
+.gt-content #gtQuiz{padding-block:clamp(8px,1.1vw,15px)}
+.gt-content #gtStem{
+ font-family:var(--gt-control-font);font-weight:900;
+ font-size:clamp(1.52rem,2.3vw,2.15rem);
+ line-height:1.5;letter-spacing:-.025em;
+ margin:clamp(12px,1.5vw,19px) 0 clamp(26px,3vw,36px);
+}
+.gt-content #gtOptions.gt-choices{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:clamp(12px,1.35vw,19px);
+ width:min(100%,1160px);max-width:1160px;
+ margin:0 auto;
+}
+.gt-content #gtOptions .gt-choice{
+ min-height:clamp(76px,7.6vh,94px);
+ padding:clamp(16px,2vw,24px) clamp(20px,2.3vw,32px);
+ padding-left:clamp(26px,2.8vw,42px);
+ border-radius:19px;
+ border:1px solid #a9c8ec;
+ color:#173b65;
+ font-family:var(--gt-control-font);
+ font-size:clamp(1.13rem,1.65vw,1.47rem);
+ font-weight:900;line-height:1.38;
+ letter-spacing:-.02em;
+ background:radial-gradient(ellipse at 90% 0%,#fff,transparent 65%),linear-gradient(125deg,#fff,#f0f7ff);
+ box-shadow:inset 0 1px 0 #fff,0 10px 24px rgba(37,101,159,.10);
+}
+.gt-content #gtOptions .gt-choice:nth-child(2){
+ background:radial-gradient(ellipse at 90% 0%,#fff,transparent 65%),linear-gradient(125deg,#fff,#eefbf8);
+}
+.gt-content #gtOptions .gt-choice:nth-child(3){
+ background:radial-gradient(ellipse at 90% 0%,#fff,transparent 65%),linear-gradient(125deg,#fff,#f5f1ff);
+}
+.gt-content #gtOptions .gt-choice:nth-child(4){
+ background:radial-gradient(ellipse at 90% 0%,#fff,transparent 65%),linear-gradient(125deg,#fff,#edf5ff);
+}
+.gt-content #gtOptions .gt-choice::before{
+ left:clamp(11px,1.2vw,17px);top:16px;bottom:16px;width:5px;border-radius:6px;
+ background:linear-gradient(180deg,#4a97ee,#63ced1);
+}
+.gt-content #gtOptions .gt-choice:nth-child(3)::before{background:linear-gradient(180deg,#8270df,#bd94ed)}
+.gt-content #gtOptions .gt-choice:nth-child(4)::before{background:linear-gradient(180deg,#4b91e8,#71bed9)}
+.gt-content #gtOptions .gt-choice:hover:not(:disabled){
+ transform:translateY(-2px);border-color:#629edc;
+ box-shadow:0 16px 28px rgba(30,103,168,.16),inset 0 1px 0 #fff;
+}
+.gt-content #gtOptions .gt-choice.is-correct{background:linear-gradient(130deg,#eafff2,#d9f5e5)!important;color:#126d53;border-color:#52b58e}
+.gt-content #gtOptions .gt-choice.is-wrong{background:linear-gradient(130deg,#fff2ed,#fbe6e1)!important;color:#974738;border-color:#e3ada0}
+
+/* READ-ALOUD: microphone start and stop take center stage with status below. */
+.gt-record-buttons,
+.gt-reading-dialog .gt-record-buttons{
+ display:flex;flex-direction:column;align-items:center;justify-content:center;
+ width:100%;gap:clamp(8px,1.1vw,13px);
+ margin:clamp(11px,1.55vw,20px) auto clamp(7px,1vw,13px);
+}
+.gt-record-actions{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+ width:min(100%,550px);gap:clamp(12px,1.4vw,20px);
+ margin:0 auto;
+}
+.gt-record-buttons .gt-record-actions #gtRecord,
+.gt-record-buttons .gt-record-actions #gtStop,
+.gt-reading-dialog .gt-record-buttons .gt-record-actions button{
+ display:flex;align-items:center;justify-content:center;
+ width:100%;min-width:0;min-height:clamp(62px,7.1vh,78px);
+ padding:13px 16px;
+ border-radius:18px;font-family:var(--gt-control-font);
+ font-size:clamp(1.03rem,1.5vw,1.36rem);font-weight:900;
+ letter-spacing:-.03em;line-height:1.3;white-space:normal;
+ transition:box-shadow .2s ease,transform .2s ease,filter .2s ease;
+}
+.gt-record-buttons .gt-record-actions #gtRecord{
+ border:1px solid rgba(255,255,255,.4);
+ color:#fff;
+ background:linear-gradient(120deg,#288cda 0%,#447bdb 48%,#7b6adf 100%);
+ box-shadow:0 12px 26px rgba(66,107,202,.27),inset 0 1px 0 rgba(255,255,255,.35),inset 0 -2px 5px rgba(26,58,122,.12);
+}
+.gt-record-buttons .gt-record-actions #gtStop{
+ border:1px solid #e8c4b7;
+ color:#985a46;background:linear-gradient(120deg,#fffefa,#fff2e8 62%,#fce1db);
+ box-shadow:0 9px 21px rgba(174,114,88,.12),inset 0 1px 0 #fff;
+}
+.gt-record-buttons .gt-record-actions #gtStop:not(:disabled){
+ color:#8b4c3e;border-color:#e5a88f;
+ box-shadow:0 11px 24px rgba(200,124,87,.19),inset 0 1px 0 #fff;
+}
+.gt-record-buttons .gt-record-actions #gtRecord:not(:disabled):hover,
+.gt-record-buttons .gt-record-actions #gtStop:not(:disabled):hover{transform:translateY(-2px);filter:saturate(1.08)}
+.gt-record-buttons .gt-record-actions #gtRecord:disabled{opacity:.85;cursor:default}
+.gt-record-buttons .gt-record-actions #gtStop:disabled{opacity:.68;cursor:not-allowed}
+.gt-record-buttons #gtRecognitionStatus{
+ display:inline-flex;align-items:center;justify-content:center;
+ width:fit-content;max-width:100%;margin:0 auto;
+ min-height:30px;padding:6px 12px;
+ font-size:clamp(.76rem,.95vw,.9rem);
+ line-height:1.42;text-align:center;font-weight:750;
+ color:#527899;white-space:normal;
+}
+.gt-record-buttons #gtRecognitionStatus[data-mic-state="listening"]{
+ color:#14744c;border:1px solid #83d7aa;
+ background:linear-gradient(115deg,#edfff5,#dff9ed);
+}
+.gt-record-buttons #gtRecognitionStatus[data-mic-state="stopping"]{
+ color:#315f9b;border:1px solid #b1d2f0;
+ background:linear-gradient(115deg,#f3f9ff,#e9f0ff);
+}
+@media(max-width:1000px){
+ .gt-landing .gt-mode-card{
+  grid-template-columns:56px minmax(0,1fr) 32px;
+  column-gap:11px;padding:16px;
+ }
+ .gt-landing .gt-mode-card .gt-card-icon{width:56px;height:56px;border-radius:16px}
+ .gt-landing .gt-mode-card .gt-card-icon svg{width:30px;height:30px}
+ .gt-landing .gt-mode-card strong{font-size:clamp(.98rem,1.85vw,1.27rem)}
+ .gt-landing .gt-mode-card .gt-card-arrow{width:32px;height:32px;font-size:1.65rem}
+ .gt-content #gtOptions .gt-choice{font-size:clamp(1.08rem,1.85vw,1.24rem)}
+}
+@media(max-width:700px){
+ .gt-landing .gt-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .gt-landing .gt-mode-card{
+  display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;
+  min-height:200px;gap:5px;padding:13px;position:relative;
+ }
+ .gt-landing .gt-mode-card .gt-card-icon{width:43px;height:43px;border-radius:13px}
+ .gt-landing .gt-mode-card .gt-card-icon svg{width:27px;height:27px}
+ .gt-landing .gt-mode-card .gt-card-type{font-size:.59rem}
+ .gt-landing .gt-mode-card strong{font-size:clamp(.90rem,2.55vw,1.08rem)}
+ .gt-landing .gt-mode-card .gt-card-copy{font-size:.69rem}
+ .gt-landing .gt-mode-card .gt-card-arrow{position:absolute;right:12px;top:14px;width:30px;height:30px;font-size:1.6rem}
+ .gt-landing .gt-mode-card .gt-mode-progress{margin-top:auto;gap:6px}
+ .gt-landing .gt-mode-card .gt-mode-progress-head{font-size:.61rem}
+ .gt-landing .gt-mode-card .gt-mode-progress-head strong{font-size:.68rem}
+ .gt-content #gtStem{font-size:clamp(1.22rem,3.8vw,1.55rem);margin-bottom:22px}
+ .gt-content #gtOptions.gt-choices{width:100%;max-width:none;gap:10px;grid-template-columns:repeat(2,minmax(0,1fr))}
+ .gt-content #gtOptions .gt-choice{min-height:66px;font-size:clamp(.93rem,2.6vw,1.1rem);padding:12px 12px 12px 24px;border-radius:14px}
+ .gt-content #gtOptions .gt-choice::before{left:9px;top:12px;bottom:12px;width:4px}
+ .gt-record-actions{width:min(100%,510px);gap:10px}
+ .gt-record-buttons .gt-record-actions #gtRecord,.gt-record-buttons .gt-record-actions #gtStop{min-height:61px;font-size:clamp(.88rem,2.45vw,1.08rem);padding:10px 9px;border-radius:14px}
+ .gt-record-buttons #gtRecognitionStatus{font-size:.77rem}
+}
+@media(max-width:430px){
+ .gt-content #gtOptions.gt-choices{grid-template-columns:1fr}
+ .gt-content #gtOptions .gt-choice{min-height:59px}
+ .gt-record-buttons .gt-record-actions #gtRecord,.gt-record-buttons .gt-record-actions #gtStop{min-height:58px;font-size:.9rem}
+}
+@media(prefers-reduced-motion:reduce){
+ .gt-landing .gt-mode-card,.gt-record-buttons .gt-record-actions button{transition:none!important;transform:none!important}
+}
