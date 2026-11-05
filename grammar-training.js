@@ -4,6 +4,8 @@
 const core=window.CopeakGrammarCore,progressEngine=window.CopeakGrammarProgress,cardIcons=window.CopeakGrammarCardIcons,scoreEngine=()=>window.CopeakVocabularyReading;
 if(!core||!progressEngine||!cardIcons){console.error('Missing Copeak grammar helpers');return;}
 const $=id=>document.getElementById(id),KEY='copeak_grammar_training_v2';
+const device=window.navigator||{},ua=device.userAgent||'';
+const isIOSWebKit=/iPad|iPhone|iPod/i.test(ua)||(device.platform==='MacIntel'&&Number(device.maxTouchPoints)>1);
 const SETTINGS={
  junior:{name:'中学校の基礎英文法',url:'data/grammar/junior/manifest.json',group:'grades'},
  senior:{name:'高校英文法の音読',url:'data/grammar/senior/manifest.json',group:'chapters'},
@@ -11,7 +13,7 @@ const SETTINGS={
 };
 const DEFAULT_TOTALS={junior:144,senior:1830,entrance:1840};
 function restore(){try{const x=JSON.parse(localStorage.getItem(KEY)||'{}');return x.version===2&&x.records&&typeof x.records==='object'?x:{version:2,records:{}};}catch{return{version:2,records:{}};}}
-const state={mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,examCorrect:null,missionSkipped:false,missionCleared:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,micPhase:'idle',micReadyTimer:null,micStartTimer:null,micStopTimer:null,stopRequested:false,transcript:'',interimTranscript:'',error:'',cache:new Map(),progress:restore(),totals:{...DEFAULT_TOTALS}};
+const state={mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,examCorrect:null,missionSkipped:false,missionCleared:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,micPhase:'idle',micReadyTimer:null,micStartTimer:null,micStopTimer:null,micSilenceTimer:null,stopRequested:false,transcript:'',interimTranscript:'',error:'',cache:new Map(),progress:restore(),totals:{...DEFAULT_TOTALS}};
 const node=(tag,className,text)=>{const n=document.createElement(tag);if(className)n.className=className;if(text!==undefined)n.textContent=text;return n;};
 function progress(id){return state.progress.records[id]||{};}
 function save(id,patch){state.progress.records[id]=Object.assign({},progress(id),patch,{updated:new Date().toISOString()});try{localStorage.setItem(KEY,JSON.stringify(state.progress));}catch(e){console.warn('Grammar progress not saved',e);}renderOverallProgress();}
@@ -202,8 +204,19 @@ function clearMicReadyTimer(){
 function clearMicWatchdogs(){
  if(state.micStartTimer!==null){window.clearTimeout(state.micStartTimer);state.micStartTimer=null;}
  if(state.micStopTimer!==null){window.clearTimeout(state.micStopTimer);state.micStopTimer=null;}
+ if(state.micSilenceTimer!==null){window.clearTimeout(state.micSilenceTimer);state.micSilenceTimer=null;}
 }
-function finalizeSpeechSession(token,q,timeout=false){
+function monitorIOSSpeech(token,q){
+ if(!isIOSWebKit||token!==state.micToken||state.micPhase!=='listening'||state.stopRequested)return;
+ if(state.micSilenceTimer!==null)window.clearTimeout(state.micSilenceTimer);
+ // WebKit may say capture started without delivering results or an end event.
+ state.micSilenceTimer=window.setTimeout(()=>{
+  state.micSilenceTimer=null;
+  if(token!==state.micToken||state.stopRequested||state.micPhase!=='listening')return;
+  finalizeSpeechSession(token,q,true,'silent');
+ },18000);
+}
+function finalizeSpeechSession(token,q,timeout=false,reason=''){
  if(token!==state.micToken||!state.recognition)return;
  clearMicReadyTimer();clearMicWatchdogs();
  const recognizer=state.recognition;
@@ -214,7 +227,7 @@ function finalizeSpeechSession(token,q,timeout=false){
  if(error){micStatus(speechErrorMessage(error)+' もう一度「音読スタート」で再挑戦できます。');return;}
  const spoken=[confirmed,pending].filter(Boolean).join(' ').trim();
  if(!spoken){
-  micStatus(timeout?'音声認識が終了しなかったため録音を解除しました。もう一度「音読スタート」で再挑戦してください。':'音声を認識できませんでした。「音読スタート」で再挑戦してください。');
+  micStatus(reason==='silent'?'iPad Safariの音声認識から応答がありませんでした。録音を解除しました。「音読スタート」で再挑戦してください。':timeout?'音声認識が終了しなかったため録音を解除しました。もう一度「音読スタート」で再挑戦してください。':'音声を認識できませんでした。「音読スタート」で再挑戦してください。');
   return;
  }
  finishSpeech(q,spoken,Boolean(pending));
@@ -225,16 +238,19 @@ function micButtons(phase){
  state.micPhase=phase;
  $('gtRecord').disabled=phase!=='idle';
  $('gtStop').disabled=phase!=='listening';
+ $('gtStop').classList.toggle('is-recording-guide',phase==='listening');
  $('gtRecord').textContent=phase==='starting'||phase==='connecting'?'● マイク準備中…':phase==='listening'||phase==='stopping'?'● 録音中':'● 音読スタート';
  $('gtStop').textContent=phase==='stopping'?'■ 終了処理中…':'■ 終了・判定';
  $('gtRecognitionStatus').setAttribute('data-mic-state',phase);
 }
 function micReady(token,estimated=false){
  if(token!==state.micToken||!state.recognition||state.error||state.micPhase==='stopping'||state.micPhase==='idle')return;
- clearMicReadyTimer();clearMicWatchdogs();
+ clearMicReadyTimer();
  if(state.micPhase!=='listening'){
+  clearMicWatchdogs();
   state.recording=true;micButtons('listening');
   micStatus(estimated?'● 音声認識が開始されました。英文を話してください。':'● マイク準備完了。ここから英文を話してください。終了まで音声認識を続けます。');
+  monitorIOSSpeech(token,readingItem());
  }
 }
 function speechErrorMessage(code){
@@ -406,7 +422,8 @@ function beginSpeech(){
  if(!q||state.recording||state.recognition||state.micPhase!=='idle')return;
  if(!Speech){micStatus('このブラウザーでは音声認識を使用できません。Chromeなどでお試しください。');return;}
  const token=++state.micToken,r=new Speech();
- r.lang='en-US';r.continuous=true;r.interimResults=true;
+ r.lang='en-US';r.continuous=!isIOSWebKit;r.interimResults=true;
+ // Use single-utterance recognition on iPad WebKit to avoid continuous-mode restarts.
  state.recognition=r;state.recording=false;state.error='';
  state.transcript='';state.interimTranscript='';state.stopRequested=false;
  clearMicReadyTimer();clearMicWatchdogs();
@@ -426,6 +443,7 @@ function beginSpeech(){
  r.onresult=event=>{
   if(token!==state.micToken)return;
   micReady(token);
+  monitorIOSSpeech(token,q);
   const finals=[],interims=[];
   for(let i=0;i<event.results.length;i++){
    const row=event.results[i],text=row[0]&&row[0].transcript||'';
@@ -438,12 +456,12 @@ function beginSpeech(){
  r.onerror=e=>{
   if(token!==state.micToken)return;
   state.error=e.error||'unknown';clearMicReadyTimer();clearMicWatchdogs();
-  micStatus(speechErrorMessage(state.error));
+  micButtons('stopping');micStatus(speechErrorMessage(state.error));
   state.micStopTimer=window.setTimeout(()=>finalizeSpeechSession(token,q,true),950);
  };
  r.onend=()=>finalizeSpeechSession(token,q);
  try{
-  if(window.speechSynthesis)window.speechSynthesis.cancel();
+  if(window.speechSynthesis&&window.speechSynthesis.speaking)window.speechSynthesis.cancel();
   r.start();
   // If the recognition service never sends onstart/onend, do not lock the next attempt.
   state.micStartTimer=window.setTimeout(()=>{

@@ -1,0 +1,23 @@
+/* iPad Safari microphone interaction affordances.
+   The Stop & Score button glows only when the recognizer is ready.
+   Reduced-motion accessibility is respected. */
+.gt-record-buttons .gt-record-actions #gtStop.is-recording-guide:not(:disabled){
+  color:#84432f;
+  border:1px solid #e8a678;
+  background:linear-gradient(120deg,#fff8ed,#ffe7d0 60%,#ffd9d0);
+  box-shadow:0 7px 23px rgba(213,116,77,.23),inset 0 1px 0 rgba(255,255,255,.95);
+  animation:gt-guide-to-stop 1.9s ease-in-out infinite;
+  will-change:box-shadow;
+}
+@keyframes gt-guide-to-stop{
+  0%,100%{box-shadow:0 6px 17px rgba(213,116,77,.18),0 0 0 0 rgba(235,153,96,.16),inset 0 1px 0 #fff;}
+  50%{box-shadow:0 9px 25px rgba(210,118,72,.27),0 0 0 7px rgba(235,153,96,.1),inset 0 1px 0 #fff;}
+}
+.gt-record-buttons .gt-record-actions #gtStop:disabled,
+.gt-record-buttons .gt-record-actions #gtStop:not(.is-recording-guide){
+  animation:none;
+  will-change:auto;
+}
+@media(prefers-reduced-motion:reduce){
+  .gt-record-buttons .gt-record-actions #gtStop{animation:none!important;}
+}
