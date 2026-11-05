@@ -35,7 +35,7 @@ const detail=new Element('details');detail.append(dom.gtWrongExplanations);
 const modes=['junior','senior','entrance'].map(mode=>{const e=new Element('button');e.dataset.gtMode=mode;return e});
 const document={
  getElementById:id=>dom[id],
- createElement:t=>new Element(t),
+ createElement:t=>new Element(t),createElementNS:(ns,t)=>new Element(t),
  createDocumentFragment:()=>new Element('fragment'),
  createTextNode:t=>{const e=new Element('text');e.textContent=t;return e},
  querySelectorAll:s=>s==='[data-gt-mode]'?modes:[],
@@ -67,6 +67,7 @@ const localStorage={getItem:k=>storage[k]??null,setItem:(k,v)=>storage[k]=v};
 const ctx={window,document,fetch,localStorage,Option,URLSearchParams,console};
 vm.runInNewContext(read('grammar-training-core.js'),{window,module:{exports:{}}});
 vm.runInNewContext(read('grammar-progress.js'),{window,module:{exports:{}}});
+vm.runInNewContext(read('grammar-card-icons.js'),{window,document});
 vm.runInNewContext(read('grammar-training.js'),ctx);
 async function tick(){for(let i=0;i<24;i++)await Promise.resolve()}
 const ready=s=>{s.onstart();s.onaudiostart()};
@@ -90,10 +91,10 @@ async function run(){
  // Safari/WebKit: stop() fires no end event.
  s=start();ready(s);result(s,phrase);dom.gtStop.click();
  assert.equal(dom.gtRecord.disabled,true);
- assert(timers.some(t=>!t.canceled&&t.delay===3000),'stop recovery watchdog must be armed');
+ assert(timers.some(t=>!t.canceled&&t.delay===1600),'stop recovery watchdog must be armed');
  s.onstart(); // delayed start event must NOT revert stopping state.
  assert.equal(dom.gtStop.disabled,true);
- fire(3000);
+ fire(1600);
  assert(s.aborted,'recognizer must be released');
  assert.equal(dom.gtRecord.disabled,false,'must recover after missing onend');
  assert.equal(dom.gtScoreNumber.textContent,'100%','available transcript must still be scored');
@@ -102,17 +103,17 @@ async function run(){
  s.onend();
  assert.equal(JSON.parse(storage.copeak_grammar_training_v2).records[recordId].readingAttempts,count,'stale onend must not rescore');
  // Stop with no speech should reset controls without recording success.
- s=start();ready(s);dom.gtStop.click();fire(3000);
+ s=start();ready(s);dom.gtStop.click();fire(1600);
  assert.equal(dom.gtRecord.disabled,false);
  assert(dom.gtRecognitionStatus.textContent.includes('再挑戦'));
  // Service never starts: timeout must release the microphone.
  s=start();fire(6500);
  assert(s.aborted);assert.equal(dom.gtRecord.disabled,false);
  // Error received, but browser omits end.
- s=start();s.onstart();s.onerror({error:'no-speech'});fire(950);
+ s=start();s.onstart();s.onerror({error:'audio-capture'});fire(950);
  assert.equal(dom.gtRecord.disabled,false);
  s=start();ready(s);result(s,phrase);dom.gtStop.click();s.onend();
  assert.equal(dom.gtRecord.disabled,false);
- console.log('PASS: repeat, next-stage, missing end, late event, silent stop, failed start, error recovery');
+ console.log('PASS: GCC parity repeat, next-stage, missing end watchdog, stale events, failed start and fatal error recovery');
 }
 await run();
