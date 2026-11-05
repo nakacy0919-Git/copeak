@@ -30,6 +30,8 @@ function fitGrid(grid,count){
  const rows=Math.max(1,Math.ceil(count/cols));
  grid.style.setProperty('--gt-grid-cols',String(cols));
  grid.style.setProperty('--gt-grid-rows',String(rows));
+ const available=Math.max(260,(window.innerHeight||850)-(width<900?170:175));
+ grid.style.setProperty('--gt-grid-height',Math.min(available,rows*(width<900?102:119))+'px');
  grid.classList.toggle('gt-dense-grid',count>20);
 }
 function updatePager(kind){
