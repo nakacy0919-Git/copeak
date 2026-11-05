@@ -480,19 +480,33 @@ function beginSpeech(){
   // After onstart, fall back only if an explicit audio-start event was not received.
   state.micReadyTimer=window.setTimeout(()=>micReady(token,true),850);
  };
- r.onaudiostart=()=>micReady(token);
+ r.onaudiostart=()=>{
+  if(token!==state.micToken)return;
+  state.micSignals.audio=true;updateSpeechSignals();micReady(token);
+ };
+ r.onspeechstart=()=>{
+  if(token!==state.micToken)return;
+  state.micSignals.voice=true;updateSpeechSignals();
+ };
  r.onresult=event=>{
   if(token!==state.micToken)return;
   micReady(token);
-  monitorIOSSpeech(token,q);
-  const finals=[],interims=[];
-  for(let i=0;i<event.results.length;i++){
-   const row=event.results[i],text=row[0]&&row[0].transcript||'';
+  const finals=[],interims=[],rows=event&&event.results||[];
+  for(let i=0;i<rows.length;i++){
+   const row=rows[i],text=String(row&&row[0]&&row[0].transcript||'').trim();
+   if(!text)continue;
    (row.isFinal?finals:interims).push(text);
   }
-  state.transcript=finals.join(' ').trim();
-  state.interimTranscript=interims.join(' ').trim();
-  $('gtTranscript').textContent=[state.transcript,state.interimTranscript].filter(Boolean).join(' ')||'音声を認識しています…';
+  const confirmed=finals.join(' ').trim(),pending=interims.join(' ').trim();
+  // WebKit can issue a blank event after a useful partial transcript. Preserve it.
+  if(!confirmed&&!pending)return;
+  state.micSignals.text=true;updateSpeechSignals();clearMicNoResultTimer();
+  $('gtRetrySpeech').hidden=true;
+  if(confirmed)state.transcript=confirmed;
+  if(pending)state.interimTranscript=pending;
+  else if(confirmed)state.interimTranscript='';
+  $('gtTranscript').textContent=[state.transcript,state.interimTranscript].filter(Boolean).join(' ');
+  monitorIOSSpeech(token,q);
  };
  r.onerror=e=>{
   if(token!==state.micToken)return;
