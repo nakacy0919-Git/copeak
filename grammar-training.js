@@ -34,7 +34,7 @@ function syncSoundToggle(){
 function toggleSound(){
  soundEnabled=!soundEnabled;
  try{localStorage.setItem(SOUND_KEY,soundEnabled?'on':'off');}catch(_){}
- syncSoundToggle();if(soundEnabled)tone();
+ syncSoundToggle();traceSpeech('sound.toggle',soundEnabled?'on':'off');if(soundEnabled)tone();
 }
 
 const SETTINGS={
@@ -530,7 +530,7 @@ function beginSpeech(){
  tone('tap');
  window.speechSynthesis?.cancel();
  cancelRecognition();
- traceSpeech('session.begin','stage='+state.stage);
+ traceSpeech('session.begin','stage='+state.stage+', sound='+(soundEnabled?'on':'off'));
  state.recording=true;state.stopRequested=false;
  state.transcript='';state.interimTranscript='';
  state.micSignals={audio:false,voice:false,text:false};
