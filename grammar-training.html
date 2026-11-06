@@ -21,12 +21,14 @@
 <link rel="stylesheet" href="grammar-safari-guide.css?v=20261105-11">
 <link rel="stylesheet" href="grammar-speech-diagnostics.css?v=20261105-12">
 <link rel="stylesheet" href="grammar-ui-cleanup.css?v=20261105-22">
+<link rel="stylesheet" href="grammar-exam-modes.css?v=20261106-1">
 <script defer src="vocabulary-reading.js?v=8.3"></script>
 <script defer src="grammar-practice-engine.js?v=20261106-2"></script>
 <script defer src="grammar-training-core.js?v=20261105-21"></script>
 <script defer src="grammar-progress.js?v=20261105-8"></script>
 <script defer src="grammar-card-icons.js?v=20261105-9"></script>
-<script defer src="grammar-training.js?v=20261106-3"></script>
+<script defer src="grammar-exam-sessions.js?v=20261106-1"></script>
+<script defer src="grammar-training.js?v=20261106-5"></script>
 <script defer src="grammar-aurora.js?v=20261105-1"></script>
 </head>
 <body>
@@ -46,6 +48,33 @@
  <div class="gt-workspace-title"><button id="gtBackHome" class="gt-text-button" type="button">← 学習メニュー</button><div><h1 id="gtModeTitle">文法音読</h1></div><div class="gt-total" id="gtModeTotal"></div></div>
  <div class="gt-layout">
   <section id="gtPicker" class="gt-sidebar gt-picker" aria-label="文法カテゴリーと学習項目">
+   <div id="gtExamModeNav" class="gt-exam-mode-nav" hidden>
+    <div class="gt-exam-mode-tabs" role="group" aria-label="大学入試英文法の出題形式">
+     <button id="gtExamCategoryMode" type="button" aria-pressed="true">文法カテゴリー</button>
+     <button id="gtExamRandomMode" type="button" aria-pressed="false">ランダム出題</button>
+    </div><p>全<span id="gtExamAvailableCategories">26</span>分野・<span id="gtExamAvailableQuestions">4,912</span>問。正解率と学習記録はこの端末に保存されます。</p>
+   </div>
+   <section id="gtExamRandomPanel" class="gt-exam-random-panel" hidden aria-labelledby="gtExamRandomTitle">
+    <div class="gt-exam-random-heading"><span class="gt-picker-step">02</span><div><h2 id="gtExamRandomTitle">ランダム出題の設定</h2><p>文法分野と問題数を選んで開始できます。</p></div></div>
+    <fieldset class="gt-exam-fieldset"><legend>出題する文法カテゴリー</legend>
+     <div class="gt-exam-scope" role="group" aria-label="文法カテゴリーの範囲">
+      <label><input id="gtExamScopeAll" name="gtExamScope" type="radio" value="all" checked> 全カテゴリー</label>
+      <label><input id="gtExamScopeSelected" name="gtExamScope" type="radio" value="selected"> 指定したカテゴリー（1つ・複数）</label>
+     </div>
+     <div id="gtExamCategorySelect" class="gt-exam-category-select" hidden>
+      <div class="gt-exam-category-actions"><button id="gtExamSelectAll" type="button">すべて選択</button><button id="gtExamClearAll" type="button">選択解除</button><span id="gtExamSelectedCount" aria-live="polite">0カテゴリーを選択</span></div>
+      <div id="gtExamCategoryChecks" class="gt-exam-category-checks" role="group" aria-label="対象の文法分野"></div>
+     </div>
+    </fieldset>
+    <div class="gt-exam-count-wrap"><label for="gtExamQuestionCount">出題数</label>
+     <div class="gt-exam-count-controls"><input id="gtExamQuestionCount" type="number" min="1" max="4912" step="1" value="20" inputmode="numeric" aria-describedby="gtExamAvailableNote">
+      <div class="gt-exam-presets" role="group" aria-label="出題数の候補"><button type="button" data-exam-count="10">10問</button><button type="button" data-exam-count="20">20問</button><button type="button" data-exam-count="30">30問</button><button type="button" data-exam-count="50">50問</button><button type="button" data-exam-count="100">100問</button></div>
+     </div><p id="gtExamAvailableNote">カテゴリーの問題数を超える場合は、自動で調整します。</p>
+    </div>
+    <button id="gtExamStartRandom" class="gt-exam-start" type="button">ランダム出題をスタート</button>
+    <p id="gtExamRandomStatus" role="status" aria-live="polite"></p>
+   </section>
+
    <div id="gtCategoriesPanel" class="gt-categories-panel">
     <div class="gt-picker-heading"><span class="gt-picker-step">01</span><h2>文法カテゴリーを選ぶ</h2></div>
     <div id="gtCategoryCards" class="gt-category-cards" role="group" aria-label="文法カテゴリー"></div>
@@ -53,9 +82,14 @@
    </div>
    <div id="gtUnitsPanel" class="gt-units-panel" hidden>
     <div class="gt-picker-heading"><span class="gt-picker-step">02</span><h2>文法項目を選ぶ</h2><span id="gtUnitMeta" class="gt-unit-meta" aria-live="polite"></span><button id="gtBackToCategories" class="gt-back-categories" type="button">← カテゴリーへ</button></div>
+        <div id="gtExamCategoryCountWrap" class="gt-exam-category-count" hidden><label for="gtExamCategoryQuestionCount">この文法項目の出題数</label><input id="gtExamCategoryQuestionCount" type="number" inputmode="numeric" min="1" step="1" placeholder="すべて"><span>空欄の場合は全問出題します。</span></div>
     <div id="gtUnitList" class="gt-unit-list" role="group" aria-label="文法項目"></div>
     <nav id="gtUnitPager" class="gt-card-pager" aria-label="文法項目のページ切り替え"><button id="gtPrevUnits" type="button" aria-label="前の文法項目ページ">‹</button><span id="gtUnitPage" role="status" aria-live="polite">1 / 1</span><button id="gtNextUnits" type="button" aria-label="次の文法項目ページ">›</button></nav>
    </div>
+      <section id="gtExamHistoryPanel" class="gt-exam-history" hidden aria-label="大学入試英文法の学習記録">
+    <div class="gt-exam-history-heading"><h3>4択問題の学習記録</h3><span id="gtExamHistoryOverview">まだ学習履歴がありません。</span></div>
+    <div id="gtExamHistoryRows" class="gt-exam-history-rows"></div>
+   </section>
    <div class="gt-legacy-controls" hidden aria-hidden="true">
     <select id="gtCategory" tabindex="-1" aria-label="カテゴリー（内部用）"></select>
     <select id="gtUnit" tabindex="-1" aria-label="項目（内部用）"></select>
@@ -64,9 +98,14 @@
   </section>
   <div id="gtStudyBar" class="gt-study-bar" hidden><button id="gtBackToTopics" class="gt-back-topics" type="button">← 文法項目へ</button></div>
   <section id="gtContent" class="gt-content" aria-label="文法問題・音読練習" hidden>
+      <section id="gtExamResult" class="gt-exam-result" hidden aria-labelledby="gtExamResultTitle">
+    <span class="gt-exam-result-eyebrow">ENTRANCE EXAM · RESULT</span><h2 id="gtExamResultTitle">4択テストの結果</h2>
+    <div class="gt-exam-result-stat"><strong id="gtExamResultRate">0%</strong><div><span id="gtExamResultCount">0 / 0 正解</span><p id="gtExamResultDetail">学習結果を端末に保存しました。</p></div></div>
+    <div class="gt-exam-result-actions"><button id="gtExamAgain" type="button">同じ設定でもう一度</button><button id="gtExamBack" type="button">出題設定に戻る</button></div>
+   </section>
    <div id="gtWelcome" class="gt-welcome" hidden><h2>学習が完了しました</h2><p></p></div>
    <div id="gtLesson" class="gt-lesson" hidden>
-    <div class="gt-lesson-top"><div><span id="gtTopicLabel" class="gt-topic-label"></span><h2 id="gtLessonTitle"></h2></div><span class="gt-count" id="gtProgressText"></span></div>
+    <div class="gt-lesson-top"><div><span id="gtTopicLabel" class="gt-topic-label"></span><h2 id="gtLessonTitle"></h2></div><div class="gt-exam-lesson-stats"><span id="gtExamAccuracy" hidden>正解率 —</span><span class="gt-count" id="gtProgressText"></span></div></div>
     <div class="gt-progress-track" aria-hidden="true"><div id="gtProgressBar"></div></div>
     <div id="gtQuiz" class="gt-quiz" hidden>
      <p id="gtInstruction" class="gt-instruction"></p>

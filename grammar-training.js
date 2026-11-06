@@ -4,6 +4,7 @@
 const core=window.CopeakGrammarCore,progressEngine=window.CopeakGrammarProgress,cardIcons=window.CopeakGrammarCardIcons,scoreEngine=()=>window.CopeakGrammarPractice||window.CopeakVocabularyReading;
 if(!core||!progressEngine||!cardIcons){console.error('Missing Copeak grammar helpers');return;}
 const feedback=window.CopeakGrammarPractice?.createFeedback(window);
+const examTools=window.CopeakExamSessions;
 const tone=kind=>feedback?.tone(kind);
 const $=id=>document.getElementById(id),KEY='copeak_grammar_training_v2';
 const SETTINGS={
@@ -13,11 +14,160 @@ const SETTINGS={
 };
 const DEFAULT_TOTALS={junior:144,senior:1830,entrance:4912};
 function restore(){try{const x=JSON.parse(localStorage.getItem(KEY)||'{}');return x.version===2&&x.records&&typeof x.records==='object'?x:{version:2,records:{}};}catch{return{version:2,records:{}};}}
-const state={mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,examCorrect:null,missionSkipped:false,missionCleared:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,micPhase:'idle',micStopTimer:null,micRestartTimer:null,micHealthTimer:null,levelTimer:null,bannerTimer:null,bannerHideTimer:null,micRecoveries:0,effectTimer:null,stopRequested:false,transcript:'',interimTranscript:'',usedInterim:false,micSignals:{audio:false,voice:false,text:false},micDiagnosticToken:0,micDiagnosticStream:null,micDiagnosticContext:null,cache:new Map(),progress:restore(),totals:{...DEFAULT_TOTALS}};
+const state={examType:'category',examScope:'all',examSelectedIds:new Set(),examSession:null,examLastConfig:null,mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,examCorrect:null,missionSkipped:false,missionCleared:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,micPhase:'idle',micStopTimer:null,micRestartTimer:null,micHealthTimer:null,levelTimer:null,bannerTimer:null,bannerHideTimer:null,micRecoveries:0,effectTimer:null,stopRequested:false,transcript:'',interimTranscript:'',usedInterim:false,micSignals:{audio:false,voice:false,text:false},micDiagnosticToken:0,micDiagnosticStream:null,micDiagnosticContext:null,cache:new Map(),progress:restore(),totals:{...DEFAULT_TOTALS}};
 const node=(tag,className,text)=>{const n=document.createElement(tag);if(className)n.className=className;if(text!==undefined)n.textContent=text;return n;};
 function progress(id){return state.progress.records[id]||{};}
 function save(id,patch){state.progress.records[id]=Object.assign({},progress(id),patch,{updated:new Date().toISOString()});try{localStorage.setItem(KEY,JSON.stringify(state.progress));}catch(e){console.warn('Grammar progress not saved',e);}renderOverallProgress();}
 function categoryName(x){return(x.id?x.id+'  ':'')+(x.title||'');}
+
+// The exam-session history is stored separately from the existing per-question
+// progress records; random attempts still call save() for every actual answer.
+function getExamHistory(){return examTools?.safeHistory(localStorage)||[];}
+function renderExamHistory(){
+ const panel=$('gtExamHistoryPanel');panel.hidden=state.mode!=='entrance';
+ if(panel.hidden)return;
+ const rows=$('gtExamHistoryRows');rows.replaceChildren();
+ const history=getExamHistory().filter(session=>Number(session.answered)>0);
+ if(!history.length){$('gtExamHistoryOverview').textContent='まだ学習履歴がありません。';return;}
+ const total=history.reduce((sum,x)=>sum+Number(x.answered||0),0);
+ const correct=history.reduce((sum,x)=>sum+Number(x.correct||0),0);
+ $('gtExamHistoryOverview').textContent='累計 '+correct+' / '+total+' 正解 · 正解率 '+examTools.accuracy(correct,total)+'%';
+ for(const session of history.slice(0,6)){
+  const info=examTools.describe(session),row=node('div','gt-exam-history-item');
+  const title=node('div');title.append(node('strong','',info.type==='random'?'ランダム · '+(info.categoryIds?.length||0)+'カテゴリー':'カテゴリー別 · '+(info.title||'')));
+  const timestamp=node('time','',new Date(info.startedAt||Date.now()).toLocaleString('ja-JP',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'}));
+  title.append(timestamp);
+  row.append(title,node('span','',info.correct+' / '+info.answered+' 正解 · '+(info.status==='completed'?'完了':'途中終了')),node('b','',info.rate+'%'));
+  rows.append(row);
+ }
+}
+function saveExamSession(status){
+ if(!state.examSession||!examTools)return null;
+ const session=state.examSession;
+ session.updatedAt=new Date().toISOString();
+ session.status=status||'in_progress';
+ if(session.answered>0)examTools.saveHistory(localStorage,session);
+ if(session.status!=='in_progress')state.examSession=null;
+ renderExamHistory();return {...session};
+}
+function beginExamSession(){
+ if(state.mode!=='entrance'||!examTools)return;
+ if(state.examSession)saveExamSession('exited');
+ const now=new Date().toISOString();
+ const categories=state.examType==='random'?(state.examLastConfig?.categories||[]):[state.category];
+ const current={
+  id:Date.now()+'-'+Math.random().toString(36).slice(2,9),
+  startedAt:now,updatedAt:now,type:state.examType,
+  title:state.unit?.title||'',categoryIds:categories.slice(),
+  requested:state.examType==='random'?Number(state.examLastConfig?.count)||state.items.length:state.items.length,
+  total:state.items.length,answered:0,correct:0,status:'in_progress'
+ };
+ state.examSession=current;renderExamHistory();
+}
+function recordExamAnswer(correct){
+ if(!state.examSession)return;
+ state.examSession.answered=state.sessionAnswered;
+ state.examSession.correct=state.sessionCorrect;
+ saveExamSession('in_progress');
+}
+function updateExamAccuracy(){
+ const el=$('gtExamAccuracy');el.hidden=state.mode!=='entrance';
+ if(!el.hidden)el.textContent='正解率 '+(examTools?.accuracy(state.sessionCorrect,state.sessionAnswered)||0)+'% · '+state.sessionCorrect+'/'+state.sessionAnswered;
+}
+function updateExamModeUi(){
+ const exam=state.mode==='entrance',random=exam&&state.examType==='random';
+ $('gtExamModeNav').hidden=!exam;
+ $('gtExamRandomPanel').hidden=!random;
+ $('gtExamCategoryMode').setAttribute('aria-pressed',String(!random));
+ $('gtExamRandomMode').setAttribute('aria-pressed',String(random));
+ $('gtExamCategoryCountWrap').hidden=!exam||random||$('gtUnitsPanel').hidden;
+ if(exam)renderExamHistory();
+}
+function randomCategories(){
+ return state.examScope==='all'?state.categories:state.categories.filter(cat=>state.examSelectedIds.has(cat.id));
+}
+function updateRandomAvailability(){
+ $('gtExamScopeAll').checked=state.examScope==='all';
+ $('gtExamScopeSelected').checked=state.examScope==='selected';
+ $('gtExamCategorySelect').hidden=state.examScope!=='selected';
+ const categories=randomCategories(),available=categories.reduce((sum,c)=>sum+(Number(c.count)||0),0);
+ const requested=Number($('gtExamQuestionCount').value);
+ $('gtExamQuestionCount').max=String(available||1);
+ $('gtExamSelectedCount').textContent=categories.length+'カテゴリーを選択';
+ $('gtExamAvailableNote').textContent=categories.length+'カテゴリー・最大'+available.toLocaleString('ja-JP')+'問。出題数が多い場合は上限まで出題します。';
+ $('gtExamStartRandom').disabled=!examTools||!categories.length||!Number.isInteger(requested)||requested<1;
+}
+function renderRandomCategories(){
+ $('gtExamAvailableCategories').textContent=String(state.categories.length);
+ $('gtExamAvailableQuestions').textContent=Number(state.manifest?.total_questions||state.totals.entrance).toLocaleString('ja-JP');
+ const grid=$('gtExamCategoryChecks');grid.replaceChildren();
+ for(const cat of state.categories){
+  const label=node('label'),input=node('input');input.type='checkbox';input.value=cat.id;input.checked=state.examSelectedIds.has(cat.id);
+  input.addEventListener('change',()=>{
+   if(input.checked)state.examSelectedIds.add(cat.id);else state.examSelectedIds.delete(cat.id);
+   updateRandomAvailability();
+  });
+  label.append(input,node('span','',cat.id+' '+cat.title+' · '+cat.count+'問'));grid.append(label);
+ }
+ updateRandomAvailability();
+}
+function showRandomSetup(){
+ if(state.mode!=='entrance')return;
+ closeReadingMission();closeExplanation();cancelRecognition();
+ if(state.examSession)saveExamSession('exited');
+ state.fetchToken++;state.examType='random';state.unit=null;
+ $('gtExamRandomStatus').textContent='';
+ $('gtLesson').hidden=true;$('gtExamResult').hidden=true;$('gtContent').hidden=true;$('gtStudyBar').hidden=true;
+ $('gtPicker').hidden=false;$('gtCategoriesPanel').hidden=true;$('gtUnitsPanel').hidden=true;
+ setHeaderBack('学習メニュー');updateExamModeUi();renderRandomCategories();
+}
+async function startRandomExam(){
+ if(state.mode!=='entrance'||!examTools)return;
+ const categories=randomCategories(),requested=Number($('gtExamQuestionCount').value);
+ if(!categories.length||!Number.isInteger(requested)||requested<1){
+  $('gtExamRandomStatus').textContent='文法カテゴリーと1以上の問題数を選択してください。';return;
+ }
+ const token=++state.fetchToken,pools=[];
+ $('gtExamStartRandom').disabled=true;
+ $('gtExamRandomStatus').textContent='問題を準備しています…';
+ try{
+  for(let i=0;i<categories.length;i+=4){
+   const group=categories.slice(i,i+4);
+   const loaded=await Promise.all(group.map(async cat=>{
+    const key='entrance|'+cat.id;
+    let bank=state.cache.get(key);
+    if(!bank){bank=await getJson(cat.url);state.cache.set(key,bank);}
+    return {id:cat.id,questions:(bank.questions||[]).map(core.normalizeQuestion).filter(Boolean)};
+   }));
+   if(token!==state.fetchToken)return;
+   pools.push(...loaded);
+   $('gtExamRandomStatus').textContent='問題を準備しています… '+Math.min(categories.length,i+4)+' / '+categories.length+'カテゴリー';
+  }
+  const selection=examTools.select(pools,requested);
+  if(token!==state.fetchToken)return;
+  if(!selection.length)throw Error('有効な問題がありません');
+  state.examType='random';state.category='random';
+  state.examLastConfig={type:'random',categories:categories.map(x=>x.id),scope:state.examScope,count:requested};
+  state.unit={id:'random',title:'ランダム出題 · '+selection.length+'問',items:selection};
+  startLesson();
+ }catch(e){
+  if(token!==state.fetchToken)return;
+  $('gtExamRandomStatus').textContent='問題の読み込みに失敗しました。接続を確認して再挑戦してください。';
+  console.error('Exam random load failed',e);
+ }finally{
+  if(token===state.fetchToken)updateRandomAvailability();
+ }
+}
+function showExamResult(session){
+ $('gtPicker').hidden=true;$('gtLesson').hidden=true;$('gtContent').hidden=false;$('gtExamResult').hidden=false;
+ $('gtExamResultTitle').textContent=session?.type==='random'?'ランダム出題の結果':'カテゴリー別問題の結果';
+ const correct=Number(session?.correct)||0,answered=Number(session?.answered)||0,planned=Number(session?.total)||0;
+ $('gtExamResultRate').textContent=(examTools?.accuracy(correct,answered)||0)+'%';
+ $('gtExamResultCount').textContent=correct+' / '+answered+' 正解';
+ $('gtExamResultDetail').textContent='出題 '+planned+'問 · 学習結果はこの端末に保存されました。';
+ setHeaderBack('出題設定');window.scrollTo({top:0,behavior:'instant'});
+}
+
 
 function renderOverallProgress(){
  for(const mode of Object.keys(SETTINGS)){
@@ -129,7 +279,7 @@ function closeReadingMission(){
  cancelRecognition();
 }
 function canAdvanceExam(){
- return state.examCorrect===true||state.missionSkipped||state.missionCleared;
+ return state.examType==='random'&&state.answered||state.examCorrect===true||state.missionSkipped||state.missionCleared;
 }
 function updateMissionActions(){
  if(state.mode!=='entrance')return;
@@ -137,7 +287,7 @@ function updateMissionActions(){
  $('gtLessonNext').hidden=!allowed;$('gtLessonNext').disabled=!allowed;
  $('gtModalNext').hidden=!allowed;
  $('gtMissionNext').hidden=!allowed;
- $('gtMissionSkip').hidden=state.missionSkipped||state.missionCleared;
+ $('gtMissionSkip').hidden=state.examType==='random'||state.missionSkipped||state.missionCleared;
  $('gtOpenReading').hidden=!state.answered;
  $('gtOpenReading').textContent=state.missionCleared?'音読ミッションを復習':state.missionSkipped?'音読をもう一度練習':'音読ミッションへ';
  $('gtMissionStatus').textContent=state.missionCleared?'ミッションクリア！ 次の英文に進めます。':state.missionSkipped?'音読はスキップしました。次の英文に進めます。':state.examCorrect?'音読は任意です。次の英文に進むこともできます。':'5段階クリアで次の英文へ。スキップもできます。';
@@ -150,7 +300,7 @@ function openReadingMission(){
  if(!dlg.open){if(typeof dlg.showModal==='function')dlg.showModal();else dlg.setAttribute('open','');}
 }
 function leaveExplanation(){
- if(state.mode==='entrance'&&state.answered)openReadingMission();
+ if(state.mode==='entrance'&&state.answered&&state.examType!=='random')openReadingMission();
  else closeExplanation();
 }
 function skipReadingMission(){
@@ -206,16 +356,21 @@ function renderUnitCards(){
  list.replaceChildren(fragment);fitGrid(list,state.units.length);updatePager('unit');
 }
 function showCategoryPicker(){
- closeReadingMission();closeExplanation();cancelRecognition();state.fetchToken++;setHeaderBack('学習メニュー');
+ closeReadingMission();closeExplanation();cancelRecognition();
+ if(state.examSession)saveExamSession('exited');
+ state.examType='category';state.fetchToken++;setHeaderBack('学習メニュー');
  $('gtLesson').hidden=true;$('gtContent').hidden=true;$('gtStudyBar').hidden=true;
- $('gtPicker').hidden=false;$('gtCategoriesPanel').hidden=false;$('gtUnitsPanel').hidden=true;
- renderCategoryCards();
+ $('gtPicker').hidden=false;$('gtCategoriesPanel').hidden=false;$('gtUnitsPanel').hidden=true;$('gtExamResult').hidden=true;
+ updateExamModeUi();renderCategoryCards();
 }
 function showTopicPicker(){
- closeReadingMission();closeExplanation();cancelRecognition();setHeaderBack('カテゴリーへ');
+ if(state.mode==='entrance'&&state.examType==='random'){showRandomSetup();return;}
+ closeReadingMission();closeExplanation();cancelRecognition();
+ if(state.examSession)saveExamSession('exited');
+ setHeaderBack('カテゴリーへ');
  $('gtLesson').hidden=true;$('gtContent').hidden=true;$('gtStudyBar').hidden=true;
- $('gtPicker').hidden=false;$('gtCategoriesPanel').hidden=true;$('gtUnitsPanel').hidden=false;
- if(state.units.length)renderUnitCards();
+ $('gtPicker').hidden=false;$('gtCategoriesPanel').hidden=true;$('gtUnitsPanel').hidden=false;$('gtExamResult').hidden=true;
+ updateExamModeUi();if(state.units.length)renderUnitCards();
 }
 function unitStatus(s){$('gtUnitMeta').textContent=s;}
 function micStatus(s){$('gtRecognitionStatus').textContent=s||'';}
@@ -360,9 +515,12 @@ function cancelRecognition(){
 async function changeMode(mode){
  if(!SETTINGS[mode])return;closeReadingMission();closeExplanation();cancelRecognition();if(window.speechSynthesis)window.speechSynthesis.cancel();
  document.body.classList.add('gt-in-workspace');setHeaderBack('学習メニュー');
- state.mode=mode;state.categories=[];state.units=[];state.category='';state.unit=null;state.items=[];state.manifest=null;state.categoryPage=0;state.unitPage=0;
- $('gtLanding').hidden=true;$('gtWorkspace').hidden=false;$('gtWelcome').hidden=true;$('gtLesson').hidden=true;
+ if(state.examSession)saveExamSession('exited');
+ state.mode=mode;state.examType='category';state.categories=[];state.units=[];state.category='';state.unit=null;state.items=[];state.manifest=null;state.categoryPage=0;state.unitPage=0;
+ $('gtLanding').hidden=true;$('gtWorkspace').hidden=false;$('gtWelcome').hidden=true;$('gtLesson').hidden=true;$('gtExamResult').hidden=true;
+ $('gtExamScopeAll').checked=true;state.examScope='all';
  $('gtPicker').hidden=false;$('gtCategoriesPanel').hidden=false;$('gtUnitsPanel').hidden=true;$('gtContent').hidden=true;$('gtStudyBar').hidden=true;
+ updateExamModeUi();
  $('gtModeTitle').textContent=SETTINGS[mode].name;$('gtModeTotal').textContent='読み込み中…';
  $('gtCategory').replaceChildren();$('gtUnit').replaceChildren();$('gtCategoryCards').replaceChildren();$('gtUnitList').replaceChildren();$('gtStart').disabled=true;unitStatus('読み込み中…');
  const token=++state.fetchToken;
@@ -374,6 +532,7 @@ async function changeMode(mode){
   renderCategoryCards();
   const total=mode==='entrance'?manifest.total_questions:manifest.total_sentences;
   if(Number(total)>0){state.totals[mode]=Number(total);renderOverallProgress();}
+  if(mode==='entrance'){renderRandomCategories();updateExamModeUi();}
   $('gtModeTotal').textContent=Number(total||0).toLocaleString('ja-JP')+(mode==='entrance'?'問':'例文');
   // Category is selected from the visible first page.
  }catch(e){if(token!==state.fetchToken)return;unitStatus('教材を読み込めませんでした。接続とファイルの配置を確認してください。');console.error(e);}
@@ -396,6 +555,7 @@ async function loadCategory(id){
    state.units=(bank.units||[]).map(t=>({id:t.id,title:t.title,items:(t.sentences||[]).map(core.makeReading).filter(Boolean)}));
   }
   state.units=state.units.filter(x=>x.items.length);
+  $('gtExamCategoryQuestionCount').value='';
   if(!state.units.length)throw Error('学習例文がありません');
   $('gtUnit').replaceChildren(...state.units.map(u=>new Option(u.title,u.id)));
   renderUnitCards();
@@ -404,6 +564,7 @@ async function loadCategory(id){
 }
 function selectUnit(id){
  state.unit=state.units.find(u=>u.id===id)||null;if(!state.unit)return;
+ if(state.mode==='entrance')$('gtExamCategoryQuestionCount').max=String(state.unit.items.length);
  cancelRecognition();$('gtUnit').value=id;
  $('gtUnitList').querySelectorAll('[data-unit]').forEach(b=>{const on=b.dataset.unit===id;b.classList.toggle('is-selected',on);b.setAttribute('aria-pressed',String(on));});
  const stat=progressEngine.unit(state.progress.records,state.mode,state.unit.items);
@@ -411,10 +572,22 @@ function selectUnit(id){
  $('gtStart').disabled=false;$('gtLesson').hidden=true;$('gtWelcome').hidden=true;
 }
 function startLesson(){
- if(!state.unit)return;cancelRecognition();state.items=state.unit.items;state.index=0;state.sessionCorrect=0;state.sessionAnswered=0;
+ if(!state.unit)return;
+ cancelRecognition();
+ let items=state.unit.items;
+ if(state.mode==='entrance'&&state.examType==='category'){
+  const selected=String($('gtExamCategoryQuestionCount').value).trim();
+  if(selected){
+   const count=examTools?.clampCount(Number(selected),items.length)||items.length;
+   items=items.slice(0,count);
+  }
+ }
+ state.items=items;state.index=0;state.sessionCorrect=0;state.sessionAnswered=0;
+ if(state.mode==='entrance'&&state.examType==='category')state.examLastConfig={type:'category',category:state.category,unitId:state.unit.id,count:items.length};
+ beginExamSession();
  $('gtLessonTitle').textContent=state.unit.title;
- $('gtTopicLabel').textContent=categoryName(state.categories.find(x=>x.id===state.category)||{});
- $('gtPicker').hidden=true;$('gtStudyBar').hidden=true;$('gtContent').hidden=false;setHeaderBack('文法項目へ');
+ $('gtTopicLabel').textContent=state.mode==='entrance'&&state.examType==='random'?'選択した文法カテゴリーからランダム出題':categoryName(state.categories.find(x=>x.id===state.category)||{});
+ $('gtPicker').hidden=true;$('gtExamResult').hidden=true;$('gtStudyBar').hidden=true;$('gtContent').hidden=false;setHeaderBack(state.examType==='random'?'出題設定':'文法項目へ');
  $('gtWelcome').hidden=true;$('gtLesson').hidden=false;renderItem();
  window.scrollTo({top:0,behavior:'instant'});
 }
@@ -427,6 +600,7 @@ function renderItem(){
  $('gtProgressBar').style.width=(100*(state.index+1)/state.items.length)+'%';
  $('gtLessonNext').textContent=state.index===state.items.length-1?'学習を終える':'次の英文へ →';
  $('gtQuizScore').textContent=state.mode==='entrance'?'4択正解 '+state.sessionCorrect+' / '+state.sessionAnswered:'';
+ updateExamAccuracy();
  const quiz=state.mode==='entrance';$('gtQuiz').hidden=!quiz;$('gtReading').hidden=quiz;$('gtLessonNext').disabled=quiz;$('gtLessonNext').hidden=quiz;
  $('gtFeedback').hidden=true;$('gtWrongExplanations').replaceChildren();$('gtSelectedWrong').hidden=true;
  const details=$('gtWrongExplanations').closest('details');if(details)details.open=false;
@@ -451,11 +625,13 @@ function answer(i){
  $('gtSelectedWrong').textContent=selectedReason?'選んだ答え：'+core.LETTERS[i]+'　'+selectedReason:'';
  const wrongs=$('gtWrongExplanations');wrongs.replaceChildren();
  core.LETTERS.forEach((letter,k)=>{if(k===q.answerIndex)return;const reason=q.wrong&&q.wrong[letter];if(reason)wrongs.append(node('div','',letter+'：'+reason));});
- $('gtFeedback').hidden=false;$('gtQuizScore').textContent='4択正解 '+state.sessionCorrect+' / '+state.sessionAnswered;
+ $('gtFeedback').hidden=false;$('gtQuizScore').textContent='4択正解 '+state.sessionCorrect+' / '+state.sessionAnswered+' · 正解率 '+(examTools?.accuracy(state.sessionCorrect,state.sessionAnswered)||0)+'%';
+ updateExamAccuracy();
  const prev=progress(q.id);
  save(q.id,{mcAttempts:(prev.mcAttempts||0)+1,mcCorrect:(prev.mcCorrect||0)+(ok?1:0),lastChoiceCorrect:ok});
+ recordExamAnswer(ok);
  $('gtReading').hidden=false;prepareReading();updateMissionActions();
- $('gtModalClose').textContent=ok?'音読を練習する':'音読ミッションへ';
+ $('gtModalClose').textContent=state.examType==='random'?'問題へ戻る':ok?'音読を練習する':'音読ミッションへ';
  showAnswerFeedback(ok);
 }
 function readingItem(){
@@ -679,7 +855,11 @@ function nextStage(){
  }
 }
 function endLesson(){
- const summary=state.mode==='entrance'?'4択 '+state.sessionCorrect+' / '+state.sessionAnswered+' 正解':'例文 '+state.items.length+' 文';
+ if(state.mode==='entrance'){
+  const summary=saveExamSession('completed')||{type:state.examType,total:state.items.length,answered:state.sessionAnswered,correct:state.sessionCorrect};
+  showExamResult(summary);return;
+ }
+ const summary='例文 '+state.items.length+' 文';
  showTopicPicker();unitStatus('完了：'+summary+' · 次の項目を選べます');
  // The same topic page remains visible after completing the lesson.
 }
@@ -689,6 +869,41 @@ function nextItem(){
  cancelRecognition();state.index++;if(state.index>=state.items.length){endLesson();return;}renderItem();
 }
 document.querySelectorAll('[data-gt-mode]').forEach(b=>b.addEventListener('click',()=>changeMode(b.dataset.gtMode)));
+
+$('gtExamCategoryMode').addEventListener('click',showCategoryPicker);
+$('gtExamRandomMode').addEventListener('click',showRandomSetup);
+$('gtExamScopeAll').addEventListener('change',()=>{
+ if($('gtExamScopeAll').checked){state.examScope='all';updateRandomAvailability();}
+});
+$('gtExamScopeSelected').addEventListener('change',()=>{
+ if($('gtExamScopeSelected').checked){state.examScope='selected';updateRandomAvailability();}
+});
+$('gtExamSelectAll').addEventListener('click',()=>{
+ state.examSelectedIds=new Set(state.categories.map(x=>x.id));
+ renderRandomCategories();
+});
+$('gtExamClearAll').addEventListener('click',()=>{
+ state.examSelectedIds.clear();renderRandomCategories();
+});
+$('gtExamQuestionCount').addEventListener('input',updateRandomAvailability);
+document.querySelectorAll('[data-exam-count]').forEach(button=>button.addEventListener('click',()=>{
+ $('gtExamQuestionCount').value=button.dataset.examCount;
+ updateRandomAvailability();
+}));
+$('gtExamStartRandom').addEventListener('click',startRandomExam);
+$('gtExamBack').addEventListener('click',()=>{
+ if(state.examType==='random')showRandomSetup();else showTopicPicker();
+});
+$('gtExamAgain').addEventListener('click',()=>{
+ if(state.examLastConfig?.type==='random'){
+  const config=state.examLastConfig;
+  state.examScope=config.scope;
+  state.examSelectedIds=new Set(config.categories);
+  $('gtExamQuestionCount').value=String(config.count);
+  showRandomSetup();startRandomExam();
+ }else startLesson();
+});
+
 $('gtModalClose').addEventListener('click',leaveExplanation);
 $('gtModalCloseX').addEventListener('click',leaveExplanation);
 $('gtModalNext').addEventListener('click',()=>{closeExplanation();nextItem();});
@@ -708,10 +923,10 @@ $('gtPrevCategories').addEventListener('click',()=>{if(state.categoryPage>0){sta
 $('gtNextCategories').addEventListener('click',()=>{if((state.categoryPage+1)*categoryLayout().size<state.categories.length){state.categoryPage++;renderCategoryCards();}});
 $('gtBackToTopics').addEventListener('click',showTopicPicker);
 $('gtBackHome').addEventListener('click',()=>{
- if(!$('gtLesson').hidden){showTopicPicker();return;}
+ if(!$('gtLesson').hidden||!$('gtExamResult').hidden){if(state.mode==='entrance'&&state.examType==='random')showRandomSetup();else showTopicPicker();return;}
  if(!$('gtUnitsPanel').hidden){showCategoryPicker();return;}
- closeReadingMission();closeExplanation();cancelRecognition();state.fetchToken++;state.mode='';document.body.classList.remove('gt-in-workspace');
- $('gtWorkspace').hidden=true;$('gtLanding').hidden=false;$('gtLesson').hidden=true;$('gtContent').hidden=true;$('gtStudyBar').hidden=true;window.scrollTo({top:0,behavior:'instant'});
+ closeReadingMission();closeExplanation();cancelRecognition();if(state.examSession)saveExamSession('exited');state.fetchToken++;state.mode='';document.body.classList.remove('gt-in-workspace');
+ $('gtWorkspace').hidden=true;$('gtLanding').hidden=false;$('gtLesson').hidden=true;$('gtExamResult').hidden=true;$('gtContent').hidden=true;$('gtStudyBar').hidden=true;window.scrollTo({top:0,behavior:'instant'});
 });
 $('gtCategory').addEventListener('change',e=>loadCategory(e.target.value));
 $('gtUnit').addEventListener('change',e=>selectUnit(e.target.value));
@@ -730,7 +945,7 @@ if($('gtSoundToggle')&&feedback){
  const sync=()=>{$('gtSoundToggle').textContent=feedback.enabled?'効果音 ON':'効果音 OFF';$('gtSoundToggle').setAttribute('aria-pressed',String(feedback.enabled));};
  $('gtSoundToggle').addEventListener('click',()=>{feedback.toggle();sync();tone('tap');});sync();
 }
-window.addEventListener('pagehide',()=>{closeReadingMission();closeExplanation();cancelRecognition();});
+window.addEventListener('pagehide',()=>{closeReadingMission();closeExplanation();cancelRecognition();if(state.examSession)saveExamSession('exited');});
 window.addEventListener('resize',()=>{if(!$('gtCategoriesPanel').hidden)renderCategoryCards();if(!$('gtUnitsPanel').hidden)fitGrid($('gtUnitList'),state.units.length);});
 micButtons('idle');resetReading();updateSpeechSignals();renderOverallProgress();
 const query=new URLSearchParams(window.location.search);if(SETTINGS[query.get('mode')])changeMode(query.get('mode'));
