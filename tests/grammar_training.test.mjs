@@ -15,6 +15,19 @@ assert.deepEqual(core.STAGES.map(s=>s.threshold),[80,90,90,95,100]);
 assert.equal(core.hideWords('I have a book.',1),'I have a book.');
 assert.match(core.hideWords('I have a book.',3),/_/);
 assert(!/[a-z]/i.test(core.hideWords('I have a book.',5)));
+assert.equal(core.maskedParts('I have a book.',1).map(p=>p.text).join(''),'I have a book.');
+const maskingExample='Your audio is cutting out, and I may have missed a few words.';
+const totalMaskWords=(maskingExample.match(/[A-Za-z]+/g)||[]).length;
+for(const stage of [1,2,3,4,5]){
+ const parts=core.maskedParts(maskingExample,stage);
+ assert.equal(parts.map(p=>p.hidden?'_____':p.text).join(''),core.hideWords(maskingExample,stage));
+ const hidden=parts.filter(p=>p.hidden);
+ assert.equal(hidden.length,stage===1?0:stage===5?totalMaskWords:Math.ceil(totalMaskWords*core.STAGES[stage-1].hide));
+ assert(hidden.every(p=>Number.isFinite(p.length)&&p.length>=1));
+ assert(parts.every(p=>!p.hidden||!Object.hasOwn(p,'text')),'no hidden word text in mask segments');
+}
+assert.match(read('grammar-training.js'),/core\.maskedParts\(q\.sentence,state\.stage\)/);
+assert.match(read('grammar-training.css'),/\.gt-reading-text \.gt-word-mask/);
 assert(core.stageCanAdvance(1,80));
 assert(!core.stageCanAdvance(4,90));
 assert(core.stageCanAdvance(5,100));
