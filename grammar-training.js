@@ -943,7 +943,7 @@ if($('gtSoundToggle')&&feedback){
  const sync=()=>{$('gtSoundToggle').textContent=feedback.enabled?'効果音 ON':'効果音 OFF';$('gtSoundToggle').setAttribute('aria-pressed',String(feedback.enabled));};
  $('gtSoundToggle').addEventListener('click',()=>{feedback.toggle();sync();tone('tap');});sync();
 }
-window.addEventListener('pagehide',()=>{closeReadingMission();closeExplanation();cancelRecognition();});
+window.addEventListener('pagehide',()=>{closeReadingMission();closeExplanation();cancelRecognition();if(state.examSession)saveExamSession('exited');});
 window.addEventListener('resize',()=>{if(!$('gtCategoriesPanel').hidden)renderCategoryCards();if(!$('gtUnitsPanel').hidden)fitGrid($('gtUnitList'),state.units.length);});
 micButtons('idle');resetReading();updateSpeechSignals();renderOverallProgress();
 const query=new URLSearchParams(window.location.search);if(SETTINGS[query.get('mode')])changeMode(query.get('mode'));
