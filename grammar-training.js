@@ -98,6 +98,8 @@ function updateRandomAvailability(){
  $('gtExamStartRandom').disabled=!examTools||!categories.length||!Number.isInteger(requested)||requested<1;
 }
 function renderRandomCategories(){
+ $('gtExamAvailableCategories').textContent=String(state.categories.length);
+ $('gtExamAvailableQuestions').textContent=Number(state.manifest?.total_questions||state.totals.entrance).toLocaleString('ja-JP');
  const grid=$('gtExamCategoryChecks');grid.replaceChildren();
  for(const cat of state.categories){
   const label=node('label'),input=node('input');input.type='checkbox';input.value=cat.id;input.checked=state.examSelectedIds.has(cat.id);
