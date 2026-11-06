@@ -114,6 +114,7 @@ function showRandomSetup(){
  closeReadingMission();closeExplanation();cancelRecognition();
  if(state.examSession)saveExamSession('exited');
  state.fetchToken++;state.examType='random';state.unit=null;
+ $('gtExamRandomStatus').textContent='';
  $('gtLesson').hidden=true;$('gtExamResult').hidden=true;$('gtContent').hidden=true;$('gtStudyBar').hidden=true;
  $('gtPicker').hidden=false;$('gtCategoriesPanel').hidden=true;$('gtUnitsPanel').hidden=true;
  setHeaderBack('学習メニュー');updateExamModeUi();renderRandomCategories();
@@ -515,6 +516,7 @@ async function changeMode(mode){
  if(state.examSession)saveExamSession('exited');
  state.mode=mode;state.examType='category';state.categories=[];state.units=[];state.category='';state.unit=null;state.items=[];state.manifest=null;state.categoryPage=0;state.unitPage=0;
  $('gtLanding').hidden=true;$('gtWorkspace').hidden=false;$('gtWelcome').hidden=true;$('gtLesson').hidden=true;$('gtExamResult').hidden=true;
+ $('gtExamScopeAll').checked=true;state.examScope='all';
  $('gtPicker').hidden=false;$('gtCategoriesPanel').hidden=false;$('gtUnitsPanel').hidden=true;$('gtContent').hidden=true;$('gtStudyBar').hidden=true;
  updateExamModeUi();
  $('gtModeTitle').textContent=SETTINGS[mode].name;$('gtModeTotal').textContent='読み込み中…';
@@ -865,6 +867,41 @@ function nextItem(){
  cancelRecognition();state.index++;if(state.index>=state.items.length){endLesson();return;}renderItem();
 }
 document.querySelectorAll('[data-gt-mode]').forEach(b=>b.addEventListener('click',()=>changeMode(b.dataset.gtMode)));
+
+$('gtExamCategoryMode').addEventListener('click',showCategoryPicker);
+$('gtExamRandomMode').addEventListener('click',showRandomSetup);
+$('gtExamScopeAll').addEventListener('change',()=>{
+ if($('gtExamScopeAll').checked){state.examScope='all';updateRandomAvailability();}
+});
+$('gtExamScopeSelected').addEventListener('change',()=>{
+ if($('gtExamScopeSelected').checked){state.examScope='selected';updateRandomAvailability();}
+});
+$('gtExamSelectAll').addEventListener('click',()=>{
+ state.examSelectedIds=new Set(state.categories.map(x=>x.id));
+ renderRandomCategories();
+});
+$('gtExamClearAll').addEventListener('click',()=>{
+ state.examSelectedIds.clear();renderRandomCategories();
+});
+$('gtExamQuestionCount').addEventListener('input',updateRandomAvailability);
+document.querySelectorAll('[data-exam-count]').forEach(button=>button.addEventListener('click',()=>{
+ $('gtExamQuestionCount').value=button.dataset.examCount;
+ updateRandomAvailability();
+}));
+$('gtExamStartRandom').addEventListener('click',startRandomExam);
+$('gtExamBack').addEventListener('click',()=>{
+ if(state.examType==='random')showRandomSetup();else showTopicPicker();
+});
+$('gtExamAgain').addEventListener('click',()=>{
+ if(state.examLastConfig?.type==='random'){
+  const config=state.examLastConfig;
+  state.examScope=config.scope;
+  state.examSelectedIds=new Set(config.categories);
+  $('gtExamQuestionCount').value=String(config.count);
+  showRandomSetup();startRandomExam();
+ }else startLesson();
+});
+
 $('gtModalClose').addEventListener('click',leaveExplanation);
 $('gtModalCloseX').addEventListener('click',leaveExplanation);
 $('gtModalNext').addEventListener('click',()=>{closeExplanation();nextItem();});
@@ -884,10 +921,10 @@ $('gtPrevCategories').addEventListener('click',()=>{if(state.categoryPage>0){sta
 $('gtNextCategories').addEventListener('click',()=>{if((state.categoryPage+1)*categoryLayout().size<state.categories.length){state.categoryPage++;renderCategoryCards();}});
 $('gtBackToTopics').addEventListener('click',showTopicPicker);
 $('gtBackHome').addEventListener('click',()=>{
- if(!$('gtLesson').hidden){showTopicPicker();return;}
+ if(!$('gtLesson').hidden||!$('gtExamResult').hidden){if(state.mode==='entrance'&&state.examType==='random')showRandomSetup();else showTopicPicker();return;}
  if(!$('gtUnitsPanel').hidden){showCategoryPicker();return;}
- closeReadingMission();closeExplanation();cancelRecognition();state.fetchToken++;state.mode='';document.body.classList.remove('gt-in-workspace');
- $('gtWorkspace').hidden=true;$('gtLanding').hidden=false;$('gtLesson').hidden=true;$('gtContent').hidden=true;$('gtStudyBar').hidden=true;window.scrollTo({top:0,behavior:'instant'});
+ closeReadingMission();closeExplanation();cancelRecognition();if(state.examSession)saveExamSession('exited');state.fetchToken++;state.mode='';document.body.classList.remove('gt-in-workspace');
+ $('gtWorkspace').hidden=true;$('gtLanding').hidden=false;$('gtLesson').hidden=true;$('gtExamResult').hidden=true;$('gtContent').hidden=true;$('gtStudyBar').hidden=true;window.scrollTo({top:0,behavior:'instant'});
 });
 $('gtCategory').addEventListener('change',e=>loadCategory(e.target.value));
 $('gtUnit').addEventListener('change',e=>selectUnit(e.target.value));
