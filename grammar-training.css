@@ -41,4 +41,4 @@ button,select{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allo
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 
 /* GCC-style concealed words: gray boxes sized to hidden word length. */
-.gt-reading-text .gt-word-mask{display:inline-block;box-sizing:border-box;vertical-align:-.08em;width:var(--gt-mask-width,3ch);min-width:1.5ch;height:.83em;margin:0 .035em;border:1px solid #aeb8c6;border-radius:2px;background:#cfd5de;box-shadow:inset 0 1px 0 #e8ebef;white-space:nowrap}
+.gt-reading-text .gt-word-mask{display:inline-block;box-sizing:border-box;vertical-align:-.08em;width:var(--gt-mask-width,3ch);min-width:1.5ch;height:.92em;margin:0 .02em;border:1px solid #b8c0ca;border-radius:2px;background:#cfd4dc;box-shadow:inset 0 1px 0 rgba(255,255,255,.35);white-space:nowrap}
