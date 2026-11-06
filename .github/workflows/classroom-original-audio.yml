@@ -1,0 +1,27 @@
+name: iPad original audio playback regression
+
+on:
+  push:
+    branches:
+      - fix/classroom-model-audio-ipad-20261106
+  pull_request:
+    paths:
+      - app-bundle.js
+      - tests/ipad-original-audio-playback.test.mjs
+      - .github/workflows/classroom-original-audio.yml
+
+permissions:
+  contents: read
+
+jobs:
+  verify-model-audio:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate bundled JavaScript parsing
+        run: node --check app-bundle.js
+      - name: Simulate Safari playback success and rejection
+        run: node --test tests/ipad-original-audio-playback.test.mjs
