@@ -13,5 +13,5 @@ assert(js.includes("if(mode==='entrance')$('gtEntranceQuestionCount').textConten
 assert(js.includes("const total=mode==='entrance'?manifest.total_questions:manifest.total_sentences"),'mode load uses true manifest');
 assert(js.includes("if(Number(total)>0){state.totals[mode]=Number(total);renderOverallProgress();}"),'manifest refresh updates all progress and landing counters');
 assert(js.includes('DEFAULT_TOTALS={junior:144,senior:1830,entrance:4912}'),'initial numbers match manifest');
-assert(html.includes('grammar-training.js?v=20261106-3'),'iPad cached JS invalidated');
+assert(html.includes('grammar-training.js?v=20261106-4'),'iPad cached JS invalidated');
 console.log('PASS entrance landing total matches manifest and progress: 4,912 questions');
