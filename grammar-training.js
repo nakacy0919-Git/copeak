@@ -4,6 +4,7 @@
 const core=window.CopeakGrammarCore,progressEngine=window.CopeakGrammarProgress,cardIcons=window.CopeakGrammarCardIcons,scoreEngine=()=>window.CopeakGrammarPractice||window.CopeakVocabularyReading;
 if(!core||!progressEngine||!cardIcons){console.error('Missing Copeak grammar helpers');return;}
 const feedback=window.CopeakGrammarPractice?.createFeedback(window);
+const examTools=window.CopeakExamSessions;
 const tone=kind=>feedback?.tone(kind);
 const $=id=>document.getElementById(id),KEY='copeak_grammar_training_v2';
 const SETTINGS={
@@ -13,11 +14,157 @@ const SETTINGS={
 };
 const DEFAULT_TOTALS={junior:144,senior:1830,entrance:4912};
 function restore(){try{const x=JSON.parse(localStorage.getItem(KEY)||'{}');return x.version===2&&x.records&&typeof x.records==='object'?x:{version:2,records:{}};}catch{return{version:2,records:{}};}}
-const state={mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,examCorrect:null,missionSkipped:false,missionCleared:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,micPhase:'idle',micStopTimer:null,micRestartTimer:null,micHealthTimer:null,levelTimer:null,bannerTimer:null,bannerHideTimer:null,micRecoveries:0,effectTimer:null,stopRequested:false,transcript:'',interimTranscript:'',usedInterim:false,micSignals:{audio:false,voice:false,text:false},micDiagnosticToken:0,micDiagnosticStream:null,micDiagnosticContext:null,cache:new Map(),progress:restore(),totals:{...DEFAULT_TOTALS}};
+const state={examType:'category',examScope:'all',examSelectedIds:new Set(),examSession:null,examLastConfig:null,mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,examCorrect:null,missionSkipped:false,missionCleared:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,micPhase:'idle',micStopTimer:null,micRestartTimer:null,micHealthTimer:null,levelTimer:null,bannerTimer:null,bannerHideTimer:null,micRecoveries:0,effectTimer:null,stopRequested:false,transcript:'',interimTranscript:'',usedInterim:false,micSignals:{audio:false,voice:false,text:false},micDiagnosticToken:0,micDiagnosticStream:null,micDiagnosticContext:null,cache:new Map(),progress:restore(),totals:{...DEFAULT_TOTALS}};
 const node=(tag,className,text)=>{const n=document.createElement(tag);if(className)n.className=className;if(text!==undefined)n.textContent=text;return n;};
 function progress(id){return state.progress.records[id]||{};}
 function save(id,patch){state.progress.records[id]=Object.assign({},progress(id),patch,{updated:new Date().toISOString()});try{localStorage.setItem(KEY,JSON.stringify(state.progress));}catch(e){console.warn('Grammar progress not saved',e);}renderOverallProgress();}
 function categoryName(x){return(x.id?x.id+'  ':'')+(x.title||'');}
+
+// The exam-session history is stored separately from the existing per-question
+// progress records; random attempts still call save() for every actual answer.
+function getExamHistory(){return examTools?.safeHistory(localStorage)||[];}
+function renderExamHistory(){
+ const panel=$('gtExamHistoryPanel');panel.hidden=state.mode!=='entrance';
+ if(panel.hidden)return;
+ const rows=$('gtExamHistoryRows');rows.replaceChildren();
+ const history=getExamHistory().filter(session=>Number(session.answered)>0);
+ if(!history.length){$('gtExamHistoryOverview').textContent='まだ学習履歴がありません。';return;}
+ const total=history.reduce((sum,x)=>sum+Number(x.answered||0),0);
+ const correct=history.reduce((sum,x)=>sum+Number(x.correct||0),0);
+ $('gtExamHistoryOverview').textContent='累計 '+correct+' / '+total+' 正解 · 正解率 '+examTools.accuracy(correct,total)+'%';
+ for(const session of history.slice(0,6)){
+  const info=examTools.describe(session),row=node('div','gt-exam-history-item');
+  const title=node('div');title.append(node('strong','',info.type==='random'?'ランダム · '+(info.categoryIds?.length||0)+'カテゴリー':'カテゴリー別 · '+(info.title||'')));
+  const timestamp=node('time','',new Date(info.startedAt||Date.now()).toLocaleString('ja-JP',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'}));
+  title.append(timestamp);
+  row.append(title,node('span','',info.correct+' / '+info.answered+' 正解 · '+(info.status==='completed'?'完了':'途中終了')),node('b','',info.rate+'%'));
+  rows.append(row);
+ }
+}
+function saveExamSession(status){
+ if(!state.examSession||!examTools)return null;
+ const session=state.examSession;
+ session.updatedAt=new Date().toISOString();
+ session.status=status||'in_progress';
+ if(session.answered>0)examTools.saveHistory(localStorage,session);
+ if(session.status!=='in_progress')state.examSession=null;
+ renderExamHistory();return {...session};
+}
+function beginExamSession(){
+ if(state.mode!=='entrance'||!examTools)return;
+ if(state.examSession)saveExamSession('exited');
+ const now=new Date().toISOString();
+ const categories=state.examType==='random'?(state.examLastConfig?.categories||[]):[state.category];
+ const current={
+  id:Date.now()+'-'+Math.random().toString(36).slice(2,9),
+  startedAt:now,updatedAt:now,type:state.examType,
+  title:state.unit?.title||'',categoryIds:categories.slice(),
+  requested:state.examType==='random'?Number(state.examLastConfig?.count)||state.items.length:state.items.length,
+  total:state.items.length,answered:0,correct:0,status:'in_progress'
+ };
+ state.examSession=current;renderExamHistory();
+}
+function recordExamAnswer(correct){
+ if(!state.examSession)return;
+ state.examSession.answered=state.sessionAnswered;
+ state.examSession.correct=state.sessionCorrect;
+ saveExamSession('in_progress');
+}
+function updateExamAccuracy(){
+ const el=$('gtExamAccuracy');el.hidden=state.mode!=='entrance';
+ if(!el.hidden)el.textContent='正解率 '+(examTools?.accuracy(state.sessionCorrect,state.sessionAnswered)||0)+'% · '+state.sessionCorrect+'/'+state.sessionAnswered;
+}
+function updateExamModeUi(){
+ const exam=state.mode==='entrance',random=exam&&state.examType==='random';
+ $('gtExamModeNav').hidden=!exam;
+ $('gtExamRandomPanel').hidden=!random;
+ $('gtExamCategoryMode').setAttribute('aria-pressed',String(!random));
+ $('gtExamRandomMode').setAttribute('aria-pressed',String(random));
+ $('gtExamCategoryCountWrap').hidden=!exam||random||$('gtUnitsPanel').hidden;
+ if(exam)renderExamHistory();
+}
+function randomCategories(){
+ return state.examScope==='all'?state.categories:state.categories.filter(cat=>state.examSelectedIds.has(cat.id));
+}
+function updateRandomAvailability(){
+ $('gtExamScopeAll').checked=state.examScope==='all';
+ $('gtExamScopeSelected').checked=state.examScope==='selected';
+ $('gtExamCategorySelect').hidden=state.examScope!=='selected';
+ const categories=randomCategories(),available=categories.reduce((sum,c)=>sum+(Number(c.count)||0),0);
+ const requested=Number($('gtExamQuestionCount').value);
+ $('gtExamQuestionCount').max=String(available||1);
+ $('gtExamSelectedCount').textContent=categories.length+'カテゴリーを選択';
+ $('gtExamAvailableNote').textContent=categories.length+'カテゴリー・最大'+available.toLocaleString('ja-JP')+'問。出題数が多い場合は上限まで出題します。';
+ $('gtExamStartRandom').disabled=!examTools||!categories.length||!Number.isInteger(requested)||requested<1;
+}
+function renderRandomCategories(){
+ const grid=$('gtExamCategoryChecks');grid.replaceChildren();
+ for(const cat of state.categories){
+  const label=node('label'),input=node('input');input.type='checkbox';input.value=cat.id;input.checked=state.examSelectedIds.has(cat.id);
+  input.addEventListener('change',()=>{
+   if(input.checked)state.examSelectedIds.add(cat.id);else state.examSelectedIds.delete(cat.id);
+   updateRandomAvailability();
+  });
+  label.append(input,node('span','',cat.id+' '+cat.title+' · '+cat.count+'問'));grid.append(label);
+ }
+ updateRandomAvailability();
+}
+function showRandomSetup(){
+ if(state.mode!=='entrance')return;
+ closeReadingMission();closeExplanation();cancelRecognition();
+ if(state.examSession)saveExamSession('exited');
+ state.fetchToken++;state.examType='random';state.unit=null;
+ $('gtLesson').hidden=true;$('gtExamResult').hidden=true;$('gtContent').hidden=true;$('gtStudyBar').hidden=true;
+ $('gtPicker').hidden=false;$('gtCategoriesPanel').hidden=true;$('gtUnitsPanel').hidden=true;
+ setHeaderBack('学習メニュー');updateExamModeUi();renderRandomCategories();
+}
+async function startRandomExam(){
+ if(state.mode!=='entrance'||!examTools)return;
+ const categories=randomCategories(),requested=Number($('gtExamQuestionCount').value);
+ if(!categories.length||!Number.isInteger(requested)||requested<1){
+  $('gtExamRandomStatus').textContent='文法カテゴリーと1以上の問題数を選択してください。';return;
+ }
+ const token=++state.fetchToken,pools=[];
+ $('gtExamStartRandom').disabled=true;
+ $('gtExamRandomStatus').textContent='問題を準備しています…';
+ try{
+  for(let i=0;i<categories.length;i+=4){
+   const group=categories.slice(i,i+4);
+   const loaded=await Promise.all(group.map(async cat=>{
+    const key='entrance|'+cat.id;
+    let bank=state.cache.get(key);
+    if(!bank){bank=await getJson(cat.url);state.cache.set(key,bank);}
+    return {id:cat.id,questions:(bank.questions||[]).map(core.normalizeQuestion).filter(Boolean)};
+   }));
+   if(token!==state.fetchToken)return;
+   pools.push(...loaded);
+   $('gtExamRandomStatus').textContent='問題を準備しています… '+Math.min(categories.length,i+4)+' / '+categories.length+'カテゴリー';
+  }
+  const selection=examTools.select(pools,requested);
+  if(token!==state.fetchToken)return;
+  if(!selection.length)throw Error('有効な問題がありません');
+  state.examType='random';state.category='random';
+  state.examLastConfig={type:'random',categories:categories.map(x=>x.id),scope:state.examScope,count:requested};
+  state.unit={id:'random',title:'ランダム出題 · '+selection.length+'問',items:selection};
+  startLesson();
+ }catch(e){
+  if(token!==state.fetchToken)return;
+  $('gtExamRandomStatus').textContent='問題の読み込みに失敗しました。接続を確認して再挑戦してください。';
+  console.error('Exam random load failed',e);
+ }finally{
+  if(token===state.fetchToken)updateRandomAvailability();
+ }
+}
+function showExamResult(session){
+ $('gtPicker').hidden=true;$('gtLesson').hidden=true;$('gtContent').hidden=false;$('gtExamResult').hidden=false;
+ $('gtExamResultTitle').textContent=session?.type==='random'?'ランダム出題の結果':'カテゴリー別問題の結果';
+ const correct=Number(session?.correct)||0,answered=Number(session?.answered)||0,planned=Number(session?.total)||0;
+ $('gtExamResultRate').textContent=(examTools?.accuracy(correct,answered)||0)+'%';
+ $('gtExamResultCount').textContent=correct+' / '+answered+' 正解';
+ $('gtExamResultDetail').textContent='出題 '+planned+'問 · 学習結果はこの端末に保存されました。';
+ setHeaderBack('出題設定');window.scrollTo({top:0,behavior:'instant'});
+}
+
 
 function renderOverallProgress(){
  for(const mode of Object.keys(SETTINGS)){
