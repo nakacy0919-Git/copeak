@@ -83,6 +83,7 @@ async function run(){
  assert.equal(dom.gtExamRandomPanel.hidden,true);
 
  // One or multiple categories, with an explicit number of questions.
+ dom.gtExamQuestionCount.value='20';
  dom.gtExamRandomMode.click();
  assert.equal(dom.gtExamRandomPanel.hidden,false);
  assert.equal(dom.gtCategoriesPanel.hidden,true);
