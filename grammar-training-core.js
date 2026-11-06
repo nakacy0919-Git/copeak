@@ -105,6 +105,21 @@ function focusRanges(sentence,meta={}){
  if(has(/Let.s|勧誘|誘う/i))add(/\bLet['’]s\b/gi,105);
  if(has(/状態動詞|使える場合・使えない|現在形/i))add(/\b(?:know|knows|own|owns|taste|tastes|seem|seems|believe|believes|have|has|like|likes|love|loves|think|thinks)\b/gi,82);
 
+
+ if(has(/付加疑問文/i))add(/\b(?:shall\s+we|will\s+you|don't\s+you|isn't\s+it|aren't\s+they|didn't\s+you)\b/gi,117);
+ if(has(/挿入|注釈|つなぎ表現/i))add(/\b(?:for\s+example|in\s+fact|by\s+the\s+way|however|therefore|after\s+all)\b/gi,101);
+ if(has(/直接話法|間接話法/i))add(/\b(?:said|told|asked|replied|explained|reported)\b/gi,99);
+ if(has(/定冠詞the/i))exact('the',110,true);
+ if(has(/不定冠詞a・an/i))add(/\b(?:a|an)\b/gi,105);
+ if(has(/some：/i))exact('some',112,true);
+ if(has(/\bit：|^it：/i))exact('it',108,true);
+ if(has(/人々一般/i))add(/\b(?:we|you|they|one|people|others)\b/gi,99);
+ if(has(/限定詞なし/i))add(/^[A-Za-z]{3,}\b/g,91);
+ if(has(/数量|複数の物が関わる/i))add(/\b(?:spoonfuls|pairs|friends|pieces|glasses|slices|bottles|cups|liters|meters|students)\b/gi,85);
+ if(has(/形容詞/i))add(/\b(?:alone|certain|asleep|awake|afraid|alive|well|ill|elderly|former|main|only|present|responsible)\b/gi,88);
+ if(has(/時を表す副詞・副詞句|複数の副詞の並べ方/i))add(/\b(?:at|on|in)\s+(?:a\s+)?[A-Za-z]+(?:\s+[A-Za-z]+)?\b/gi,81);
+ if(has(/時・場所を表すat|前置詞＋名詞・代名詞/i))add(/\b(?:at|on|in|beside)\b/gi,92);
+
  // A modifier explicitly described as an adverb is not the S/V/C focus.
  const excluded=new Set();
  if(has(/文型|基本構造/)){
