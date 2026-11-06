@@ -276,7 +276,7 @@ function closeReadingMission(){
  cancelRecognition();
 }
 function canAdvanceExam(){
- return state.examCorrect===true||state.missionSkipped||state.missionCleared;
+ return state.examType==='random'&&state.answered||state.examCorrect===true||state.missionSkipped||state.missionCleared;
 }
 function updateMissionActions(){
  if(state.mode!=='entrance')return;
@@ -284,7 +284,7 @@ function updateMissionActions(){
  $('gtLessonNext').hidden=!allowed;$('gtLessonNext').disabled=!allowed;
  $('gtModalNext').hidden=!allowed;
  $('gtMissionNext').hidden=!allowed;
- $('gtMissionSkip').hidden=state.missionSkipped||state.missionCleared;
+ $('gtMissionSkip').hidden=state.examType==='random'||state.missionSkipped||state.missionCleared;
  $('gtOpenReading').hidden=!state.answered;
  $('gtOpenReading').textContent=state.missionCleared?'音読ミッションを復習':state.missionSkipped?'音読をもう一度練習':'音読ミッションへ';
  $('gtMissionStatus').textContent=state.missionCleared?'ミッションクリア！ 次の英文に進めます。':state.missionSkipped?'音読はスキップしました。次の英文に進めます。':state.examCorrect?'音読は任意です。次の英文に進むこともできます。':'5段階クリアで次の英文へ。スキップもできます。';
@@ -297,7 +297,7 @@ function openReadingMission(){
  if(!dlg.open){if(typeof dlg.showModal==='function')dlg.showModal();else dlg.setAttribute('open','');}
 }
 function leaveExplanation(){
- if(state.mode==='entrance'&&state.answered)openReadingMission();
+ if(state.mode==='entrance'&&state.answered&&state.examType!=='random')openReadingMission();
  else closeExplanation();
 }
 function skipReadingMission(){
@@ -353,16 +353,21 @@ function renderUnitCards(){
  list.replaceChildren(fragment);fitGrid(list,state.units.length);updatePager('unit');
 }
 function showCategoryPicker(){
- closeReadingMission();closeExplanation();cancelRecognition();state.fetchToken++;setHeaderBack('学習メニュー');
+ closeReadingMission();closeExplanation();cancelRecognition();
+ if(state.examSession)saveExamSession('exited');
+ state.examType='category';state.fetchToken++;setHeaderBack('学習メニュー');
  $('gtLesson').hidden=true;$('gtContent').hidden=true;$('gtStudyBar').hidden=true;
- $('gtPicker').hidden=false;$('gtCategoriesPanel').hidden=false;$('gtUnitsPanel').hidden=true;
- renderCategoryCards();
+ $('gtPicker').hidden=false;$('gtCategoriesPanel').hidden=false;$('gtUnitsPanel').hidden=true;$('gtExamResult').hidden=true;
+ updateExamModeUi();renderCategoryCards();
 }
 function showTopicPicker(){
- closeReadingMission();closeExplanation();cancelRecognition();setHeaderBack('カテゴリーへ');
+ if(state.mode==='entrance'&&state.examType==='random'){showRandomSetup();return;}
+ closeReadingMission();closeExplanation();cancelRecognition();
+ if(state.examSession)saveExamSession('exited');
+ setHeaderBack('カテゴリーへ');
  $('gtLesson').hidden=true;$('gtContent').hidden=true;$('gtStudyBar').hidden=true;
- $('gtPicker').hidden=false;$('gtCategoriesPanel').hidden=true;$('gtUnitsPanel').hidden=false;
- if(state.units.length)renderUnitCards();
+ $('gtPicker').hidden=false;$('gtCategoriesPanel').hidden=true;$('gtUnitsPanel').hidden=false;$('gtExamResult').hidden=true;
+ updateExamModeUi();if(state.units.length)renderUnitCards();
 }
 function unitStatus(s){$('gtUnitMeta').textContent=s;}
 function micStatus(s){$('gtRecognitionStatus').textContent=s||'';}
@@ -507,9 +512,11 @@ function cancelRecognition(){
 async function changeMode(mode){
  if(!SETTINGS[mode])return;closeReadingMission();closeExplanation();cancelRecognition();if(window.speechSynthesis)window.speechSynthesis.cancel();
  document.body.classList.add('gt-in-workspace');setHeaderBack('学習メニュー');
- state.mode=mode;state.categories=[];state.units=[];state.category='';state.unit=null;state.items=[];state.manifest=null;state.categoryPage=0;state.unitPage=0;
- $('gtLanding').hidden=true;$('gtWorkspace').hidden=false;$('gtWelcome').hidden=true;$('gtLesson').hidden=true;
+ if(state.examSession)saveExamSession('exited');
+ state.mode=mode;state.examType='category';state.categories=[];state.units=[];state.category='';state.unit=null;state.items=[];state.manifest=null;state.categoryPage=0;state.unitPage=0;
+ $('gtLanding').hidden=true;$('gtWorkspace').hidden=false;$('gtWelcome').hidden=true;$('gtLesson').hidden=true;$('gtExamResult').hidden=true;
  $('gtPicker').hidden=false;$('gtCategoriesPanel').hidden=false;$('gtUnitsPanel').hidden=true;$('gtContent').hidden=true;$('gtStudyBar').hidden=true;
+ updateExamModeUi();
  $('gtModeTitle').textContent=SETTINGS[mode].name;$('gtModeTotal').textContent='読み込み中…';
  $('gtCategory').replaceChildren();$('gtUnit').replaceChildren();$('gtCategoryCards').replaceChildren();$('gtUnitList').replaceChildren();$('gtStart').disabled=true;unitStatus('読み込み中…');
  const token=++state.fetchToken;
@@ -521,6 +528,7 @@ async function changeMode(mode){
   renderCategoryCards();
   const total=mode==='entrance'?manifest.total_questions:manifest.total_sentences;
   if(Number(total)>0){state.totals[mode]=Number(total);renderOverallProgress();}
+  if(mode==='entrance'){renderRandomCategories();updateExamModeUi();}
   $('gtModeTotal').textContent=Number(total||0).toLocaleString('ja-JP')+(mode==='entrance'?'問':'例文');
   // Category is selected from the visible first page.
  }catch(e){if(token!==state.fetchToken)return;unitStatus('教材を読み込めませんでした。接続とファイルの配置を確認してください。');console.error(e);}
@@ -543,6 +551,7 @@ async function loadCategory(id){
    state.units=(bank.units||[]).map(t=>({id:t.id,title:t.title,items:(t.sentences||[]).map(core.makeReading).filter(Boolean)}));
   }
   state.units=state.units.filter(x=>x.items.length);
+  $('gtExamCategoryQuestionCount').value='';
   if(!state.units.length)throw Error('学習例文がありません');
   $('gtUnit').replaceChildren(...state.units.map(u=>new Option(u.title,u.id)));
   renderUnitCards();
@@ -551,6 +560,7 @@ async function loadCategory(id){
 }
 function selectUnit(id){
  state.unit=state.units.find(u=>u.id===id)||null;if(!state.unit)return;
+ if(state.mode==='entrance')$('gtExamCategoryQuestionCount').max=String(state.unit.items.length);
  cancelRecognition();$('gtUnit').value=id;
  $('gtUnitList').querySelectorAll('[data-unit]').forEach(b=>{const on=b.dataset.unit===id;b.classList.toggle('is-selected',on);b.setAttribute('aria-pressed',String(on));});
  const stat=progressEngine.unit(state.progress.records,state.mode,state.unit.items);
@@ -558,10 +568,22 @@ function selectUnit(id){
  $('gtStart').disabled=false;$('gtLesson').hidden=true;$('gtWelcome').hidden=true;
 }
 function startLesson(){
- if(!state.unit)return;cancelRecognition();state.items=state.unit.items;state.index=0;state.sessionCorrect=0;state.sessionAnswered=0;
+ if(!state.unit)return;
+ cancelRecognition();
+ let items=state.unit.items;
+ if(state.mode==='entrance'&&state.examType==='category'){
+  const selected=String($('gtExamCategoryQuestionCount').value).trim();
+  if(selected){
+   const count=examTools?.clampCount(Number(selected),items.length)||items.length;
+   items=items.slice(0,count);
+  }
+ }
+ state.items=items;state.index=0;state.sessionCorrect=0;state.sessionAnswered=0;
+ if(state.mode==='entrance'&&state.examType==='category')state.examLastConfig={type:'category',category:state.category,unitId:state.unit.id,count:items.length};
+ beginExamSession();
  $('gtLessonTitle').textContent=state.unit.title;
- $('gtTopicLabel').textContent=categoryName(state.categories.find(x=>x.id===state.category)||{});
- $('gtPicker').hidden=true;$('gtStudyBar').hidden=true;$('gtContent').hidden=false;setHeaderBack('文法項目へ');
+ $('gtTopicLabel').textContent=state.mode==='entrance'&&state.examType==='random'?'選択した文法カテゴリーからランダム出題':categoryName(state.categories.find(x=>x.id===state.category)||{});
+ $('gtPicker').hidden=true;$('gtExamResult').hidden=true;$('gtStudyBar').hidden=true;$('gtContent').hidden=false;setHeaderBack(state.examType==='random'?'出題設定':'文法項目へ');
  $('gtWelcome').hidden=true;$('gtLesson').hidden=false;renderItem();
  window.scrollTo({top:0,behavior:'instant'});
 }
@@ -574,6 +596,7 @@ function renderItem(){
  $('gtProgressBar').style.width=(100*(state.index+1)/state.items.length)+'%';
  $('gtLessonNext').textContent=state.index===state.items.length-1?'学習を終える':'次の英文へ →';
  $('gtQuizScore').textContent=state.mode==='entrance'?'4択正解 '+state.sessionCorrect+' / '+state.sessionAnswered:'';
+ updateExamAccuracy();
  const quiz=state.mode==='entrance';$('gtQuiz').hidden=!quiz;$('gtReading').hidden=quiz;$('gtLessonNext').disabled=quiz;$('gtLessonNext').hidden=quiz;
  $('gtFeedback').hidden=true;$('gtWrongExplanations').replaceChildren();$('gtSelectedWrong').hidden=true;
  const details=$('gtWrongExplanations').closest('details');if(details)details.open=false;
@@ -598,11 +621,13 @@ function answer(i){
  $('gtSelectedWrong').textContent=selectedReason?'選んだ答え：'+core.LETTERS[i]+'　'+selectedReason:'';
  const wrongs=$('gtWrongExplanations');wrongs.replaceChildren();
  core.LETTERS.forEach((letter,k)=>{if(k===q.answerIndex)return;const reason=q.wrong&&q.wrong[letter];if(reason)wrongs.append(node('div','',letter+'：'+reason));});
- $('gtFeedback').hidden=false;$('gtQuizScore').textContent='4択正解 '+state.sessionCorrect+' / '+state.sessionAnswered;
+ $('gtFeedback').hidden=false;$('gtQuizScore').textContent='4択正解 '+state.sessionCorrect+' / '+state.sessionAnswered+' · 正解率 '+(examTools?.accuracy(state.sessionCorrect,state.sessionAnswered)||0)+'%';
+ updateExamAccuracy();
  const prev=progress(q.id);
  save(q.id,{mcAttempts:(prev.mcAttempts||0)+1,mcCorrect:(prev.mcCorrect||0)+(ok?1:0),lastChoiceCorrect:ok});
+ recordExamAnswer(ok);
  $('gtReading').hidden=false;prepareReading();updateMissionActions();
- $('gtModalClose').textContent=ok?'音読を練習する':'音読ミッションへ';
+ $('gtModalClose').textContent=state.examType==='random'?'問題へ戻る':ok?'音読を練習する':'音読ミッションへ';
  showAnswerFeedback(ok);
 }
 function readingItem(){
@@ -826,7 +851,11 @@ function nextStage(){
  }
 }
 function endLesson(){
- const summary=state.mode==='entrance'?'4択 '+state.sessionCorrect+' / '+state.sessionAnswered+' 正解':'例文 '+state.items.length+' 文';
+ if(state.mode==='entrance'){
+  const summary=saveExamSession('completed')||{type:state.examType,total:state.items.length,answered:state.sessionAnswered,correct:state.sessionCorrect};
+  showExamResult(summary);return;
+ }
+ const summary='例文 '+state.items.length+' 文';
  showTopicPicker();unitStatus('完了：'+summary+' · 次の項目を選べます');
  // The same topic page remains visible after completing the lesson.
 }
