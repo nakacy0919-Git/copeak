@@ -550,7 +550,7 @@ async function loadCategory(id){
   if(state.mode==='entrance'){
    state.units=[...core.groupedQuestions(bank.questions).entries()].map(([pid,qs])=>({id:pid,title:pid+' · '+((state.manifest.point_titles||{})[pid]||qs[0].subtopic||'文法演習'),items:qs}));
   }else if(state.mode==='senior'){
-   state.units=(bank.topics||[]).map(t=>({id:id+'-'+t.fact_id,title:'FACT '+t.fact_id+' · '+t.title,items:(t.sentences||[]).map(core.makeReading).filter(Boolean)}));
+   state.units=(bank.topics||[]).map(t=>({id:id+'-'+t.fact_id,title:'FACT '+t.fact_id+' · '+t.title,hint:t.pattern_hint||'',items:(t.sentences||[]).map(core.makeReading).filter(Boolean)}));
   }else{
    state.units=(bank.units||[]).map(t=>({id:t.id,title:t.title,items:(t.sentences||[]).map(core.makeReading).filter(Boolean)}));
   }
@@ -657,12 +657,32 @@ function renderStage(){
  const q=readingItem();if(!q)return;const step=core.STAGES[state.stage-1],rec=progress(q.id),unlocked=Math.min(5,(rec.cleared||0)+1);
  $('gtReadingHeading').textContent=(state.mode==='entrance'?(state.extra?'別例文':'完成英文'):'基礎例文')+' · Level '+state.stage+' / 5 · '+step.label;
  const readingText=$('gtReadingText');readingText.replaceChildren();
+ const question=item(),unitTitle=state.unit?.title||'';
+ const focus=core.focusRanges?.(q.sentence,{
+  title:state.mode==='entrance'?(state.manifest?.point_titles?.[question?.pointId]||unitTitle):unitTitle,
+  hint:state.unit?.hint||'',
+  category:state.mode==='entrance'?(state.categories.find(c=>c.id===question?.categoryId)?.title||''):'',
+  rule:question?.rule||'',explanation:question?.explanation||'',
+  answer:question?.options?.[question?.answerIndex]||''
+ })||[];
+ let cursor=0;
  for(const part of core.maskedParts(q.sentence,state.stage)){
-  if(!part.hidden){readingText.append(document.createTextNode(part.text));continue;}
-  const mask=node('span','gt-word-mask');
-  mask.style.setProperty('--gt-mask-width',Math.min(13,Math.max(2,part.length+.6))+'ch');
-  mask.setAttribute('role','img');mask.setAttribute('aria-label','hidden word');
-  readingText.append(mask);
+  if(part.hidden){
+   const mask=node('span','gt-word-mask');
+   mask.style.setProperty('--gt-mask-width',Math.min(13,Math.max(2,part.length+.6))+'ch');
+   mask.setAttribute('role','img');mask.setAttribute('aria-label','hidden word');
+   readingText.append(mask);cursor+=part.length;continue;
+  }
+  const end=cursor+part.text.length;let position=cursor;
+  for(const range of focus){
+   const start=Math.max(cursor,range.start),finish=Math.min(end,range.end);
+   if(start>=finish)continue;
+   if(start>position)readingText.append(document.createTextNode(q.sentence.slice(position,start)));
+   readingText.append(node('span','gt-grammar-focus',q.sentence.slice(start,finish)));
+   position=finish;
+  }
+  if(position<end)readingText.append(document.createTextNode(q.sentence.slice(position,end)));
+  cursor=end;
  }
  readingText.classList.toggle('is-masked',state.stage>1);
  $('gtJapanese').textContent=q.japanese;$('gtPassCondition').textContent='合格基準：'+step.threshold+'% 以上';
