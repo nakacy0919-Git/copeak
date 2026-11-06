@@ -6927,6 +6927,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 let fsAiUtterance = null;
 let isFsAudioPlaying = false;
+let fsOriginalAudioPlaybackSeq = 0;
 
 window.isFsImageShowing = false;
 
@@ -7559,62 +7560,78 @@ function toggleFsAIVoice() {
 }
 
 function toggleFsOriginalAudio() {
-
     const audioPlayer = document.getElementById('audioPlayer');
     const btn = document.getElementById('fsOriginalAudioBtn');
+    if (!audioPlayer || !btn) return;
 
-    if (!audioPlayer) return;
-
-    if (window.speechSynthesis.speaking) {
-
-        window.speechSynthesis.cancel();
-
-        const aiBtn = document.getElementById('fsAiVoiceBtn');
-
-        aiBtn.innerHTML =
-            '🤖 AI ▶';
-
-        aiBtn.classList.remove('bg-red-600', 'hover:bg-red-700');
-        aiBtn.classList.add('bg-purple-600', 'hover:bg-purple-700');
-    }
-
-    if (isFsAudioPlaying) {
-
-        audioPlayer.pause();
-
-        btn.innerHTML =
-            '🎧 ▶';
-
+    const setStopped = (failed = false) => {
+        isFsAudioPlaying = false;
+        btn.innerHTML = failed ? '🎧 再試行' : '🎧 ▶';
         btn.classList.remove('bg-red-600', 'hover:bg-red-700');
         btn.classList.add('bg-blue-600', 'hover:bg-blue-700');
+        btn.setAttribute('aria-pressed', 'false');
+    };
+    const reportPlaybackFailure = error => {
+        console.warn('[Copeak] original MP3 playback failed:', error);
+        if (typeof showMsg === 'function') {
+            showMsg('⚠ モデル音声を再生できません。音量・通信状態を確認して再試行してください。AI音声も利用できます。');
+        }
+        setStopped(true);
+    };
 
-        isFsAudioPlaying = false;
+    if (isFsAudioPlaying) {
+        ++fsOriginalAudioPlaybackSeq;
+        audioPlayer.pause();
+        setStopped();
+        return;
+    }
 
-    } else {
+    if (window.speechSynthesis?.speaking) {
+        window.speechSynthesis.cancel();
+        const aiBtn = document.getElementById('fsAiVoiceBtn');
+        if (aiBtn) {
+            aiBtn.innerHTML = '🤖 AI ▶';
+            aiBtn.classList.remove('bg-red-600', 'hover:bg-red-700');
+            aiBtn.classList.add('bg-purple-600', 'hover:bg-purple-700');
+        }
+    }
 
-        audioPlayer.play();
-
-        btn.innerHTML =
-            '🎧 ⏹';
-
+    // Invoke play synchronously in the user's tap handler (required on iPad).
+    const seq = ++fsOriginalAudioPlaybackSeq;
+    const markPlaying = () => {
+        if (seq !== fsOriginalAudioPlaybackSeq || audioPlayer.paused) return;
+        btn.innerHTML = '🎧 ⏹';
         btn.classList.remove('bg-blue-600', 'hover:bg-blue-700');
         btn.classList.add('bg-red-600', 'hover:bg-red-700');
-
+        btn.setAttribute('aria-pressed', 'true');
         isFsAudioPlaying = true;
+    };
+    const fail = error => {
+        if (seq !== fsOriginalAudioPlaybackSeq) return;
+        reportPlaybackFailure(error);
+    };
 
-        audioPlayer.onended = () => {
+    audioPlayer.onended = () => {
+        if (seq === fsOriginalAudioPlaybackSeq) setStopped();
+    };
+    audioPlayer.onerror = () => {
+        if (seq === fsOriginalAudioPlaybackSeq) {
+            reportPlaybackFailure(audioPlayer.error || new Error('Audio resource unavailable'));
+        }
+    };
 
-            btn.innerHTML =
-                '🎧 ▶';
-
-            btn.classList.remove('bg-red-600', 'hover:bg-red-700');
-            btn.classList.add('bg-blue-600', 'hover:bg-blue-700');
-
-            isFsAudioPlaying = false;
-        };
+    try {
+        const promise = audioPlayer.play();
+        if (promise && typeof promise.then === 'function') {
+            btn.innerHTML = '🎧 読込中…';
+            promise.then(markPlaying).catch(fail);
+        } else {
+            markPlaying();
+        }
+    } catch (error) {
+        fail(error);
     }
 }
-
 
 // ==========================================
 // ★追加・改修: 未発話語彙リストと個別発音練習機能（爆速判定・サウンド・大文字維持 対応版）
