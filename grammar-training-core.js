@@ -22,7 +22,77 @@ function maskedParts(sentence,step){
  if(cursor<text.length)parts.push({text:text.slice(cursor),hidden:false});
  return parts;
 }
+
+/* Reading-only emphasis: preserves the original sentence for TTS and Accuracy scoring. */
+function focusRanges(sentence,meta={}){
+ const text=String(sentence||''),title=String(meta.title||''),hint=String(meta.hint||''),topic=[title,hint,meta.category||''].join(' ');
+ if(!text)return [];
+ const candidates=[],stop=new Set(['the','and','for','with','from','this','that','these','those','some','such','sentence','example','fact','english','japanese','grammar','a','an','of','in','on','as','to','be','is','are','was','were','do','does','did','s','v','o','c','p','pp']);
+ function add(regex,score){
+  const rx=new RegExp(regex.source,regex.flags.includes('g')?regex.flags:regex.flags+'g');
+  for(const m of text.matchAll(rx))if(m[0].trim()&&m[0].length<=55)candidates.push({start:m.index,end:m.index+m[0].length,score});
+ }
+ function exact(term,score){
+  const value=String(term||'').trim().replace(/\s+/g,' ');
+  if(value.length<2||value.length>48||stop.has(value.toLowerCase())||!/^[A-Za-z][A-Za-z'’ -]*$/.test(value))return;
+  add(new RegExp('(?<![A-Za-z])'+value.replace(/\s+/g,'\\s+')+'(?![A-Za-z])','gi'),score);
+ }
+ function phrases(value,score){
+  for(const raw of String(value||'').match(/[A-Za-z][A-Za-z'’-]*(?:\s+[A-Za-z][A-Za-z'’-]*){0,4}/g)||[]){
+   const term=raw.trim();
+   if(term.length>=3&&!stop.has(term.toLowerCase()))exact(term,score+Math.min(10,term.split(/\s+/).length*2));
+  }
+ }
+ const has=rx=>rx.test(topic);
+ for(const target of Array.isArray(meta.focus)?meta.focus:[])exact(target,145);
+ phrases(hint,106);
+ phrases(title.replace(/^FACT\s*\d+\s*[·:：-]?\s*/i,''),99);
+ if(has(/完了|have\s|has\s|had\s|perfect/i))add(/\b(?:will\s+have|have|has|had)(?:\s+not)?\s+(?:been\s+)?[a-z]+(?:\s+[a-z]+ing)?\b/gi,96);
+ if(has(/受動|passive/i))add(/\b(?:am|is|are|was|were|be|been|being)(?:\s+\w+)?\s+(?:\w+ed|known|seen|made|given|taken|written|built|found|done|sent|told|bought|left|put|set|read|born)\b/gi,98);
+ if(has(/不定詞|infinitive/i))add(/\b(?:not\s+)?to\s+[a-z]+\b/gi,100);
+ if(has(/進行|動名詞|現在分詞|分詞|gerund/i))add(/\b(?:am|is|are|was|were|be|been|being)?\s*\b[a-z]+ing\b/gi,94);
+ if(has(/関係代名詞|関係副詞|関係詞|複合関係|relative/i))add(/\b(?:who|whom|whose|which|that|where|when|why|whoever|whatever|whichever)\b/gi,93);
+ if(has(/疑問詞|間接疑問|wh語/i))add(/\b(?:what|which|who|whom|whose|where|when|why|how|whether)\b/gi,93);
+ if(has(/助動詞|must|may|might|should|shall|can|could|would|will|have to|used to|had better/i))add(/\b(?:must|may|might|can|could|should|shall|will|would|ought\s+to|have\s+to|has\s+to|had\s+to|had\s+better|used\s+to)(?:\s+not)?\b/gi,93);
+ if(has(/仮定|wish|if only|as if|条件/i))add(/\b(?:if\s+only|as\s+if|i\s+wish|if|wish|would|could|were|had)\b/gi,91);
+ if(has(/比較|原級|最上級|比較級|as\s+.*as/i)){
+  add(/\bas\s+(?:\w+\s+){1,3}as\b/gi,97);
+  add(/\b(?:more|most|less|least|better|best|worse|worst|than)\b|\b[a-z]{3,}(?:er|est)\b/gi,91);
+ }
+ if(has(/否定|禁止|not|never/i))add(/\b(?:do(?:es)?\s+not|did\s+not|is\s+not|are\s+not|was\s+not|were\s+not|cannot|can't|won't|don't|doesn't|didn't|never|neither|nothing|no\s+longer|not\s+only|not)\b/gi,95);
+ if(has(/疑問文|疑問詞|付加疑問/i))add(/\b(?:am|is|are|was|were|do|does|did|can|could|will|would|should|what|who|which|when|where|why|how)\b/gi,85);
+ if(has(/接続|従属節|副詞節|conjunction/i))add(/\b(?:as\s+soon\s+as|as\s+long\s+as|even\s+though|so\s+that|in\s+case|because\s+of|because|although|though|unless|whether|whereas|while|until|before|after|when|if|since|that|and|but|or|so)\b/gi,91);
+ if(has(/前置詞|前置き|preposition/i)){
+  const match=title.match(/\b(about|above|across|after|against|along|among|around|at|before|behind|between|beyond|by|during|for|from|in|into|of|on|over|through|to|toward|under|with|within|without)\s*[:：]/i);
+  if(match)exact(match[1],112);
+  else add(/\b(?:about|above|across|after|against|along|among|around|at|before|behind|between|beyond|by|during|for|from|into|over|through|towards?|under|within|without)\b/gi,62);
+ }
+ if(has(/be動詞|be\s*\/|be疑問/i))add(/\b(?:am|is|are|was|were|be|been)\b/gi,92);
+ if(has(/三人称単数|三単現/i))add(/\b(?:has|does|goes|watches|teaches|studies|plays|likes|works|lives|speaks|reads|takes|makes|gets|needs|wants|knows|seems)\b/gi,91);
+ if(has(/過去形|過去の|past/i))add(/\b(?:was|were|did|went|saw|had|took|made|came|gave|bought|knew|wrote|ate|got|said|thought|found|felt|left|lost|slept|told|read|[a-z]{3,}ed)\b/gi,78);
+ if(has(/動詞-ing|現在進行|進行形/i))add(/\b(?:am|is|are|was|were)\s+[a-z]+ing\b/gi,102);
+ if(has(/名詞|代名詞|所有|冠詞|限定詞/i))add(/\b(?:my|your|his|her|its|our|their|mine|yours|hers|ours|theirs|itself|himself|herself|themselves|this|these|those|each|every|either|neither|both|all|some|any)\b/gi,66);
+ if(has(/形容詞|adjective/i))add(/\b[a-z]{4,}(?:ful|less|able|ible|ous|ive|al|ic)\b/gi,72);
+ if(has(/副詞|adverb/i))add(/\b[a-z]{3,}ly\b/gi,76);
+ if(has(/現在形|一般動詞/i))add(/\b(?:play|plays|study|studies|live|lives|speak|speaks|like|likes|walk|walks|eat|eats|work|works|know|knows|have|has|go|goes|take|takes|think|thinks)\b/gi,77);
+ phrases(meta.rule,88);
+ phrases(meta.explanation,66);
+ exact(meta.answer,82);
+ if(!candidates.length){
+  add(/\b(?:have\s+to|used\s+to|be\s+going\s+to|as\s+soon\s+as|look\s+forward\s+to|in\s+spite\s+of|would\s+rather|not\s+only)\b/gi,65);
+  add(/\b(?:am|is|are|was|were|have|has|had|do|does|did|can|could|will|would|must|should|may|might|if|when|who|which|that|because|although|than|to\s+[a-z]+|[a-z]{4,}(?:ed|ing))\b/gi,53);
+ }
+ candidates.sort((a,b)=>b.score-a.score||(b.end-b.start)-(a.end-a.start)||a.start-b.start);
+ const chosen=[];
+ for(const c of candidates){
+  if(chosen.some(x=>c.start<x.end&&x.start<c.end))continue;
+  if(chosen.length>=3)break;
+  chosen.push(c);
+ }
+ return chosen.sort((a,b)=>a.start-b.start).map(({start,end})=>({start,end}));
+}
+
 function hideWords(sentence,step){return maskedParts(sentence,step).map(part=>part.hidden?'_____':part.text).join('');}
 function stageCanAdvance(step,percent){return Number.isFinite(percent)&&percent>=STAGES[Math.min(5,Math.max(1,Number(step)||1))-1].threshold;}
 function makeReading(raw){if(!raw)return null;const english=String(raw.english||raw.sentence||'').trim(),japanese=String(raw.japanese||raw.ja||'').trim();if(!english||!japanese||!raw.id)return null;return{id:String(raw.id),sentence:english,japanese,example:'',exampleJa:'',priority:String(raw.priority||'')};}
-return Object.freeze({STAGES,LETTERS,normalizeQuestion,groupedQuestions,hideWords,maskedParts,stageCanAdvance,makeReading});});
+return Object.freeze({STAGES,LETTERS,normalizeQuestion,groupedQuestions,hideWords,maskedParts,stageCanAdvance,makeReading,focusRanges});});
