@@ -115,6 +115,7 @@ function focusRanges(sentence,meta={}){
  if(has(/\bit：|^it：/i))exact('it',108,true);
  if(has(/人々一般/i))add(/\b(?:we|you|they|one|people|others)\b/gi,99);
  if(has(/限定詞なし/i))add(/^[A-Za-z]{3,}\b/g,91);
+ if(has(/無冠詞|総称/i))add(/^[A-Za-z]{3,}(?:s|es)\b/g,102);
  if(has(/数量|複数の物が関わる/i))add(/\b(?:spoonfuls|pairs|friends|pieces|glasses|slices|bottles|cups|liters|meters|students)\b/gi,85);
  if(has(/形容詞/i))add(/\b(?:alone|certain|asleep|awake|afraid|alive|well|ill|elderly|former|main|only|present|responsible)\b/gi,88);
  if(has(/時を表す副詞・副詞句|複数の副詞の並べ方/i))add(/\b(?:at|on|in)\s+(?:a\s+)?[A-Za-z]+(?:\s+[A-Za-z]+)?\b/gi,81);
@@ -127,7 +128,7 @@ function focusRanges(sentence,meta={}){
  }
  phrases(meta.rule,88);
  phrases(meta.explanation,66);
- exact(meta.answer,82);
+ exact(meta.answer,94,true);
  if(!candidates.length){
   add(/\b(?:have\s+to|used\s+to|be\s+going\s+to|as\s+soon\s+as|look\s+forward\s+to|in\s+spite\s+of|would\s+rather|not\s+only)\b/gi,65);
   add(/\b(?:am|is|are|was|were|have|has|had|do|does|did|can|could|will|would|must|should|may|might|if|when|who|which|that|because|although|than|to\s+[a-z]+|[a-z]{4,}(?:ed|ing))\b/gi,53);
