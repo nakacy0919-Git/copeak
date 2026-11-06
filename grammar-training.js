@@ -656,7 +656,15 @@ function showLevelBanner(level,duration=0){
 function renderStage(){
  const q=readingItem();if(!q)return;const step=core.STAGES[state.stage-1],rec=progress(q.id),unlocked=Math.min(5,(rec.cleared||0)+1);
  $('gtReadingHeading').textContent=(state.mode==='entrance'?(state.extra?'別例文':'完成英文'):'基礎例文')+' · Level '+state.stage+' / 5 · '+step.label;
- $('gtReadingText').textContent=core.hideWords(q.sentence,state.stage);$('gtReadingText').classList.toggle('is-masked',state.stage>1);
+ const readingText=$('gtReadingText');readingText.replaceChildren();
+ for(const part of core.maskedParts(q.sentence,state.stage)){
+  if(!part.hidden){readingText.append(document.createTextNode(part.text));continue;}
+  const mask=node('span','gt-word-mask');
+  mask.style.setProperty('--gt-mask-width',Math.min(13,Math.max(2,part.length+.6))+'ch');
+  mask.setAttribute('role','img');mask.setAttribute('aria-label','hidden word');
+  readingText.append(mask);
+ }
+ readingText.classList.toggle('is-masked',state.stage>1);
  $('gtJapanese').textContent=q.japanese;$('gtPassCondition').textContent='合格基準：'+step.threshold+'% 以上';
  const tabs=$('gtStageTabs');tabs.replaceChildren();
  for(const s of core.STAGES){
