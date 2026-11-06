@@ -92,10 +92,18 @@ function focusRanges(sentence,meta={}){
  if(/\b(?:as|at|by|for|with|in|of|on|to)\s*[:：]/i.test(title)){
   exact(title.match(/\b(as|at|by|for|with|in|of|on|to)\s*[:：]/i)[1],112,true);
  }
- if(has(/助動詞|否定|禁止|had better/i)){
+ if(has(/助動詞|否定|禁止|had better|should|could|would|must|may|can|will|shall/i)){
   add(/\b[a-z]+(?:n't|n’t)\b/gi,107);
   add(/\b[a-z]+(?:'d|’d)\s+better\b/gi,108);
  }
+
+
+ if(has(/第[１２３４５12345]文型|説明型|授与型|他動型|自動型|使役|知覚|命令文|一般動詞|take・cost/i)){
+  add(/\b(?:enjoy|enjoys|sent|slept|smells|seems|became|plays|built|need|gave|told|bought|took|takes|cost|costs|call|made|make|keep|saw|heard|knock|jump|close|try|take|help|show|let|have|want|asked|persuaded|allowed|find|found|get|got)\b/gi,73);
+ }
+ if(has(/使役|知覚|第5文型|目的語説明型/i))add(/\b(?:made|make|let|saw|see|heard|hear|call|keep)\s+(?:[a-z]+\s+){0,2}[a-z]+\b/gi,101);
+ if(has(/Let.s|勧誘|誘う/i))add(/\bLet['’]s\b/gi,105);
+ if(has(/状態動詞|使える場合・使えない|現在形/i))add(/\b(?:know|knows|own|owns|taste|tastes|seem|seems|believe|believes|have|has|like|likes|love|loves|think|thinks)\b/gi,82);
 
  // A modifier explicitly described as an adverb is not the S/V/C focus.
  const excluded=new Set();
