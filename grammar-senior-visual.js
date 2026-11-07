@@ -3,6 +3,9 @@
  * For ambiguous structures use a neutral "まとまり" label instead of asserting a wrong S/V/O.
  */
 (function(root,factory){'use strict';const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;if(root)root.CopeakSeniorVisual=api;})(typeof window!=='undefined'?window:(typeof globalThis!=='undefined'?globalThis:null),function(){'use strict';
+const structureRules=typeof require==='function'
+ ?require('./grammar-senior-structure-rules.js')
+ :globalThis.CopeakSeniorStructureRules;
 const FRONT=/^(If|Unless|When|While|Although|Though|Because|Before|After|Once|Whenever|Wherever|Even if|Even though|As soon as|As long as)\b/i;
 const DEPEND=/\b(because|although|though|while|whereas|unless|until|whenever|once|if|when|before|after|as soon as|as long as)\b/i;
 const AUX=new Set(('am is are was were be been being have has had do does did will would can could cannot may might must shall should ought').split(' '));
@@ -226,7 +229,11 @@ function analyze(sentence,meta){
 function get(id,sentence,meta={}){
  if(!/^HS-\d{2}-(?:\d{3}|EX-[A-Z]|S\d{2})-\d{2}$/.test(String(id||'')))return null;
  const text=String(sentence||'').trim();if(!text)return null;
- const result=analyze(text,meta);if(!result?.segments?.length)return null;
+ let result=structureRules?.get(text,meta)||analyze(text,meta);
+ if(result?.confidence!=='verified'&&structureRules?.isRisky(text,meta,result)){
+  result={segments:neutralFocus(text,meta.core,meta),note:point(meta.title,meta.hint),relation:null,confidence:'limited'};
+ }
+ if(!result?.segments?.length)return null;
  // Every segment must quote a substring of the untouched sentence (no inserted brackets).
  if(result.segments.some(p=>!p.text||!text.includes(p.text)))return null;
  return Object.freeze({id,segments:result.segments,note:result.note,relation:result.relation,confidence:result.confidence});
