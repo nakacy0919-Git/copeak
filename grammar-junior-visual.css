@@ -275,10 +275,11 @@
  color:#ab4016;
 }
 .gt-junior-dialog .gj-chip.gj-phrase{
- background:#faf6ff;
- border-color:#b8a3d9;
+ background:#fff2e9;
+ border-color:#e9a879;
 }
-.gt-junior-dialog .gj-chip.gj-phrase .gj-label{color:#62458b}
+.gt-junior-dialog .gj-chip.gj-phrase .gj-english,
+.gt-junior-dialog .gj-chip.gj-phrase .gj-label{color:#ab4016}
 .gt-junior-dialog .gj-chip.gj-clause {
  background:#eef6fd;
  border:1.5px dashed #84abd1;
