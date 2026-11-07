@@ -1,0 +1,167 @@
+/* Copeak reading clean-up (junior + senior only).
+   FACTBOOK-derived data IDs stay internal. Hide visual clutter without modifying
+   recognition, evaluation, existing lesson progress, or entrance-exam layouts. */
+body[data-gt-mode="junior"] #gtModeTotal,
+body[data-gt-mode="senior"] #gtModeTotal,
+#gtModeTotal[hidden],
+#gtReadingHeading[hidden],
+.gt-speech-debug[hidden]{
+ display:none!important;
+}
+body[data-gt-mode="junior"] #gtRecognitionStatus:empty,
+body[data-gt-mode="senior"] #gtRecognitionStatus:empty{
+ display:none!important;
+ min-height:0!important;
+ margin:0!important;
+ padding:0!important;
+}
+body[data-gt-mode="junior"] #gtTranscript:empty,
+body[data-gt-mode="senior"] #gtTranscript:empty{
+ margin:0!important;
+ min-height:0;
+ padding:0;
+}
+body[data-gt-mode="junior"] .gt-reading .gt-japanese,
+body[data-gt-mode="senior"] .gt-reading .gt-japanese{
+ margin:2px 0 9px!important;
+ padding:0!important;
+ border-top:none!important;
+ color:#51677e;
+ font-size:clamp(.77rem,1.1vw,.94rem);
+ line-height:1.35;
+}
+body[data-gt-mode="junior"] .gt-reading .gt-reading-text,
+body[data-gt-mode="senior"] .gt-reading .gt-reading-text{
+ margin-bottom:2px!important;
+}
+body[data-gt-mode="junior"] .gt-reading .gt-sentence-top,
+body[data-gt-mode="senior"] .gt-reading .gt-sentence-top{
+ justify-content:flex-end;
+}
+body[data-gt-mode="junior"] .gt-reading #gtJuniorGuide.gj-guide,
+body[data-gt-mode="senior"] .gt-reading #gtJuniorGuide.gj-guide{
+ margin:6px 0 2px;
+}
+/* A single inviting action replaces the auto-expanded grammar panel. */
+#gtJuniorGuide.gj-guide .gj-toggle{
+ display:inline-flex;
+ width:auto;
+ max-width:100%;
+ align-items:center;
+ justify-content:flex-start;
+ gap:9px;
+ min-height:44px;
+ padding:9px 13px;
+ margin:0;
+ color:#205277;
+ border:1px solid #b9d4ea;
+ border-radius:12px;
+ background:linear-gradient(135deg,#f6fbff 0%,#e7f2fd 100%);
+ box-shadow:0 2px 7px rgba(36,88,130,.08);
+ cursor:pointer;
+ font:inherit;
+ line-height:1.25;
+ text-align:left;
+ -webkit-tap-highlight-color:transparent;
+ transition:background .16s ease,border-color .16s ease,box-shadow .16s ease;
+}
+#gtJuniorGuide.gj-guide .gj-toggle:hover{
+ border-color:#78aed9;
+ color:#12466d;
+ background:linear-gradient(135deg,#edf7ff 0%,#dfedfc 100%);
+ box-shadow:0 3px 10px rgba(36,88,130,.12);
+}
+#gtJuniorGuide.gj-guide .gj-toggle:active{
+ background:#dbefff;
+ box-shadow:inset 0 1px 3px rgba(36,88,130,.12);
+}
+#gtJuniorGuide.gj-guide .gj-toggle:focus-visible{
+ outline:3px solid #377ec1;
+ outline-offset:3px;
+}
+#gtJuniorGuide.gj-guide .gj-toggle .gj-title{
+ color:inherit;
+ font-weight:850;
+ letter-spacing:0;
+ font-size:clamp(.78rem,1.1vw,.88rem);
+ line-height:1.3;
+}
+#gtJuniorGuide.gj-guide .gj-visual-icon{
+ display:inline-flex;
+ align-items:flex-end;
+ justify-content:center;
+ flex:0 0 30px;
+ gap:2px;
+ height:22px;
+ padding:3px 4px;
+ border:1px solid #cbdceb;
+ border-radius:6px;
+ background:#fff;
+}
+#gtJuniorGuide.gj-guide .gj-visual-bar{
+ display:block;
+ flex:1 1 0;
+ height:11px;
+ border:1px solid transparent;
+ border-radius:2px;
+}
+#gtJuniorGuide.gj-guide .gj-visual-bar-1{height:11px;background:#cfe2fa;border-color:#9bbce1}
+#gtJuniorGuide.gj-guide .gj-visual-bar-2{height:15px;background:#f4d8bf;border-color:#dea777}
+#gtJuniorGuide.gj-guide .gj-visual-bar-3{height:11px;background:#d2edd9;border-color:#91c7a2}
+#gtJuniorGuide.gj-guide .gj-chevron{
+ font-family:Inter,"Noto Sans JP",sans-serif;
+ font-size:1.3rem;
+ font-weight:850;
+ line-height:.9;
+ color:#3274a5;
+ flex:none;
+ margin-left:2px;
+}
+#gtJuniorGuide.gj-guide .gj-details{
+ margin-top:6px;
+}
+#gtJuniorGuide.gj-guide.gj-collapsed{
+ border:0;
+ border-radius:0;
+ padding:0;
+ margin:6px 0 1px;
+ background:transparent;
+ box-shadow:none;
+}
+#gtJuniorGuide.gj-guide.gj-collapsed .gj-toggle{
+ min-height:44px;
+}
+#gtJuniorGuide.gj-guide:not(.gj-collapsed) .gj-toggle{
+ display:flex;
+ width:100%;
+ min-height:36px;
+ padding:2px 3px;
+ border:0;
+ border-radius:5px;
+ background:transparent;
+ box-shadow:none;
+}
+#gtJuniorGuide.gj-guide:not(.gj-collapsed) .gj-toggle:hover{
+ background:#f0f7fe;
+}
+#gtJuniorGuide.gj-guide:not(.gj-collapsed) .gj-visual-icon{
+ flex-basis:25px;
+ height:20px;
+ padding:2px 3px;
+}
+#gtJuniorGuide.gj-guide:not(.gj-collapsed) .gj-title{font-size:.78rem}
+#gtJuniorGuide.gj-guide:not(.gj-collapsed) .gj-chevron{margin-left:auto}
+#gtJuniorGuide.gj-guide .gj-details[hidden]{display:none!important}
+@media(max-width:699px),(max-height:760px){
+ body[data-gt-mode="junior"] .gt-reading .gt-japanese,
+ body[data-gt-mode="senior"] .gt-reading .gt-japanese{
+  margin:2px 0 5px!important;font-size:.76rem;
+ }
+ #gtJuniorGuide.gj-guide.gj-collapsed{padding:0;margin:5px 0 1px}
+ #gtJuniorGuide.gj-guide.gj-collapsed .gj-toggle{min-height:42px;padding:8px 11px;gap:8px}
+ #gtJuniorGuide.gj-guide .gj-toggle .gj-title{font-size:.8rem}
+ #gtJuniorGuide.gj-guide .gj-details{margin-top:4px}
+}
+@media(prefers-reduced-motion:reduce){
+ #gtJuniorGuide.gj-guide .gj-toggle{transition:none}
+}

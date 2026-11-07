@@ -3,6 +3,9 @@
  * For ambiguous structures use a neutral "まとまり" label instead of asserting a wrong S/V/O.
  */
 (function(root,factory){'use strict';const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;if(root)root.CopeakSeniorVisual=api;})(typeof window!=='undefined'?window:(typeof globalThis!=='undefined'?globalThis:null),function(){'use strict';
+const structureRules=typeof require==='function'
+ ?require('./grammar-senior-structure-rules.js')
+ :globalThis.CopeakSeniorStructureRules;
 const FRONT=/^(If|Unless|When|While|Although|Though|Because|Before|After|Once|Whenever|Wherever|Even if|Even though|As soon as|As long as)\b/i;
 const DEPEND=/\b(because|although|though|while|whereas|unless|until|whenever|once|if|when|before|after|as soon as|as long as)\b/i;
 const AUX=new Set(('am is are was were be been being have has had do does did will would can could cannot may might must shall should ought').split(' '));
@@ -10,8 +13,8 @@ const LINK=new Set(('am is are was were be been being seem seems seemed become b
 const FINITE=new Set(('ask asks asked answer answers answered arrive arrives arrived become becomes became begin begins began believe believes believed belong belongs belonged bring brings brought build builds built buy buys bought call calls called change changes changed choose chooses chose come comes came continue continues continued cost costs create creates created decide decides decided delay delays delayed depend depends depended die dies died discuss discusses discussed eat eats ate enjoy enjoys enjoyed explain explains explained fall falls fell feel feels felt find finds found finish finishes finished follow follows followed forget forgets forgot freeze freezes froze get gets got give gives gave go goes went grow grows grew happen happens happened hate hates hated hear hears heard help helps helped hold holds held hope hopes hoped improve improves improved include includes included join joins joined keep keeps kept know knows knew land lands landed learn learns learned leave leaves left lend lends lent let lets like likes liked live lives lived look looks looked lose loses lost love loves loved make makes made mean means meant meet meets met move moves moved need needs needed offer offers offered open opens opened own owns owned pass passes passed pay pays paid play plays played prefer prefers preferred practice practices practiced promise promises promised put puts read reads reach reaches reached realize realizes realized remain remains remained remember remembers remembered remind reminds reminded repeat repeats repeated return returns returned run runs ran say says said see sees saw seem seems seemed send sends sent set sets show shows showed sing sings sang sit sits sat sleep sleeps slept smile smiles smiled sound sounds sounded speak speaks spoke spend spends spent stand stands stood start starts started stay stays stayed stop stops stopped study studies studied surprise surprises surprised take takes took talk talks talked teach teaches taught tell tells told think thinks thought throw throws threw touch touches touched travel travels traveled try tries tried turn turns turned understand understands understood use uses used visit visits visited wait waits waited walk walks walked want wants wanted watch watches watched win wins won work works worked worry worries worried write writes wrote').split(' '));
 const PREP=new Set(('about above across after against along among around as at before behind below beneath beside between beyond by during for from in inside into near of on onto out outside over since through throughout to toward towards under until up upon with within without').split(' '));
 const ADVERBS=new Set(('always often usually sometimes never already just still really nearly almost hardly scarcely seldom rarely slowly quickly quietly clearly beautifully safely perfectly confidently seriously easily frequently well hard fast only even also').split(' '));
-const INTRANSITIVE=new Set(('arrive arrives arrived go goes went come comes came fly flies flew live lives lived sleep sleeps slept work works worked wait waits waited walk walks walked stay stays stayed speak speaks spoke run runs ran sit sits sat stand stands stood fall falls fell happen happens happened laugh laughs laughed smile smiles smiled travel travels traveled grow grows grew die dies died').split(' '));
-const TIME=new Set(('today tomorrow yesterday tonight now then always often usually sometimes never already just still recently soon earlier later daily weekly').split(' '));
+const INTRANSITIVE=new Set(('arrive arrives arrived go goes went come comes came fly flies flew live lives lived sleep sleeps slept wait waits waited stay stays stayed sit sits sat stand stands stood fall falls fell happen happens happened laugh laughs laughed smile smiles smiled die dies died').split(' '));
+const TIME=new Set(('today tomorrow yesterday tonight now then here there home abroad upstairs downstairs outside inside away back always often usually sometimes never already just still recently soon earlier later daily weekly').split(' '));
 const DET=new Set(('a an the my your his her its our their this that these those some any each every many much few little several no one two three four five').split(' '));
 const REL=new Set(('who whom whose which that where when why').split(' '));
 const VERBING=/^[a-z]{3,}ing$/i;
@@ -168,6 +171,7 @@ function analyze(sentence,meta){
  const verb=emit(text,tokens,v,ve,'動詞 V','focus');
  if(!verb)return simpleReturn(neutralFocus(text,core,meta),point(title,hint),null,'limited');
  const after=tokens.length-ve;
+ const lexicalVerb=tokens[ve-1]?.w||mainVerb;
  const parts=[...subject,verb];
  // An adverb preceding the lexical verb is not part of the subject.
  if(subject.length===1&&subject[0]?.kind==='subject'&&/\b(?:always|often|usually|sometimes|never|quickly|slowly|quietly|already|just)\b/i.test(subject[0].text)){
@@ -178,7 +182,7 @@ function analyze(sentence,meta){
   const first=remainder[0].w;
   if(first==='that'||first==='whether'||(['what','how','why','where','when'].includes(first)&&/節|間接疑問|レポート|話法/.test(title))){
    parts.push(emit(text,tokens,ve,tokens.length,'目的語となる節','clause'));
-  }else if(ADVERBS.has(first)||/ly$/.test(first)&&first.length>4||INTRANSITIVE.has(mainVerb)&&!LINK.has(mainVerb)){ 
+  }else if(ADVERBS.has(first)||/ly$/.test(first)&&first.length>4||(INTRANSITIVE.has(mainVerb)||INTRANSITIVE.has(lexicalVerb))&&!LINK.has(mainVerb)){ 
    parts.push(emit(text,tokens,ve,tokens.length,'修飾語 M','modifier'));
   }else if((PREP.has(first)&&first!=='to')||TIME.has(first)||['every','last','next','this'].includes(first)&&/^(?:day|week|month|year|summer|winter|spring|autumn|fall|morning|evening|night|friday|sunday|monday)$/i.test(remainder[1]?.w||'')){
    parts.push(emit(text,tokens,ve,tokens.length,'修飾語 M','modifier'));
@@ -186,7 +190,8 @@ function analyze(sentence,meta){
    let split=-1;
    for(let i=ve+1;i<tokens.length;i++){
     const t=tokens[i].w;
-    if((PREP.has(t)&&t!=='of'&&t!=='to')||TIME.has(t)||['every','last','next','this'].includes(t)&&/^(?:day|week|month|year|summer|winter|spring|autumn|fall|morning|evening|night|weekend)$/i.test(tokens[i+1]?.w||'')){split=i;break;}
+    if((PREP.has(t)&&t!=='of'&&(t!=='to'||/^(?:the|a|an|my|your|his|her|our|their|me|you|him|us|them|it|meeting|seeing)$/i.test(tokens[i+1]?.w||'')))||
+        TIME.has(t)||ADVERBS.has(t)&&i>ve+1||/ly$/.test(t)&&i>ve+1||['every','last','next','this'].includes(t)&&/^(?:day|week|month|year|summer|winter|spring|autumn|fall|morning|evening|night|weekend)$/i.test(tokens[i+1]?.w||'')){split=i;break;}
    }
    // Relative clause attached to the noun in an object or complement.
    if(/関係/.test(title)){
@@ -226,7 +231,11 @@ function analyze(sentence,meta){
 function get(id,sentence,meta={}){
  if(!/^HS-\d{2}-(?:\d{3}|EX-[A-Z]|S\d{2})-\d{2}$/.test(String(id||'')))return null;
  const text=String(sentence||'').trim();if(!text)return null;
- const result=analyze(text,meta);if(!result?.segments?.length)return null;
+ let result=structureRules?.get(text,{...meta,id})||analyze(text,meta);
+ if(result?.confidence!=='verified'&&structureRules?.isRisky(text,meta,result)){
+  result={segments:neutralFocus(text,meta.core,meta),note:point(meta.title,meta.hint),relation:null,confidence:'limited'};
+ }
+ if(!result?.segments?.length)return null;
  // Every segment must quote a substring of the untouched sentence (no inserted brackets).
  if(result.segments.some(p=>!p.text||!text.includes(p.text)))return null;
  return Object.freeze({id,segments:result.segments,note:result.note,relation:result.relation,confidence:result.confidence});

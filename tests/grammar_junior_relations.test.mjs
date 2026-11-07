@@ -56,7 +56,7 @@ test('pastel layout has mobile fallback and masked reading has no arrow answer l
  assert.match(css,/\.gt-junior-dialog \.gj-chip\.gj-modifier/);
  assert.match(css,/\.gt-junior-dialog \.gj-chip\.gj-phrase/);
  assert.match(css,/\.gt-junior-dialog \.gj-chip\.gj-clause/);
- assert.match(main,/const link=reveal\?\(isJunior\?juniorRelations\?\.get\(diagram\):diagram\.relation\):null/);
+ assert.match(main,/const link=isJunior\?juniorRelations\?\.get\(diagram\):diagram\.relation/);
  assert.match(main,/arrow\.setAttribute\('viewBox','0 0 56 20'\)/);
  assert.match(css,/@media\(max-width:699px\)/);
 });
