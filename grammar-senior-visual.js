@@ -194,7 +194,7 @@ function analyze(sentence,meta){
  return simpleReturn(parts,point(title,hint),rel);
 }
 function get(id,sentence,meta={}){
- if(!/^HS-\d{2}-(?:\d{3}|EX-[A-Z])-\d{2}$/.test(String(id||'')))return null;
+ if(!/^HS-\d{2}-(?:\d{3}|EX-[A-Z]|S\d{2})-\d{2}$/.test(String(id||'')))return null;
  const text=String(sentence||'').trim();if(!text)return null;
  const result=analyze(text,meta);if(!result?.segments?.length)return null;
  // Every segment must quote a substring of the untouched sentence (no inserted brackets).
