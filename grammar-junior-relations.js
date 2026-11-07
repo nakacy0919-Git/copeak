@@ -4,6 +4,10 @@
 (function(root,factory){'use strict';const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;if(root)root.CopeakJuniorRelations=api;})(typeof window!=='undefined'?window:(typeof globalThis!=='undefined'?globalThis:null),function(){'use strict';
  const OVERRIDES={
   'J1-01-08':{from:3,to:2,label:'場所を説明'},
+  'J2-04-06':{from:3,to:1,label:'動作の時',targetText:'kept talking'},
+  'J2-06-05':{from:3,to:2,label:'頻度を説明'},
+  'J3-01-01':{from:3,to:1,label:'継続期間'},
+  'J3-01-08':{from:0,to:3,label:'期間を尋ねる'},
   'J2-03-02':{from:3,to:1,label:'移動の目的'},
   'J2-03-04':{from:3,to:2,label:'名詞を説明'},
   'J2-03-06':{from:3,to:2,label:'感情の理由'},
