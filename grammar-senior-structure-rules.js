@@ -118,6 +118,8 @@ function linking(sentence,meta){
  const s=tidy(sentence);
  const m=s.match(/^(.+?)\s+(am|is|are|was|were|smell|smells|smelled|taste|tastes|tasted|sound|sounds|sounded|look|looks|looked|feel|feels|felt|become|becomes|became|remain|remains|remained|seem|seems|seemed|appear|appears|appeared|grow|grows|grew)\s+(.+)$/i);
  if(!m||!m[1]||m[1].split(/\s+/).length>7)return null;
+ // Do not mistake a complement inside an earlier SVOC or subordinate clause for the main predicate.
+ if(/\b(?:will|would|can|could|should|may|might|must|do|does|did|have|has|had|make|made|makes|said|told|asked|found|knew|knows|thought|when|who|which|because|if|that)\b/i.test(m[1]))return null;
  const words=m[3].split(/\s+/),adverbs=new Set('still very really rather quite too so unusually particularly extremely extremely fairly pretty almost truly totally'.split(' '));
  let index=0;
  while(index<words.length&&adverbs.has(words[index].toLowerCase()))index++;
@@ -135,7 +137,7 @@ function linking(sentence,meta){
 
 function get(sentence,meta={}){
  const t=String(meta.title||'');
- return imperative(sentence,t)||existential(sentence,t)||linking(sentence,meta)||complex(sentence,t)||null;
+ return imperative(sentence,t)||existential(sentence,t)||complex(sentence,t)||linking(sentence,meta)||null;
 }
 return Object.freeze({get,isRisky:risk});
 });
