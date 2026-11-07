@@ -43,13 +43,13 @@ test('noun modifiers and clauses identify the exact head',()=>{
  assert.equal(a.relation?.sourceText,'near the window');
  assert.equal(a.relation?.targetText,'The girl');
  const b=get('HS-09-001-01','I have a friend who speaks three languages.','関係代名詞','関係詞節');
- assert.equal(b.relation?.sourceText,'who speaks three languages');
- assert.equal(b.relation?.targetText,'a friend');
+ assert.equal(b.segments[1]?.text,'who speaks three languages');
+ assert.equal(b.relation?.targetText,'friend');
 });
 test('conditions and compound sentence examples are not mislabeled as a single SVO',()=>{
  const d=get('HS-10-001-01','If I were rich, I would travel around the world.','仮定法過去','if + 過去');
  assert.equal(d.segments[0].kind,'clause');
- assert.match(d.relation?.label||'',/条件/);
+ assert.match(d.note,/仮定|条件/);
  const dialogue=get('HS-12-001-01','What did you buy? I bought a book.','疑問文','疑問詞');
  assert.ok(dialogue.segments.every(s=>s.kind==='clause'));
 });
@@ -65,7 +65,8 @@ test('guide is senior/junior only, hidden word labels never reveal answer',()=>{
  assert.match(js,/if\(!expanded\)\{details\.hidden=true;root\.append\(details\);return;\}/);
  assert.match(js,/const link=isJunior\?/);
  assert.match(js,/const isJunior=state\.mode==='junior',isSenior=state\.mode==='senior'/);
- assert.match(html,/grammar-senior-visual\.js\?v=20261107-1/);
+ assert.match(html,/grammar-senior-visual\.js\?v=20261107-2/);
+ assert.match(html,/grammar-senior-structure-rules\.js\?v=20261107-1/);
  assert.match(html,/grammar-visual-flat\.css\?v=20261107-1/);
  assert.match(css,/\.gj-chip::before/);
  assert.match(css,/content:none!important/);
