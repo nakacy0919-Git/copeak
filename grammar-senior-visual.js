@@ -93,7 +93,7 @@ function analyze(sentence,meta){
  const simpleReturn=(parts,note,link=null,confidence='high')=>({segments:parts.filter(Boolean),note:note||point(title,hint),relation:link,confidence});
  // Two full sentences in a single example are not one SVO frame.
  const sentenceBreak=text.match(/[.!?](?=\s+[A-Z])/);
- if(sentenceBreak){
+ if(sentenceBreak&&!/\b(?:Mr|Ms|Mrs|Dr|Prof|St)\.$/.test(text.slice(0,sentenceBreak.index+1))){
   const at=sentenceBreak.index+1,a=range(text,0,at,'前の文','clause'),b=range(text,at,trimmed.length,'後ろの文','clause');
   if(a&&b)return simpleReturn([a,b],'2つの文のつながりに注目',null,'limited');
  }
@@ -114,7 +114,7 @@ function analyze(sentence,meta){
  const comma=text.indexOf(',');
  if(FRONT.test(text)&&comma>0&&comma<text.length-4&&hasFinite(wordTokens(text.slice(comma+1)))){
   const subordinate=range(text,0,comma,'条件・時などの副詞節','clause');
-  const main=range(text,comma+1,trimmed.length,'主節','subject');
+  const main=range(text,comma+1,trimmed.length,'主節','clause');
   if(subordinate&&main){
    const marker=text.match(FRONT)?.[1].toLowerCase();
    const relation={sourceText:subordinate.text,targetText:main.text,label:marker.includes('if')||marker==='unless'?'条件を説明':marker==='because'?'理由を説明':marker==='although'||marker==='though'?'譲歩の関係':'時・状況を説明'};
@@ -126,7 +126,7 @@ function analyze(sentence,meta){
  if(tail){
   const start=tail.index+1,sub=wordTokens(text.slice(start+tail[0].length));
   if(start>7&&sub.length>=2&&hasFinite(sub)){
-   const left=range(text,0,start,'主節','subject'),right=range(text,start,trimmed.length,'副詞節','clause');
+   const left=range(text,0,start,'主節','clause'),right=range(text,start,trimmed.length,'副詞節','clause');
    if(left&&right)return simpleReturn([left,right],point(title,hint,'clause'),{sourceText:right.text,targetText:left.text,label:'主節の条件・理由・時を説明'});
   }
  }
