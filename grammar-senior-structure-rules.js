@@ -227,9 +227,84 @@ function infinitive(sentence,meta){
  return make([seg(before,'文の前半','basic'),seg(after,'to不定詞のまとまり','phrase')],title||'to不定詞の働きを意識');
 }
 
+
+function participle(sentence,meta){
+ if(!/^HS-07-/.test(meta.id||''))return null;
+ const title=String(meta.title||''),raw=tidy(sentence);
+ const make=(xs,note,relation=null)=>({segments:xs.filter(Boolean),note,relation,confidence:'verified'});
+ const comma=raw.indexOf(',');
+ if(/目的語説明型の分詞/.test(title)){
+  const svoc=complex(raw,title);
+  if(svoc&&svoc.segments.some(x=>x.kind==='complement'))return svoc;
+ }
+ if(/付帯状況のwith/.test(title)){
+  const m=raw.match(/^(.+?)\s+(with\s+.+)$/i);
+  if(m)return make([seg(m[1],'主節・動作','basic'),seg(m[2],'付帯状況（with＋O＋C）','phrase')],
+    'withの後ろで同時に起こる状態を説明');
+ }
+ if(/分詞構文|独立分詞構文|分詞構文を使った慣用表現/.test(title)){
+  const pieces=raw.split(',').map(x=>x.trim()).filter(Boolean);
+  if(pieces.length===3&&/現在分詞|分詞構文/.test(title)){
+   return make([seg(pieces[0],'主語など','subject'),seg(pieces[1],'挿入された分詞句','phrase'),seg(pieces[2],'主節の述語','basic')],
+      '分詞句を挟んで、主語と述語がつながる');
+  }
+  if(comma>0){
+   const first=raw.slice(0,comma),second=raw.slice(comma+1);
+   const firstClause=/^(?:I|You|He|She|We|They|The|Our|My|His|Her|A|An)\s/i.test(first)&&
+     /(?:was|were|is|are|had|closed|stopped|sat|ran|used|looked|worked|displayed|entered|told)\b/i.test(first);
+   const firstKind=firstClause?'主節':'分詞構文・独立句';
+   const secondKind=firstClause?'分詞句':'主節';
+   return make([seg(first,firstKind,firstClause?'clause':'phrase'),seg(second,secondKind,firstClause?'phrase':'clause')],
+     /独立/.test(title)?'独立分詞構文は主節と異なる主語を持つ場合がある':'分詞構文は主節の時間・理由・状況などを補足する');
+  }
+  const ing=raw.match(/\b(?:playing|humming|running|speaking|walking|standing|knowing|having|noticing|looking|working|waiting|watching|reading|laughing|throwing)\b/i);
+  if(ing&&ing.index>1)return make([seg(raw.slice(0,ing.index),'主節の中心','basic'),seg(raw.slice(ing.index),'分詞による修飾句','phrase')],
+    '分詞が主節の動作に状況を付け加える');
+  return make([seg(raw,'分詞構文を含む文','phrase')],'分詞構文の境界を意識して読む');
+ }
+ if(/現在分詞による名詞の修飾|過去分詞による名詞の修飾/.test(title)){
+  const part=raw.match(/\b(?:standing|waiting|sleeping|carrying|crying|taken|written|made|fallen|broken|running|used|painted|stolen|built|surprised|lost|covered)\b/i);
+  if(!part)return make([seg(raw,'名詞を修飾する分詞を含む文','phrase')],'分詞が前後の名詞を説明する');
+  const before=raw.slice(0,part.index),middle=raw.slice(part.index);
+  const headBefore=before.trim().split(/\s+/).at(-1);
+  const afterWord=middle.slice(part[0].length).trim().split(/\s+/)[0];
+  const preposed=/^(?:A|An|The|My|Our|His|Her)\s*$/i.test(before);
+  const link=preposed&&afterWord?
+   {sourceText:part[0],targetText:afterWord,label:'直後の名詞を修飾'}:
+   headBefore?{sourceText:part[0],targetText:headBefore,label:'名詞を修飾'}:null;
+  if(preposed)return make([seg(before,'限定詞','basic'),seg(part[0],/過去/.test(title)?'過去分詞':'現在分詞','phrase'),seg(middle.slice(part[0].length),'名詞と文の続き','basic')],
+    '分詞が直後の名詞を修飾する',link);
+  const rest=middle.slice(part[0].length);
+  const stop=rest.match(/\s+(?=(?:is|are|was|were|look|looks|tastes|taste|seems|seem|became|become)\s)/i);
+  if(stop){
+   const end=part.index+part[0].length+stop.index;
+   return make([seg(before,'被修飾名詞を含む部分','subject'),seg(raw.slice(part.index,end),'名詞を修飾する分詞句','phrase'),seg(raw.slice(end),'主節の述語','basic')],
+     '分詞句が前の名詞を説明する',headBefore?{sourceText:raw.slice(part.index,end).trim(),targetText:headBefore,label:'名詞を修飾'}:null);
+  }
+  return make([seg(before,'前の部分','basic'),seg(part[0],'名詞を修飾する分詞','phrase'),seg(rest,'後ろの部分','basic')],
+   '分詞が名詞を修飾する',link);
+ }
+ if(/感情を表す現在分詞・過去分詞/.test(title)){
+  const x=raw.match(/\b(?:surprising|surprised|confusing|confused|exciting|excited|interesting|interested|exhausted|bored|boring|worried|disappointed)\b/i);
+  if(x)return make([seg(raw.slice(0,x.index),'文の前半','basic'),seg(x[0],'感情を表す分詞・形容詞','phrase'),seg(raw.slice(x.index+x[0].length),'後ろの部分','basic')],
+   '現在分詞は感情を起こすもの、過去分詞は感じる側を表すことが多い');
+ }
+ if(/説明型に使われる分詞/.test(title)){
+  const m=raw.match(/\b(?:kept|remained|stayed|got|is|are|was|were)\s+(\w+(?:ing|ed)|standing|locked|damaged|soaked)\b/i);
+  if(m)return make([seg(raw.slice(0,m.index),'主語など','basic'),seg(m[0],'動詞＋分詞のまとまり','focus'),seg(raw.slice(m.index+m[0].length),'残りの説明','basic')],
+    '分詞が主語の状態や動作の継続を説明する');
+ }
+ if(/動詞句の修飾/.test(title)){
+  const x=raw.match(/\b(?:preparing|humming|running|decorating|hiking|exhausted|frozen|encouraged|surrounded|covered|sleeping|standing)\b/i);
+  if(x)return make([seg(raw.slice(0,x.index),'主節の中心','basic'),seg(raw.slice(x.index),'動詞句を補足する分詞','phrase')],
+    '分詞が動作の様子や付帯状況を表す');
+ }
+ return make([seg(raw,'分詞の働きに注目する文','phrase')],title||'分詞の働きに注目');
+}
+
 function get(sentence,meta={}){
  const t=String(meta.title||'');
- return infinitive(sentence,meta)||coordination(sentence)||imperative(sentence,t)||existential(sentence,t)||complex(sentence,t)||linking(sentence,meta)||null;
+ return infinitive(sentence,meta)||participle(sentence,meta)||coordination(sentence)||imperative(sentence,t)||existential(sentence,t)||complex(sentence,t)||linking(sentence,meta)||null;
 }
 return Object.freeze({get,isRisky:risk});
 });
