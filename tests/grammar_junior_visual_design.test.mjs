@@ -27,7 +27,7 @@ test('the visual is limited to junior mode, preserves original content and busts
  assert.doesNotMatch(js,/flow\.append\(node\('span','gj-arrow'/);
  assert.match(js,/const reveal=state\.stage===1/);
  assert.match(js,/if\(reveal\)chip\.append/);
- assert.match(js,/root\.hidden=state\.mode!=='junior'/);
- assert.match(html,/grammar-junior-visual\.css\?v=20261107-2/);
- assert.match(html,/grammar-training\.js\?v=20261107-3/);
+ assert.match(js,/root\.hidden=!\(isJunior&&juniorVisual\|\|isSenior&&seniorVisual\)/);
+ assert.match(html,/grammar-junior-visual\.css\?v=20261107-3/);
+ assert.match(html,/grammar-training\.js\?v=20261107-5/);
 });
