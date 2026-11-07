@@ -48,8 +48,8 @@ test('missing or altered source does not render a misleading visual',()=>{
 });
 test('junior diagrams do not leak full sentence words into masked level display',()=>{
  const js=readFileSync(new URL('../grammar-training.js',import.meta.url),'utf8');
- assert.match(js,/const reveal=state\.stage===1/);
- assert.match(js,/if\(reveal\)chip\.append/);
+ assert.match(js,/state\.guideExpanded=state\.stage===1/);
+ assert.match(js,/if\(!expanded\)\{details\.hidden=true;root\.append\(details\);return;\}/);
  assert.match(js,/if\(state\.mode==='junior'\)openJuniorReadingMission\(\)/);
  const css=readFileSync(new URL('../grammar-junior-visual.css',import.meta.url),'utf8');
  assert.match(css,/\.gt-junior-dialog \.gt-reading-modal-content\{\s*overflow:hidden/);
