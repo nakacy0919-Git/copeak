@@ -90,6 +90,7 @@ function analyze(sentence,meta){
  const tokens=wordTokens(text),title=String(meta.title||''),hint=String(meta.hint||''),core=meta.core;
  if(!tokens.length)return null;
  const trimmed=text.replace(/[.!?]+\s*$/,'');
+ const simpleReturn=(parts,note,link=null,confidence='high')=>({segments:parts.filter(Boolean),note:note||point(title,hint),relation:link,confidence});
  // Two full sentences in a single example are not one SVO frame.
  const sentenceBreak=text.match(/[.!?](?=\s+[A-Z])/);
  if(sentenceBreak){
@@ -108,7 +109,7 @@ function analyze(sentence,meta){
   return simpleReturn(neutralFocus(text,core,meta),point(title,hint),null,'limited');
  }
 
- const simpleReturn=(parts,note,link=null,confidence='high')=>({segments:parts.filter(Boolean),note:note||point(title,hint),relation:link,confidence});
+
  // Fronted subordinator with a comma, only if the second half has a subject and verb.
  const comma=text.indexOf(',');
  if(FRONT.test(text)&&comma>0&&comma<text.length-4&&hasFinite(wordTokens(text.slice(comma+1)))){
@@ -179,8 +180,6 @@ function analyze(sentence,meta){
    parts.push(emit(text,tokens,ve,tokens.length,'目的語となる節','clause'));
   }else if(ADVERBS.has(first)||/ly$/.test(first)&&first.length>4||INTRANSITIVE.has(mainVerb)&&!LINK.has(mainVerb)){ 
    parts.push(emit(text,tokens,ve,tokens.length,'修飾語 M','modifier'));
-  }else if(false){
-   parts.push(emit(text,tokens,ve,tokens.length,'目的語となる節','clause'));
   }else if((PREP.has(first)&&first!=='to')||TIME.has(first)||['every','last','next','this'].includes(first)&&/^(?:day|week|month|year|summer|winter|spring|autumn|fall|morning|evening|night|friday|sunday|monday)$/i.test(remainder[1]?.w||'')){
    parts.push(emit(text,tokens,ve,tokens.length,'修飾語 M','modifier'));
   }else{
