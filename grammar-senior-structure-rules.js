@@ -441,6 +441,10 @@ function gerund(sentence,meta){
          go([seg(s,'前置詞と動名詞を含む文','phrase')],'前置詞＋動名詞');
  }
  if(/動名詞の否定/.test(t)){
+  // When a negative gerund opens the sentence, it is the subject, not the entire sentence.
+  const subject=s.match(/^(Not\s+\w+ing.+?)\s+(affects|is|was|were|causes|helps|requires)\s+(.+)$/i);
+  if(subject)return go([seg(subject[1],'主語 S（否定の動名詞句）','phrase'),seg(subject[2]+' '+subject[3],'述語部分','basic')],
+    'not ＋ 動名詞のまとまりが主語になる');
   return mark(/\bnot\s+[A-Za-z]+ing\b(?:\s+.+)?$/i,'否定の動名詞句','not ＋ 動名詞で「〜しないこと」')||
          go([seg(s,'否定の動名詞を含む文','phrase')],'not ＋ -ing');
  }
