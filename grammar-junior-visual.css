@@ -1,0 +1,127 @@
+/* Copeak Junior Grammar Visual Guide
+   Compact structured maps, responsive iPad reading mission, no duplicated prose. */
+#gtJuniorGuide.gj-guide{
+  margin:7px 0 5px;padding:8px 10px 7px;
+  border:1px solid #d7e5ee;border-radius:11px;
+  background:linear-gradient(120deg,#fff,#f4f9fc);
+  color:#234561;min-width:0;
+}
+.gj-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:5px;min-width:0}
+.gj-title{font:900 .65rem/1.3 Inter,"Noto Sans JP",sans-serif;letter-spacing:.075em;color:#5d829c}
+.gj-key{font-size:.59rem;font-weight:750;color:#8494a5;white-space:nowrap}
+.gj-flow{display:flex;align-items:center;gap:4px;flex-wrap:wrap;min-width:0}
+.gj-arrow{color:#9db3c5;font-size:1rem;line-height:1;flex:none}
+.gj-chip{
+ display:inline-flex;flex-direction:column;align-items:center;justify-content:center;
+ gap:1px;min-width:34px;min-height:33px;max-width:100%;
+ padding:3px 8px;border:1px solid #d4e2ea;border-radius:8px;
+ background:#f0f5fa;text-align:center;
+}
+.gj-english{font:750 clamp(.76rem,1vw,.91rem)/1.2 Georgia,"Times New Roman",serif;white-space:normal;overflow-wrap:anywhere}
+.gj-label{font-size:.62rem;font-weight:900;white-space:nowrap;line-height:1.3;color:#5c7791}
+.gj-chip.gj-subject{background:#ecf5ff;border-color:#accde8}.gj-chip.gj-subject .gj-label{color:#2b679e}
+.gj-chip.gj-object{background:#ebfaf4;border-color:#acdaca}.gj-chip.gj-object .gj-label{color:#237f5b}
+.gj-chip.gj-complement{background:#f6f0ff;border-color:#d4c1ef}.gj-chip.gj-complement .gj-label{color:#7550a5}
+.gj-chip.gj-focus{background:#fff2e8;border-color:#e9b98e}
+.gj-chip.gj-focus .gj-label{color:#b44b1e}
+.gj-chip.gj-clause{background:#eef6ff;border:1px dashed #93b7d5}
+.gj-chip.gj-clause .gj-label{color:#256d9c}
+.gj-chip.gj-phrase{background:#f6f2ff;border-color:#b5a4de}
+.gj-chip.gj-phrase .gj-label{color:#6f53a2}
+.gj-note{font-size:clamp(.65rem,.83vw,.75rem);font-weight:700;color:#587089;line-height:1.25;margin-top:5px;overflow-wrap:anywhere}
+.gj-note::before{content:"POINT  ";font-size:.6rem;font-weight:950;color:#ae5f2b;letter-spacing:.04em}
+#gtJuniorGuide.gj-labels-only{padding-top:6px;padding-bottom:5px}
+.gj-labels-only .gj-top{margin-bottom:4px}
+.gj-labels-only .gj-chip{min-height:22px;padding:2px 7px}
+.gj-labels-only .gj-note{margin-top:3px}
+
+/* iPad: use the existing top-layer reading dialog as a focused, single-screen studio.
+   Header, diagram, spoken text, Accuracy meter and microphone remain together. */
+.gt-reading-dialog.gt-junior-dialog{
+ width:min(1090px,calc(100vw - 20px));max-height:calc(100dvh - 18px);
+ overflow:hidden;
+}
+.gt-junior-dialog .gt-reading-modal-shell{
+ height:calc(100dvh - 22px);max-height:calc(100dvh - 22px);
+ padding:clamp(9px,1.1vw,14px);min-height:0;
+}
+.gt-junior-dialog .gt-reading-modal-header{
+ align-items:center;flex:none;padding-bottom:5px;min-height:43px;
+}
+.gt-junior-dialog .gt-reading-modal-header h2{font-size:1.12rem;margin:1px 0}
+.gt-junior-dialog .gt-reading-modal-header p{margin:0;font-size:.71rem;line-height:1.3}
+.gt-junior-dialog .gt-reading-modal-header .gt-modal-kicker{font-size:.6rem}
+.gt-junior-dialog .gt-reading-modal-content{
+ overflow:hidden;min-height:0;flex:1 1 auto;padding:5px 1px 1px;
+}
+.gt-junior-dialog #gtReading{
+ display:flex;flex-direction:column;gap:5px;
+ height:100%;min-height:0;max-height:100%;
+ margin:0;
+}
+.gt-junior-dialog .gt-reading-head{min-height:16px}
+.gt-junior-dialog .gt-pass{font-size:.7rem}
+.gt-junior-dialog .gt-stage-tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));margin:0;gap:5px;padding:0}
+.gt-junior-dialog .gt-stage-button{font-size:clamp(.59rem,.82vw,.7rem);padding:5px 3px;min-height:31px;line-height:1.1}
+.gt-junior-dialog .gt-sentence-panel{flex:none;padding:8px 13px 6px;border-radius:13px;min-height:0}
+.gt-junior-dialog .gt-sentence-top .gt-reading-label{font-size:.68rem}
+.gt-junior-dialog .gt-sentence-tools .gt-sound-toggle{min-height:27px;padding:3px 6px}
+.gt-junior-dialog .gt-sentence-tools .gt-listen{padding:5px 10px}
+.gt-junior-dialog .gt-reading-text{
+ font-size:clamp(1.1rem,2.1vw,1.55rem);line-height:1.35;
+ margin:5px 0 3px;min-height:1.35em;
+}
+.gt-junior-dialog .gt-japanese{font-size:.78rem;margin:4px 0 1px;line-height:1.4}
+.gt-junior-dialog .gt-results{
+ flex:1 1 auto;min-height:91px;max-height:140px;
+ display:grid;grid-template-columns:minmax(0,1.6fr) minmax(165px,.7fr);gap:6px;
+}
+.gt-junior-dialog .gt-transcript-panel,.gt-junior-dialog .gt-score-panel{
+ min-height:0;max-height:140px;padding:8px 10px;border-radius:10px;overflow:hidden;
+}
+.gt-junior-dialog .gt-transcript{font-size:.83rem;margin:3px 0 0;line-height:1.3;max-height:3.9em;overflow:auto}
+.gt-junior-dialog .gt-result-label{font-size:.58rem}
+.gt-junior-dialog .gt-speech-debug{margin-top:3px;padding-top:2px;font-size:.6rem}
+.gt-junior-dialog .gt-speech-debug:not([open]){line-height:1}
+.gt-junior-dialog .gt-meter{width:125px;height:67px}
+.gt-junior-dialog .gt-meter-number{font-size:1.25rem}
+.gt-junior-dialog .gt-score-note{font-size:.63rem;line-height:1.15;margin:0}
+.gt-junior-dialog .gt-record-buttons{flex:none;margin:1px 0 0;padding:0;min-height:42px}
+.gt-junior-dialog .gt-record-actions{width:min(100%,550px);gap:9px}
+.gt-junior-dialog .gt-record-actions #gtRecord,
+.gt-junior-dialog .gt-record-actions #gtStop,
+.gt-junior-dialog .gt-record-actions #gtReadingNext{
+ min-height:43px;padding:7px 12px;font-size:.9rem;border-radius:11px;
+}
+.gt-junior-dialog .gt-reading-modal-footer{
+ flex:none;min-height:43px;padding-top:5px;margin-top:2px;justify-content:flex-end;
+}
+.gt-junior-dialog .gt-reading-modal-actions button{min-height:32px;padding:5px 11px;font-size:.76rem}
+.gt-junior-dialog #gtMissionSkip,.gt-junior-dialog #gtMissionNext{display:none!important}
+
+/* Short iPads keep the whole lesson on-screen by shrinking decoration, not text into illegibility. */
+@media(min-width:700px) and (max-height:760px){
+ .gt-junior-dialog .gt-reading-modal-header p{display:none}
+ .gt-junior-dialog .gt-reading-modal-header{min-height:35px}
+ .gt-junior-dialog .gt-reading-modal-content{padding-top:2px}
+ .gt-junior-dialog #gtReading{gap:3px}
+ .gt-junior-dialog .gt-sentence-panel{padding:6px 11px 4px}
+ .gt-junior-dialog .gt-reading-text{font-size:clamp(1.06rem,1.9vw,1.45rem);line-height:1.3;margin:3px 0}
+ .gt-junior-dialog #gtJuniorGuide{margin:3px 0;padding:5px 8px}
+ .gt-junior-dialog .gj-top{margin-bottom:3px}
+ .gt-junior-dialog .gj-chip{min-height:27px;padding:2px 6px}
+ .gt-junior-dialog .gj-note{margin-top:3px}
+ .gt-junior-dialog .gt-results{min-height:80px;max-height:105px}
+ .gt-junior-dialog .gt-reading-modal-footer{min-height:37px}
+}
+/* Narrow phones or accessibility zoom: prefer safe internal scrolling to clipped controls. */
+@media(max-width:699px), (max-height:550px){
+ .gt-junior-dialog .gt-reading-modal-content{overflow-y:auto;overscroll-behavior:contain}
+ .gt-junior-dialog #gtReading{height:auto;max-height:none}
+ .gt-junior-dialog .gt-results{flex:none;min-height:113px;max-height:none;grid-template-columns:minmax(0,1.35fr) minmax(113px,.65fr)}
+ .gt-junior-dialog .gt-transcript-panel,.gt-junior-dialog .gt-score-panel{min-height:112px}
+ .gt-junior-dialog .gj-key{display:none}
+ .gt-junior-dialog .gj-chip{padding:3px 5px}
+ .gt-junior-dialog .gj-english{font-size:.74rem}
+ .gt-junior-dialog .gj-note{font-size:.68rem}
+}
