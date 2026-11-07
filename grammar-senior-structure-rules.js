@@ -468,9 +468,46 @@ function gerund(sentence,meta){
  return go([seg(s,'動名詞の働きを確認する文','phrase')],t||'動名詞の働きに注目');
 }
 
+function comparison(sentence,meta){
+ if(!/^HS-08-/.test(meta.id||''))return null;
+ const s=tidy(sentence),title=String(meta.title||'');
+ const make=(parts,note)=>({segments:parts.filter(Boolean),note,relation:null,confidence:'verified'});
+ const name=/as\s+.+\s+as|than|more|most|least|better|best|worse|worst|taller|shorter|longer|heavier|lighter|smaller|bigger|faster|older|younger|more\s+and\s+more|at\s+least/.test(title+' '+s);
+ if(!name){
+  const m=s.match(/^(.+?)\s+(is|are|was|were)\s+(.+)$/i);
+  if(m)return make([seg(m[1],'主語 S','subject'),seg(m[2],'動詞 V','focus'),seg(m[3],'補語 C','complement')],'形容詞が主語の性質を説明する');
+  return make([seg(s,'比較の基本文','basic')],title||'比較表現の基本形');
+ }
+ const comma=s.indexOf(',');
+ if(/^The\s+more\b/i.test(s)&&comma>0)return make([seg(s.slice(0,comma),'条件・比例の比較節','clause'),seg(s.slice(comma+1),'結果の比較節','clause')],
+  'the＋比較級…, the＋比較級…（比例）');
+ let at=-1;
+ let tag='比較表現を含む部分';
+ // Concentrate the diagram on the comparison rather than inventing a false object or complement.
+ const as=s.match(/\b(?:not\s+|almost\s+|just\s+|twice\s+|[A-Za-z]+\s+times\s+)?as\s+.+?\s+as\b/i);
+ if(as){at=as.index;tag='原級比較 as … as';}
+ if(at<0){
+  const m=s.match(/\b(?:much\s+|far\s+|a\s+little\s+|[A-Za-z]+\s+times\s+)?(?:more|less|better|worse|[A-Za-z]+er)\s+.+?\s+than\b/i);
+  if(m){at=m.index;tag='比較級＋than';}
+ }
+ if(at<0){
+  const m=s.match(/\b(?:the\s+)?(?:most|least|best|worst|tallest|shortest|longest|largest|smallest|youngest|oldest|fastest|biggest|second\s+longest)\b/i);
+  if(m){at=m.index;tag='最上級の表現';}
+ }
+ if(at<0){
+  const m=s.match(/\b(?:at\s+least|more\s+and\s+more|better\s+and\s+better|shorter\s+and\s+shorter|worse\s+and\s+worse)\b/i);
+  if(m){at=m.index;tag='比較の重要表現';}
+ }
+ if(at>=0){
+  return make([seg(s.slice(0,at),'比較するもの・文の前半','basic'),seg(s.slice(at),tag,'phrase')],
+    /原級/.test(title)?'as … as で同程度を表す':/最上級/.test(title)?'最上級と比較する範囲に注目':'比べる程度・対象のまとまりを意識して読む');
+ }
+ return make([seg(s,'比較表現のまとまり','phrase')],title||'比較表現に注目して音読');
+}
+
 function get(sentence,meta={}){
  const t=String(meta.title||'');
- return infinitive(sentence,meta)||gerund(sentence,meta)||participle(sentence,meta)||relative(sentence,meta)||coordination(sentence)||imperative(sentence,t)||existential(sentence,t)||complex(sentence,t)||linking(sentence,meta)||null;
+ return infinitive(sentence,meta)||gerund(sentence,meta)||participle(sentence,meta)||comparison(sentence,meta)||relative(sentence,meta)||coordination(sentence)||imperative(sentence,t)||existential(sentence,t)||complex(sentence,t)||linking(sentence,meta)||null;
 }
 return Object.freeze({get,isRisky:risk});
 });
