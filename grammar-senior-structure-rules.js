@@ -25,9 +25,13 @@ function parseOC(rest,mode){
  if(split<0&&mode!=='to'&&adjectives.has(lower[lower.length-1]))split=lower.length-1;
  if(split<0&&mode!=='to'&&/^[A-Z][a-z]{2,}$/.test(words[words.length-1]))split=words.length-1;
  if(split<1||split>7)return null;
- const object=words.slice(0,split).join(' '),complement=words.slice(split).join(' ');
+ const object=words.slice(0,split).join(' ');
+ let compWords=words.slice(split),tail=null;
+ const timeIndex=compWords.findIndex((w,i)=>i>0&&/^(?:yesterday|today|tomorrow|tonight)$/i.test(w));
+ if(timeIndex>0){tail=compWords.slice(timeIndex).join(' ');compWords=compWords.slice(0,timeIndex);}
+ const complement=compWords.join(' ');
  if(!object||!complement)return null;
- return {object,complement};
+ return {object,complement,tail};
 }
 function imperative(text,title){
  const s=tidy(text);
@@ -40,8 +44,8 @@ function imperative(text,title){
  const [,please,negative,verb,rest]=match;
  const bits=[please?seg(please,'丁寧表現','modifier'):null,negative?seg(negative,'否定・禁止','modifier'):null,seg(verb,'動詞 V','focus')];
  if(rest){
-  const oc=/^(?:let|make|have)$/i.test(verb)?parseOC(rest,'mixed'):null;
-  if(oc)bits.push(seg(oc.object,'目的語 O','object'),seg(oc.complement,'補語 C','complement'));
+  const oc=/^(?:let|make|have|keep)$/i.test(verb)?parseOC(rest,'mixed'):null;
+  if(oc)bits.push(seg(oc.object,'目的語 O','object'),seg(oc.complement,'補語 C','complement'),oc.tail?seg(oc.tail,'修飾語 M','modifier'):null);
   else bits.push(seg(rest,/^be$/i.test(verb)?'補語・説明':'後ろのまとまり','basic'));
  }
  return output(bits,/^let$/i.test(verb)&&bits.some(b=>b?.kind==='complement')?'let ＋ O ＋ 動詞の原形（SVOC）':'命令文：主語 you は省略');
@@ -57,9 +61,9 @@ function getVerb(s){
   const front=s.slice(0,m.index).trim();
   if(!front||front.length>90||/[.!?,;]\s+[A-Z]/.test(front)||/\b(?:that|who|which|when|because|if)\b/i.test(front))continue;
   if(/^Please$|^Never$|^Don['’]t$/i.test(front)||/\bto$/i.test(front))continue;
-  const aux=front.match(/^(.*?)\s+((?:will|would|can|could|should|shall|may|might|must|do|does|did|have|has|had)\s+(?:not\s+)?(?:always\s+|never\s+)?)(?=\s*$)/i);
+  const aux=front.match(/^(.*?)\s+((?:will|would|can|could|should|shall|may|might|must|do|does|did|have|has|had)(?:\s+not)?)(?:\s+(always|never))?$/i);
   let subject=front,verb=m[0];
-  if(aux&&aux[1]){subject=aux[1].trim();verb=aux[2]+m[0]}
+  if(aux&&aux[1]){subject=aux[1].trim();verb=aux[2]+(aux[3]?' '+aux[3]:'')+' '+m[0]}
   if(!subject||/^(?:Please|Never|Let['’]s)$/i.test(subject))continue;
   return {subject,verb,w:m[0].toLowerCase(),rest:s.slice(m.index+m[0].length).trim()};
  }
@@ -75,6 +79,8 @@ function complex(sentence,title){
   const m=rest.match(/^(.+?)\s+((?:to|for)\s+.+)$/i);
   if(m&&m[1].split(/\s+/).length<=8)return output([seg(subject,'主語 S','subject'),seg(verb,'動詞 V','focus'),seg(m[1],'目的語 O','object'),seg(m[2],'相手・受け手（前置詞句）','modifier')],'to / for 以下は目的語 O₂ ではなく前置詞句');
  }
+ // Perfect tense is not the causative verb have: "have already finished" must keep V together.
+ if(/^(?:have|has|had)$/i.test(w)&&/^(?:already|never|just|recently|finally|always|often)\s+(?:\w+ed|seen|done|known|gone|made|taken|written|been|left|bought|found|got|read)\b/i.test(rest))return null;
  if(ditrans.has(w)){
   const m=rest.match(/^(me|you|him|her|us|them|my\s+\w+|your\s+\w+|his\s+\w+|her\s+\w+|our\s+\w+|their\s+\w+)\s+(.+)$/i);
   if(m&&(/^(?:a|an|the|some|another|two|three|four|five|all|that|this|\d+)\b/i.test(m[2])||
@@ -90,7 +96,7 @@ function complex(sentence,title){
    const isSVOCcontext=/(?:第5文型|目的語説明型|使役|知覚|tell・ask|want・allow|persuade|説明語句)/.test(title);
    const clearNonfinite=/^(?:to\s+\w+|\w+ing\b|\w+ed\b|join\b|run\b|cry\b|laugh\b|check\b|carry\b|use\b|choose\b|read\b|explain\b|knock\b|think\b|feel\b|change\b|open\b|close\b|improve\b|study\b|be\b)/i.test(oc.complement);
    if(isSVOCcontext||clearNonfinite&&/^(?:let|make|makes|made|have|had|has|see|saw|watch|watched|hear|heard|feel|felt|notice|noticed|keep|kept|find|found|want|wants|asked|told)$/i.test(w)){
-    return output([seg(subject,'主語 S','subject'),seg(verb,'動詞 V','focus'),seg(oc.object,'目的語 O','object'),seg(oc.complement,'補語 C','complement')],
+    return output([seg(subject,'主語 S','subject'),seg(verb,'動詞 V','focus'),seg(oc.object,'目的語 O','object'),seg(oc.complement,'補語 C','complement'),oc.tail?seg(oc.tail,'修飾語 M','modifier'):null],
       /^(?:let|lets)$/i.test(w)?'let ＋ O ＋ 動詞の原形（SVOC）。OがCの動作をする':'第5文型：O と C の間に主語・述語の関係がある');
    }
   }
