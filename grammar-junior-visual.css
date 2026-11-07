@@ -377,3 +377,78 @@
  .gt-junior-dialog .gj-chip{border-width:2px}
  .gt-junior-dialog .gj-note{border-left-width:4px}
 }
+
+/* FACTBOOK-inspired teaching palette: distinct soft roles, clear head/modifier arrows.
+   Original diagram content only; senior and entrance modes are unaffected. */
+.gt-junior-dialog .gj-chip.gj-subject {
+ background:#eaf3ff;border:1.5px solid #afcdec;
+}
+.gt-junior-dialog .gj-chip.gj-subject .gj-label {color:#254e7a}
+.gt-junior-dialog .gj-chip.gj-focus{
+ background:#fff0e5;border:1.5px solid #ecb68c;
+}
+.gt-junior-dialog .gj-chip.gj-focus .gj-label,
+.gt-junior-dialog .gj-chip.gj-focus .gj-english{color:#8f3f1d}
+.gt-junior-dialog .gj-chip.gj-object{
+ background:#eaf8ef;border:1.5px solid #a9d9bc;
+}
+.gt-junior-dialog .gj-chip.gj-object .gj-label{color:#216541}
+.gt-junior-dialog .gj-chip.gj-complement {
+ background:#f4edff;border:1.5px solid #ccb7e9;
+}
+.gt-junior-dialog .gj-chip.gj-complement .gj-label {color:#67428b}
+.gt-junior-dialog .gj-chip.gj-modifier {
+ background:#f2f5f7;border:1.5px solid #d2d9e0;
+}
+.gt-junior-dialog .gj-chip.gj-modifier .gj-label{color:#415565}
+.gt-junior-dialog .gj-chip.gj-phrase {
+ background:#eaf8fb;border:1.5px solid #a9d7df;
+}
+.gt-junior-dialog .gj-chip.gj-phrase .gj-english,
+.gt-junior-dialog .gj-chip.gj-phrase .gj-label{color:#236675}
+.gt-junior-dialog .gj-chip.gj-clause{
+ background:#fff8dd;border:1.5px dashed #dfc987;
+}
+.gt-junior-dialog .gj-chip.gj-clause .gj-label{color:#775a20}
+.gt-junior-dialog .gj-chip.gj-basic{
+ background:#f8fafb;border:1.5px solid #d8dde2;
+}
+.gt-junior-dialog .gj-relation{
+ display:flex;align-items:center;justify-content:flex-start;
+ flex-wrap:wrap;gap:6px 8px;
+ margin:7px 0 0;padding:6px 9px;min-height:33px;
+ border-left:3px solid #7baed0;border-radius:0 7px 7px 0;
+ background:#f1f8fc;color:#253e55;
+}
+.gt-junior-dialog .gj-relation-type{
+ color:#285875;font-weight:850;
+ font-size:clamp(.64rem,.8vw,.74rem);
+ background:#e5f3fa;border-radius:4px;
+ padding:2px 5px;line-height:1.25;
+}
+.gt-junior-dialog .gj-relation-source{
+ color:#8e481d;font-family:Georgia,"Times New Roman",serif;
+ font-size:clamp(.78rem,1.05vw,.91rem);
+ font-weight:750;line-height:1.22;
+}
+.gt-junior-dialog .gj-relation-target{
+ color:#204d73;font-family:Georgia,"Times New Roman",serif;
+ font-size:clamp(.78rem,1.05vw,.91rem);
+ font-weight:750;line-height:1.22;
+}
+.gt-junior-dialog .gj-relation-arrow{
+ color:#3281ae;display:block;flex:none;width:42px;height:16px;
+}
+.gt-junior-dialog .gj-note{margin-top:5px}
+@media(min-width:700px) and (max-height:760px){
+ .gt-junior-dialog .gj-relation{margin-top:4px;padding:3px 7px;min-height:25px;gap:4px}
+ .gt-junior-dialog .gj-relation-arrow{width:32px;height:14px}
+ .gt-junior-dialog .gj-relation-type{font-size:.63rem}
+ .gt-junior-dialog .gj-relation-source,.gt-junior-dialog .gj-relation-target{font-size:.75rem}
+ .gt-junior-dialog .gj-note{margin-top:3px}
+}
+@media(max-width:699px){
+ .gt-junior-dialog .gj-relation{gap:5px;padding:5px 7px}
+ .gt-junior-dialog .gj-relation-source,.gt-junior-dialog .gj-relation-target{max-width:calc(50% - 35px);overflow-wrap:anywhere}
+ .gt-junior-dialog .gj-relation-arrow{width:26px}
+}
