@@ -7,6 +7,7 @@ const feedback=window.CopeakGrammarPractice?.createFeedback(window);
 const examTools=window.CopeakExamSessions;
 const juniorVisual=window.CopeakJuniorVisual;
 const juniorRelations=window.CopeakJuniorRelations;
+const seniorVisual=window.CopeakSeniorVisual;
 const tone=kind=>feedback?.tone(kind);
 const $=id=>document.getElementById(id),KEY='copeak_grammar_training_v2';
 const SETTINGS={
@@ -295,11 +296,17 @@ function leaveReadingMission(){
  if(state.mode==='junior'){showTopicPicker();return;}
  closeReadingMission();
 }
-function renderJuniorVisual(q){
+function renderGrammarVisual(q){
  const root=$('gtJuniorGuide');if(!root)return;
- root.hidden=state.mode!=='junior'||!juniorVisual;
+ const isJunior=state.mode==='junior',isSenior=state.mode==='senior';
+ root.hidden=!(isJunior&&juniorVisual||isSenior&&seniorVisual);
+ root.classList.toggle('gj-senior-guide',isSenior);
+ if(isSenior)root.setAttribute('aria-label','高校英文法の文構造ガイド');
+ else root.setAttribute('aria-label','中学校英文法の文構造ガイド');
  if(root.hidden)return;
- const diagram=juniorVisual.get(q.id,q.sentence);
+ const diagram=isJunior?juniorVisual.get(q.id,q.sentence):seniorVisual.get(q.id,q.sentence,{
+  title:state.unit?.title||'',hint:state.unit?.hint||'',core
+ });
  root.replaceChildren();
  if(!diagram){root.hidden=true;return;}
  const top=node('div','gj-top');
@@ -307,7 +314,7 @@ function renderJuniorVisual(q){
  top.append(node('span','gj-key','S 主語 · V 動詞 · O 目的語 · C 補語'));
  const flow=node('div','gj-flow');
  const reveal=state.stage===1;
- flow.style.setProperty('--gj-cols',String(diagram.segments.length));
+ flow.style.setProperty('--gj-cols',String(Math.min(5,diagram.segments.length)));
  for(const segment of diagram.segments){
   const chip=node('span','gj-chip gj-'+segment.kind);
   if(reveal)chip.append(node('span','gj-english',segment.text));
@@ -319,7 +326,7 @@ function renderJuniorVisual(q){
  else root.classList.remove('gj-labels-only');
  root.append(top,flow);
  // A relationship is displayed only in Level 1; later levels must not reveal masked words.
- const link=reveal?juniorRelations?.get(diagram):null;
+ const link=reveal?(isJunior?juniorRelations?.get(diagram):diagram.relation):null;
  if(link){
   const relation=node('div','gj-relation');
   relation.append(node('span','gj-relation-type',link.label));
@@ -750,7 +757,7 @@ function renderStage(){
   cursor=end;
  }
  readingText.classList.toggle('is-masked',state.stage>1);
- renderJuniorVisual(q);
+ renderGrammarVisual(q);
  $('gtJapanese').textContent=q.japanese;$('gtPassCondition').textContent='合格基準：'+step.threshold+'% 以上';
  const tabs=$('gtStageTabs');tabs.replaceChildren();
  for(const s of core.STAGES){

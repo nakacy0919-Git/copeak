@@ -23,11 +23,11 @@ test('the compact UI respects iPad viewports and avoids cut-off on narrow phones
 });
 test('the visual is limited to junior mode, preserves original content and busts browser caches',()=>{
  const js=read('grammar-training.js'),html=read('grammar-training.html');
- assert.match(js,/flow\.style\.setProperty\('--gj-cols',String\(diagram\.segments\.length\)\)/);
+ assert.match(js,/flow\.style\.setProperty\('--gj-cols',String\(Math\.min\(5,diagram\.segments\.length\)\)\)/);
  assert.doesNotMatch(js,/flow\.append\(node\('span','gj-arrow'/);
  assert.match(js,/const reveal=state\.stage===1/);
  assert.match(js,/if\(reveal\)chip\.append/);
- assert.match(js,/root\.hidden=state\.mode!=='junior'/);
- assert.match(html,/grammar-junior-visual\.css\?v=20261107-2/);
- assert.match(html,/grammar-training\.js\?v=20261107-3/);
+ assert.match(js,/root\.hidden=!\(isJunior&&juniorVisual\|\|isSenior&&seniorVisual\)/);
+ assert.match(html,/grammar-junior-visual\.css\?v=20261107-3/);
+ assert.match(html,/grammar-training\.js\?v=20261107-5/);
 });
