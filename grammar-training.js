@@ -468,8 +468,9 @@ function micStatus(s){
  $('gtRecognitionStatus').textContent=message;
  // Show diagnostics when speech recognition fails, not during normal reading.
  const trouble=document.querySelector('.gt-speech-debug');
- if(trouble&&state.mode!=='entrance'){
-  trouble.hidden=!/(?:できません|利用できません|失敗しました|エラー|応答していません|受信できません)/.test(message);
+ if(trouble){
+  const isError=/(?:できません|利用できません|失敗しました|エラー|応答していません|受信できません)/.test(message);
+  trouble.hidden=state.mode!=='entrance'&&!isError;
   if(trouble.hidden)trouble.open=false;
  }
 }
