@@ -5,6 +5,7 @@ const core=window.CopeakGrammarCore,progressEngine=window.CopeakGrammarProgress,
 if(!core||!progressEngine||!cardIcons){console.error('Missing Copeak grammar helpers');return;}
 const feedback=window.CopeakGrammarPractice?.createFeedback(window);
 const examTools=window.CopeakExamSessions;
+const juniorVisual=window.CopeakJuniorVisual;
 const tone=kind=>feedback?.tone(kind);
 const $=id=>document.getElementById(id),KEY='copeak_grammar_training_v2';
 const SETTINGS={
@@ -266,7 +267,7 @@ function setHeaderBack(label){$('gtBackHome').textContent='← '+label;}
 
 function placeReading(){
  const reading=$('gtReading'),mount=$('gtReadingModalMount');
- if(state.mode==='entrance'){
+ if(state.mode==='entrance'||state.mode==='junior'){
   if(reading.parentElement!==mount)mount.appendChild(reading);
  }else if(reading.parentElement!==$('gtLesson')){
   $('gtQuiz').after(reading);
@@ -277,6 +278,45 @@ function closeReadingMission(){
  if(dlg.open&&typeof dlg.close==='function')dlg.close();
  else dlg.removeAttribute('open');
  cancelRecognition();
+}
+function openJuniorReadingMission(){
+ if(state.mode!=='junior')return;
+ const dlg=$('gtReadingDialog');
+ dlg.classList.add('gt-junior-dialog');
+ $('gtMissionTitle').textContent='Grammar Reading';
+ $('gtMissionDescription').textContent=state.unit?.title||'中学校英文法';
+ $('gtMissionClose').textContent='文法項目へ';
+ $('gtMissionSkip').hidden=true;$('gtMissionNext').hidden=true;
+ $('gtMissionStatus').hidden=true;
+ if(!dlg.open){if(typeof dlg.showModal==='function')dlg.showModal();else dlg.setAttribute('open','');}
+}
+function leaveReadingMission(){
+ if(state.mode==='junior'){showTopicPicker();return;}
+ closeReadingMission();
+}
+function renderJuniorVisual(q){
+ const root=$('gtJuniorGuide');if(!root)return;
+ root.hidden=state.mode!=='junior'||!juniorVisual;
+ if(root.hidden)return;
+ const diagram=juniorVisual.get(q.id,q.sentence);
+ root.replaceChildren();
+ if(!diagram){root.hidden=true;return;}
+ const top=node('div','gj-top');
+ top.append(node('strong','gj-title','GRAMMAR VISUAL GUIDE'));
+ top.append(node('span','gj-key','S 主語 · V 動詞 · O 目的語 · C 補語'));
+ const flow=node('div','gj-flow');
+ const reveal=state.stage===1;
+ for(const [i,segment] of diagram.segments.entries()){
+  if(i)flow.append(node('span','gj-arrow','›'));
+  const chip=node('span','gj-chip gj-'+segment.kind);
+  if(reveal)chip.append(node('span','gj-english',segment.text));
+  chip.append(node('span','gj-label',segment.label));
+  flow.append(chip);
+ }
+ const note=node('div','gj-note',diagram.note);
+ if(!reveal)root.classList.add('gj-labels-only');
+ else root.classList.remove('gj-labels-only');
+ root.append(top,flow,note);
 }
 function canAdvanceExam(){
  return state.examType==='random'&&state.answered||state.examCorrect===true||state.missionSkipped||state.missionCleared;
@@ -516,7 +556,7 @@ async function changeMode(mode){
  if(!SETTINGS[mode])return;closeReadingMission();closeExplanation();cancelRecognition();if(window.speechSynthesis)window.speechSynthesis.cancel();
  document.body.classList.add('gt-in-workspace');setHeaderBack('学習メニュー');
  if(state.examSession)saveExamSession('exited');
- state.mode=mode;state.examType='category';state.categories=[];state.units=[];state.category='';state.unit=null;state.items=[];state.manifest=null;state.categoryPage=0;state.unitPage=0;
+ state.mode=mode;document.body.dataset.gtMode=mode;state.examType='category';state.categories=[];state.units=[];state.category='';state.unit=null;state.items=[];state.manifest=null;state.categoryPage=0;state.unitPage=0;
  $('gtLanding').hidden=true;$('gtWorkspace').hidden=false;$('gtWelcome').hidden=true;$('gtLesson').hidden=true;$('gtExamResult').hidden=true;
  $('gtExamScopeAll').checked=true;state.examScope='all';
  $('gtPicker').hidden=false;$('gtCategoriesPanel').hidden=false;$('gtUnitsPanel').hidden=true;$('gtContent').hidden=true;$('gtStudyBar').hidden=true;
@@ -608,7 +648,7 @@ function renderItem(){
   $('gtInstruction').textContent=q.instruction||'最も適切な選択肢を選びなさい。';$('gtStem').textContent=q.stem;
   $('gtOptions').replaceChildren();
   q.options.forEach((option,i)=>{const b=node('button','gt-choice',core.LETTERS[i]+'. '+option);b.type='button';b.addEventListener('click',()=>answer(i));$('gtOptions').append(b);});
- }else{prepareReading();}
+ }else{prepareReading();if(state.mode==='junior')openJuniorReadingMission();}
 }
 function answer(i){
  if(state.answered)return;const q=item();state.answered=true;const ok=i===q.answerIndex;state.examCorrect=ok;
@@ -685,6 +725,7 @@ function renderStage(){
   cursor=end;
  }
  readingText.classList.toggle('is-masked',state.stage>1);
+ renderJuniorVisual(q);
  $('gtJapanese').textContent=q.japanese;$('gtPassCondition').textContent='合格基準：'+step.threshold+'% 以上';
  const tabs=$('gtStageTabs');tabs.replaceChildren();
  for(const s of core.STAGES){
@@ -939,12 +980,12 @@ $('gtExplanationDialog').addEventListener('click',e=>{if(e.target===$('gtExplana
 $('gtExplanationDialog').addEventListener('cancel',e=>{if(state.mode==='entrance'&&state.answered){e.preventDefault();leaveExplanation();}});
 $('gtExplanationDialog').addEventListener('close',()=>{$('gtSuccessCelebration').hidden=true;});
 $('gtOpenReading').addEventListener('click',openReadingMission);
-$('gtMissionClose').addEventListener('click',closeReadingMission);
-$('gtMissionCloseX').addEventListener('click',closeReadingMission);
+$('gtMissionClose').addEventListener('click',leaveReadingMission);
+$('gtMissionCloseX').addEventListener('click',leaveReadingMission);
 $('gtMissionSkip').addEventListener('click',skipReadingMission);
 $('gtMissionNext').addEventListener('click',()=>{closeReadingMission();nextItem();});
-$('gtReadingDialog').addEventListener('click',e=>{if(e.target===$('gtReadingDialog'))closeReadingMission();});
-$('gtReadingDialog').addEventListener('cancel',e=>{e.preventDefault();closeReadingMission();});
+$('gtReadingDialog').addEventListener('click',e=>{if(e.target===$('gtReadingDialog'))leaveReadingMission();});
+$('gtReadingDialog').addEventListener('cancel',e=>{e.preventDefault();leaveReadingMission();});
 $('gtBackToCategories').addEventListener('click',showCategoryPicker);
 
 $('gtPrevCategories').addEventListener('click',()=>{if(state.categoryPage>0){state.categoryPage--;renderCategoryCards();}});
@@ -953,7 +994,7 @@ $('gtBackToTopics').addEventListener('click',showTopicPicker);
 $('gtBackHome').addEventListener('click',()=>{
  if(!$('gtLesson').hidden||!$('gtExamResult').hidden){if(state.mode==='entrance'&&state.examType==='random')showRandomSetup();else showTopicPicker();return;}
  if(!$('gtUnitsPanel').hidden){showCategoryPicker();return;}
- closeReadingMission();closeExplanation();cancelRecognition();if(state.examSession)saveExamSession('exited');state.fetchToken++;state.mode='';document.body.classList.remove('gt-in-workspace');
+ closeReadingMission();closeExplanation();cancelRecognition();if(state.examSession)saveExamSession('exited');state.fetchToken++;state.mode='';delete document.body.dataset.gtMode;document.body.classList.remove('gt-in-workspace');
  $('gtWorkspace').hidden=true;$('gtLanding').hidden=false;$('gtLesson').hidden=true;$('gtExamResult').hidden=true;$('gtContent').hidden=true;$('gtStudyBar').hidden=true;window.scrollTo({top:0,behavior:'instant'});
 });
 $('gtCategory').addEventListener('change',e=>loadCategory(e.target.value));
