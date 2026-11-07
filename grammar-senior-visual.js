@@ -72,7 +72,10 @@ function neutralFocus(text,core,meta){
  return [{text:text.slice(0,end),label:'文全体',kind:'basic'}];
 }
 function splitSubjectModifiers(text,tokens,v){
- const subj=tokens.slice(0,v),idx=subj.findIndex((t,i)=>i>=1&&['near','under','on','in','at','from','with','behind','beside','between','waiting','standing','sitting','reading','written','taken','built','who','which','that'].includes(t.w));
+ const subj=tokens.slice(0,v);
+ // A postposed participle takes priority over a preposition nested inside that participial phrase.
+ const participle=subj.findIndex((t,i)=>i>=1&&['waiting','standing','sitting','reading','sleeping','written','taken','built','running','living','wearing','speaking','working'].includes(t.w));
+ const idx=participle>=0?participle:subj.findIndex((t,i)=>i>=1&&['near','under','on','in','at','from','with','behind','beside','between','who','which','that'].includes(t.w));
  if(idx<0||idx===v-1)return [emit(text,tokens,0,v,'主語 S','subject')].filter(Boolean);
  const head=emit(text,tokens,0,idx,'主語 S','subject');
  const tail=emit(text,tokens,idx,v,'名詞を修飾','phrase');
@@ -145,15 +148,27 @@ function analyze(sentence,meta){
  if(after>0){
   const remainder=tokens.slice(ve);
   const first=remainder[0].w;
-  if(first==='that'||first==='whether'||['what','how','why','where','when'].includes(first)&&/節|間接疑問|レポート|話法/.test(title)){
+  if(first==='that'||first==='whether'||(['what','how','why','where','when'].includes(first)&&/節|間接疑問|レポート|話法/.test(title))){
    parts.push(emit(text,tokens,ve,tokens.length,'目的語となる節','clause'));
-  }else if(PREP.has(first)&&first!=='to'||TIME.has(first)){
+  }else if((PREP.has(first)&&first!=='to')||TIME.has(first)||['every','last','next','this'].includes(first)&&/^(?:day|week|month|year|summer|winter|spring|autumn|fall|morning|evening|night|friday|sunday|monday)$/i.test(remainder[1]?.w||'')){
    parts.push(emit(text,tokens,ve,tokens.length,'修飾語 M','modifier'));
   }else{
    let split=-1;
    for(let i=ve+1;i<tokens.length;i++){
     const t=tokens[i].w;
-    if((PREP.has(t)&&t!=='of'&&t!=='to')||TIME.has(t)){split=i;break;}
+    if((PREP.has(t)&&t!=='of'&&t!=='to')||TIME.has(t)||['every','last','next'].includes(t)&&/^(?:day|week|month|year|summer|winter|spring|autumn|fall|morning|evening|night)$/i.test(tokens[i+1]?.w||'')){split=i;break;}
+   }
+   // Relative clause attached to the noun in an object or complement.
+   if(/関係/.test(title)){
+    const rel=remainder.findIndex((t,i)=>i>=1&&REL.has(t.w));
+    if(rel>=1){
+     const head=emit(text,tokens,ve,ve+rel,LINK.has(mainVerb)?'補語 C':'目的語 O',LINK.has(mainVerb)?'complement':'object');
+     const clause=emit(text,tokens,ve+rel,tokens.length,'関係詞節','clause');
+     if(head&&clause){
+      parts.push(head,clause);
+      return simpleReturn(parts,point(title,hint,'relative'),{sourceText:clause.text,targetText:head.text,label:'直前の名詞を修飾'});
+     }
+    }
    }
    const linking=LINK.has(mainVerb)||['is','are','am','was','were'].includes(mainVerb);
    // A transfer verb with a pronoun recipient and subsequent noun phrase.
@@ -179,7 +194,7 @@ function analyze(sentence,meta){
  return simpleReturn(parts,point(title,hint),rel);
 }
 function get(id,sentence,meta={}){
- if(!/^HS-\d{2}-\d{3}-\d{2}$/.test(String(id||'')))return null;
+ if(!/^HS-\d{2}-(?:\d{3}|EX-[A-Z])-\d{2}$/.test(String(id||'')))return null;
  const text=String(sentence||'').trim();if(!text)return null;
  const result=analyze(text,meta);if(!result?.segments?.length)return null;
  // Every segment must quote a substring of the untouched sentence (no inserted brackets).
