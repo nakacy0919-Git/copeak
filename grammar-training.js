@@ -6,6 +6,7 @@ if(!core||!progressEngine||!cardIcons){console.error('Missing Copeak grammar hel
 const feedback=window.CopeakGrammarPractice?.createFeedback(window);
 const examTools=window.CopeakExamSessions;
 const juniorVisual=window.CopeakJuniorVisual;
+const juniorRelations=window.CopeakJuniorRelations;
 const tone=kind=>feedback?.tone(kind);
 const $=id=>document.getElementById(id),KEY='copeak_grammar_training_v2';
 const SETTINGS={
@@ -316,7 +317,26 @@ function renderJuniorVisual(q){
  const note=node('div','gj-note',diagram.note);
  if(!reveal)root.classList.add('gj-labels-only');
  else root.classList.remove('gj-labels-only');
- root.append(top,flow,note);
+ root.append(top,flow);
+ // A relationship is displayed only in Level 1; later levels must not reveal masked words.
+ const link=reveal?juniorRelations?.get(diagram):null;
+ if(link){
+  const relation=node('div','gj-relation');
+  relation.append(node('span','gj-relation-type',link.label));
+  relation.append(node('span','gj-relation-source',link.sourceText));
+  const arrow=document.createElementNS('http://www.w3.org/2000/svg','svg');
+  arrow.setAttribute('class','gj-relation-arrow');
+  arrow.setAttribute('viewBox','0 0 56 20');arrow.setAttribute('width','56');arrow.setAttribute('height','20');
+  arrow.setAttribute('aria-hidden','true');
+  const path=document.createElementNS('http://www.w3.org/2000/svg','path');
+  path.setAttribute('d','M2 10 H49 M42 4 L49 10 L42 16');
+  path.setAttribute('fill','none');path.setAttribute('stroke','currentColor');
+  path.setAttribute('stroke-linecap','round');path.setAttribute('stroke-linejoin','round');path.setAttribute('stroke-width','2.1');
+  arrow.appendChild(path);relation.append(arrow);
+  relation.append(node('span','gj-relation-target',link.targetText));
+  root.append(relation);
+ }
+ root.append(note);
 }
 function canAdvanceExam(){
  return state.examType==='random'&&state.answered||state.examCorrect===true||state.missionSkipped||state.missionCleared;
