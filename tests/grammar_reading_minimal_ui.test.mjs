@@ -24,7 +24,7 @@ test('Japanese translation appears directly below the English before the guide',
 });
 test('minimal transcript and diagnostics preserve recovery when recognition fails',()=>{
  assert.match(js,/state\.mode==='entrance'\?'音読を始めると、認識された英語がここに表示されます。':''/);
- assert.match(js,/trouble\.hidden=!\//);
+ assert.match(js,/trouble\.hidden=state\.mode!=='entrance'&&!isError/);
  assert.match(js,/if\(trouble\.hidden\)trouble\.open=false/);
  assert.match(js,/\$\('gtRetrySpeech'\)\.hidden=false/);
  assert.match(css,/\.gt-speech-debug\[hidden\]/);
