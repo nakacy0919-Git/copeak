@@ -153,7 +153,7 @@ function infinitive(sentence,meta){
  const title=String(meta.title||''),s=tidy(sentence);
  if(!/^HS-05-/.test(meta.id||''))return null;
  const marker=/\bto\s+[A-Za-z]+/gi;
- const good=new Set('be become begin buy call carry change check choose clean close come complete cook decide do explain fall feel find finish follow forget get give go greet have hear help improve invite join keep know learn leave listen live look make meet miss move open pass play practice prepare protect read receive remember reply return ride run save say see sell send show sing sit solve speak spend stand start stay stop study submit succeed swim take talk teach tell thank think travel try understand use visit wait wake walk watch win work write'.split(' '));
+ const good=new Set('answer arrive ask avoid be become begin buy call carry change check choose clean close come complete cook decide do explain fall feel find finish follow forget get give go greet guide have hear help improve invite join keep know learn leave listen live look love make meet miss move open pass play practice prepare protect read receive remember reply return ride run save say see sell send show sing sit solve speak spend stand start stay stop study submit succeed swim trust take talk teach tell thank think travel try understand use visit wait wake walk watch win work write welcome enjoy'.split(' '));
  let positions=[...s.matchAll(marker)].filter(x=>good.has(x[0].split(/\s+/)[1].toLowerCase())).map(x=>x.index);
  // Distinguish preposition 'to school' from to-infinitives.
  let at=positions[positions.length-1];
@@ -163,7 +163,11 @@ function infinitive(sentence,meta){
  }
  const firstTo=positions[0];
  const make=(parts,note,relation=null)=>({segments:parts.filter(Boolean),note,relation,confidence:'verified'});
- const before=s.slice(0,at).trim(),after=s.slice(at).trim();
+ let before=s.slice(0,at).trim(),after=s.slice(at).trim();
+ if(/副詞的用法：結果/.test(title)&&/\bonly$/i.test(before)){
+  before=before.replace(/\bonly$/i,'').trim();
+  after='only '+after;
+ }
  if(/主語になるto不定詞/.test(title)&&s.startsWith('To ')){
   const m=s.match(/^(To\s+.+?)\s+(takes|requires|is|are|was|were|can|will|should|may|might)\s+(.+)$/i);
   if(m)return make([seg(m[1],'主語 S（to不定詞句）','phrase'),seg(m[2]+' '+m[3],'述語部分','basic')],'to不定詞全体が主語');
@@ -201,6 +205,8 @@ function infinitive(sentence,meta){
   return make([seg(before,'文の前半','basic'),seg(after,'目的語 O（to不定詞）','phrase')],'to不定詞全体が動詞の目的語になる');
  }
  if(/be＋to不定詞/.test(title)){
+  const conditional=s.match(/^(If\s+.+?),\s+(.+)$/i);
+  if(conditional)return make([seg(conditional[1],'条件節（be＋to）','clause'),seg(conditional[2],'主節','clause')],'条件節にある be ＋ to不定詞に注目');
   return make([seg(before,'主語・be動詞','basic'),seg(after,'be＋to構文の動詞句','phrase')],'be ＋ to不定詞が予定・命令などを表す');
  }
  if(/to不定詞の否定/.test(title)){
