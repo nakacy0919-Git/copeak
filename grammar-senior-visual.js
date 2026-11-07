@@ -231,7 +231,7 @@ function analyze(sentence,meta){
 function get(id,sentence,meta={}){
  if(!/^HS-\d{2}-(?:\d{3}|EX-[A-Z]|S\d{2})-\d{2}$/.test(String(id||'')))return null;
  const text=String(sentence||'').trim();if(!text)return null;
- let result=structureRules?.get(text,meta)||analyze(text,meta);
+ let result=structureRules?.get(text,{...meta,id})||analyze(text,meta);
  if(result?.confidence!=='verified'&&structureRules?.isRisky(text,meta,result)){
   result={segments:neutralFocus(text,meta.core,meta),note:point(meta.title,meta.hint),relation:null,confidence:'limited'};
  }
