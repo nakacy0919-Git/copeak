@@ -5,29 +5,29 @@ const read=name=>readFileSync(new URL('../'+name,import.meta.url),'utf8');
 const js=read('grammar-training.js'),html=read('grammar-training.html'),css=read('grammar-reading-minimal.css');
 
 test('school lesson strips duplicate totals, FACT labels and reading heading without changing exam mode',()=>{
- assert.match(js,/\\$\\('gtModeTotal'\\)\\.hidden=mode!=='entrance'/);
- assert.doesNotMatch(js,/title:'FACT '\\+t\\.fact_id/);
- assert.match(js,/id:id\\+'-'\\+t\\.fact_id,title:t\\.title/);
- assert.match(js,/\\$\\('gtReadingHeading'\\)\\.hidden=state\\.mode!=='entrance'/);
- assert.match(js,/state\\.mode==='entrance'\\?'お手本を聞いてから音読できます。':' '/);
- assert.match(js,/state\\.mode==='entrance'\\?'Listening…':''/);
- assert.match(css,/#gtReadingHeading\\[hidden\\]/);
- assert.match(css,/#gtModeTotal\\[hidden\\]/);
+ assert.match(js,/\$\('gtModeTotal'\)\.hidden=mode!=='entrance'/);
+ assert.doesNotMatch(js,/title:'FACT '\+t\.fact_id/);
+ assert.match(js,/id:id\+'-'\+t\.fact_id,title:t\.title/);
+ assert.match(js,/\$\('gtReadingHeading'\)\.hidden=state\.mode!=='entrance'/);
+ assert.match(js,/state\.mode==='entrance'\?'お手本を聞いてから音読できます。':''/);
+ assert.match(js,/state\.mode==='entrance'\?'Listening…':''/);
+ assert.match(css,/#gtReadingHeading\[hidden\]/);
+ assert.match(css,/#gtModeTotal\[hidden\]/);
 });
 test('Japanese translation appears directly below the English before the guide',()=>{
  const english=html.indexOf('id="gtReadingText"');
  const japanese=html.indexOf('id="gtJapanese"');
  const guide=html.indexOf('id="gtJuniorGuide"');
  assert.ok(english>=0&&japanese>english&&guide>japanese);
- assert.match(html,/grammar-reading-minimal\\.css\\?v=20261107-1/);
- assert.match(html,/grammar-training\\.js\\?v=20261107-6/);
+ assert.match(html,/grammar-reading-minimal\.css\?v=20261107-1/);
+ assert.match(html,/grammar-training\.js\?v=20261107-6/);
 });
 test('minimal transcript and diagnostics preserve recovery when recognition fails',()=>{
- assert.match(js,/state\\.mode==='entrance'\\?'音読を始めると、認識された英語がここに表示されます。':''/);
- assert.match(js,/trouble\\.hidden=!\\//);
- assert.match(js,/if\\(trouble\\.hidden\\)trouble\\.open=false/);
- assert.match(js,/\\$\\('gtRetrySpeech'\\)\\.hidden=false/);
- assert.match(css,/\\.gt-speech-debug\\[hidden\\]/);
+ assert.match(js,/state\.mode==='entrance'\?'音読を始めると、認識された英語がここに表示されます。':''/);
+ assert.match(js,/trouble\.hidden=!\//);
+ assert.match(js,/if\(trouble\.hidden\)trouble\.open=false/);
+ assert.match(js,/\$\('gtRetrySpeech'\)\.hidden=false/);
+ assert.match(css,/\.gt-speech-debug\[hidden\]/);
 });
 class FakeNode{
  constructor(tag,cls='',text=''){
@@ -84,7 +84,7 @@ test('Level 1 opens, Level 2-5 collapse, a deliberate click reveals and closes b
 test('no protrusions or effect on unchanged entrance mode',()=>{
  const flat=read('grammar-visual-flat.css');
  assert.match(flat,/content:none!important/);
- assert.match(css,/#gtJuniorGuide\\.gj-guide\\.gj-collapsed/);
- assert.doesNotMatch(css,/body\\[data-gt-mode="entrance"\\]/);
- assert.match(read('vercel.json'),/"deploymentEnabled"\\s*:\\s*false/);
+ assert.match(css,/#gtJuniorGuide\.gj-guide\.gj-collapsed/);
+ assert.doesNotMatch(css,/body\[data-gt-mode="entrance"\]/);
+ assert.match(read('vercel.json'),/"deploymentEnabled"\s*:\s*false/);
 });
