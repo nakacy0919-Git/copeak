@@ -1,0 +1,104 @@
+/* Copeak reading clean-up (junior + senior only).
+   FACTBOOK-derived data IDs stay internal. Hide visual clutter without modifying
+   recognition, evaluation, existing lesson progress, or entrance-exam layouts. */
+body[data-gt-mode="junior"] #gtModeTotal,
+body[data-gt-mode="senior"] #gtModeTotal,
+#gtModeTotal[hidden],
+#gtReadingHeading[hidden],
+.gt-speech-debug[hidden]{
+ display:none!important;
+}
+body[data-gt-mode="junior"] #gtRecognitionStatus:empty,
+body[data-gt-mode="senior"] #gtRecognitionStatus:empty{
+ display:none!important;
+ min-height:0!important;
+ margin:0!important;
+ padding:0!important;
+}
+body[data-gt-mode="junior"] #gtTranscript:empty,
+body[data-gt-mode="senior"] #gtTranscript:empty{
+ margin:0!important;
+ min-height:0;
+ padding:0;
+}
+body[data-gt-mode="junior"] .gt-reading .gt-japanese,
+body[data-gt-mode="senior"] .gt-reading .gt-japanese{
+ margin:2px 0 9px!important;
+ padding:0!important;
+ border-top:none!important;
+ color:#51677e;
+ font-size:clamp(.77rem,1.1vw,.94rem);
+ line-height:1.35;
+}
+body[data-gt-mode="junior"] .gt-reading .gt-reading-text,
+body[data-gt-mode="senior"] .gt-reading .gt-reading-text{
+ margin-bottom:2px!important;
+}
+body[data-gt-mode="junior"] .gt-reading .gt-sentence-top,
+body[data-gt-mode="senior"] .gt-reading .gt-sentence-top{
+ justify-content:flex-end;
+}
+body[data-gt-mode="junior"] .gt-reading #gtJuniorGuide.gj-guide,
+body[data-gt-mode="senior"] .gt-reading #gtJuniorGuide.gj-guide{
+ margin:6px 0 2px;
+}
+#gtJuniorGuide.gj-guide .gj-toggle{
+ display:flex;
+ width:100%;
+ align-items:center;
+ justify-content:space-between;
+ gap:8px;
+ min-height:26px;
+ padding:0 2px;
+ margin:0;
+ color:#345974;
+ border:0;
+ border-radius:5px;
+ background:transparent;
+ box-shadow:none;
+ cursor:pointer;
+ font:inherit;
+ text-align:left;
+ -webkit-tap-highlight-color:transparent;
+}
+#gtJuniorGuide.gj-guide .gj-toggle:hover{color:#185b8d}
+#gtJuniorGuide.gj-guide .gj-toggle:focus-visible{
+ outline:2px solid #4085c4;outline-offset:3px;
+}
+#gtJuniorGuide.gj-guide .gj-toggle .gj-title{
+ color:inherit;font-weight:900;letter-spacing:.045em;font-size:.69rem;
+}
+#gtJuniorGuide.gj-guide .gj-chevron{
+ font-family:Inter,"Noto Sans JP",sans-serif;
+ font-size:1.02rem;font-weight:800;line-height:1;
+ color:#6b8ba4;
+}
+#gtJuniorGuide.gj-guide .gj-details{
+ margin-top:6px;
+}
+#gtJuniorGuide.gj-guide.gj-collapsed{
+ border:1px solid #dce6ee;
+ border-radius:8px;
+ padding:3px 8px;
+ background:#f7fafd;
+ box-shadow:none;
+}
+#gtJuniorGuide.gj-guide.gj-collapsed .gj-toggle{
+ min-height:27px;
+ padding:0;
+}
+#gtJuniorGuide.gj-guide.gj-collapsed .gj-toggle .gj-title{
+ font-size:.66rem;
+}
+#gtJuniorGuide.gj-guide.gj-collapsed .gj-chevron{color:#35729b}
+@media(max-width:699px),(max-height:760px){
+ body[data-gt-mode="junior"] .gt-reading .gt-japanese,
+ body[data-gt-mode="senior"] .gt-reading .gt-japanese{
+  margin:2px 0 5px!important;font-size:.76rem;
+ }
+ #gtJuniorGuide.gj-guide.gj-collapsed{padding:2px 6px}
+ #gtJuniorGuide.gj-guide .gj-details{margin-top:4px}
+}
+@media(prefers-reduced-motion:reduce){
+ #gtJuniorGuide.gj-guide .gj-toggle{transition:none}
+}
