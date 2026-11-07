@@ -61,7 +61,7 @@ test('guide is senior/junior only, hidden word labels never reveal answer',()=>{
  const js=fromFile('grammar-training.js'),html=fromFile('grammar-training.html'),css=fromFile('grammar-visual-flat.css');
  assert.match(js,/isJunior\?juniorVisual\.get/);
  assert.match(js,/seniorVisual\.get/);
- assert.match(js,/state\.guideExpanded=state\.stage===1/);
+ assert.match(js,/state\.guideExpanded=false/);
  assert.match(js,/if\(!expanded\)\{details\.hidden=true;root\.append\(details\);return;\}/);
  assert.match(js,/const link=isJunior\?/);
  assert.match(js,/const isJunior=state\.mode==='junior',isSenior=state\.mode==='senior'/);
