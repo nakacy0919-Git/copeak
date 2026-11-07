@@ -337,6 +337,11 @@ function openReadingMission(){
  closeExplanation();placeReading();
  $('gtReading').hidden=false;updateMissionActions();
  const dlg=$('gtReadingDialog');
+ dlg.classList.remove('gt-junior-dialog');
+ $('gtMissionTitle').textContent='音読ミッション';
+ $('gtMissionDescription').textContent='英文を声に出して読み、5段階に挑戦しましょう。';
+ $('gtMissionClose').textContent='問題へ戻る';
+ $('gtMissionStatus').hidden=false;
  if(!dlg.open){if(typeof dlg.showModal==='function')dlg.showModal();else dlg.setAttribute('open','');}
 }
 function leaveExplanation(){
