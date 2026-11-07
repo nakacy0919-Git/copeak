@@ -17,7 +17,7 @@ const SETTINGS={
 };
 const DEFAULT_TOTALS={junior:144,senior:1830,entrance:4912};
 function restore(){try{const x=JSON.parse(localStorage.getItem(KEY)||'{}');return x.version===2&&x.records&&typeof x.records==='object'?x:{version:2,records:{}};}catch{return{version:2,records:{}};}}
-const state={guideKey:'',guideExpanded:true,examType:'category',examScope:'all',examSelectedIds:new Set(),examSession:null,examLastConfig:null,mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,examCorrect:null,missionSkipped:false,missionCleared:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,micPhase:'idle',micStopTimer:null,micRestartTimer:null,micHealthTimer:null,levelTimer:null,bannerTimer:null,bannerHideTimer:null,micRecoveries:0,effectTimer:null,stopRequested:false,transcript:'',interimTranscript:'',usedInterim:false,micSignals:{audio:false,voice:false,text:false},micDiagnosticToken:0,micDiagnosticStream:null,micDiagnosticContext:null,cache:new Map(),progress:restore(),totals:{...DEFAULT_TOTALS}};
+const state={guideKey:'',guideExpanded:false,examType:'category',examScope:'all',examSelectedIds:new Set(),examSession:null,examLastConfig:null,mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,examCorrect:null,missionSkipped:false,missionCleared:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,micPhase:'idle',micStopTimer:null,micRestartTimer:null,micHealthTimer:null,levelTimer:null,bannerTimer:null,bannerHideTimer:null,micRecoveries:0,effectTimer:null,stopRequested:false,transcript:'',interimTranscript:'',usedInterim:false,micSignals:{audio:false,voice:false,text:false},micDiagnosticToken:0,micDiagnosticStream:null,micDiagnosticContext:null,cache:new Map(),progress:restore(),totals:{...DEFAULT_TOTALS}};
 const node=(tag,className,text)=>{const n=document.createElement(tag);if(className)n.className=className;if(text!==undefined)n.textContent=text;return n;};
 function progress(id){return state.progress.records[id]||{};}
 function save(id,patch){state.progress.records[id]=Object.assign({},progress(id),patch,{updated:new Date().toISOString()});try{localStorage.setItem(KEY,JSON.stringify(state.progress));}catch(e){console.warn('Grammar progress not saved',e);}renderOverallProgress();}
@@ -308,11 +308,11 @@ function renderGrammarVisual(q){
  });
  root.replaceChildren();
  if(!diagram){root.hidden=true;return;}
- // Default open for Level 1, collapsed for Level 2-5. A new sentence resets the choice.
+ // Keep the learning view compact at every level until learners request the structure.
  const guideKey=q.id+'|'+state.stage;
  if(state.guideKey!==guideKey){
   state.guideKey=guideKey;
-  state.guideExpanded=state.stage===1;
+  state.guideExpanded=false;
  }
  const expanded=state.guideExpanded;
  root.classList.toggle('gj-collapsed',!expanded);
@@ -321,12 +321,19 @@ function renderGrammarVisual(q){
  toggle.type='button';
  toggle.setAttribute('aria-expanded',String(expanded));
  toggle.setAttribute('aria-controls','gtGrammarGuideDetails');
- toggle.setAttribute('aria-label','Grammar Visual Guideを'+(expanded?'閉じる':'表示する'));
- toggle.append(node('strong','gj-title','GRAMMAR VISUAL GUIDE'));
- toggle.append(node('span','gj-chevron',expanded?'−':'+'));
+ toggle.setAttribute('aria-label',expanded?'文構造の図を閉じる':'図で文構造を確認する');
+ const icon=node('span','gj-visual-icon');
+ icon.setAttribute('aria-hidden','true');
+ for(let i=0;i<3;i++)icon.append(node('span','gj-visual-bar gj-visual-bar-'+(i+1)));
+ toggle.append(icon);
+ toggle.append(node('strong','gj-title',expanded?'図を閉じる':'図で文構造を確認する'));
+ toggle.append(node('span','gj-chevron',expanded?'⌃':'›'));
  toggle.addEventListener('click',()=>{
   state.guideExpanded=!state.guideExpanded;
   renderGrammarVisual(q);
+  // Replacing the content should not strand keyboard and switch users without focus.
+  const nextButton=root.querySelector?.('.gj-toggle');
+  nextButton?.focus?.({preventScroll:true});
  });
  root.append(toggle);
  const details=node('div','gj-details');
@@ -616,7 +623,7 @@ async function changeMode(mode){
  if(!SETTINGS[mode])return;closeReadingMission();closeExplanation();cancelRecognition();if(window.speechSynthesis)window.speechSynthesis.cancel();
  document.body.classList.add('gt-in-workspace');setHeaderBack('学習メニュー');
  if(state.examSession)saveExamSession('exited');
- state.mode=mode;document.body.dataset.gtMode=mode;state.guideKey='';state.guideExpanded=true;state.examType='category';state.categories=[];state.units=[];state.category='';state.unit=null;state.items=[];state.manifest=null;state.categoryPage=0;state.unitPage=0;
+ state.mode=mode;document.body.dataset.gtMode=mode;state.guideKey='';state.guideExpanded=false;state.examType='category';state.categories=[];state.units=[];state.category='';state.unit=null;state.items=[];state.manifest=null;state.categoryPage=0;state.unitPage=0;
  $('gtLanding').hidden=true;$('gtWorkspace').hidden=false;$('gtWelcome').hidden=true;$('gtLesson').hidden=true;$('gtExamResult').hidden=true;
  $('gtExamScopeAll').checked=true;state.examScope='all';
  $('gtPicker').hidden=false;$('gtCategoriesPanel').hidden=false;$('gtUnitsPanel').hidden=true;$('gtContent').hidden=true;$('gtStudyBar').hidden=true;
@@ -740,7 +747,7 @@ function readingItem(){
  return state.extra&&q.example?{id:q.id+'|extra',sentence:q.example,japanese:q.exampleJa}:{id:q.id+'|answer',sentence:q.sentence,japanese:q.japanese};
 }
 function prepareReading(){
- cancelRecognition();state.stage=1;state.guideKey='';state.guideExpanded=true;
+ cancelRecognition();state.stage=1;state.guideKey='';state.guideExpanded=false;
  const q=item(),hasExtra=state.mode==='entrance'&&!!q.example;
  $('gtSentenceSwitcher').hidden=!hasExtra;
  $('gtMainSentence').setAttribute('aria-pressed',String(!state.extra));$('gtExtraSentence').setAttribute('aria-pressed',String(state.extra));
