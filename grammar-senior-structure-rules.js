@@ -505,9 +505,68 @@ function comparison(sentence,meta){
  return make([seg(s,'比較表現のまとまり','phrase')],title||'比較表現に注目して音読');
 }
 
+function conditionals(sentence,meta){
+ if(!/^HS-10-/.test(meta.id||''))return null;
+ const s=tidy(sentence),t=String(meta.title||'');
+ const make=(parts,note)=>({segments:parts.filter(Boolean),note,relation:null,confidence:'verified'});
+ const comma=s.indexOf(',');
+ if(comma>0){
+  const first=s.slice(0,comma),rest=s.slice(comma+1);
+  const isCond=/^(?:If|Had|Were|Should|But for|Without|In case|Provided|Providing)\b/i.test(first);
+  const isWish=/^If only\b/i.test(first);
+  if(isCond||isWish)return make([seg(first,isWish?'願望の表現':/倒置/.test(t)?'倒置した仮定の条件節':'仮定の条件節','clause'),
+   seg(rest,'仮定の結果・主節','clause')],'条件節と結果の節を分けて読む');
+ }
+ const wish=s.match(/^(I\s+wish|If\s+only)\b\s*(.*)$/i);
+ if(wish)return make([seg(wish[1],'願望・後悔の表現','focus'),seg(wish[2],'願っている内容','clause')],
+  /過去への後悔|過去完了/.test(t)?'過去の出来事に対する後悔':'事実と違う願望を表す');
+ const asif=s.match(/^(.+?)\s+(as\s+if|as\s+though)\s+(.+)$/i);
+ if(asif)return make([seg(asif[1],'主節','clause'),seg(asif[2]+' '+asif[3],'仮定を表すas if節','clause')],
+  'as if は事実と異なるようすを表す');
+ const cond=s.match(/^(.+?)\s+(without|but for)\s+(.+)$/i);
+ if(cond)return make([seg(cond[1],'仮定の結果・主節','clause'),seg(cond[2]+' '+cond[3],'仮定の条件に相当する句','phrase')],
+  'without / but for は条件の仮定に相当する');
+ return make([seg(s,'仮定表現のまとまり','phrase')],t||'仮定の条件と結果を意識する');
+}
+function conjunctions(sentence,meta){
+ if(!/^HS-18-/.test(meta.id||''))return null;
+ const s=tidy(sentence),t=String(meta.title||'');
+ const make=(parts,note)=>({segments:parts.filter(Boolean),note,relation:null,confidence:'verified'});
+ const comma=s.indexOf(',');
+ if(/if \/ whether：〜かどうか/.test(t)){
+  const m=s.match(/\b(?:if|whether)\b/i);
+  if(m)return make([seg(s.slice(0,m.index),'主節','basic'),seg(s.slice(m.index),'〜かどうかの名詞節','clause')],
+    'if / whether はここでは条件ではなく名詞節');
+ }
+ if(/so \.\.\. that|such \.\.\. that/.test(t)){
+  const m=s.match(/\bthat\b/i);
+  if(m)return make([seg(s.slice(0,m.index),'程度を表す表現','phrase'),seg(s.slice(m.index),'結果を表すthat節','clause')],
+    '程度とその結果をso ... that / such ... thatで結ぶ');
+ }
+ if(comma>0){
+  const first=s.slice(0,comma),second=s.slice(comma+1);
+  if(/^(?:If|Unless|Whether|When|While|Although|Though|Even though|Since|As|Before|After|Once|By the time)\b/i.test(first)){
+   return make([seg(first,'条件・時・理由などの従属節','clause'),seg(second,'主節','clause')],
+     '従属節と主節の境界に注目');
+  }
+  if(/^(?:so|and|or|but)\b/i.test(second.trim())){
+   return make([seg(first,'前半の節','clause'),seg(second,'後半の節','clause')],'等位接続詞が2つの節を結ぶ');
+  }
+ }
+ const patt=/(?:\b(?:because|although|though|unless|until|whenever|whereas|while|when|if|whether|since|before|after|as soon as|as long as|in case|by the time)\b)/i;
+ const m=s.match(patt);
+ if(m&&m.index>0&&s.slice(m.index+m[0].length).trim().split(/\s+/).length>=2){
+  const isNoun=/if \/ whether：〜かどうか/.test(t);
+  return make([seg(s.slice(0,m.index),'主節・前の部分','basic'),seg(s.slice(m.index),isNoun?'名詞節':'従属節','clause')],
+    '接続詞の後ろに節が続く');
+ }
+ // Coordinated nouns and verb phrases should not be falsely called two independent clauses.
+ return make([seg(s,'接続表現を含む文','phrase')],t||'接続詞が何を結んでいるかを意識する');
+}
+
 function get(sentence,meta={}){
  const t=String(meta.title||'');
- return infinitive(sentence,meta)||gerund(sentence,meta)||participle(sentence,meta)||comparison(sentence,meta)||relative(sentence,meta)||coordination(sentence)||imperative(sentence,t)||existential(sentence,t)||complex(sentence,t)||linking(sentence,meta)||null;
+ return infinitive(sentence,meta)||gerund(sentence,meta)||participle(sentence,meta)||comparison(sentence,meta)||relative(sentence,meta)||conditionals(sentence,meta)||conjunctions(sentence,meta)||coordination(sentence)||imperative(sentence,t)||existential(sentence,t)||complex(sentence,t)||linking(sentence,meta)||null;
 }
 return Object.freeze({get,isRisky:risk});
 });
