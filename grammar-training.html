@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="grammar-exam-modes.css?v=20261106-1">
 <link rel="stylesheet" href="grammar-junior-visual.css?v=20261107-3">
 <link rel="stylesheet" href="grammar-visual-flat.css?v=20261107-1">
+<link rel="stylesheet" href="grammar-reading-minimal.css?v=20261107-1">
 <script defer src="vocabulary-reading.js?v=8.3"></script>
 <script defer src="grammar-practice-engine.js?v=20261106-2"></script>
 <script defer src="grammar-training-core.js?v=20261107-1"></script>
@@ -33,7 +34,7 @@
 <script defer src="grammar-junior-visual.js?v=20261107-2"></script>
 <script defer src="grammar-junior-relations.js?v=20261107-1"></script>
 <script defer src="grammar-senior-visual.js?v=20261107-1"></script>
-<script defer src="grammar-training.js?v=20261107-5"></script>
+<script defer src="grammar-training.js?v=20261107-6"></script>
 <script defer src="grammar-aurora.js?v=20261105-1"></script>
 </head>
 <body>
@@ -121,14 +122,14 @@
     <div id="gtReading" class="gt-reading" hidden>
      <div class="gt-reading-head"><span id="gtPassCondition" class="gt-pass"></span></div>
      <div id="gtStageTabs" class="gt-stage-tabs" role="group" aria-label="音読段階"></div>
-     <div class="gt-sentence-panel"><div class="gt-sentence-top"><span id="gtReadingHeading" class="gt-reading-label">基本例文</span><div class="gt-sentence-tools"><button id="gtSoundToggle" class="gt-sound-toggle" type="button" aria-pressed="true">効果音 ON</button><button id="gtListen" type="button" class="gt-listen" aria-label="英文のお手本を聞く" title="英文のお手本を聞く">🔊 <span>聞く</span></button></div></div><p id="gtReadingText" class="gt-reading-text" lang="en"></p><section id="gtJuniorGuide" class="gj-guide" aria-label="文構造ガイド" hidden></section><p id="gtJapanese" class="gt-japanese" lang="ja"></p><div id="gtSentenceSwitcher" class="gt-sentence-switcher" hidden><button id="gtMainSentence" type="button" aria-pressed="true">完成英文</button><button id="gtExtraSentence" type="button" aria-pressed="false">別例文</button></div></div>
+     <div class="gt-sentence-panel"><div class="gt-sentence-top"><span id="gtReadingHeading" class="gt-reading-label">基本例文</span><div class="gt-sentence-tools"><button id="gtSoundToggle" class="gt-sound-toggle" type="button" aria-pressed="true">効果音 ON</button><button id="gtListen" type="button" class="gt-listen" aria-label="英文のお手本を聞く" title="英文のお手本を聞く">🔊 <span>聞く</span></button></div></div><p id="gtReadingText" class="gt-reading-text" lang="en"></p><p id="gtJapanese" class="gt-japanese" lang="ja"></p><section id="gtJuniorGuide" class="gj-guide" aria-label="文構造ガイド" hidden></section><div id="gtSentenceSwitcher" class="gt-sentence-switcher" hidden><button id="gtMainSentence" type="button" aria-pressed="true">完成英文</button><button id="gtExtraSentence" type="button" aria-pressed="false">別例文</button></div></div>
 
      <div class="gt-results"><div class="gt-transcript-panel"><div class="gt-result-label">YOUR SPEECH / 文字起こし</div><div class="gt-speech-pipeline" aria-label="音声認識の状態">
  <span id="gtSignalAudio" data-status="idle">マイク：待機</span>
  <span id="gtSignalVoice" data-status="idle">発話：未確認</span>
  <span id="gtSignalText" data-status="idle">文字起こし：未受信</span>
  </div>
- <div id="gtTranscript" class="gt-transcript" aria-live="polite">音読を始めると、認識された英語がここに表示されます。</div>
+ <div id="gtTranscript" class="gt-transcript" aria-live="polite"></div>
  <button id="gtRetrySpeech" class="gt-speech-retry" type="button" hidden>文字起こしを再接続して音読する</button>
  <details class="gt-speech-debug"><summary>文字起こしが動かない場合</summary><p>マイクの音量を別の方法で確認できます。音声の保存や送信はしません。録音中は実行できません。</p>
  <button id="gtMicTest" type="button">マイク音量を確認（3秒）</button>
