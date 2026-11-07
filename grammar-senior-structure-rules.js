@@ -307,6 +307,20 @@ function relative(sentence,meta){
  const title=String(meta.title||''),s=tidy(sentence);
  const emit=(parts,note,relation=null)=>({segments:parts.filter(Boolean),note,relation,confidence:'verified'});
  if(/関係代名詞の省略/.test(title)){
+  const patterns={
+   'HS-09-169-01':['The book','I bought yesterday','is interesting'],
+   'HS-09-169-02':['The girl','we met at the station','is my cousin'],
+   'HS-09-169-03':['This is the photo','I took in Kyoto'],
+   'HS-09-169-04':['The music','you played','was beautiful'],
+   'HS-09-169-05':['The advice','my teacher gave me','changed my mind']
+  };
+  const chunks=patterns[meta.id];
+  if(chunks&&chunks.join(' ')===s){
+   const antecedent=chunks[0].split(/\s+/).at(-1);
+   return emit(chunks.map((p,i)=>seg(p,i===0?'先行詞を含む部分':i===1?'関係代名詞が省略された修飾節':'主節の述語',
+    i===1?'clause':'basic')),'目的格の関係代名詞が省略され、名詞を後ろから修飾する',
+    {sourceText:chunks[1],targetText:antecedent,label:'名詞を修飾'});
+  }
   return emit([seg(s,'関係詞が省略された文','phrase')],
    '名詞の直後に関係代名詞を省略した修飾節が続く');
  }
@@ -358,6 +372,16 @@ function relative(sentence,meta){
   return emit([seg(s,'複合関係詞を含む文','clause')],'複合関係詞の働きを確認する');
  }
  if(/非制限用法|文全体を受けるwhich/.test(title)){
+  const internal=s.match(/^(.+?),\s+(.+?),\s+(.+)$/);
+  if(internal&&/\b(?:who|whom|whose|which|where|when)\b/i.test(internal[2])){
+   const antecedent=internal[1].split(/\s+/).at(-1);
+   return emit([
+    seg(internal[1],'先行詞を含む部分','basic'),
+    seg(internal[2],'非制限用法の関係詞節','clause'),
+    seg(internal[3],'主節の続き','basic')
+   ],'カンマに挟まれた関係詞節が、先行詞の補足情報を加える',
+   {sourceText:internal[2],targetText:antecedent,label:'名詞・時などを補足'});
+  }
   const comma=s.indexOf(',');
   if(comma>0){
    const earlier=s.slice(0,comma),later=s.slice(comma+1);
