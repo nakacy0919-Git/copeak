@@ -50,6 +50,9 @@ const keys1=`1|12|I am Edward Trout.
 const keys3=`1|10|I have watched Japanese anime many times.
 1|10|Eddy has never watched Japanese anime.
 2|11|Have you ever been to an anime event?
+3|13|Anime songs make me happy.
+4|15|The story shows me the power of love.
+4|15|The story shows me that anything is possible.
 10|52|I know where the local shelter is.`;
 const allKeys=(grade===1?keys1:keys3).trim().split('\n').map(line=>{const [no,p,...words]=line.split('|');return{no:+no,page:+p,text:words.join('|')}});
 const books=grade===3?[{key:'BRW58CDC94D53DD_000822.pdf',from:6,to:129,scan:6}]:[
