@@ -19,6 +19,9 @@
 }
 .gj-english{font:750 clamp(.76rem,1vw,.91rem)/1.2 Georgia,"Times New Roman",serif;white-space:normal;overflow-wrap:anywhere}
 .gj-label{font-size:.62rem;font-weight:900;white-space:nowrap;line-height:1.3;color:#5c7791}
+.gj-chip.gj-subject{background:#ecf5ff;border-color:#accde8}.gj-chip.gj-subject .gj-label{color:#2b679e}
+.gj-chip.gj-object{background:#ebfaf4;border-color:#acdaca}.gj-chip.gj-object .gj-label{color:#237f5b}
+.gj-chip.gj-complement{background:#f6f0ff;border-color:#d4c1ef}.gj-chip.gj-complement .gj-label{color:#7550a5}
 .gj-chip.gj-focus{background:#fff2e8;border-color:#e9b98e}
 .gj-chip.gj-focus .gj-label{color:#b44b1e}
 .gj-chip.gj-clause{background:#eef6ff;border:1px dashed #93b7d5}
