@@ -4,8 +4,8 @@ const verbs=/\b(let|lets|make|makes|made|have|has|had|get|gets|got|keep|keeps|ke
 const svoc=new Set('let lets make makes made have has had get gets got keep keeps kept call calls called name names named elect elected find finds found consider considered leave leaves left see sees saw watch watches watched hear hears heard notice noticed feel feels felt want wants wanted allow allows allowed expect expects expected ask asks asked tell tells told persuade persuaded remind reminded advise advised help helps helped force forced encourage encouraged order ordered invite invited teach taught'.split(' '));
 const ditrans=new Set('give gives gave show shows showed send sends sent tell tells told lend lent teach taught offer offered promise promised buy bought take takes took cost costs pay paid ask asks asked'.split(' '));
 const complementVerbs=new Set('laugh run cry smile join use choose check carry read think change sing dance swim jump knock play be feel study leave improve bring buy learn teach practice make go get see hear watch notice walk open close lock eat drink write paint draw explain help show tell sit stand wait work cross enter keep find taste become grow know have try start finish solve arrive clean call listen share send do fly move'.split(' '));
-const presentParticiples=new Set('playing reading running walking standing waiting sitting laughing crying singing sleeping studying working watching writing swimming shaking growing learning cooking painting building living trying improving practicing making being called'.split(' '));
-const adjectives=new Set('happy nervous clean open closed ready quiet safe honest better excited asleep awake alive comfortable anxious angry proud interesting exciting worried tired afraid beautiful correct possible necessary difficult easy hard important useful glad sad empty silent available disappointed responsible confident president lucky strange sweet bright warm cool unusual clear calm pleased relaxed helpful wonderful nice healthy sick busy confident'.split(' '));
+const presentParticiples=new Set('playing reading running walking standing waiting sitting laughing crying singing sleeping studying working watching writing swimming shaking growing learning cooking painting building living trying improving practicing making being called flying'.split(' '));
+const adjectives=new Set('happy nervous clean open closed ready quiet safe exhausted honest better excited asleep awake alive comfortable anxious angry proud interesting exciting worried tired afraid beautiful correct possible necessary difficult easy hard important useful glad sad empty silent available disappointed responsible confident president lucky strange sweet bright warm cool unusual clear calm pleased relaxed helpful wonderful nice healthy sick busy confident'.split(' '));
 const seg=(s,label,kind)=>{const text=String(s||'').trim().replace(/[.!?]+$/,'');return text?{text,label,kind}:null};
 const output=(parts,note)=>({segments:parts.filter(Boolean),note,relation:null,confidence:'verified'});
 const tidy=s=>String(s||'').trim().replace(/[.!?]+$/,'').trim();
@@ -234,7 +234,7 @@ function participle(sentence,meta){
  const make=(xs,note,relation=null)=>({segments:xs.filter(Boolean),note,relation,confidence:'verified'});
  const comma=raw.indexOf(',');
  if(/目的語説明型の分詞/.test(title)){
-  const svoc=complex(raw,title);
+  const svoc=imperative(raw,title)||complex(raw,title);
   if(svoc&&svoc.segments.some(x=>x.kind==='complement'))return svoc;
  }
  if(/付帯状況のwith/.test(title)){
