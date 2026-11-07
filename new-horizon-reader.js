@@ -53,7 +53,14 @@ const keys3=`1|10|I have watched Japanese anime many times.
 3|13|Anime songs make me happy.
 4|15|The story shows me the power of love.
 4|15|The story shows me that anything is possible.
-10|52|I know where the local shelter is.`;
+10|52|I know where the local shelter is.
+13|57|There is a movie called Live Your Dream.
+14|57|The woman smiling in a kimono is Taylor.
+17|67|This is a movie that makes people happy.
+18|67|This is a picture that I found on the internet.
+20|79|If I were you, I would ask my friends for help.
+21|83|If I had a school backpack, I would donate it.
+22|83|Many things that we see every day come from overseas.`;
 const allKeys=(grade===1?keys1:keys3).trim().split('\n').map(line=>{const [no,p,...words]=line.split('|');return{no:+no,page:+p,text:words.join('|')}});
 const books=grade===3?[{key:'BRW58CDC94D53DD_000822.pdf',from:6,to:129,scan:6}]:[
 {key:'BRW58CDC94D53DD_000740.pdf',from:6,to:91,scan:6},
@@ -112,7 +119,7 @@ let keys=allKeys.filter(k=>k.page>=current.start&&k.page<=current.end);
 let words=(checked[grade]||{})[`${unitNo}:${part}`]||[];
 const auditSection=auditedLexicon?.['grade'+grade]?.[`${unitNo}:${part}`];
 const wordsLabel=document.getElementById('nhr-vocab-count');
-if(wordsLabel)wordsLabel.textContent=auditSection?'（新出語 '+words.filter(w=>w[2]!=='phrase').length+'・表現 '+words.filter(w=>w[2]==='phrase').length+' / p.'+auditSection.page+' 照合）':'（未照合）';
+if(wordsLabel)wordsLabel.textContent=auditSection?(auditSection.status==='verified_no_new_words_box'?'（このページに独立したNew Words欄なし / p.'+auditSection.page+'）':'（新出語 '+words.filter(w=>w[2]!=='phrase').length+'・表現 '+words.filter(w=>w[2]==='phrase').length+' / p.'+auditSection.page+' 照合）'):'（未照合）';
 let txt=sourceText();document.getElementById('nhr-text').textContent=txt||keys.map(k=>k.text).join(' ')||'本文の文字データは未登録です。左の教科書を見ながら音読できます。';
 document.getElementById('nhr-caption').textContent=txt?'文字データが確認できた本文（一部）':'本文の文字データ未登録：音読の自動判定は行いません';
 document.getElementById('nhr-words').innerHTML=words.map(([en,jp],i)=>`<button class="nhr-word" data-word="${i}">${safe(en)}<span>${safe(jp)}　🔊再生</span></button>`).join('')||'<p class="nhr-note">このPartの全New Words照合は未完了です。教科書の掲載欄で確認できます。</p>';
@@ -128,7 +135,9 @@ try{
 if(!window.pdfjsLib){if(!window.__copeakPdfPromise){window.__copeakPdfPromise=new Promise((resolve,reject)=>{let s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';s.onload=resolve;s.onerror=reject;document.head.append(s)})}await window.__copeakPdfPromise}
 pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 if(!pdfDocs[b.key])pdfDocs[b.key]=await pdfjsLib.getDocument({data:mem[b.key].slice(0)}).promise;
-let p=await pdfDocs[b.key].getPage(b.scan+Math.floor((pageNo-b.from)/2)),view=p.getViewport({scale:2,rotation:90});
+// Grade 3 scan repeats the p.78–79 spread once; compensate from printed p.80 onward.
+const scanIndex=b.scan+Math.floor((pageNo-b.from)/2)+(grade===3&&pageNo>=80?1:0);
+let p=await pdfDocs[b.key].getPage(scanIndex),view=p.getViewport({scale:2,rotation:90});
 let cv=document.createElement('canvas');cv.width=Math.ceil(view.width);cv.height=Math.ceil(view.height);await p.render({canvasContext:cv.getContext('2d'),viewport:view}).promise;if(id!==renderId)return;
 let half=cv.width/2,dst=document.createElement('canvas');dst.width=Math.ceil(half);dst.height=cv.height;dst.getContext('2d').drawImage(cv,(pageNo-b.from)%2?half:0,0,half,cv.height,0,0,dst.width,dst.height);node.replaceChildren(dst);
 }catch(e){node.textContent='PDFの表示に失敗しました。通信環境を確認してください。';console.warn(e)}
