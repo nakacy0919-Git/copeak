@@ -149,9 +149,81 @@ function linking(sentence,meta){
  ],'第2文型（SVC）：補語Cが主語Sの状態・性質を説明');
 }
 
+function infinitive(sentence,meta){
+ const title=String(meta.title||''),s=tidy(sentence);
+ if(!/^HS-05-/.test(meta.id||''))return null;
+ const marker=/\bto\s+[A-Za-z]+/gi;
+ const good=new Set('be become begin buy call carry change check choose clean close come complete cook decide do explain fall feel find finish follow forget get give go greet have hear help improve invite join keep know learn leave listen live look make meet miss move open pass play practice prepare protect read receive remember reply return ride run save say see sell send show sing sit solve speak spend stand start stay stop study submit succeed swim take talk teach tell thank think travel try understand use visit wait wake walk watch win work write'.split(' '));
+ let positions=[...s.matchAll(marker)].filter(x=>good.has(x[0].split(/\s+/)[1].toLowerCase())).map(x=>x.index);
+ // Distinguish preposition 'to school' from to-infinitives.
+ let at=positions[positions.length-1];
+ if(at===undefined){
+  // With no unambiguous target, do not impose an unverified sentence pattern.
+  return output([seg(s,'文全体・重要表現','basic')],title||'不定詞の用法を意識',);
+ }
+ const firstTo=positions[0];
+ const make=(parts,note,relation=null)=>({segments:parts.filter(Boolean),note,relation,confidence:'verified'});
+ const before=s.slice(0,at).trim(),after=s.slice(at).trim();
+ if(/主語になるto不定詞/.test(title)&&s.startsWith('To ')){
+  const m=s.match(/^(To\s+.+?)\s+(takes|requires|is|are|was|were|can|will|should|may|might)\s+(.+)$/i);
+  if(m)return make([seg(m[1],'主語 S（to不定詞句）','phrase'),seg(m[2]+' '+m[3],'述語部分','basic')],'to不定詞全体が主語');
+  return make([seg(s,'主語となるto不定詞を含む文','phrase')],'文頭のto不定詞が主語になる');
+ }
+ if(/be動詞の説明語句になるto不定詞/.test(title)){
+  const m=s.match(/^(.+?)\s+(is|are|was|were)\s+(to\s+.+)$/i);
+  if(m)return make([seg(m[1],'主語 S','subject'),seg(m[2],'動詞 V','focus'),seg(m[3],'補語 C（to不定詞）','complement')],'be動詞の後ろのto不定詞が主語の内容を説明');
+ }
+ if(/it＋to不定詞：主語/.test(title)&&/^It\b/i.test(s)){
+  const m=before.match(/^(It)\s+(.+)$/i);
+  if(m)return make([seg(m[1],'仮主語 it','subject'),seg(m[2],'主節の中心','basic'),seg(after,'真主語（to不定詞）','phrase')],'後ろのto不定詞が実際の主語');
+ }
+ if(/it＋to不定詞：目的語/.test(title)){
+  const m=before.match(/^(.*?)\s+\b(it)\s+(.+)$/i);
+  if(m&&m[1]&&m[3])return make([seg(m[1],'文の前半','basic'),seg(m[2],'仮目的語 O','object'),seg(m[3],'補語 C','complement'),seg(after,'真目的語を説明','phrase')],'it が仮目的語で、to不定詞が内容を説明');
+ }
+ if(/独立不定詞/.test(title)){
+  const comma=s.indexOf(',');
+  if(comma>0)return make([seg(s.slice(0,comma),'文全体への前置き','phrase'),seg(s.slice(comma+1),'主節','clause')],'独立不定詞は文全体に対する前置き表現');
+ }
+ if(/疑問詞＋to不定詞/.test(title)){
+  const m=before.match(/\b(what|which(?:\s+\w+){0,2}|when|where|how|who|whether)(?:\s+\w+){0,2}$/i);
+  if(m){const head=before.slice(0,before.length-m[0].length);
+   return make([seg(head,'文の前半','basic'),seg(m[0]+' '+after,'疑問詞＋to不定詞のまとまり','phrase')],'疑問詞とto不定詞全体で名詞の働き');
+  }
+ }
+ if(/名詞を修飾/.test(title)){
+  const head=before.split(/\s+/).at(-1);
+  return make([seg(before,'名詞を含む前半','basic'),seg(after,'名詞を修飾するto不定詞','phrase')],
+   'to不定詞が直前の名詞の内容・役割を説明',
+   head?{sourceText:after,targetText:head,label:'名詞を修飾'}:null);
+ }
+ if(/目的語になるto不定詞/.test(title)){
+  return make([seg(before,'文の前半','basic'),seg(after,'目的語 O（to不定詞）','phrase')],'to不定詞全体が動詞の目的語になる');
+ }
+ if(/be＋to不定詞/.test(title)){
+  return make([seg(before,'主語・be動詞','basic'),seg(after,'be＋to構文の動詞句','phrase')],'be ＋ to不定詞が予定・命令などを表す');
+ }
+ if(/to不定詞の否定/.test(title)){
+  const notBefore=before.match(/\bnot\s*$/i);
+  if(notBefore){
+   const front=before.slice(0,before.length-notBefore[0].length);
+   return make([seg(front,'文の前半','basic'),seg('not '+after,'否定のto不定詞','phrase')],'not をto不定詞の直前に置いて否定');
+  }
+ }
+ if(/too .+ to|可能性・難易度を表す形容詞|そのほかの形容詞/.test(title)){
+  return make([seg(before,'主語・動詞・形容詞','basic'),seg(after,'形容詞に続くto不定詞','phrase')],'to不定詞が形容詞の意味を補う');
+ }
+ if(/副詞的用法|結果・判断|完了形の不定詞|come . get|seem . appear|そのほかの/.test(title)){
+  return make([seg(before,'文の前半','basic'),seg(after,'ポイントとなるto不定詞','phrase')],
+   /完了形/.test(title)?'to have ＋ 過去分詞のまとまり':/副詞的用法/.test(title)?'to不定詞が目的・理由・結果を表す':'to不定詞をひとまとまりで読む');
+ }
+ // Default for this chapter: accurately identify the to phrase without guessing SVO roles.
+ return make([seg(before,'文の前半','basic'),seg(after,'to不定詞のまとまり','phrase')],title||'to不定詞の働きを意識');
+}
+
 function get(sentence,meta={}){
  const t=String(meta.title||'');
- return coordination(sentence)||imperative(sentence,t)||existential(sentence,t)||complex(sentence,t)||linking(sentence,meta)||null;
+ return infinitive(sentence,meta)||coordination(sentence)||imperative(sentence,t)||existential(sentence,t)||complex(sentence,t)||linking(sentence,meta)||null;
 }
 return Object.freeze({get,isRisky:risk});
 });
