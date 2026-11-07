@@ -17,7 +17,7 @@ const SETTINGS={
 };
 const DEFAULT_TOTALS={junior:144,senior:1830,entrance:4912};
 function restore(){try{const x=JSON.parse(localStorage.getItem(KEY)||'{}');return x.version===2&&x.records&&typeof x.records==='object'?x:{version:2,records:{}};}catch{return{version:2,records:{}};}}
-const state={examType:'category',examScope:'all',examSelectedIds:new Set(),examSession:null,examLastConfig:null,mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,examCorrect:null,missionSkipped:false,missionCleared:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,micPhase:'idle',micStopTimer:null,micRestartTimer:null,micHealthTimer:null,levelTimer:null,bannerTimer:null,bannerHideTimer:null,micRecoveries:0,effectTimer:null,stopRequested:false,transcript:'',interimTranscript:'',usedInterim:false,micSignals:{audio:false,voice:false,text:false},micDiagnosticToken:0,micDiagnosticStream:null,micDiagnosticContext:null,cache:new Map(),progress:restore(),totals:{...DEFAULT_TOTALS}};
+const state={guideKey:'',guideExpanded:true,examType:'category',examScope:'all',examSelectedIds:new Set(),examSession:null,examLastConfig:null,mode:'',manifest:null,categories:[],category:'',categoryPage:0,units:[],unitPage:0,unit:null,items:[],index:0,answered:false,examCorrect:null,missionSkipped:false,missionCleared:false,sessionCorrect:0,sessionAnswered:0,stage:1,extra:false,score:null,recognition:null,micToken:0,fetchToken:0,recording:false,micPhase:'idle',micStopTimer:null,micRestartTimer:null,micHealthTimer:null,levelTimer:null,bannerTimer:null,bannerHideTimer:null,micRecoveries:0,effectTimer:null,stopRequested:false,transcript:'',interimTranscript:'',usedInterim:false,micSignals:{audio:false,voice:false,text:false},micDiagnosticToken:0,micDiagnosticStream:null,micDiagnosticContext:null,cache:new Map(),progress:restore(),totals:{...DEFAULT_TOTALS}};
 const node=(tag,className,text)=>{const n=document.createElement(tag);if(className)n.className=className;if(text!==undefined)n.textContent=text;return n;};
 function progress(id){return state.progress.records[id]||{};}
 function save(id,patch){state.progress.records[id]=Object.assign({},progress(id),patch,{updated:new Date().toISOString()});try{localStorage.setItem(KEY,JSON.stringify(state.progress));}catch(e){console.warn('Grammar progress not saved',e);}renderOverallProgress();}
@@ -301,32 +301,48 @@ function renderGrammarVisual(q){
  const isJunior=state.mode==='junior',isSenior=state.mode==='senior';
  root.hidden=!(isJunior&&juniorVisual||isSenior&&seniorVisual);
  root.classList.toggle('gj-senior-guide',isSenior);
- if(isSenior)root.setAttribute('aria-label','高校英文法の文構造ガイド');
- else root.setAttribute('aria-label','中学校英文法の文構造ガイド');
+ root.setAttribute('aria-label',isSenior?'高校英文法の文構造ガイド':'中学校英文法の文構造ガイド');
  if(root.hidden)return;
  const diagram=isJunior?juniorVisual.get(q.id,q.sentence):seniorVisual.get(q.id,q.sentence,{
   title:state.unit?.title||'',hint:state.unit?.hint||'',core
  });
  root.replaceChildren();
  if(!diagram){root.hidden=true;return;}
- const top=node('div','gj-top');
- top.append(node('strong','gj-title','GRAMMAR VISUAL GUIDE'));
- top.append(node('span','gj-key','S 主語 · V 動詞 · O 目的語 · C 補語'));
+ // Default open for Level 1, collapsed for Level 2-5. A new sentence resets the choice.
+ const guideKey=q.id+'|'+state.stage;
+ if(state.guideKey!==guideKey){
+  state.guideKey=guideKey;
+  state.guideExpanded=state.stage===1;
+ }
+ const expanded=state.guideExpanded;
+ root.classList.toggle('gj-collapsed',!expanded);
+ root.classList.remove('gj-labels-only');
+ const toggle=node('button','gj-top gj-toggle');
+ toggle.type='button';
+ toggle.setAttribute('aria-expanded',String(expanded));
+ toggle.setAttribute('aria-controls','gtGrammarGuideDetails');
+ toggle.setAttribute('aria-label','Grammar Visual Guideを'+(expanded?'閉じる':'表示する'));
+ toggle.append(node('strong','gj-title','GRAMMAR VISUAL GUIDE'));
+ toggle.append(node('span','gj-chevron',expanded?'−':'+'));
+ toggle.addEventListener('click',()=>{
+  state.guideExpanded=!state.guideExpanded;
+  renderGrammarVisual(q);
+ });
+ root.append(toggle);
+ // No English answer is added to the DOM while the guide is collapsed.
+ if(!expanded)return;
+ const details=node('div','gj-details');
+ details.id='gtGrammarGuideDetails';
  const flow=node('div','gj-flow');
- const reveal=state.stage===1;
  flow.style.setProperty('--gj-cols',String(Math.min(5,diagram.segments.length)));
  for(const segment of diagram.segments){
   const chip=node('span','gj-chip gj-'+segment.kind);
-  if(reveal)chip.append(node('span','gj-english',segment.text));
+  chip.append(node('span','gj-english',segment.text));
   chip.append(node('span','gj-label',segment.label));
   flow.append(chip);
  }
- const note=node('div','gj-note',diagram.note);
- if(!reveal)root.classList.add('gj-labels-only');
- else root.classList.remove('gj-labels-only');
- root.append(top,flow);
- // A relationship is displayed only in Level 1; later levels must not reveal masked words.
- const link=reveal?(isJunior?juniorRelations?.get(diagram):diagram.relation):null;
+ details.append(flow);
+ const link=isJunior?juniorRelations?.get(diagram):diagram.relation;
  if(link){
   const relation=node('div','gj-relation');
   relation.append(node('span','gj-relation-type',link.label));
@@ -341,9 +357,10 @@ function renderGrammarVisual(q){
   path.setAttribute('stroke-linecap','round');path.setAttribute('stroke-linejoin','round');path.setAttribute('stroke-width','2.1');
   arrow.appendChild(path);relation.append(arrow);
   relation.append(node('span','gj-relation-target',link.targetText));
-  root.append(relation);
+  details.append(relation);
  }
- root.append(note);
+ details.append(node('div','gj-note',diagram.note));
+ root.append(details);
 }
 function canAdvanceExam(){
  return state.examType==='random'&&state.answered||state.examCorrect===true||state.missionSkipped||state.missionCleared;
@@ -445,7 +462,16 @@ function showTopicPicker(){
  updateExamModeUi();if(state.units.length)renderUnitCards();
 }
 function unitStatus(s){$('gtUnitMeta').textContent=s;}
-function micStatus(s){$('gtRecognitionStatus').textContent=s||'';}
+function micStatus(s){
+ const message=s||'';
+ $('gtRecognitionStatus').textContent=message;
+ // Show diagnostics when speech recognition fails, not during normal reading.
+ const trouble=document.querySelector('.gt-speech-debug');
+ if(trouble&&state.mode!=='entrance'){
+  trouble.hidden=!/(?:できません|利用できません|失敗しました|エラー|応答していません|受信できません)/.test(message);
+  if(trouble.hidden)trouble.open=false;
+ }
+}
 function updateSpeechSignals(){
  const stages=[
   ['gtSignalAudio',state.micSignals.audio,'マイク：起動通知','マイク：待機'],
@@ -569,7 +595,7 @@ function resetReading(){
  state.score=null;$('gtScoreNumber').textContent='—';$('gtScoreArc').style.strokeDasharray='0 100';$('gtScoreArc').classList.remove('is-pass');
  $('gtScoreMeter').removeAttribute('aria-valuenow');$('gtScoreMeter').setAttribute('aria-valuetext','判定前');
  $('gtScoreNote').textContent='音読終了後に結果を表示します。';
- $('gtTranscript').textContent='音読を始めると、認識された英語がここに表示されます。';$('gtNextStage').hidden=true;
+ $('gtTranscript').textContent=state.mode==='entrance'?'音読を始めると、認識された英語がここに表示されます。':'';$('gtNextStage').hidden=true;
  $('gtRetrySpeech').hidden=true;
 }
 function cancelRecognition(){
@@ -588,12 +614,12 @@ async function changeMode(mode){
  if(!SETTINGS[mode])return;closeReadingMission();closeExplanation();cancelRecognition();if(window.speechSynthesis)window.speechSynthesis.cancel();
  document.body.classList.add('gt-in-workspace');setHeaderBack('学習メニュー');
  if(state.examSession)saveExamSession('exited');
- state.mode=mode;document.body.dataset.gtMode=mode;state.examType='category';state.categories=[];state.units=[];state.category='';state.unit=null;state.items=[];state.manifest=null;state.categoryPage=0;state.unitPage=0;
+ state.mode=mode;document.body.dataset.gtMode=mode;state.guideKey='';state.guideExpanded=true;state.examType='category';state.categories=[];state.units=[];state.category='';state.unit=null;state.items=[];state.manifest=null;state.categoryPage=0;state.unitPage=0;
  $('gtLanding').hidden=true;$('gtWorkspace').hidden=false;$('gtWelcome').hidden=true;$('gtLesson').hidden=true;$('gtExamResult').hidden=true;
  $('gtExamScopeAll').checked=true;state.examScope='all';
  $('gtPicker').hidden=false;$('gtCategoriesPanel').hidden=false;$('gtUnitsPanel').hidden=true;$('gtContent').hidden=true;$('gtStudyBar').hidden=true;
  updateExamModeUi();
- $('gtModeTitle').textContent=SETTINGS[mode].name;$('gtModeTotal').textContent='読み込み中…';
+ $('gtModeTitle').textContent=SETTINGS[mode].name;$('gtModeTotal').hidden=mode!=='entrance';$('gtModeTotal').textContent=mode==='entrance'?'読み込み中…':'';
  $('gtCategory').replaceChildren();$('gtUnit').replaceChildren();$('gtCategoryCards').replaceChildren();$('gtUnitList').replaceChildren();$('gtStart').disabled=true;unitStatus('読み込み中…');
  const token=++state.fetchToken;
  try{
@@ -605,7 +631,7 @@ async function changeMode(mode){
   const total=mode==='entrance'?manifest.total_questions:manifest.total_sentences;
   if(Number(total)>0){state.totals[mode]=Number(total);renderOverallProgress();}
   if(mode==='entrance'){renderRandomCategories();updateExamModeUi();}
-  $('gtModeTotal').textContent=Number(total||0).toLocaleString('ja-JP')+(mode==='entrance'?'問':'例文');
+  if(mode==='entrance')$('gtModeTotal').textContent=Number(total||0).toLocaleString('ja-JP')+'問';
   // Category is selected from the visible first page.
  }catch(e){if(token!==state.fetchToken)return;unitStatus('教材を読み込めませんでした。接続とファイルの配置を確認してください。');console.error(e);}
  window.scrollTo({top:0,behavior:'instant'});
@@ -622,7 +648,7 @@ async function loadCategory(id){
   if(state.mode==='entrance'){
    state.units=[...core.groupedQuestions(bank.questions).entries()].map(([pid,qs])=>({id:pid,title:pid+' · '+((state.manifest.point_titles||{})[pid]||qs[0].subtopic||'文法演習'),items:qs}));
   }else if(state.mode==='senior'){
-   state.units=(bank.topics||[]).map(t=>({id:id+'-'+t.fact_id,title:'FACT '+t.fact_id+' · '+t.title,hint:t.pattern_hint||'',items:(t.sentences||[]).map(core.makeReading).filter(Boolean)}));
+   state.units=(bank.topics||[]).map(t=>({id:id+'-'+t.fact_id,title:t.title,hint:t.pattern_hint||'',items:(t.sentences||[]).map(core.makeReading).filter(Boolean)}));
   }else{
    state.units=(bank.units||[]).map(t=>({id:t.id,title:t.title,items:(t.sentences||[]).map(core.makeReading).filter(Boolean)}));
   }
@@ -712,7 +738,7 @@ function readingItem(){
  return state.extra&&q.example?{id:q.id+'|extra',sentence:q.example,japanese:q.exampleJa}:{id:q.id+'|answer',sentence:q.sentence,japanese:q.japanese};
 }
 function prepareReading(){
- cancelRecognition();state.stage=1;
+ cancelRecognition();state.stage=1;state.guideKey='';state.guideExpanded=true;
  const q=item(),hasExtra=state.mode==='entrance'&&!!q.example;
  $('gtSentenceSwitcher').hidden=!hasExtra;
  $('gtMainSentence').setAttribute('aria-pressed',String(!state.extra));$('gtExtraSentence').setAttribute('aria-pressed',String(state.extra));
@@ -727,7 +753,8 @@ function showLevelBanner(level,duration=0){
 }
 function renderStage(){
  const q=readingItem();if(!q)return;const step=core.STAGES[state.stage-1],rec=progress(q.id),unlocked=Math.min(5,(rec.cleared||0)+1);
- $('gtReadingHeading').textContent=(state.mode==='entrance'?(state.extra?'別例文':'完成英文'):'基礎例文')+' · Level '+state.stage+' / 5 · '+step.label;
+ $('gtReadingHeading').hidden=state.mode!=='entrance';
+ $('gtReadingHeading').textContent=state.mode==='entrance'?(state.extra?'別例文':'完成英文'):'';
  const readingText=$('gtReadingText');readingText.replaceChildren();
  const question=item(),unitTitle=state.unit?.title||'';
  const focus=core.focusRanges?.(q.sentence,{
@@ -769,7 +796,7 @@ function renderStage(){
  $('gtBestAccuracy').textContent=Number.isFinite(rec.bestAccuracy)?'Level '+state.stage+' Best '+(rec.bestByLevel?.[state.stage-1]??rec.bestAccuracy)+'%':'';
  $('gtNextStage').hidden=true;
  $('gtReadingNext').hidden=(Number(rec.cleared)||0)<5;
- if(!state.recording&&state.score===null)micStatus('お手本を聞いてから音読できます。');
+ if(!state.recording&&state.score===null)micStatus(state.mode==='entrance'?'お手本を聞いてから音読できます。':'');
 }
 function switchSentence(extra){
  if(state.recording)return;state.extra=extra;prepareReading();
@@ -803,7 +830,7 @@ function beginSpeech(){
  const token=state.micToken;
  resetReading();micButtons('listening');updateSpeechSignals();
  micStatus('🔴 音読中です。読み終えたら「終了・判定」を押してください。');
- $('gtTranscript').textContent='Listening…';
+ $('gtTranscript').textContent=state.mode==='entrance'?'Listening…':'';
 
  const listen=()=>{
   if(!state.recording||state.stopRequested||token!==state.micToken)return;
