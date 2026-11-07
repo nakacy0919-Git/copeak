@@ -4,16 +4,18 @@
  */
 (function(root,factory){'use strict';const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;if(root)root.CopeakSeniorVisual=api;})(typeof window!=='undefined'?window:(typeof globalThis!=='undefined'?globalThis:null),function(){'use strict';
 const FRONT=/^(If|Unless|When|While|Although|Though|Because|Before|After|Once|Whenever|Wherever|Even if|Even though|As soon as|As long as)\b/i;
-const DEPEND=/\b(because|although|though|while|whereas|unless|until|whenever|once|if|as soon as|as long as)\b/i;
-const AUX=new Set(('am is are was were be been being have has had do does did will would can could may might must shall should ought').split(' '));
+const DEPEND=/\b(because|although|though|while|whereas|unless|until|whenever|once|if|when|before|after|as soon as|as long as)\b/i;
+const AUX=new Set(('am is are was were be been being have has had do does did will would can could cannot may might must shall should ought').split(' '));
 const LINK=new Set(('am is are was were be been being seem seems seemed become becomes became look looks looked feel feels felt sound sounds sounded appear appears appeared remain remains stayed stay taste tastes smelled smell grow grew get got').split(' '));
 const FINITE=new Set(('ask asks asked answer answers answered arrive arrives arrived become becomes became begin begins began believe believes believed belong belongs belonged bring brings brought build builds built buy buys bought call calls called change changes changed choose chooses chose come comes came continue continues continued cost costs create creates created decide decides decided delay delays delayed depend depends depended die dies died discuss discusses discussed eat eats ate enjoy enjoys enjoyed explain explains explained fall falls fell feel feels felt find finds found finish finishes finished follow follows followed forget forgets forgot freeze freezes froze get gets got give gives gave go goes went grow grows grew happen happens happened hate hates hated hear hears heard help helps helped hold holds held hope hopes hoped improve improves improved include includes included join joins joined keep keeps kept know knows knew land lands landed learn learns learned leave leaves left lend lends lent let lets like likes liked live lives lived look looks looked lose loses lost love loves loved make makes made mean means meant meet meets met move moves moved need needs needed offer offers offered open opens opened own owns owned pass passes passed pay pays paid play plays played prefer prefers preferred practice practices practiced promise promises promised put puts read reads reach reaches reached realize realizes realized remain remains remained remember remembers remembered remind reminds reminded repeat repeats repeated return returns returned run runs ran say says said see sees saw seem seems seemed send sends sent set sets show shows showed sing sings sang sit sits sat sleep sleeps slept smile smiles smiled sound sounds sounded speak speaks spoke spend spends spent stand stands stood start starts started stay stays stayed stop stops stopped study studies studied surprise surprises surprised take takes took talk talks talked teach teaches taught tell tells told think thinks thought throw throws threw touch touches touched travel travels traveled try tries tried turn turns turned understand understands understood use uses used visit visits visited wait waits waited walk walks walked want wants wanted watch watches watched win wins won work works worked worry worries worried write writes wrote').split(' '));
-const PREP=new Set(('about above across after against along among around at before behind below beneath beside between beyond by during for from in inside into near of on onto out outside over since through throughout to toward towards under until up upon with within without').split(' '));
+const PREP=new Set(('about above across after against along among around as at before behind below beneath beside between beyond by during for from in inside into near of on onto out outside over since through throughout to toward towards under until up upon with within without').split(' '));
+const ADVERBS=new Set(('always often usually sometimes never already just still really nearly almost hardly scarcely seldom rarely slowly quickly quietly clearly beautifully safely perfectly confidently seriously easily frequently well hard fast only even also').split(' '));
+const INTRANSITIVE=new Set(('arrive arrives arrived go goes went come comes came fly flies flew live lives lived sleep sleeps slept work works worked wait waits waited walk walks walked stay stays stayed speak speaks spoke run runs ran sit sits sat stand stands stood fall falls fell happen happens happened laugh laughs laughed smile smiles smiled travel travels traveled grow grows grew die dies died').split(' '));
 const TIME=new Set(('today tomorrow yesterday tonight now then always often usually sometimes never already just still recently soon earlier later daily weekly').split(' '));
 const DET=new Set(('a an the my your his her its our their this that these those some any each every many much few little several no one two three four five').split(' '));
 const REL=new Set(('who whom whose which that where when why').split(' '));
 const VERBING=/^[a-z]{3,}ing$/i;
-const wordTokens=s=>[...s.matchAll(/[A-Za-z]+(?:['’][A-Za-z]+)?|\d+(?:\.\d+)?/g)].map(m=>({t:m[0],w:m[0].toLowerCase(),start:m.index,end:m.index+m[0].length}));
+const wordTokens=s=>[...s.matchAll(/[\p{L}]+(?:['’][\p{L}]+)?|\d+(?:\.\d+)?/gu)].map(m=>({t:m[0],w:m[0].toLowerCase(),start:m.index,end:m.index+m[0].length}));
 function emit(text,tokens,a,b,label,kind){
  if(a>=b||!tokens[a]||!tokens[b-1])return null;
  const str=text.slice(tokens[a].start,tokens[b-1].end).trim();
@@ -49,7 +51,9 @@ function finiteIndex(tokens,after=0){
 function verbEnd(tokens,start){
  let i=start+1;
  if(AUX.has(tokens[start].w)){
-  if(['not','never','always','often','already','just','still','really','usually'].includes(tokens[i]?.w))i++;
+  if(ADVERBS.has(tokens[i]?.w)&&tokens[i+1]&&
+  (FINITE.has(tokens[i+1].w)||VERBING.test(tokens[i+1].w)||/ed$/.test(tokens[i+1].w)||
+   ['known','seen','done','made','told','given','taken','written','built','born','gone','read','got','found','left','been'].includes(tokens[i+1].w)))i++;
   if(['to','be','been','being','have','had','has','going','able'].includes(tokens[i]?.w))i++;
   if(['to','be','been','being','have','had'].includes(tokens[i]?.w))i++;
   if(tokens[i]&&(FINITE.has(tokens[i].w)||VERBING.test(tokens[i].w)||/ed$/.test(tokens[i].w)||['known','seen','done','made','told','given','taken','written','built','born','gone','read','got','found','left'].includes(tokens[i].w)))i++;
@@ -86,6 +90,24 @@ function analyze(sentence,meta){
  const tokens=wordTokens(text),title=String(meta.title||''),hint=String(meta.hint||''),core=meta.core;
  if(!tokens.length)return null;
  const trimmed=text.replace(/[.!?]+\s*$/,'');
+ // Two full sentences in a single example are not one SVO frame.
+ const sentenceBreak=text.match(/[.!?](?=\s+[A-Z])/);
+ if(sentenceBreak){
+  const at=sentenceBreak.index+1,a=range(text,0,at,'前の文','clause'),b=range(text,at,trimmed.length,'後ろの文','clause');
+  if(a&&b)return simpleReturn([a,b],'2つの文のつながりに注目',null,'limited');
+ }
+ // Sentence-level adverbs preceding a comma are separate modifiers.
+ const startAdverb=text.match(/^([A-Z][a-z]+ly),\s+(.+)$/);
+ if(startAdverb){
+  const lead=startAdverb[1],rest=startAdverb[2];
+  const nested=analyze(rest,meta);
+  if(nested?.segments?.length)return simpleReturn([{text:lead,label:'文全体の修飾 M',kind:'modifier'},...nested.segments],point(title,hint),null,'limited');
+ }
+ // Inversion and special focus constructions must not be forced into a false SVO diagram.
+ if(/倒置|itの強調構文|allを使った強調|省略|挿入/.test(title)||/^(?:No sooner|Not until|Only then|Never before|Hardly|Scarcely|Little did)\b/i.test(text)){
+  return simpleReturn(neutralFocus(text,core,meta),point(title,hint),null,'limited');
+ }
+
  const simpleReturn=(parts,note,link=null,confidence='high')=>({segments:parts.filter(Boolean),note:note||point(title,hint),relation:link,confidence});
  // Fronted subordinator with a comma, only if the second half has a subject and verb.
  const comma=text.indexOf(',');
@@ -138,17 +160,26 @@ function analyze(sentence,meta){
  if(v<=0||v>10)return simpleReturn(neutralFocus(text,core,meta),point(title,hint),null,'limited');
  const startSubject=tokens[0].w;
  // The to-infinitive or gerund can itself be a complete subject.
- const subject=/^(to|reading|learning|studying|working|speaking|watching|playing|having|being)$/.test(startSubject)&&/主語|動名詞|不定詞/.test(title)
+ const subject=/^(to|reading|learning|studying|working|speaking|watching|playing|having|being|making|cooking|walking)$/.test(startSubject)&&/主語|動名詞|不定詞/.test(title)
   ?[emit(text,tokens,0,v,'主語 S（句）','phrase')]
   :splitSubjectModifiers(text,tokens,v);
  const ve=verbEnd(tokens,v),mainVerb=tokens[v].w;
  const verb=emit(text,tokens,v,ve,'動詞 V','focus');
  if(!verb)return simpleReturn(neutralFocus(text,core,meta),point(title,hint),null,'limited');
- const after=tokens.length-ve;const parts=[...subject,verb];
+ const after=tokens.length-ve;
+ const parts=[...subject,verb];
+ // An adverb preceding the lexical verb is not part of the subject.
+ if(subject.length===1&&subject[0]?.kind==='subject'&&/\b(?:always|often|usually|sometimes|never|quickly|slowly|quietly|already|just)\b/i.test(subject[0].text)){
+  return simpleReturn(neutralFocus(text,core,meta),point(title,hint),null,'limited');
+ }
  if(after>0){
   const remainder=tokens.slice(ve);
   const first=remainder[0].w;
   if(first==='that'||first==='whether'||(['what','how','why','where','when'].includes(first)&&/節|間接疑問|レポート|話法/.test(title))){
+   parts.push(emit(text,tokens,ve,tokens.length,'目的語となる節','clause'));
+  }else if(ADVERBS.has(first)||/ly$/.test(first)&&first.length>4||INTRANSITIVE.has(mainVerb)&&!LINK.has(mainVerb)){ 
+   parts.push(emit(text,tokens,ve,tokens.length,'修飾語 M','modifier'));
+  }else if(false){
    parts.push(emit(text,tokens,ve,tokens.length,'目的語となる節','clause'));
   }else if((PREP.has(first)&&first!=='to')||TIME.has(first)||['every','last','next','this'].includes(first)&&/^(?:day|week|month|year|summer|winter|spring|autumn|fall|morning|evening|night|friday|sunday|monday)$/i.test(remainder[1]?.w||'')){
    parts.push(emit(text,tokens,ve,tokens.length,'修飾語 M','modifier'));
@@ -156,7 +187,7 @@ function analyze(sentence,meta){
    let split=-1;
    for(let i=ve+1;i<tokens.length;i++){
     const t=tokens[i].w;
-    if((PREP.has(t)&&t!=='of'&&t!=='to')||TIME.has(t)||['every','last','next'].includes(t)&&/^(?:day|week|month|year|summer|winter|spring|autumn|fall|morning|evening|night)$/i.test(tokens[i+1]?.w||'')){split=i;break;}
+    if((PREP.has(t)&&t!=='of'&&t!=='to')||TIME.has(t)||['every','last','next','this'].includes(t)&&/^(?:day|week|month|year|summer|winter|spring|autumn|fall|morning|evening|night|weekend)$/i.test(tokens[i+1]?.w||'')){split=i;break;}
    }
    // Relative clause attached to the noun in an object or complement.
    if(/関係/.test(title)){
@@ -180,7 +211,7 @@ function analyze(sentence,meta){
      return simpleReturn(parts,point(title,hint));
     }
    }
-   const role=/不定詞|動名詞|節/.test(title)&&/^to\b/.test(first)?'目的語 O':linking?'補語 C':'目的語 O';
+   const role=/不定詞|動名詞|節/.test(title)&&/^to\b/.test(first)?'不定詞句':linking?'補語 C':'目的語 O';
    const roleKind=/不定詞|動名詞|節/.test(title)&&/^to\b/.test(first)?'phrase':linking?'complement':'object';
    if(split>ve&&split<tokens.length){
     parts.push(emit(text,tokens,ve,split,role,roleKind));
