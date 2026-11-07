@@ -302,9 +302,96 @@ function participle(sentence,meta){
  return make([seg(raw,'分詞の働きに注目する文','phrase')],title||'分詞の働きに注目');
 }
 
+function relative(sentence,meta){
+ if(!/^HS-09-/.test(meta.id||''))return null;
+ const title=String(meta.title||''),s=tidy(sentence);
+ const emit=(parts,note,relation=null)=>({segments:parts.filter(Boolean),note,relation,confidence:'verified'});
+ if(/関係代名詞の省略/.test(title)){
+  return emit([seg(s,'関係詞が省略された文','phrase')],
+   '名詞の直後に関係代名詞を省略した修飾節が続く');
+ }
+ if(/that節/.test(title)){
+  if(/^That\s/i.test(s))return emit([seg(s,'that節を含む文','clause')],'that節は主語・目的語・補語・名詞の説明として働く');
+  const m=s.match(/\bthat\b/i);
+  if(m&&m.index>0){
+   const front=s.slice(0,m.index),clause=s.slice(m.index);
+   const be=front.match(/^(.+?)\s+(is|are|was|were)\s*$/i);
+   if(be)return emit([seg(be[1],'主語 S','subject'),seg(be[2],'動詞 V','focus'),seg(clause,'補語 C（that節）','clause')],'that節全体が補語になる');
+   return emit([seg(front,'主節・先行する名詞','basic'),seg(clause,'内容を表すthat節','clause')],'that節全体で一つの内容を表す');
+  }
+ }
+ if(/if \/ whether節/.test(title)){
+  const m=s.match(/\b(?:whether|if)\b/i);
+  if(m){
+   const prior=s.slice(0,m.index),clause=s.slice(m.index);
+   return emit([seg(prior,'前の部分','basic'),seg(clause,/\bto\s+\w+/i.test(clause)?'〜かどうかの名詞相当句':'〜かどうかの名詞節','clause')],
+    'if / whether は「〜かどうか」を表す名詞節・句。条件のifとは異なる');
+  }
+ }
+ if(/wh節/.test(title)){
+  const m=s.match(/\b(?:what|who|which|where|when|why|how)\b/i);
+  if(m){
+   if(m.index===0){
+    const main=s.match(/\b(?:encouraged|surprised|made|matters|is|was|seems)\b/i);
+    if(main&&main.index>m[0].length+4){
+     return emit([seg(s.slice(0,main.index),'主語 S（wh節）','clause'),seg(s.slice(main.index),'主節の述語','basic')],'間接疑問の節全体が主語');
+    }
+    return emit([seg(s,'wh節が主語になる文','clause')],'whで始まるまとまりが主語の働きをする');
+   }
+   return emit([seg(s.slice(0,m.index),'主節','basic'),seg(s.slice(m.index),'間接疑問の名詞節','clause')],'疑問詞で始まる節が一つの名詞の働きをする');
+  }
+ }
+ if(/複合関係詞/.test(title)){
+  const comma=s.indexOf(',');
+  if(comma>0){
+   return emit([seg(s.slice(0,comma),'譲歩などを表す節','clause'),seg(s.slice(comma+1),'主節','clause')],
+    '複合関係詞の譲歩表現は主節と分けて読む');
+  }
+  const first=s.match(/^(Whoever|Whatever|Whichever)\b/i);
+  if(first){
+   const m=s.match(/\s+(can|will|would|should|must|may|might|is|are|was|were)\s/i);
+   if(m)return emit([seg(s.slice(0,m.index),'主語になる節','clause'),seg(s.slice(m.index),'主節の述語','basic')],'複合関係代名詞の節が主語');
+  }
+  const m=s.match(/\b(?:whoever|whatever|whichever|wherever|whenever)\b/i);
+  if(m)return emit([seg(s.slice(0,m.index),'主節・動詞','basic'),seg(s.slice(m.index),/wherever|whenever/i.test(m[0])?'場所・時を表す節':'名詞相当のまとまり','clause')],
+    '複合関係詞のまとまり全体の働きを意識する');
+  return emit([seg(s,'複合関係詞を含む文','clause')],'複合関係詞の働きを確認する');
+ }
+ if(/非制限用法|文全体を受けるwhich/.test(title)){
+  const comma=s.indexOf(',');
+  if(comma>0){
+   const earlier=s.slice(0,comma),later=s.slice(comma+1);
+   const head=earlier.trim().split(/\s+/).at(-1);
+   const whole=/文全体を受けるwhich/.test(title);
+   return emit([seg(earlier,'主節','clause'),seg(later,'非制限用法の関係詞節','clause')],
+     whole?'whichは前の文全体を受ける':'カンマに続く関係詞節が補足情報を加える',
+     {sourceText:later,targetText:whole?earlier:(head||earlier),label:whole?'前の文全体を補足':'名詞を補足'});
+  }
+ }
+ if(/関係/.test(title)||/制限用法/.test(title)){
+  const rx=/\b(who|whom|whose|which|that|where|when|why)\b/gi;
+  const matches=[...s.matchAll(rx)];
+  const chosen=matches.find(m=>m.index>0)||matches[0];
+  if(chosen&&chosen.index>0){
+   let start=chosen.index;
+   const pre=s.slice(0,start);
+   const withPrep=pre.match(/\b(?:to|in|with|for|of)\s*$/i);
+   if(withPrep)start=pre.length-withPrep[0].length;
+   const prior=s.slice(0,start),after=s.slice(start);
+   const head=prior.replace(/[,.\s]+$/,'').split(/\s+/).at(-1);
+   const relation=head&&head.length>1?{sourceText:chosen[0],targetText:head,label:'先行する名詞を修飾'}:null;
+   // With no verified end boundary, do not label the entire tail a relative clause.
+   const label=/(?:which|who|whose|whom|that|where|when|why)/i.test(chosen[0])?'関係詞を含む後続部分':'後ろのまとまり';
+   return emit([seg(prior,'先行詞を含む部分','basic'),seg(after,label,'phrase')],
+     '関係詞が先行する名詞を説明する。節の境界が不明な場合は断定しない',relation);
+  }
+ }
+ return emit([seg(s,'節のまとまりを確認する文','clause')],title||'関係詞・名詞節の働きを確認する');
+}
+
 function get(sentence,meta={}){
  const t=String(meta.title||'');
- return infinitive(sentence,meta)||participle(sentence,meta)||coordination(sentence)||imperative(sentence,t)||existential(sentence,t)||complex(sentence,t)||linking(sentence,meta)||null;
+ return infinitive(sentence,meta)||participle(sentence,meta)||relative(sentence,meta)||coordination(sentence)||imperative(sentence,t)||existential(sentence,t)||complex(sentence,t)||linking(sentence,meta)||null;
 }
 return Object.freeze({get,isRisky:risk});
 });
