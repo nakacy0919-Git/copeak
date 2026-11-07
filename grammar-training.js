@@ -329,10 +329,11 @@ function renderGrammarVisual(q){
   renderGrammarVisual(q);
  });
  root.append(toggle);
- // No English answer is added to the DOM while the guide is collapsed.
- if(!expanded)return;
  const details=node('div','gj-details');
  details.id='gtGrammarGuideDetails';
+ // Keep the accessible panel target present but empty when collapsed.
+ // No masked English word is added until the learner explicitly opens it.
+ if(!expanded){details.hidden=true;root.append(details);return;}
  const flow=node('div','gj-flow');
  flow.style.setProperty('--gj-cols',String(Math.min(5,diagram.segments.length)));
  for(const segment of diagram.segments){
