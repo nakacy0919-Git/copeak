@@ -125,3 +125,255 @@
  .gt-junior-dialog .gj-english{font-size:.74rem}
  .gt-junior-dialog .gj-note{font-size:.68rem}
 }
+
+
+/* November 7 visual refinement: editorial-white cards and readable grammar blocks.
+   Scoped exclusively to the junior reading studio; no impact on senior/exam mode. */
+.gt-reading-dialog.gt-junior-dialog {
+ background:#fff;
+ color:#20262e;
+ border:1px solid #d9dee4;
+ box-shadow:0 26px 80px rgba(18,32,49,.23);
+}
+.gt-junior-dialog .gt-reading-modal-shell {background:#fff}
+.gt-junior-dialog .gt-reading-modal-header {
+ border-bottom:1px solid #e5e7eb;
+ padding-bottom:6px;
+}
+.gt-junior-dialog .gt-reading-modal-header .gt-modal-kicker {
+ color:#7b8694;
+ letter-spacing:.13em;
+ font-weight:850;
+}
+.gt-junior-dialog .gt-reading-modal-header h2 {
+ color:#182b3d;
+ font-size:clamp(1.04rem,1.5vw,1.25rem);
+ letter-spacing:-.02em;
+}
+.gt-junior-dialog .gt-reading-modal-header p {color:#67717f}
+.gt-junior-dialog .gt-reading-head .gt-pass {color:#455b70}
+.gt-junior-dialog .gt-stage-button{
+ background:#fff;
+ border:1px solid #d8dee5;
+ color:#526170;
+ font-weight:850;
+}
+.gt-junior-dialog .gt-stage-button.is-current{
+ background:#ebf3ff;
+ border-color:#628cc7;
+ color:#235b9a;
+}
+.gt-junior-dialog .gt-stage-button.is-cleared{
+ background:#f1faf5;
+ border-color:#9fceba;
+ color:#256e51;
+}
+.gt-junior-dialog .gt-sentence-panel {
+ background:#fff;
+ border:1px solid #e0e3e7;
+ box-shadow:0 2px 9px rgba(27,43,61,.035);
+ border-radius:14px;
+ padding:10px 14px 9px;
+}
+.gt-junior-dialog .gt-reading-label {
+ color:#637284;
+ font-size:.75rem;
+ font-weight:850;
+}
+.gt-junior-dialog .gt-reading-text {
+ color:#17202b;
+ font-family:Georgia,"Times New Roman",serif;
+ font-weight:700;
+ font-size:clamp(1.48rem,2.35vw,1.9rem);
+ line-height:1.37;
+ letter-spacing:-.01em;
+ margin:7px 0 7px;
+}
+.gt-junior-dialog .gt-reading-text .gt-grammar-focus {
+ color:#ba4519;
+ text-decoration-color:#eba76b;
+ text-decoration-thickness:2.5px;
+ text-underline-offset:.15em;
+}
+.gt-junior-dialog #gtJuniorGuide.gj-guide {
+ color:#1b2632;
+ border:1px solid #e1e3e6;
+ background:#fff;
+ box-shadow:none;
+ border-radius:11px;
+ padding:9px 11px 10px;
+ margin:7px 0 7px;
+}
+.gt-junior-dialog .gj-top {margin:0 0 7px;line-height:1.15}
+.gt-junior-dialog .gj-title {
+ color:#4e5b67;
+ font-size:.73rem;
+ font-weight:900;
+ letter-spacing:.04em;
+}
+.gt-junior-dialog .gj-key {display:none}
+.gt-junior-dialog .gj-flow {
+ display:grid;
+ grid-template-columns:repeat(var(--gj-cols,3),minmax(0,1fr));
+ align-items:stretch;
+ column-gap:6px;
+ row-gap:6px;
+ width:100%;
+}
+.gt-junior-dialog .gj-arrow {display:none}
+.gt-junior-dialog .gj-chip {
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ justify-content:center;
+ width:100%;
+ min-width:0;
+ max-width:none;
+ min-height:56px;
+ padding:7px 5px;
+ gap:3px;
+ border:1.5px solid #d8dce1;
+ border-radius:8px;
+ background:#f7f7f8;
+}
+.gt-junior-dialog .gj-english{
+ font-family:Georgia,"Times New Roman",serif;
+ font-weight:750;
+ font-size:clamp(.96rem,1.55vw,1.2rem);
+ line-height:1.24;
+ letter-spacing:-.012em;
+ color:#171d25;
+ overflow-wrap:break-word;
+ hyphens:none;
+}
+.gt-junior-dialog .gj-label {
+ color:#4e545b;
+ font-size:.73rem;
+ line-height:1.32;
+ font-weight:850;
+ white-space:normal;
+ overflow-wrap:anywhere;
+}
+.gt-junior-dialog .gj-chip.gj-subject,
+.gt-junior-dialog .gj-chip.gj-object,
+.gt-junior-dialog .gj-chip.gj-complement,
+.gt-junior-dialog .gj-chip.gj-basic {
+ background:#f7f7f8;
+ border-color:#d8dce1;
+}
+.gt-junior-dialog .gj-chip.gj-subject .gj-label,
+.gt-junior-dialog .gj-chip.gj-object .gj-label,
+.gt-junior-dialog .gj-chip.gj-complement .gj-label {
+ color:#535a62;
+}
+.gt-junior-dialog .gj-chip.gj-focus {
+ background:#fff2e9;
+ border-color:#e9a879;
+}
+.gt-junior-dialog .gj-chip.gj-focus .gj-english,
+.gt-junior-dialog .gj-chip.gj-focus .gj-label{
+ color:#ab4016;
+}
+.gt-junior-dialog .gj-chip.gj-phrase{
+ background:#fff2e9;
+ border-color:#e9a879;
+}
+.gt-junior-dialog .gj-chip.gj-phrase .gj-english,
+.gt-junior-dialog .gj-chip.gj-phrase .gj-label{color:#ab4016}
+.gt-junior-dialog .gj-chip.gj-clause {
+ background:#eef6fd;
+ border:1.5px dashed #84abd1;
+}
+.gt-junior-dialog .gj-chip.gj-clause .gj-label {color:#315b7e}
+.gt-junior-dialog .gj-note{
+ display:block;
+ color:#434a52;
+ background:#f7f7f8;
+ border-left:3px solid #d47c45;
+ border-radius:0 5px 5px 0;
+ padding:7px 9px;
+ margin:8px 0 0;
+ font-size:.79rem;
+ line-height:1.42;
+ font-weight:700;
+}
+.gt-junior-dialog .gj-note::before {
+ color:#242a32;
+ font-size:.77rem;
+ font-weight:900;
+ margin-right:6px;
+ letter-spacing:0;
+}
+.gt-junior-dialog .gt-japanese {
+ color:#4a5562;
+ border-top:1px solid #eaebed;
+ padding-top:6px;
+ margin:7px 0 1px;
+ font-size:clamp(.8rem,1vw,.92rem);
+ font-weight:600;
+ line-height:1.38;
+}
+.gt-junior-dialog .gt-transcript-panel,
+.gt-junior-dialog .gt-score-panel{
+ background:#fff;
+ border:1px solid #e0e3e8;
+ box-shadow:none;
+}
+.gt-junior-dialog .gt-result-label{color:#586675;font-weight:900;font-size:.65rem}
+.gt-junior-dialog .gt-transcript{color:#344250;font-size:.88rem}
+.gt-junior-dialog .gt-speech-debug {color:#4b637a}
+.gt-junior-dialog .gt-score-note{color:#54616f}
+.gt-junior-dialog .gt-results{
+ flex:1 1 auto;
+ min-height:102px;
+ max-height:132px;
+ gap:8px;
+}
+.gt-junior-dialog .gt-transcript-panel,
+.gt-junior-dialog .gt-score-panel{
+ max-height:132px;
+ min-height:0;
+}
+.gt-junior-dialog .gt-reading-modal-footer {border-top:1px solid #e4e6e9}
+.gt-junior-dialog .gt-reading-modal-actions button{
+ background:#fff;
+ border-color:#cbd3dc;
+ color:#324b65;
+ box-shadow:none;
+}
+/* Hide English answers in a level where the sentence itself is concealed. */
+.gt-junior-dialog #gtJuniorGuide.gj-labels-only .gj-chip{
+ min-height:31px;
+ padding:4px 6px;
+}
+.gt-junior-dialog #gtJuniorGuide.gj-labels-only .gj-note{
+ padding:5px 8px;
+}
+/* More visible English without sacrificing the iPad-height target. */
+@media(min-width:700px) and (max-height:760px){
+ .gt-junior-dialog .gt-sentence-panel{padding:7px 11px 6px}
+ .gt-junior-dialog .gt-reading-text{font-size:clamp(1.32rem,2vw,1.67rem);line-height:1.26;margin:4px 0}
+ .gt-junior-dialog #gtJuniorGuide.gj-guide{padding:6px 8px;margin:4px 0}
+ .gt-junior-dialog .gj-top{margin-bottom:4px}
+ .gt-junior-dialog .gj-chip{min-height:43px;padding:4px 3px;gap:1px}
+ .gt-junior-dialog .gj-english{font-size:clamp(.88rem,1.4vw,1.07rem)}
+ .gt-junior-dialog .gj-label{font-size:.67rem}
+ .gt-junior-dialog .gj-note{font-size:.7rem;line-height:1.3;margin-top:4px;padding:5px 7px}
+ .gt-junior-dialog .gt-japanese{font-size:.78rem;margin:4px 0 0;padding-top:4px}
+ .gt-junior-dialog .gt-results{min-height:87px;max-height:108px}
+ .gt-junior-dialog .gt-transcript-panel,.gt-junior-dialog .gt-score-panel{max-height:108px}
+}
+/* Mobile / zoom: let the diagram form readable multirow groups, with only internal scroll. */
+@media(max-width:699px){
+ .gt-junior-dialog .gj-flow{display:flex;flex-wrap:wrap;gap:6px}
+ .gt-junior-dialog .gj-chip{flex:1 1 calc(33.333% - 6px);min-width:85px;min-height:47px;padding:6px 5px}
+ .gt-junior-dialog .gj-english{font-size:.96rem}
+ .gt-junior-dialog .gj-label{font-size:.68rem}
+ .gt-junior-dialog .gt-reading-text{font-size:1.45rem}
+ .gt-junior-dialog .gt-results{min-height:116px;max-height:none}
+ .gt-junior-dialog .gt-transcript-panel,.gt-junior-dialog .gt-score-panel{max-height:none}
+}
+@media(prefers-contrast:more){
+ .gt-junior-dialog .gj-chip{border-width:2px}
+ .gt-junior-dialog .gj-note{border-left-width:4px}
+}

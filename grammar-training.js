@@ -306,8 +306,8 @@ function renderJuniorVisual(q){
  top.append(node('span','gj-key','S 主語 · V 動詞 · O 目的語 · C 補語'));
  const flow=node('div','gj-flow');
  const reveal=state.stage===1;
- for(const [i,segment] of diagram.segments.entries()){
-  if(i)flow.append(node('span','gj-arrow','›'));
+ flow.style.setProperty('--gj-cols',String(diagram.segments.length));
+ for(const segment of diagram.segments){
   const chip=node('span','gj-chip gj-'+segment.kind);
   if(reveal)chip.append(node('span','gj-english',segment.text));
   chip.append(node('span','gj-label',segment.label));
