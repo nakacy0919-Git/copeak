@@ -8,7 +8,7 @@ function get(id,sentence){
  const row=ROWS[match[1]]?.[Number(match[2])-1];if(!row)return null;
  const parts=row.spec.split('|').map(piece=>{const at=piece.lastIndexOf('~');return{text:piece.slice(0,at),label:piece.slice(at+1)};});
  if(parts.some(p=>!p.text||!p.label)||normalize(parts.map(p=>p.text).join(' '))!==normalize(sentence))return null;
- const kind=(label)=>/節|間接疑問|仮定/.test(label)?'clause':/分詞句|名詞修飾|比較|不定詞|動名詞/.test(label)?'phrase':/V|助動詞|疑問|過去|進行形|受動態|現在完了/.test(label)?'focus':'basic';
+ const kind=(label)=>/節|間接疑問|仮定/.test(label)?'clause':/分詞句|名詞修飾|比較|不定詞|動名詞/.test(label)?'phrase':/^(?:V|助動詞|疑問)/.test(label)||/過去|進行形|受動態|現在完了/.test(label)?'focus':/^S/.test(label)?'subject':/^O/.test(label)?'object':/^C/.test(label)?'complement':'basic';
  return Object.freeze({id,segments:parts.map(p=>({...p,kind:kind(p.label),name:LABELS[p.label]||p.label})),note:row.note});
 }
 return Object.freeze({get,count:Object.values(ROWS).reduce((n,rows)=>n+rows.length,0)});
