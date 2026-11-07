@@ -1,0 +1,127 @@
+/* Copeak Grammar Visual Guide — flat, role-colored pastel blocks.
+   No raised tabs, decorative protrusions, brackets inside the sentence, or duplicated controls.
+   Junior uses its existing curated 144 diagrams; senior uses chapter FACT hints.
+ */
+#gtJuniorGuide.gj-guide{
+ border:1px solid #e1e5e9;
+ border-radius:10px;
+ padding:9px 10px 9px;
+ background:#fff;
+ box-shadow:none;
+ color:#243344;
+ min-width:0;
+ margin:7px 0;
+}
+#gtJuniorGuide.gj-guide .gj-chip,
+#gtJuniorGuide.gj-guide .gj-chip::before,
+#gtJuniorGuide.gj-guide .gj-chip::after{
+ box-shadow:none;
+}
+/* Explicitly disallow the "little button" tabs protruding above the blocks. */
+#gtJuniorGuide.gj-guide .gj-chip::before,
+#gtJuniorGuide.gj-guide .gj-chip::after{
+ content:none!important;display:none!important;
+}
+#gtJuniorGuide.gj-guide .gj-top{margin:0 0 6px}
+#gtJuniorGuide.gj-guide .gj-key{display:none}
+#gtJuniorGuide.gj-guide .gj-title{
+ color:#526679;font-size:.68rem;line-height:1.25;font-weight:900;letter-spacing:.065em;
+}
+#gtJuniorGuide.gj-guide .gj-flow{
+ column-gap:5px;row-gap:5px;align-items:stretch;
+}
+#gtJuniorGuide.gj-guide .gj-chip{
+ border-radius:6px;
+ border-style:solid;
+ min-height:52px;
+ display:flex;align-items:center;justify-content:center;flex-direction:column;
+ padding:7px 5px;gap:2px;
+ min-width:0;
+ text-align:center;
+}
+#gtJuniorGuide.gj-guide .gj-english{
+ font:750 clamp(.9rem,1.45vw,1.13rem)/1.25 Georgia,"Times New Roman",serif;
+ color:#1c2c3c;
+ text-wrap:pretty;
+ overflow-wrap:break-word;
+}
+#gtJuniorGuide.gj-guide .gj-label{
+ font-size:clamp(.61rem,.74vw,.7rem);line-height:1.35;font-weight:850;
+ color:#455567;white-space:normal;
+}
+#gtJuniorGuide.gj-guide .gj-chip.gj-subject{
+ background:#e6effc;border-color:#a9c6ed;
+}
+#gtJuniorGuide.gj-guide .gj-chip.gj-subject .gj-label{color:#245784}
+#gtJuniorGuide.gj-guide .gj-chip.gj-focus{
+ background:#fae9da;border-color:#e6b68a;
+}
+#gtJuniorGuide.gj-guide .gj-chip.gj-focus .gj-label{color:#8e461d}
+#gtJuniorGuide.gj-guide .gj-chip.gj-object{
+ background:#e5f3e7;border-color:#abd2b3;
+}
+#gtJuniorGuide.gj-guide .gj-chip.gj-object .gj-label{color:#206243}
+#gtJuniorGuide.gj-guide .gj-chip.gj-complement{
+ background:#eee8f9;border-color:#ccb9e9;
+}
+#gtJuniorGuide.gj-guide .gj-chip.gj-complement .gj-label{color:#63408f}
+#gtJuniorGuide.gj-guide .gj-chip.gj-modifier{
+ background:#f0f3f6;border-color:#c8d0da;
+}
+#gtJuniorGuide.gj-guide .gj-chip.gj-modifier .gj-label{color:#435469}
+#gtJuniorGuide.gj-guide .gj-chip.gj-clause{
+ background:#e5f5f8;border-color:#a3cfd8;border-style:solid;
+}
+#gtJuniorGuide.gj-guide .gj-chip.gj-clause .gj-label{color:#2d6872}
+#gtJuniorGuide.gj-guide .gj-chip.gj-phrase{
+ background:#f1ecfb;border-color:#c9bde8;
+}
+#gtJuniorGuide.gj-guide .gj-chip.gj-phrase .gj-label{color:#625289}
+#gtJuniorGuide.gj-guide .gj-chip.gj-basic{
+ background:#f5f7f9;border-color:#d2dae3;
+}
+#gtJuniorGuide.gj-guide .gj-note{
+ display:block;margin:6px 0 0;
+ padding:5px 7px;
+ background:transparent;border:0;border-radius:0;
+ color:#566578;font-size:clamp(.67rem,.84vw,.76rem);font-weight:650;line-height:1.35;
+}
+#gtJuniorGuide.gj-guide .gj-note::before{
+ content:"POINT  ";font-size:.68rem;letter-spacing:0;font-weight:900;
+ color:#252f40;margin-right:7px;
+}
+#gtJuniorGuide.gj-guide .gj-relation{
+ display:flex;align-items:center;justify-content:flex-start;gap:4px 7px;flex-wrap:wrap;
+ margin:5px 0 0;padding:4px 7px;min-height:28px;
+ border:0;border-left:2px solid #a6c7d1;border-radius:0 4px 4px 0;
+ background:#f3f8fa;color:#34556e;font-size:.7rem;
+}
+#gtJuniorGuide.gj-guide .gj-relation-type{
+ font-size:.65rem;font-weight:850;padding:0;color:#446177;background:transparent;
+}
+#gtJuniorGuide.gj-guide .gj-relation-source,
+#gtJuniorGuide.gj-guide .gj-relation-target{
+ font-size:clamp(.73rem,1vw,.86rem);font-family:Georgia,serif;font-weight:750;
+}
+#gtJuniorGuide.gj-guide .gj-relation-source{color:#9e541d}
+#gtJuniorGuide.gj-guide .gj-relation-target{color:#275c7a}
+#gtJuniorGuide.gj-guide .gj-relation-arrow{color:#5e94ad;flex:none;width:28px;height:14px}
+
+/* Senior lessons are inline rather than modal; reuse the exact flat card language. */
+#gtJuniorGuide.gj-senior-guide .gj-flow{
+ display:grid;grid-template-columns:repeat(var(--gj-cols,3),minmax(0,1fr));
+ width:100%;gap:5px;
+}
+#gtJuniorGuide.gj-senior-guide .gj-chip{max-width:none;width:100%}
+#gtJuniorGuide.gj-senior-guide .gj-top{margin-bottom:6px}
+#gtJuniorGuide.gj-senior-guide.gj-labels-only .gj-chip{min-height:34px;padding:4px}
+@media(max-width:760px){
+ #gtJuniorGuide.gj-senior-guide .gj-flow{display:flex;flex-wrap:wrap;gap:5px}
+ #gtJuniorGuide.gj-senior-guide .gj-chip{flex:1 1 calc(33.333% - 5px);min-width:92px;min-height:42px}
+ #gtJuniorGuide.gj-guide .gj-english{font-size:.95rem}
+ #gtJuniorGuide.gj-guide .gj-relation{gap:4px}
+}
+@media (prefers-contrast:more),(forced-colors:active){
+ #gtJuniorGuide.gj-guide .gj-chip{border-width:2px}
+ #gtJuniorGuide.gj-guide .gj-label{text-decoration:underline;text-underline-offset:2px}
+}
