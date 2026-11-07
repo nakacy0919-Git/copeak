@@ -3,8 +3,8 @@
 const verbs=/\b(let|lets|make|makes|made|have|has|had|get|gets|got|keep|keeps|kept|call|calls|called|name|names|named|elect|elected|find|finds|found|consider|considered|leave|leaves|left|see|sees|saw|watch|watches|watched|hear|hears|heard|notice|noticed|feel|feels|felt|want|wants|wanted|allow|allows|allowed|expect|expects|expected|ask|asks|asked|tell|tells|told|persuade|persuaded|remind|reminded|advise|advised|help|helps|helped|force|forced|encourage|encouraged|order|ordered|invite|invited|teach|taught|give|gives|gave|show|shows|showed|send|sends|sent|lend|lent|offer|offered|promise|promised|buy|bought|take|takes|took|cost|costs|pay|paid)\b/gi;
 const svoc=new Set('let lets make makes made have has had get gets got keep keeps kept call calls called name names named elect elected find finds found consider considered leave leaves left see sees saw watch watches watched hear hears heard notice noticed feel feels felt want wants wanted allow allows allowed expect expects expected ask asks asked tell tells told persuade persuaded remind reminded advise advised help helps helped force forced encourage encouraged order ordered invite invited teach taught'.split(' '));
 const ditrans=new Set('give gives gave show shows showed send sends sent tell tells told lend lent teach taught offer offered promise promised buy bought take takes took cost costs pay paid ask asks asked'.split(' '));
-const complementVerbs=new Set('laugh run cry smile join use choose check carry read think change sing dance swim jump knock play feel study leave improve bring buy learn teach practice make go get see hear watch notice walk open close lock eat drink write paint draw explain help show tell sit stand wait work cross enter keep find taste become grow know have try start finish solve arrive clean call listen share send do fly move'.split(' '));
-const adjectives=new Set('happy nervous clean open closed ready quiet safe honest better excited asleep awake alive comfortable anxious angry proud interesting exciting worried tired afraid beautiful correct possible necessary difficult easy important useful glad sad empty silent available disappointed responsible confident president lucky'.split(' '));
+const complementVerbs=new Set('laugh run cry smile join use choose check carry read think change sing dance swim jump knock play be feel study leave improve bring buy learn teach practice make go get see hear watch notice walk open close lock eat drink write paint draw explain help show tell sit stand wait work cross enter keep find taste become grow know have try start finish solve arrive clean call listen share send do fly move'.split(' '));
+const adjectives=new Set('happy nervous clean open closed ready quiet safe honest better excited asleep awake alive comfortable anxious angry proud interesting exciting worried tired afraid beautiful correct possible necessary difficult easy important useful glad sad empty silent available disappointed responsible confident president lucky strange sweet bright warm cool unusual clear calm pleased relaxed helpful wonderful nice healthy sick busy confident'.split(' '));
 const seg=(s,label,kind)=>{const text=String(s||'').trim().replace(/[.!?]+$/,'');return text?{text,label,kind}:null};
 const output=(parts,note)=>({segments:parts.filter(Boolean),note,relation:null,confidence:'verified'});
 const tidy=s=>String(s||'').trim().replace(/[.!?]+$/,'').trim();
@@ -18,7 +18,7 @@ function parseOC(rest,mode){
   split=lower.findIndex((w,i)=>i>0&&w==='to'&&complementVerbs.has(lower[i+1]));
  }
  if(split<0&&mode!=='to'){
-  const pp=new Set('cut repaired fixed written broken closed open painted found made known taken finished stolen damaged soaked'.split(' '));
+  const pp=new Set('cut repaired fixed written broken closed open painted found made known taken finished stolen damaged soaked called left'.split(' '));
   split=lower.findIndex((w,i)=>i>0&&(complementVerbs.has(w)||/ing$/.test(w)||pp.has(w))&&
     (i===1||words.slice(0,i).length<=7));
  }
@@ -114,9 +114,28 @@ const risk=(sentence,meta,diagram)=>{
  if(/^There\s+(?:is|are|was|were)\b/i.test(sentence)&&parts.some(p=>p.kind==='subject'&&p.text==='There'))return true;
  return false;
 };
+function linking(sentence,meta){
+ const s=tidy(sentence);
+ const m=s.match(/^(.+?)\s+(am|is|are|was|were|smell|smells|smelled|taste|tastes|tasted|sound|sounds|sounded|look|looks|looked|feel|feels|felt|become|becomes|became|remain|remains|remained|seem|seems|seemed|appear|appears|appeared|grow|grows|grew)\s+(.+)$/i);
+ if(!m||!m[1]||m[1].split(/\s+/).length>7)return null;
+ const words=m[3].split(/\s+/),adverbs=new Set('still very really rather quite too so unusually particularly extremely extremely fairly pretty almost truly totally'.split(' '));
+ let index=0;
+ while(index<words.length&&adverbs.has(words[index].toLowerCase()))index++;
+ if(!adjectives.has(words[index]?.toLowerCase()))return null;
+ let end=index+1;
+ // Keep adjective complements intact; any remaining time or place phrase is M.
+ while(end<words.length&&/^(?:enough|to)$/i.test(words[end])&&end<index+3)end++;
+ const comp=words.slice(0,end).join(' ');
+ const tail=words.slice(end).join(' ');
+ return output([
+  seg(m[1],'主語 S','subject'),seg(m[2],'動詞 V','focus'),
+  seg(comp,'補語 C','complement'),tail?seg(tail,'修飾語 M','modifier'):null
+ ],'第2文型（SVC）：補語Cが主語Sの状態・性質を説明');
+}
+
 function get(sentence,meta={}){
  const t=String(meta.title||'');
- return imperative(sentence,t)||existential(sentence,t)||complex(sentence,t)||null;
+ return imperative(sentence,t)||existential(sentence,t)||linking(sentence,meta)||complex(sentence,t)||null;
 }
 return Object.freeze({get,isRisky:risk});
 });
