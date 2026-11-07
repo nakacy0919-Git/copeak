@@ -4,7 +4,8 @@ const verbs=/\b(let|lets|make|makes|made|have|has|had|get|gets|got|keep|keeps|ke
 const svoc=new Set('let lets make makes made have has had get gets got keep keeps kept call calls called name names named elect elected find finds found consider considered leave leaves left see sees saw watch watches watched hear hears heard notice noticed feel feels felt want wants wanted allow allows allowed expect expects expected ask asks asked tell tells told persuade persuaded remind reminded advise advised help helps helped force forced encourage encouraged order ordered invite invited teach taught'.split(' '));
 const ditrans=new Set('give gives gave show shows showed send sends sent tell tells told lend lent teach taught offer offered promise promised buy bought take takes took cost costs pay paid ask asks asked'.split(' '));
 const complementVerbs=new Set('laugh run cry smile join use choose check carry read think change sing dance swim jump knock play be feel study leave improve bring buy learn teach practice make go get see hear watch notice walk open close lock eat drink write paint draw explain help show tell sit stand wait work cross enter keep find taste become grow know have try start finish solve arrive clean call listen share send do fly move'.split(' '));
-const adjectives=new Set('happy nervous clean open closed ready quiet safe honest better excited asleep awake alive comfortable anxious angry proud interesting exciting worried tired afraid beautiful correct possible necessary difficult easy important useful glad sad empty silent available disappointed responsible confident president lucky strange sweet bright warm cool unusual clear calm pleased relaxed helpful wonderful nice healthy sick busy confident'.split(' '));
+const presentParticiples=new Set('playing reading running walking standing waiting sitting laughing crying singing sleeping studying working watching writing swimming shaking growing learning cooking painting building living trying improving practicing making being called'.split(' '));
+const adjectives=new Set('happy nervous clean open closed ready quiet safe honest better excited asleep awake alive comfortable anxious angry proud interesting exciting worried tired afraid beautiful correct possible necessary difficult easy hard important useful glad sad empty silent available disappointed responsible confident president lucky strange sweet bright warm cool unusual clear calm pleased relaxed helpful wonderful nice healthy sick busy confident'.split(' '));
 const seg=(s,label,kind)=>{const text=String(s||'').trim().replace(/[.!?]+$/,'');return text?{text,label,kind}:null};
 const output=(parts,note)=>({segments:parts.filter(Boolean),note,relation:null,confidence:'verified'});
 const tidy=s=>String(s||'').trim().replace(/[.!?]+$/,'').trim();
@@ -19,7 +20,7 @@ function parseOC(rest,mode){
  }
  if(split<0&&mode!=='to'){
   const pp=new Set('cut repaired fixed written broken closed open painted found made known taken finished stolen damaged soaked called left'.split(' '));
-  split=lower.findIndex((w,i)=>i>0&&(complementVerbs.has(w)||/ing$/.test(w)||pp.has(w))&&
+  split=lower.findIndex((w,i)=>i>0&&(complementVerbs.has(w)||presentParticiples.has(w)||pp.has(w))&&
     (i===1||words.slice(0,i).length<=7));
  }
  if(split<0&&mode!=='to'&&adjectives.has(lower[lower.length-1]))split=lower.length-1;
@@ -71,6 +72,7 @@ function getVerb(s){
 }
 function complex(sentence,title){
  const s=tidy(sentence);if(/^(?:If|When|Because|Although|As|Unless|Whether|What|Who|Where|Why|How|Would|Could|Can|Will|Do|Does|Did|Had|Were|Should)\b/i.test(s))return null;
+ if(/,\s+(?:so|but|and|or)\b/i.test(s))return null;
  if(/(?:[.!?]\s+[A-Z])|^["“]/.test(s))return null;
  const x=getVerb(s);if(!x||!x.rest)return null;
  const {subject,verb,w,rest}=x;
@@ -89,13 +91,16 @@ function complex(sentence,title){
   }
  }
  if(svoc.has(w)){
-  const mode=/^(?:want|wants|wanted|allow|allows|allowed|expect|expects|expected|ask|asks|asked|tell|tells|told|persuade|persuaded|remind|reminded|advise|advised|force|forced|encourage|encouraged|order|ordered|invite|invited)$/.test(w)?'to':'mixed';
+  // 'have' as perfect auxiliary or possession is not causative SVOC.
+  if(/^(?:have|has|had)$/i.test(w)&&!/使役|第5文型|目的語説明型/.test(title))return null;
+  const mode=/^(?:want|wants|wanted|allow|allows|allowed|expect|expects|expected|ask|asks|asked|tell|tells|told|persuade|persuaded|remind|reminded|advise|advised|force|forced|encourage|encouraged|order|ordered|invite|invited)$/.test(w)?'to':
+   /^(?:let|lets|make|makes|made|have|has|had|see|sees|saw|watch|watches|watched|hear|hears|heard|notice|noticed|feel|feels|felt)$/.test(w)?'bare':'mixed';
   const oc=parseOC(rest,mode);
   if(oc){
    // Avoid treating a noun modified by a participle as SVOC outside structural topics.
-   const isSVOCcontext=/(?:第5文型|目的語説明型|使役|知覚|tell・ask|want・allow|persuade|説明語句)/.test(title);
+   const isSVOCcontext=/(?:第5文型|目的語説明型|使役|知覚|tell・ask|want・allow|persuade|説明語句|it＋to不定詞)/.test(title);
    const clearNonfinite=/^(?:to\s+\w+|\w+ing\b|\w+ed\b|join\b|run\b|cry\b|laugh\b|check\b|carry\b|use\b|choose\b|read\b|explain\b|knock\b|think\b|feel\b|change\b|open\b|close\b|improve\b|study\b|be\b)/i.test(oc.complement);
-   if(isSVOCcontext||clearNonfinite&&/^(?:let|make|makes|made|have|had|has|see|saw|watch|watched|hear|heard|feel|felt|notice|noticed|keep|kept|find|found|want|wants|asked|told)$/i.test(w)){
+   if(isSVOCcontext||/^it$/i.test(oc.object)&&adjectives.has(oc.complement.split(/\s+/)[0].toLowerCase())||clearNonfinite&&/^(?:let|make|makes|made|have|had|has|see|saw|watch|watched|hear|heard|feel|felt|notice|noticed|keep|kept|find|found|want|wants|asked|told)$/i.test(w)){
     return output([seg(subject,'主語 S','subject'),seg(verb,'動詞 V','focus'),seg(oc.object,'目的語 O','object'),seg(oc.complement,'補語 C','complement'),oc.tail?seg(oc.tail,'修飾語 M','modifier'):null],
       /^(?:let|lets)$/i.test(w)?'let ＋ O ＋ 動詞の原形（SVOC）。OがCの動作をする':'第5文型：O と C の間に主語・述語の関係がある');
    }
@@ -114,6 +119,15 @@ const risk=(sentence,meta,diagram)=>{
  if(/^There\s+(?:is|are|was|were)\b/i.test(sentence)&&parts.some(p=>p.kind==='subject'&&p.text==='There'))return true;
  return false;
 };
+function coordination(sentence){
+ const s=tidy(sentence),m=s.match(/^(.+?),\s+(so|but|and|or)\s+(.+)$/i);
+ if(!m)return null;
+ return output([
+  seg(m[1],'前半の節','clause'),
+  seg(m[2]+' '+m[3],m[2].toLowerCase()==='so'?'結果の節':'後半の節','clause')
+ ],'2つの節のつながりを意識して読む');
+}
+
 function linking(sentence,meta){
  const s=tidy(sentence);
  const m=s.match(/^(.+?)\s+(am|is|are|was|were|smell|smells|smelled|taste|tastes|tasted|sound|sounds|sounded|look|looks|looked|feel|feels|felt|become|becomes|became|remain|remains|remained|seem|seems|seemed|appear|appears|appeared|grow|grows|grew)\s+(.+)$/i);
@@ -137,7 +151,7 @@ function linking(sentence,meta){
 
 function get(sentence,meta={}){
  const t=String(meta.title||'');
- return imperative(sentence,t)||existential(sentence,t)||complex(sentence,t)||linking(sentence,meta)||null;
+ return coordination(sentence)||imperative(sentence,t)||existential(sentence,t)||complex(sentence,t)||linking(sentence,meta)||null;
 }
 return Object.freeze({get,isRisky:risk});
 });
