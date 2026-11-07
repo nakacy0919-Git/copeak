@@ -36,7 +36,10 @@
    // Subordinate adverbial clause modifies the main clause as a whole.
    const subordinate=parts.findIndex(p=>/理由節|条件節|時の節|譲歩節|目的節|仮定節/.test(p.label));
    const main=parts.findIndex((p,i)=>i!==subordinate&&/主節/.test(p.label));
-   if(subordinate>=0&&main>=0)link={from:subordinate,to:main,label:'主節の条件・時・理由を説明'};
+   if(subordinate>=0&&main>=0){
+    const type=parts[subordinate].label;
+    link={from:subordinate,to:main,label:/条件/.test(type)?'条件を説明':/時の節/.test(type)?'時を説明':/理由/.test(type)?'理由を説明':/譲歩/.test(type)?'譲歩の関係':/目的/.test(type)?'目的を説明':'仮定の条件'};
+   }
   }
   if(!link){
    const compare=parts.findIndex(p=>/比較対象|範囲/.test(p.label));
@@ -50,7 +53,10 @@
    const mod=parts.findIndex(p=>/^(?:時|場所|方向|対象|行為者|期間|起点|理由|修飾)(?:・|$)/.test(p.label));
    if(mod>=0){
     const verb=closest(parts,mod,/^V(?:・|$)|進行形|現在完了|受動態/);
-    if(verb>=0)link={from:mod,to:verb,label:'動詞の時・場所・様子を説明'};
+    if(verb>=0){
+     const type=parts[mod].label;
+     link={from:mod,to:verb,label:/^時/.test(type)?'時を説明':/^場所/.test(type)?'場所を説明':/^期間|^起点/.test(type)?'時間のつながり':/^行為者/.test(type)?'動作主を説明':/^方向/.test(type)?'方向を説明':'動詞を詳しく説明'};
+    }
    }
   }
   if(!link)return null;
