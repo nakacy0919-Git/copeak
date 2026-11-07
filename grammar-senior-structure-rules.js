@@ -413,9 +413,64 @@ function relative(sentence,meta){
  return emit([seg(s,'節のまとまりを確認する文','clause')],title||'関係詞・名詞節の働きを確認する');
 }
 
+function gerund(sentence,meta){
+ if(!/^HS-06-/.test(meta.id||''))return null;
+ const t=String(meta.title||''),s=tidy(sentence);
+ const go=(arr,note)=>({segments:arr.filter(Boolean),note,relation:null,confidence:'verified'});
+ const mark=(regex,label,note)=>{
+  const m=s.match(regex);
+  if(!m)return null;
+  return go([seg(s.slice(0,m.index),'前の部分','basic'),seg(m[0],label,'phrase'),seg(s.slice(m.index+m[0].length),'後ろの部分','basic')],note);
+ };
+ if(/主語になる動名詞/.test(t)){
+  const m=s.match(/^(.+?)\s+(helps|is|takes|keeps|broadens|affects|was)\b\s+(.+)$/i);
+  if(m)return go([seg(m[1],'主語 S（動名詞句）','phrase'),seg(m[2]+' '+m[3],'述語部分','basic')],'動詞-ingから始まるまとまり全体が主語になる');
+ }
+ if(/be動詞の説明語句になる動名詞/.test(t)){
+  const m=s.match(/^(.+?)\s+(is|are|was|were)\s+([A-Za-z]+ing\b.+)$/i);
+  if(m)return go([seg(m[1],'主語 S','subject'),seg(m[2],'動詞 V','focus'),seg(m[3],'補語 C（動名詞句）','complement')],
+    'be動詞の後ろの動名詞が主語の内容を説明する');
+ }
+ if(/目的語になる動名詞/.test(t)){
+  const m=s.match(/^(.+?\b(?:enjoy|enjoys|enjoyed|finished|finish|mind|avoid|avoided|remember|remembered)\b)\s+([A-Za-z]+ing\b.+)$/i);
+  if(m)return go([seg(m[1],'主語・動詞','basic'),seg(m[2],'目的語 O（動名詞句）','phrase')],
+    '動詞の目的語として動名詞句が使われている');
+ }
+ if(/前置詞の後の動名詞/.test(t)){
+  return mark(/\b(?:in|for|without|at|about|of|from|after|before|on)\s+(?:not\s+)?[A-Za-z]+ing\b(?:\s+.+)?$/i,'前置詞＋動名詞句','前置詞の後ろの動詞は-ing形になることに注目')||
+         go([seg(s,'前置詞と動名詞を含む文','phrase')],'前置詞＋動名詞');
+ }
+ if(/動名詞の否定/.test(t)){
+  return mark(/\bnot\s+[A-Za-z]+ing\b(?:\s+.+)?$/i,'否定の動名詞句','not ＋ 動名詞で「〜しないこと」')||
+         go([seg(s,'否定の動名詞を含む文','phrase')],'not ＋ -ing');
+ }
+ if(/完了形の動名詞/.test(t)){
+  return mark(/\bhaving\s+(?:\w+ed|said|seen|taken|done|broken|arrived|completed|finished)\b(?:\s+.+)?$/i,'完了形の動名詞句','having＋過去分詞が、主節より前の出来事を表す')||
+         go([seg(s,'完了形の動名詞を含む文','phrase')],'having＋過去分詞');
+ }
+ if(/受動態の動名詞/.test(t)){
+  return mark(/\bbeing\s+(?:\w+ed|treated|chosen|interrupted|misunderstood|blamed)\b(?:\s+.+)?$/i,'受動の動名詞句','being＋過去分詞で「〜されること」')||
+         go([seg(s,'受動態の動名詞を含む文','phrase')],'being＋過去分詞');
+ }
+ if(/重要表現①/.test(t)){
+  const idioms=[
+   /\blook\s+forward\s+to\s+\w+ing\b(?:\s+.+)?$/i,
+   /\b(?:is|am|are|was|were)\s+used\s+to\s+\w+ing\b(?:\s+.+)?$/i,
+   /\b(?:can|could)\s+not\s+help\s+\w+ing\b(?:\s+.+)?$/i,
+   /\b(?:is|was)\s+no\s+(?:use|telling)\s+\w+ing\b(?:\s+.+)?$/i
+  ];
+  for(const rx of idioms){const m=s.match(rx);if(m)return go([seg(s.slice(0,m.index),'文の前半','basic'),seg(m[0],'動名詞を含む重要表現','phrase')],
+    '慣用表現ではtoが前置詞になる場合もある');}
+ }
+ if(/重要表現②/.test(t)){
+  return mark(/\b(?:like|about|worth|from|needs?)\s+(?:\w+\s+)?\w+ing\b(?:\s+.+)?$/i,'動名詞を含む重要表現','動名詞を使う慣用パターンに注目');
+ }
+ return go([seg(s,'動名詞の働きを確認する文','phrase')],t||'動名詞の働きに注目');
+}
+
 function get(sentence,meta={}){
  const t=String(meta.title||'');
- return infinitive(sentence,meta)||participle(sentence,meta)||relative(sentence,meta)||coordination(sentence)||imperative(sentence,t)||existential(sentence,t)||complex(sentence,t)||linking(sentence,meta)||null;
+ return infinitive(sentence,meta)||gerund(sentence,meta)||participle(sentence,meta)||relative(sentence,meta)||coordination(sentence)||imperative(sentence,t)||existential(sentence,t)||complex(sentence,t)||linking(sentence,meta)||null;
 }
 return Object.freeze({get,isRisky:risk});
 });
