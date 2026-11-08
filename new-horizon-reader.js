@@ -99,6 +99,37 @@ const style=document.createElement('style');style.textContent=`
 .nhr-result{font-size:12px;color:#32634f;background:#e6f4ed;border-radius:9px;padding:8px;white-space:pre-wrap;margin-top:8px}
 .nhr-teacher{font-size:11px;color:#637d95}.nhr-teacher textarea{width:100%;min-height:75px;margin-top:7px;border:1px solid #cfdde7;border-radius:8px;padding:8px}
 @media(max-width:800px){.nhr-grid{grid-template-columns:1fr;grid-template-rows:48% 52%}.nhr-shell{height:calc(100dvh - 12px);border-radius:12px}.nhr-head{padding:8px}.nhr-side{padding:7px;gap:6px}.nhr-book{padding:6px}.nhr-card{padding:9px}.nhr-text{max-height:100px}}
+
+/* One iPad reader panel at a time. */
+.nhr-side{overflow:hidden}
+.nhr-tabs{flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;flex-shrink:0;min-height:38px;max-height:46px;scrollbar-width:thin}
+.nhr-tab{flex:0 0 auto;padding:7px 10px}
+.nhr-tools{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;flex-shrink:0}
+.nhr-tool{border:1px solid #dae5ed;border-radius:10px;background:#f6f9fb;color:#476478;padding:8px 5px;font-size:12px;font-weight:850;min-height:38px}
+.nhr-tool.active{background:${color}1c;color:${color};border-color:${color}88}
+.nhr-side .nhr-card{flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden;padding:10px}
+.nhr-side .nhr-card[hidden]{display:none!important}
+.nhr-card h3{flex-shrink:0;margin-bottom:5px}
+.nhr-text{flex:1;max-height:none;min-height:0;overflow-y:auto;line-height:1.6;font-size:clamp(13px,1.45vw,16px)}
+.nhr-words{max-height:none;min-height:0;flex:1;overflow-y:auto;overscroll-behavior:contain}
+.nhr-row{flex-shrink:0}
+.nhr-result{flex-shrink:0;max-height:55px;overflow-y:auto;padding:6px;margin-top:6px}
+.nhr-head{min-height:51px;padding:8px 12px}
+.nhr-book{min-height:0}
+.nhr-grid{overflow:hidden}
+@media (max-width:800px){
+.nhr-grid{grid-template-columns:1fr;grid-template-rows:minmax(0,36%) minmax(0,64%)}
+.nhr-shell{height:calc(100dvh - 10px)}
+.nhr-side{gap:5px;padding:6px}
+.nhr-tools{gap:4px}
+.nhr-tool{padding:6px 3px;font-size:11px;min-height:34px}
+.nhr-card h3{font-size:12px}
+.nhr-text{max-height:none}
+.nhr-head{padding:5px 8px}
+.nhr-head strong{font-size:13px}
+.nhr-book{padding:5px}
+.nhr-pager .nhr-btn{padding:5px 8px}
+}
 `;document.head.append(style);
 const safe=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const unit=()=>Number(document.querySelector('#units .unit.selected')?.dataset.unit||1);
@@ -146,8 +177,15 @@ async function importPdfs(files){for(let f of files){let b=books.find(x=>x.key==
 async function record(){let SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){setResult('このブラウザでは音声認識を利用できません');return}try{rec?.stop()}catch(e){}rec=new SR();rec.lang='en-US';rec.continuous=true;rec.interimResults=true;let transcript='';rec.onresult=e=>{transcript=Array.from(e.results).map(v=>v[0].transcript).join(' ');setResult('認識中：'+transcript.slice(-250))};
 rec.onend=async()=>{document.getElementById('nhr-rec').disabled=false;document.getElementById('nhr-stop').disabled=true;let ref=sourceText(),pct=ref?score(ref,transcript):null;await put('records',key(),{last:new Date().toISOString(),transcript,accuracy:pct,referenceAvailable:!!ref});setResult(pct===null?'音読を記録しました。全文未照合のため採点なし。':`単語一致率 ${pct}%（発音の総合評価ではありません）\n認識：${transcript}`)};rec.onerror=e=>setResult('音声認識エラー：'+e.error);document.getElementById('nhr-rec').disabled=true;document.getElementById('nhr-stop').disabled=false;try{rec.start()}catch(e){setResult('録音開始に失敗しました')}}
 async function show(){unitNo=unit();part=sectionNames(unitNo)[0].label;pageNo=sectionNames(unitNo)[0].start;await dbStart();for(let b of books){if(!mem[b.key])mem[b.key]=await get('files',`${grade}:${b.key}`)}
-overlay=document.createElement('div');overlay.className='nhr-overlay';overlay.innerHTML=`<div class="nhr-shell" role="dialog" aria-modal="true" aria-label="教科書本文・音読"><header class="nhr-head"><div><strong>📖 教科書本文・音読</strong><small class="nhr-sub" id="nhr-location"></small></div><div><button class="nhr-btn" id="nhr-upload">📂 PDF読込</button><input type="file" accept=".pdf" multiple id="nhr-files" hidden><button class="nhr-btn" id="nhr-close">×</button></div></header><div class="nhr-grid"><div class="nhr-book"><div class="nhr-pdf" id="nhr-pdf"></div><div class="nhr-pager"><button class="nhr-btn" id="nhr-prev">← 前</button><strong id="nhr-page"></strong><button class="nhr-btn" id="nhr-next">次 →</button></div></div><div class="nhr-side"><div class="nhr-tabs" id="nhr-tabs"></div><article class="nhr-card"><h3>🎤 本文音読</h3><p class="nhr-note" id="nhr-caption"></p><div id="nhr-text" class="nhr-text"></div><div class="nhr-row"><button class="nhr-btn" id="nhr-listen">🔊 お手本</button><button class="nhr-btn main" id="nhr-rec">🎙️ 音読</button><button class="nhr-btn" id="nhr-stop" disabled>■ 判定</button></div><div class="nhr-result" role="status" id="nhr-result"></div></article><article class="nhr-card"><h3>📚 New Words <small id="nhr-vocab-count"></small></h3><div class="nhr-words" id="nhr-words"></div></article><article class="nhr-card"><h3>🔑 Key Sentences</h3><div class="nhr-words" id="nhr-keys"></div><details class="nhr-teacher"><summary>先生用：本文の文字データを登録</summary><textarea id="nhr-teacher-text" placeholder="このPartの本文を貼り付け"></textarea><button class="nhr-btn" id="nhr-save">保存</button></details></article></div></div></div>`;
+overlay=document.createElement('div');overlay.className='nhr-overlay';overlay.innerHTML=`<div class="nhr-shell" role="dialog" aria-modal="true" aria-label="教科書本文・音読"><header class="nhr-head"><div><strong>📖 教科書本文・音読</strong><small class="nhr-sub" id="nhr-location"></small></div><div><button class="nhr-btn" id="nhr-upload">📂 PDF読込</button><input type="file" accept=".pdf" multiple id="nhr-files" hidden><button class="nhr-btn" id="nhr-close">×</button></div></header><div class="nhr-grid"><div class="nhr-book"><div class="nhr-pdf" id="nhr-pdf"></div><div class="nhr-pager"><button class="nhr-btn" id="nhr-prev">← 前</button><strong id="nhr-page"></strong><button class="nhr-btn" id="nhr-next">次 →</button></div></div><div class="nhr-side"><div class="nhr-tabs" id="nhr-tabs"></div><div class="nhr-tools" role="tablist" aria-label="学習内容"><button class="nhr-tool active" type="button" data-nhr-view="reading" aria-selected="true">🎤 本文・音読</button><button class="nhr-tool" type="button" data-nhr-view="words" aria-selected="false">📚 単語・熟語</button><button class="nhr-tool" type="button" data-nhr-view="keys" aria-selected="false">🔑 重要英文</button></div><article class="nhr-card" data-nhr-card="reading"><h3>🎤 本文音読</h3><p class="nhr-note" id="nhr-caption"></p><div id="nhr-text" class="nhr-text"></div><div class="nhr-row"><button class="nhr-btn" id="nhr-listen">🔊 お手本</button><button class="nhr-btn main" id="nhr-rec">🎙️ 音読</button><button class="nhr-btn" id="nhr-stop" disabled>■ 判定</button></div><div class="nhr-result" role="status" id="nhr-result"></div></article><article class="nhr-card" data-nhr-card="words" hidden><h3>📚 New Words <small id="nhr-vocab-count"></small></h3><div class="nhr-words" id="nhr-words"></div></article><article class="nhr-card" data-nhr-card="keys" hidden><h3>🔑 Key Sentences</h3><div class="nhr-words" id="nhr-keys"></div><details class="nhr-teacher"><summary>先生用：本文の文字データを登録</summary><textarea id="nhr-teacher-text" placeholder="このPartの本文を貼り付け"></textarea><button class="nhr-btn" id="nhr-save">保存</button></details></article></div></div></div>`;
 document.body.append(overlay);const close=()=>{try{rec?.stop()}catch(e){}speechSynthesis?.cancel();overlay.remove();overlay=null};overlay.querySelector('#nhr-close').onclick=close;overlay.addEventListener('click',e=>{if(e.target===overlay)close()});
+const switchReaderPanel=view=>{
+ if(!overlay)return;
+ overlay.querySelectorAll('[data-nhr-card]').forEach(card=>{card.hidden=card.dataset.nhrCard!==view});
+ overlay.querySelectorAll('[data-nhr-view]').forEach(btn=>{const active=btn.dataset.nhrView===view;btn.classList.toggle('active',active);btn.setAttribute('aria-selected',active?'true':'false')});
+};
+overlay.querySelectorAll('[data-nhr-view]').forEach(btn=>btn.addEventListener('click',()=>switchReaderPanel(btn.dataset.nhrView)));
+switchReaderPanel('reading');
 document.getElementById('nhr-upload').onclick=()=>document.getElementById('nhr-files').click();document.getElementById('nhr-files').onchange=e=>importPdfs(e.target.files);
 document.getElementById('nhr-prev').onclick=()=>{pageNo=Math.max(6,pageNo-1);showPage()};document.getElementById('nhr-next').onclick=()=>{pageNo++;showPage()};
 document.getElementById('nhr-rec').onclick=record;document.getElementById('nhr-stop').onclick=()=>rec?.stop();
