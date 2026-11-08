@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Copeak Study | Word List</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;height:100%;font:500 14px/1.45 -apple-system,BlinkMacSystemFont,"Noto Sans JP",sans-serif;color:#29445a}
+body{background:radial-gradient(circle at 20% 0%,var(--soft),transparent 55%),#f7f9fc}
+button,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.45}
+.shell{height:100dvh;max-width:1200px;margin:auto;display:flex;flex-direction:column;padding:10px 16px;gap:9px;overflow:hidden}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 0 12px;border-bottom:1px solid #dbe5ed}
+.title{display:flex;gap:10px;align-items:center}.logo{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--theme),#9ac8d9);display:grid;place-items:center;color:white;font-size:23px}
+h1{font-size:22px;margin:0;line-height:1.2}small{color:#7d92a2;font-size:11px}
+.btn{border:1px solid #d3e1ea;border-radius:11px;padding:9px 12px;background:white;color:#426179;font-weight:750}
+.btn.on{background:linear-gradient(135deg,var(--theme),var(--theme2));border-color:transparent;color:white}
+.grade-buttons,.filters,.stats,.actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.stats{gap:10px}.stat{flex:1;border:1px solid #e0e7ef;border-radius:13px;background:white;padding:10px 13px;min-width:120px}
+.stat b{display:block;color:var(--theme);font-size:21px}.stat span{font-size:11px;color:#71899b}
+.main{display:grid;grid-template-columns:140px minmax(0,1fr);gap:11px;flex:1;min-height:0}
+.pages,.work{border:1px solid #e0e9f0;border-radius:13px;background:white;min-height:0}
+.pages{overflow:auto;padding:11px;display:flex;flex-direction:column;gap:6px}
+.work{display:flex;flex-direction:column;padding:12px;gap:9px}
+.filters input{border:1px solid #d3e0ea;border-radius:10px;padding:10px;min-width:115px;flex:1}
+.results{flex:1;overflow:auto;border:1px solid #edf1f5;border-radius:10px}
+.word{padding:11px 14px;border-bottom:1px solid #ecf1f5;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.word strong{font-size:16px}.word .jp{color:#58748a;margin-top:2px}.word small{display:block;margin-top:4px}
+.foot{border-top:1px solid #e0e6ef;padding:9px 0;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.info{color:#698091;font-size:11px;line-height:1.5}
+.quiz{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:17px;min-height:0}
+.quiz h2{font-size:36px;margin:0;text-align:center}.choices{display:grid;grid-template-columns:1fr 1fr;gap:11px;width:100%}
+.choice{border:1px solid #d6e4ed;border-radius:13px;background:white;min-height:65px;padding:10px;color:#32526a;font-weight:800}
+.choice.right{background:#e8f7ec;color:#168150;border-color:#68bd86}.choice.wrong{background:#fff0f0;color:#a34243;border-color:#e48e8e}
+.celebrate{position:fixed;inset:0;z-index:3;display:grid;place-items:center;pointer-events:none;background:#152c441b}
+.celebrate div{width:185px;height:185px;border-radius:50%;background:linear-gradient(140deg,#16c38e,#149d72);border:5px solid white;display:grid;place-items:center;color:white;font-size:25px;font-weight:900;box-shadow:0 15px 60px #0a5b4955}
+.notice{color:#8b7480;font-size:11px}
+@media(max-width:650px){.shell{padding:7px;gap:6px}.top{padding:5px 0 8px}h1{font-size:16px}.logo{width:36px;height:36px}.main{grid-template-columns:1fr;gap:5px}.pages{display:flex;flex-direction:row;max-height:72px;overflow:auto;padding:5px}.pages .btn{white-space:nowrap}.work{padding:8px}.stat{min-width:0;padding:6px}.stat b{font-size:17px}.stats{gap:5px}.filters{gap:4px}.filters .btn{padding:6px;font-size:12px}.filters input{width:100%;padding:7px}.grade-buttons .btn{padding:6px 9px}.foot{padding:4px}.foot .info{display:none}.quiz h2{font-size:27px}.choice{min-height:55px;font-size:13px}}
+</style></head>
+<body><div class="shell">
+<header class="top"><div class="title"><div class="logo">C</div><div><small>COPEAK · PERSONAL STUDY</small><h1>📚 教科書語彙データベース</h1></div></div><a id="back" class="btn" href="grammar-training.html">← 学習画面</a></header>
+<div class="grade-buttons" id="grades"></div><div class="stats" id="stats"></div>
+<div class="main"><aside class="pages" id="pages"></aside><section class="work"><div class="filters" id="filters"></div><div id="results" class="results"></div></section></div>
+<footer class="foot"><div class="actions"><button id="import" class="btn on">＋ 教材JSONを読み込む</button><input id="file" type="file" accept=".json" hidden><span id="status" class="notice"></span></div><span class="info">端末保存のみ・教科書全語彙の照合は未完了。全語彙の習得率ではありません。</span></footer>
+</div><script>
+(function(){
+'use strict';
+var q=new URLSearchParams(location.search),grade=Number(q.get('grade')||2);if(![1,2,3].includes(grade))grade=2;
+var palette={1:['#14996c','#7acda2','#e2f7ed'],2:['#cb4b96','#e8a4d0','#fbe5f0'],3:['#497ac9','#91b4e4','#e6edff']}[grade];
+document.body.style.setProperty('--theme',palette[0]);document.body.style.setProperty('--theme2',palette[1]);document.body.style.setProperty('--soft',palette[2]);
+document.getElementById('back').href='new-horizon-'+grade+'.html';
+var spans={1:[130,139],2:[114,127],3:[105,125]},range=spans[grade],db=null,items=[],progress={},kind='wordlist',page=0,search='',quiz=null,timer=null;
+var $=function(s){return document.querySelector(s)};
+var safe=function(x){return String(x==null?'':x).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
+var norm=function(x){return String(x||'').toLowerCase().trim().replace(/\s+/g,' ')};
+function openDB(){return new Promise(function(done){try{var r=indexedDB.open('copeak-local-wordlist-v1',1);r.onupgradeneeded=function(){if(!r.result.objectStoreNames.contains('wordlists'))r.result.createObjectStore('wordlists');if(!r.result.objectStoreNames.contains('scores'))r.result.createObjectStore('scores')};r.onsuccess=function(){db=r.result;done(true)};r.onerror=function(){done(false)}}catch(e){done(false)}})}
+function read(t){return new Promise(function(done){if(!db)return done(null);try{var r=db.transaction(t).objectStore(t).get('grade'+grade);r.onsuccess=function(){done(r.result||null)};r.onerror=function(){done(null)}}catch(e){done(null)}})}
+function write(t,v){return new Promise(function(done){if(!db)return done(false);try{var r=db.transaction(t,'readwrite').objectStore(t).put(v,'grade'+grade);r.onsuccess=function(){done(true)};r.onerror=function(){done(false)}}catch(e){done(false)}})}
+function selected(){return items.filter(function(x){return (!page||x.source.printed_page===page)&&(kind==='all'||(kind==='phrase')===(x.category==='phrase'))&&(!search||norm(x.headword).includes(norm(search))||String(x.meaning_ja||'').includes(search))})}
+function speak(w){try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=.83;speechSynthesis.speak(u)}catch(e){}}
+function paint(){var pages=new Set(items.map(function(r){return r.source.printed_page}));$('#stats').innerHTML='<div class="stat"><b>'+items.length+'</b><span>巻末から登録済みの見出し語</span></div><div class="stat"><b>'+pages.size+'/'+(range[1]-range[0]+1)+'</b><span>一部を確認した巻末ページ</span></div><div class="stat"><b>未確定</b><span>教科書全体の掲載語数</span></div>';
+$('#grades').innerHTML=[1,2,3].map(function(g){return '<a class="btn '+(g===grade?'on':'')+'" href="?grade='+g+'">中学'+g+'年</a>'}).join('');
+$('#pages').innerHTML='<button class="btn '+(page===0?'on':'')+'" data-page="0">全ページ</button>'+Array.from({length:range[1]-range[0]+1},function(_,i){var p=range[0]+i;return '<button class="btn '+(p===page?'on':'')+'" data-page="'+p+'">p.'+p+(pages.has(p)?' ●':'')+'</button>'}).join('');
+document.querySelectorAll('[data-page]').forEach(function(x){x.onclick=function(){page=Number(x.dataset.page);quiz=null;paint()}});
+if(quiz){showQuiz();return}
+$('#filters').innerHTML='<button class="btn '+(kind==='all'?'on':'')+'" data-filter="all">すべて</button><button class="btn '+(kind==='wordlist'?'on':'')+'" data-filter="wordlist">📖 単語</button><button class="btn '+(kind==='phrase'?'on':'')+'" data-filter="phrase">💬 熟語</button><input id="search" placeholder="単語を検索" aria-label="単語検索" value="'+safe(search)+'"><button id="start" class="btn on">▶ 4択</button>';
+document.querySelectorAll('[data-filter]').forEach(function(x){x.onclick=function(){kind=x.dataset.filter;paint()}});
+$('#search').oninput=function(e){search=e.target.value;list()};
+$('#start').onclick=function(){var a=selected().filter(function(w){return !!w.meaning_ja});if(a.length<4){$('#status').textContent='4択には意味のある語が4項目以上必要です';return}quiz={list:a.sort(function(){return Math.random()-.5}),i:0,selected:-1,opts:null};paint()};
+list()}
+function list(){var a=selected();$('#results').innerHTML=a.map(function(w,i){return '<div class="word"><div><strong>'+safe(w.headword)+'</strong><div class="jp">'+safe(w.meaning_ja||'意味を確認中')+'</div><small>Word List p.'+w.source.printed_page+'</small></div><button class="btn" data-audio="'+i+'" aria-label="発音">🔊</button></div>'}).join('')||'<div style="text-align:center;padding:38px;color:#779">このページの見出し語は校正待ちです。</div>';
+document.querySelectorAll('[data-audio]').forEach(function(x){x.onclick=function(){speak(a[Number(x.dataset.audio)].headword)}})}
+function showQuiz(){var z=quiz,w=z.list[z.i%z.list.length];if(!z.opts){var candidates=z.list.filter(function(x){return x.meaning_ja!==w.meaning_ja}).sort(function(){return Math.random()-.5}).slice(0,3);z.opts=[w].concat(candidates).sort(function(){return Math.random()-.5})}
+$('#filters').innerHTML='<button id="to-list" class="btn">← 単語一覧</button><small>英語 → 日本語／'+(z.i+1)+' / '+z.list.length+'</small>';
+$('#to-list').onclick=function(){clearTimeout(timer);quiz=null;paint()};
+$('#results').innerHTML='<div class="quiz"><h2>'+safe(w.headword)+' <button class="btn" id="say">🔊</button></h2><div class="choices">'+z.opts.map(function(x,i){return '<button class="choice '+(i===z.selected?(x.headword===w.headword?'right':'wrong'):'')+'" data-choice="'+i+'" '+(z.selected>=0?'disabled':'')+'>'+safe(x.meaning_ja)+'</button>'}).join('')+'</div><div id="feedback"></div></div>';
+$('#say').onclick=function(){speak(w.headword)};
+document.querySelectorAll('[data-choice]').forEach(function(x){x.onclick=function(){if(z.selected>=0)return;var idx=Number(x.dataset.choice),yes=z.opts[idx].headword===w.headword;z.selected=idx;var p=progress[w.id]||{attempts:0,correct:0};p.attempts++;if(yes)p.correct++;progress[w.id]=p;write('scores',progress);showQuiz();if(yes){try{var C=window.AudioContext||window.webkitAudioContext,c=new C(),o=c.createOscillator(),v=c.createGain();o.frequency.value=780;v.gain.value=.08;o.connect(v);v.connect(c.destination);o.start();o.stop(c.currentTime+.15);setTimeout(function(){c.close()},350)}catch(e){}var pop=document.createElement('div');pop.className='celebrate';pop.innerHTML='<div>CORRECT!<br>正解！</div>';document.body.appendChild(pop);timer=setTimeout(function(){pop.remove();z.i++;z.selected=-1;z.opts=null;paint()},900)}else{$('#feedback').innerHTML='<p style="color:#b45">正解：'+safe(w.meaning_ja)+'</p><button class="btn on" id="next">次へ →</button>';$('#next').onclick=function(){z.i++;z.selected=-1;z.opts=null;paint()}}}})}
+$('#import').onclick=function(){$('#file').click()};
+$('#file').onchange=async function(e){var f=e.target.files[0];if(!f)return;try{if(f.size>3500000)throw Error('ファイルが大きすぎます');var v=JSON.parse(await f.text()),a=v.entries&&v.entries[String(grade)];if(v.schema!=='copeak-lexicon-local-v1'||!Array.isArray(a))throw Error('この学年の教材データではありません');var seen=new Set();if(a.length>9000)throw Error('項目数が上限を超えました');a.forEach(function(w){var p=w.source&&w.source.printed_page;if(typeof w.headword!=='string'||!w.headword.trim()||!Number.isInteger(p)||p<range[0]||p>range[1]||w.source.edition_grade!==grade||seen.has(norm(w.headword)))throw Error('見出し語・ページに誤りがあります');seen.add(norm(w.headword))});if(!db||!await write('wordlists',a))throw Error('端末への保存に失敗しました');items=a;page=0;search='';kind='wordlist';quiz=null;paint();$('#status').textContent=a.length+'項目をこの端末に保存しました'}catch(err){$('#status').textContent=err.message}e.target.value=''};
+(async function(){await openDB();items=await read('wordlists')||[];progress=await read('scores')||{};paint();if(!db)$('#status').textContent='このブラウザでは学習記録の保存を利用できません'})();
+})();
+</script></body></html>
