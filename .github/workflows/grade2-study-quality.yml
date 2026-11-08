@@ -1,0 +1,29 @@
+name: Grade 2 personal study question quality
+
+on:
+  pull_request:
+    paths:
+      - 'new-horizon-2.html'
+      - 'study-grade2-expansion.js'
+      - 'tests/grade2_study_expansion.test.mjs'
+      - '.github/workflows/grade2-study-quality.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  grade2-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate source syntax
+        run: |
+          node --check study-grade2-expansion.js
+          node --check tests/grade2_study_expansion.test.mjs
+      - name: Verify all 35 sections and eight modes
+        run: node tests/grade2_study_expansion.test.mjs
