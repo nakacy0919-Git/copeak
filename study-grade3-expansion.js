@@ -36,8 +36,8 @@ const grammarOptions={
  donated:['donating','donates','to donated'],printed:['printing','prints','to printed'],
  affected:['affecting','affects','to affected'],
  who:['which','whose','where'],that:['who','whose','where'],
- were:['was','am','will be'],wish:['wishes','wishing','to wish'],
- had:['has','having','to have'],knew:['knows','knowing','to know'],
+ were:['am','will be','to be'],wish:['wishes','wishing','to wish'],
+ had:['has to','having','to have'],knew:['knows','knowing','to know'],
  worked:['will work','working','to work'],organized:['will organize','organizing','to organize'],
  could:['can to','could to','cans'],shared:['will share','sharing','to share'],
  stopped:['will stop','stopping','to stop'],imported:['will import','importing','to import'],
@@ -120,12 +120,18 @@ for(const [unit,sections] of Object.entries(MAP)){
    pool.speaking.push({id:qid+'-s',en:c.en,jp:c.jp,page});
    pool.ordering.push({id:qid+'-o',jp:c.jp,answer:tokenize(c.en),page});
    // Two original statements, one question about an explicitly identifiable detail.
-   const asksSecond=k%3===1,focus=asksSecond?next:c;
-   const readingChoices=multipleChoice(focus.jp,translations,(k+5)%rows.length);
+   const type=k%5;
+   const asksSecond=type===1||type===3,asksSummary=type===4;
+   const focus=asksSecond?next:c;
+   const summary=c.jp+' '+next.jp;
+   const altSummaries=rows.map((x,j)=>x.jp+' '+rows[(j+2)%rows.length].jp);
+   const readingChoices=asksSummary
+    ?multipleChoice(summary,altSummaries,(k+5)%rows.length)
+    :multipleChoice(focus.jp,translations,(k+5)%rows.length);
+   const question=asksSummary?'2文の内容をともに正しくまとめたものは？'
+    :asksSecond?'2文目に書かれていることは？':'1文目の内容と一致するものは？';
    pool.reading.push({id:qid+'-r',label:title+'・オリジナル短文',en:c.en+' '+next.en,
-     jp:c.jp+' '+next.jp,
-     question:asksSecond?'2文目で述べられている内容は？':'1文目の内容と一致するものは？',
-     choices:readingChoices,correct:0,sourceQuestion:false,page});
+     jp:summary,question,choices:readingChoices,correct:0,sourceQuestion:false,page});
   }
   for(const cat of tags)if(pool[cat].length<10)console.warn('Underfilled '+id+' '+cat+': '+pool[cat].length);
  }
