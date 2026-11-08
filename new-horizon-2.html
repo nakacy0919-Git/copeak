@@ -88,7 +88,7 @@ const SECTION_PRACTICE = {"0":{"u0-intro":{"vocab":[{"id":"u0-intro-v1","word":"
        const choices=distractors(jp,unit,sec.id,ix);
        const answer=sentenceTokens(en);
        if(sentence===en||answer.join(' ').length<4||new Set([focus,wrongA,wrongB]).size!==3)throw new Error('Invalid record '+id);
-       part.grammar.push({id:id+'-g',sentence,choices:[focus,wrongA,wrongB],correct:0,
+       part.grammar.push({id:id+'-g',sentence,jp,choices:[focus,wrongA,wrongB],correct:0,
          explain:'単元の文法を使ったオリジナル演習（p.'+page+'に対応）',page,sourceType:'editorial-original'});
        part.meaning.push({id:id+'-m',en,prompt:'オリジナル英文の意味は？',choices,correct:0,page,sourceType:'editorial-original'});
        part.listening.push({id:id+'-l',tts:en,prompt:'オリジナル英文の意味',choices,correct:0,page,sourceType:'editorial-original'});
@@ -261,7 +261,7 @@ let b='';
 if(cat==='vocab'){const arr=[it.jp,...shuffle([...allItems('vocab'),...(DATASETS[state.unit]?.vocab||[])].filter(x=>x.id!==it.id).map(x=>x.jp),it.id).filter(x=>x!==it.jp).slice(0,3)];const reverse=(state.index%3===2);let choices=reverse?[it.word,...shuffle([...allItems('vocab'),...(DATASETS[state.unit]?.vocab||[])].filter(x=>x.id!==it.id).map(x=>x.word),it.id).filter(x=>x!==it.word).slice(0,3)]:arr;b=prompt(reverse?'日本語に合う英語を選ぼう':'英単語の意味を選ぼう',reverse?it.jp:(it.display||it.word),reverse?'日本語 → 英語':'英語 → 日本語',reverse?'':it.word)+mcChoices(it,choices,0,`正解：${it.word} — ${it.jp}`)+actionBar()}
 if(cat==='listening'){b=`<div class="prompt-card"><div class="prompt-label">音声を聞いて答えよう</div><button class="audio-btn" id="play">♫　英文を聞く</button><div class="prompt-small">${esc(it.prompt)}はどれ？</div></div>`+mcChoices(it,it.choices,it.correct,'英文：'+it.tts)+actionBar()}
 if(cat==='meaning'){b=prompt(it.prompt,it.en)+mcChoices(it,it.choices,it.correct,'日本語訳：'+it.choices[0])+actionBar()}
-if(cat==='grammar'){b=prompt('空欄に入る正しい語句を選ぼう',it.sentence)+mcChoices(it,it.choices,it.correct,it.explain)+actionBar()}
+if(cat==='grammar'){b=prompt('空欄に入る正しい語句を選ぼう',it.sentence,it.jp||'')+mcChoices(it,it.choices,it.correct,it.explain)+actionBar()}
 if(cat==='reading'){b=`<div class="prompt-card" style="align-items:stretch;text-align:left;min-height:145px"><div class="prompt-label">${esc(it.label)} · ${it.sourceQuestion?'本文の内容確認':'オリジナル英文'}</div><div class="story-text">${esc(it.en)}</div>${state.done?`<div class="story-jp">${esc(it.jp)}</div>`:''}</div><div class="topic-label">${esc(it.question)}</div>`+mcChoices(it,it.choices,it.correct,'')+actionBar()}
 if(cat==='spelling'){b=spellView(it)}
 if(cat==='ordering'){b=orderView(it)}
