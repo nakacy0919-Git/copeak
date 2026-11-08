@@ -58,6 +58,42 @@ function grammaticalChoices(target){
  throw Error('Missing human-reviewed answer forms: '+target);
 }
 const tokenize=en=>en.match(/[A-Za-z]+(?:['’][A-Za-z]+)?|\d+(?:,\d+)*|[.,!?]/g)||[];
+function highQualityGrammar(card,unit,code){
+ const basic={sentence:card.en.replace(card.target,'___'),
+  choices:grammaticalChoices(card.target),focus:'語形・主語との一致'};
+ // Make the taught structure itself the target, not just a single easy auxiliary.
+ if(unit==='3'&&code==='part2'){
+  const m=card.en.match(/\b(want|wants)\s+(.+?)\s+to\s+(?=[a-z])/i);
+  if(m&&m[2].split(/\s+/).length<=5){
+   const verb=m[1],person=m[2],opposite=verb==='want'?'wants':'want';
+   const complete=verb+' '+person+' to';
+   return {sentence:card.en.replace(m[0], '___ '),
+    choices:[complete,verb+' to '+person,verb+' '+person,opposite+' '+person+' to'],
+    focus:'want＋人＋to不定詞'};
+  }
+ }
+ if(unit==='4'&&code==='part1'){
+  const end=card.en.match(/\b(where|how)\s+(.+?)\s+(is|are)([.!?])$/i);
+  if(end){
+   const wh=end[1],subject=end[2],verb=end[3];
+   return {sentence:card.en.replace(end[0],'___'+end[4]),
+    choices:[wh+' '+subject+' '+verb,wh+' '+verb+' '+subject,wh+' '+subject,wh+' '+subject+' '+(verb==='is'?'are':'is')],
+    focus:'間接疑問の平叙文語順'};
+  }
+  const modal=card.en.match(/\b(what|how|why|where)\s+(we|you|they|I)\s+(can|should)\s+([^.!?]+)([.!?])$/i);
+  if(modal){
+   const wh=modal[1],subject=modal[2],verb=modal[3],tail=modal[4];
+   return {sentence:card.en.replace(modal[0],'___'+modal[5]),
+    choices:[wh+' '+subject+' '+verb+' '+tail,
+     wh+' '+verb+' '+subject+' '+tail,
+     wh+' '+subject+' '+verb+' to '+tail,
+     wh+' '+subject+' '+tail+' '+verb],
+    focus:'間接疑問での語順'};
+  }
+ }
+ return basic;
+}
+
 function multipleChoice(correct,alternatives,index){
  const choices=[correct];
  for(let k=1;k<=alternatives.length&&choices.length<4;k++){
@@ -109,14 +145,14 @@ for(const [unit,sections] of Object.entries(MAP)){
   const translations=rows.map(x=>x.jp);
   for(let k=0;k<rows.length;k++){
    const c=rows[k],next=rows[(k+1)%rows.length],qid=id+'-'+(k+1);
-   const gram=grammaticalChoices(c.target);
+   const grammar=highQualityGrammar(c,unit,code);
+   const gram=grammar.choices,sentence=grammar.sentence;
    const choices=multipleChoice(c.jp,translations,k);
-   const sentence=c.en.replace(c.target,'___');
    if(!sentence.includes('___'))throw Error('Grammar target missing from '+qid);
    pool.listening.push({id:qid+'-l',tts:c.en,prompt:'聞こえた英文の意味',choices,correct:0,page});
    pool.meaning.push({id:qid+'-m',en:c.en,prompt:'英文の意味は？',choices,correct:0,page});
    pool.grammar.push({id:qid+'-g',sentence,choices:gram,correct:0,
-     explain:'正解：'+c.target+'。全文：'+c.en,page});
+     explain:'注目点：'+grammar.focus+'。全文：'+c.en,page});
    pool.speaking.push({id:qid+'-s',en:c.en,jp:c.jp,page});
    pool.ordering.push({id:qid+'-o',jp:c.jp,answer:tokenize(c.en),page});
    // Two original statements, one question about an explicitly identifiable detail.
