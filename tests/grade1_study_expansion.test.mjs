@@ -7,8 +7,8 @@ const html=readFileSync(new URL('new-horizon-1.html',base),'utf8');
 const auditSource=readFileSync(new URL('new-horizon-audit.js',base),'utf8');
 const expansion=readFileSync(new URL('study-grade1-expansion.js',base),'utf8');
 // Parse every inline script from the actual Grade 1 page, including its game engine.
-for (const match of html.matchAll(/<script\\b([^>]*)>([\\s\\S]*?)<\\/script>/g)) {
-  if (/\\bsrc\\s*=/.test(match[1])) continue;
+for (const match of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)) {
+  if (/\bsrc\s*=/.test(match[1])) continue;
   new vm.Script(match[2], { filename: 'new-horizon-1.html:inline.js' });
 }
 const sourceMatch=html.match(/^const DATASETS = (.+);$/m);
