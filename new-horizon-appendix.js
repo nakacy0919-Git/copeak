@@ -63,7 +63,8 @@ button.onclick=function(){
   ['unit','🧩 Unit Plus',data.unit_activity_plus||[]],
   ['small','🎧 Small Talk',data.small_talk_prompts||[]],
   ['further','📖 Further Reading',data.further_reading?.comprehension_questions||[]],
-  ['func','💬 表現まとめ',data.expression_functions_p134||[]]
+  ['func','💬 表現まとめ',data.expression_functions_p134||[]],
+  ['sounds','🔤 発音',data.pronunciation?.basic_phonemes||[]]
  ];
  for(const [id,label,records] of tabs){
   const b=document.createElement('button');b.type='button';b.dataset.tab=id;b.textContent=label+' '+records.length;b.onclick=()=>show(id);nav.append(b)
@@ -119,6 +120,15 @@ button.onclick=function(){
   if(id==='func'){
    html='<div class="nh2-appx-section">p.134 · 1・2年 表現のまとめ（機能別）</div>';
    html+=(data.expression_functions_p134||[]).map((x,i)=>row(i+1,x.label_ja)).join('');
+  }
+  if(id==='sounds'){
+   const p=data.pronunciation||{};
+   html='<div class="nh2-appx-section">p.150 基本音の例（'+(p.basic_phonemes||[]).length+'）</div>';
+   html+=(p.basic_phonemes||[]).map(x=>'<div class="nh2-appx-line"><b>'+safe(x.symbol)+' · '+safe(x.spellings)+'</b><small>'+safe(x.example)+'</small><button type="button" data-appx-say="'+safe(x.example)+'">🔊</button></div>').join('');
+   html+='<div class="nh2-appx-section">p.151 文字の読み方の例（'+(p.letter_name_examples||[]).length+'）</div>';
+   html+=(p.letter_name_examples||[]).map(x=>row(x.letter,x.example)).join('');
+   html+='<div class="nh2-appx-section">p.151 読み方に注意する単語（'+(p.exception_examples||[]).length+'）</div>';
+   html+=(p.exception_examples||[]).map(x=>'<div class="nh2-appx-line"><b>'+safe(x.word)+'</b><button type="button" data-appx-say="'+safe(x.word)+'">🔊</button></div>').join('');
   }
   body.innerHTML=html+footer;
   body.dataset.currentTab=id;
