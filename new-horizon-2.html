@@ -63,7 +63,7 @@ let progress={},database=null;let persistStatus='loading';
 function scoreKey(cat,item){return `u${state.unit}|${cat}|${item.id}`}
 function getScore(cat,item){return progress[scoreKey(cat,item)]||{streak:0,attempts:0,correct:0,practice:0,last:null}}
 async function openDB(){try{return await new Promise((resolve,reject)=>{const req=indexedDB.open(dbName,1);req.onupgradeneeded=()=>{const d=req.result;if(!d.objectStoreNames.contains('state'))d.createObjectStore('state')};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)})}catch(e){return null}}
-async function init(){database=await openDB();try{if(database){const data=await new Promise((resolve,reject)=>{const r=database.transaction('state','readonly').objectStore('state').get('progress');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)});if(data&&typeof data==='object')progress=data;persistStatus='IndexedDB'}else{progress=JSON.parse(localStorage.getItem(dbName))||{};persistStatus='localStorage'}}catch(e){progress={};persistStatus='この端末では保存不可'}render();}
+async function init(){database=await openDB();try{if(database){const data=await new Promise((resolve,reject)=>{const r=database.transaction('state','readonly').objectStore('state').get('progress');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)});if(data&&typeof data==='object')progress=data;persistStatus='IndexedDB'}else{progress=JSON.parse(localStorage.getItem(dbName))||{};persistStatus='localStorage'}}catch(e){progress={};persistStatus='この端末では保存不可'}await loadGrade2PrivateWordList();render();}
 function persist(){if(database){try{database.transaction('state','readwrite').objectStore('state').put(progress,'progress')}catch(e){persistStatus='保存失敗'}}else{try{localStorage.setItem(dbName,JSON.stringify(progress))}catch(e){persistStatus='保存失敗'}}}
 function record(cat,item,correct,type='graded'){const key=scoreKey(cat,item);const p={...getScore(cat,item)};p.last=new Date().toISOString();if(type==='practice'){p.practice=(p.practice||0)+1;p.streak=Math.max(p.streak,0)}else{p.attempts=(p.attempts||0)+1;p.correct=(p.correct||0)+(correct?1:0);p.streak=correct?Math.min(2,p.streak+1):0}progress[key]=p;persist();}
 /* Word List cross-references: manually checked against printed pp.114–115.
@@ -92,13 +92,79 @@ for(const [unit,sections] of Object.entries(SECTION_CATALOG)){
   };
  }
 }
+/* Additional personal Word List entries stay in the user's IndexedDB, not in this public repository.
+   Printed Word List page references are first-reference locations, NOT all occurrences.
+   No item is identified as a textbook NEW WORD solely because it appears in the private index. */
+let UNIT_PRIVATE_REFERENCES={};
+let PRIVATE_REFERENCE_COUNT=0;
+async function loadGrade2PrivateWordList(){
+ try{
+  const records=await new Promise(resolve=>{
+   if(!window.indexedDB){resolve([]);return;}
+   let settled=false;
+   const done=v=>{if(!settled){settled=true;resolve(v)}};
+   const request=indexedDB.open('copeak-local-wordlist-v1',1);
+   request.onupgradeneeded=()=>{try{request.transaction.abort()}catch(e){}};
+   request.onerror=()=>done([]);
+   request.onblocked=()=>done([]);
+   request.onsuccess=()=>{
+    const db=request.result;
+    try{
+     if(!db.objectStoreNames.contains('wordlists')){db.close();done([]);return}
+     const q=db.transaction('wordlists','readonly').objectStore('wordlists').get('grade2');
+     q.onsuccess=()=>{db.close();done(Array.isArray(q.result)?q.result:[])};
+     q.onerror=()=>{db.close();done([])};
+    }catch(e){db.close();done([])}
+   };
+  });
+  UNIT_PRIVATE_REFERENCES={};
+  PRIVATE_REFERENCE_COUNT=0;
+  if(records.length>9000)return;
+  for(const [unit,sections] of Object.entries(SECTION_CATALOG)){
+   for(const sec of sections){
+    const earlier=new Set([
+     ...(SECTION_PRACTICE[unit]?.[sec.id]?.vocab||[]),
+     ...(UNIT_REFERENCE_PRACTICE[unit]?.[sec.id]?.vocab||[])
+    ].map(x=>_normalizeWord(x.word)));
+    const kept=new Set();
+    const added=[];
+    for(const e of records){
+     const ref=e?.source;
+     if(!ref||ref.edition_grade!==2||ref.type!=='printed_word_list')continue;
+     if(!Number.isInteger(ref.printed_page)||ref.printed_page<114||ref.printed_page>127)continue;
+     if(!Array.isArray(ref.usage_page_refs))continue;
+     if(!ref.usage_page_refs.some(p=>Number.isInteger(p)&&p>=sec.pageStart&&p<=sec.pageEnd))continue;
+     const word=String(e.headword||'').trim(),jp=String(e.meaning_ja||'').trim();
+     const normalized=_normalizeWord(word);
+     if(!word||word.length>85||!jp||jp.length>130||earlier.has(normalized)||kept.has(normalized))continue;
+     kept.add(normalized);
+     added.push({
+      id:'g2pvt-'+sec.id+'-'+word.toLowerCase().replace(/[^a-z0-9]+/g,'-').slice(0,65),
+      word,jp,kind:'wordlist-private',wordListPage:ref.printed_page,
+      bookPart:sec.title,source:'端末の巻末Word List p.'+ref.printed_page,
+      verified:ref.scope==='printed_numerical_index_entries'
+     });
+    }
+    if(!added.length)continue;
+    UNIT_PRIVATE_REFERENCES[unit]??={};
+    UNIT_PRIVATE_REFERENCES[unit][sec.id]={
+     vocab:added,
+     spelling:added.filter(x=>/^[a-z]{2,24}$/i.test(x.word)).map(x=>({...x,id:x.id+'-sp'}))
+    };
+    PRIVATE_REFERENCE_COUNT+=added.length;
+   }
+  }
+ }catch(e){UNIT_PRIVATE_REFERENCES={};PRIVATE_REFERENCE_COUNT=0}
+}
 const sectionPracticeItems=(cat,unit,section)=>[
  ...(SECTION_PRACTICE[String(unit)]?.[section]?.[cat]||[]),
- ...(UNIT_REFERENCE_PRACTICE[String(unit)]?.[section]?.[cat]||[])
+ ...(UNIT_REFERENCE_PRACTICE[String(unit)]?.[section]?.[cat]||[]),
+ ...(UNIT_PRIVATE_REFERENCES[String(unit)]?.[section]?.[cat]||[])
 ];
 const unitVocabStats=(unit)=>({newWords:(SECTION_CATALOG[String(unit)]||[]).reduce((n,p)=>n+p.words.length,0),
  expressions:(SECTION_CATALOG[String(unit)]||[]).reduce((n,p)=>n+(p.phrases||[]).length,0),
- additional:(SECTION_CATALOG[String(unit)]||[]).reduce((n,p)=>n+(UNIT_REFERENCE_PRACTICE[String(unit)]?.[p.id]?.vocab||[]).length,0)});
+ additional:(SECTION_CATALOG[String(unit)]||[]).reduce((n,p)=>n+(UNIT_REFERENCE_PRACTICE[String(unit)]?.[p.id]?.vocab||[]).length,0),
+ privateAdded:(SECTION_CATALOG[String(unit)]||[]).reduce((n,p)=>n+(UNIT_PRIVATE_REFERENCES[String(unit)]?.[p.id]?.vocab||[]).length,0)});
 const allItems=cat=>state.section!=='all'?sectionPracticeItems(cat,state.unit,state.section):(['1','2','3','4','5','6','7'].includes(String(state.unit))?(SECTION_CATALOG[String(state.unit)]||[]).flatMap(sec=>sectionPracticeItems(cat,state.unit,sec.id)):(DATASETS[state.unit]?.[cat]||[]));const items=cat=>{const a=allItems(cat);return state.reviewIds && state.category===cat ? a.filter(v=>state.reviewIds.includes(v.id)):a};
 function metrics(cat){let a=allItems(cat),earned=0,mastered=0,done=0;for(const it of a){const p=getScore(cat,it);earned+=Math.min(2,p.streak);if(p.streak>=2)mastered++;if(p.attempts>0||p.practice>0)done++}return{count:a.length,earned,pct:a.length?Math.round(earned/(a.length*2)*100):0,mastered,done}}
 function overall(){let n=0,e=0,m=0;for(const c of CATEGORY_META){const t=metrics(c.id);n+=t.count;e+=t.earned;m+=t.mastered}return{count:n,pct:n?Math.round(e/(n*2)*100):0,mastered:m}}
@@ -112,9 +178,9 @@ function selectUnit(n){stopSpeech();clearTimeout(correctTimer);state={...state,u
 function pageLabel(q){return q.pageStart===q.pageEnd?'p.'+q.pageStart:'pp.'+q.pageStart+'–'+q.pageEnd}
 function sectionTitle(){let x=SECTION_CATALOG[String(state.unit)]?.find(s=>s.id===state.section);return x?`${x.title} · p.${x.pageStart}${x.pageEnd>x.pageStart?'–'+x.pageEnd:''}`:'単元全体'}
 function sectionTabs(){let arr=SECTION_CATALOG[String(state.unit)]||[];return `<div class="section-row" role="group" aria-label="教科書セクション">${state.unit<8?`<button data-section="all" class="section-tab ${state.section==='all'?'selected':''}">単元全体（教科書対応）</button>`:''}${arr.map(o=>`<button class="section-tab ${state.section===o.id?'selected':''} ${o.reviewed?'':'unreviewed'}" data-section="${o.id}" title="教科書 p.${o.pageStart}${o.reviewed?'':': 内容を確認中'}">${o.title} · p.${o.pageStart}${o.reviewed?'':' · 準備中'}</button>`).join('')}</div>`}
-function sectionNotice(){if(state.section==='all'){const n=unitVocabStats(state.unit);return `<div class="section-meta"><b>教科書のNew Words欄 ${n.newWords}語 ＋ 熟語 ${n.expressions}</b><span>本文の既習・関連語 ${n.additional}語を追加（巻末p.114–115と教科書欄の確認分・全語彙は照合中）</span></div>`;}let q=SECTION_CATALOG[String(state.unit)]?.find(r=>r.id===state.section);if(!q)return '';if(!q.reviewed)return `<div class="section-meta is-pending">教科書 ${pageLabel(q)} のセクションを確認中。未収録を習得済みとは扱いません。</div>`;return `<div class="section-meta"><b>教科書 ${pageLabel(q)}</b><span>New Words ${q.words.length}語 · 熟語・表現 ${(q.phrases||[]).length} · 巻末から追加 ${(UNIT_REFERENCE_PRACTICE[String(state.unit)]?.[q.id]?.vocab||[]).length}語 · Key Sentences ${q.keys.length}文</span></div><button type="button" class="lexicon-button" id="openLexicon">📖 掲載語を確認</button>${q.keys.length?`<div class="section-mini">${q.keys.map(k=>`<span class="key-chip">🔑 Key ${k.number} · p.${k.page} · ${esc(k.en)}</span>`).join('')}</div>`:''}`}
+function sectionNotice(){if(state.section==='all'){const n=unitVocabStats(state.unit);return `<div class="section-meta"><b>教科書のNew Words欄 ${n.newWords}語 ＋ 熟語 ${n.expressions}</b><span>確認済みの関連語 ${n.additional}語 ＋ 端末の巻末DB ${n.privateAdded}語（未読込の場合0）。教科書全語彙の照合は継続中</span></div>`;}let q=SECTION_CATALOG[String(state.unit)]?.find(r=>r.id===state.section);if(!q)return '';if(!q.reviewed)return `<div class="section-meta is-pending">教科書 ${pageLabel(q)} のセクションを確認中。未収録を習得済みとは扱いません。</div>`;return `<div class="section-meta"><b>教科書 ${pageLabel(q)}</b><span>New Words ${q.words.length}語 · 熟語・表現 ${(q.phrases||[]).length} · 関連語 ${(UNIT_REFERENCE_PRACTICE[String(state.unit)]?.[q.id]?.vocab||[]).length}語 · 端末DB ${(UNIT_PRIVATE_REFERENCES[String(state.unit)]?.[q.id]?.vocab||[]).length}語 · Key Sentences ${q.keys.length}文</span></div><button type="button" class="lexicon-button" id="openLexicon">📖 掲載語を確認</button>${q.keys.length?`<div class="section-mini">${q.keys.map(k=>`<span class="key-chip">🔑 Key ${k.number} · p.${k.page} · ${esc(k.en)}</span>`).join('')}</div>`:''}`}
 function wireSectionTabs(){el.querySelectorAll('[data-section]').forEach(b=>b.onclick=()=>{stopSpeech();clearTimeout(correctTimer);state.section=b.dataset.section;state.category=null;state.reviewIds=null;state.done=false;state.index=0;render()});const x=el.querySelector('#openLexicon');if(x)x.onclick=showLexicon} 
-function showLexicon(){const q=SECTION_CATALOG[String(state.unit)]?.find(sec=>sec.id===state.section);if(!q)return;document.querySelector('#lexicon-overlay')?.remove();let list=[...(q.vocabulary||[]).map(x=>({...x,kind:'単語'})),...(q.phrases||[]).map(x=>({...x,kind:'熟語'})),...(q.properNouns||[]).filter(x=>!['you’ll','I’ll','onion-shaped','sweet corn','World Heritage site(s)','rooibos'].includes(x)).map(x=>({text:x,meaning:'固有名詞・参考',kind:'固有名詞'})),...(UNIT_REFERENCE_PRACTICE[String(state.unit)]?.[q.id]?.vocab||[]).map(x=>({text:x.word,meaning:x.jp+(x.wordListPage?'（巻末p.'+x.wordListPage+'）':'（教科書欄）'),kind:'既習・関連語'}))];const shade=document.createElement('div');shade.id='lexicon-overlay';shade.className='lexicon-backdrop';shade.innerHTML=`<div class="lexicon-sheet" role="dialog" aria-modal="true" aria-label="教科書掲載語一覧"><header><div><b>📖 ${esc(q.title)} · p.${q.pageStart}</b><small>新出語 ${q.words.length} ／ 熟語 ${(q.phrases||[]).length} ／ 既習・関連 ${(UNIT_REFERENCE_PRACTICE[String(state.unit)]?.[q.id]?.vocab||[]).length} ／ 固有名詞 ${(q.properNouns||[]).length}</small></div><button id="lexiconClose" aria-label="閉じる">✕</button></header><div class="lexicon-grid">${list.map(x=>`<div class="lexicon-entry"><span class="lexicon-kind">${esc(x.kind)}</span><strong>${esc(x.text)}</strong><small>${esc(x.meaning)}</small><button data-say="${esc(spokenLabel(x.text))}" aria-label="発音を聞く">🔊</button></div>`).join('')}</div></div>`;document.body.append(shade);shade.querySelector('#lexiconClose').onclick=()=>shade.remove();shade.onclick=e=>{if(e.target===shade)shade.remove()};shade.querySelectorAll('[data-say]').forEach(b=>b.onclick=()=>speakText(b.dataset.say,.8));}
+function showLexicon(){const q=SECTION_CATALOG[String(state.unit)]?.find(sec=>sec.id===state.section);if(!q)return;document.querySelector('#lexicon-overlay')?.remove();let list=[...(q.vocabulary||[]).map(x=>({...x,kind:'単語'})),...(q.phrases||[]).map(x=>({...x,kind:'熟語'})),...(q.properNouns||[]).filter(x=>!['you’ll','I’ll','onion-shaped','sweet corn','World Heritage site(s)','rooibos'].includes(x)).map(x=>({text:x,meaning:'固有名詞・参考',kind:'固有名詞'})),...(UNIT_REFERENCE_PRACTICE[String(state.unit)]?.[q.id]?.vocab||[]).map(x=>({text:x.word,meaning:x.jp+(x.wordListPage?'（巻末p.'+x.wordListPage+'）':'（教科書欄）'),kind:'既習・関連語'})),...(UNIT_PRIVATE_REFERENCES[String(state.unit)]?.[q.id]?.vocab||[]).map(x=>({text:x.word,meaning:x.jp+'（端末DB・巻末p.'+x.wordListPage+'）',kind:'巻末DB'}))];const shade=document.createElement('div');shade.id='lexicon-overlay';shade.className='lexicon-backdrop';shade.innerHTML=`<div class="lexicon-sheet" role="dialog" aria-modal="true" aria-label="教科書掲載語一覧"><header><div><b>📖 ${esc(q.title)} · p.${q.pageStart}</b><small>新出語 ${q.words.length} ／ 熟語 ${(q.phrases||[]).length} ／ 既習・関連 ${(UNIT_REFERENCE_PRACTICE[String(state.unit)]?.[q.id]?.vocab||[]).length} ／ 端末DB ${(UNIT_PRIVATE_REFERENCES[String(state.unit)]?.[q.id]?.vocab||[]).length} ／ 固有名詞 ${(q.properNouns||[]).length}</small></div><button id="lexiconClose" aria-label="閉じる">✕</button></header><div class="lexicon-grid">${list.map(x=>`<div class="lexicon-entry"><span class="lexicon-kind">${esc(x.kind)}</span><strong>${esc(x.text)}</strong><small>${esc(x.meaning)}</small><button data-say="${esc(spokenLabel(x.text))}" aria-label="発音を聞く">🔊</button></div>`).join('')}</div></div>`;document.body.append(shade);shade.querySelector('#lexiconClose').onclick=()=>shade.remove();shade.onclick=e=>{if(e.target===shade)shade.remove()};shade.querySelectorAll('[data-say]').forEach(b=>b.onclick=()=>speakText(b.dataset.say,.8));}
 function spokenLabel(x){return x.replace(/\(s\)/g,'').replace(/\((ed|d|ped)\)/g,'').replace(/[\[\]]/g,'').replace(/[～…]/g,' ').trim()}
 function renderDashboard(){const u=UNIT_META[state.unit];if(!u.ready){el.innerHTML=`<div class="heading"><div><div class="sub">STAGE ${u.stage} / UNIT ${u.id}</div><h1>${esc(u.title)}</h1><p>${esc(u.topic)} · 教科書 p.${u.start}〜</p></div><span class="badge">教材準備中</span></div><div class="placeholder"><div><div class="mark">📚</div><h2>Unit ${u.id} の学習データを整理中</h2><p>教科書の目次・ページ範囲・重点文法の照合を進めています。該当Unitの問題を準備しています。</p><p><b>${esc(u.grammar)}</b></p><button class="primary" id="demo5">Unit 1 を試す</button></div></div>`;document.getElementById('demo5').onclick=()=>selectUnit(1);return;}
 const total=overall(),next=CATEGORY_META.filter(x=>metrics(x.id).count).sort((a,b)=>metrics(a.id).pct-metrics(b.id).pct)[0];
