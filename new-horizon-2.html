@@ -62,6 +62,7 @@ const SECTION_PRACTICE = {"0":{"u0-intro":{"vocab":[{"id":"u0-intro-v1","word":"
  const sentencePack=window.COPEAK_NH2_EXTRA_SENTENCES?.examples||{};
  const readingPack=window.COPEAK_NH2_EXTRA_READING?.reading||{};
  const jpPool=Object.values(sentencePack).flatMap(v=>v.map(x=>x[1]));
+ const grammarThemes={'0':'過去形の復習','1':'未来の表現と文型','2':'when・if・because・that節','3':'不定詞の用法','4':'have to・must・動名詞','5':'疑問詞＋to と that節','6':'比較級・最上級・as ... as','7':'受け身','8':'時系列と過去形','9':'物語の過去形','10':'環境を説明する英文'};
  const sentenceTokens=x=>String(x).match(/[A-Za-z]+(?:['’][A-Za-z]+)?|[0-9]+|[.,!?]/g)||[];
  const idKey=(sec,type,n)=>'g2x-20261108-'+sec+'-'+type+'-'+n;
  function distractors(correct,unit,sec,n){
@@ -89,7 +90,7 @@ const SECTION_PRACTICE = {"0":{"u0-intro":{"vocab":[{"id":"u0-intro-v1","word":"
        const answer=sentenceTokens(en);
        if(sentence===en||answer.join(' ').length<4||new Set([focus,wrongA,wrongB]).size!==3)throw new Error('Invalid record '+id);
        part.grammar.push({id:id+'-g',sentence,jp,choices:[focus,wrongA,wrongB],correct:0,
-         explain:'単元の文法を使ったオリジナル演習（p.'+page+'に対応）',page,sourceType:'editorial-original'});
+         explain:'正解：'+focus+'。'+(grammarThemes[unit]||'単元の英文表現')+'のオリジナル練習（教科書p.'+page+'の学習範囲に対応）',page,sourceType:'editorial-original'});
        part.meaning.push({id:id+'-m',en,prompt:'オリジナル英文の意味は？',choices,correct:0,page,sourceType:'editorial-original'});
        part.listening.push({id:id+'-l',tts:en,prompt:'オリジナル英文の意味',choices,correct:0,page,sourceType:'editorial-original'});
        part.speaking.push({id:id+'-s',en,jp,page,sourceType:'editorial-original'});
