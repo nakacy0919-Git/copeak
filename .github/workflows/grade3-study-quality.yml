@@ -1,0 +1,28 @@
+name: Grade 3 personal study quality
+on:
+  pull_request:
+    paths:
+      - 'new-horizon-3.html'
+      - 'study-grade3-sentences.js'
+      - 'study-grade3-expansion.js'
+      - 'tests/grade3_study_expansion.test.mjs'
+      - '.github/workflows/grade3-study-quality.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  grade3-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Source syntax
+        run: |
+          node --check study-grade3-sentences.js
+          node --check study-grade3-expansion.js
+          node --check tests/grade3_study_expansion.test.mjs
+      - name: Content and UX quality
+        run: node tests/grade3_study_expansion.test.mjs
