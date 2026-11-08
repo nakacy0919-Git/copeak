@@ -44,7 +44,7 @@ for(const [unit,sections] of Object.entries(SECTION_CATALOG)){
         }
       }
       if(cat==='grammar'&&arr.some(x=>!x.sentence.includes('___')))issues.push(sec.id+': broken grammar cloze');
-      if(cat==='reading'&&arr.some(x=>x.en.split('.').length<2))issues.push(sec.id+': insufficient reading passage');
+      if(cat==='reading'&&arr.some(x=>(x.en.match(/[.!?](?:\s|$)/g)||[]).length<2))issues.push(sec.id+': insufficient reading passage');
     }
   }
 }
