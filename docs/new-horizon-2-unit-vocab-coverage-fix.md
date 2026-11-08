@@ -23,21 +23,21 @@ The grade-2 app's `SECTION_CATALOG` contains vocabulary copied from the **New Wo
 
 ## Supplement now introduced in development
 
-The grade-2 app uses a separate **Word List cross-reference** list (67 individually verified page references from printed Word List pp.114–115, entries A–C). Items already in the same Part's New Words quiz are deduplicated. Remaining entries are added to vocabulary recognition and single-word spelling with their own stable IDs and tagged with source page and usage page. They appear **separately** from the New Words count as `巻末から追加` / `既習・関連語`.
+The grade-2 app uses a separate **Word List cross-reference** list (67 individually verified Word List page references plus 6 sidebar reference terms from printed Word List pp.114–115, entries A–C). Items already in the same Part's New Words quiz are deduplicated. Remaining entries are added to vocabulary recognition and single-word spelling with their own stable IDs and tagged with source page and usage page. They appear **separately** from the New Words count as `巻末から追加` / `既習・関連語`.
 
-After deduplication:
+After deduplication against the corresponding Part quiz:
 
 | Unit | Supplementary entries not already in Part quiz |
 |---|---:|
-| 1 | 5 |
-| 2 | 3 |
+| 1 | 8 |
+| 2 | 4 |
 | 3 | 3 |
 | 4 | 5 |
 | 5 | 2 |
 | 6 | 5 |
-| 7 | 5 |
+| 7 | 7 |
 
-**Do not call these numbers complete.** Printed Word List pp.116–127 and the remaining textbook sections / supplements have NOT yet been fully cross-linked. The complete Unit study-vocabulary count is unknown. The cross-reference list includes a small set of checked entries for Let's Read 1–3 as well.
+**Do not call these numbers complete.** Printed Word List pp.116–127 and the remaining textbook sections / supplements have NOT yet been fully cross-linked. The complete Unit study-vocabulary count is unknown. The cross-reference list includes a small set of checked entries for Let's Read 1–3 as well. Six common nouns/expressions previously misclassified among proper-name references (e.g., contractions, `sweet corn`, `rooibos`) are kept in a distinct supplementary practice group, not relabeled as textbook New Words. The seven Units contain 34 supplemental practice entries after deduplication.
 
 ## Examples of omitted existing words
 
