@@ -45,7 +45,7 @@ var q=new URLSearchParams(location.search),grade=Number(q.get('grade')||2);if(![
 var palette={1:['#14996c','#7acda2','#e2f7ed'],2:['#cb4b96','#e8a4d0','#fbe5f0'],3:['#497ac9','#91b4e4','#e6edff']}[grade];
 document.body.style.setProperty('--theme',palette[0]);document.body.style.setProperty('--theme2',palette[1]);document.body.style.setProperty('--soft',palette[2]);
 document.getElementById('back').href='new-horizon-'+grade+'.html';
-var spans={1:[130,139],2:[114,128],3:[105,125]},range=spans[grade],db=null,items=[],progress={},kind='wordlist',page=0,search='',quiz=null,timer=null;
+var spans={1:[130,139],2:[113,128],3:[105,125]},range=spans[grade],db=null,items=[],progress={},kind='wordlist',page=0,search='',quiz=null,timer=null;
 var $=function(s){return document.querySelector(s)};
 var safe=function(x){return String(x==null?'':x).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
 var norm=function(x){return String(x||'').toLowerCase().trim().replace(/\s+/g,' ')};
