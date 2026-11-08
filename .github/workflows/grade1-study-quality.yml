@@ -1,0 +1,26 @@
+name: Grade 1 personal study question quality
+on:
+  pull_request:
+    paths:
+      - 'new-horizon-1.html'
+      - 'study-grade1-expansion.js'
+      - 'tests/grade1_study_expansion.test.mjs'
+      - '.github/workflows/grade1-study-quality.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  grade1-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check supplementary data and test syntax
+        run: |
+          node --check study-grade1-expansion.js
+          node --check tests/grade1_study_expansion.test.mjs
+      - name: Validate coverage and UI logic
+        run: node tests/grade1_study_expansion.test.mjs
