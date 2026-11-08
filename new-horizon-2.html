@@ -131,7 +131,7 @@ async function loadGrade2PrivateWordList(){
     for(const e of records){
      const ref=e?.source;
      if(!ref||ref.edition_grade!==2||ref.type!=='printed_word_list')continue;
-     if(!Number.isInteger(ref.printed_page)||ref.printed_page<114||ref.printed_page>128)continue;
+     if(!Number.isInteger(ref.printed_page)||ref.printed_page<113||ref.printed_page>128)continue;
      if(!Array.isArray(ref.usage_page_refs))continue;
      if(!ref.usage_page_refs.some(p=>Number.isInteger(p)&&p>=sec.pageStart&&p<=sec.pageEnd))continue;
      const word=String(e.headword||'').trim(),jp=String(e.meaning_ja||'').trim();
