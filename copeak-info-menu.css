@@ -269,3 +269,207 @@
     scrollbar-width: thin;
   }
 }
+
+
+/* 2026-11 compact information hub: initial view fits standard laptop/iPad
+   without vertical scrolling. Low-height and narrow screens retain scrolling
+   rather than hiding links. Scoped entirely to Copeak Menu. */
+#cpInfoPage.cp-info-page{
+  width:min(1270px,100%);
+  grid-template-rows:minmax(62px,auto) minmax(0,1fr) minmax(52px,auto);
+  gap:clamp(6px,.9dvh,11px);
+}
+#cpInfoPage .cp-info-head{min-height:62px;padding:5px 8px 8px;border-color:#dce9f4}
+#cpInfoPage .cp-info-head .cp-page-eyebrow{letter-spacing:.18em;color:#5287a5;font-size:9px}
+#cpInfoPage .cp-info-head h2{font-family:inherit;font-size:clamp(25px,2.5vw,33px);font-weight:900;letter-spacing:-.035em;line-height:1.13}
+#cpInfoPage .cp-info-head .cp-page-subtitle{font-size:11px;color:#6c8298;margin-top:2px}
+#cpInfoPage .cp-info-scroll{padding:2px 3px 3px;overflow-y:auto;scrollbar-width:thin}
+#cpInfoPage .cp-info-layout{
+  display:grid;
+  grid-template-columns:minmax(0,1.17fr) minmax(0,.83fr);
+  grid-template-areas:
+    "services services"
+    "guides legal"
+    "guides partner"
+    "guides advanced"
+    "guides copyright";
+  column-gap:clamp(10px,1.3vw,16px);
+  row-gap:clamp(8px,1.25dvh,12px);
+  align-content:start;
+  align-items:start;
+}
+#cpInfoPage .cp-info-column{display:contents}
+#cpInfoPage .cp-info-services{grid-area:services}
+#cpInfoPage .cp-info-guides{grid-area:guides;align-self:stretch}
+#cpInfoPage .cp-info-legal{grid-area:legal}
+#cpInfoPage .cp-info-partners{grid-area:partner}
+#cpInfoPage .cp-info-advanced{grid-area:advanced}
+#cpInfoPage .cp-info-copyright{grid-area:copyright;align-self:end;padding:0 5px 2px;text-align:right}
+#cpInfoPage .cp-info-panel{
+  background:#ffffffeb;
+  border:1px solid #dce9f4;
+  border-radius:19px;
+  padding:clamp(13px,1.35vw,19px);
+  box-shadow:0 5px 20px rgba(37,85,133,.045);
+}
+#cpInfoPage .cp-info-section-heading{margin-bottom:11px}
+#cpInfoPage .cp-info-kicker{font-size:9px;letter-spacing:.16em;color:#3b8a94}
+#cpInfoPage .cp-info-section-heading h3{font-family:inherit;margin-top:2px;font-size:clamp(15px,1.35vw,18px);font-weight:850;letter-spacing:-.025em}
+#cpInfoPage .cp-info-app-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+#cpInfoPage .cp-info-app,
+#cpInfoPage .cp-info-app-japeak{
+  grid-column:auto;
+  min-height:71px;
+  padding:11px 13px;
+  border-radius:14px;
+  border:1px solid #e1ebf5;
+  gap:11px;
+  align-items:center;
+  background:linear-gradient(130deg,#f9fbfe,#f0f6fd);
+}
+#cpInfoPage .cp-info-app-japeak{background:linear-gradient(130deg,#f9f8ff,#f1edfb)}
+#cpInfoPage .cp-info-app-voca{background:linear-gradient(130deg,#f5fdfb,#eaf8f3)}
+#cpInfoPage .cp-info-app-mark{width:45px;height:45px;border-radius:13px;flex:none;font-size:23px}
+#cpInfoPage .cp-info-app strong{font-size:clamp(14px,1.25vw,17px);line-height:1.25}
+#cpInfoPage .cp-info-app small{font-size:10px;line-height:1.4;margin-top:2px}
+#cpInfoPage .cp-info-app .cp-info-chevron{right:11px;top:6px}
+#cpInfoPage .cp-info-guides .cp-info-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+#cpInfoPage .cp-info-guides .cp-info-link,
+#cpInfoPage .cp-info-legal .cp-info-link{
+  display:flex;position:relative;align-items:center;gap:10px;
+  border:1px solid #e5edf6;background:#f8fbff;
+  border-radius:13px;padding:10px 11px;
+  min-height:69px;transition:background .18s,border-color .18s,transform .18s;
+}
+#cpInfoPage .cp-info-guides .cp-info-link:hover,
+#cpInfoPage .cp-info-legal .cp-info-link:hover{
+  border-color:#b5d7f2;background:#f0f8ff;transform:translateY(-1px)
+}
+#cpInfoPage .cp-info-guides .cp-info-link:last-child{grid-column:1/-1;min-height:60px}
+#cpInfoPage .cp-info-guides .cp-info-link:nth-child(2){background:linear-gradient(120deg,#f1fbfa,#f7fefd);border-color:#cfece6}
+#cpInfoPage .cp-info-guides .cp-info-link:nth-child(2):hover{border-color:#86d5c8}
+#cpInfoPage .cp-info-line-icon{display:grid;place-items:center;width:37px;height:37px;flex:none;border-radius:11px;font-size:19px}
+#cpInfoPage .cp-info-line-icon svg{display:block;width:20px;height:20px;stroke:currentColor}
+#cpInfoPage .cp-info-ic-blue{background:#e7f2fc;color:#287cb4}
+#cpInfoPage .cp-info-ic-gold{background:#e9f8f3;color:#138d78}
+#cpInfoPage .cp-info-ic-rose{background:#f2eefa;color:#8268b4}
+#cpInfoPage .cp-info-ic-lavender{background:#eef2fc;color:#6880b5}
+#cpInfoPage .cp-info-link-content{min-width:0;flex:1}
+#cpInfoPage .cp-info-link strong{font-size:clamp(11px,1.01vw,13px);font-weight:850;line-height:1.38;overflow-wrap:anywhere}
+#cpInfoPage .cp-info-link small{font-size:10px;line-height:1.35;margin-top:3px;color:#70859b}
+#cpInfoPage .cp-info-link .cp-info-chevron{font-size:16px;color:#91a9be}
+#cpInfoPage .cp-info-legal .cp-info-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+#cpInfoPage .cp-info-legal .cp-info-link{min-height:59px;padding:8px 10px}
+#cpInfoPage .cp-info-legal .cp-info-link strong{font-size:clamp(11px,1.02vw,13px)}
+#cpInfoPage .cp-info-partner-link{min-height:62px;padding:9px 12px;border-radius:13px;gap:10px}
+#cpInfoPage .cp-info-partner-link>span:first-child{font-size:9px}
+#cpInfoPage .cp-info-partner-link img{width:clamp(110px,12vw,145px);height:39px}
+#cpInfoPage .cp-info-advanced{padding:0;overflow:visible}
+#cpInfoPage .cp-info-advanced summary{padding:12px 15px;min-height:49px;font-size:12px}
+#cpInfoPage .cp-info-advanced[open]{z-index:2}
+#cpInfoPage .cp-info-advanced .cp-info-links{padding:8px 15px}
+#cpInfoPage .cp-info-advanced .cp-info-link{min-height:44px}
+#cpInfoPage .cp-info-bottom{min-height:52px;border-radius:14px;padding:4px 6px}
+#cpInfoPage .cp-info-bottom button{min-width:0;min-height:43px;padding:5px 12px}
+#cpInfoPage .cp-info-bottom button[aria-current="page"]{color:#096dc1;background:#eaf5ff}
+
+/* Short laptop / iPad landscape: preserve all categories, trim whitespace. */
+@media (min-width:780px) and (max-height:760px){
+  #cpInfoPage.cp-info-page{grid-template-rows:minmax(52px,auto) minmax(0,1fr) minmax(46px,auto);gap:6px}
+  #cpInfoPage .cp-info-head{min-height:52px;padding:3px 6px}
+  #cpInfoPage .cp-info-head h2{font-size:23px}
+  #cpInfoPage .cp-info-section-heading{margin-bottom:7px}
+  #cpInfoPage .cp-info-panel{padding:10px 13px;border-radius:15px}
+  #cpInfoPage .cp-info-app,#cpInfoPage .cp-info-app-japeak{min-height:59px;padding:7px 10px}
+  #cpInfoPage .cp-info-app-mark{width:36px;height:36px}
+  #cpInfoPage .cp-info-guides .cp-info-link{min-height:58px;padding:7px 9px}
+  #cpInfoPage .cp-info-guides .cp-info-link:last-child{min-height:53px}
+  #cpInfoPage .cp-info-legal .cp-info-link{min-height:50px}
+  #cpInfoPage .cp-info-partner-link{min-height:52px;padding:7px 10px}
+  #cpInfoPage .cp-info-partner-link img{height:31px}
+  #cpInfoPage .cp-info-advanced summary{min-height:42px;padding:9px 12px}
+  #cpInfoPage .cp-info-bottom{min-height:46px}
+}
+@media (max-width:779px){
+  #cpInfoPage .cp-info-scroll{overflow-y:auto}
+  #cpInfoPage .cp-info-layout{
+    grid-template-columns:minmax(0,1fr);
+    grid-template-areas:"services" "guides" "legal" "partner" "advanced" "copyright";
+    row-gap:9px;
+  }
+  #cpInfoPage .cp-info-app-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+  #cpInfoPage .cp-info-app,#cpInfoPage .cp-info-app-japeak{
+    min-height:82px;flex-direction:column;justify-content:center;text-align:center;gap:5px;padding:8px 4px
+  }
+  #cpInfoPage .cp-info-app-mark{width:32px;height:32px;border-radius:10px}
+  #cpInfoPage .cp-info-app strong{font-size:12px}
+  #cpInfoPage .cp-info-app small{font-size:9px}
+  #cpInfoPage .cp-info-app .cp-info-chevron{display:none}
+  #cpInfoPage .cp-info-guides .cp-info-link{min-height:62px}
+  #cpInfoPage .cp-info-guides .cp-info-link strong{font-size:11px}
+  #cpInfoPage .cp-info-legal .cp-info-link{min-height:55px}
+  #cpInfoPage .cp-info-copyright{text-align:center}
+}
+@media(max-width:420px){
+  #cpInfoPage .cp-info-head{padding:4px 3px}
+  #cpInfoPage .cp-info-head h2{font-size:23px}
+  #cpInfoPage .cp-info-head .cp-page-subtitle{font-size:9px}
+  #cpInfoPage .cp-info-guides .cp-info-links{gap:6px}
+  #cpInfoPage .cp-info-guides .cp-info-link{padding:8px 7px;gap:6px}
+  #cpInfoPage .cp-info-guides .cp-info-link small{display:none}
+  #cpInfoPage .cp-info-guides .cp-info-line-icon{width:30px;height:30px}
+  #cpInfoPage .cp-info-guides .cp-info-line-icon svg{width:17px;height:17px}
+  #cpInfoPage .cp-info-legal .cp-info-links{gap:6px}
+  #cpInfoPage .cp-info-panel{padding:11px}
+}
+@media(max-height:560px){
+  #cpInfoPage .cp-info-scroll{overflow-y:auto;scrollbar-width:thin}
+}
+
+
+/* Final design QA: four balanced help tiles, compact partner row, and
+   a visible language switch that does not alter other Copeak screens. */
+#cpInfoPage .cp-info-guides{align-self:start}
+#cpInfoPage .cp-info-guides .cp-info-link:last-child{grid-column:auto;min-height:69px}
+#cpInfoPage .cp-info-partner-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+#cpInfoPage .cp-info-partner-link,
+#cpInfoPage .cp-info-partner-contact{
+  box-sizing:border-box;width:100%;min-width:0;min-height:67px;
+  border:1px solid #e1ebf5;border-radius:13px;background:#f8fbff;
+  padding:10px 11px;display:flex;align-items:center;gap:8px;
+  color:#34587a;text-decoration:none;transition:background .18s,border-color .18s;
+}
+#cpInfoPage .cp-info-partner-link:hover,
+#cpInfoPage .cp-info-partner-contact:hover{background:#f0f8ff;border-color:#b9d8f1}
+#cpInfoPage .cp-info-partner-link>span:first-child{font-size:8px;letter-spacing:.07em}
+#cpInfoPage .cp-info-partner-link img{width:clamp(70px,7.5vw,108px);height:33px;flex:0 1 auto;min-width:0}
+#cpInfoPage .cp-info-partner-contact .cp-info-line-icon{width:31px;height:31px}
+#cpInfoPage .cp-info-partner-contact .cp-info-line-icon svg{width:17px;height:17px}
+#cpInfoPage .cp-info-partner-contact .cp-info-link-content{min-width:0}
+#cpInfoPage .cp-info-partner-contact strong{font-size:11px;line-height:1.35;overflow-wrap:anywhere}
+#cpInfoPage .cp-info-partner-contact small{font-size:9px;line-height:1.25;margin-top:3px}
+#cpInfoPage .cp-info-partner-contact .cp-info-chevron{margin-left:auto;font-size:15px;flex:none}
+#cpInfoPage .cp-info-partner-contact:focus-visible{outline:3px solid #2997df;outline-offset:2px}
+#cpInfoPage .cp-info-head-right{display:flex;align-items:center;justify-content:flex-end;gap:clamp(9px,1.5vw,20px)}
+#cpInfoPage .cp-info-languages{display:flex;align-items:center;gap:2px;padding:3px;border:1px solid #dce8f4;border-radius:99px;background:#f3f8fc}
+#cpInfoPage .cp-info-languages button{border:0;border-radius:99px;padding:6px 11px;font-size:11px;font-weight:850;background:transparent;color:#65819c;white-space:nowrap;cursor:pointer}
+#cpInfoPage .cp-info-languages button[aria-pressed="true"]{background:white;color:#176ca9;box-shadow:0 1px 5px #225c8f19}
+#cpInfoPage .cp-info-languages button:hover{color:#14598c}
+@media(min-width:780px) and (max-height:760px){
+  #cpInfoPage .cp-info-guides .cp-info-link:last-child{min-height:58px}
+  #cpInfoPage .cp-info-partner-link,#cpInfoPage .cp-info-partner-contact{min-height:53px;padding:6px 8px}
+  #cpInfoPage .cp-info-partner-link img{height:27px}
+}
+@media(max-width:779px){
+  #cpInfoPage .cp-info-languages button{font-size:10px;padding:6px 8px}
+  #cpInfoPage .cp-info-head-right{gap:7px}
+  #cpInfoPage .cp-info-partner-actions{gap:7px}
+  #cpInfoPage .cp-info-guides .cp-info-link:last-child{min-height:62px}
+  #cpInfoPage .cp-info-partner-link,#cpInfoPage .cp-info-partner-contact{min-height:62px;padding:8px}
+}
+@media(max-width:420px){
+  #cpInfoPage .cp-info-head-right .cp-page-brand{display:none}
+  #cpInfoPage .cp-info-partner-link>span:first-child{display:none}
+  #cpInfoPage .cp-info-partner-link img{width:100px}
+  #cpInfoPage .cp-info-partner-contact small{display:none}
+}
