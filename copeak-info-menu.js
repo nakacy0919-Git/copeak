@@ -12,7 +12,7 @@
 <header class="cp-page-head cp-info-head">
  <div class="cp-page-head-main"><button class="cp-page-home" type="button" data-info-action="home" aria-label="ホームに戻る">‹</button>
  <div><div class="cp-page-eyebrow">COPEAK • INFORMATION</div><h2 data-info-t="pageTitle">Menu</h2><p class="cp-page-subtitle" data-info-t="pageSubtitle">サービス・サポート・運営情報</p></div></div>
- <div class="cp-page-brand"><img src="logo.png" alt="Copeak">Copeak</div>
+ <div class="cp-info-head-right"><div class="cp-info-languages" role="group" aria-label="Menu language / 表示言語"><button type="button" data-info-lang="ja" aria-pressed="true">日本語</button><button type="button" data-info-lang="en" aria-pressed="false">English</button></div><div class="cp-page-brand"><img src="logo.png" alt="Copeak">Copeak</div></div>
 </header>
 <div class="cp-page-scroll cp-info-scroll">
  <div class="cp-info-layout">
@@ -35,7 +35,6 @@
       <a class="cp-info-link" href="copeak-support.html"><span class="cp-info-line-icon cp-info-ic-gold" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 8.7c0 4.4-8.8 10.6-8.8 10.6S3.2 13.1 3.2 8.7a4.8 4.8 0 0 1 8.8-2.4 4.8 4.8 0 0 1 8.8 2.4Z"/></svg></span><span class="cp-info-link-content"><strong data-info-t="supportCopeak">Copeakの開発を応援する</strong><small data-info-t="supportCopeakSub">無料の学びを、これからも</small></span><span class="cp-info-chevron" aria-hidden="true">›</span></a>
       <button class="cp-info-link" type="button" data-info-action="sos"><span class="cp-info-line-icon cp-info-ic-rose" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2.5" width="6" height="12" rx="3"/><path d="M6 10v2a6 6 0 0 0 12 0v-2M12 18v4M8 22h8"/></svg></span><span class="cp-info-link-content"><strong data-info-t="sos">音声トラブルのヘルプ</strong><small data-info-t="sosSub">マイク・音声認識のトラブル対処</small></span><span class="cp-info-chevron" aria-hidden="true">›</span></button>
       <a class="cp-info-link" href="https://sites.google.com/view/koheinakashima/bio" target="_blank" rel="noopener noreferrer"><span class="cp-info-line-icon cp-info-ic-blue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><span class="cp-info-link-content"><strong data-info-t="developer">開発者について</strong><small data-info-t="developerSub">Copeakの開発者紹介</small></span><span class="cp-info-chevron" aria-hidden="true">↗</span></a>
-      <a class="cp-info-link" href="https://forms.gle/Kvfezyax5qs9BvYQ7" target="_blank" rel="noopener noreferrer"><span class="cp-info-line-icon cp-info-ic-gold" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 9 5-5 4 1 3-1 8 6-5 8-4-2-3 2-7-6-1-3Z"/><path d="m8 11 3-3 3 1 2-1M10 15l2 2M13 13l3 2"/></svg></span><span class="cp-info-link-content"><strong data-info-t="sponsor">スポンサー・協賛のお問い合わせ</strong><small data-info-t="sponsorSub">協賛・ご支援に関するご連絡</small></span><span class="cp-info-chevron" aria-hidden="true">↗</span></a>
     </div>
    </section>
   </div>
@@ -49,9 +48,12 @@
    </section>
    <section class="cp-info-panel cp-info-partner cp-info-partners" aria-labelledby="cpInfoPartner">
     <div class="cp-info-section-heading"><span class="cp-info-kicker">OUR PARTNER</span><h3 id="cpInfoPartner" data-info-t="partners">サポート企業</h3></div>
+    <div class="cp-info-partner-actions">
     <a class="cp-info-partner-link" href="https://vital-design.co.jp/" target="_blank" rel="noopener noreferrer">
       <span data-info-t="supportedBy">SUPPORTED BY</span><img src="support1.webp" alt="VITAL DESIGN"><span class="cp-info-chevron" aria-hidden="true">↗</span>
     </a>
+    <a class="cp-info-partner-contact" href="https://forms.gle/Kvfezyax5qs9BvYQ7" target="_blank" rel="noopener noreferrer"><span class="cp-info-line-icon cp-info-ic-gold" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 9 5-5 4 1 3-1 8 6-5 8-4-2-3 2-7-6-1-3Z"/><path d="m8 11 3-3 3 1 2-1M10 15l2 2M13 13l3 2"/></svg></span><span class="cp-info-link-content"><strong data-info-t="sponsor">スポンサー・協賛のお問い合わせ</strong><small data-info-t="sponsorSub">協賛・ご支援に関するご連絡</small></span><span class="cp-info-chevron" aria-hidden="true">↗</span></a>
+    </div>
    </section>
    <details class="cp-info-panel cp-info-advanced">
     <summary><span>⚙️ <span data-info-t="moreTools">その他のCopeak機能</span></span><span class="cp-info-chevron" aria-hidden="true">⌄</span></summary>
@@ -84,16 +86,22 @@
       hi:{pageTitle:'मेनू',pageSubtitle:'सेवाएँ और सहायता',services:'संबंधित सेवाएँ',picspeak:'बोलने का अभ्यास',vocadash:'शब्दावली अभ्यास',japeak:'जापानी का अभ्यास करें',support:'मार्गदर्शिका और सहायता',guide:'Copeak उपयोग गाइड',sos:'माइक्रोफ़ोन सहायता',developer:'डेवलपर के बारे में',sponsor:'प्रायोजन पूछताछ',legal:'नीतियाँ और कानूनी जानकारी',terms:'उपयोग की शर्तें',privacy:'गोपनीयता नीति',partners:'समर्थक',moreTools:'अन्य सुविधाएँ',teacher:'शिक्षक मेनू',allFeatures:'सभी पुरानी सुविधाएँ',home:'होम',read:'पाठ',create:'बनाएँ',menu:'मेनू',guideSub:"Copeak का उपयोग सीखें",sosSub:"माइक्रोफ़ोन और आवाज़ पहचान में सहायता",developerSub:"Copeak के निर्माता के बारे में",sponsorSub:"सहायता और प्रायोजन के लिए संपर्क"}
     };
     const language=document.getElementById('appLangSelector');
+    // New preview origins have no stored language and may auto-select English
+    // from the browser. Use Japanese as the Menu's first-visit default,
+    // without changing the rest of Copeak or overriding an explicit choice.
+    let menuLanguage=localStorage.getItem('copeak_info_language');
     function translate(){
-      const locale=language?.value||'ja';
+      const appLanguage=language?.value||'ja';
+      const locale=menuLanguage||(appLanguage==='en'?'ja':appLanguage);
       const ext=window.CopeakExtraLocales;const extraValues=ext?.sectionText?Object.fromEntries(Object.keys(strings.en).map(k=>[k,ext.sectionText('info',locale,k)]).filter(([,v])=>v)):{};const values={...strings.en,...extraValues,...(strings[locale]||{})};
       panel.querySelectorAll('[data-info-t]').forEach(el=>{
         const v=values[el.dataset.infoT];if(v)el.textContent=v;
       });
       panel.setAttribute('aria-label',values.pageTitle||'Menu');
       panel.querySelector('.cp-page-home').setAttribute('aria-label',values.home||'Home');
+      panel.querySelectorAll('[data-info-lang]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.infoLang===locale)));
     }
-    language?.addEventListener('change',translate);
+    language?.addEventListener('change',()=>{menuLanguage=language.value;localStorage.setItem('copeak_info_language',menuLanguage);translate();});
     translate();
     function close(){panel.hidden=true;home.classList.remove('cp-info-active');}
     function open(){
@@ -137,6 +145,12 @@
       }
     }
     panel.addEventListener('click',event=>{
+      const langButton=event.target.closest('[data-info-lang]');
+      if(langButton&&panel.contains(langButton)){
+        menuLanguage=langButton.dataset.infoLang;
+        localStorage.setItem('copeak_info_language',menuLanguage);
+        translate();return;
+      }
       const btn=event.target.closest('[data-info-action]');
       if(!btn||!panel.contains(btn))return;
       event.preventDefault();
