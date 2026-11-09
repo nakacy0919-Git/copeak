@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description" content="無料の英語学習アプリCopeakの開発・運営を応援するページ。支援は任意で、教材はこれからも無料です。">
+  <title>Copeakへの開発応援 | Support Copeak</title>
+  <link rel="icon" href="logo.png">
+  <style>
+    :root{color-scheme:light;--ink:#19375c;--muted:#5c738d;--line:#dce8f6;--blue:#166edf;--mint:#15a793}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;color:var(--ink);font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",Meiryo,system-ui,sans-serif;background:radial-gradient(ellipse 70% 40% at 3% 0%,#dbedff 0%,transparent 80%),radial-gradient(ellipse 55% 35% at 100% 12%,#e5f8f1 0%,transparent 80%),#f7fbff;line-height:1.75}
+    a{color:inherit}
+    a:focus-visible{outline:3px solid #0978f2;outline-offset:4px}
+    .wrap{width:min(980px,calc(100% - 32px));margin:0 auto}
+    header{display:flex;align-items:center;justify-content:space-between;padding:23px 0 17px;gap:12px}
+    .brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-size:21px;font-weight:900;letter-spacing:-.045em}
+    .brand img{width:44px;height:44px;object-fit:contain}
+    .back{font-size:13px;text-decoration:none;font-weight:800;border:1px solid var(--line);padding:9px 14px;background:white;border-radius:999px}
+    main{padding:26px 0 60px}
+    .hero{position:relative;overflow:hidden;border:1px solid #d6e6f6;border-radius:32px;padding:clamp(28px,5vw,56px);background:linear-gradient(130deg,#fff,#f2f9ff 60%,#ebfcf7);box-shadow:0 20px 65px rgba(28,79,134,.10)}
+    .hero:after{content:"";position:absolute;width:250px;height:250px;border-radius:50%;right:-85px;top:-120px;background:linear-gradient(140deg,#a1d4ff88,#a2f4d888);pointer-events:none}
+    .eyebrow{margin:0 0 8px;font-size:12px;font-weight:900;letter-spacing:.16em;color:#287ac3}
+    h1{font-size:clamp(29px,5vw,47px);letter-spacing:-.055em;line-height:1.3;margin:0 0 17px}
+    h1 span{color:var(--blue)}
+    .lead{font-size:clamp(15px,1.75vw,18px);line-height:1.95;max-width:760px;margin:0 0 13px;color:#355272;font-weight:600}
+    .english{color:var(--muted);max-width:770px;font-size:14px;line-height:1.85;margin:0}
+    .free{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:800;background:#e8f8f0;color:#177858;border:1px solid #c3e9d2;padding:5px 12px;border-radius:999px;margin:20px 0 0}
+    .section{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:25px;padding:clamp(22px,3.6vw,34px);box-shadow:0 8px 30px rgba(23,77,133,.035)}
+    .section h2{font-size:clamp(19px,2.7vw,25px);margin:0 0 11px;letter-spacing:-.03em}
+    .section p{margin:0;color:#46627e}
+    .purpose{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:20px}
+    .purpose div{background:#f4f9ff;border:1px solid #e3eef9;border-radius:17px;padding:17px}
+    .purpose b{display:block;font-size:15px;margin:7px 0 3px}
+    .purpose small{font-size:12px;color:#627d98;line-height:1.65;display:block}
+    .purpose .emoji{font-size:25px}
+    .payment{text-align:center;background:linear-gradient(145deg,#fafdff,#e8f5ff);border-color:#d2e6f9}
+    .payment .amounts{display:flex;align-items:center;justify-content:center;gap:9px;flex-wrap:wrap;margin:18px 0 12px}
+    .amounts span{font-weight:900;font-size:15px;border:1px solid #cce2f7;background:white;color:#2d5c8b;border-radius:12px;padding:9px 16px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:58px;width:min(100%,420px);border-radius:16px;background:linear-gradient(110deg,#146dea,#16a5cb);box-shadow:0 9px 25px #166be631;color:white;text-decoration:none;font-size:17px;font-weight:900;transition:filter .15s,transform .15s;margin:14px auto 9px}
+    .btn:hover{filter:brightness(1.06);transform:translateY(-2px)}
+    .payment .note{font-size:12px;color:#597590}
+    .fine{font-size:12px!important;line-height:1.85;margin-top:12px!important}
+    .policy{font-size:13px;display:grid;gap:9px;margin-top:14px;color:#58718a}
+    footer{border-top:1px solid var(--line);padding:23px 0 40px;font-size:12px;color:#637b96;display:flex;gap:17px;justify-content:center;align-items:center;flex-wrap:wrap}
+    footer a{color:#346994;text-decoration:none}
+    @media(max-width:620px){header{padding:14px 0}.brand{font-size:18px}.brand img{width:38px;height:38px}.back{font-size:12px}.hero{border-radius:22px}.purpose{grid-template-columns:1fr}.purpose div{display:grid;grid-template-columns:32px 1fr;gap:2px 10px;align-items:center;padding:12px}.purpose .emoji{grid-row:1/3}.purpose b{margin:0}.purpose small{margin:0}.section{border-radius:20px}.payment .amounts{gap:6px}.amounts span{padding:6px 11px;font-size:13px}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+ <div class="wrap">
+  <header><a class="brand" href="index.html"><img src="logo.png" alt="Copeak logo">Copeak</a><a class="back" href="index.html">← Copeakに戻る / Back</a></header>
+  <main>
+   <section class="hero" aria-labelledby="support-title">
+    <p class="eyebrow">HELP KEEP COPEAK FREE</p>
+    <h1 id="support-title">学びの可能性を、<br><span>これからも無料で。</span></h1>
+    <p class="lead">Copeakは、先生と生徒の英語学習を支えるために、個人で開発・運営している無料の学習アプリです。教材を利用して「役に立った」と感じてくださった方からの任意の応援は、サービスを続ける力になります。</p>
+    <p class="english" lang="en">Copeak is a free learning app independently developed for teachers and students. If you've found it useful, you can choose to leave a one-time thank-you payment to help keep it running.</p>
+    <span class="free">✓ 教材・機能は、支払いの有無にかかわらず無料です</span>
+   </section>
+   <section class="section" aria-labelledby="purpose-title">
+    <h2 id="purpose-title">応援は、こんなことに役立ちます</h2>
+    <p lang="en">Your optional support helps maintain and improve free educational tools.</p>
+    <div class="purpose">
+     <div><span class="emoji" aria-hidden="true">🌐</span><b>サーバー運営</b><small>教材や学習機能を安定して届けるために</small></div>
+     <div><span class="emoji" aria-hidden="true">🔧</span><b>保守・改善</b><small>不具合への対応や使いやすさの向上に</small></div>
+     <div><span class="emoji" aria-hidden="true">📚</span><b>教材の継続開発</b><small>新しい英語学習体験を広げるために</small></div>
+    </div>
+   </section>
+   <section class="section payment" aria-labelledby="payment-title">
+    <p class="eyebrow">ONE-TIME · OPTIONAL</p>
+    <h2 id="payment-title">任意の金額でCopeakを応援</h2>
+    <p>500円から30,000円まで、金額をご自身で選べます。<br><span lang="en">Choose any amount from ¥500 to ¥30,000 (JPY).</span></p>
+    <div class="amounts" aria-label="支払い金額の例"><span>¥500</span><span>¥1,000</span><span>¥3,000</span><span>自由入力</span></div>
+    <a class="btn" href="https://buy.stripe.com/9B6dR91C0bjK8wK8l8EM00" target="_blank" rel="noopener noreferrer" aria-label="Stripeの決済ページを新しいタブで開く">♡ Stripeで応援する <span aria-hidden="true">↗</span></a>
+    <p class="note" lang="en">Continue to Stripe's secure checkout. No Copeak account or login required.</p>
+    <p class="fine">お支払いは1回限りで、定期課金ではありません。支援による限定機能・優待はありません。18歳未満の方は、保護者に相談してからお支払いください。</p>
+   </section>
+   <section class="section" aria-labelledby="detail-title">
+    <h2 id="detail-title">お支払いについて / Payment details</h2>
+    <div class="policy">
+      <div>・本ページの任意の謝礼は、教材やサービスの利用条件ではありません。</div>
+      <div>・決済はStripeの外部ページで行います。決済手段は端末・地域により異なります。</div>
+      <div>・任意の謝礼に対し、追加機能や個別のサービス提供はありません。</div>
+      <div lang="en">Payments are optional, one-time, and processed by Stripe. No additional goods, services, or privileges are provided.</div>
+    </div>
+   </section>
+  </main>
+  <footer><a href="index.html">Copeak</a><a href="copeak-terms.html">利用規約 / Terms</a><a href="copeak-privacy.html">プライバシーポリシー / Privacy</a><span>© 2026 Kohei Nakashima</span></footer>
+ </div>
+</body>
+</html>
