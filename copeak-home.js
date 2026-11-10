@@ -28,6 +28,9 @@
         <img src="copeak-home-students-reading.png" alt="" class="cp-home-students-banner" aria-hidden="true" width="420" height="140" decoding="async">
         <div class="cp-header-actions">
           <button class="cp-profile-pill" type="button" data-cp-action="profile" aria-label="Profile"><span class="cp-profile-avatar">👤</span><span id="cpProfileLabel" data-cp-t="profile">プロフィール</span></button>
+          <button type="button" class="site-qr-trigger cp-home-qr-button" data-share-qr aria-label="QRコードでCopeakを共有" title="QRコードで共有">
+            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M6 6h1M17 6h1M6 17h1M14 14h3v3h-3v-3M21 14v3M17 21h4M14 21v-2M21 19v-1"/></svg>
+          </button>
           <button class="cp-settings" type="button" data-cp-action="menu" aria-controls="cpHomeMenu" aria-expanded="false" aria-label="Menu">⚙</button>
         </div>
         <div id="cpHomeMenu" class="cp-home-menu" hidden>
