@@ -93,7 +93,23 @@
             transform: translateY(0) scale(1);
         }
     }
-</style>
+
+
+        /* QR sharing: reuse Copeak's local QR modal and keep the Japeak orange accent. */
+        .site-qr-trigger.japeak-qr-button {
+            flex:0 0 44px; width:44px; height:44px; min-width:44px;
+            box-sizing:border-box; border:2px solid #f6b098; border-radius:13px;
+            color:#d94f20; background:#fffaf6;
+            box-shadow:0 3px 12px rgba(13,22,39,.13);
+        }
+        .site-qr-trigger.japeak-qr-button:hover { border-color:#f05a28; background:#fff2e9; }
+        .site-qr-trigger.japeak-qr-button:focus-visible { outline:3px solid #f05a28; outline-offset:3px; }
+        .japeak-qr-floating {
+            position:fixed; top:calc(12px + env(safe-area-inset-top,0px));
+            right:calc(12px + env(safe-area-inset-right,0px)); z-index:100;
+        }
+
+    </style>
 </head>
 <body class="text-stone-800 pb-12">
 
@@ -106,10 +122,10 @@
                 <p class="text-[10px] text-[#b91c1c] font-bold tracking-widest">にほんごのれんしゅうをしましょう</p>
             </div>
         </div>
-        <div class="flex items-center gap-6">
+        <div class="flex items-center gap-2 md:gap-4">
             
             <!-- カスタム言語選択ドロップダウン -->
-            <div class="relative inline-block text-left w-48 md:w-56 z-50" id="custom-lang-wrapper">
+            <div class="relative inline-block text-left w-36 sm:w-48 md:w-56 z-50" id="custom-lang-wrapper">
                 <div class="text-center text-[10px] text-[#0086d9] font-bold mb-0.5 tracking-widest uppercase">LANGUAGE</div>
                 <button type="button" id="custom-lang-btn" class="inline-flex justify-between items-center w-full rounded-sm shadow-sm px-3 py-2 md:py-2.5 bg-[#0086d9] text-sm md:text-base font-bold text-white hover:bg-[#0074bd] transition-colors focus:outline-none">
                     <span id="custom-lang-display" class="flex items-end gap-2">
@@ -153,6 +169,7 @@
             <button id="btn-top-back" onclick="window.location.href='japeak-top.html'" class="bg-[#1e3a5f] hover:bg-[#172a45] text-white text-[10px] md:text-xs font-bold px-4 py-2 rounded-sm transition shadow-md self-end mb-0.5 whitespace-nowrap">
                 トップへ戻る
             </button>
+            <button type="button" class="site-qr-trigger japeak-qr-button" data-share-qr aria-label="JapeakのページをQRコードで共有" title="QRコードで共有"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM21 14v3M17 21h4M14 21v-2M21 21v-2"/></svg></button>
         </div>
     </div>
 
@@ -409,5 +426,6 @@
         });
     </script>
 
+    <script src="share-qr.js?v=20261111-japeak"></script>
 </body>
 </html>
