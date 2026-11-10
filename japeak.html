@@ -30,6 +30,22 @@
         .wa-border-sm { border: 2px solid #1e3a5f; }
         ruby { ruby-align: center; }
         rt { font-size: 0.5em; color: #4b5563; font-family: 'Noto Sans JP', sans-serif; font-weight: 500; }
+    
+
+        /* QR sharing: reuse Copeak's local QR modal and keep the Japeak orange accent. */
+        .site-qr-trigger.japeak-qr-button {
+            flex:0 0 44px; width:44px; height:44px; min-width:44px;
+            box-sizing:border-box; border:2px solid #f6b098; border-radius:13px;
+            color:#d94f20; background:#fffaf6;
+            box-shadow:0 3px 12px rgba(13,22,39,.13);
+        }
+        .site-qr-trigger.japeak-qr-button:hover { border-color:#f05a28; background:#fff2e9; }
+        .site-qr-trigger.japeak-qr-button:focus-visible { outline:3px solid #f05a28; outline-offset:3px; }
+        .japeak-qr-floating {
+            position:fixed; top:calc(12px + env(safe-area-inset-top,0px));
+            right:calc(12px + env(safe-area-inset-right,0px)); z-index:100;
+        }
+
     </style>
 </head>
 <body class="text-stone-800 pb-12">
@@ -95,9 +111,12 @@
                     ◀ メニュー
                 </button>
 
-                <button onclick="window.location.href='index.html'" class="h-10 md:h-11 bg-[#1e3a5f] hover:bg-[#172a45] text-white text-[11px] md:text-xs font-bold px-2 md:px-4 rounded-sm transition shadow-md flex items-center justify-center whitespace-nowrap w-full md:w-auto">
-                    Copeakへ
-                </button>
+                <div class="flex items-center gap-2 w-full md:w-auto">
+                    <button onclick="window.location.href='index.html'" class="h-10 md:h-11 bg-[#1e3a5f] hover:bg-[#172a45] text-white text-[11px] md:text-xs font-bold px-2 md:px-4 rounded-sm transition shadow-md flex items-center justify-center whitespace-nowrap flex-1 md:flex-none">
+                        Copeakへ
+                    </button>
+                    <button type="button" class="site-qr-trigger japeak-qr-button" data-share-qr aria-label="JapeakのページをQRコードで共有" title="QRコードで共有"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM21 14v3M17 21h4M14 21v-2M21 21v-2"/></svg></button>
+                </div>
 
             </div>
         </div>
@@ -339,5 +358,6 @@
         });
     </script>
 
+    <script src="share-qr.js?v=20261111-japeak"></script>
 </body>
 </html>
