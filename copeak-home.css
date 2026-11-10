@@ -235,3 +235,37 @@ body.copeak-home-mode {
 
 /* Vocabulary Check replaces Japeak as the fourth main dashboard card. */
 #copeakHomeHub .cp-action-vocabulary .cp-action-icon img{width:88%;height:88%;object-fit:contain}
+
+
+/* A visible, native header QR action (the dashboard replaces the legacy home markup). */
+#copeakHomeHub .cp-header-actions > .cp-home-qr-button {
+  display: inline-flex !important;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #c7dff2;
+  border-radius: 50%;
+  background: rgba(255,255,255,.96);
+  color: #1c5787;
+  box-shadow: 0 5px 18px rgba(24,78,134,.1);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+#copeakHomeHub .cp-header-actions > .cp-home-qr-button svg {
+  display: block; width: 21px; height: 21px;
+  stroke: currentColor; stroke-width: 2; fill: none;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+#copeakHomeHub .cp-header-actions > .cp-home-qr-button:hover {
+  box-shadow: 0 6px 18px rgba(24,78,134,.19);
+}
+@media (max-width: 700px) {
+  #copeakHomeHub .cp-header-actions > .cp-home-qr-button {
+    flex: 0 0 38px;
+    width: 38px; height: 38px; min-width: 38px;
+  }
+}
