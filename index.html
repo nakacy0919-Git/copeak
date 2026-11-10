@@ -7474,7 +7474,7 @@ body.result-layout-active
     }
 }
     </style>
-    <link rel="stylesheet" href="copeak-home.css">
+    <link rel="stylesheet" href="copeak-home.css?v=20261110-dashboard-qr3">
     <link rel="stylesheet" href="copeak-pages.css">
 <link rel="stylesheet" href="copeak-home-record.css?v=20261103">
     <link rel="stylesheet" href="copeak-info-menu.css">
@@ -7504,53 +7504,11 @@ body.result-layout-active
         letter-spacing: 0.01em;
       }
     </style>
-    <style id="copeak-home-qr-position">
-        /* Floating corner control: independent of the compact fixed-column header grid. */
-        #homeScreen { position: relative; }
-        #homeScreen > .copeak-home-qr {
-            position: absolute;
-            top: -20px;
-            right: 12px;
-            z-index: 110;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        #homeScreen > .copeak-home-qr > .site-qr-trigger {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 46px;
-            height: 46px;
-            min-width: 46px;
-            padding: 0;
-            border: 1px solid #b9d2c6;
-            border-radius: 14px;
-            background: #ffffff;
-            color: #245e4d;
-            box-shadow: 0 5px 18px rgba(24,61,47,.18);
-            cursor: pointer;
-            touch-action: manipulation;
-        }
-        #homeScreen > .copeak-home-qr > .site-qr-trigger svg {
-            display: block; width: 24px; height: 24px;
-            fill: none; stroke: currentColor; stroke-width: 2;
-            stroke-linecap: round; stroke-linejoin: round;
-        }
-        #homeScreen > .copeak-home-qr > .site-qr-trigger:focus-visible {
-            outline: 3px solid #1c9272; outline-offset: 3px;
-        }
-        @media (max-width: 639px) {
-            #homeScreen > .copeak-home-qr { right: 8px; top: -19px; }
-        }
-    </style>
 </head>
 <body class="text-stone-800 pb-10 relative transition-colors duration-500">
     <div id="toast">メッセージ</div>
 
     <div id="homeScreen" class="screen active max-w-[1400px] w-[95%] mx-auto mt-6 md:mt-10 p-6 md:p-12 bg-[#faf8f5] rounded-sm iron-border min-h-[80vh] flex flex-col">
-        <!-- Independent home-page QR: stays visible above the action grid on mobile and desktop -->
-        <div class="copeak-home-qr"><button type="button" data-share-qr class="site-qr-trigger" aria-label="QRコードでこのページを共有" title="QRコードで共有"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M6 6h1M17 6h1M6 17h1M14 14h3v3h-3v-3M21 14v3M17 21h4M14 21v-2M21 19v-1"/></svg></button></div>
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-3 mb-6 md:mb-8 border-b-2 border-stone-200 pb-4">
 
     <!-- Copeak Brand -->
@@ -9809,7 +9767,7 @@ window.openQuestReflection = function(acc, wpm) {
 };
 </script>
     <script src="copeak-language-expansion.js"></script>
-    <script src="copeak-home.js"></script>
+    <script src="copeak-home.js?v=20261110-dashboard-qr3"></script>
     <script src="copeak-pages.js"></script>
     <script src="copeak-info-menu.js"></script>
     <script src="copeak-ui-locale.js"></script>
@@ -9817,6 +9775,6 @@ window.openQuestReflection = function(acc, wpm) {
     <script src="copeak-creator-locale.js"></script>
     <link rel="stylesheet" href="copeak-image-workspace.css">
     <script src="copeak-image-workspace.js"></script>
-    <script src="share-qr.js?v=20261110-qrfix2" defer></script>
+    <script src="share-qr.js?v=20261110-dashboard-qr3" defer></script>
 </body>
 </html>
