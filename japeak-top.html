@@ -30,9 +30,27 @@
                 filter: blur(0);
             }
         }
+    
+
+        /* QR sharing: reuse Copeak's local QR modal and keep the Japeak orange accent. */
+        .site-qr-trigger.japeak-qr-button {
+            flex:0 0 44px; width:44px; height:44px; min-width:44px;
+            box-sizing:border-box; border:2px solid #f6b098; border-radius:13px;
+            color:#d94f20; background:#fffaf6;
+            box-shadow:0 3px 12px rgba(13,22,39,.13);
+        }
+        .site-qr-trigger.japeak-qr-button:hover { border-color:#f05a28; background:#fff2e9; }
+        .site-qr-trigger.japeak-qr-button:focus-visible { outline:3px solid #f05a28; outline-offset:3px; }
+        .japeak-qr-floating {
+            position:fixed; top:calc(12px + env(safe-area-inset-top,0px));
+            right:calc(12px + env(safe-area-inset-right,0px)); z-index:100;
+        }
+
     </style>
 </head>
 <body class="bg-dark-navy h-screen flex flex-col items-center justify-center relative overflow-hidden selection:bg-[#f05a28] selection:text-white">
+
+    <div class="japeak-qr-floating"><button type="button" class="site-qr-trigger japeak-qr-button" data-share-qr aria-label="JapeakのページをQRコードで共有" title="QRコードで共有"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM21 14v3M17 21h4M14 21v-2M21 21v-2"/></svg></button></div>
     
     <div class="z-10 flex flex-col items-center">
         
@@ -58,5 +76,6 @@
 
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#f05a28] opacity-5 rounded-full blur-[100px] pointer-events-none"></div>
 
+    <script src="share-qr.js?v=20261111-japeak"></script>
 </body>
 </html>
