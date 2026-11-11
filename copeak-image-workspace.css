@@ -11,12 +11,14 @@
 .copeak-preview-slot{display:inline-flex;align-items:center;flex:0 0 auto}
 .copeak-preview-slot button{max-width:100%;background:#1e3a8a!important}
 #targetTextWrapper#targetTextWrapper>div:first-child>div:first-child{gap:8px;flex-wrap:wrap}
+/* Neutral support-image border, matching fullscreen viewing. */
+#lessonSupportImagePane#lessonSupportImagePane{border:1px solid rgba(174,203,225,.68)!important;box-shadow:none!important}
 #targetTextWrapper#targetTextWrapper>div:first-child>div:first-child>div:last-child{align-items:center;flex-wrap:wrap;justify-content:flex-end;min-width:0}
 .copeak-image-grip{position:relative;display:none;flex:0 0 12px!important;min-width:12px;min-height:12px;align-self:stretch;background:linear-gradient(90deg,#e7e5e4,#f5f5f4);border:0;border-radius:5px;cursor:col-resize;touch-action:none;user-select:none;z-index:4}
-.copeak-image-grip:before{content:"";position:absolute;top:50%;left:50%;width:4px;height:54px;max-height:60%;border-left:2px solid #059669;border-right:1px solid #059669;border-radius:2px;transform:translate(-50%,-50%)}
-.copeak-image-grip:hover,.copeak-image-grip:focus-visible{background:#a7f3d0;outline:2px solid #059669;outline-offset:-2px}
+.copeak-image-grip:before{content:"";position:absolute;top:50%;left:50%;width:4px;height:54px;max-height:60%;border-left:2px solid #94a3b8;border-right:1px solid #94a3b8;border-radius:2px;transform:translate(-50%,-50%)}
+.copeak-image-grip:hover,.copeak-image-grip:focus-visible{background:#e2e8f0;outline:2px solid #94a3b8;outline-offset:-2px}
 .copeak-image-grip[aria-orientation="horizontal"]{cursor:row-resize}
-.copeak-image-grip[aria-orientation="horizontal"]:before{width:54px;height:4px;max-width:60%;border-top:2px solid #059669;border-bottom:1px solid #059669;border-left:0;border-right:0}
+.copeak-image-grip[aria-orientation="horizontal"]:before{width:54px;height:4px;max-width:60%;border-top:2px solid #94a3b8;border-bottom:1px solid #94a3b8;border-left:0;border-right:0}
 body.support-image-visible:not(.result-layout-active) #copeak-main-image-grip{display:block!important}
 body.support-image-visible:not(.result-layout-active) #learningContentArea#learningContentArea{display:grid!important;gap:0!important;align-items:stretch!important;min-width:0!important;min-height:0!important;grid-template-columns:minmax(0,var(--copeak-main-image-width,42%)) 12px minmax(0,1fr)!important}
 body.support-image-visible:not(.result-layout-active) #lessonSupportImagePane#lessonSupportImagePane{display:flex!important;flex-direction:column!important;width:100%!important;height:100%!important;min-width:0!important;min-height:0!important;max-height:none!important;overflow:hidden!important}

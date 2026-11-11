@@ -585,7 +585,8 @@ body.sq-premium #sqAppContainer :is(.bg-white,.bg-stone-50):is(.rounded-xl,.roun
   box-shadow:0 8px 25px rgba(29,79,139,.075),inset 0 1px 0 rgba(255,255,255,.96)!important;
 }
 #yourVoiceWrapper{border-left:3px solid #4689c2!important}
-#targetTextWrapper > div:first-child{border-left:3px solid #19a89b!important}
+/* Keep all four edges of the reading text card consistent. */
+#targetTextWrapper > div:first-child{border-left:1px solid rgba(174,203,225,.68)!important;box-shadow:none!important}
 #jpnWrapper{
   border-left:3px solid #9aa7b6!important;
   background:linear-gradient(129deg,#f8fcff,#f1f7fc)!important;
