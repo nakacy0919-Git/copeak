@@ -4307,11 +4307,14 @@ if (
                     .filter(w => w);
 
             // 「部分一致」ではなく独立単語として完全一致
-            const isMatch =
-                spokenWords.some(
-                    w =>
-                        acceptableWords.includes(w)
-                );
+            // 音読本体と同じ数字・年号・年代比較で発音練習を判定
+            const comparisonLang = typeof getCurrentLessonLang === 'function'
+                ? getCurrentLessonLang() : 'en-US';
+            const spokenComparison = buildSpeechComparisonUnits(rawTranscript, comparisonLang).map(unit => unit.token);
+            const targetComparison = buildSpeechComparisonUnits(targetWord, comparisonLang).map(unit => unit.token);
+            const normalizedMatch = targetComparison.length > 0
+                && alignSpeechTokens(spokenComparison, targetComparison).matchCount === targetComparison.length;
+            const isMatch = normalizedMatch || spokenWords.some(w => acceptableWords.includes(w));
 
             if (isMatch) {
 
@@ -4389,74 +4392,36 @@ function openMissingWordsModal() {
         oldModal.remove();
     }
 
-    if (
-        !currentCustomLesson ||
-        !currentCustomLesson.eng
-    ) {
-        return;
-    }
-
-    // 🌟 【大文字・小文字の維持】
-    const originalWords =
-        currentCustomLesson.eng
-            .replace(
-                /[^a-zA-Z0-9\u00C0-\u017F\u0900-\u097F\s']/g,
-                ''
-            )
-            .split(/\s+/)
-            .filter(w => w);
-
-    // 認識された音声テキストを抽出
-    const recDisplay =
-        document.getElementById(
-            'recognizedTextDisplay'
-        );
-
-    const spokenText =
-        (
-            recDisplay &&
-            !recDisplay.innerText.includes('※')
-        )
-            ? recDisplay.innerText
-                .toLowerCase()
-                .replace(
-                    /[^a-z0-9\u00C0-\u017F\u0900-\u097F\s']/gi,
-                    ''
-                )
-            : '';
-
-    const spokenWords =
-        spokenText
-            .split(/\s+/)
-            .filter(w => w);
-
-    // 小文字同士で比較しつつ、表示用には元の単語を残す
-    const missingWords =
-        originalWords.filter(
-            word =>
-                !spokenWords.includes(
-                    word.toLowerCase()
-                )
-        );
-    
-    // 大文字小文字の違いによる重複を防ぐ
-    const uniqueMap =
-        new Map();
-
-    missingWords.forEach(w => {
-
-        if (!uniqueMap.has(w.toLowerCase())) {
-            uniqueMap.set(
-                w.toLowerCase(),
-                w
-            );
-        }
+    // 未発話リストも音読採点と同じ順序付き正規化で照合
+    const sourceText = currentCustomLesson?.type === 'dialogue'
+        && Array.isArray(currentCustomLesson.dialogue)
+        ? currentCustomLesson.dialogue.map(line => line?.text || '').join(' ')
+        : (currentCustomLesson?.eng || '');
+    if (!sourceText.trim()) return;
+    const lang = typeof getCurrentLessonLang === 'function'
+        ? getCurrentLessonLang() : (currentCustomLesson.lang || 'en-US');
+    const originalWords = segmentSpeechText(sourceText, lang)
+        .filter(part => part.isWord && part.normalized)
+        .map(part => part.text);
+    const recDisplay = document.getElementById('recognizedTextDisplay');
+    const spokenText = recDisplay && !recDisplay.innerText.includes('※')
+        ? recDisplay.innerText : '';
+    const targetUnits = buildSpeechComparisonUnits(sourceText, lang);
+    const spokenUnits = buildSpeechComparisonUnits(spokenText, lang);
+    const alignment = alignSpeechTokens(
+        spokenUnits.map(unit => unit.token), targetUnits.map(unit => unit.token)
+    );
+    const missingWords = targetUnits
+        .filter((unit, index) => !alignment.matchedTargetIndexes.has(index))
+        .map(unit => [...new Set(unit.sourceWordIndexes)]
+            .map(index => originalWords[index] || '').filter(Boolean).join(' '))
+        .filter(Boolean);
+    const uniqueMap = new Map();
+    missingWords.forEach(word => {
+        const key = word.toLocaleLowerCase(lang);
+        if (!uniqueMap.has(key)) uniqueMap.set(key, word);
     });
-
-    currentMissingWords =
-        Array.from(
-            uniqueMap.values()
-        );
+    currentMissingWords = Array.from(uniqueMap.values());
 
     const modal =
         document.createElement(
@@ -4507,7 +4472,7 @@ function renderMissingWordsListView() {
             (word, index) => {
 
                 listHtml +=
-                    `<span onclick="startMissingWordPractice(${index})" class="px-2.5 py-1.5 bg-white border border-stone-300 rounded-sm text-xs font-bold text-stone-700 shadow-sm cursor-pointer hover:bg-emerald-50 hover:border-emerald-400 hover:text-emerald-800 transition-colors active:scale-95 flex items-center gap-1" title="タップして練習する">🎯 ${word}</span>`;
+                    `<span onclick="startMissingWordPractice(${index})" class="px-2.5 py-1.5 bg-white border border-stone-300 rounded-sm text-xs font-bold text-stone-700 shadow-sm cursor-pointer hover:bg-emerald-50 hover:border-emerald-400 hover:text-emerald-800 transition-colors active:scale-95 flex items-center gap-1" title="タップして練習する">🎯 ${escapeSpeechHtml(word)}</span>`;
             }
         );
 
