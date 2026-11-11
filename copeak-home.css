@@ -296,3 +296,6 @@ body.copeak-home-mode {
 @media (prefers-reduced-motion:reduce) {
   #copeakHomeHub .cp-home-bottom .cp-nav-ncc{animation:none;}
 }
+
+/* NCC bottom tab is a native link, independent of competing home click routers. */
+#copeakHomeHub .cp-home-bottom a.cp-nav-ncc{text-decoration:none;justify-content:center;min-height:41px;touch-action:manipulation;}
