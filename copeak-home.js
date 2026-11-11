@@ -54,6 +54,7 @@
         <button type="button" class="cp-nav" data-cp-action="home" aria-current="page"><span class="cp-nav-icon">⌂</span><span data-cp-t="home">ホーム</span></button>
         <button type="button" class="cp-nav" data-cp-action="read"><span class="cp-nav-icon">📖</span><span data-cp-t="lessons">教材</span></button>
         <button type="button" class="cp-nav" data-cp-action="create"><span class="cp-nav-icon">✎</span><span data-cp-t="make">作成</span></button>
+        <button type="button" class="cp-nav cp-nav-ncc" data-cp-action="challenge" aria-label="National Copeak Challenge 全国音読チャレンジ" title="National Copeak Challenge"><span class="cp-nav-icon" aria-hidden="true">🏆</span><span>NCC</span></button>
         <button type="button" class="cp-nav" data-cp-action="info"><span class="cp-nav-icon">☷</span><span data-cp-t="menu">Menu</span></button>
       </nav>`;
     const back = document.createElement('button');
