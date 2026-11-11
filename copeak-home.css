@@ -269,3 +269,30 @@ body.copeak-home-mode {
     width: 38px; height: 38px; min-width: 38px;
   }
 }
+
+
+/* NCC shortcut, fifth item in the compact Copeak home bottom navigation. */
+#copeakHomeHub .cp-home-bottom .cp-nav-ncc {
+  color:#9b6e22;
+  border:1px solid rgba(225,181,92,.46);
+  background:linear-gradient(145deg,#fffaf0,#fff1ce);
+  box-shadow:0 0 9px rgba(239,193,97,.14);
+  animation:cpNccNavGlow 3.8s ease-in-out infinite;
+}
+#copeakHomeHub .cp-home-bottom .cp-nav-ncc .cp-nav-icon {
+  filter:drop-shadow(0 1px 3px rgba(180,131,42,.23));
+}
+#copeakHomeHub .cp-home-bottom .cp-nav-ncc:hover {
+  color:#835515;background:#fff0c2;
+}
+@keyframes cpNccNavGlow {
+  0%,100%{box-shadow:0 0 5px rgba(239,193,97,.13)}
+  50%{box-shadow:0 0 14px rgba(239,193,97,.48)}
+}
+@media (max-width:700px) {
+  #copeakHomeHub .cp-home-bottom .cp-nav {width:20%;min-width:0; padding:3px 2px;}
+  #copeakHomeHub .cp-home-bottom .cp-nav-ncc{font-size:10px;}
+}
+@media (prefers-reduced-motion:reduce) {
+  #copeakHomeHub .cp-home-bottom .cp-nav-ncc{animation:none;}
+}
