@@ -7474,7 +7474,7 @@ body.result-layout-active
     }
 }
     </style>
-    <link rel="stylesheet" href="copeak-home.css?v=20261110-dashboard-qr3">
+    <link rel="stylesheet" href="copeak-home.css?v=20261112-ncc-dock">
     <link rel="stylesheet" href="copeak-pages.css">
 <link rel="stylesheet" href="copeak-home-record.css?v=20261103">
     <link rel="stylesheet" href="copeak-info-menu.css">
@@ -7504,43 +7504,7 @@ body.result-layout-active
         letter-spacing: 0.01em;
       }
     </style>
-<style id="cp-ncc-home-style">
-    /* National Copeak Challenge 2.0 — prominent but compact homepage entry */
-    .cp-ncc-home-entry {
-        display:flex; align-items:center; gap:14px; min-height:78px;
-        padding:13px 17px; margin:0 0 22px;
-        color:#fff; text-decoration:none;
-        background:linear-gradient(112deg,#162641 0%,#202b45 63%,#28324d 100%);
-        border:1px solid rgba(218,183,102,.64); border-radius:14px;
-        box-shadow:0 7px 20px rgba(19,34,59,.14),inset 0 1px 0 rgba(255,255,255,.13);
-        transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
-        position:relative; overflow:hidden; isolation:isolate;
-    }
-    .cp-ncc-home-entry::before {content:"";position:absolute;inset:0;z-index:-1;opacity:.35;
-        background:radial-gradient(circle at 92% 40%,rgba(237,195,111,.30),transparent 31%);}
-    .cp-ncc-home-entry:hover,.cp-ncc-home-entry:focus-visible {
-        transform:translateY(-2px);border-color:#f1d79c;
-        box-shadow:0 12px 28px rgba(19,34,59,.22),0 0 0 2px rgba(229,194,116,.13);
-    }
-    .cp-ncc-home-entry:focus-visible {outline:3px solid #c08b39;outline-offset:3px;}
-    .cp-ncc-home-trophy {position:relative;display:grid;place-items:center;flex:0 0 50px;
-        width:50px;height:50px;border-radius:14px;font-size:27px;
-        background:linear-gradient(145deg,#f3d68c,#b88842);box-shadow:0 0 14px rgba(241,197,109,.32);
-        animation:cpNccTrophyGlow 3.5s ease-in-out infinite;}
-    .cp-ncc-home-copy {display:flex;flex-direction:column;gap:3px;min-width:0;flex:1;}
-    .cp-ncc-home-title {font-weight:900;font-size:clamp(14px,1.65vw,18px);line-height:1.3;letter-spacing:.01em;color:#fff;}
-    .cp-ncc-home-description {font-size:clamp(10px,1.1vw,12px);line-height:1.5;color:#c9d7ed;}
-    .cp-ncc-home-badge {color:#ffe3a2;border:1px solid rgba(234,203,139,.42);
-        background:rgba(235,200,126,.10);border-radius:99px;padding:6px 11px;
-        font-weight:900;font-size:11px;white-space:nowrap;}
-    .cp-ncc-home-arrow {font-size:23px;line-height:1;color:#ebcc8f;margin-left:2px;}
-    @keyframes cpNccTrophyGlow {0%,100%{box-shadow:0 0 10px rgba(241,197,109,.20)}50%{box-shadow:0 0 23px rgba(241,197,109,.62)}}
-    @media(max-width:480px){.cp-ncc-home-entry{gap:10px;padding:11px 12px;min-height:76px;}
-        .cp-ncc-home-trophy{flex-basis:42px;width:42px;height:42px;font-size:23px;border-radius:12px;}
-        .cp-ncc-home-badge{font-size:10px;padding:5px 8px;}
-        .cp-ncc-home-arrow{font-size:18px;}}
-    @media(prefers-reduced-motion:reduce){.cp-ncc-home-trophy{animation:none;}.cp-ncc-home-entry{transition:none;}}
-</style>
+
 </head>
 <body class="text-stone-800 pb-10 relative transition-colors duration-500">
     <div id="toast">メッセージ</div>
@@ -7811,16 +7775,7 @@ body.result-layout-active
             <!-- ▲ここまで追加▲ -->
         </div> <!-- 👈 ★★★ ここに </div> を1つ追加してください！ ★★★ -->
 
-        <!-- National Copeak Challenge 2.0: between the learning menus and material creation -->
-        <a id="homeNationalCopeakChallenge" class="cp-ncc-home-entry" href="challenge.html" aria-label="National Copeak Challenge 2.0 全国音読チャレンジに挑戦する">
-            <span class="cp-ncc-home-trophy" aria-hidden="true">🏆</span>
-            <span class="cp-ncc-home-copy">
-                <span class="cp-ncc-home-title">National Copeak Challenge</span>
-                <span class="cp-ncc-home-description">好きな物語を声に出して、全国ランキングに挑戦！</span>
-            </span>
-            <span class="cp-ncc-home-badge">力試し</span>
-            <span class="cp-ncc-home-arrow" aria-hidden="true">›</span>
-        </a>
+
 
         <div class="border-b-2 border-stone-200 mb-8 relative z-10">
             <button type="button" onclick="toggleAccordion('form')" class="w-full flex justify-between items-center py-4 md:py-5 outline-none group text-left transition-colors">
@@ -9786,7 +9741,7 @@ window.openQuestReflection = function(acc, wpm) {
 };
 </script>
     <script src="copeak-language-expansion.js"></script>
-    <script src="copeak-home.js?v=20261110-dashboard-qr3"></script>
+    <script src="copeak-home.js?v=20261112-ncc-dock"></script>
     <script src="copeak-pages.js"></script>
     <script src="copeak-info-menu.js"></script>
     <script src="copeak-ui-locale.js"></script>
