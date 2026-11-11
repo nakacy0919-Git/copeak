@@ -94,7 +94,8 @@ function initCopeakDedicatedPages() {
     if(which==='home'||which==='read'||which==='create')go(which);
     else if(which==='sound')window.location.assign('sound-quest.html');
     else if(which==='menu')window.CopeakInfoMenu?.open();
-    else if(which==='target'||which==='ncc'||which==='warning')guide(which);
+    else if(which==='ncc'||which==='challenge')window.location.assign('challenge.html');
+    else if(which==='target'||which==='warning')guide(which);
     else if(which==='teacher')teacher();
   }
   [reader,creator].forEach(p=>p.addEventListener('click',event=>{
