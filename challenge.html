@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>National Copeak Challenge - 特設会場</title>
+    <title>National Copeak Challenge 2.0 | 8 Genre Reading Arena</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="challenge-v2.css">
     <style>
@@ -106,6 +106,7 @@
                 <div><span class="ncc-eyebrow">YOU ARE ON STAGE</span><h2 id="nccStageTitle">Choose a story</h2><p id="nccStageSubtitle">Read with feeling, not just speed.</p></div>
                 <button type="button" onclick="exitArena()" class="ncc-btn-secondary">← 別の作品を選ぶ</button>
               </div>
+              <p id="nccStageStatus" class="text-xs text-amber-200 px-2 min-h-4" role="status" aria-live="polite">作品の英語を声に出してみよう。</p>
               <div id="nccScene" class="ncc-visual-stage hide-during-record" style="--genre-glow:#e8c77c">
                 <div class="ncc-scene-orbit" aria-hidden="true"></div>
                 <div class="ncc-scene-copy"><span class="ncc-eyebrow">AN ORIGINAL COPEAK PERFORMANCE</span><h2 id="nccSceneTitle">A new story</h2><p id="nccSceneSub">Find your voice.</p><small>表現を想像しながら、感情を込めて読んでみよう。</small></div>
