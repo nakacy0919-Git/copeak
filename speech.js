@@ -77,11 +77,29 @@ function segmentSpeechText(text, lang = 'en-US') {
     if (typeof Intl !== 'undefined' && typeof Intl.Segmenter === 'function') {
         try {
             const segmenter = new Intl.Segmenter(lang, { granularity: 'word' });
-            return Array.from(segmenter.segment(sourceText)).map(item => ({
+            const pieces = Array.from(segmenter.segment(sourceText)).map(item => ({
                 text: item.segment,
                 isWord: item.isWordLike === true,
                 normalized: item.isWordLike === true ? normalizeSpeechToken(item.segment, lang) : ''
             }));
+            // 端末により「20s」が「20」「s」に分割される場合も結合する
+            if (!/^en(?:-|$)/i.test(lang)) return pieces;
+            const merged = [];
+            for (let i = 0; i < pieces.length; i++) {
+                const first = pieces[i], second = pieces[i + 1], third = pieces[i + 2];
+                const decadeStem = first.isWord && /^(\d{2}|\d{4})$/.test(first.text)
+                    && Number(first.text) % 10 === 0;
+                const suffix = second?.isWord && /^s$/i.test(second.text);
+                const apostropheSuffix = second && !second.isWord && /^['’]$/.test(second.text)
+                    && third?.isWord && /^s$/i.test(third.text);
+                if (decadeStem && (suffix || apostropheSuffix)) {
+                    const count = apostropheSuffix ? 3 : 2;
+                    const joined = pieces.slice(i, i + count).map(piece => piece.text).join('');
+                    merged.push({text: joined, isWord: true, normalized: normalizeSpeechToken(joined, lang)});
+                    i += count - 1;
+                } else merged.push(first);
+            }
+            return merged;
         } catch (e) {
             console.warn('Intl.Segmenter fallback:', e);
         }
@@ -152,6 +170,13 @@ const ENGLISH_TENS = {
     ninety: 90
 };
 
+
+// decades: twenties = 20s / nineteen nineties = 1990s
+const ENGLISH_DECADE_WORDS = {
+    tens: 10, twenties: 20, thirties: 30, forties: 40,
+    fifties: 50, sixties: 60, seventies: 70,
+    eighties: 80, nineties: 90
+};
 
 const ENGLISH_ORDINALS = {
     first: 1,
@@ -407,6 +432,13 @@ function getEnglishNumberComparisonUnit(
         );
 
 
+    // 数字表記の年代表現（20s / 1990s / 2020s）
+    const digitDecade = raw.match(/^(\d{2}|\d{4})'?s$/);
+    if (digitDecade && Number(digitDecade[1]) % 10 === 0) {
+        return { token: `__decade_${Number(digitDecade[1])}__`,
+            consumed: 1, sourceWordIndexes: [current.wordIndex] };
+    }
+
     // ======================================
     // 9th / 21st / 3rd など
     // ======================================
@@ -453,6 +485,12 @@ function getEnglishNumberComparisonUnit(
         };
     }
 
+
+    const decadeWord = ENGLISH_DECADE_WORDS[current.normalized];
+    if (Number.isInteger(decadeWord)) {
+        return { token: `__decade_${decadeWord}__`,
+            consumed: 1, sourceWordIndexes: [current.wordIndex] };
+    }
 
     // ======================================
     // ninth / twentieth など
@@ -641,6 +679,25 @@ function getEnglishNumberComparisonUnit(
     }
 
 
+    // two thousands = 2000s / two thousand twenties = 2020s
+    const decadeThousand = ENGLISH_SMALL_NUMBERS[current.normalized];
+    const following = words[startIndex + 1]?.normalized;
+    const followingDecade = ENGLISH_DECADE_WORDS[words[startIndex + 2]?.normalized];
+    if (decadeThousand >= 1 && decadeThousand <= 9) {
+        let value = null, consumed = 0;
+        if (following === 'thousands') {
+            value = decadeThousand * 1000;
+            consumed = 2;
+        } else if (following === 'thousand' && Number.isInteger(followingDecade)) {
+            value = decadeThousand * 1000 + followingDecade;
+            consumed = 3;
+        }
+        if (value !== null) {
+            return { token: `__decade_${value}__`, consumed,
+                sourceWordIndexes: words.slice(startIndex, startIndex + consumed).map(w => w.wordIndex) };
+        }
+    }
+
     // ======================================
     // 2012 → two thousand twelve
     // 1999 → one thousand nine hundred...
@@ -745,6 +802,22 @@ function getEnglishNumberComparisonUnit(
         twenty: 20
     };
 
+
+    const yearDecadePrefix = yearPrefixMap[current.normalized];
+    const nextYear = words[startIndex + 1]?.normalized;
+    const yearDecade = ENGLISH_DECADE_WORDS[nextYear];
+    if (yearDecadePrefix && Number.isInteger(yearDecade)) {
+        return { token: `__decade_${yearDecadePrefix * 100 + yearDecade}__`,
+            consumed: 2, sourceWordIndexes: words.slice(startIndex, startIndex + 2).map(w => w.wordIndex) };
+    }
+    if (yearDecadePrefix && nextYear === 'hundreds') {
+        return { token: `__decade_${yearDecadePrefix * 100}__`,
+            consumed: 2, sourceWordIndexes: words.slice(startIndex, startIndex + 2).map(w => w.wordIndex) };
+    }
+    if (yearDecadePrefix && nextYear === 'hundred') {
+        return { token: `__num_${yearDecadePrefix * 100}__`,
+            consumed: 2, sourceWordIndexes: words.slice(startIndex, startIndex + 2).map(w => w.wordIndex) };
+    }
 
     const yearPrefix =
         yearPrefixMap[
@@ -1106,7 +1179,9 @@ function buildSpeechComparisonUnits(
             );
 
 
-        if (numberLetter) {
+        // 20sを20+sとして誤分割しない（3D/4Kなどは従来どおり）
+        const numericDecade = raw.match(/^(\d{2}|\d{4})'?s$/);
+        if (numberLetter && !(numericDecade && Number(numericDecade[1]) % 10 === 0)) {
 
             units.push({
                 token:
@@ -3372,7 +3447,8 @@ function alignSpeechTokens(spokenWords, targetWords) {
     ) {
         return {
             matchCount: 0,
-            matchedSpokenIndexes: new Set()
+            matchedSpokenIndexes: new Set(),
+            matchedTargetIndexes: new Set()
         };
     }
 
@@ -3416,6 +3492,7 @@ function alignSpeechTokens(spokenWords, targetWords) {
 
     const matchedSpokenIndexes =
         new Set();
+    const matchedTargetIndexes = new Set();
 
     let spokenIndex = 0;
     let targetIndex = 0;
@@ -3433,6 +3510,7 @@ function alignSpeechTokens(spokenWords, targetWords) {
             matchedSpokenIndexes.add(
                 spokenIndex
             );
+            matchedTargetIndexes.add(targetIndex);
 
             spokenIndex++;
             targetIndex++;
@@ -3454,7 +3532,8 @@ function alignSpeechTokens(spokenWords, targetWords) {
         matchCount:
             matchedSpokenIndexes.size,
 
-        matchedSpokenIndexes
+        matchedSpokenIndexes,
+        matchedTargetIndexes
     };
 }
 

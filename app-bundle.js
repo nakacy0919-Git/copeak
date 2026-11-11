@@ -7797,11 +7797,14 @@ if (
                     .filter(w => w);
 
             // 「部分一致」ではなく独立単語として完全一致
-            const isMatch =
-                spokenWords.some(
-                    w =>
-                        acceptableWords.includes(w)
-                );
+            // 音読本体と同じ数字・年号・年代比較で発音練習を判定
+            const comparisonLang = typeof getCurrentLessonLang === 'function'
+                ? getCurrentLessonLang() : 'en-US';
+            const spokenComparison = buildSpeechComparisonUnits(rawTranscript, comparisonLang).map(unit => unit.token);
+            const targetComparison = buildSpeechComparisonUnits(targetWord, comparisonLang).map(unit => unit.token);
+            const normalizedMatch = targetComparison.length > 0
+                && alignSpeechTokens(spokenComparison, targetComparison).matchCount === targetComparison.length;
+            const isMatch = normalizedMatch || spokenWords.some(w => acceptableWords.includes(w));
 
             if (isMatch) {
 
@@ -7879,74 +7882,36 @@ function openMissingWordsModal() {
         oldModal.remove();
     }
 
-    if (
-        !currentCustomLesson ||
-        !currentCustomLesson.eng
-    ) {
-        return;
-    }
-
-    // 🌟 【大文字・小文字の維持】
-    const originalWords =
-        currentCustomLesson.eng
-            .replace(
-                /[^a-zA-Z0-9\u00C0-\u017F\u0900-\u097F\s']/g,
-                ''
-            )
-            .split(/\s+/)
-            .filter(w => w);
-
-    // 認識された音声テキストを抽出
-    const recDisplay =
-        document.getElementById(
-            'recognizedTextDisplay'
-        );
-
-    const spokenText =
-        (
-            recDisplay &&
-            !recDisplay.innerText.includes('※')
-        )
-            ? recDisplay.innerText
-                .toLowerCase()
-                .replace(
-                    /[^a-z0-9\u00C0-\u017F\u0900-\u097F\s']/gi,
-                    ''
-                )
-            : '';
-
-    const spokenWords =
-        spokenText
-            .split(/\s+/)
-            .filter(w => w);
-
-    // 小文字同士で比較しつつ、表示用には元の単語を残す
-    const missingWords =
-        originalWords.filter(
-            word =>
-                !spokenWords.includes(
-                    word.toLowerCase()
-                )
-        );
-
-    // 大文字小文字の違いによる重複を防ぐ
-    const uniqueMap =
-        new Map();
-
-    missingWords.forEach(w => {
-
-        if (!uniqueMap.has(w.toLowerCase())) {
-            uniqueMap.set(
-                w.toLowerCase(),
-                w
-            );
-        }
+    // 未発話リストも音読採点と同じ順序付き正規化で照合
+    const sourceText = currentCustomLesson?.type === 'dialogue'
+        && Array.isArray(currentCustomLesson.dialogue)
+        ? currentCustomLesson.dialogue.map(line => line?.text || '').join(' ')
+        : (currentCustomLesson?.eng || '');
+    if (!sourceText.trim()) return;
+    const lang = typeof getCurrentLessonLang === 'function'
+        ? getCurrentLessonLang() : (currentCustomLesson.lang || 'en-US');
+    const originalWords = segmentSpeechText(sourceText, lang)
+        .filter(part => part.isWord && part.normalized)
+        .map(part => part.text);
+    const recDisplay = document.getElementById('recognizedTextDisplay');
+    const spokenText = recDisplay && !recDisplay.innerText.includes('※')
+        ? recDisplay.innerText : '';
+    const targetUnits = buildSpeechComparisonUnits(sourceText, lang);
+    const spokenUnits = buildSpeechComparisonUnits(spokenText, lang);
+    const alignment = alignSpeechTokens(
+        spokenUnits.map(unit => unit.token), targetUnits.map(unit => unit.token)
+    );
+    const missingWords = targetUnits
+        .filter((unit, index) => !alignment.matchedTargetIndexes.has(index))
+        .map(unit => [...new Set(unit.sourceWordIndexes)]
+            .map(index => originalWords[index] || '').filter(Boolean).join(' '))
+        .filter(Boolean);
+    const uniqueMap = new Map();
+    missingWords.forEach(word => {
+        const key = word.toLocaleLowerCase(lang);
+        if (!uniqueMap.has(key)) uniqueMap.set(key, word);
     });
-
-    currentMissingWords =
-        Array.from(
-            uniqueMap.values()
-        );
+    currentMissingWords = Array.from(uniqueMap.values());
 
     const modal =
         document.createElement(
@@ -7997,7 +7962,7 @@ function renderMissingWordsListView() {
             (word, index) => {
 
                 listHtml +=
-                    `<span onclick="startMissingWordPractice(${index})" class="px-2.5 py-1.5 bg-white border border-stone-300 rounded-sm text-xs font-bold text-stone-700 shadow-sm cursor-pointer hover:bg-emerald-50 hover:border-emerald-400 hover:text-emerald-800 transition-colors active:scale-95 flex items-center gap-1" title="タップして練習する">🎯 ${word}</span>`;
+                    `<span onclick="startMissingWordPractice(${index})" class="px-2.5 py-1.5 bg-white border border-stone-300 rounded-sm text-xs font-bold text-stone-700 shadow-sm cursor-pointer hover:bg-emerald-50 hover:border-emerald-400 hover:text-emerald-800 transition-colors active:scale-95 flex items-center gap-1" title="タップして練習する">🎯 ${escapeSpeechHtml(word)}</span>`;
             }
         );
 
@@ -14809,11 +14774,29 @@ function segmentSpeechText(text, lang = 'en-US') {
     if (typeof Intl !== 'undefined' && typeof Intl.Segmenter === 'function') {
         try {
             const segmenter = new Intl.Segmenter(lang, { granularity: 'word' });
-            return Array.from(segmenter.segment(sourceText)).map(item => ({
+            const pieces = Array.from(segmenter.segment(sourceText)).map(item => ({
                 text: item.segment,
                 isWord: item.isWordLike === true,
                 normalized: item.isWordLike === true ? normalizeSpeechToken(item.segment, lang) : ''
             }));
+            // 端末により「20s」が「20」「s」に分割される場合も結合する
+            if (!/^en(?:-|$)/i.test(lang)) return pieces;
+            const merged = [];
+            for (let i = 0; i < pieces.length; i++) {
+                const first = pieces[i], second = pieces[i + 1], third = pieces[i + 2];
+                const decadeStem = first.isWord && /^(\d{2}|\d{4})$/.test(first.text)
+                    && Number(first.text) % 10 === 0;
+                const suffix = second?.isWord && /^s$/i.test(second.text);
+                const apostropheSuffix = second && !second.isWord && /^['’]$/.test(second.text)
+                    && third?.isWord && /^s$/i.test(third.text);
+                if (decadeStem && (suffix || apostropheSuffix)) {
+                    const count = apostropheSuffix ? 3 : 2;
+                    const joined = pieces.slice(i, i + count).map(piece => piece.text).join('');
+                    merged.push({text: joined, isWord: true, normalized: normalizeSpeechToken(joined, lang)});
+                    i += count - 1;
+                } else merged.push(first);
+            }
+            return merged;
         } catch (e) {
             console.warn('Intl.Segmenter fallback:', e);
         }
@@ -14884,6 +14867,13 @@ const ENGLISH_TENS = {
     ninety: 90
 };
 
+
+// decades: twenties = 20s / nineteen nineties = 1990s
+const ENGLISH_DECADE_WORDS = {
+    tens: 10, twenties: 20, thirties: 30, forties: 40,
+    fifties: 50, sixties: 60, seventies: 70,
+    eighties: 80, nineties: 90
+};
 
 const ENGLISH_ORDINALS = {
     first: 1,
@@ -15139,6 +15129,13 @@ function getEnglishNumberComparisonUnit(
         );
 
 
+    // 数字表記の年代表現（20s / 1990s / 2020s）
+    const digitDecade = raw.match(/^(\d{2}|\d{4})'?s$/);
+    if (digitDecade && Number(digitDecade[1]) % 10 === 0) {
+        return { token: `__decade_${Number(digitDecade[1])}__`,
+            consumed: 1, sourceWordIndexes: [current.wordIndex] };
+    }
+
     // ======================================
     // 9th / 21st / 3rd など
     // ======================================
@@ -15185,6 +15182,12 @@ function getEnglishNumberComparisonUnit(
         };
     }
 
+
+    const decadeWord = ENGLISH_DECADE_WORDS[current.normalized];
+    if (Number.isInteger(decadeWord)) {
+        return { token: `__decade_${decadeWord}__`,
+            consumed: 1, sourceWordIndexes: [current.wordIndex] };
+    }
 
     // ======================================
     // ninth / twentieth など
@@ -15373,6 +15376,25 @@ function getEnglishNumberComparisonUnit(
     }
 
 
+    // two thousands = 2000s / two thousand twenties = 2020s
+    const decadeThousand = ENGLISH_SMALL_NUMBERS[current.normalized];
+    const following = words[startIndex + 1]?.normalized;
+    const followingDecade = ENGLISH_DECADE_WORDS[words[startIndex + 2]?.normalized];
+    if (decadeThousand >= 1 && decadeThousand <= 9) {
+        let value = null, consumed = 0;
+        if (following === 'thousands') {
+            value = decadeThousand * 1000;
+            consumed = 2;
+        } else if (following === 'thousand' && Number.isInteger(followingDecade)) {
+            value = decadeThousand * 1000 + followingDecade;
+            consumed = 3;
+        }
+        if (value !== null) {
+            return { token: `__decade_${value}__`, consumed,
+                sourceWordIndexes: words.slice(startIndex, startIndex + consumed).map(w => w.wordIndex) };
+        }
+    }
+
     // ======================================
     // 2012 → two thousand twelve
     // 1999 → one thousand nine hundred...
@@ -15477,6 +15499,22 @@ function getEnglishNumberComparisonUnit(
         twenty: 20
     };
 
+
+    const yearDecadePrefix = yearPrefixMap[current.normalized];
+    const nextYear = words[startIndex + 1]?.normalized;
+    const yearDecade = ENGLISH_DECADE_WORDS[nextYear];
+    if (yearDecadePrefix && Number.isInteger(yearDecade)) {
+        return { token: `__decade_${yearDecadePrefix * 100 + yearDecade}__`,
+            consumed: 2, sourceWordIndexes: words.slice(startIndex, startIndex + 2).map(w => w.wordIndex) };
+    }
+    if (yearDecadePrefix && nextYear === 'hundreds') {
+        return { token: `__decade_${yearDecadePrefix * 100}__`,
+            consumed: 2, sourceWordIndexes: words.slice(startIndex, startIndex + 2).map(w => w.wordIndex) };
+    }
+    if (yearDecadePrefix && nextYear === 'hundred') {
+        return { token: `__num_${yearDecadePrefix * 100}__`,
+            consumed: 2, sourceWordIndexes: words.slice(startIndex, startIndex + 2).map(w => w.wordIndex) };
+    }
 
     const yearPrefix =
         yearPrefixMap[
@@ -16297,7 +16335,9 @@ function buildSpeechComparisonUnits(
             );
 
 
-        if (numberLetter) {
+        // 20sを20+sとして誤分割しない（3D/4Kなどは従来どおり）
+        const numericDecade = raw.match(/^(\d{2}|\d{4})'?s$/);
+        if (numberLetter && !(numericDecade && Number(numericDecade[1]) % 10 === 0)) {
 
             units.push({
                 token:
