@@ -18,7 +18,7 @@
   var db = (typeof challengeDb !== 'undefined') ? challengeDb : null;
   function el(id){ return document.getElementById(id); }
   function safe(s){ return String(s == null ? '' : s).replace(/[&<>"']/g,function(x){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x];});}
-  function status(msg){ var n=el('nccStatusText'); if(n) n.textContent=msg; }
+  function status(msg){ ['nccStatusText','nccStageStatus'].forEach(function(id){var n=el(id);if(n)n.textContent=msg;}); }
   function identify(){
     var n=el('display-player-name');
     if(n) n.textContent=(window.nccProfile && window.nccProfile.name)||'未登録';
@@ -109,8 +109,11 @@
     if(!synthesizing || !window.speechSynthesis)return;
     if(speechPartIndex>=speechParts.length){stopNarration();return;}
     var u=new SpeechSynthesisUtterance(speechParts[speechPartIndex++]);
-    u.lang='en-US';u.rate=parseFloat((el('nccTtsSpeed')||{}).value||'0.86');
-    u.pitch=1;u.volume=1;
+    u.lang='en-US';
+    var moods={rise:[1.05,1.06],story:[0.98,1.02],romance:[0.93,1.06],heart:[0.96,1.03],fantasy:[0.93,1.0],mystery:[0.92,0.92],future:[0.98,1.03],poetry:[0.9,1.05]};
+    var mood=moods[active.id]||[1,1];
+    u.rate=parseFloat((el('nccTtsSpeed')||{}).value||'0.86')*mood[0];
+    u.pitch=mood[1];u.volume=1;
     var voices=window.speechSynthesis.getVoices();
     var v=voices.find(function(x){return /^en(-US)?$/i.test(x.lang) && /natural|samantha|aria|jenny|google/i.test(x.name);}) ||
       voices.find(function(x){return /^en/i.test(x.lang);});
@@ -198,7 +201,7 @@
     if(btn){btn.disabled=true;btn.textContent='送信中…';}
     var row={
       challengeId:active.id,season:season,participantId:p.participantId||getId(),
-      name:p.name,grade:p.grade||'',pref:p.pref||'',
+      name:p.name,grade:p.grade||'',pref:p.pref||'',school:'',
       acc:lastReading.acc,wpm:lastReading.wpm,comp:lastReading.performance,
       readingPerformance:lastReading.performance,
       timestamp:firebase.firestore.FieldValue.serverTimestamp(),
