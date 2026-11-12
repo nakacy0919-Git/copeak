@@ -136,7 +136,7 @@ function renderBrowse(){
    document.body.classList.remove('reading-browsing');
    selectLesson(value,true);
   }
-  window.scrollTo?.({top:0,behavior:'instant'});
+  window.scrollTo?.({top:0,behavior:'auto'});
  }));
  $('browseBreadcrumbs').querySelectorAll('[data-browse-step]').forEach(b=>b.addEventListener('click',()=>openBrowse(b.dataset.browseStep)));
 }
@@ -154,7 +154,7 @@ function openBrowse(step='category'){
  if(step==='level')browseState.level=null;
  browseState.step=step;
  renderBrowse();
- window.scrollTo?.({top:0,behavior:'instant'});
+ window.scrollTo?.({top:0,behavior:'auto'});
 }
 
 function safeSourceUrl(raw){
