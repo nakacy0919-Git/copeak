@@ -75,8 +75,10 @@ function renderSetList(){
 }
 function safeSourceUrl(raw){
  try{
-  const url=new URL(String(raw||''),window.location.href);
-  return url.protocol==='https:'?url.href:null;
+  const value=String(raw||'').trim();
+  if(!/^https:\/\//i.test(value))return null;
+  const url=new URL(value);
+  return url.protocol==='https:'&&!url.username&&!url.password?url.href:null;
  }catch{return null;}
 }
 function selectLesson(id,startFocus=true){
