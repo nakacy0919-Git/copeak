@@ -9,7 +9,16 @@ const label=(id,collection)=>collection.find(x=>x.id===id)?.label||id;
 const status=s=>{$('loadStatus').textContent=s;};
 const words=lesson=>lesson.paragraphs.flatMap(p=>p.sentences).map(s=>s.en).join(' ').trim().split(/\s+/).filter(Boolean).length;
 const readProgress=id=>{try{return JSON.parse(localStorage.getItem('copeak-reading-'+id)||'{}');}catch{return {};}};
-const saveProgress=()=>{try{localStorage.setItem('copeak-reading-'+state.lesson.id,JSON.stringify({answers:state.answers,clozeAnswers:state.clozeAnswers,graded:state.graded,practice:state.practice}));}catch{}};
+const saveProgress=()=>{
+ if(!state.lesson)return;
+ try{
+  localStorage.setItem('copeak-reading-'+state.lesson.id,JSON.stringify({answers:state.answers,clozeAnswers:state.clozeAnswers,graded:state.graded,practice:state.practice}));
+  const warn=$('storageStatus');if(warn)warn.hidden=true;
+ }catch{
+  const warn=$('storageStatus');
+  if(warn){warn.hidden=false;warn.textContent='この端末では学習記録を保存できません。空き容量やプライベートブラウズ設定を確認してください。';}
+ }
+};
 const shuffle=a=>{const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;};
 function renderCatalog(){
  const m=state.manifest;if(!m)return;
@@ -37,6 +46,12 @@ function renderSetList(){
  }).join(''):'<p class="empty">この条件の長文はまだ準備中です。他のレベル・分野をご覧ください。</p>';
  $('setList').querySelectorAll('[data-set]').forEach(b=>b.addEventListener('click',()=>selectLesson(b.dataset.set)));
 }
+function safeSourceUrl(raw){
+ try{
+  const url=new URL(String(raw||''),window.location.href);
+  return url.protocol==='https:'?url.href:null;
+ }catch{return null;}
+}
 function selectLesson(id,startFocus=true){
  const s=state.sets.find(x=>x.id===id);if(!s)return;
  state.lesson=s;const progress=readProgress(s.id);state.answers=progress.answers||{};state.clozeAnswers=progress.clozeAnswers||{};state.graded=progress.graded===true;state.activeQuestionId=null;state.practice=progress.practice&&typeof progress.practice==='object'?progress.practice:{};state.quizCursor={};
@@ -45,7 +60,10 @@ function selectLesson(id,startFocus=true){
  $('supportToggle').setAttribute('aria-pressed','false');$('supportToggle').setAttribute('aria-label','読解の根拠段落を表示');
  $('lessonTitle').textContent=s.title+' / '+s.title_ja;
  $('lessonMeta').textContent=label(s.category_id,state.manifest.categories)+' · '+(s.level_ids||[s.level_id]).map(id=>label(id,state.manifest.levels)).join(' / ')+' · '+s.word_count+' words · '+s.questions.length+' questions';
- $('sourceLinks').innerHTML=s.source_links.map(l=>'<a target="_blank" rel="noopener noreferrer" href="'+esc(l.url)+'">'+esc(l.title)+'</a>').join('');
+ $('sourceLinks').innerHTML=(s.source_links||[]).map(l=>{
+  const href=safeSourceUrl(l.url);
+  return href?'<a target="_blank" rel="noopener noreferrer" href="'+esc(href)+'">'+esc(l.title)+'</a>':'';
+ }).join('');
  renderPassage();renderQuestions();renderVocab();renderNotes();renderCloze();switchTab('questions');renderSetList();showExerciseChooser();renderPracticeProgress();
  if(startFocus)enterFocusMode();
  if(startFocus&&document.body.classList.contains('reading-focus'))closeCatalog();
