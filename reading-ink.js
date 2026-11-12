@@ -130,8 +130,18 @@
    const p=point(overlay.canvas,event);if(!p)return;
    const list=doc.paragraphs[overlay.index]||[];
    const width=overlay.canvas.clientWidth,height=overlay.canvas.clientHeight;
-   const hit=list.findIndex(stroke=>stroke.points.some(([x,y])=>
-    Math.hypot((x-p[0])*width,(y-p[1])*height)<14));
+   // Test the drawn line segments, not just sampled points, so a long
+   // underline can be erased by touching its middle.
+   const distance=(x,y,a,b)=>{
+    const ax=a[0]*width,ay=a[1]*height,bx=b[0]*width,by=b[1]*height;
+    const dx=bx-ax,dy=by-ay;
+    const t=clamp(((x-ax)*dx+(y-ay)*dy)/(dx*dx+dy*dy||1),0,1);
+    return Math.hypot(x-(ax+t*dx),y-(ay+t*dy));
+   };
+   const px=p[0]*width,py=p[1]*height;
+   const hit=list.findIndex(stroke=>stroke.points.some((point,i,arr)=>
+    i===0?Math.hypot(px-point[0]*width,py-point[1]*height)<14:
+    distance(px,py,arr[i-1],point)<14));
    if(hit<0)return;
    const [removed]=list.splice(hit,1);
    history.push({kind:'erase',index:overlay.index,stroke:removed,at:hit});
