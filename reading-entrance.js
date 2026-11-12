@@ -241,6 +241,147 @@ function downloadDocx(){
  $('printStatus').textContent='Wordファイルを保存しました。';}
  catch(e){$('printStatus').textContent='Word出力に失敗しました：'+e.message;}
 }
+
+/* Focused reading UI: independent pane scrolling, tablet resize bar and slide-out catalog. */
+const uiPref={passageSize:18,questionSize:16,split:50,dragging:false};
+const range=(n,min,max)=>Math.max(min,Math.min(max,n));
+function readUISettings(){
+ try{
+  const saved=JSON.parse(localStorage.getItem('copeak-reading-layout-v1')||'{}');
+  uiPref.passageSize=range(Number(saved.passageSize)||18,14,28);
+  uiPref.questionSize=range(Number(saved.questionSize)||16,13,24);
+  uiPref.split=range(Number(saved.split)||50,30,70);
+ }catch(_){}
+}
+function storeUISettings(){
+ try{localStorage.setItem('copeak-reading-layout-v1',JSON.stringify({
+  passageSize:uiPref.passageSize,questionSize:uiPref.questionSize,split:uiPref.split
+ }));}catch(_){}
+}
+function applyTypography(){
+ $('readingApp').style.setProperty('--reading-passage-size',uiPref.passageSize+'px');
+ $('readingApp').style.setProperty('--reading-question-size',uiPref.questionSize+'px');
+ $('passageFontValue').textContent=uiPref.passageSize+'px';
+ $('questionFontValue').textContent=uiPref.questionSize+'px';
+ $('passageFontMinus').disabled=uiPref.passageSize<=14;
+ $('passageFontPlus').disabled=uiPref.passageSize>=28;
+ $('questionFontMinus').disabled=uiPref.questionSize<=13;
+ $('questionFontPlus').disabled=uiPref.questionSize>=24;
+}
+function splitBounds(){
+ const available=$('studyLayout').clientWidth-12;
+ if(available<=0)return [30,70];
+ const min=Math.max(30,Math.ceil(265/available*100));
+ const max=Math.min(70,Math.floor((available-295)/available*100));
+ return min<=max?[min,max]:[50,50];
+}
+function applySplit(pct,save=false){
+ const [lo,hi]=splitBounds();
+ uiPref.split=range(Math.round(pct),lo,hi);
+ $('studyLayout').style.setProperty('--reading-left-width',uiPref.split+'%');
+ const bar=$('studySplitter');
+ bar.setAttribute('aria-valuemin',String(lo));
+ bar.setAttribute('aria-valuemax',String(hi));
+ bar.setAttribute('aria-valuenow',String(uiPref.split));
+ bar.setAttribute('aria-valuetext','英文'+uiPref.split+'%、問題'+(100-uiPref.split)+'%');
+ if(save)storeUISettings();
+}
+function closeCatalog(restoreFocus=false){
+ const wasOpen=document.body.classList.contains('catalog-open');
+ document.body.classList.remove('catalog-open');
+ $('readingCatalog').inert=document.body.classList.contains('reading-focus');
+ $('catalogBackdrop').hidden=true;
+ $('catalogToggle').setAttribute('aria-expanded','false');
+ $('catalogToggle').setAttribute('aria-label','教材一覧を開く');
+ $('catalogToggle').innerHTML='→ <span>教材</span>';
+ if(restoreFocus&&wasOpen)$('catalogToggle').focus();
+}
+function openCatalog(){
+ if(!document.body.classList.contains('reading-focus'))return;
+ document.body.classList.add('catalog-open');
+ $('readingCatalog').inert=false;
+ $('catalogBackdrop').hidden=false;
+ $('catalogToggle').setAttribute('aria-expanded','true');
+ $('catalogToggle').setAttribute('aria-label','教材一覧を閉じる');
+ $('catalogToggle').innerHTML='← <span>閉じる</span>';
+ $('categoryFilter').focus();
+}
+function enterFocusMode(){
+ if(!state.lesson)return;
+ document.body.classList.add('reading-focus');
+ $('catalogToggle').hidden=false;
+ $('focusStart').hidden=true;
+ $('focusExit').hidden=false;
+ closeCatalog(false);
+ applyTypography();
+ applySplit(uiPref.split);
+ $('passageScroll').scrollTop=0;
+ $('questionScroll').scrollTop=0;
+}
+function exitFocusMode(){
+ closeCatalog(false);
+ document.body.classList.remove('reading-focus');
+ $('readingCatalog').inert=false;
+ $('catalogToggle').hidden=true;
+ $('focusStart').hidden=false;
+ $('focusExit').hidden=true;
+ $('catalogToggle').setAttribute('aria-expanded','false');
+ $('reader').scrollIntoView({block:'start',behavior:'smooth'});
+}
+function initReadingUI(){
+ readUISettings();
+ applyTypography();
+ applySplit(uiPref.split);
+ $('catalogToggle').addEventListener('click',()=>{
+  if(document.body.classList.contains('catalog-open'))closeCatalog(true);
+  else openCatalog();
+ });
+ $('catalogBackdrop').addEventListener('click',()=>closeCatalog(true));
+ $('focusStart').addEventListener('click',enterFocusMode);
+ $('focusExit').addEventListener('click',exitFocusMode);
+ document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&document.body.classList.contains('catalog-open'))closeCatalog(true);
+ });
+ for(const [button,key,step] of [
+  ['passageFontMinus','passageSize',-2],['passageFontPlus','passageSize',2],
+  ['questionFontMinus','questionSize',-1],['questionFontPlus','questionSize',1]
+ ]){
+  $(button).addEventListener('click',()=>{
+   const [lo,hi]=key==='passageSize'?[14,28]:[13,24];
+   uiPref[key]=range(uiPref[key]+step,lo,hi);
+   applyTypography();storeUISettings();
+  });
+ }
+ const bar=$('studySplitter');
+ bar.addEventListener('pointerdown',e=>{
+  if(!document.body.classList.contains('reading-focus')||!window.matchMedia('(min-width:700px)').matches)return;
+  uiPref.dragging=true;
+  bar.classList.add('is-dragging');
+  try{bar.setPointerCapture(e.pointerId);}catch(_){}
+  e.preventDefault();
+ });
+ bar.addEventListener('pointermove',e=>{
+  if(!uiPref.dragging)return;
+  const bounds=$('studyLayout').getBoundingClientRect();
+  if(!bounds.width)return;
+  applySplit((e.clientX-bounds.left)/bounds.width*100);
+ });
+ const finishDrag=()=>{
+  if(!uiPref.dragging)return;
+  uiPref.dragging=false;bar.classList.remove('is-dragging');storeUISettings();
+ };
+ bar.addEventListener('pointerup',finishDrag);
+ bar.addEventListener('pointercancel',finishDrag);
+ bar.addEventListener('lostpointercapture',finishDrag);
+ bar.addEventListener('keydown',e=>{
+  const diff=e.key==='ArrowLeft'?-2:e.key==='ArrowRight'?2:e.key==='Home'?-100:e.key==='End'?100:0;
+  if(!diff)return;
+  e.preventDefault();
+  applySplit(e.key==='Home'?30:e.key==='End'?70:uiPref.split+diff,true);
+ });
+ window.addEventListener('resize',()=>{if(!uiPref.dragging)applySplit(uiPref.split);});
+}
+
 async function init(){
  status('教材一覧を読み込んでいます…');
  try{
@@ -298,5 +439,6 @@ try{state.gradingMode=localStorage.getItem('copeak-reading-grading-mode')==='bat
 $('gradingMode').value=state.gradingMode;
 $('printOpen').addEventListener('click',()=>$('printDialog').showModal());
 $('printPdf').addEventListener('click',printPDF);$('printDocx').addEventListener('click',downloadDocx);
+initReadingUI();
 init();
 })();
