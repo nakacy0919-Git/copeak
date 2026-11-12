@@ -30,10 +30,10 @@
       // The reading data and learning interface are requested only after PIN entry.
       await loadScript('grammar-print-core.js?v=20261112-1');
       await loadScript('reading-practice-engine.js?v=20261112-quiz2');
-      await loadScript('reading-lexicon-core.js?v=20261112-words1');
-      await loadScript('reading-dictionary-lookup.js?v=20261112-words1');
-      await loadScript('reading-correct-effect.js?v=20261112-words1');
-      await loadScript('reading-entrance.js?v=20261112-words1');
+      await loadScript('reading-lexicon-core.js?v=20261112-words2');
+      await loadScript('reading-dictionary-lookup.js?v=20261112-words2');
+      await loadScript('reading-correct-effect.js?v=20261112-words2');
+      await loadScript('reading-entrance.js?v=20261112-words2');
     } catch (error) {
       app.hidden = true;
       gate.hidden = false;
