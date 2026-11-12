@@ -8,7 +8,34 @@ const state={manifest:null,sets:[],lesson:null,category:'all',level:'all',showAl
 const label=(id,collection)=>collection.find(x=>x.id===id)?.label||id;
 const status=s=>{$('loadStatus').textContent=s;};
 const words=lesson=>lesson.paragraphs.flatMap(p=>p.sentences).map(s=>s.en).join(' ').trim().split(/\s+/).filter(Boolean).length;
-const readProgress=id=>{try{return JSON.parse(localStorage.getItem('copeak-reading-'+id)||'{}');}catch{return {};}};
+const readProgress=id=>{
+ try{
+  const data=JSON.parse(localStorage.getItem('copeak-reading-'+id)||'{}');
+  if(!data||typeof data!=='object'||Array.isArray(data))return {};
+  const cleanAnswers=value=>{
+   const result=Object.create(null);
+   if(!value||typeof value!=='object'||Array.isArray(value))return result;
+   for(const [key,answer] of Object.entries(value).slice(0,200)){
+    if(/^[A-Za-z0-9:_-]{1,80}$/.test(key)&&Number.isInteger(answer)&&answer>=0&&answer<=3)result[key]=answer;
+   }
+   return result;
+  };
+  const practice=Object.create(null),allowed=new Set(['questions','vocab:en-ja','vocab:ja-en','vocab:definition','grammar','discourse','paraphrase','cloze']);
+  if(data.practice&&typeof data.practice==='object'&&!Array.isArray(data.practice)){
+   for(const [key,value] of Object.entries(data.practice)){
+    if(!allowed.has(key)||!value||typeof value!=='object'||Array.isArray(value))continue;
+    practice[key]={
+     answers:cleanAnswers(value.answers),
+     runs:Number.isInteger(value.runs)?Math.max(0,Math.min(value.runs,100000)):0,
+     best:Number.isFinite(value.best)?Math.max(0,Math.min(value.best,100)):0,
+     finished:value.finished===true,
+     migrated:value.migrated===true
+    };
+   }
+  }
+  return {answers:cleanAnswers(data.answers),clozeAnswers:cleanAnswers(data.clozeAnswers),graded:data.graded===true,practice};
+ }catch{return {};}
+};
 const saveProgress=()=>{
  if(!state.lesson)return;
  try{
