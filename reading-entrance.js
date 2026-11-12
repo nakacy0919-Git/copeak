@@ -3,12 +3,12 @@
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const escapeXml=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&apos;'}[c])).replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/g,'');
-const state={manifest:null,sets:[],lesson:null,category:'all',level:'all',showAll:false,support:false,answers:{},clozeAnswers:{},vocabIndex:0,vocabChoice:null,vocabOrder:[],panel:'questions'};
+const state={manifest:null,sets:[],lesson:null,category:'all',level:'all',showAll:false,support:false,answers:{},clozeAnswers:{},vocabIndex:0,vocabChoice:null,vocabOrder:[],panel:'questions',graded:false,gradingMode:'immediate',activeQuestionId:null};
 const label=(id,collection)=>collection.find(x=>x.id===id)?.label||id;
 const status=s=>{$('loadStatus').textContent=s;};
 const words=lesson=>lesson.paragraphs.flatMap(p=>p.sentences).map(s=>s.en).join(' ').trim().split(/\s+/).filter(Boolean).length;
 const readProgress=id=>{try{return JSON.parse(localStorage.getItem('copeak-reading-'+id)||'{}');}catch{return {};}};
-const saveProgress=()=>{try{localStorage.setItem('copeak-reading-'+state.lesson.id,JSON.stringify({answers:state.answers,clozeAnswers:state.clozeAnswers}));}catch{}};
+const saveProgress=()=>{try{localStorage.setItem('copeak-reading-'+state.lesson.id,JSON.stringify({answers:state.answers,clozeAnswers:state.clozeAnswers,graded:state.graded}));}catch{}};
 const shuffle=a=>{const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;};
 function renderCatalog(){
  const m=state.manifest;if(!m)return;
@@ -36,18 +36,20 @@ function renderSetList(){
  }).join(''):'<p class="empty">この条件の長文はまだ準備中です。他のレベル・分野をご覧ください。</p>';
  $('setList').querySelectorAll('[data-set]').forEach(b=>b.addEventListener('click',()=>selectLesson(b.dataset.set)));
 }
-function selectLesson(id){
+function selectLesson(id,startFocus=true){
  const s=state.sets.find(x=>x.id===id);if(!s)return;
- state.lesson=s;state.answers=readProgress(s.id).answers||{};state.clozeAnswers=readProgress(s.id).clozeAnswers||{};
+ state.lesson=s;const progress=readProgress(s.id);state.answers=progress.answers||{};state.clozeAnswers=progress.clozeAnswers||{};state.graded=progress.graded===true;state.activeQuestionId=null;
  state.showAll=false;state.support=false;state.vocabIndex=0;state.vocabChoice=null;state.panel='questions';
- $('translationsAll').disabled=false;$('supportToggle').disabled=false;$('printOpen').disabled=false;
+ $('translationsAll').disabled=false;$('supportToggle').disabled=false;$('printOpen').disabled=false;$('focusStart').disabled=false;
  $('translationsAll').textContent='日本語訳をすべて表示';
  $('supportToggle').textContent='サポートモード OFF';$('supportToggle').setAttribute('aria-pressed','false');
  $('lessonTitle').textContent=s.title+' / '+s.title_ja;
  $('lessonMeta').textContent=label(s.category_id,state.manifest.categories)+' · '+(s.level_ids||[s.level_id]).map(id=>label(id,state.manifest.levels)).join(' / ')+' · '+s.word_count+' words · '+s.questions.length+' questions';
  $('sourceLinks').innerHTML=s.source_links.map(l=>'<a target="_blank" rel="noopener noreferrer" href="'+esc(l.url)+'">'+esc(l.title)+'</a>').join('');
  renderPassage();renderQuestions();renderVocab();renderNotes();renderCloze();switchTab('questions');renderSetList();
- if(window.matchMedia('(max-width:1000px)').matches)$('reader').scrollIntoView({behavior:'smooth',block:'start'});
+ if(startFocus)enterFocusMode();
+ if(startFocus&&document.body.classList.contains('reading-focus'))closeCatalog();
+ if(!document.body.classList.contains('reading-focus')&&window.matchMedia('(max-width:1000px)').matches)$('reader').scrollIntoView({behavior:'smooth',block:'start'});
 }
 function renderPassage(){
  const s=state.lesson;if(!s)return;
@@ -58,26 +60,67 @@ function renderPassage(){
   const t=$('passage').querySelector('[data-translation="'+b.dataset.tr+'"]');t.hidden=!t.hidden;b.setAttribute('aria-expanded',String(!t.hidden));
  }));
 }
-function focusEvidence(ids,jump){
+function focusEvidence(ids,jump=false){
  document.querySelectorAll('.paragraph.support-hit').forEach(x=>x.classList.remove('support-hit'));
- if(!state.support||!ids)return;
- ids.forEach(id=>{const node=document.getElementById(id);if(node)node.classList.add('support-hit');});
- if(jump&&ids[0])document.getElementById(ids[0])?.scrollIntoView({behavior:'smooth',block:'center'});
+ const statusText=$('evidenceStatus');
+ if(!state.support){
+  statusText.textContent='サポートモードをONにすると、根拠段落を表示できます。';
+  return;
+ }
+ if(!ids?.length){statusText.textContent='問題を選ぶと根拠段落が黄色で表示されます。';return;}
+ const paragraphNames=ids.map(id=>{
+  const ix=state.lesson?.paragraphs.findIndex(p=>p.id===id);
+  const node=document.getElementById(id);
+  if(node)node.classList.add('support-hit');
+  return ix>=0?'第'+(ix+1)+'段落':'';
+ }).filter(Boolean);
+ statusText.textContent='根拠：'+paragraphNames.join('・')+' をハイライトしています。';
+ if(jump&&ids[0]){
+  const node=document.getElementById(ids[0]),scroll=$('passageScroll');
+  if(node&&scroll&&document.body.classList.contains('reading-focus')){
+   const delta=node.getBoundingClientRect().top-scroll.getBoundingClientRect().top;
+   scroll.scrollTo({top:Math.max(0,scroll.scrollTop+delta-Math.max(15,scroll.clientHeight*.20)),behavior:'smooth'});
+  }else node?.scrollIntoView({behavior:'smooth',block:'center'});
+ }
 }
 function renderQuestions(){
  const s=state.lesson;if(!s)return;
+ const qTotal=s.questions.length;
+ const answered=s.questions.filter(q=>Number.isInteger(state.answers[q.id])).length;
+ const complete=answered===qTotal;
+ const isBatch=state.gradingMode==='batch';
+ const showResults=!isBatch||state.graded;
+ $('answerCount').textContent=answered+' / '+qTotal+'問回答';
+ $('gradingMode').value=state.gradingMode;
+ $('gradeAll').hidden=!isBatch;
+ $('gradeAll').disabled=!complete||state.graded;
+ $('gradeAll').textContent=state.graded?'採点済み':'全問の結果を表示';
+ $('readingResult').textContent=complete&&showResults
+  ?'採点結果：'+s.questions.filter(q=>state.answers[q.id]===q.answer).length+' / '+qTotal+' 問正解'
+  :(isBatch&&!state.graded?'全問を選択すると採点できます。回答は採点前なら変更できます。':'');
  $('questions').innerHTML=s.questions.map((q,i)=>{
- const chosen=state.answers[q.id],answered=Number.isInteger(chosen);
- return '<article class="question-card" data-question="'+esc(q.id)+'"><p class="skill">'+esc(q.skill.toUpperCase())+' · Q'+(i+1)+'</p><h4>'+esc(q.prompt)+'</h4><div class="choices">'+q.options.map((option,j)=>'<button type="button" data-q="'+esc(q.id)+'" data-option="'+j+'" '+(answered?'disabled ':'')+'class="'+(answered&&j===q.answer?'correct':answered&&j===chosen?'wrong':'')+'">'+String.fromCharCode(65+j)+'. '+esc(option)+'</button>').join('')+'</div>'+
- (answered?'<p class="feedback '+(chosen===q.answer?'correct':'wrong')+'">'+(chosen===q.answer?'Correct! 正解':'正解は '+String.fromCharCode(65+q.answer))+'</p><p class="feedback">'+esc(q.explanation_ja)+'</p>':'')+
- '<div class="card-actions"><button type="button" data-evidence="'+esc(q.id)+'" '+(state.support?'':'hidden')+'>根拠段落をハイライト</button></div></article>';
+  const chosen=state.answers[q.id],selected=Number.isInteger(chosen);
+  const revealed=selected&&showResults;
+  return '<article class="question-card" data-question="'+esc(q.id)+'"><p class="skill">'+esc(q.skill.toUpperCase())+' · Q'+(i+1)+'</p><h4>'+esc(q.prompt)+'</h4><div class="choices">'+q.options.map((option,j)=>
+   '<button type="button" data-q="'+esc(q.id)+'" data-option="'+j+'" aria-pressed="'+(selected&&j===chosen)+'" '+
+   (revealed?'disabled ':'')+'class="'+(revealed&&j===q.answer?'correct':revealed&&j===chosen?'wrong':selected&&j===chosen?'selected':'')+'">'+String.fromCharCode(65+j)+'. '+esc(option)+'</button>'
+  ).join('')+'</div>'+
+  (revealed?'<p class="feedback '+(chosen===q.answer?'correct':'wrong')+'">'+(chosen===q.answer?'正解！':'正解は '+String.fromCharCode(65+q.answer))+'</p><p class="feedback">'+esc(q.explanation_ja)+'</p>':'')+
+  '<div class="card-actions"><button type="button" data-evidence="'+esc(q.id)+'" '+(state.support?'':'hidden')+'>根拠段落を見る</button></div></article>';
  }).join('');
  $('questions').querySelectorAll('[data-q]').forEach(b=>b.addEventListener('click',()=>{
-  const q=s.questions.find(q=>q.id===b.dataset.q);if(!q||Number.isInteger(state.answers[q.id]))return;
-  state.answers[q.id]=Number(b.dataset.option);saveProgress();renderQuestions();renderSetList();focusEvidence(q.paragraph_ids,false);
+  const q=s.questions.find(x=>x.id===b.dataset.q);
+  if(!q||(state.gradingMode==='batch'&&state.graded)||
+   (state.gradingMode==='immediate'&&Number.isInteger(state.answers[q.id])))return;
+  state.activeQuestionId=q.id;
+  state.answers[q.id]=Number(b.dataset.option);
+  saveProgress();renderQuestions();renderSetList();
+  if(state.support)focusEvidence(q.paragraph_ids,true);
  }));
  $('questions').querySelectorAll('[data-evidence]').forEach(b=>b.addEventListener('click',()=>{
-  const q=s.questions.find(q=>q.id===b.dataset.evidence);focusEvidence(q?.paragraph_ids,true);
+  const q=s.questions.find(x=>x.id===b.dataset.evidence);
+  state.activeQuestionId=q?.id||null;
+  focusEvidence(q?.paragraph_ids,true);
  }));
 }
 function renderVocab(){
@@ -212,19 +255,47 @@ async function init(){
   }));
   state.sets=results.filter(r=>r.status==='fulfilled'&&r.value).map(r=>r.value);
   const errors=results.filter(r=>r.status==='rejected');status(errors.length?errors.length+'件の教材を検証できませんでした。編集データを確認してください。':'現在の収録教材 '+state.sets.length+'セット / 目標450セット');
-  renderCatalog();if(state.sets.length)selectLesson(state.sets[0].id);
+  renderCatalog();if(state.sets.length)selectLesson(state.sets[0].id,false);
  }catch(e){status('教材一覧を読み込めませんでした：'+e.message);}
 }
 $('categoryFilter').addEventListener('change',e=>{state.category=e.target.value;renderCatalog();renderSetList();});
 $('levelFilter').addEventListener('change',e=>{state.level=e.target.value;renderSetList();});
 $('translationsAll').addEventListener('click',()=>{state.showAll=!state.showAll;renderPassage();$('translationsAll').textContent=state.showAll?'日本語訳をすべて隠す':'日本語訳をすべて表示';focusEvidence(null,false);});
 $('supportToggle').addEventListener('click',()=>{
- state.support=!state.support;$('supportToggle').setAttribute('aria-pressed',String(state.support));$('supportToggle').textContent='サポートモード '+(state.support?'ON':'OFF');
- renderQuestions();focusEvidence(null,false);
+ state.support=!state.support;
+ $('supportToggle').setAttribute('aria-pressed',String(state.support));
+ $('supportToggle').textContent='サポートモード '+(state.support?'ON':'OFF');
+ renderQuestions();
+ if(state.support){
+  const q=state.lesson?.questions.find(x=>x.id===state.activeQuestionId)
+   ||state.lesson?.questions.find(x=>!Number.isInteger(state.answers[x.id]))
+   ||state.lesson?.questions[0];
+  state.activeQuestionId=q?.id||null;
+  focusEvidence(q?.paragraph_ids,true);
+ }else focusEvidence(null,false);
 });
 document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
 $('vocabQuizMode').addEventListener('change',()=>{state.vocabIndex=0;state.vocabChoice=null;if(state.lesson)renderVocabQuiz();});
 $('vocabRestart').addEventListener('click',()=>{if(state.lesson)renderVocab();});
+$('gradingMode').addEventListener('change',e=>{
+ state.gradingMode=e.target.value==='batch'?'batch':'immediate';
+ try{localStorage.setItem('copeak-reading-grading-mode',state.gradingMode);}catch(_){}
+ renderQuestions();
+});
+$('gradeAll').addEventListener('click',()=>{
+ if(!state.lesson||state.gradingMode!=='batch'||state.graded)return;
+ if(!state.lesson.questions.every(q=>Number.isInteger(state.answers[q.id])))return;
+ state.graded=true;saveProgress();renderQuestions();
+ $('questionScroll').scrollTo({top:0,behavior:'smooth'});
+});
+$('resetAnswers').addEventListener('click',()=>{
+ if(!state.lesson)return;
+ state.answers={};state.graded=false;state.activeQuestionId=null;
+ saveProgress();renderQuestions();renderSetList();focusEvidence(null,false);
+ $('questionScroll').scrollTo({top:0,behavior:'smooth'});
+});
+try{state.gradingMode=localStorage.getItem('copeak-reading-grading-mode')==='batch'?'batch':'immediate';}catch(_){}
+$('gradingMode').value=state.gradingMode;
 $('printOpen').addEventListener('click',()=>$('printDialog').showModal());
 $('printPdf').addEventListener('click',printPDF);$('printDocx').addEventListener('click',downloadDocx);
 init();
