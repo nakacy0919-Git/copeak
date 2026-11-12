@@ -40,14 +40,14 @@
    const core=root.CopeakReadingLexicon?.[key];
    if(core)return {...core,source:'基本語彙'};
    const cached=cacheGet(key);
-   if(cached)return {...cached,source:'オンライン取得済み'};
+   if(cached)return {...cached,source:'自動翻訳（端末保存・要確認）'};
   }
   return null;
  }
  const pending=new Map();
  async function remote(word){
   const term=norm(word),existing=cacheGet(term);
-  if(existing)return {...existing,source:'オンライン取得済み'};
+  if(existing)return {...existing,source:'自動翻訳（端末保存・要確認）'};
   if(!/^[\p{L}]+(?:[-'][\p{L}]+)*$/u.test(term)||term.length>60)return null;
   if(pending.has(term))return pending.get(term);
   const promise=(async()=>{
@@ -59,7 +59,7 @@
     const en=fetch('https://api.dictionaryapi.dev/api/v2/entries/en/'+encodeURIComponent(term),{signal:ctrl.signal,mode:'cors'})
      .then(r=>r.ok?r.json():null).then(data=>Array.isArray(data)?data.flatMap(e=>e.meanings||[]).flatMap(m=>m.definitions||[]).map(x=>x.definition).find(x=>typeof x==='string'&&x.length>=12&&x.length<350)||'':'').catch(()=>'');
     const [ja,definition]=await Promise.all([jp,en]);
-    const safeJapanese=ja&&ja.length<170&&!/^MYMEMORY WARNING|QUERY LENGTH LIMIT/i.test(ja)?ja:'';
+    const safeJapanese=ja&&ja.length<170&&ja.toLowerCase()!==term&&!/^MYMEMORY WARNING|QUERY LENGTH LIMIT/i.test(ja)?ja:'';
     if(!safeJapanese&&!definition)return null;
     const row={term,ja:safeJapanese||'',definition:definition||'',synonym:''};
     if(row.ja)cachePut(term,row);
