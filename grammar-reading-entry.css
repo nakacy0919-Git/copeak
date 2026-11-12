@@ -1,65 +1,22 @@
-/* Copeak Study – entrance reading card below the existing 2×2 menu.
-   Styling only: keep all existing grammar and vocabulary modes unchanged. */
-.gt-landing .gt-mode-card.gt-reading-entrance {
+/* The fifth card occupies the left slot only, aligned with the original 2×2 cards. */
+.gt-landing .gt-mode-card.gt-reading-entrance{
   --gt-glow-a:#54cfc0;
   --gt-glow-b:#298eae;
   --gt-soft:#eefcfb;
-  grid-column:1 / -1;
-  min-height:148px;
-  grid-template-rows:auto auto auto;
+  grid-column:1;
+  min-width:0;
+  min-height:clamp(184px,20.5vh,218px);
   border-color:rgba(89,174,181,.50);
   text-decoration:none;
 }
-.gt-landing .gt-reading-entrance .gt-card-copy {
-  align-self:center;
-}
-.gt-landing .gt-reading-entrance .gt-card-icon {
-  color:#fff;
-}
-.gt-landing .gt-reading-entrance .gt-card-type {
-  color:#3b8996;
-}
-@media (max-width:700px) {
-  .gt-landing .gt-mode-card.gt-reading-entrance {
-    display:grid;
-    grid-template-columns:46px minmax(0,1fr) 32px;
-    grid-template-rows:auto auto auto;
-    align-items:center;
-    column-gap:12px;
-    min-height:130px;
-    padding:16px 18px;
-  }
-  .gt-landing .gt-reading-entrance .gt-card-icon {
+.gt-landing .gt-reading-entrance .gt-card-icon{color:#fff}
+.gt-landing .gt-reading-entrance .gt-card-type{color:#3b8996}
+@media(max-width:700px){
+  .gt-landing .gt-mode-card.gt-reading-entrance{
     grid-column:1;
-    grid-row:1 / 4;
-    width:46px;height:46px;
-  }
-  .gt-landing .gt-reading-entrance .gt-card-type {
-    grid-column:2;
-    grid-row:1;
-    font-size:.64rem;
-  }
-  .gt-landing .gt-reading-entrance strong {
-    grid-column:2;
-    grid-row:2;
-    font-size:clamp(1rem,3vw,1.25rem);
-    margin:1px 0 0;
-    padding-right:4px;
-  }
-  .gt-landing .gt-reading-entrance .gt-card-copy {
-    grid-column:2;
-    grid-row:3;
-    align-self:start;
-    font-size:clamp(.66rem,2.2vw,.79rem);
-  }
-  .gt-landing .gt-reading-entrance .gt-card-arrow {
-    position:static;
-    grid-column:3;
-    grid-row:1 / 4;
-    justify-self:end;
-    width:32px;height:32px;
+    min-height:200px;
   }
 }
-@media (prefers-reduced-motion:reduce) {
- .gt-landing .gt-reading-entrance {transition:none}
+@media(prefers-reduced-motion:reduce){
+  .gt-landing .gt-reading-entrance{transition:none}
 }
