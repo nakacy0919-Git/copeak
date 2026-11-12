@@ -1,0 +1,208 @@
+{
+  "version": 1,
+  "title": "大学入試長文読解",
+  "note": "各カテゴリー30セットは制作目標であり、公開済み件数とは異なります。",
+  "categories": [
+    {
+      "id": "L01",
+      "label": "自然",
+      "icon": "🌿",
+      "target": 30
+    },
+    {
+      "id": "L02",
+      "label": "歴史",
+      "icon": "📜",
+      "target": 30
+    },
+    {
+      "id": "L03",
+      "label": "科学技術",
+      "icon": "🤖",
+      "target": 30
+    },
+    {
+      "id": "L04",
+      "label": "人間関係",
+      "icon": "🤝",
+      "target": 30
+    },
+    {
+      "id": "L05",
+      "label": "国際社会",
+      "icon": "🌐",
+      "target": 30
+    },
+    {
+      "id": "L06",
+      "label": "心理・哲学",
+      "icon": "🧠",
+      "target": 30
+    },
+    {
+      "id": "L07",
+      "label": "経済・ビジネス",
+      "icon": "💰",
+      "target": 30
+    },
+    {
+      "id": "L08",
+      "label": "芸術・文化",
+      "icon": "🎨",
+      "target": 30
+    },
+    {
+      "id": "L09",
+      "label": "文学・言語",
+      "icon": "🔎",
+      "target": 30
+    },
+    {
+      "id": "L10",
+      "label": "教育・学習",
+      "icon": "🎓",
+      "target": 30
+    },
+    {
+      "id": "L11",
+      "label": "法律・政治",
+      "icon": "⚖️",
+      "target": 30
+    },
+    {
+      "id": "L12",
+      "label": "医療・健康",
+      "icon": "🩺",
+      "target": 30
+    },
+    {
+      "id": "L13",
+      "label": "宇宙・未来",
+      "icon": "🚀",
+      "target": 30
+    },
+    {
+      "id": "L14",
+      "label": "婚姻・交友",
+      "icon": "💬",
+      "target": 30
+    },
+    {
+      "id": "L15",
+      "label": "倫理・道徳",
+      "icon": "⚖️",
+      "target": 30
+    }
+  ],
+  "levels": [
+    {
+      "id": "eiken-pre2",
+      "label": "英検準2級",
+      "words": [
+        250,
+        350
+      ],
+      "minutes": [
+        6,
+        9
+      ]
+    },
+    {
+      "id": "eiken-2",
+      "label": "英検2級",
+      "words": [
+        350,
+        500
+      ],
+      "minutes": [
+        8,
+        12
+      ]
+    },
+    {
+      "id": "eiken-pre1",
+      "label": "英検準1級",
+      "words": [
+        500,
+        700
+      ],
+      "minutes": [
+        12,
+        17
+      ]
+    },
+    {
+      "id": "eiken-1",
+      "label": "英検1級",
+      "words": [
+        700,
+        950
+      ],
+      "minutes": [
+        17,
+        24
+      ]
+    },
+    {
+      "id": "university-mid",
+      "label": "中堅私立大学",
+      "words": [
+        450,
+        650
+      ],
+      "minutes": [
+        10,
+        15
+      ]
+    },
+    {
+      "id": "university-advanced",
+      "label": "難関大学",
+      "words": [
+        650,
+        900
+      ],
+      "minutes": [
+        15,
+        22
+      ]
+    },
+    {
+      "id": "university-national",
+      "label": "国公立大学",
+      "words": [
+        700,
+        1000
+      ],
+      "minutes": [
+        18,
+        25
+      ]
+    }
+  ],
+  "sets": [
+    {
+      "id": "L02-001",
+      "file": "data/reading/entrance/L02-001.json"
+    },
+    {
+      "id": "L12-001",
+      "file": "data/reading/entrance/L12-001.json"
+    },
+    {
+      "id": "L13-001",
+      "file": "data/reading/entrance/L13-001.json"
+    }
+  ],
+  "editorial": {
+    "status_values": [
+      "draft",
+      "reviewed",
+      "published"
+    ],
+    "must_verify_facts": true,
+    "require_source_urls": true,
+    "original_wording_only": true,
+    "review_translation_and_questions": true
+  }
+}
