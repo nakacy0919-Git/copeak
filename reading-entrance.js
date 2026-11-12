@@ -311,11 +311,53 @@ function renderCloze(){
  }).join('');
  $('clozeQuestions').querySelectorAll('[data-cloze]').forEach(b=>b.addEventListener('click',()=>{const i=Number(b.dataset.cloze);if(Number.isInteger(state.clozeAnswers[i]))return;state.clozeAnswers[i]=Number(b.dataset.option);saveProgress();renderCloze();}));
 }
+function updateSupportUI(){
+ const btn=$('supportToggle');
+ const visible=state.lesson&&state.exercise==='questions';
+ btn.hidden=!visible;
+ btn.disabled=!visible;
+ btn.setAttribute('aria-pressed',String(state.support&&visible));
+ btn.setAttribute('aria-label',state.support&&visible?'サポートモードを解除':'根拠段落をハイライト');
+ btn.title=state.support&&visible?'サポートON：根拠段落をハイライト中':'サポートOFF：押すと根拠段落を表示';
+ btn.classList.toggle('support-on',!!(state.support&&visible));
+}
+function showExerciseChooser(){
+ const wasCloze=state.exercise==='cloze';
+ state.exercise=null;
+ state.support=false;state.activeQuestionId=null;
+ $('exerciseChooser').hidden=false;
+ $('tabNavigation').hidden=true;
+ $('questionScroll').hidden=true;
+ $('exerciseChange').hidden=true;
+ updateSupportUI();
+ if(wasCloze)renderPassage();
+ focusEvidence(null,false);
+}
+function chooseExercise(tab){
+ const allowed=['questions','vocab','grammar','discourse','paraphrase','cloze'];
+ if(!state.lesson||!allowed.includes(tab))return;
+ $('exerciseChooser').hidden=true;
+ $('tabNavigation').hidden=false;
+ $('questionScroll').hidden=false;
+ $('exerciseChange').hidden=false;
+ switchTab(tab);
+ updateSupportUI();
+ $('questionScroll').scrollTop=0;
+}
 function switchTab(tab){
  const changed=state.panel!==tab;
- state.panel=tab;document.querySelectorAll('[data-tab]').forEach(b=>b.setAttribute('aria-current',String(b.dataset.tab===tab)));
+ const previous=state.exercise;
+ state.panel=tab;
+ state.exercise=tab;
+ document.querySelectorAll('[data-tab]').forEach(b=>b.setAttribute('aria-current',String(b.dataset.tab===tab)));
  document.querySelectorAll('[data-panel]').forEach(p=>p.hidden=p.dataset.panel!==tab);
  if(changed)$('questionScroll').scrollTop=0;
+ if((previous==='cloze'||tab==='cloze')&&previous!==tab)renderPassage();
+ if(tab!=='questions'&&state.support){
+  state.support=false;
+  focusEvidence(null,false);
+ }
+ updateSupportUI();
 }
 function printConfig(){return {paper:$('paper').value,orientation:$('orientation').value,columns:Number($('columns').value),fontSize:Number($('fontSize').value),answers:$('printAnswers').value,translation:$('printTranslation').checked,skills:$('printSkills').checked};}
 function buildPrintParts(s,c){
@@ -542,11 +584,10 @@ async function init(){
 }
 $('categoryFilter').addEventListener('change',e=>{state.category=e.target.value;renderCatalog();renderSetList();});
 $('levelFilter').addEventListener('change',e=>{state.level=e.target.value;renderSetList();});
-$('translationsAll').addEventListener('click',()=>{state.showAll=!state.showAll;renderPassage();$('translationsAll').textContent=state.showAll?'日本語訳をすべて隠す':'日本語訳をすべて表示';focusEvidence(null,false);});
 $('supportToggle').addEventListener('click',()=>{
+ if(state.exercise!=='questions')return;
  state.support=!state.support;
- $('supportToggle').setAttribute('aria-pressed',String(state.support));
- $('supportToggle').textContent='サポートモード '+(state.support?'ON':'OFF');
+ updateSupportUI();
  renderQuestions();
  if(state.support){
   const q=state.lesson?.questions.find(x=>x.id===state.activeQuestionId)
@@ -556,7 +597,9 @@ $('supportToggle').addEventListener('click',()=>{
   focusEvidence(q?.paragraph_ids,true);
  }else focusEvidence(null,false);
 });
-document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
+document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>chooseExercise(b.dataset.tab)));
+$('exerciseChoices').querySelectorAll('[data-exercise]').forEach(b=>b.addEventListener('click',()=>chooseExercise(b.dataset.exercise)));
+$('exerciseChange').addEventListener('click',showExerciseChooser);
 $('vocabQuizMode').addEventListener('change',()=>{state.vocabIndex=0;state.vocabChoice=null;if(state.lesson)renderVocabQuiz();});
 $('vocabRestart').addEventListener('click',()=>{if(state.lesson)renderVocab();});
 $('gradingMode').addEventListener('change',e=>{
@@ -581,5 +624,6 @@ $('gradingMode').value=state.gradingMode;
 $('printOpen').addEventListener('click',()=>$('printDialog').showModal());
 $('printPdf').addEventListener('click',printPDF);$('printDocx').addEventListener('click',downloadDocx);
 initReadingUI();
+installLongPressLookup();
 init();
 })();
