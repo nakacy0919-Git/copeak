@@ -1,0 +1,593 @@
+{
+  "id": "L03-002",
+  "category_id": "L03",
+  "title": "Reading a Field from Space",
+  "title_ja": "宇宙から畑を読み解く",
+  "level_id": "eiken-2",
+  "status": "draft",
+  "original": true,
+  "source_links": [
+    {
+      "title": "NASA Science: NASA Knows Drought",
+      "url": "https://science.nasa.gov/earth/explore/drought/"
+    }
+  ],
+  "fact_notes": [
+    "地球観測・干ばつ監視の活用についてNASA Scienceの説明を参考にした。衛星画像の解釈と現地検証の必要性は一般的な科学的考え方として説明。",
+    "学校活動の例は架空。本文、訳、設問および解説は独自に作成した。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A farmer walking through a field can notice dry soil, damaged leaves, or crops that are growing slowly.",
+          "ja": "畑を歩く農家は、乾いた土や傷んだ葉、成長の遅い作物に気づくことができます。"
+        },
+        {
+          "en": "However, a single visit cannot easily show what is happening across hundreds of fields.",
+          "ja": "しかし、一度訪れただけでは、何百もの畑で起きていることを簡単には把握できません。"
+        },
+        {
+          "en": "Earth-observing satellites offer a different view by collecting information from far above the ground.",
+          "ja": "地球観測衛星は、地上からはるか上で情報を集め、別の視点を提供します。"
+        },
+        {
+          "en": "Some instruments measure light reflected by plants, while others help scientists monitor temperature or water conditions.",
+          "ja": "植物が反射する光を測る機器もあれば、科学者が温度や水の状態を監視するのに役立つ機器もあります。"
+        },
+        {
+          "en": "These observations can reveal patterns that would be difficult to recognize from one small location.",
+          "ja": "こうした観測は、一つの小さな場所からでは認識しにくい傾向を明らかにできます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Healthy green leaves interact with sunlight differently from leaves that are under stress.",
+          "ja": "健康な緑の葉は、弱っている葉とは違う形で日光に反応します。"
+        },
+        {
+          "en": "By comparing measurements over time, researchers can identify areas where vegetation may be changing.",
+          "ja": "時間をかけて測定値を比較することで、研究者は植生が変化している可能性のある地域を特定できます。"
+        },
+        {
+          "en": "For example, satellite images may help show where a long dry period has affected plant growth.",
+          "ja": "例えば衛星画像は、長く雨の少ない期間が植物の成長に影響した場所を示す助けになります。"
+        },
+        {
+          "en": "The information does not tell a farmer everything, because different problems can produce similar signals.",
+          "ja": "ただし、異なる問題が似た信号を生み得るため、その情報だけでは農家がすべてを理解できるわけではありません。"
+        },
+        {
+          "en": "A field visit may still be needed to discover whether the cause is drought, disease, or something else.",
+          "ja": "原因が干ばつなのか、病気なのか、それ以外なのかを調べるため、現地調査が必要な場合もあります。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Satellite data are especially useful when a problem extends beyond a single farm.",
+          "ja": "問題が一つの農場を超えて広がるとき、衛星データは特に役立ちます。"
+        },
+        {
+          "en": "During drought, officials need to understand where soil and water supplies are becoming limited.",
+          "ja": "干ばつの際、行政の担当者は土壌や水の供給が不足しつつある場所を把握する必要があります。"
+        },
+        {
+          "en": "NASA explains that Earth observations, together with models and other tools, can help communities monitor drought.",
+          "ja": "NASAは、地球観測をモデルやほかの道具と組み合わせることで、地域が干ばつを監視する助けになると説明しています。"
+        },
+        {
+          "en": "As a result, a regional map can support decisions about where additional investigation or assistance is needed.",
+          "ja": "その結果、地域の地図は、追加の調査や支援が必要な場所を判断する助けになります。"
+        },
+        {
+          "en": "Such maps are guides for discussion rather than automatic instructions for every farmer.",
+          "ja": "このような地図は、すべての農家に対する自動的な指示ではなく、話し合いのための手掛かりです。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "There are also practical limits to the technology, and these limits should not be ignored.",
+          "ja": "この技術には実際的な限界もあり、それらを無視してはいけません。"
+        },
+        {
+          "en": "Clouds can make certain satellite images difficult to use, depending on the instrument involved.",
+          "ja": "使われる機器によっては、雲のために衛星画像が利用しにくくなることがあります。"
+        },
+        {
+          "en": "Measurements also need careful interpretation by people who understand local weather, soil, and farming methods.",
+          "ja": "また測定値は、地域の天候・土壌・農法を理解する人が慎重に解釈する必要があります。"
+        },
+        {
+          "en": "In addition, useful data do not always reach small farms in a form that is easy to understand.",
+          "ja": "さらに、役立つデータが、必ずしも小規模農家にわかりやすい形で届くわけではありません。"
+        },
+        {
+          "en": "Sharing simple maps and clear explanations may therefore be as important as collecting more measurements.",
+          "ja": "したがって、簡単な地図と明確な説明を共有することは、さらに測定値を集めることと同じくらい重要かもしれません。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "Imagine a school project in which students compare photographs of a nearby field with publicly available satellite images.",
+          "ja": "近くの畑の写真と公開された衛星画像を生徒が比べる学校の課題を想像してください。"
+        },
+        {
+          "en": "They might notice a difference in color and ask whether it reflects a change in vegetation.",
+          "ja": "色の違いに気づき、それが植生の変化を表しているのかを考えるかもしれません。"
+        },
+        {
+          "en": "Rather than immediately reaching a conclusion, they would check the dates, seasons, and possible causes.",
+          "ja": "すぐに結論を出すのではなく、日付や季節、考えられる原因を確認するでしょう。"
+        },
+        {
+          "en": "The activity teaches an important scientific habit: an observation is evidence to examine, not an answer by itself.",
+          "ja": "この活動は『観測はそれ自体が答えではなく、調べるべき証拠である』という大切な科学的習慣を教えます。"
+        },
+        {
+          "en": "Seen this way, satellites do more than take pictures; they help people ask better questions about the land.",
+          "ja": "このように考えると、衛星は単に写真を撮る以上の役割を果たし、人々が土地についてよりよい問いを立てる助けになります。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the main purpose of the passage?",
+      "options": [
+        "To show that satellites remove the need for farmers.",
+        "To explain how satellite observations can help monitor farmland when interpreted carefully.",
+        "To claim every crop produces the same reflected light.",
+        "To argue that field visits should be forbidden."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1",
+        "p4",
+        "p5"
+      ],
+      "explanation_ja": "衛星観測の有用性と、現地情報を含めた慎重な解釈が中心です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What can a farmer notice during a field visit?",
+      "options": [
+        "Dry soil and damaged leaves.",
+        "Temperature on every continent.",
+        "All satellite instruments in orbit.",
+        "The exact cause of every future drought."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1文で乾いた土や傷んだ葉を直接観察できると述べます。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What do some satellite instruments measure?",
+      "options": [
+        "The number of books sold by farms.",
+        "Light reflected by plants.",
+        "Every conversation among farmers.",
+        "Only the price of agricultural products."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "植物が反射する光を測る機器があると明記されています。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why might a field visit still be necessary after viewing satellite data?",
+      "options": [
+        "Different causes can create similar signals.",
+        "Satellite images always show the cause perfectly.",
+        "Field visits never provide useful information.",
+        "Scientists can only examine plants at night."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "似た信号が異なる問題に由来する場合があり、現地確認が必要です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "How can satellite data support drought-related decisions?",
+      "options": [
+        "By automatically choosing each farm's crops.",
+        "By identifying regions that may need investigation or assistance.",
+        "By preventing clouds from forming.",
+        "By measuring the feelings of farmers."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "地域地図が追加調査や支援の場所を考える手掛かりになると書かれています。"
+    },
+    {
+      "id": "q6",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'interpretation' most nearly mean in paragraph 4?",
+      "options": [
+        "Careful explanation of what data mean.",
+        "The process of planting seeds.",
+        "The cost of a satellite camera.",
+        "A list of school examination results."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "interpretationは測定結果が何を意味するかを慎重に読み解くことです。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "Which condition can make some satellite images difficult to use?",
+      "options": [
+        "Cloud cover.",
+        "The farmer's favorite food.",
+        "A library being closed.",
+        "Different school schedules."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "雲によって一部の衛星画像が使いにくくなると述べています。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "What does the passage suggest about data access for small farms?",
+      "options": [
+        "Clear presentation of information is important.",
+        "Every farmer already understands all satellite data.",
+        "More measurements always solve communication problems.",
+        "Small farms can never benefit from maps."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "データをわかりやすく伝えることも、測定量を増やすのと同じくらい重要と述べます。"
+    },
+    {
+      "id": "q9",
+      "skill": "detail",
+      "prompt": "What should students check before concluding that vegetation changed?",
+      "options": [
+        "Only the image's colors.",
+        "Dates, seasons, and possible causes.",
+        "The number of satellites launched that day.",
+        "Only the name of the photographer."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "色の違いを見つけても、日付・季節・原因候補を確認すると述べています。"
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "What does the final sentence emphasize?",
+      "options": [
+        "Satellites are useful because they support better questions about land.",
+        "Satellite data provide perfect answers without investigation.",
+        "Students should never compare different sources.",
+        "Farmers should ignore local observations."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "衛星の役割を単なる撮影ではなく、土地について適切な問いを立てるための助けとしてまとめています。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "farmer",
+      "ja": "農家・農業従事者",
+      "synonym": "agricultural worker",
+      "definition": "a person who grows crops or raises animals for food"
+    },
+    {
+      "term": "damaged",
+      "ja": "傷んだ・損傷した",
+      "synonym": "harmed",
+      "definition": "made worse or broken by an outside cause"
+    },
+    {
+      "term": "satellites",
+      "ja": "人工衛星",
+      "synonym": "orbiting spacecraft",
+      "definition": "objects sent into space to orbit Earth or another body"
+    },
+    {
+      "term": "instruments",
+      "ja": "観測機器",
+      "synonym": "devices",
+      "definition": "tools used to measure or observe something"
+    },
+    {
+      "term": "reflected",
+      "ja": "反射した",
+      "synonym": "bounced back",
+      "definition": "sent back from a surface after striking it"
+    },
+    {
+      "term": "monitor",
+      "ja": "監視する・観察する",
+      "synonym": "observe",
+      "definition": "to check something carefully over time"
+    },
+    {
+      "term": "observations",
+      "ja": "観測結果",
+      "synonym": "measurements",
+      "definition": "facts noticed or measured during examination"
+    },
+    {
+      "term": "vegetation",
+      "ja": "植生",
+      "synonym": "plant life",
+      "definition": "plants growing in a particular area"
+    },
+    {
+      "term": "drought",
+      "ja": "干ばつ",
+      "synonym": "extended dry period",
+      "definition": "a long period of unusually low rainfall and water shortage"
+    },
+    {
+      "term": "signals",
+      "ja": "信号・兆候",
+      "synonym": "indicators",
+      "definition": "signs carrying information about a condition"
+    },
+    {
+      "term": "regional",
+      "ja": "地域的な",
+      "synonym": "local-area",
+      "definition": "relating to a particular part of a country or larger area"
+    },
+    {
+      "term": "assistance",
+      "ja": "支援",
+      "synonym": "help",
+      "definition": "support given to someone who needs it"
+    },
+    {
+      "term": "practical",
+      "ja": "実際的な",
+      "synonym": "real-world",
+      "definition": "concerned with actual use rather than only theory"
+    },
+    {
+      "term": "interpretation",
+      "ja": "解釈",
+      "synonym": "explanation",
+      "definition": "a judgment about what information means"
+    },
+    {
+      "term": "soil",
+      "ja": "土壌",
+      "synonym": "earth",
+      "definition": "the upper layer of ground in which plants grow"
+    },
+    {
+      "term": "measurements",
+      "ja": "測定値",
+      "synonym": "readings",
+      "definition": "numbers or observations obtained by measuring"
+    },
+    {
+      "term": "publicly",
+      "ja": "一般に公開して",
+      "synonym": "openly",
+      "definition": "in a way that is available to the public"
+    },
+    {
+      "term": "conclusion",
+      "ja": "結論",
+      "synonym": "finding",
+      "definition": "a judgment reached after considering information"
+    },
+    {
+      "term": "evidence",
+      "ja": "証拠・根拠",
+      "synonym": "supporting facts",
+      "definition": "facts that help support or test a claim"
+    },
+    {
+      "term": "scientific",
+      "ja": "科学的な",
+      "synonym": "research-based",
+      "definition": "based on careful observation and investigation"
+    },
+    {
+      "term": "patterns",
+      "ja": "傾向・パターン",
+      "synonym": "regularities",
+      "definition": "repeated or recognizable ways that something changes"
+    },
+    {
+      "term": "reveal",
+      "ja": "明らかにする",
+      "synonym": "show",
+      "definition": "to make something known or visible"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "by collecting information from far above the ground",
+      "explanation_ja": "by＋動名詞は『〜することによって』という手段を表します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "where vegetation may be changing",
+      "explanation_ja": "関係副詞whereがareasを修飾し、may be changingは進行中の可能性を表します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 4,
+      "focus": "rather than automatic instructions for every farmer",
+      "explanation_ja": "rather thanは『〜ではなく』という対比を表します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "focus": "who understand local weather, soil, and farming methods",
+      "explanation_ja": "関係代名詞whoがpeopleを後ろから修飾しています。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 0,
+      "focus": "in which students compare photographs of a nearby field with publicly available satellite images",
+      "explanation_ja": "前置詞＋関係代名詞in whichがa school projectを修飾します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "対比：農家の直接観察と広い範囲の把握の難しさを示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "例示：乾燥が植物に与える影響を具体例として述べます。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "As a result",
+      "role_ja": "結果：広域の干ばつ情報を得ることで調査や支援の判断に役立ちます。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "In addition",
+      "role_ja": "追加：雲による問題だけでなく、データの伝達にも課題があると加えます。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "Rather than",
+      "role_ja": "対比：すぐ結論を出すのではなく、日付・季節・原因を確認します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "offer a different view by collecting information from far above the ground",
+      "rewrite": "provide another perspective through observations made high above Earth",
+      "explanation_ja": "different view→another perspective、collecting information→observationsの言い換えです。"
+    },
+    {
+      "source": "different problems can produce similar signals",
+      "rewrite": "distinct causes may lead to comparable measurements",
+      "explanation_ja": "different problems→distinct causes、similar signals→comparable measurementsと言い換えています。"
+    },
+    {
+      "source": "a regional map can support decisions",
+      "rewrite": "a map covering an area can assist people in making choices",
+      "explanation_ja": "support decisions→assist people in making choicesと意味を保っています。"
+    },
+    {
+      "source": "useful data do not always reach small farms in a form that is easy to understand",
+      "rewrite": "valuable information is not consistently delivered to small farmers in an accessible format",
+      "explanation_ja": "useful→valuable、easy to understand→accessibleと言い換えています。"
+    },
+    {
+      "source": "an observation is evidence to examine, not an answer by itself",
+      "rewrite": "a measurement should be investigated rather than accepted as a complete explanation",
+      "explanation_ja": "観測は検討すべき証拠であり、それだけで結論ではないことを言い換えます。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "answer": "However",
+      "options": [
+        "However",
+        "Therefore",
+        "Similarly",
+        "For example"
+      ],
+      "explanation_ja": "現地観察には利点があるものの、広域把握は難しいという逆接です。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "Nevertheless",
+        "Therefore",
+        "Instead"
+      ],
+      "explanation_ja": "衛星画像が示す情報の具体例を導きます。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "In contrast",
+        "For example",
+        "Similarly"
+      ],
+      "explanation_ja": "観測データを組み合わせた結果、判断に活用できるという論理です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 3,
+      "answer": "In addition",
+      "options": [
+        "In addition",
+        "However",
+        "As a result",
+        "Instead"
+      ],
+      "explanation_ja": "小規模農家への伝達という別の課題を追加します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "Rather than",
+      "options": [
+        "Rather than",
+        "Because of",
+        "For example",
+        "Therefore"
+      ],
+      "explanation_ja": "拙速な結論ではなく慎重な確認を選ぶ対比です。"
+    }
+  ],
+  "word_count": 388
+}
