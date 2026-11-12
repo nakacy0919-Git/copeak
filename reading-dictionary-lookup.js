@@ -4,7 +4,7 @@
 (function(root){
  'use strict';
  const memory=Object.create(null),namespace='copeak-reading-word-v1:';
- const norm=x=>String(x||'').trim().toLowerCase().replace(/[’]/g,"'").replace(/^[^a-z]+|[^a-z]+$/g,'');
+ const norm=x=>String(x||'').trim().toLowerCase().replace(/[’]/g,"'").replace(/^[^\p{L}]+|[^\p{L}]+$/gu,'');
  const bases=w=>{
   const out=[w],add=v=>{if(v&&!out.includes(v))out.push(v)};
   const irregular={went:'go',gone:'go',did:'do',done:'do',seen:'see',saw:'see',took:'take',taken:'take',made:'make',known:'know',knew:'know',gave:'give',given:'give',found:'find',thought:'think',brought:'bring',bought:'buy',children:'child',men:'man',women:'woman',teeth:'tooth',feet:'foot',better:'good',best:'good',worse:'bad',worst:'bad'};
@@ -48,7 +48,7 @@
  async function remote(word){
   const term=norm(word),existing=cacheGet(term);
   if(existing)return {...existing,source:'オンライン取得済み'};
-  if(!/^[a-z]+(?:[-'][a-z]+)*$/.test(term)||term.length>60)return null;
+  if(!/^[\p{L}]+(?:[-'][\p{L}]+)*$/u.test(term)||term.length>60)return null;
   if(pending.has(term))return pending.get(term);
   const promise=(async()=>{
    const ctrl=new AbortController();
