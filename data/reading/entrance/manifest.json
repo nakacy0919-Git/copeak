@@ -1,7 +1,7 @@
 {
   "version": 1,
   "title": "大学入試長文読解",
-  "note": "各カテゴリー30セットは制作目標であり、公開済み件数とは異なります。",
+  "note": "分野ごと30セットは制作目標。draft は非公開であり、本文・訳・語彙・問題を編集レビュー後 reviewed/published に変更する。",
   "categories": [
     {
       "id": "L01",
@@ -198,6 +198,10 @@
       "file": "data/reading/entrance/L03-001.json"
     },
     {
+      "id": "L03-002",
+      "file": "data/reading/entrance/L03-002.json"
+    },
+    {
       "id": "L04-001",
       "file": "data/reading/entrance/L04-001.json"
     },
@@ -226,6 +230,10 @@
       "file": "data/reading/entrance/L10-001.json"
     },
     {
+      "id": "L10-002",
+      "file": "data/reading/entrance/L10-002.json"
+    },
+    {
       "id": "L11-001",
       "file": "data/reading/entrance/L11-001.json"
     },
@@ -236,6 +244,10 @@
     {
       "id": "L13-001",
       "file": "data/reading/entrance/L13-001.json"
+    },
+    {
+      "id": "L14-001",
+      "file": "data/reading/entrance/L14-001.json"
     },
     {
       "id": "L15-001",
