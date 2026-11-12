@@ -596,6 +596,29 @@ function renderModeList(){
  ).join('');
 }
 const panelIds={vocab:'vocabQuiz',grammar:'grammarNotes',discourse:'discourseNotes',paraphrase:'paraphraseNotes',cloze:'clozeQuestions'};
+/* A completed set can be reviewed without erasing the achievement history. */
+function renderPracticeReview(mode,onlyWrong=false){
+ const pane=$(panelIds[mode]),bank=practiceBank(mode),record=practiceRecord(mode);
+ const list=onlyWrong?bank.filter(q=>record.answers[q.id]!==q.answer):bank;
+ const heading=onlyWrong?'間違えた問題の復習':'全問の解説';
+ pane.innerHTML='<div class="practice-review-head"><h3>'+heading+'（'+list.length+'問）</h3>'+
+  '<button type="button" data-review-close>結果に戻る</button></div>'+
+  (list.length?list.map((q,i)=>{
+   const picked=record.answers[q.id],correct=picked===q.answer;
+   return '<article class="practice-review-card">'+
+    '<p class="practice-review-number">QUESTION '+(q.index+1)+'</p>'+
+    '<h4>'+esc(q.prompt)+'</h4>'+
+    (q.subprompt?'<p class="practice-subprompt">'+esc(q.subprompt)+'</p>':'')+
+    '<div class="practice-review-options">'+q.options.map((op,j)=>
+     '<div class="'+(j===q.answer?'is-answer':j===picked?'is-mistake':'')+'">'+String.fromCharCode(65+j)+'. '+esc(op)+
+     (j===q.answer?'　✓ 正解':j===picked?'　← 自分の回答':'')+'</div>'
+    ).join('')+'</div>'+
+    '<p class="practice-review-explanation"><strong>'+(correct?'正解':'要復習')+'</strong>　'+esc(q.explanation)+'</p>'+
+   '</article>';
+  }).join(''):'<p class="muted">間違えた問題はありません。全問正解です。</p>');
+ pane.querySelector('[data-review-close]')?.addEventListener('click',()=>renderPracticeQuiz(mode));
+ $('questionScroll').scrollTop=0;
+}
 function renderPracticeQuiz(mode){
  if(!state.lesson||!panelIds[mode])return;
  const pane=$(panelIds[mode]),items=practiceBank(mode),record=practiceRecord(mode);
@@ -612,8 +635,11 @@ function renderPracticeQuiz(mode){
   const summary=modeSummary(mode);
   pane.innerHTML='<div class="practice-finish"><span class="finish-mark" aria-hidden="true">✓</span><h3>'+esc(practiceEngine.labels[mode])+' 完了</h3><p>'+summary.correct+' / '+summary.total+' 問正解　·　正答率'+summary.accuracy+'%</p>'+
    '<p class="practice-statline">完走 '+summary.runs+'回　最高正答率 '+summary.best+'%</p>'+
-   '<button type="button" data-practice-restart="'+esc(mode)+'">もう一度挑戦</button></div>';
+   '<div class="practice-finish-actions"><button type="button" data-practice-review="all">全問の解説を見る</button>'+
+   (summary.correct<summary.total?'<button type="button" data-practice-review="wrong">間違えた問題を復習</button>':'')+
+   '<button type="button" data-practice-restart="'+esc(mode)+'">もう一度挑戦</button></div></div>';
   pane.querySelector('[data-practice-restart]')?.addEventListener('click',()=>resetMode(mode));
+  pane.querySelectorAll('[data-practice-review]').forEach(btn=>btn.addEventListener('click',()=>renderPracticeReview(mode,btn.dataset.practiceReview==='wrong')));
   return;
  }
  const item=items[index];
