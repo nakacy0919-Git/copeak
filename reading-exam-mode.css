@@ -211,3 +211,25 @@ body.reading-exam-mode #readingApp{overflow:hidden!important}
 @media(prefers-reduced-motion:reduce){
  #examOverlay .exam-option{transition:none}
 }
+
+/* Entry button is only available before entering the exam layer. */
+#readingApp .exam-mode-start{
+ display:inline-flex;
+ align-items:center;
+ justify-content:center;
+ gap:7px;
+ min-height:39px;
+ padding:7px 13px;
+ border:1px solid #8da8af;
+ border-radius:10px;
+ background:linear-gradient(135deg,#315e70,#21485a);
+ color:#fff;
+ font-weight:800;
+ box-shadow:0 3px 10px rgba(30,75,89,.12);
+}
+#readingApp .exam-mode-start svg{display:block;flex:none}
+#readingApp .exam-mode-start:disabled{opacity:.45;cursor:not-allowed}
+#readingApp .exam-mode-start:not(:disabled):hover{background:#1d526a}
+@media(max-width:699px){
+ #readingApp .exam-mode-start{min-height:37px;font-size:12px;padding:7px 10px}
+}
