@@ -33,7 +33,8 @@
       await loadScript('reading-lexicon-core.js?v=20261112-words2');
       await loadScript('reading-dictionary-lookup.js?v=20261112-words2');
       await loadScript('reading-correct-effect.js?v=20261112-words2');
-      await loadScript('reading-entrance.js?v=20261112-words2');
+      await loadScript('reading-entrance.js?v=20261112-exam1');
+      await loadScript('reading-exam-mode.js?v=20261112-exam1');
     } catch (error) {
       app.hidden = true;
       gate.hidden = false;
