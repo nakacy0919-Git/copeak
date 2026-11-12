@@ -376,6 +376,7 @@ function renderQuestions(){
    (state.gradingMode==='immediate'&&Number.isInteger(state.answers[q.id])))return;
   state.activeQuestionId=q.id;
   state.answers[q.id]=Number(b.dataset.option);
+  if(state.gradingMode==='immediate'&&state.answers[q.id]===q.answer)window.CopeakReadingEffects?.celebrate();
   saveProgress();
   if(state.gradingMode==='immediate'&&s.questions.every(x=>Number.isInteger(state.answers[x.id])))recordCompletion('questions');
   renderQuestions();renderSetList();renderPracticeProgress();renderPassage(true);
@@ -533,8 +534,10 @@ function renderPracticeQuiz(mode){
   '<button type="button" class="practice-reset" data-practice-restart="'+esc(mode)+'">最初から</button></div></article>';
  pane.querySelectorAll('[data-practice-option]').forEach(btn=>btn.addEventListener('click',()=>{
   if(Number.isInteger(practiceRecord(mode).answers[item.id]))return;
-  practiceRecord(mode).answers[item.id]=Number(btn.dataset.practiceOption);
-  if(mode==='cloze')state.clozeAnswers[index]=Number(btn.dataset.practiceOption);
+  const selectedIndex=Number(btn.dataset.practiceOption);
+  practiceRecord(mode).answers[item.id]=selectedIndex;
+  if(selectedIndex===item.answer)window.CopeakReadingEffects?.celebrate();
+  if(mode==='cloze')state.clozeAnswers[index]=selectedIndex;
   recordCompletion(mode);
   const top=$('questionScroll').scrollTop;
   renderPracticeQuiz(mode);
@@ -874,6 +877,8 @@ $('gradeAll').addEventListener('click',()=>{
  if(!state.lesson||state.gradingMode!=='batch'||state.graded)return;
  if(!state.lesson.questions.every(q=>Number.isInteger(state.answers[q.id])))return;
  state.graded=true;recordCompletion('questions');renderQuestions();renderPracticeProgress();
+ const accurate=state.lesson.questions.filter(q=>state.answers[q.id]===q.answer).length;
+ if(accurate/state.lesson.questions.length>=0.8)window.CopeakReadingEffects?.celebrate();
  $('questionScroll').scrollTo({top:0,behavior:'smooth'});
 });
 $('resetAnswers').addEventListener('click',()=>{
