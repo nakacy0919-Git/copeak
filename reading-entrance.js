@@ -76,7 +76,7 @@ const supplementaryGlossary={
  therefore:['したがって','for that reason; as a result'],
  nevertheless:['それにもかかわらず','despite what has just been said']
 };
-function normalizeWord(word){return String(word||'').toLowerCase().replace(/[’]/g,"'").replace(/^[^a-z]+|[^a-z]+$/g,'');}
+function normalizeWord(word){return String(word||'').toLowerCase().replace(/[’]/g,"'").replace(/^[^\p{L}]+|[^\p{L}]+$/gu,'');}
 function dictionaryEntry(word){
  const raw=normalizeWord(word);
  const keys=[raw];
@@ -96,7 +96,7 @@ function dictionaryEntry(word){
 }
 function wordSpans(text){
  let out='',last=0;
- const re=/[A-Za-z]+(?:['’\-][A-Za-z]+)*/g;
+ const re=/[\p{L}]+(?:['’\-][\p{L}]+)*/gu;
  for(const m of text.matchAll(re)){
   out+=esc(text.slice(last,m.index));
   out+='<span class="reading-word" data-word="'+esc(m[0])+'" title="単語をタップして意味を見る">'+esc(m[0])+'</span>';
@@ -228,7 +228,7 @@ function showLookup(kind,payload){
    $('lookupDefinition').innerHTML='<strong>ENGLISH DEFINITION</strong><span class="lookup-pending">単語辞書を確認しています…</span>';
    $('lookupSource').textContent='オンライン辞書照会中';
    // Only the tapped word is sent to a public translation/dictionary API.
-   lookupDictionary()?.remote(payload.word).then(entry=>{
+   lookupDictionary()?.remote?.(payload.word)?.then(entry=>{
     if(serial!==activeLookupId||!dialog.open)return;
     if(entry)renderLookupWord(entry);
     else{
