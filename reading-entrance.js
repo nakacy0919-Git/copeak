@@ -105,7 +105,7 @@ function renderBrowse(){
   html=state.manifest.categories.map((c,i)=>{
    const total=browseAvailable(c.id).length;
    return browseCard(c.id,c.label,c.id+' · '+(total?'収録済み教材があります':'教材準備中'),total?total+' セット':'準備中',
-    String(i+1).padStart(2,'0'),!total);
+    String(i+1).padStart(2,'0'),false);
   }).join('');
  }else if(step==='level'){
   $('browseCards').className='browse-cards browse-levels';
