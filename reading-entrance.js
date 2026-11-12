@@ -215,6 +215,7 @@ function renderPassage(preserveScroll=true){
  annotatedWords(t.en,sourceMap.get(p.id+'-'+si)||[])+
  '</span> </span>').join('')+'</div>').join('');
  $('passage').classList.toggle('cloze-active',mode==='cloze'||mode==='discourse');
+ window.CopeakReadingInk?.syncStudy(lesson.id,mode||'questions');
  scroll.scrollTop=top;
 }
 /* A tap looks up one word; selecting a full phrase reveals the original
