@@ -533,7 +533,7 @@ function renderQuestions(){
  const answered=s.questions.filter(q=>Number.isInteger(state.answers[q.id])).length;
  const complete=answered===qTotal;
  const isBatch=state.gradingMode==='batch';
- const showResults=!isBatch||state.graded;
+ const showResults=state.gradingChosen&&(!isBatch||state.graded);
  $('answerCount').textContent=answered+' / '+qTotal+'問回答';
  $('gradingMode').value=state.gradingChosen?state.gradingMode:'';
  $('gradingSettings').hidden=state.gradingChosen;
