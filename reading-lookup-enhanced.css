@@ -75,7 +75,7 @@
  cursor:pointer;text-decoration:underline dotted rgba(79,133,165,.35);
  text-decoration-thickness:1px;text-underline-offset:4px;
  user-select:text!important;-webkit-user-select:text!important;
- -webkit-touch-callout:default!important;touch-action:pan-y!important;
+ -webkit-touch-callout:default!important;touch-action:auto!important;
 }
 #readingApp .sentence-line{
  cursor:text;user-select:text!important;-webkit-user-select:text!important;
