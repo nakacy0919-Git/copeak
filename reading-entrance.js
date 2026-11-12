@@ -99,7 +99,7 @@ function wordSpans(text){
  const re=/[A-Za-z]+(?:['’\-][A-Za-z]+)*/g;
  for(const m of text.matchAll(re)){
   out+=esc(text.slice(last,m.index));
-  out+='<span class="reading-word" data-word="'+esc(m[0])+'" title="単語を長押しで意味を見る">'+esc(m[0])+'</span>';
+  out+='<span class="reading-word" data-word="'+esc(m[0])+'" title="単語をタップして意味を見る">'+esc(m[0])+'</span>';
   last=m.index+m[0].length;
  }
  return out+esc(text.slice(last));
@@ -170,73 +170,154 @@ function renderPassage(preserveScroll=true){
  $('passage').classList.toggle('cloze-active',mode==='cloze'||mode==='discourse');
  scroll.scrollTop=top;
 }
+/* A tap looks up one word; selecting a full phrase reveals the original
+   sentence-level Japanese translation. Text selection stays native on iPad. */
+let activeLookupId=0;
+const lookupDictionary=()=>window.CopeakReadingDictionary;
+function getContext(pi,si){
+ const sentence=state.lesson?.paragraphs?.[pi]?.sentences?.[si]||null;
+ return sentence?{en:sentence.en,ja:sentence.ja}:null;
+}
+function highlightLookupEnglish(text,word){
+ if(!word)return esc(text);
+ const lower=text.toLowerCase(),needle=String(word).toLowerCase(),at=lower.indexOf(needle);
+ if(at<0)return esc(text);
+ return esc(text.slice(0,at))+'<mark class="lookup-word-highlight">'+esc(text.slice(at,at+word.length))+'</mark>'+esc(text.slice(at+word.length));
+}
+function highlightLookupJapanese(text,meaning){
+ const ja=String(text||''),candidate=String(meaning||'').split(/[、，／・／]/)[0].trim();
+ if(!candidate||candidate.length<2||!ja.includes(candidate))return esc(ja);
+ const at=ja.indexOf(candidate);
+ return esc(ja.slice(0,at))+'<mark class="lookup-ja-highlight">'+esc(candidate)+'</mark>'+esc(ja.slice(at+candidate.length));
+}
+function renderLookupWord(entry){
+ $('lookupJapanese').textContent=entry?.ja||'日本語の意味を確認できませんでした';
+ const explanation=entry?.definition||'英英定義が未登録です。';
+ $('lookupDefinition').innerHTML='<strong>ENGLISH DEFINITION</strong>'+esc(explanation)+(entry?.synonym?'<p>Synonym: '+esc(entry.synonym)+'</p>':'');
+ $('lookupSource').textContent=entry?.source||'登録語彙';
+ const word=$('lookupHeading').textContent;
+ const position=$('lookupSentenceLink').dataset;
+ const context=getContext(Number(position.pi),Number(position.si));
+ if(context)$('lookupExampleJa').innerHTML=highlightLookupJapanese(context.ja,entry?.ja);
+ if(context)$('lookupExampleEn').innerHTML=highlightLookupEnglish(context.en,word);
+}
 function showLookup(kind,payload){
  if(!state.lesson)return;
- const dialog=$('readingLookupDialog');
- $('lookupDefinition').hidden=kind!=='word';
+ const dialog=$('readingLookupDialog'),serial=++activeLookupId;
+ const context=getContext(payload.pi,payload.si);
+ const hasSentence=Boolean(context),blocked=state.exercise==='cloze'||state.exercise==='discourse';
  const seeSentence=$('lookupSentenceLink');
- seeSentence.hidden=kind!=='word'||(state.exercise==='cloze'||state.exercise==='discourse')||!Number.isInteger(payload.pi)||!Number.isInteger(payload.si);
- if(!seeSentence.hidden){seeSentence.dataset.pi=String(payload.pi);seeSentence.dataset.si=String(payload.si);}
- $('lookupKind').textContent=kind==='word'?'WORD LOOKUP':'SENTENCE TRANSLATION';
+ seeSentence.hidden=kind!=='word'||blocked||!hasSentence;
+ if(hasSentence){seeSentence.dataset.pi=String(payload.pi);seeSentence.dataset.si=String(payload.si);}
+ $('lookupExampleEn').textContent=context?.en||'本文中の英文を選んでください。';
+ $('lookupExampleJa').textContent=blocked?'穴埋め練習中のため、文全体の訳は非表示です。':context?.ja||'';
+ $('lookupDefinition').hidden=kind!=='word';
+ $('lookupKind').textContent=kind==='word'?'CONTEXT DICTIONARY':'SENTENCE TRANSLATION';
  if(kind==='sentence'){
-  if(state.exercise==='cloze'||state.exercise==='discourse'){
-   $('lookupHeading').textContent='本文穴埋めの練習中';
-   $('lookupJapanese').textContent='答えを隠すため、接続表現や穴埋め練習中は一文訳を表示しません。他の練習に切り替えると確認できます。';
-  }else{
-   $('lookupHeading').textContent='第'+(payload.pi+1)+'段落 · '+(payload.si+1)+'文目';
-   $('lookupJapanese').textContent=state.lesson.paragraphs[payload.pi]?.sentences[payload.si]?.ja||'日本語訳が未登録です。';
-  }
+  $('lookupSource').textContent='教材の一文訳';
+  $('lookupHeading').textContent='第'+(payload.pi+1)+'段落 · '+(payload.si+1)+'文目';
+  $('lookupJapanese').textContent=blocked?'練習中は答えを隠しています。':context?.ja||'日本語訳が未登録です。';
  }else{
   $('lookupHeading').textContent=payload.word;
-  const known=dictionaryEntry(payload.word);
-  $('lookupJapanese').textContent=known?'日本語：'+known.ja:'日本語の意味：この語は教材辞書に未登録です。';
-  $('lookupDefinition').textContent=known?'English definition: '+known.definition+(known.synonym?' ／ Synonym: '+known.synonym:''):'英英定義：未登録です。重要語彙から優先して追加しています。';
+  $('lookupExampleEn').innerHTML=highlightLookupEnglish(context?.en||'',payload.word);
+  const known=dictionaryEntry(payload.word)||lookupDictionary()?.local(payload.word,state.lesson,state.sets);
+  if(known){
+   renderLookupWord({...known,source:known.source||'教材登録'});
+  }else{
+   $('lookupJapanese').textContent='日本語の意味を照会しています…';
+   $('lookupDefinition').innerHTML='<strong>ENGLISH DEFINITION</strong><span class="lookup-pending">単語辞書を確認しています…</span>';
+   $('lookupSource').textContent='オンライン辞書照会中';
+   // Only the tapped word is sent to a public translation/dictionary API.
+   lookupDictionary()?.remote(payload.word).then(entry=>{
+    if(serial!==activeLookupId||!dialog.open)return;
+    if(entry)renderLookupWord(entry);
+    else{
+     $('lookupJapanese').textContent='この語の辞書訳を取得できませんでした';
+     $('lookupDefinition').innerHTML='<strong>ENGLISH DEFINITION</strong>通信・語形の問題で取得できませんでした。本文の例文訳は右側で確認できます。';
+     $('lookupSource').textContent='辞書照会失敗';
+    }
+   }).catch(()=>{
+    if(serial!==activeLookupId||!dialog.open)return;
+    $('lookupJapanese').textContent='辞書に接続できませんでした';
+    $('lookupSource').textContent='オフライン';
+   });
+  }
  }
  if(!dialog.open)dialog.showModal();
 }
 function installLongPressLookup(){
- const root=$('passage');let timer=null,start=null,suppressed=false;
- const clear=()=>{if(timer!==null){clearTimeout(timer);timer=null;}start=null;};
- const resolve=target=>{
-  const word=target.closest?.('[data-word]');
-  const sentence=target.closest?.('[data-sentence]');
-  if(!sentence)return null;
-  const [pi,si]=sentence.dataset.sentence.split('-').map(Number);
-  if(word)return {kind:'word',word:word.dataset.word,pi,si};
-  return {kind:'sentence',pi,si};
+ const passage=$('passage');let pointerDown=false,selectionTimer=0,lastSelection='';
+ const getSentence=element=>element?.closest?.('[data-sentence]')||null;
+ const positionFrom=sentence=>{
+  const data=sentence?.dataset?.sentence;
+  if(!data)return null;
+  const [pi,si]=data.split('-').map(Number);
+  return Number.isInteger(pi)&&Number.isInteger(si)?{pi,si}:null;
  };
- root.addEventListener('pointerdown',e=>{
-  if(e.button!==undefined&&e.button!==0)return;
-  const info=resolve(e.target);if(!info)return;
-  suppressed=false;
-  start={x:e.clientX,y:e.clientY,info};
-  timer=setTimeout(()=>{
-   timer=null;
-   if(!start)return;
-   suppressed=true;
-   const last=start.info;start=null;
-   try{window.getSelection()?.removeAllRanges();}catch(_){}
-   showLookup(last.kind,last);
-  },650);
+ const selectedSentence=()=>{
+  const sel=window.getSelection?.();
+  if(!sel||sel.isCollapsed)return null;
+  const text=String(sel.toString()).trim();
+  if(text.length<8||!/\s/.test(text))return null;
+  let node=sel.anchorNode;
+  if(!node)return null;
+  const element=node.nodeType===1?node:node.parentElement;
+  const sentence=getSentence(element);
+  if(!sentence||!passage.contains(sentence))return null;
+  const pos=positionFrom(sentence);
+  return pos?{...pos,signature:pos.pi+'-'+pos.si+':'+text}:null;
+ };
+ function showSelection(){
+  if(pointerDown||$('readingLookupDialog').open)return false;
+  const info=selectedSentence();
+  if(!info||lastSelection===info.signature)return false;
+  lastSelection=info.signature;
+  showLookup('sentence',info);
+  return true;
+ }
+ passage.addEventListener('pointerdown',()=>{pointerDown=true;});
+ passage.addEventListener('pointerup',()=>{pointerDown=false;setTimeout(showSelection,100);});
+ passage.addEventListener('pointercancel',()=>{pointerDown=false;});
+ document.addEventListener('selectionchange',()=>{
+  if(selectionTimer)clearTimeout(selectionTimer);
+  const sel=window.getSelection?.();
+  if(!sel||sel.isCollapsed){lastSelection='';return;}
+  selectionTimer=setTimeout(showSelection,450);
  });
- root.addEventListener('pointermove',e=>{
-  if(start&&Math.hypot(e.clientX-start.x,e.clientY-start.y)>12)clear();
+ passage.addEventListener('click',e=>{
+  // Click after text-drag must not accidentally open the single-word popup.
+  if(showSelection())return;
+  if(window.getSelection?.()?.toString().trim())return;
+  const span=e.target?.closest?.('[data-word]');
+  if(!span)return;
+  const sentence=getSentence(span),pos=positionFrom(sentence);
+  if(!pos)return;
+  showLookup('word',{...pos,word:span.dataset.word});
  });
- for(const type of ['pointerup','pointercancel','pointerleave'])root.addEventListener(type,clear);
- root.addEventListener('contextmenu',e=>{
-  const info=resolve(e.target);if(!info)return;
-  e.preventDefault();clear();
-  if(suppressed){suppressed=false;return;}
-  showLookup(info.kind,info);
+ passage.addEventListener('contextmenu',e=>{
+  if(showSelection()){e.preventDefault();return;}
+  const word=e.target?.closest?.('[data-word]');
+  const pos=positionFrom(getSentence(e.target));
+  if(!pos)return;
+  e.preventDefault();
+  showLookup(word?'word':'sentence',{...pos,word:word?.dataset.word});
  });
- root.addEventListener('dblclick',e=>{
-  const el=e.target.closest?.('[data-sentence]');if(!el)return;
-  const [pi,si]=el.dataset.sentence.split('-').map(Number);
-  showLookup('sentence',{pi,si});
+ passage.addEventListener('dblclick',e=>{
+  const pos=positionFrom(getSentence(e.target));
+  if(pos&&!showSelection())showLookup('sentence',pos);
  });
- $('lookupSentenceLink').addEventListener('click',()=>showLookup('sentence',{pi:Number($('lookupSentenceLink').dataset.pi),si:Number($('lookupSentenceLink').dataset.si)}));
+ $('lookupSentenceLink').addEventListener('click',()=>showLookup('sentence',{
+  pi:Number($('lookupSentenceLink').dataset.pi),si:Number($('lookupSentenceLink').dataset.si)
+ }));
  $('lookupClose').addEventListener('click',()=>$('readingLookupDialog').close());
- $('readingLookupDialog').addEventListener('click',e=>{if(e.target===$('readingLookupDialog'))$('readingLookupDialog').close();});
+ $('readingLookupDialog').addEventListener('close',()=>{
+  ++activeLookupId;
+  try{window.getSelection?.()?.removeAllRanges();}catch(_){}
+  lastSelection='';
+ });
+ $('readingLookupDialog').addEventListener('click',e=>{
+  if(e.target===$('readingLookupDialog'))$('readingLookupDialog').close();
+ });
 }
 function focusEvidence(ids,jump=false){
  document.querySelectorAll('.paragraph.support-hit').forEach(x=>x.classList.remove('support-hit'));
