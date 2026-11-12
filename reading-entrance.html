@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="reading-focus.css?v=20261112-focus1">
 <link rel="stylesheet" href="reading-study-desk.css?v=20261112-desk2">
 <link rel="stylesheet" href="reading-practice-premium.css?v=20261112-premium1">
+<link rel="stylesheet" href="reading-lookup-enhanced.css?v=20261112-dictionary1">
 <link rel="stylesheet" href="reading-access.css?v=20261112-2">
 <script defer src="reading-access.js?v=20261112-quiz2"></script>
 </head>
@@ -152,11 +153,24 @@
  <div class="dialog-actions"><button id="printPdf" type="button" class="primary">印刷・PDF保存</button><button id="printDocx" type="button">Word保存（.docx）</button></div>
  <p id="printStatus" role="status"></p>
 </dialog>
-<dialog id="readingLookupDialog" class="reading-lookup-dialog" aria-labelledby="lookupHeading">
- <div class="lookup-title"><span id="lookupKind">READING SUPPORT</span><button id="lookupClose" type="button" aria-label="閉じる">×</button></div>
- <h3 id="lookupHeading"></h3><p id="lookupJapanese"></p>
- <div id="lookupDefinition"></div>
- <button type="button" id="lookupSentenceLink" class="lookup-sentence-link" hidden>この文の日本語訳を見る</button>
+<dialog id="readingLookupDialog" class="reading-lookup-dialog reading-lookup-wide" aria-labelledby="lookupHeading">
+ <div class="lookup-title"><span id="lookupKind">CONTEXT DICTIONARY</span><span id="lookupSource" class="lookup-source"></span><button id="lookupClose" type="button" aria-label="閉じる">×</button></div>
+ <div class="lookup-grid">
+  <section class="lookup-primary">
+   <span class="lookup-eyebrow">WORD &amp; MEANING</span>
+   <h3 id="lookupHeading"></h3>
+   <p id="lookupJapanese" class="lookup-japanese"></p>
+   <div id="lookupDefinition" class="lookup-definition"></div>
+   <button type="button" id="lookupSentenceLink" class="lookup-sentence-link" hidden>この文の日本語訳も確認</button>
+  </section>
+  <section class="lookup-context" id="lookupContext">
+   <span class="lookup-eyebrow">EXAMPLE IN THE PASSAGE</span>
+   <p id="lookupExampleEn" class="lookup-example-en"></p>
+   <span class="lookup-eyebrow lookup-ja-label">日本語訳</span>
+   <p id="lookupExampleJa" class="lookup-example-ja"></p>
+  </section>
+ </div>
 </dialog>
+<div id="readingSuccessCelebration" class="reading-success-celebration" hidden aria-hidden="true"><div class="reading-celebrate-burst"><span class="reading-celebrate-symbol">✦</span><strong>Correct!</strong><span>正解！</span></div></div>
 </div>
 </body></html>
