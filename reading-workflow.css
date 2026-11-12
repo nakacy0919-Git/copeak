@@ -250,3 +250,90 @@ body.reading-browsing{overflow:hidden!important}
  #readingApp .browse-categories .browse-number{height:22px;font-size:19px}
  #readingApp .browse-categories .browse-card-info{display:none}
 }
+
+
+/* 2026-11-13: iPad-friendly square-cornered cards instead of grading dropdown. */
+#readingApp #gradingSettings.grading-choice-screen{
+ display:flex;flex-direction:column;align-items:stretch;gap:0;
+ background:transparent;border:0;box-shadow:none;
+ padding:clamp(9px,2vh,20px) 4px 14px;margin:0;
+}
+#readingApp #gradingSettings.grading-choice-screen[hidden]{display:none!important}
+#readingApp .grading-intro{text-align:center;margin:0 0 clamp(12px,2vh,20px)}
+#readingApp .grading-eyebrow{
+ display:block;font-size:10px;font-weight:800;letter-spacing:.17em;
+ color:#62838a;margin-bottom:7px;
+}
+#readingApp .grading-intro h3{
+ display:block!important;font-size:clamp(17px,2.1vw,22px);
+ line-height:1.35;font-weight:850;letter-spacing:-.02em;
+ color:#173e53;margin:0 0 5px;
+}
+#readingApp .grading-intro p{
+ display:block!important;font-size:12px;line-height:1.5;
+ color:#6b8188;margin:0;
+}
+#readingApp .grading-mode-grid{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:clamp(9px,1.8vw,17px);width:100%;max-width:620px;margin:0 auto;
+}
+#readingApp button.grading-mode-card{
+ position:relative;display:flex;flex-direction:column;align-items:center;
+ justify-content:center;min-width:0;width:100%;min-height:155px;
+ aspect-ratio:1.04;gap:9px; padding:13px 9px 15px;
+ box-sizing:border-box;border:1.5px solid #d7e3e4;border-radius:20px;
+ background:linear-gradient(155deg,#ffffff 15%,#f0f7f6 100%);
+ color:#1a4457;box-shadow:0 5px 18px rgba(24,69,80,.06);
+ text-align:center;white-space:normal;
+ -webkit-tap-highlight-color:transparent;
+ transition:transform .16s,box-shadow .16s,border-color .16s,background .16s;
+ touch-action:manipulation;
+}
+#readingApp button.grading-mode-card[data-grading-mode="batch"]{
+ background:linear-gradient(155deg,#fff 15%,#f5f3fc 100%);
+ border-color:#e0ddee;
+}
+#readingApp button.grading-mode-card:not(:disabled):hover{
+ transform:translateY(-3px);border-color:#82b5bd;
+ box-shadow:0 12px 26px rgba(28,87,94,.14);
+}
+#readingApp button.grading-mode-card:active{transform:translateY(0) scale(.985)}
+#readingApp button.grading-mode-card:focus-visible{outline:3px solid #25889f;outline-offset:4px}
+#readingApp button.grading-mode-card[aria-pressed="true"]{
+ background:#e6f5f2;border-color:#228e84;
+ box-shadow:0 0 0 3px rgba(34,142,132,.14);
+}
+#readingApp button.grading-mode-card strong{
+ font-size:clamp(13px,1.5vw,16px);line-height:1.25;
+ font-weight:850;color:#244358;letter-spacing:-.015em;
+}
+#readingApp button.grading-mode-card small{
+ font-size:clamp(10px,1.2vw,12px);line-height:1.55;
+ font-weight:550;color:#607885;
+}
+#readingApp .grading-mode-icon{
+ display:grid;place-items:center;width:clamp(44px,5vw,58px);
+ height:clamp(44px,5vw,58px);border-radius:17px;
+ background:#e0f4ed;color:#237a69;flex:0 0 auto;
+}
+#readingApp .grading-mode-icon svg{width:30px;height:30px}
+#readingApp .grading-mode-icon-batch{background:#eeeafb;color:#665aaa}
+#readingApp .grading-mode-arrow{
+ position:absolute;bottom:8px;right:12px;font-size:19px;
+ font-weight:700;color:#8ba7ae;line-height:1;
+}
+#readingApp #gradingSettings .grading-help{
+ flex:none;display:block;text-align:center;margin-top:13px;
+ font-size:11px;line-height:1.4;color:#798d93;
+}
+@media(max-width:380px){
+ #readingApp button.grading-mode-card{min-height:142px;border-radius:16px;padding:10px 5px 15px;gap:6px}
+ #readingApp .grading-mode-grid{gap:8px}
+ #readingApp .grading-mode-icon{width:42px;height:42px;border-radius:13px}
+ #readingApp .grading-mode-icon svg{width:26px;height:26px}
+ #readingApp button.grading-mode-card strong{font-size:12px}
+ #readingApp button.grading-mode-card small{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){
+ #readingApp button.grading-mode-card{transition:none}
+}
