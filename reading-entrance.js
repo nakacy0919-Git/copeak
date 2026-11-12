@@ -4,7 +4,7 @@ const $=id=>document.getElementById(id);
 const practiceEngine=window.CopeakReadingPractice;
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const escapeXml=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&apos;'}[c])).replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/g,'');
-const state={manifest:null,sets:[],lesson:null,category:'all',level:'all',showAll:false,support:false,answers:{},clozeAnswers:{},vocabIndex:0,vocabChoice:null,vocabOrder:[],panel:'questions',exercise:null,graded:false,gradingMode:'immediate',gradingChosen:false,activeQuestionId:null,practice:{},quizCursor:{}};
+const state={manifest:null,sets:[],lesson:null,category:'all',level:'all',showAll:false,support:false,lookupEnabled:true,answers:{},clozeAnswers:{},vocabIndex:0,vocabChoice:null,vocabOrder:[],panel:'questions',exercise:null,graded:false,gradingMode:'immediate',gradingChosen:false,activeQuestionId:null,practice:{},quizCursor:{}};
 const label=(id,collection)=>collection.find(x=>x.id===id)?.label||id;
 const status=s=>{$('loadStatus').textContent=s;};
 const words=lesson=>lesson.paragraphs.flatMap(p=>p.sentences).map(s=>s.en).join(' ').trim().split(/\s+/).filter(Boolean).length;
@@ -77,9 +77,9 @@ function renderSetList(){
 const browseState={step:'category',category:null,level:null};
 const browseAvailable=(category,level)=>state.sets.filter(x=>
  (!category||x.category_id===category)&&(!level||(x.level_ids||[x.level_id]).includes(level)));
-function browseCard(id,title,description,info,number,disabled){
+function browseCard(id,title,description,info,number,disabled,icon=''){
  return '<button class="browse-card'+(disabled?' is-unavailable':'')+'" type="button" data-browse-pick="'+esc(id)+'" '+(disabled?'disabled':'')+'>'+
- '<span class="browse-number">'+esc(number)+'</span>'+
+ '<span class="browse-number'+(icon?' browse-icon':'')+'" aria-hidden="true">'+esc(icon||number)+'</span>'+
  '<span class="browse-card-content"><strong>'+esc(title)+'</strong><small>'+esc(description)+'</small></span>'+
  '<span class="browse-card-info">'+esc(info)+'</span></button>';
 }
@@ -90,10 +90,10 @@ function renderBrowse(){
  const lLabel=level?label(level,state.manifest.levels):'';
  const head=step==='category'?'15分野から選ぶ':step==='level'?cLabel+'：レベルを選ぶ':'読みたい長文を選ぶ';
  $('browseHeading').textContent=head;
+ $('readingBrowse').dataset.step=step;
  $('browseStepLabel').textContent='STEP '+(step==='category'?1:step==='level'?2:3)+' / 3';
- $('browseDescription').textContent=step==='category'?'学習したい分野を選択してください。':
- step==='level'?'レベルを選択してください。教材がないレベルは準備中と表示されます。':
- '教材を選ぶと、英文と読解問題が直接表示されます。';
+ $('browseDescription').textContent=step==='category'?'分野を選択':step==='level'?'レベルを選択':'';
+ $('browseDescription').hidden=step==='article';
  const crumbs=[{name:'15分野',step:'category'}];
  if(step!=='category')crumbs.push({name:cLabel,step:'level'});
  if(step==='article')crumbs.push({name:lLabel,step:'article'});
@@ -105,14 +105,14 @@ function renderBrowse(){
   html=state.manifest.categories.map((c,i)=>{
    const total=browseAvailable(c.id).length;
    return browseCard(c.id,c.label,c.id+' · '+(total?'収録済み教材があります':'教材準備中'),total?total+' セット':'準備中',
-    String(i+1).padStart(2,'0'),false);
+    String(i+1).padStart(2,'0'),false,c.icon||'📚');
   }).join('');
  }else if(step==='level'){
   $('browseCards').className='browse-cards browse-levels';
   html=state.manifest.levels.map((l,i)=>{
    const total=browseAvailable(category,l.id).length;
    return browseCard(l.id,l.label,l.words.join('–')+'語 · 目安 '+l.minutes.join('–')+'分',
-    total?total+' セット':'準備中',String(i+1).padStart(2,'0'),!total);
+    total?total+' セット':'準備中',String(i+1).padStart(2,'0'),!total,['📗','📘','📙','📕','🏫','🏛️','🎓'][i]||'📖');
   }).join('');
  }else{
   $('browseCards').className='browse-cards browse-articles';
@@ -120,7 +120,7 @@ function renderBrowse(){
    const done=Object.keys(readProgress(item.id).answers||{}).length;
    return browseCard(item.id,item.title_ja||item.title,
     item.title+' · '+item.word_count+' words · '+item.questions.length+' 問',
-    '回答 '+done+'/'+item.questions.length,String(i+1).padStart(2,'0'),false);
+    '回答 '+done+'/'+item.questions.length,String(i+1).padStart(2,'0'),false,'📖');
   }).join('')||'<p class="browse-empty">この条件にはまだ教材がありません。戻って別のレベルを選択してください。</p>';
  }
  $('browseCards').innerHTML=html;
@@ -376,7 +376,7 @@ function renderLookupWord(entry,payload){
  }
 }
 function showLookup(kind,payload){
- if(!state.lesson)return;
+ if(!state.lesson||!state.lookupEnabled)return;
  const dialog=$('readingLookupDialog'),serial=++activeLookupId;
  const context=getContext(payload.pi,payload.si);
  const blocked=lookupIsMasked(),vocabPending=lookupVocabPending();
@@ -451,7 +451,7 @@ function installLongPressLookup(){
   return pos?{...pos,signature:pos.pi+'-'+pos.si+':'+text}:null;
  };
  function showSelection(){
-  if(pointerDown||$('readingLookupDialog').open)return false;
+  if(!state.lookupEnabled||pointerDown||$('readingLookupDialog').open)return false;
   const info=selectedSentence();
   if(!info||lastSelection===info.signature)return false;
   lastSelection=info.signature;
@@ -468,6 +468,7 @@ function installLongPressLookup(){
   selectionTimer=setTimeout(showSelection,450);
  });
  passage.addEventListener('click',e=>{
+  if(!state.lookupEnabled)return;
   // Click after text-drag must not accidentally open the single-word popup.
   if(showSelection())return;
   if(window.getSelection?.()?.toString().trim())return;
@@ -478,6 +479,7 @@ function installLongPressLookup(){
   showLookup('word',{...pos,word:span.dataset.word});
  });
  passage.addEventListener('contextmenu',e=>{
+  if(!state.lookupEnabled)return;
   if(showSelection()){e.preventDefault();return;}
   const word=e.target?.closest?.('[data-word]');
   const pos=positionFrom(getSentence(e.target));
@@ -486,6 +488,7 @@ function installLongPressLookup(){
   showLookup(word?'word':'sentence',{...pos,word:word?.dataset.word});
  });
  passage.addEventListener('dblclick',e=>{
+  if(!state.lookupEnabled)return;
   const pos=positionFrom(getSentence(e.target));
   if(pos&&!showSelection())showLookup('sentence',pos);
  });
@@ -1130,6 +1133,21 @@ $('gradingMode').value='';
 $('printOpen').addEventListener('click',()=>$('printDialog').showModal());
 $('printPdf').addEventListener('click',printPDF);$('printDocx').addEventListener('click',downloadDocx);
 window.CopeakReadingExamContext=()=>({lesson:state.lesson,mode:state.exercise||'questions',sets:state.sets,direction:$('vocabQuizMode').value});
+try{state.lookupEnabled=localStorage.getItem('copeak-reading-lookup-enabled')!=='false';}catch(_){}
+function updateLookupUI(){
+ const button=$('wordLookupToggle');
+ button.setAttribute('aria-pressed',String(state.lookupEnabled));
+ button.textContent=state.lookupEnabled?'単語 ON':'単語 OFF';
+ button.title=state.lookupEnabled?'単語・英文タップで意味を表示（押すとOFF）':'単語・英文タップの意味表示はOFF（押すとON）';
+ $('passage').classList.toggle('dictionary-off',!state.lookupEnabled);
+}
+$('wordLookupToggle').addEventListener('click',()=>{
+ state.lookupEnabled=!state.lookupEnabled;
+ try{localStorage.setItem('copeak-reading-lookup-enabled',String(state.lookupEnabled));}catch(_){}
+ if(!state.lookupEnabled&&$('readingLookupDialog').open)$('readingLookupDialog').close();
+ updateLookupUI();
+});
+updateLookupUI();
 initReadingUI();
 installLongPressLookup();
 init();
