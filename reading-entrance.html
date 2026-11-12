@@ -13,11 +13,11 @@
 <link rel="stylesheet" href="reading-practice-premium.css?v=20261112-review2">
 <link rel="stylesheet" href="reading-lookup-enhanced.css?v=20261112-words2">
 <link rel="stylesheet" href="reading-chooser-responsive.css?v=20261112-layout1">
-<link rel="stylesheet" href="reading-exam-mode.css?v=20261112-audit1">
-<link rel="stylesheet" href="reading-ink.css?v=20261112-flow3">
+<link rel="stylesheet" href="reading-exam-mode.css?v=20261112-full4">
+<link rel="stylesheet" href="reading-ink.css?v=20261112-toolbar4">
 <link rel="stylesheet" href="reading-access.css?v=20261112-2">
-<link rel="stylesheet" href="reading-workflow.css?v=20261112-flow3">
-<script defer src="reading-access.js?v=20261112-flow3"></script>
+<link rel="stylesheet" href="reading-workflow.css?v=20261112-compact4">
+<script defer src="reading-access.js?v=20261112-compact4"></script>
 </head>
 <body>
 <section id="readingGate" class="reading-gate" aria-labelledby="readingGateHeading">
@@ -87,7 +87,9 @@
    <section class="study-passage-pane" id="passagePane" aria-label="英文ペイン">
     <div class="pane-tools">
       <strong>英文</strong><span class="pane-tools-spacer"></span>
-      <button type="button" id="inkStudyToggle" class="ink-launch" aria-controls="inkStudyPanel" aria-expanded="false" aria-label="書き込みツールを開く" title="手書き・書き込み"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 5 6 6M3 21l4.5-1 12-12a2.12 2.12 0 0 0-3-3l-12 12L3 21z"/></svg><span>書き込み</span></button>
+      <button type="button" id="inkStudyToggle" class="ink-launch" aria-controls="inkStudyPanel" aria-expanded="false" aria-label="書き込みON/OFF" aria-pressed="false" title="書き込みを有効にする"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 5 6 6M3 21l4.5-1 12-12a2.12 2.12 0 0 0-3-3l-12 12L3 21z"/></svg><span>書き込み</span></button>
+      <button type="button" id="inkStudySettings" class="ink-settings" aria-controls="inkStudyPanel" aria-expanded="false" hidden>ペン設定</button>
+      <button type="button" id="wordLookupToggle" class="lookup-toggle" aria-pressed="true" title="単語や英文をタップして意味を表示">単語 ON</button>
       <span class="pane-size-label">文字</span>
       <button id="passageFontMinus" type="button" aria-label="英文の文字を小さく">A−</button>
       <output id="passageFontValue" aria-live="off">18px</output>
@@ -117,7 +119,7 @@
     <div class="pane-tools">
       <strong id="practicePaneTitle">問題・解説</strong><span class="pane-tools-spacer"></span>
       <button type="button" id="exerciseChange" class="exercise-change" hidden>練習を選ぶ</button>
-      <button type="button" id="supportToggle" class="support-icon" aria-label="読解の根拠段落を表示" title="サポートモード：根拠段落を強調" aria-pressed="false" aria-controls="passage" disabled hidden><svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.8"/><path d="m15.5 15.5 5.1 5.1M8 10.5l1.8 1.8 3.4-3.6"/></svg></button>
+      <button type="button" id="supportToggle" class="support-icon" aria-label="設問ごとに根拠を表示" title="根拠は各設問のボタンで表示" aria-pressed="false" aria-controls="passage" disabled hidden><svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.8"/><path d="m15.5 15.5 5.1 5.1M8 10.5l1.8 1.8 3.4-3.6"/></svg></button>
       <span class="pane-size-label">文字</span>
       <button id="questionFontMinus" type="button" aria-label="問題の文字を小さく">A−</button>
       <output id="questionFontValue" aria-live="off">16px</output>
@@ -174,7 +176,8 @@
 <section id="examOverlay" class="exam-overlay" role="dialog" aria-modal="true" aria-label="全画面試験モード" hidden>
  <div id="examLayout" class="exam-layout">
   <section class="exam-passage-pane" aria-label="試験の英文">
-   <button type="button" id="inkExamToggle" class="ink-launch ink-exam-launch" aria-controls="inkExamPanel" aria-expanded="false" aria-label="試験中の書き込みツール" title="ペンで書き込む">✎ <span>ペン</span></button>
+   <button type="button" id="inkExamToggle" class="ink-launch ink-exam-launch" aria-controls="inkExamPanel" aria-expanded="false" aria-label="試験中の書き込みON/OFF" title="ペンで書き込む">✎ <span>書き込み</span></button>
+   <button type="button" id="inkExamSettings" class="ink-settings ink-exam-settings" aria-controls="inkExamPanel" aria-expanded="false" hidden>設定</button>
    <div id="inkExamPanel" class="ink-panel ink-exam-panel" hidden role="toolbar" aria-label="試験中の手書き">
      <button type="button" data-ink-action="pen" aria-pressed="false">✎ 黒ペン</button>
      <button type="button" data-ink-action="eraser" aria-pressed="false">消しゴム</button>

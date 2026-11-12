@@ -54,8 +54,9 @@
  }
  function createSurface({name,rootId,scrollId,toggleId,panelId,paragraphClass}){
   const rootEl=$(rootId),scroll=$(scrollId),toggle=$(toggleId),panel=$(panelId);
+  const settings=$(name==='study'?'inkStudySettings':'inkExamSettings');
   if(!rootEl||!scroll||!toggle||!panel)return null;
-  let key='',doc=blank(),mode='off',open=false,visible=true,finger=false,active=null;
+  let key='',doc=blank(),mode='off',open=false,panelOpen=false,visible=true,finger=false,active=null;
   let overlays=[],observer=null,saveTimer=0,history=[];
   const status=panel.querySelector('.ink-save-status');
   const tool=action=>panel.querySelector('[data-ink-action="'+action+'"]');
@@ -65,9 +66,16 @@
    status.classList.toggle('ink-error',!!isError);
   }
   function setControls(){
-   toggle.setAttribute('aria-expanded',String(open));
+   toggle.setAttribute('aria-expanded',String(panelOpen));
+   toggle.setAttribute('aria-pressed',String(open&&mode!=='off'));
+   toggle.setAttribute('aria-label',open?'書き込みを終了':'書き込みを開始');
    toggle.classList.toggle('ink-on',open&&mode!=='off');
-   panel.hidden=!open;
+   panel.hidden=!panelOpen;
+   if(settings){
+    settings.hidden=!open;
+    settings.setAttribute('aria-expanded',String(panelOpen));
+    settings.setAttribute('aria-pressed',String(panelOpen));
+   }
    for(const action of ['pen','eraser']){
     const btn=tool(action);
     if(btn)btn.setAttribute('aria-pressed',String(mode===action));
@@ -212,7 +220,7 @@
    const next=lessonId+':'+exercise;
    const changed=next!==key;
    detach();
-   if(changed){key=next;doc=read(key);history=[];open=false;mode='off';visible=true;finger=false;}
+   if(changed){key=next;doc=read(key);history=[];open=false;panelOpen=false;mode='off';visible=true;finger=false;}
    const paras=[...rootEl.querySelectorAll(paragraphClass)];
    for(let i=0;i<paras.length;i++){
     const paragraph=paras[i];
@@ -264,13 +272,18 @@
    redraw();persist(true);
   }
   function finish(){
-   open=false;mode='off';active=null;
+   open=false;panelOpen=false;mode='off';active=null;
    setControls();persist(true);
   }
   toggle.addEventListener('click',()=>{
    if(open){finish();return;}
-   open=true;mode='pen';visible=true;setControls();
-   notice('書き込みはこの端末に自動保存されます。',false);
+   open=true;mode='pen';visible=true;panelOpen=false;setControls();
+   notice('書き込み中：この端末へ自動保存されます。',false);
+  });
+  settings?.addEventListener('click',()=>{
+   if(!open)return;
+   panelOpen=!panelOpen;
+   setControls();
   });
   panel.addEventListener('click',event=>{
    const btn=event.target.closest?.('[data-ink-action]');
@@ -285,9 +298,9 @@
     case 'visibility':visible=!visible;if(!visible)mode='off';else mode='pen';break;
     case 'done':finish();return;
    }
-   setControls();
+   panelOpen=false;setControls();
   });
-  tool('finger')?.addEventListener('change',event=>{finger=!!event.target.checked;setControls();});
+  tool('finger')?.addEventListener('change',event=>{finger=!!event.target.checked;panelOpen=false;setControls();});
   return {sync,finish,undo,notice,getKey:()=>key,debug:()=>({key,mode,open,strokes:Object.values(doc.paragraphs).reduce((n,arr)=>n+arr.length,0)})};
  }
  function init(){
