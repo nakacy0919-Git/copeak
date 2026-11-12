@@ -269,7 +269,7 @@ function applyTypography(){
  $('questionFontPlus').disabled=uiPref.questionSize>=24;
 }
 function splitBounds(){
- const available=$('studyLayout').clientWidth-12;
+ const available=$('studyLayout').clientWidth-16;
  if(available<=0)return [30,70];
  const min=Math.max(30,Math.ceil(265/available*100));
  const max=Math.min(70,Math.floor((available-295)/available*100));
