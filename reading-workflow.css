@@ -69,7 +69,7 @@ body.reading-browsing{overflow:auto;background:#f5f5f1}
 #readingApp .app{grid-template-columns:minmax(0,1fr);max-width:none;width:100%;margin:0}
 #readingApp .reader{width:100%;max-width:none}
 #readingApp #gradingSettings[hidden],#readingApp #readingGradingActions[hidden],
-#readingApp #answerCount[hidden]{display:none!important}
+#readingApp #answerCount[hidden],#readingApp #questions[hidden]{display:none!important}
 #readingApp #gradingSettings{
  padding:14px 15px;margin:8px 1px 17px;
  background:#f2f7f5;border:1px solid #cadbd8;
