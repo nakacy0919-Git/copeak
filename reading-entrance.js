@@ -4,7 +4,7 @@ const $=id=>document.getElementById(id);
 const practiceEngine=window.CopeakReadingPractice;
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const escapeXml=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&apos;'}[c])).replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/g,'');
-const state={manifest:null,sets:[],lesson:null,category:'all',level:'all',showAll:false,support:false,answers:{},clozeAnswers:{},vocabIndex:0,vocabChoice:null,vocabOrder:[],panel:'questions',exercise:null,graded:false,gradingMode:'immediate',activeQuestionId:null,practice:{},quizCursor:{}};
+const state={manifest:null,sets:[],lesson:null,category:'all',level:'all',showAll:false,support:false,answers:{},clozeAnswers:{},vocabIndex:0,vocabChoice:null,vocabOrder:[],panel:'questions',exercise:null,graded:false,gradingMode:'immediate',gradingChosen:false,activeQuestionId:null,practice:{},quizCursor:{}};
 const label=(id,collection)=>collection.find(x=>x.id===id)?.label||id;
 const status=s=>{$('loadStatus').textContent=s;};
 const words=lesson=>lesson.paragraphs.flatMap(p=>p.sentences).map(s=>s.en).join(' ').trim().split(/\s+/).filter(Boolean).length;
@@ -83,7 +83,7 @@ function safeSourceUrl(raw){
 }
 function selectLesson(id,startFocus=true){
  const s=state.sets.find(x=>x.id===id);if(!s)return;
- state.lesson=s;const progress=readProgress(s.id);state.answers=progress.answers||{};state.clozeAnswers=progress.clozeAnswers||{};state.graded=progress.graded===true;state.activeQuestionId=null;state.practice=progress.practice&&typeof progress.practice==='object'?progress.practice:{};state.quizCursor={};
+ state.lesson=s;const progress=readProgress(s.id);state.answers=progress.answers||{};state.clozeAnswers=progress.clozeAnswers||{};state.graded=progress.graded===true;state.gradingChosen=false;state.activeQuestionId=null;state.practice=progress.practice&&typeof progress.practice==='object'?progress.practice:{};state.quizCursor={};
  state.showAll=false;state.support=false;state.vocabIndex=0;state.vocabChoice=null;state.panel='questions';state.exercise=null;
  $('supportToggle').disabled=false;$('printOpen').disabled=false;$('focusStart').disabled=false;$('examModeStart').disabled=false;
  $('supportToggle').setAttribute('aria-pressed','false');$('supportToggle').setAttribute('aria-label','読解の根拠段落を表示');
@@ -93,7 +93,7 @@ function selectLesson(id,startFocus=true){
   const href=safeSourceUrl(l.url);
   return href?'<a target="_blank" rel="noopener noreferrer" href="'+esc(href)+'">'+esc(l.title)+'</a>':'';
  }).join('');
- renderPassage();renderQuestions();renderVocab();renderNotes();renderCloze();switchTab('questions');renderSetList();showExerciseChooser();renderPracticeProgress();
+ renderPassage();renderQuestions();renderVocab();renderNotes();renderCloze();switchTab('questions');renderSetList();chooseExercise('questions');renderPracticeProgress();
  if(startFocus)enterFocusMode();
  if(startFocus&&document.body.classList.contains('reading-focus'))closeCatalog();
  if(!document.body.classList.contains('reading-focus')&&window.matchMedia('(max-width:1000px)').matches)$('reader').scrollIntoView({behavior:'smooth',block:'start'});
@@ -451,7 +451,10 @@ function renderQuestions(){
  const isBatch=state.gradingMode==='batch';
  const showResults=!isBatch||state.graded;
  $('answerCount').textContent=answered+' / '+qTotal+'問回答';
- $('gradingMode').value=state.gradingMode;
+ $('gradingMode').value=state.gradingChosen?state.gradingMode:'';
+ $('gradingSettings').hidden=state.gradingChosen;
+ $('readingGradingActions').hidden=!state.gradingChosen;
+ $('answerCount').hidden=true;
  $('gradeAll').hidden=!isBatch;
  $('gradeAll').disabled=!complete||state.graded;
  $('gradeAll').textContent=state.graded?'採点済み':'全問の結果を表示';
@@ -464,14 +467,14 @@ function renderQuestions(){
   const revealed=selected&&showResults;
   return '<article class="question-card" data-question="'+esc(q.id)+'"><p class="skill">'+esc(q.skill.toUpperCase())+' · Q'+(i+1)+'</p><h4>'+esc(q.prompt)+'</h4><div class="choices">'+q.options.map((option,j)=>
    '<button type="button" data-q="'+esc(q.id)+'" data-option="'+j+'" aria-pressed="'+(selected&&j===chosen)+'" '+
-   (revealed?'disabled ':'')+'class="'+(revealed&&j===q.answer?'correct':revealed&&j===chosen?'wrong':selected&&j===chosen?'selected':'')+'">'+String.fromCharCode(65+j)+'. '+esc(option)+'</button>'
+   (revealed||!state.gradingChosen?'disabled ':'')+'class="'+(revealed&&j===q.answer?'correct':revealed&&j===chosen?'wrong':selected&&j===chosen?'selected':'')+'">'+String.fromCharCode(65+j)+'. '+esc(option)+'</button>'
   ).join('')+'</div>'+
   (revealed?'<p class="feedback '+(chosen===q.answer?'correct':'wrong')+'">'+(chosen===q.answer?'正解！':'正解は '+String.fromCharCode(65+q.answer))+'</p><p class="feedback">'+esc(q.explanation_ja)+'</p>':'')+
   '<div class="card-actions"><button type="button" data-evidence="'+esc(q.id)+'" '+(state.support?'':'hidden')+'>根拠段落を見る</button></div></article>';
  }).join('');
  $('questions').querySelectorAll('[data-q]').forEach(b=>b.addEventListener('click',()=>{
   const q=s.questions.find(x=>x.id===b.dataset.q);
-  if(!q||(state.gradingMode==='batch'&&state.graded)||
+  if(!q||!state.gradingChosen||(state.gradingMode==='batch'&&state.graded)||
    (state.gradingMode==='immediate'&&Number.isInteger(state.answers[q.id])))return;
   state.activeQuestionId=q.id;
   state.answers[q.id]=Number(b.dataset.option);
@@ -871,7 +874,7 @@ function openCatalog(){
 function enterFocusMode(){
  if(!state.lesson)return;
  document.body.classList.add('reading-focus');
- $('catalogToggle').hidden=false;
+ $('catalogToggle').hidden=true;
  $('focusStart').hidden=true;
  $('focusExit').hidden=false;
  closeCatalog(false);
@@ -900,7 +903,7 @@ function initReadingUI(){
  });
  $('catalogBackdrop').addEventListener('click',()=>closeCatalog(true));
  $('focusStart').addEventListener('click',enterFocusMode);
- $('focusExit').addEventListener('click',exitFocusMode);
+ $('focusExit').addEventListener('click',()=>openBrowse('category'));
  document.addEventListener('keydown',e=>{
   if(e.key==='Escape'&&document.body.classList.contains('catalog-open'))closeCatalog(true);
  });
@@ -967,7 +970,7 @@ async function init(){
   }
   state.sets=results.filter(r=>r.status==='fulfilled'&&r.value).map(r=>r.value);
   const errors=results.filter(r=>r.status==='rejected');status(errors.length?errors.length+'件の教材を検証できませんでした。編集データを確認してください。':'現在の収録教材 '+state.sets.length+'セット / 目標450セット');
-  renderCatalog();if(state.sets.length)selectLesson(state.sets[0].id,false);
+  renderCatalog();openBrowse('category');
  }catch(e){status('教材一覧を読み込めませんでした：'+e.message);}
 }
 $('categoryFilter').addEventListener('change',e=>{state.category=e.target.value;renderCatalog();renderSetList();});
@@ -1003,9 +1006,10 @@ $('vocabListToggle').addEventListener('click',()=>{
  $('vocabListToggle').textContent=show?'語彙一覧を閉じる':'語彙一覧を見る';
 });
 $('gradingMode').addEventListener('change',e=>{
- state.gradingMode=e.target.value==='batch'?'batch':'immediate';
+ if(e.target.value!=='batch'&&e.target.value!=='immediate')return;
+ state.gradingMode=e.target.value;state.gradingChosen=true;
  try{localStorage.setItem('copeak-reading-grading-mode',state.gradingMode);}catch(_){}
- renderQuestions();
+ renderQuestions();$('questionScroll').scrollTop=0;
 });
 $('gradeAll').addEventListener('click',()=>{
  if(!state.lesson||state.gradingMode!=='batch'||state.graded)return;
@@ -1023,7 +1027,7 @@ $('resetAnswers').addEventListener('click',()=>{
  $('questionScroll').scrollTo({top:0,behavior:'smooth'});
 });
 try{state.gradingMode=localStorage.getItem('copeak-reading-grading-mode')==='batch'?'batch':'immediate';}catch(_){}
-$('gradingMode').value=state.gradingMode;
+$('gradingMode').value='';
 $('printOpen').addEventListener('click',()=>$('printDialog').showModal());
 $('printPdf').addEventListener('click',printPDF);$('printDocx').addEventListener('click',downloadDocx);
 window.CopeakReadingExamContext=()=>({lesson:state.lesson,mode:state.exercise||'questions',sets:state.sets,direction:$('vocabQuizMode').value});
