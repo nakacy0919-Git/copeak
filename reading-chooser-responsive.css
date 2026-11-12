@@ -1,0 +1,168 @@
+/* Responsive exercise selector for the split-pane reading workspace.
+   Base card widths on the *actual question pane*, not the iPad viewport. */
+#readingApp .exercise-chooser{
+  container-type:inline-size;
+  container-name:reading-exercise;
+  min-width:0;
+  overflow-x:hidden;
+  padding-inline:clamp(12px,2vw,22px);
+}
+#readingApp .exercise-choices{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:10px;
+  min-width:0;
+  align-items:stretch;
+}
+#readingApp .exercise-choices .practice-choice{
+  box-sizing:border-box;
+  display:grid;
+  grid-template-columns:46px minmax(0,1fr) max-content;
+  grid-template-rows:auto;
+  align-items:center;
+  column-gap:13px;
+  row-gap:5px;
+  width:100%;
+  min-width:0;
+  min-height:86px;
+  height:auto;
+  padding:12px 14px;
+  border-radius:14px;
+  overflow:visible;
+}
+#readingApp .exercise-choices .practice-choice > .practice-choice-icon{
+  position:static;
+  grid-column:1;grid-row:1;
+  align-self:center;justify-self:center;
+  display:grid;place-items:center;
+  width:46px;height:46px;
+  margin:0;
+  min-width:0;
+  border-radius:12px;
+}
+#readingApp .exercise-choices .practice-choice > .practice-choice-icon svg{
+  width:24px;height:24px;
+}
+#readingApp .exercise-choices .practice-choice > .practice-choice-copy{
+  position:static;
+  display:flex;flex-direction:column;
+  grid-column:2;grid-row:1;
+  align-self:center;justify-self:stretch;
+  min-width:0;
+  max-width:100%;
+  padding:0;
+  margin:0;
+  gap:5px;
+  text-align:left;
+  white-space:normal;
+  overflow-wrap:anywhere;
+  word-break:normal;
+}
+#readingApp .exercise-choices .practice-choice > .practice-choice-copy strong{
+  display:block;
+  margin:0;
+  font-size:14px;
+  line-height:1.45;
+  font-weight:800;
+  overflow-wrap:anywhere;
+  white-space:normal;
+}
+#readingApp .exercise-choices .practice-choice > .practice-choice-copy small{
+  display:block;
+  margin:0;
+  font-size:11px;
+  line-height:1.45;
+  color:#627889;
+  white-space:normal;
+  overflow-wrap:anywhere;
+}
+#readingApp .exercise-choices .practice-choice > .practice-choice-progress{
+  position:static;
+  display:inline-flex;
+  align-items:center;justify-content:center;
+  grid-column:3;grid-row:1;
+  justify-self:end;align-self:center;
+  width:auto;
+  height:auto;
+  max-width:100%;
+  min-width:73px;
+  margin:0;
+  padding:5px 8px;
+  border-radius:999px;
+  white-space:nowrap;
+  font-size:10px;
+  font-weight:800;
+  line-height:1.25;
+  text-align:center;
+  font-variant-numeric:tabular-nums;
+}
+@container reading-exercise (max-width: 365px){
+  #readingApp .exercise-choices .practice-choice{
+    grid-template-columns:40px minmax(0,1fr);
+    grid-template-rows:auto auto;
+    min-height:96px;
+    padding:11px 12px;
+    column-gap:11px;
+  }
+  #readingApp .exercise-choices .practice-choice > .practice-choice-icon{
+    width:40px;height:40px;grid-column:1;grid-row:1 / 3;
+  }
+  #readingApp .exercise-choices .practice-choice > .practice-choice-icon svg{
+    width:21px;height:21px;
+  }
+  #readingApp .exercise-choices .practice-choice > .practice-choice-copy{
+    grid-column:2;grid-row:1;
+    gap:2px;
+  }
+  #readingApp .exercise-choices .practice-choice > .practice-choice-progress{
+    grid-column:2;grid-row:2;
+    justify-self:start;align-self:start;
+    min-width:0;
+    padding:4px 8px;
+  }
+}
+@container reading-exercise (min-width: 780px){
+  #readingApp .exercise-choices{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    column-gap:12px;
+  }
+  #readingApp .exercise-choices .practice-choice{
+    grid-template-columns:42px minmax(0,1fr);
+    grid-template-rows:auto auto;
+    min-height:108px;
+    padding:12px;
+    column-gap:11px;
+  }
+  #readingApp .exercise-choices .practice-choice > .practice-choice-icon{
+    grid-column:1;grid-row:1 / 3;
+    width:42px;height:42px;
+  }
+  #readingApp .exercise-choices .practice-choice > .practice-choice-copy{
+    grid-column:2;grid-row:1;
+  }
+  #readingApp .exercise-choices .practice-choice > .practice-choice-progress{
+    grid-column:2;grid-row:2;
+    align-self:start;justify-self:start;
+    min-width:0;
+  }
+}
+/* Fallback on older WebKit versions without container queries:
+   one-column focus mode remains readable at any tablet width. */
+@supports not (container-type:inline-size){
+  body.reading-focus #readingApp .exercise-choices{
+    grid-template-columns:minmax(0,1fr);
+  }
+  #readingApp .exercise-choices .practice-choice{
+    grid-template-columns:40px minmax(0,1fr);
+    grid-template-rows:auto auto;
+  }
+  #readingApp .exercise-choices .practice-choice > .practice-choice-icon{
+    grid-column:1;grid-row:1 / 3;
+  }
+  #readingApp .exercise-choices .practice-choice > .practice-choice-copy{
+    grid-column:2;grid-row:1;
+  }
+  #readingApp .exercise-choices .practice-choice > .practice-choice-progress{
+    grid-column:2;grid-row:2;justify-self:start;min-width:0;
+  }
+}
