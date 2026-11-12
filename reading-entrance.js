@@ -304,55 +304,156 @@ function renderQuestions(){
  }));
  if(panelScroll)panelScroll.scrollTop=retainedScroll;
 }
-function renderVocab(){
- const s=state.lesson;if(!s)return;
- $('vocabList').innerHTML=s.vocabulary.map(v=>'<article><strong>'+esc(v.term)+'</strong><span>日本語：'+esc(v.ja)+'</span><span>Synonym: '+esc(v.synonym)+'</span><span>Definition: '+esc(v.definition)+'</span></article>').join('');
- state.vocabOrder=shuffle(s.vocabulary.map((_,i)=>i));state.vocabIndex=0;state.vocabChoice=null;renderVocabQuiz();
+/* Interactive exercises: all modes use four choices and reveal an explanation after
+   every submitted answer, regardless of correctness. Responses are saved per lesson. */
+function practiceKey(mode){
+ return mode==='vocab'?'vocab:'+($('vocabQuizMode').value||'en-ja'):mode;
 }
-function renderVocabQuiz(){
- const s=state.lesson;if(!s)return;
- if(state.vocabIndex>=state.vocabOrder.length){
- $('vocabQuiz').innerHTML='<p class="notice">すべての語彙を確認しました。もう一度取り組む場合は「クイズをやり直す」を押してください。</p>';return;
+function practiceRecord(mode){
+ const key=practiceKey(mode);
+ if(!state.practice[key]||typeof state.practice[key]!=='object'){
+  state.practice[key]={answers:{},runs:0,best:0,finished:false};
  }
- const i=state.vocabOrder[state.vocabIndex],v=s.vocabulary[i],mode=$('vocabQuizMode').value;
- const target=x=>mode==='en-ja'?x.ja:x.term;
- const prompt=mode==='en-ja'?v.term:mode==='ja-en'?v.ja:v.definition;
- const others=shuffle(s.vocabulary.filter((_,j)=>j!==i)).slice(0,3);
- const options=shuffle([v,...others]),answered=state.vocabChoice!==null;
- $('vocabQuiz').innerHTML='<article class="quiz-card"><p>QUESTION '+(state.vocabIndex+1)+' / '+state.vocabOrder.length+'</p><h3>'+esc(prompt)+'</h3><div class="choices">'+options.map(x=>{
- const choice=target(x),correct=choice===target(v);
- return '<button type="button" data-vocab="'+esc(x.term)+'" '+(answered?'disabled ':'')+'class="'+(answered&&correct?'correct':answered&&x.term===state.vocabChoice?'wrong':'')+'">'+esc(choice)+'</button>';
- }).join('')+'</div>'+(answered?'<p class="feedback">'+(state.vocabChoice===v.term?'Correct!':'正解：'+esc(target(v)))+'　'+esc(v.synonym)+'</p><button type="button" id="nextVocab">次の語彙 →</button>':'')+'</article>';
- $('vocabQuiz').querySelectorAll('[data-vocab]').forEach(b=>b.addEventListener('click',()=>{
-  if(state.vocabChoice!==null)return;state.vocabChoice=b.dataset.vocab;
-  // preserve the choices shown when feedback is displayed
-  const chosen=b.dataset.vocab,correct=state.lesson.vocabulary[i].term;
-  $('vocabQuiz').querySelectorAll('[data-vocab]').forEach(btn=>{
-   btn.disabled=true;if(btn.dataset.vocab===correct)btn.classList.add('correct');
-   if(btn.dataset.vocab===chosen&&chosen!==correct)btn.classList.add('wrong');
-  });
-  const card=$('vocabQuiz').querySelector('.quiz-card');
-  const feedback=document.createElement('p');feedback.className='feedback';feedback.textContent=(chosen===correct?'Correct!':'正解：'+target(v))+' / Synonym: '+v.synonym;card.appendChild(feedback);
-  const next=document.createElement('button');next.type='button';next.textContent='次の語彙 →';card.appendChild(next);
-  next.addEventListener('click',()=>{state.vocabIndex++;state.vocabChoice=null;renderVocabQuiz();});
- }));
+ const record=state.practice[key];
+ if(!record.answers||typeof record.answers!=='object')record.answers={};
+ // Import older cloze answers only once so a pupil does not lose previous practice.
+ if(mode==='cloze'&&!record.migrated){
+  for(const [oldIndex,value] of Object.entries(state.clozeAnswers||{})){
+   if(Number.isInteger(value)&&!Object.hasOwn(record.answers,'c-'+oldIndex))record.answers['c-'+oldIndex]=value;
+  }
+  record.migrated=true;
+ }
+ return record;
 }
-function renderNotes(){
- const s=state.lesson;if(!s)return;
- const p=n=>'<article class="note-card"><strong>'+esc(n.focus||n.expression||n.source)+'</strong><p>'+esc(n.explanation_ja||n.role_ja||'')+'</p>'+(n.rewrite?'<p>→ '+esc(n.rewrite)+'</p>':'')+(n.paragraph_id?'<small>'+esc(n.paragraph_id.toUpperCase())+'</small>':'')+'</article>';
- $('grammarNotes').innerHTML=s.grammar.map(p).join('');$('discourseNotes').innerHTML=s.discourse.map(p).join('');$('paraphraseNotes').innerHTML=s.paraphrases.map(p).join('');
+function modeSummary(mode){
+ if(!state.lesson)return {total:0,answered:0,correct:0,percent:0,accuracy:0,runs:0,best:0};
+ const items=mode==='questions'?state.lesson.questions:practiceBank(mode);
+ const record=practiceRecord(mode);
+ const answers=mode==='questions'?state.answers:record.answers;
+ let answered=0,correct=0;
+ for(const item of items){
+  const picked=answers[item.id];
+  if(Number.isInteger(picked)&&picked>=0&&picked<item.options.length){
+   answered++;
+   if(picked===item.answer)correct++;
+  }
+ }
+ const total=items.length;
+ return {total,answered,correct,percent:total?Math.round(answered/total*100):0,
+  accuracy:answered?Math.round(correct/answered*100):0,
+  runs:Number(record.runs)||0,best:Number(record.best)||0};
 }
-function renderCloze(){
- const s=state.lesson;if(!s)return;
- $('clozeQuestions').innerHTML=s.cloze.map((q,i)=>{
- const paragraph=s.paragraphs.find(p=>p.id===q.paragraph_id),sentence=paragraph?.sentences[q.sentence_index]?.en||'';
- const pos=sentence.indexOf(q.answer);const blank=pos<0?sentence:sentence.slice(0,pos)+' ________ '+sentence.slice(pos+q.answer.length);
- const chosen=state.clozeAnswers[i],answered=Number.isInteger(chosen);
- return '<article class="question-card"><p class="skill">CLOZE '+(i+1)+' · '+esc(q.paragraph_id.toUpperCase())+'</p><h4>'+esc(blank)+'</h4><div class="choices">'+q.options.map((o,j)=>'<button type="button" data-cloze="'+i+'" data-option="'+j+'" '+(answered?'disabled ':'')+'class="'+(answered&&o===q.answer?'correct':answered&&j===chosen?'wrong':'')+'">'+String.fromCharCode(65+j)+'. '+esc(o)+'</button>').join('')+'</div>'+
- (answered?'<p class="feedback">'+(q.options[chosen]===q.answer?'Correct!':'正解：'+esc(q.answer))+'</p><p>'+esc(q.explanation_ja)+'</p>':'')+'</article>';
+function renderPracticeProgress(){
+ if(!state.lesson||!practiceEngine)return;
+ const icons={
+  questions:'<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h7M8 16h5"/>',
+  vocab:'<path d="m4 20 5-13 5 13M6 15h6"/><path d="M16 8h4M18 6v13"/>',
+  grammar:'<path d="M4 7h16M7 4v6M17 4v6M4 17h16M8 14v6M16 14v6"/>',
+  discourse:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><path d="M10 6h4v11M10 17h4"/>',
+  paraphrase:'<path d="M4 7h15l-3-3m3 3-3 3M20 17H5l3-3m-3 3 3 3"/><path d="M8 12h8"/>',
+  cloze:'<path d="M4 4h16v16H4zM8 9h8M8 14h5"/>'
+ };
+ let percentages=[];
+ $('practiceProgress').innerHTML=practiceEngine.modes.map(mode=>{
+  const x=modeSummary(mode),name=practiceEngine.labels[mode],p=x.percent;
+  percentages.push(p);
+  const detail=x.answered+'/'+x.total+'問 · 正答率'+x.accuracy+'% · 完走'+x.runs+'回'+(x.runs?' · 最高'+x.best+'%':'');
+  return '<div class="progress-mini" data-progress-mode="'+esc(mode)+'" style="--progress:'+p+'%" title="'+esc(name+'：'+detail)+'" aria-label="'+esc(name+' '+p+'パーセント達成、'+detail)+'">'+
+   '<span class="progress-ring"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+icons[mode]+'</svg></span>'+
+   '<span class="progress-copy"><strong>'+esc(name)+'</strong><small>'+p+'%</small></span></div>';
  }).join('');
- $('clozeQuestions').querySelectorAll('[data-cloze]').forEach(b=>b.addEventListener('click',()=>{const i=Number(b.dataset.cloze);if(Number.isInteger(state.clozeAnswers[i]))return;state.clozeAnswers[i]=Number(b.dataset.option);saveProgress();renderCloze();}));
+ for(const b of $('exerciseChoices').querySelectorAll('[data-exercise]')){
+  const x=modeSummary(b.dataset.exercise);
+  const tag=b.querySelector('[data-choice-progress]');
+  if(tag)tag.textContent=x.answered+'/'+x.total+' · '+x.percent+'%';
+ }
+ const done=percentages.length?Math.round(percentages.reduce((a,b)=>a+b,0)/percentages.length):0;
+ const total=$('overallProgress');
+ if(total)total.textContent='総合 '+done+'%';
 }
+function recordCompletion(mode){
+ const r=practiceRecord(mode),info=modeSummary(mode);
+ if(info.total&&info.answered===info.total&&!r.finished){
+  r.finished=true;r.runs=(Number(r.runs)||0)+1;
+  r.best=Math.max(Number(r.best)||0,Math.round(info.correct/info.total*100));
+ }
+ saveProgress();
+ renderPracticeProgress();
+}
+function resetMode(mode){
+ const r=practiceRecord(mode);
+ r.answers={};r.finished=false;
+ state.quizCursor[mode]=0;
+ if(mode==='cloze')state.clozeAnswers={};
+ saveProgress();
+ renderPracticeQuiz(mode);
+ renderPracticeProgress();
+ renderPassage(true);
+}
+function renderModeList(){
+ const lesson=state.lesson;if(!lesson)return;
+ $('vocabList').innerHTML=lesson.vocabulary.map(v=>
+  '<article><strong>'+esc(v.term)+'</strong><span>日本語：'+esc(v.ja)+'</span><span>Synonym: '+esc(v.synonym)+'</span><span>Definition: '+esc(v.definition)+'</span></article>'
+ ).join('');
+}
+const panelIds={vocab:'vocabQuiz',grammar:'grammarNotes',discourse:'discourseNotes',paraphrase:'paraphraseNotes',cloze:'clozeQuestions'};
+function renderPracticeQuiz(mode){
+ if(!state.lesson||!panelIds[mode])return;
+ const pane=$(panelIds[mode]),items=practiceBank(mode),record=practiceRecord(mode);
+ if(!items.length){
+  pane.innerHTML='<p class="practice-empty">この練習の問題は準備中です。</p>';return;
+ }
+ let index=state.quizCursor[mode];
+ if(!Number.isInteger(index)){
+  const next=items.findIndex(x=>!Number.isInteger(record.answers[x.id]));
+  index=next<0?items.length:next;
+  state.quizCursor[mode]=index;
+ }
+ if(index>=items.length){
+  const summary=modeSummary(mode);
+  pane.innerHTML='<div class="practice-finish"><span class="finish-mark" aria-hidden="true">✓</span><h3>'+esc(practiceEngine.labels[mode])+' 完了</h3><p>'+summary.correct+' / '+summary.total+' 問正解　·　正答率'+summary.accuracy+'%</p>'+
+   '<p class="practice-statline">完走 '+summary.runs+'回　最高正答率 '+summary.best+'%</p>'+
+   '<button type="button" data-practice-restart="'+esc(mode)+'">もう一度挑戦</button></div>';
+  pane.querySelector('[data-practice-restart]')?.addEventListener('click',()=>resetMode(mode));
+  return;
+ }
+ const item=items[index];
+ const picked=record.answers[item.id];
+ const answered=Number.isInteger(picked)&&picked>=0&&picked<item.options.length;
+ const score=modeSummary(mode);
+ const prompt=(item.subprompt?'<p class="practice-subprompt">'+esc(item.subprompt)+'</p>':'');
+ pane.innerHTML='<div class="practice-meta"><span>'+esc(practiceEngine.labels[mode])+'</span><span>QUESTION '+(index+1)+' / '+items.length+'</span><span>'+score.answered+'問解答済み</span></div>'+
+  '<article class="practice-card"><h3>'+esc(item.prompt)+'</h3>'+prompt+
+  '<div class="practice-options">'+item.options.map((op,j)=>{
+   const cls=answered?(j===item.answer?'correct':j===picked?'wrong':''):'';
+   return '<button type="button" data-practice-option="'+j+'" '+(answered?'disabled ':'')+'aria-pressed="'+(picked===j)+'" class="'+cls+'"><span class="option-letter">'+String.fromCharCode(65+j)+'</span><span>'+esc(op)+'</span></button>';
+  }).join('')+'</div>'+
+  (answered?'<div class="practice-explanation" role="status"><strong class="'+(picked===item.answer?'correct':'wrong')+'">'+(picked===item.answer?'✓ 正解':'× 不正解')+'　正答 '+String.fromCharCode(65+item.answer)+'. '+esc(item.options[item.answer])+'</strong><p>'+esc(item.explanation)+'</p></div>':'')+
+  '<div class="practice-footer">'+(answered?'<button type="button" class="primary" data-practice-next>'+(index+1===items.length?'結果を見る':'次の問題へ →')+'</button>':'<span class="muted">選択すると正誤と解説が表示されます。</span>')+
+  '<button type="button" class="practice-reset" data-practice-restart="'+esc(mode)+'">最初から</button></div></article>';
+ pane.querySelectorAll('[data-practice-option]').forEach(btn=>btn.addEventListener('click',()=>{
+  if(Number.isInteger(practiceRecord(mode).answers[item.id]))return;
+  practiceRecord(mode).answers[item.id]=Number(btn.dataset.practiceOption);
+  if(mode==='cloze')state.clozeAnswers[index]=Number(btn.dataset.practiceOption);
+  recordCompletion(mode);
+  const top=$('questionScroll').scrollTop;
+  renderPracticeQuiz(mode);
+  $('questionScroll').scrollTop=top;
+ }));
+ pane.querySelector('[data-practice-next]')?.addEventListener('click',()=>{
+  state.quizCursor[mode]=index+1;
+  renderPracticeQuiz(mode);
+  renderPassage(true);
+  $('questionScroll').scrollTop=0;
+ });
+ pane.querySelector('[data-practice-restart]')?.addEventListener('click',()=>resetMode(mode));
+}
+function renderVocab(){renderModeList();if(state.exercise==='vocab')renderPracticeQuiz('vocab');}
+function renderVocabQuiz(){renderPracticeQuiz('vocab');}
+function renderNotes(){
+ for(const mode of ['grammar','discourse','paraphrase'])if(state.exercise===mode)renderPracticeQuiz(mode);
+}
+function renderCloze(){if(state.exercise==='cloze')renderPracticeQuiz('cloze');}
 function updateSupportUI(){
  const btn=$('supportToggle');
  const visible=state.lesson&&state.exercise==='questions';
