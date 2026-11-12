@@ -73,6 +73,90 @@ function renderSetList(){
  }).join(''):'<p class="empty">この条件の長文はまだ準備中です。他のレベル・分野をご覧ください。</p>';
  $('setList').querySelectorAll('[data-set]').forEach(b=>b.addEventListener('click',()=>selectLesson(b.dataset.set)));
 }
+/* Full-page browsing: category → level → original passage. */
+const browseState={step:'category',category:null,level:null};
+const browseAvailable=(category,level)=>state.sets.filter(x=>
+ (!category||x.category_id===category)&&(!level||(x.level_ids||[x.level_id]).includes(level)));
+function browseCard(id,title,description,info,number,disabled){
+ return '<button class="browse-card'+(disabled?' is-unavailable':'')+'" type="button" data-browse-pick="'+esc(id)+'" '+(disabled?'disabled':'')+'>'+
+ '<span class="browse-number">'+esc(number)+'</span>'+
+ '<span class="browse-card-content"><strong>'+esc(title)+'</strong><small>'+esc(description)+'</small></span>'+
+ '<span class="browse-card-info">'+esc(info)+'</span></button>';
+}
+function renderBrowse(){
+ if(!state.manifest)return;
+ const step=browseState.step,category=browseState.category,level=browseState.level;
+ const cLabel=category?label(category,state.manifest.categories):'';
+ const lLabel=level?label(level,state.manifest.levels):'';
+ const head=step==='category'?'15分野から選ぶ':step==='level'?cLabel+'：レベルを選ぶ':'読みたい長文を選ぶ';
+ $('browseHeading').textContent=head;
+ $('browseStepLabel').textContent='STEP '+(step==='category'?1:step==='level'?2:3)+' / 3';
+ $('browseDescription').textContent=step==='category'?'学習したい分野を選択してください。':
+ step==='level'?'レベルを選択してください。教材がないレベルは準備中と表示されます。':
+ '教材を選ぶと、英文と読解問題が直接表示されます。';
+ const crumbs=[{name:'15分野',step:'category'}];
+ if(step!=='category')crumbs.push({name:cLabel,step:'level'});
+ if(step==='article')crumbs.push({name:lLabel,step:'article'});
+ $('browseBreadcrumbs').innerHTML=crumbs.map((c,i)=>i===crumbs.length-1?'<span aria-current="step">'+esc(c.name)+'</span>':
+  '<button type="button" data-browse-step="'+esc(c.step)+'">'+esc(c.name)+'</button><span class="browse-divider">/</span>').join('');
+ let html='';
+ if(step==='category'){
+  $('browseCards').className='browse-cards browse-categories';
+  html=state.manifest.categories.map((c,i)=>{
+   const total=browseAvailable(c.id).length;
+   return browseCard(c.id,c.label,c.id+' · '+(total?'収録済み教材があります':'教材準備中'),total?total+' セット':'準備中',
+    String(i+1).padStart(2,'0'),!total);
+  }).join('');
+ }else if(step==='level'){
+  $('browseCards').className='browse-cards browse-levels';
+  html=state.manifest.levels.map((l,i)=>{
+   const total=browseAvailable(category,l.id).length;
+   return browseCard(l.id,l.label,l.words.join('–')+'語 · 目安 '+l.minutes.join('–')+'分',
+    total?total+' セット':'準備中',String(i+1).padStart(2,'0'),!total);
+  }).join('');
+ }else{
+  $('browseCards').className='browse-cards browse-articles';
+  html=browseAvailable(category,level).map((item,i)=>{
+   const done=Object.keys(readProgress(item.id).answers||{}).length;
+   return browseCard(item.id,item.title_ja||item.title,
+    item.title+' · '+item.word_count+' words · '+item.questions.length+' 問',
+    '回答 '+done+'/'+item.questions.length,String(i+1).padStart(2,'0'),false);
+  }).join('')||'<p class="browse-empty">この条件にはまだ教材がありません。戻って別のレベルを選択してください。</p>';
+ }
+ $('browseCards').innerHTML=html;
+ $('browseNotice').textContent=step==='category'?'現在 '+state.sets.length+' セット収録 · 追加制作中':
+  step==='level'?cLabel+' · '+browseAvailable(category).length+' セット収録':'学習記録はこの端末に保存されます。';
+ $('browseCards').querySelectorAll('[data-browse-pick]').forEach(b=>b.addEventListener('click',()=>{
+  const value=b.dataset.browsePick;
+  if(step==='category'){browseState.category=value;browseState.level=null;browseState.step='level';renderBrowse();}
+  else if(step==='level'){browseState.level=value;browseState.step='article';renderBrowse();}
+  else{
+   $('readingBrowse').hidden=true;
+   $('readingWorkspace').hidden=false;
+   document.body.classList.remove('reading-browsing');
+   selectLesson(value,true);
+  }
+  window.scrollTo?.({top:0,behavior:'instant'});
+ }));
+ $('browseBreadcrumbs').querySelectorAll('[data-browse-step]').forEach(b=>b.addEventListener('click',()=>openBrowse(b.dataset.browseStep)));
+}
+function openBrowse(step='category'){
+ window.CopeakReadingInk?.pauseStudy();
+ closeCatalog(false);
+ document.body.classList.remove('reading-focus','catalog-open');
+ document.body.classList.add('reading-browsing');
+ $('readingCatalog').inert=false;
+ $('readingWorkspace').hidden=true;
+ $('readingBrowse').hidden=false;
+ $('focusStart').hidden=false;$('focusExit').hidden=true;
+ $('catalogToggle').hidden=true;
+ if(step==='category'){browseState.category=null;browseState.level=null;}
+ if(step==='level')browseState.level=null;
+ browseState.step=step;
+ renderBrowse();
+ window.scrollTo?.({top:0,behavior:'instant'});
+}
+
 function safeSourceUrl(raw){
  try{
   const value=String(raw||'').trim();
