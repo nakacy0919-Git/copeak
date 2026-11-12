@@ -548,7 +548,7 @@ function renderQuestions(){
  const isBatch=state.gradingMode==='batch';
  const showResults=state.gradingChosen&&(!isBatch||state.graded);
  $('answerCount').textContent=answered+' / '+qTotal+'問回答';
- $('gradingMode').value=state.gradingChosen?state.gradingMode:'';
+ $('gradingSettings').querySelectorAll('[data-grading-mode]').forEach(button=>button.setAttribute('aria-pressed',String(state.gradingChosen&&state.gradingMode===button.dataset.gradingMode)));
  $('gradingSettings').hidden=state.gradingChosen;
  $('questions').hidden=!state.gradingChosen;
  $('readingGradingActions').hidden=!state.gradingChosen;
@@ -1091,12 +1091,14 @@ $('vocabListToggle').addEventListener('click',()=>{
  $('vocabListToggle').setAttribute('aria-expanded',String(show));
  $('vocabListToggle').textContent=show?'語彙一覧を閉じる':'語彙一覧を見る';
 });
-$('gradingMode').addEventListener('change',e=>{
- if(e.target.value!=='batch'&&e.target.value!=='immediate')return;
- state.gradingMode=e.target.value;state.gradingChosen=true;
- try{localStorage.setItem('copeak-reading-grading-mode',state.gradingMode);}catch(_){}
+$('gradingSettings').querySelectorAll('[data-grading-mode]').forEach(button=>button.addEventListener('click',()=>{
+ const selected=button.dataset.gradingMode;
+ if(selected!=='batch'&&selected!=='immediate'||state.gradingChosen||!state.lesson)return;
+ state.gradingMode=selected;state.gradingChosen=true;
+ try{localStorage.setItem('copeak-reading-grading-mode',selected);}catch(_){}
  renderQuestions();$('questionScroll').scrollTop=0;
-});
+ $('questions').querySelector('[data-q]')?.focus({preventScroll:true});
+}));
 $('gradeAll').addEventListener('click',()=>{
  if(!state.lesson||state.gradingMode!=='batch'||state.graded)return;
  if(!state.lesson.questions.every(q=>Number.isInteger(state.answers[q.id])))return;
@@ -1113,7 +1115,7 @@ $('resetAnswers').addEventListener('click',()=>{
  $('questionScroll').scrollTo({top:0,behavior:'smooth'});
 });
 try{state.gradingMode=localStorage.getItem('copeak-reading-grading-mode')==='batch'?'batch':'immediate';}catch(_){}
-$('gradingMode').value='';
+
 $('printOpen').addEventListener('click',()=>$('printDialog').showModal());
 $('printPdf').addEventListener('click',printPDF);$('printDocx').addEventListener('click',downloadDocx);
 window.CopeakReadingExamContext=()=>({lesson:state.lesson,mode:state.exercise||'questions',sets:state.sets,direction:$('vocabQuizMode').value});

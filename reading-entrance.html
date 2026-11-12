@@ -16,8 +16,8 @@
 <link rel="stylesheet" href="reading-exam-mode.css?v=20261112-full4">
 <link rel="stylesheet" href="reading-ink.css?v=20261112-toolbar4">
 <link rel="stylesheet" href="reading-access.css?v=20261112-2">
-<link rel="stylesheet" href="reading-workflow.css?v=20261112-compact4">
-<script defer src="reading-access.js?v=20261112-compact4"></script>
+<link rel="stylesheet" href="reading-workflow.css?v=20261113-gradingcards1">
+<script defer src="reading-access.js?v=20261113-gradingcards1"></script>
 </head>
 <body>
 <section id="readingGate" class="reading-gate" aria-labelledby="readingGateHeading">
@@ -149,10 +149,27 @@
   </nav>
   <div class="question-scroll" id="questionScroll" tabindex="0" aria-label="問題を上下にスクロール">
   <section class="work-panel" data-panel="questions">
-    <div class="answer-settings" id="gradingSettings">
-      <label for="gradingMode">採点方法を選ぶ</label>
-      <select id="gradingMode" aria-label="採点方法を選択"><option value="">採点方法を選択してください</option><option value="immediate">1問ずつ正誤と解説を表示</option><option value="batch">すべて解答してから採点</option></select>
-      <span class="grading-help">選択後は採点設定を隠して、問題を表示します。</span>
+    <div class="answer-settings grading-choice-screen" id="gradingSettings" aria-labelledby="gradingModeHeading">
+      <div class="grading-intro">
+        <span class="grading-eyebrow">CHOOSE HOW TO CHECK</span>
+        <h3 id="gradingModeHeading">採点方法を選ぶ</h3>
+        <p>どちらの方法で解答しますか？</p>
+      </div>
+      <div class="grading-mode-grid" role="group" aria-label="採点方法">
+        <button type="button" class="grading-mode-card" data-grading-mode="immediate" aria-pressed="false">
+          <span class="grading-mode-icon grading-mode-icon-immediate" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12.5l3 3 5.5-6"/><circle cx="12" cy="12" r="9"/></svg></span>
+          <strong>1問ずつ採点</strong>
+          <small>答えるたびに<br>正誤と解説を確認</small>
+          <span class="grading-mode-arrow" aria-hidden="true">→</span>
+        </button>
+        <button type="button" class="grading-mode-card" data-grading-mode="batch" aria-pressed="false">
+          <span class="grading-mode-icon grading-mode-icon-batch" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/><path d="m14 16 1.5 1.5L18 15"/></svg></span>
+          <strong>まとめて採点</strong>
+          <small>すべて解答後に<br>結果と解説を確認</small>
+          <span class="grading-mode-arrow" aria-hidden="true">→</span>
+        </button>
+      </div>
+      <span class="grading-help">選ぶと問題が始まります</span>
     </div>
     <span class="answer-count" id="answerCount" aria-live="polite" hidden>0 / 0問回答</span>
     <div id="readingResult" class="reading-result" role="status" aria-live="polite" hidden></div>

@@ -1,0 +1,812 @@
+{
+  "id": "L10-002",
+  "category_id": "L10",
+  "title": "Why Remembering Beats Rereading",
+  "title_ja": "読み返すより思い出す学習",
+  "level_id": "university-mid",
+  "status": "published",
+  "original": true,
+  "source_links": [
+    {
+      "title": "MIT Open Learning: Research-Based Learning Findings",
+      "url": "https://openlearning.mit.edu/mit-faculty/research-based-learning-findings"
+    },
+    {
+      "title": "Nature Reviews Psychology: Spacing and Retrieval Practice (2022)",
+      "url": "https://www.nature.com/articles/s44159-022-00089-1"
+    },
+    {
+      "title": "The Learning Scientists: Retrieval Practice FAQ",
+      "url": "https://www.learningscientists.org/faq"
+    }
+  ],
+  "fact_notes": [
+    "検索練習と分散学習の有効性はMITおよび認知科学のレビューに基づく一般的説明。具体的な時間割や学習者は架空の例。",
+    "学習法の効果には個人差・状況差があるため、絶対的な効果を主張しない。全本文・和訳・設問は新規作成。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Students often prepare for examinations by reading the same notes several times until the pages feel familiar.",
+          "ja": "生徒は試験に向け、ページに見覚えがあると感じるまで同じノートを何度も読むことがよくあります。"
+        },
+        {
+          "en": "This approach may create confidence because recognizing information is easier than producing it without help.",
+          "ja": "この方法は、助けなしに情報を思い出すより、見てわかることの方が簡単なため、自信を生むことがあります。"
+        },
+        {
+          "en": "However, familiarity with a page does not necessarily mean that its ideas can be recalled later.",
+          "ja": "しかし、ページに親しみがあることは、その内容を後で思い出せることを必ずしも意味しません。"
+        },
+        {
+          "en": "Psychologists use the term retrieval practice to describe attempts to bring learned information back from memory.",
+          "ja": "心理学者は、学んだ情報を記憶から取り出そうとする試みを「検索練習」と呼びます。"
+        },
+        {
+          "en": "A student who closes a book and explains a concept aloud is using this strategy.",
+          "ja": "本を閉じ、ある概念を声に出して説明する生徒は、この方法を使っています。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Retrieval feels demanding precisely because the answer is not immediately visible in front of the learner.",
+          "ja": "検索練習が大変に感じられるのは、答えが学習者の目の前にすぐ見えるわけではないからです。"
+        },
+        {
+          "en": "Research reviews suggest that retrieving knowledge can strengthen later remembering across a range of learning situations.",
+          "ja": "研究の総説によれば、知識を思い出すことは、さまざまな学習場面で後の記憶を強める可能性があります。"
+        },
+        {
+          "en": "For example, students might write three ideas they remember from a science lesson before checking the textbook.",
+          "ja": "例えば、理科の授業から覚えている三つの考えを、教科書を確認する前に書くことができます。"
+        },
+        {
+          "en": "The next step is important: they compare their answers with reliable material and correct any mistakes.",
+          "ja": "次の段階も重要で、生徒は答えを信頼できる資料と比較して誤りを修正します。"
+        },
+        {
+          "en": "Feedback prevents an unsuccessful attempt from becoming the final version of what a student remembers.",
+          "ja": "フィードバックは、うまく思い出せなかった試みが、覚えている内容の最終形になってしまうことを防ぎます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Another useful strategy is spaced practice, which spreads learning across several days instead of one long session.",
+          "ja": "もう一つ役立つ方法は分散学習で、一度の長時間学習ではなく数日間に学習を分けます。"
+        },
+        {
+          "en": "Imagine a learner who studies twenty expressions on Monday and reviews them briefly on Wednesday and Saturday.",
+          "ja": "月曜日に二十の表現を学び、水曜日と土曜日に短く復習する学習者を想像してください。"
+        },
+        {
+          "en": "The intervals create opportunities to retrieve expressions after some forgetting has begun.",
+          "ja": "その間隔によって、少し忘れかけた後に表現を思い出す機会が生まれます。"
+        },
+        {
+          "en": "In contrast, a student who studies for three hours on one evening may perform well immediately but forget more later.",
+          "ja": "対照的に、一晩で三時間学ぶ生徒は直後にはよくできても、後で多くを忘れるかもしれません。"
+        },
+        {
+          "en": "Spacing is not a promise of perfect memory, but it can make review more useful over time.",
+          "ja": "分散学習は完璧な記憶を保証しませんが、時間をかけた復習をより有益にできます。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Retrieval and spacing can also be combined rather than treated as competing methods.",
+          "ja": "検索練習と分散学習は、競合する方法と考えるのではなく組み合わせることもできます。"
+        },
+        {
+          "en": "A teacher might begin a lesson with four short questions about material studied during the previous week.",
+          "ja": "教師は先週学んだ内容についての四つの短い質問から授業を始めるかもしれません。"
+        },
+        {
+          "en": "Students first answer without notes, then explain why an option is correct or incorrect.",
+          "ja": "生徒はまずノートを見ずに答え、その後で選択肢が正しいか間違っているかの理由を説明します。"
+        },
+        {
+          "en": "If many students cannot answer, the teacher can provide hints or teach the difficult concept again.",
+          "ja": "多くの生徒が答えられなければ、教師はヒントを出したり、難しい概念をもう一度教えたりできます。"
+        },
+        {
+          "en": "The aim is to create a manageable challenge, not to embarrass learners who have forgotten something.",
+          "ja": "目的は適度な挑戦を用意することであり、忘れてしまった学習者を恥ずかしい思いにさせることではありません。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "Good practice questions should therefore test meaning and application as well as simple recognition.",
+          "ja": "したがって、よい練習問題は単なる見覚えだけでなく、意味や応用も問うべきです。"
+        },
+        {
+          "en": "After reading an argument, students could identify the author's claim and find evidence that supports it.",
+          "ja": "論説文を読んだ後、生徒は筆者の主張を特定し、それを支える根拠を見つけられます。"
+        },
+        {
+          "en": "They could then explain the reasoning in their own words instead of copying a sentence from the passage.",
+          "ja": "その後、本文の一文を書き写す代わりに、自分の言葉で論理を説明することができます。"
+        },
+        {
+          "en": "This deeper task may reveal misunderstanding that a familiar multiple-choice question would not expose.",
+          "ja": "こうした深い課題は、見慣れた四択問題では明らかにならない誤解を見つけるかもしれません。"
+        },
+        {
+          "en": "Nevertheless, learners still need clear explanations so that difficulty leads to improvement rather than confusion.",
+          "ja": "それでも、困難が混乱ではなく改善につながるように、学習者には明確な解説が必要です。"
+        }
+      ]
+    },
+    {
+      "id": "p6",
+      "sentences": [
+        {
+          "en": "The most effective study routine is not identical for every subject, learner, or examination.",
+          "ja": "最も効果的な学習の習慣は、教科や学習者、試験によって同じとは限りません。"
+        },
+        {
+          "en": "For vocabulary, brief quizzes and repeated recall may be practical, while complex writing may require longer feedback.",
+          "ja": "語彙学習には短いクイズと反復的な想起が実用的かもしれませんが、複雑な作文にはより長いフィードバックが必要かもしれません。"
+        },
+        {
+          "en": "A learner can keep a record of missed questions and return to them after an interval.",
+          "ja": "学習者は間違えた問題を記録し、しばらく間を置いて取り組み直せます。"
+        },
+        {
+          "en": "Rather than asking only whether study feels easy, students should ask whether they can explain ideas after time has passed.",
+          "ja": "学習が簡単に感じるかだけでなく、時間がたってから考えを説明できるかを問うべきです。"
+        },
+        {
+          "en": "Learning becomes more visible when practice reveals both what has been remembered and what still needs work.",
+          "ja": "練習によって覚えていることと、まだ取り組む必要があることの両方がわかると、学習がより見えるようになります。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the central claim of the passage?",
+      "options": [
+        "Rereading always produces perfect understanding.",
+        "Effortful recall and well-spaced practice can improve learning when paired with feedback.",
+        "Students should avoid all multiple-choice questions.",
+        "Successful learning never requires correction."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1",
+        "p2",
+        "p6"
+      ],
+      "explanation_ja": "検索練習・分散学習・フィードバックを組み合わせることが本文の中心主張です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Why can rereading lead to mistaken confidence?",
+      "options": [
+        "It requires students to retrieve every idea without help.",
+        "Recognizing familiar material may be easier than remembering it independently.",
+        "It makes all information immediately disappear.",
+        "It always causes students to skip explanations."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "見慣れた内容を認識する容易さと、助けなしで思い出す難しさが区別されています。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What does retrieval practice require?",
+      "options": [
+        "Bringing learned knowledge back from memory.",
+        "Reading only the last page of a textbook.",
+        "Copying a teacher's example without thinking.",
+        "Studying everything in one evening."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "retrieval practiceは学んだ情報を記憶から取り出そうとする試みです。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why should students compare answers with reliable material?",
+      "options": [
+        "To avoid correcting errors.",
+        "To prevent mistaken recall from remaining uncorrected.",
+        "To ensure all questions are easy.",
+        "To replace practice with copying."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "誤った記憶が定着しないよう、信頼できる資料との照合と修正が必要です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "Which schedule illustrates spaced practice?",
+      "options": [
+        "All study on one evening.",
+        "No review after the first lesson.",
+        "Learning on Monday followed by reviews on Wednesday and Saturday.",
+        "Reading twenty expressions without any later activity."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "月・水・土に学習を分散する具体例が第3段落にあります。"
+    },
+    {
+      "id": "q6",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'intervals' in paragraph 3 mean?",
+      "options": [
+        "Breaks of time between sessions.",
+        "Numbers of students in a classroom.",
+        "Answers copied from a text.",
+        "Topics removed from a lesson."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "intervalsは複数の学習機会の間にある時間的な間隔を意味します。"
+    },
+    {
+      "id": "q7",
+      "skill": "inference",
+      "prompt": "Why may a teacher provide hints after a low quiz score?",
+      "options": [
+        "To make students feel embarrassed.",
+        "To create manageable difficulty and support learning.",
+        "To avoid discussing any difficult ideas.",
+        "To prove that forgetting is permanent."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "多くの生徒が答えられない場合は支援を与え、適度な難易度に調整すると述べています。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What deeper activity is suggested after reading an argument?",
+      "options": [
+        "Copying every sentence exactly.",
+        "Finding a claim and evidence, then explaining the reasoning in one's own words.",
+        "Skipping the author's main point.",
+        "Checking only spelling mistakes."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "主張と根拠を見つけて自分の言葉で論理を説明する活動を挙げています。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What does the writer imply about study methods?",
+      "options": [
+        "A single routine is perfect for all subjects.",
+        "Different tasks may require different forms of practice and feedback.",
+        "Difficult writing needs no feedback.",
+        "Vocabulary learning should never use quizzes."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p6"
+      ],
+      "explanation_ja": "教科や課題によって適切な学習法とフィードバックの形が異なると述べています。"
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "Why does the passage end by asking what students can explain later?",
+      "options": [
+        "To replace learning with test anxiety.",
+        "To emphasize lasting understanding over an immediate feeling of ease.",
+        "To suggest that explanations should always be memorized word for word.",
+        "To argue that feedback is unnecessary."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p6"
+      ],
+      "explanation_ja": "『簡単に感じるか』より『時間がたっても説明できるか』を重視する結論です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "examinations",
+      "ja": "試験",
+      "synonym": "tests",
+      "definition": "formal assessments of knowledge or ability"
+    },
+    {
+      "term": "familiarity",
+      "ja": "見慣れていること・親しみ",
+      "synonym": "recognition",
+      "definition": "the feeling of knowing something from previous experience"
+    },
+    {
+      "term": "confidence",
+      "ja": "自信",
+      "synonym": "self-belief",
+      "definition": "a feeling that one can do something well"
+    },
+    {
+      "term": "recognizing",
+      "ja": "認識すること",
+      "synonym": "identifying",
+      "definition": "noticing something as already known"
+    },
+    {
+      "term": "retrieval practice",
+      "ja": "検索練習・想起練習",
+      "synonym": "active recall",
+      "definition": "the act of trying to bring previously learned information to mind"
+    },
+    {
+      "term": "psychologists",
+      "ja": "心理学者",
+      "synonym": "researchers of mind",
+      "definition": "people who study thinking, feelings, and behavior"
+    },
+    {
+      "term": "strategy",
+      "ja": "方略・方法",
+      "synonym": "method",
+      "definition": "a planned way to reach a goal"
+    },
+    {
+      "term": "demanding",
+      "ja": "負担が大きい・難しい",
+      "synonym": "challenging",
+      "definition": "requiring considerable effort"
+    },
+    {
+      "term": "reviews",
+      "ja": "総説・レビュー",
+      "synonym": "surveys",
+      "definition": "studies that examine and summarize previous research"
+    },
+    {
+      "term": "reliable",
+      "ja": "信頼できる",
+      "synonym": "trustworthy",
+      "definition": "able to be depended upon for accuracy"
+    },
+    {
+      "term": "Feedback",
+      "ja": "フィードバック",
+      "synonym": "corrective information",
+      "definition": "information about performance that helps someone improve"
+    },
+    {
+      "term": "spaced practice",
+      "ja": "分散学習",
+      "synonym": "distributed study",
+      "definition": "learning spread across multiple sessions over time"
+    },
+    {
+      "term": "intervals",
+      "ja": "間隔",
+      "synonym": "gaps",
+      "definition": "periods of time separating events"
+    },
+    {
+      "term": "forgetting",
+      "ja": "忘却",
+      "synonym": "loss of memory",
+      "definition": "the process of no longer remembering something"
+    },
+    {
+      "term": "competing",
+      "ja": "競合する",
+      "synonym": "rival",
+      "definition": "trying to achieve the same goal in opposition"
+    },
+    {
+      "term": "concept",
+      "ja": "概念",
+      "synonym": "idea",
+      "definition": "a general idea or mental understanding"
+    },
+    {
+      "term": "manageable",
+      "ja": "対処可能な",
+      "synonym": "within one's ability",
+      "definition": "possible to handle without excessive difficulty"
+    },
+    {
+      "term": "application",
+      "ja": "応用",
+      "synonym": "use",
+      "definition": "the act of putting knowledge to practical use"
+    },
+    {
+      "term": "evidence",
+      "ja": "証拠・根拠",
+      "synonym": "supporting facts",
+      "definition": "information that supports or tests a claim"
+    },
+    {
+      "term": "reasoning",
+      "ja": "論理的な考え方",
+      "synonym": "logical thinking",
+      "definition": "the process of using evidence to reach a conclusion"
+    },
+    {
+      "term": "misunderstanding",
+      "ja": "誤解",
+      "synonym": "incorrect interpretation",
+      "definition": "an incorrect understanding of something"
+    },
+    {
+      "term": "record",
+      "ja": "記録",
+      "synonym": "account",
+      "definition": "a written account of information or events"
+    },
+    {
+      "term": "routine",
+      "ja": "習慣的な手順",
+      "synonym": "regular habit",
+      "definition": "a series of actions performed regularly"
+    },
+    {
+      "term": "practical",
+      "ja": "実用的な",
+      "synonym": "useful",
+      "definition": "suitable for an actual situation"
+    },
+    {
+      "term": "retrieval",
+      "ja": "記憶からの取り出し・想起",
+      "synonym": "recalling",
+      "definition": "the process of bringing stored information back to mind"
+    },
+    {
+      "term": "spaced",
+      "ja": "時間をあけて分散した",
+      "synonym": "spread out",
+      "definition": "arranged with time intervals between events"
+    },
+    {
+      "term": "practice",
+      "ja": "練習",
+      "synonym": "training",
+      "definition": "repeated activity intended to improve a skill"
+    },
+    {
+      "term": "recalled",
+      "ja": "思い出された",
+      "synonym": "remembered",
+      "definition": "brought back into memory"
+    },
+    {
+      "term": "memory",
+      "ja": "記憶",
+      "synonym": "remembrance",
+      "definition": "the ability to store and recall information"
+    },
+    {
+      "term": "attempts",
+      "ja": "試み",
+      "synonym": "tries",
+      "definition": "efforts to do or achieve something"
+    },
+    {
+      "term": "producing",
+      "ja": "作り出すこと・答えを出すこと",
+      "synonym": "generating",
+      "definition": "creating or bringing something into existence"
+    },
+    {
+      "term": "notes",
+      "ja": "ノート・メモ",
+      "synonym": "written records",
+      "definition": "short written records used to remember or study"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words or examples"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "examine together",
+      "definition": "to look at similarities and differences"
+    },
+    {
+      "term": "correct",
+      "ja": "訂正する・正しい",
+      "synonym": "fix",
+      "definition": "to remove errors or make something accurate"
+    },
+    {
+      "term": "mistakes",
+      "ja": "誤り",
+      "synonym": "errors",
+      "definition": "things done or answered incorrectly"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "communicated facts",
+      "definition": "facts or details communicated to someone"
+    },
+    {
+      "term": "confusion",
+      "ja": "混乱",
+      "synonym": "uncertainty",
+      "definition": "a state of not understanding something clearly"
+    },
+    {
+      "term": "writing",
+      "ja": "作文・文章を書くこと",
+      "synonym": "composition",
+      "definition": "the activity of creating text"
+    },
+    {
+      "term": "learner",
+      "ja": "学習者",
+      "synonym": "student",
+      "definition": "a person who is gaining new knowledge or skills"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "learners",
+      "definition": "people who study with a teacher or school"
+    },
+    {
+      "term": "immediately",
+      "ja": "直後に・すぐに",
+      "synonym": "at once",
+      "definition": "without much time passing"
+    },
+    {
+      "term": "argument",
+      "ja": "論説・主張",
+      "synonym": "reasoned claim",
+      "definition": "a connected set of reasons supporting a position"
+    },
+    {
+      "term": "claim",
+      "ja": "主張",
+      "synonym": "assertion",
+      "definition": "a statement that someone argues is true"
+    },
+    {
+      "term": "repeated",
+      "ja": "繰り返された",
+      "synonym": "recurring",
+      "definition": "done more than once"
+    },
+    {
+      "term": "recall",
+      "ja": "思い出すこと",
+      "synonym": "remembering",
+      "definition": "bringing information back from memory"
+    },
+    {
+      "term": "strengthen",
+      "ja": "強める",
+      "synonym": "reinforce",
+      "definition": "to make something stronger"
+    },
+    {
+      "term": "embarrass",
+      "ja": "恥ずかしい思いをさせる",
+      "synonym": "humiliate",
+      "definition": "to make someone feel uncomfortable or ashamed"
+    },
+    {
+      "term": "hints",
+      "ja": "ヒント",
+      "synonym": "clues",
+      "definition": "small pieces of information that help someone find an answer"
+    },
+    {
+      "term": "complex",
+      "ja": "複雑な",
+      "synonym": "complicated",
+      "definition": "consisting of several connected parts"
+    },
+    {
+      "term": "missed",
+      "ja": "間違えた・逃した",
+      "synonym": "failed to answer",
+      "definition": "not answered correctly or not obtained"
+    },
+    {
+      "term": "improvement",
+      "ja": "改善・向上",
+      "synonym": "progress",
+      "definition": "a change that makes something better"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "that its ideas can be recalled later",
+      "explanation_ja": "接続詞thatがmeanの内容を導く名詞節です。can be recalledは助動詞を伴う受動態です。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "compare their answers with reliable material",
+      "explanation_ja": "compare A with Bで『AをBと比較する』という意味です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 0,
+      "focus": "which spreads learning across several days instead of one long session",
+      "explanation_ja": "継続用法の関係代名詞whichがspaced practiceを補足します。instead ofは『〜の代わりに』です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 4,
+      "focus": "not to embarrass learners who have forgotten something",
+      "explanation_ja": "not to不定詞が否定の目的を表し、who以下はlearnersを修飾する関係詞節です。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "focus": "instead of copying a sentence from the passage",
+      "explanation_ja": "instead of＋動名詞は『〜する代わりに』を表します。"
+    },
+    {
+      "paragraph_id": "p6",
+      "sentence_index": 3,
+      "focus": "whether they can explain ideas after time has passed",
+      "explanation_ja": "whether節は『〜かどうか』という間接疑問の名詞節です。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "逆接：繰り返し読むと理解した気になる一方、後で思い出せるとは限らないと対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "例示：理科の授業内容を思い出して書く方法を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "In contrast",
+      "role_ja": "対比：分散学習と一晩でまとめて学ぶ方法を比較します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "Nevertheless",
+      "role_ja": "譲歩・逆接：難しい課題の意義を述べた後、明確な解説も必要とします。"
+    },
+    {
+      "paragraph_id": "p6",
+      "expression": "Rather than",
+      "role_ja": "対比：勉強が簡単に感じるかを問う代わりに、後で説明できるかを問います。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "familiarity with a page does not necessarily mean that its ideas can be recalled later",
+      "rewrite": "recognition of written material does not guarantee future recall",
+      "explanation_ja": "familiarity→recognition、does not necessarily mean→does not guaranteeと言い換えています。"
+    },
+    {
+      "source": "The next step is important",
+      "rewrite": "What follows is essential",
+      "explanation_ja": "next step→what follows、important→essentialの言い換えです。"
+    },
+    {
+      "source": "spreads learning across several days instead of one long session",
+      "rewrite": "distributes study over multiple days rather than a single extended period",
+      "explanation_ja": "spreads→distributes、instead of→rather thanで意味を保持します。"
+    },
+    {
+      "source": "create a manageable challenge",
+      "rewrite": "provide a task that is difficult but still achievable",
+      "explanation_ja": "manageable challengeを『難しいが達成可能な課題』と具体化しています。"
+    },
+    {
+      "source": "what still needs work",
+      "rewrite": "the areas that require further improvement",
+      "explanation_ja": "needs work→require further improvementに言い換えています。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "Therefore",
+        "Similarly",
+        "For example"
+      ],
+      "explanation_ja": "繰り返し読む安心感と、記憶の定着の違いを逆接で述べます。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "As a result",
+        "Instead"
+      ],
+      "explanation_ja": "想起練習の具体例を導きます。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "answer": "In contrast",
+      "options": [
+        "In contrast",
+        "For example",
+        "Therefore",
+        "Similarly"
+      ],
+      "explanation_ja": "分散学習と集中学習を対比します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 4,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "Moreover",
+        "For example",
+        "Therefore"
+      ],
+      "explanation_ja": "深い課題の意義と、解説の必要性を対照します。"
+    },
+    {
+      "paragraph_id": "p6",
+      "sentence_index": 3,
+      "answer": "Rather than",
+      "options": [
+        "Rather than",
+        "Because of",
+        "As a result",
+        "In addition"
+      ],
+      "explanation_ja": "単に簡単かを問うことを避け、記憶の持続を確認する対比です。"
+    }
+  ],
+  "word_count": 479
+}
