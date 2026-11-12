@@ -1,0 +1,96 @@
+/* Responsive reading focus workspace — iPad/desktop split panes. */
+#readingApp [hidden]{display:none!important}
+.pane-tools{display:flex;align-items:center;gap:7px;min-width:0;min-height:44px;padding:7px 4px;color:#315a75}
+.pane-tools>strong{font-size:13px;white-space:nowrap}
+.pane-tools-spacer{flex:1;min-width:2px}
+.pane-size-label{font-size:11px;color:#567993;white-space:nowrap}
+.pane-tools button{min-width:41px;min-height:38px;padding:6px 8px;font-size:12px;border-radius:10px}
+.pane-tools output{font-size:12px;font-weight:800;min-width:40px;text-align:center;white-space:nowrap;font-variant-numeric:tabular-nums}
+.catalog-toggle,.catalog-backdrop,.study-splitter{display:none}
+.answer-settings{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:10px;background:#f2f7fc;border:1px solid #d6e6f2;border-radius:12px;padding:10px}
+.answer-settings label{font-size:12px;font-weight:800;white-space:nowrap}
+.answer-settings select{flex:1;min-width:170px;max-width:270px;border:1px solid #b9ccdd;border-radius:9px;background:#fff;color:#1d4566;padding:8px;font-size:16px;min-height:40px}
+.answer-count{font-size:12px;font-weight:800;color:#346f9b;white-space:nowrap}
+.grading-actions{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.grading-actions button{min-height:43px;font-size:13px}
+.reading-result{margin:7px 0;font-size:14px}
+.reading-result:not(:empty){background:#edf6ff;border:1px solid #b8d8f2;border-radius:12px;padding:12px;font-weight:800}
+#evidenceStatus{margin:11px 0}
+.question-card button.selected:not(.correct):not(.wrong){border-color:#3b87c6;background:#e8f4ff;color:#174c7c;box-shadow:inset 0 0 0 1px #76b6e2}
+.question-card button:disabled{opacity:1}
+.question-card .feedback{line-height:1.55}
+.question-card .skill{margin:0 0 9px}
+.question-card:focus-within{border-color:#c3dbea}
+
+/* Study mode: fixed viewport, separate scrolling areas for the passage and questions. */
+body.reading-focus{overflow:hidden}
+body.reading-focus #readingApp{height:100dvh;display:flex;flex-direction:column;overflow:hidden}
+body.reading-focus .masthead{position:relative;z-index:2;flex:0 0 auto;padding:8px 16px;min-height:60px}
+body.reading-focus .masthead h1{font-size:18px}
+body.reading-focus .masthead .eyebrow{font-size:9px}
+body.reading-focus .masthead .home{font-size:12px}
+body.reading-focus .masthead #printOpen{font-size:12px;min-height:40px;padding:7px 10px}
+body.reading-focus .app{display:block;flex:1 1 auto;min-height:0;width:100%;max-width:none;padding:9px 11px 11px;overflow:hidden}
+body.reading-focus .reader{height:100%;width:100%;max-width:none;display:flex;flex-direction:column;min-height:0;padding:10px 13px;border-radius:16px;overflow:hidden}
+body.reading-focus .reader-head{flex:0 0 auto;min-width:0;padding:0 1px 9px}
+body.reading-focus .reader-head>.eyebrow{display:none}
+body.reading-focus .reader-head h2{font-size:clamp(15px,1.8vw,20px);margin:0 0 3px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+body.reading-focus .reader-head #lessonMeta{margin:0 0 6px;font-size:11px;line-height:1.3}
+body.reading-focus .reader-actions{gap:6px}
+body.reading-focus .reader-actions button{font-size:12px;padding:5px 9px;min-height:37px}
+body.reading-focus #focusStart{display:none}
+body.reading-focus .study-layout{--reading-left-width:50%;display:grid;grid-template-columns:minmax(0,var(--reading-left-width)) 12px minmax(0,1fr);flex:1 1 auto;min-height:0;min-width:0;overflow:hidden;gap:0}
+body.reading-focus .study-passage-pane,body.reading-focus .study-question-pane{display:flex;flex-direction:column;min-height:0;min-width:0;overflow:hidden}
+body.reading-focus .study-passage-pane{padding:0 9px 0 0}
+body.reading-focus .study-question-pane{padding:0 0 0 9px}
+body.reading-focus .study-passage-pane .pane-tools,body.reading-focus .study-question-pane .pane-tools{flex:0 0 auto}
+body.reading-focus .passage-scroll,body.reading-focus .question-scroll{flex:1 1 auto;min-height:0;max-height:none;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;scrollbar-gutter:stable}
+body.reading-focus .reading-panel{padding:4px 3px 20px}
+body.reading-focus .reading-panel h3{font-size:15px}
+body.reading-focus .reading-panel>.muted{font-size:11px;margin:0 0 8px}
+body.reading-focus .passage{font-size:var(--reading-passage-size,18px);line-height:1.85;overflow-wrap:anywhere}
+body.reading-focus .paragraph{margin:10px 0;padding:10px 12px}
+body.reading-focus .translation{font-size:calc(var(--reading-passage-size,18px) * .79)}
+body.reading-focus .question-card h4,body.reading-focus .choices button{font-size:var(--reading-question-size,16px);line-height:1.48}
+body.reading-focus .question-card .feedback,body.reading-focus .question-card .card-actions{font-size:calc(var(--reading-question-size,16px) * .88)}
+body.reading-focus .question-card{padding:13px;margin:9px 0}
+body.reading-focus .tabs{flex:0 0 auto;padding:6px 0 8px;min-height:0;border-top:0;gap:5px}
+body.reading-focus .tabs button{min-height:37px;padding:7px 9px;font-size:11px}
+body.reading-focus .work-panel{padding:9px 2px 20px}
+body.reading-focus .work-panel h3{font-size:16px;margin-bottom:5px}
+body.reading-focus .study-splitter{display:flex;align-items:center;justify-content:center;border-radius:10px;background:linear-gradient(90deg,#e2edf7,#a5cbe6,#e2edf7);cursor:col-resize;touch-action:none;user-select:none;color:#316b93;font-size:17px;font-weight:900;outline-offset:2px;transition:background .12s}
+body.reading-focus .study-splitter:hover,body.reading-focus .study-splitter:focus-visible,body.reading-focus .study-splitter.is-dragging{background:linear-gradient(90deg,#c6e2f5,#4198d2,#c6e2f5);color:#fff}
+body.reading-focus .study-splitter span{display:block;writing-mode:vertical-rl;letter-spacing:5px}
+body.reading-focus .catalog{position:fixed;z-index:32;top:0;bottom:0;left:0;width:min(355px,90vw);height:100dvh;max-height:100dvh;overflow-y:auto;padding:20px 15px;background:#fff;border-radius:0 18px 18px 0;box-shadow:9px 0 28px #092f5260;transform:translateX(calc(-100% - 15px));transition:transform .22s ease;overscroll-behavior:contain}
+body.reading-focus.catalog-open .catalog{transform:translateX(0)}
+body.reading-focus .catalog-toggle{display:flex;align-items:center;justify-content:center;gap:2px;position:fixed;left:0;top:47%;z-index:34;transform:translateY(-50%);height:68px;min-width:34px;padding:6px;border:1px solid #b0d4ec;border-left:0;border-radius:0 12px 12px 0;background:#e6f4ff;color:#145884;font-size:18px;font-weight:900;box-shadow:2px 3px 12px #123b5c26;transition:left .22s ease}
+body.reading-focus .catalog-toggle span{font-size:10px;writing-mode:vertical-rl;letter-spacing:1px}
+body.reading-focus.catalog-open .catalog-toggle{left:min(355px,90vw);background:#fff}
+body.reading-focus.catalog-open .catalog-backdrop{display:block;position:fixed;inset:0;z-index:30;background:rgba(20,37,57,.27)}
+body.reading-focus #catalogBackdrop[hidden],body.reading-focus #catalogToggle[hidden]{display:none!important}
+body.reading-focus .catalog .section-head{padding-left:4px}
+body.reading-focus #focusExit{display:inline-block}
+body.reading-focus .question-scroll:focus-visible,body.reading-focus .passage-scroll:focus-visible{outline:2px solid #82b8e0;outline-offset:-2px}
+
+/* Phone: independently scrollable vertically stacked panes. Tablet keeps two columns. */
+@media(max-width:699px){
+ body.reading-focus .masthead{padding:7px 10px;gap:7px}
+ body.reading-focus .masthead h1{font-size:16px}
+ body.reading-focus .masthead .home{font-size:11px}
+ body.reading-focus .masthead #printOpen{font-size:11px}
+ body.reading-focus .app{padding:6px}
+ body.reading-focus .reader{padding:8px}
+ body.reading-focus .reader-head h2{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+ body.reading-focus .study-layout{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,52%) minmax(0,48%)}
+ body.reading-focus .study-splitter{display:none}
+ body.reading-focus .study-passage-pane,body.reading-focus .study-question-pane{padding:0}
+ body.reading-focus .study-passage-pane{border-bottom:2px solid #b6d7ea;padding-bottom:4px}
+ body.reading-focus .tabs button{font-size:11px}
+ body.reading-focus .reader-actions button{font-size:11px}
+ .pane-tools{gap:5px}
+ .pane-tools output{min-width:32px}
+ .pane-size-label{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+ body.reading-focus .catalog,body.reading-focus .catalog-toggle{transition:none}
+}
