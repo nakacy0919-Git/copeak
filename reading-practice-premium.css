@@ -1,0 +1,235 @@
+/* Entrance Reading Studio – premium, calm exam workspace.
+   Built with lightweight SVG and CSS, no emoji icons or image downloads. */
+:root{--study-ink:#163c55;--study-accent:#147d9a;--study-bronze:#ae8460;--study-line:#d7dfe3;--study-bg:#faf8f3}
+#tabNavigation{display:none!important}
+#readingApp .reader-head{position:relative}
+#readingApp .practice-progress{
+ display:flex;align-items:center;gap:7px;flex-wrap:wrap;
+ padding:8px 0 4px;min-width:0;
+}
+#readingApp .progress-mini{
+ display:flex;align-items:center;gap:7px;
+ min-width:77px;padding:5px 6px;border:1px solid #e3e4e1;
+ border-radius:12px;background:linear-gradient(140deg,#fff,#f9f6f0);
+ color:#244963;
+}
+#readingApp .progress-ring{
+ position:relative;width:34px;height:34px;flex:none;
+ border-radius:50%;display:grid;place-items:center;
+ background:conic-gradient(#1a839e 0 var(--progress,0%),#d8e3e9 var(--progress,0%) 100%);
+}
+#readingApp .progress-ring::before{
+ content:"";position:absolute;inset:4px;border-radius:50%;background:#fffefa;
+ box-shadow:inset 0 0 0 1px #ecedef;
+}
+#readingApp .progress-ring svg{
+ position:relative;z-index:1;width:15px;height:15px;color:#3d7792;
+}
+#readingApp .progress-copy{display:flex;flex-direction:column;gap:1px}
+#readingApp .progress-copy strong{font-size:10px;line-height:1.2;white-space:nowrap}
+#readingApp .progress-copy small{font-size:11px;line-height:1.2;color:#317997;font-variant-numeric:tabular-nums;font-weight:850}
+body.reading-focus #readingApp .reader-head{
+ display:grid;grid-template-columns:minmax(220px,1fr) minmax(420px,auto);
+ grid-template-areas:"heading stats" "meta stats" "actions stats";
+ column-gap:12px;align-items:center;
+}
+body.reading-focus .reader-head>h2{grid-area:heading}
+body.reading-focus .reader-head>#lessonMeta{grid-area:meta}
+body.reading-focus .reader-head>.reader-actions{grid-area:actions}
+body.reading-focus #readingApp .practice-progress{
+ grid-area:stats;justify-content:flex-end;align-self:center;max-width:610px;padding:0;
+}
+body.reading-focus #readingApp .progress-mini{min-width:83px;min-height:43px}
+body.reading-focus #readingApp .reader-head .eyebrow{display:none}
+
+/* Study selector – restrained scholarly styling instead of cartoon emojis */
+#readingApp .exercise-chooser{
+ background:linear-gradient(145deg,#fffdf8 0%,#f9f5ed 65%,#f3f4f2 100%);
+ padding:clamp(15px,2.7vw,28px);
+}
+#readingApp .exercise-chooser .exercise-kicker{letter-spacing:.15em;color:#8b7762;font-size:10px}
+#readingApp .exercise-chooser h3{font-weight:850;color:#183e56}
+#readingApp .exercise-choices{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+#readingApp .exercise-choices .practice-choice{
+ position:relative;display:flex;align-items:center;
+ gap:12px;min-width:0;min-height:105px;padding:16px;
+ border:1px solid #d5dedf;border-radius:15px;
+ background:linear-gradient(125deg,#fffefc,#f7f9f8);
+ box-shadow:0 3px 10px rgba(37,65,77,.05);
+ text-align:left;transition:border-color .16s,box-shadow .16s,transform .16s;
+}
+#readingApp .exercise-choices .practice-choice:hover:not(:disabled){
+ background:#fff;border-color:#7db2bb;
+ box-shadow:0 9px 18px rgba(46,85,96,.11);transform:translateY(-2px);
+}
+#readingApp .practice-choice-icon{
+ display:grid;place-items:center;flex:none;
+ width:53px;height:53px;border-radius:13px;
+ background:linear-gradient(145deg,#e8f5f4,#eef1f8);
+ color:#277d95;border:1px solid #d5e8e9;
+}
+#readingApp .practice-choice-icon svg{width:26px;height:26px;stroke:currentColor}
+#readingApp .practice-choice-copy{min-width:0;display:flex;flex-direction:column;gap:5px}
+#readingApp .practice-choice-copy strong{
+ font-size:clamp(13px,1.25vw,16px);color:#173c56;line-height:1.3;
+}
+#readingApp .practice-choice-copy small{
+ font-size:clamp(10px,1vw,12px);color:#69808e;line-height:1.3;
+}
+#readingApp .practice-choice-progress{
+ position:absolute;right:10px;top:9px;
+ font-size:10px;font-weight:800;color:#357d8a;background:#ecf7f6;
+ border:1px solid #d3e9e8;border-radius:99px;padding:3px 7px;
+ letter-spacing:.01em;font-variant-numeric:tabular-nums;
+}
+#readingApp .practice-choice-copy{padding-right:6px}
+
+/* The selected exercise, not an explanatory list, owns the question pane. */
+#readingApp .work-panel{padding:9px 2px 16px}
+#readingApp .answer-settings{
+ background:#fffdf8;border:1px solid #e3e0d8;
+ margin:2px 0 11px;padding:7px 9px;
+}
+#readingApp .answer-settings select{
+ background:#fff;font-size:14px;min-height:41px;color:#16445d;
+}
+#readingApp .answer-count{margin-left:auto;white-space:nowrap}
+#readingApp .reading-result[hidden],#readingApp #evidenceStatus[hidden],
+#readingApp #vocabListPanel[hidden]{display:none!important}
+#readingApp #evidenceStatus:not([hidden]){
+ padding:7px 10px;background:#fff8e4;border-left:3px solid #d2b076;
+ border-radius:6px;color:#6f6246;font-size:12px;
+}
+#readingApp .question-card{background:#fffdf9;border-color:#dfdfdb}
+#readingApp .question-card:focus-within{border-color:#93b6c6}
+#readingApp .grading-actions{justify-content:flex-start;padding:8px 0 20px}
+#readingApp .grading-actions button{font-size:12px}
+#readingApp .vocab-quiz-controls{
+ margin:3px 0 13px;display:flex;flex-wrap:wrap;gap:7px;align-items:center;
+ background:#f8f9f7;border:1px solid #e1e6e4;padding:10px;border-radius:13px;
+}
+#readingApp .vocab-quiz-controls label{font-size:12px;font-weight:850;color:#435f71}
+#readingApp .vocab-quiz-controls select{
+ color:#23475e;border:1px solid #ccdadf;background:#fff;
+ padding:7px 8px;max-width:230px;
+}
+#readingApp .vocab-quiz-controls button{font-size:12px;min-height:40px;padding:6px 10px}
+#readingApp .vocab-list-panel{
+ margin-top:15px;padding:15px;border:1px solid #dfdfd9;border-radius:12px;
+ background:#fffdf8;
+}
+#readingApp .vocab-list-panel h3{margin:0 0 9px}
+#readingApp .vocab-list article{background:#fff;border-color:#e1e5e5}
+
+#readingApp .practice-quiz{min-width:0}
+#readingApp .practice-meta{
+ display:flex;align-items:center;justify-content:space-between;
+ flex-wrap:wrap;gap:7px;padding:5px 3px 10px;color:#54778c;
+ font-size:11px;font-weight:850;letter-spacing:.02em;
+}
+#readingApp .practice-card{
+ border:1px solid #dbe1df;border-radius:16px;padding:clamp(13px,2vw,19px);
+ background:linear-gradient(155deg,#fffefa,#f8f8f5);
+ box-shadow:0 5px 18px rgba(35,54,64,.055);
+ min-width:0;
+}
+#readingApp .practice-card h3{font-size:var(--reading-question-size,16px);line-height:1.6;color:#193e55;margin:0 0 12px}
+#readingApp .practice-subprompt{
+ font-size:calc(var(--reading-question-size,16px)*.82);line-height:1.55;
+ color:#5a7a8d;background:#eef4f6;border-left:3px solid #b5d1d8;
+ padding:9px;border-radius:5px;overflow-wrap:anywhere;
+}
+#readingApp .practice-options{display:grid;gap:9px;margin:14px 0}
+#readingApp .practice-options button{
+ display:flex;align-items:flex-start;text-align:left;gap:10px;min-width:0;min-height:51px;
+ border:1px solid #d6e0e1;border-radius:11px;background:#fff;
+ padding:11px 12px;color:#274b61;font-size:var(--reading-question-size,16px);
+ line-height:1.5;font-weight:650;white-space:normal;overflow-wrap:anywhere;
+}
+#readingApp .practice-options button .option-letter{
+ flex:none;width:25px;height:25px;display:grid;place-items:center;
+ border:1px solid #cfdae0;border-radius:7px;background:#f1f6f8;
+ color:#3a6d87;font-size:12px;font-weight:900;
+}
+#readingApp .practice-options button:hover:not(:disabled){border-color:#6ca8bd;background:#f3fafd}
+#readingApp .practice-options button.correct{border-color:#4f9b78;background:#edf8f1;color:#256147}
+#readingApp .practice-options button.wrong{border-color:#c87e77;background:#fff3f0;color:#9e4f45}
+#readingApp .practice-options button:disabled{opacity:1;cursor:default}
+#readingApp .practice-explanation{
+ background:#f1f6f2;border:1px solid #c5dbcc;
+ border-radius:12px;padding:13px 14px;line-height:1.7;
+ font-size:calc(var(--reading-question-size,16px)*.89);
+}
+#readingApp .practice-explanation strong{display:block;margin:0 0 7px;color:#277b5b;overflow-wrap:anywhere}
+#readingApp .practice-explanation strong.wrong{color:#a34f43}
+#readingApp .practice-explanation p{font-size:inherit;margin:0;line-height:1.75;overflow-wrap:anywhere}
+#readingApp .practice-footer{display:flex;align-items:center;flex-wrap:wrap;gap:9px;justify-content:space-between;margin-top:14px}
+#readingApp .practice-footer .muted{font-size:12px;margin:0}
+#readingApp .practice-footer button{min-height:44px;font-size:13px}
+#readingApp .practice-reset{margin-left:auto}
+#readingApp .practice-empty{padding:12px;font-size:13px;color:#6c7881}
+#readingApp .practice-finish{
+ text-align:center;padding:30px 14px 26px;background:#fafdf9;
+ border:1px solid #d5e0d8;border-radius:15px;
+}
+#readingApp .finish-mark{
+ width:52px;height:52px;border-radius:50%;display:grid;place-items:center;
+ margin:0 auto 10px;background:#e4f5eb;color:#267c56;font-size:25px;font-weight:900;
+}
+#readingApp .practice-finish h3{font-size:19px;color:#234e43;margin:0 0 8px}
+#readingApp .practice-finish p{font-size:15px;color:#486a62}
+#readingApp .practice-statline{font-size:12px!important}
+#readingApp .practice-finish button{background:#287f79;color:#fff;border-color:#287f79}
+
+/* Exam-style underlined evidence, generated from actual original sentences. */
+#readingApp .exam-underline{
+ text-decoration:underline;text-decoration-color:#af7847;
+ text-decoration-thickness:2px;text-underline-offset:4px;
+ background:rgba(240,218,182,.2);border-radius:2px;
+}
+#readingApp .reading-blank{
+ font-size:.82em;line-height:1.8;border-color:#9f8162;
+ background:#fbefd4;color:#855d2f;white-space:nowrap;
+}
+#readingApp .pane-tools #practicePaneTitle{
+ min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+@media(max-width:1390px){
+ body.reading-focus #readingApp .reader-head{grid-template-columns:minmax(190px,1fr) minmax(380px,auto)}
+ body.reading-focus #readingApp .progress-mini{min-width:68px;padding:4px 5px;gap:5px}
+ body.reading-focus #readingApp .progress-ring{width:29px;height:29px}
+ body.reading-focus #readingApp .progress-ring svg{width:13px;height:13px}
+}
+@media(max-width:1100px){
+ body.reading-focus #readingApp .reader-head{
+  grid-template-columns:minmax(0,1fr);grid-template-areas:"heading" "meta" "actions" "stats";
+ }
+ body.reading-focus #readingApp .practice-progress{
+  justify-content:flex-start;max-width:100%;flex-wrap:nowrap;
+  overflow-x:auto;scrollbar-width:thin;padding-top:4px;
+ }
+ body.reading-focus #readingApp .progress-mini{min-width:78px;flex:none}
+}
+@media(max-width:699px){
+ #readingApp .progress-mini{min-width:74px;padding:4px 5px}
+ #readingApp .progress-ring{width:29px;height:29px}
+ #readingApp .progress-ring svg{width:13px;height:13px}
+ #readingApp .practice-progress{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin}
+ #readingApp .exercise-choices{gap:8px}
+ #readingApp .exercise-choices .practice-choice{
+  flex-direction:column;align-items:flex-start;min-height:125px;gap:7px;
+  padding:11px 9px;
+ }
+ #readingApp .practice-choice-icon{width:35px;height:35px;border-radius:10px}
+ #readingApp .practice-choice-icon svg{width:20px;height:20px}
+ #readingApp .practice-choice-progress{top:9px;right:7px;font-size:9px;padding:2px 5px}
+ #readingApp .practice-choice-copy strong{font-size:12px}
+ #readingApp .practice-choice-copy small{font-size:10px}
+ #readingApp .vocab-quiz-controls select{width:100%;max-width:none}
+ #readingApp .answer-settings select{max-width:none;flex:1}
+ #readingApp .practice-card{padding:12px}
+}
+@media(prefers-reduced-motion:reduce){
+ #readingApp .exercise-choices .practice-choice{transition:none}
+ #readingApp .exercise-choices .practice-choice:hover:not(:disabled){transform:none}
+}
