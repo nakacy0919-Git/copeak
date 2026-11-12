@@ -338,7 +338,7 @@ function practiceRecord(mode){
  // Import older cloze answers only once so a pupil does not lose previous practice.
  if(mode==='cloze'&&!record.migrated){
   for(const [oldIndex,value] of Object.entries(state.clozeAnswers||{})){
-   if(Number.isInteger(value)&&!Object.hasOwn(record.answers,'c-'+oldIndex))record.answers['c-'+oldIndex]=value;
+   if(Number.isInteger(value)&&!Object.prototype.hasOwnProperty.call(record.answers,'c-'+oldIndex))record.answers['c-'+oldIndex]=value;
   }
   record.migrated=true;
  }
