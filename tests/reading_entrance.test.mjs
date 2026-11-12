@@ -24,6 +24,7 @@ for(const s of sets){
   assert.ok(level,'level must exist');
   assert.equal(actual,s.word_count);
   assert.ok(actual>=level.words[0]&&actual<=level.words[1],actual+' outside level '+s.level_id);
+  assert.ok((s.level_ids||[s.level_id]).every(id=>{const band=manifest.levels.find(l=>l.id===id)?.words;return band&&actual>=band[0]&&actual<=band[1];}));
   assert.ok(s.paragraphs.every(p=>p.id&&p.sentences.every(t=>t.en&&t.ja)));
   assert.ok(s.questions.length>=4);
   assert.ok(s.questions.every(q=>q.options.length===4&&Number.isInteger(q.answer)&&q.answer>=0&&q.answer<4&&q.paragraph_ids.length>0&&q.paragraph_ids.every(id=>s.paragraphs.some(p=>p.id===id))&&q.explanation_ja));
