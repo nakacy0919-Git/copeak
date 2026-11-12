@@ -1,0 +1,671 @@
+{
+  "id": "L02-002",
+  "category_id": "L02",
+  "title": "What Old Maps Leave Out",
+  "title_ja": "古い地図が語らないこと",
+  "level_id": "eiken-pre2",
+  "word_count": 282,
+  "original": true,
+  "status": "draft",
+  "source_links": [
+    {
+      "title": "Library of Congress map analysis",
+      "url": "https://www.loc.gov/programs/teachers/getting-started-with-primary-sources/guides/"
+    }
+  ],
+  "fact_notes": [
+    "背景となる考え方は添付の資料で確認。本文と練習問題は新規制作。例示した人物・学校・活動は架空の説明用設定。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "An old map can show where people lived and how they traveled long ago.",
+          "ja": "古い地図は、昔の人々がどこに住み、どう移動したかを示せます。"
+        },
+        {
+          "en": "However, a map is not a perfect picture of everything that existed.",
+          "ja": "しかし、地図は存在したすべてのものを完全に描いた絵ではありません。"
+        },
+        {
+          "en": "A mapmaker must choose which roads, buildings, and rivers to include.",
+          "ja": "地図作成者は、どの道、建物、川を載せるか選ばなければなりません。"
+        },
+        {
+          "en": "Some details may be missing because the creator did not know about them.",
+          "ja": "作り手が知らなかったために、載っていない細部もあるかもしれません。"
+        },
+        {
+          "en": "Other details may be missing because they were not important for the map's purpose.",
+          "ja": "地図の目的にとって重要でなかったために、省かれた細部もあります。"
+        },
+        {
+          "en": "For this reason, historians study maps with questions rather than accepting every line as a complete story.",
+          "ja": "このため、歴史家はすべての線を完全な物語として受け入れず、問いを持って地図を調べます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Imagine two maps of a small port town made many years apart.",
+          "ja": "長い年月を隔てて作られた小さな港町の二枚の地図を想像してください。"
+        },
+        {
+          "en": "The first map shows a market, a narrow road, and a few houses.",
+          "ja": "最初の地図には市場、狭い道、少数の家が描かれています。"
+        },
+        {
+          "en": "The second map shows a railway station and several large warehouses.",
+          "ja": "二枚目には鉄道駅といくつかの大きな倉庫が描かれています。"
+        },
+        {
+          "en": "For example, students may think that trade became more active during those years.",
+          "ja": "例えば生徒は、その間に貿易がより活発になったと考えるかもしれません。"
+        },
+        {
+          "en": "This idea is possible, but the maps alone do not prove why the town changed.",
+          "ja": "この考えはあり得ますが、地図だけでは町が変わった理由は証明できません。"
+        },
+        {
+          "en": "Photographs and business records could provide additional evidence.",
+          "ja": "写真や商業記録は追加の根拠を提供するかもしれません。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Different maps may also have different audiences.",
+          "ja": "異なる地図は、想定している利用者も異なる場合があります。"
+        },
+        {
+          "en": "One map might help travelers find roads, while another might guide military officials.",
+          "ja": "ある地図は旅行者の道探しに役立ち、別の地図は軍の担当者を案内するかもしれません。"
+        },
+        {
+          "en": "Therefore, the maps may emphasize different information about the same area.",
+          "ja": "したがって、同じ地域について異なる情報を強調する場合があります。"
+        },
+        {
+          "en": "A place that looks empty on one map may actually contain many homes.",
+          "ja": "ある地図では空白に見える場所に、実際には多くの家があるかもしれません。"
+        },
+        {
+          "en": "The people who lived there were not necessarily absent from history.",
+          "ja": "そこに暮らした人々が歴史からいなかったわけではありません。"
+        },
+        {
+          "en": "Their lives may simply not have been included on that particular map.",
+          "ja": "彼らの生活が、その地図に単に載せられなかっただけかもしれません。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The Library of Congress suggests observing, reflecting, and asking questions when reading historical sources.",
+          "ja": "米国議会図書館は、歴史資料を読む際に観察、考察、質問を勧めています。"
+        },
+        {
+          "en": "First, students describe what they can actually see.",
+          "ja": "まず生徒は、実際に見えることを説明します。"
+        },
+        {
+          "en": "Next, they consider who created the map and why it was made.",
+          "ja": "次に、誰が何のために地図を作ったかを考えます。"
+        },
+        {
+          "en": "Finally, they look for other documents that can help answer their questions.",
+          "ja": "最後に、問いに答える助けになる別の文書を探します。"
+        },
+        {
+          "en": "In this way, a map becomes a starting point for investigation, not the end of it.",
+          "ja": "このように地図は調査の終わりではなく出発点になります。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the main message?",
+      "options": [
+        "Old maps need careful interpretation.",
+        "Every old map is complete.",
+        "Modern maps are always false.",
+        "Maps cannot show towns."
+      ],
+      "answer": 0,
+      "explanation_ja": "目的と欠けた情報を考慮して地図を読む必要があります。",
+      "paragraph_ids": [
+        "p1",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What must mapmakers choose?",
+      "options": [
+        "Which features to include.",
+        "Who will read every book.",
+        "The temperature tomorrow.",
+        "Every student's grades."
+      ],
+      "answer": 0,
+      "explanation_ja": "どの地理情報を載せるか選ぶと明記されています。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What appears on the second port map?",
+      "options": [
+        "A railway station and warehouses.",
+        "Only a small market.",
+        "A large airport.",
+        "An empty ocean."
+      ],
+      "answer": 0,
+      "explanation_ja": "駅と倉庫が後の地図に登場します。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why might business records help?",
+      "options": [
+        "They can test an idea about changes in trade.",
+        "They make every map disappear.",
+        "They never describe the past.",
+        "They show the future weather."
+      ],
+      "answer": 0,
+      "explanation_ja": "地図だけでは変化の原因を証明できないためです。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "Who might use a military map?",
+      "options": [
+        "Officials.",
+        "Only shopkeepers.",
+        "Only musicians.",
+        "Only school children."
+      ],
+      "answer": 0,
+      "explanation_ja": "軍の担当者を想定した地図の例があります。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "What does an empty space on a map suggest?",
+      "options": [
+        "Some information may have been omitted.",
+        "Nobody ever lived there.",
+        "The place has no history.",
+        "The map is certainly broken."
+      ],
+      "answer": 0,
+      "explanation_ja": "空白は必ずしも無人を意味しません。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'emphasize' mean?",
+      "options": [
+        "Give special attention to.",
+        "Remove permanently.",
+        "Travel through.",
+        "Buy and sell."
+      ],
+      "answer": 0,
+      "explanation_ja": "emphasizeは『強調する』です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What should students do first?",
+      "options": [
+        "Describe what is visible.",
+        "Explain every historical cause.",
+        "Choose a train ticket.",
+        "Memorize every date."
+      ],
+      "answer": 0,
+      "explanation_ja": "最初は推測せず観察内容を述べます。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Why may two maps differ?",
+      "options": [
+        "Their audiences and purposes can differ.",
+        "All rivers move each year.",
+        "All mapmakers have identical goals.",
+        "One map must be imaginary."
+      ],
+      "answer": 0,
+      "explanation_ja": "想定利用者や目的が異なるためです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "Why is a map called a starting point?",
+      "options": [
+        "It leads to further questions and sources.",
+        "It always answers every question.",
+        "It makes other documents useless.",
+        "It can replace all history lessons."
+      ],
+      "answer": 0,
+      "explanation_ja": "地図は調査の出発点であり他資料も必要だとまとめます。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "map",
+      "ja": "地図",
+      "synonym": "chart",
+      "definition": "a drawing showing features of an area"
+    },
+    {
+      "term": "traveled",
+      "ja": "旅した・移動した",
+      "synonym": "journeyed",
+      "definition": "moved from one place to another"
+    },
+    {
+      "term": "mapmaker",
+      "ja": "地図作成者",
+      "synonym": "cartographer",
+      "definition": "someone who produces maps"
+    },
+    {
+      "term": "roads",
+      "ja": "道路",
+      "synonym": "streets",
+      "definition": "routes for people and vehicles"
+    },
+    {
+      "term": "buildings",
+      "ja": "建物",
+      "synonym": "structures",
+      "definition": "things built for people to use"
+    },
+    {
+      "term": "rivers",
+      "ja": "川",
+      "synonym": "waterways",
+      "definition": "natural streams of flowing water"
+    },
+    {
+      "term": "details",
+      "ja": "細部",
+      "synonym": "particulars",
+      "definition": "small pieces of information"
+    },
+    {
+      "term": "missing",
+      "ja": "欠けている",
+      "synonym": "absent",
+      "definition": "not present where expected"
+    },
+    {
+      "term": "creator",
+      "ja": "作り手",
+      "synonym": "maker",
+      "definition": "a person who makes something"
+    },
+    {
+      "term": "purpose",
+      "ja": "目的",
+      "synonym": "aim",
+      "definition": "the reason for doing something"
+    },
+    {
+      "term": "historians",
+      "ja": "歴史家",
+      "synonym": "history researchers",
+      "definition": "people who study the past"
+    },
+    {
+      "term": "port",
+      "ja": "港",
+      "synonym": "harbor",
+      "definition": "a place where ships stop"
+    },
+    {
+      "term": "narrow",
+      "ja": "狭い",
+      "synonym": "not wide",
+      "definition": "having little width"
+    },
+    {
+      "term": "railway",
+      "ja": "鉄道",
+      "synonym": "railroad",
+      "definition": "a transport system using trains"
+    },
+    {
+      "term": "warehouses",
+      "ja": "倉庫",
+      "synonym": "storehouses",
+      "definition": "large buildings for keeping goods"
+    },
+    {
+      "term": "trade",
+      "ja": "貿易",
+      "synonym": "commerce",
+      "definition": "the buying and selling of goods"
+    },
+    {
+      "term": "photographs",
+      "ja": "写真",
+      "synonym": "pictures",
+      "definition": "images taken using a camera"
+    },
+    {
+      "term": "records",
+      "ja": "記録",
+      "synonym": "documents",
+      "definition": "written accounts kept for later use"
+    },
+    {
+      "term": "audiences",
+      "ja": "想定読者・利用者",
+      "synonym": "users",
+      "definition": "groups for whom information is made"
+    },
+    {
+      "term": "travelers",
+      "ja": "旅行者",
+      "synonym": "visitors",
+      "definition": "people making journeys"
+    },
+    {
+      "term": "military",
+      "ja": "軍の",
+      "synonym": "army-related",
+      "definition": "connected with armed forces"
+    },
+    {
+      "term": "officials",
+      "ja": "担当者",
+      "synonym": "authorities",
+      "definition": "people in public positions"
+    },
+    {
+      "term": "emphasize",
+      "ja": "強調する",
+      "synonym": "highlight",
+      "definition": "to make something stand out as important"
+    },
+    {
+      "term": "actually",
+      "ja": "実際に",
+      "synonym": "really",
+      "definition": "in fact rather than only in theory"
+    },
+    {
+      "term": "necessarily",
+      "ja": "必ずしも",
+      "synonym": "inevitably",
+      "definition": "in a way that must be true"
+    },
+    {
+      "term": "absent",
+      "ja": "存在しない・不在の",
+      "synonym": "missing",
+      "definition": "not present in a place"
+    },
+    {
+      "term": "included",
+      "ja": "含まれた",
+      "synonym": "contained",
+      "definition": "made part of something"
+    },
+    {
+      "term": "particular",
+      "ja": "特定の",
+      "synonym": "specific",
+      "definition": "clearly identified rather than general"
+    },
+    {
+      "term": "observing",
+      "ja": "観察すること",
+      "synonym": "watching",
+      "definition": "looking carefully to notice details"
+    },
+    {
+      "term": "reflecting",
+      "ja": "考察すること",
+      "synonym": "thinking carefully",
+      "definition": "considering meaning rather than merely seeing"
+    },
+    {
+      "term": "documents",
+      "ja": "文書",
+      "synonym": "records",
+      "definition": "written sources of information"
+    },
+    {
+      "term": "investigation",
+      "ja": "調査",
+      "synonym": "inquiry",
+      "definition": "a careful search for facts"
+    },
+    {
+      "term": "important",
+      "ja": "重要な",
+      "synonym": "significant",
+      "definition": "having a great effect or value"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "learners",
+      "definition": "people receiving education at school"
+    },
+    {
+      "term": "study",
+      "ja": "調べる・学習する",
+      "synonym": "examine",
+      "definition": "to learn or investigate something carefully"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "facts",
+      "definition": "facts or details provided about something"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "therefore",
+      "ja": "したがって",
+      "synonym": "consequently",
+      "definition": "used to introduce a logical result"
+    },
+    {
+      "term": "reason",
+      "ja": "理由",
+      "synonym": "cause",
+      "definition": "an explanation for why something happens"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 4,
+      "focus": "because they were not important",
+      "explanation_ja": "becauseは情報が省かれた理由を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 4,
+      "focus": "do not prove why the town changed",
+      "explanation_ja": "why以下は間接疑問でproveの目的語です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "focus": "that looks empty on one map",
+      "explanation_ja": "関係代名詞thatがplaceを修飾しています。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 4,
+      "focus": "not the end of it",
+      "explanation_ja": "not A but Bの対比で調査の出発点であることを表します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "地図の見た目と限界の逆接。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "貿易の変化という推論の具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Therefore",
+      "role_ja": "利用目的の違いから描写の違いを導きます。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Finally",
+      "role_ja": "分析手順の最後です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "not a perfect picture of everything that existed",
+      "rewrite": "not a complete record of all past things",
+      "explanation_ja": "perfect picture→complete recordに置き換えます。"
+    },
+    {
+      "source": "the maps alone do not prove why the town changed",
+      "rewrite": "maps by themselves cannot establish the reasons for the town's changes",
+      "explanation_ja": "alone→by themselves、prove→establishと言い換えます。"
+    },
+    {
+      "source": "may emphasize different information about the same area",
+      "rewrite": "might highlight different facts concerning one place",
+      "explanation_ja": "emphasize→highlightの言い換えです。"
+    },
+    {
+      "source": "a map becomes a starting point for investigation",
+      "rewrite": "a map serves as the first step in researching the past",
+      "explanation_ja": "starting point→first stepに置き換えています。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "answer": "However",
+      "options": [
+        "However",
+        "Therefore",
+        "For example",
+        "Similarly"
+      ],
+      "explanation_ja": "地図の見た目と限界の逆接。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Therefore",
+        "In addition"
+      ],
+      "explanation_ja": "貿易の変化という推論の具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "Therefore",
+      "options": [
+        "Therefore",
+        "However",
+        "For example",
+        "Meanwhile"
+      ],
+      "explanation_ja": "利用目的の違いから描写の違いを導きます。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 3,
+      "answer": "Finally",
+      "options": [
+        "Finally",
+        "However",
+        "Therefore",
+        "Similarly"
+      ],
+      "explanation_ja": "分析手順の最後です。"
+    }
+  ]
+}
