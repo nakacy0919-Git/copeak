@@ -138,3 +138,6 @@ body.reading-exam-mode{overscroll-behavior:none;overflow:hidden!important;positi
  #readingApp .browse-card{transition:none}
  #readingApp .browse-card:not(:disabled):hover{transform:none}
 }
+
+body.reading-focus #readingApp .layout-mode-tag{display:inline-flex;align-items:center;white-space:nowrap;font-size:10px;font-weight:900;letter-spacing:.015em;color:#59758a;background:#e9f0f1;border:1px solid #d5e4e5;border-radius:8px;min-height:29px;padding:5px 8px}
+#readingApp .layout-mode-tag{display:none}
