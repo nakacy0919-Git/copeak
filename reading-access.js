@@ -42,9 +42,9 @@
       await loadScript('reading-lexicon-core.js?v=20261112-words2');
       await loadScript('reading-dictionary-lookup.js?v=20261112-words2');
       await loadScript('reading-correct-effect.js?v=20261112-words2');
-      await loadScript('reading-entrance.js?v=20261112-flow2');
-      await loadScript('reading-exam-mode.js?v=20261112-flow2');
-      await loadScript('reading-ink.js?v=20261112-flow2');
+      await loadScript('reading-entrance.js?v=20261112-flow3');
+      await loadScript('reading-exam-mode.js?v=20261112-flow3');
+      await loadScript('reading-ink.js?v=20261112-flow3');
       const view=window.CopeakReadingExamContext?.();
       if(view?.lesson)window.CopeakReadingInk?.syncStudy(view.lesson.id,view.mode||'questions');
     } catch (error) {
