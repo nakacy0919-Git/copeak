@@ -1,0 +1,671 @@
+{
+  "id": "L04-002",
+  "category_id": "L04",
+  "title": "Welcoming Someone New",
+  "title_ja": "新しく来た人を迎えるには",
+  "level_id": "eiken-pre2",
+  "word_count": 273,
+  "original": true,
+  "status": "draft",
+  "source_links": [
+    {
+      "title": "UNHCR: Welcoming inclusive societies",
+      "url": "https://www.unhcr.org/handbooks/ih/welcoming-inclusive-societies/promoting-welcoming-and-inclusive-societies"
+    }
+  ],
+  "fact_notes": [
+    "背景となる考え方は添付の資料で確認。本文と練習問題は新規制作。例示した人物・学校・活動は架空の説明用設定。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Moving to a new town can be exciting, but it can also be lonely.",
+          "ja": "新しい町への引っ越しは楽しみな一方、孤独にも感じられます。"
+        },
+        {
+          "en": "A family may know very little about local shops, schools, and services.",
+          "ja": "家族は地域の店、学校、サービスについてほとんど知らないかもしれません。"
+        },
+        {
+          "en": "Even finding a bus stop may take more time than expected.",
+          "ja": "バス停を見つけるだけでも予想以上に時間がかかる場合があります。"
+        },
+        {
+          "en": "However, a small act of kindness can make the first week easier.",
+          "ja": "しかし、小さな親切が最初の一週間を楽にします。"
+        },
+        {
+          "en": "A neighbor might explain where to buy food or find a library.",
+          "ja": "近所の人が食料を買う場所や図書館の場所を説明するかもしれません。"
+        },
+        {
+          "en": "These ordinary conversations can help new residents begin to feel at home.",
+          "ja": "こうした日常の会話は、新住民がその町を居場所と感じ始める助けになります。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "A warm welcome should not mean making every decision for a newcomer.",
+          "ja": "温かい歓迎は、新しく来た人に代わってすべてを決めることではありません。"
+        },
+        {
+          "en": "People have different habits and may prefer different kinds of help.",
+          "ja": "人には異なる習慣があり、望む支援の形も違うかもしれません。"
+        },
+        {
+          "en": "For example, one person may enjoy joining a community event immediately.",
+          "ja": "例えば、すぐに地域の行事へ参加するのを楽しむ人もいます。"
+        },
+        {
+          "en": "Another may need a quiet day before meeting a large group.",
+          "ja": "一方で、大勢の人に会う前に静かな一日を必要とする人もいます。"
+        },
+        {
+          "en": "Asking what someone needs is often better than guessing.",
+          "ja": "相手が何を必要とするか尋ねる方が、推測よりよい場合が多いのです。"
+        },
+        {
+          "en": "Respect also means accepting an answer that is different from what we expected.",
+          "ja": "尊重とは、予想と異なる答えを受け入れることでもあります。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Schools can help new students form connections without putting them under pressure.",
+          "ja": "学校は新入生に圧力をかけず、つながりを作る支援ができます。"
+        },
+        {
+          "en": "A teacher might ask two students to show a new classmate around.",
+          "ja": "教師は二人の生徒に、新しい同級生を案内するよう頼むかもしれません。"
+        },
+        {
+          "en": "The group could visit the library, gym, and school office together.",
+          "ja": "一緒に図書館、体育館、職員室へ行くことができます。"
+        },
+        {
+          "en": "In addition, students can prepare a short guide with pictures and simple words.",
+          "ja": "さらに、生徒は写真と簡単な言葉を使って短い案内を用意できます。"
+        },
+        {
+          "en": "The newcomer can use it later without having to ask the same question again.",
+          "ja": "新入生は後から同じことを何度も尋ねず、その案内を使えます。"
+        },
+        {
+          "en": "The helpers may also notice problems that they once ignored.",
+          "ja": "手助けする生徒も、以前は見過ごした問題に気づくかもしれません。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "A welcoming community grows through regular actions, not only one special festival.",
+          "ja": "人を温かく迎える地域社会は、一度の祭りだけでなく日々の行動から育ちます。"
+        },
+        {
+          "en": "People can share information, listen to concerns, and create opportunities to participate.",
+          "ja": "人々は情報を共有し、不安に耳を傾け、参加の機会を作れます。"
+        },
+        {
+          "en": "Nevertheless, no new resident should be forced to join every activity.",
+          "ja": "それでも新しい住民がすべての活動に参加するよう強制されてはいけません。"
+        },
+        {
+          "en": "A person who feels safe is more likely to build trust over time.",
+          "ja": "安心できる人は、時間をかけて信頼を築きやすくなります。"
+        },
+        {
+          "en": "The best welcome begins with a question about what another person really needs.",
+          "ja": "最もよい歓迎は、相手が本当に必要なことを尋ねることから始まります。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the passage mainly about?",
+      "options": [
+        "Why towns should close public libraries.",
+        "How thoughtful and respectful welcomes help newcomers.",
+        "Why everyone should join all events.",
+        "How to build a new bus station."
+      ],
+      "answer": 1,
+      "explanation_ja": "相手のニーズを尊重する歓迎の大切さが中心です。",
+      "paragraph_ids": [
+        "p1",
+        "p2",
+        "p4"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Why might a family need help in a new town?",
+      "options": [
+        "They already know all the streets.",
+        "They may not know local services.",
+        "They cannot talk to anyone.",
+        "All shops are closed."
+      ],
+      "answer": 1,
+      "explanation_ja": "地元の施設やサービスに不慣れなためです。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What can a neighbor explain?",
+      "options": [
+        "Where to buy food.",
+        "How to change the weather.",
+        "The score of every student.",
+        "A secret password."
+      ],
+      "answer": 0,
+      "explanation_ja": "買い物の場所や図書館を教える例があります。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why is asking better than guessing?",
+      "options": [
+        "All newcomers want identical help.",
+        "People have different preferences.",
+        "Nobody ever needs help.",
+        "Asking a question is always rude."
+      ],
+      "answer": 1,
+      "explanation_ja": "人ごとに望む助けが異なるためです。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What can classmates prepare?",
+      "options": [
+        "A guide with pictures and simple words.",
+        "A list of private passwords.",
+        "A difficult final examination.",
+        "A map of another country only."
+      ],
+      "answer": 0,
+      "explanation_ja": "写真と簡単な言葉の学校案内を作成します。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "Where could students take a new classmate?",
+      "options": [
+        "The gym and library.",
+        "A distant airport.",
+        "An unfamiliar factory.",
+        "A private home without permission."
+      ],
+      "answer": 0,
+      "explanation_ja": "学校の図書館や体育館などへ案内します。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'pressure' mean?",
+      "options": [
+        "Forcing or strongly pushing someone.",
+        "A school lunch.",
+        "A comfortable chair.",
+        "A type of building."
+      ],
+      "answer": 0,
+      "explanation_ja": "プレッシャーは相手への圧力です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "How might the helpers benefit?",
+      "options": [
+        "They may notice problems they ignored before.",
+        "They will never need help again.",
+        "They can decide everything for others.",
+        "They can stop using the library."
+      ],
+      "answer": 0,
+      "explanation_ja": "助ける側も見過ごしていた課題に気づけます。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "detail",
+      "prompt": "Which action should be avoided?",
+      "options": [
+        "Sharing useful information.",
+        "Listening to concerns.",
+        "Forcing residents into every activity.",
+        "Giving a school tour."
+      ],
+      "answer": 2,
+      "explanation_ja": "強制的な参加は避けるべきと述べています。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "What does the final sentence emphasize?",
+      "options": [
+        "A welcome begins by understanding the other person's needs.",
+        "Every newcomer wants the same thing.",
+        "Questions make people less comfortable.",
+        "Good neighbors make all choices alone."
+      ],
+      "answer": 0,
+      "explanation_ja": "まず相手の必要を尋ねるという主張で締めます。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "moving",
+      "ja": "引っ越すこと",
+      "synonym": "relocating",
+      "definition": "changing one's place of residence"
+    },
+    {
+      "term": "exciting",
+      "ja": "わくわくする",
+      "synonym": "interesting",
+      "definition": "causing positive interest"
+    },
+    {
+      "term": "lonely",
+      "ja": "孤独な",
+      "synonym": "isolated",
+      "definition": "unhappy from lack of company"
+    },
+    {
+      "term": "services",
+      "ja": "公共サービス",
+      "synonym": "facilities",
+      "definition": "things provided to meet needs"
+    },
+    {
+      "term": "expected",
+      "ja": "予想された",
+      "synonym": "anticipated",
+      "definition": "thought likely to happen"
+    },
+    {
+      "term": "kindness",
+      "ja": "親切",
+      "synonym": "consideration",
+      "definition": "friendly treatment of other people"
+    },
+    {
+      "term": "neighbor",
+      "ja": "近所の人",
+      "synonym": "local resident",
+      "definition": "a person living nearby"
+    },
+    {
+      "term": "ordinary",
+      "ja": "日常的な",
+      "synonym": "usual",
+      "definition": "common rather than special"
+    },
+    {
+      "term": "conversations",
+      "ja": "会話",
+      "synonym": "talks",
+      "definition": "exchanges of spoken words"
+    },
+    {
+      "term": "newcomer",
+      "ja": "新しく来た人",
+      "synonym": "new arrival",
+      "definition": "someone recently arrived at a place"
+    },
+    {
+      "term": "habits",
+      "ja": "習慣",
+      "synonym": "customs",
+      "definition": "actions people do regularly"
+    },
+    {
+      "term": "prefer",
+      "ja": "好む",
+      "synonym": "favor",
+      "definition": "to like one option more"
+    },
+    {
+      "term": "joining",
+      "ja": "参加すること",
+      "synonym": "participating",
+      "definition": "becoming part of a group activity"
+    },
+    {
+      "term": "immediately",
+      "ja": "すぐに",
+      "synonym": "at once",
+      "definition": "without delay"
+    },
+    {
+      "term": "guessing",
+      "ja": "推測",
+      "synonym": "estimating",
+      "definition": "forming an opinion without full information"
+    },
+    {
+      "term": "accepting",
+      "ja": "受け入れること",
+      "synonym": "welcoming",
+      "definition": "receiving something without rejection"
+    },
+    {
+      "term": "connections",
+      "ja": "つながり",
+      "synonym": "relationships",
+      "definition": "links among people"
+    },
+    {
+      "term": "pressure",
+      "ja": "圧力",
+      "synonym": "force",
+      "definition": "an attempt to make someone act"
+    },
+    {
+      "term": "classmate",
+      "ja": "同級生",
+      "synonym": "fellow student",
+      "definition": "a student in the same class"
+    },
+    {
+      "term": "gym",
+      "ja": "体育館",
+      "synonym": "sports hall",
+      "definition": "a building for indoor exercise"
+    },
+    {
+      "term": "prepare",
+      "ja": "準備する",
+      "synonym": "get ready",
+      "definition": "to make something ready for use"
+    },
+    {
+      "term": "guide",
+      "ja": "案内",
+      "synonym": "instructions",
+      "definition": "information helping someone find a way"
+    },
+    {
+      "term": "ignored",
+      "ja": "見過ごした",
+      "synonym": "overlooked",
+      "definition": "failed to pay attention to"
+    },
+    {
+      "term": "festival",
+      "ja": "祭り",
+      "synonym": "celebration",
+      "definition": "a special public event"
+    },
+    {
+      "term": "concerns",
+      "ja": "不安・懸念",
+      "synonym": "worries",
+      "definition": "matters people feel uneasy about"
+    },
+    {
+      "term": "participate",
+      "ja": "参加する",
+      "synonym": "join",
+      "definition": "to take part in an event"
+    },
+    {
+      "term": "forced",
+      "ja": "強制された",
+      "synonym": "compelled",
+      "definition": "made to act against one's wishes"
+    },
+    {
+      "term": "trust",
+      "ja": "信頼",
+      "synonym": "confidence",
+      "definition": "belief in someone's reliability"
+    },
+    {
+      "term": "residents",
+      "ja": "住民",
+      "synonym": "inhabitants",
+      "definition": "people living in a place"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "community",
+      "ja": "地域社会",
+      "synonym": "local society",
+      "definition": "people connected by a shared place or interest"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "learners",
+      "definition": "people receiving education at school"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who helps others learn"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "facts",
+      "definition": "facts or details provided about something"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "opportunities",
+      "ja": "機会",
+      "synonym": "chances",
+      "definition": "situations allowing people to do things"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "better",
+      "ja": "より良い",
+      "synonym": "improved",
+      "definition": "of higher quality than before"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "can make the first week easier",
+      "explanation_ja": "make＋目的語＋形容詞で『最初の一週間を楽にする』です。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 4,
+      "focus": "better than guessing",
+      "explanation_ja": "比較級better thanで二つの方法を比較します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 4,
+      "focus": "without having to ask the same question again",
+      "explanation_ja": "without＋動名詞で『再度質問しないで』を表します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 3,
+      "focus": "who feels safe",
+      "explanation_ja": "関係代名詞whoがpersonを説明します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "不安な始まりから親切の可能性への逆接。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "異なる好みを示す具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "In addition",
+      "role_ja": "学校案内に加える別の支援策。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "歓迎の利点に対し強制を避けるべきという逆接。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "a small act of kindness can make the first week easier",
+      "rewrite": "a minor friendly action can help new arrivals feel less worried",
+      "explanation_ja": "small act of kindness→minor friendly actionに言い換えます。"
+    },
+    {
+      "source": "Asking what someone needs is often better than guessing",
+      "rewrite": "Finding out someone's needs is usually better than making assumptions",
+      "explanation_ja": "asking→finding out、guessing→assumptionsです。"
+    },
+    {
+      "source": "form connections without putting them under pressure",
+      "rewrite": "build relationships without forcing participation",
+      "explanation_ja": "connections→relationships、pressure→forcingに言い換えます。"
+    },
+    {
+      "source": "begins with a question about what another person really needs",
+      "rewrite": "starts by asking about the other person's actual needs",
+      "explanation_ja": "begins→starts、really→actualです。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "answer": "However",
+      "options": [
+        "However",
+        "Therefore",
+        "For example",
+        "Similarly"
+      ],
+      "explanation_ja": "不安な始まりから親切の可能性への逆接。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "Therefore",
+        "However",
+        "In addition"
+      ],
+      "explanation_ja": "異なる好みを示す具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "answer": "In addition",
+      "options": [
+        "In addition",
+        "However",
+        "Therefore",
+        "For example"
+      ],
+      "explanation_ja": "学校案内に加える別の支援策。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "歓迎の利点に対し強制を避けるべきという逆接。"
+    }
+  ]
+}
