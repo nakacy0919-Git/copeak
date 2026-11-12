@@ -63,6 +63,7 @@
     <button id="focusExit" type="button" hidden>一覧画面に戻る</button>
     <button id="examModeStart" type="button" class="exam-mode-start" disabled aria-controls="examOverlay"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"/></svg> 試験モード</button>
    </div>
+   <p id="storageStatus" class="reading-save-warning" role="alert" hidden></p>
    <div id="practiceProgress" class="practice-progress" role="group" aria-label="この長文の練習別達成状況"></div>
   </div>
   <div class="study-layout" id="studyLayout">
@@ -155,6 +156,7 @@
     <div id="examQuestions" class="exam-questions"></div>
     <div id="examSubmitArea" class="exam-submit-area">
       <span id="examAnswerCount" class="exam-count" aria-live="polite">0 / 0 問解答</span>
+      <span id="examSaveStatus" class="exam-save-warning" role="status" aria-live="polite" hidden></span>
       <button type="button" id="examSubmit" class="exam-submit" disabled>採点する</button>
     </div>
     <section id="examResult" class="exam-result" role="status" aria-live="polite" hidden></section>
