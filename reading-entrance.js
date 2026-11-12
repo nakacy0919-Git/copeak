@@ -237,57 +237,108 @@ function highlightLookupJapanese(text,meaning){
  const at=ja.indexOf(candidate);
  return esc(ja.slice(0,at))+'<mark class="lookup-ja-highlight">'+esc(candidate)+'</mark>'+esc(ja.slice(at+candidate.length));
 }
-function renderLookupWord(entry){
+/* Keep the popup in the same answer-safe state as the passage itself.
+   Without this, a learner can reveal a blanked cloze/discourse answer through
+   the sentence preview even though the visible passage masks the same word. */
+function lookupIsMasked(){
+ return state.exercise==='cloze'||state.exercise==='discourse';
+}
+function lookupVocabPending(){
+ if(state.exercise!=='vocab')return false;
+ const item=activePracticeItem();
+ return !!(item&&!Number.isInteger(practiceRecord('vocab').answers[item.id]));
+}
+function maskedLookupExample(pi,si){
+ const context=getContext(pi,si);
+ if(!context)return '';
+ if(!lookupIsMasked())return context.en;
+ const paragraph=state.lesson?.paragraphs?.[pi];
+ if(!paragraph)return '';
+ const masks=practiceBank(state.exercise).filter(q=>q.source?.paragraphId===paragraph.id&&q.source.sentenceIndex===si);
+ const ranges=[];
+ for(const q of masks){
+  const key=String(q.sourceText||'').split('...')[0].trim();
+  if(!key)continue;
+  let start=context.en.indexOf(key);
+  if(start<0)start=context.en.toLowerCase().indexOf(key.toLowerCase());
+  if(start<0)continue;
+  const end=start+key.length;
+  if(ranges.some(r=>r.start<end&&start<r.end))continue;
+  ranges.push({start,end,num:q.index+1});
+ }
+ ranges.sort((a,b)=>a.start-b.start);
+ let result='',offset=0;
+ for(const range of ranges){
+  result+=context.en.slice(offset,range.start)+'【'+range.num+'】 ________';
+  offset=range.end;
+ }
+ return result+context.en.slice(offset);
+}
+function renderLookupWord(entry,payload){
  $('lookupJapanese').textContent=entry?.ja||'日本語の意味を確認できませんでした';
  const explanation=entry?.definition||'英英定義が未登録です。';
  $('lookupDefinition').innerHTML='<strong>ENGLISH DEFINITION</strong>'+esc(explanation)+(entry?.synonym?'<p>Synonym: '+esc(entry.synonym)+'</p>':'');
  $('lookupSource').textContent=entry?.source||'登録語彙';
- const word=$('lookupHeading').textContent;
- const position=$('lookupSentenceLink').dataset;
- const context=getContext(Number(position.pi),Number(position.si));
- if(context)$('lookupExampleJa').innerHTML=highlightLookupJapanese(context.ja,entry?.ja);
- if(context)$('lookupExampleEn').innerHTML=highlightLookupEnglish(context.en,word);
+ const context=getContext(payload.pi,payload.si);
+ if(context){
+  const example=maskedLookupExample(payload.pi,payload.si);
+  $('lookupExampleEn').innerHTML=highlightLookupEnglish(example,payload.word);
+  if(lookupIsMasked()||lookupVocabPending()){
+   $('lookupExampleJa').textContent='解答前のため、この一文の日本語訳は非表示です。';
+  }else{
+   $('lookupExampleJa').innerHTML=highlightLookupJapanese(context.ja,entry?.ja);
+  }
+ }
 }
 function showLookup(kind,payload){
  if(!state.lesson)return;
  const dialog=$('readingLookupDialog'),serial=++activeLookupId;
  const context=getContext(payload.pi,payload.si);
- const hasSentence=Boolean(context),blocked=state.exercise==='cloze'||state.exercise==='discourse';
+ const blocked=lookupIsMasked(),vocabPending=lookupVocabPending();
+ const hasSentence=Boolean(context);
  const seeSentence=$('lookupSentenceLink');
- seeSentence.hidden=kind!=='word'||blocked||!hasSentence;
+ seeSentence.hidden=kind!=='word'||blocked||vocabPending||!hasSentence;
  if(hasSentence){seeSentence.dataset.pi=String(payload.pi);seeSentence.dataset.si=String(payload.si);}
- $('lookupExampleEn').textContent=context?.en||'本文中の英文を選んでください。';
- $('lookupExampleJa').textContent=blocked?'穴埋め練習中のため、文全体の訳は非表示です。':context?.ja||'';
+ $('lookupExampleEn').textContent=hasSentence?maskedLookupExample(payload.pi,payload.si):'本文中の英文を選んでください。';
+ $('lookupExampleJa').textContent=blocked||vocabPending?'解答前のため、この一文の日本語訳は非表示です。':context?.ja||'';
  $('lookupDefinition').hidden=kind!=='word';
  $('lookupKind').textContent=kind==='word'?'CONTEXT DICTIONARY':'SENTENCE TRANSLATION';
  if(kind==='sentence'){
   $('lookupSource').textContent='教材の一文訳';
   $('lookupHeading').textContent='第'+(payload.pi+1)+'段落 · '+(payload.si+1)+'文目';
-  $('lookupJapanese').textContent=blocked?'練習中は答えを隠しています。':context?.ja||'日本語訳が未登録です。';
+  $('lookupJapanese').textContent=blocked||vocabPending?'問題の答えを守るため、解答前の日本語訳は表示しません。':context?.ja||'日本語訳が未登録です。';
  }else{
   $('lookupHeading').textContent=payload.word;
-  $('lookupExampleEn').innerHTML=highlightLookupEnglish(context?.en||'',payload.word);
-  const known=dictionaryEntry(payload.word)||lookupDictionary()?.local(payload.word,state.lesson,state.sets);
-  if(known){
-   renderLookupWord({...known,source:known.source||'教材登録'});
+  const current=activePracticeItem();
+  const target=String(current?.sourceText||'').toLowerCase();
+  if(vocabPending&&normalizeWord(payload.word)===normalizeWord(target)){
+   $('lookupSource').textContent='語彙クイズ';
+   $('lookupJapanese').textContent='この単語はクイズに回答すると確認できます。';
+   $('lookupDefinition').innerHTML='<strong>ENGLISH DEFINITION</strong>クイズ解答後に単語をタップしてください。';
+   $('lookupExampleEn').textContent=maskedLookupExample(payload.pi,payload.si);
   }else{
-   $('lookupJapanese').textContent='日本語の意味を照会しています…';
-   $('lookupDefinition').innerHTML='<strong>ENGLISH DEFINITION</strong><span class="lookup-pending">単語辞書を確認しています…</span>';
-   $('lookupSource').textContent='オンライン辞書照会中';
-   // Only the tapped word is sent to a public translation/dictionary API.
-   lookupDictionary()?.remote?.(payload.word)?.then(entry=>{
-    if(serial!==activeLookupId||!dialog.open)return;
-    if(entry)renderLookupWord(entry);
-    else{
-     $('lookupJapanese').textContent='この語の辞書訳を取得できませんでした';
-     $('lookupDefinition').innerHTML='<strong>ENGLISH DEFINITION</strong>通信・語形の問題で取得できませんでした。本文の例文訳は右側で確認できます。';
-     $('lookupSource').textContent='辞書照会失敗';
-    }
-   }).catch(()=>{
-    if(serial!==activeLookupId||!dialog.open)return;
-    $('lookupJapanese').textContent='辞書に接続できませんでした';
-    $('lookupSource').textContent='オフライン';
-   });
+   $('lookupExampleEn').innerHTML=highlightLookupEnglish(maskedLookupExample(payload.pi,payload.si),payload.word);
+   const known=dictionaryEntry(payload.word)||lookupDictionary()?.local(payload.word,state.lesson,state.sets);
+   if(known){
+    renderLookupWord({...known,source:known.source||'教材登録'},payload);
+   }else{
+    $('lookupJapanese').textContent='日本語の意味を照会しています…';
+    $('lookupDefinition').innerHTML='<strong>ENGLISH DEFINITION</strong><span class="lookup-pending">単語辞書を確認しています…</span>';
+    $('lookupSource').textContent='オンライン辞書照会中';
+    lookupDictionary()?.remote?.(payload.word)?.then(entry=>{
+     if(serial!==activeLookupId||!dialog.open)return;
+     if(entry)renderLookupWord(entry,payload);
+     else{
+      $('lookupJapanese').textContent='この語の辞書訳を取得できませんでした';
+      $('lookupDefinition').innerHTML='<strong>ENGLISH DEFINITION</strong>通信・語形の問題で取得できませんでした。';
+      $('lookupSource').textContent='辞書照会失敗';
+     }
+    }).catch(()=>{
+     if(serial!==activeLookupId||!dialog.open)return;
+     $('lookupJapanese').textContent='辞書に接続できませんでした';
+     $('lookupSource').textContent='オフライン';
+    });
+   }
   }
  }
  if(!dialog.open)dialog.showModal();
