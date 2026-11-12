@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="reading-practice-premium.css?v=20261112-premium1">
 <link rel="stylesheet" href="reading-lookup-enhanced.css?v=20261112-words2">
 <link rel="stylesheet" href="reading-chooser-responsive.css?v=20261112-layout1">
+<link rel="stylesheet" href="reading-exam-mode.css?v=20261112-exam1">
 <link rel="stylesheet" href="reading-access.css?v=20261112-2">
 <script defer src="reading-access.js?v=20261112-words2"></script>
 </head>
@@ -60,6 +61,7 @@
    <div class="reader-actions">
     <button id="focusStart" type="button" class="primary" disabled>集中して解く <span aria-hidden="true">↗</span></button>
     <button id="focusExit" type="button" hidden>一覧画面に戻る</button>
+    <button id="examModeStart" type="button" class="exam-mode-start" disabled aria-controls="examOverlay"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"/></svg> 試験モード</button>
    </div>
    <div id="practiceProgress" class="practice-progress" role="group" aria-label="この長文の練習別達成状況"></div>
   </div>
@@ -139,6 +141,27 @@
   </div>
  </section>
 </main>
+<section id="examOverlay" class="exam-overlay" role="dialog" aria-modal="true" aria-label="全画面試験モード" hidden>
+ <div id="examLayout" class="exam-layout">
+  <section class="exam-passage-pane" aria-label="試験の英文">
+   <div id="examPassageScroll" class="exam-pane-scroll" tabindex="0" aria-label="英文をスクロール">
+    <div id="examPassage" class="exam-passage"></div>
+   </div>
+  </section>
+  <div id="examSplitter" class="exam-splitter" role="separator" tabindex="0" aria-orientation="vertical" aria-label="英文と問題の幅を変更" aria-valuemin="30" aria-valuemax="70" aria-valuenow="50" title="ドラッグまたは矢印キーで幅を調整"><span aria-hidden="true">⋮</span></div>
+  <section class="exam-question-pane" aria-label="試験の設問">
+   <button type="button" id="examExit" class="exam-exit" aria-label="試験モードを終了して学習画面に戻る" title="試験モード終了">× <span>終了</span></button>
+   <div id="examQuestionScroll" class="exam-pane-scroll" tabindex="0" aria-label="問題をスクロール">
+    <div id="examQuestions" class="exam-questions"></div>
+    <div id="examSubmitArea" class="exam-submit-area">
+      <span id="examAnswerCount" class="exam-count" aria-live="polite">0 / 0 問解答</span>
+      <button type="button" id="examSubmit" class="exam-submit" disabled>採点する</button>
+    </div>
+    <section id="examResult" class="exam-result" role="status" aria-live="polite" hidden></section>
+   </div>
+  </section>
+ </div>
+</section>
 <dialog id="printDialog" aria-labelledby="printHeading">
  <form method="dialog" class="dialog-header"><h2 id="printHeading">長文教材プリント</h2><button type="submit" aria-label="閉じる">×</button></form>
  <p>本文・設問・解答解説を同じセットとして出力します。PDFはブラウザーの印刷画面で保存します。</p>
