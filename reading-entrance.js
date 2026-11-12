@@ -85,6 +85,8 @@ function focusEvidence(ids,jump=false){
 }
 function renderQuestions(){
  const s=state.lesson;if(!s)return;
+ const panelScroll=$('questionScroll');
+ const retainedScroll=panelScroll?.scrollTop||0;
  const qTotal=s.questions.length;
  const answered=s.questions.filter(q=>Number.isInteger(state.answers[q.id])).length;
  const complete=answered===qTotal;
@@ -122,6 +124,7 @@ function renderQuestions(){
   state.activeQuestionId=q?.id||null;
   focusEvidence(q?.paragraph_ids,true);
  }));
+ if(panelScroll)panelScroll.scrollTop=retainedScroll;
 }
 function renderVocab(){
  const s=state.lesson;if(!s)return;
@@ -173,8 +176,10 @@ function renderCloze(){
  $('clozeQuestions').querySelectorAll('[data-cloze]').forEach(b=>b.addEventListener('click',()=>{const i=Number(b.dataset.cloze);if(Number.isInteger(state.clozeAnswers[i]))return;state.clozeAnswers[i]=Number(b.dataset.option);saveProgress();renderCloze();}));
 }
 function switchTab(tab){
+ const changed=state.panel!==tab;
  state.panel=tab;document.querySelectorAll('[data-tab]').forEach(b=>b.setAttribute('aria-current',String(b.dataset.tab===tab)));
  document.querySelectorAll('[data-panel]').forEach(p=>p.hidden=p.dataset.panel!==tab);
+ if(changed)$('questionScroll').scrollTop=0;
 }
 function printConfig(){return {paper:$('paper').value,orientation:$('orientation').value,columns:Number($('columns').value),fontSize:Number($('fontSize').value),answers:$('printAnswers').value,translation:$('printTranslation').checked,skills:$('printSkills').checked};}
 function buildPrintParts(s,c){
