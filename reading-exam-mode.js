@@ -172,6 +172,9 @@
   if(leaving||overlay.hidden)return;
   leaving=true;
   window.CopeakReadingInk?.pauseExam();
+  if(document.fullscreenElement===overlay){
+   try{document.exitFullscreen?.()?.catch?.(()=>{});}catch(_){}
+  }
   overlay.hidden=true;
   document.body.classList.remove('reading-exam-mode');
   $('readingWorkspace').inert=false;
@@ -205,10 +208,16 @@
   setSplit(split);
   $('examPassageScroll').scrollTop=0;
   $('examQuestionScroll').scrollTop=0;
-  $('examExit').focus();
-  // Do not call the native Fullscreen API here. On iPad Safari, a downward
-  // scroll can close the native session; the fixed visual viewport remains
-  // stable and supports both independently scrollable reading panes.
+  $('examExit').focus({preventScroll:true});
+  // Request true fullscreen when the browser permits it. Keep the fixed,
+  // independently scrollable viewport as a fallback for iPad Safari, which
+  // may reject fullscreen or leave it after system gestures.
+  if(typeof overlay.requestFullscreen==='function'){
+   try{
+    const result=overlay.requestFullscreen();
+    result?.catch?.(()=>{});
+   }catch(_){}
+  }
  }
  start.addEventListener('click',enterExam);
  $('examExit').addEventListener('click',leaveExam);
