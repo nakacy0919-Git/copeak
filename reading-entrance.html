@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="reading-lookup-enhanced.css?v=20261112-words2">
 <link rel="stylesheet" href="reading-chooser-responsive.css?v=20261112-layout1">
 <link rel="stylesheet" href="reading-exam-mode.css?v=20261112-audit1">
+<link rel="stylesheet" href="reading-ink.css?v=20261112-ink1">
 <link rel="stylesheet" href="reading-access.css?v=20261112-2">
 <script defer src="reading-access.js?v=20261112-review2"></script>
 </head>
@@ -71,10 +72,21 @@
    <section class="study-passage-pane" id="passagePane" aria-label="英文ペイン">
     <div class="pane-tools">
       <strong>英文</strong><span class="pane-tools-spacer"></span>
+      <button type="button" id="inkStudyToggle" class="ink-launch" aria-controls="inkStudyPanel" aria-expanded="false" aria-label="書き込みツールを開く" title="手書き・書き込み"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 5 6 6M3 21l4.5-1 12-12a2.12 2.12 0 0 0-3-3l-12 12L3 21z"/></svg><span>書き込み</span></button>
       <span class="pane-size-label">文字</span>
       <button id="passageFontMinus" type="button" aria-label="英文の文字を小さく">A−</button>
       <output id="passageFontValue" aria-live="off">18px</output>
       <button id="passageFontPlus" type="button" aria-label="英文の文字を大きく">A＋</button>
+    </div>
+    <div id="inkStudyPanel" class="ink-panel" hidden role="toolbar" aria-label="英文への書き込み">
+      <button type="button" data-ink-action="pen" aria-pressed="false">✎ 黒ペン</button>
+      <button type="button" data-ink-action="eraser" aria-pressed="false">消しゴム</button>
+      <button type="button" data-ink-action="undo">↶ 戻す</button>
+      <button type="button" data-ink-action="visibility" aria-pressed="true">書き込み非表示</button>
+      <label class="ink-finger-label"><input type="checkbox" data-ink-action="finger">指でも描く</label>
+      <button type="button" data-ink-action="done">終了</button>
+      <span class="ink-tip">ペンで書き込み、指でスクロールできます。</span>
+      <span class="ink-save-status" role="status" aria-live="polite"></span>
     </div>
     <div class="passage-scroll" id="passageScroll" tabindex="0" aria-label="英文を上下にスクロール">
   <div class="reading-panel">
@@ -146,6 +158,16 @@
 <section id="examOverlay" class="exam-overlay" role="dialog" aria-modal="true" aria-label="全画面試験モード" hidden>
  <div id="examLayout" class="exam-layout">
   <section class="exam-passage-pane" aria-label="試験の英文">
+   <button type="button" id="inkExamToggle" class="ink-launch ink-exam-launch" aria-controls="inkExamPanel" aria-expanded="false" aria-label="試験中の書き込みツール" title="ペンで書き込む">✎ <span>ペン</span></button>
+   <div id="inkExamPanel" class="ink-panel ink-exam-panel" hidden role="toolbar" aria-label="試験中の手書き">
+     <button type="button" data-ink-action="pen" aria-pressed="false">✎ 黒ペン</button>
+     <button type="button" data-ink-action="eraser" aria-pressed="false">消しゴム</button>
+     <button type="button" data-ink-action="undo">↶ 戻す</button>
+     <button type="button" data-ink-action="visibility" aria-pressed="true">非表示</button>
+     <label class="ink-finger-label"><input type="checkbox" data-ink-action="finger">指でも描く</label>
+     <button type="button" data-ink-action="done">終了</button>
+     <span class="ink-save-status" role="status" aria-live="polite"></span>
+   </div>
    <div id="examPassageScroll" class="exam-pane-scroll" tabindex="0" aria-label="英文をスクロール">
     <div id="examPassage" class="exam-passage"></div>
    </div>
