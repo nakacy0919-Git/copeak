@@ -537,6 +537,7 @@ function renderQuestions(){
  $('answerCount').textContent=answered+' / '+qTotal+'問回答';
  $('gradingMode').value=state.gradingChosen?state.gradingMode:'';
  $('gradingSettings').hidden=state.gradingChosen;
+ $('questions').hidden=!state.gradingChosen;
  $('readingGradingActions').hidden=!state.gradingChosen;
  $('answerCount').hidden=true;
  $('gradeAll').hidden=!isBatch;
