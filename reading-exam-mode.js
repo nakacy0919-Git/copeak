@@ -101,6 +101,49 @@
   }else $('examResult').innerHTML='';
   scroll.scrollTop=top;
  }
+ // Local-only draft: not part of classroom grades and never sent to an API.
+ const draftName=key=>'copeak-reading-exam-draft-'+key;
+ function bankFingerprint(items){
+  let h=2166136261;
+  const source=items.map(q=>q.id+'\u001f'+q.options.join('\u001f')).join('\u001e');
+  for(let i=0;i<source.length;i++)h=Math.imul(h^source.charCodeAt(i),16777619);
+  return h>>>0;
+ }
+ function reportSaveError(){
+  const status=$('examSaveStatus');
+  status.hidden=false;
+  status.textContent='この端末では途中の解答を保存できません。';
+ }
+ function clearSaveError(){
+  const status=$('examSaveStatus');
+  status.hidden=true;status.textContent='';
+ }
+ function saveDraft(){
+  if(!current||current.finished)return;
+  try{
+   localStorage.setItem(draftName(current.key),JSON.stringify({
+    fingerprint:current.fingerprint,
+    answers:current.answers
+   }));
+   clearSaveError();
+  }catch{reportSaveError();}
+ }
+ function loadDraft(key,items){
+  try{
+   const data=JSON.parse(localStorage.getItem(draftName(key))||'null');
+   if(!data||data.fingerprint!==bankFingerprint(items)||!data.answers||typeof data.answers!=='object'||Array.isArray(data.answers))return Object.create(null);
+   const answerMap=Object.create(null);
+   for(const q of items){
+    const value=data.answers[q.id];
+    if(Number.isInteger(value)&&value>=0&&value<q.options.length)answerMap[q.id]=value;
+   }
+   return answerMap;
+  }catch{return Object.create(null)}
+ }
+ function clearDraft(){
+  if(!current)return;
+  try{localStorage.removeItem(draftName(current.key));}catch{}
+ }
  function saveCompletedAttempt(){
   if(!current)return;
   const key='copeak-reading-exam-history-'+current.lessonId;
@@ -111,7 +154,8 @@
    list.push({mode:current.mode,direction:current.direction||null,
     date:new Date().toISOString(),score:correct,total:current.items.length,answers:{...current.answers}});
    localStorage.setItem(key,JSON.stringify(list.slice(-10)));
-  }catch(_){}
+   clearSaveError();
+  }catch(_){reportSaveError();}
  }
  function setSplit(value,save=false){
   const bounds=$('examLayout').getBoundingClientRect();
@@ -146,11 +190,12 @@
   const key=ctx.lesson.id+'/'+ctx.mode+'/'+ctx.direction;
   if(!current||current.key!==key||current.finished){
    current={key,lessonId:ctx.lesson.id,mode:ctx.mode,direction:ctx.direction,items,
-    answers:Object.create(null),finished:false};
+    answers:loadDraft(key,items),fingerprint:bankFingerprint(items),finished:false};
   }
   renderPassage(ctx,current.items);
   renderQuestions(false);
   overlay.hidden=false;
+  clearSaveError();
   document.body.classList.add('reading-exam-mode');
   $('readingWorkspace').inert=true;
   document.querySelector('.masthead').inert=true;
@@ -167,7 +212,15 @@
   if(typeof overlay.requestFullscreen==='function'){
    try{
     const request=overlay.requestFullscreen();
-    request?.then?.(()=>{nativeFullscreen=true;}).catch?.(()=>{nativeFullscreen=false;});
+    request?.then?.(()=>{
+     if(overlay.hidden){
+      // The learner may have exited before Safari finished entering fullscreen.
+      if(document.fullscreenElement===overlay)document.exitFullscreen?.().catch?.(()=>{});
+      nativeFullscreen=false;
+      return;
+     }
+     nativeFullscreen=true;
+    }).catch?.(()=>{nativeFullscreen=false;});
    }catch(_){nativeFullscreen=false;}
   }
  }
@@ -180,6 +233,7 @@
   const chosen=Number(option.dataset.examChoice);
   if(!q||!Number.isInteger(chosen)||chosen<0||chosen>=q.options.length)return;
   current.answers[q.id]=chosen;
+  saveDraft();
   const scroll=$('examQuestionScroll').scrollTop;
   renderQuestions();
   $('examQuestionScroll').scrollTop=scroll;
@@ -189,6 +243,7 @@
   if(!current||current.finished||answerCount()!==current.items.length)return;
   current.finished=true;
   saveCompletedAttempt();
+  clearDraft();
   renderQuestions();
   $('examQuestionScroll').scrollTop=0;
  });
@@ -217,7 +272,11 @@
   if(e.key==='Escape'&&!overlay.hidden)leaveExam();
  });
  document.addEventListener('fullscreenchange',()=>{
-  if(nativeFullscreen&&!document.fullscreenElement&&!overlay.hidden)leaveExam();
+  if(overlay.hidden&&document.fullscreenElement===overlay){
+   document.exitFullscreen?.().catch?.(()=>{});
+  }else if(nativeFullscreen&&!document.fullscreenElement&&!overlay.hidden){
+   leaveExam();
+  }
  });
  window.addEventListener('resize',()=>{if(!overlay.hidden&&!dragging)setSplit(split);});
 })();
