@@ -172,6 +172,7 @@
  function leaveExam(){
   if(leaving||overlay.hidden)return;
   leaving=true;
+  window.CopeakReadingInk?.pauseExam();
   overlay.hidden=true;
   document.body.classList.remove('reading-exam-mode');
   $('readingWorkspace').inert=false;
@@ -194,6 +195,7 @@
     answers:loadDraft(key,items),fingerprint:bankFingerprint(items),finished:false};
   }
   renderPassage(ctx,current.items);
+  window.CopeakReadingInk?.syncExam(ctx.lesson.id,ctx.mode||'questions');
   renderQuestions(false);
   overlay.hidden=false;
   clearSaveError();
