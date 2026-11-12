@@ -86,7 +86,7 @@ body.reading-browsing{overflow:auto;background:#f5f5f1}
  text-decoration:none!important;background:rgba(61,130,166,.09);
 }
 body.reading-focus{overscroll-behavior:none}
-body.reading-focus #readingApp{height:100dvh;height:100svh;overflow:hidden}
+body.reading-focus #readingApp{height:100vh;height:100dvh;overflow:hidden}
 body.reading-focus #readingApp .app{padding:4px 7px 7px;max-width:none;min-height:0}
 body.reading-focus #readingApp .reader{padding:5px 8px;border-radius:11px}
 body.reading-focus #readingApp .reader-head{
