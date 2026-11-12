@@ -1,0 +1,83 @@
+/* Non-destructive paragraph handwriting. The canvas is bound to each paragraph,
+   so text selection/lookup is unchanged when ink is switched off. */
+#readingApp .ink-annotatable{position:relative;isolation:isolate}
+#readingApp .reading-ink-canvas{
+ position:absolute;inset:0;width:100%;height:100%;
+ z-index:5;display:block;box-sizing:border-box;
+ pointer-events:none;touch-action:none;
+}
+#readingApp .ink-enabled .reading-ink-canvas{
+ pointer-events:auto;cursor:crosshair;
+}
+#readingApp .ink-enabled.ink-eraser .reading-ink-canvas{cursor:cell}
+#readingApp .ink-hidden .reading-ink-canvas{opacity:0;pointer-events:none}
+#readingApp .ink-launch{
+ display:inline-flex;align-items:center;justify-content:center;gap:6px;
+ min-height:37px;padding:6px 10px;
+ border:1px solid #b4c8d0;border-radius:10px;
+ background:#eff7f7;color:#24667c;
+ font-weight:750;font-size:12px;white-space:nowrap;
+}
+#readingApp .ink-launch.ink-on{
+ background:#233d4d;color:#fff;border-color:#233d4d;
+}
+#readingApp .study-passage-pane{position:relative}
+#readingApp .ink-panel{
+ position:absolute;z-index:12;
+ top:46px;right:10px;left:auto;
+ width:min(425px,calc(100% - 20px));
+ box-sizing:border-box;
+ display:flex;align-items:center;gap:7px;flex-wrap:wrap;
+ padding:12px;
+ background:rgba(255,255,252,.98);
+ border:1px solid #ccd6d4;border-radius:13px;
+ box-shadow:0 12px 38px rgba(25,45,56,.19);
+ color:#294656;
+}
+#readingApp .ink-panel[hidden]{display:none!important}
+#readingApp .ink-panel>button{
+ min-height:39px;
+ border:1px solid #ced9da;border-radius:9px;
+ color:#2b596a;background:#fff;
+ font-size:12px;font-weight:700;padding:7px 10px;
+}
+#readingApp .ink-panel>button[aria-pressed="true"]{
+ background:#253c48;color:#fff;border-color:#253c48;
+}
+#readingApp .ink-panel>button:hover{border-color:#5896a7}
+#readingApp .ink-finger-label{
+ display:flex;align-items:center;gap:5px;
+ min-height:36px;padding:0 4px;
+ color:#3a6576;font-size:12px;font-weight:650;
+}
+#readingApp .ink-finger-label input{width:18px;height:18px;accent-color:#233c4d}
+#readingApp .ink-tip{
+ width:100%;font-size:11px;line-height:1.55;color:#687d87;
+}
+#readingApp .ink-save-status{
+ min-width:0;font-size:11px;line-height:1.5;color:#2b8264;
+}
+#readingApp .ink-save-status.ink-error{color:#a15a38}
+#readingApp #inkExamToggle{
+ position:absolute;top:10px;right:10px;z-index:14;
+ min-height:32px;padding:6px 9px;
+ border-radius:9px;
+ background:rgba(255,255,255,.95);
+ color:#284d60;
+ font-size:12px;
+ box-shadow:0 2px 8px rgba(17,31,47,.12);
+}
+#readingApp #inkExamPanel{
+ position:absolute;top:49px;right:10px;
+ width:min(395px,calc(100% - 20px));z-index:15;
+}
+@media(max-width:730px){
+ #readingApp .ink-launch{min-width:37px;padding:6px;font-size:11px}
+ #readingApp #inkStudyToggle span{display:none}
+ #readingApp .ink-panel{left:7px;right:7px;width:auto;max-width:calc(100% - 14px)}
+ #readingApp .ink-panel>button{font-size:11px;padding:6px 8px}
+ #readingApp #inkExamToggle span{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+ #readingApp .ink-panel{scroll-behavior:auto}
+}
