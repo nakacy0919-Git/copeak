@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f5f8fd">
-<title>Copeak | 語彙・文法トレーニング</title>
+<title>Copeak | 英語トレーニング</title>
 <link rel="icon" href="logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="grammar-exam-modes.css?v=20261106-1">
 <link rel="stylesheet" href="grammar-junior-visual.css?v=20261107-3">
 <link rel="stylesheet" href="grammar-visual-flat.css?v=20261107-1">
+<link rel="stylesheet" href="grammar-reading-entry.css?v=20261112-1">
 <script defer src="vocabulary-reading.js?v=8.3"></script>
 <script defer src="grammar-practice-engine.js?v=20261106-2"></script>
 <script defer src="grammar-training-core.js?v=20261107-1"></script>
@@ -57,13 +58,13 @@
 <header class="gt-header"><a class="gt-logo" href="index.html"><img src="logo.png" width="38" height="38" alt=""><span>Co<span class="gt-logo-blue">peak</span></span></a><div class="gt-header-links"><a href="vocabulary-check.html" id="gtDiagnosticShortcut">語彙診断</a><a href="index.html">← ホーム</a></div></header>
 <main class="gt-wrap">
 <section id="gtLanding" class="gt-landing">
- <h1>語彙・文法トレーニング</h1>
+ <h1>英語トレーニング</h1>
  <div class="gt-cards" id="gtMenuCards">
   <a class="gt-mode-card gt-vocab" href="vocabulary-check.html"><span class="gt-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6c-2.5-1.7-6-2.2-10-1v15c4-1.2 7.5-.7 10 1 2.5-1.7 6-2.2 10-1V5c-4-1.2-7.5-.7-10 1Z"/><path d="M12 6v15"/></svg></span><span class="gt-card-type">VOCABULARY CHECK</span><strong>語彙力診断</strong><span class="gt-card-copy">Quick 25問 / Deep 70問</span><span class="gt-card-arrow" aria-hidden="true">›</span></a>
   <button class="gt-mode-card gt-junior" data-gt-mode="junior" type="button"><span class="gt-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m2 8 10-5 10 5-10 5L2 8Z"/><path d="M6 10v6c4 3 8 3 12 0v-6"/><path d="M22 8v7"/></svg></span><span class="gt-card-type">JUNIOR HIGH</span><strong>中学校の基礎英文法音読</strong><span class="gt-card-copy">中1〜中3 · 144例文</span><span class="gt-mode-progress" aria-label="学習進捗"><span class="gt-mode-progress-head"><span id="gtOverallJunior">学習済み 0 / —</span><strong id="gtOverallRateJunior">0%</strong></span><span class="gt-mode-track"><span id="gtOverallBarJunior"></span></span></span><span class="gt-card-arrow" aria-hidden="true">›</span></button>
   <button class="gt-mode-card gt-senior" data-gt-mode="senior" type="button"><span class="gt-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg></span><span class="gt-card-type">HIGH SCHOOL</span><strong>高校の基礎英文法音読</strong><span class="gt-card-copy">高校英文法 · 1,830例文</span><span class="gt-mode-progress" aria-label="学習進捗"><span class="gt-mode-progress-head"><span id="gtOverallSenior">学習済み 0 / —</span><strong id="gtOverallRateSenior">0%</strong></span><span class="gt-mode-track"><span id="gtOverallBarSenior"></span></span></span><span class="gt-card-arrow" aria-hidden="true">›</span></button>
-  <a class="gt-mode-card gt-entrance" href="reading-entrance.html"><span class="gt-card-icon" aria-hidden="true">📖</span><span class="gt-card-type">ENTRANCE READING</span><strong>大学入試長文読解</strong><span class="gt-card-copy">15分野 · 英検・大学別レベル · 和訳・語彙・読解・印刷</span><span class="gt-card-arrow" aria-hidden="true">›</span></a>
   <button class="gt-mode-card gt-entrance" data-gt-mode="entrance" type="button"><span class="gt-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/><path d="m17.5 6.5 3-3M20.5 3.5l-3 .2M20.5 3.5l-.2 3"/></svg></span><span class="gt-card-type">ENTRANCE EXAM</span><strong>大学入試英文法問題</strong><span class="gt-card-copy">4択問題＋音読 · <span id="gtEntranceQuestionCount">4,912</span>問</span><span class="gt-mode-progress" aria-label="学習進捗"><span class="gt-mode-progress-head"><span id="gtOverallEntrance">学習済み 0 / —</span><strong id="gtOverallRateEntrance">0%</strong></span><span class="gt-mode-track"><span id="gtOverallBarEntrance"></span></span></span><span class="gt-card-arrow" aria-hidden="true">›</span></button>
+  <a class="gt-mode-card gt-reading-entrance" href="reading-entrance.html" aria-label="大学入試長文読解・15セットから学習を開始"><span class="gt-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5c-2.4-1.7-5.7-2.1-9-1V20c3.3-1.1 6.6-.7 9 1 2.4-1.7 5.7-2.1 9-1V5.5c-3.3-1.1-6.6-.7-9 1Z"/><path d="M12 6.5V21"/><path d="M5.5 9.5c1.5-.3 3-.2 4.1.3M14.6 9.8c1.3-.5 2.8-.6 4.1-.3"/></svg></span><span class="gt-card-type">ENTRANCE READING</span><strong>大学入試長文読解</strong><span class="gt-card-copy">15セット収録 · 和訳・解説・印刷</span><span class="gt-card-arrow" aria-hidden="true">›</span></a>
  </div>
  <p><a href="grammar-print.html" class="gt-text-button">練習プリント作成 · A4／B4・PDF／Word</a></p>
  <p class="gt-footer-note">Accuracyは音声認識した単語の一致率です。発音品質そのものの評価ではありません。学習記録はこの端末に保存されます。</p>
