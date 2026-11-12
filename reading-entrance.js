@@ -136,6 +136,9 @@ function showLookup(kind,payload){
  if(!state.lesson)return;
  const dialog=$('readingLookupDialog');
  $('lookupDefinition').hidden=kind!=='word';
+ const seeSentence=$('lookupSentenceLink');
+ seeSentence.hidden=kind!=='word'||state.exercise==='cloze'||!Number.isInteger(payload.pi)||!Number.isInteger(payload.si);
+ if(!seeSentence.hidden){seeSentence.dataset.pi=String(payload.pi);seeSentence.dataset.si=String(payload.si);}
  $('lookupKind').textContent=kind==='word'?'WORD LOOKUP':'SENTENCE TRANSLATION';
  if(kind==='sentence'){
   if(state.exercise==='cloze'){
@@ -160,8 +163,8 @@ function installLongPressLookup(){
   const word=target.closest?.('[data-word]');
   const sentence=target.closest?.('[data-sentence]');
   if(!sentence)return null;
-  if(word)return {kind:'word',word:word.dataset.word};
   const [pi,si]=sentence.dataset.sentence.split('-').map(Number);
+  if(word)return {kind:'word',word:word.dataset.word,pi,si};
   return {kind:'sentence',pi,si};
  };
  root.addEventListener('pointerdown',e=>{
@@ -193,6 +196,7 @@ function installLongPressLookup(){
   const [pi,si]=el.dataset.sentence.split('-').map(Number);
   showLookup('sentence',{pi,si});
  });
+ $('lookupSentenceLink').addEventListener('click',()=>showLookup('sentence',{pi:Number($('lookupSentenceLink').dataset.pi),si:Number($('lookupSentenceLink').dataset.si)}));
  $('lookupClose').addEventListener('click',()=>$('readingLookupDialog').close());
  $('readingLookupDialog').addEventListener('click',e=>{if(e.target===$('readingLookupDialog'))$('readingLookupDialog').close();});
 }
