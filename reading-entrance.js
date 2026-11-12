@@ -26,10 +26,10 @@ function renderCatalog(){
  renderSetList();
 }
 function renderSetList(){
- const list=state.sets.filter(s=>(state.category==='all'||s.category_id===state.category)&&(state.level==='all'||s.level_id===state.level));
+ const list=state.sets.filter(s=>(state.category==='all'||s.category_id===state.category)&&(state.level==='all'||(s.level_ids||[s.level_id]).includes(state.level)));
  $('availableCount').textContent='('+list.length+'件)';
  $('setList').innerHTML=list.length?list.map(s=>{
- const cat=label(s.category_id,state.manifest.categories),lvl=label(s.level_id,state.manifest.levels);
+ const cat=label(s.category_id,state.manifest.categories),lvl=(s.level_ids||[s.level_id]).map(id=>label(id,state.manifest.levels)).join(' / ');
  const score=readProgress(s.id).answers||{};const done=Object.keys(score).length;
  return '<button type="button" role="listitem" data-set="'+esc(s.id)+'" class="'+(state.lesson?.id===s.id?'active':'')+'"><strong>'+esc(s.title)+'</strong><small>'+esc(cat)+' · '+esc(lvl)+' · '+s.word_count+'語 · 回答 '+done+'/'+s.questions.length+'</small></button>';
  }).join(''):'<p class="empty">この条件の長文はまだ準備中です。他のレベル・分野をご覧ください。</p>';
@@ -43,7 +43,7 @@ function selectLesson(id){
  $('translationsAll').textContent='日本語訳をすべて表示';
  $('supportToggle').textContent='サポートモード OFF';$('supportToggle').setAttribute('aria-pressed','false');
  $('lessonTitle').textContent=s.title+' / '+s.title_ja;
- $('lessonMeta').textContent=label(s.category_id,state.manifest.categories)+' · '+label(s.level_id,state.manifest.levels)+' · '+s.word_count+' words · '+s.questions.length+' questions';
+ $('lessonMeta').textContent=label(s.category_id,state.manifest.categories)+' · '+(s.level_ids||[s.level_id]).map(id=>label(id,state.manifest.levels)).join(' / ')+' · '+s.word_count+' words · '+s.questions.length+' questions';
  $('sourceLinks').innerHTML=s.source_links.map(l=>'<a target="_blank" rel="noopener noreferrer" href="'+esc(l.url)+'">'+esc(l.title)+'</a>').join('');
  renderPassage();renderQuestions();renderVocab();renderNotes();renderCloze();switchTab('questions');renderSetList();
  if(window.matchMedia('(max-width:1000px)').matches)$('reader').scrollIntoView({behavior:'smooth',block:'start'});
@@ -205,8 +205,8 @@ async function init(){
   state.manifest=manifest;
   const results=await Promise.allSettled(manifest.sets.map(async item=>{
    const r=await fetch(item.file,{cache:'no-store'});if(!r.ok)throw Error(item.id+' HTTP '+r.status);
-   const obj=await r.json();const actual=words(obj),expected=manifest.levels.find(l=>l.id===obj.level_id)?.words;
-   if(!expected||actual!==obj.word_count||actual<expected[0]||actual>expected[1]||!obj.original||!obj.source_links?.length||!obj.questions?.length)throw Error(item.id+' の内容・語数を確認してください');
+   const obj=await r.json();const actual=words(obj),expected=manifest.levels.find(l=>l.id===obj.level_id)?.words,compatible=(obj.level_ids||[obj.level_id]).every(id=>{const band=manifest.levels.find(l=>l.id===id)?.words;return band&&actual>=band[0]&&actual<=band[1];});
+   if(!expected||!compatible||actual!==obj.word_count||actual<expected[0]||actual>expected[1]||!obj.original||!obj.source_links?.length||!obj.questions?.length)throw Error(item.id+' の内容・語数を確認してください');
    if(obj.status!=='reviewed'&&obj.status!=='published')return null;return obj;
   }));
   state.sets=results.filter(r=>r.status==='fulfilled'&&r.value).map(r=>r.value);
