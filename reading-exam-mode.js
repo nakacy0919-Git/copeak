@@ -155,7 +155,8 @@
     date:new Date().toISOString(),score:correct,total:current.items.length,answers:{...current.answers}});
    localStorage.setItem(key,JSON.stringify(list.slice(-10)));
    clearSaveError();
-  }catch(_){reportSaveError();}
+   return true;
+  }catch(_){reportSaveError();return false;}
  }
  function setSplit(value,save=false){
   const bounds=$('examLayout').getBoundingClientRect();
@@ -242,8 +243,8 @@
  $('examSubmit').addEventListener('click',()=>{
   if(!current||current.finished||answerCount()!==current.items.length)return;
   current.finished=true;
-  saveCompletedAttempt();
-  clearDraft();
+  const archived=saveCompletedAttempt();
+  if(archived)clearDraft();
   renderQuestions();
   $('examQuestionScroll').scrollTop=0;
  });
