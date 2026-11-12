@@ -7,10 +7,26 @@
 <title>Copeak Study | 大学入試長文読解</title>
 <link rel="icon" href="logo.png">
 <link rel="stylesheet" href="reading-entrance.css?v=20261112-1">
-<script defer src="grammar-print-core.js?v=20261112-1"></script>
-<script defer src="reading-entrance.js?v=20261112-1"></script>
+<link rel="stylesheet" href="reading-access.css?v=20261112-2">
+<script defer src="reading-access.js?v=20261112-2"></script>
 </head>
 <body>
+<section id="readingGate" class="reading-gate" aria-labelledby="readingGateHeading">
+  <div class="reading-gate-card">
+    <span class="reading-gate-symbol" aria-hidden="true">📖</span>
+    <p class="reading-gate-kicker">ENTRANCE READING · DEVELOPMENT</p>
+    <h1 id="readingGateHeading">大学入試長文読解</h1>
+    <p class="reading-gate-message">この教材は現在開発中です。<br>利用するにはパスワードを入力してください。</p>
+    <form id="readingAccessForm" autocomplete="off">
+      <label for="readingAccessPin">パスワード</label>
+      <input id="readingAccessPin" type="password" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" autocomplete="off" required aria-describedby="readingAccessError" placeholder="4桁のパスワード">
+      <p id="readingAccessError" class="reading-access-error" role="alert" aria-live="polite"></p>
+      <button id="readingAccessSubmit" type="submit">教材を開く</button>
+    </form>
+    <a href="grammar-training.html" class="reading-gate-back">← 英語トレーニングに戻る</a>
+  </div>
+</section>
+<div id="readingApp" hidden>
 <header class="masthead">
  <a class="home" href="grammar-training.html">← Copeak Study</a>
  <div><span class="eyebrow">ENTRANCE READING STUDIO</span><h1>大学入試長文読解</h1></div>
@@ -76,4 +92,5 @@
  <div class="dialog-actions"><button id="printPdf" type="button" class="primary">印刷・PDF保存</button><button id="printDocx" type="button">Word保存（.docx）</button></div>
  <p id="printStatus" role="status"></p>
 </dialog>
+</div>
 </body></html>
