@@ -1,0 +1,316 @@
+{
+  "id": "L03-001",
+  "category_id": "L03",
+  "title": "The Computer That Filled a Room",
+  "title_ja": "部屋を埋めたコンピューター",
+  "level_id": "eiken-pre2",
+  "word_count": 278,
+  "original": true,
+  "status": "reviewed",
+  "source_links": [
+    {
+      "title": "Computer History Museum — 1946",
+      "url": "https://www.computerhistory.org/timeline/1946/"
+    }
+  ],
+  "fact_notes": [
+    "ENIAC was developed beginning in 1943, publicly unveiled in 1946, used approximately 18,000 vacuum tubes, and covered more than 1,000 square feet."
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Today, even a small phone can solve problems that once required large and expensive machines.",
+          "ja": "今日では小さな携帯電話でも、かつて大型で高価な機械が必要だった問題を解けます。"
+        },
+        {
+          "en": "To understand this change, it helps to study an early electronic computer called ENIAC.",
+          "ja": "この変化を理解するには、ENIACという初期の電子計算機を調べると役立ちます。"
+        },
+        {
+          "en": "Work on the machine began in 1943 at the University of Pennsylvania, during the Second World War.",
+          "ja": "この機械の開発は第二次世界大戦中の1943年、ペンシルベニア大学で始まりました。"
+        },
+        {
+          "en": "When ENIAC was publicly introduced in 1946, its electronic speed attracted attention from researchers.",
+          "ja": "ENIACが1946年に一般公開されると、電子計算の速さが研究者の注目を集めました。"
+        },
+        {
+          "en": "Its history suggests that new technology often grows from the need to solve practical problems.",
+          "ja": "その歴史は、新技術が実際の問題を解決する必要から発展することが多いと示唆します。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "According to the Computer History Museum, ENIAC used about eighteen thousand vacuum tubes.",
+          "ja": "コンピューター歴史博物館によると、ENIACには約1万8千本の真空管が使われました。"
+        },
+        {
+          "en": "It occupied more than one thousand square feet, far more space than a modern personal computer.",
+          "ja": "設置面積は1,000平方フィートを超え、現代の個人用コンピューターよりはるかに広い場所が必要でした。"
+        },
+        {
+          "en": "However, the achievement was not simply the size of the machine but the calculations it could perform quickly.",
+          "ja": "しかし成果は単なる機械の大きさではなく、高速で実行できる計算にありました。"
+        },
+        {
+          "en": "Early programming involved connecting cables and setting switches, rather than typing instructions into a familiar screen.",
+          "ja": "初期のプログラミングでは、身近な画面に命令を入力する代わりにケーブルをつなぎスイッチを設定しました。"
+        },
+        {
+          "en": "As a result, changing a calculation could require physical work as well as mathematical thinking.",
+          "ja": "その結果、計算内容を変えるには数学的思考だけでなく実際の配線作業も必要でした。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The machine also shows that technological achievements usually depend on teams, not only famous inventors.",
+          "ja": "この機械は技術的な成果が有名な発明者だけでなくチームに依存することも示しています。"
+        },
+        {
+          "en": "Engineers built the equipment, while skilled programmers organized the steps needed to complete different calculations.",
+          "ja": "技術者が装置を作り、熟練したプログラマーは異なる計算を行う手順を組み立てました。"
+        },
+        {
+          "en": "Women were among the early programmers, although their work was not always as visible as the hardware.",
+          "ja": "初期のプログラマーには女性もいましたが、その仕事は機械本体ほど目立たないこともありました。"
+        },
+        {
+          "en": "Therefore, a history that mentions only one or two designers may leave out important contributions.",
+          "ja": "したがって、一人か二人の設計者だけに言及する歴史では重要な貢献が抜け落ちるかもしれません。"
+        },
+        {
+          "en": "To understand an invention fairly, we should ask who designed, tested, operated, and improved the system.",
+          "ja": "発明を公正に理解するには、誰が設計、試験、操作、改良したかを問うべきです。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "ENIAC was neither portable nor easy to reprogram, and later computers developed very different methods.",
+          "ja": "ENIACは持ち運びできず、再プログラムも簡単ではなく、後のコンピューターは大きく異なる方法を開発しました。"
+        },
+        {
+          "en": "Nevertheless, its successful electronic calculations helped demonstrate what machines might do in the future.",
+          "ja": "それでも電子計算の成功は、機械が将来何をできるか示す助けとなりました。"
+        },
+        {
+          "en": "The most useful lesson is that progress involves both new technical ideas and people who make them work.",
+          "ja": "最も有用な教訓は、進歩には新しい技術的発想と、それを機能させる人々の両方が関わることです。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What does the passage mainly explain?",
+      "options": [
+        "Why laptops were invented in 1943",
+        "How ENIAC represents a technological change and collective achievement",
+        "Why vacuum tubes are still used in every phone",
+        "How to repair a computer screen"
+      ],
+      "answer": 1,
+      "explanation_ja": "ENIACの技術的意義と、開発を支えた複数の人々の役割が中心です。",
+      "paragraph_ids": [
+        "p1",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Which figure is reported by the Computer History Museum?",
+      "options": [
+        "ENIAC had eighteen thousand vacuum tubes.",
+        "ENIAC could fit in a pocket.",
+        "ENIAC was introduced in 1986.",
+        "ENIAC weighed only one kilogram."
+      ],
+      "answer": 0,
+      "explanation_ja": "第2段落の約18,000本という数値が根拠です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why could changing an ENIAC calculation require physical work?",
+      "options": [
+        "Its screen was too small.",
+        "Cables and switches had to be adjusted.",
+        "The machine had no mathematical purpose.",
+        "Researchers could not see the results."
+      ],
+      "answer": 1,
+      "explanation_ja": "プログラム変更に配線とスイッチ設定が必要だったためです。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "paraphrase",
+      "prompt": "What does 'not always as visible as the hardware' suggest?",
+      "options": [
+        "Programming contributions could receive less public attention.",
+        "The programmers worked without lights.",
+        "The equipment was transparent.",
+        "Female programmers did not exist."
+      ],
+      "answer": 0,
+      "explanation_ja": "目に見える装置と、注目されにくい人間の仕事を対比しています。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "discourse",
+      "prompt": "What is the purpose of 'Nevertheless' in paragraph 4?",
+      "options": [
+        "To contrast early limitations with technological importance",
+        "To introduce a new inventor",
+        "To explain the size of modern phones",
+        "To deny that calculations were possible"
+      ],
+      "answer": 0,
+      "explanation_ja": "使いにくさという制限を認めながら、技術的意義を示します。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "vacuum",
+      "ja": "真空",
+      "synonym": "empty space",
+      "definition": "a place containing little or no matter"
+    },
+    {
+      "term": "introduced",
+      "ja": "公開された",
+      "synonym": "presented",
+      "definition": "shown to people for the first time"
+    },
+    {
+      "term": "occupied",
+      "ja": "占めた",
+      "synonym": "took up",
+      "definition": "filled or used a particular space"
+    },
+    {
+      "term": "achievement",
+      "ja": "成果",
+      "synonym": "accomplishment",
+      "definition": "something important that has been successfully done"
+    },
+    {
+      "term": "programming",
+      "ja": "プログラミング",
+      "synonym": "coding",
+      "definition": "creating instructions for a computer"
+    },
+    {
+      "term": "contributions",
+      "ja": "貢献",
+      "synonym": "efforts",
+      "definition": "work that helps produce a result"
+    },
+    {
+      "term": "portable",
+      "ja": "持ち運び可能な",
+      "synonym": "easy to carry",
+      "definition": "able to be moved or carried"
+    },
+    {
+      "term": "demonstrate",
+      "ja": "実証する",
+      "synonym": "show",
+      "definition": "to make something clear with evidence"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "rather than typing instructions",
+      "explanation_ja": "rather than＋動名詞で『〜する代わりに』という方法の対比を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 4,
+      "focus": "who designed, tested, operated, and improved",
+      "explanation_ja": "間接疑問文のwhoと動詞の並列構造です。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p2",
+      "expression": "However",
+      "role_ja": "逆接：大きさから計算能力へ焦点を移す"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "As a result",
+      "role_ja": "因果：プログラム変更のために必要な作業"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "譲歩：限界があっても価値を認める"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "changing a calculation could require physical work",
+      "rewrite": "altering the task sometimes involved manually adjusting equipment",
+      "explanation_ja": "抽象的なphysical workを機器調整で具体化します。"
+    },
+    {
+      "source": "not always as visible as the hardware",
+      "rewrite": "sometimes received less attention than the machine itself",
+      "explanation_ja": "visibleを受ける注目の程度に言い換えています。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "Therefore",
+        "However",
+        "For example",
+        "Likewise"
+      ],
+      "explanation_ja": "サイズと重要な成果を対比するため逆接です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "In addition",
+        "Because",
+        "For instance"
+      ],
+      "explanation_ja": "制限を述べた後に貢献を認めます。"
+    }
+  ]
+}
