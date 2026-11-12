@@ -3,7 +3,7 @@
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const escapeXml=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&apos;'}[c])).replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/g,'');
-const state={manifest:null,sets:[],lesson:null,category:'all',level:'all',showAll:false,support:false,answers:{},clozeAnswers:{},vocabIndex:0,vocabChoice:null,vocabOrder:[],panel:'questions',graded:false,gradingMode:'immediate',activeQuestionId:null};
+const state={manifest:null,sets:[],lesson:null,category:'all',level:'all',showAll:false,support:false,answers:{},clozeAnswers:{},vocabIndex:0,vocabChoice:null,vocabOrder:[],panel:'questions',exercise:null,graded:false,gradingMode:'immediate',activeQuestionId:null};
 const label=(id,collection)=>collection.find(x=>x.id===id)?.label||id;
 const status=s=>{$('loadStatus').textContent=s;};
 const words=lesson=>lesson.paragraphs.flatMap(p=>p.sentences).map(s=>s.en).join(' ').trim().split(/\s+/).filter(Boolean).length;
@@ -39,26 +39,162 @@ function renderSetList(){
 function selectLesson(id,startFocus=true){
  const s=state.sets.find(x=>x.id===id);if(!s)return;
  state.lesson=s;const progress=readProgress(s.id);state.answers=progress.answers||{};state.clozeAnswers=progress.clozeAnswers||{};state.graded=progress.graded===true;state.activeQuestionId=null;
- state.showAll=false;state.support=false;state.vocabIndex=0;state.vocabChoice=null;state.panel='questions';
- $('translationsAll').disabled=false;$('supportToggle').disabled=false;$('printOpen').disabled=false;$('focusStart').disabled=false;
- $('translationsAll').textContent='日本語訳をすべて表示';
- $('supportToggle').textContent='サポートモード OFF';$('supportToggle').setAttribute('aria-pressed','false');
+ state.showAll=false;state.support=false;state.vocabIndex=0;state.vocabChoice=null;state.panel='questions';state.exercise=null;
+ $('supportToggle').disabled=false;$('printOpen').disabled=false;$('focusStart').disabled=false;
+ $('supportToggle').setAttribute('aria-pressed','false');$('supportToggle').setAttribute('aria-label','読解の根拠段落を表示');
  $('lessonTitle').textContent=s.title+' / '+s.title_ja;
  $('lessonMeta').textContent=label(s.category_id,state.manifest.categories)+' · '+(s.level_ids||[s.level_id]).map(id=>label(id,state.manifest.levels)).join(' / ')+' · '+s.word_count+' words · '+s.questions.length+' questions';
  $('sourceLinks').innerHTML=s.source_links.map(l=>'<a target="_blank" rel="noopener noreferrer" href="'+esc(l.url)+'">'+esc(l.title)+'</a>').join('');
- renderPassage();renderQuestions();renderVocab();renderNotes();renderCloze();switchTab('questions');renderSetList();
+ renderPassage();renderQuestions();renderVocab();renderNotes();renderCloze();switchTab('questions');renderSetList();showExerciseChooser();
  if(startFocus)enterFocusMode();
  if(startFocus&&document.body.classList.contains('reading-focus'))closeCatalog();
  if(!document.body.classList.contains('reading-focus')&&window.matchMedia('(max-width:1000px)').matches)$('reader').scrollIntoView({behavior:'smooth',block:'start'});
 }
+/* Vocabulary is retrieved from the original lesson entries. Never guess unknown definitions. */
+const supplementaryGlossary={
+ ozone:['オゾン','a gas made of three oxygen atoms that forms part of the atmosphere'],
+ layer:['層','one of several levels or sheets of a substance'],
+ protect:['守る・保護する','to prevent someone or something from being harmed'],
+ radiation:['放射線・放射','energy that travels in rays or waves'],
+ atmosphere:['大気','the gases surrounding a planet'],
+ sunlight:['日光','light that comes from the sun'],
+ harmful:['有害な','likely to cause damage or injury'],
+ international:['国際的な','involving or relating to more than one country'],
+ chemicals:['化学物質','substances used in or produced by chemical processes'],
+ evidence:['証拠','facts or information supporting a conclusion'],
+ Antarctica:['南極大陸','the continent surrounding the South Pole'],
+ climate:['気候','weather patterns in an area over a long period'],
+ percentage:['百分率','a rate expressed as parts of one hundred'],
+ ecosystems:['生態系','communities of living things and their environments'],
+ scientists:['科学者たち','people who study the natural or physical world'],
+ agreement:['協定・合意','a decision or arrangement accepted by different parties'],
+ research:['研究','careful study to learn more about something'],
+ observation:['観測・観察','the act of watching something carefully'],
+ cooperation:['協力','working together toward a shared aim'],
+ however:['しかしながら','used to introduce a contrast'],
+ therefore:['したがって','for that reason; as a result'],
+ nevertheless:['それにもかかわらず','despite what has just been said']
+};
+function normalizeWord(word){return String(word||'').toLowerCase().replace(/[’]/g,"'").replace(/^[^a-z]+|[^a-z]+$/g,'');}
+function dictionaryEntry(word){
+ const raw=normalizeWord(word);
+ const keys=[raw];
+ if(raw.endsWith('ies'))keys.push(raw.slice(0,-3)+'y');
+ if(raw.endsWith('es'))keys.push(raw.slice(0,-2));
+ if(raw.endsWith('s'))keys.push(raw.slice(0,-1));
+ if(raw.endsWith('ed'))keys.push(raw.slice(0,-2),raw.slice(0,-1));
+ if(raw.endsWith('ing'))keys.push(raw.slice(0,-3),raw.slice(0,-3)+'e');
+ for(const lesson of [state.lesson,...state.sets.filter(s=>s.id!==state.lesson?.id)]){
+  if(!lesson?.vocabulary)continue;
+  const found=lesson.vocabulary.find(v=>keys.some(k=>normalizeWord(v.term)===k));
+  if(found)return {term:found.term,ja:found.ja,definition:found.definition,synonym:found.synonym};
+ }
+ for(const key of keys){const entry=Object.entries(supplementaryGlossary).find(([k])=>k.toLowerCase()===key);
+  if(entry)return {term:entry[0],ja:entry[1][0],definition:entry[1][1],synonym:''};}
+ return null;
+}
+function wordSpans(text){
+ let out='',last=0;
+ const re=/[A-Za-z]+(?:['’\-][A-Za-z]+)*/g;
+ for(const m of text.matchAll(re)){
+  out+=esc(text.slice(last,m.index));
+  out+='<span class="reading-word" data-word="'+esc(m[0])+'" title="単語を長押しで意味を見る">'+esc(m[0])+'</span>';
+  last=m.index+m[0].length;
+ }
+ return out+esc(text.slice(last));
+}
+function clozeSentence(text,paragraphId,sentenceIndex){
+ const targets=state.lesson?.cloze?.map((q,index)=>({...q,index})).filter(q=>q.paragraph_id===paragraphId&&q.sentence_index===sentenceIndex)||[];
+ if(!targets.length)return wordSpans(text);
+ let spans=[{start:0,end:text.length,masked:false,raw:text}];
+ for(const q of targets){
+  const where=text.indexOf(q.answer);
+  if(where<0)continue;
+  spans=spans.flatMap(part=>{
+   if(part.masked||part.start>where||part.end<where+q.answer.length)return [part];
+   return [
+    {start:part.start,end:where,masked:false,raw:text.slice(part.start,where)},
+    {start:where,end:where+q.answer.length,masked:true,index:q.index},
+    {start:where+q.answer.length,end:part.end,masked:false,raw:text.slice(where+q.answer.length,part.end)}
+   ];
+  });
+ }
+ return spans.map(part=>part.masked?'<span class="reading-blank" aria-label="空欄'+(part.index+1)+'">【'+(part.index+1)+'】________</span>':wordSpans(part.raw)).join('');
+}
 function renderPassage(){
  const s=state.lesson;if(!s)return;
+ const cloze=state.exercise==='cloze';
  $('passage').innerHTML=s.paragraphs.map((p,pi)=>
  '<div class="paragraph" id="'+esc(p.id)+'" data-paragraph="'+esc(p.id)+'"><strong>PARAGRAPH '+(pi+1)+'</strong>'+
- p.sentences.map((t,si)=>'<span class="sentence"><span class="sentence-line">'+esc(t.en)+'</span> <button type="button" class="translation-button" data-tr="'+pi+'-'+si+'" aria-expanded="'+state.showAll+'">訳</button><span class="translation" data-translation="'+pi+'-'+si+'"'+(state.showAll?'':' hidden')+'>'+esc(t.ja)+'</span> </span>').join('')+'</div>').join('');
- $('passage').querySelectorAll('[data-tr]').forEach(b=>b.addEventListener('click',()=>{
-  const t=$('passage').querySelector('[data-translation="'+b.dataset.tr+'"]');t.hidden=!t.hidden;b.setAttribute('aria-expanded',String(!t.hidden));
- }));
+ p.sentences.map((t,si)=>'<span class="sentence" data-sentence="'+pi+'-'+si+'"><span class="sentence-line">'+
+ (cloze?clozeSentence(t.en,p.id,si):wordSpans(t.en))+
+ '</span> </span>').join('')+'</div>').join('');
+ $('passage').classList.toggle('cloze-active',cloze);
+ $('passageScroll').scrollTop=0;
+}
+function showLookup(kind,payload){
+ if(!state.lesson)return;
+ const dialog=$('readingLookupDialog');
+ $('lookupDefinition').hidden=kind!=='word';
+ $('lookupKind').textContent=kind==='word'?'WORD LOOKUP':'SENTENCE TRANSLATION';
+ if(kind==='sentence'){
+  if(state.exercise==='cloze'){
+   $('lookupHeading').textContent='本文穴埋めの練習中';
+   $('lookupJapanese').textContent='答えを隠すため、穴埋め練習中は一文訳を表示しません。他の練習に切り替えると確認できます。';
+  }else{
+   $('lookupHeading').textContent='第'+(payload.pi+1)+'段落 · '+(payload.si+1)+'文目';
+   $('lookupJapanese').textContent=state.lesson.paragraphs[payload.pi]?.sentences[payload.si]?.ja||'日本語訳が未登録です。';
+  }
+ }else{
+  $('lookupHeading').textContent=payload.word;
+  const known=dictionaryEntry(payload.word);
+  $('lookupJapanese').textContent=known?'日本語：'+known.ja:'日本語の意味：この語は教材辞書に未登録です。';
+  $('lookupDefinition').textContent=known?'English definition: '+known.definition+(known.synonym?' ／ Synonym: '+known.synonym:''):'英英定義：未登録です。重要語彙から優先して追加しています。';
+ }
+ if(!dialog.open)dialog.showModal();
+}
+function installLongPressLookup(){
+ const root=$('passage');let timer=null,start=null,suppressed=false;
+ const clear=()=>{if(timer!==null){clearTimeout(timer);timer=null;}start=null;};
+ const resolve=target=>{
+  const word=target.closest?.('[data-word]');
+  const sentence=target.closest?.('[data-sentence]');
+  if(!sentence)return null;
+  if(word)return {kind:'word',word:word.dataset.word};
+  const [pi,si]=sentence.dataset.sentence.split('-').map(Number);
+  return {kind:'sentence',pi,si};
+ };
+ root.addEventListener('pointerdown',e=>{
+  if(e.button!==undefined&&e.button!==0)return;
+  const info=resolve(e.target);if(!info)return;
+  suppressed=false;
+  start={x:e.clientX,y:e.clientY,info};
+  timer=setTimeout(()=>{
+   timer=null;
+   if(!start)return;
+   suppressed=true;
+   const last=start.info;start=null;
+   try{window.getSelection()?.removeAllRanges();}catch(_){}
+   showLookup(last.kind,last);
+  },650);
+ });
+ root.addEventListener('pointermove',e=>{
+  if(start&&Math.hypot(e.clientX-start.x,e.clientY-start.y)>12)clear();
+ });
+ for(const type of ['pointerup','pointercancel','pointerleave'])root.addEventListener(type,clear);
+ root.addEventListener('contextmenu',e=>{
+  const info=resolve(e.target);if(!info)return;
+  e.preventDefault();clear();
+  if(suppressed){suppressed=false;return;}
+  showLookup(info.kind,info);
+ });
+ root.addEventListener('dblclick',e=>{
+  const el=e.target.closest?.('[data-sentence]');if(!el)return;
+  const [pi,si]=el.dataset.sentence.split('-').map(Number);
+  showLookup('sentence',{pi,si});
+ });
+ $('lookupClose').addEventListener('click',()=>$('readingLookupDialog').close());
+ $('readingLookupDialog').addEventListener('click',e=>{if(e.target===$('readingLookupDialog'))$('readingLookupDialog').close();});
 }
 function focusEvidence(ids,jump=false){
  document.querySelectorAll('.paragraph.support-hit').forEach(x=>x.classList.remove('support-hit'));
