@@ -13,5 +13,6 @@ assert(js.includes("if(mode==='entrance')$('gtEntranceQuestionCount').textConten
 assert(js.includes("const total=mode==='entrance'?manifest.total_questions:manifest.total_sentences"),'mode load uses true manifest');
 assert(js.includes("if(Number(total)>0){state.totals[mode]=Number(total);renderOverallProgress();}"),'manifest refresh updates all progress and landing counters');
 assert(js.includes('DEFAULT_TOTALS={junior:144,senior:1830,entrance:4912}'),'initial numbers match manifest');
-assert(html.includes('grammar-training.js?v=20261106-5'),'iPad cached JS invalidated');
+const assetVersion=html.match(/grammar-training\.js\?v=(\d{8}-\d+)/)?.[1];
+assert(assetVersion && assetVersion.localeCompare('20261106-5',undefined,{numeric:true})>=0,'iPad asset version is at least the entrance-total fix');
 console.log('PASS entrance landing total matches manifest and progress: 4,912 questions');
