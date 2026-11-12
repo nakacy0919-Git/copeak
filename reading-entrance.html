@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="reading-entrance.css?v=20261112-1">
 <link rel="stylesheet" href="reading-focus.css?v=20261112-focus1">
 <link rel="stylesheet" href="reading-study-desk.css?v=20261112-desk2">
+<link rel="stylesheet" href="reading-practice-premium.css?v=20261112-premium1">
 <link rel="stylesheet" href="reading-access.css?v=20261112-2">
 <script defer src="reading-access.js?v=20261112-desk2"></script>
 </head>
@@ -58,6 +59,7 @@
     <button id="focusStart" type="button" class="primary" disabled>集中して解く <span aria-hidden="true">↗</span></button>
     <button id="focusExit" type="button" hidden>一覧画面に戻る</button>
    </div>
+   <div id="practiceProgress" class="practice-progress" role="group" aria-label="この長文の練習別達成状況"></div>
   </div>
   <div class="study-layout" id="studyLayout">
    <section class="study-passage-pane" id="passagePane" aria-label="英文ペイン">
@@ -80,7 +82,7 @@
    <div class="study-splitter" id="studySplitter" role="separator" tabindex="0" aria-label="英文と問題の幅を調整" aria-orientation="vertical" aria-valuemin="30" aria-valuemax="70" aria-valuenow="50" aria-valuetext="英文50パーセント、問題50パーセント" title="ドラッグまたは左右矢印キーで幅を調整"><span aria-hidden="true">⋮⋮</span></div>
    <section class="study-question-pane" id="questionPane" aria-label="問題ペイン">
     <div class="pane-tools">
-      <strong>問題・解説</strong><span class="pane-tools-spacer"></span>
+      <strong id="practicePaneTitle">問題・解説</strong><span class="pane-tools-spacer"></span>
       <button type="button" id="exerciseChange" class="exercise-change" hidden>練習を選ぶ</button>
       <button type="button" id="supportToggle" class="support-icon" aria-label="読解の根拠段落を表示" title="サポートモード：根拠段落を強調" aria-pressed="false" aria-controls="passage" disabled hidden><svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.8"/><path d="m15.5 15.5 5.1 5.1M8 10.5l1.8 1.8 3.4-3.6"/></svg></button>
       <span class="pane-size-label">文字</span>
@@ -91,14 +93,15 @@
   <section class="exercise-chooser" id="exerciseChooser" aria-labelledby="exerciseHeading" hidden>
    <p class="exercise-kicker">CHOOSE YOUR PRACTICE</p>
    <h3 id="exerciseHeading">どんな練習をしますか？</h3>
-   <p class="muted">この英文で取り組みたい学習を選んでください。途中で切り替えられます。</p>
+   <p class="muted">練習内容を選ぶと、その問題だけが始まります。いつでも切り替えられます。</p>
    <div class="exercise-choices" id="exerciseChoices">
-    <button type="button" data-exercise="questions"><span aria-hidden="true">📘</span><strong>読解問題</strong><small>内容理解・四択</small></button>
-    <button type="button" data-exercise="vocab"><span aria-hidden="true">🔤</span><strong>語彙クイズ</strong><small>日本語・英英定義</small></button>
-    <button type="button" data-exercise="grammar"><span aria-hidden="true">🧩</span><strong>文法解説</strong><small>構文を読み解く</small></button>
-    <button type="button" data-exercise="discourse"><span aria-hidden="true">🔗</span><strong>ディスコース</strong><small>論理展開をつかむ</small></button>
-    <button type="button" data-exercise="paraphrase"><span aria-hidden="true">🔄</span><strong>言い換え練習</strong><small>抽象・具体・類義語</small></button>
-    <button type="button" data-exercise="cloze"><span aria-hidden="true">✏️</span><strong>本文穴埋め</strong><small>左の英文も空欄に</small></button>
+    <button type="button" class="practice-choice" data-exercise="questions"><span class="practice-choice-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h7M8 16h5"/></svg></span><span class="practice-choice-copy"><strong>読解問題</strong><small>本文の内容を読み解く</small></span><span class="practice-choice-progress" data-choice-progress="questions">0%</span></button>
+    <button type="button" class="practice-choice" data-exercise="vocab"><span class="practice-choice-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m4 20 5-13 5 13M6 15h6"/><path d="M16 8h4M18 6v13M16 12h4"/></svg></span><span class="practice-choice-copy"><strong>語彙クイズ</strong><small>英日・日英・英英</small></span><span class="practice-choice-progress" data-choice-progress="vocab">0%</span></button>
+    <button type="button" class="practice-choice" data-exercise="grammar"><span class="practice-choice-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M7 4v6M17 4v6M4 17h16M8 14v6M16 14v6"/></svg></span><span class="practice-choice-copy"><strong>文法トレーニング</strong><small>下線部の構文を考える</small></span><span class="practice-choice-progress" data-choice-progress="grammar">0%</span></button>
+    <button type="button" class="practice-choice" data-exercise="discourse"><span class="practice-choice-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><path d="M10 6h4v11M10 17h4"/></svg></span><span class="practice-choice-copy"><strong>ディスコース</strong><small>接続表現を文脈から選ぶ</small></span><span class="practice-choice-progress" data-choice-progress="discourse">0%</span></button>
+    <button type="button" class="practice-choice" data-exercise="paraphrase"><span class="practice-choice-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h15l-3-3m3 3-3 3M20 17H5l3-3m-3 3 3 3"/><path d="M8 12h8"/></svg></span><span class="practice-choice-copy"><strong>言い換え</strong><small>下線部の意味を選ぶ</small></span><span class="practice-choice-progress" data-choice-progress="paraphrase">0%</span></button>
+    <button type="button" class="practice-choice" data-exercise="cloze"><span class="practice-choice-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4zM8 9h8M8 14h2M13 14h3"/></svg></span><span class="practice-choice-copy"><strong>本文穴埋め</strong><small>本文と問題を連動</small></span><span class="practice-choice-progress" data-choice-progress="cloze">0%</span></button>
+
    </div>
   </section>
   <nav id="tabNavigation" class="tabs" aria-label="学習する内容">
@@ -113,20 +116,22 @@
   <section class="work-panel" data-panel="questions">
     <div class="answer-settings">
       <label for="gradingMode">採点方法</label>
-      <select id="gradingMode"><option value="immediate">1問ずつ結果を表示</option><option value="batch">全問解答後に結果を表示</option></select>
+      <select id="gradingMode"><option value="immediate">1問ごとに採点</option><option value="batch">全問解答後に採点</option></select>
       <span class="answer-count" id="answerCount" aria-live="polite">0 / 0問回答</span>
     </div>
-    <div id="readingResult" class="reading-result" role="status" aria-live="polite"></div>
-    <div class="grading-actions"><button type="button" id="gradeAll" class="primary" hidden disabled>全問の結果を表示</button><button type="button" id="resetAnswers">解答をやり直す</button></div>
-    <p class="muted" id="evidenceStatus" role="status" aria-live="polite">サポートモードをONにすると、根拠段落を表示できます。</p>
-    <h3>読解問題（4択）</h3><p class="muted">本文と設問の言い換えにも注目しましょう。</p>
+    <div id="readingResult" class="reading-result" role="status" aria-live="polite" hidden></div>
+    <p class="muted" id="evidenceStatus" role="status" aria-live="polite" hidden></p>
     <div id="questions"></div>
+    <div class="grading-actions">
+      <button type="button" id="gradeAll" class="primary" hidden disabled>全問の結果を表示</button>
+      <button type="button" id="resetAnswers">この読解をやり直す</button>
+    </div>
   </section>
-  <section class="work-panel" data-panel="vocab" hidden><h3>重要語彙・語彙クイズ</h3><div id="vocabList" class="vocab-list"></div><div class="vocab-quiz-controls"><label for="vocabQuizMode">出題方向</label><select id="vocabQuizMode"><option value="en-ja">英語 → 日本語</option><option value="ja-en">日本語 → 英語</option><option value="definition">英英定義 → 英単語</option></select><button type="button" id="vocabRestart">クイズをやり直す</button></div><div id="vocabQuiz"></div></section>
-  <section class="work-panel" data-panel="grammar" hidden><h3>本文の文法ポイント</h3><div id="grammarNotes"></div></section>
-  <section class="work-panel" data-panel="discourse" hidden><h3>ディスコースマーカー</h3><div id="discourseNotes"></div></section>
-  <section class="work-panel" data-panel="paraphrase" hidden><h3>Paraphrasing：抽象 ↔ 具体・類義表現</h3><div id="paraphraseNotes"></div></section>
-  <section class="work-panel" data-panel="cloze" hidden><h3>本文の穴埋め（接続表現・重要語彙）</h3><div id="clozeQuestions"></div></section>
+  <section class="work-panel" data-panel="vocab" hidden><div class="vocab-quiz-controls"><label for="vocabQuizMode">出題方向</label><select id="vocabQuizMode"><option value="en-ja">英語 → 日本語</option><option value="ja-en">日本語 → 英語</option><option value="definition">英英定義 → 英単語</option></select><button type="button" id="vocabRestart">最初から</button><button type="button" id="vocabListToggle" aria-controls="vocabListPanel" aria-expanded="false">語彙一覧を見る</button></div><div id="vocabQuiz" class="practice-quiz"></div><section id="vocabListPanel" class="vocab-list-panel" hidden><h3>重要語彙一覧</h3><div id="vocabList" class="vocab-list"></div></section></section>
+  <section class="work-panel" data-panel="grammar" hidden><div id="grammarNotes" class="practice-quiz"></div></section>
+  <section class="work-panel" data-panel="discourse" hidden><div id="discourseNotes" class="practice-quiz"></div></section>
+  <section class="work-panel" data-panel="paraphrase" hidden><div id="paraphraseNotes" class="practice-quiz"></div></section>
+  <section class="work-panel" data-panel="cloze" hidden><div id="clozeQuestions" class="practice-quiz"></div></section>
   </div>
    </section>
   </div>
