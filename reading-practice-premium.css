@@ -233,3 +233,56 @@ body.reading-focus #readingApp .reader-head .eyebrow{display:none}
  #readingApp .exercise-choices .practice-choice{transition:none}
  #readingApp .exercise-choices .practice-choice:hover:not(:disabled){transform:none}
 }
+
+/* Review completed work without resetting progress or scores. */
+#readingApp .practice-finish-actions{
+ display:flex;align-items:center;justify-content:center;gap:9px;
+ flex-wrap:wrap;margin-top:15px;
+}
+#readingApp .practice-finish-actions button{
+ min-height:42px;padding:9px 12px;border:1px solid #b8d0d4;
+ border-radius:9px;color:#245b6c;background:#fff;
+ font-size:12px;font-weight:800;
+}
+#readingApp .practice-finish-actions button:hover{background:#eef6f7}
+#readingApp .practice-review-head{
+ display:flex;align-items:center;justify-content:space-between;gap:8px;
+ margin:5px 0 15px;flex-wrap:wrap;
+}
+#readingApp .practice-review-head h3{
+ margin:0;font-size:17px;color:#214c64;
+}
+#readingApp .practice-review-head button{
+ border-radius:9px;min-height:39px;background:#fff;color:#37677d;
+ padding:8px 12px;border:1px solid #bfd1da;font-size:12px;font-weight:800;
+}
+#readingApp .practice-review-card{
+ min-width:0;margin:0 0 14px;padding:15px;border:1px solid #dde4e5;
+ border-radius:13px;background:#fffefa;
+ overflow-wrap:anywhere;
+}
+#readingApp .practice-review-number{
+ margin:0 0 6px;font-size:10px;font-weight:850;color:#7896a4;
+ letter-spacing:.08em;
+}
+#readingApp .practice-review-card h4{
+ color:#25485e;font-size:var(--reading-question-size,16px);line-height:1.55;margin:0 0 9px;
+}
+#readingApp .practice-review-options{
+ display:grid;gap:5px;font-size:calc(var(--reading-question-size,16px)*.87);
+}
+#readingApp .practice-review-options div{
+ padding:7px 9px;border:1px solid #e3e6e5;border-radius:7px;
+ background:#fff;line-height:1.55;
+}
+#readingApp .practice-review-options div.is-answer{
+ background:#ecf8f1;color:#236645;border-color:#a7cbb7;font-weight:750;
+}
+#readingApp .practice-review-options div.is-mistake{
+ background:#fff1ee;color:#914b42;border-color:#e0b5ad;
+}
+#readingApp .practice-review-explanation{
+ background:#f3f7f6;margin:11px 0 0;padding:10px 11px;
+ border-left:3px solid #8db9b0;border-radius:5px;
+ color:#536a63;font-size:calc(var(--reading-question-size,16px)*.85);line-height:1.7;
+}
