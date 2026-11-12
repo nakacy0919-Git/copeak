@@ -14,6 +14,7 @@ function renderCatalog(){
  const m=state.manifest;if(!m)return;
  $('categoryFilter').innerHTML='<option value="all">すべての分野</option>'+m.categories.map(c=>'<option value="'+esc(c.id)+'">'+esc(c.id+' '+c.label)+'</option>').join('');
  $('levelFilter').innerHTML='<option value="all">すべてのレベル</option>'+m.levels.map(l=>'<option value="'+esc(l.id)+'">'+esc(l.label)+'</option>').join('');
+ $('categoryFilter').value=state.category;$('levelFilter').value=state.level;
  $('categoryGrid').innerHTML=m.categories.map(c=>{
  const count=state.sets.filter(s=>s.category_id===c.id).length;
  return '<button type="button" data-category="'+esc(c.id)+'" title="'+esc(c.label)+'　'+count+' / 30" class="'+(state.category===c.id?'active':'')+'"><span class="cat-icon">'+esc(c.icon)+'</span><span>'+esc(c.id+' '+c.label)+'</span><small>'+count+' / 30</small></button>';
@@ -162,7 +163,7 @@ function printPDF(){
  const s=state.lesson;if(!s)return;const frame=document.createElement('iframe');frame.style.cssText='position:fixed;width:0;height:0;opacity:0;pointer-events:none';frame.setAttribute('title','印刷');document.body.appendChild(frame);
  try{const doc=frame.contentDocument;doc.open();doc.write(printableHTML(s,printConfig()));doc.close();
  $('printStatus').textContent='印刷画面で PDFに保存 を選択してください。';
- setTimeout(()=>{frame.contentWindow?.focus();frame.contentWindow?.print();setTimeout(()=>frame.remove(),30000);},350);
+ frame.contentWindow?.focus();frame.contentWindow?.print();setTimeout(()=>frame.remove(),30000);
  }catch(e){frame.remove();$('printStatus').textContent='印刷できませんでした：'+e.message;}
 }
 function docxBytes(s,c){
@@ -176,12 +177,12 @@ function docxBytes(s,c){
   data.enPass.forEach(p=>{body+=para(p.title,{size:9,bold:true});p.lines.forEach(l=>body+=para(l));});
   body+=para('',{section:sect(1)});
   body+=para('Reading Comprehension',{size:13,bold:true});
-  data.qLines.forEach((l,i)=>body+=para(l,{bold:/^Q\d+\./.test(l),next:/^Q\d+\./.test(l)}));
+  data.qLines.forEach((l,i)=>body+=para(l,{bold:/^Q\d+\./.test(l),next:l!==''}));
   if(c.skills){body+=para('Vocabulary / Language Study',{size:13,bold:true});data.skillLines.forEach(l=>body+=para(l));}
  }
  if(c.answers!=='questions'){
   body+=para('解答・解説 — '+s.title,{size:15,bold:true,page:c.answers==='both'});
-  data.answerLines.forEach(l=>body+=para(l,{bold:/^Q\d+\./.test(l)}));
+  data.answerLines.forEach(l=>body+=para(l,{bold:/^Q\d+\./.test(l),next:/^Q\d+\./.test(l)}));
  }
  body+=sect(c.columns);
  return window.CopeakGrammarPrint.zip({
