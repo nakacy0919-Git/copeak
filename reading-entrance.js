@@ -41,7 +41,7 @@ function selectLesson(id,startFocus=true){
  const s=state.sets.find(x=>x.id===id);if(!s)return;
  state.lesson=s;const progress=readProgress(s.id);state.answers=progress.answers||{};state.clozeAnswers=progress.clozeAnswers||{};state.graded=progress.graded===true;state.activeQuestionId=null;state.practice=progress.practice&&typeof progress.practice==='object'?progress.practice:{};state.quizCursor={};
  state.showAll=false;state.support=false;state.vocabIndex=0;state.vocabChoice=null;state.panel='questions';state.exercise=null;
- $('supportToggle').disabled=false;$('printOpen').disabled=false;$('focusStart').disabled=false;
+ $('supportToggle').disabled=false;$('printOpen').disabled=false;$('focusStart').disabled=false;$('examModeStart').disabled=false;
  $('supportToggle').setAttribute('aria-pressed','false');$('supportToggle').setAttribute('aria-label','読解の根拠段落を表示');
  $('lessonTitle').textContent=s.title+' / '+s.title_ja;
  $('lessonMeta').textContent=label(s.category_id,state.manifest.categories)+' · '+(s.level_ids||[s.level_id]).map(id=>label(id,state.manifest.levels)).join(' / ')+' · '+s.word_count+' words · '+s.questions.length+' questions';
@@ -892,6 +892,7 @@ try{state.gradingMode=localStorage.getItem('copeak-reading-grading-mode')==='bat
 $('gradingMode').value=state.gradingMode;
 $('printOpen').addEventListener('click',()=>$('printDialog').showModal());
 $('printPdf').addEventListener('click',printPDF);$('printDocx').addEventListener('click',downloadDocx);
+window.CopeakReadingExamContext=()=>({lesson:state.lesson,mode:state.exercise||'questions',sets:state.sets,direction:$('vocabQuizMode').value});
 initReadingUI();
 installLongPressLookup();
 init();
