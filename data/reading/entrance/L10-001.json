@@ -5,22 +5,326 @@
   "title_ja": "テスト得点の低下から何がわかるか",
   "original": true,
   "status": "draft",
-  "word_count": 0,
-  "level_id": "eiken-pre2",
+  "word_count": 359,
+  "level_id": "eiken-2",
   "source_links": [
     {
-      "title": "Primary source",
+      "title": "OECD: PISA 2022 Results, Executive Summary",
       "url": "https://www.oecd.org/en/publications/pisa-2022-results-volume-i_53f23881-en/full-report/executive-summary_077a9867.html"
+    },
+    {
+      "title": "OECD: State of learning and equity in education",
+      "url": "https://www.oecd.org/en/publications/pisa-2022-results-volume-i_53f23881-en/full-report/the-state-of-learning-and-equity-in-education-in-2022_e65c570e.html"
     }
   ],
   "fact_notes": [
-    "OECD PISA 2022 vs 2018 averages mathematics down nearly 15 points, reading down about 10"
+    "Between PISA 2018 and 2022, OECD averages fell by nearly 15 score points in mathematics and about 10 in reading; science performance remained relatively stable. OECD reports pre-pandemic declines in some systems, so the pandemic alone is not a sufficient causal explanation."
   ],
-  "paragraphs": [],
-  "questions": [],
-  "vocabulary": [],
-  "grammar": [],
-  "discourse": [],
-  "paraphrases": [],
-  "cloze": []
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "When a country's average test score falls, newspapers may describe the result as a crisis for schools and young people.",
+          "ja": "国のテスト平均点が下がると、新聞はその結果を学校と若者の危機と報じるかもしれません。"
+        },
+        {
+          "en": "However, a test score does not explain by itself why learning has changed or which students need the most support.",
+          "ja": "しかしテストの点数だけでは学習がなぜ変化したか、どの生徒が最も支援を必要とするかは説明できません。"
+        },
+        {
+          "en": "To understand an educational problem, readers need to ask who took the test, what was measured, and how the comparison was made.",
+          "ja": "教育問題を理解するには、誰が試験を受け、何が測られ、どのように比較されたかを問う必要があります。"
+        },
+        {
+          "en": "A number can be a useful warning sign without being a complete explanation of what happened.",
+          "ja": "数字は起きたことの完全な説明ではなくても、有用な警告となり得ます。"
+        },
+        {
+          "en": "One international assessment offers an opportunity to practice reading this kind of evidence carefully.",
+          "ja": "ある国際的な学力調査は、こうした証拠を慎重に読む練習の機会を与えます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The OECD organizes PISA, an international assessment that examines the skills of students who are around fifteen years old.",
+          "ja": "OECDは15歳前後の生徒の技能を調べる国際学力調査PISAを実施しています。"
+        },
+        {
+          "en": "According to the PISA 2022 results, the OECD average in mathematics fell by almost fifteen points compared with 2018.",
+          "ja": "PISA 2022の結果によると、OECDの数学の平均点は2018年と比べて約15点低下しました。"
+        },
+        {
+          "en": "The average for reading also declined by about ten points, while the average science result remained relatively stable.",
+          "ja": "読解の平均も約10点下がりましたが、科学の平均結果は比較的安定していました。"
+        },
+        {
+          "en": "These figures are changes in assessment score points, not percentages of all knowledge that students have lost.",
+          "ja": "これらはテスト得点の点数変化であり、生徒が失った全知識の割合ではありません。"
+        },
+        {
+          "en": "The distinction matters because confusing points with percentages can make a problem appear very different from what the data show.",
+          "ja": "点数と百分率を混同すると問題がデータの示すものと大きく違って見えるため、この区別は重要です。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The years of the comparison include the worldwide disruption caused by the COVID-19 pandemic, when many schools faced unusual difficulties.",
+          "ja": "比較した期間には、新型コロナ感染症の世界的混乱が含まれ、多くの学校が例外的な困難に直面しました。"
+        },
+        {
+          "en": "It is reasonable to investigate whether disrupted lessons and unequal learning opportunities contributed to lower scores.",
+          "ja": "授業の中断や不平等な学習機会が得点低下に寄与したかを調べるのは合理的です。"
+        },
+        {
+          "en": "Nevertheless, OECD analyses also describe downward trends in some countries before the pandemic began.",
+          "ja": "それでもOECDの分析は、感染拡大前から一部の国で下降傾向があったとも述べています。"
+        },
+        {
+          "en": "Therefore, it would be too simple to claim that one event completely explains every change in every education system.",
+          "ja": "したがって一つの出来事がすべての教育制度の変化を完全に説明すると主張するのは単純すぎます。"
+        },
+        {
+          "en": "Different schools may have faced different challenges, and average scores do not reveal every student's personal experience.",
+          "ja": "学校によって困難は異なり、平均点から各生徒の経験すべてがわかるわけではありません。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Policy makers can use these results to ask more precise questions about where additional resources or teaching support may be needed.",
+          "ja": "政策担当者はその結果を使い、追加の資源や指導支援がどこで必要かをより正確に問えます。"
+        },
+        {
+          "en": "For example, they might compare groups of students to investigate whether opportunities to learn were distributed fairly.",
+          "ja": "たとえば生徒集団を比較し、学習機会が公平に分配されたか調べることができます。"
+        },
+        {
+          "en": "Teachers can also combine large-scale assessments with classroom observations, written work, and conversations with students.",
+          "ja": "教師は大規模調査を授業観察、作文、生徒との対話と組み合わせることもできます。"
+        },
+        {
+          "en": "These different sources of information may show learning needs that a single test score cannot capture.",
+          "ja": "こうした異なる情報源は一つのテスト得点では捉えられない学習上の必要を示すかもしれません。"
+        },
+        {
+          "en": "The broader lesson is that responsible decisions require both accurate numbers and careful interpretation of the people behind them.",
+          "ja": "より広い教訓は、責任ある判断には正確な数字とその背後にいる人々への慎重な解釈の両方が必要だということです。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the main message of the passage?",
+      "options": [
+        "One score can explain every cause of learning difficulties.",
+        "Educational data should be interpreted carefully and combined with other evidence.",
+        "Schools should never use any tests.",
+        "The pandemic is proved to be the only cause of every score change."
+      ],
+      "answer": 1,
+      "explanation_ja": "学力データの読み方と複数の情報を組み合わせた判断が主題です。",
+      "paragraph_ids": [
+        "p1",
+        "p4"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "data-interpretation",
+      "prompt": "Which comparison matches the OECD averages from 2018 to 2022?",
+      "options": [
+        "Mathematics rose by fifteen percent.",
+        "Reading rose by ten points.",
+        "Mathematics fell by almost fifteen score points and reading by about ten.",
+        "Science fell by fifty points."
+      ],
+      "answer": 2,
+      "explanation_ja": "数学約15点減、読解約10点減。百分率ではなく得点差です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why is it risky to blame only the pandemic for all declines?",
+      "options": [
+        "Some downward trends had already appeared before it began.",
+        "PISA was never conducted.",
+        "Science and reading had identical results.",
+        "Every student faced the same conditions."
+      ],
+      "answer": 0,
+      "explanation_ja": "感染拡大以前の下降傾向も存在したため単一要因で断定できません。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "paraphrase",
+      "prompt": "What does the phrase 'a useful warning sign' imply?",
+      "options": [
+        "A number can signal a problem without explaining its full causes.",
+        "A number is always false.",
+        "An examination cannot be compared.",
+        "All teachers should ignore data."
+      ],
+      "answer": 0,
+      "explanation_ja": "数字は問題を示す手掛かりであり完全な因果説明ではないという意味です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "structure",
+      "prompt": "How does the text develop its argument?",
+      "options": [
+        "A definition of computer history followed by a story",
+        "A concern about scores, specific PISA evidence, cautions about causes, and a broader lesson",
+        "A list of unrelated national holidays",
+        "A description of one student's holiday"
+      ],
+      "answer": 1,
+      "explanation_ja": "問題提起→データ→因果解釈の注意→実践への応用という構成です。",
+      "paragraph_ids": [
+        "p1",
+        "p2",
+        "p3",
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "assessment",
+      "ja": "評価・調査",
+      "synonym": "evaluation",
+      "definition": "a process of measuring knowledge or performance"
+    },
+    {
+      "term": "declined",
+      "ja": "低下した",
+      "synonym": "decreased",
+      "definition": "became lower in amount or quality"
+    },
+    {
+      "term": "relatively",
+      "ja": "比較的",
+      "synonym": "comparatively",
+      "definition": "when compared with something else"
+    },
+    {
+      "term": "percentages",
+      "ja": "百分率",
+      "synonym": "proportions",
+      "definition": "amounts expressed as parts of one hundred"
+    },
+    {
+      "term": "disruption",
+      "ja": "混乱・中断",
+      "synonym": "interruption",
+      "definition": "an event stopping normal activity"
+    },
+    {
+      "term": "contributed",
+      "ja": "寄与した",
+      "synonym": "helped cause",
+      "definition": "played a part in producing a result"
+    },
+    {
+      "term": "interpretation",
+      "ja": "解釈",
+      "synonym": "explanation",
+      "definition": "an understanding of the meaning of something"
+    },
+    {
+      "term": "distributed",
+      "ja": "分配された",
+      "synonym": "shared",
+      "definition": "given out among people or places"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "not percentages of all knowledge",
+      "explanation_ja": "not A but B に近い対比で、測定単位が点数であり百分率ではないと限定しています。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "focus": "whether disrupted lessons and unequal learning opportunities contributed",
+      "explanation_ja": "whether節は『〜かどうか』を表す名詞節で、因果関係を断定せず検証する姿勢を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "逆接：数値の有用性と限界"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Nevertheless",
+      "role_ja": "譲歩：感染症の影響を考慮しつつ以前の傾向も示す"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Therefore",
+      "role_ja": "帰結：単独の原因で説明するのは不十分"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "a useful warning sign without being a complete explanation",
+      "rewrite": "an indicator of concern rather than a full causal account",
+      "explanation_ja": "警告の手掛かりを indicator、完全な説明を full causal account と言い換えます。"
+    },
+    {
+      "source": "average scores do not reveal every student's personal experience",
+      "rewrite": "aggregate statistics cannot describe every individual's situation",
+      "explanation_ja": "平均点と個人の経験を、集約された統計と個人の状況に言い換えます。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "Moreover",
+        "Similarly",
+        "For example"
+      ],
+      "explanation_ja": "感染症の影響を考える一方で、それ以前の傾向にも言及します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "answer": "Therefore",
+      "options": [
+        "However",
+        "Therefore",
+        "In addition",
+        "For instance"
+      ],
+      "explanation_ja": "複数の原因の可能性から単一原因の断定を避ける結論です。"
+    }
+  ]
 }
