@@ -26,6 +26,15 @@
     submit.disabled = true;
     gate.hidden = true;
     app.hidden = false;
+    const browse = document.getElementById('readingBrowse');
+    if (browse) {
+      browse.hidden = false;
+      document.body.classList.add('reading-browsing');
+      const heading = document.getElementById('browseHeading');
+      const notice = document.getElementById('browseNotice');
+      if (heading) heading.textContent = '教材を読み込んでいます';
+      if (notice) notice.textContent = '長文読解の教材を準備しています…';
+    }
     try {
       // The reading data and learning interface are requested only after PIN entry.
       await loadScript('grammar-print-core.js?v=20261112-1');
