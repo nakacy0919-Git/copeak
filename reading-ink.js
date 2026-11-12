@@ -275,6 +275,9 @@
   panel.addEventListener('click',event=>{
    const btn=event.target.closest?.('[data-ink-action]');
    if(!btn)return;
+   // Checkbox click fires before its 'change' event. Never reset its checked
+   // state here: doing so made "指でも描く" impossible to enable on iPad Safari.
+   if(btn.dataset.inkAction==='finger')return;
    switch(btn.dataset.inkAction){
     case 'pen':mode='pen';visible=true;break;
     case 'eraser':mode='eraser';visible=true;break;
