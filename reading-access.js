@@ -49,6 +49,8 @@
       if(view?.lesson)window.CopeakReadingInk?.syncStudy(view.lesson.id,view.mode||'questions');
     } catch (error) {
       app.hidden = true;
+      if (browse) browse.hidden = true;
+      document.body.classList.remove('reading-browsing');
       gate.hidden = false;
       message.textContent = '教材の読み込みに失敗しました。画面を再読み込みしてください。';
       loading = false;
