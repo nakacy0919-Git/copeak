@@ -273,8 +273,8 @@ function annotatedWords(text,marks){
  return html+wordSpans(text.slice(cursor));
 }
 function readingUnderline(){
- if(state.exercise!=='questions'||!state.lesson)return null;
- const q=state.lesson.questions.find(x=>x.id===state.activeQuestionId)||state.lesson.questions[0];
+ if(!state.support||state.exercise!=='questions'||!state.lesson||!state.activeQuestionId)return null;
+ const q=state.lesson.questions.find(x=>x.id===state.activeQuestionId);
  if(!q||!practiceEngine)return null;
  const source=practiceEngine.evidence(state.lesson,q);
  return source?{source,sourceText:source.phrase,sourceStyle:'underline',index:0}:null;
@@ -506,26 +506,36 @@ function installLongPressLookup(){
  });
 }
 function focusEvidence(ids,jump=false){
- document.querySelectorAll('.paragraph.support-hit').forEach(x=>x.classList.remove('support-hit'));
+ document.querySelectorAll('.paragraph.support-hit,.evidence-sentence-hit').forEach(node=>{
+  node.classList.remove('support-hit','evidence-sentence-hit');
+ });
  const statusText=$('evidenceStatus');
- if(!state.support){
-  statusText.textContent='サポートモードをONにすると、根拠段落を表示できます。';
+ if(!state.support||!state.lesson||!state.activeQuestionId){
+  statusText.textContent='根拠を確認したい設問の「根拠を見る」を押してください。';
   return;
  }
- if(!ids?.length){statusText.textContent='問題を選ぶと根拠段落が黄色で表示されます。';return;}
- const paragraphNames=ids.map(id=>{
-  const ix=state.lesson?.paragraphs.findIndex(p=>p.id===id);
-  const node=document.getElementById(id);
-  if(node)node.classList.add('support-hit');
-  return ix>=0?'第'+(ix+1)+'段落':'';
- }).filter(Boolean);
- statusText.textContent='根拠：'+paragraphNames.join('・')+' をハイライトしています。';
- if(jump&&ids[0]){
-  const node=document.getElementById(ids[0]),scroll=$('passageScroll');
-  if(node&&scroll&&document.body.classList.contains('reading-focus')){
-   const delta=node.getBoundingClientRect().top-scroll.getBoundingClientRect().top;
-   scroll.scrollTo({top:Math.max(0,scroll.scrollTop+delta-Math.max(15,scroll.clientHeight*.20)),behavior:'smooth'});
-  }else node?.scrollIntoView({behavior:'smooth',block:'center'});
+ const question=state.lesson.questions.find(q=>q.id===state.activeQuestionId);
+ if(!question){statusText.textContent='設問の根拠を確認できませんでした。';return;}
+ const evidence=practiceEngine?.evidence(state.lesson,question);
+ const paragraphIndex=evidence?state.lesson.paragraphs.findIndex(p=>p.id===evidence.paragraphId):-1;
+ const sentence=paragraphIndex>=0
+  ?$('passage').querySelector('[data-sentence="'+paragraphIndex+'-'+evidence.sentenceIndex+'"]')
+  :null;
+ let target=sentence;
+ if(sentence)sentence.classList.add('evidence-sentence-hit');
+ else {
+  const first=(ids||question.paragraph_ids||[])[0];
+  target=first?document.getElementById(first):null;
+  if(target)target.classList.add('support-hit');
+ }
+ const index=state.lesson.questions.indexOf(question);
+ statusText.textContent=target
+  ?'Q'+(index+1)+' の根拠の目安：第'+(paragraphIndex>=0?paragraphIndex+1:state.lesson.paragraphs.findIndex(p=>p.id===ids?.[0])+1)+'段落'
+  :'この設問の根拠箇所を特定できませんでした。';
+ if(jump&&target){
+  const scroll=$('passageScroll');
+  const delta=target.getBoundingClientRect().top-scroll.getBoundingClientRect().top;
+  scroll.scrollTo({top:Math.max(0,scroll.scrollTop+delta-Math.max(12,scroll.clientHeight*.22)),behavior:'smooth'});
  }
 }
 function renderQuestions(){
@@ -558,41 +568,30 @@ function renderQuestions(){
    (revealed||!state.gradingChosen?'disabled ':'')+'class="'+(revealed&&j===q.answer?'correct':revealed&&j===chosen?'wrong':selected&&j===chosen?'selected':'')+'">'+String.fromCharCode(65+j)+'. '+esc(option)+'</button>'
   ).join('')+'</div>'+
   (revealed?'<p class="feedback '+(chosen===q.answer?'correct':'wrong')+'">'+(chosen===q.answer?'正解！':'正解は '+String.fromCharCode(65+q.answer))+'</p><p class="feedback">'+esc(q.explanation_ja)+'</p>':'')+
-  '<div class="card-actions"><button type="button" data-evidence="'+esc(q.id)+'" '+(state.support?'':'hidden')+'>根拠段落を見る</button></div></article>';
+  '<div class="card-actions"><button type="button" data-evidence="'+esc(q.id)+'" aria-pressed="'+(state.support&&state.activeQuestionId===q.id)+'" class="question-evidence-toggle">'+(state.support&&state.activeQuestionId===q.id?'✕ 根拠を閉じる':'⌕ 根拠を見る')+'</button></div></article>';
  }).join('');
  $('questions').querySelectorAll('[data-q]').forEach(b=>b.addEventListener('click',()=>{
   const q=s.questions.find(x=>x.id===b.dataset.q);
   if(!q||!state.gradingChosen||(state.gradingMode==='batch'&&state.graded)||
    (state.gradingMode==='immediate'&&Number.isInteger(state.answers[q.id])))return;
-  state.activeQuestionId=q.id;
   state.answers[q.id]=Number(b.dataset.option);
   if(state.gradingMode==='immediate'&&state.answers[q.id]===q.answer)window.CopeakReadingEffects?.celebrate();
   saveProgress();
   if(state.gradingMode==='immediate'&&s.questions.every(x=>Number.isInteger(state.answers[x.id])))recordCompletion('questions');
   renderQuestions();renderSetList();renderPracticeProgress();renderPassage(true);
-  if(state.support)focusEvidence(q.paragraph_ids,true);
+  if(state.support){const active=s.questions.find(x=>x.id===state.activeQuestionId);focusEvidence(active?.paragraph_ids,false);}
  }));
  $('questions').querySelectorAll('[data-evidence]').forEach(b=>b.addEventListener('click',()=>{
   const q=s.questions.find(x=>x.id===b.dataset.evidence);
-  state.activeQuestionId=q?.id||null;
+  if(!q)return;
+  const same=state.support&&state.activeQuestionId===q.id;
+  state.support=!same;
+  state.activeQuestionId=same?null:q.id;
+  renderQuestions();
   renderPassage(true);
-  focusEvidence(q?.paragraph_ids,true);
+  focusEvidence(state.support?q.paragraph_ids:null,state.support);
+  $('questions').querySelector('[data-evidence="'+q.id+'"]')?.focus({preventScroll:true});
  }));
- $('questions').querySelectorAll('[data-question]').forEach(card=>{
-  card.addEventListener('focusin',()=>{
-   const id=card.dataset.question;
-   if(id===state.activeQuestionId)return;
-   state.activeQuestionId=id;
-   renderPassage(true);
-   if(state.support)focusEvidence(s.questions.find(q=>q.id===id)?.paragraph_ids,false);
-  });
-  card.addEventListener('click',()=>{
-   const id=card.dataset.question;
-   if(id===state.activeQuestionId)return;
-   state.activeQuestionId=id;renderPassage(true);
-   if(state.support)focusEvidence(s.questions.find(q=>q.id===id)?.paragraph_ids,false);
-  });
- });
  if(panelScroll)panelScroll.scrollTop=retainedScroll;
 }
 /* Interactive exercises: all modes use four choices and reveal an explanation after
@@ -774,14 +773,12 @@ function renderNotes(){
 }
 function renderCloze(){if(state.exercise==='cloze')renderPracticeQuiz('cloze');}
 function updateSupportUI(){
+ // Evidence is controlled on each question card rather than revealing many
+ // paragraph highlights at once through a global switch.
  const btn=$('supportToggle');
- const visible=state.lesson&&state.exercise==='questions';
- btn.hidden=!visible;
- btn.disabled=!visible;
- btn.setAttribute('aria-pressed',String(state.support&&visible));
- btn.setAttribute('aria-label',state.support&&visible?'サポートモードを解除':'根拠段落をハイライト');
- btn.title=state.support&&visible?'サポートON：根拠段落をハイライト中':'サポートOFF：押すと根拠段落を表示';
- btn.classList.toggle('support-on',!!(state.support&&visible));
+ btn.hidden=true;
+ btn.disabled=true;
+ btn.setAttribute('aria-pressed','false');
 }
 function showExerciseChooser(){
  state.exercise=null;
@@ -1077,19 +1074,6 @@ async function init(){
 }
 $('categoryFilter').addEventListener('change',e=>{state.category=e.target.value;renderCatalog();renderSetList();});
 $('levelFilter').addEventListener('change',e=>{state.level=e.target.value;renderSetList();});
-$('supportToggle').addEventListener('click',()=>{
- if(state.exercise!=='questions')return;
- state.support=!state.support;
- updateSupportUI();
- renderQuestions();
- if(state.support){
-  const q=state.lesson?.questions.find(x=>x.id===state.activeQuestionId)
-   ||state.lesson?.questions.find(x=>!Number.isInteger(state.answers[x.id]))
-   ||state.lesson?.questions[0];
-  state.activeQuestionId=q?.id||null;
-  focusEvidence(q?.paragraph_ids,true);
- }else focusEvidence(null,false);
-});
 document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>chooseExercise(b.dataset.tab)));
 $('exerciseChoices').querySelectorAll('[data-exercise]').forEach(b=>b.addEventListener('click',()=>chooseExercise(b.dataset.exercise)));
 $('exerciseChange').addEventListener('click',showExerciseChooser);
