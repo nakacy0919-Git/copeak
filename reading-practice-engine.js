@@ -20,7 +20,7 @@
    return hit?{paragraphId:hit.paragraphId,sentenceIndex:hit.sentenceIndex,phrase:term}:null;
  }
  function options(correct,pool,key){
-   let distract=mix(uniq(pool).filter(x=>x!==correct),key+':pool').slice(0,3);
+   let distract=mix(uniq(pool).filter(x=>x.toLowerCase()!==correct.toLowerCase()),key+':pool').filter((x,i,a)=>a.findIndex(y=>y.toLowerCase()===x.toLowerCase())===i).slice(0,3);
    // The authored bank normally supplies 3+ distractors; this guards very small sets.
    const fallback=['本文の主張と反対のことを述べている','別の話題についての説明である','ここでは原因を示さず結論だけを述べる'];
    for(const v of fallback)if(distract.length<3&&v!==correct&&!distract.includes(v))distract.push(v);
@@ -54,8 +54,25 @@
     const source=locate(l,d.expression,d.paragraph_id);
     const reviewed=(l.cloze||[]).find(q=>q.answer.toLowerCase()===d.expression.toLowerCase()&&q.paragraph_id===d.paragraph_id);
     const correct=d.expression;
-    const pool=reviewed?reviewed.options:[...bank,...corpus.flatMap(x=>(x.discourse||[]).map(y=>y.expression))];
-    const answer=options(correct,pool,l.id+':discourse:'+i);
+    // Different logical functions produce unambiguous exam-style distractors.
+    const group=t=>{
+      const x=t.trim().toLowerCase();
+      if(['however','nevertheless','yet','but','although','in contrast','on the other hand','rather than','instead'].includes(x))return 'contrast';
+      if(['therefore','as a result','consequently','so','thus','hence'].includes(x))return 'result';
+      if(['for example','for instance','such as'].includes(x))return 'example';
+      if(['in addition','moreover','furthermore','also','besides'].includes(x))return 'addition';
+      if(['because','since','because of'].includes(x))return 'reason';
+      if(['meanwhile','afterwards','then','as soon as'].includes(x))return 'time';
+      if(['similarly','likewise'].includes(x))return 'similarity';
+      if(['in other words','that is'].includes(x))return 'restatement';
+      return 'other';
+    };
+    const correctGroup=group(correct);
+    const broad=[...new Set([...(reviewed?.options||[]),...bank,'Because','Meanwhile','In other words','Similarly'])];
+    const candidates=mix(broad.filter(x=>x.toLowerCase()!==correct.toLowerCase()&&group(x)!==correctGroup),l.id+':dgroups:'+i);
+    const distinct=[],used=new Set([correctGroup]);
+    for(const x of candidates){const grp=group(x);if(used.has(grp))continue;used.add(grp);distinct.push(x);if(distinct.length===3)break;}
+    const answer=options(correct,distinct,l.id+':discourse:'+i);
     return {id:'d-'+i,mode,index:i,prompt:'本文【'+(i+1)+'】に入る接続表現を選びなさい。',
      subprompt:'前後の内容の論理関係に注目しましょう。',...answer,explanation:d.role_ja+' ／ 正解：'+correct,
      source,sourceText:correct,sourceStyle:'mask'};
