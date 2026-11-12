@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="reading-ink.css?v=20261112-ink1">
 <link rel="stylesheet" href="reading-ink.css?v=20261112-ink1">
 <link rel="stylesheet" href="reading-access.css?v=20261112-2">
+<link rel="stylesheet" href="reading-workflow.css?v=20261112-flow1">
 <script defer src="reading-access.js?v=20261112-ink1"></script>
 </head>
 <body>
@@ -41,7 +42,20 @@
  <div><span class="eyebrow">ENTRANCE READING STUDIO</span><h1>大学入試長文読解</h1></div>
  <button type="button" id="printOpen" class="primary" disabled>教材を印刷・Word出力</button>
 </header>
-<main class="app" id="readingWorkspace">
+<section id="readingBrowse" class="reading-browse" aria-labelledby="browseHeading" hidden>
+ <div class="browse-shell">
+  <div class="browse-top"><a href="grammar-training.html" class="browse-home">← Copeak Study</a><span class="browse-kicker">ENTRANCE READING</span></div>
+  <div class="browse-head">
+   <span class="browse-eyebrow" id="browseStepLabel">STEP 1 / 3</span>
+   <h1 id="browseHeading">15分野から選ぶ</h1>
+   <p id="browseDescription">学習したい分野を選んでください。</p>
+  </div>
+  <nav id="browseBreadcrumbs" class="browse-breadcrumbs" aria-label="教材選択の手順"></nav>
+  <div id="browseCards" class="browse-cards"></div>
+  <div id="browseNotice" class="browse-notice" role="status" aria-live="polite"></div>
+ </div>
+</section>
+<main class="app" id="readingWorkspace" hidden>
  <button type="button" id="catalogToggle" class="catalog-toggle" aria-label="教材一覧を開く" aria-controls="readingCatalog" aria-expanded="false" hidden>→ <span>教材</span></button>
  <div id="catalogBackdrop" class="catalog-backdrop" hidden></div>
  <aside class="catalog" id="readingCatalog" aria-label="長文教材一覧">
@@ -62,9 +76,9 @@
    <h2 id="lessonTitle">長文を選んでください</h2>
    <p id="lessonMeta" class="muted"></p>
    <div class="reader-actions">
-    <button id="focusStart" type="button" class="primary" disabled>集中して解く <span aria-hidden="true">↗</span></button>
-    <button id="focusExit" type="button" hidden>一覧画面に戻る</button>
-    <button id="examModeStart" type="button" class="exam-mode-start" disabled aria-controls="examOverlay"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"/></svg> 試験モード</button>
+    <button id="focusStart" type="button" class="primary" disabled>レイアウトモード <span aria-hidden="true">↗</span></button>
+    <button id="focusExit" type="button" hidden>← 教材を選び直す</button>
+    <button id="examModeStart" type="button" class="exam-mode-start" disabled aria-controls="examOverlay"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"/></svg> フルモード</button>
    </div>
    <p id="storageStatus" class="reading-save-warning" role="alert" hidden></p>
    <div id="practiceProgress" class="practice-progress" role="group" aria-label="この長文の練習別達成状況"></div>
@@ -91,8 +105,8 @@
     </div>
     <div class="passage-scroll" id="passageScroll" tabindex="0" aria-label="英文を上下にスクロール">
   <div class="reading-panel">
-   <h3>英文・一文ずつの日本語訳</h3>
-   <p class="muted">単語を長押し：意味と英英定義 ／ 文末や余白を長押し：一文の日本語訳</p>
+   <h3>英文</h3>
+   <p class="muted">単語をタップ：意味と英英定義 ／ 英文をなぞる：一文の日本語訳</p>
    <div id="passage" class="passage"></div>
    <details class="sources"><summary>事実確認に使った参考資料</summary><div id="sourceLinks"></div><p>本文・設問・和訳はオリジナルです。参考資料の英文を転載していません。</p></details>
   </div>
@@ -133,15 +147,16 @@
   </nav>
   <div class="question-scroll" id="questionScroll" tabindex="0" aria-label="問題を上下にスクロール">
   <section class="work-panel" data-panel="questions">
-    <div class="answer-settings">
-      <label for="gradingMode">採点方法</label>
-      <select id="gradingMode"><option value="immediate">1問ごとに採点</option><option value="batch">全問解答後に採点</option></select>
-      <span class="answer-count" id="answerCount" aria-live="polite">0 / 0問回答</span>
+    <div class="answer-settings" id="gradingSettings">
+      <label for="gradingMode">採点方法を選ぶ</label>
+      <select id="gradingMode" aria-label="採点方法を選択"><option value="">採点方法を選択してください</option><option value="immediate">1問ずつ正誤と解説を表示</option><option value="batch">すべて解答してから採点</option></select>
+      <span class="grading-help">選択後は採点設定を隠して、問題を表示します。</span>
     </div>
+    <span class="answer-count" id="answerCount" aria-live="polite" hidden>0 / 0問回答</span>
     <div id="readingResult" class="reading-result" role="status" aria-live="polite" hidden></div>
     <p class="muted" id="evidenceStatus" role="status" aria-live="polite" hidden></p>
     <div id="questions"></div>
-    <div class="grading-actions">
+    <div class="grading-actions" id="readingGradingActions">
       <button type="button" id="gradeAll" class="primary" hidden disabled>全問の結果を表示</button>
       <button type="button" id="resetAnswers">この読解をやり直す</button>
     </div>
