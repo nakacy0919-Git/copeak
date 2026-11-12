@@ -12,7 +12,6 @@
  const clamp=(n,min,max)=>Math.max(min,Math.min(max,n));
  let current=null;
  let dragging=false;
- let nativeFullscreen=false;
  let leaving=false;
  let split=50;
  try{split=clamp(Number(localStorage.getItem('copeak-reading-exam-split'))||50,30,70);}catch(_){}
@@ -177,10 +176,6 @@
   document.body.classList.remove('reading-exam-mode');
   $('readingWorkspace').inert=false;
   document.querySelector('.masthead').inert=false;
-  if(document.fullscreenElement===overlay&&typeof document.exitFullscreen==='function'){
-   try{const p=document.exitFullscreen();if(p?.catch)p.catch(()=>{});}catch(_){}
-  }
-  nativeFullscreen=false;
   leaving=false;
   start.focus();
  }
@@ -211,21 +206,9 @@
   $('examPassageScroll').scrollTop=0;
   $('examQuestionScroll').scrollTop=0;
   $('examExit').focus();
-  // Desktop/iPad browser support varies. Fixed overlay remains usable if rejected.
-  if(typeof overlay.requestFullscreen==='function'){
-   try{
-    const request=overlay.requestFullscreen();
-    request?.then?.(()=>{
-     if(overlay.hidden){
-      // The learner may have exited before Safari finished entering fullscreen.
-      if(document.fullscreenElement===overlay)document.exitFullscreen?.().catch?.(()=>{});
-      nativeFullscreen=false;
-      return;
-     }
-     nativeFullscreen=true;
-    }).catch?.(()=>{nativeFullscreen=false;});
-   }catch(_){nativeFullscreen=false;}
-  }
+  // Do not call the native Fullscreen API here. On iPad Safari, a downward
+  // scroll can close the native session; the fixed visual viewport remains
+  // stable and supports both independently scrollable reading panes.
  }
  start.addEventListener('click',enterExam);
  $('examExit').addEventListener('click',leaveExam);
@@ -274,12 +257,6 @@
  document.addEventListener('keydown',e=>{
   if(e.key==='Escape'&&!overlay.hidden)leaveExam();
  });
- document.addEventListener('fullscreenchange',()=>{
-  if(overlay.hidden&&document.fullscreenElement===overlay){
-   document.exitFullscreen?.().catch?.(()=>{});
-  }else if(nativeFullscreen&&!document.fullscreenElement&&!overlay.hidden){
-   leaveExam();
-  }
- });
+
  window.addEventListener('resize',()=>{if(!overlay.hidden&&!dragging)setSplit(split);});
 })();
