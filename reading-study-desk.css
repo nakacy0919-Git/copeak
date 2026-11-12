@@ -176,3 +176,6 @@ body.reading-focus .reading-panel h3{color:#263f56}
  .exercise-choices button{transition:none}
  .exercise-choices button:hover{transform:none}
 }
+
+.lookup-sentence-link{width:100%;min-height:42px;margin-top:13px;border:1px solid #b5cddb;background:#edf5fa;color:#245a7e;border-radius:10px;font-size:13px;font-weight:800}
+.lookup-sentence-link[hidden]{display:none!important}
