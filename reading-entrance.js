@@ -1032,6 +1032,14 @@ function initReadingUI(){
 }
 
 async function init(){
+ $('readingBrowse').hidden=false;
+ $('readingWorkspace').hidden=true;
+ document.body.classList.add('reading-browsing');
+ $('browseStepLabel').textContent='LOADING';
+ $('browseHeading').textContent='教材を読み込んでいます';
+ $('browseDescription').textContent='15分野の長文教材を準備しています。';
+ $('browseCards').innerHTML='<p class="browse-empty" role="status">収録済みの教材を確認しています…</p>';
+ $('browseNotice').textContent='';
  status('教材一覧を読み込んでいます…');
  try{
   const response=await fetch('data/reading/entrance/manifest.json',{cache:'no-store'});if(!response.ok)throw Error('一覧 HTTP '+response.status);
@@ -1055,7 +1063,13 @@ async function init(){
   state.sets=results.filter(r=>r.status==='fulfilled'&&r.value).map(r=>r.value);
   const errors=results.filter(r=>r.status==='rejected');status(errors.length?errors.length+'件の教材を検証できませんでした。編集データを確認してください。':'現在の収録教材 '+state.sets.length+'セット / 目標450セット');
   renderCatalog();openBrowse('category');
- }catch(e){status('教材一覧を読み込めませんでした：'+e.message);}
+ }catch(e){
+  status('教材一覧を読み込めませんでした：'+e.message);
+  $('browseStepLabel').textContent='LOAD ERROR';
+  $('browseHeading').textContent='教材を読み込めませんでした';
+  $('browseDescription').textContent='インターネット接続を確認し、ページを再読み込みしてください。';
+  $('browseCards').innerHTML='<p class="browse-empty" role="alert">教材の取得に失敗しました。再読み込みしてお試しください。</p>';
+ }
 }
 $('categoryFilter').addEventListener('change',e=>{state.category=e.target.value;renderCatalog();renderSetList();});
 $('levelFilter').addEventListener('change',e=>{state.level=e.target.value;renderSetList();});
