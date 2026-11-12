@@ -1,14 +1,15 @@
 /* Copeak Study Entrance Reading Studio. Each lesson is authored, sourced, and reviewed individually. */
 (()=>{'use strict';
 const $=id=>document.getElementById(id);
+const practiceEngine=window.CopeakReadingPractice;
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const escapeXml=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&apos;'}[c])).replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/g,'');
-const state={manifest:null,sets:[],lesson:null,category:'all',level:'all',showAll:false,support:false,answers:{},clozeAnswers:{},vocabIndex:0,vocabChoice:null,vocabOrder:[],panel:'questions',exercise:null,graded:false,gradingMode:'immediate',activeQuestionId:null};
+const state={manifest:null,sets:[],lesson:null,category:'all',level:'all',showAll:false,support:false,answers:{},clozeAnswers:{},vocabIndex:0,vocabChoice:null,vocabOrder:[],panel:'questions',exercise:null,graded:false,gradingMode:'immediate',activeQuestionId:null,practice:{},quizCursor:{}};
 const label=(id,collection)=>collection.find(x=>x.id===id)?.label||id;
 const status=s=>{$('loadStatus').textContent=s;};
 const words=lesson=>lesson.paragraphs.flatMap(p=>p.sentences).map(s=>s.en).join(' ').trim().split(/\s+/).filter(Boolean).length;
 const readProgress=id=>{try{return JSON.parse(localStorage.getItem('copeak-reading-'+id)||'{}');}catch{return {};}};
-const saveProgress=()=>{try{localStorage.setItem('copeak-reading-'+state.lesson.id,JSON.stringify({answers:state.answers,clozeAnswers:state.clozeAnswers,graded:state.graded}));}catch{}};
+const saveProgress=()=>{try{localStorage.setItem('copeak-reading-'+state.lesson.id,JSON.stringify({answers:state.answers,clozeAnswers:state.clozeAnswers,graded:state.graded,practice:state.practice}));}catch{}};
 const shuffle=a=>{const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;};
 function renderCatalog(){
  const m=state.manifest;if(!m)return;
@@ -38,14 +39,14 @@ function renderSetList(){
 }
 function selectLesson(id,startFocus=true){
  const s=state.sets.find(x=>x.id===id);if(!s)return;
- state.lesson=s;const progress=readProgress(s.id);state.answers=progress.answers||{};state.clozeAnswers=progress.clozeAnswers||{};state.graded=progress.graded===true;state.activeQuestionId=null;
+ state.lesson=s;const progress=readProgress(s.id);state.answers=progress.answers||{};state.clozeAnswers=progress.clozeAnswers||{};state.graded=progress.graded===true;state.activeQuestionId=null;state.practice=progress.practice&&typeof progress.practice==='object'?progress.practice:{};state.quizCursor={};
  state.showAll=false;state.support=false;state.vocabIndex=0;state.vocabChoice=null;state.panel='questions';state.exercise=null;
  $('supportToggle').disabled=false;$('printOpen').disabled=false;$('focusStart').disabled=false;
  $('supportToggle').setAttribute('aria-pressed','false');$('supportToggle').setAttribute('aria-label','読解の根拠段落を表示');
  $('lessonTitle').textContent=s.title+' / '+s.title_ja;
  $('lessonMeta').textContent=label(s.category_id,state.manifest.categories)+' · '+(s.level_ids||[s.level_id]).map(id=>label(id,state.manifest.levels)).join(' / ')+' · '+s.word_count+' words · '+s.questions.length+' questions';
  $('sourceLinks').innerHTML=s.source_links.map(l=>'<a target="_blank" rel="noopener noreferrer" href="'+esc(l.url)+'">'+esc(l.title)+'</a>').join('');
- renderPassage();renderQuestions();renderVocab();renderNotes();renderCloze();switchTab('questions');renderSetList();showExerciseChooser();
+ renderPassage();renderQuestions();renderVocab();renderNotes();renderCloze();switchTab('questions');renderSetList();showExerciseChooser();renderPracticeProgress();
  if(startFocus)enterFocusMode();
  if(startFocus&&document.body.classList.contains('reading-focus'))closeCatalog();
  if(!document.body.classList.contains('reading-focus')&&window.matchMedia('(max-width:1000px)').matches)$('reader').scrollIntoView({behavior:'smooth',block:'start'});
@@ -103,47 +104,84 @@ function wordSpans(text){
  }
  return out+esc(text.slice(last));
 }
-function clozeSentence(text,paragraphId,sentenceIndex){
- const targets=state.lesson?.cloze?.map((q,index)=>({...q,index})).filter(q=>q.paragraph_id===paragraphId&&q.sentence_index===sentenceIndex)||[];
- if(!targets.length)return wordSpans(text);
- let spans=[{start:0,end:text.length,masked:false,raw:text}];
- for(const q of targets){
-  const where=text.indexOf(q.answer);
-  if(where<0)continue;
-  spans=spans.flatMap(part=>{
-   if(part.masked||part.start>where||part.end<where+q.answer.length)return [part];
-   return [
-    {start:part.start,end:where,masked:false,raw:text.slice(part.start,where)},
-    {start:where,end:where+q.answer.length,masked:true,index:q.index},
-    {start:where+q.answer.length,end:part.end,masked:false,raw:text.slice(where+q.answer.length,part.end)}
-   ];
-  });
- }
- return spans.map(part=>part.masked?'<span class="reading-blank" aria-label="空欄'+(part.index+1)+'">【'+(part.index+1)+'】________</span>':wordSpans(part.raw)).join('');
+/* Passage markup changes with the selected exercise.
+   Never expose a masked marker's answer in the left passage. */
+function activePracticeItem(){
+ if(!state.lesson||!state.exercise||state.exercise==='questions')return null;
+ const list=practiceBank(state.exercise);return list[state.quizCursor[state.exercise]||0]||null;
 }
-function renderPassage(){
- const s=state.lesson;if(!s)return;
- const cloze=state.exercise==='cloze';
- $('passage').innerHTML=s.paragraphs.map((p,pi)=>
+function practiceBank(mode){
+ if(!state.lesson||!practiceEngine)return [];
+ return practiceEngine.build(state.lesson,mode,state.sets,$('vocabQuizMode').value);
+}
+function annotatedWords(text,marks){
+ const ranges=[];
+ for(const mark of marks){
+  if(!mark?.sourceText)continue;
+  const source=String(mark.sourceText).split('...')[0].trim();
+  if(!source)continue;
+  let at=text.indexOf(source);
+  if(at<0)at=text.toLowerCase().indexOf(source.toLowerCase());
+  if(at<0)continue;
+  const end=at+source.length;
+  if(ranges.some(r=>at<r.end&&r.start<end))continue;
+  ranges.push({start:at,end,mark});
+ }
+ ranges.sort((a,b)=>a.start-b.start);
+ let cursor=0,html='';
+ for(const range of ranges){
+  html+=wordSpans(text.slice(cursor,range.start));
+  const chunk=text.slice(range.start,range.end);
+  if(range.mark.sourceStyle==='mask'){
+   html+='<span class="reading-blank" aria-label="設問'+(range.mark.index+1)+'の空欄">【'+(range.mark.index+1)+'】 ________</span>';
+  }else{
+   html+='<span class="exam-underline" title="設問の下線部">'+wordSpans(chunk)+'</span>';
+  }
+  cursor=range.end;
+ }
+ return html+wordSpans(text.slice(cursor));
+}
+function readingUnderline(){
+ if(state.exercise!=='questions'||!state.lesson)return null;
+ const q=state.lesson.questions.find(x=>x.id===state.activeQuestionId)||state.lesson.questions[0];
+ if(!q||!practiceEngine)return null;
+ const source=practiceEngine.evidence(state.lesson,q);
+ return source?{source,sourceText:source.phrase,sourceStyle:'underline',index:0}:null;
+}
+function renderPassage(preserveScroll=true){
+ const lesson=state.lesson;if(!lesson)return;
+ const scroll=$('passageScroll'),top=preserveScroll?scroll.scrollTop:0;
+ const mode=state.exercise;
+ const all=mode==='discourse'||mode==='cloze'?practiceBank(mode):
+  mode==='questions'?[readingUnderline()]:
+  mode?[activePracticeItem()]:[];
+ const sourceMap=new Map();
+ for(const item of all){
+  if(!item?.source)continue;
+  const k=item.source.paragraphId+'-'+item.source.sentenceIndex;
+  if(!sourceMap.has(k))sourceMap.set(k,[]);
+  sourceMap.get(k).push(item);
+ }
+ $('passage').innerHTML=lesson.paragraphs.map((p,pi)=>
  '<div class="paragraph" id="'+esc(p.id)+'" data-paragraph="'+esc(p.id)+'"><strong>PARAGRAPH '+(pi+1)+'</strong>'+
  p.sentences.map((t,si)=>'<span class="sentence" data-sentence="'+pi+'-'+si+'"><span class="sentence-line">'+
- (cloze?clozeSentence(t.en,p.id,si):wordSpans(t.en))+
+ annotatedWords(t.en,sourceMap.get(p.id+'-'+si)||[])+
  '</span> </span>').join('')+'</div>').join('');
- $('passage').classList.toggle('cloze-active',cloze);
- $('passageScroll').scrollTop=0;
+ $('passage').classList.toggle('cloze-active',mode==='cloze'||mode==='discourse');
+ scroll.scrollTop=top;
 }
 function showLookup(kind,payload){
  if(!state.lesson)return;
  const dialog=$('readingLookupDialog');
  $('lookupDefinition').hidden=kind!=='word';
  const seeSentence=$('lookupSentenceLink');
- seeSentence.hidden=kind!=='word'||state.exercise==='cloze'||!Number.isInteger(payload.pi)||!Number.isInteger(payload.si);
+ seeSentence.hidden=kind!=='word'||(state.exercise==='cloze'||state.exercise==='discourse')||!Number.isInteger(payload.pi)||!Number.isInteger(payload.si);
  if(!seeSentence.hidden){seeSentence.dataset.pi=String(payload.pi);seeSentence.dataset.si=String(payload.si);}
  $('lookupKind').textContent=kind==='word'?'WORD LOOKUP':'SENTENCE TRANSLATION';
  if(kind==='sentence'){
-  if(state.exercise==='cloze'){
+  if(state.exercise==='cloze'||state.exercise==='discourse'){
    $('lookupHeading').textContent='本文穴埋めの練習中';
-   $('lookupJapanese').textContent='答えを隠すため、穴埋め練習中は一文訳を表示しません。他の練習に切り替えると確認できます。';
+   $('lookupJapanese').textContent='答えを隠すため、接続表現や穴埋め練習中は一文訳を表示しません。他の練習に切り替えると確認できます。';
   }else{
    $('lookupHeading').textContent='第'+(payload.pi+1)+'段落 · '+(payload.si+1)+'文目';
    $('lookupJapanese').textContent=state.lesson.paragraphs[payload.pi]?.sentences[payload.si]?.ja||'日本語訳が未登録です。';
