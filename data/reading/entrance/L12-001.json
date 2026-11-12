@@ -1,0 +1,283 @@
+{
+  "id": "L12-001",
+  "category_id": "L12",
+  "title": "How the World Defeated Smallpox",
+  "title_ja": "天然痘を根絶した世界の協力",
+  "level_id": "eiken-pre2",
+  "status": "reviewed",
+  "word_count": 297,
+  "original": true,
+  "source_links": [
+    {
+      "title": "WHO: Smallpox",
+      "url": "https://www.who.int/emergencies/situations/smallpox"
+    }
+  ],
+  "fact_notes": [
+    "1796年ジェンナーのワクチン",
+    "WHO強化計画1967年",
+    "ソマリアで最後の自然感染例1977年",
+    "1980年天然痘根絶宣言"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "In the past, smallpox was one of the most dangerous diseases in the world, and it affected people in many different countries.",
+          "ja": "かつて天然痘は世界で最も危険な病気の一つで、多くの国の人々に影響を与えました。"
+        },
+        {
+          "en": "The illness often caused a high fever and a serious skin rash, and some patients died while others lived with scars.",
+          "ja": "この病気はしばしば高熱や重い発疹を引き起こし、亡くなる患者もいれば傷痕を残して生きる人もいました。"
+        },
+        {
+          "en": "Families feared an infection because the virus could spread from one person to another through close contact.",
+          "ja": "家族が感染を恐れたのは、ウイルスが人から人へ近い接触によって広がる可能性があったからです。"
+        },
+        {
+          "en": "However, the story of smallpox also shows how people can work together to solve a very difficult problem.",
+          "ja": "しかし、天然痘の歴史は、人々が協力して非常に難しい問題を解決できることも示しています。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "In 1796, an English doctor named Edward Jenner developed a successful vaccine by studying the relationship between cowpox and smallpox.",
+          "ja": "1796年、イギリスの医師エドワード・ジェンナーは牛痘と天然痘の関係を研究し、有効なワクチンを開発しました。"
+        },
+        {
+          "en": "His discovery did not end the disease immediately, but it gave later generations a powerful way to protect people.",
+          "ja": "その発見ですぐに病気がなくなったわけではありませんが、後の世代に人々を守る強力な方法を与えました。"
+        },
+        {
+          "en": "Over time, vaccination programs reached more places, although poor transportation and limited medical services made the work difficult.",
+          "ja": "時がたつにつれて予防接種はより多くの地域に届きましたが、交通手段や医療サービスの不足が活動を難しくしました。"
+        },
+        {
+          "en": "A useful medical invention, therefore, was only one part of a much larger effort.",
+          "ja": "したがって、有用な医療上の発明は、はるかに大きな取り組みの一部分にすぎませんでした。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "In 1967, the World Health Organization began a stronger international campaign to remove smallpox from every country.",
+          "ja": "1967年、世界保健機関はすべての国から天然痘をなくすためのより強力な国際的活動を始めました。"
+        },
+        {
+          "en": "Health workers vaccinated people, searched for new cases, and followed up when they found someone who had become ill.",
+          "ja": "医療従事者は予防接種を行い、新たな患者を探し、病気になった人が見つかると追跡調査を行いました。"
+        },
+        {
+          "en": "This careful search was important because a disease cannot be stopped if health officials do not know where it is spreading.",
+          "ja": "この慎重な調査が重要だったのは、病気がどこで広がっているか分からなければ止められないからです。"
+        },
+        {
+          "en": "The last known naturally occurring case was recorded in Somalia in 1977, a major step toward an extraordinary goal.",
+          "ja": "最後の自然感染例として知られる患者は1977年にソマリアで確認され、それは並外れた目標への大きな一歩でした。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "In 1980, the World Health Organization officially declared that smallpox had been eradicated across the world.",
+          "ja": "1980年、世界保健機関は天然痘が世界中から根絶されたと公式に宣言しました。"
+        },
+        {
+          "en": "This success was not the result of a vaccine alone; it also depended on international cooperation and careful records.",
+          "ja": "この成功はワクチンだけの結果ではなく、国際協力と丁寧な記録にも支えられていました。"
+        },
+        {
+          "en": "Today, the example reminds us that scientific knowledge becomes more valuable when communities share information and act together.",
+          "ja": "今日、この事例は、地域社会が情報を共有し協力して行動すると科学的知識がさらに価値あるものになると教えてくれます。"
+        },
+        {
+          "en": "It also suggests that protecting health requires both useful technology and the human effort needed to use it fairly.",
+          "ja": "また、健康を守るには有用な技術と、それを公平に活用するための人間の努力の両方が必要だと示唆しています。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the main message of the passage?",
+      "options": [
+        "Diseases always disappear naturally.",
+        "Medical technology and cooperation can solve serious health problems.",
+        "Doctors should work without international organizations.",
+        "Smallpox is still common around the world."
+      ],
+      "answer": 1,
+      "explanation_ja": "ワクチンに加え、国際協力と調査の重要性が全体を通じて説明されています。",
+      "paragraph_ids": [
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "fact",
+      "prompt": "Which event took place in 1967?",
+      "options": [
+        "Jenner invented a vaccine.",
+        "The last natural case was recorded.",
+        "The WHO began an intensified eradication effort.",
+        "Smallpox was officially declared eradicated."
+      ],
+      "answer": 2,
+      "explanation_ja": "第3段落冒頭の began a stronger international campaign が正解の言い換えです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "paraphrase",
+      "prompt": "The phrase 'a much larger effort' in paragraph 2 refers mainly to ____.",
+      "options": [
+        "a single doctor's discovery",
+        "vaccination and organized public-health work",
+        "the movement of patients between countries",
+        "studying the skin rash alone"
+      ],
+      "answer": 1,
+      "explanation_ja": "発明単独ではなく、接種計画と公衆衛生活動全体を示す抽象表現です。",
+      "paragraph_ids": [
+        "p2",
+        "p3"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why was searching for new cases important?",
+      "options": [
+        "It made vaccination unnecessary.",
+        "It showed where the disease might still spread.",
+        "It proved that the vaccine did not work.",
+        "It allowed countries to stop sharing information."
+      ],
+      "answer": 1,
+      "explanation_ja": "第3段落の否定表現 cannot be stopped if ... don't know where ... を言い換えています。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "infection",
+      "ja": "感染",
+      "synonym": "the spread of disease",
+      "definition": "the process of a harmful organism entering a person's body"
+    },
+    {
+      "term": "vaccine",
+      "ja": "ワクチン",
+      "synonym": "preventive medicine",
+      "definition": "a substance that helps the body develop protection against a disease"
+    },
+    {
+      "term": "campaign",
+      "ja": "組織的な活動",
+      "synonym": "organized effort",
+      "definition": "a series of planned actions to achieve a goal"
+    },
+    {
+      "term": "eradicated",
+      "ja": "根絶された",
+      "synonym": "completely removed",
+      "definition": "removed so that none remains"
+    },
+    {
+      "term": "cooperation",
+      "ja": "協力",
+      "synonym": "working together",
+      "definition": "the act of people or groups helping one another toward a goal"
+    },
+    {
+      "term": "records",
+      "ja": "記録",
+      "synonym": "written information",
+      "definition": "information that is written down and kept for later use"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "cannot be stopped if ...",
+      "explanation_ja": "受動態＋条件節。『もし発生場所が分からなければ止められない』という因果関係を表します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "focus": "not ... alone; it also ...",
+      "explanation_ja": "not A alone; also B の対比。AだけでなくBも必要とする論理構造です。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "逆接：被害から協力の成功へ転換"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "therefore",
+      "role_ja": "帰結：発明だけでは十分でないという結論"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "also",
+      "role_ja": "追加：技術と人間の努力の両方を説明"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "a stronger international campaign",
+      "rewrite": "an intensified worldwide eradication effort",
+      "explanation_ja": "stronger→intensified、international→worldwide、campaign→effort"
+    },
+    {
+      "source": "followed up when they found someone who had become ill",
+      "rewrite": "monitored people after identifying cases",
+      "explanation_ja": "新たな患者を発見した後の追跡調査を、より簡潔に言い換えています。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "answer": "therefore",
+      "options": [
+        "however",
+        "therefore",
+        "although",
+        "meanwhile"
+      ],
+      "explanation_ja": "前文から『発明は活動の一部にすぎない』と結論を導く語です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "share",
+      "options": [
+        "hide",
+        "share",
+        "replace",
+        "forget"
+      ],
+      "explanation_ja": "share information and act together という協力の具体例です。"
+    }
+  ]
+}

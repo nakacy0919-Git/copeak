@@ -60,5 +60,5 @@ function docx(items,config){
   'word/document.xml':`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body>${body}</w:body></w:document>`
  });
 }
-const api={sample,html,docx,settings,lines};if(typeof module!=='undefined')module.exports=api;root.CopeakGrammarPrint=api;
+const api={sample,html,docx,settings,lines,zip};if(typeof module!=='undefined')module.exports=api;root.CopeakGrammarPrint=api;
 })(typeof window!=='undefined'?window:globalThis);

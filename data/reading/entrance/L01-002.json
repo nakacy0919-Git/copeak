@@ -1,0 +1,516 @@
+{
+  "id": "L01-002",
+  "category_id": "L01",
+  "title": "Why Bees Matter More Than Honey",
+  "title_ja": "ハチはなぜ蜂蜜以上に大切なのか",
+  "level_id": "eiken-pre2",
+  "status": "reviewed",
+  "original": true,
+  "source_links": [
+    {
+      "title": "FAO: Global Action on Pollination Services for Sustainable Agriculture",
+      "url": "https://www.fao.org/pollination/"
+    },
+    {
+      "title": "FAO: Pollinators and food security",
+      "url": "https://www.fao.org/pollination/about/en/"
+    },
+    {
+      "title": "IPBES: Assessment Report on Pollinators, Pollination and Food Production (2016)",
+      "url": "https://www.ipbes.net/ppa"
+    },
+    {
+      "title": "FAO: World Bee Day — history and purpose",
+      "url": "https://www.fao.org/world-bee-day/en"
+    },
+    {
+      "title": "Our World in Data: Pollinator dependence by crop type and production volume",
+      "url": "https://ourworldindata.org/pollinator-dependence"
+    }
+  ],
+  "fact_notes": [
+    "2016年IPBESの送粉者と食料生産に関する評価報告を参照（IPBES公式ウェブサイト）。",
+    "主要食用作物の『種類』の4分の3以上が動物による受粉から程度の差はあれ利益を得る。75%は食料生産量や受粉が失われた場合の生産減少率ではない（FAO/IPBES）。",
+    "世界の作物『生産量（重量・体積換算のvolumes）』の約35%は、少なくとも部分的に動物による受粉に依存する作物から生まれる。35%が全部失われるという主張ではない（FAO/IPBES/OWID）。",
+    "国連総会は2017年12月に5月20日をWorld Bee Dayと宣言、最初の記念行事は2018年。スロベニアが推進（FAO）。",
+    "送粉者に対する生息地減少や農薬等のリスクと、野生の送粉者を含む生態系の保全はFAOの公式説明に基づく。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Bees are famous for making honey, but their more important job may be helping plants produce fruit and seeds.",
+          "ja": "ミツバチは蜂蜜を作ることで知られていますが、より重要な役割は植物が果実や種子を作るのを助けることかもしれません。"
+        },
+        {
+          "en": "When a bee visits a flower, pollen can stick to its body and then move to another flower.",
+          "ja": "ハチが花を訪れると、花粉が体に付き、別の花へ運ばれることがあります。"
+        },
+        {
+          "en": "This process is called pollination, and it is also carried out by butterflies, flies, birds, and other animals.",
+          "ja": "この過程は受粉と呼ばれ、チョウ、ハエ、鳥などの動物によっても行われます。"
+        },
+        {
+          "en": "It supports both wild plants and the farms that provide our food.",
+          "ja": "それは野生の植物と、私たちの食料を生産する農場の両方を支えています。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "In 2016, an international scientific group called IPBES published an assessment of pollination and food production.",
+          "ja": "2016年、IPBESという国際的な科学組織が、受粉と食料生産についての評価報告を発表しました。"
+        },
+        {
+          "en": "The report found that more than three quarters of the main types of food crops benefit from animal pollination to some degree.",
+          "ja": "その報告によれば、主要な食用作物の種類の4分の3以上が、程度の差はあれ、動物による受粉の恩恵を受けています。"
+        },
+        {
+          "en": "However, this does not mean that three quarters of all the food we eat would disappear without pollinators.",
+          "ja": "しかし、これは花粉を運ぶ動物がいなくなると食料の4分の3が消えてしまうという意味ではありません。"
+        },
+        {
+          "en": "About 35 percent of global crop production by volume comes from crops that depend at least partly on these animals.",
+          "ja": "世界の作物生産量の約35％は、少なくとも部分的にこれらの動物に依存する作物によるものです。"
+        },
+        {
+          "en": "Different crops need different levels of help, so the two figures describe different things.",
+          "ja": "作物によって必要とする助けの程度は異なるため、この二つの数字が表すものも異なるのです。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The problem also has a history of public action.",
+          "ja": "この問題には、社会的な取り組みの歴史もあります。"
+        },
+        {
+          "en": "In 2017, the United Nations declared May 20 World Bee Day, and people first observed it in 2018.",
+          "ja": "2017年、国際連合は5月20日を世界ミツバチの日と定め、2018年に初めて記念行事が行われました。"
+        },
+        {
+          "en": "Slovenia helped lead this effort to show that pollinators deserve attention.",
+          "ja": "スロベニアは花粉を運ぶ動物への関心を高めるため、この取り組みを主導しました。"
+        },
+        {
+          "en": "Bees and other pollinators face threats such as lost habitats, some pesticides, disease, and changes in climate.",
+          "ja": "ハチなどの送粉者は、生息地の喪失、一部の農薬、病気、気候の変化などの脅威に直面しています。"
+        },
+        {
+          "en": "Scientists also point out that protecting only managed honeybees cannot protect every wild pollinator.",
+          "ja": "科学者たちは、人間が飼育するミツバチだけを守っても、野生の送粉者すべてを守ることはできないとも指摘しています。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Farmers and local communities can help by keeping flowering plants in or near fields and protecting places where insects live.",
+          "ja": "農家や地域社会は、畑の中や周囲に花の咲く植物を残し、昆虫の生息地を守ることで役立つことができます。"
+        },
+        {
+          "en": "Reducing unnecessary pesticide use may also lower some risks.",
+          "ja": "必要のない農薬の使用を減らすことで、危険の一部を小さくできるかもしれません。"
+        },
+        {
+          "en": "Nevertheless, any plan must consider the needs of farmers, because people depend on farms for their income.",
+          "ja": "それでも、人々は農業を収入源としているため、どの計画も農家の必要を考えなければなりません。"
+        },
+        {
+          "en": "The goal is not to stop farming but to find ways for food production and nature to support each other.",
+          "ja": "目標は農業をやめることではなく、食料生産と自然が互いを支え合う方法を見つけることです。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "If we understand what the statistics actually measure, we can make better decisions.",
+          "ja": "統計が実際に何を測っているのか理解すれば、よりよい判断ができます。"
+        },
+        {
+          "en": "Protecting pollinators is therefore not just about saving bees; it is also about keeping food systems and ecosystems healthy.",
+          "ja": "したがって、送粉者を守ることは単にハチを救うことではなく、食料の仕組みや生態系を健全に保つことでもあるのです。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "Which title best expresses the passage's main idea?",
+      "options": [
+        "Why people should stop growing crops",
+        "Why pollinators matter to food and nature",
+        "How to produce more honey at home",
+        "Why all insects harm farms"
+      ],
+      "answer": 1,
+      "explanation_ja": "全段落で受粉・食料生産・送粉者の保護が説明されています。本文の主題を特定する設問です。",
+      "paragraph_ids": [
+        "p1",
+        "p5"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What happens during pollination, according to paragraph 1?",
+      "options": [
+        "Pollen can be moved from one flower to another.",
+        "All flowers turn into honey.",
+        "Bees eat the seeds of most crops.",
+        "Every plant can grow without pollen."
+      ],
+      "answer": 0,
+      "explanation_ja": "第1段落の pollen can stick ... then move to another flower を言い換えています。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "data-interpretation",
+      "prompt": "What does the passage mean by 'more than three quarters'?",
+      "options": [
+        "More than 75% of food production would disappear without insects.",
+        "More than 75% of all bees live on farms.",
+        "Over 75% of major food crop types benefit from animal pollination to some degree.",
+        "Over 75% of farmers keep honeybees."
+      ],
+      "answer": 2,
+      "explanation_ja": "対象は作物の「種類」であり、世界の食料生産量の割合でも消失する食料の割合でもありません。設問では more than three quarters → over 75% と言い換えています。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "data-interpretation",
+      "prompt": "Which explanation correctly distinguishes the two statistics in paragraph 2?",
+      "options": [
+        "Both figures measure the number of wild bee species.",
+        "The 75% figure describes crop types; the 35% figure describes production volume from partly pollinator-dependent crops.",
+        "The 35% figure shows the amount of food that has already disappeared.",
+        "Both figures are the number of countries that joined World Bee Day."
+      ],
+      "answer": 1,
+      "explanation_ja": "75％は主要作物の種類、35％は受粉に部分的にも依存する作物の世界生産量に占める割合です。同じ母集団ではありません。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "fact",
+      "prompt": "Which statement about World Bee Day is correct?",
+      "options": [
+        "It began in 2016 and is held in December.",
+        "IPBES ended the event in 2018.",
+        "Slovenia tried to prevent its creation.",
+        "The United Nations declared it in 2017, and the first observance was in 2018."
+      ],
+      "answer": 3,
+      "explanation_ja": "第3段落の declared ... in 2017 と first observed ... in 2018 を正確に把握する設問です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why does the writer mention farmers' income?",
+      "options": [
+        "To explain why environmental protection should also consider people's livelihoods",
+        "To argue that protecting insects is never important",
+        "To show that all farmers sell honey",
+        "To claim that keeping flowers always reduces food production"
+      ],
+      "answer": 0,
+      "explanation_ja": "農家の所得への配慮が必要なのは、自然保護を進める際にも人々の生活を無視できないためです。needs of farmers → people's livelihoods と言い換えています。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "discourse",
+      "prompt": "What is the role of 'Nevertheless' in paragraph 4?",
+      "options": [
+        "To add another example of a flying animal",
+        "To show that crop production has increased by 35%",
+        "To contrast ways to protect pollinators with the need to consider farmers",
+        "To give the date of the IPBES report"
+      ],
+      "answer": 2,
+      "explanation_ja": "第4段落前半の具体的な自然保護策から、農家の生活にも配慮すべきだという条件・譲歩へ転換しています。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "paraphrase",
+      "prompt": "Which sentence most closely matches the final paragraph?",
+      "options": [
+        "Only protecting managed bees can solve every problem.",
+        "Protecting pollinators can support both food systems and the wider environment.",
+        "Statistics are too difficult to use in decisions.",
+        "The main purpose of pollination is producing honey."
+      ],
+      "answer": 1,
+      "explanation_ja": "最終段落の not just about saving bees; ... food systems and ecosystems を、food systems and the wider environment に言い換えています。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "pollen",
+      "ja": "花粉",
+      "synonym": "flower pollen",
+      "definition": "fine powder made by flowers that is needed for producing seeds"
+    },
+    {
+      "term": "pollination",
+      "ja": "受粉",
+      "synonym": "transfer of pollen",
+      "definition": "the process of moving pollen so that a plant can produce seeds"
+    },
+    {
+      "term": "assessment",
+      "ja": "評価・調査報告",
+      "synonym": "evaluation",
+      "definition": "a careful study or judgment of a situation"
+    },
+    {
+      "term": "benefit",
+      "ja": "利益を受ける・役に立つ",
+      "synonym": "gain from",
+      "definition": "to receive an advantage or useful result"
+    },
+    {
+      "term": "volume",
+      "ja": "生産量・量",
+      "synonym": "amount",
+      "definition": "the total amount of something produced or measured"
+    },
+    {
+      "term": "depend",
+      "ja": "依存する・頼る",
+      "synonym": "rely",
+      "definition": "to need or rely on something to succeed"
+    },
+    {
+      "term": "declared",
+      "ja": "宣言した・指定した",
+      "synonym": "announced",
+      "definition": "said officially that something was true or would happen"
+    },
+    {
+      "term": "habitats",
+      "ja": "生息地",
+      "synonym": "natural homes",
+      "definition": "places where animals or plants normally live"
+    },
+    {
+      "term": "pesticides",
+      "ja": "農薬",
+      "synonym": "pest-control chemicals",
+      "definition": "chemicals used to kill or control unwanted insects or other pests"
+    },
+    {
+      "term": "income",
+      "ja": "収入",
+      "synonym": "earnings",
+      "definition": "money people receive from work or business"
+    },
+    {
+      "term": "statistics",
+      "ja": "統計・統計数値",
+      "synonym": "numerical data",
+      "definition": "numbers collected and studied to describe a situation"
+    },
+    {
+      "term": "ecosystems",
+      "ja": "生態系",
+      "synonym": "ecological communities",
+      "definition": "groups of living things and the environments in which they interact"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "When a bee visits a flower",
+      "explanation_ja": "When＋主語＋動詞の時を表す副詞節。花を訪れた際に何が起こるかを具体的に説明しています。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "does not mean that",
+      "explanation_ja": "not mean that ～ は『〜という意味ではない』。統計に関する誤解を明確に否定する表現です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 4,
+      "focus": "protecting only managed honeybees",
+      "explanation_ja": "動名詞句 protecting ... が文の主語となっています。野生の送粉者全体を考える必要性を述べています。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 3,
+      "focus": "not to stop farming but to find ways",
+      "explanation_ja": "not A but B の構造。『農業をやめるのではなく、両立の道を探す』という目的の対比です。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 0,
+      "focus": "If we understand what the statistics actually measure",
+      "explanation_ja": "If節による条件と、what＋主語＋動詞の間接疑問（名詞節）です。what は understand の目的語の働きをします。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "but",
+      "role_ja": "対比：蜂蜜というよく知られた役割と、送粉という重要な役割"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "However",
+      "role_ja": "逆接：作物の種類の割合を、生産量の割合と混同しないよう説明"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "so",
+      "role_ja": "因果：依存度の違いが数字の意味の違いにつながる"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "also",
+      "role_ja": "追加：社会的な取り組みの歴史を導入／野生の送粉者への配慮を追加"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "譲歩・逆接：環境対策だけでなく農家の事情も重要"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "therefore",
+      "role_ja": "帰結：前段落までの根拠から保護の幅広い意義へ"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "more than three quarters of the main types of food crops benefit from animal pollination to some degree",
+      "rewrite": "over 75 percent of major food crop types receive at least some help from animal pollinators",
+      "explanation_ja": "more than three quarters→over 75 percent、benefit→receive help。『種類』を表す types を残す点が重要です。"
+    },
+    {
+      "source": "About 35 percent of global crop production by volume comes from crops that depend at least partly on these animals",
+      "rewrite": "roughly one-third of total crop output is produced by crops with some dependence on animal pollination",
+      "explanation_ja": "about 35 percent→roughly one-third、depend at least partly→with some dependence。全量が失われるという意味にはしません。"
+    },
+    {
+      "source": "face threats such as lost habitats, some pesticides, disease, and changes in climate",
+      "rewrite": "are at risk from habitat loss, certain pesticides, illness, and a changing climate",
+      "explanation_ja": "face threats→are at risk、lost habitats→habitat loss。具体的要因を保持した言い換えです。"
+    },
+    {
+      "source": "people depend on farms for their income",
+      "rewrite": "farming supports people's livelihoods",
+      "explanation_ja": "収入を農業に依存する具体表現を、livelihoods（暮らし・生計）という抽象的な語でまとめます。"
+    },
+    {
+      "source": "not to stop farming but to find ways for food production and nature to support each other",
+      "rewrite": "to make farming and environmental protection work together rather than abandon agriculture",
+      "explanation_ja": "not A but B を rather than で言い換え、food production and nature を farming and environmental protection に置き換えています。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "統計から起こりやすい誤解を否定しているため逆接です。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 4,
+      "answer": "different",
+      "options": [
+        "similar",
+        "different",
+        "equal",
+        "certain"
+      ],
+      "explanation_ja": "作物が必要とする受粉の程度も、二つの数字の意味も同じではないという文意です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "Slovenia",
+      "options": [
+        "Antarctica",
+        "Slovenia",
+        "Brazil",
+        "Australia"
+      ],
+      "explanation_ja": "世界ミツバチの日制定に向けた取り組みを先導した国です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "Moreover",
+        "For instance",
+        "As a result",
+        "Nevertheless"
+      ],
+      "explanation_ja": "送粉者の保護策と、農家の生活への配慮を譲歩的に結び付けています。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 0,
+      "answer": "statistics",
+      "options": [
+        "prices",
+        "statistics",
+        "photographs",
+        "products"
+      ],
+      "explanation_ja": "75％と35％が何を測る数字なのかを理解する必要があるという結論です。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "answer": "therefore",
+      "options": [
+        "however",
+        "meanwhile",
+        "therefore",
+        "otherwise"
+      ],
+      "explanation_ja": "全体の論旨を受け、送粉者保護の幅広い意義を結論として述べます。"
+    }
+  ],
+  "word_count": 324
+}

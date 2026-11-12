@@ -1,0 +1,287 @@
+{
+  "id": "L04-001",
+  "category_id": "L04",
+  "title": "Connected but Still Lonely",
+  "title_ja": "つながっていても孤独な理由",
+  "level_id": "eiken-pre2",
+  "word_count": 263,
+  "original": true,
+  "status": "reviewed",
+  "source_links": [
+    {
+      "title": "WHO: Social isolation and loneliness",
+      "url": "https://www.who.int/teams/social-determinants-of-health/demographic-change-and-healthy-ageing/social-isolation-and-loneliness"
+    },
+    {
+      "title": "WHO Commission on Social Connection 2025",
+      "url": "https://www.who.int/publications/i/item/9789240112360"
+    }
+  ],
+  "fact_notes": [
+    "WHO estimates roughly one in six people worldwide experiences loneliness; loneliness and social isolation are related but distinct concepts."
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A student may exchange dozens of messages each day and still feel that nobody understands them.",
+          "ja": "生徒は毎日何十通ものメッセージを交わしても、誰にも理解されていないと感じることがあります。"
+        },
+        {
+          "en": "This situation seems surprising only if we think that many contacts automatically create close relationships.",
+          "ja": "接触の数が多ければ自動的に親しい関係ができると思う場合にだけ、この状況は意外に見えます。"
+        },
+        {
+          "en": "A person can belong to several online groups without knowing whom to trust with a personal problem.",
+          "ja": "人は複数のオンライン集団に所属していても、個人的な問題を誰に相談すべきかわからないことがあります。"
+        },
+        {
+          "en": "In contrast, a single dependable friendship may offer comfort during a difficult time.",
+          "ja": "対照的に、頼れる友人が一人いるだけで、つらい時期に安心できるかもしれません。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "In 2025, the World Health Organization published a major report on social connection and health.",
+          "ja": "2025年、世界保健機関は人とのつながりと健康に関する重要な報告書を公表しました。"
+        },
+        {
+          "en": "It estimated that roughly one in six people worldwide experiences loneliness, an issue affecting many age groups.",
+          "ja": "その報告では、世界のおよそ6人に1人が孤独感を経験すると推定され、多くの年代に関わる問題だとされました。"
+        },
+        {
+          "en": "However, loneliness is not identical to social isolation, which usually concerns having relatively few social contacts.",
+          "ja": "しかし孤独感は社会的孤立と同一ではなく、後者は一般に社会的接触が比較的少ない状態を指します。"
+        },
+        {
+          "en": "Loneliness concerns how someone feels about the quality of connections, even when other people are nearby.",
+          "ja": "孤独感は周囲に人がいる場合でも、つながりの質を本人がどう感じるかに関係します。"
+        },
+        {
+          "en": "Therefore, counting friends or followers cannot fully describe whether a person feels supported.",
+          "ja": "したがって友人やフォロワーの数だけでは、支えられていると感じるかを十分に表せません。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Schools can help by creating opportunities where students listen to one another without fear of embarrassment.",
+          "ja": "学校は生徒が恥を恐れず互いの話に耳を傾ける機会を設けることで役立てます。"
+        },
+        {
+          "en": "For example, small-group discussions may be more welcoming to quiet students than noisy public events.",
+          "ja": "たとえば少人数の話し合いは、騒がしい行事よりも静かな生徒を受け入れやすいかもしれません。"
+        },
+        {
+          "en": "Teachers can also notice when the same student is repeatedly left out of shared activities.",
+          "ja": "教師は同じ生徒が共同活動から繰り返し取り残されていないか気づくこともできます。"
+        },
+        {
+          "en": "Nevertheless, no single school activity can guarantee that everyone will feel less lonely.",
+          "ja": "それでも一つの学校活動だけで、誰もが孤独を感じなくなると保証はできません。"
+        },
+        {
+          "en": "People differ in the kind of relationships they value and how much time they enjoy spending alone.",
+          "ja": "人によって大切にする関係の種類や、一人で過ごすのを楽しむ時間の長さは異なります。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The important goal is not simply to increase the number of conversations that students have.",
+          "ja": "重要な目標は、生徒の会話の回数を単に増やすことではありません。"
+        },
+        {
+          "en": "Rather, schools and families can encourage relationships in which young people feel respected and able to ask for help.",
+          "ja": "むしろ学校と家庭は、若者が尊重され、助けを求められると感じる関係を促すことができます。"
+        },
+        {
+          "en": "A connected community may begin with patient listening rather than large numbers on a screen.",
+          "ja": "つながりのある共同体は、画面上の大きな数字よりも、辛抱強く話を聞くことから始まるかもしれません。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the main point of the passage?",
+      "options": [
+        "Online messages always prevent loneliness.",
+        "The quality of relationships matters more than contact numbers alone.",
+        "Schools should eliminate group activities.",
+        "Only older adults experience loneliness."
+      ],
+      "answer": 1,
+      "explanation_ja": "接触数とつながりの質は異なるという主張が全体を貫きます。",
+      "paragraph_ids": [
+        "p1",
+        "p4"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "data-interpretation",
+      "prompt": "What does the WHO estimate describe?",
+      "options": [
+        "About one in six people worldwide experiences loneliness.",
+        "Exactly six students are lonely in every class.",
+        "One in six people has no phone.",
+        "All people living alone are unhappy."
+      ],
+      "answer": 0,
+      "explanation_ja": "世界全体の推定割合であり、特定の教室についての人数ではありません。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "How does loneliness differ from social isolation?",
+      "options": [
+        "Loneliness measures the number of online posts.",
+        "Loneliness is about feelings concerning relationships.",
+        "Loneliness only occurs without social contacts.",
+        "Loneliness is an official school rule."
+      ],
+      "answer": 1,
+      "explanation_ja": "主観的な孤独感と接触数の少なさを区別します。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why might small-group discussions help some students?",
+      "options": [
+        "They make every student confident instantly.",
+        "They can create a more comfortable setting for quiet students.",
+        "They stop all communication.",
+        "They replace every friendship."
+      ],
+      "answer": 1,
+      "explanation_ja": "静かな生徒が参加しやすい場をつくるためです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "dependable",
+      "ja": "頼れる",
+      "synonym": "reliable",
+      "definition": "able to be trusted"
+    },
+    {
+      "term": "estimated",
+      "ja": "推定した",
+      "synonym": "calculated approximately",
+      "definition": "made a careful judgment about an amount"
+    },
+    {
+      "term": "identical",
+      "ja": "同一の",
+      "synonym": "exactly the same",
+      "definition": "the same in every important way"
+    },
+    {
+      "term": "isolation",
+      "ja": "孤立",
+      "synonym": "separation",
+      "definition": "having little social contact"
+    },
+    {
+      "term": "embarrassment",
+      "ja": "恥ずかしさ",
+      "synonym": "shame",
+      "definition": "an uncomfortable feeling from possible mistakes"
+    },
+    {
+      "term": "encourage",
+      "ja": "促す",
+      "synonym": "support",
+      "definition": "to help something develop or happen"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "which usually concerns having relatively few social contacts",
+      "explanation_ja": "whichの継続用法で直前のsocial isolationを補足しています。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "focus": "in which young people feel respected",
+      "explanation_ja": "前置詞＋関係代名詞がrelationshipsを修飾しています。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "In contrast",
+      "role_ja": "対比：多い連絡先と頼れる友人"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "However",
+      "role_ja": "逆接：孤独と社会的孤立を区別する"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Nevertheless",
+      "role_ja": "譲歩：学校の活動だけでは保証できない"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "counting friends or followers cannot fully describe whether a person feels supported",
+      "rewrite": "social-contact totals do not measure emotional support adequately",
+      "explanation_ja": "数を数える具体行為を統計の限界という抽象表現に言い換えます。"
+    },
+    {
+      "source": "feel respected and able to ask for help",
+      "rewrite": "experience acceptance and dependable support",
+      "explanation_ja": "尊重と支援をまとめて表現します。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "Therefore",
+        "For instance",
+        "Likewise"
+      ],
+      "explanation_ja": "似た概念の相違を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "answer": "Nevertheless",
+      "options": [
+        "Moreover",
+        "Nevertheless",
+        "As a result",
+        "For example"
+      ],
+      "explanation_ja": "提案に限界があることを認めます。"
+    }
+  ]
+}

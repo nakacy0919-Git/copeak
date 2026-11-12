@@ -1,0 +1,291 @@
+{
+  "id": "L06-001",
+  "category_id": "L06",
+  "title": "Why Remembering Beats Rereading",
+  "title_ja": "読み直すだけでなく思い出す練習が重要な理由",
+  "original": true,
+  "status": "reviewed",
+  "word_count": 294,
+  "level_id": "eiken-pre2",
+  "source_links": [
+    {
+      "title": "Primary source",
+      "url": "https://www.psychologicalscience.org/journals/psychological-science/j.1467-9280.2006.01693.x/"
+    }
+  ],
+  "fact_notes": [
+    "Roediger and Karpicke 2006 retrieval practice and delayed memory"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Many students read their notes again and again before an examination because familiar words make them feel confident.",
+          "ja": "多くの生徒は見慣れた言葉で自信を感じるため、試験前にノートを何度も読みます。"
+        },
+        {
+          "en": "However, recognizing information when it is visible is not necessarily the same as remembering that information without any help.",
+          "ja": "しかし情報が見えるときに認識できることは、助けなしで思い出せることと必ずしも同じではありません。"
+        },
+        {
+          "en": "A student might understand a history passage while looking at it but be unable to explain its argument later.",
+          "ja": "生徒は歴史の文章を見ながら理解しても、後でその主張を説明できないかもしれません。"
+        },
+        {
+          "en": "Psychologists call the effort to bring information back from memory retrieval practice, which can feel more difficult than rereading.",
+          "ja": "心理学者は記憶から情報を取り出す努力を検索練習と呼び、再読より難しく感じることがあります。"
+        },
+        {
+          "en": "The difference between feeling familiar and actually remembering raises an important question about effective learning methods.",
+          "ja": "見慣れた感覚と実際の記憶との違いは、効果的な学習法について重要な問いを提起します。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "In 2006, psychologists Henry Roediger and Jeffrey Karpicke published research involving students who learned passages of written information.",
+          "ja": "2006年、心理学者のローディガーとカーピックは文章を学んだ学生を対象にした研究を発表しました。"
+        },
+        {
+          "en": "Some participants repeatedly studied the passages, whereas others practiced recalling them through tests that provided no feedback.",
+          "ja": "一部の参加者は文章を繰り返し学び、別の参加者はフィードバックのないテストで内容を思い出す練習をしました。"
+        },
+        {
+          "en": "The final memory checks took place after five minutes, two days, or one week, allowing different delays to be compared.",
+          "ja": "最終的な記憶の確認は5分後、2日後、1週間後に行われ、異なる時間間隔を比較できました。"
+        },
+        {
+          "en": "Repeated studying produced better results on the shortest test, but earlier retrieval testing helped more on the delayed tests.",
+          "ja": "最短のテストでは反復学習が優れていましたが、遅延テストではそれ以前の検索テストの方が効果的でした。"
+        },
+        {
+          "en": "This result suggests that an easy feeling during study does not guarantee that the material will be remembered later.",
+          "ja": "この結果は、学習中の楽な感覚が後で覚えていることを保証しないと示唆します。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The experiments do not mean that students should stop reading carefully or asking teachers for explanations when ideas are unfamiliar.",
+          "ja": "この実験は、考えがよくわからないときに丁寧に読んだり教師に説明を求めたりするのをやめるべきだという意味ではありません。"
+        },
+        {
+          "en": "Instead, students can combine understandable information with short opportunities to recall what they have learned in their own words.",
+          "ja": "むしろ生徒は理解しやすい情報と、学んだことを自分の言葉で思い出す短い機会を組み合わせられます。"
+        },
+        {
+          "en": "For example, after reading a passage, they could close the page and write down the main idea before checking details.",
+          "ja": "たとえば文章を読んだ後、ページを閉じ、詳細を確認する前に中心的考えを書き出すことができます。"
+        },
+        {
+          "en": "Mistakes are useful if they show which points need another explanation or a second attempt at remembering.",
+          "ja": "間違いは、どの点に再説明や二度目の想起が必要かを示すなら役立ちます。"
+        },
+        {
+          "en": "Nevertheless, extremely difficult tests without sufficient support may discourage learners rather than help them become confident.",
+          "ja": "それでも十分な支援のない極端に難しいテストは、学習者に自信をつけるより意欲をくじくかもしれません。"
+        },
+        {
+          "en": "A sensible study plan therefore balances clear explanations, repeated opportunities to recall, and feedback that helps students improve.",
+          "ja": "したがって理にかなった学習計画は、明快な説明、想起を繰り返す機会、改善に役立つフィードバックを両立させます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the passage mainly about?",
+      "options": [
+        "Why repeated reading always guarantees success",
+        "How retrieval practice can strengthen later memory when used with appropriate support",
+        "Why textbooks should disappear",
+        "How every test should be made extremely difficult"
+      ],
+      "answer": 1,
+      "explanation_ja": "検索練習の記憶への効果と、適切な支援との組み合わせが中心です。",
+      "paragraph_ids": [
+        "p1",
+        "p3"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What did the 2006 experiments show about delayed tests?",
+      "options": [
+        "Repeated reading always produced better results.",
+        "Testing had no effect after two days.",
+        "Earlier retrieval practice helped more than repeated study on delayed tests.",
+        "No students took delayed tests."
+      ],
+      "answer": 2,
+      "explanation_ja": "2日後・1週間後の遅延テストにおける検索練習の効果です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why can familiar notes give a misleading sense of learning?",
+      "options": [
+        "Seeing familiar words is not necessarily the same as recalling ideas independently.",
+        "Every sentence in a notebook is wrong.",
+        "Written information cannot be learned.",
+        "Reading always makes memory weaker."
+      ],
+      "answer": 0,
+      "explanation_ja": "recognitionとrecallの違いを読み取ります。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "paraphrase",
+      "prompt": "What does 'an easy feeling during study' refer to?",
+      "options": [
+        "The physical temperature in the classroom",
+        "A sense of familiarity or confidence that may not show lasting memory",
+        "The length of a textbook",
+        "The absence of any examination"
+      ],
+      "answer": 1,
+      "explanation_ja": "学習中に簡単だと感じることを主観的な熟知感として言い換えています。",
+      "paragraph_ids": [
+        "p1",
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "discourse",
+      "prompt": "Why does paragraph 3 use 'Nevertheless'?",
+      "options": [
+        "To argue that all difficult tasks are best",
+        "To qualify the benefits of testing by noting the danger of excessive difficulty",
+        "To change to an unrelated topic",
+        "To introduce the year 2006"
+      ],
+      "answer": 1,
+      "explanation_ja": "望ましい学習方法にも適切な難度・支援が必要と限定しています。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "retrieval",
+      "ja": "記憶からの取り出し",
+      "synonym": "recall",
+      "definition": "bringing information back from memory"
+    },
+    {
+      "term": "familiar",
+      "ja": "見慣れた",
+      "synonym": "well-known",
+      "definition": "recognized because it has been seen before"
+    },
+    {
+      "term": "participants",
+      "ja": "参加者",
+      "synonym": "subjects",
+      "definition": "people taking part in a study"
+    },
+    {
+      "term": "feedback",
+      "ja": "フィードバック",
+      "synonym": "response",
+      "definition": "information given about someone's performance"
+    },
+    {
+      "term": "delayed",
+      "ja": "時間をおいた",
+      "synonym": "later",
+      "definition": "happening after a period of time"
+    },
+    {
+      "term": "discourage",
+      "ja": "意欲をくじく",
+      "synonym": "reduce motivation",
+      "definition": "make someone less willing to try"
+    },
+    {
+      "term": "sensible",
+      "ja": "理にかなった",
+      "synonym": "reasonable",
+      "definition": "showing practical good judgment"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "not necessarily the same as",
+      "explanation_ja": "not necessarily は『必ずしも〜ではない』という部分否定を表します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "逆接：見るだけの認識と自力での想起の違い"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Nevertheless",
+      "role_ja": "譲歩：検索練習の利点と過度な難度の危険"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "therefore",
+      "role_ja": "帰結：望ましい学習計画の結論"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "an easy feeling during study",
+      "rewrite": "a subjective sense that the material is already familiar",
+      "explanation_ja": "楽な感覚を『学習内容への主観的な熟知感』と抽象化します。"
+    },
+    {
+      "source": "recall what they have learned in their own words",
+      "rewrite": "restate the studied information without copying the original text",
+      "explanation_ja": "自分の言葉で想起することを、原文を写さずに言い直す具体的な行為で表します。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "answer": "However",
+      "options": [
+        "However",
+        "Therefore",
+        "Likewise",
+        "For example"
+      ],
+      "explanation_ja": "見慣れていることと記憶できることの対比です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 4,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "Consequently",
+        "Moreover",
+        "For instance"
+      ],
+      "explanation_ja": "利点を認めながら過度な難度という問題を挙げます。"
+    }
+  ]
+}

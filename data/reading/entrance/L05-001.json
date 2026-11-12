@@ -1,0 +1,320 @@
+{
+  "id": "L05-001",
+  "category_id": "L05",
+  "title": "A Promise of Safety Across Borders",
+  "title_ja": "国境を越えて安全を守る約束",
+  "level_id": "eiken-pre2",
+  "word_count": 306,
+  "original": true,
+  "status": "reviewed",
+  "source_links": [
+    {
+      "title": "UNHCR: The 1951 Refugee Convention",
+      "url": "https://www.unhcr.org/about-unhcr/overview/1951-refugee-convention"
+    }
+  ],
+  "fact_notes": [
+    "The 1951 Refugee Convention was adopted in 1951, the 1967 Protocol removed the original time and geographical restrictions, and non-refoulement is a core principle."
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "People cross international borders for many reasons, including education, employment, family, and the search for safety.",
+          "ja": "人々は教育、雇用、家族、安全を求めることなどさまざまな理由で国境を越えます。"
+        },
+        {
+          "en": "However, leaving home because of serious threats is different from choosing a new country for a better job.",
+          "ja": "しかし深刻な脅威のため故郷を離れることは、よりよい仕事を求めて移住することとは異なります。"
+        },
+        {
+          "en": "Some people cannot safely depend on the protection of their own governments when they face persecution.",
+          "ja": "迫害を受ける人のなかには、自国政府の保護に安全に頼れない人もいます。"
+        },
+        {
+          "en": "International rules therefore ask not only where these people will live but how other states should treat them.",
+          "ja": "したがって国際的な規則は彼らがどこに住むかだけでなく、他国がどう扱うべきかも問います。"
+        },
+        {
+          "en": "The history of refugee protection shows how painful experiences can lead to shared legal responsibilities.",
+          "ja": "難民保護の歴史は、つらい経験が共通の法的責任へつながり得ることを示しています。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "After the Second World War, millions of people faced displacement and uncertainty about their futures.",
+          "ja": "第二次世界大戦後、何百万人もの人々が避難や将来の不確実さに直面しました。"
+        },
+        {
+          "en": "The 1951 Refugee Convention established an international framework for defining refugees and protecting certain rights.",
+          "ja": "1951年の難民条約は、難民を定義し一定の権利を守る国際的な枠組みを設けました。"
+        },
+        {
+          "en": "At first, the agreement included limitations connected with events before 1951 and the European postwar situation.",
+          "ja": "当初の協定には1951年以前の出来事や欧州の戦後状況と関係する制限がありました。"
+        },
+        {
+          "en": "Yet persecution and forced movement did not remain within one region or one historical period.",
+          "ja": "しかし迫害や強制移動は一地域や一つの時代に収まりませんでした。"
+        },
+        {
+          "en": "The 1967 Protocol removed the original time and geographical restrictions, giving the system a wider reach.",
+          "ja": "1967年の議定書はもとの時間的・地理的制限を取り除き、制度の適用範囲を広げました。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "One key idea is known as non-refoulement, which concerns returning people to places of serious danger.",
+          "ja": "重要な考え方の一つはノン・ルフールマンと呼ばれ、深刻な危険がある場所へ人を戻すことに関わります。"
+        },
+        {
+          "en": "In general, it protects refugees from being sent to a country where their life or freedom faces serious threats.",
+          "ja": "一般に、この原則は命や自由に深刻な脅威がある国へ難民を送還することから守ります。"
+        },
+        {
+          "en": "This principle represents more than an expression of kindness, because it is a legal standard for states.",
+          "ja": "この原則は単なる親切の表明以上のもので、国家の行動に対する法的基準です。"
+        },
+        {
+          "en": "The Convention also concerns access to work, education, legal processes, and official identity documents.",
+          "ja": "条約は仕事、教育、法的手続き、公的な身分証明書へのアクセスにも関わります。"
+        },
+        {
+          "en": "These provisions recognize that safety is only the first step toward rebuilding an independent life.",
+          "ja": "こうした規定は、安全は自立した生活を再建する最初の一歩にすぎないと認識しています。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Governments must still decide how to examine claims fairly and organize services with limited resources.",
+          "ja": "政府は限られた資源で申請を公平に審査しサービスを整える方法を今も決めなければなりません。"
+        },
+        {
+          "en": "For instance, officials need to consider whether an applicant faces the kinds of risks described in the law.",
+          "ja": "たとえば担当者は申請者が法律に示された種類の危険に直面しているか検討する必要があります。"
+        },
+        {
+          "en": "Nevertheless, these practical difficulties do not remove the basic importance of protection against serious harm.",
+          "ja": "それでもこうした実務上の難しさによって、深刻な被害から守る基本的な重要性がなくなるわけではありません。"
+        },
+        {
+          "en": "The agreements illustrate how a shared rule can guide difficult decisions even when countries have different circumstances.",
+          "ja": "これらの協定は、各国の事情が異なっても共通の規則が難しい判断を導き得ることを示します。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the central theme?",
+      "options": [
+        "The history and principles of international refugee protection",
+        "Tourism after the Second World War",
+        "Reasons that students change schools",
+        "How to issue a passport for every traveler"
+      ],
+      "answer": 0,
+      "explanation_ja": "難民条約と保護原則の歴史・意義を説明しています。",
+      "paragraph_ids": [
+        "p1",
+        "p2",
+        "p3"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "fact",
+      "prompt": "What did the 1967 Protocol change?",
+      "options": [
+        "It abolished all international borders.",
+        "It removed earlier time and geographical limits.",
+        "It replaced every national law.",
+        "It first established the United Nations."
+      ],
+      "answer": 1,
+      "explanation_ja": "原文の removed ... restrictions が正解の limits に言い換えられています。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "paraphrase",
+      "prompt": "What does non-refoulement mainly protect against?",
+      "options": [
+        "A student changing a school",
+        "Sending a refugee back to serious danger",
+        "Changing from one job to another",
+        "Moving to a city voluntarily"
+      ],
+      "answer": 1,
+      "explanation_ja": "第3段落の危険な場所への送還を防ぐ原則です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why does the Convention discuss work and education?",
+      "options": [
+        "Because protection also involves rebuilding everyday life",
+        "Because refugees are all teachers",
+        "Because the treaty concerns only schools",
+        "Because work removes all dangers"
+      ],
+      "answer": 0,
+      "explanation_ja": "安全だけでなく生活の再建も必要だからです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "discourse",
+      "prompt": "What does 'Nevertheless' introduce?",
+      "options": [
+        "A denial of any protection",
+        "The continued importance of protection despite practical difficulties",
+        "A new country name",
+        "An additional date from 1951"
+      ],
+      "answer": 1,
+      "explanation_ja": "難しさを認めながらも、基本的保護を重視するという譲歩です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "persecution",
+      "ja": "迫害",
+      "synonym": "serious mistreatment",
+      "definition": "harmful treatment because of identity or beliefs"
+    },
+    {
+      "term": "displacement",
+      "ja": "避難・強制移動",
+      "synonym": "forced movement",
+      "definition": "having to leave a home or place"
+    },
+    {
+      "term": "framework",
+      "ja": "枠組み",
+      "synonym": "structure",
+      "definition": "an organized system of rules"
+    },
+    {
+      "term": "restrictions",
+      "ja": "制限",
+      "synonym": "limits",
+      "definition": "rules that reduce what is allowed"
+    },
+    {
+      "term": "principle",
+      "ja": "原則",
+      "synonym": "basic rule",
+      "definition": "a belief that guides behavior"
+    },
+    {
+      "term": "provisions",
+      "ja": "規定",
+      "synonym": "clauses",
+      "definition": "parts of an agreement setting rules"
+    },
+    {
+      "term": "applicant",
+      "ja": "申請者",
+      "synonym": "person applying",
+      "definition": "someone asking formally for approval"
+    },
+    {
+      "term": "circumstances",
+      "ja": "事情・状況",
+      "synonym": "conditions",
+      "definition": "facts that affect a situation"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 0,
+      "focus": "which concerns returning people",
+      "explanation_ja": "関係代名詞whichの継続用法でnon-refoulementを補足説明します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "focus": "whether an applicant faces",
+      "explanation_ja": "whether節は『〜かどうか』という名詞節を作ります。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "逆接：一般的な移住理由と避難を対比"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "Yet",
+      "role_ja": "逆接：当初の制限と現実の広がりを対比"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "譲歩：実務の難しさを認めながら保護を重視"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "removed the original time and geographical restrictions",
+      "rewrite": "eliminated the earlier limits concerning dates and regions",
+      "explanation_ja": "timeとgeographicalの抽象概念をdatesとregionsで具体化します。"
+    },
+    {
+      "source": "a legal standard for states",
+      "rewrite": "an official rule that governments are expected to follow",
+      "explanation_ja": "法的基準を実際に政府が守るべき規則と言い換えます。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "answer": "Yet",
+      "options": [
+        "Yet",
+        "Therefore",
+        "Likewise",
+        "For example"
+      ],
+      "explanation_ja": "当初の制度とその後の現実を対比します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "For instance",
+        "Consequently",
+        "Nevertheless",
+        "In addition"
+      ],
+      "explanation_ja": "困難があっても重要性は変わらないという譲歩です。"
+    }
+  ]
+}
