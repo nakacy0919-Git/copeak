@@ -1,0 +1,700 @@
+{
+  "id": "L12-005",
+  "category_id": "L12",
+  "title": "The Appointment Letter People Could Read",
+  "title_ja": "誰もが読みやすい予約案内",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "word_count": 311,
+  "source_links": [
+    {
+      "title": "Educational background reference",
+      "url": "https://www.who.int/health-topics/health-literacy"
+    }
+  ],
+  "fact_notes": [
+    "架空の教育用ケースであり、医療・学校個別の事実や助言を示すものではない。本文・和訳・問題は独自制作。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A community clinic sends a letter to patients before their first appointment.",
+          "ja": "地域の診療所は初回の予約前に患者へ手紙を送ります。"
+        },
+        {
+          "en": "The letter explains when to arrive and how to find the correct entrance.",
+          "ja": "手紙には到着時刻と正しい入口の見つけ方が書いてあります。"
+        },
+        {
+          "en": "However, some patients report that the instructions are difficult to understand.",
+          "ja": "しかし説明が理解しにくいと話す患者がいます。"
+        },
+        {
+          "en": "The sentences are long, and important information is hidden in several paragraphs.",
+          "ja": "文が長く、重要な情報がいくつもの段落に埋もれています。"
+        },
+        {
+          "en": "A staff member suggests checking whether readers can find the information they need.",
+          "ja": "職員の一人は読者が必要な情報を見つけられるか確認するよう提案します。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The clinic asks a small group of volunteers to read the letter.",
+          "ja": "診療所は少人数のボランティアに手紙を読んでもらいます。"
+        },
+        {
+          "en": "For example, they ask readers to point to the appointment time and the entrance on a map.",
+          "ja": "例えば読者に予約時刻と地図上の入口を指し示してもらいます。"
+        },
+        {
+          "en": "Several people find the date easily but have trouble identifying the correct door.",
+          "ja": "日付は簡単に見つけても、正しい扉を特定するのに困る人がいます。"
+        },
+        {
+          "en": "The staff realize that a message may contain the right facts without communicating them clearly.",
+          "ja": "職員は正しい事実が書かれていても明確に伝わらない場合があると気づきます。"
+        },
+        {
+          "en": "They decide to improve the design instead of blaming the readers.",
+          "ja": "読者を責めるのではなく設計を改善することにします。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "A new letter uses short sentences, headings, and a simple drawing of the building.",
+          "ja": "新しい手紙では短い文、見出し、建物の簡単な絵を使います。"
+        },
+        {
+          "en": "The appointment date and time appear at the top of the page.",
+          "ja": "予約日と時刻はページの上部に表示されます。"
+        },
+        {
+          "en": "Instead of filling every space with text, the clinic leaves room between different instructions.",
+          "ja": "すべての余白を文字で埋めるのではなく、異なる指示の間に空間を残します。"
+        },
+        {
+          "en": "The staff also explain where patients can ask questions if they need help.",
+          "ja": "必要ならどこで質問できるかも説明します。"
+        },
+        {
+          "en": "The goal is to make useful information easier to find and act on.",
+          "ja": "目標は役立つ情報を見つけ、実行しやすくすることです。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Nevertheless, the clinic knows that one design cannot meet everyone's needs.",
+          "ja": "それでも一つのデザインで全員の必要に応えられるわけではないと診療所は理解しています。"
+        },
+        {
+          "en": "Some people may prefer information in another language or a spoken explanation.",
+          "ja": "別の言語の情報や口頭の説明を好む人もいます。"
+        },
+        {
+          "en": "Others may need help finding the building because transport options are limited.",
+          "ja": "交通手段が限られるため建物を探す助けが必要な人もいます。"
+        },
+        {
+          "en": "The clinic therefore invites further feedback and reviews its instructions regularly.",
+          "ja": "そのため診療所はさらに意見を募り、案内を定期的に見直します。"
+        },
+        {
+          "en": "Clear communication requires attention to the people receiving the message.",
+          "ja": "わかりやすい伝達にはメッセージを受け取る人への配慮が必要です。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "After the changes, patients report that the new letter is easier to follow.",
+          "ja": "変更後、患者たちは新しい手紙の方が理解しやすいと述べます。"
+        },
+        {
+          "en": "The clinic does not assume that every difficulty has disappeared.",
+          "ja": "診療所はすべての困難が消えたとは考えません。"
+        },
+        {
+          "en": "As a result, the staff continue checking whether the information helps people arrive prepared.",
+          "ja": "その結果、職員は案内が人々の受診準備に役立つか確認し続けます。"
+        },
+        {
+          "en": "They learn that writing clearly is part of providing a welcoming service.",
+          "ja": "わかりやすく書くことが親切なサービスの一部だと学びます。"
+        },
+        {
+          "en": "Good instructions are judged by whether readers can actually use them.",
+          "ja": "よい案内は読者が実際に使えるかどうかで評価されます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What information does the original letter include?",
+      "options": [
+        "Arrival time and how to find the entrance.",
+        "The clinic's history over a hundred years.",
+        "Every staff member's favorite food.",
+        "A list of all local schools."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落の「手紙には到着時刻と正しい入口の見つけ方が書いてあります。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Why do patients find the original letter difficult?",
+      "options": [
+        "It contains no useful facts at all.",
+        "It is written only as a picture.",
+        "Every patient has lost the letter.",
+        "Important details are hidden in long text."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落の「文が長く、重要な情報がいくつもの段落に埋もれています。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What do volunteers try to find?",
+      "options": [
+        "The clinic's sports team.",
+        "The weather for the next month.",
+        "The appointment time and the entrance.",
+        "The cost of a new building."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落の「例えば読者に予約時刻と地図上の入口を指し示してもらいます。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What do staff learn about correct facts?",
+      "options": [
+        "Readers should never ask questions.",
+        "Facts can still be presented unclearly.",
+        "Correct facts are always easy to find.",
+        "A longer letter is always better."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落の「職員は正しい事実が書かれていても明確に伝わらない場合があると気づきます。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "Where does the new letter display the appointment date?",
+      "options": [
+        "At the top of the page.",
+        "Only in the final sentence.",
+        "Inside a photograph.",
+        "On a second hidden page."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落の「予約日と時刻はページの上部に表示されます。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What extra support is explained?",
+      "options": [
+        "How to choose a school subject.",
+        "How to buy a new phone.",
+        "How to change the clinic's name.",
+        "Where patients can ask questions."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落の「必要ならどこで質問できるかも説明します。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "Why might one design be insufficient?",
+      "options": [
+        "No one needs travel information.",
+        "Every patient prefers long sentences.",
+        "People have different language and communication needs.",
+        "All patients use the same language."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落の「別の言語の情報や口頭の説明を好む人もいます。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What does the clinic do after redesigning?",
+      "options": [
+        "It requires everyone to use only one language.",
+        "It invites feedback and regularly reviews the instructions.",
+        "It permanently refuses questions.",
+        "It stops sending any information."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落の「そのため診療所はさらに意見を募り、案内を定期的に見直します。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "How do patients respond to the new letter?",
+      "options": [
+        "They find it easier to follow.",
+        "They say it contains no date.",
+        "They refuse to read any part.",
+        "They ask to remove all headings."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落の「その結果、職員は案内が人々の受診準備に役立つか確認し続けます。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the main lesson?",
+      "options": [
+        "The longest letter is always the most helpful.",
+        "A message is effective simply because its facts are true.",
+        "One format is perfect for every reader.",
+        "Clear instructions should be evaluated by whether people can use them."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落の「よい案内は読者が実際に使えるかどうかで評価されます。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "actually",
+      "ja": "実際に",
+      "synonym": "really",
+      "definition": "in fact rather than only in theory"
+    },
+    {
+      "term": "assume",
+      "ja": "決めつける",
+      "synonym": "suppose",
+      "definition": "to accept an idea without checking"
+    },
+    {
+      "term": "attention",
+      "ja": "注目",
+      "synonym": "notice",
+      "definition": "interest directed at something"
+    },
+    {
+      "term": "checking",
+      "ja": "確認すること",
+      "synonym": "verification",
+      "definition": "testing whether something is right"
+    },
+    {
+      "term": "communication",
+      "ja": "伝達",
+      "synonym": "exchange",
+      "definition": "the sharing of information"
+    },
+    {
+      "term": "community",
+      "ja": "地域社会",
+      "synonym": "neighborhood",
+      "definition": "people living in the same area"
+    },
+    {
+      "term": "correct",
+      "ja": "訂正する・正しい",
+      "synonym": "fix",
+      "definition": "to remove errors or make something accurate"
+    },
+    {
+      "term": "decide",
+      "ja": "決める",
+      "synonym": "choose",
+      "definition": "to make a choice"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "difficulty",
+      "ja": "困難",
+      "synonym": "trouble",
+      "definition": "a problem that makes something hard"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "explanation",
+      "ja": "説明",
+      "synonym": "account",
+      "definition": "a statement of why something happened"
+    },
+    {
+      "term": "feedback",
+      "ja": "意見",
+      "synonym": "response",
+      "definition": "information about whether something works"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "important",
+      "ja": "大切な",
+      "synonym": "necessary",
+      "definition": "having high value"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "details",
+      "definition": "facts someone needs"
+    },
+    {
+      "term": "instructions",
+      "ja": "案内",
+      "synonym": "directions",
+      "definition": "information describing steps"
+    },
+    {
+      "term": "leaves",
+      "ja": "葉",
+      "synonym": "foliage",
+      "definition": "flat green parts of a plant"
+    },
+    {
+      "term": "limited",
+      "ja": "限られた",
+      "synonym": "restricted",
+      "definition": "small in amount or restricted in extent"
+    },
+    {
+      "term": "map",
+      "ja": "地図",
+      "synonym": "chart",
+      "definition": "a drawing showing features of an area"
+    },
+    {
+      "term": "message",
+      "ja": "メッセージ",
+      "synonym": "communication",
+      "definition": "information sent to someone"
+    },
+    {
+      "term": "needs",
+      "ja": "必要",
+      "synonym": "requirements",
+      "definition": "things necessary for well-being"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "prefer",
+      "ja": "好む",
+      "synonym": "favor",
+      "definition": "to like one option more"
+    },
+    {
+      "term": "reviews",
+      "ja": "総説・レビュー",
+      "synonym": "surveys",
+      "definition": "studies that examine and summarize previous research"
+    },
+    {
+      "term": "space",
+      "ja": "空間",
+      "synonym": "room",
+      "definition": "an area available for use"
+    },
+    {
+      "term": "therefore",
+      "ja": "したがって",
+      "synonym": "consequently",
+      "definition": "used to introduce a logical result"
+    },
+    {
+      "term": "volunteers",
+      "ja": "ボランティア",
+      "synonym": "helpers",
+      "definition": "people freely helping with a task"
+    },
+    {
+      "term": "writing",
+      "ja": "作文・文章を書くこと",
+      "synonym": "composition",
+      "definition": "the activity of creating text"
+    },
+    {
+      "term": "clinic",
+      "ja": "診療所",
+      "synonym": "health center",
+      "definition": "a place where patients receive care"
+    },
+    {
+      "term": "patients",
+      "ja": "患者",
+      "synonym": "visitors",
+      "definition": "people receiving medical services"
+    },
+    {
+      "term": "appointment",
+      "ja": "予約",
+      "synonym": "scheduled visit",
+      "definition": "a planned time to meet a provider"
+    },
+    {
+      "term": "entrance",
+      "ja": "入口",
+      "synonym": "doorway",
+      "definition": "a place used to enter a building"
+    },
+    {
+      "term": "headings",
+      "ja": "見出し",
+      "synonym": "titles",
+      "definition": "short words introducing sections"
+    },
+    {
+      "term": "paragraphs",
+      "ja": "段落",
+      "synonym": "sections",
+      "definition": "groups of sentences"
+    },
+    {
+      "term": "language",
+      "ja": "言語",
+      "synonym": "speech system",
+      "definition": "a system of communication"
+    },
+    {
+      "term": "transport",
+      "ja": "交通",
+      "synonym": "travel",
+      "definition": "ways to reach a place"
+    },
+    {
+      "term": "design",
+      "ja": "設計",
+      "synonym": "layout",
+      "definition": "the arrangement of information"
+    },
+    {
+      "term": "regularly",
+      "ja": "定期的に",
+      "synonym": "often",
+      "definition": "at repeated intervals"
+    },
+    {
+      "term": "prepared",
+      "ja": "準備ができた",
+      "synonym": "ready",
+      "definition": "having what is needed"
+    },
+    {
+      "term": "clearly",
+      "ja": "明確に",
+      "synonym": "plainly",
+      "definition": "in an easy-to-understand way"
+    },
+    {
+      "term": "readers",
+      "ja": "読者",
+      "synonym": "people reading",
+      "definition": "those who read a document"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "that the instructions are difficult to understand",
+      "explanation_ja": "that節は患者が報告した内容です。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "without communicating them clearly",
+      "explanation_ja": "without + 動名詞で「明確に伝えることなく」を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of filling every space with text",
+      "explanation_ja": "instead of + 動名詞で別の設計を表します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 4,
+      "focus": "whether readers can actually use them",
+      "explanation_ja": "whether節は評価の対象を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "情報を伝える意図と理解の難しさを対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "案内の読解を確かめる例を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "改善しても全員に一つの方法が合うわけではありません。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "継続してわかりやすさを確認する結果です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The sentences are long, and important information is hidden in several paragraphs.",
+      "rewrite": "Long paragraphs can hide the details people need.",
+      "explanation_ja": "長い文章の中に大事な情報が埋もれるという意味です。"
+    },
+    {
+      "source": "The staff realize that a message may contain the right facts without communicating them clearly.",
+      "rewrite": "A letter can contain accurate facts but still be hard to understand.",
+      "explanation_ja": "正しい内容と伝わりやすさは別という意味です。"
+    },
+    {
+      "source": "Clear communication requires attention to the people receiving the message.",
+      "rewrite": "Effective communication considers the needs of its readers.",
+      "explanation_ja": "受け取る人の必要を考えるという意味です。"
+    },
+    {
+      "source": "Good instructions are judged by whether readers can actually use them.",
+      "rewrite": "The usefulness of instructions depends on whether people can act on them.",
+      "explanation_ja": "実際に使えるかで案内を評価するという結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "情報を伝える意図と理解の難しさを対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "案内の読解を確かめる例を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "改善しても全員に一つの方法が合うわけではありません。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "継続してわかりやすさを確認する結果です。"
+    }
+  ]
+}
