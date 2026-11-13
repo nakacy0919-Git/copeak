@@ -54,7 +54,6 @@
  }
  function createSurface({name,rootId,scrollId,toggleId,panelId,paragraphClass}){
   const rootEl=$(rootId),scroll=$(scrollId),toggle=$(toggleId),panel=$(panelId);
-  const settings=$(name==='study'?'inkStudySettings':'inkExamSettings');
   if(!rootEl||!scroll||!toggle||!panel)return null;
   let key='',doc=blank(),mode='off',open=false,panelOpen=false,visible=true,finger=false,active=null;
   let overlays=[],observer=null,saveTimer=0,history=[];
@@ -71,11 +70,6 @@
    toggle.setAttribute('aria-label',open?'書き込みを終了':'書き込みを開始');
    toggle.classList.toggle('ink-on',open&&mode!=='off');
    panel.hidden=!open;
-   if(settings){
-    settings.hidden=!open;
-    settings.setAttribute('aria-expanded',String(panelOpen));
-    settings.setAttribute('aria-pressed',String(panelOpen));
-   }
    for(const action of ['pen','eraser']){
     const btn=tool(action);
     if(btn)btn.setAttribute('aria-pressed',String(mode===action));
