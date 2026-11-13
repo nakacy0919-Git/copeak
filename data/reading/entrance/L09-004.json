@@ -1,0 +1,525 @@
+{
+  "id": "L09-004",
+  "category_id": "L09",
+  "title": "Grandfather's Word Book",
+  "title_ja": "おじいちゃんの単語ノート",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 187,
+  "source_links": [
+    {
+      "title": "UNESCO Languages Matter",
+      "url": "https://www.unesco.org/en/articles/languages-matter-global-guidance-multilingual-education?hub=84624"
+    }
+  ],
+  "fact_notes": [
+    "家庭で使う言語を尊重する多言語教育の考え方を参照。祖父母のノートと生徒の話は架空。",
+    "本文・訳・設問・解説はオリジナル。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Tomo finds a small notebook in his grandfather's room.",
+          "ja": "トモは祖父の部屋で小さなノートを見つけます。"
+        },
+        {
+          "en": "The notebook has words in two languages.",
+          "ja": "そのノートには二つの言語の単語があります。"
+        },
+        {
+          "en": "Some words are easy, but others are new to him.",
+          "ja": "簡単な単語もあれば、トモには初めての単語もあります。"
+        },
+        {
+          "en": "He asks his grandfather to tell him about the notebook.",
+          "ja": "祖父にノートについて教えてほしいと頼みます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "His grandfather says he used it when he worked abroad.",
+          "ja": "祖父は外国で働いていたときに使ったと言います。"
+        },
+        {
+          "en": "He wrote down new words after talking with local people.",
+          "ja": "地元の人と話した後、新しい言葉を書き留めたのです。"
+        },
+        {
+          "en": "For example, he learned different ways to say thank you.",
+          "ja": "例えば、感謝を表すさまざまな言い方を学びました。"
+        },
+        {
+          "en": "He also wrote stories about the people he met.",
+          "ja": "出会った人々についての話も書きました。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Tomo chooses three words and practices saying them.",
+          "ja": "トモは三つの単語を選んで発音を練習します。"
+        },
+        {
+          "en": "His grandfather listens and helps him with the sounds.",
+          "ja": "祖父は聞きながら発音を手伝います。"
+        },
+        {
+          "en": "However, Tomo cannot say one word clearly at first.",
+          "ja": "しかしトモは最初、一つの単語をはっきり言えません。"
+        },
+        {
+          "en": "They laugh together and try again slowly.",
+          "ja": "二人は一緒に笑い、ゆっくりもう一度試します。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The next day, Tomo shows the notebook to his teacher.",
+          "ja": "翌日、トモは先生にそのノートを見せます。"
+        },
+        {
+          "en": "She asks him why learning the words matters to him.",
+          "ja": "先生は単語を学ぶことがなぜ大切か尋ねます。"
+        },
+        {
+          "en": "Tomo says each word reminds his grandfather of a person or place.",
+          "ja": "それぞれの言葉が祖父に人や場所を思い出させるからだと答えます。"
+        },
+        {
+          "en": "He wants to remember those stories too.",
+          "ja": "トモもその話を覚えていたいと思います。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "After school, Tomo makes a new page in the notebook.",
+          "ja": "放課後、トモはノートに新しいページを作ります。"
+        },
+        {
+          "en": "He writes words from a language his friend speaks at home.",
+          "ja": "友達が家で話す言語の単語を書きます。"
+        },
+        {
+          "en": "Now the notebook has stories from two generations.",
+          "ja": "今ではノートに二つの世代の話があります。"
+        },
+        {
+          "en": "A new word can be the beginning of a new conversation.",
+          "ja": "新しい単語は新しい会話の始まりになり得ます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "Where does Tomo find the notebook?",
+      "options": [
+        "In his grandfather's room.",
+        "At the train station.",
+        "In a sports shop.",
+        "At a restaurant."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「トモは祖父の部屋で小さなノートを見つけます。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What does the notebook contain?",
+      "options": [
+        "Only photographs.",
+        "School examination papers.",
+        "Numbers without words.",
+        "Words in two languages."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「そのノートには二つの言語の単語があります。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "When did the grandfather use the notebook?",
+      "options": [
+        "When he visited Tomo's school yesterday.",
+        "When he drove to the market.",
+        "When he worked abroad.",
+        "When he was a baby."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「祖父は外国で働いていたときに使ったと言います。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What did he learn to say in different ways?",
+      "options": [
+        "Please stop.",
+        "Thank you.",
+        "Good night.",
+        "What time is it?"
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「例えば、感謝を表すさまざまな言い方を学びました。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "How many words does Tomo choose to practice?",
+      "options": [
+        "Three.",
+        "Five.",
+        "One hundred.",
+        "Ten."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「トモは三つの単語を選んで発音を練習します。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What problem does Tomo have at first?",
+      "options": [
+        "He loses the notebook.",
+        "He cannot find his grandfather.",
+        "He refuses to read any words.",
+        "He cannot say one word clearly."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「しかしトモは最初、一つの単語をはっきり言えません。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "purpose",
+      "prompt": "What does the teacher ask Tomo?",
+      "options": [
+        "How to make a sports team.",
+        "What his favorite dinner is.",
+        "Why learning the words matters to him.",
+        "Where to buy a new notebook."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「先生は単語を学ぶことがなぜ大切か尋ねます。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What do words remind the grandfather of?",
+      "options": [
+        "An empty book.",
+        "People or places.",
+        "Only numbers.",
+        "A school uniform."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「それぞれの言葉が祖父に人や場所を思い出させるからだと答えます。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Whose language does Tomo add later?",
+      "options": [
+        "A language his friend speaks at home.",
+        "A language used only in the library.",
+        "A language no one knows.",
+        "A language from an examination."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「友達が家で話す言語の単語を書きます。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the passage mainly about?",
+      "options": [
+        "Only one language is worth learning.",
+        "Old notebooks have no value.",
+        "Learning words must be difficult.",
+        "Words can connect people and their stories."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「新しい単語は新しい会話の始まりになり得ます。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "conversation",
+      "ja": "会話",
+      "synonym": "talk",
+      "definition": "an exchange of speech"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "generations",
+      "ja": "世代",
+      "synonym": "age groups",
+      "definition": "groups of people born during different periods"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "local",
+      "ja": "地元の",
+      "synonym": "nearby",
+      "definition": "related to the surrounding area"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "teacher",
+      "ja": "先生",
+      "synonym": "educator",
+      "definition": "someone who teaches"
+    },
+    {
+      "term": "grandfather",
+      "ja": "祖父",
+      "synonym": "grandparent",
+      "definition": "the father of someone's parent"
+    },
+    {
+      "term": "notebook",
+      "ja": "ノート",
+      "synonym": "writing book",
+      "definition": "a book of blank pages"
+    },
+    {
+      "term": "languages",
+      "ja": "言語",
+      "synonym": "speech systems",
+      "definition": "systems of communication using words"
+    },
+    {
+      "term": "abroad",
+      "ja": "外国で",
+      "synonym": "overseas",
+      "definition": "in another country"
+    },
+    {
+      "term": "thank",
+      "ja": "感謝する",
+      "synonym": "express gratitude",
+      "definition": "to show appreciation"
+    },
+    {
+      "term": "clearly",
+      "ja": "はっきり",
+      "synonym": "plainly",
+      "definition": "in an easy-to-understand way"
+    },
+    {
+      "term": "remember",
+      "ja": "覚えている",
+      "synonym": "recall",
+      "definition": "to bring something back to mind"
+    },
+    {
+      "term": "grandfather's",
+      "ja": "祖父の",
+      "synonym": "belonging to grandfather",
+      "definition": "owned by a grandfather"
+    },
+    {
+      "term": "stories",
+      "ja": "話",
+      "synonym": "tales",
+      "definition": "accounts of events"
+    },
+    {
+      "term": "words",
+      "ja": "単語",
+      "synonym": "vocabulary",
+      "definition": "units of language"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "but others are new to him",
+      "explanation_ja": "butは知っている単語と新しい単語を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "after talking with local people",
+      "explanation_ja": "after + 動名詞で『話した後』を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "cannot say one word clearly at first",
+      "explanation_ja": "cannotはできないこと、at firstは最初の状態を示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "focus": "a language his friend speaks at home",
+      "explanation_ja": "関係代名詞を省略した節がlanguageを修飾しています。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "but",
+      "role_ja": "逆接：易しい語と難しい語を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "例示：感謝の表現を学んだ例です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "However",
+      "role_ja": "逆接：練習してもうまく言えない場合があります。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "Now",
+      "role_ja": "時の移行：世代を越えた新しい記録になります。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The notebook has words in two languages.",
+      "rewrite": "The notebook contains vocabulary from two languages.",
+      "explanation_ja": "二言語の言葉があるという意味です。"
+    },
+    {
+      "source": "His grandfather says he used it when he worked abroad.",
+      "rewrite": "The grandfather kept the notebook while working in another country.",
+      "explanation_ja": "外国で働いていたときに使ったことの言い換えです。"
+    },
+    {
+      "source": "Tomo says each word reminds his grandfather of a person or place.",
+      "rewrite": "The words help his grandfather remember people and places.",
+      "explanation_ja": "言葉と記憶のつながりを述べています。"
+    },
+    {
+      "source": "A new word can be the beginning of a new conversation.",
+      "rewrite": "Learning a word can start a conversation.",
+      "explanation_ja": "言葉を学ぶことから会話が始まるという結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "but",
+      "options": [
+        "but",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "逆接：易しい語と難しい語を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "例示：感謝の表現を学んだ例です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "逆接：練習してもうまく言えない場合があります。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "Now",
+      "options": [
+        "Now",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "時の移行：世代を越えた新しい記録になります。"
+    }
+  ]
+}
