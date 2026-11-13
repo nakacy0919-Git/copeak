@@ -1,0 +1,712 @@
+{
+  "id": "L06-003",
+  "category_id": "L06",
+  "title": "Why We Remember the Prediction That Worked",
+  "title_ja": "当たった予想だけ覚えてしまう理由",
+  "level_id": "eiken-pre2",
+  "word_count": 256,
+  "original": true,
+  "status": "draft",
+  "source_links": [
+    {
+      "title": "Encyclopaedia Britannica: Confirmation Bias",
+      "url": "https://www.britannica.com/science/confirmation-bias"
+    }
+  ],
+  "fact_notes": [
+    "確証バイアスの一般的な説明を背景とし、天気と学校生活の例は架空の授業用設定。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A student believes that rainy mornings always bring bad luck at school.",
+          "ja": "ある生徒は雨の朝には必ず学校で悪いことが起こると信じています。"
+        },
+        {
+          "en": "Whenever something disappointing happens on a rainy day, the student remembers it clearly.",
+          "ja": "雨の日に残念なことが起きると、その生徒ははっきり覚えます。"
+        },
+        {
+          "en": "However, a happy event on another rainy day may receive less attention.",
+          "ja": "しかし別の雨の日のうれしい出来事にはあまり注意を向けないかもしれません。"
+        },
+        {
+          "en": "After several weeks, the original belief may seem stronger than before.",
+          "ja": "数週間後、最初の思い込みが以前より強まったように感じられます。"
+        },
+        {
+          "en": "People do not always remember evidence that disagrees with their expectations.",
+          "ja": "人は自分の予想に反する証拠をいつも覚えているわけではありません。"
+        },
+        {
+          "en": "This possibility makes careful observation important.",
+          "ja": "この可能性が注意深い観察を重要にします。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The class decides to test the student's idea rather than trust memory alone.",
+          "ja": "クラスは記憶だけを信じず、生徒の考えを検証することにします。"
+        },
+        {
+          "en": "Every afternoon, students record their mood and whether it rained that morning.",
+          "ja": "毎日午後に生徒は気分とその朝に雨が降ったかを記録します。"
+        },
+        {
+          "en": "For example, they use the same scale on sunny and rainy days.",
+          "ja": "例えば晴れの日も雨の日も同じ尺度を使います。"
+        },
+        {
+          "en": "They also record other events, such as a difficult examination or a sports victory.",
+          "ja": "難しい試験や運動での勝利など他の出来事も記録します。"
+        },
+        {
+          "en": "Those events could influence mood regardless of the weather.",
+          "ja": "そうした出来事は天気に関係なく気分に影響する可能性があります。"
+        },
+        {
+          "en": "The goal is to consider different explanations before making a conclusion.",
+          "ja": "結論を出す前に別の説明を考えることが目標です。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Collecting information is useful, but a small study has limits.",
+          "ja": "情報収集は役立ちますが、小さな研究には限界があります。"
+        },
+        {
+          "en": "In addition, one class observed for a month cannot represent all students.",
+          "ja": "さらに一か月観察した一クラスはすべての生徒を代表できません。"
+        },
+        {
+          "en": "If the results show no clear relationship, students should report that honestly.",
+          "ja": "結果に明確な関係が見つからなくても、生徒は率直に報告すべきです。"
+        },
+        {
+          "en": "They might discover that unusual rainy days were easier to remember.",
+          "ja": "珍しい雨の日の出来事がより記憶に残りやすかったと気づくかもしれません。"
+        },
+        {
+          "en": "They might also find a pattern that deserves further investigation.",
+          "ja": "もっと調べる価値のある傾向を見つけることもあります。"
+        },
+        {
+          "en": "Either result can provide useful information.",
+          "ja": "どちらの結果も役立つ情報を与えます。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Nevertheless, careful thinking does not mean people should stop making predictions.",
+          "ja": "それでも慎重に考えることは予想をやめるべきだという意味ではありません。"
+        },
+        {
+          "en": "A prediction becomes a useful question when people are willing to test it.",
+          "ja": "人々が検証する気持ちを持てば、予想は役立つ問いになります。"
+        },
+        {
+          "en": "Students can discuss which evidence would change their opinions.",
+          "ja": "生徒はどんな証拠なら自分の意見が変わるか話し合えます。"
+        },
+        {
+          "en": "They should look for examples that disagree with their first idea.",
+          "ja": "最初の考えに反する例を探すべきです。"
+        },
+        {
+          "en": "A good thinker considers more than the events that seem to prove a favorite belief.",
+          "ja": "よい考え手は好きな信念を証明するような出来事以外も考慮します。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the main point of this passage?",
+      "options": [
+        "Rain always causes problems.",
+        "Predictions should be examined using balanced evidence.",
+        "Students should avoid all observations.",
+        "Memories are never useful."
+      ],
+      "answer": 1,
+      "explanation_ja": "予想をバランスのよい証拠で調べるという主題です。",
+      "paragraph_ids": [
+        "p1",
+        "p4"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Which events does the student remember most easily?",
+      "options": [
+        "Only sunny days.",
+        "Days without homework.",
+        "Disappointing events on rainy days.",
+        "Every sports event."
+      ],
+      "answer": 2,
+      "explanation_ja": "雨の日の残念な出来事を強く覚えています。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why might the student's belief grow stronger?",
+      "options": [
+        "Supporting memories receive more attention than contradicting ones.",
+        "The weather is always bad.",
+        "Classmates cannot disagree.",
+        "Rain improves every exam."
+      ],
+      "answer": 0,
+      "explanation_ja": "思い込みに合う経験に注意が向くからです。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What does the class record each afternoon?",
+      "options": [
+        "The temperature of every room.",
+        "The number of school buses.",
+        "Only test grades.",
+        "Mood and morning rain."
+      ],
+      "answer": 3,
+      "explanation_ja": "気分と朝の雨の有無を記録します。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "Why record examinations and sports events?",
+      "options": [
+        "To change the weather.",
+        "They may also influence mood.",
+        "To make a longer report only.",
+        "They always cause rain."
+      ],
+      "answer": 1,
+      "explanation_ja": "天気以外の要因を調べるためです。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why use the same scale every day?",
+      "options": [
+        "To make students happier.",
+        "To prove rain is dangerous.",
+        "To compare moods more fairly.",
+        "To avoid writing any numbers."
+      ],
+      "answer": 2,
+      "explanation_ja": "条件をそろえて比較するためです。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'represent' mean in paragraph 3?",
+      "options": [
+        "Stand for a wider group.",
+        "Make a photograph.",
+        "Become very small.",
+        "Change the weather."
+      ],
+      "answer": 0,
+      "explanation_ja": "representは代表することです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What should students do with results showing no clear relationship?",
+      "options": [
+        "Hide them.",
+        "Change them to match their prediction.",
+        "Forget the experiment.",
+        "Report them honestly."
+      ],
+      "answer": 3,
+      "explanation_ja": "関係がなくても結果を報告すべきです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Why does the author mention the study's limits?",
+      "options": [
+        "To prove all studies are wrong.",
+        "To warn against treating one class as evidence about everyone.",
+        "To suggest nobody should study psychology.",
+        "To show rain cannot be measured."
+      ],
+      "answer": 1,
+      "explanation_ja": "小さな標本の一般化に注意させるためです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "Why ask which evidence would change an opinion?",
+      "options": [
+        "To stop students having ideas.",
+        "To make tests easier.",
+        "To encourage openness to information that challenges beliefs.",
+        "To avoid disagreement forever."
+      ],
+      "answer": 2,
+      "explanation_ja": "考えを修正する姿勢を促します。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "believes",
+      "ja": "信じる",
+      "synonym": "accepts",
+      "definition": "considers something true"
+    },
+    {
+      "term": "rainy",
+      "ja": "雨の",
+      "synonym": "wet",
+      "definition": "having rain"
+    },
+    {
+      "term": "mornings",
+      "ja": "朝",
+      "synonym": "early hours",
+      "definition": "the times before noon"
+    },
+    {
+      "term": "luck",
+      "ja": "運",
+      "synonym": "fortune",
+      "definition": "events thought to happen by chance"
+    },
+    {
+      "term": "disappointing",
+      "ja": "残念な",
+      "synonym": "unpleasant",
+      "definition": "causing sadness or disappointment"
+    },
+    {
+      "term": "happens",
+      "ja": "起こる",
+      "synonym": "occurs",
+      "definition": "takes place"
+    },
+    {
+      "term": "remembers",
+      "ja": "覚えている",
+      "synonym": "recalls",
+      "definition": "brings to mind"
+    },
+    {
+      "term": "clearly",
+      "ja": "はっきりと",
+      "synonym": "distinctly",
+      "definition": "in a way easy to recognize"
+    },
+    {
+      "term": "happy",
+      "ja": "うれしい",
+      "synonym": "pleased",
+      "definition": "feeling enjoyment"
+    },
+    {
+      "term": "event",
+      "ja": "出来事",
+      "synonym": "occasion",
+      "definition": "something that happens"
+    },
+    {
+      "term": "attention",
+      "ja": "注意",
+      "synonym": "focus",
+      "definition": "careful concentration"
+    },
+    {
+      "term": "several",
+      "ja": "いくつかの",
+      "synonym": "a few",
+      "definition": "more than two"
+    },
+    {
+      "term": "weeks",
+      "ja": "週",
+      "synonym": "seven-day periods",
+      "definition": "groups of seven days"
+    },
+    {
+      "term": "original",
+      "ja": "元の",
+      "synonym": "first",
+      "definition": "existing before later changes"
+    },
+    {
+      "term": "belief",
+      "ja": "信念",
+      "synonym": "conviction",
+      "definition": "a thought treated as true"
+    },
+    {
+      "term": "evidence",
+      "ja": "証拠",
+      "synonym": "proof",
+      "definition": "information supporting or testing an idea"
+    },
+    {
+      "term": "disagrees",
+      "ja": "一致しない",
+      "synonym": "differs",
+      "definition": "has a different view"
+    },
+    {
+      "term": "expectations",
+      "ja": "予想",
+      "synonym": "beliefs about the future",
+      "definition": "ideas about what will happen"
+    },
+    {
+      "term": "possibility",
+      "ja": "可能性",
+      "synonym": "chance",
+      "definition": "something that may be true"
+    },
+    {
+      "term": "observation",
+      "ja": "観察",
+      "synonym": "watching",
+      "definition": "careful examination over time"
+    },
+    {
+      "term": "class",
+      "ja": "クラス",
+      "synonym": "school group",
+      "definition": "students learning together"
+    },
+    {
+      "term": "decides",
+      "ja": "決める",
+      "synonym": "chooses",
+      "definition": "makes a decision"
+    },
+    {
+      "term": "test",
+      "ja": "検証する",
+      "synonym": "check",
+      "definition": "to examine whether a claim is true"
+    },
+    {
+      "term": "trust",
+      "ja": "信じる",
+      "synonym": "rely on",
+      "definition": "to depend on something"
+    },
+    {
+      "term": "memory",
+      "ja": "記憶",
+      "synonym": "recollection",
+      "definition": "the ability to remember"
+    },
+    {
+      "term": "afternoon",
+      "ja": "午後",
+      "synonym": "later day",
+      "definition": "time after noon"
+    },
+    {
+      "term": "record",
+      "ja": "記録する",
+      "synonym": "write down",
+      "definition": "to keep information for later use"
+    },
+    {
+      "term": "mood",
+      "ja": "気分",
+      "synonym": "emotional state",
+      "definition": "how someone feels"
+    },
+    {
+      "term": "rained",
+      "ja": "雨が降った",
+      "synonym": "fell as rain",
+      "definition": "water fell from clouds"
+    },
+    {
+      "term": "scale",
+      "ja": "尺度",
+      "synonym": "measure",
+      "definition": "a system for describing levels"
+    },
+    {
+      "term": "sunny",
+      "ja": "晴れた",
+      "synonym": "bright",
+      "definition": "having sunshine"
+    },
+    {
+      "term": "examination",
+      "ja": "試験",
+      "synonym": "test",
+      "definition": "a check of knowledge"
+    },
+    {
+      "term": "victory",
+      "ja": "勝利",
+      "synonym": "win",
+      "definition": "success in a competition"
+    },
+    {
+      "term": "influence",
+      "ja": "影響を与える",
+      "synonym": "affect",
+      "definition": "to change something"
+    },
+    {
+      "term": "regardless",
+      "ja": "関係なく",
+      "synonym": "irrespective",
+      "definition": "without being affected by something"
+    },
+    {
+      "term": "weather",
+      "ja": "天気",
+      "synonym": "conditions",
+      "definition": "the state of rain and temperature"
+    },
+    {
+      "term": "conclusion",
+      "ja": "結論",
+      "synonym": "result",
+      "definition": "a decision after reasoning"
+    },
+    {
+      "term": "study",
+      "ja": "研究",
+      "synonym": "investigation",
+      "definition": "careful research"
+    },
+    {
+      "term": "limits",
+      "ja": "限界",
+      "synonym": "boundaries",
+      "definition": "things something cannot do"
+    },
+    {
+      "term": "represent",
+      "ja": "代表する",
+      "synonym": "stand for",
+      "definition": "to reflect a wider group"
+    },
+    {
+      "term": "relationship",
+      "ja": "関係",
+      "synonym": "connection",
+      "definition": "a link between things"
+    },
+    {
+      "term": "honestly",
+      "ja": "率直に",
+      "synonym": "truthfully",
+      "definition": "without hiding facts"
+    },
+    {
+      "term": "unusual",
+      "ja": "珍しい",
+      "synonym": "uncommon",
+      "definition": "not normal or frequent"
+    },
+    {
+      "term": "pattern",
+      "ja": "傾向",
+      "synonym": "trend",
+      "definition": "a repeated relationship"
+    },
+    {
+      "term": "investigation",
+      "ja": "調査",
+      "synonym": "inquiry",
+      "definition": "an examination to find facts"
+    },
+    {
+      "term": "prediction",
+      "ja": "予想",
+      "synonym": "forecast",
+      "definition": "an idea about the future"
+    },
+    {
+      "term": "willing",
+      "ja": "進んで行う",
+      "synonym": "ready",
+      "definition": "prepared to do something"
+    },
+    {
+      "term": "opinions",
+      "ja": "意見",
+      "synonym": "views",
+      "definition": "personal beliefs"
+    },
+    {
+      "term": "considers",
+      "ja": "考慮する",
+      "synonym": "thinks about",
+      "definition": "examines an idea"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 4,
+      "focus": "that disagrees with their expectations",
+      "explanation_ja": "関係代名詞thatがevidenceを修飾します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 0,
+      "focus": "rather than trust memory alone",
+      "explanation_ja": "rather thanは二つの行動の対比を表します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "If the results show no clear relationship",
+      "explanation_ja": "Ifが条件節を導きます。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "focus": "when people are willing to test it",
+      "explanation_ja": "whenが時・条件を表す副詞節を導きます。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "雨の日の悪い出来事の記憶と良い出来事の見落としを対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "同じ尺度で記録するという具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "In addition",
+      "role_ja": "データ解釈と標本の代表性の注意を追加。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "予想の偏りを指摘した後、予想自体の価値を認める逆接。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "expectations",
+      "rewrite": "beliefs about what may happen",
+      "explanation_ja": "予想の同義説明です。"
+    },
+    {
+      "source": "consider different explanations before making a conclusion",
+      "rewrite": "examine alternative reasons before deciding",
+      "explanation_ja": "consider→examine、different→alternativeです。"
+    },
+    {
+      "source": "one class observed for a month cannot represent all students",
+      "rewrite": "a short study of one group cannot stand for everyone",
+      "explanation_ja": "represent→stand forです。"
+    },
+    {
+      "source": "A prediction becomes a useful question when people are willing to test it",
+      "rewrite": "a forecast is valuable if people try to check it",
+      "explanation_ja": "willing to test→try to checkです。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "雨の日の悪い出来事の記憶と良い出来事の見落としを対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Therefore",
+        "In addition"
+      ],
+      "explanation_ja": "同じ尺度で記録するという具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "In addition",
+      "options": [
+        "In addition",
+        "However",
+        "Therefore",
+        "For example"
+      ],
+      "explanation_ja": "データ解釈と標本の代表性の注意を追加。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "予想の偏りを指摘した後、予想自体の価値を認める逆接。"
+    }
+  ]
+}
