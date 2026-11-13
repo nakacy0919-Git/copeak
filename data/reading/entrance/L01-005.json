@@ -1,0 +1,698 @@
+{
+  "id": "L01-005",
+  "category_id": "L01",
+  "title": "A Garden That Holds the Rain",
+  "title_ja": "雨を受け止める小さな庭",
+  "level_id": "eiken-pre2",
+  "word_count": 283,
+  "original": true,
+  "status": "draft",
+  "source_links": [
+    {
+      "title": "U.S. EPA: What is Green Infrastructure?",
+      "url": "https://www.epa.gov/green-infrastructure/what-green-infrastructure"
+    },
+    {
+      "title": "U.S. EPA: Why Are Wetlands Important?",
+      "url": "https://www.epa.gov/wetlands/why-are-wetlands-important"
+    }
+  ],
+  "fact_notes": [
+    "グリーンインフラの考え方を参考にしたオリジナル教材。学校前の庭は架空の事例。すべての大雨で浸水を防げると主張しない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "After heavy rain, water sometimes covers roads near schools and homes.",
+          "ja": "大雨の後、学校や家の近くの道路が水に覆われることがあります。"
+        },
+        {
+          "en": "A hard surface such as concrete does not easily let rain enter the soil.",
+          "ja": "コンクリートのような硬い表面では雨が土にしみ込みにくくなります。"
+        },
+        {
+          "en": "However, some towns use plants and special gardens to help manage rainwater.",
+          "ja": "しかし町によっては植物と特別な庭を使って雨水の管理を助けています。"
+        },
+        {
+          "en": "A rain garden is a low area where water can collect for a short time.",
+          "ja": "雨庭は短い時間水を集められる低い場所です。"
+        },
+        {
+          "en": "Plants and soil can slow the movement of water after a storm.",
+          "ja": "植物と土は嵐の後の水の流れを遅くできます。"
+        },
+        {
+          "en": "This does not remove every flood risk, but it can be one useful part of a plan.",
+          "ja": "これですべての洪水リスクがなくなるわけではありませんが、計画の役立つ一部になれます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Imagine a school with a large parking area beside its entrance.",
+          "ja": "入り口の隣に大きな駐車場がある学校を想像してください。"
+        },
+        {
+          "en": "During a storm, water runs across the hard ground toward the street.",
+          "ja": "嵐の間、水は硬い地面を横切って道路へ流れます。"
+        },
+        {
+          "en": "For example, a small garden could be placed where some of that water gathers.",
+          "ja": "例えば水の一部が集まる場所に小さな庭を設けることができます。"
+        },
+        {
+          "en": "The garden needs suitable plants and soil that allow water to pass through.",
+          "ja": "その庭には適した植物と水を通す土が必要です。"
+        },
+        {
+          "en": "It also needs an outlet so that extra water can leave safely.",
+          "ja": "余分な水を安全に逃がす出口も必要です。"
+        },
+        {
+          "en": "A garden without careful design may fail during very heavy rain.",
+          "ja": "慎重な設計のない庭は非常な大雨の際に役立たないかもしれません。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Rain gardens can offer benefits beyond holding water.",
+          "ja": "雨庭は水をためる以外の利点も持ち得ます。"
+        },
+        {
+          "en": "Some flowering plants provide places for insects to visit.",
+          "ja": "花の咲く植物の一部は昆虫が訪れる場所を提供します。"
+        },
+        {
+          "en": "In addition, trees and plants may make a schoolyard more pleasant.",
+          "ja": "さらに木や植物は校庭をより快適にするかもしれません。"
+        },
+        {
+          "en": "Nevertheless, someone must remove rubbish and check whether the water drains properly.",
+          "ja": "それでも誰かがごみを取り除き、水が正しく排水されるか確認する必要があります。"
+        },
+        {
+          "en": "Standing water that remains for too long can create other problems.",
+          "ja": "長すぎる間残る水たまりは別の問題を生むことがあります。"
+        },
+        {
+          "en": "Nature-based projects still require planning, maintenance, and shared responsibility.",
+          "ja": "自然を生かした事業にも計画、維持管理、責任の分担が必要です。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Students could observe where rainwater moves around their school.",
+          "ja": "生徒は学校の周りで雨水がどう流れるか観察できます。"
+        },
+        {
+          "en": "They might draw a map and compare wet areas after different storms.",
+          "ja": "地図を描き、異なる嵐の後の濡れた場所を比較できます。"
+        },
+        {
+          "en": "They should stay away from deep water and dangerous roads while observing.",
+          "ja": "観察中は深い水や危険な道路に近づくべきではありません。"
+        },
+        {
+          "en": "Therefore, this project teaches both scientific observation and safety.",
+          "ja": "したがってこの活動は科学的観察と安全の両方を教えます。"
+        },
+        {
+          "en": "The best solution considers what the land can do and what people must maintain.",
+          "ja": "最良の解決策は土地の働きと人が管理すべきことの両方を考慮します。"
+        },
+        {
+          "en": "Even a small garden can encourage a community to think differently about rain.",
+          "ja": "小さな庭でも地域に雨について違う考え方を促せます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the main idea?",
+      "options": [
+        "All roads should be replaced by gardens.",
+        "Rain gardens can help manage water but still need careful design and care.",
+        "Flooding happens only at schools.",
+        "Every plant can stop every storm."
+      ],
+      "answer": 1,
+      "explanation_ja": "雨庭の利点と適切な設計・維持管理の必要性が主題です。",
+      "paragraph_ids": [
+        "p1",
+        "p2",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Why can concrete increase water running over the ground?",
+      "options": [
+        "It has deep roots.",
+        "It contains insects.",
+        "Rain does not easily enter it.",
+        "It changes the weather."
+      ],
+      "answer": 2,
+      "explanation_ja": "コンクリートは水を土へ通しにくいと述べています。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What is a rain garden?",
+      "options": [
+        "A low area that collects water temporarily.",
+        "A pond used only for swimming.",
+        "A building with a glass roof.",
+        "A road made from wood."
+      ],
+      "answer": 0,
+      "explanation_ja": "短時間水が集まる低い場所です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why does the example garden need an outlet?",
+      "options": [
+        "To attract cars.",
+        "To make plants taller.",
+        "To keep every drop forever.",
+        "To let extra water leave safely."
+      ],
+      "answer": 3,
+      "explanation_ja": "余分な水を逃がす必要があるためです。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What else does the garden require?",
+      "options": [
+        "Only brightly colored signs.",
+        "Suitable plants and soil.",
+        "A large computer.",
+        "A shop selling food."
+      ],
+      "answer": 1,
+      "explanation_ja": "適した植物と水が通る土が必要です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why is maintenance important?",
+      "options": [
+        "Plants grow without water.",
+        "Gardens never change.",
+        "Rubbish and poor drainage can create problems.",
+        "Every storm is identical."
+      ],
+      "answer": 2,
+      "explanation_ja": "ごみや排水の問題を放置しないためです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'drains' mean?",
+      "options": [
+        "Flows away.",
+        "Grows quickly.",
+        "Becomes warmer.",
+        "Changes color."
+      ],
+      "answer": 0,
+      "explanation_ja": "drainは水が流れ出ることです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What can students create?",
+      "options": [
+        "A new parking law.",
+        "A list of exam grades.",
+        "An indoor aquarium.",
+        "A map showing where rainwater moves."
+      ],
+      "answer": 3,
+      "explanation_ja": "雨水の流れを示す地図を作れます。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Why should students avoid dangerous roads?",
+      "options": [
+        "Mapping is not useful.",
+        "Safety remains important during observation.",
+        "Rain never moves near roads.",
+        "Only teachers can make maps."
+      ],
+      "answer": 1,
+      "explanation_ja": "観察活動中の安全を守るためです。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "What does the conclusion emphasize?",
+      "options": [
+        "Gardens remove the need for people.",
+        "Rain must always be stopped.",
+        "Natural solutions require cooperation and planning.",
+        "Schools should never study weather."
+      ],
+      "answer": 2,
+      "explanation_ja": "自然の働きと人の管理の両方が必要という結論です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "heavy",
+      "ja": "激しい",
+      "synonym": "strong",
+      "definition": "large in force or amount"
+    },
+    {
+      "term": "rain",
+      "ja": "雨",
+      "synonym": "rainfall",
+      "definition": "water falling from clouds"
+    },
+    {
+      "term": "water",
+      "ja": "水",
+      "synonym": "liquid",
+      "definition": "a liquid essential for life"
+    },
+    {
+      "term": "covers",
+      "ja": "覆う",
+      "synonym": "spreads over",
+      "definition": "extends across a surface"
+    },
+    {
+      "term": "roads",
+      "ja": "道路",
+      "synonym": "streets",
+      "definition": "routes for vehicles"
+    },
+    {
+      "term": "surface",
+      "ja": "表面",
+      "synonym": "outer layer",
+      "definition": "the outside part of an object"
+    },
+    {
+      "term": "concrete",
+      "ja": "コンクリート",
+      "synonym": "building material",
+      "definition": "hard material used in construction"
+    },
+    {
+      "term": "enter",
+      "ja": "入る",
+      "synonym": "go into",
+      "definition": "to move inside"
+    },
+    {
+      "term": "soil",
+      "ja": "土壌",
+      "synonym": "earth",
+      "definition": "material in which plants grow"
+    },
+    {
+      "term": "plants",
+      "ja": "植物",
+      "synonym": "vegetation",
+      "definition": "living things that grow from roots"
+    },
+    {
+      "term": "gardens",
+      "ja": "庭",
+      "synonym": "planted areas",
+      "definition": "areas where plants are grown"
+    },
+    {
+      "term": "manage",
+      "ja": "管理する",
+      "synonym": "handle",
+      "definition": "to deal with something"
+    },
+    {
+      "term": "rainwater",
+      "ja": "雨水",
+      "synonym": "water from rain",
+      "definition": "water that falls during rain"
+    },
+    {
+      "term": "collect",
+      "ja": "集める",
+      "synonym": "gather",
+      "definition": "to bring together"
+    },
+    {
+      "term": "movement",
+      "ja": "動き",
+      "synonym": "motion",
+      "definition": "changing position"
+    },
+    {
+      "term": "storm",
+      "ja": "嵐",
+      "synonym": "severe weather",
+      "definition": "a period of strong rain or wind"
+    },
+    {
+      "term": "flood",
+      "ja": "洪水",
+      "synonym": "overflow",
+      "definition": "water covering normally dry land"
+    },
+    {
+      "term": "risk",
+      "ja": "危険",
+      "synonym": "danger",
+      "definition": "the chance of harm"
+    },
+    {
+      "term": "parking",
+      "ja": "駐車",
+      "synonym": "vehicle storage",
+      "definition": "space or activity for leaving cars"
+    },
+    {
+      "term": "entrance",
+      "ja": "入り口",
+      "synonym": "entry",
+      "definition": "the place used to go inside"
+    },
+    {
+      "term": "ground",
+      "ja": "地面",
+      "synonym": "land",
+      "definition": "the surface of earth"
+    },
+    {
+      "term": "gathers",
+      "ja": "集まる",
+      "synonym": "accumulates",
+      "definition": "comes together in one place"
+    },
+    {
+      "term": "suitable",
+      "ja": "適した",
+      "synonym": "appropriate",
+      "definition": "right for a purpose"
+    },
+    {
+      "term": "allow",
+      "ja": "可能にする",
+      "synonym": "permit",
+      "definition": "to make something possible"
+    },
+    {
+      "term": "outlet",
+      "ja": "出口",
+      "synonym": "exit",
+      "definition": "a passage for material to leave"
+    },
+    {
+      "term": "extra",
+      "ja": "余分な",
+      "synonym": "additional",
+      "definition": "more than needed"
+    },
+    {
+      "term": "safely",
+      "ja": "安全に",
+      "synonym": "without danger",
+      "definition": "without causing harm"
+    },
+    {
+      "term": "design",
+      "ja": "設計",
+      "synonym": "plan",
+      "definition": "an arrangement created for a purpose"
+    },
+    {
+      "term": "benefits",
+      "ja": "利点",
+      "synonym": "advantages",
+      "definition": "positive results"
+    },
+    {
+      "term": "flowering",
+      "ja": "花が咲く",
+      "synonym": "blooming",
+      "definition": "producing flowers"
+    },
+    {
+      "term": "insects",
+      "ja": "昆虫",
+      "synonym": "six-legged animals",
+      "definition": "small animals usually with six legs"
+    },
+    {
+      "term": "schoolyard",
+      "ja": "校庭",
+      "synonym": "school grounds",
+      "definition": "outdoor land around a school"
+    },
+    {
+      "term": "pleasant",
+      "ja": "快適な",
+      "synonym": "enjoyable",
+      "definition": "giving a good feeling"
+    },
+    {
+      "term": "rubbish",
+      "ja": "ごみ",
+      "synonym": "waste",
+      "definition": "unwanted materials"
+    },
+    {
+      "term": "drains",
+      "ja": "排水される",
+      "synonym": "flows away",
+      "definition": "leaves an area as liquid"
+    },
+    {
+      "term": "properly",
+      "ja": "正しく",
+      "synonym": "correctly",
+      "definition": "in a suitable way"
+    },
+    {
+      "term": "standing",
+      "ja": "とどまっている",
+      "synonym": "remaining",
+      "definition": "staying in one place"
+    },
+    {
+      "term": "maintenance",
+      "ja": "維持管理",
+      "synonym": "upkeep",
+      "definition": "work that keeps a system working"
+    },
+    {
+      "term": "responsibility",
+      "ja": "責任",
+      "synonym": "duty",
+      "definition": "an obligation to care for something"
+    },
+    {
+      "term": "observe",
+      "ja": "観察する",
+      "synonym": "watch",
+      "definition": "to notice and record events"
+    },
+    {
+      "term": "map",
+      "ja": "地図",
+      "synonym": "diagram",
+      "definition": "a drawing showing locations"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "contrast",
+      "definition": "to examine differences"
+    },
+    {
+      "term": "dangerous",
+      "ja": "危険な",
+      "synonym": "unsafe",
+      "definition": "likely to cause harm"
+    },
+    {
+      "term": "scientific",
+      "ja": "科学的な",
+      "synonym": "research-based",
+      "definition": "connected with careful investigation"
+    },
+    {
+      "term": "community",
+      "ja": "地域社会",
+      "synonym": "local group",
+      "definition": "people sharing an area"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "where water can collect for a short time",
+      "explanation_ja": "関係副詞whereがareaを説明します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 4,
+      "focus": "so that extra water can leave safely",
+      "explanation_ja": "so thatは目的を表します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "focus": "whether the water drains properly",
+      "explanation_ja": "whetherは『〜かどうか』という間接疑問です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 4,
+      "focus": "what the land can do and what people must maintain",
+      "explanation_ja": "二つのwhat節がconsidersの目的語となります。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "舗装の問題から自然を生かす対策へ転換。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "学校の雨庭の具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "In addition",
+      "role_ja": "水管理以外の利点を追加。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Therefore",
+      "role_ja": "観察と安全の学びをまとめる結論。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "does not easily let rain enter the soil",
+      "rewrite": "prevents much rainwater from soaking into the ground",
+      "explanation_ja": "enter→soak intoです。"
+    },
+    {
+      "source": "A garden without careful design may fail during very heavy rain",
+      "rewrite": "Poorly planned gardens may not work during extreme rainfall",
+      "explanation_ja": "without careful design→poorly plannedです。"
+    },
+    {
+      "source": "Nature-based projects still require planning, maintenance, and shared responsibility",
+      "rewrite": "Projects using natural systems need design, upkeep, and cooperation",
+      "explanation_ja": "maintenance→upkeepです。"
+    },
+    {
+      "source": "Even a small garden can encourage a community to think differently about rain",
+      "rewrite": "A modest planted area may change local attitudes toward rainfall",
+      "explanation_ja": "small→modest、think differently→change attitudesです。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "舗装の問題から自然を生かす対策へ転換。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Therefore",
+        "Nevertheless"
+      ],
+      "explanation_ja": "学校の雨庭の具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "In addition",
+      "options": [
+        "In addition",
+        "However",
+        "Therefore",
+        "For example"
+      ],
+      "explanation_ja": "水管理以外の利点を追加。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 3,
+      "answer": "Therefore",
+      "options": [
+        "Therefore",
+        "However",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "観察と安全の学びをまとめる結論。"
+    }
+  ]
+}
