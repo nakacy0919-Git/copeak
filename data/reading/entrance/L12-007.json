@@ -1,0 +1,596 @@
+{
+  "id": "L12-007",
+  "category_id": "L12",
+  "title": "A Question for the School Nurse",
+  "title_ja": "保健室で質問する勇気",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 217,
+  "source_links": [
+    {
+      "title": "Official educational background reference",
+      "url": "https://www.who.int/health-topics/health-literacy"
+    }
+  ],
+  "fact_notes": [
+    "人物・公園・学校の状況は架空。本文・和訳・設問・解説は独自制作。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "During a school event, Kenta feels unwell and visits the nurse's office.",
+          "ja": "学校行事の最中、ケンタは具合が悪くなり保健室へ行きます。"
+        },
+        {
+          "en": "The nurse asks him when he started feeling uncomfortable.",
+          "ja": "養護教諭はいつ具合が悪くなったか尋ねます。"
+        },
+        {
+          "en": "However, Kenta is nervous and finds the question difficult to answer.",
+          "ja": "しかしケンタは緊張して質問に答えにくく感じます。"
+        },
+        {
+          "en": "He worries that asking for help may sound foolish.",
+          "ja": "助けを求めるとばかなことを言うように聞こえるのではないかと心配します。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The nurse explains that students may ask questions whenever something is unclear.",
+          "ja": "養護教諭はわからないことがあればいつでも質問してよいと説明します。"
+        },
+        {
+          "en": "For example, she asks Kenta to describe what he feels in his own words.",
+          "ja": "例えば自分の言葉でどう感じるか説明するよう求めます。"
+        },
+        {
+          "en": "Kenta tells her about his morning and what happened during the event.",
+          "ja": "ケンタは朝のことと行事中に起きたことを話します。"
+        },
+        {
+          "en": "The nurse listens without asking him to guess an answer.",
+          "ja": "養護教諭は答えを推測させずに耳を傾けます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Kenta remembers a small note that his family gave him.",
+          "ja": "ケンタは家族から渡された小さなメモを思い出します。"
+        },
+        {
+          "en": "He shows the note to the nurse so she can read it.",
+          "ja": "養護教諭が読めるようにメモを見せます。"
+        },
+        {
+          "en": "Instead of hiding information, he explains what he knows and what he does not.",
+          "ja": "情報を隠さず、わかることとわからないことを説明します。"
+        },
+        {
+          "en": "The nurse helps him contact a family member when needed.",
+          "ja": "養護教諭は必要に応じて家族に連絡するのを助けます。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Later, Kenta asks whether his private information will be shared with classmates.",
+          "ja": "後でケンタは自分の個人的な情報が同級生に共有されるか尋ねます。"
+        },
+        {
+          "en": "The nurse explains how the school handles personal information.",
+          "ja": "養護教諭は学校が個人情報をどう扱うか説明します。"
+        },
+        {
+          "en": "Nevertheless, Kenta still has one question about the next step.",
+          "ja": "それでもケンタには次の段階について一つ疑問が残っています。"
+        },
+        {
+          "en": "He feels comfortable asking again instead of pretending to understand.",
+          "ja": "理解したふりをせず再び質問してよいと感じます。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "Before leaving, Kenta thanks the nurse for listening.",
+          "ja": "帰る前にケンタは話を聞いてくれたことに感謝します。"
+        },
+        {
+          "en": "He knows that clear communication can make asking for help easier.",
+          "ja": "明確な意思疎通は助けを求めやすくするとわかります。"
+        },
+        {
+          "en": "As a result, he becomes more willing to speak when something is unclear.",
+          "ja": "その結果わからないことがあるとき話す気持ちが強くなります。"
+        },
+        {
+          "en": "Good health communication includes listening as well as explaining.",
+          "ja": "よい健康に関する意思疎通には説明だけでなく傾聴も含まれます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "Where does Kenta go?",
+      "options": [
+        "To the nurse's office.",
+        "To a shop.",
+        "To a library.",
+        "To a railway station."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「学校行事の最中、ケンタは具合が悪くなり保健室へ行きます。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Why is Kenta's first answer difficult?",
+      "options": [
+        "The nurse is absent.",
+        "He has forgotten his name.",
+        "The office is closed.",
+        "He feels nervous."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「しかしケンタは緊張して質問に答えにくく感じます。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "How is Kenta asked to describe his condition?",
+      "options": [
+        "With an examination score.",
+        "By copying someone else's answer.",
+        "In his own words.",
+        "Only by drawing a map."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「例えば自分の言葉でどう感じるか説明するよう求めます。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What does the nurse do?",
+      "options": [
+        "Call every classmate.",
+        "Listen without making him guess.",
+        "Ask him to ignore questions.",
+        "Leave the room."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「養護教諭は答えを推測させずに耳を傾けます。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What does Kenta remember?",
+      "options": [
+        "A note from his family.",
+        "A library card.",
+        "A sports ticket.",
+        "A train schedule."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「養護教諭が読めるようにメモを見せます。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "How does he handle information?",
+      "options": [
+        "He hides every fact.",
+        "He invents details.",
+        "He speaks only to classmates.",
+        "He explains what he knows and does not know."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「養護教諭は必要に応じて家族に連絡するのを助けます。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What does Kenta ask about privacy?",
+      "options": [
+        "Whether the school has a cafeteria.",
+        "Whether a lesson is canceled.",
+        "Whether information will be shared with classmates.",
+        "Whether the nurse likes sports."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「後でケンタは自分の個人的な情報が同級生に共有されるか尋ねます。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What does Kenta do if he is still confused?",
+      "options": [
+        "Guess the answer.",
+        "Ask another question.",
+        "Pretend to understand.",
+        "Leave without speaking."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「理解したふりをせず再び質問してよいと感じます。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "detail",
+      "prompt": "Whom does Kenta thank?",
+      "options": [
+        "The nurse.",
+        "A bus driver.",
+        "A shop owner.",
+        "His class president."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「帰る前にケンタは話を聞いてくれたことに感謝します。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the passage's main lesson?",
+      "options": [
+        "Patients should never ask questions.",
+        "Private information should always be public.",
+        "Good communication requires guessing.",
+        "Clear communication and listening help people ask for care."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「よい健康に関する意思疎通には説明だけでなく傾聴も含まれます。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "classmates",
+      "ja": "同級生",
+      "synonym": "peers",
+      "definition": "students in the same class"
+    },
+    {
+      "term": "comfortable",
+      "ja": "快適な",
+      "synonym": "pleasant",
+      "definition": "physically pleasant"
+    },
+    {
+      "term": "communication",
+      "ja": "意思疎通",
+      "synonym": "exchange",
+      "definition": "sharing information"
+    },
+    {
+      "term": "describe",
+      "ja": "説明する",
+      "synonym": "explain",
+      "definition": "to give an account of something"
+    },
+    {
+      "term": "event",
+      "ja": "行事",
+      "synonym": "occasion",
+      "definition": "a planned activity"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "health",
+      "ja": "健康",
+      "synonym": "wellness",
+      "definition": "physical and mental condition"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "details",
+      "definition": "facts that help understanding"
+    },
+    {
+      "term": "listening",
+      "ja": "傾聴",
+      "synonym": "hearing",
+      "definition": "paying attention to words"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "personal",
+      "ja": "個人的な",
+      "synonym": "private",
+      "definition": "related to an individual"
+    },
+    {
+      "term": "pretending",
+      "ja": "ふりをすること",
+      "synonym": "acting",
+      "definition": "behaving as if something is true"
+    },
+    {
+      "term": "private",
+      "ja": "個人的な",
+      "synonym": "personal",
+      "definition": "not meant for everyone"
+    },
+    {
+      "term": "question",
+      "ja": "疑問を持つ・問い直す",
+      "synonym": "challenge",
+      "definition": "to examine whether an assumption is correct"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "shared",
+      "ja": "共有された",
+      "synonym": "common",
+      "definition": "used or affected by several groups"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "uncomfortable",
+      "ja": "不快な",
+      "synonym": "uneasy",
+      "definition": "not feeling comfortable"
+    },
+    {
+      "term": "nurse",
+      "ja": "養護教諭",
+      "synonym": "health worker",
+      "definition": "a person providing nursing support"
+    },
+    {
+      "term": "office",
+      "ja": "保健室",
+      "synonym": "room",
+      "definition": "a place for a particular service"
+    },
+    {
+      "term": "unwell",
+      "ja": "体調が悪い",
+      "synonym": "sick",
+      "definition": "not feeling healthy"
+    },
+    {
+      "term": "nervous",
+      "ja": "緊張した",
+      "synonym": "anxious",
+      "definition": "worried and uneasy"
+    },
+    {
+      "term": "questions",
+      "ja": "質問",
+      "synonym": "inquiries",
+      "definition": "things people ask"
+    },
+    {
+      "term": "family",
+      "ja": "家族",
+      "synonym": "relatives",
+      "definition": "people related to one another"
+    },
+    {
+      "term": "explaining",
+      "ja": "説明すること",
+      "synonym": "clarifying",
+      "definition": "making something understandable"
+    },
+    {
+      "term": "understand",
+      "ja": "理解する",
+      "synonym": "comprehend",
+      "definition": "know the meaning"
+    },
+    {
+      "term": "unclear",
+      "ja": "不明な",
+      "synonym": "uncertain",
+      "definition": "difficult to understand"
+    },
+    {
+      "term": "nurse's office",
+      "ja": "保健室",
+      "synonym": "health room",
+      "definition": "a place for care in school"
+    },
+    {
+      "term": "contact",
+      "ja": "連絡する",
+      "synonym": "reach",
+      "definition": "communicate with someone"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "when he started feeling uncomfortable",
+      "explanation_ja": "間接疑問文で症状が始まった時期を尋ねています。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 0,
+      "focus": "whenever something is unclear",
+      "explanation_ja": "whenever節はいつでも質問してよいことを示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of hiding information",
+      "explanation_ja": "instead of + 動名詞は代替の行動です。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "listening as well as explaining",
+      "explanation_ja": "as well asは傾聴と説明の両方を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "具合が悪いことと質問への不安を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "自分の言葉で説明する例を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "説明の後にも質問が残ることを示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "質問しやすくなる結果を示します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "He worries that asking for help may sound foolish.",
+      "rewrite": "Kenta is afraid that asking questions may seem silly.",
+      "explanation_ja": "質問への不安を表します。"
+    },
+    {
+      "source": "The nurse listens without asking him to guess an answer.",
+      "rewrite": "The nurse listens rather than asking Kenta to invent an answer.",
+      "explanation_ja": "推測を強制せず話を聞きます。"
+    },
+    {
+      "source": "He feels comfortable asking again instead of pretending to understand.",
+      "rewrite": "Kenta asks again instead of acting as if he understands.",
+      "explanation_ja": "わかったふりをせず確認します。"
+    },
+    {
+      "source": "Good health communication includes listening as well as explaining.",
+      "rewrite": "Health communication depends on both explaining and listening.",
+      "explanation_ja": "説明と傾聴が重要という結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "具合が悪いことと質問への不安を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "自分の言葉で説明する例を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "説明の後にも質問が残ることを示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "質問しやすくなる結果を示します。"
+    }
+  ]
+}
