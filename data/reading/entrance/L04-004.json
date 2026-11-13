@@ -1,0 +1,566 @@
+{
+  "id": "L04-004",
+  "category_id": "L04",
+  "title": "The Empty Seat on the Bus",
+  "title_ja": "バスの空いている席",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 184,
+  "source_links": [
+    {
+      "title": "Educational background reference",
+      "url": "https://www.who.int/news-room/questions-and-answers/item/social-connection"
+    }
+  ],
+  "fact_notes": [
+    "架空の教育用場面。英文・対訳・設問は独自制作。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Every morning, Riku takes a bus to school.",
+          "ja": "リクは毎朝バスで学校へ行きます。"
+        },
+        {
+          "en": "He usually sits beside his best friend, Taro.",
+          "ja": "いつも親友のタロウの隣に座ります。"
+        },
+        {
+          "en": "However, a new student gets on the bus one day.",
+          "ja": "しかしある日、新しい生徒がバスに乗ってきます。"
+        },
+        {
+          "en": "She looks around but does not know where to sit.",
+          "ja": "彼女は周りを見ますがどこに座ればよいかわかりません。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Riku wants to invite her to sit near them.",
+          "ja": "リクは彼女を近くの席に誘いたいと思います。"
+        },
+        {
+          "en": "Taro says he wants to talk only with Riku.",
+          "ja": "タロウはリクとだけ話したいと言います。"
+        },
+        {
+          "en": "For example, they often discuss their favorite games on the way.",
+          "ja": "例えば二人は通学中によく好きなゲームについて話します。"
+        },
+        {
+          "en": "Riku understands Taro, but he notices the new student's worried face.",
+          "ja": "リクはタロウの気持ちを理解しますが、新しい生徒の不安そうな顔に気づきます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "At the next stop, Riku moves to another seat.",
+          "ja": "次の停留所でリクは別の席へ移ります。"
+        },
+        {
+          "en": "He asks the new student whether she wants to sit there.",
+          "ja": "彼女にそこに座りたいか尋ねます。"
+        },
+        {
+          "en": "She smiles and says that her name is Mina.",
+          "ja": "彼女は笑顔で名前はミナだと言います。"
+        },
+        {
+          "en": "Instead of talking only about games, they discuss the town.",
+          "ja": "ゲームの話だけでなく、二人は町について話します。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Taro feels lonely for a few minutes.",
+          "ja": "タロウは数分間さびしく感じます。"
+        },
+        {
+          "en": "Nevertheless, he later joins the conversation with Mina.",
+          "ja": "それでも後でミナとの会話に加わります。"
+        },
+        {
+          "en": "He learns that Mina also enjoys his favorite game.",
+          "ja": "ミナも自分の好きなゲームを楽しむと知ります。"
+        },
+        {
+          "en": "The three students begin to laugh together.",
+          "ja": "三人の生徒は一緒に笑い始めます。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The next morning, they sit together again.",
+          "ja": "翌朝、三人はまた一緒に座ります。"
+        },
+        {
+          "en": "This time, Taro asks Mina about her new school.",
+          "ja": "今度はタロウがミナに新しい学校について尋ねます。"
+        },
+        {
+          "en": "As a result, the bus ride becomes more enjoyable for everyone.",
+          "ja": "その結果、バスでの時間が全員にとってもっと楽しくなります。"
+        },
+        {
+          "en": "Riku learns that a small invitation can open a new friendship.",
+          "ja": "リクは小さな誘いが新しい友情を開くことを学びます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "Who usually sits beside Riku?",
+      "options": [
+        "Taro.",
+        "Mina.",
+        "His teacher.",
+        "His sister."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落の「いつも親友のタロウの隣に座ります。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What problem does the new student have?",
+      "options": [
+        "She cannot find her bag.",
+        "She misses the bus.",
+        "She has no ticket.",
+        "She does not know where to sit."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落の「彼女は周りを見ますがどこに座ればよいかわかりません。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What does Taro want at first?",
+      "options": [
+        "To read a new book.",
+        "To speak to the driver.",
+        "To talk only with Riku.",
+        "To leave the bus early."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落の「タロウはリクとだけ話したいと言います。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What does Riku notice?",
+      "options": [
+        "His teacher waiting outside.",
+        "The new student's worried face.",
+        "A broken bus window.",
+        "A new book on the floor."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落の「リクはタロウの気持ちを理解しますが、新しい生徒の不安そうな顔に気づきます。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What does Riku do at the next stop?",
+      "options": [
+        "He moves to another seat.",
+        "He leaves his bag behind.",
+        "He runs to school.",
+        "He calls his parents."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落の「次の停留所でリクは別の席へ移ります。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What is the new student's name?",
+      "options": [
+        "Yuki.",
+        "Emi.",
+        "Hana.",
+        "Mina."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落の「彼女は笑顔で名前はミナだと言います。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What do Riku and Mina talk about?",
+      "options": [
+        "The bus timetable.",
+        "A sports tournament.",
+        "Their town.",
+        "A difficult exam."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落の「ゲームの話だけでなく、二人は町について話します。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What do Taro and Mina both like?",
+      "options": [
+        "The same bicycle.",
+        "The same game.",
+        "The same restaurant.",
+        "The same music teacher."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落の「ミナも自分の好きなゲームを楽しむと知ります。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What does Taro ask Mina the next day?",
+      "options": [
+        "About her new school.",
+        "About her homework score.",
+        "About her old bus ticket.",
+        "About her family car."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落の「今度はタロウがミナに新しい学校について尋ねます。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the main lesson?",
+      "options": [
+        "Friends should never speak to newcomers.",
+        "Bus rides should always be silent.",
+        "Playing games prevents all friendships.",
+        "A small invitation can begin a new friendship."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落の「リクは小さな誘いが新しい友情を開くことを学びます。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "conversation",
+      "ja": "会話",
+      "synonym": "talk",
+      "definition": "a spoken exchange"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "friendship",
+      "ja": "友情",
+      "synonym": "bond",
+      "definition": "a friendly relationship"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "invite",
+      "ja": "誘う",
+      "synonym": "ask to join",
+      "definition": "request someone's participation"
+    },
+    {
+      "term": "lonely",
+      "ja": "さびしい",
+      "synonym": "alone",
+      "definition": "feeling sad without company"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "student",
+      "ja": "生徒",
+      "synonym": "learner",
+      "definition": "a person learning at school"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "learners",
+      "definition": "people attending school"
+    },
+    {
+      "term": "usually",
+      "ja": "普段",
+      "synonym": "normally",
+      "definition": "in most situations"
+    },
+    {
+      "term": "bus",
+      "ja": "バス",
+      "synonym": "public vehicle",
+      "definition": "a large road vehicle for passengers"
+    },
+    {
+      "term": "seat",
+      "ja": "席",
+      "synonym": "place to sit",
+      "definition": "a chair or space for sitting"
+    },
+    {
+      "term": "friend",
+      "ja": "友達",
+      "synonym": "companion",
+      "definition": "someone one likes and knows"
+    },
+    {
+      "term": "invitation",
+      "ja": "誘い",
+      "synonym": "request",
+      "definition": "an offer to join an activity"
+    },
+    {
+      "term": "worried",
+      "ja": "心配そうな",
+      "synonym": "anxious",
+      "definition": "showing concern or fear"
+    },
+    {
+      "term": "smiles",
+      "ja": "笑う",
+      "synonym": "grins",
+      "definition": "shows happiness with the face"
+    },
+    {
+      "term": "joins",
+      "ja": "加わる",
+      "synonym": "enters",
+      "definition": "becomes part of a group"
+    },
+    {
+      "term": "morning",
+      "ja": "朝",
+      "synonym": "early day",
+      "definition": "the time before noon"
+    },
+    {
+      "term": "stop",
+      "ja": "停留所",
+      "synonym": "station",
+      "definition": "a place where a bus stops"
+    },
+    {
+      "term": "town",
+      "ja": "町",
+      "synonym": "community",
+      "definition": "a place where people live"
+    },
+    {
+      "term": "enjoyable",
+      "ja": "楽しい",
+      "synonym": "pleasant",
+      "definition": "giving pleasure"
+    },
+    {
+      "term": "favorite",
+      "ja": "お気に入りの",
+      "synonym": "preferred",
+      "definition": "liked more than others"
+    },
+    {
+      "term": "game",
+      "ja": "ゲーム",
+      "synonym": "activity",
+      "definition": "an activity played for enjoyment"
+    },
+    {
+      "term": "new",
+      "ja": "新しい",
+      "synonym": "recent",
+      "definition": "not there before"
+    },
+    {
+      "term": "discuss",
+      "ja": "話し合う",
+      "synonym": "talk about",
+      "definition": "exchange ideas about a topic"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "where to sit",
+      "explanation_ja": "疑問詞 + to不定詞で「どこに座るか」を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 0,
+      "focus": "to invite her to sit near them",
+      "explanation_ja": "want to + 動詞原形は「〜したい」です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "focus": "whether she wants to sit there",
+      "explanation_ja": "whether節は「座りたいかどうか」です。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "that a small invitation can open a new friendship",
+      "explanation_ja": "that節は学んだ内容です。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "いつもの状況と新しい生徒の登場を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "二人が普段話すことの例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "さびしさの後に会話へ参加します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "三人の交流による変化を示します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "She looks around but does not know where to sit.",
+      "rewrite": "The new student is unsure which seat she should choose.",
+      "explanation_ja": "どこに座るかわからないという意味です。"
+    },
+    {
+      "source": "Riku understands Taro, but he notices the new student's worried face.",
+      "rewrite": "Riku notices that the new student seems worried.",
+      "explanation_ja": "新しい生徒の不安に気づいたことです。"
+    },
+    {
+      "source": "He learns that Mina also enjoys his favorite game.",
+      "rewrite": "Mina and Taro share an interest in the same game.",
+      "explanation_ja": "共通の趣味を持つという意味です。"
+    },
+    {
+      "source": "Riku learns that a small invitation can open a new friendship.",
+      "rewrite": "One invitation can lead to a friendship.",
+      "explanation_ja": "小さな誘いが友情になるという結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "いつもの状況と新しい生徒の登場を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "二人が普段話すことの例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "さびしさの後に会話へ参加します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "三人の交流による変化を示します。"
+    }
+  ]
+}
