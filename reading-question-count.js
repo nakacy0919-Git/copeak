@@ -3,18 +3,19 @@
 (function(root){
  'use strict';
  const availableCounts=(total)=>{
-   const max=Math.min(10,Math.max(0,Number(total)||0));
+   const max=Math.min(10,Math.max(0,Math.floor(Number(total)||0)));
    if(max<=0)return [];
-   const source=[Math.min(5,max),Math.min(7,max),max];
-   const names=['標準','じっくり','徹底'];
-   const descriptions=['入試に近い基本演習','根拠・推論まで確認','本文を深く読み込む'];
+   // Earlier authored passages may have only 4–6 questions. Always give a
+   // shorter option when possible instead of offering a single inert choice.
+   const counts=max>=7?[5,7,max]:max>=5?[3,5,max]:[Math.min(3,max),max];
    const result=[],seen=new Set();
-   for(let i=0;i<source.length;i++){
-     const count=source[i];
-     if(seen.has(count))continue;
-     seen.add(count);
-     result.push({count,label:count===max&&max<10?'全問':names[i],
-       description:count===max&&max<10?'この長文の収録問題をすべて解く':descriptions[i]});
+   for(const count of counts){
+     if(seen.has(count))continue;seen.add(count);
+     const all=count===max;
+     const label=all?(max===10?'徹底':'全問'):count<=3?'短め':count<=5?'標準':'じっくり';
+     const description=all?'この長文の収録問題をすべて解く':
+       count<=3?'短時間で要点を確認':count<=5?'入試に近い基本演習':'根拠・推論まで確認';
+     result.push({count,label,description});
    }
    return result;
  };
