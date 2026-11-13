@@ -1,0 +1,675 @@
+{
+  "id": "L03-003",
+  "category_id": "L03",
+  "title": "When a River Sends a Warning",
+  "title_ja": "川が警告を発するとき",
+  "level_id": "eiken-2",
+  "word_count": 356,
+  "original": true,
+  "status": "draft",
+  "source_links": [
+    {
+      "title": "U.S. Geological Survey: How Streamflow Is Measured",
+      "url": "https://www.usgs.gov/water-science-school/science/how-streamflow-measured"
+    },
+    {
+      "title": "U.S. Geological Survey: Streamgaging",
+      "url": "https://www.usgs.gov/centers/new-jersey-water-science-center/streamgaging"
+    }
+  ],
+  "fact_notes": [
+    "背景となる考え方は添付の資料で確認。本文と練習問題は新規制作。例示した人物・学校・活動は架空の説明用設定。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "People living near rivers often watch the weather carefully during periods of heavy rain.",
+          "ja": "川の近くに暮らす人々は大雨の時期、天気を注意深く見守ることがよくあります。"
+        },
+        {
+          "en": "A river that looks calm in the morning may rise rapidly after rain falls farther upstream.",
+          "ja": "朝は穏やかに見える川も、上流で雨が降ると急に増水することがあります。"
+        },
+        {
+          "en": "However, watching the river from a bridge is not a safe or reliable way to measure flood risk.",
+          "ja": "しかし橋から川を眺めることは、洪水の危険を測る安全で信頼できる方法ではありません。"
+        },
+        {
+          "en": "Scientists use instruments called streamgages to record changes in the height of the water surface.",
+          "ja": "科学者は水面の高さの変化を記録するため、流量観測所の機器を使います。"
+        },
+        {
+          "en": "These measurements can help authorities understand conditions without asking people to enter dangerous areas.",
+          "ja": "この測定は、危険な場所へ人を入れずに当局が状況を把握する助けになります。"
+        },
+        {
+          "en": "Information from a single location is useful, but it is only one part of the picture.",
+          "ja": "一地点からの情報は役立ちますが、全体像の一部にすぎません。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The U.S. Geological Survey explains that water level and the amount of water flowing are related but not identical.",
+          "ja": "米国地質調査所は、水位と流れる水の量は関係があるものの同じではないと説明します。"
+        },
+        {
+          "en": "For example, the same increase in water level can represent different changes in flow at different locations.",
+          "ja": "例えば同じ水位の上昇でも、場所が違えば流量の変化は異なる場合があります。"
+        },
+        {
+          "en": "The shape and size of a river channel affect how much water can move through it.",
+          "ja": "川の流路の形と大きさは、その中を流れられる水の量に影響します。"
+        },
+        {
+          "en": "Technicians therefore compare water-level records with separate measurements of river flow.",
+          "ja": "そのため技術者は水位の記録を、別途測定した川の流量と比較します。"
+        },
+        {
+          "en": "They use the relationship between the two measurements to estimate flow over time.",
+          "ja": "両者の関係を使って、時間とともに変わる流量を推定します。"
+        },
+        {
+          "en": "A reading on a screen is meaningful only when the method behind it is understood.",
+          "ja": "画面上の数値は、その背後の測定方法を理解して初めて意味を持ちます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Imagine a town preparing a public website that shows recent river conditions.",
+          "ja": "最近の川の状況を示す公共ウェブサイトを準備する町を想像してください。"
+        },
+        {
+          "en": "The designers want to display measurements as simple graphs that residents can read quickly.",
+          "ja": "設計者は住民がすぐ読める簡単なグラフとして測定値を表示したいと考えています。"
+        },
+        {
+          "en": "In addition, they add a note explaining when each reading was recorded and whether it is provisional.",
+          "ja": "さらに、各数値の記録時刻と暫定値かどうかを説明する注記を付けます。"
+        },
+        {
+          "en": "This matters because a graph can be out of date or contain values that require later checking.",
+          "ja": "グラフは古い情報だったり、後で確認が必要な数値を含んだりする場合があるからです。"
+        },
+        {
+          "en": "The website also tells residents to follow official warnings rather than make safety decisions from one graph alone.",
+          "ja": "サイトは住民に、一つのグラフだけで安全判断をせず、公式の警報に従うよう伝えます。"
+        },
+        {
+          "en": "Good communication makes the limits of data as visible as the data itself.",
+          "ja": "優れた情報伝達は、数値そのものと同じくらいデータの限界も見えるようにします。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Technology can make information available faster, yet it cannot guarantee that everyone receives or understands it.",
+          "ja": "技術は情報を速く届けられますが、誰もが受け取り理解するとは限りません。"
+        },
+        {
+          "en": "Some households may have limited internet access, while others may need information in another language.",
+          "ja": "インターネットを使いにくい家庭もあれば、別の言語で情報を必要とする家庭もあります。"
+        },
+        {
+          "en": "Nevertheless, a town can combine online graphs with radio announcements, clear signs, and community support.",
+          "ja": "それでも町はオンラインのグラフとラジオ放送、明確な標識、地域の支援を組み合わせられます。"
+        },
+        {
+          "en": "Students studying this topic can compare different warning messages and ask what action each message recommends.",
+          "ja": "この題材を学ぶ生徒は、異なる警告文を比較し、それぞれがどんな行動を勧めるか問えます。"
+        },
+        {
+          "en": "The best warning system is not simply one that collects many numbers; it helps people act before danger arrives.",
+          "ja": "最良の警報システムは多くの数値を集めるだけでなく、危険が来る前に人々が行動できるようにします。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the passage mainly about?",
+      "options": [
+        "How useful river data should be measured and communicated for safety.",
+        "Why every river has the same shape.",
+        "Why websites can replace all local workers.",
+        "How to build a new bridge from scratch."
+      ],
+      "answer": 0,
+      "explanation_ja": "測定値の意味と限界を理解し、安全な行動につなげることが主題です。",
+      "paragraph_ids": [
+        "p1",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Why can a river rise after rain upstream?",
+      "options": [
+        "The river always flows backward.",
+        "Rain farther upstream can affect conditions downstream.",
+        "All bridges become taller.",
+        "The river becomes narrower immediately."
+      ],
+      "answer": 1,
+      "explanation_ja": "上流の雨が下流の増水に影響すると述べます。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What do streamgages help record?",
+      "options": [
+        "The color of nearby houses.",
+        "The number of visitors.",
+        "Changes in water-surface height.",
+        "The price of water bottles."
+      ],
+      "answer": 2,
+      "explanation_ja": "流量観測所の機器で水面の高さの変化を記録します。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why is water level not the same as flow?",
+      "options": [
+        "Water cannot be measured.",
+        "Rivers do not have channels.",
+        "Rain never changes flow.",
+        "Channel conditions affect how much water passes through."
+      ],
+      "answer": 3,
+      "explanation_ja": "流路の形などによって水位と流量の関係が変わるためです。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What do technicians compare?",
+      "options": [
+        "River height and separately measured flow.",
+        "Only two weather photographs.",
+        "The number of schools and shops.",
+        "Different languages on the website."
+      ],
+      "answer": 0,
+      "explanation_ja": "水位記録と別に測った流量を比較します。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "Why should the website show recording times?",
+      "options": [
+        "So residents can buy more computers.",
+        "So users can judge whether the data are recent.",
+        "So the graph can be longer.",
+        "So residents can ignore officials."
+      ],
+      "answer": 1,
+      "explanation_ja": "測定値が古くなっている可能性を判断するためです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "inference",
+      "prompt": "Why should residents not rely on one graph alone?",
+      "options": [
+        "All graphs contain false numbers.",
+        "No river measurement is useful.",
+        "They also need official warnings and broader information.",
+        "A graph can control the weather."
+      ],
+      "answer": 2,
+      "explanation_ja": "一つのグラフだけでは判断材料が不十分だからです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'provisional' mean?",
+      "options": [
+        "Completely imaginary.",
+        "Permanently correct.",
+        "Connected with a holiday.",
+        "Temporary and possibly subject to change."
+      ],
+      "answer": 3,
+      "explanation_ja": "provisionalは後で確認・修正され得る暫定的という意味です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "detail",
+      "prompt": "What may prevent some households from using online warnings?",
+      "options": [
+        "Limited internet access or language barriers.",
+        "Too many river plants.",
+        "Very tall bridges.",
+        "The age of nearby mountains."
+      ],
+      "answer": 0,
+      "explanation_ja": "接続の制約や言語の違いが挙げられます。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "What does the final sentence emphasize?",
+      "options": [
+        "Only measuring technology matters.",
+        "Warnings are valuable when they help people act in time.",
+        "The largest data set is always best.",
+        "River flow never changes."
+      ],
+      "answer": 1,
+      "explanation_ja": "警報は住民の事前行動につながってこそ価値があるという結論です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "rivers",
+      "ja": "川",
+      "synonym": "streams",
+      "definition": "large natural channels of flowing water"
+    },
+    {
+      "term": "weather",
+      "ja": "天気",
+      "synonym": "atmospheric conditions",
+      "definition": "conditions of air, rain, and temperature"
+    },
+    {
+      "term": "periods",
+      "ja": "期間",
+      "synonym": "intervals",
+      "definition": "lengths of time"
+    },
+    {
+      "term": "rain",
+      "ja": "雨",
+      "synonym": "rainfall",
+      "definition": "water falling from clouds"
+    },
+    {
+      "term": "calm",
+      "ja": "穏やかな",
+      "synonym": "quiet",
+      "definition": "not moving violently"
+    },
+    {
+      "term": "rapidly",
+      "ja": "急速に",
+      "synonym": "quickly",
+      "definition": "at high speed"
+    },
+    {
+      "term": "upstream",
+      "ja": "上流で",
+      "synonym": "toward the source",
+      "definition": "toward the upper part of a river"
+    },
+    {
+      "term": "bridge",
+      "ja": "橋",
+      "synonym": "crossing structure",
+      "definition": "a structure over a river"
+    },
+    {
+      "term": "reliable",
+      "ja": "信頼できる",
+      "synonym": "dependable",
+      "definition": "consistently accurate or useful"
+    },
+    {
+      "term": "measure",
+      "ja": "測定する",
+      "synonym": "quantify",
+      "definition": "to find an amount using a method"
+    },
+    {
+      "term": "flood",
+      "ja": "洪水",
+      "synonym": "overflow",
+      "definition": "an event when water covers normally dry land"
+    },
+    {
+      "term": "scientists",
+      "ja": "科学者",
+      "synonym": "researchers",
+      "definition": "people trained in systematic study"
+    },
+    {
+      "term": "instruments",
+      "ja": "機器",
+      "synonym": "devices",
+      "definition": "tools for measuring"
+    },
+    {
+      "term": "streamgages",
+      "ja": "流量観測機器",
+      "synonym": "river gauges",
+      "definition": "instruments that record river conditions"
+    },
+    {
+      "term": "record",
+      "ja": "記録する",
+      "synonym": "document",
+      "definition": "to save information for later use"
+    },
+    {
+      "term": "height",
+      "ja": "高さ",
+      "synonym": "elevation",
+      "definition": "distance from a lower reference point"
+    },
+    {
+      "term": "surface",
+      "ja": "表面",
+      "synonym": "outer level",
+      "definition": "the top of a material"
+    },
+    {
+      "term": "measurements",
+      "ja": "測定値",
+      "synonym": "readings",
+      "definition": "values obtained through measuring"
+    },
+    {
+      "term": "authorities",
+      "ja": "当局",
+      "synonym": "officials",
+      "definition": "people or organizations with official duties"
+    },
+    {
+      "term": "conditions",
+      "ja": "状態",
+      "synonym": "circumstances",
+      "definition": "features of a situation at a time"
+    },
+    {
+      "term": "related",
+      "ja": "関係した",
+      "synonym": "connected",
+      "definition": "having a relationship"
+    },
+    {
+      "term": "identical",
+      "ja": "同一の",
+      "synonym": "exactly alike",
+      "definition": "the same in every relevant respect"
+    },
+    {
+      "term": "represent",
+      "ja": "表す",
+      "synonym": "stand for",
+      "definition": "to describe or show"
+    },
+    {
+      "term": "flow",
+      "ja": "流量・流れる",
+      "synonym": "movement of water",
+      "definition": "the amount or act of water moving"
+    },
+    {
+      "term": "channel",
+      "ja": "流路",
+      "synonym": "watercourse",
+      "definition": "the path through which a river flows"
+    },
+    {
+      "term": "technicians",
+      "ja": "技術者",
+      "synonym": "specialists",
+      "definition": "people skilled in technical work"
+    },
+    {
+      "term": "separate",
+      "ja": "別個の",
+      "synonym": "independent",
+      "definition": "not part of the same item"
+    },
+    {
+      "term": "estimate",
+      "ja": "推定する",
+      "synonym": "calculate approximately",
+      "definition": "to judge using incomplete information"
+    },
+    {
+      "term": "website",
+      "ja": "ウェブサイト",
+      "synonym": "online site",
+      "definition": "a collection of pages on the internet"
+    },
+    {
+      "term": "graphs",
+      "ja": "グラフ",
+      "synonym": "charts",
+      "definition": "visual displays of numerical information"
+    },
+    {
+      "term": "residents",
+      "ja": "住民",
+      "synonym": "inhabitants",
+      "definition": "people living in a place"
+    },
+    {
+      "term": "display",
+      "ja": "表示する",
+      "synonym": "show",
+      "definition": "to present information visibly"
+    },
+    {
+      "term": "provisional",
+      "ja": "暫定的な",
+      "synonym": "temporary",
+      "definition": "not yet finally confirmed"
+    },
+    {
+      "term": "limits",
+      "ja": "限界",
+      "synonym": "restrictions",
+      "definition": "boundaries on what something can do"
+    },
+    {
+      "term": "data",
+      "ja": "データ",
+      "synonym": "information",
+      "definition": "recorded facts and measurements"
+    },
+    {
+      "term": "households",
+      "ja": "世帯",
+      "synonym": "families",
+      "definition": "people living in one home"
+    },
+    {
+      "term": "access",
+      "ja": "利用できること",
+      "synonym": "availability",
+      "definition": "the ability to obtain or use a service"
+    },
+    {
+      "term": "radio",
+      "ja": "ラジオ",
+      "synonym": "audio broadcasting",
+      "definition": "a system sending sound programs"
+    },
+    {
+      "term": "announcements",
+      "ja": "放送・告知",
+      "synonym": "public notices",
+      "definition": "information announced to many people"
+    },
+    {
+      "term": "warning",
+      "ja": "警告・警報",
+      "synonym": "alert",
+      "definition": "information about possible danger"
+    },
+    {
+      "term": "system",
+      "ja": "システム",
+      "synonym": "organized arrangement",
+      "definition": "connected parts working together"
+    },
+    {
+      "term": "action",
+      "ja": "行動",
+      "synonym": "step",
+      "definition": "something done to achieve a purpose"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "that looks calm in the morning",
+      "explanation_ja": "関係代名詞thatがriverを修飾します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 0,
+      "focus": "that water level and the amount of water flowing are related but not identical",
+      "explanation_ja": "that節がexplainsの内容を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 4,
+      "focus": "rather than make safety decisions from one graph alone",
+      "explanation_ja": "rather thanで公式警報に従うことと単独判断を対比します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "focus": "yet it cannot guarantee that everyone receives or understands it",
+      "explanation_ja": "yetで技術の利点と限界を対比し、that節はguaranteeの目的語です。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "目視の便利さと危険・不確実性との逆接。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "水位と流量が一致しない具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "In addition",
+      "role_ja": "数値表示だけでなく記録時刻も示す追加。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "アクセス障壁を示した後に代替策を述べる逆接。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "watching the river from a bridge is not a safe or reliable way to measure flood risk",
+      "rewrite": "looking from a bridge is neither secure nor dependable for evaluating flood danger",
+      "explanation_ja": "safe→secure、measure→evaluate、risk→dangerです。"
+    },
+    {
+      "source": "water level and the amount of water flowing are related but not identical",
+      "rewrite": "river height and discharge are connected but are not the same",
+      "explanation_ja": "related→connected、not identical→not the sameです。"
+    },
+    {
+      "source": "makes the limits of data as visible as the data itself",
+      "rewrite": "shows the uncertainties of information as clearly as its values",
+      "explanation_ja": "limits→uncertainties、visible→clearly showsです。"
+    },
+    {
+      "source": "helps people act before danger arrives",
+      "rewrite": "enables residents to respond in advance of hazardous events",
+      "explanation_ja": "act→respond、before→in advance ofです。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "目視の便利さと危険・不確実性との逆接。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Therefore",
+        "Nevertheless"
+      ],
+      "explanation_ja": "水位と流量が一致しない具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "In addition",
+      "options": [
+        "In addition",
+        "However",
+        "Therefore",
+        "For example"
+      ],
+      "explanation_ja": "数値表示だけでなく記録時刻も示す追加。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "アクセス障壁を示した後に代替策を述べる逆接。"
+    }
+  ]
+}
