@@ -1,0 +1,699 @@
+{
+  "id": "L14-002",
+  "category_id": "L14",
+  "title": "A Friendship That Begins with a Letter",
+  "title_ja": "手紙から始まる友情",
+  "level_id": "eiken-pre2",
+  "word_count": 275,
+  "original": true,
+  "status": "draft",
+  "source_links": [
+    {
+      "title": "UNESCO: Intercultural Dialogue",
+      "url": "https://www.unesco.org/en/interculturaldialogue"
+    }
+  ],
+  "fact_notes": [
+    "架空の学校同士の文通活動。異文化理解と安全な個人情報の扱いを学ぶためのオリジナル教材。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A class begins a letter exchange with students in another country.",
+          "ja": "あるクラスが外国の生徒と手紙交換を始めます。"
+        },
+        {
+          "en": "At first, they write about their hobbies, food, and school life.",
+          "ja": "最初は趣味、食べ物、学校生活について書きます。"
+        },
+        {
+          "en": "However, a good friendship needs more than a list of familiar facts.",
+          "ja": "しかし、よい友情には身近な事実の一覧以上のものが必要です。"
+        },
+        {
+          "en": "A letter can ask thoughtful questions and show respect for another person's experiences.",
+          "ja": "手紙では思いやりのある質問をし、相手の経験に敬意を示せます。"
+        },
+        {
+          "en": "Students may discover that similar school events feel different in two cultures.",
+          "ja": "生徒は似た学校行事が二つの文化で違って感じられると気づくかもしれません。"
+        },
+        {
+          "en": "The goal is to learn from the difference instead of deciding which way is better.",
+          "ja": "目標はどちらがよいか決めるのではなく、違いから学ぶことです。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Imagine that one student asks a new friend about lunch at school.",
+          "ja": "ある生徒が新しい友人に学校の昼食を尋ねたと想像してください。"
+        },
+        {
+          "en": "The reply describes a meal shared with classmates in a large dining room.",
+          "ja": "返事には大きな食堂でクラスメートと食事をする様子があります。"
+        },
+        {
+          "en": "For example, the student could ask what people talk about during lunch.",
+          "ja": "例えば昼食中に人々が何を話すか尋ねられます。"
+        },
+        {
+          "en": "This question invites the friend to describe feelings and routines rather than only food.",
+          "ja": "この質問は食べ物だけでなく気持ちや習慣を説明するよう相手を促します。"
+        },
+        {
+          "en": "They exchange several letters and begin to understand each other's choices.",
+          "ja": "二人は何通か手紙を交わし、互いの選択を理解し始めます。"
+        },
+        {
+          "en": "Their friendship grows through curiosity rather than collecting unusual facts.",
+          "ja": "友情は珍しい事実の収集より好奇心によって育ちます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "A letter exchange requires care when sharing personal information.",
+          "ja": "手紙交換では個人情報の共有に注意が必要です。"
+        },
+        {
+          "en": "Students should use the communication method approved by their teachers.",
+          "ja": "生徒は教師が認めた連絡方法を使うべきです。"
+        },
+        {
+          "en": "In addition, they should not publish another person's letter or photograph without permission.",
+          "ja": "さらに許可なく他人の手紙や写真を公開すべきではありません。"
+        },
+        {
+          "en": "A friendly message may contain information someone wants to keep private.",
+          "ja": "親しい文章にも本人が秘密にしたい情報が含まれることがあります。"
+        },
+        {
+          "en": "Nevertheless, being careful does not mean avoiding every meaningful conversation.",
+          "ja": "それでも慎重になることは、意味のある会話をすべて避けることではありません。"
+        },
+        {
+          "en": "Respecting boundaries helps both people communicate confidently.",
+          "ja": "境界線を尊重することは双方が安心して交流する助けになります。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Teachers can invite students to reflect after several rounds of letters.",
+          "ja": "教師は何回か手紙を交換した後に生徒に振り返りを促せます。"
+        },
+        {
+          "en": "They can ask which question led to the most interesting answer.",
+          "ja": "どの質問が最も興味深い答えにつながったか尋ねられます。"
+        },
+        {
+          "en": "Students may also notice that a first impression has changed over time.",
+          "ja": "生徒は第一印象が時間とともに変わったことに気づくかもしれません。"
+        },
+        {
+          "en": "Therefore, success should not be measured only by the number of letters sent.",
+          "ja": "したがって成功は送った手紙の枚数だけで測るべきではありません。"
+        },
+        {
+          "en": "The more important result is a deeper understanding of another person.",
+          "ja": "より重要な成果は相手へのより深い理解です。"
+        },
+        {
+          "en": "Sometimes one thoughtful question begins a friendship across a great distance.",
+          "ja": "時には一つの思いやりある質問が遠く離れた人との友情を始めます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the central message?",
+      "options": [
+        "Students should write only about school meals.",
+        "Penpal exchanges can help people understand and respect one another.",
+        "Every student must travel abroad.",
+        "The number of letters is the only sign of success."
+      ],
+      "answer": 1,
+      "explanation_ja": "相手の文化と経験を理解し尊重することが文通の目的です。",
+      "paragraph_ids": [
+        "p1",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What do students often discuss first?",
+      "options": [
+        "Private passwords.",
+        "Government laws.",
+        "Hobbies and school life.",
+        "Difficult mathematics."
+      ],
+      "answer": 2,
+      "explanation_ja": "初めに趣味や学校生活が話題になります。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why avoid deciding which culture is better?",
+      "options": [
+        "The purpose is learning from differences.",
+        "Cultures are identical.",
+        "Only teachers may decide.",
+        "Differences always cause conflict."
+      ],
+      "answer": 0,
+      "explanation_ja": "違いの優劣をつけるのではなく学ぶことが目的だからです。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "Where does the new friend eat lunch?",
+      "options": [
+        "At a train station.",
+        "At home alone.",
+        "At a museum.",
+        "In a large dining room with classmates."
+      ],
+      "answer": 3,
+      "explanation_ja": "大きな食堂でクラスメートと食べます。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What additional question is suggested?",
+      "options": [
+        "How many windows the school has.",
+        "What people talk about while eating.",
+        "Which buses run at night.",
+        "Where the school was built."
+      ],
+      "answer": 1,
+      "explanation_ja": "昼食中の話題を尋ねる追加質問です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why does this question deepen understanding?",
+      "options": [
+        "It asks only about food prices.",
+        "It removes the need to listen.",
+        "It invites feelings and daily routines.",
+        "It asks for a private address."
+      ],
+      "answer": 2,
+      "explanation_ja": "気持ちや普段の習慣に話題を広げるためです。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'boundaries' mean here?",
+      "options": [
+        "Personal limits that others should respect.",
+        "Only national borders.",
+        "The edge of a photograph.",
+        "The dates of holidays."
+      ],
+      "answer": 0,
+      "explanation_ja": "ここでは他者が尊重してほしい個人的な限界のことです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What should not be published without permission?",
+      "options": [
+        "The teacher's homework.",
+        "A timetable.",
+        "A dictionary.",
+        "Someone else's letter or photograph."
+      ],
+      "answer": 3,
+      "explanation_ja": "他人の手紙や写真の公開には許可が必要です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Why is counting letters not enough?",
+      "options": [
+        "Letters are difficult to carry.",
+        "It cannot show whether understanding has grown.",
+        "Every letter has the same content.",
+        "There is no way to write a reply."
+      ],
+      "answer": 1,
+      "explanation_ja": "枚数だけでは相手への理解の深さを判断できません。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "Why does the last sentence mention one question?",
+      "options": [
+        "To suggest all questions lead to friendship.",
+        "To encourage very short letters only.",
+        "To show how thoughtful curiosity can begin a connection.",
+        "To argue that distance never matters."
+      ],
+      "answer": 2,
+      "explanation_ja": "思いやりある好奇心が交流の出発点になると結論づけます。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "exchange",
+      "ja": "交換",
+      "synonym": "sharing",
+      "definition": "giving and receiving things"
+    },
+    {
+      "term": "letters",
+      "ja": "手紙",
+      "synonym": "written messages",
+      "definition": "messages exchanged in writing"
+    },
+    {
+      "term": "country",
+      "ja": "国",
+      "synonym": "nation",
+      "definition": "a politically organized territory"
+    },
+    {
+      "term": "hobbies",
+      "ja": "趣味",
+      "synonym": "pastimes",
+      "definition": "activities enjoyed in free time"
+    },
+    {
+      "term": "friendship",
+      "ja": "友情",
+      "synonym": "bond",
+      "definition": "a close relationship between friends"
+    },
+    {
+      "term": "familiar",
+      "ja": "身近な",
+      "synonym": "well-known",
+      "definition": "known from experience"
+    },
+    {
+      "term": "facts",
+      "ja": "事実",
+      "synonym": "information",
+      "definition": "things known to be true"
+    },
+    {
+      "term": "thoughtful",
+      "ja": "思いやりのある",
+      "synonym": "considerate",
+      "definition": "showing care for others"
+    },
+    {
+      "term": "respect",
+      "ja": "敬意",
+      "synonym": "consideration",
+      "definition": "thoughtful treatment of others"
+    },
+    {
+      "term": "experiences",
+      "ja": "経験",
+      "synonym": "lived events",
+      "definition": "things someone has gone through"
+    },
+    {
+      "term": "discover",
+      "ja": "気づく",
+      "synonym": "find out",
+      "definition": "to learn something previously unknown"
+    },
+    {
+      "term": "events",
+      "ja": "行事",
+      "synonym": "occasions",
+      "definition": "activities happening at particular times"
+    },
+    {
+      "term": "cultures",
+      "ja": "文化",
+      "synonym": "ways of life",
+      "definition": "shared traditions and habits"
+    },
+    {
+      "term": "difference",
+      "ja": "違い",
+      "synonym": "distinction",
+      "definition": "something that makes things different"
+    },
+    {
+      "term": "deciding",
+      "ja": "決めること",
+      "synonym": "choosing",
+      "definition": "making a choice"
+    },
+    {
+      "term": "imagine",
+      "ja": "想像する",
+      "synonym": "picture",
+      "definition": "to form an idea mentally"
+    },
+    {
+      "term": "reply",
+      "ja": "返事",
+      "synonym": "response",
+      "definition": "an answer to a message"
+    },
+    {
+      "term": "meal",
+      "ja": "食事",
+      "synonym": "food occasion",
+      "definition": "food eaten at a time"
+    },
+    {
+      "term": "shared",
+      "ja": "共有された",
+      "synonym": "common",
+      "definition": "held or used together"
+    },
+    {
+      "term": "classmates",
+      "ja": "クラスメート",
+      "synonym": "fellow students",
+      "definition": "students in the same class"
+    },
+    {
+      "term": "dining",
+      "ja": "食事用の",
+      "synonym": "eating",
+      "definition": "connected with meals"
+    },
+    {
+      "term": "room",
+      "ja": "部屋",
+      "synonym": "space",
+      "definition": "an area inside a building"
+    },
+    {
+      "term": "question",
+      "ja": "質問",
+      "synonym": "inquiry",
+      "definition": "a request for information"
+    },
+    {
+      "term": "invites",
+      "ja": "促す",
+      "synonym": "encourages",
+      "definition": "encourages someone to act"
+    },
+    {
+      "term": "routines",
+      "ja": "習慣",
+      "synonym": "habits",
+      "definition": "regular ways of living"
+    },
+    {
+      "term": "choices",
+      "ja": "選択",
+      "synonym": "decisions",
+      "definition": "things selected from possibilities"
+    },
+    {
+      "term": "curiosity",
+      "ja": "好奇心",
+      "synonym": "interest",
+      "definition": "the wish to know more"
+    },
+    {
+      "term": "unusual",
+      "ja": "珍しい",
+      "synonym": "uncommon",
+      "definition": "not seen often"
+    },
+    {
+      "term": "collecting",
+      "ja": "集めること",
+      "synonym": "gathering",
+      "definition": "bringing items together"
+    },
+    {
+      "term": "personal",
+      "ja": "個人の",
+      "synonym": "private",
+      "definition": "connected with one person"
+    },
+    {
+      "term": "approved",
+      "ja": "認められた",
+      "synonym": "authorized",
+      "definition": "given permission"
+    },
+    {
+      "term": "communication",
+      "ja": "連絡・意思疎通",
+      "synonym": "exchange",
+      "definition": "sharing information"
+    },
+    {
+      "term": "method",
+      "ja": "方法",
+      "synonym": "approach",
+      "definition": "a way of doing something"
+    },
+    {
+      "term": "publish",
+      "ja": "公開する",
+      "synonym": "release",
+      "definition": "to make publicly available"
+    },
+    {
+      "term": "photograph",
+      "ja": "写真",
+      "synonym": "picture",
+      "definition": "an image made using a camera"
+    },
+    {
+      "term": "permission",
+      "ja": "許可",
+      "synonym": "consent",
+      "definition": "agreement allowing an action"
+    },
+    {
+      "term": "private",
+      "ja": "私的な",
+      "synonym": "confidential",
+      "definition": "not intended for everyone"
+    },
+    {
+      "term": "meaningful",
+      "ja": "意味のある",
+      "synonym": "valuable",
+      "definition": "having importance"
+    },
+    {
+      "term": "conversation",
+      "ja": "会話",
+      "synonym": "dialogue",
+      "definition": "an exchange of spoken ideas"
+    },
+    {
+      "term": "boundaries",
+      "ja": "境界・限度",
+      "synonym": "limits",
+      "definition": "personal limits others should respect"
+    },
+    {
+      "term": "confidently",
+      "ja": "自信を持って",
+      "synonym": "with confidence",
+      "definition": "without unnecessary fear"
+    },
+    {
+      "term": "reflect",
+      "ja": "振り返る",
+      "synonym": "review",
+      "definition": "to think about past actions"
+    },
+    {
+      "term": "rounds",
+      "ja": "回",
+      "synonym": "stages",
+      "definition": "repeated stages of an activity"
+    },
+    {
+      "term": "impression",
+      "ja": "印象",
+      "synonym": "first idea",
+      "definition": "an initial view of someone"
+    },
+    {
+      "term": "measured",
+      "ja": "測られた",
+      "synonym": "evaluated",
+      "definition": "judged using a standard"
+    },
+    {
+      "term": "distance",
+      "ja": "距離",
+      "synonym": "separation",
+      "definition": "space between places"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "show respect for another person's experiences",
+      "explanation_ja": "show＋目的語は相手の経験への敬意を示す行為です。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "rather than only food",
+      "explanation_ja": "rather thanは食べ物だけとそれ以外の話題を対比します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "without permission",
+      "explanation_ja": "withoutは『〜なしに』という条件を表します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 3,
+      "focus": "should not be measured only by the number of letters sent",
+      "explanation_ja": "should not＋受動態は評価方法に対する注意を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "よくある話題と深い友情の条件を対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "昼食についての質問を具体例として提示。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "In addition",
+      "role_ja": "連絡方法に加えて公開の許可の必要性。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Therefore",
+      "role_ja": "手紙の枚数ではなく理解を重視する結論。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "a good friendship needs more than a list of familiar facts",
+      "rewrite": "a strong relationship requires more than basic information",
+      "explanation_ja": "friendship→relationship、needs more than→requires more thanです。"
+    },
+    {
+      "source": "begin to understand each other's choices",
+      "rewrite": "start to appreciate one another's decisions",
+      "explanation_ja": "begin→start、choices→decisionsです。"
+    },
+    {
+      "source": "Respecting boundaries helps both people communicate confidently",
+      "rewrite": "Honoring limits allows both partners to exchange ideas with greater confidence",
+      "explanation_ja": "boundaries→limitsです。"
+    },
+    {
+      "source": "success should not be measured only by the number of letters sent",
+      "rewrite": "counting messages alone cannot fully evaluate the project",
+      "explanation_ja": "number of letters→counting messagesです。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "よくある話題と深い友情の条件を対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Therefore",
+        "Nevertheless"
+      ],
+      "explanation_ja": "昼食についての質問を具体例として提示。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "In addition",
+      "options": [
+        "In addition",
+        "However",
+        "Therefore",
+        "For example"
+      ],
+      "explanation_ja": "連絡方法に加えて公開の許可の必要性。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 3,
+      "answer": "Therefore",
+      "options": [
+        "Therefore",
+        "However",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "手紙の枚数ではなく理解を重視する結論。"
+    }
+  ]
+}
