@@ -1,0 +1,614 @@
+{
+  "id": "L14-008",
+  "category_id": "L14",
+  "title": "A Gift with No Price Tag",
+  "title_ja": "値段より大切な誕生日の贈り物",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 197,
+  "source_links": [
+    {
+      "title": "Educational background reference",
+      "url": "https://www.unesco.org/en/interculturaldialogue"
+    }
+  ],
+  "fact_notes": [
+    "学校・人物などは架空の学習用事例。原文・和訳・設問・解説を独自に制作。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Mika and Jun want to prepare a birthday surprise for their friend Ryo.",
+          "ja": "ミカとジュンは友達のリョウの誕生日のサプライズを準備したいと考えます。"
+        },
+        {
+          "en": "Jun suggests buying an expensive gift from a popular shop.",
+          "ja": "ジュンは人気の店で高価な贈り物を買うことを提案します。"
+        },
+        {
+          "en": "However, Mika cannot afford to spend much money that month.",
+          "ja": "しかしミカはその月あまりお金を使う余裕がありません。"
+        },
+        {
+          "en": "She worries that her smaller gift may not be appreciated.",
+          "ja": "小さな贈り物では喜ばれないかもしれないと心配します。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Mika remembers that Ryo enjoys taking photographs of their town.",
+          "ja": "ミカはリョウが町の写真を撮るのが好きだと思い出します。"
+        },
+        {
+          "en": "For example, he often photographs the old bridge near school.",
+          "ja": "例えば学校の近くの古い橋をよく撮影します。"
+        },
+        {
+          "en": "She suggests making a small album with their favorite pictures.",
+          "ja": "お気に入りの写真を集めた小さなアルバムを作ることを提案します。"
+        },
+        {
+          "en": "Jun likes the idea and offers to write short messages.",
+          "ja": "ジュンも気に入り、短いメッセージを書くと申し出ます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "They ask a few classmates to choose meaningful photographs.",
+          "ja": "二人は数人の同級生に思い出深い写真を選んでもらいます。"
+        },
+        {
+          "en": "Everyone can contribute a memory without buying something costly.",
+          "ja": "全員が高価な物を買わずに思い出を提供できます。"
+        },
+        {
+          "en": "Instead of comparing prices, they think about what Ryo would enjoy.",
+          "ja": "値段を比べる代わりにリョウが何を喜ぶか考えます。"
+        },
+        {
+          "en": "The album slowly becomes a collection of shared experiences.",
+          "ja": "アルバムは徐々に共有の体験を集めたものになります。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "At the birthday meeting, Ryo opens the handmade album.",
+          "ja": "誕生日の集まりでリョウは手作りのアルバムを開きます。"
+        },
+        {
+          "en": "Nevertheless, he does not notice every message immediately.",
+          "ja": "それでもすぐにすべてのメッセージに気づくわけではありません。"
+        },
+        {
+          "en": "His friends show him the pages and explain their memories.",
+          "ja": "友達はページを見せ、思い出を説明します。"
+        },
+        {
+          "en": "Ryo smiles and thanks everyone for remembering those moments.",
+          "ja": "リョウは笑い、それらの瞬間を覚えてくれた全員に感謝します。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "Later, Mika tells Jun that she enjoyed preparing the gift.",
+          "ja": "後でミカはジュンに贈り物の準備が楽しかったと話します。"
+        },
+        {
+          "en": "Jun agrees that the project brought their friends closer.",
+          "ja": "ジュンはこの活動で友達がより親しくなったと同意します。"
+        },
+        {
+          "en": "As a result, they begin planning another small project together.",
+          "ja": "その結果、また小さな活動を一緒に計画し始めます。"
+        },
+        {
+          "en": "The best gift can express attention rather than a high price.",
+          "ja": "最もよい贈り物は高い値段でなく思いやりを表すことがあります。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What does Jun first suggest buying?",
+      "options": [
+        "An expensive gift.",
+        "A photograph album.",
+        "A bus ticket.",
+        "A birthday cake only."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「ジュンは人気の店で高価な贈り物を買うことを提案します。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Why is Mika worried?",
+      "options": [
+        "She has forgotten Ryo's name.",
+        "She dislikes birthdays.",
+        "The shop is closed.",
+        "She cannot spend much money."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「しかしミカはその月あまりお金を使う余裕がありません。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What does Ryo enjoy photographing?",
+      "options": [
+        "A distant airport.",
+        "Only birthday cakes.",
+        "The old bridge.",
+        "The school cafeteria."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「例えば学校の近くの古い橋をよく撮影します。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What gift does Mika suggest?",
+      "options": [
+        "A train pass.",
+        "A photo album.",
+        "A new camera.",
+        "A bicycle."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「お気に入りの写真を集めた小さなアルバムを作ることを提案します。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "Who helps choose photographs?",
+      "options": [
+        "A few classmates.",
+        "Only the shop owner.",
+        "Only the teacher.",
+        "No one else."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「二人は数人の同級生に思い出深い写真を選んでもらいます。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What do the students focus on?",
+      "options": [
+        "Which gift has the highest price.",
+        "How to sell the album.",
+        "How to avoid the meeting.",
+        "What Ryo would enjoy."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「値段を比べる代わりにリョウが何を喜ぶか考えます。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What does Ryo open?",
+      "options": [
+        "A school report.",
+        "A music instrument.",
+        "A handmade album.",
+        "A new computer."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「誕生日の集まりでリョウは手作りのアルバムを開きます。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "How does Ryo respond?",
+      "options": [
+        "He tears the photographs.",
+        "He smiles and thanks his friends.",
+        "He refuses to see the album.",
+        "He asks everyone to leave."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「リョウは笑い、それらの瞬間を覚えてくれた全員に感謝します。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "How did preparing the gift affect the friends?",
+      "options": [
+        "It brought them closer.",
+        "It ended their friendship.",
+        "It stopped their hobbies.",
+        "It changed their school."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「ジュンはこの活動で友達がより親しくなったと同意します。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the main lesson?",
+      "options": [
+        "A costly gift always expresses more love.",
+        "Only shop-bought gifts are meaningful.",
+        "Birthdays should never be celebrated.",
+        "Thoughtful gifts do not need to be expensive."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「最もよい贈り物は高い値段でなく思いやりを表すことがあります。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "attention",
+      "ja": "思いやり",
+      "synonym": "care",
+      "definition": "thoughtful interest in someone"
+    },
+    {
+      "term": "classmates",
+      "ja": "同級生",
+      "synonym": "peers",
+      "definition": "students in the same class"
+    },
+    {
+      "term": "collection",
+      "ja": "集まり",
+      "synonym": "set",
+      "definition": "a group of things"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "experiences",
+      "ja": "経験",
+      "synonym": "events",
+      "definition": "things people have lived through"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "express",
+      "ja": "表現する",
+      "synonym": "state",
+      "definition": "to communicate ideas or feelings"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "immediately",
+      "ja": "すぐに",
+      "synonym": "at once",
+      "definition": "without delay"
+    },
+    {
+      "term": "meeting",
+      "ja": "集合",
+      "synonym": "gathering",
+      "definition": "coming together at a place"
+    },
+    {
+      "term": "memories",
+      "ja": "思い出",
+      "synonym": "recollections",
+      "definition": "past experiences remembered"
+    },
+    {
+      "term": "memory",
+      "ja": "記憶",
+      "synonym": "remembrance",
+      "definition": "the ability to store and recall information"
+    },
+    {
+      "term": "message",
+      "ja": "メッセージ",
+      "synonym": "communication",
+      "definition": "information sent to someone"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "photographs",
+      "ja": "写真",
+      "synonym": "pictures",
+      "definition": "images made using a camera"
+    },
+    {
+      "term": "prepare",
+      "ja": "準備する",
+      "synonym": "get ready",
+      "definition": "to make something ready for use"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "shared",
+      "ja": "共有された",
+      "synonym": "common",
+      "definition": "used or affected by several groups"
+    },
+    {
+      "term": "birthday",
+      "ja": "誕生日",
+      "synonym": "anniversary",
+      "definition": "the day someone was born"
+    },
+    {
+      "term": "gift",
+      "ja": "贈り物",
+      "synonym": "present",
+      "definition": "something given to someone"
+    },
+    {
+      "term": "expensive",
+      "ja": "高価な",
+      "synonym": "costly",
+      "definition": "requiring much money"
+    },
+    {
+      "term": "afford",
+      "ja": "支払う余裕がある",
+      "synonym": "pay for",
+      "definition": "have enough money"
+    },
+    {
+      "term": "album",
+      "ja": "アルバム",
+      "synonym": "collection",
+      "definition": "a book holding photographs"
+    },
+    {
+      "term": "handmade",
+      "ja": "手作りの",
+      "synonym": "home-made",
+      "definition": "created by hand"
+    },
+    {
+      "term": "bridge",
+      "ja": "橋",
+      "synonym": "crossing",
+      "definition": "a structure over a river"
+    },
+    {
+      "term": "messages",
+      "ja": "メッセージ",
+      "synonym": "notes",
+      "definition": "short written communications"
+    },
+    {
+      "term": "meaningful",
+      "ja": "意味ある",
+      "synonym": "important",
+      "definition": "having special value"
+    },
+    {
+      "term": "surprise",
+      "ja": "サプライズ",
+      "synonym": "unexpected gift",
+      "definition": "something not expected"
+    },
+    {
+      "term": "popular",
+      "ja": "人気の",
+      "synonym": "well-liked",
+      "definition": "liked by many people"
+    },
+    {
+      "term": "price",
+      "ja": "価格",
+      "synonym": "cost",
+      "definition": "money required for something"
+    },
+    {
+      "term": "prices",
+      "ja": "価格",
+      "synonym": "costs",
+      "definition": "amounts of money"
+    },
+    {
+      "term": "preparing",
+      "ja": "準備すること",
+      "synonym": "arranging",
+      "definition": "making something ready"
+    },
+    {
+      "term": "project",
+      "ja": "活動",
+      "synonym": "task",
+      "definition": "work organized toward a goal"
+    },
+    {
+      "term": "friends",
+      "ja": "友達",
+      "synonym": "companions",
+      "definition": "people who like one another"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "cannot afford to spend much money",
+      "explanation_ja": "cannot afford to不定詞は金銭面の制約を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 0,
+      "focus": "that Ryo enjoys taking photographs of their town",
+      "explanation_ja": "that節はミカが思い出した内容です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of comparing prices",
+      "explanation_ja": "instead of + 動名詞で視点を変えます。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "rather than a high price",
+      "explanation_ja": "rather thanは思いやりと価格を対比します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "高価な贈り物と金銭的な制約を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "リョウの趣味の具体例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "贈り物を開いても説明が必要な場面です。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "次の共同活動へつながる結果です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "She worries that her smaller gift may not be appreciated.",
+      "rewrite": "Mika worries a modest gift may not be valued.",
+      "explanation_ja": "小さな贈り物が評価されるか不安です。"
+    },
+    {
+      "source": "She suggests making a small album with their favorite pictures.",
+      "rewrite": "She proposes creating a collection of favorite photographs.",
+      "explanation_ja": "写真アルバムを提案します。"
+    },
+    {
+      "source": "Ryo smiles and thanks everyone for remembering those moments.",
+      "rewrite": "Ryo expresses gratitude for the shared memories.",
+      "explanation_ja": "思い出への感謝を示します。"
+    },
+    {
+      "source": "The best gift can express attention rather than a high price.",
+      "rewrite": "A meaningful present can show care without costing much.",
+      "explanation_ja": "値段でなく思いやりが大切です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "高価な贈り物と金銭的な制約を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "リョウの趣味の具体例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "贈り物を開いても説明が必要な場面です。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "次の共同活動へつながる結果です。"
+    }
+  ]
+}

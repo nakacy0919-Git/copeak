@@ -1,0 +1,572 @@
+{
+  "id": "L12-008",
+  "category_id": "L12",
+  "title": "The Instructions with Too Many Words",
+  "title_ja": "言葉が多すぎた保健室の案内",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 198,
+  "source_links": [
+    {
+      "title": "Educational background reference",
+      "url": "https://www.who.int/health-topics/health-literacy"
+    }
+  ],
+  "fact_notes": [
+    "学校・人物などは架空の学習用事例。原文・和訳・設問・解説を独自に制作。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A school nurse prepares a notice about visiting the health room.",
+          "ja": "養護教諭は保健室の利用について案内を作ります。"
+        },
+        {
+          "en": "The notice explains where students should go when they need help.",
+          "ja": "助けが必要な生徒がどこへ行くか説明しています。"
+        },
+        {
+          "en": "However, many students say the instructions are difficult to understand.",
+          "ja": "しかし多くの生徒は説明が理解しにくいと言います。"
+        },
+        {
+          "en": "Important information is hidden inside several long sentences.",
+          "ja": "重要な情報がいくつもの長い文に埋もれています。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The nurse asks a small group of students to read the notice.",
+          "ja": "養護教諭は少人数の生徒に案内を読んでもらいます。"
+        },
+        {
+          "en": "For example, she asks them to find the room number.",
+          "ja": "例えば部屋番号を見つけてもらいます。"
+        },
+        {
+          "en": "Some students find it quickly, but others cannot.",
+          "ja": "すぐ見つける生徒もいれば見つけられない生徒もいます。"
+        },
+        {
+          "en": "The nurse realizes that correct information must also be easy to find.",
+          "ja": "正しい情報も見つけやすくする必要があると気づきます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The group suggests using shorter sentences and clear headings.",
+          "ja": "グループは短い文と明確な見出しを使うよう提案します。"
+        },
+        {
+          "en": "They also draw a simple map showing the health room.",
+          "ja": "保健室を示す簡単な地図も描きます。"
+        },
+        {
+          "en": "Instead of adding more words, they make important details larger.",
+          "ja": "言葉を増やす代わりに重要な細部を大きくします。"
+        },
+        {
+          "en": "The nurse checks the new notice with other students.",
+          "ja": "養護教諭は新しい案内を別の生徒と確認します。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The students find the room number more easily this time.",
+          "ja": "今回は生徒たちは部屋番号をより簡単に見つけます。"
+        },
+        {
+          "en": "Nevertheless, one student asks for information in another language.",
+          "ja": "それでもある生徒は別の言語での案内を求めます。"
+        },
+        {
+          "en": "The nurse discusses how to offer additional help when needed.",
+          "ja": "必要なときに追加の支援を提供する方法を話し合います。"
+        },
+        {
+          "en": "She understands that different readers may need different support.",
+          "ja": "読者によって必要な支援は異なると理解します。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The final notice is placed near the school entrance.",
+          "ja": "最終版の案内は学校の入口付近に置かれます。"
+        },
+        {
+          "en": "Students can see the map and important information clearly.",
+          "ja": "生徒は地図と重要な情報をはっきり見られます。"
+        },
+        {
+          "en": "As a result, the nurse plans to check other school notices too.",
+          "ja": "その結果、養護教諭は他の学校の案内も確認する計画を立てます。"
+        },
+        {
+          "en": "Good instructions are useful when readers can act on them.",
+          "ja": "よい案内は読者が実際に使えるときに役立つものです。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "Who makes the notice?",
+      "options": [
+        "A school nurse.",
+        "A bus driver.",
+        "A musician.",
+        "A shop worker."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「養護教諭は保健室の利用について案内を作ります。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Why is the original notice hard to read?",
+      "options": [
+        "It contains no words.",
+        "It shows only a photograph.",
+        "It has no school name.",
+        "Important facts are hidden in long text."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「重要な情報がいくつもの長い文に埋もれています。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What do students try to find?",
+      "options": [
+        "A bus schedule.",
+        "The price of lunch.",
+        "The room number.",
+        "The school's sports score."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「例えば部屋番号を見つけてもらいます。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What does the nurse learn?",
+      "options": [
+        "Maps are not useful.",
+        "Accurate information must also be easy to find.",
+        "Longer sentences always work better.",
+        "Every reader has the same needs."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「正しい情報も見つけやすくする必要があると気づきます。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What design do students recommend?",
+      "options": [
+        "Shorter sentences and headings.",
+        "More difficult words.",
+        "Removing important dates.",
+        "Only longer paragraphs."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「グループは短い文と明確な見出しを使うよう提案します。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What is added to the notice?",
+      "options": [
+        "A train ticket.",
+        "A sports trophy.",
+        "A classroom photograph.",
+        "A simple map."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「保健室を示す簡単な地図も描きます。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What becomes easier to locate?",
+      "options": [
+        "A new school building.",
+        "Every student's test score.",
+        "The room number.",
+        "The teacher's home."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「今回は生徒たちは部屋番号をより簡単に見つけます。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What support does one student request?",
+      "options": [
+        "A larger sports field.",
+        "Another language.",
+        "A new classroom.",
+        "More school holidays."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「それでもある生徒は別の言語での案内を求めます。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Where is the new notice placed?",
+      "options": [
+        "Near the school entrance.",
+        "At a bus station.",
+        "Inside a supermarket.",
+        "At the teacher's home."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「最終版の案内は学校の入口付近に置かれます。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the main message?",
+      "options": [
+        "More words always improve directions.",
+        "All readers prefer the same format.",
+        "Correct facts never need explanation.",
+        "Useful instructions are clear and practical for readers."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「よい案内は読者が実際に使えるときに役立つものです。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "additional",
+      "ja": "追加の",
+      "synonym": "extra",
+      "definition": "more than what existed"
+    },
+    {
+      "term": "correct",
+      "ja": "正しい",
+      "synonym": "accurate",
+      "definition": "matching facts"
+    },
+    {
+      "term": "details",
+      "ja": "細部",
+      "synonym": "particulars",
+      "definition": "small pieces of information"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "health",
+      "ja": "健康",
+      "synonym": "wellness",
+      "definition": "the condition of body and mind"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "important",
+      "ja": "重要な",
+      "synonym": "significant",
+      "definition": "having high value"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "details",
+      "definition": "facts people need"
+    },
+    {
+      "term": "instructions",
+      "ja": "指示",
+      "synonym": "directions",
+      "definition": "information telling people what to do"
+    },
+    {
+      "term": "map",
+      "ja": "地図",
+      "synonym": "chart",
+      "definition": "a drawing showing locations"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "student",
+      "ja": "生徒",
+      "synonym": "learner",
+      "definition": "a person learning at school"
+    },
+    {
+      "term": "students",
+      "ja": "生徒",
+      "synonym": "learners",
+      "definition": "people attending school"
+    },
+    {
+      "term": "support",
+      "ja": "支援",
+      "synonym": "help",
+      "definition": "assistance given to someone"
+    },
+    {
+      "term": "nurse",
+      "ja": "養護教諭",
+      "synonym": "health worker",
+      "definition": "someone supporting health"
+    },
+    {
+      "term": "notice",
+      "ja": "案内",
+      "synonym": "announcement",
+      "definition": "written information for readers"
+    },
+    {
+      "term": "sentences",
+      "ja": "文",
+      "synonym": "statements",
+      "definition": "groups of words expressing meaning"
+    },
+    {
+      "term": "headings",
+      "ja": "見出し",
+      "synonym": "titles",
+      "definition": "words introducing sections"
+    },
+    {
+      "term": "entrance",
+      "ja": "入口",
+      "synonym": "doorway",
+      "definition": "a way into a building"
+    },
+    {
+      "term": "room",
+      "ja": "部屋",
+      "synonym": "space",
+      "definition": "an area inside a building"
+    },
+    {
+      "term": "language",
+      "ja": "言語",
+      "synonym": "speech system",
+      "definition": "a method of communicating"
+    },
+    {
+      "term": "readers",
+      "ja": "読者",
+      "synonym": "people reading",
+      "definition": "people viewing written text"
+    },
+    {
+      "term": "clearly",
+      "ja": "はっきりと",
+      "synonym": "plainly",
+      "definition": "easy to understand"
+    },
+    {
+      "term": "difficult",
+      "ja": "難しい",
+      "synonym": "hard",
+      "definition": "not easy"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "the instructions are difficult to understand",
+      "explanation_ja": "thatが省略された内容節で生徒の意見を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "to find the room number",
+      "explanation_ja": "ask + 人 + to不定詞で依頼を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of adding more words",
+      "explanation_ja": "instead of + 動名詞で代替方法を示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "when readers can act on them",
+      "explanation_ja": "when節が役立つ条件を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "案内の目的とわかりにくさを対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "部屋番号を探す例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "新デザインでも追加の支援が必要だと示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "ほかの案内も見直す結果です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Important information is hidden inside several long sentences.",
+      "rewrite": "Long text makes necessary details difficult to find.",
+      "explanation_ja": "大切な情報が見つけにくいという意味です。"
+    },
+    {
+      "source": "The nurse realizes that correct information must also be easy to find.",
+      "rewrite": "Correct information should also be easy to locate.",
+      "explanation_ja": "正しい情報も探しやすくすべきです。"
+    },
+    {
+      "source": "She understands that different readers may need different support.",
+      "rewrite": "Different readers may need different forms of help.",
+      "explanation_ja": "読者によって支援の方法が異なります。"
+    },
+    {
+      "source": "Good instructions are useful when readers can act on them.",
+      "rewrite": "Good directions help readers take appropriate action.",
+      "explanation_ja": "実際に使える案内が重要です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "案内の目的とわかりにくさを対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "部屋番号を探す例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "新デザインでも追加の支援が必要だと示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "ほかの案内も見直す結果です。"
+    }
+  ]
+}
