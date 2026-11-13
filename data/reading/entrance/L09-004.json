@@ -1,0 +1,670 @@
+{
+  "id": "L09-004",
+  "category_id": "L09",
+  "title": "A Sign Written for More Than One Reader",
+  "title_ja": "多様な読み手のための案内表示",
+  "level_id": "eiken-pre2",
+  "word_count": 305,
+  "original": true,
+  "status": "draft",
+  "source_links": [
+    {
+      "title": "UNESCO: Languages Matter",
+      "url": "https://www.unesco.org/en/languages"
+    }
+  ],
+  "fact_notes": [
+    "背景となる考え方は添付の資料で確認。本文と練習問題は新規制作。例示した人物・学校・活動は架空の説明用設定。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A train station places a new sign near an exit used by visitors from many countries.",
+          "ja": "ある駅は多くの国からの来訪者が使う出口の近くに新しい案内を置きます。"
+        },
+        {
+          "en": "The sign is written in the local language and English.",
+          "ja": "案内は現地の言語と英語で書かれています。"
+        },
+        {
+          "en": "However, some travelers still find it difficult to understand where to go.",
+          "ja": "しかし行き先がわかりにくい旅行者もいます。"
+        },
+        {
+          "en": "A person may not read either language comfortably, especially in a stressful situation.",
+          "ja": "特に緊張する状況では、どちらの言語も無理なく読めない人がいます。"
+        },
+        {
+          "en": "Others may understand the words but not recognize the place names being used.",
+          "ja": "語は理解できても使用されている地名に気づけない人もいます。"
+        },
+        {
+          "en": "An effective sign considers what the reader needs, not simply how many languages appear.",
+          "ja": "効果的な案内は言語の数だけでなく、読み手が必要なことを考えます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The station staff decide to test a revised sign with different visitors.",
+          "ja": "駅員は異なる来訪者と修正版の案内を試すことにします。"
+        },
+        {
+          "en": "For example, they add a clear arrow and a picture of a train beside the words.",
+          "ja": "例えば語の横に明確な矢印と電車の絵を追加します。"
+        },
+        {
+          "en": "They also make the lettering large enough to be read from a reasonable distance.",
+          "ja": "適切な距離から読めるよう文字も十分大きくします。"
+        },
+        {
+          "en": "Some visitors follow the arrow immediately, while others ask what one symbol means.",
+          "ja": "すぐに矢印に従う人もいれば、一つの記号の意味を尋ねる人もいます。"
+        },
+        {
+          "en": "Staff record which parts help readers and which parts create confusion.",
+          "ja": "職員はどの部分が役立ち、どの部分が混乱を生むか記録します。"
+        },
+        {
+          "en": "Testing with real readers can reveal problems that designers overlooked.",
+          "ja": "実際の読み手と試すと設計者が見逃した問題が見えてきます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Translation also requires attention to the meaning of the original instruction.",
+          "ja": "翻訳では元の指示の意味に注意を払う必要があります。"
+        },
+        {
+          "en": "In addition, a short message must not remove information needed for safe travel.",
+          "ja": "さらに短い案内でも安全な移動に必要な情報を省いてはいけません。"
+        },
+        {
+          "en": "For example, a warning about a closed route should not become a simple label saying only 'Exit.'",
+          "ja": "例えば通行止めの経路についての警告を単なる「出口」という表示にしてはいけません。"
+        },
+        {
+          "en": "A direct translation can sometimes sound unnatural if the words are used differently in another language.",
+          "ja": "語の使い方が異なる言語では直訳が不自然な場合があります。"
+        },
+        {
+          "en": "The writer should check that the instruction remains accurate and easy to act on.",
+          "ja": "書き手は指示が正確で実行しやすいままか確認すべきです。"
+        },
+        {
+          "en": "A useful translation preserves the necessary action as well as the main meaning.",
+          "ja": "役立つ翻訳は主な意味だけでなく必要な行動も保ちます。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Nevertheless, even a carefully designed sign cannot answer every possible question.",
+          "ja": "それでも丁寧な案内でもあらゆる質問に答えることはできません。"
+        },
+        {
+          "en": "Visitors may still need a staff member who can give additional explanations.",
+          "ja": "来訪者には追加説明ができる職員が必要なこともあります。"
+        },
+        {
+          "en": "A school project could compare station signs and ask people whether the instructions are clear.",
+          "ja": "学校の活動では駅の案内を比較し、わかりやすいか人々に尋ねられます。"
+        },
+        {
+          "en": "Students should avoid assuming that their own way of reading is shared by everyone.",
+          "ja": "生徒は自分の読み方を全員が共有すると思い込むべきではありません。"
+        },
+        {
+          "en": "A welcoming public place offers different ways for people to find the information they need.",
+          "ja": "人を温かく迎える公共の場所は、必要な情報を得る複数の方法を提供します。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the main message of the passage?",
+      "options": [
+        "Only English signs are useful.",
+        "Good signs combine clear meaning, visual design, and attention to different readers.",
+        "Every sign should contain as many words as possible.",
+        "Station staff should never help visitors."
+      ],
+      "answer": 1,
+      "explanation_ja": "言語・視覚・読み手への配慮が主題です。",
+      "paragraph_ids": [
+        "p1",
+        "p4"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Which languages appear on the first sign?",
+      "options": [
+        "Only English.",
+        "Only the visitors' languages.",
+        "The local language and English.",
+        "No written language."
+      ],
+      "answer": 2,
+      "explanation_ja": "現地の言語と英語を使用しています。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why might a bilingual sign still fail?",
+      "options": [
+        "Some people may not read either language easily.",
+        "Every visitor has the same language skills.",
+        "The signs are always too colorful.",
+        "The station has no exits."
+      ],
+      "answer": 0,
+      "explanation_ja": "二つの言語だけでは対応できない人もいるためです。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What visual elements are added?",
+      "options": [
+        "A photograph of every visitor.",
+        "A list of ticket prices.",
+        "A map of the world.",
+        "An arrow and a train picture."
+      ],
+      "answer": 3,
+      "explanation_ja": "矢印と電車の絵を追加します。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What do staff record during testing?",
+      "options": [
+        "Only the total number of trains.",
+        "Which elements help or confuse readers.",
+        "Only the size of the station.",
+        "Every traveler's passport number."
+      ],
+      "answer": 1,
+      "explanation_ja": "役立つ部分と混乱を生む部分を調べます。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why should a warning not become just the word 'Exit'?",
+      "options": [
+        "Every exit is dangerous.",
+        "Short words are always incorrect.",
+        "Important safety information could be lost.",
+        "Travelers dislike signs."
+      ],
+      "answer": 2,
+      "explanation_ja": "通行止めなど重要な情報が消えるためです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'overlooked' mean here?",
+      "options": [
+        "Failed to notice.",
+        "Considered carefully.",
+        "Translated into many languages.",
+        "Made larger."
+      ],
+      "answer": 0,
+      "explanation_ja": "overlookedは見落としたという意味です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "Who may provide further explanations?",
+      "options": [
+        "Only online advertisers.",
+        "Only other tourists.",
+        "Only train drivers from other countries.",
+        "A station staff member."
+      ],
+      "answer": 3,
+      "explanation_ja": "職員が追加説明できます。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Why does the author warn against assuming everyone reads the same way?",
+      "options": [
+        "Different people always agree.",
+        "Readers have different language skills and needs.",
+        "All station signs are identical.",
+        "Signs can never use images."
+      ],
+      "answer": 1,
+      "explanation_ja": "読み手の背景や能力の違いがあるためです。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "What does the last sentence emphasize?",
+      "options": [
+        "Only the largest sign should be kept.",
+        "Everyone should memorize the station map.",
+        "Accessible information may need several methods.",
+        "Staff should stop answering questions."
+      ],
+      "answer": 2,
+      "explanation_ja": "多様な方法で情報にアクセスできることを結論とします。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "station",
+      "ja": "駅",
+      "synonym": "transport terminal",
+      "definition": "a place where trains arrive and leave"
+    },
+    {
+      "term": "exit",
+      "ja": "出口",
+      "synonym": "way out",
+      "definition": "a place to leave a building"
+    },
+    {
+      "term": "visitors",
+      "ja": "来訪者",
+      "synonym": "guests",
+      "definition": "people coming to a place"
+    },
+    {
+      "term": "travelers",
+      "ja": "旅行者",
+      "synonym": "passengers",
+      "definition": "people making a journey"
+    },
+    {
+      "term": "sign",
+      "ja": "案内表示",
+      "synonym": "notice",
+      "definition": "an object showing information"
+    },
+    {
+      "term": "stressful",
+      "ja": "緊張を生む",
+      "synonym": "demanding",
+      "definition": "likely to cause stress"
+    },
+    {
+      "term": "recognize",
+      "ja": "認識する",
+      "synonym": "identify",
+      "definition": "to know something when seen"
+    },
+    {
+      "term": "effective",
+      "ja": "効果的な",
+      "synonym": "successful",
+      "definition": "producing a desired result"
+    },
+    {
+      "term": "reader",
+      "ja": "読み手",
+      "synonym": "person reading",
+      "definition": "someone reading words"
+    },
+    {
+      "term": "revised",
+      "ja": "修正された",
+      "synonym": "changed",
+      "definition": "made different to improve it"
+    },
+    {
+      "term": "arrow",
+      "ja": "矢印",
+      "synonym": "direction symbol",
+      "definition": "a shape indicating a direction"
+    },
+    {
+      "term": "lettering",
+      "ja": "文字",
+      "synonym": "written characters",
+      "definition": "the appearance of written letters"
+    },
+    {
+      "term": "distance",
+      "ja": "距離",
+      "synonym": "space between places",
+      "definition": "the amount separating two places"
+    },
+    {
+      "term": "symbol",
+      "ja": "記号",
+      "synonym": "mark",
+      "definition": "a picture or sign representing something"
+    },
+    {
+      "term": "confusion",
+      "ja": "混乱",
+      "synonym": "uncertainty",
+      "definition": "a lack of clear understanding"
+    },
+    {
+      "term": "designers",
+      "ja": "設計者",
+      "synonym": "creators",
+      "definition": "people planning how things appear"
+    },
+    {
+      "term": "overlooked",
+      "ja": "見落とした",
+      "synonym": "missed",
+      "definition": "failed to notice"
+    },
+    {
+      "term": "translation",
+      "ja": "翻訳",
+      "synonym": "rendering",
+      "definition": "expressing meaning in another language"
+    },
+    {
+      "term": "instruction",
+      "ja": "指示",
+      "synonym": "direction",
+      "definition": "information telling people what to do"
+    },
+    {
+      "term": "warning",
+      "ja": "警告",
+      "synonym": "alert",
+      "definition": "information about possible danger"
+    },
+    {
+      "term": "closed",
+      "ja": "閉鎖された",
+      "synonym": "not open",
+      "definition": "unavailable for entry"
+    },
+    {
+      "term": "direct",
+      "ja": "直接的な",
+      "synonym": "straight",
+      "definition": "without intermediate steps"
+    },
+    {
+      "term": "unnatural",
+      "ja": "不自然な",
+      "synonym": "strange",
+      "definition": "not sounding normal"
+    },
+    {
+      "term": "accurate",
+      "ja": "正確な",
+      "synonym": "correct",
+      "definition": "free from mistakes"
+    },
+    {
+      "term": "preserves",
+      "ja": "保つ",
+      "synonym": "retains",
+      "definition": "keeps something important"
+    },
+    {
+      "term": "additional",
+      "ja": "追加の",
+      "synonym": "extra",
+      "definition": "provided beyond what already exists"
+    },
+    {
+      "term": "welcoming",
+      "ja": "温かく迎える",
+      "synonym": "inviting",
+      "definition": "making people feel accepted"
+    },
+    {
+      "term": "assuming",
+      "ja": "思い込むこと",
+      "synonym": "supposing",
+      "definition": "accepting something without checking"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "learners",
+      "definition": "people receiving education at school"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "facts",
+      "definition": "facts or details provided about something"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "possible",
+      "ja": "可能な・あり得る",
+      "synonym": "potential",
+      "definition": "able to happen or be true"
+    },
+    {
+      "term": "understand",
+      "ja": "理解する",
+      "synonym": "comprehend",
+      "definition": "to know what something means"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "problems",
+      "ja": "問題",
+      "synonym": "difficulties",
+      "definition": "situations that need solutions"
+    },
+    {
+      "term": "local",
+      "ja": "地域の",
+      "synonym": "nearby",
+      "definition": "connected with a particular nearby area"
+    },
+    {
+      "term": "language",
+      "ja": "言語",
+      "synonym": "speech system",
+      "definition": "a system used by people to communicate"
+    },
+    {
+      "term": "question",
+      "ja": "問い・質問",
+      "synonym": "inquiry",
+      "definition": "something asked to obtain information"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 0,
+      "focus": "used by visitors from many countries",
+      "explanation_ja": "過去分詞usedがexitを後ろから修飾します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "large enough to be read from a reasonable distance",
+      "explanation_ja": "形容詞＋enough＋to不定詞は十分な程度を表します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "focus": "must not remove information needed for safe travel",
+      "explanation_ja": "must notは強い禁止で、neededはinformationを修飾します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "focus": "who can give additional explanations",
+      "explanation_ja": "whoはstaff memberを修飾します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "二言語表示と理解の難しさを対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "矢印と絵の具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "In addition",
+      "role_ja": "翻訳に加えて安全上の情報を強調。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "表示の改善と残る疑問を対比。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "A person may not read either language comfortably",
+      "rewrite": "some readers may struggle with both languages",
+      "explanation_ja": "not comfortably→struggleです。"
+    },
+    {
+      "source": "Testing with real readers can reveal problems that designers overlooked",
+      "rewrite": "trying signs with users can uncover missed design issues",
+      "explanation_ja": "reveal→uncover、overlooked→missedです。"
+    },
+    {
+      "source": "A useful translation preserves the necessary action as well as the main meaning",
+      "rewrite": "a good version keeps both essential instructions and meaning",
+      "explanation_ja": "preserves→keeps、necessary→essentialです。"
+    },
+    {
+      "source": "A welcoming public place offers different ways for people to find the information they need",
+      "rewrite": "an inclusive facility provides several routes to useful information",
+      "explanation_ja": "different ways→several routesです。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "二言語表示と理解の難しさを対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Therefore",
+        "In addition"
+      ],
+      "explanation_ja": "矢印と絵の具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "In addition",
+      "options": [
+        "In addition",
+        "However",
+        "Therefore",
+        "For example"
+      ],
+      "explanation_ja": "翻訳に加えて安全上の情報を強調。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "表示の改善と残る疑問を対比。"
+    }
+  ]
+}
