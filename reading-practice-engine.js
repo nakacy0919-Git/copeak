@@ -144,6 +144,7 @@
       if(['時を表す副詞節','時を示す副詞節','when＋'].some(t=>x.includes(t)))return 'time';
       if(['not mean that','誤解を明確に否定','誤った解釈を排除','not ... by itself','部分否定'].some(t=>x.includes(t)))return 'negation';
       if(x.includes('however')&&x.includes('接続副詞'))return 'comparison';
+      if(x.includes('whether')||f.includes('whether'))return 'indirect';
       if(['間接疑問','疑問詞を含む'].some(t=>x.includes(t)))return 'indirect';
       if(['関係副詞','whereが','whereは','whereで始まる関係'].some(t=>x.includes(t)))return 'relative-adverb';
       if(['関係代名詞','関係詞節','継続用法','whoが'].some(t=>x.includes(t)))return 'relative';
@@ -168,7 +169,17 @@
     }
     return (l.grammar||[]).map((g,i)=>{
       const kind=category(g),correct=roles.find(r=>r[0]===kind)[1];
-      const ans=options(correct,roles.filter(r=>r[0]!==kind).map(r=>r[1]),l.id+':grammar-v2:'+i);
+      // Some authored explanations teach two structures at once (e.g.
+      // rather than + gerund, passive + if). Never offer both as answers.
+      const explained=String(g.explanation_ja||'').toLowerCase(),excluded=new Set([kind]);
+      if(explained.includes('rather than')||explained.includes('比較・対比'))excluded.add('comparison');
+      if(explained.includes('動名詞'))excluded.add('gerund');
+      if(explained.includes('受動態'))excluded.add('passive');
+      if(explained.includes('条件節')||explained.includes('if節'))excluded.add('conditional');
+      if(explained.includes('関係代名詞'))excluded.add('relative');
+      if(explained.includes('名詞節')||explained.includes('that節'))excluded.add('noun');
+      if(explained.includes('間接疑問')||explained.includes('whether'))excluded.add('indirect');
+      const ans=options(correct,roles.filter(r=>!excluded.has(r[0])).map(r=>r[1]),l.id+':grammar-v2:'+i);
       return {id:'g2-'+i,mode,index:i,
        prompt:'下線部の文法・構文上の働きとして、最も適切なものを選びなさい。',
        subprompt:'本文の一文と下線部を確認してください。',
