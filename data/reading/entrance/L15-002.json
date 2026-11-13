@@ -4,7 +4,7 @@
   "title": "When a Helpful Algorithm Makes the Wrong Choice",
   "title_ja": "便利なAIが誤った判断をしたとき",
   "level_id": "eiken-pre1",
-  "word_count": 490,
+  "word_count": 509,
   "original": true,
   "status": "draft",
   "source_links": [
@@ -130,6 +130,10 @@
         {
           "en": "The quality of an explanation should be judged by whether it enables people to understand and respond.",
           "ja": "説明の質は、人々が理解し対応できるかで評価されるべきです。"
+        },
+        {
+          "en": "A short explanation with a contact person may be especially important for students who cannot navigate a complicated website.",
+          "ja": "複雑なウェブサイトを使いこなせない生徒にとって、連絡先を示す短い説明は特に重要かもしれません。"
         }
       ]
     },
@@ -670,7 +674,7 @@
     },
     {
       "paragraph_id": "p4",
-      "sentence_index": 2,
+      "sentence_index": 0,
       "focus": "that ordinary users can understand",
       "explanation_ja": "関係代名詞thatがexplanationsを修飾しています。"
     },
