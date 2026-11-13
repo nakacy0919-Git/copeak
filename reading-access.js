@@ -42,7 +42,7 @@
       await loadScript('reading-lexicon-core.js?v=20261112-words2');
       await loadScript('reading-dictionary-lookup.js?v=20261112-words2');
       await loadScript('reading-correct-effect.js?v=20261112-words2');
-      await loadScript('reading-entrance.js?v=20261113-gradingcards1');
+      await loadScript('reading-entrance.js?v=20261113-ipadfill1');
       await loadScript('reading-exam-mode.js?v=20261112-full4');
       await loadScript('reading-ink.js?v=20261112-toolbar4');
       const view=window.CopeakReadingExamContext?.();
