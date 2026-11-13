@@ -542,7 +542,7 @@ function focusEvidence(ids,jump=false){
   target=first?document.getElementById(first):null;
   if(target)target.classList.add('support-hit');
  }
- const index=state.lesson.questions.indexOf(question);
+ const index=activeQuestions().indexOf(question);
  statusText.textContent=target
   ?'Q'+(index+1)+' の根拠の目安：第'+(paragraphIndex>=0?paragraphIndex+1:state.lesson.paragraphs.findIndex(p=>p.id===ids?.[0])+1)+'段落'
   :'この設問の根拠箇所を特定できませんでした。';
@@ -721,7 +721,7 @@ function renderPracticeProgress(){
  for(const b of $('exerciseChoices').querySelectorAll('[data-exercise]')){
   const x=modeSummary(b.dataset.exercise);
   const tag=b.querySelector('[data-choice-progress]');
-  if(tag)tag.textContent=x.answered+'/'+x.total+' · '+x.percent+'%';
+  if(tag)tag.textContent=b.dataset.exercise==='questions'&&!state.questionCountChosen?'問題数を選択':x.answered+'/'+x.total+' · '+x.percent+'%';
  }
  const done=percentages.length?Math.round(percentages.reduce((a,b)=>a+b,0)/percentages.length):0;
  const total=$('overallProgress');
