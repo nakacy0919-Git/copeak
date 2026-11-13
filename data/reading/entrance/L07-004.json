@@ -1,0 +1,671 @@
+{
+  "id": "L07-004",
+  "category_id": "L07",
+  "title": "Borrowing a Tool Instead of Buying It",
+  "title_ja": "道具を買わずに借りる選択",
+  "level_id": "eiken-pre2",
+  "word_count": 304,
+  "original": true,
+  "status": "draft",
+  "source_links": [
+    {
+      "title": "Ellen MacArthur Foundation: Circular Business Models",
+      "url": "https://www.ellenmacarthurfoundation.org/articles/circular-business-models-rethinking-how-value-is-created"
+    }
+  ],
+  "fact_notes": [
+    "背景となる考え方は添付の資料で確認。本文と練習問題は新規制作。例示した人物・学校・活動は架空の説明用設定。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A family needs a special tool to repair one small part of its garden fence.",
+          "ja": "ある家族は庭の柵の小さな部分を直すため特別な道具が必要です。"
+        },
+        {
+          "en": "Buying the tool would be expensive, and it might be used only once.",
+          "ja": "道具の購入は高価で、一度しか使わないかもしれません。"
+        },
+        {
+          "en": "However, a nearby community center offers tools that residents can borrow.",
+          "ja": "しかし近くの地域センターは住民が借りられる道具を提供しています。"
+        },
+        {
+          "en": "The family pays a small fee and returns the tool after finishing the repair.",
+          "ja": "家族は少額を払い、修理後に道具を返します。"
+        },
+        {
+          "en": "This approach gives people access to products without requiring everyone to own them.",
+          "ja": "この方法は全員が所有しなくても製品を利用できるようにします。"
+        },
+        {
+          "en": "Sharing products can be part of what is called a circular economy.",
+          "ja": "製品の共有は循環型経済と呼ばれる考え方の一部になり得ます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "A business that rents equipment must think about how items will be used repeatedly.",
+          "ja": "機器を貸し出す事業は道具が繰り返し使われる方法を考える必要があります。"
+        },
+        {
+          "en": "For example, the tool should be strong enough to survive many customers and simple to repair.",
+          "ja": "例えば道具は多くの利用者に耐える強さがあり、修理しやすいことが望まれます。"
+        },
+        {
+          "en": "Workers also need to check whether an item is safe before lending it again.",
+          "ja": "職員は再び貸す前に安全か確認する必要もあります。"
+        },
+        {
+          "en": "A broken product may cause harm even when sharing it seems economical.",
+          "ja": "壊れた製品は共有が経済的に見えても害を生むかもしれません。"
+        },
+        {
+          "en": "The price of renting must therefore help cover cleaning, maintenance, and replacement when necessary.",
+          "ja": "そのため貸出料金には必要な清掃、維持、交換の費用も考慮する必要があります。"
+        },
+        {
+          "en": "A successful sharing service needs a practical plan, not simply a collection of old objects.",
+          "ja": "共有サービスの成功には古い物を集めるだけでなく、実際的な計画が必要です。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Customers must also decide whether borrowing suits their needs.",
+          "ja": "利用者も借りることが必要に合うか判断しなければなりません。"
+        },
+        {
+          "en": "In addition, a person who uses a tool every day might find ownership more convenient.",
+          "ja": "さらに毎日道具を使う人には所有の方が便利かもしれません。"
+        },
+        {
+          "en": "Some communities lack a nearby place where products can be returned.",
+          "ja": "返却できる場所が近くにない地域もあります。"
+        },
+        {
+          "en": "Others may need clear instructions in several languages to use a tool safely.",
+          "ja": "安全な使用のため複数言語の明確な説明が必要な人もいます。"
+        },
+        {
+          "en": "A fair service should consider who can reach it and who might be left out.",
+          "ja": "公正なサービスでは誰が利用でき、誰が取り残されるか考えるべきです。"
+        },
+        {
+          "en": "Sharing is useful only when the service works for real people in real situations.",
+          "ja": "共有は実際の人々の状況に合うときに役立ちます。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Nevertheless, borrowing cannot solve every problem connected with waste.",
+          "ja": "それでも借りることですべてのごみの問題が解決するわけではありません。"
+        },
+        {
+          "en": "Products still need materials and energy, and they will eventually wear out.",
+          "ja": "製品は素材とエネルギーを必要とし、いつかは摩耗します。"
+        },
+        {
+          "en": "Students can compare the cost and environmental effects of buying, borrowing, and repairing.",
+          "ja": "生徒は購入・借用・修理の費用と環境への影響を比較できます。"
+        },
+        {
+          "en": "They should describe their assumptions rather than announce one answer for every situation.",
+          "ja": "どの状況にも一つの答えを宣言するのではなく前提条件を説明すべきです。"
+        },
+        {
+          "en": "The central question is whether people need to own a product or simply need to use it.",
+          "ja": "中心となる問いは製品を所有する必要があるのか、使えればよいのかということです。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the main idea?",
+      "options": [
+        "Owning everything is necessary.",
+        "Sharing goods can be useful when access, maintenance, and real needs are considered.",
+        "Repairing tools is always impossible.",
+        "Every customer should use the same tool."
+      ],
+      "answer": 1,
+      "explanation_ja": "必要な道具を共有する利点と課題が主題です。",
+      "paragraph_ids": [
+        "p1",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Why does the family choose to borrow?",
+      "options": [
+        "The tool is free to keep.",
+        "The fence is already repaired.",
+        "Buying a tool for one use would be expensive.",
+        "The community center sells no tools."
+      ],
+      "answer": 2,
+      "explanation_ja": "一度の使用のために買うと高価だからです。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why can renting reduce unnecessary ownership?",
+      "options": [
+        "Several people can use one product at different times.",
+        "Everyone must buy the tool.",
+        "Products last forever.",
+        "Community centers never charge fees."
+      ],
+      "answer": 0,
+      "explanation_ja": "一つの道具を複数人が順に利用できるためです。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What should workers check before lending a tool again?",
+      "options": [
+        "The customer's favorite color.",
+        "The weather forecast.",
+        "The owner's school grades.",
+        "Whether the item is safe."
+      ],
+      "answer": 3,
+      "explanation_ja": "安全性の確認が必要です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What costs may rental fees need to cover?",
+      "options": [
+        "Only advertisements.",
+        "Cleaning, maintenance, and replacement.",
+        "The size of the garden.",
+        "Only the customer's time."
+      ],
+      "answer": 1,
+      "explanation_ja": "清掃・維持管理・交換の費用を挙げます。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "When might buying be preferable to borrowing?",
+      "options": [
+        "When there is no plan to use a product.",
+        "When an item cannot be repaired.",
+        "When someone needs the tool frequently.",
+        "When a product is easy to return."
+      ],
+      "answer": 2,
+      "explanation_ja": "頻繁に使う場合は所有が便利なことがあります。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'maintenance' mean?",
+      "options": [
+        "Work that keeps equipment in usable condition.",
+        "A type of garden fence.",
+        "A fee for buying land.",
+        "A new method of advertising."
+      ],
+      "answer": 0,
+      "explanation_ja": "maintenanceは維持管理のことです。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "Why might some people struggle to use a sharing service?",
+      "options": [
+        "All tools are too small.",
+        "Every product is broken.",
+        "No one wants to repair anything.",
+        "There may be no nearby return location."
+      ],
+      "answer": 3,
+      "explanation_ja": "返却場所が近くにないことが課題になります。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Why doesn't borrowing completely eliminate waste?",
+      "options": [
+        "Borrowing requires no materials.",
+        "Shared products also wear out and require resources.",
+        "Sharing prevents all repairs.",
+        "Only purchased tools are made in factories."
+      ],
+      "answer": 1,
+      "explanation_ja": "共有品も素材を使い、摩耗していくためです。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "What does the final sentence encourage?",
+      "options": [
+        "Avoiding all products.",
+        "Making one rule for everyone.",
+        "Thinking about access rather than assuming ownership is necessary.",
+        "Making tools more expensive."
+      ],
+      "answer": 2,
+      "explanation_ja": "所有と利用の違いを考える結びです。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "tool",
+      "ja": "道具",
+      "synonym": "instrument",
+      "definition": "a device used to do work"
+    },
+    {
+      "term": "fence",
+      "ja": "柵",
+      "synonym": "barrier",
+      "definition": "a structure around an area"
+    },
+    {
+      "term": "expensive",
+      "ja": "高価な",
+      "synonym": "costly",
+      "definition": "requiring much money"
+    },
+    {
+      "term": "borrow",
+      "ja": "借りる",
+      "synonym": "take on loan",
+      "definition": "to use something temporarily"
+    },
+    {
+      "term": "fee",
+      "ja": "料金",
+      "synonym": "charge",
+      "definition": "money paid for a service"
+    },
+    {
+      "term": "returns",
+      "ja": "返却する",
+      "synonym": "gives back",
+      "definition": "takes something back"
+    },
+    {
+      "term": "approach",
+      "ja": "方法",
+      "synonym": "method",
+      "definition": "a way of doing something"
+    },
+    {
+      "term": "access",
+      "ja": "利用する機会",
+      "synonym": "availability",
+      "definition": "the ability to use something"
+    },
+    {
+      "term": "own",
+      "ja": "所有する",
+      "synonym": "possess",
+      "definition": "to have something as property"
+    },
+    {
+      "term": "circular economy",
+      "ja": "循環型経済",
+      "synonym": "resource-sharing system",
+      "definition": "a system that keeps products and materials in use"
+    },
+    {
+      "term": "rents",
+      "ja": "貸し出す",
+      "synonym": "leases",
+      "definition": "allows someone to use an item for payment"
+    },
+    {
+      "term": "equipment",
+      "ja": "機器",
+      "synonym": "gear",
+      "definition": "tools needed for an activity"
+    },
+    {
+      "term": "repeatedly",
+      "ja": "繰り返し",
+      "synonym": "again and again",
+      "definition": "many times"
+    },
+    {
+      "term": "customers",
+      "ja": "顧客",
+      "synonym": "users",
+      "definition": "people who obtain a service"
+    },
+    {
+      "term": "lending",
+      "ja": "貸し出すこと",
+      "synonym": "loaning",
+      "definition": "allowing someone to use an item temporarily"
+    },
+    {
+      "term": "economical",
+      "ja": "経済的な",
+      "synonym": "cost-saving",
+      "definition": "avoiding unnecessary spending"
+    },
+    {
+      "term": "cleaning",
+      "ja": "清掃",
+      "synonym": "washing",
+      "definition": "removing dirt"
+    },
+    {
+      "term": "maintenance",
+      "ja": "維持管理",
+      "synonym": "upkeep",
+      "definition": "work to keep something in good condition"
+    },
+    {
+      "term": "replacement",
+      "ja": "交換",
+      "synonym": "substitution",
+      "definition": "using a new item instead of an old one"
+    },
+    {
+      "term": "collection",
+      "ja": "収集物",
+      "synonym": "group",
+      "definition": "a set of objects"
+    },
+    {
+      "term": "ownership",
+      "ja": "所有",
+      "synonym": "possession",
+      "definition": "having something as property"
+    },
+    {
+      "term": "convenient",
+      "ja": "便利な",
+      "synonym": "easy",
+      "definition": "suitable and simple to use"
+    },
+    {
+      "term": "instructions",
+      "ja": "指示",
+      "synonym": "directions",
+      "definition": "information about how to do something"
+    },
+    {
+      "term": "languages",
+      "ja": "言語",
+      "synonym": "speech systems",
+      "definition": "ways people communicate"
+    },
+    {
+      "term": "reach",
+      "ja": "利用できる・到達する",
+      "synonym": "get to",
+      "definition": "to arrive at a place"
+    },
+    {
+      "term": "environmental",
+      "ja": "環境の",
+      "synonym": "ecological",
+      "definition": "related to the natural world"
+    },
+    {
+      "term": "wear out",
+      "ja": "摩耗する",
+      "synonym": "become unusable",
+      "definition": "to become damaged through use"
+    },
+    {
+      "term": "assumptions",
+      "ja": "前提",
+      "synonym": "beliefs",
+      "definition": "things accepted without certainty"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "community",
+      "ja": "地域社会",
+      "synonym": "local society",
+      "definition": "people connected by a shared place or interest"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "learners",
+      "definition": "people receiving education at school"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "therefore",
+      "ja": "したがって",
+      "synonym": "consequently",
+      "definition": "used to introduce a logical result"
+    },
+    {
+      "term": "cause",
+      "ja": "原因・引き起こす",
+      "synonym": "produce",
+      "definition": "something that makes an event happen"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "problem",
+      "ja": "問題",
+      "synonym": "difficulty",
+      "definition": "something that needs attention or a solution"
+    },
+    {
+      "term": "question",
+      "ja": "問い・質問",
+      "synonym": "inquiry",
+      "definition": "something asked to obtain information"
+    },
+    {
+      "term": "answer",
+      "ja": "答え・答える",
+      "synonym": "response",
+      "definition": "what is given in reply to a question"
+    },
+    {
+      "term": "decide",
+      "ja": "決める",
+      "synonym": "choose",
+      "definition": "to make a choice after considering options"
+    },
+    {
+      "term": "useful",
+      "ja": "役立つ",
+      "synonym": "helpful",
+      "definition": "able to serve a practical purpose"
+    },
+    {
+      "term": "practical",
+      "ja": "実用的な",
+      "synonym": "workable",
+      "definition": "suitable for real conditions"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "that residents can borrow",
+      "explanation_ja": "関係代名詞thatがtoolsを修飾します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "whether an item is safe",
+      "explanation_ja": "whether節はcheckの目的語となる間接疑問です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "focus": "who uses a tool every day",
+      "explanation_ja": "whoは先行詞personを修飾します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 3,
+      "focus": "rather than announce one answer for every situation",
+      "explanation_ja": "rather thanで二つの行動を対比します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "購入の負担と借用の選択を対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "丈夫で修理可能な道具の具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "In addition",
+      "role_ja": "借用の適性に所有が有利な場合を追加。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "共有の利点と限界を対比。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "gives people access to products without requiring everyone to own them",
+      "rewrite": "allows use of goods without individual ownership",
+      "explanation_ja": "access→use、own→ownershipです。"
+    },
+    {
+      "source": "A successful sharing service needs a practical plan",
+      "rewrite": "a workable rental program requires careful organization",
+      "explanation_ja": "sharing service→rental programです。"
+    },
+    {
+      "source": "Sharing is useful only when the service works for real people",
+      "rewrite": "sharing helps when it suits users' actual circumstances",
+      "explanation_ja": "works→suitsです。"
+    },
+    {
+      "source": "Products still need materials and energy",
+      "rewrite": "even shared goods require resources and power",
+      "explanation_ja": "materials→resourcesです。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "購入の負担と借用の選択を対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Therefore",
+        "In addition"
+      ],
+      "explanation_ja": "丈夫で修理可能な道具の具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "In addition",
+      "options": [
+        "In addition",
+        "However",
+        "Therefore",
+        "For example"
+      ],
+      "explanation_ja": "借用の適性に所有が有利な場合を追加。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "共有の利点と限界を対比。"
+    }
+  ]
+}
