@@ -1,0 +1,675 @@
+{
+  "id": "L13-004",
+  "category_id": "L13",
+  "title": "Finding a Planet from a Small Shadow",
+  "title_ja": "小さな光の変化から惑星を探す",
+  "level_id": "eiken-2",
+  "word_count": 366,
+  "original": true,
+  "status": "draft",
+  "source_links": [
+    {
+      "title": "NASA Science: What's a Transit?",
+      "url": "https://science.nasa.gov/exoplanets/whats-a-transit/"
+    }
+  ],
+  "fact_notes": [
+    "背景となる考え方は添付の資料で確認。本文と練習問題は新規制作。例示した人物・学校・活動は架空の説明用設定。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Scientists cannot usually see a planet directly when it orbits a distant star in another part of our galaxy.",
+          "ja": "科学者は銀河の遠くの恒星を回る惑星を直接見ることは通常できません。"
+        },
+        {
+          "en": "However, a planet may reveal its presence when it passes between the star and an observer on Earth.",
+          "ja": "しかし惑星が恒星と地球の観測者の間を通ると、その存在を示す場合があります。"
+        },
+        {
+          "en": "During this event, called a transit, a small fraction of the star's light is temporarily blocked.",
+          "ja": "トランジットと呼ばれるこの現象では恒星の光の一部が一時的に遮られます。"
+        },
+        {
+          "en": "NASA describes this method as an important way of investigating worlds beyond our solar system.",
+          "ja": "NASAはこれを太陽系外の世界を調べる重要な方法として説明しています。"
+        },
+        {
+          "en": "The change may be far too slight for a person to notice simply by watching the sky.",
+          "ja": "その変化は空を見るだけでは人が気づけないほど小さいかもしれません。"
+        },
+        {
+          "en": "For researchers, measuring a tiny difference can open a window onto an otherwise invisible object.",
+          "ja": "研究者にとって小さな違いの測定は、通常見えない天体を知る窓になります。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "To measure the light, scientists create a graph called a light curve using observations made over time.",
+          "ja": "光を測るため科学者は時系列の観測から光度曲線と呼ばれるグラフを作ります。"
+        },
+        {
+          "en": "For example, a planet crossing its star can produce a temporary dip in the measured brightness.",
+          "ja": "例えば恒星の前を通る惑星は測定される明るさを一時的に下げます。"
+        },
+        {
+          "en": "If similar dips appear regularly, the timing may suggest a planet repeatedly moving around its star.",
+          "ja": "同じ落ち込みが規則的に現れれば、惑星が恒星の周囲を繰り返し公転している可能性があります。"
+        },
+        {
+          "en": "The amount of light blocked can offer information about the planet's size relative to the star.",
+          "ja": "遮られた光の量は恒星に対する惑星の大きさについて情報を与えます。"
+        },
+        {
+          "en": "Nevertheless, these conclusions require careful calculations and knowledge of the star itself.",
+          "ja": "それでもこのような結論には慎重な計算と恒星自体の知識が必要です。"
+        },
+        {
+          "en": "One graph alone does not tell scientists everything about a planet's surface or atmosphere.",
+          "ja": "一つのグラフだけで惑星の表面や大気のすべてがわかるわけではありません。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "A change in brightness can also have explanations that do not involve an orbiting planet.",
+          "ja": "明るさの変化には公転する惑星以外の説明もあります。"
+        },
+        {
+          "en": "Some stars naturally vary in brightness, and the instruments used for observation are not perfect.",
+          "ja": "恒星には自然に光度が変わるものもあり、観測機器も完璧ではありません。"
+        },
+        {
+          "en": "In addition, changing conditions during observations can introduce mistakes into recorded measurements.",
+          "ja": "さらに観測条件の変化が記録された測定値に誤りを生むことがあります。"
+        },
+        {
+          "en": "Scientists therefore compare different observations before treating a repeated pattern as strong evidence.",
+          "ja": "そのため科学者は繰り返されるパターンを強い証拠とみなす前に複数の観測を比較します。"
+        },
+        {
+          "en": "An interesting signal is the beginning of an investigation rather than the end of scientific questioning.",
+          "ja": "興味深い信号は科学的な問いの終わりではなく調査の始まりです。"
+        },
+        {
+          "en": "This distinction helps protect researchers from confusing a promising possibility with a confirmed discovery.",
+          "ja": "この区別は有望な可能性と確認された発見を混同することを防ぎます。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Students can try a simplified version of the process with a graph of imaginary light measurements.",
+          "ja": "生徒は架空の光の測定グラフでこの過程の簡単な版を試せます。"
+        },
+        {
+          "en": "They might mark the dips, estimate the intervals between them, and describe a possible pattern.",
+          "ja": "落ち込みを示し、その間隔を推定し、考えられるパターンを述べられます。"
+        },
+        {
+          "en": "A teacher can then introduce a second graph containing a misleading pattern caused by measurement error.",
+          "ja": "教師は次に測定誤差による紛らわしいパターンを含む二つ目のグラフを紹介できます。"
+        },
+        {
+          "en": "The class should explain which interpretation has better support and what evidence remains missing.",
+          "ja": "クラスはどの解釈がより根拠があり、どんな証拠が不足するか説明すべきです。"
+        },
+        {
+          "en": "Instead of guessing a dramatic answer, they learn to ask how a result could be checked.",
+          "ja": "刺激的な答えを推測する代わりに、結果の検証方法を問うことを学びます。"
+        },
+        {
+          "en": "The excitement of astronomy includes the patience required to test an attractive idea.",
+          "ja": "天文学の魅力には魅力的な考えを検証するための忍耐も含まれます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the passage mainly about?",
+      "options": [
+        "Why every star has a visible planet.",
+        "How indirect observations are used to investigate planets while avoiding premature conclusions.",
+        "Why telescopes cannot record brightness.",
+        "Why imaginary graphs are always accurate."
+      ],
+      "answer": 1,
+      "explanation_ja": "間接観測と慎重な検証の重要性が中心です。",
+      "paragraph_ids": [
+        "p1",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What occurs during a transit?",
+      "options": [
+        "A star stops producing light.",
+        "A telescope changes its location.",
+        "A planet blocks a small amount of starlight.",
+        "A planet enters Earth's atmosphere."
+      ],
+      "answer": 2,
+      "explanation_ja": "恒星の光の一部が遮られます。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why is the change difficult to notice without instruments?",
+      "options": [
+        "The reduction in brightness may be extremely small.",
+        "A transit makes a star invisible forever.",
+        "Stars have no measurable light.",
+        "Planets always move behind the Sun."
+      ],
+      "answer": 0,
+      "explanation_ja": "光度の低下が小さいためです。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What does a light curve represent?",
+      "options": [
+        "The weight of a telescope.",
+        "The color of distant planets.",
+        "The speed of a spacecraft.",
+        "Measured brightness over time."
+      ],
+      "answer": 3,
+      "explanation_ja": "時系列の光度データです。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What might regularly repeated dips suggest?",
+      "options": [
+        "A star always has three planets.",
+        "An object following a recurring orbit.",
+        "Changes in the color of the Moon.",
+        "A telescope that has never worked."
+      ],
+      "answer": 1,
+      "explanation_ja": "規則的な公転の手がかりになります。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why do researchers compare multiple observations?",
+      "options": [
+        "Every graph must contain the same values.",
+        "They want to avoid using mathematics.",
+        "Brightness changes may have alternative causes.",
+        "They expect all stars to be identical."
+      ],
+      "answer": 2,
+      "explanation_ja": "惑星以外の原因が考えられるためです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'premature' most nearly mean in 'premature conclusions'?",
+      "options": [
+        "Made before enough evidence is available.",
+        "Made after careful testing.",
+        "Repeated regularly.",
+        "Difficult to pronounce."
+      ],
+      "answer": 0,
+      "explanation_ja": "premature conclusionsは根拠が十分でない早すぎる結論です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What exercise can students complete?",
+      "options": [
+        "Traveling to another planet.",
+        "Photographing the inside of the Sun.",
+        "Measuring their school roof.",
+        "Comparing graphs with possible brightness dips."
+      ],
+      "answer": 3,
+      "explanation_ja": "光の落ち込みを含む複数のグラフを比較します。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What is the lesson of the misleading second graph?",
+      "options": [
+        "All graphs should be rejected.",
+        "A pattern may come from error rather than the proposed explanation.",
+        "Students should never use numbers.",
+        "Every unexpected result confirms a planet."
+      ],
+      "answer": 1,
+      "explanation_ja": "パターンが測定誤差から生じる可能性を示します。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "Why is patience mentioned at the end?",
+      "options": [
+        "To show that astronomy is boring.",
+        "To suggest discoveries require no evidence.",
+        "To emphasize the value of careful testing.",
+        "To argue that one observation is enough."
+      ],
+      "answer": 2,
+      "explanation_ja": "慎重な検証の価値を締めくくります。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "transit",
+      "ja": "トランジット",
+      "synonym": "planetary passage",
+      "definition": "a planet passing in front of a star"
+    },
+    {
+      "term": "light curve",
+      "ja": "光度曲線",
+      "synonym": "brightness graph",
+      "definition": "a graph of measured light over time"
+    },
+    {
+      "term": "brightness",
+      "ja": "明るさ",
+      "synonym": "amount of light",
+      "definition": "how bright something appears"
+    },
+    {
+      "term": "dip",
+      "ja": "落ち込み",
+      "synonym": "temporary decrease",
+      "definition": "a brief reduction in a value"
+    },
+    {
+      "term": "galaxy",
+      "ja": "銀河",
+      "synonym": "star system",
+      "definition": "a system containing many stars"
+    },
+    {
+      "term": "observer",
+      "ja": "観測者",
+      "synonym": "watcher",
+      "definition": "someone observing an event"
+    },
+    {
+      "term": "fraction",
+      "ja": "一部分",
+      "synonym": "portion",
+      "definition": "a small part of a whole"
+    },
+    {
+      "term": "slight",
+      "ja": "わずかな",
+      "synonym": "small",
+      "definition": "not large in amount"
+    },
+    {
+      "term": "invisible",
+      "ja": "見えない",
+      "synonym": "unseen",
+      "definition": "not possible to see"
+    },
+    {
+      "term": "intervals",
+      "ja": "間隔",
+      "synonym": "periods",
+      "definition": "spaces between events"
+    },
+    {
+      "term": "atmosphere",
+      "ja": "大気",
+      "synonym": "surrounding gases",
+      "definition": "the gases around a planet"
+    },
+    {
+      "term": "calculations",
+      "ja": "計算",
+      "synonym": "mathematical work",
+      "definition": "work done with numbers"
+    },
+    {
+      "term": "interpretation",
+      "ja": "解釈",
+      "synonym": "explanation",
+      "definition": "a possible understanding"
+    },
+    {
+      "term": "patience",
+      "ja": "忍耐",
+      "synonym": "persistence",
+      "definition": "the ability to keep working carefully"
+    },
+    {
+      "term": "conditions",
+      "ja": "条件",
+      "synonym": "circumstances",
+      "definition": "features that affect something"
+    },
+    {
+      "term": "investigation",
+      "ja": "調査",
+      "synonym": "inquiry",
+      "definition": "a careful search for evidence"
+    },
+    {
+      "term": "important",
+      "ja": "重要な",
+      "synonym": "significant",
+      "definition": "having a great effect or value"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "similar",
+      "ja": "似ている",
+      "synonym": "alike",
+      "definition": "having features in common"
+    },
+    {
+      "term": "change",
+      "ja": "変える・変化",
+      "synonym": "alteration",
+      "definition": "to become or make something different"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "learners",
+      "definition": "people receiving education at school"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who helps others learn"
+    },
+    {
+      "term": "knowledge",
+      "ja": "知識",
+      "synonym": "understanding",
+      "definition": "information gained through learning or experience"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "facts",
+      "definition": "facts or details provided about something"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "therefore",
+      "ja": "したがって",
+      "synonym": "consequently",
+      "definition": "used to introduce a logical result"
+    },
+    {
+      "term": "result",
+      "ja": "結果",
+      "synonym": "outcome",
+      "definition": "what happens because of an action or event"
+    },
+    {
+      "term": "possible",
+      "ja": "可能な・あり得る",
+      "synonym": "potential",
+      "definition": "able to happen or be true"
+    },
+    {
+      "term": "support",
+      "ja": "支援・支える",
+      "synonym": "help",
+      "definition": "assistance that makes something easier"
+    },
+    {
+      "term": "better",
+      "ja": "より良い",
+      "synonym": "improved",
+      "definition": "of higher quality than before"
+    },
+    {
+      "term": "answer",
+      "ja": "答え・答える",
+      "synonym": "response",
+      "definition": "what is given in reply to a question"
+    },
+    {
+      "term": "careful",
+      "ja": "慎重な",
+      "synonym": "thoughtful",
+      "definition": "avoiding errors through attention"
+    },
+    {
+      "term": "evidence",
+      "ja": "証拠・根拠",
+      "synonym": "supporting facts",
+      "definition": "information that helps test or support a claim"
+    },
+    {
+      "term": "suggest",
+      "ja": "示唆する",
+      "synonym": "propose",
+      "definition": "to put forward an idea or possibility"
+    },
+    {
+      "term": "might",
+      "ja": "〜かもしれない",
+      "synonym": "possibly",
+      "definition": "expressing a possibility rather than certainty"
+    },
+    {
+      "term": "process",
+      "ja": "過程",
+      "synonym": "sequence",
+      "definition": "a series of actions or changes"
+    },
+    {
+      "term": "method",
+      "ja": "方法",
+      "synonym": "technique",
+      "definition": "a way of doing a particular task"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "examine together",
+      "definition": "to examine similarities and differences"
+    },
+    {
+      "term": "difference",
+      "ja": "違い",
+      "synonym": "distinction",
+      "definition": "a way in which two things are not alike"
+    },
+    {
+      "term": "rather",
+      "ja": "むしろ",
+      "synonym": "instead",
+      "definition": "used to express a preferred alternative"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "called a transit",
+      "explanation_ja": "過去分詞calledがeventを説明します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "If similar dips appear regularly",
+      "explanation_ja": "If節は条件を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "focus": "before treating a repeated pattern as strong evidence",
+      "explanation_ja": "before＋動名詞で先行する確認を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 4,
+      "focus": "Instead of guessing a dramatic answer",
+      "explanation_ja": "instead of＋動名詞で代替行動を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "直接見えない惑星と間接的な検出を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "明るさの落ち込みの具体例を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "In addition",
+      "role_ja": "星自身の変動に観測条件の誤差を追加します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "Nevertheless",
+      "role_ja": "光度曲線からの推論とその限界を対比します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "a small fraction of the star's light is temporarily blocked",
+      "rewrite": "a little starlight is briefly prevented from reaching the observer",
+      "explanation_ja": "small fraction→a little、temporarily→brieflyです。"
+    },
+    {
+      "source": "the timing may suggest a planet repeatedly moving around its star",
+      "rewrite": "regular intervals may indicate a planet in orbit",
+      "explanation_ja": "timing→regular intervalsです。"
+    },
+    {
+      "source": "An interesting signal is the beginning of an investigation rather than the end of scientific questioning",
+      "rewrite": "a promising observation starts further research instead of settling the question",
+      "explanation_ja": "beginning→startsです。"
+    },
+    {
+      "source": "The excitement of astronomy includes the patience required to test an attractive idea",
+      "rewrite": "part of the appeal of astronomy lies in carefully checking promising hypotheses",
+      "explanation_ja": "excitement→appealです。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "answer": "However",
+      "options": [
+        "However",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "直接見えない惑星と間接的な検出を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Therefore",
+        "In addition"
+      ],
+      "explanation_ja": "明るさの落ち込みの具体例を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "In addition",
+      "options": [
+        "In addition",
+        "However",
+        "Therefore",
+        "For example"
+      ],
+      "explanation_ja": "星自身の変動に観測条件の誤差を追加します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 4,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "光度曲線からの推論とその限界を対比します。"
+    }
+  ]
+}
