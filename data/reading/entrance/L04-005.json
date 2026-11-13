@@ -1,0 +1,584 @@
+{
+  "id": "L04-005",
+  "category_id": "L04",
+  "title": "The Quiet Student's Idea",
+  "title_ja": "静かな生徒のアイデア",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 173,
+  "source_links": [
+    {
+      "title": "Educational background reference",
+      "url": "https://www.unicef.org/child-rights-convention/convention-text"
+    }
+  ],
+  "fact_notes": [
+    "架空の教材事例を扱う独自英文・和訳・問題・解説。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "The class plans a small festival for the school.",
+          "ja": "クラスは学校の小さなお祭りを計画します。"
+        },
+        {
+          "en": "Many students speak loudly and share their ideas.",
+          "ja": "多くの生徒が大きな声で考えを話します。"
+        },
+        {
+          "en": "However, Hana stays quiet during the first meeting.",
+          "ja": "しかしハナは最初の会議で静かなままです。"
+        },
+        {
+          "en": "Some classmates think she has no ideas.",
+          "ja": "同級生の中には彼女に考えがないと思う人もいます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Their teacher gives everyone a piece of paper.",
+          "ja": "教師は全員に一枚の紙を渡します。"
+        },
+        {
+          "en": "Students can write an idea before speaking.",
+          "ja": "生徒たちは発言する前に考えを書けます。"
+        },
+        {
+          "en": "For example, Hana writes about making a welcome sign.",
+          "ja": "例えばハナは歓迎の看板を作ることについて書きます。"
+        },
+        {
+          "en": "Her idea helps visitors find the festival rooms.",
+          "ja": "その考えは来場者が会場を見つける助けになります。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The teacher reads the ideas without students' names.",
+          "ja": "教師は名前を付けずに考えを読み上げます。"
+        },
+        {
+          "en": "Several classmates choose Hana's idea as their favorite.",
+          "ja": "何人かの同級生がハナの考えを一番気に入ります。"
+        },
+        {
+          "en": "Instead of asking who wrote it first, they discuss how to make the sign.",
+          "ja": "最初に誰が書いたか尋ねず、看板の作り方を話し合います。"
+        },
+        {
+          "en": "Hana smiles and begins to explain her drawing.",
+          "ja": "ハナは笑って自分の絵を説明し始めます。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The students learn that people share ideas in different ways.",
+          "ja": "生徒たちは人によって考えの伝え方が違うと学びます。"
+        },
+        {
+          "en": "Some like talking in front of a group.",
+          "ja": "グループの前で話すのが好きな人もいます。"
+        },
+        {
+          "en": "Nevertheless, others need time to think before speaking.",
+          "ja": "それでも発言前に考える時間が必要な人もいます。"
+        },
+        {
+          "en": "A good meeting gives everyone a chance to join.",
+          "ja": "よい会議は全員に参加の機会を与えます。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "On festival day, visitors use Hana's welcome sign.",
+          "ja": "お祭り当日、来場者はハナの歓迎看板を使います。"
+        },
+        {
+          "en": "The class thanks Hana for her helpful idea.",
+          "ja": "クラスは役立つ考えについてハナに感謝します。"
+        },
+        {
+          "en": "As a result, the next meeting includes time for writing.",
+          "ja": "その結果、次の会議には書く時間が設けられます。"
+        },
+        {
+          "en": "The students know that quiet voices can bring good ideas.",
+          "ja": "生徒たちは静かな声からもよい考えが生まれると知ります。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What does Hana do at the first meeting?",
+      "options": [
+        "She stays quiet.",
+        "She leaves school.",
+        "She plays music.",
+        "She draws a map for visitors."
+      ],
+      "answer": 0,
+      "explanation_ja": "第1段落「しかしハナは最初の会議で静かなままです。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What do some classmates wrongly think?",
+      "options": [
+        "Hana is the teacher.",
+        "The festival is canceled.",
+        "The school has no classrooms.",
+        "Hana has no ideas."
+      ],
+      "answer": 3,
+      "explanation_ja": "第1段落「同級生の中には彼女に考えがないと思う人もいます。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "How can students share ideas before speaking?",
+      "options": [
+        "By leaving the meeting.",
+        "By calling visitors.",
+        "By writing on paper.",
+        "By singing loudly."
+      ],
+      "answer": 2,
+      "explanation_ja": "第2段落「生徒たちは発言する前に考えを書けます。」が根拠です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What will Hana's sign help visitors do?",
+      "options": [
+        "Buy a train ticket.",
+        "Find festival rooms.",
+        "Choose school lunches.",
+        "Learn a new sport."
+      ],
+      "answer": 1,
+      "explanation_ja": "第2段落「その考えは来場者が会場を見つける助けになります。」が根拠です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "How does the teacher read the ideas?",
+      "options": [
+        "Without names.",
+        "Only in English.",
+        "In a different classroom.",
+        "Only to Hana."
+      ],
+      "answer": 0,
+      "explanation_ja": "第3段落「教師は名前を付けずに考えを読み上げます。」が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What do classmates discuss?",
+      "options": [
+        "Who should leave school.",
+        "How to close the festival.",
+        "When to buy new chairs.",
+        "How to make the welcome sign."
+      ],
+      "answer": 3,
+      "explanation_ja": "第3段落「最初に誰が書いたか尋ねず、看板の作り方を話し合います。」が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What do some people need before speaking?",
+      "options": [
+        "A train ride.",
+        "More homework.",
+        "Time to think.",
+        "A new phone."
+      ],
+      "answer": 2,
+      "explanation_ja": "第4段落「それでも発言前に考える時間が必要な人もいます。」が根拠です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What makes a good meeting?",
+      "options": [
+        "No one may write.",
+        "A chance for everyone to join.",
+        "Only one person can talk.",
+        "Everyone must answer quickly."
+      ],
+      "answer": 1,
+      "explanation_ja": "第4段落「よい会議は全員に参加の機会を与えます。」が根拠です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What happens on festival day?",
+      "options": [
+        "Visitors use Hana's sign.",
+        "No visitors come.",
+        "The class loses the sign.",
+        "Hana is absent."
+      ],
+      "answer": 0,
+      "explanation_ja": "第5段落「お祭り当日、来場者はハナの歓迎看板を使います。」が根拠です。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the main message?",
+      "options": [
+        "Good ideas always come from loud speakers.",
+        "Writing is never helpful.",
+        "A meeting should be as short as possible.",
+        "Quiet people can have valuable ideas."
+      ],
+      "answer": 3,
+      "explanation_ja": "第5段落「生徒たちは静かな声からもよい考えが生まれると知ります。」が根拠です。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "classmates",
+      "ja": "同級生",
+      "synonym": "peers",
+      "definition": "students in the same class"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "festival",
+      "ja": "お祭り",
+      "synonym": "celebration",
+      "definition": "a special event with activities"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "meeting",
+      "ja": "会議",
+      "synonym": "gathering",
+      "definition": "a time when people discuss plans"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "share",
+      "ja": "共有する",
+      "synonym": "communicate",
+      "definition": "to let others know or use something"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who helps others learn"
+    },
+    {
+      "term": "visitors",
+      "ja": "来場者",
+      "synonym": "guests",
+      "definition": "people who come to an event"
+    },
+    {
+      "term": "writing",
+      "ja": "書くこと",
+      "synonym": "recording words",
+      "definition": "creating written text"
+    },
+    {
+      "term": "quiet",
+      "ja": "静かな",
+      "synonym": "not loud",
+      "definition": "making little sound"
+    },
+    {
+      "term": "ideas",
+      "ja": "考え",
+      "synonym": "suggestions",
+      "definition": "possible plans or thoughts"
+    },
+    {
+      "term": "welcome",
+      "ja": "歓迎",
+      "synonym": "greeting",
+      "definition": "showing a person they are invited"
+    },
+    {
+      "term": "sign",
+      "ja": "看板",
+      "synonym": "notice",
+      "definition": "a board carrying information"
+    },
+    {
+      "term": "drawing",
+      "ja": "絵",
+      "synonym": "picture",
+      "definition": "an image made by hand"
+    },
+    {
+      "term": "speaking",
+      "ja": "話すこと",
+      "synonym": "talking",
+      "definition": "using words aloud"
+    },
+    {
+      "term": "chance",
+      "ja": "機会",
+      "synonym": "opportunity",
+      "definition": "a possible time to do something"
+    },
+    {
+      "term": "choose",
+      "ja": "選ぶ",
+      "synonym": "select",
+      "definition": "decide between possibilities"
+    },
+    {
+      "term": "helpful",
+      "ja": "役立つ",
+      "synonym": "useful",
+      "definition": "providing assistance"
+    },
+    {
+      "term": "favorite",
+      "ja": "お気に入り",
+      "synonym": "preferred",
+      "definition": "liked more than others"
+    },
+    {
+      "term": "piece",
+      "ja": "一枚・一片",
+      "synonym": "part",
+      "definition": "one part of something"
+    },
+    {
+      "term": "paper",
+      "ja": "紙",
+      "synonym": "sheet",
+      "definition": "material used for writing"
+    },
+    {
+      "term": "speak",
+      "ja": "話す",
+      "synonym": "talk",
+      "definition": "communicate using speech"
+    },
+    {
+      "term": "everyone",
+      "ja": "みんな",
+      "synonym": "everybody",
+      "definition": "all people in a group"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "stays quiet during the first meeting",
+      "explanation_ja": "stay + 形容詞で状態を表します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "before speaking",
+      "explanation_ja": "before + 動名詞は「話す前に」です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of asking who wrote it first",
+      "explanation_ja": "instead of + 動名詞は「尋ねる代わりに」です。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "that quiet voices can bring good ideas",
+      "explanation_ja": "that節は知った内容です。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "活発な発言とハナの静かさを対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "ハナが書いた考えを例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "話すのが好きな人と考える時間が必要な人を対比します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "活動後に会議の方法が変わった結果です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Some classmates think she has no ideas.",
+      "rewrite": "Some students mistakenly believe Hana has nothing to suggest.",
+      "explanation_ja": "ハナに考えがないと誤解しているという意味です。"
+    },
+    {
+      "source": "Her idea helps visitors find the festival rooms.",
+      "rewrite": "Hana's sign makes it easier for people to find festival rooms.",
+      "explanation_ja": "案内板が会場を探す助けになるという意味です。"
+    },
+    {
+      "source": "A good meeting gives everyone a chance to join.",
+      "rewrite": "Everyone needs a fair opportunity to take part in a meeting.",
+      "explanation_ja": "全員が参加できる機会が必要という意味です。"
+    },
+    {
+      "source": "The students know that quiet voices can bring good ideas.",
+      "rewrite": "A quiet person may have an excellent idea.",
+      "explanation_ja": "静かな人にも価値ある考えがあるという結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "活発な発言とハナの静かさを対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "ハナが書いた考えを例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "話すのが好きな人と考える時間が必要な人を対比します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "活動後に会議の方法が変わった結果です。"
+    }
+  ]
+}
