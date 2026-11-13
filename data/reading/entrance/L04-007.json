@@ -1,0 +1,584 @@
+{
+  "id": "L04-007",
+  "category_id": "L04",
+  "title": "The Missing Name on the Poster",
+  "title_ja": "ポスターに書かれていなかった名前",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 184,
+  "source_links": [
+    {
+      "title": "Educational background reference",
+      "url": "https://www.unicef.org/child-rights-convention/convention-text"
+    }
+  ],
+  "fact_notes": [
+    "架空の学習用場面・文学作品をもとに英文、和訳、設問を独自に制作。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Four students make a poster for their school's sports day.",
+          "ja": "四人の生徒が学校の運動会のポスターを作ります。"
+        },
+        {
+          "en": "Aki draws pictures, and Tom chooses the colors.",
+          "ja": "アキが絵を描き、トムが色を選びます。"
+        },
+        {
+          "en": "Sara writes information, while Ken checks the dates.",
+          "ja": "サラが情報を書き、ケンが日付を確認します。"
+        },
+        {
+          "en": "However, the finished poster shows only three students' names.",
+          "ja": "しかし完成したポスターには三人の名前しかありません。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Ken notices that his name is missing from the poster.",
+          "ja": "ケンはポスターに自分の名前がないと気づきます。"
+        },
+        {
+          "en": "He feels sad because he worked on the project too.",
+          "ja": "自分も活動したので悲しく感じます。"
+        },
+        {
+          "en": "For example, he found an incorrect date before printing.",
+          "ja": "例えば印刷前に間違った日付を見つけました。"
+        },
+        {
+          "en": "He decides to talk to the other students calmly.",
+          "ja": "落ち着いてほかの生徒と話すことにします。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The group listens when Ken explains what happened.",
+          "ja": "グループはケンが事情を説明すると耳を傾けます。"
+        },
+        {
+          "en": "Tom says he did not mean to leave anyone out.",
+          "ja": "トムは誰かを外すつもりはなかったと話します。"
+        },
+        {
+          "en": "Instead of arguing about who worked hardest, they list everyone's tasks.",
+          "ja": "誰が一番働いたか争わず全員の仕事を書き出します。"
+        },
+        {
+          "en": "They see that each person made a useful contribution.",
+          "ja": "全員が役立つ貢献をしたとわかります。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The students correct the poster and add Ken's name.",
+          "ja": "生徒たちはポスターを直しケンの名前を加えます。"
+        },
+        {
+          "en": "Nevertheless, they want to prevent the same mistake next time.",
+          "ja": "それでも次回は同じ間違いを防ぎたいと考えます。"
+        },
+        {
+          "en": "They decide to check the names before printing anything.",
+          "ja": "何か印刷する前に名前を確認すると決めます。"
+        },
+        {
+          "en": "Everyone agrees that quiet work deserves recognition too.",
+          "ja": "目立たない仕事も認められるべきだと全員が同意します。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "On sports day, visitors enjoy the colorful poster.",
+          "ja": "運動会当日、来場者は色鮮やかなポスターを楽しみます。"
+        },
+        {
+          "en": "Ken is happy to see all four names together.",
+          "ja": "ケンは四人の名前が並ぶのを見てうれしくなります。"
+        },
+        {
+          "en": "As a result, the group becomes more careful about sharing credit.",
+          "ja": "その結果グループは手柄を公平に認めることにより注意します。"
+        },
+        {
+          "en": "They learn that teamwork includes noticing every person's efforts.",
+          "ja": "チームワークには全員の努力に気づくことが含まれると学びます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "Who draws the pictures?",
+      "options": [
+        "Tom.",
+        "Sara.",
+        "Ken.",
+        "Aki."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「アキが絵を描き、トムが色を選びます。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What is missing?",
+      "options": [
+        "All the colors.",
+        "The school logo.",
+        "One student's name.",
+        "The event date."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「しかし完成したポスターには三人の名前しかありません。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "Why is Ken sad?",
+      "options": [
+        "He lost the pictures.",
+        "His contribution is not recognized.",
+        "He has no ticket.",
+        "He dislikes sports."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「自分も活動したので悲しく感じます。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What mistake did Ken find?",
+      "options": [
+        "A wrong date.",
+        "A wrong color.",
+        "A missing photograph.",
+        "A broken chair."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「例えば印刷前に間違った日付を見つけました。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What does Tom say?",
+      "options": [
+        "Ken never helped.",
+        "The poster was canceled.",
+        "Every name was deleted.",
+        "He did not mean to exclude Ken."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「トムは誰かを外すつもりはなかったと話します。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What do they do instead of arguing?",
+      "options": [
+        "Choose a new sports day.",
+        "Throw away all drawings.",
+        "List everyone's tasks.",
+        "Stop the project."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「誰が一番働いたか争わず全員の仕事を書き出します。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "How do they correct the poster?",
+      "options": [
+        "Remove the pictures.",
+        "Add Ken's name.",
+        "Remove every name.",
+        "Change the date."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「生徒たちはポスターを直しケンの名前を加えます。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "How will they prevent the problem?",
+      "options": [
+        "Check names before printing.",
+        "Stop working in groups.",
+        "Avoid sports day.",
+        "Only use one name."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「何か印刷する前に名前を確認すると決めます。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What makes Ken happy?",
+      "options": [
+        "Winning a race.",
+        "Getting a new bike.",
+        "Hearing a speech.",
+        "Seeing all four names."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「ケンは四人の名前が並ぶのを見てうれしくなります。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the main lesson?",
+      "options": [
+        "Names are not important in teamwork.",
+        "Posters should have no information.",
+        "All contributions deserve recognition.",
+        "The loudest worker deserves all credit."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「チームワークには全員の努力に気づくことが含まれると学びます。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "correct",
+      "ja": "訂正する",
+      "synonym": "fix",
+      "definition": "make something right"
+    },
+    {
+      "term": "decide",
+      "ja": "決める",
+      "synonym": "choose",
+      "definition": "to make a choice"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "incorrect",
+      "ja": "誤った",
+      "synonym": "wrong",
+      "definition": "not correct"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "details",
+      "definition": "facts needed by readers"
+    },
+    {
+      "term": "missing",
+      "ja": "欠けている",
+      "synonym": "absent",
+      "definition": "not present"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "sharing",
+      "ja": "共有すること",
+      "synonym": "forwarding",
+      "definition": "passing information to others"
+    },
+    {
+      "term": "sports",
+      "ja": "運動",
+      "synonym": "games",
+      "definition": "physical activities"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "visitors",
+      "ja": "来場者",
+      "synonym": "guests",
+      "definition": "people attending an event"
+    },
+    {
+      "term": "poster",
+      "ja": "ポスター",
+      "synonym": "display",
+      "definition": "a large printed notice"
+    },
+    {
+      "term": "pictures",
+      "ja": "絵",
+      "synonym": "images",
+      "definition": "drawings or photographs"
+    },
+    {
+      "term": "colors",
+      "ja": "色",
+      "synonym": "shades",
+      "definition": "different appearances of light"
+    },
+    {
+      "term": "dates",
+      "ja": "日付",
+      "synonym": "calendar days",
+      "definition": "days on a calendar"
+    },
+    {
+      "term": "project",
+      "ja": "活動",
+      "synonym": "task",
+      "definition": "organized work"
+    },
+    {
+      "term": "printing",
+      "ja": "印刷",
+      "synonym": "publishing",
+      "definition": "producing text on paper"
+    },
+    {
+      "term": "calmly",
+      "ja": "落ち着いて",
+      "synonym": "peacefully",
+      "definition": "without showing anger"
+    },
+    {
+      "term": "contribution",
+      "ja": "貢献",
+      "synonym": "help",
+      "definition": "work added to a project"
+    },
+    {
+      "term": "recognition",
+      "ja": "評価",
+      "synonym": "credit",
+      "definition": "acknowledging someone's work"
+    },
+    {
+      "term": "teamwork",
+      "ja": "協働",
+      "synonym": "cooperation",
+      "definition": "working together"
+    },
+    {
+      "term": "efforts",
+      "ja": "努力",
+      "synonym": "work",
+      "definition": "attempts to do something"
+    },
+    {
+      "term": "credit",
+      "ja": "手柄",
+      "synonym": "recognition",
+      "definition": "acknowledgement for work"
+    },
+    {
+      "term": "finished",
+      "ja": "完成した",
+      "synonym": "completed",
+      "definition": "brought to an end"
+    },
+    {
+      "term": "names",
+      "ja": "名前",
+      "synonym": "identities",
+      "definition": "words identifying people"
+    },
+    {
+      "term": "tasks",
+      "ja": "仕事",
+      "synonym": "jobs",
+      "definition": "pieces of work"
+    },
+    {
+      "term": "everyone",
+      "ja": "全員",
+      "synonym": "everybody",
+      "definition": "all people in a group"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "while Ken checks the dates",
+      "explanation_ja": "whileは作業の分担を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "because he worked on the project too",
+      "explanation_ja": "because節は悲しい理由です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of arguing about who worked hardest",
+      "explanation_ja": "instead of + 動名詞は別の解決方法です。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "that teamwork includes noticing every person's efforts",
+      "explanation_ja": "that節は学んだ内容です。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "共同作業と名前の欠落を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "ケンの仕事の例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "訂正後も再発防止を考えます。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "経験から公平さを学んだ結果です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "However, the finished poster shows only three students' names.",
+      "rewrite": "The finished poster does not credit every student.",
+      "explanation_ja": "名前が全員分ないという意味です。"
+    },
+    {
+      "source": "He decides to talk to the other students calmly.",
+      "rewrite": "Ken chooses to discuss the error calmly.",
+      "explanation_ja": "落ち着いて話し合うという意味です。"
+    },
+    {
+      "source": "Everyone agrees that quiet work deserves recognition too.",
+      "rewrite": "Work that is less visible also deserves recognition.",
+      "explanation_ja": "目立たない仕事も認められるべきです。"
+    },
+    {
+      "source": "They learn that teamwork includes noticing every person's efforts.",
+      "rewrite": "Teamwork requires appreciating everyone's efforts.",
+      "explanation_ja": "全員の努力に気づくことが大切です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "共同作業と名前の欠落を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "ケンの仕事の例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "訂正後も再発防止を考えます。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "経験から公平さを学んだ結果です。"
+    }
+  ]
+}
