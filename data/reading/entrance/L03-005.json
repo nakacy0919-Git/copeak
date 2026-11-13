@@ -1,0 +1,858 @@
+{
+  "id": "L03-005",
+  "category_id": "L03",
+  "title": "The Caption That Changed the Meaning",
+  "title_ja": "意味を変えてしまった自動字幕",
+  "level_id": "university-mid",
+  "status": "draft",
+  "original": true,
+  "word_count": 510,
+  "source_links": [
+    {
+      "title": "Background reference",
+      "url": "https://www.unesco.org/en/artificial-intelligence/recommendation-ethics"
+    }
+  ],
+  "fact_notes": [
+    "架空の教育用事例。本文・対訳・設問・解説は独自に制作。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A school records a short video in which students explain their ideas for an international cultural exchange.",
+          "ja": "ある学校は国際文化交流の案を生徒が説明する短い動画を録画します。"
+        },
+        {
+          "en": "To help more people understand it, the organizers use a program that automatically produces English captions.",
+          "ja": "より多くの人に理解してもらうため、主催者は英語字幕を自動生成するプログラムを使います。"
+        },
+        {
+          "en": "The result looks professional, and the text appears quickly beneath each speaker on the screen.",
+          "ja": "結果は専門的に見え、文字は各話者の下にすばやく表示されます。"
+        },
+        {
+          "en": "However, one student notices that her sentence about welcoming visitors has been written with the opposite meaning.",
+          "ja": "しかし一人の生徒は、来訪者を歓迎する文が反対の意味で書かれていると気づきます。"
+        },
+        {
+          "en": "The caption contains a small word that she did not say, changing an invitation into a warning.",
+          "ja": "字幕には彼女が言っていない小さな語が含まれ、招待の言葉が警告に変わっています。"
+        },
+        {
+          "en": "The group begins to discuss why accurate-looking text still needs careful checking before publication.",
+          "ja": "グループは、正確に見える文字でも公開前に丁寧な確認が必要な理由を話し合い始めます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Automatic captioning systems analyze sound patterns and estimate which words a speaker has said.",
+          "ja": "自動字幕の仕組みは音のパターンを分析し、話者がどの語を言ったか推定します。"
+        },
+        {
+          "en": "A recording made in a quiet room may be easier to process than speech mixed with background noise.",
+          "ja": "静かな部屋で録音された音声は背景の雑音が混ざった発話より処理しやすい場合があります。"
+        },
+        {
+          "en": "For example, music playing behind a voice may make a short negative word difficult for a system to recognize.",
+          "ja": "例えば声の背後で流れる音楽によって、短い否定の語を認識しにくくなるかもしれません。"
+        },
+        {
+          "en": "Names and unfamiliar expressions can also create problems because not every speaker uses the same accent or pronunciation.",
+          "ja": "名前やなじみのない表現も、話者によってアクセントや発音が異なるため問題を生む場合があります。"
+        },
+        {
+          "en": "Therefore, a high percentage of correctly recognized words does not guarantee that every sentence communicates its intended meaning.",
+          "ja": "そのため認識された語が高い割合で正しくても、すべての文が意図した意味を伝える保証はありません。"
+        },
+        {
+          "en": "The consequences of one mistaken word depend partly on where it appears and what the video is trying to communicate.",
+          "ja": "一語の誤りの影響は、その位置や動画が伝えようとする内容にも左右されます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The students first consider removing every caption from the video rather than risking another error.",
+          "ja": "生徒たちは最初、別の間違いを避けるため字幕をすべて外すことを考えます。"
+        },
+        {
+          "en": "Nevertheless, captions may help viewers who cannot hear the audio clearly or who are still learning English.",
+          "ja": "それでも字幕は音声がはっきり聞こえない人や英語学習中の人を助ける場合があります。"
+        },
+        {
+          "en": "Instead of choosing between unlimited automation and no captions at all, the group develops a review process.",
+          "ja": "無制限の自動化か字幕なしの二択ではなく、グループは確認の手順を作ります。"
+        },
+        {
+          "en": "Each speaker checks the sentences attributed to them, while another student compares the text with the original recording.",
+          "ja": "各話者が自分に割り当てられた文を確認し、別の生徒が原音声と文字を比較します。"
+        },
+        {
+          "en": "Unclear words are marked for discussion rather than silently replaced with guesses.",
+          "ja": "不明な語は黙って推測に置き換えず、話し合うために印を付けます。"
+        },
+        {
+          "en": "The aim is not to make the system appear perfect but to make its results more useful and trustworthy.",
+          "ja": "目的はシステムを完璧に見せることではなく、結果をより役立つ信頼できるものにすることです。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The group also considers whether videos should be published with the names and faces of everyone who appears.",
+          "ja": "グループは動画を出演者全員の名前と顔とともに公開すべきかも考えます。"
+        },
+        {
+          "en": "Some students agree to a classroom screening but prefer not to have their recordings displayed on a public website.",
+          "ja": "教室での上映には同意しても、録画を公開サイトに載せたくない生徒もいます。"
+        },
+        {
+          "en": "The organizers therefore explain where the video will be shown and offer an opportunity to review participation.",
+          "ja": "主催者は動画の上映場所を説明し、参加について見直す機会を与えます。"
+        },
+        {
+          "en": "This step addresses privacy in addition to caption accuracy, because technical correctness does not settle every ethical question.",
+          "ja": "この段階では字幕の正確さに加えてプライバシーにも対応します。技術的に正しいことがすべての倫理的問題を解決するわけではないからです。"
+        },
+        {
+          "en": "The students discover that a good publishing decision requires attention to people as well as software performance.",
+          "ja": "生徒たちはよい公開判断にはソフトの性能だけでなく人々への注意が必要だと気づきます。"
+        },
+        {
+          "en": "They write a short checklist for future projects that includes language review, permission, and ways to report mistakes.",
+          "ja": "将来の活動のために言語の確認、許可、間違いの報告方法を含む短いチェックリストを作ります。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "Before sharing the finished video, the group plays it once more with the captions visible.",
+          "ja": "完成した動画を共有する前に、グループは字幕を表示してもう一度再生します。"
+        },
+        {
+          "en": "The original error has been corrected, and several smaller mistakes have also been fixed.",
+          "ja": "元の誤りは直され、より小さな間違いもいくつか修正されています。"
+        },
+        {
+          "en": "As a result, the students see the program as a useful starting point rather than a final authority over their words.",
+          "ja": "その結果、生徒たちはプログラムを自分たちの言葉を決める最終権限ではなく、役立つ出発点と考えるようになります。"
+        },
+        {
+          "en": "They still appreciate how much time automatic captions can save during video preparation.",
+          "ja": "動画準備で自動字幕がどれほど時間を節約できるかも評価しています。"
+        },
+        {
+          "en": "However, they now understand why human review and informed choices are part of responsible technology use.",
+          "ja": "しかし今では人間の確認と十分理解した上での選択が責任ある技術利用の一部だと理解しています。"
+        },
+        {
+          "en": "The most important improvement is not that the tool never makes mistakes, but that the group knows how to find and correct them.",
+          "ja": "最も重要な改善は道具が間違えなくなることではなく、グループが間違いを見つけ直す方法を知ることなのです。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What problem does the student find in her caption?",
+      "options": [
+        "An added word reverses her intended meaning.",
+        "Her name is displayed in a different color.",
+        "The video has no sound at all.",
+        "The program has removed every caption."
+      ],
+      "answer": 0,
+      "explanation_ja": "第1段落の「しかし一人の生徒は、来訪者を歓迎する文が反対の意味で書かれていると気づきます。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What does the problem lead the group to discuss?",
+      "options": [
+        "Why every video should have no text.",
+        "Why cultural exchange should be canceled.",
+        "Why students should never record speeches.",
+        "Why apparently accurate captions need review."
+      ],
+      "answer": 3,
+      "explanation_ja": "第1段落の「グループは、正確に見える文字でも公開前に丁寧な確認が必要な理由を話し合い始めます。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "Which situation may make captioning more difficult?",
+      "options": [
+        "A clear microphone and careful speech.",
+        "Repeatedly checking the text.",
+        "Music or noise behind a speaker.",
+        "A recording in a quiet room."
+      ],
+      "answer": 2,
+      "explanation_ja": "第2段落の「例えば声の背後で流れる音楽によって、短い否定の語を認識しにくくなるかもしれません。」が根拠です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "Why can high word accuracy still be misleading?",
+      "options": [
+        "All sentences have identical meaning.",
+        "A single wrong word may change the meaning.",
+        "Every correct word must appear in the wrong order.",
+        "Accuracy guarantees no ethical concerns."
+      ],
+      "answer": 1,
+      "explanation_ja": "第2段落の「そのため認識された語が高い割合で正しくても、すべての文が意図した意味を伝える保証はありません。」が根拠です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "Why are captions still valuable?",
+      "options": [
+        "They may help viewers who have difficulty hearing or are learning English.",
+        "They always remove the need for video.",
+        "They prevent all possible recording errors.",
+        "They guarantee that every name is correct."
+      ],
+      "answer": 0,
+      "explanation_ja": "第3段落の「それでも字幕は音声がはっきり聞こえない人や英語学習中の人を助ける場合があります。」が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What review method is adopted?",
+      "options": [
+        "One student deletes every uncertain sentence.",
+        "No one listens to the original recording.",
+        "The first automatic draft is published immediately.",
+        "Speakers check their lines and another person compares audio and text."
+      ],
+      "answer": 3,
+      "explanation_ja": "第3段落の「各話者が自分に割り当てられた文を確認し、別の生徒が原音声と文字を比較します。」が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "Why are permission and privacy discussed?",
+      "options": [
+        "Only school leaders can appear on video.",
+        "Every participant must accept public display.",
+        "Publishing a video involves choices about people as well as accuracy.",
+        "Privacy is guaranteed by accurate spelling."
+      ],
+      "answer": 2,
+      "explanation_ja": "第4段落の「教室での上映には同意しても、録画を公開サイトに載せたくない生徒もいます。」が根拠です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What is added to the future project checklist?",
+      "options": [
+        "The number of music tracks.",
+        "Language checking, permission, and error reporting.",
+        "Only the brand of the recording device.",
+        "A rule to avoid all captions."
+      ],
+      "answer": 1,
+      "explanation_ja": "第4段落の「将来の活動のために言語の確認、許可、間違いの報告方法を含む短いチェックリストを作ります。」が根拠です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "How does the group finally view automatic captions?",
+      "options": [
+        "As a helpful starting point requiring human review.",
+        "As the final authority on what was said.",
+        "As entirely useless technology.",
+        "As a tool that can never make mistakes."
+      ],
+      "answer": 0,
+      "explanation_ja": "第5段落の「その結果、生徒たちはプログラムを自分たちの言葉を決める最終権限ではなく、役立つ出発点と考えるようになります。」が根拠です。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "Which best summarizes the passage's message?",
+      "options": [
+        "A machine's high score makes every sentence reliable.",
+        "Video captions should always be removed.",
+        "Technical accuracy settles all questions about publishing.",
+        "Responsible automation combines efficiency with checking and respect for participants."
+      ],
+      "answer": 3,
+      "explanation_ja": "第5段落の「最も重要な改善は道具が間違えなくなることではなく、グループが間違いを見つけ直す方法を知ることなのです。」が根拠です。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "accuracy",
+      "ja": "正確さ",
+      "synonym": "correctness",
+      "definition": "how often results are correct"
+    },
+    {
+      "term": "accurate",
+      "ja": "正確な",
+      "synonym": "correct",
+      "definition": "consistent with the facts"
+    },
+    {
+      "term": "attention",
+      "ja": "注目",
+      "synonym": "notice",
+      "definition": "interest directed at something"
+    },
+    {
+      "term": "authority",
+      "ja": "権限",
+      "synonym": "decision power",
+      "definition": "the right to make or influence decisions"
+    },
+    {
+      "term": "automatically",
+      "ja": "自動的に",
+      "synonym": "without intervention",
+      "definition": "without a separate human action"
+    },
+    {
+      "term": "changing",
+      "ja": "変化する",
+      "synonym": "shifting",
+      "definition": "becoming different"
+    },
+    {
+      "term": "checking",
+      "ja": "確認すること",
+      "synonym": "verification",
+      "definition": "testing whether something is right"
+    },
+    {
+      "term": "choices",
+      "ja": "選択肢",
+      "synonym": "options",
+      "definition": "available possibilities"
+    },
+    {
+      "term": "communicate",
+      "ja": "伝える・意思疎通する",
+      "synonym": "exchange information",
+      "definition": "to share ideas or messages"
+    },
+    {
+      "term": "consider",
+      "ja": "考慮する",
+      "synonym": "think about",
+      "definition": "to examine an idea before deciding"
+    },
+    {
+      "term": "correct",
+      "ja": "訂正する・正しい",
+      "synonym": "fix",
+      "definition": "to remove errors or make something accurate"
+    },
+    {
+      "term": "discover",
+      "ja": "気づく・発見する",
+      "synonym": "find out",
+      "definition": "to learn something previously unknown"
+    },
+    {
+      "term": "discussion",
+      "ja": "話し合い",
+      "synonym": "conversation",
+      "definition": "an exchange of views"
+    },
+    {
+      "term": "estimate",
+      "ja": "見積もる",
+      "synonym": "calculate",
+      "definition": "to judge an approximate amount"
+    },
+    {
+      "term": "ethical",
+      "ja": "倫理的な",
+      "synonym": "moral",
+      "definition": "connected with right and wrong"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "expressions",
+      "ja": "表現",
+      "synonym": "phrases",
+      "definition": "groups of words used for meaning"
+    },
+    {
+      "term": "guarantee",
+      "ja": "保証する",
+      "synonym": "ensure",
+      "definition": "to promise a particular result"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "important",
+      "ja": "重要な",
+      "synonym": "significant",
+      "definition": "having a great effect or value"
+    },
+    {
+      "term": "improvement",
+      "ja": "改善・向上",
+      "synonym": "progress",
+      "definition": "a change that makes something better"
+    },
+    {
+      "term": "mistaken",
+      "ja": "誤った",
+      "synonym": "incorrect",
+      "definition": "based on an error"
+    },
+    {
+      "term": "mistakes",
+      "ja": "誤り",
+      "synonym": "errors",
+      "definition": "things done or answered incorrectly"
+    },
+    {
+      "term": "needs",
+      "ja": "必要",
+      "synonym": "requirements",
+      "definition": "things necessary for well-being"
+    },
+    {
+      "term": "negative",
+      "ja": "否定の",
+      "synonym": "not positive",
+      "definition": "expressing absence or refusal"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "organizers",
+      "ja": "主催者",
+      "synonym": "coordinators",
+      "definition": "people who arrange and manage an activity"
+    },
+    {
+      "term": "original",
+      "ja": "原文の",
+      "synonym": "initial",
+      "definition": "existing before a copy or revision"
+    },
+    {
+      "term": "participation",
+      "ja": "参加",
+      "synonym": "involvement",
+      "definition": "taking part in an activity"
+    },
+    {
+      "term": "patterns",
+      "ja": "傾向・パターン",
+      "synonym": "regularities",
+      "definition": "repeated ways something happens"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "prefer",
+      "ja": "好む",
+      "synonym": "favor",
+      "definition": "to like one option more"
+    },
+    {
+      "term": "preparation",
+      "ja": "準備",
+      "synonym": "readiness",
+      "definition": "actions taken before an event"
+    },
+    {
+      "term": "privacy",
+      "ja": "プライバシー",
+      "synonym": "confidentiality",
+      "definition": "protection of personal information"
+    },
+    {
+      "term": "produces",
+      "ja": "生み出す",
+      "synonym": "generates",
+      "definition": "creates an output"
+    },
+    {
+      "term": "professional",
+      "ja": "専門職の",
+      "synonym": "expert",
+      "definition": "working with specialized skills"
+    },
+    {
+      "term": "public",
+      "ja": "公衆の",
+      "synonym": "community",
+      "definition": "connected with people generally"
+    },
+    {
+      "term": "publishing",
+      "ja": "公表すること",
+      "synonym": "making public",
+      "definition": "making written information available to others"
+    },
+    {
+      "term": "question",
+      "ja": "疑問を持つ・問い直す",
+      "synonym": "challenge",
+      "definition": "to examine whether an assumption is correct"
+    },
+    {
+      "term": "recognize",
+      "ja": "認識する",
+      "synonym": "identify",
+      "definition": "to notice and understand"
+    },
+    {
+      "term": "recordings",
+      "ja": "録音",
+      "synonym": "audio records",
+      "definition": "sounds preserved for later listening"
+    },
+    {
+      "term": "records",
+      "ja": "記録",
+      "synonym": "documents",
+      "definition": "written accounts kept for later use"
+    },
+    {
+      "term": "responsible",
+      "ja": "責任を持つ",
+      "synonym": "accountable",
+      "definition": "expected to answer for decisions"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "sharing",
+      "ja": "共有すること",
+      "synonym": "forwarding",
+      "definition": "passing information to others"
+    },
+    {
+      "term": "software",
+      "ja": "ソフトウェア",
+      "synonym": "program",
+      "definition": "computer instructions"
+    },
+    {
+      "term": "student",
+      "ja": "生徒",
+      "synonym": "learner",
+      "definition": "a person learning at school"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "technical",
+      "ja": "専門的な",
+      "synonym": "specialized",
+      "definition": "using knowledge from a subject"
+    },
+    {
+      "term": "therefore",
+      "ja": "したがって",
+      "synonym": "consequently",
+      "definition": "used to introduce a logical result"
+    },
+    {
+      "term": "unfamiliar",
+      "ja": "なじみのない",
+      "synonym": "unknown",
+      "definition": "not recognized or understood"
+    },
+    {
+      "term": "visitors",
+      "ja": "訪問者",
+      "synonym": "guests",
+      "definition": "people coming to a place"
+    },
+    {
+      "term": "warning",
+      "ja": "警報",
+      "synonym": "alert",
+      "definition": "a message about a potential danger"
+    },
+    {
+      "term": "captions",
+      "ja": "字幕",
+      "synonym": "subtitles",
+      "definition": "written words shown with a video"
+    },
+    {
+      "term": "caption",
+      "ja": "字幕",
+      "synonym": "subtitle",
+      "definition": "a written line displayed with speech"
+    },
+    {
+      "term": "automatic",
+      "ja": "自動の",
+      "synonym": "mechanical",
+      "definition": "done without manual input"
+    },
+    {
+      "term": "recording",
+      "ja": "録画",
+      "synonym": "video record",
+      "definition": "saved sound and images"
+    },
+    {
+      "term": "pronunciation",
+      "ja": "発音",
+      "synonym": "speech sounds",
+      "definition": "the way words are said"
+    },
+    {
+      "term": "permission",
+      "ja": "許可",
+      "synonym": "consent",
+      "definition": "agreement allowing an action"
+    },
+    {
+      "term": "review",
+      "ja": "確認",
+      "synonym": "inspection",
+      "definition": "careful checking before release"
+    },
+    {
+      "term": "trustworthy",
+      "ja": "信頼できる",
+      "synonym": "reliable",
+      "definition": "deserving trust"
+    },
+    {
+      "term": "publication",
+      "ja": "公開",
+      "synonym": "release",
+      "definition": "making information available publicly"
+    },
+    {
+      "term": "published",
+      "ja": "公開された",
+      "synonym": "released",
+      "definition": "made available to others"
+    },
+    {
+      "term": "error",
+      "ja": "誤り",
+      "synonym": "mistake",
+      "definition": "something incorrect"
+    },
+    {
+      "term": "checklist",
+      "ja": "確認リスト",
+      "synonym": "list",
+      "definition": "a list of things to check"
+    },
+    {
+      "term": "human",
+      "ja": "人間の",
+      "synonym": "personal",
+      "definition": "related to people"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "that her sentence about welcoming visitors has been written with the opposite meaning",
+      "explanation_ja": "that節が気づいた内容を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 4,
+      "focus": "does not guarantee that every sentence communicates its intended meaning",
+      "explanation_ja": "does not guaranteeは保証しないことを示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of choosing between unlimited automation and no captions at all",
+      "explanation_ja": "instead of + 動名詞で二者択一を避けます。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 5,
+      "focus": "not that the tool never makes mistakes, but that the group knows",
+      "explanation_ja": "not A but Bの対比です。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "自動生成の便利さと誤字幕の発見を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "雑音による誤認識の例を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Nevertheless",
+      "role_ja": "字幕をなくす案に対して字幕の価値を示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "検証後の技術への評価の変化です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The group begins to discuss why accurate-looking text still needs careful checking before publication.",
+      "rewrite": "The students question why polished captions may still need proofreading.",
+      "explanation_ja": "見た目が正確でも確認が必要という意味です。"
+    },
+    {
+      "source": "Therefore, a high percentage of correctly recognized words does not guarantee that every sentence communicates its intended meaning.",
+      "rewrite": "High overall recognition accuracy does not ensure every sentence preserves its message.",
+      "explanation_ja": "全体の正確さと一文の意味の維持を区別します。"
+    },
+    {
+      "source": "The students discover that a good publishing decision requires attention to people as well as software performance.",
+      "rewrite": "Publishing responsibly requires attention to participants, not just software quality.",
+      "explanation_ja": "技術だけでなく人への配慮が必要という意味です。"
+    },
+    {
+      "source": "The most important improvement is not that the tool never makes mistakes, but that the group knows how to find and correct them.",
+      "rewrite": "Knowing how to correct errors matters more than pretending a tool is flawless.",
+      "explanation_ja": "誤りを直す方法を知る重要性という結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "自動生成の便利さと誤字幕の発見を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "雑音による誤認識の例を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "字幕をなくす案に対して字幕の価値を示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "検証後の技術への評価の変化です。"
+    }
+  ]
+}
