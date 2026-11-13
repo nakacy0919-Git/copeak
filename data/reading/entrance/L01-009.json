@@ -1,0 +1,644 @@
+{
+  "id": "L01-009",
+  "category_id": "L01",
+  "title": "The Garden That Stayed Wet",
+  "title_ja": "いつも湿っていた学校の花壇",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 191,
+  "source_links": [
+    {
+      "title": "General educational background reference",
+      "url": "https://www.nps.gov/subjects/plants/index.htm"
+    }
+  ],
+  "fact_notes": [
+    "登場人物・学校・活動は架空。本文・訳文・設問・解説は独自制作。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Students water the flowers in their school garden each morning.",
+          "ja": "生徒たちは毎朝学校の花壇の花に水をやります。"
+        },
+        {
+          "en": "One part of the garden stays wet even after sunny days.",
+          "ja": "晴れた日の後でも花壇の一部は湿ったままです。"
+        },
+        {
+          "en": "However, another part becomes dry much more quickly.",
+          "ja": "しかし別の部分はずっと早く乾きます。"
+        },
+        {
+          "en": "The class decides to find out why the soil is different.",
+          "ja": "クラスは土の状態が違う理由を調べることにします。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The students observe the garden from a safe path.",
+          "ja": "生徒たちは安全な道から花壇を観察します。"
+        },
+        {
+          "en": "For example, a large tree gives one area shade.",
+          "ja": "例えば大きな木が一か所を日陰にしています。"
+        },
+        {
+          "en": "They also notice that rainwater sometimes collects near a wall.",
+          "ja": "雨水が壁の近くにたまることもあります。"
+        },
+        {
+          "en": "The teacher asks them to record the weather and location.",
+          "ja": "教師は天候と場所を記録するよう求めます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The group prepares a chart comparing different parts of the garden.",
+          "ja": "グループは花壇の異なる部分を比べる表を作ります。"
+        },
+        {
+          "en": "They write down what they see on several days.",
+          "ja": "数日間に見えたことを書きます。"
+        },
+        {
+          "en": "Instead of guessing, they look for a repeated pattern.",
+          "ja": "推測する代わりに繰り返される傾向を探します。"
+        },
+        {
+          "en": "They learn that sunlight and water can affect the soil.",
+          "ja": "日光と水が土に影響し得ると学びます。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Some students want to move every flower immediately.",
+          "ja": "一部の生徒はすべての花をすぐ移したがります。"
+        },
+        {
+          "en": "Nevertheless, the class does not know enough to choose yet.",
+          "ja": "それでもクラスはまだ選ぶほど十分には知りません。"
+        },
+        {
+          "en": "They ask a gardener for advice about the plants.",
+          "ja": "植物について庭師に助言を求めます。"
+        },
+        {
+          "en": "The gardener suggests checking the soil before changing the garden.",
+          "ja": "庭師は花壇を変える前に土を確認するよう勧めます。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The students share their chart during a school meeting.",
+          "ja": "生徒たちは学校の会議で表を共有します。"
+        },
+        {
+          "en": "Their teacher thanks them for asking careful questions.",
+          "ja": "教師は慎重な問いを立てたことに感謝します。"
+        },
+        {
+          "en": "As a result, more classmates begin noticing their surroundings.",
+          "ja": "その結果さらに多くの同級生が周囲に目を向けます。"
+        },
+        {
+          "en": "The class learns to observe nature before trying to change it.",
+          "ja": "クラスは自然を変えようとする前に観察すると学びます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What happens to one part of the garden?",
+      "options": [
+        "It stays wet.",
+        "It becomes a classroom.",
+        "It turns into a road.",
+        "It has no soil."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「晴れた日の後でも花壇の一部は湿ったままです。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What does the class want to explain?",
+      "options": [
+        "Why school starts early.",
+        "Where the flowers were bought.",
+        "How old the garden wall is.",
+        "Why the soil differs."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「クラスは土の状態が違う理由を調べることにします。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What creates shade in one place?",
+      "options": [
+        "A garden sign.",
+        "A bicycle.",
+        "A large tree.",
+        "A new classroom."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「例えば大きな木が一か所を日陰にしています。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "Where can rainwater collect?",
+      "options": [
+        "Only under the roof.",
+        "Near a wall.",
+        "Inside the library.",
+        "On the school bus."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「雨水が壁の近くにたまることもあります。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What do students prepare?",
+      "options": [
+        "A comparison chart.",
+        "A new school schedule.",
+        "A map of another country.",
+        "A sports poster."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「グループは花壇の異なる部分を比べる表を作ります。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What do students look for instead of guessing?",
+      "options": [
+        "The longest word.",
+        "The brightest flower only.",
+        "The school timetable.",
+        "A repeated pattern."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「推測する代わりに繰り返される傾向を探します。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "Why don't students move the flowers immediately?",
+      "options": [
+        "The garden has disappeared.",
+        "The gardener refuses to speak.",
+        "They need more information.",
+        "All the flowers are artificial."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「それでもクラスはまだ選ぶほど十分には知りません。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "Who provides advice?",
+      "options": [
+        "A shop customer.",
+        "A gardener.",
+        "A bus driver.",
+        "A musician."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「植物について庭師に助言を求めます。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Who begins noticing the environment more?",
+      "options": [
+        "Other classmates.",
+        "Only visitors from another city.",
+        "Only gardeners.",
+        "No one."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「その結果さらに多くの同級生が周囲に目を向けます。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the main lesson?",
+      "options": [
+        "Every wet place needs the same solution.",
+        "One sunny day explains every problem.",
+        "Plants cannot respond to water.",
+        "Careful observation should come before making changes."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「クラスは自然を変えようとする前に観察すると学びます。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "affect",
+      "ja": "影響を与える",
+      "synonym": "influence",
+      "definition": "to change how something happens"
+    },
+    {
+      "term": "changing",
+      "ja": "変化する",
+      "synonym": "shifting",
+      "definition": "becoming different"
+    },
+    {
+      "term": "checking",
+      "ja": "確認すること",
+      "synonym": "verification",
+      "definition": "testing whether something is right"
+    },
+    {
+      "term": "classmates",
+      "ja": "同級生",
+      "synonym": "peers",
+      "definition": "students in the same class"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "guessing",
+      "ja": "推測",
+      "synonym": "estimating",
+      "definition": "forming an opinion without full information"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "immediately",
+      "ja": "すぐに",
+      "synonym": "at once",
+      "definition": "without delay"
+    },
+    {
+      "term": "meeting",
+      "ja": "集合",
+      "synonym": "gathering",
+      "definition": "coming together at a place"
+    },
+    {
+      "term": "nature",
+      "ja": "自然",
+      "synonym": "environment",
+      "definition": "the world of living things"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "record",
+      "ja": "記録する",
+      "synonym": "note",
+      "definition": "to write information down for later use"
+    },
+    {
+      "term": "repeated",
+      "ja": "繰り返された",
+      "synonym": "recurring",
+      "definition": "done more than once"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "shade",
+      "ja": "日陰",
+      "synonym": "shadow",
+      "definition": "an area away from direct sunlight"
+    },
+    {
+      "term": "share",
+      "ja": "共有する",
+      "synonym": "communicate",
+      "definition": "to let others know or use something"
+    },
+    {
+      "term": "soil",
+      "ja": "土",
+      "synonym": "earth",
+      "definition": "material where plants grow"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who helps others learn"
+    },
+    {
+      "term": "water",
+      "ja": "水をやる",
+      "synonym": "irrigate",
+      "definition": "to give water to a plant"
+    },
+    {
+      "term": "weather",
+      "ja": "天候",
+      "synonym": "conditions",
+      "definition": "the state of the atmosphere"
+    },
+    {
+      "term": "garden",
+      "ja": "花壇",
+      "synonym": "planting area",
+      "definition": "a place where plants grow"
+    },
+    {
+      "term": "flowers",
+      "ja": "花",
+      "synonym": "blossoms",
+      "definition": "the colorful parts of plants"
+    },
+    {
+      "term": "flower",
+      "ja": "花",
+      "synonym": "blossom",
+      "definition": "the colored part of a plant"
+    },
+    {
+      "term": "wet",
+      "ja": "湿った",
+      "synonym": "damp",
+      "definition": "containing water"
+    },
+    {
+      "term": "dry",
+      "ja": "乾いた",
+      "synonym": "not wet",
+      "definition": "having little water"
+    },
+    {
+      "term": "sunlight",
+      "ja": "日光",
+      "synonym": "sunshine",
+      "definition": "light from the Sun"
+    },
+    {
+      "term": "rainwater",
+      "ja": "雨水",
+      "synonym": "rain",
+      "definition": "water that falls from clouds"
+    },
+    {
+      "term": "tree",
+      "ja": "木",
+      "synonym": "large plant",
+      "definition": "a plant with a trunk"
+    },
+    {
+      "term": "wall",
+      "ja": "壁",
+      "synonym": "barrier",
+      "definition": "a vertical structure"
+    },
+    {
+      "term": "chart",
+      "ja": "表",
+      "synonym": "table",
+      "definition": "a display of information"
+    },
+    {
+      "term": "comparing",
+      "ja": "比較すること",
+      "synonym": "contrasting",
+      "definition": "examining differences"
+    },
+    {
+      "term": "observe",
+      "ja": "観察する",
+      "synonym": "watch",
+      "definition": "look carefully"
+    },
+    {
+      "term": "surroundings",
+      "ja": "周囲",
+      "synonym": "environment",
+      "definition": "things around a place"
+    },
+    {
+      "term": "gardener",
+      "ja": "庭師",
+      "synonym": "plant worker",
+      "definition": "someone who cares for gardens"
+    },
+    {
+      "term": "location",
+      "ja": "場所",
+      "synonym": "position",
+      "definition": "where something is found"
+    },
+    {
+      "term": "advice",
+      "ja": "助言",
+      "synonym": "guidance",
+      "definition": "helpful suggestions"
+    },
+    {
+      "term": "pattern",
+      "ja": "傾向",
+      "synonym": "repeated form",
+      "definition": "something that occurs again"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "even after sunny days",
+      "explanation_ja": "even afterで予想外に続く状態を表します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "to record the weather and location",
+      "explanation_ja": "ask + 人 + to不定詞で依頼します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of guessing",
+      "explanation_ja": "instead of + 動名詞は代替行動です。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "to observe nature before trying to change it",
+      "explanation_ja": "to不定詞は学んだ行動を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "湿った場所と乾いた場所を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "日陰を作る木の例を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "情報不足で変更を急がないと示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "観察への関心が広がる結果です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The class decides to find out why the soil is different.",
+      "rewrite": "Students investigate why parts of the garden have different soil conditions.",
+      "explanation_ja": "土の状態の違いを調べます。"
+    },
+    {
+      "source": "The teacher asks them to record the weather and location.",
+      "rewrite": "They keep records of the weather and places.",
+      "explanation_ja": "天候と場所を記録します。"
+    },
+    {
+      "source": "The gardener suggests checking the soil before changing the garden.",
+      "rewrite": "A gardener recommends investigating before making changes.",
+      "explanation_ja": "変更前に調査を勧めます。"
+    },
+    {
+      "source": "The class learns to observe nature before trying to change it.",
+      "rewrite": "The class learns to study nature carefully before acting.",
+      "explanation_ja": "行動する前の観察が大切です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "湿った場所と乾いた場所を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "日陰を作る木の例を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "情報不足で変更を急がないと示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "観察への関心が広がる結果です。"
+    }
+  ]
+}
