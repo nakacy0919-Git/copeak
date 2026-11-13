@@ -1,10 +1,10 @@
 {
   "title": "Copeak Study 450 Original Reading Lessons Roadmap",
-  "as_of": "2026-11-13",
+  "as_of": "2026-11-14",
   "goal": 450,
   "category_target": 30,
-  "registered_total": 53,
-  "remaining": 397,
+  "registered_total": 63,
+  "remaining": 387,
   "level_targets_per_category": {
     "eiken-3": 1,
     "eiken-pre2": 4,
@@ -21,43 +21,43 @@
       "category_id": "L01",
       "name": "自然",
       "target": 30,
-      "registered": 4,
-      "remaining": 26
+      "registered": 5,
+      "remaining": 25
     },
     {
       "category_id": "L02",
       "name": "歴史",
       "target": 30,
-      "registered": 3,
-      "remaining": 27
+      "registered": 4,
+      "remaining": 26
     },
     {
       "category_id": "L03",
       "name": "科学技術",
       "target": 30,
-      "registered": 4,
-      "remaining": 26
+      "registered": 5,
+      "remaining": 25
     },
     {
       "category_id": "L04",
       "name": "人間関係",
       "target": 30,
-      "registered": 3,
-      "remaining": 27
+      "registered": 4,
+      "remaining": 26
     },
     {
       "category_id": "L05",
       "name": "国際社会",
       "target": 30,
-      "registered": 4,
-      "remaining": 26
+      "registered": 5,
+      "remaining": 25
     },
     {
       "category_id": "L06",
       "name": "心理・哲学",
       "target": 30,
-      "registered": 3,
-      "remaining": 27
+      "registered": 4,
+      "remaining": 26
     },
     {
       "category_id": "L07",
@@ -91,8 +91,8 @@
       "category_id": "L11",
       "name": "法律・政治",
       "target": 30,
-      "registered": 3,
-      "remaining": 27
+      "registered": 4,
+      "remaining": 26
     },
     {
       "category_id": "L12",
@@ -105,35 +105,35 @@
       "category_id": "L13",
       "name": "宇宙・未来",
       "target": 30,
-      "registered": 3,
-      "remaining": 27
+      "registered": 4,
+      "remaining": 26
     },
     {
       "category_id": "L14",
       "name": "婚姻・交友",
       "target": 30,
-      "registered": 3,
-      "remaining": 27
+      "registered": 4,
+      "remaining": 26
     },
     {
       "category_id": "L15",
       "name": "倫理・道徳",
       "target": 30,
-      "registered": 3,
-      "remaining": 27
+      "registered": 4,
+      "remaining": 26
     }
   ],
   "latest_unpublished_batch": [
-    "L03-004",
-    "L05-004",
-    "L07-003",
-    "L07-005",
-    "L08-003",
-    "L08-005",
-    "L09-004",
-    "L10-004",
-    "L12-004",
-    "L14-004"
+    "L01-005",
+    "L02-004",
+    "L03-005",
+    "L04-004",
+    "L05-005",
+    "L06-004",
+    "L11-004",
+    "L13-004",
+    "L14-005",
+    "L15-004"
   ],
   "release_policy": {
     "new_works_default_status": "draft",
@@ -149,9 +149,11 @@
     ]
   },
   "notes": [
-    "本番 main へのマージやVercel本番デプロイは禁止。",
-    "今回の10本は branch content/reading-batch-20261113-c にのみ保存。",
-    "構造検査は通過済みだが、教師による最終校閲・実機iPad操作確認は未完了。"
+    "2026-11-14の新作10本は開発ブランチcontent/reading-batch-20261114-dに追加。",
+    "450本目標のうち63本を登録し、残り387本。",
+    "今回の新作10本は全文和訳・語彙・読解・復習演習の構造チェックを通過済み。",
+    "本番mainへのマージとVercel本番デプロイは利用者の明示承認まで行わない。",
+    "英文/日本語訳、正答の一意性・参考出典の最終校閲、iPad実機確認は未完了。"
   ],
-  "all_unpublished_batches_note": "前回15本と今回の10本はすべて draft で未公開。ほかの未登録ファイルは登録数に含めない。"
+  "all_unpublished_batches_note": "本番mainには28本のみ。開発側は63本で、35本は公開していない。今回の10本は専用のDraft PRに分離した。"
 }

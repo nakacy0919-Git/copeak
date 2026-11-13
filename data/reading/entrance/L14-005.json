@@ -1,0 +1,572 @@
+{
+  "id": "L14-005",
+  "category_id": "L14",
+  "title": "A Birthday Card with Two Languages",
+  "title_ja": "二つの言語で書いた誕生日カード",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 196,
+  "source_links": [
+    {
+      "title": "Educational background reference",
+      "url": "https://www.unesco.org/en/languages-education"
+    }
+  ],
+  "fact_notes": [
+    "架空の教育用場面。英文・対訳・設問は独自制作。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Sara wants to make a birthday card for her grandmother.",
+          "ja": "サラは祖母に誕生日カードを作りたいと思います。"
+        },
+        {
+          "en": "Her grandmother speaks Japanese and another language at home.",
+          "ja": "祖母は家で日本語と別の言語を話します。"
+        },
+        {
+          "en": "Sara can speak Japanese but knows only a few words in the other language.",
+          "ja": "サラは日本語を話せますが、もう一つの言語では少しの単語しか知りません。"
+        },
+        {
+          "en": "However, she wants the card to feel special to her grandmother.",
+          "ja": "しかし祖母にとって特別なカードにしたいと思います。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Sara asks her mother to teach her a short greeting.",
+          "ja": "サラは母に短いあいさつを教えてほしいと頼みます。"
+        },
+        {
+          "en": "They practice the words slowly at the kitchen table.",
+          "ja": "二人は台所のテーブルでゆっくり単語を練習します。"
+        },
+        {
+          "en": "For example, Sara learns how to write happy birthday.",
+          "ja": "例えば「誕生日おめでとう」の書き方を学びます。"
+        },
+        {
+          "en": "She checks each letter before writing it on the card.",
+          "ja": "カードに書く前に一文字ずつ確認します。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The next day, Sara draws flowers around her message.",
+          "ja": "翌日サラはメッセージの周りに花を描きます。"
+        },
+        {
+          "en": "She adds a short sentence in Japanese too.",
+          "ja": "日本語でも短い文を加えます。"
+        },
+        {
+          "en": "Instead of using a printed card, she writes everything by hand.",
+          "ja": "印刷されたカードを使う代わりにすべて手書きにします。"
+        },
+        {
+          "en": "Her younger brother helps choose the colors.",
+          "ja": "弟は色を選ぶのを手伝います。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "At the party, Grandmother reads the card carefully.",
+          "ja": "パーティーで祖母はカードを丁寧に読みます。"
+        },
+        {
+          "en": "She smiles and asks Sara where she learned the words.",
+          "ja": "祖母は笑顔でどこで言葉を学んだか尋ねます。"
+        },
+        {
+          "en": "Nevertheless, Sara makes a small mistake in one word.",
+          "ja": "それでもサラは一つの単語で小さな間違いをしています。"
+        },
+        {
+          "en": "Grandmother gently teaches her the correct way to say it.",
+          "ja": "祖母は優しく正しい言い方を教えます。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "After dinner, they practice the greeting together again.",
+          "ja": "夕食後、二人はもう一度一緒にあいさつを練習します。"
+        },
+        {
+          "en": "Sara tells her grandmother that she wants to learn more.",
+          "ja": "サラはもっと学びたいと祖母に伝えます。"
+        },
+        {
+          "en": "As a result, the birthday card becomes the start of a new family activity.",
+          "ja": "その結果、誕生日カードは新しい家族の活動の始まりになります。"
+        },
+        {
+          "en": "A few words help Sara feel closer to her grandmother.",
+          "ja": "少しの言葉がサラを祖母にもっと近く感じさせます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "Who is the card for?",
+      "options": [
+        "Sara's grandmother.",
+        "Sara's teacher.",
+        "Sara's best friend.",
+        "Sara's brother."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落の「サラは祖母に誕生日カードを作りたいと思います。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What languages does Grandmother speak?",
+      "options": [
+        "Only English.",
+        "Three languages at school.",
+        "Only Japanese.",
+        "Japanese and another language."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落の「祖母は家で日本語と別の言語を話します。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "Who teaches Sara the greeting?",
+      "options": [
+        "Her teacher.",
+        "Her brother.",
+        "Her mother.",
+        "Her father."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落の「サラは母に短いあいさつを教えてほしいと頼みます。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What does Sara learn to write?",
+      "options": [
+        "Where is the station?",
+        "Happy birthday.",
+        "Good morning.",
+        "See you tomorrow."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落の「例えば「誕生日おめでとう」の書き方を学びます。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What does Sara draw on the card?",
+      "options": [
+        "Flowers.",
+        "A train.",
+        "A large dog.",
+        "A school bus."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落の「翌日サラはメッセージの周りに花を描きます。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "How does Sara write the card?",
+      "options": [
+        "With a computer printer.",
+        "Only with photographs.",
+        "By asking a shop to do it.",
+        "By hand."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落の「印刷されたカードを使う代わりにすべて手書きにします。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "Who helps choose the colors?",
+      "options": [
+        "Her science teacher.",
+        "Her friend.",
+        "Her younger brother.",
+        "Her grandmother."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落の「弟は色を選ぶのを手伝います。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What happens when Grandmother reads the card?",
+      "options": [
+        "She asks for a new birthday cake.",
+        "She finds a small mistake.",
+        "She cannot read any part.",
+        "She throws the card away."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落の「それでもサラは一つの単語で小さな間違いをしています。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What does Sara want to do next?",
+      "options": [
+        "Learn more of the language.",
+        "Stop writing cards.",
+        "Move to a new school.",
+        "Forget the greeting."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落の「サラはもっと学びたいと祖母に伝えます。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the passage mainly about?",
+      "options": [
+        "A card must have perfect spelling.",
+        "Only printed cards make people happy.",
+        "Family members should never teach each other.",
+        "A simple language activity brings family members closer."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落の「少しの言葉がサラを祖母にもっと近く感じさせます。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "activity",
+      "ja": "活動",
+      "synonym": "action",
+      "definition": "something that a person does"
+    },
+    {
+      "term": "correct",
+      "ja": "正しい",
+      "synonym": "right",
+      "definition": "free from errors"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "greeting",
+      "ja": "あいさつ",
+      "synonym": "salutation",
+      "definition": "words used when meeting someone"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "message",
+      "ja": "メッセージ",
+      "synonym": "note",
+      "definition": "written communication"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "practice",
+      "ja": "練習する",
+      "synonym": "rehearse",
+      "definition": "repeat to improve"
+    },
+    {
+      "term": "printed",
+      "ja": "印刷された",
+      "synonym": "published",
+      "definition": "made with a printer"
+    },
+    {
+      "term": "writing",
+      "ja": "作文・文章を書くこと",
+      "synonym": "composition",
+      "definition": "the activity of creating text"
+    },
+    {
+      "term": "birthday",
+      "ja": "誕生日",
+      "synonym": "birth celebration",
+      "definition": "the anniversary of a birth"
+    },
+    {
+      "term": "grandmother",
+      "ja": "祖母",
+      "synonym": "grandparent",
+      "definition": "the mother of a parent"
+    },
+    {
+      "term": "language",
+      "ja": "言語",
+      "synonym": "speech system",
+      "definition": "a system used for communication"
+    },
+    {
+      "term": "card",
+      "ja": "カード",
+      "synonym": "greeting card",
+      "definition": "a piece of paper with a message"
+    },
+    {
+      "term": "kitchen",
+      "ja": "台所",
+      "synonym": "cooking room",
+      "definition": "a place where food is prepared"
+    },
+    {
+      "term": "letter",
+      "ja": "文字",
+      "synonym": "character",
+      "definition": "a written symbol"
+    },
+    {
+      "term": "flowers",
+      "ja": "花",
+      "synonym": "blooms",
+      "definition": "colorful parts of plants"
+    },
+    {
+      "term": "hand",
+      "ja": "手",
+      "synonym": "body part",
+      "definition": "part of the body used to hold things"
+    },
+    {
+      "term": "party",
+      "ja": "パーティー",
+      "synonym": "celebration",
+      "definition": "a gathering for a special event"
+    },
+    {
+      "term": "carefully",
+      "ja": "丁寧に",
+      "synonym": "with attention",
+      "definition": "in a thoughtful way"
+    },
+    {
+      "term": "mistake",
+      "ja": "間違い",
+      "synonym": "error",
+      "definition": "something not correct"
+    },
+    {
+      "term": "gently",
+      "ja": "優しく",
+      "synonym": "kindly",
+      "definition": "in a soft and caring manner"
+    },
+    {
+      "term": "colors",
+      "ja": "色",
+      "synonym": "shades",
+      "definition": "different appearances of light"
+    },
+    {
+      "term": "family",
+      "ja": "家族",
+      "synonym": "relatives",
+      "definition": "people related to one another"
+    },
+    {
+      "term": "brother",
+      "ja": "兄弟",
+      "synonym": "sibling",
+      "definition": "a male child of one's parents"
+    },
+    {
+      "term": "learn",
+      "ja": "学ぶ",
+      "synonym": "study",
+      "definition": "gain knowledge or skills"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 0,
+      "focus": "to make a birthday card",
+      "explanation_ja": "want to + 動詞原形で「作りたい」です。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "how to write happy birthday",
+      "explanation_ja": "how to不定詞で「どう書くか」を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of using a printed card",
+      "explanation_ja": "instead of + 動名詞で「使う代わりに」です。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "focus": "that she wants to learn more",
+      "explanation_ja": "that節は伝えた内容を表します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "知っている単語は少なくても特別にしたい気持ちを示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "練習した言葉の例を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "丁寧に書いても間違いがあることを示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "カードが新たな活動につながる結果を示します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "However, she wants the card to feel special to her grandmother.",
+      "rewrite": "Sara hopes to make a meaningful card for her grandmother.",
+      "explanation_ja": "祖母にとって特別なカードを作りたいという意味です。"
+    },
+    {
+      "source": "She checks each letter before writing it on the card.",
+      "rewrite": "She checks the letters before writing them on the card.",
+      "explanation_ja": "書く前に文字を確認するという意味です。"
+    },
+    {
+      "source": "Grandmother gently teaches her the correct way to say it.",
+      "rewrite": "Grandmother kindly shows Sara the right pronunciation.",
+      "explanation_ja": "祖母が優しく正しい発音を教えることです。"
+    },
+    {
+      "source": "A few words help Sara feel closer to her grandmother.",
+      "rewrite": "Learning a few words makes Sara feel closer to Grandmother.",
+      "explanation_ja": "言葉を学ぶことで家族の距離が縮まるという結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "知っている単語は少なくても特別にしたい気持ちを示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "練習した言葉の例を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "丁寧に書いても間違いがあることを示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "カードが新たな活動につながる結果を示します。"
+    }
+  ]
+}

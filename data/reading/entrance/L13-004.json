@@ -1,0 +1,572 @@
+{
+  "id": "L13-004",
+  "category_id": "L13",
+  "title": "Watching the Moon Together",
+  "title_ja": "一緒に月を観察しよう",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 178,
+  "source_links": [
+    {
+      "title": "Educational background reference",
+      "url": "https://science.nasa.gov/moon/"
+    }
+  ],
+  "fact_notes": [
+    "架空の学習場面を描いたオリジナル教材。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Yuki enjoys looking at the Moon after dinner.",
+          "ja": "ユキは夕食後に月を眺めるのが好きです。"
+        },
+        {
+          "en": "One night, she sees a bright round Moon.",
+          "ja": "ある夜、明るく丸い月を見ます。"
+        },
+        {
+          "en": "However, a week later the Moon looks different.",
+          "ja": "しかし一週間後には月が違って見えます。"
+        },
+        {
+          "en": "She asks her science teacher why its shape changes.",
+          "ja": "月の形が変わる理由を理科の先生に尋ねます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The teacher explains that the Moon does not change shape.",
+          "ja": "教師は月そのものの形は変わらないと説明します。"
+        },
+        {
+          "en": "Sunlight shines on different parts that we can see.",
+          "ja": "太陽光が、私たちに見える部分を違うように照らします。"
+        },
+        {
+          "en": "For example, we sometimes see almost a complete bright circle.",
+          "ja": "例えばほぼ完全な明るい円が見えることがあります。"
+        },
+        {
+          "en": "On other nights, we see only a small bright part.",
+          "ja": "別の夜には明るい部分が少しだけ見えます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Yuki starts a Moon diary with her younger brother.",
+          "ja": "ユキは弟と月の観察日記を始めます。"
+        },
+        {
+          "en": "They draw the Moon every evening when they can.",
+          "ja": "できる夜には毎晩、月を描きます。"
+        },
+        {
+          "en": "Instead of guessing, they write the date beside each picture.",
+          "ja": "推測する代わりに各絵の横に日付を書きます。"
+        },
+        {
+          "en": "Some evenings are cloudy, so they cannot see it.",
+          "ja": "曇りの夜には月を見ることができません。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Their teacher asks them to compare their drawings.",
+          "ja": "教師は二人に絵を比較するよう求めます。"
+        },
+        {
+          "en": "They notice that the bright part changes over time.",
+          "ja": "明るい部分が時間とともに変化すると気づきます。"
+        },
+        {
+          "en": "Nevertheless, they cannot see the entire Moon from Earth.",
+          "ja": "それでも地球から月のすべてを一度に見ることはできません。"
+        },
+        {
+          "en": "They learn to describe only what they observed.",
+          "ja": "二人は観察したことだけを説明するようになります。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "After several weeks, the children share their diary.",
+          "ja": "数週間後、二人は観察日記を共有します。"
+        },
+        {
+          "en": "Their classmates ask questions about the different pictures.",
+          "ja": "同級生たちは異なる絵について質問します。"
+        },
+        {
+          "en": "As a result, the class begins a small Moon project.",
+          "ja": "その結果、クラスは小さな月の活動を始めます。"
+        },
+        {
+          "en": "Yuki learns that careful observation can lead to discovery.",
+          "ja": "ユキは丁寧な観察が発見につながると学びます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What does Yuki see one night?",
+      "options": [
+        "A bright round Moon.",
+        "A new planet near Earth.",
+        "A cloud in the classroom.",
+        "A large satellite in her room."
+      ],
+      "answer": 0,
+      "explanation_ja": "第1段落の「ある夜、明るく丸い月を見ます。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What does Yuki ask her teacher?",
+      "options": [
+        "Why the sky is always blue.",
+        "How to build a rocket.",
+        "Where the library is.",
+        "Why the Moon looks different."
+      ],
+      "answer": 3,
+      "explanation_ja": "第1段落の「月の形が変わる理由を理科の先生に尋ねます。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "Does the Moon itself change shape?",
+      "options": [
+        "Yes, it becomes smaller each day.",
+        "No, because it has no sunlight.",
+        "No, it does not.",
+        "Yes, it becomes a square."
+      ],
+      "answer": 2,
+      "explanation_ja": "第2段落の「教師は月そのものの形は変わらないと説明します。」が根拠です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What makes different bright parts visible?",
+      "options": [
+        "A camera beside the Moon.",
+        "Sunlight on the Moon.",
+        "Lights inside a classroom.",
+        "Rain falling from clouds."
+      ],
+      "answer": 1,
+      "explanation_ja": "第2段落の「太陽光が、私たちに見える部分を違うように照らします。」が根拠です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "Who keeps a Moon diary with Yuki?",
+      "options": [
+        "Her younger brother.",
+        "Her grandmother.",
+        "Her science teacher.",
+        "A visitor."
+      ],
+      "answer": 0,
+      "explanation_ja": "第3段落の「ユキは弟と月の観察日記を始めます。」が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What do the children write beside each picture?",
+      "options": [
+        "A bus number.",
+        "Their school lunch.",
+        "A book title.",
+        "The date."
+      ],
+      "answer": 3,
+      "explanation_ja": "第3段落の「推測する代わりに各絵の横に日付を書きます。」が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "Why do they sometimes miss observations?",
+      "options": [
+        "They cannot find any paper.",
+        "The teacher closes the school.",
+        "The evenings are cloudy.",
+        "The Moon disappears permanently."
+      ],
+      "answer": 2,
+      "explanation_ja": "第3段落の「曇りの夜には月を見ることができません。」が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What changes in their drawings?",
+      "options": [
+        "The length of the school day.",
+        "The visible bright part.",
+        "The Moon's name.",
+        "The color of their notebooks."
+      ],
+      "answer": 1,
+      "explanation_ja": "第4段落の「明るい部分が時間とともに変化すると気づきます。」が根拠です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Who asks questions about the diary?",
+      "options": [
+        "Their classmates.",
+        "Only the school principal.",
+        "People at the train station.",
+        "The shop owner."
+      ],
+      "answer": 0,
+      "explanation_ja": "第5段落の「同級生たちは異なる絵について質問します。」が根拠です。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the main lesson?",
+      "options": [
+        "The Moon changes its shape every night.",
+        "All observations must be perfect.",
+        "Pictures cannot help science.",
+        "Careful observation can lead to discovery."
+      ],
+      "answer": 3,
+      "explanation_ja": "第5段落の「ユキは丁寧な観察が発見につながると学びます。」が根拠です。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "classmates",
+      "ja": "同級生",
+      "synonym": "peers",
+      "definition": "students in the same class"
+    },
+    {
+      "term": "compare",
+      "ja": "比べる",
+      "synonym": "examine together",
+      "definition": "look for similarities and differences"
+    },
+    {
+      "term": "describe",
+      "ja": "説明する",
+      "synonym": "explain",
+      "definition": "to give an account of something"
+    },
+    {
+      "term": "different",
+      "ja": "違う",
+      "synonym": "not the same",
+      "definition": "not identical"
+    },
+    {
+      "term": "entire",
+      "ja": "全体の",
+      "synonym": "whole",
+      "definition": "including everything or everyone"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "guessing",
+      "ja": "推測",
+      "synonym": "estimating",
+      "definition": "forming an opinion without full information"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "shape",
+      "ja": "形",
+      "synonym": "form",
+      "definition": "the outline of something"
+    },
+    {
+      "term": "share",
+      "ja": "共有する",
+      "synonym": "communicate",
+      "definition": "to let others know or use something"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "someone who teaches"
+    },
+    {
+      "term": "moon",
+      "ja": "月",
+      "synonym": "lunar body",
+      "definition": "Earth's natural satellite"
+    },
+    {
+      "term": "science",
+      "ja": "理科",
+      "synonym": "natural study",
+      "definition": "the study of the natural world"
+    },
+    {
+      "term": "sunlight",
+      "ja": "太陽の光",
+      "synonym": "light from the Sun",
+      "definition": "light produced by the Sun"
+    },
+    {
+      "term": "bright",
+      "ja": "明るい",
+      "synonym": "shining",
+      "definition": "giving a lot of light"
+    },
+    {
+      "term": "circle",
+      "ja": "円",
+      "synonym": "round shape",
+      "definition": "a round geometric figure"
+    },
+    {
+      "term": "evening",
+      "ja": "夕方",
+      "synonym": "nightfall",
+      "definition": "the time after daytime"
+    },
+    {
+      "term": "cloudy",
+      "ja": "曇りの",
+      "synonym": "overcast",
+      "definition": "covered by clouds"
+    },
+    {
+      "term": "observed",
+      "ja": "観察した",
+      "synonym": "watched",
+      "definition": "looked at carefully"
+    },
+    {
+      "term": "observation",
+      "ja": "観察",
+      "synonym": "watching",
+      "definition": "careful attention to a natural event"
+    },
+    {
+      "term": "discovery",
+      "ja": "発見",
+      "synonym": "finding",
+      "definition": "something newly learned"
+    },
+    {
+      "term": "diary",
+      "ja": "日記",
+      "synonym": "journal",
+      "definition": "a record written over time"
+    },
+    {
+      "term": "drawings",
+      "ja": "絵",
+      "synonym": "pictures",
+      "definition": "images made by hand"
+    },
+    {
+      "term": "change",
+      "ja": "変わる",
+      "synonym": "alter",
+      "definition": "to become different"
+    },
+    {
+      "term": "younger",
+      "ja": "年下の",
+      "synonym": "smaller",
+      "definition": "lower in age"
+    },
+    {
+      "term": "brother",
+      "ja": "弟",
+      "synonym": "sibling",
+      "definition": "a male child of the same parents"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 0,
+      "focus": "looking at the Moon",
+      "explanation_ja": "enjoy + 動名詞で「月を見ることを楽しむ」です。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "almost a complete bright circle",
+      "explanation_ja": "almostは「ほぼ」を表します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of guessing",
+      "explanation_ja": "instead of + 動名詞で「推測する代わりに」です。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "that careful observation can lead to discovery",
+      "explanation_ja": "that節が学んだ内容を表します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "以前と違う月の見え方を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "満月に近い見え方を例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "観察しても見えない部分があると述べます。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "共有した結果、学級活動が始まります。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "She asks her science teacher why its shape changes.",
+      "rewrite": "Yuki wants to know why the Moon appears to change shape.",
+      "explanation_ja": "月の見え方が変わる理由を尋ねています。"
+    },
+    {
+      "source": "The teacher explains that the Moon does not change shape.",
+      "rewrite": "The Moon itself keeps the same shape.",
+      "explanation_ja": "月そのものの形は変わらないという意味です。"
+    },
+    {
+      "source": "They learn to describe only what they observed.",
+      "rewrite": "They learn to report what they actually saw.",
+      "explanation_ja": "実際に見たことだけを報告するという意味です。"
+    },
+    {
+      "source": "Yuki learns that careful observation can lead to discovery.",
+      "rewrite": "Observing carefully helps people learn new things.",
+      "explanation_ja": "注意深い観察が発見につながるという結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "以前と違う月の見え方を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "満月に近い見え方を例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "観察しても見えない部分があると述べます。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "共有した結果、学級活動が始まります。"
+    }
+  ]
+}

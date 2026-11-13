@@ -1,0 +1,572 @@
+{
+  "id": "L15-004",
+  "category_id": "L15",
+  "title": "May I Share This Picture?",
+  "title_ja": "この写真を共有してもいい？",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 192,
+  "source_links": [
+    {
+      "title": "Educational background reference",
+      "url": "https://www.unicef.org/child-rights-convention/convention-text"
+    }
+  ],
+  "fact_notes": [
+    "架空の教育用場面。英文・対訳・設問は独自制作。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "During a class trip, Jun takes a funny picture of Emi.",
+          "ja": "校外学習でジュンはエミのおもしろい写真を撮ります。"
+        },
+        {
+          "en": "He wants to put the picture on a class website.",
+          "ja": "クラスのウェブサイトにその写真を載せたいと思います。"
+        },
+        {
+          "en": "However, Emi asks him not to share it online.",
+          "ja": "しかしエミはネットで共有しないでほしいと頼みます。"
+        },
+        {
+          "en": "Jun is surprised because he thinks the picture is harmless.",
+          "ja": "ジュンは写真に害がないと思うので驚きます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Emi explains that she dislikes how she looks in the picture.",
+          "ja": "エミは写真に写る自分の姿が好きではないと説明します。"
+        },
+        {
+          "en": "She also worries that strangers might find it later.",
+          "ja": "知らない人が後で見つけるかもしれないことも心配です。"
+        },
+        {
+          "en": "For example, someone could copy a photograph from a public website.",
+          "ja": "例えば誰かが公開サイトから写真をコピーするかもしれません。"
+        },
+        {
+          "en": "Jun realizes that he cannot control every copy.",
+          "ja": "ジュンはすべてのコピーを管理できないと気づきます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Their teacher suggests a simple rule for the class.",
+          "ja": "教師はクラスに簡単な規則を提案します。"
+        },
+        {
+          "en": "Students should ask before sharing pictures of other people.",
+          "ja": "他の人の写真を共有する前に確認すべきだという規則です。"
+        },
+        {
+          "en": "Instead of posting Emi's picture, Jun chooses a photo of the museum entrance.",
+          "ja": "エミの写真を投稿する代わりに、ジュンは博物館の入口の写真を選びます。"
+        },
+        {
+          "en": "The class can still show where everyone went.",
+          "ja": "それでもクラスが行った場所を示せます。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Nevertheless, permission can be different for different places.",
+          "ja": "それでも許可は場所によって異なることがあります。"
+        },
+        {
+          "en": "Someone may agree to a classroom display but not a public website.",
+          "ja": "教室の展示には同意しても公開サイトには同意しない人もいます。"
+        },
+        {
+          "en": "The students learn to explain who can see the picture.",
+          "ja": "生徒たちは誰が写真を見られるか説明するようになります。"
+        },
+        {
+          "en": "They also promise to listen if someone changes their mind.",
+          "ja": "誰かが考えを変えたら耳を傾けるとも約束します。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "At the end, the class shares only approved pictures.",
+          "ja": "最後にクラスは許可された写真だけを共有します。"
+        },
+        {
+          "en": "Emi is happy because her choice was respected.",
+          "ja": "自分の選択が尊重されてエミはうれしく思います。"
+        },
+        {
+          "en": "As a result, Jun understands that sharing involves responsibility.",
+          "ja": "その結果ジュンは共有には責任が伴うと理解します。"
+        },
+        {
+          "en": "He still enjoys photography, but he asks first.",
+          "ja": "今でも写真撮影を楽しみますが、まず許可を求めます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "Who takes the funny picture?",
+      "options": [
+        "Jun.",
+        "Emi.",
+        "The teacher.",
+        "A museum worker."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落の「校外学習でジュンはエミのおもしろい写真を撮ります。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What does Emi ask Jun not to do?",
+      "options": [
+        "Take any school trip.",
+        "Visit a museum.",
+        "Write about the class.",
+        "Share the picture online."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落の「しかしエミはネットで共有しないでほしいと頼みます。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What is Emi worried about?",
+      "options": [
+        "The museum closing early.",
+        "A bad weather forecast.",
+        "Strangers finding her picture.",
+        "Losing a camera."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落の「知らない人が後で見つけるかもしれないことも心配です。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What can happen to a public picture?",
+      "options": [
+        "Its colors always change.",
+        "Other people may copy it.",
+        "It always disappears immediately.",
+        "Only teachers can see it."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落の「ジュンはすべてのコピーを管理できないと気づきます。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What rule does the teacher suggest?",
+      "options": [
+        "Ask before sharing other people's photos.",
+        "Post every photo quickly.",
+        "Never take pictures at school.",
+        "Choose only the funniest photos."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落の「他の人の写真を共有する前に確認すべきだという規則です。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What photo does Jun choose instead?",
+      "options": [
+        "A close-up of Emi.",
+        "A private classroom message.",
+        "A picture of a stranger.",
+        "The museum entrance."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落の「エミの写真を投稿する代わりに、ジュンは博物館の入口の写真を選びます。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "How can permission differ?",
+      "options": [
+        "Everyone always agrees to sharing.",
+        "Only adults may refuse sharing.",
+        "A person may accept classroom use but not public use.",
+        "All websites are private."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落の「教室の展示には同意しても公開サイトには同意しない人もいます。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What should students do when someone changes their mind?",
+      "options": [
+        "Ask strangers to vote.",
+        "Listen to that person.",
+        "Ignore the request.",
+        "Post more copies."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落の「誰かが考えを変えたら耳を傾けるとも約束します。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Why is Emi happy?",
+      "options": [
+        "Her choice was respected.",
+        "Her picture became public.",
+        "She bought a new camera.",
+        "The class canceled the trip."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落の「自分の選択が尊重されてエミはうれしく思います。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What does Jun learn?",
+      "options": [
+        "Taking a photo gives unlimited permission.",
+        "Public websites are always safe.",
+        "A funny photo must be shared.",
+        "Sharing pictures requires permission and responsibility."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落の「今でも写真撮影を楽しみますが、まず許可を求めます。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "choice",
+      "ja": "選択",
+      "synonym": "decision",
+      "definition": "the act of selecting an action"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "harmless",
+      "ja": "害のない",
+      "synonym": "safe",
+      "definition": "not expected to hurt anyone"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "museum",
+      "ja": "博物館",
+      "synonym": "exhibition building",
+      "definition": "a place where objects are displayed"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "public",
+      "ja": "公の",
+      "synonym": "open",
+      "definition": "available for everyone to see"
+    },
+    {
+      "term": "responsibility",
+      "ja": "責任",
+      "synonym": "duty",
+      "definition": "the need to act carefully"
+    },
+    {
+      "term": "share",
+      "ja": "共有する",
+      "synonym": "distribute",
+      "definition": "allow others to see"
+    },
+    {
+      "term": "sharing",
+      "ja": "共有すること",
+      "synonym": "distribution",
+      "definition": "letting others access something"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "learners",
+      "definition": "people taking a class"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "someone who teaches"
+    },
+    {
+      "term": "photograph",
+      "ja": "写真",
+      "synonym": "picture",
+      "definition": "an image made with a camera"
+    },
+    {
+      "term": "picture",
+      "ja": "写真",
+      "synonym": "image",
+      "definition": "a visual representation"
+    },
+    {
+      "term": "website",
+      "ja": "ウェブサイト",
+      "synonym": "webpage collection",
+      "definition": "a group of pages on the internet"
+    },
+    {
+      "term": "strangers",
+      "ja": "知らない人",
+      "synonym": "unknown people",
+      "definition": "people not known to someone"
+    },
+    {
+      "term": "permission",
+      "ja": "許可",
+      "synonym": "consent",
+      "definition": "agreement allowing an action"
+    },
+    {
+      "term": "copy",
+      "ja": "コピー",
+      "synonym": "duplicate",
+      "definition": "another version of something"
+    },
+    {
+      "term": "photography",
+      "ja": "写真撮影",
+      "synonym": "picture taking",
+      "definition": "the activity of taking photos"
+    },
+    {
+      "term": "entrance",
+      "ja": "入口",
+      "synonym": "doorway",
+      "definition": "a place used to enter a building"
+    },
+    {
+      "term": "classroom",
+      "ja": "教室",
+      "synonym": "schoolroom",
+      "definition": "a room for teaching and learning"
+    },
+    {
+      "term": "approved",
+      "ja": "承認された",
+      "synonym": "accepted",
+      "definition": "agreed to"
+    },
+    {
+      "term": "respected",
+      "ja": "尊重された",
+      "synonym": "honored",
+      "definition": "treated with care"
+    },
+    {
+      "term": "funny",
+      "ja": "面白い",
+      "synonym": "amusing",
+      "definition": "causing laughter"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "to put the picture on a class website",
+      "explanation_ja": "want to不定詞は「載せたい」です。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "that strangers might find it later",
+      "explanation_ja": "that節が心配の内容を表します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "focus": "before sharing pictures",
+      "explanation_ja": "before + 動名詞で「共有する前に」です。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "focus": "that sharing involves responsibility",
+      "explanation_ja": "that節が理解した内容を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "投稿したい気持ちと本人の拒否を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "写真がコピーされる例を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "許可には条件があることを示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "共有の責任を学んだ結果を示します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "However, Emi asks him not to share it online.",
+      "rewrite": "Emi does not want the picture posted online.",
+      "explanation_ja": "写真をネットに載せないでほしいという意味です。"
+    },
+    {
+      "source": "Jun realizes that he cannot control every copy.",
+      "rewrite": "Jun learns that copies may spread beyond his control.",
+      "explanation_ja": "コピーを管理できないという意味です。"
+    },
+    {
+      "source": "Someone may agree to a classroom display but not a public website.",
+      "rewrite": "Permission for classroom use may not include public sharing.",
+      "explanation_ja": "教室内と一般公開の許可の違いです。"
+    },
+    {
+      "source": "He still enjoys photography, but he asks first.",
+      "rewrite": "Jun keeps taking photos but asks for permission first.",
+      "explanation_ja": "撮影を楽しみながら事前に確認するという結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "投稿したい気持ちと本人の拒否を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "写真がコピーされる例を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "許可には条件があることを示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "共有の責任を学んだ結果を示します。"
+    }
+  ]
+}
