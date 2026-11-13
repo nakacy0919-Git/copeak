@@ -1,0 +1,602 @@
+{
+  "id": "L13-006",
+  "category_id": "L13",
+  "title": "Why Space Is Quiet",
+  "title_ja": "宇宙で音が聞こえない理由",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 200,
+  "source_links": [
+    {
+      "title": "Official background reference",
+      "url": "https://science.nasa.gov/solar-system/"
+    }
+  ],
+  "fact_notes": [
+    "授業場面は架空。英文と日本語訳・問題は独自制作。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A science teacher shows students a movie about space.",
+          "ja": "理科の教師が宇宙についての映画を生徒に見せます。"
+        },
+        {
+          "en": "In the movie, a spaceship makes a very loud sound.",
+          "ja": "映画では宇宙船がとても大きな音を出します。"
+        },
+        {
+          "en": "However, the teacher asks whether that sound could travel through empty space.",
+          "ja": "しかし教師はその音が空っぽの宇宙を伝わるか尋ねます。"
+        },
+        {
+          "en": "The students are surprised by the question.",
+          "ja": "生徒たちはその問いに驚きます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The teacher explains that sound needs something to travel through.",
+          "ja": "教師は音が伝わるには何かの物質が必要だと説明します。"
+        },
+        {
+          "en": "For example, sound can move through air or water.",
+          "ja": "例えば音は空気や水の中を伝わります。"
+        },
+        {
+          "en": "Most of space has almost no matter to carry ordinary sound.",
+          "ja": "宇宙の大部分には通常の音を運ぶ物質がほとんどありません。"
+        },
+        {
+          "en": "This means astronauts cannot hear each other shouting through empty space.",
+          "ja": "つまり宇宙飛行士は空っぽの宇宙を通じて互いの叫び声を聞けません。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Students ask how astronauts can talk to people on Earth.",
+          "ja": "生徒たちは宇宙飛行士が地球の人々と話せる方法を尋ねます。"
+        },
+        {
+          "en": "The teacher explains that radios use signals that can travel through space.",
+          "ja": "教師は無線が宇宙を伝わる信号を使うと説明します。"
+        },
+        {
+          "en": "Instead of sending ordinary sound through empty space, equipment sends radio signals.",
+          "ja": "空っぽの宇宙へ普通の音を送る代わりに機器は電波を送ります。"
+        },
+        {
+          "en": "People can hear speech after the equipment changes the signals back.",
+          "ja": "機器が信号を元に戻した後、人々は話を聞けます。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The class makes a chart comparing sound and radio signals.",
+          "ja": "クラスは音と無線信号を比べる表を作ります。"
+        },
+        {
+          "en": "Nevertheless, they realize that movies may use sounds for dramatic effects.",
+          "ja": "それでも映画は劇的な効果のために音を使う場合があると気づきます。"
+        },
+        {
+          "en": "They learn to separate an exciting movie from a scientific explanation.",
+          "ja": "刺激的な映画と科学的な説明を区別するようになります。"
+        },
+        {
+          "en": "Both can be useful for different purposes.",
+          "ja": "どちらも異なる目的で役立ちます。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "At the end, students write questions about space communication.",
+          "ja": "最後に生徒たちは宇宙通信について質問を書きます。"
+        },
+        {
+          "en": "They learn why hearing is different from receiving radio signals.",
+          "ja": "音を聞くことと無線信号を受信することの違いを学びます。"
+        },
+        {
+          "en": "As a result, they watch science movies more carefully.",
+          "ja": "その結果、科学映画をより注意深く見るようになります。"
+        },
+        {
+          "en": "A good question can lead from entertainment to learning.",
+          "ja": "よい問いは娯楽から学習へとつながります。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What does the spaceship make in the movie?",
+      "options": [
+        "A loud sound.",
+        "A written message.",
+        "A rainbow.",
+        "A map."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「映画では宇宙船がとても大きな音を出します。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What does the teacher question?",
+      "options": [
+        "Whether movies can be colorful.",
+        "Whether students like music.",
+        "Whether spaceships can fly.",
+        "Whether sound can travel through empty space."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「しかし教師はその音が空っぽの宇宙を伝わるか尋ねます。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What does sound need to travel?",
+      "options": [
+        "A computer screen.",
+        "A paper map.",
+        "Material such as air or water.",
+        "Only sunlight."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「教師は音が伝わるには何かの物質が必要だと説明します。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "Why cannot astronauts hear shouting through empty space?",
+      "options": [
+        "The Moon is always dark.",
+        "There is almost no matter to carry ordinary sound.",
+        "Their voices cannot be loud.",
+        "Earth has no air."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「つまり宇宙飛行士は空っぽの宇宙を通じて互いの叫び声を聞けません。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "How do astronauts communicate over long distances?",
+      "options": [
+        "With radio signals.",
+        "Only by shouting.",
+        "By sending ordinary sound through a vacuum.",
+        "Only by moving their hands."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「教師は無線が宇宙を伝わる信号を使うと説明します。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What do devices send through space?",
+      "options": [
+        "Water waves in a swimming pool.",
+        "Ordinary sound in air.",
+        "Paper letters.",
+        "Radio signals."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「空っぽの宇宙へ普通の音を送る代わりに機器は電波を送ります。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What does the class compare?",
+      "options": [
+        "Rain and snow.",
+        "Books and flowers.",
+        "Sound and radio signals.",
+        "Two school buses."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「クラスは音と無線信号を比べる表を作ります。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "Why do movies often use loud space sounds?",
+      "options": [
+        "To show all astronauts are angry.",
+        "For dramatic effects.",
+        "To prove every sound travels in a vacuum.",
+        "To teach radio engineering exactly."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「それでも映画は劇的な効果のために音を使う場合があると気づきます。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "detail",
+      "prompt": "How do students change after the lesson?",
+      "options": [
+        "They watch science movies more carefully.",
+        "They stop asking questions.",
+        "They refuse to study science.",
+        "They think movies are never useful."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「音を聞くことと無線信号を受信することの違いを学びます。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the central lesson?",
+      "options": [
+        "Space always carries ordinary sound.",
+        "Radio signals need air to travel.",
+        "Every movie scene is a scientific fact.",
+        "Scientific questions help distinguish entertainment from physical reality."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「よい問いは娯楽から学習へとつながります。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "communication",
+      "ja": "通信",
+      "synonym": "exchange",
+      "definition": "sending and receiving information"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "equipment",
+      "ja": "機器",
+      "synonym": "devices",
+      "definition": "tools used for a task"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "exciting",
+      "ja": "わくわくする",
+      "synonym": "interesting",
+      "definition": "causing positive interest"
+    },
+    {
+      "term": "explanation",
+      "ja": "説明",
+      "synonym": "account",
+      "definition": "words making something clear"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "needs",
+      "ja": "必要",
+      "synonym": "requirements",
+      "definition": "things necessary for well-being"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "ordinary",
+      "ja": "普通の",
+      "synonym": "normal",
+      "definition": "usual"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "question",
+      "ja": "疑問を持つ・問い直す",
+      "synonym": "challenge",
+      "definition": "to examine whether an assumption is correct"
+    },
+    {
+      "term": "scientific",
+      "ja": "科学的な",
+      "synonym": "research-based",
+      "definition": "related to systematic investigation"
+    },
+    {
+      "term": "space",
+      "ja": "宇宙",
+      "synonym": "outer space",
+      "definition": "the area beyond Earth's atmosphere"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who helps others learn"
+    },
+    {
+      "term": "travel",
+      "ja": "伝わる",
+      "synonym": "move",
+      "definition": "go from one place to another"
+    },
+    {
+      "term": "water",
+      "ja": "水",
+      "synonym": "liquid",
+      "definition": "a liquid used by living things"
+    },
+    {
+      "term": "spaceship",
+      "ja": "宇宙船",
+      "synonym": "spacecraft",
+      "definition": "a vehicle traveling in space"
+    },
+    {
+      "term": "astronauts",
+      "ja": "宇宙飛行士",
+      "synonym": "space travelers",
+      "definition": "people working in space"
+    },
+    {
+      "term": "sound",
+      "ja": "音",
+      "synonym": "noise",
+      "definition": "vibrations people can hear"
+    },
+    {
+      "term": "radio",
+      "ja": "無線",
+      "synonym": "wireless system",
+      "definition": "technology using electromagnetic waves"
+    },
+    {
+      "term": "signals",
+      "ja": "信号",
+      "synonym": "messages",
+      "definition": "patterns carrying information"
+    },
+    {
+      "term": "air",
+      "ja": "空気",
+      "synonym": "atmosphere",
+      "definition": "gases around Earth"
+    },
+    {
+      "term": "matter",
+      "ja": "物質",
+      "synonym": "substance",
+      "definition": "physical material"
+    },
+    {
+      "term": "empty",
+      "ja": "空の",
+      "synonym": "without matter",
+      "definition": "containing almost nothing"
+    },
+    {
+      "term": "dramatic",
+      "ja": "劇的な",
+      "synonym": "exciting",
+      "definition": "creating a strong effect"
+    },
+    {
+      "term": "movie",
+      "ja": "映画",
+      "synonym": "film",
+      "definition": "a story shown with moving images"
+    },
+    {
+      "term": "movies",
+      "ja": "映画",
+      "synonym": "films",
+      "definition": "recorded stories shown on a screen"
+    },
+    {
+      "term": "science",
+      "ja": "理科・科学",
+      "synonym": "study of nature",
+      "definition": "the study of the physical world"
+    },
+    {
+      "term": "hearing",
+      "ja": "聞こえること",
+      "synonym": "listening",
+      "definition": "detecting sounds"
+    },
+    {
+      "term": "entertainment",
+      "ja": "娯楽",
+      "synonym": "amusement",
+      "definition": "activities enjoyed for pleasure"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "whether that sound could travel through empty space",
+      "explanation_ja": "whether節が問いを表します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 0,
+      "focus": "that sound needs something to travel through",
+      "explanation_ja": "that節が説明の内容です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of sending ordinary sound through empty space",
+      "explanation_ja": "instead of + 動名詞で別の方法を示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "focus": "why hearing is different from receiving radio signals",
+      "explanation_ja": "why節が学習の内容を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "映画の音に対して物理的な疑問を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "空気や水を使う音の例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "科学と映画演出の違いを示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "映画を見る姿勢が変わる結果です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "However, the teacher asks whether that sound could travel through empty space.",
+      "rewrite": "The teacher questions whether sound moves through a vacuum.",
+      "explanation_ja": "空っぽの宇宙で音が伝わるか尋ねています。"
+    },
+    {
+      "source": "This means astronauts cannot hear each other shouting through empty space.",
+      "rewrite": "Ordinary shouting cannot be heard through the near-vacuum of space.",
+      "explanation_ja": "宇宙の真空に近い環境では叫び声は伝わらないという意味です。"
+    },
+    {
+      "source": "Instead of sending ordinary sound through empty space, equipment sends radio signals.",
+      "rewrite": "Radio equipment can send signals where ordinary sound cannot travel.",
+      "explanation_ja": "普通の音が伝わらない所でも無線を使えるという意味です。"
+    },
+    {
+      "source": "A good question can lead from entertainment to learning.",
+      "rewrite": "Curiosity can turn entertainment into scientific learning.",
+      "explanation_ja": "好奇心が娯楽を学習へつなぐという結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "映画の音に対して物理的な疑問を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "空気や水を使う音の例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "科学と映画演出の違いを示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "映画を見る姿勢が変わる結果です。"
+    }
+  ]
+}
