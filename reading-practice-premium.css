@@ -464,3 +464,14 @@ body.reading-focus #readingApp .reader-head .eyebrow{display:none}
   #readingApp .reading-count-card small{font-size:10px}
 }
 @media(prefers-reduced-motion:reduce){#readingApp .reading-count-card{transition:none}}
+
+
+/* Smaller legacy question banks should not leave an empty third grid cell. */
+#readingApp .reading-count-grid[data-count="2"]{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  max-width:480px;
+}
+#readingApp .reading-count-grid[data-count="1"]{
+  grid-template-columns:minmax(0,230px);
+  justify-content:center;
+}
