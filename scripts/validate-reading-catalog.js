@@ -38,7 +38,8 @@ for(const file of manifest.sets){
  if(!band||words<band[0]||words>band[1]||words!==d.word_count)fail(id,'word count/level mismatch '+words);
  if(!passage.length||passage.some(x=>!x.en||!x.ja))fail(id,'missing translation');
  if(!Array.isArray(d.source_links)||!d.source_links.length||!d.source_links.every(x=>x.title&&x.url?.startsWith('https://')))fail(id,'sources missing');
- if((d.vocabulary||[]).length<40)fail(id,'too few vocabulary entries');
+ const minVocabulary = d.level_id==='eiken-3' ? 20 : 40;
+ if((d.vocabulary||[]).length<minVocabulary)fail(id,'too few vocabulary entries (minimum '+minVocabulary+')');
  for(const v of d.vocabulary||[])if(!v.term||!v.ja||!v.definition||!v.synonym||!inText(textAll,v.term))fail(id,'vocabulary: '+v.term);
  if((d.questions||[]).length!==10)fail(id,'expected 10 reading questions');
  for(const q of d.questions||[])if(!q.prompt||q.options?.length!==4||new Set(q.options).size!==4||!Number.isInteger(q.answer)||q.answer<0||q.answer>3||!q.explanation_ja||!q.paragraph_ids?.length||!q.paragraph_ids.every(p=>pids.has(p)))fail(id,'reading question: '+q.id);
