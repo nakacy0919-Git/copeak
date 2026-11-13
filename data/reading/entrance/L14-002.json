@@ -1,0 +1,676 @@
+{
+  "id": "L14-002",
+  "category_id": "L14",
+  "title": "A Friendship That Leaves Room to Say No",
+  "title_ja": "断る自由を大切にする友情",
+  "level_id": "eiken-pre2",
+  "word_count": 250,
+  "original": true,
+  "status": "draft",
+  "source_links": [
+    {
+      "title": "UNICEF: 11 tips for communicating with your teen",
+      "url": "https://www.unicef.org/eca/11-tips-communicating-your-teen"
+    }
+  ],
+  "fact_notes": [
+    "背景となる考え方は添付の資料で確認。本文と練習問題は新規制作。例示した人物・学校・活動は架空の説明用設定。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Two friends enjoy meeting after school to practice music.",
+          "ja": "二人の友人は放課後に会って音楽を練習することを楽しんでいます。"
+        },
+        {
+          "en": "One afternoon, one student wants to go home early and rest.",
+          "ja": "ある午後、一方の生徒は早く帰って休みたいと思います。"
+        },
+        {
+          "en": "However, the other friend feels disappointed and asks for one more hour.",
+          "ja": "しかしもう一方はがっかりし、もう一時間頼みます。"
+        },
+        {
+          "en": "The first student worries that saying no will hurt the friendship.",
+          "ja": "最初の生徒は断ると友情を傷つけるのではと心配します。"
+        },
+        {
+          "en": "This ordinary situation raises a question about respecting personal limits.",
+          "ja": "この日常的な状況は個人の限界を尊重する問題を提起します。"
+        },
+        {
+          "en": "A good relationship does not require people to agree to every request.",
+          "ja": "よい関係ではすべての頼みごとに同意する必要はありません。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "People can express their needs without blaming one another.",
+          "ja": "人は相手を責めずに自分の必要を伝えられます。"
+        },
+        {
+          "en": "For example, the tired student might say, 'I enjoyed practicing, but I need to rest today.'",
+          "ja": "例えば疲れた生徒は「楽しかったけど今日は休みたい」と言えます。"
+        },
+        {
+          "en": "This sentence describes a feeling instead of calling the friend selfish.",
+          "ja": "この文は友人を自分勝手と呼ぶ代わりに、気持ちを表しています。"
+        },
+        {
+          "en": "The other student can still feel disappointed while respecting that choice.",
+          "ja": "もう一方は選択を尊重しながら残念に感じることもできます。"
+        },
+        {
+          "en": "They might decide to meet again the following week.",
+          "ja": "次の週にまた会うことにするかもしれません。"
+        },
+        {
+          "en": "Their friendship may become stronger when both can speak honestly.",
+          "ja": "双方が率直に話せると友情は強まるかもしれません。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Respecting limits is important in online conversations too.",
+          "ja": "限界を尊重することはオンラインの会話でも重要です。"
+        },
+        {
+          "en": "A person who does not reply immediately may be studying, resting, or helping at home.",
+          "ja": "すぐ返信しない人は勉強、休息、家事の手伝いをしているかもしれません。"
+        },
+        {
+          "en": "In addition, repeated messages can create pressure even when the sender means well.",
+          "ja": "さらに善意で送った繰り返しのメッセージも相手に圧力を与え得ます。"
+        },
+        {
+          "en": "Friends can discuss when they are usually available instead of expecting instant answers.",
+          "ja": "友人は即答を期待する代わりに、普段の都合を話し合えます。"
+        },
+        {
+          "en": "A shared understanding can reduce unnecessary worry.",
+          "ja": "共通理解は不要な心配を減らせます。"
+        },
+        {
+          "en": "Different people may need different amounts of time alone.",
+          "ja": "一人で過ごす時間の必要量は人によって異なります。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Nevertheless, a clear limit does not excuse unkind behavior.",
+          "ja": "それでも限界を明確にすることが不親切を正当化するわけではありません。"
+        },
+        {
+          "en": "People should explain their needs respectfully and listen to the other person's feelings.",
+          "ja": "自分の必要を礼儀正しく説明し、相手の気持ちにも耳を傾けるべきです。"
+        },
+        {
+          "en": "If a disagreement continues, both friends can look for another arrangement.",
+          "ja": "意見の違いが続くなら、両者は別のやり方を探せます。"
+        },
+        {
+          "en": "Students can practice these skills through short role plays in class.",
+          "ja": "生徒は教室で短いロールプレイを通じて練習できます。"
+        },
+        {
+          "en": "Friendship grows when kindness includes respect for each person's choices.",
+          "ja": "友情は親切さが互いの選択の尊重を含むとき育ちます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the main point?",
+      "options": [
+        "Friends must always agree.",
+        "Respecting personal limits can strengthen friendship.",
+        "Friends should never practice together.",
+        "Online messages are always harmful."
+      ],
+      "answer": 1,
+      "explanation_ja": "友情には個人の限界と相互尊重が必要という主題です。",
+      "paragraph_ids": [
+        "p1",
+        "p4"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Why does one student want to leave early?",
+      "options": [
+        "To buy a new instrument.",
+        "To meet a teacher.",
+        "To go home and rest.",
+        "To travel abroad."
+      ],
+      "answer": 2,
+      "explanation_ja": "休息のため早く帰りたいと述べています。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why is saying no difficult for the student?",
+      "options": [
+        "The student fears damaging the friendship.",
+        "The school does not allow rest.",
+        "The student dislikes music.",
+        "The other person is a stranger."
+      ],
+      "answer": 0,
+      "explanation_ja": "拒否が関係を傷つけると心配しています。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What does the suggested response focus on?",
+      "options": [
+        "The friend's failures.",
+        "The price of lessons.",
+        "The number of songs.",
+        "The speaker's own need for rest."
+      ],
+      "answer": 3,
+      "explanation_ja": "自分の気持ちと必要を伝える言い方です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What can the friends decide to do?",
+      "options": [
+        "Stop all communication.",
+        "Meet again next week.",
+        "Cancel school.",
+        "Send messages every minute."
+      ],
+      "answer": 1,
+      "explanation_ja": "翌週に会うという代替案が示されています。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why can repeated messages cause pressure?",
+      "options": [
+        "They always improve grades.",
+        "They are never understood.",
+        "The receiver may feel required to answer immediately.",
+        "They remove the need for conversation."
+      ],
+      "answer": 2,
+      "explanation_ja": "すぐ返信しなければという圧力につながるためです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'available' mean here?",
+      "options": [
+        "Free or able to reply.",
+        "Angry with someone.",
+        "Very expensive.",
+        "Unknown to the sender."
+      ],
+      "answer": 0,
+      "explanation_ja": "availableは返信などに時間を使える状態です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What can friends discuss about online messages?",
+      "options": [
+        "Only their favorite colors.",
+        "The number of shops.",
+        "Only the weather.",
+        "When they are usually able to respond."
+      ],
+      "answer": 3,
+      "explanation_ja": "連絡が可能な時間を話し合えます。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What does the author imply about personal limits?",
+      "options": [
+        "Limits allow people to be rude.",
+        "Limits should be expressed with kindness.",
+        "Only adults may set limits.",
+        "Limits must never change."
+      ],
+      "answer": 1,
+      "explanation_ja": "限界を示すときも配慮が必要です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "Why mention classroom role plays?",
+      "options": [
+        "To suggest music classes should end.",
+        "To claim all friendships are identical.",
+        "To offer a practical way to practice respectful disagreement.",
+        "To replace every conversation with a performance."
+      ],
+      "answer": 2,
+      "explanation_ja": "相互尊重を実践練習する方法を示すためです。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "friends",
+      "ja": "友人",
+      "synonym": "companions",
+      "definition": "people connected by friendship"
+    },
+    {
+      "term": "enjoy",
+      "ja": "楽しむ",
+      "synonym": "like",
+      "definition": "to take pleasure in something"
+    },
+    {
+      "term": "practice",
+      "ja": "練習する",
+      "synonym": "rehearse",
+      "definition": "to repeat an activity to improve skill"
+    },
+    {
+      "term": "music",
+      "ja": "音楽",
+      "synonym": "melody",
+      "definition": "sounds arranged in a pleasing way"
+    },
+    {
+      "term": "afternoon",
+      "ja": "午後",
+      "synonym": "later day",
+      "definition": "the time after noon"
+    },
+    {
+      "term": "early",
+      "ja": "早く",
+      "synonym": "before usual time",
+      "definition": "before the expected time"
+    },
+    {
+      "term": "rest",
+      "ja": "休む",
+      "synonym": "relax",
+      "definition": "to stop activity to recover energy"
+    },
+    {
+      "term": "disappointed",
+      "ja": "がっかりした",
+      "synonym": "let down",
+      "definition": "unhappy because a hope was not met"
+    },
+    {
+      "term": "hour",
+      "ja": "一時間",
+      "synonym": "sixty minutes",
+      "definition": "a period of sixty minutes"
+    },
+    {
+      "term": "worries",
+      "ja": "心配する",
+      "synonym": "fears",
+      "definition": "feels concern about possible harm"
+    },
+    {
+      "term": "friendship",
+      "ja": "友情",
+      "synonym": "bond",
+      "definition": "a relationship between friends"
+    },
+    {
+      "term": "ordinary",
+      "ja": "日常的な",
+      "synonym": "usual",
+      "definition": "not unusual or special"
+    },
+    {
+      "term": "situation",
+      "ja": "状況",
+      "synonym": "circumstance",
+      "definition": "the conditions at a time"
+    },
+    {
+      "term": "raises",
+      "ja": "提起する",
+      "synonym": "brings up",
+      "definition": "introduces a question"
+    },
+    {
+      "term": "respecting",
+      "ja": "尊重すること",
+      "synonym": "valuing",
+      "definition": "treating something with consideration"
+    },
+    {
+      "term": "personal",
+      "ja": "個人の",
+      "synonym": "individual",
+      "definition": "relating to one person"
+    },
+    {
+      "term": "limits",
+      "ja": "限界",
+      "synonym": "boundaries",
+      "definition": "points beyond which someone cannot continue"
+    },
+    {
+      "term": "relationship",
+      "ja": "関係",
+      "synonym": "connection",
+      "definition": "a link between people"
+    },
+    {
+      "term": "require",
+      "ja": "必要とする",
+      "synonym": "need",
+      "definition": "to make something necessary"
+    },
+    {
+      "term": "request",
+      "ja": "お願い",
+      "synonym": "appeal",
+      "definition": "something asked for"
+    },
+    {
+      "term": "express",
+      "ja": "表現する",
+      "synonym": "state",
+      "definition": "to put feelings into words"
+    },
+    {
+      "term": "needs",
+      "ja": "必要なこと",
+      "synonym": "requirements",
+      "definition": "things necessary to someone"
+    },
+    {
+      "term": "blaming",
+      "ja": "責めること",
+      "synonym": "accusing",
+      "definition": "saying someone is at fault"
+    },
+    {
+      "term": "tired",
+      "ja": "疲れた",
+      "synonym": "exhausted",
+      "definition": "needing rest"
+    },
+    {
+      "term": "describes",
+      "ja": "述べる",
+      "synonym": "explains",
+      "definition": "tells what something is like"
+    },
+    {
+      "term": "feeling",
+      "ja": "気持ち",
+      "synonym": "emotion",
+      "definition": "an emotional state"
+    },
+    {
+      "term": "selfish",
+      "ja": "自分勝手な",
+      "synonym": "self-centered",
+      "definition": "thinking mainly of oneself"
+    },
+    {
+      "term": "choice",
+      "ja": "選択",
+      "synonym": "decision",
+      "definition": "a selection among options"
+    },
+    {
+      "term": "decide",
+      "ja": "決める",
+      "synonym": "choose",
+      "definition": "to make a decision"
+    },
+    {
+      "term": "honestly",
+      "ja": "率直に",
+      "synonym": "truthfully",
+      "definition": "without hiding one's real feelings"
+    },
+    {
+      "term": "online",
+      "ja": "オンラインで",
+      "synonym": "on the internet",
+      "definition": "using the internet"
+    },
+    {
+      "term": "conversations",
+      "ja": "会話",
+      "synonym": "discussions",
+      "definition": "exchanges between people"
+    },
+    {
+      "term": "immediately",
+      "ja": "すぐに",
+      "synonym": "at once",
+      "definition": "without delay"
+    },
+    {
+      "term": "studying",
+      "ja": "勉強している",
+      "synonym": "learning",
+      "definition": "working to understand a subject"
+    },
+    {
+      "term": "repeated",
+      "ja": "繰り返しの",
+      "synonym": "frequent",
+      "definition": "happening more than once"
+    },
+    {
+      "term": "messages",
+      "ja": "メッセージ",
+      "synonym": "texts",
+      "definition": "written communications"
+    },
+    {
+      "term": "pressure",
+      "ja": "圧力",
+      "synonym": "stress",
+      "definition": "a feeling of being pushed to do something"
+    },
+    {
+      "term": "sender",
+      "ja": "送り手",
+      "synonym": "writer",
+      "definition": "a person who sends a message"
+    },
+    {
+      "term": "available",
+      "ja": "時間の都合がつく",
+      "synonym": "free",
+      "definition": "able to participate at a time"
+    },
+    {
+      "term": "expecting",
+      "ja": "期待すること",
+      "synonym": "anticipating",
+      "definition": "believing something will happen"
+    },
+    {
+      "term": "instant",
+      "ja": "即時の",
+      "synonym": "immediate",
+      "definition": "happening without delay"
+    },
+    {
+      "term": "arrangement",
+      "ja": "取り決め",
+      "synonym": "plan",
+      "definition": "a way of organizing an activity"
+    },
+    {
+      "term": "role",
+      "ja": "役割",
+      "synonym": "part",
+      "definition": "a position in an activity"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "that saying no will hurt the friendship",
+      "explanation_ja": "that節がworriesの内容を表します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "while respecting that choice",
+      "explanation_ja": "while＋動名詞が同時に行う行動を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "focus": "instead of expecting instant answers",
+      "explanation_ja": "instead of＋動名詞で代替の行動を表します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "focus": "If a disagreement continues",
+      "explanation_ja": "Ifが条件節を導いています。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "共に活動したい気持ちと休みたい意思の逆接。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "断るときの具体的な言い方。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "In addition",
+      "role_ja": "返信の遅れに加えて連続メッセージの圧力を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "境界線の尊重と不親切な振る舞いを区別。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "a good relationship does not require people to agree to every request",
+      "rewrite": "healthy friendship does not demand saying yes each time",
+      "explanation_ja": "does not require→does not demandです。"
+    },
+    {
+      "source": "Their friendship may become stronger when both can speak honestly",
+      "rewrite": "open communication may make their bond closer",
+      "explanation_ja": "friendship→bond、stronger→closerです。"
+    },
+    {
+      "source": "repeated messages can create pressure even when the sender means well",
+      "rewrite": "frequent texts may feel demanding despite good intentions",
+      "explanation_ja": "create pressure→feel demandingです。"
+    },
+    {
+      "source": "Friendship grows when kindness includes respect for each person's choices",
+      "rewrite": "relationships improve when caring means valuing different decisions",
+      "explanation_ja": "grows→improve、respect→valuingです。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Therefore",
+        "In addition"
+      ],
+      "explanation_ja": "共に活動したい気持ちと休みたい意思の逆接。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Therefore",
+        "In addition"
+      ],
+      "explanation_ja": "断るときの具体的な言い方。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "In addition",
+      "options": [
+        "In addition",
+        "However",
+        "Therefore",
+        "For example"
+      ],
+      "explanation_ja": "返信の遅れに加えて連続メッセージの圧力を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "境界線の尊重と不親切な振る舞いを区別。"
+    }
+  ]
+}
