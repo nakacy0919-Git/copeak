@@ -1,0 +1,562 @@
+{
+  "id": "L08-004",
+  "category_id": "L08",
+  "title": "The Music Festival Notice",
+  "title_ja": "音楽祭のお知らせ",
+  "level_id": "eiken-3",
+  "format": "notice",
+  "status": "draft",
+  "original": true,
+  "word_count": 195,
+  "source_links": [
+    {
+      "title": "EIKEN Grade 3 question types and level",
+      "url": "https://www.eiken.or.jp/eiken/exam/grade_3/solutions.html"
+    }
+  ],
+  "fact_notes": [
+    "本文はすべて架空のオリジナル。公式英検3級の試験形式のみを参考にし、過去問は引用していない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "The city music festival will be held at Green Park this Sunday.",
+          "ja": "市の音楽祭は今週日曜日にグリーンパークで開かれます。"
+        },
+        {
+          "en": "It starts at eleven in the morning and ends at four.",
+          "ja": "午前11時に始まり、午後4時に終わります。"
+        },
+        {
+          "en": "School groups will sing songs and play instruments.",
+          "ja": "学校のグループが歌を歌ったり楽器を演奏したりします。"
+        },
+        {
+          "en": "The concert is free, so families can enjoy it together.",
+          "ja": "演奏会は無料なので家族で一緒に楽しめます。"
+        },
+        {
+          "en": "However, please do not bring large speakers to the park.",
+          "ja": "ただし、大きなスピーカーは公園に持ち込まないでください。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Aya's class is going to sing three songs.",
+          "ja": "アヤのクラスは三曲歌う予定です。"
+        },
+        {
+          "en": "They practice every day after lunch.",
+          "ja": "生徒たちは毎日昼食後に練習します。"
+        },
+        {
+          "en": "For example, they sing slowly when a new part is difficult.",
+          "ja": "例えば、新しい部分が難しいときはゆっくり歌います。"
+        },
+        {
+          "en": "Aya is nervous because she has never sung before many people.",
+          "ja": "アヤは大勢の前で歌ったことがないので緊張しています。"
+        },
+        {
+          "en": "Her friends say, \"We will sing together, so don't worry.\"",
+          "ja": "友達は「一緒に歌うから心配しないで」と言います。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "There will also be a short music workshop for children.",
+          "ja": "子ども向けの短い音楽体験教室もあります。"
+        },
+        {
+          "en": "Children can try drums and make music with teachers.",
+          "ja": "子どもたちは太鼓を試し、先生と音楽を作れます。"
+        },
+        {
+          "en": "The workshop begins at one and lasts thirty minutes.",
+          "ja": "体験教室は1時に始まり、30分続きます。"
+        },
+        {
+          "en": "Instead of buying a ticket, visitors should write their names at the information desk.",
+          "ja": "チケットを買う代わりに、参加者は案内所で名前を書いてください。"
+        },
+        {
+          "en": "Only twenty children can join the first group.",
+          "ja": "最初のグループには20人の子どもしか参加できません。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The weather may be rainy on Sunday.",
+          "ja": "日曜日は雨かもしれません。"
+        },
+        {
+          "en": "If it rains, the festival will move to the city hall.",
+          "ja": "雨なら音楽祭は市役所のホールへ移ります。"
+        },
+        {
+          "en": "Therefore, visitors should check the festival website on Sunday morning.",
+          "ja": "そのため来場者は日曜の朝に音楽祭のウェブサイトを確認してください。"
+        },
+        {
+          "en": "Aya hopes the festival will be fun in either place.",
+          "ja": "アヤはどちらの場所でも音楽祭が楽しいものになることを願っています。"
+        },
+        {
+          "en": "She wants to share music with her friends and family.",
+          "ja": "友達や家族と音楽を分かち合いたいのです。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "Where is the festival planned?",
+      "options": [
+        "At Green Park.",
+        "At the city hall.",
+        "At the library.",
+        "At Aya's home."
+      ],
+      "answer": 0,
+      "explanation_ja": "第1段落「市の音楽祭は今週日曜日にグリーンパークで開かれます。」に書かれています。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "When will the festival start?",
+      "options": [
+        "At eight.",
+        "At one.",
+        "At four.",
+        "At eleven."
+      ],
+      "answer": 3,
+      "explanation_ja": "第1段落「午前11時に始まり、午後4時に終わります。」に書かれています。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "How much does the concert cost?",
+      "options": [
+        "Five hundred yen.",
+        "One thousand yen.",
+        "Nothing.",
+        "One hundred yen."
+      ],
+      "answer": 2,
+      "explanation_ja": "第1段落「演奏会は無料なので家族で一緒に楽しめます。」に書かれています。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "How many songs will Aya's class sing?",
+      "options": [
+        "Four.",
+        "Three.",
+        "One.",
+        "Two."
+      ],
+      "answer": 1,
+      "explanation_ja": "第2段落「アヤのクラスは三曲歌う予定です。」に書かれています。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "Why is Aya nervous?",
+      "options": [
+        "It is her first time singing for many people.",
+        "She lost her bag.",
+        "She cannot find her teacher.",
+        "She has never heard music."
+      ],
+      "answer": 0,
+      "explanation_ja": "第2段落「アヤは大勢の前で歌ったことがないので緊張しています。」に書かれています。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What can children try?",
+      "options": [
+        "Bicycles.",
+        "Cameras.",
+        "Football.",
+        "Drums."
+      ],
+      "answer": 3,
+      "explanation_ja": "第3段落「子どもたちは太鼓を試し、先生と音楽を作れます。」に書かれています。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "How long will the workshop last?",
+      "options": [
+        "One hour.",
+        "Two hours.",
+        "Thirty minutes.",
+        "Ten minutes."
+      ],
+      "answer": 2,
+      "explanation_ja": "第3段落「体験教室は1時に始まり、30分続きます。」に書かれています。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What should workshop visitors do?",
+      "options": [
+        "Go to the library first.",
+        "Write their names at the information desk.",
+        "Buy a ticket online.",
+        "Bring their own speakers."
+      ],
+      "answer": 1,
+      "explanation_ja": "第3段落「チケットを買う代わりに、参加者は案内所で名前を書いてください。」に書かれています。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "detail",
+      "prompt": "Where will the event move if it rains?",
+      "options": [
+        "To the city hall.",
+        "To the station.",
+        "To Aya's school.",
+        "To a hotel."
+      ],
+      "answer": 0,
+      "explanation_ja": "第4段落「雨なら音楽祭は市役所のホールへ移ります。」に書かれています。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "Why should people check the website?",
+      "options": [
+        "To buy lunch.",
+        "To send Aya a gift.",
+        "To choose the school rules.",
+        "To learn where the event will be held."
+      ],
+      "answer": 3,
+      "explanation_ja": "第4段落「そのため来場者は日曜の朝に音楽祭のウェブサイトを確認してください。」に書かれています。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "families",
+      "ja": "家族",
+      "synonym": "households",
+      "definition": "groups living together as relatives"
+    },
+    {
+      "term": "festival",
+      "ja": "音楽祭",
+      "synonym": "event",
+      "definition": "a special music event"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "facts",
+      "definition": "facts or details provided about something"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "practice",
+      "ja": "練習する",
+      "synonym": "rehearse",
+      "definition": "do something again to improve"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "share",
+      "ja": "共有する",
+      "synonym": "communicate",
+      "definition": "to let others know or use something"
+    },
+    {
+      "term": "Teachers",
+      "ja": "教師たち",
+      "synonym": "educators",
+      "definition": "people who teach"
+    },
+    {
+      "term": "therefore",
+      "ja": "したがって",
+      "synonym": "consequently",
+      "definition": "used to introduce a logical result"
+    },
+    {
+      "term": "visitors",
+      "ja": "訪問者",
+      "synonym": "guests",
+      "definition": "people coming to a place"
+    },
+    {
+      "term": "weather",
+      "ja": "天候",
+      "synonym": "conditions",
+      "definition": "the state of the atmosphere"
+    },
+    {
+      "term": "instruments",
+      "ja": "楽器",
+      "synonym": "music tools",
+      "definition": "things people play to make music"
+    },
+    {
+      "term": "concert",
+      "ja": "演奏会",
+      "synonym": "show",
+      "definition": "a music show"
+    },
+    {
+      "term": "free",
+      "ja": "無料の",
+      "synonym": "no cost",
+      "definition": "not needing money"
+    },
+    {
+      "term": "speakers",
+      "ja": "スピーカー",
+      "synonym": "sound devices",
+      "definition": "machines making sounds louder"
+    },
+    {
+      "term": "nervous",
+      "ja": "緊張した",
+      "synonym": "worried",
+      "definition": "afraid about doing something"
+    },
+    {
+      "term": "workshop",
+      "ja": "体験教室",
+      "synonym": "class",
+      "definition": "a short class for doing activities"
+    },
+    {
+      "term": "drums",
+      "ja": "太鼓",
+      "synonym": "music instruments",
+      "definition": "things that make sound when hit"
+    },
+    {
+      "term": "ticket",
+      "ja": "チケット",
+      "synonym": "pass",
+      "definition": "a paper for entering an event"
+    },
+    {
+      "term": "information desk",
+      "ja": "案内所",
+      "synonym": "help desk",
+      "definition": "a place to ask for help"
+    },
+    {
+      "term": "website",
+      "ja": "ウェブサイト",
+      "synonym": "site",
+      "definition": "pages on the internet"
+    },
+    {
+      "term": "either",
+      "ja": "どちらでも",
+      "synonym": "one of two",
+      "definition": "one or the other"
+    },
+    {
+      "term": "rainy",
+      "ja": "雨の",
+      "synonym": "wet",
+      "definition": "with rain"
+    },
+    {
+      "term": "held",
+      "ja": "開かれる",
+      "synonym": "takes place",
+      "definition": "happens at a certain place"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 0,
+      "focus": "will be held at Green Park",
+      "explanation_ja": "will be heldは未来の受動態です。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 0,
+      "focus": "is going to sing three songs",
+      "explanation_ja": "be going toは予定を表します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "focus": "If it rains",
+      "explanation_ja": "ifは条件を表します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "because she has never sung",
+      "explanation_ja": "becauseは理由を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "イベント案内に注意点を加えます。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "練習の具体例を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Instead",
+      "role_ja": "チケットを買うのとは別の参加方法を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Therefore",
+      "role_ja": "雨天時の案内から確認の必要性につなぎます。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The concert is free, so families can enjoy it together.",
+      "rewrite": "Families can listen to the concert without paying.",
+      "explanation_ja": "無料で音楽を楽しめることを述べています。"
+    },
+    {
+      "source": "Aya is nervous because she has never sung before many people.",
+      "rewrite": "Aya is worried about singing for a large audience.",
+      "explanation_ja": "大勢の前で歌う緊張を言い換えています。"
+    },
+    {
+      "source": "Instead of buying a ticket, visitors should write their names at the information desk.",
+      "rewrite": "Visitors can register without buying tickets.",
+      "explanation_ja": "名前を書く参加方法を言い換えます。"
+    },
+    {
+      "source": "Therefore, visitors should check the festival website on Sunday morning.",
+      "rewrite": "Please look at the festival site on Sunday morning.",
+      "explanation_ja": "日曜朝のウェブサイト確認を促します。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 4,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Instead",
+        "Therefore"
+      ],
+      "explanation_ja": "イベント案内に注意点を加えます。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Instead",
+        "Therefore"
+      ],
+      "explanation_ja": "練習の具体例を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "answer": "Instead",
+      "options": [
+        "Instead",
+        "However",
+        "For example",
+        "Therefore"
+      ],
+      "explanation_ja": "チケットを買うのとは別の参加方法を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "Therefore",
+      "options": [
+        "Therefore",
+        "However",
+        "For example",
+        "Instead"
+      ],
+      "explanation_ja": "雨天時の案内から確認の必要性につなぎます。"
+    }
+  ]
+}
