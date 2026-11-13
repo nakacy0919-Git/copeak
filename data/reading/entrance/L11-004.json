@@ -1,0 +1,602 @@
+{
+  "id": "L11-004",
+  "category_id": "L11",
+  "title": "A Rule for the Shared Garden",
+  "title_ja": "みんなの庭を使うルール",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 176,
+  "source_links": [
+    {
+      "title": "Educational background reference",
+      "url": "https://www.unicef.org/child-rights-convention/convention-text"
+    }
+  ],
+  "fact_notes": [
+    "架空の学習場面を描いたオリジナル教材。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A school has a small garden beside its playground.",
+          "ja": "学校には運動場の横に小さな庭があります。"
+        },
+        {
+          "en": "Students enjoy growing flowers there after class.",
+          "ja": "生徒たちは放課後にそこで花を育てるのを楽しみます。"
+        },
+        {
+          "en": "However, some students begin leaving tools on the ground.",
+          "ja": "しかし数人の生徒が道具を地面に置いたままにします。"
+        },
+        {
+          "en": "The teacher asks everyone to discuss a new rule.",
+          "ja": "教師は全員に新しい規則を話し合うよう求めます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "At first, the older students want to decide everything.",
+          "ja": "最初、上級生はすべてを自分たちで決めようとします。"
+        },
+        {
+          "en": "A younger student asks for a chance to speak.",
+          "ja": "下級生の一人が発言する機会を求めます。"
+        },
+        {
+          "en": "She explains that small children also use the garden.",
+          "ja": "小さな子どもも庭を使うと説明します。"
+        },
+        {
+          "en": "For example, they need a safe path without tools.",
+          "ja": "例えば道具のない安全な通路が必要なのです。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The group listens and writes down different ideas.",
+          "ja": "グループは話を聞き、異なる考えを書き出します。"
+        },
+        {
+          "en": "Some want a box for tools near the door.",
+          "ja": "入口の近くに道具箱を置きたい人もいます。"
+        },
+        {
+          "en": "Others suggest checking the garden before going home.",
+          "ja": "別の生徒は帰宅前に庭を確認することを提案します。"
+        },
+        {
+          "en": "Instead, nobody chooses a rule without discussing the reasons.",
+          "ja": "その代わり誰も理由を話し合わずに規則を選ぶことはしません。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The teacher helps the group make a short plan.",
+          "ja": "教師はグループが短い計画を作るのを手伝います。"
+        },
+        {
+          "en": "Students put tools in a box after using them.",
+          "ja": "生徒は道具を使った後、箱に戻します。"
+        },
+        {
+          "en": "Nevertheless, everyone may suggest a change if problems appear.",
+          "ja": "それでも問題が見つかれば誰でも変更を提案できます。"
+        },
+        {
+          "en": "The rule is not perfect, but everyone understands it.",
+          "ja": "その規則は完璧ではありませんが、全員が理解しています。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "After one week, the garden becomes safer and cleaner.",
+          "ja": "一週間後、庭はより安全できれいになります。"
+        },
+        {
+          "en": "Younger students can walk along the path easily.",
+          "ja": "下級生は通路を簡単に歩けるようになります。"
+        },
+        {
+          "en": "As a result, everyone feels more responsible for the garden.",
+          "ja": "その結果、全員が庭にもっと責任を感じます。"
+        },
+        {
+          "en": "They learn that fair rules need listening and cooperation.",
+          "ja": "生徒たちは公正な規則には傾聴と協力が必要だと学びます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "Where is the school garden?",
+      "options": [
+        "Beside the playground.",
+        "Behind the train station.",
+        "Inside the library.",
+        "Across from a hospital."
+      ],
+      "answer": 0,
+      "explanation_ja": "第1段落の「学校には運動場の横に小さな庭があります。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What problem occurs?",
+      "options": [
+        "The students lose every flower.",
+        "The school closes the garden.",
+        "The teacher removes all plants.",
+        "Some tools are left on the ground."
+      ],
+      "answer": 3,
+      "explanation_ja": "第1段落の「しかし数人の生徒が道具を地面に置いたままにします。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "Who asks for a chance to speak?",
+      "options": [
+        "A local shop owner.",
+        "The school's bus driver.",
+        "A younger student.",
+        "A visitor from another country."
+      ],
+      "answer": 2,
+      "explanation_ja": "第2段落の「下級生の一人が発言する機会を求めます。」が根拠です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "Why do small children need a clear path?",
+      "options": [
+        "So they can grow taller.",
+        "So they can walk safely.",
+        "So they can store books.",
+        "So they can play music."
+      ],
+      "answer": 1,
+      "explanation_ja": "第2段落の「例えば道具のない安全な通路が必要なのです。」が根拠です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What do some students want near the door?",
+      "options": [
+        "A box for tools.",
+        "A large television.",
+        "A food shop.",
+        "A new train."
+      ],
+      "answer": 0,
+      "explanation_ja": "第3段落の「入口の近くに道具箱を置きたい人もいます。」が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What do others suggest?",
+      "options": [
+        "Opening the garden at midnight.",
+        "Taking tools home forever.",
+        "Stopping all gardening.",
+        "Checking the garden before going home."
+      ],
+      "answer": 3,
+      "explanation_ja": "第3段落の「別の生徒は帰宅前に庭を確認することを提案します。」が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What does the new plan require?",
+      "options": [
+        "Close the garden every afternoon.",
+        "Keep flowers inside the classroom.",
+        "Put tools away after using them.",
+        "Leave tools beside the path."
+      ],
+      "answer": 2,
+      "explanation_ja": "第4段落の「生徒は道具を使った後、箱に戻します。」が根拠です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "When can students suggest a change?",
+      "options": [
+        "Only when it rains.",
+        "If problems appear.",
+        "Only after graduation.",
+        "Never, after the first meeting."
+      ],
+      "answer": 1,
+      "explanation_ja": "第4段落の「それでも問題が見つかれば誰でも変更を提案できます。」が根拠です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What happens after a week?",
+      "options": [
+        "The garden is safer and cleaner.",
+        "The garden disappears.",
+        "The path becomes more dangerous.",
+        "Only older students can enter."
+      ],
+      "answer": 0,
+      "explanation_ja": "第5段落の「一週間後、庭はより安全できれいになります。」が根拠です。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the main lesson?",
+      "options": [
+        "Only older students should choose rules.",
+        "A garden cannot be shared.",
+        "Rules should never be changed.",
+        "Fair rules need listening and cooperation."
+      ],
+      "answer": 3,
+      "explanation_ja": "第5段落の「生徒たちは公正な規則には傾聴と協力が必要だと学びます。」が根拠です。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "checking",
+      "ja": "確認すること",
+      "synonym": "verification",
+      "definition": "testing whether something is right"
+    },
+    {
+      "term": "cooperation",
+      "ja": "協力",
+      "synonym": "teamwork",
+      "definition": "people working together"
+    },
+    {
+      "term": "decide",
+      "ja": "決める",
+      "synonym": "choose",
+      "definition": "to make a choice"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "discussing",
+      "ja": "話し合うこと",
+      "synonym": "talking about",
+      "definition": "exchanging ideas or opinions about a subject"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "fair",
+      "ja": "公正な",
+      "synonym": "just",
+      "definition": "treating people reasonably"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "Listening",
+      "ja": "耳を傾けること",
+      "synonym": "paying attention",
+      "definition": "giving attention to spoken information"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "responsible",
+      "ja": "責任ある",
+      "synonym": "accountable",
+      "definition": "careful about one's duties"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "student",
+      "ja": "生徒",
+      "synonym": "learner",
+      "definition": "a person learning at school"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "learners",
+      "definition": "people in a class"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who teaches"
+    },
+    {
+      "term": "garden",
+      "ja": "庭",
+      "synonym": "yard",
+      "definition": "a place for growing plants"
+    },
+    {
+      "term": "playground",
+      "ja": "運動場",
+      "synonym": "play area",
+      "definition": "an outdoor space for play"
+    },
+    {
+      "term": "flowers",
+      "ja": "花",
+      "synonym": "blooms",
+      "definition": "parts of plants with petals"
+    },
+    {
+      "term": "tools",
+      "ja": "道具",
+      "synonym": "equipment",
+      "definition": "objects used for work"
+    },
+    {
+      "term": "rule",
+      "ja": "規則",
+      "synonym": "guideline",
+      "definition": "an instruction for behavior"
+    },
+    {
+      "term": "younger",
+      "ja": "年下の",
+      "synonym": "smaller",
+      "definition": "lower in age"
+    },
+    {
+      "term": "older",
+      "ja": "年上の",
+      "synonym": "senior",
+      "definition": "higher in age"
+    },
+    {
+      "term": "children",
+      "ja": "子どもたち",
+      "synonym": "kids",
+      "definition": "young people"
+    },
+    {
+      "term": "safe",
+      "ja": "安全な",
+      "synonym": "not dangerous",
+      "definition": "unlikely to cause harm"
+    },
+    {
+      "term": "path",
+      "ja": "通路",
+      "synonym": "walkway",
+      "definition": "a place to walk"
+    },
+    {
+      "term": "box",
+      "ja": "箱",
+      "synonym": "container",
+      "definition": "a thing used to store objects"
+    },
+    {
+      "term": "door",
+      "ja": "扉",
+      "synonym": "entrance",
+      "definition": "a part of a building used to enter"
+    },
+    {
+      "term": "listens",
+      "ja": "聞く",
+      "synonym": "pays attention",
+      "definition": "hears carefully"
+    },
+    {
+      "term": "cleaner",
+      "ja": "よりきれい",
+      "synonym": "tidier",
+      "definition": "less dirty than before"
+    },
+    {
+      "term": "suggest",
+      "ja": "提案する",
+      "synonym": "propose",
+      "definition": "offer an idea for consideration"
+    },
+    {
+      "term": "discuss",
+      "ja": "話し合う",
+      "synonym": "talk about",
+      "definition": "exchange ideas on a subject"
+    },
+    {
+      "term": "everyone",
+      "ja": "全員",
+      "synonym": "all people",
+      "definition": "every person in a group"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "growing flowers",
+      "explanation_ja": "enjoy + 動名詞で「育てることを楽しむ」です。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "for a chance to speak",
+      "explanation_ja": "to不定詞がchanceの内容を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "focus": "after using them",
+      "explanation_ja": "after + 動名詞で「使った後」です。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "that fair rules need listening and cooperation",
+      "explanation_ja": "that節が学んだ内容を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "良い活動に対して道具の放置という問題を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "安全な通路の具体例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "規則を作っても変更の余地があると示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "安全な庭を維持した結果を表します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "However, some students begin leaving tools on the ground.",
+      "rewrite": "Some students fail to put away their tools.",
+      "explanation_ja": "道具を片づけない人がいるという意味です。"
+    },
+    {
+      "source": "For example, they need a safe path without tools.",
+      "rewrite": "Young children need space where they can walk safely.",
+      "explanation_ja": "安全な通路が必要という意味です。"
+    },
+    {
+      "source": "Students put tools in a box after using them.",
+      "rewrite": "Everyone must return tools after using them.",
+      "explanation_ja": "使い終えたら道具を戻すという意味です。"
+    },
+    {
+      "source": "They learn that fair rules need listening and cooperation.",
+      "rewrite": "Making fair rules requires people to listen and work together.",
+      "explanation_ja": "公正な規則には協力が必要という結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "良い活動に対して道具の放置という問題を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "安全な通路の具体例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "規則を作っても変更の余地があると示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "安全な庭を維持した結果を表します。"
+    }
+  ]
+}
