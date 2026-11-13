@@ -1,0 +1,670 @@
+{
+  "id": "L11-004",
+  "category_id": "L11",
+  "title": "A City Budget People Can Understand",
+  "title_ja": "市の予算を市民が理解できる形に",
+  "level_id": "eiken-pre2",
+  "word_count": 261,
+  "original": true,
+  "status": "draft",
+  "source_links": [
+    {
+      "title": "OECD: How Public Finances Are Communicated",
+      "url": "https://www.oecd.org/en/publications/the-people-and-the-budget_81674d37-en/full-report/how-public-finances-are-communicated_c4ebffd7.html"
+    }
+  ],
+  "fact_notes": [
+    "背景となる考え方は添付の資料で確認。本文と練習問題は新規制作。例示した人物・学校・活動は架空の説明用設定。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A city publishes a long report about how it plans to spend public money.",
+          "ja": "ある市が公共のお金をどう使うか長い報告書を公開します。"
+        },
+        {
+          "en": "The report contains hundreds of pages and tables full of large numbers.",
+          "ja": "報告書には大きな数値を含む何百ものページと表があります。"
+        },
+        {
+          "en": "However, many residents find the information difficult to understand.",
+          "ja": "しかし多くの住民は情報を理解しにくいと感じます。"
+        },
+        {
+          "en": "People who want to discuss schools or roads need explanations they can use.",
+          "ja": "学校や道路について議論したい人には使える説明が必要です。"
+        },
+        {
+          "en": "The OECD emphasizes clear communication about public finances.",
+          "ja": "OECDは公共財政についての明確な情報伝達を重視しています。"
+        },
+        {
+          "en": "Making information public is not the same as making it understandable.",
+          "ja": "公開することと理解できるようにすることは同じではありません。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The city decides to create a short guide alongside the complete budget.",
+          "ja": "市は完全な予算書とともに短い案内を作ることにします。"
+        },
+        {
+          "en": "For example, the guide shows how money supports school repairs and road maintenance.",
+          "ja": "例えば案内は学校の修繕や道路管理への支出を示します。"
+        },
+        {
+          "en": "Simple charts help residents compare different types of spending.",
+          "ja": "簡単な図表は住民が異なる種類の支出を比べる助けになります。"
+        },
+        {
+          "en": "Yet a chart may be misleading if it hides the total amount.",
+          "ja": "ただし合計額を隠した図表は誤解を招くかもしれません。"
+        },
+        {
+          "en": "Readers need to know what the numbers measure and which years are included.",
+          "ja": "読み手は数値の単位や含まれる年度を知る必要があります。"
+        },
+        {
+          "en": "Good explanations help people ask useful questions instead of accepting every claim.",
+          "ja": "よい説明はすべての主張を受け入れるだけでなく、役立つ質問をする助けになります。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "A city's budget also involves difficult choices between services.",
+          "ja": "市の予算にはサービス間の難しい選択もあります。"
+        },
+        {
+          "en": "If more money is used for one project, less may remain for another.",
+          "ja": "一つの事業により多く使えば別の事業に残るお金が減るかもしれません。"
+        },
+        {
+          "en": "In addition, some projects need money for many years after they are built.",
+          "ja": "さらに事業によっては建設後も何年間も資金を必要とします。"
+        },
+        {
+          "en": "Residents should therefore consider future costs as well as the price today.",
+          "ja": "住民は今日の費用だけでなく将来の費用も考えるべきです。"
+        },
+        {
+          "en": "A clear summary does not make everyone agree about the best choice.",
+          "ja": "明確な要約を作っても全員が最善の選択に同意するわけではありません。"
+        },
+        {
+          "en": "It helps people discuss disagreements using shared information.",
+          "ja": "共通の情報を使って意見の違いを話し合う助けになります。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Nevertheless, a short guide should not replace the detailed public report.",
+          "ja": "それでも短い案内は詳しい報告書の代わりにはなりません。"
+        },
+        {
+          "en": "Residents and journalists may want to check the original figures.",
+          "ja": "住民や記者は元の数値を確認したいかもしれません。"
+        },
+        {
+          "en": "The city should explain where people can find documents and ask questions.",
+          "ja": "市は資料を見つけたり質問したりする場所を説明すべきです。"
+        },
+        {
+          "en": "Students can practice comparing a simple summary with the original information.",
+          "ja": "生徒は簡単な要約と元の情報を比べる練習ができます。"
+        },
+        {
+          "en": "Public trust grows when people can understand, question, and check important decisions.",
+          "ja": "人々が重要な決定を理解し、問い、確認できると公共の信頼が育ちます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the main point?",
+      "options": [
+        "Only experts should read public information.",
+        "Budget information should be both understandable and open to checking.",
+        "Cities should stop publishing reports.",
+        "People should accept every official decision."
+      ],
+      "answer": 1,
+      "explanation_ja": "理解可能で検証できる予算情報が主題です。",
+      "paragraph_ids": [
+        "p1",
+        "p4"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Why is the original report difficult for residents?",
+      "options": [
+        "It has no numbers.",
+        "It contains only photographs.",
+        "It is long and filled with numerical tables.",
+        "It is written as a story."
+      ],
+      "answer": 2,
+      "explanation_ja": "長い報告書と数字の表が理由です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why is public information not always useful?",
+      "options": [
+        "People may not understand what it means.",
+        "Every public report is incorrect.",
+        "Residents have no opinions.",
+        "All numbers are private."
+      ],
+      "answer": 0,
+      "explanation_ja": "理解できなければ議論の材料にしにくいためです。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What appears in the short guide?",
+      "options": [
+        "Only the names of schools.",
+        "The city's favorite foods.",
+        "The mayor's holiday plans.",
+        "Spending for school repairs and roads."
+      ],
+      "answer": 3,
+      "explanation_ja": "学校修繕と道路の費用が示されます。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "When can a chart be misleading?",
+      "options": [
+        "When it has clear labels.",
+        "When the total amount is hidden.",
+        "When it uses simple colors.",
+        "When it shows more than one service."
+      ],
+      "answer": 1,
+      "explanation_ja": "合計金額が隠される場合です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why do budget choices involve trade-offs?",
+      "options": [
+        "All projects are free.",
+        "Every project has the same cost.",
+        "Giving more to one project may leave less for another.",
+        "The city has unlimited money."
+      ],
+      "answer": 2,
+      "explanation_ja": "予算には限りがあり配分が必要だからです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'maintenance' mean?",
+      "options": [
+        "Work needed to keep facilities in good condition.",
+        "The construction of a new airport.",
+        "A type of school examination.",
+        "The price of a ticket."
+      ],
+      "answer": 0,
+      "explanation_ja": "maintenanceは維持管理という意味です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "Who might check the original figures?",
+      "options": [
+        "Only advertisers.",
+        "Only people living abroad.",
+        "Only new students.",
+        "Residents and journalists."
+      ],
+      "answer": 3,
+      "explanation_ja": "住民や記者が元の数値を確認できます。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Why should short summaries not replace full reports?",
+      "options": [
+        "Summaries are always wrong.",
+        "Readers may need detailed evidence to check claims.",
+        "Numbers should be secret.",
+        "Full reports cannot contain charts."
+      ],
+      "answer": 1,
+      "explanation_ja": "主張を確認するには元資料も必要だからです。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "Why does the passage end by mentioning public trust?",
+      "options": [
+        "To say every budget is perfect.",
+        "To suggest citizens should not ask questions.",
+        "To show that understanding and checking decisions supports trust.",
+        "To argue that budgets do not affect society."
+      ],
+      "answer": 2,
+      "explanation_ja": "市民の理解と確認が信頼につながる結論です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "budget",
+      "ja": "予算",
+      "synonym": "financial plan",
+      "definition": "a plan for how money is used"
+    },
+    {
+      "term": "publishes",
+      "ja": "公開する",
+      "synonym": "releases",
+      "definition": "makes information publicly available"
+    },
+    {
+      "term": "report",
+      "ja": "報告書",
+      "synonym": "document",
+      "definition": "a written account of information"
+    },
+    {
+      "term": "spend",
+      "ja": "支出する",
+      "synonym": "use money",
+      "definition": "to pay money for something"
+    },
+    {
+      "term": "public",
+      "ja": "公共の",
+      "synonym": "community",
+      "definition": "related to everyone in society"
+    },
+    {
+      "term": "money",
+      "ja": "お金",
+      "synonym": "funds",
+      "definition": "financial resources"
+    },
+    {
+      "term": "tables",
+      "ja": "表",
+      "synonym": "data grids",
+      "definition": "information in rows and columns"
+    },
+    {
+      "term": "residents",
+      "ja": "住民",
+      "synonym": "inhabitants",
+      "definition": "people living in an area"
+    },
+    {
+      "term": "difficult",
+      "ja": "難しい",
+      "synonym": "hard",
+      "definition": "not easy to do"
+    },
+    {
+      "term": "explanations",
+      "ja": "説明",
+      "synonym": "accounts",
+      "definition": "information that makes ideas clear"
+    },
+    {
+      "term": "finances",
+      "ja": "財政",
+      "synonym": "money management",
+      "definition": "the management of money"
+    },
+    {
+      "term": "understandable",
+      "ja": "理解しやすい",
+      "synonym": "clear",
+      "definition": "possible to understand"
+    },
+    {
+      "term": "complete",
+      "ja": "完全な",
+      "synonym": "full",
+      "definition": "including all parts"
+    },
+    {
+      "term": "repairs",
+      "ja": "修理・修繕",
+      "synonym": "fixes",
+      "definition": "work to restore something damaged"
+    },
+    {
+      "term": "maintenance",
+      "ja": "維持管理",
+      "synonym": "upkeep",
+      "definition": "work to keep something usable"
+    },
+    {
+      "term": "charts",
+      "ja": "図表",
+      "synonym": "graphs",
+      "definition": "visual displays of numbers"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "examine together",
+      "definition": "to look for differences"
+    },
+    {
+      "term": "spending",
+      "ja": "支出",
+      "synonym": "expenditure",
+      "definition": "money being used"
+    },
+    {
+      "term": "misleading",
+      "ja": "誤解を招く",
+      "synonym": "deceptive",
+      "definition": "causing an incorrect impression"
+    },
+    {
+      "term": "total",
+      "ja": "合計",
+      "synonym": "sum",
+      "definition": "an amount made by adding parts"
+    },
+    {
+      "term": "measure",
+      "ja": "測定する",
+      "synonym": "quantify",
+      "definition": "to find an amount"
+    },
+    {
+      "term": "included",
+      "ja": "含まれた",
+      "synonym": "contained",
+      "definition": "present as part of something"
+    },
+    {
+      "term": "involves",
+      "ja": "伴う",
+      "synonym": "includes",
+      "definition": "contains as part of something"
+    },
+    {
+      "term": "project",
+      "ja": "事業",
+      "synonym": "planned work",
+      "definition": "organized work with an aim"
+    },
+    {
+      "term": "future",
+      "ja": "将来",
+      "synonym": "time ahead",
+      "definition": "the period not yet reached"
+    },
+    {
+      "term": "summary",
+      "ja": "要約",
+      "synonym": "overview",
+      "definition": "a short account of key points"
+    },
+    {
+      "term": "disagreements",
+      "ja": "意見の相違",
+      "synonym": "differences",
+      "definition": "situations where people hold different opinions"
+    },
+    {
+      "term": "shared",
+      "ja": "共有された",
+      "synonym": "common",
+      "definition": "used by more than one person"
+    },
+    {
+      "term": "detailed",
+      "ja": "詳しい",
+      "synonym": "specific",
+      "definition": "including many facts"
+    },
+    {
+      "term": "journalists",
+      "ja": "記者",
+      "synonym": "reporters",
+      "definition": "people reporting news"
+    },
+    {
+      "term": "original",
+      "ja": "元の",
+      "synonym": "first",
+      "definition": "existing before later changes"
+    },
+    {
+      "term": "figures",
+      "ja": "数値",
+      "synonym": "numbers",
+      "definition": "numerical information"
+    },
+    {
+      "term": "documents",
+      "ja": "資料",
+      "synonym": "records",
+      "definition": "written information kept for use"
+    },
+    {
+      "term": "trust",
+      "ja": "信頼",
+      "synonym": "confidence",
+      "definition": "belief that others are dependable"
+    },
+    {
+      "term": "important",
+      "ja": "重要な",
+      "synonym": "significant",
+      "definition": "having a great effect or value"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "learners",
+      "definition": "people receiving education at school"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "facts",
+      "definition": "facts or details provided about something"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "who want to discuss schools or roads",
+      "explanation_ja": "whoはpeopleを修飾する関係代名詞です。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "if it hides the total amount",
+      "explanation_ja": "ifは条件節を導きます。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "focus": "If more money is used for one project",
+      "explanation_ja": "Ifが条件を表し、is usedは受動態です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "focus": "where people can find documents and ask questions",
+      "explanation_ja": "where以下はexplainの目的語の間接疑問です。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "公開されている情報と読みにくさを対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "学校や道路の支出の具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "In addition",
+      "role_ja": "当面の支出に複数年の費用を追加。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "簡単な案内と詳細報告書の必要を対比。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Making information public is not the same as making it understandable",
+      "rewrite": "publishing facts does not ensure that people understand them",
+      "explanation_ja": "not the same→does not ensureです。"
+    },
+    {
+      "source": "a chart may be misleading if it hides the total amount",
+      "rewrite": "a graph can create a false impression when the complete sum is absent",
+      "explanation_ja": "misleading→false impressionです。"
+    },
+    {
+      "source": "A clear summary does not make everyone agree",
+      "rewrite": "an understandable overview cannot remove every disagreement",
+      "explanation_ja": "summary→overviewです。"
+    },
+    {
+      "source": "Public trust grows when people can understand, question, and check important decisions",
+      "rewrite": "confidence in public institutions increases when decisions can be examined",
+      "explanation_ja": "trust grows→confidence increasesです。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "公開されている情報と読みにくさを対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Therefore",
+        "In addition"
+      ],
+      "explanation_ja": "学校や道路の支出の具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "In addition",
+      "options": [
+        "In addition",
+        "However",
+        "Therefore",
+        "For example"
+      ],
+      "explanation_ja": "当面の支出に複数年の費用を追加。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "簡単な案内と詳細報告書の必要を対比。"
+    }
+  ]
+}
