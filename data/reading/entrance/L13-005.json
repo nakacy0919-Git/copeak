@@ -1,0 +1,602 @@
+{
+  "id": "L13-005",
+  "category_id": "L13",
+  "title": "A Star Map for Our Class",
+  "title_ja": "クラスの星空マップ",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 171,
+  "source_links": [
+    {
+      "title": "Educational background reference",
+      "url": "https://science.nasa.gov/skywatching/"
+    }
+  ],
+  "fact_notes": [
+    "架空の教材事例を扱う独自英文・和訳・問題・解説。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "After dinner, Yui looks at the night sky.",
+          "ja": "夕食後、ユイは夜空を見上げます。"
+        },
+        {
+          "en": "She can see a bright star near the Moon.",
+          "ja": "月の近くに明るい星が見えます。"
+        },
+        {
+          "en": "However, she does not know its name.",
+          "ja": "しかし名前は知りません。"
+        },
+        {
+          "en": "She decides to ask her science teacher.",
+          "ja": "理科の先生に尋ねることにします。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The teacher shows Yui a simple star map.",
+          "ja": "教師はユイに簡単な星図を見せます。"
+        },
+        {
+          "en": "She explains that the sky looks different during the year.",
+          "ja": "空は一年の間に違って見えると説明します。"
+        },
+        {
+          "en": "For example, some star patterns are easier to see in winter.",
+          "ja": "例えば冬には見つけやすい星の並びもあります。"
+        },
+        {
+          "en": "Yui begins to look more carefully at the sky.",
+          "ja": "ユイは空をより注意深く見るようになります。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "At school, Yui starts a small project with friends.",
+          "ja": "学校でユイは友達と小さな活動を始めます。"
+        },
+        {
+          "en": "They draw a map of the stars they see.",
+          "ja": "見える星の地図を描きます。"
+        },
+        {
+          "en": "Instead of guessing their names, they check a guidebook.",
+          "ja": "名前を推測する代わりに案内書で確認します。"
+        },
+        {
+          "en": "They also write the date beside each drawing.",
+          "ja": "各絵の横に日付も書きます。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Some evenings are cloudy, and no stars are visible.",
+          "ja": "曇りの夜もあり、星が見えないことがあります。"
+        },
+        {
+          "en": "Nevertheless, the students keep their maps and try again.",
+          "ja": "それでも生徒たちは地図を保管し、もう一度試します。"
+        },
+        {
+          "en": "They notice that careful observation takes time.",
+          "ja": "丁寧な観察には時間がかかると気づきます。"
+        },
+        {
+          "en": "A good scientist does not invent missing observations.",
+          "ja": "よい科学者は観察できなかったことを作り上げません。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "One month later, the students share their maps.",
+          "ja": "一か月後、生徒たちは地図を共有します。"
+        },
+        {
+          "en": "Each map shows slightly different observations.",
+          "ja": "各地図には少しずつ異なる観察が記されています。"
+        },
+        {
+          "en": "As a result, they compare their records and ask questions.",
+          "ja": "その結果、記録を比べ、質問します。"
+        },
+        {
+          "en": "Yui learns that studying nature can begin by looking up.",
+          "ja": "ユイは自然の学習が空を見上げることから始まると学びます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What does Yui see near the Moon?",
+      "options": [
+        "A bright star.",
+        "A rainbow.",
+        "A satellite in her room.",
+        "A school building."
+      ],
+      "answer": 0,
+      "explanation_ja": "第1段落「月の近くに明るい星が見えます。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Who does Yui decide to ask?",
+      "options": [
+        "A bus driver.",
+        "Her music teacher.",
+        "A shop owner.",
+        "Her science teacher."
+      ],
+      "answer": 3,
+      "explanation_ja": "第1段落「理科の先生に尋ねることにします。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What does the teacher show her?",
+      "options": [
+        "A train ticket.",
+        "A cooking book.",
+        "A simple star map.",
+        "A sports newspaper."
+      ],
+      "answer": 2,
+      "explanation_ja": "第2段落「教師はユイに簡単な星図を見せます。」が根拠です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "When are some patterns easier to see?",
+      "options": [
+        "During school lunch.",
+        "In winter.",
+        "Only at noon.",
+        "Only in summer rain."
+      ],
+      "answer": 1,
+      "explanation_ja": "第2段落「例えば冬には見つけやすい星の並びもあります。」が根拠です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What do Yui and her friends draw?",
+      "options": [
+        "A map of stars they see.",
+        "A map of every school.",
+        "A picture of a train.",
+        "A plan for a shop."
+      ],
+      "answer": 0,
+      "explanation_ja": "第3段落「見える星の地図を描きます。」が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "How do they check star names?",
+      "options": [
+        "By making up names.",
+        "By choosing random letters.",
+        "With a restaurant menu.",
+        "With a guidebook."
+      ],
+      "answer": 3,
+      "explanation_ja": "第3段落「名前を推測する代わりに案内書で確認します。」が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "Why are some evenings difficult for observation?",
+      "options": [
+        "School is too far away.",
+        "All stars have disappeared.",
+        "Clouds hide the stars.",
+        "There is no Moon in the sky."
+      ],
+      "answer": 2,
+      "explanation_ja": "第4段落「曇りの夜もあり、星が見えないことがあります。」が根拠です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What should a good scientist avoid?",
+      "options": [
+        "Using a star map.",
+        "Inventing observations that were not made.",
+        "Keeping careful notes.",
+        "Asking questions."
+      ],
+      "answer": 1,
+      "explanation_ja": "第4段落「よい科学者は観察できなかったことを作り上げません。」が根拠です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What do the students do after a month?",
+      "options": [
+        "Compare their maps and ask questions.",
+        "Throw away every drawing.",
+        "Stop studying the sky.",
+        "Buy expensive rockets."
+      ],
+      "answer": 0,
+      "explanation_ja": "第5段落「その結果、記録を比べ、質問します。」が根拠です。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the main lesson?",
+      "options": [
+        "Every star is visible every night.",
+        "Guessing is better than checking.",
+        "All star maps must look identical.",
+        "Careful observation is a useful start to studying nature."
+      ],
+      "answer": 3,
+      "explanation_ja": "第5段落「ユイは自然の学習が空を見上げることから始まると学びます。」が根拠です。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "compare",
+      "ja": "比べる",
+      "synonym": "examine",
+      "definition": "look at similarities and differences"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "guessing",
+      "ja": "推測",
+      "synonym": "estimating",
+      "definition": "forming an opinion without full information"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "invent",
+      "ja": "作り出す",
+      "synonym": "create",
+      "definition": "to make something new or imagined"
+    },
+    {
+      "term": "map",
+      "ja": "地図",
+      "synonym": "chart",
+      "definition": "a drawing showing positions"
+    },
+    {
+      "term": "missing",
+      "ja": "欠けている",
+      "synonym": "absent",
+      "definition": "not present where expected"
+    },
+    {
+      "term": "nature",
+      "ja": "自然",
+      "synonym": "natural world",
+      "definition": "the world of plants animals and space"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "observations",
+      "ja": "観察記録",
+      "synonym": "records",
+      "definition": "information collected by watching"
+    },
+    {
+      "term": "patterns",
+      "ja": "並び",
+      "synonym": "arrangements",
+      "definition": "groups of things with repeated shapes"
+    },
+    {
+      "term": "records",
+      "ja": "記録",
+      "synonym": "documents",
+      "definition": "written accounts kept for later use"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "share",
+      "ja": "共有する",
+      "synonym": "communicate",
+      "definition": "to let others know or use something"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who helps others learn"
+    },
+    {
+      "term": "star",
+      "ja": "星",
+      "synonym": "bright object",
+      "definition": "a distant object that gives off light"
+    },
+    {
+      "term": "stars",
+      "ja": "星",
+      "synonym": "bright objects",
+      "definition": "luminous objects visible at night"
+    },
+    {
+      "term": "moon",
+      "ja": "月",
+      "synonym": "natural satellite",
+      "definition": "Earth's natural satellite"
+    },
+    {
+      "term": "sky",
+      "ja": "空",
+      "synonym": "heavens",
+      "definition": "the space above Earth"
+    },
+    {
+      "term": "guidebook",
+      "ja": "案内書",
+      "synonym": "reference book",
+      "definition": "a book providing helpful information"
+    },
+    {
+      "term": "winter",
+      "ja": "冬",
+      "synonym": "cold season",
+      "definition": "the coldest season of the year"
+    },
+    {
+      "term": "scientist",
+      "ja": "科学者",
+      "synonym": "researcher",
+      "definition": "a person studying the natural world"
+    },
+    {
+      "term": "observation",
+      "ja": "観察",
+      "synonym": "watching",
+      "definition": "careful looking for information"
+    },
+    {
+      "term": "cloudy",
+      "ja": "曇りの",
+      "synonym": "overcast",
+      "definition": "filled with clouds"
+    },
+    {
+      "term": "visible",
+      "ja": "見える",
+      "synonym": "able to be seen",
+      "definition": "possible to see"
+    },
+    {
+      "term": "date",
+      "ja": "日付",
+      "synonym": "calendar day",
+      "definition": "a particular day"
+    },
+    {
+      "term": "drawing",
+      "ja": "絵",
+      "synonym": "picture",
+      "definition": "a picture made by hand"
+    },
+    {
+      "term": "carefully",
+      "ja": "注意深く",
+      "synonym": "with attention",
+      "definition": "in a thoughtful way"
+    },
+    {
+      "term": "night",
+      "ja": "夜",
+      "synonym": "dark period",
+      "definition": "the time between evening and morning"
+    },
+    {
+      "term": "month",
+      "ja": "月（期間）",
+      "synonym": "four weeks",
+      "definition": "a period of about thirty days"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "does not know its name",
+      "explanation_ja": "does not + 動詞原形は否定の形です。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "are easier to see in winter",
+      "explanation_ja": "比較級easierとto不定詞で「見つけやすい」です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of guessing their names",
+      "explanation_ja": "instead of + 動名詞は「推測する代わりに」です。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "that studying nature can begin by looking up",
+      "explanation_ja": "that節が学んだ内容です。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "星が見えても名前がわからないことを示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "季節によって見えやすい星の例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "雲で見えない日があっても観察を続けます。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "記録を共有した後の行動です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "She decides to ask her science teacher.",
+      "rewrite": "Yui wants to ask someone about the star.",
+      "explanation_ja": "星について先生に聞こうとするという意味です。"
+    },
+    {
+      "source": "She explains that the sky looks different during the year.",
+      "rewrite": "The appearance of the night sky changes across the year.",
+      "explanation_ja": "夜空は季節によって違って見えるということです。"
+    },
+    {
+      "source": "A good scientist does not invent missing observations.",
+      "rewrite": "Scientists should not create false observations.",
+      "explanation_ja": "実際に見ていないことを作らないという意味です。"
+    },
+    {
+      "source": "Yui learns that studying nature can begin by looking up.",
+      "rewrite": "Looking at the sky can begin an interest in nature.",
+      "explanation_ja": "空を見上げることが自然学習の始まりという結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "星が見えても名前がわからないことを示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "季節によって見えやすい星の例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "雲で見えない日があっても観察を続けます。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "記録を共有した後の行動です。"
+    }
+  ]
+}
