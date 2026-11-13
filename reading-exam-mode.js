@@ -185,9 +185,13 @@
  function enterExam(){
   const ctx=window.CopeakReadingExamContext?.();
   if(!ctx?.lesson)return;
+  if(ctx.requiresQuestionCount){
+   window.alert('読解問題は、先に「何問に挑戦しますか？」で問題数を選択してください。');
+   return;
+  }
   const items=itemsFor(ctx);
   if(!items.length)return;
-  const key=ctx.lesson.id+'/'+ctx.mode+'/'+ctx.direction;
+  const key=ctx.lesson.id+'/'+ctx.mode+'/'+ctx.direction+'/'+bankFingerprint(items);
   if(!current||current.key!==key||current.finished){
    current={key,lessonId:ctx.lesson.id,mode:ctx.mode,direction:ctx.direction,items,
     answers:loadDraft(key,items),fingerprint:bankFingerprint(items),finished:false};
