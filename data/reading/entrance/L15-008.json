@@ -1,0 +1,724 @@
+{
+  "id": "L15-008",
+  "category_id": "L15",
+  "title": "The Donation Box with a Question",
+  "title_ja": "寄付箱に書かれていなかった説明",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "word_count": 306,
+  "source_links": [
+    {
+      "title": "Educational background reference",
+      "url": "https://www.unicef.org/child-rights-convention/convention-text"
+    }
+  ],
+  "fact_notes": [
+    "学校の活動は架空の事例であり、英文・対訳・問題・解説は独自制作。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A class collects donations during its school festival to support a local community project.",
+          "ja": "クラスは学校祭で地域の活動を支える寄付金を集めます。"
+        },
+        {
+          "en": "Students place a colorful donation box beside the entrance.",
+          "ja": "生徒たちは入口のそばに色鮮やかな寄付箱を置きます。"
+        },
+        {
+          "en": "However, one visitor asks exactly how the collected money will be used.",
+          "ja": "しかしある来場者は集めたお金が具体的にどう使われるか尋ねます。"
+        },
+        {
+          "en": "The students realize that their poster does not explain the plan clearly.",
+          "ja": "生徒たちはポスターに計画が明確に説明されていないと気づきます。"
+        },
+        {
+          "en": "They decide to check the details before asking more people to contribute.",
+          "ja": "さらに寄付を求める前に詳細を確認することにします。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The class discusses what donors should know before giving money.",
+          "ja": "クラスは寄付する前に人々が何を知るべきか話し合います。"
+        },
+        {
+          "en": "For example, a donor may want to know who manages the project and what it hopes to achieve.",
+          "ja": "例えば寄付する人は誰が活動を管理し何を達成したいか知りたいかもしれません。"
+        },
+        {
+          "en": "The group also needs to explain whether the project has agreed to receive its support.",
+          "ja": "グループは活動側が支援を受けることに同意しているかも説明する必要があります。"
+        },
+        {
+          "en": "The teacher reminds students that a kind intention is not enough to replace clear information.",
+          "ja": "教師は親切な意図だけでは明確な情報の代わりにならないと注意します。"
+        },
+        {
+          "en": "The class begins writing a short description of the purpose of its collection.",
+          "ja": "クラスは募金の目的を短く説明する文を書き始めます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Students contact the community group and ask which needs are most important.",
+          "ja": "生徒たちは地域団体に連絡し、どのような必要が最も重要か尋ねます。"
+        },
+        {
+          "en": "The group explains what it can provide and which plans still depend on funding.",
+          "ja": "団体は提供できることと資金に左右される計画を説明します。"
+        },
+        {
+          "en": "Instead of promising an exact result, students describe what the donations are intended to support.",
+          "ja": "正確な結果を約束せず、寄付金が何を支える予定か説明します。"
+        },
+        {
+          "en": "They also decide how to record amounts without showing donors' private details.",
+          "ja": "寄付者の個人情報を示さずに金額を記録する方法も決めます。"
+        },
+        {
+          "en": "The plan now includes responsibility for reporting how the money is handled.",
+          "ja": "計画にはお金の扱いについて報告する責任も含まれます。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "At the next festival session, the class displays its updated explanation.",
+          "ja": "次の学校祭の時間にクラスは更新した説明を掲示します。"
+        },
+        {
+          "en": "Nevertheless, students do not expect every visitor to donate after reading it.",
+          "ja": "それでも読んだすべての来場者が寄付すると期待はしません。"
+        },
+        {
+          "en": "They explain that choosing not to give money should be respected.",
+          "ja": "寄付しない選択も尊重されるべきだと説明します。"
+        },
+        {
+          "en": "Visitors can ask questions before making their own decisions.",
+          "ja": "来場者は自分で決める前に質問できます。"
+        },
+        {
+          "en": "The students learn that trust grows when people have meaningful choices.",
+          "ja": "人々に意味ある選択肢があると信頼が育つと学びます。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "After the event, students prepare a simple report about the donations.",
+          "ja": "行事後、生徒たちは寄付について簡単な報告書を準備します。"
+        },
+        {
+          "en": "They share the total amount and explain the next steps with the community group.",
+          "ja": "合計金額を共有し地域団体と次の段階を説明します。"
+        },
+        {
+          "en": "As a result, the class understands that responsibility continues after collecting money.",
+          "ja": "その結果、募金後も責任が続くと理解します。"
+        },
+        {
+          "en": "A good cause still needs accurate explanations and honest records.",
+          "ja": "よい目的でも正確な説明と正直な記録が必要です。"
+        },
+        {
+          "en": "Helping others should include respecting the people who offer help.",
+          "ja": "他者を助けることには支援する人々を尊重することも含まれるべきです。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What does a visitor ask about?",
+      "options": [
+        "How the money will be used.",
+        "What food will be sold.",
+        "Who designed the school building.",
+        "When the class will have exams."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「しかしある来場者は集めたお金が具体的にどう使われるか尋ねます。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What is the first problem with the poster?",
+      "options": [
+        "The box is too small.",
+        "The visitors cannot find the school.",
+        "The festival has no entrance.",
+        "The plan is not clearly explained."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「さらに寄付を求める前に詳細を確認することにします。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What might donors want to know?",
+      "options": [
+        "Every student's test score.",
+        "The weather for next year.",
+        "Who manages the project and its goals.",
+        "Only the color of the box."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「例えば寄付する人は誰が活動を管理し何を達成したいか知りたいかもしれません。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "Why are kind intentions not enough?",
+      "options": [
+        "Every donation must be anonymous.",
+        "People also need clear information.",
+        "They always create bad results.",
+        "No one should help a community."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「教師は親切な意図だけでは明確な情報の代わりにならないと注意します。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What does the community group explain?",
+      "options": [
+        "Its needs and plans that depend on funding.",
+        "Only the names of its workers.",
+        "The school's examination dates.",
+        "A new sports competition."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「団体は提供できることと資金に左右される計画を説明します。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What information should be protected?",
+      "options": [
+        "The total money collected.",
+        "The general purpose of the project.",
+        "The fact that the project exists.",
+        "Donors' private details."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「寄付者の個人情報を示さずに金額を記録する方法も決めます。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "How does the class treat people who do not donate?",
+      "options": [
+        "They are not allowed to ask questions.",
+        "Their names are displayed.",
+        "Their choice is respected.",
+        "They are publicly criticized."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「それでも読んだすべての来場者が寄付すると期待はしません。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What supports trust according to students?",
+      "options": [
+        "Keeping every result secret.",
+        "Meaningful opportunities to choose.",
+        "Forcing people to donate.",
+        "Removing all explanations."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「人々に意味ある選択肢があると信頼が育つと学びます。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What is shared after the festival?",
+      "options": [
+        "A report with the total and next steps.",
+        "All donors' private messages.",
+        "A list of unrelated school expenses.",
+        "Every student's home address."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「合計金額を共有し地域団体と次の段階を説明します。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the passage's main message?",
+      "options": [
+        "A good intention removes the need to explain money.",
+        "Every visitor must donate to be kind.",
+        "Collecting money completes all responsibility.",
+        "Responsible fundraising requires transparency, choice, and follow-up."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「他者を助けることには支援する人々を尊重することも含まれるべきです。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "accurate",
+      "ja": "正確な",
+      "synonym": "correct",
+      "definition": "matching the facts"
+    },
+    {
+      "term": "choices",
+      "ja": "選択肢",
+      "synonym": "options",
+      "definition": "available possibilities"
+    },
+    {
+      "term": "collection",
+      "ja": "収蔵品・収集",
+      "synonym": "group of objects",
+      "definition": "objects gathered and kept by an institution"
+    },
+    {
+      "term": "community",
+      "ja": "地域社会",
+      "synonym": "local group",
+      "definition": "people living near one another"
+    },
+    {
+      "term": "decide",
+      "ja": "決める",
+      "synonym": "choose",
+      "definition": "to make a choice"
+    },
+    {
+      "term": "decisions",
+      "ja": "決定",
+      "synonym": "choices",
+      "definition": "options selected"
+    },
+    {
+      "term": "describe",
+      "ja": "説明する",
+      "synonym": "explain",
+      "definition": "to give an account of something"
+    },
+    {
+      "term": "details",
+      "ja": "細部",
+      "synonym": "particulars",
+      "definition": "small pieces of information"
+    },
+    {
+      "term": "event",
+      "ja": "行事",
+      "synonym": "occasion",
+      "definition": "a planned activity"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "explanation",
+      "ja": "説明",
+      "synonym": "clarification",
+      "definition": "words making something clear"
+    },
+    {
+      "term": "festival",
+      "ja": "学校祭",
+      "synonym": "celebration",
+      "definition": "a special school event"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "important",
+      "ja": "重要な",
+      "synonym": "significant",
+      "definition": "having a great effect or value"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "details",
+      "definition": "facts people may need"
+    },
+    {
+      "term": "local",
+      "ja": "地域の",
+      "synonym": "nearby",
+      "definition": "relating to a particular place"
+    },
+    {
+      "term": "needs",
+      "ja": "必要",
+      "synonym": "requirements",
+      "definition": "things necessary for well-being"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "prepare",
+      "ja": "準備する",
+      "synonym": "get ready",
+      "definition": "to make something ready for use"
+    },
+    {
+      "term": "private",
+      "ja": "個人的な",
+      "synonym": "personal",
+      "definition": "not meant for everyone"
+    },
+    {
+      "term": "purpose",
+      "ja": "目的",
+      "synonym": "goal",
+      "definition": "an intended result"
+    },
+    {
+      "term": "record",
+      "ja": "記録する",
+      "synonym": "note",
+      "definition": "to write information down for later use"
+    },
+    {
+      "term": "records",
+      "ja": "記録",
+      "synonym": "documents",
+      "definition": "saved information"
+    },
+    {
+      "term": "responsibility",
+      "ja": "責任",
+      "synonym": "duty",
+      "definition": "an obligation to act carefully"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "share",
+      "ja": "共有する",
+      "synonym": "communicate",
+      "definition": "to let others know or use something"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "support",
+      "ja": "支援",
+      "synonym": "help",
+      "definition": "assistance given to others"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who helps others learn"
+    },
+    {
+      "term": "trust",
+      "ja": "信頼",
+      "synonym": "confidence",
+      "definition": "belief in honest behavior"
+    },
+    {
+      "term": "visitor",
+      "ja": "来館者",
+      "synonym": "guest",
+      "definition": "a person who comes to see a place"
+    },
+    {
+      "term": "visitors",
+      "ja": "来場者",
+      "synonym": "guests",
+      "definition": "people attending an event"
+    },
+    {
+      "term": "writing",
+      "ja": "作文・文章を書くこと",
+      "synonym": "composition",
+      "definition": "the activity of creating text"
+    },
+    {
+      "term": "donation",
+      "ja": "寄付",
+      "synonym": "contribution",
+      "definition": "money given to support a cause"
+    },
+    {
+      "term": "donations",
+      "ja": "寄付金",
+      "synonym": "contributions",
+      "definition": "money given for a purpose"
+    },
+    {
+      "term": "donor",
+      "ja": "寄付者",
+      "synonym": "giver",
+      "definition": "a person providing a donation"
+    },
+    {
+      "term": "donors",
+      "ja": "寄付者",
+      "synonym": "givers",
+      "definition": "people contributing resources"
+    },
+    {
+      "term": "funding",
+      "ja": "資金",
+      "synonym": "financial support",
+      "definition": "money available for a project"
+    },
+    {
+      "term": "project",
+      "ja": "活動",
+      "synonym": "plan",
+      "definition": "organized work with a goal"
+    },
+    {
+      "term": "amount",
+      "ja": "金額",
+      "synonym": "sum",
+      "definition": "a quantity of money"
+    },
+    {
+      "term": "amounts",
+      "ja": "金額",
+      "synonym": "sums",
+      "definition": "quantities of money"
+    },
+    {
+      "term": "report",
+      "ja": "報告",
+      "synonym": "account",
+      "definition": "a written description of results"
+    },
+    {
+      "term": "collected",
+      "ja": "集めた",
+      "synonym": "gathered",
+      "definition": "brought together"
+    },
+    {
+      "term": "contribute",
+      "ja": "寄付する",
+      "synonym": "give",
+      "definition": "provide something to a cause"
+    },
+    {
+      "term": "agreed",
+      "ja": "合意した",
+      "synonym": "accepted",
+      "definition": "given approval"
+    },
+    {
+      "term": "achieve",
+      "ja": "達成する",
+      "synonym": "accomplish",
+      "definition": "reach a goal"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "how the collected money will be used",
+      "explanation_ja": "how節と受動態で用途を尋ねます。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "who manages the project and what it hopes to achieve",
+      "explanation_ja": "who節とwhat節は知りたい情報を表します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of promising an exact result",
+      "explanation_ja": "instead of + 動名詞は過大な約束を避けることです。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "focus": "that responsibility continues after collecting money",
+      "explanation_ja": "that節が学んだ内容です。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "募金の意図と説明不足を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "寄付者が求める情報の例示です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "説明を読んでも寄付しない選択があります。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "集金後の責任にも気づく結果です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "They decide to check the details before asking more people to contribute.",
+      "rewrite": "The class verifies the plan before asking for further donations.",
+      "explanation_ja": "募金前に計画の詳細を確認します。"
+    },
+    {
+      "source": "The teacher reminds students that a kind intention is not enough to replace clear information.",
+      "rewrite": "Good intentions do not remove the need for accurate information.",
+      "explanation_ja": "善意だけで説明は不要になりません。"
+    },
+    {
+      "source": "The students learn that trust grows when people have meaningful choices.",
+      "rewrite": "Trust develops when people are free to decide.",
+      "explanation_ja": "選択の自由が信頼を育てます。"
+    },
+    {
+      "source": "Helping others should include respecting the people who offer help.",
+      "rewrite": "Helping should respect those who choose to contribute.",
+      "explanation_ja": "寄付者への尊重も必要です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "募金の意図と説明不足を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "寄付者が求める情報の例示です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "説明を読んでも寄付しない選択があります。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "集金後の責任にも気づく結果です。"
+    }
+  ]
+}
