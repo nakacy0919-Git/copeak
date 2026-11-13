@@ -1,0 +1,688 @@
+{
+  "id": "L09-007",
+  "category_id": "L09",
+  "title": "The Ending Nobody Agreed On",
+  "title_ja": "結末の解釈が分かれた物語",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "word_count": 270,
+  "source_links": [
+    {
+      "title": "Educational background reference",
+      "url": "https://www.unesco.org/en/languages-education"
+    }
+  ],
+  "fact_notes": [
+    "架空の学習用場面・文学作品をもとに英文、和訳、設問を独自に制作。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A class reads a short story about a traveler returning to a childhood village.",
+          "ja": "クラスは幼いころの村へ帰る旅人の短い物語を読みます。"
+        },
+        {
+          "en": "At the end, the traveler finds an old door standing open.",
+          "ja": "最後に旅人は古い扉が開いたままなのを見つけます。"
+        },
+        {
+          "en": "Some students believe this means the traveler will stay.",
+          "ja": "生徒の中には旅人が村に残るという意味だと考える人がいます。"
+        },
+        {
+          "en": "However, others think the open door suggests another journey.",
+          "ja": "しかし開いた扉は次の旅を意味すると思う人もいます。"
+        },
+        {
+          "en": "The teacher asks everyone to explain their ideas using details from the text.",
+          "ja": "教師は本文の細部を使って考えを説明するよう全員に求めます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The story never states directly what the traveler will decide.",
+          "ja": "物語は旅人がどう決めるか直接は述べていません。"
+        },
+        {
+          "en": "For example, the writer describes a packed bag beside the door.",
+          "ja": "例えば作者は扉の横の荷造りされたかばんを描いています。"
+        },
+        {
+          "en": "One group sees it as evidence that the traveler will leave.",
+          "ja": "一つのグループはそれを旅立つ証拠とみなします。"
+        },
+        {
+          "en": "Another group thinks the bag might contain belongings brought home.",
+          "ja": "別のグループはかばんに帰郷の荷物が入っているかもしれないと考えます。"
+        },
+        {
+          "en": "The same detail can support more than one reasonable explanation.",
+          "ja": "同じ細部が複数の妥当な説明を支える場合があります。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Students return to earlier paragraphs to look for more clues.",
+          "ja": "生徒たちはさらに手がかりを探しに前の段落へ戻ります。"
+        },
+        {
+          "en": "They find a sentence about the traveler's wish to see old friends again.",
+          "ja": "昔の友達に再び会いたいという旅人の望みを述べる文を見つけます。"
+        },
+        {
+          "en": "Instead of voting immediately, they compare that sentence with the final scene.",
+          "ja": "すぐ投票せず、その文と最後の場面を比較します。"
+        },
+        {
+          "en": "Some students change their views, but others continue to disagree.",
+          "ja": "考えを変える生徒もいますが、意見の違いが残る生徒もいます。"
+        },
+        {
+          "en": "The teacher welcomes explanations supported by words from the story.",
+          "ja": "教師は物語の言葉に裏づけられた説明を歓迎します。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Nevertheless, the teacher does not accept every imagined ending without evidence.",
+          "ja": "それでも教師は証拠のないすべての想像上の結末を受け入れません。"
+        },
+        {
+          "en": "A student suggests that the traveler becomes the village mayor.",
+          "ja": "ある生徒は旅人が村長になると提案します。"
+        },
+        {
+          "en": "The class cannot find any words supporting that claim.",
+          "ja": "クラスはその主張を支える言葉を見つけられません。"
+        },
+        {
+          "en": "They learn that an open ending allows imagination within reasonable limits.",
+          "ja": "開かれた結末は妥当な範囲で想像を許すと学びます。"
+        },
+        {
+          "en": "Careful reading needs both creativity and attention to the author's words.",
+          "ja": "丁寧な読書には創造性と作者の言葉への注意が必要です。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "Students finish by writing short paragraphs about their preferred ending.",
+          "ja": "最後に生徒たちは自分の好む結末について短い段落を書きます。"
+        },
+        {
+          "en": "Each paragraph includes a quotation or detail from the story.",
+          "ja": "各段落には物語の引用や細部を含めます。"
+        },
+        {
+          "en": "As a result, the discussion becomes richer than a simple vote.",
+          "ja": "その結果話し合いは単純な投票より豊かになります。"
+        },
+        {
+          "en": "Students learn to respect different views while requesting support from the text.",
+          "ja": "本文の根拠を求めながら異なる見方を尊重すると学びます。"
+        },
+        {
+          "en": "A good literary discussion asks not only what we believe but why.",
+          "ja": "よい文学の議論は何を信じるかだけでなく理由も問います。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What does the traveler find?",
+      "options": [
+        "An empty train.",
+        "A letter from a teacher.",
+        "A new school.",
+        "An open door."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「最後に旅人は古い扉が開いたままなのを見つけます。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Why do students disagree?",
+      "options": [
+        "The final page is missing.",
+        "The teacher gives no story.",
+        "They understand the open door differently.",
+        "They read different books."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「しかし開いた扉は次の旅を意味すると思う人もいます。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What is beside the door?",
+      "options": [
+        "A bicycle helmet.",
+        "A packed bag.",
+        "A bicycle.",
+        "A bench."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「例えば作者は扉の横の荷造りされたかばんを描いています。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "Why is the bag an uncertain clue?",
+      "options": [
+        "It could suggest leaving or returning.",
+        "It belongs to the mayor.",
+        "The story says it is empty.",
+        "It is not mentioned in the story."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「同じ細部が複数の妥当な説明を支える場合があります。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "Where do students find more clues?",
+      "options": [
+        "A different book.",
+        "A science chart.",
+        "The school map.",
+        "Earlier paragraphs."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「昔の友達に再び会いたいという旅人の望みを述べる文を見つけます。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What happens to students' opinions?",
+      "options": [
+        "No one reads the final scene.",
+        "The teacher forbids discussion.",
+        "Some change while others still disagree.",
+        "Everyone immediately agrees."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「考えを変える生徒もいますが、意見の違いが残る生徒もいます。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What suggestion has no evidence?",
+      "options": [
+        "The story has an unclear ending.",
+        "The traveler becomes mayor.",
+        "The traveler has a bag.",
+        "The traveler sees an open door."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「ある生徒は旅人が村長になると提案します。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What does careful interpretation require?",
+      "options": [
+        "Imagination and close reading.",
+        "Only quick guesses.",
+        "Only personal memories.",
+        "Choosing the longest ending."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「丁寧な読書には創造性と作者の言葉への注意が必要です。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What must each paragraph include?",
+      "options": [
+        "A photograph of the reader.",
+        "A timetable.",
+        "A list of unrelated books.",
+        "A quotation or story detail."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「各段落には物語の引用や細部を含めます。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the story's main lesson?",
+      "options": [
+        "Readers should not ask questions.",
+        "A class vote establishes the author's meaning.",
+        "Interpretations should be supported by textual evidence.",
+        "Every imagined ending is equally likely."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「よい文学の議論は何を信じるかだけでなく理由も問います。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "attention",
+      "ja": "注目",
+      "synonym": "notice",
+      "definition": "interest directed at something"
+    },
+    {
+      "term": "claim",
+      "ja": "主張",
+      "synonym": "statement",
+      "definition": "something said to be true"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "contrast",
+      "definition": "to examine differences and similarities"
+    },
+    {
+      "term": "creativity",
+      "ja": "創造性",
+      "synonym": "imagination",
+      "definition": "the ability to create ideas"
+    },
+    {
+      "term": "decide",
+      "ja": "決める",
+      "synonym": "choose",
+      "definition": "to make a choice"
+    },
+    {
+      "term": "details",
+      "ja": "細部",
+      "synonym": "features",
+      "definition": "specific parts of a story"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "discussion",
+      "ja": "話し合い",
+      "synonym": "conversation",
+      "definition": "an exchange of ideas"
+    },
+    {
+      "term": "evidence",
+      "ja": "証拠",
+      "synonym": "support",
+      "definition": "facts supporting a claim"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "explanation",
+      "ja": "説明",
+      "synonym": "account",
+      "definition": "a statement of why something happened"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "immediately",
+      "ja": "すぐに",
+      "synonym": "at once",
+      "definition": "without delay"
+    },
+    {
+      "term": "needs",
+      "ja": "必要",
+      "synonym": "requirements",
+      "definition": "things necessary for well-being"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "paragraph",
+      "ja": "段落",
+      "synonym": "section",
+      "definition": "a group of related sentences"
+    },
+    {
+      "term": "respect",
+      "ja": "敬意・尊重",
+      "synonym": "consideration",
+      "definition": "careful treatment of another person's feelings or rights"
+    },
+    {
+      "term": "student",
+      "ja": "生徒",
+      "synonym": "learner",
+      "definition": "a person learning at school"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "support",
+      "ja": "支え・支援",
+      "synonym": "help",
+      "definition": "help that keeps an activity going"
+    },
+    {
+      "term": "supported",
+      "ja": "裏づけられた",
+      "synonym": "justified",
+      "definition": "given evidence for something"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who helps others learn"
+    },
+    {
+      "term": "writing",
+      "ja": "作文・文章を書くこと",
+      "synonym": "composition",
+      "definition": "the activity of creating text"
+    },
+    {
+      "term": "traveler",
+      "ja": "旅人",
+      "synonym": "visitor",
+      "definition": "someone making a journey"
+    },
+    {
+      "term": "village",
+      "ja": "村",
+      "synonym": "settlement",
+      "definition": "a small community"
+    },
+    {
+      "term": "childhood",
+      "ja": "幼少期",
+      "synonym": "early years",
+      "definition": "the years of being a child"
+    },
+    {
+      "term": "ending",
+      "ja": "結末",
+      "synonym": "conclusion",
+      "definition": "the final part of a story"
+    },
+    {
+      "term": "clues",
+      "ja": "手がかり",
+      "synonym": "hints",
+      "definition": "details helping find an answer"
+    },
+    {
+      "term": "quotation",
+      "ja": "引用",
+      "synonym": "excerpt",
+      "definition": "words taken from a text"
+    },
+    {
+      "term": "literary",
+      "ja": "文学の",
+      "synonym": "story-related",
+      "definition": "connected with literature"
+    },
+    {
+      "term": "imagination",
+      "ja": "想像力",
+      "synonym": "creativity",
+      "definition": "the ability to consider possibilities"
+    },
+    {
+      "term": "paragraphs",
+      "ja": "段落",
+      "synonym": "sections",
+      "definition": "groups of sentences"
+    },
+    {
+      "term": "writer",
+      "ja": "作者",
+      "synonym": "author",
+      "definition": "someone writing a story"
+    },
+    {
+      "term": "author",
+      "ja": "作者",
+      "synonym": "writer",
+      "definition": "the creator of a written work"
+    },
+    {
+      "term": "reasonable",
+      "ja": "妥当な",
+      "synonym": "sensible",
+      "definition": "supported by logic and facts"
+    },
+    {
+      "term": "belongings",
+      "ja": "持ち物",
+      "synonym": "possessions",
+      "definition": "things someone owns"
+    },
+    {
+      "term": "packed",
+      "ja": "荷造りされた",
+      "synonym": "prepared",
+      "definition": "put into a bag for travel"
+    },
+    {
+      "term": "scene",
+      "ja": "場面",
+      "synonym": "setting",
+      "definition": "a part of a story"
+    },
+    {
+      "term": "disagree",
+      "ja": "意見が分かれる",
+      "synonym": "differ",
+      "definition": "have different views"
+    },
+    {
+      "term": "directly",
+      "ja": "直接",
+      "synonym": "clearly",
+      "definition": "without another step"
+    },
+    {
+      "term": "preferred",
+      "ja": "好む",
+      "synonym": "favored",
+      "definition": "liked most"
+    },
+    {
+      "term": "journey",
+      "ja": "旅",
+      "synonym": "trip",
+      "definition": "travel from one place to another"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 4,
+      "focus": "using details from the text",
+      "explanation_ja": "usingは根拠を示す手段です。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "the bag might contain belongings brought home",
+      "explanation_ja": "mightは可能性を表します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of voting immediately",
+      "explanation_ja": "instead of + 動名詞は方法の転換です。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 4,
+      "focus": "not only what we believe but why",
+      "explanation_ja": "not only A but Bの構造です。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "開いた扉の二つの解釈を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "結末に関わるかばんの例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "解釈には根拠が必要だと示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "根拠によって話し合いが深まる結果です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The teacher asks everyone to explain their ideas using details from the text.",
+      "rewrite": "Students must explain their interpretation with details.",
+      "explanation_ja": "本文の細部を根拠にします。"
+    },
+    {
+      "source": "The same detail can support more than one reasonable explanation.",
+      "rewrite": "The same clue may allow several plausible explanations.",
+      "explanation_ja": "一つの手がかりに複数の解釈があり得ます。"
+    },
+    {
+      "source": "Careful reading needs both creativity and attention to the author's words.",
+      "rewrite": "Imaginative readings should remain grounded in the text.",
+      "explanation_ja": "想像力にも本文の根拠が必要です。"
+    },
+    {
+      "source": "A good literary discussion asks not only what we believe but why.",
+      "rewrite": "A literary discussion should explain why an idea is held.",
+      "explanation_ja": "考えの理由を示すことが大切です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "開いた扉の二つの解釈を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "結末に関わるかばんの例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "解釈には根拠が必要だと示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "根拠によって話し合いが深まる結果です。"
+    }
+  ]
+}

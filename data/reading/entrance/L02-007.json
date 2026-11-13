@@ -1,0 +1,706 @@
+{
+  "id": "L02-007",
+  "category_id": "L02",
+  "title": "Two Maps of the Same Town",
+  "title_ja": "同じ町を描いた二枚の地図",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "word_count": 295,
+  "source_links": [
+    {
+      "title": "Official background reference",
+      "url": "https://www.loc.gov/classroom-materials/"
+    }
+  ],
+  "fact_notes": [
+    "学校や地域の活動は架空の教育用ケース。英文・和訳・設問・解説は独自制作。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A history class compares two maps of its town made many years apart.",
+          "ja": "歴史のクラスは何年も離れて作られた町の二枚の地図を比べます。"
+        },
+        {
+          "en": "The older map shows a market beside the river.",
+          "ja": "古い地図には川のそばに市場が描かれています。"
+        },
+        {
+          "en": "The newer map shows a large park in nearly the same place.",
+          "ja": "新しい地図にはほぼ同じ場所に大きな公園があります。"
+        },
+        {
+          "en": "However, the class cannot tell why the market disappeared just by looking at the maps.",
+          "ja": "しかし地図を眺めるだけでは市場が消えた理由はわかりません。"
+        },
+        {
+          "en": "The teacher asks students to search for other historical records.",
+          "ja": "教師は別の歴史資料を探すよう求めます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Students visit a local library to examine photographs and old newspaper reports.",
+          "ja": "生徒たちは地域の図書館で写真と古い新聞記事を調べます。"
+        },
+        {
+          "en": "For example, a photograph shows workers building a new road near the river.",
+          "ja": "例えば写真には川の近くで新しい道路を造る作業員が写っています。"
+        },
+        {
+          "en": "A report also describes discussions about changing the area.",
+          "ja": "記事には地域を変えることについての話し合いも書かれています。"
+        },
+        {
+          "en": "These records provide clues, but none tells the complete story by itself.",
+          "ja": "資料は手がかりを与えますが、一つだけで完全な物語はわかりません。"
+        },
+        {
+          "en": "The students write down which details each source actually supports.",
+          "ja": "生徒たちは各資料が実際に裏づける細部を書き出します。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "One student believes that the new road caused the market to close.",
+          "ja": "ある生徒は新しい道路が市場の閉鎖を引き起こしたと思います。"
+        },
+        {
+          "en": "Another wonders whether the market moved before construction began.",
+          "ja": "別の生徒は工事前に市場が移転したのではないかと考えます。"
+        },
+        {
+          "en": "Instead of choosing the first explanation, they check the dates on their sources.",
+          "ja": "最初の説明を選ぶのではなく資料の日付を確認します。"
+        },
+        {
+          "en": "They find that one photograph was taken after the market had already closed.",
+          "ja": "一枚の写真は市場がすでに閉鎖した後に撮られたとわかります。"
+        },
+        {
+          "en": "This discovery changes how they interpret the relationship between the events.",
+          "ja": "この発見は出来事同士の関係の解釈を変えます。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The class interviews an older resident who remembers visiting the market as a child.",
+          "ja": "クラスは子どものころ市場を訪れたことを覚えている年配の住民に聞き取りをします。"
+        },
+        {
+          "en": "She describes shops, sounds, and people that do not appear on the maps.",
+          "ja": "彼女は地図には出てこない店や音や人々を説明します。"
+        },
+        {
+          "en": "Nevertheless, she is unsure about the exact year when some businesses moved.",
+          "ja": "それでもいくつかの店が移転した正確な年はわかりません。"
+        },
+        {
+          "en": "The students compare her memory with written records rather than rejecting it.",
+          "ja": "生徒たちは彼女の記憶を退けず、文書と比較します。"
+        },
+        {
+          "en": "They explain clearly where information remains uncertain.",
+          "ja": "どこに不明な情報が残るか明確に説明します。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "At the end, students create a small display showing both maps and their findings.",
+          "ja": "最後に生徒たちは二枚の地図と調査結果を示す小さな展示を作ります。"
+        },
+        {
+          "en": "Visitors can see how the town changed and which questions are still open.",
+          "ja": "来場者は町の変化と残る問いを知ることができます。"
+        },
+        {
+          "en": "As a result, the display encourages more residents to share old photographs.",
+          "ja": "その結果、展示はさらに多くの住民が昔の写真を共有するきっかけになります。"
+        },
+        {
+          "en": "The class learns that maps are useful evidence, but they cannot explain every human decision.",
+          "ja": "クラスは地図は役立つ証拠でも人間のすべての決定を説明できないと学びます。"
+        },
+        {
+          "en": "Understanding history often requires asking what a source leaves out.",
+          "ja": "歴史を理解するには資料に何が載っていないかを問うことも必要です。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What appears on the older map?",
+      "options": [
+        "A market near the river.",
+        "A large airport.",
+        "A modern park.",
+        "A railway museum."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「古い地図には川のそばに市場が描かれています。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What can the maps not explain by themselves?",
+      "options": [
+        "Where the river is.",
+        "Which map is older.",
+        "Whether a park is shown.",
+        "Why the market disappeared."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「しかし地図を眺めるだけでは市場が消えた理由はわかりません。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What does a photograph show?",
+      "options": [
+        "A newly opened airport.",
+        "A closed classroom.",
+        "Workers building a road.",
+        "Students swimming in a river."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「例えば写真には川の近くで新しい道路を造る作業員が写っています。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What do students record about each source?",
+      "options": [
+        "A score for artistic beauty.",
+        "Which details it supports.",
+        "Only its colors.",
+        "The price of the paper."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「資料は手がかりを与えますが、一つだけで完全な物語はわかりません。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "Why do students check dates?",
+      "options": [
+        "To test explanations about the order of events.",
+        "To choose the oldest student.",
+        "To make the market reopen.",
+        "To compare holiday schedules."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「最初の説明を選ぶのではなく資料の日付を確認します。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "When was one photograph taken?",
+      "options": [
+        "Before the town existed.",
+        "During the market's opening.",
+        "On the same day as the oldest map.",
+        "After the market had closed."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「一枚の写真は市場がすでに閉鎖した後に撮られたとわかります。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What does the older resident contribute?",
+      "options": [
+        "A new railway timetable.",
+        "A plan for tomorrow's market.",
+        "Memories of shops and people.",
+        "A complete set of official dates."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「彼女は地図には出てこない店や音や人々を説明します。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "How do students handle an uncertain memory?",
+      "options": [
+        "They use it to invent dates.",
+        "They compare it with records and note uncertainty.",
+        "They treat it as exact proof.",
+        "They remove it without discussion."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「生徒たちは彼女の記憶を退けず、文書と比較します。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What do residents share after seeing the display?",
+      "options": [
+        "Old photographs.",
+        "Train tickets for tomorrow.",
+        "School exam answers.",
+        "Weather predictions."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「その結果、展示はさらに多くの住民が昔の写真を共有するきっかけになります。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the main lesson?",
+      "options": [
+        "Old maps always explain every decision.",
+        "A single photograph proves all causes.",
+        "Personal memories never have value.",
+        "Historical sources must be compared, including what they omit."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「歴史を理解するには資料に何が載っていないかを問うことも必要です。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "actually",
+      "ja": "実際に",
+      "synonym": "really",
+      "definition": "in fact rather than only in theory"
+    },
+    {
+      "term": "changing",
+      "ja": "変化する",
+      "synonym": "shifting",
+      "definition": "becoming different"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "contrast",
+      "definition": "to examine differences and similarities"
+    },
+    {
+      "term": "details",
+      "ja": "細部",
+      "synonym": "particulars",
+      "definition": "small pieces of information"
+    },
+    {
+      "term": "evidence",
+      "ja": "証拠",
+      "synonym": "support",
+      "definition": "facts supporting an explanation"
+    },
+    {
+      "term": "examine",
+      "ja": "調べる",
+      "synonym": "inspect",
+      "definition": "to look carefully"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "explanation",
+      "ja": "説明",
+      "synonym": "account",
+      "definition": "a statement of why something happened"
+    },
+    {
+      "term": "findings",
+      "ja": "調査結果",
+      "synonym": "results",
+      "definition": "information learned through investigation"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "facts",
+      "definition": "facts or details provided about something"
+    },
+    {
+      "term": "leaves",
+      "ja": "葉",
+      "synonym": "foliage",
+      "definition": "flat green parts of a plant"
+    },
+    {
+      "term": "local",
+      "ja": "地域の",
+      "synonym": "nearby",
+      "definition": "relating to a particular place"
+    },
+    {
+      "term": "map",
+      "ja": "地図",
+      "synonym": "chart",
+      "definition": "a drawing showing locations"
+    },
+    {
+      "term": "memory",
+      "ja": "記憶",
+      "synonym": "recollection",
+      "definition": "something remembered"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "newspaper",
+      "ja": "新聞",
+      "synonym": "news publication",
+      "definition": "a publication reporting events and opinions"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "photographs",
+      "ja": "写真",
+      "synonym": "pictures",
+      "definition": "images made by a camera"
+    },
+    {
+      "term": "records",
+      "ja": "記録",
+      "synonym": "documents",
+      "definition": "saved information about events"
+    },
+    {
+      "term": "resident",
+      "ja": "住民",
+      "synonym": "inhabitant",
+      "definition": "a person living nearby"
+    },
+    {
+      "term": "residents",
+      "ja": "住民",
+      "synonym": "inhabitants",
+      "definition": "people living in an area"
+    },
+    {
+      "term": "share",
+      "ja": "共有する",
+      "synonym": "communicate",
+      "definition": "to let others know or use something"
+    },
+    {
+      "term": "source",
+      "ja": "資料",
+      "synonym": "reference",
+      "definition": "something providing information"
+    },
+    {
+      "term": "student",
+      "ja": "生徒",
+      "synonym": "learner",
+      "definition": "a person learning at school"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who helps others learn"
+    },
+    {
+      "term": "uncertain",
+      "ja": "不確かな",
+      "synonym": "unknown",
+      "definition": "not completely established"
+    },
+    {
+      "term": "understanding",
+      "ja": "理解",
+      "synonym": "comprehension",
+      "definition": "the ability to know what something means"
+    },
+    {
+      "term": "visitors",
+      "ja": "訪問者",
+      "synonym": "guests",
+      "definition": "people coming to a place"
+    },
+    {
+      "term": "workers",
+      "ja": "作業員",
+      "synonym": "employees",
+      "definition": "people doing work"
+    },
+    {
+      "term": "market",
+      "ja": "市場",
+      "synonym": "marketplace",
+      "definition": "a place where goods are sold"
+    },
+    {
+      "term": "maps",
+      "ja": "地図",
+      "synonym": "charts",
+      "definition": "drawings of places"
+    },
+    {
+      "term": "history",
+      "ja": "歴史",
+      "synonym": "past",
+      "definition": "the study of earlier events"
+    },
+    {
+      "term": "historical",
+      "ja": "歴史の",
+      "synonym": "past-related",
+      "definition": "connected with the past"
+    },
+    {
+      "term": "photograph",
+      "ja": "写真",
+      "synonym": "picture",
+      "definition": "an image made using a camera"
+    },
+    {
+      "term": "sources",
+      "ja": "資料",
+      "synonym": "references",
+      "definition": "materials providing information"
+    },
+    {
+      "term": "library",
+      "ja": "図書館",
+      "synonym": "book center",
+      "definition": "a place containing books"
+    },
+    {
+      "term": "interviews",
+      "ja": "聞き取り",
+      "synonym": "questions",
+      "definition": "conversations gathering information"
+    },
+    {
+      "term": "construction",
+      "ja": "工事",
+      "synonym": "building work",
+      "definition": "the act of making a structure"
+    },
+    {
+      "term": "display",
+      "ja": "展示",
+      "synonym": "exhibition",
+      "definition": "items shown publicly"
+    },
+    {
+      "term": "relationship",
+      "ja": "関係",
+      "synonym": "connection",
+      "definition": "the way two things affect each other"
+    },
+    {
+      "term": "report",
+      "ja": "記事",
+      "synonym": "account",
+      "definition": "written information about events"
+    },
+    {
+      "term": "interpret",
+      "ja": "解釈する",
+      "synonym": "explain",
+      "definition": "understand the meaning"
+    },
+    {
+      "term": "discovery",
+      "ja": "発見",
+      "synonym": "finding",
+      "definition": "something learned through searching"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "why the market disappeared",
+      "explanation_ja": "間接疑問文で市場が消えた理由を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 4,
+      "focus": "which details each source actually supports",
+      "explanation_ja": "which節が調査の対象です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of choosing the first explanation",
+      "explanation_ja": "instead of + 動名詞で方法を対比します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "that maps are useful evidence",
+      "explanation_ja": "that節は学んだ内容です。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "地図からわかることと原因の不明さを対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "道路工事の写真を例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "住民の記憶にも不確かさがあることを示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "展示が新しい資料の共有につながります。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "However, the class cannot tell why the market disappeared just by looking at the maps.",
+      "rewrite": "The maps alone cannot establish why the market closed.",
+      "explanation_ja": "地図だけでは閉鎖理由がわかりません。"
+    },
+    {
+      "source": "These records provide clues, but none tells the complete story by itself.",
+      "rewrite": "No single source provides a complete explanation.",
+      "explanation_ja": "単独の資料では全体を説明できません。"
+    },
+    {
+      "source": "They explain clearly where information remains uncertain.",
+      "rewrite": "Students identify what remains unclear in the record.",
+      "explanation_ja": "記録で不明なことを示します。"
+    },
+    {
+      "source": "Understanding history often requires asking what a source leaves out.",
+      "rewrite": "Historical research also asks what evidence does not show.",
+      "explanation_ja": "示されないことも考えるのが歴史研究です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "地図からわかることと原因の不明さを対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "道路工事の写真を例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "住民の記憶にも不確かさがあることを示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "展示が新しい資料の共有につながります。"
+    }
+  ]
+}
