@@ -1,0 +1,608 @@
+{
+  "id": "L11-007",
+  "category_id": "L11",
+  "title": "Sharing a Path Safely",
+  "title_ja": "歩行者と自転車が使う道のルール",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 193,
+  "source_links": [
+    {
+      "title": "Official educational background reference",
+      "url": "https://www.unicef.org/child-rights-convention/convention-text"
+    }
+  ],
+  "fact_notes": [
+    "人物・公園・学校の状況は架空。本文・和訳・設問・解説は独自制作。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A town opens a new path through its large park.",
+          "ja": "町は大きな公園を通る新しい道を開きます。"
+        },
+        {
+          "en": "People use it for walking and riding bicycles.",
+          "ja": "人々は歩いたり自転車に乗ったりして道を使います。"
+        },
+        {
+          "en": "However, some walkers feel unsafe when bicycles pass quickly.",
+          "ja": "しかし自転車が速く通ると危険に感じる歩行者もいます。"
+        },
+        {
+          "en": "The town council invites residents to discuss new rules.",
+          "ja": "町議会は住民に新しい規則を話し合うよう呼びかけます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Some people want to stop all bicycles from using the path.",
+          "ja": "道をすべて自転車禁止にしたい人もいます。"
+        },
+        {
+          "en": "For example, an older walker describes being frightened by a fast bicycle.",
+          "ja": "例えば年配の歩行者は速い自転車が怖かったと話します。"
+        },
+        {
+          "en": "Other residents explain that students need the path to reach school.",
+          "ja": "別の住民は生徒が通学に道を必要としていると説明します。"
+        },
+        {
+          "en": "The council understands that different users have different needs.",
+          "ja": "議会は利用者によって必要が異なると理解します。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The council asks volunteers to observe the path safely.",
+          "ja": "議会はボランティアに安全に道を観察するよう頼みます。"
+        },
+        {
+          "en": "They record where the path is narrow and crowded.",
+          "ja": "道が狭く混雑する場所を記録します。"
+        },
+        {
+          "en": "Instead of blaming every cyclist, they look for specific problems.",
+          "ja": "すべての自転車利用者を責めず、特定の問題を探します。"
+        },
+        {
+          "en": "Some volunteers suggest signs asking riders to slow down.",
+          "ja": "一部のボランティアは減速を求める看板を提案します。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The town tests the signs and asks both groups for feedback.",
+          "ja": "町は看板を試し、両方の集団に意見を尋ねます。"
+        },
+        {
+          "en": "Nevertheless, signs alone may not solve every problem.",
+          "ja": "それでも看板だけではすべての問題を解決できないかもしれません。"
+        },
+        {
+          "en": "The council listens carefully and considers changes to the path.",
+          "ja": "議会は注意深く意見を聞き、道の変更を検討します。"
+        },
+        {
+          "en": "It explains why some suggestions cannot be used immediately.",
+          "ja": "一部の提案をすぐ採用できない理由も説明します。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "After several weeks, the town reviews the new rules.",
+          "ja": "数週間後、町は新しい規則を見直します。"
+        },
+        {
+          "en": "Residents can still report problems and offer helpful ideas.",
+          "ja": "住民は引き続き問題を伝え役立つ案を出せます。"
+        },
+        {
+          "en": "As a result, more people understand why the rules were made.",
+          "ja": "その結果、規則を作った理由を理解する人が増えます。"
+        },
+        {
+          "en": "Good community rules should consider everyone who shares a place.",
+          "ja": "よい地域の規則は場所を共有する全員を考慮すべきです。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What do people use the path for?",
+      "options": [
+        "Walking and cycling.",
+        "Only driving cars.",
+        "Only playing music.",
+        "Only growing flowers."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「人々は歩いたり自転車に乗ったりして道を使います。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What worries some walkers?",
+      "options": [
+        "A missing library.",
+        "Loud classroom music.",
+        "A closed school.",
+        "Fast bicycles."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「しかし自転車が速く通ると危険に感じる歩行者もいます。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What does an older walker describe?",
+      "options": [
+        "Missing a bus.",
+        "Getting a new bicycle.",
+        "Feeling frightened by a bicycle.",
+        "Losing a school textbook."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「例えば年配の歩行者は速い自転車が怖かったと話します。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "Why do some students need the path?",
+      "options": [
+        "To join a sports team.",
+        "To reach school.",
+        "To visit another country.",
+        "To buy concert tickets."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「別の住民は生徒が通学に道を必要としていると説明します。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What do volunteers record?",
+      "options": [
+        "Narrow and crowded places.",
+        "Students' examination scores.",
+        "Every tree's name.",
+        "The town's history."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「道が狭く混雑する場所を記録します。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What do some volunteers suggest?",
+      "options": [
+        "Closing the entire park.",
+        "Removing every walkway.",
+        "Adding more buses to the path.",
+        "Signs asking cyclists to slow down."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「一部のボランティアは減速を求める看板を提案します。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "Whose opinions does the town ask for?",
+      "options": [
+        "Only teachers.",
+        "Only shop owners.",
+        "Both walkers and cyclists.",
+        "Only the fastest cyclists."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「町は看板を試し、両方の集団に意見を尋ねます。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What does the council explain?",
+      "options": [
+        "Why all rules are permanent.",
+        "Why some ideas cannot be used immediately.",
+        "Why no one should walk.",
+        "Why safety never matters."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「一部の提案をすぐ採用できない理由も説明します。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "detail",
+      "prompt": "What can residents do later?",
+      "options": [
+        "Report problems and offer ideas.",
+        "Change school examination scores.",
+        "Ignore every sign.",
+        "Cancel all meetings."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「住民は引き続き問題を伝え役立つ案を出せます。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the main idea?",
+      "options": [
+        "One group should always decide for everyone.",
+        "All bicycles must be banned.",
+        "A new rule never needs review.",
+        "Shared paths need rules considering different users."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「よい地域の規則は場所を共有する全員を考慮すべきです。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "community",
+      "ja": "地域",
+      "synonym": "neighborhood",
+      "definition": "people living nearby"
+    },
+    {
+      "term": "consider",
+      "ja": "考慮する",
+      "synonym": "think about",
+      "definition": "to examine an idea before deciding"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "feedback",
+      "ja": "意見",
+      "synonym": "responses",
+      "definition": "suggestions on a result"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "immediately",
+      "ja": "すぐに",
+      "synonym": "right away",
+      "definition": "without waiting"
+    },
+    {
+      "term": "narrow",
+      "ja": "狭い",
+      "synonym": "tight",
+      "definition": "not wide"
+    },
+    {
+      "term": "needs",
+      "ja": "必要",
+      "synonym": "requirements",
+      "definition": "things necessary for well-being"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "record",
+      "ja": "記録する",
+      "synonym": "note",
+      "definition": "to write information down for later use"
+    },
+    {
+      "term": "residents",
+      "ja": "住民",
+      "synonym": "inhabitants",
+      "definition": "people living in an area"
+    },
+    {
+      "term": "reviews",
+      "ja": "総説・レビュー",
+      "synonym": "surveys",
+      "definition": "studies that examine and summarize previous research"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "specific",
+      "ja": "具体的な",
+      "synonym": "particular",
+      "definition": "clearly identified"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "volunteers",
+      "ja": "ボランティア",
+      "synonym": "helpers",
+      "definition": "people giving time freely"
+    },
+    {
+      "term": "path",
+      "ja": "道",
+      "synonym": "route",
+      "definition": "a way for people to travel"
+    },
+    {
+      "term": "walking",
+      "ja": "歩くこと",
+      "synonym": "going on foot",
+      "definition": "travel without a vehicle"
+    },
+    {
+      "term": "bicycles",
+      "ja": "自転車",
+      "synonym": "bikes",
+      "definition": "vehicles with two wheels"
+    },
+    {
+      "term": "cyclist",
+      "ja": "自転車利用者",
+      "synonym": "rider",
+      "definition": "a person riding a bicycle"
+    },
+    {
+      "term": "walkers",
+      "ja": "歩行者",
+      "synonym": "pedestrians",
+      "definition": "people traveling on foot"
+    },
+    {
+      "term": "council",
+      "ja": "議会",
+      "synonym": "committee",
+      "definition": "people discussing public decisions"
+    },
+    {
+      "term": "rules",
+      "ja": "規則",
+      "synonym": "guidelines",
+      "definition": "instructions about behavior"
+    },
+    {
+      "term": "unsafe",
+      "ja": "危険な",
+      "synonym": "dangerous",
+      "definition": "not safe"
+    },
+    {
+      "term": "frightened",
+      "ja": "怖がった",
+      "synonym": "afraid",
+      "definition": "feeling fear"
+    },
+    {
+      "term": "crowded",
+      "ja": "混雑した",
+      "synonym": "busy",
+      "definition": "full of people"
+    },
+    {
+      "term": "suggestions",
+      "ja": "提案",
+      "synonym": "ideas",
+      "definition": "possible plans"
+    },
+    {
+      "term": "problems",
+      "ja": "問題",
+      "synonym": "difficulties",
+      "definition": "things that need solutions"
+    },
+    {
+      "term": "carefully",
+      "ja": "慎重に",
+      "synonym": "attentively",
+      "definition": "with attention"
+    },
+    {
+      "term": "report",
+      "ja": "報告する",
+      "synonym": "tell",
+      "definition": "give information"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "when bicycles pass quickly",
+      "explanation_ja": "when節は不安になる状況です。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "that different users have different needs",
+      "explanation_ja": "that節は議会の理解です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of blaming every cyclist",
+      "explanation_ja": "instead of + 動名詞は行動の転換です。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "who shares a place",
+      "explanation_ja": "関係代名詞whoがeveryoneを修飾します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "道の便利さと不安を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "歩行者の不安の具体例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "看板の限界を示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "規則の理由への理解が深まる結果です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The town council invites residents to discuss new rules.",
+      "rewrite": "The council asks residents to help plan the rules.",
+      "explanation_ja": "住民が規則づくりに参加します。"
+    },
+    {
+      "source": "The council understands that different users have different needs.",
+      "rewrite": "Different people need different things from the path.",
+      "explanation_ja": "利用者によって必要は違います。"
+    },
+    {
+      "source": "The council listens carefully and considers changes to the path.",
+      "rewrite": "The council considers changes after listening to feedback.",
+      "explanation_ja": "意見を聞いて改善を検討します。"
+    },
+    {
+      "source": "Good community rules should consider everyone who shares a place.",
+      "rewrite": "Rules for shared places should consider all users.",
+      "explanation_ja": "共有の場所では全員を考慮します。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "道の便利さと不安を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "歩行者の不安の具体例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "看板の限界を示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "規則の理由への理解が深まる結果です。"
+    }
+  ]
+}
