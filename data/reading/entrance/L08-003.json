@@ -1,0 +1,711 @@
+{
+  "id": "L08-003",
+  "category_id": "L08",
+  "title": "Who Tells a Museum's Story?",
+  "title_ja": "博物館の物語は誰が語るのか",
+  "level_id": "eiken-pre2",
+  "word_count": 265,
+  "original": true,
+  "status": "draft",
+  "source_links": [
+    {
+      "title": "International Council of Museums: Museum Definition",
+      "url": "https://icom.museum/en/resources/standards-guidelines/museum-definition/"
+    }
+  ],
+  "fact_notes": [
+    "背景となる考え方は添付の資料で確認。本文と練習問題は新規制作。例示した人物・学校・活動は架空の説明用設定。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Museums keep objects that help visitors understand the lives of people in the past.",
+          "ja": "博物館は来館者が昔の人々の暮らしを理解する助けとなる品物を保存します。"
+        },
+        {
+          "en": "A photograph or an old tool can tell an interesting story.",
+          "ja": "写真や古い道具は興味深い物語を語ることがあります。"
+        },
+        {
+          "en": "However, an object does not explain its own history simply by sitting behind glass.",
+          "ja": "しかし、品物はガラスの向こうに置かれるだけでは自身の歴史を説明しません。"
+        },
+        {
+          "en": "Museum workers choose which facts and personal experiences to share.",
+          "ja": "博物館職員は共有する事実と個人の経験を選びます。"
+        },
+        {
+          "en": "These choices affect what visitors learn from an exhibition.",
+          "ja": "この選択は来館者が展示から学ぶことに影響します。"
+        },
+        {
+          "en": "A museum should therefore consider whose voices are missing.",
+          "ja": "そのため博物館は、誰の声が欠けているか考えるべきです。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Imagine a museum preparing a display about a small fishing town.",
+          "ja": "小さな漁村について展示を準備する博物館を想像してください。"
+        },
+        {
+          "en": "The staff have pictures of boats and several wooden tools.",
+          "ja": "職員は船の写真といくつかの木製の道具を持っています。"
+        },
+        {
+          "en": "For example, one tool looks like an ordinary box to a visitor.",
+          "ja": "例えばある道具は来館者には普通の箱に見えます。"
+        },
+        {
+          "en": "An older resident remembers carrying similar boxes to the harbor every morning.",
+          "ja": "年配の住民は似た箱を毎朝港へ運んだことを覚えています。"
+        },
+        {
+          "en": "The resident's memory adds details that are not in the written record.",
+          "ja": "住民の記憶は書かれた記録にない細部を付け加えます。"
+        },
+        {
+          "en": "Both the tool and the memory can help explain local life.",
+          "ja": "道具と記憶の両方が地域の暮らしを説明する助けになります。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Local people may remember the same event in different ways.",
+          "ja": "地域の人々は同じ出来事を異なる形で覚えている場合があります。"
+        },
+        {
+          "en": "In addition, some stories describe conflict or unfair treatment.",
+          "ja": "さらに対立や不公平な扱いについて語る話もあります。"
+        },
+        {
+          "en": "Museum workers should not pretend that every memory is a proven fact.",
+          "ja": "職員はすべての記憶が証明された事実であるかのように振る舞うべきではありません。"
+        },
+        {
+          "en": "Instead, they can compare interviews with photographs and other sources.",
+          "ja": "代わりにインタビューを写真や他の資料と比較できます。"
+        },
+        {
+          "en": "A label can distinguish a personal account from information supported by evidence.",
+          "ja": "説明札は個人の証言と根拠に裏付けられた情報を区別できます。"
+        },
+        {
+          "en": "This approach respects people's voices while remaining careful about history.",
+          "ja": "この方法は歴史に慎重でありながら、人々の声を尊重します。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Students can practice these skills by making a small exhibition.",
+          "ja": "生徒は小さな展示を作ることでこうした技能を練習できます。"
+        },
+        {
+          "en": "They can ask family members about an object and record unanswered questions.",
+          "ja": "家族に品物について尋ね、未解決の問いを記録できます。"
+        },
+        {
+          "en": "Nevertheless, students must request permission before sharing a private story.",
+          "ja": "それでも個人的な話を公開する前には許可を求める必要があります。"
+        },
+        {
+          "en": "They should make clear what is known and what remains uncertain.",
+          "ja": "何がわかり、何がまだ不明かを明確にすべきです。"
+        },
+        {
+          "en": "The goal is not to create one perfect story for every object.",
+          "ja": "目標はすべての品物に完璧な物語を作ることではありません。"
+        },
+        {
+          "en": "A good exhibition gives visitors both information and reasons to ask questions.",
+          "ja": "よい展示は来館者に情報と疑問を持つ理由の両方を与えます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the main idea?",
+      "options": [
+        "Museums should never use written records.",
+        "Museums should combine objects, people's voices, and careful checking.",
+        "All memories are certainly true.",
+        "Visitors should avoid old objects."
+      ],
+      "answer": 1,
+      "explanation_ja": "展示には物と住民の声と根拠の検討が必要という主題です。",
+      "paragraph_ids": [
+        "p1",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Who chooses information for an exhibition?",
+      "options": [
+        "Only schoolchildren.",
+        "Every visitor.",
+        "Museum workers.",
+        "Only photographers."
+      ],
+      "answer": 2,
+      "explanation_ja": "博物館の職員が選ぶとあります。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why is an object alone sometimes not enough?",
+      "options": [
+        "Its story needs context and explanation.",
+        "All objects are unimportant.",
+        "Every tool is broken.",
+        "Museums have no visitors."
+      ],
+      "answer": 0,
+      "explanation_ja": "品物には背景の説明も必要だと読み取れます。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What does the older resident remember?",
+      "options": [
+        "Building a new station.",
+        "Painting the museum.",
+        "Selling a computer.",
+        "Carrying boxes to the harbor."
+      ],
+      "answer": 3,
+      "explanation_ja": "港に箱を運んだ経験を覚えています。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What can memories add?",
+      "options": [
+        "Only the price of tickets.",
+        "Details absent from records.",
+        "The exact age of every visitor.",
+        "New buildings."
+      ],
+      "answer": 1,
+      "explanation_ja": "記録にない具体的な細部を補えます。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why compare interviews with photographs?",
+      "options": [
+        "To shorten all labels.",
+        "To make every memory disappear.",
+        "To check claims using more than one source.",
+        "To avoid learning history."
+      ],
+      "answer": 2,
+      "explanation_ja": "異なる資料で証言を確認するためです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'distinguish' most nearly mean?",
+      "options": [
+        "Tell apart.",
+        "Paint over.",
+        "Forget completely.",
+        "Put on a shelf."
+      ],
+      "answer": 0,
+      "explanation_ja": "distinguishは区別することです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What should students get before sharing a private story?",
+      "options": [
+        "A boat.",
+        "A new camera.",
+        "A larger table.",
+        "Permission."
+      ],
+      "answer": 3,
+      "explanation_ja": "個人の話を共有するには許可が必要です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Why should exhibits mention uncertainty?",
+      "options": [
+        "To make history less useful.",
+        "To show the limits of what is known.",
+        "To hide all objects.",
+        "To stop visitors reading."
+      ],
+      "answer": 1,
+      "explanation_ja": "まだ確認できない部分を正しく伝えるためです。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "What is the purpose of the final sentence?",
+      "options": [
+        "To suggest visitors should not ask questions.",
+        "To claim that every answer is certain.",
+        "To show that museums can encourage inquiry.",
+        "To argue that exhibits need no information."
+      ],
+      "answer": 2,
+      "explanation_ja": "博物館は問いを生む場でもあると締めくくっています。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "museums",
+      "ja": "博物館",
+      "synonym": "exhibition centers",
+      "definition": "places that preserve and display objects"
+    },
+    {
+      "term": "objects",
+      "ja": "品物",
+      "synonym": "items",
+      "definition": "physical things"
+    },
+    {
+      "term": "visitors",
+      "ja": "来館者",
+      "synonym": "guests",
+      "definition": "people who visit a place"
+    },
+    {
+      "term": "photograph",
+      "ja": "写真",
+      "synonym": "picture",
+      "definition": "an image made with a camera"
+    },
+    {
+      "term": "tool",
+      "ja": "道具",
+      "synonym": "instrument",
+      "definition": "an object used for work"
+    },
+    {
+      "term": "history",
+      "ja": "歴史",
+      "synonym": "the past",
+      "definition": "events of earlier times"
+    },
+    {
+      "term": "simply",
+      "ja": "単に",
+      "synonym": "merely",
+      "definition": "only and no more"
+    },
+    {
+      "term": "glass",
+      "ja": "ガラス",
+      "synonym": "transparent material",
+      "definition": "hard clear material used in windows"
+    },
+    {
+      "term": "workers",
+      "ja": "職員",
+      "synonym": "staff",
+      "definition": "people employed to do work"
+    },
+    {
+      "term": "facts",
+      "ja": "事実",
+      "synonym": "true information",
+      "definition": "things known to be true"
+    },
+    {
+      "term": "experiences",
+      "ja": "経験",
+      "synonym": "lived events",
+      "definition": "things a person has lived through"
+    },
+    {
+      "term": "share",
+      "ja": "共有する",
+      "synonym": "communicate",
+      "definition": "to tell or give information to others"
+    },
+    {
+      "term": "affect",
+      "ja": "影響する",
+      "synonym": "influence",
+      "definition": "to change something"
+    },
+    {
+      "term": "exhibition",
+      "ja": "展示",
+      "synonym": "display",
+      "definition": "a public collection of objects"
+    },
+    {
+      "term": "voices",
+      "ja": "声・意見",
+      "synonym": "views",
+      "definition": "what people express"
+    },
+    {
+      "term": "missing",
+      "ja": "欠けている",
+      "synonym": "absent",
+      "definition": "not present"
+    },
+    {
+      "term": "fishing",
+      "ja": "漁業の",
+      "synonym": "catching fish",
+      "definition": "related to getting fish from water"
+    },
+    {
+      "term": "staff",
+      "ja": "職員",
+      "synonym": "employees",
+      "definition": "people working for an organization"
+    },
+    {
+      "term": "boats",
+      "ja": "船",
+      "synonym": "vessels",
+      "definition": "vehicles for traveling on water"
+    },
+    {
+      "term": "wooden",
+      "ja": "木製の",
+      "synonym": "made of wood",
+      "definition": "consisting of material from trees"
+    },
+    {
+      "term": "ordinary",
+      "ja": "普通の",
+      "synonym": "usual",
+      "definition": "not special"
+    },
+    {
+      "term": "resident",
+      "ja": "住民",
+      "synonym": "inhabitant",
+      "definition": "a person living in an area"
+    },
+    {
+      "term": "harbor",
+      "ja": "港",
+      "synonym": "port",
+      "definition": "a sheltered place for boats"
+    },
+    {
+      "term": "memory",
+      "ja": "記憶",
+      "synonym": "recollection",
+      "definition": "something remembered"
+    },
+    {
+      "term": "details",
+      "ja": "細部",
+      "synonym": "particulars",
+      "definition": "small pieces of information"
+    },
+    {
+      "term": "written",
+      "ja": "書かれた",
+      "synonym": "recorded",
+      "definition": "expressed through words on paper"
+    },
+    {
+      "term": "record",
+      "ja": "記録",
+      "synonym": "document",
+      "definition": "saved information"
+    },
+    {
+      "term": "local",
+      "ja": "地域の",
+      "synonym": "nearby",
+      "definition": "connected with a particular area"
+    },
+    {
+      "term": "event",
+      "ja": "出来事",
+      "synonym": "occurrence",
+      "definition": "something that happens"
+    },
+    {
+      "term": "conflict",
+      "ja": "対立",
+      "synonym": "disagreement",
+      "definition": "a serious difference between people"
+    },
+    {
+      "term": "unfair",
+      "ja": "不公平な",
+      "synonym": "unjust",
+      "definition": "not treating people equally"
+    },
+    {
+      "term": "treatment",
+      "ja": "扱い",
+      "synonym": "behavior toward",
+      "definition": "the way someone is treated"
+    },
+    {
+      "term": "pretend",
+      "ja": "ふりをする",
+      "synonym": "act as if",
+      "definition": "to behave as if something were true"
+    },
+    {
+      "term": "proven",
+      "ja": "証明された",
+      "synonym": "verified",
+      "definition": "shown to be true by evidence"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "examine together",
+      "definition": "to look for similarities and differences"
+    },
+    {
+      "term": "interviews",
+      "ja": "インタビュー",
+      "synonym": "conversations",
+      "definition": "talks where people answer questions"
+    },
+    {
+      "term": "sources",
+      "ja": "資料",
+      "synonym": "references",
+      "definition": "materials used to gather information"
+    },
+    {
+      "term": "label",
+      "ja": "説明札",
+      "synonym": "caption",
+      "definition": "text explaining an item"
+    },
+    {
+      "term": "distinguish",
+      "ja": "区別する",
+      "synonym": "differentiate",
+      "definition": "to recognize a difference"
+    },
+    {
+      "term": "personal",
+      "ja": "個人の",
+      "synonym": "individual",
+      "definition": "belonging to one person"
+    },
+    {
+      "term": "account",
+      "ja": "証言",
+      "synonym": "report",
+      "definition": "a description of events"
+    },
+    {
+      "term": "supported",
+      "ja": "支えられた",
+      "synonym": "backed",
+      "definition": "given evidence or help"
+    },
+    {
+      "term": "evidence",
+      "ja": "根拠",
+      "synonym": "proof",
+      "definition": "information supporting a claim"
+    },
+    {
+      "term": "approach",
+      "ja": "方法",
+      "synonym": "method",
+      "definition": "a way to do something"
+    },
+    {
+      "term": "respects",
+      "ja": "尊重する",
+      "synonym": "values",
+      "definition": "treats with consideration"
+    },
+    {
+      "term": "unanswered",
+      "ja": "未解決の",
+      "synonym": "unresolved",
+      "definition": "not yet answered"
+    },
+    {
+      "term": "permission",
+      "ja": "許可",
+      "synonym": "consent",
+      "definition": "agreement allowing an action"
+    },
+    {
+      "term": "uncertain",
+      "ja": "不確かな",
+      "synonym": "not confirmed",
+      "definition": "not known for sure"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 0,
+      "focus": "that help visitors understand the lives",
+      "explanation_ja": "関係代名詞thatがobjectsを後ろから説明します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "carrying similar boxes to the harbor",
+      "explanation_ja": "remember＋動名詞は過去の行動を覚えていることを示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "that every memory is a proven fact",
+      "explanation_ja": "that節がpretendの内容を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "focus": "before sharing a private story",
+      "explanation_ja": "before＋動名詞は行動する前という時点を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "展示品の価値と説明不足の逆接。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "展示品の具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "In addition",
+      "role_ja": "記憶の違いに不公平な扱いの話を追加。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "活動案と個人情報に関する注意の対比。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "does not explain its own history simply by sitting behind glass",
+      "rewrite": "cannot tell its complete past merely by being displayed",
+      "explanation_ja": "explain→tell、simply→merelyです。"
+    },
+    {
+      "source": "The resident's memory adds details that are not in the written record",
+      "rewrite": "The inhabitant's recollection provides information missing from documents",
+      "explanation_ja": "resident→inhabitant、record→documentsです。"
+    },
+    {
+      "source": "distinguish a personal account from information supported by evidence",
+      "rewrite": "separate individual reports from evidence-based facts",
+      "explanation_ja": "distinguish→separate、supported→evidence-basedです。"
+    },
+    {
+      "source": "what is known and what remains uncertain",
+      "rewrite": "established facts and unresolved matters",
+      "explanation_ja": "known→established、uncertain→unresolvedです。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "展示品の価値と説明不足の逆接。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Therefore",
+        "Nevertheless"
+      ],
+      "explanation_ja": "展示品の具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "In addition",
+      "options": [
+        "In addition",
+        "However",
+        "Therefore",
+        "For example"
+      ],
+      "explanation_ja": "記憶の違いに不公平な扱いの話を追加。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "活動案と個人情報に関する注意の対比。"
+    }
+  ]
+}
