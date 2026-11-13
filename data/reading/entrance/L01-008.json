@@ -1,0 +1,668 @@
+{
+  "id": "L01-008",
+  "category_id": "L01",
+  "title": "The Birds at the School Window",
+  "title_ja": "校舎の窓にやってくる鳥",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 202,
+  "source_links": [
+    {
+      "title": "Educational background reference",
+      "url": "https://www.nps.gov/subjects/birds/index.htm"
+    }
+  ],
+  "fact_notes": [
+    "学校・人物などは架空の学習用事例。原文・和訳・設問・解説を独自に制作。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Some students notice small birds near their classroom windows every morning.",
+          "ja": "生徒たちは毎朝教室の窓の近くで小さな鳥を見かけます。"
+        },
+        {
+          "en": "They enjoy watching the birds during breaks between lessons.",
+          "ja": "授業の合間に鳥を見るのを楽しみます。"
+        },
+        {
+          "en": "However, one bird flies toward a window and hits the glass.",
+          "ja": "しかし一羽の鳥が窓に向かって飛び、ガラスにぶつかります。"
+        },
+        {
+          "en": "The students want to help birds avoid the dangerous area.",
+          "ja": "生徒たちは鳥が危険な場所を避けられるよう助けたいと考えます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Their teacher asks them to observe the windows from outside.",
+          "ja": "教師は外から窓を観察するよう求めます。"
+        },
+        {
+          "en": "For example, they notice that the glass reflects nearby trees.",
+          "ja": "例えばガラスに近くの木々が映ることに気づきます。"
+        },
+        {
+          "en": "The reflection may make the window difficult for birds to recognize.",
+          "ja": "その反射は鳥にとって窓を見分けにくくするかもしれません。"
+        },
+        {
+          "en": "Students take photographs and record where the problem happened.",
+          "ja": "生徒たちは写真を撮り、問題が起きた場所を記録します。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The class asks school staff about possible changes to the glass.",
+          "ja": "クラスはガラスに加えられる変更について学校職員に尋ねます。"
+        },
+        {
+          "en": "They learn that certain visible patterns may help birds see windows.",
+          "ja": "特定の見える模様が鳥に窓を認識させる助けになるかもしれないと学びます。"
+        },
+        {
+          "en": "Instead of attaching things without permission, they discuss a safe plan.",
+          "ja": "許可なく物を貼らず、安全な計画を話し合います。"
+        },
+        {
+          "en": "They choose an area that staff can check and maintain.",
+          "ja": "職員が確認し管理できる場所を選びます。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The students continue watching birds after the changes.",
+          "ja": "変更後も生徒たちは鳥を観察し続けます。"
+        },
+        {
+          "en": "Nevertheless, they cannot know the effect from one morning alone.",
+          "ja": "それでも一朝だけでは効果はわかりません。"
+        },
+        {
+          "en": "They compare observations on different days and note the weather.",
+          "ja": "異なる日の観察を比べ、天候も記録します。"
+        },
+        {
+          "en": "Their teacher reminds them to avoid disturbing any birds.",
+          "ja": "教師は鳥を邪魔しないよう注意します。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "At the end of the project, students share what they learned.",
+          "ja": "活動の終わりに生徒たちは学んだことを共有します。"
+        },
+        {
+          "en": "They explain that even ordinary buildings can affect local animals.",
+          "ja": "普通の建物でも地域の動物に影響すると説明します。"
+        },
+        {
+          "en": "As a result, more classmates begin observing the school environment.",
+          "ja": "その結果、さらに多くの同級生が学校の環境を観察し始めます。"
+        },
+        {
+          "en": "Small questions can lead to thoughtful changes in familiar places.",
+          "ja": "小さな問いが身近な場所の丁寧な改善につながることがあります。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What happens near a classroom window?",
+      "options": [
+        "A bird hits the glass.",
+        "The window disappears.",
+        "Students plant a tree inside.",
+        "A bird enters the library."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「しかし一羽の鳥が窓に向かって飛び、ガラスにぶつかります。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What do students want to prevent?",
+      "options": [
+        "Students watching nature.",
+        "Trees growing outside.",
+        "Birds flying above the school.",
+        "Birds being hurt by windows."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「生徒たちは鳥が危険な場所を避けられるよう助けたいと考えます。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What do students see reflected?",
+      "options": [
+        "The classroom timetable.",
+        "A sports field only.",
+        "Nearby trees.",
+        "A school bus."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「例えばガラスに近くの木々が映ることに気づきます。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What do students record?",
+      "options": [
+        "The price of a new building.",
+        "Where the problem happened.",
+        "The birds' names.",
+        "Only the teacher's phone number."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「生徒たちは写真を撮り、問題が起きた場所を記録します。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What might make glass easier for birds to see?",
+      "options": [
+        "Visible patterns.",
+        "Removing all trees.",
+        "Painting the birds.",
+        "Opening every school door."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「特定の見える模様が鳥に窓を認識させる助けになるかもしれないと学びます。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "Why do they consult school staff?",
+      "options": [
+        "To stop the project.",
+        "To change school rules secretly.",
+        "To build a new classroom.",
+        "To make a safe plan with permission."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「許可なく物を貼らず、安全な計画を話し合います。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "Why do they observe on different days?",
+      "options": [
+        "Weather is never different.",
+        "The windows cannot change.",
+        "One morning cannot prove the effect.",
+        "All birds fly at the same time."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「それでも一朝だけでは効果はわかりません。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What must students avoid?",
+      "options": [
+        "Comparing observations.",
+        "Disturbing the birds.",
+        "Taking safe photographs.",
+        "Reading instructions."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「教師は鳥を邪魔しないよう注意します。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What else may affect animals?",
+      "options": [
+        "Ordinary buildings.",
+        "Only distant forests.",
+        "Only oceans.",
+        "Only textbooks."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「普通の建物でも地域の動物に影響すると説明します。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the main idea?",
+      "options": [
+        "School buildings never influence wildlife.",
+        "One observation proves a solution works.",
+        "Birds should be ignored.",
+        "Careful observation helps improve shared spaces."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「小さな問いが身近な場所の丁寧な改善につながることがあります。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "affect",
+      "ja": "影響を与える",
+      "synonym": "influence",
+      "definition": "to change how something happens"
+    },
+    {
+      "term": "buildings",
+      "ja": "建物",
+      "synonym": "structures",
+      "definition": "things built for people to use"
+    },
+    {
+      "term": "certain",
+      "ja": "特定の",
+      "synonym": "particular",
+      "definition": "specific but not named"
+    },
+    {
+      "term": "classmates",
+      "ja": "同級生",
+      "synonym": "peers",
+      "definition": "students in the same class"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "contrast",
+      "definition": "to examine differences and similarities"
+    },
+    {
+      "term": "dangerous",
+      "ja": "危険な",
+      "synonym": "unsafe",
+      "definition": "likely to cause harm"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "familiar",
+      "ja": "見覚えのある",
+      "synonym": "known",
+      "definition": "recognized from previous experience"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "local",
+      "ja": "地域の",
+      "synonym": "nearby",
+      "definition": "related to an area"
+    },
+    {
+      "term": "nearby",
+      "ja": "近くの",
+      "synonym": "close",
+      "definition": "not far away"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "observations",
+      "ja": "観察",
+      "synonym": "records",
+      "definition": "information collected by watching"
+    },
+    {
+      "term": "observing",
+      "ja": "観察すること",
+      "synonym": "watching",
+      "definition": "looking carefully to notice details"
+    },
+    {
+      "term": "ordinary",
+      "ja": "日常的な",
+      "synonym": "usual",
+      "definition": "common rather than special"
+    },
+    {
+      "term": "patterns",
+      "ja": "模様",
+      "synonym": "designs",
+      "definition": "visible repeated marks"
+    },
+    {
+      "term": "photographs",
+      "ja": "写真",
+      "synonym": "pictures",
+      "definition": "images taken by a camera"
+    },
+    {
+      "term": "recognize",
+      "ja": "認識する",
+      "synonym": "identify",
+      "definition": "to notice and understand"
+    },
+    {
+      "term": "record",
+      "ja": "記録する",
+      "synonym": "note",
+      "definition": "to write information down for later use"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "share",
+      "ja": "共有する",
+      "synonym": "communicate",
+      "definition": "to let others know or use something"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who helps others learn"
+    },
+    {
+      "term": "thoughtful",
+      "ja": "思慮深い",
+      "synonym": "considerate",
+      "definition": "showing care and attention"
+    },
+    {
+      "term": "trees",
+      "ja": "木",
+      "synonym": "plants",
+      "definition": "large plants with trunks"
+    },
+    {
+      "term": "weather",
+      "ja": "天候",
+      "synonym": "conditions",
+      "definition": "the state of the atmosphere"
+    },
+    {
+      "term": "birds",
+      "ja": "鳥",
+      "synonym": "winged animals",
+      "definition": "animals with feathers"
+    },
+    {
+      "term": "bird",
+      "ja": "鳥",
+      "synonym": "winged animal",
+      "definition": "an animal with feathers"
+    },
+    {
+      "term": "window",
+      "ja": "窓",
+      "synonym": "glass opening",
+      "definition": "a glass-covered opening"
+    },
+    {
+      "term": "windows",
+      "ja": "窓",
+      "synonym": "glass openings",
+      "definition": "openings covered with glass"
+    },
+    {
+      "term": "glass",
+      "ja": "ガラス",
+      "synonym": "transparent material",
+      "definition": "a material used for windows"
+    },
+    {
+      "term": "reflection",
+      "ja": "反射",
+      "synonym": "reflected image",
+      "definition": "an image shown on a surface"
+    },
+    {
+      "term": "reflects",
+      "ja": "反射する",
+      "synonym": "mirrors",
+      "definition": "shows an image"
+    },
+    {
+      "term": "visible",
+      "ja": "見える",
+      "synonym": "noticeable",
+      "definition": "able to be seen"
+    },
+    {
+      "term": "observe",
+      "ja": "観察する",
+      "synonym": "watch",
+      "definition": "look carefully"
+    },
+    {
+      "term": "permission",
+      "ja": "許可",
+      "synonym": "consent",
+      "definition": "agreement to take action"
+    },
+    {
+      "term": "environment",
+      "ja": "環境",
+      "synonym": "surroundings",
+      "definition": "conditions in an area"
+    },
+    {
+      "term": "staff",
+      "ja": "職員",
+      "synonym": "workers",
+      "definition": "people employed by the school"
+    },
+    {
+      "term": "changes",
+      "ja": "変更",
+      "synonym": "adjustments",
+      "definition": "things made different"
+    },
+    {
+      "term": "animals",
+      "ja": "動物",
+      "synonym": "living creatures",
+      "definition": "living nonplant organisms"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "watching the birds",
+      "explanation_ja": "enjoy + 動名詞を使います。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "for birds to recognize",
+      "explanation_ja": "for ... to不定詞で判断の主体を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of attaching things without permission",
+      "explanation_ja": "instead of + 動名詞は代替の行動です。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "focus": "that even ordinary buildings can affect local animals",
+      "explanation_ja": "that節は説明した内容を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "鳥を楽しむ状況から事故へ転じます。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "反射を例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "一日だけでは断定できないと示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "観察への関心が広がる結果です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The students want to help birds avoid the dangerous area.",
+      "rewrite": "The group hopes to help protect birds near glass.",
+      "explanation_ja": "ガラス付近の鳥を守ろうとします。"
+    },
+    {
+      "source": "The reflection may make the window difficult for birds to recognize.",
+      "rewrite": "A reflection may make a window harder for birds to notice.",
+      "explanation_ja": "反射が窓の認識を難しくします。"
+    },
+    {
+      "source": "They compare observations on different days and note the weather.",
+      "rewrite": "The class compares observations across different days.",
+      "explanation_ja": "複数日の観察を比べます。"
+    },
+    {
+      "source": "Small questions can lead to thoughtful changes in familiar places.",
+      "rewrite": "Small investigations can improve everyday places.",
+      "explanation_ja": "身近な調査が改善につながります。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "鳥を楽しむ状況から事故へ転じます。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "反射を例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "一日だけでは断定できないと示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "観察への関心が広がる結果です。"
+    }
+  ]
+}
