@@ -136,7 +136,7 @@ function build(d){
  const grammar=d.g.map(([paragraph_id,sentence_index,focus,explanation_ja])=>({paragraph_id,sentence_index,focus,explanation_ja}));
  const discourse=d.dis.map(([paragraph_id,expression,role_ja,options])=>({paragraph_id,expression,role_ja}));
  const cloze=d.dis.map(([paragraph_id,expression,role_ja,options])=>({paragraph_id,sentence_index:ps.find(p=>p.id===paragraph_id)?.sentences.findIndex(s=>s.en.includes(expression)),answer:expression,options:options||[expression,'Therefore','For example','In addition'],explanation_ja:role_ja}));
- const paraphrases=d.para.map(([source,rewrite,explanation_ja])=>({source,rewrite,explanation_ja}));
+ const paraphrases=d.para.map(([source,rewrite,explanation_ja])=>{const index=full.toLowerCase().indexOf(String(source).toLowerCase());return {source:index>=0?full.slice(index,index+String(source).length):source,rewrite,explanation_ja};});
  const x={id:d.id,category_id:d.id.slice(0,3),title:d.title,title_ja:d.ja,level_id:d.level,word_count:count,original:true,status:'draft',source_links:d.sources.map(([title,url])=>({title,url})),fact_notes:d.notes||['背景となる考え方は添付の資料で確認。本文と練習問題は新規制作。例示した人物・学校・活動は架空の説明用設定。'],paragraphs:ps,questions,vocabulary:words,grammar,discourse,paraphrases,cloze};
  const bands={'eiken-pre2':[250,350],'eiken-2':[350,500],'eiken-pre1':[500,700],'university-mid':[450,650],'university-advanced':[650,900],'university-national':[700,1000]};
  const errors=[];
