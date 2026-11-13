@@ -1,0 +1,712 @@
+{
+  "id": "L01-005",
+  "category_id": "L01",
+  "title": "Why a Wetland Is More Than Empty Land",
+  "title_ja": "湿地はただの空き地ではない",
+  "level_id": "eiken-pre2",
+  "word_count": 257,
+  "original": true,
+  "status": "draft",
+  "source_links": [
+    {
+      "title": "US EPA: Why Are Wetlands Important?",
+      "url": "https://www.epa.gov/wetlands/why-are-wetlands-important"
+    }
+  ],
+  "fact_notes": [
+    "背景となる考え方は添付の資料で確認。本文と練習問題は新規制作。例示した人物・学校・活動は架空の説明用設定。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A wetland may look like a field filled with water and grass.",
+          "ja": "湿地は水と草でいっぱいの野原のように見えるかもしれません。"
+        },
+        {
+          "en": "Some people think the land would be more useful as a road.",
+          "ja": "その土地を道路にすればより役立つと思う人もいます。"
+        },
+        {
+          "en": "However, wetlands perform important jobs that are not easy to see.",
+          "ja": "しかし湿地は見えにくい重要な働きをしています。"
+        },
+        {
+          "en": "Their plants and soil can hold water after heavy rain.",
+          "ja": "湿地の植物と土は大雨の後に水をたくわえられます。"
+        },
+        {
+          "en": "This stored water may slow the movement of floodwater toward nearby homes.",
+          "ja": "その水は近くの家へ向かう洪水の流れを遅くするかもしれません。"
+        },
+        {
+          "en": "An area that appears unused can protect a community.",
+          "ja": "使われていないように見える場所が地域社会を守れます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Wetlands also provide homes for different kinds of animals.",
+          "ja": "湿地は多様な動物の住みかにもなります。"
+        },
+        {
+          "en": "Birds may rest there during long journeys, while insects and fish use the water.",
+          "ja": "鳥は長旅の途中で休み、虫や魚は水を利用します。"
+        },
+        {
+          "en": "For example, some plants offer safe places where young animals can hide.",
+          "ja": "例えば一部の植物は幼い動物が隠れる安全な場所を提供します。"
+        },
+        {
+          "en": "When a wetland is covered with concrete, these habitats may disappear.",
+          "ja": "湿地がコンクリートで覆われると生息地は消えるかもしれません。"
+        },
+        {
+          "en": "Protecting nature is not simply about keeping a beautiful view.",
+          "ja": "自然を守ることは美しい景色を残すことだけではありません。"
+        },
+        {
+          "en": "It also preserves relationships among water, soil, plants, and wildlife.",
+          "ja": "水、土、植物、野生動物の関係を保つことでもあります。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "A town must still decide how to care for a wetland.",
+          "ja": "町はそれでも湿地の管理方法を決めなければなりません。"
+        },
+        {
+          "en": "Walking paths can help visitors enjoy the area without entering sensitive places.",
+          "ja": "歩道は傷つきやすい場所に入らず湿地を楽しむ助けになります。"
+        },
+        {
+          "en": "In addition, clear signs can explain why certain areas should remain closed.",
+          "ja": "さらに標識は一部を閉鎖すべき理由を説明できます。"
+        },
+        {
+          "en": "Officials need to consider costs, safety, and seasonal changes in water.",
+          "ja": "担当者は費用、安全、季節ごとの水の変化を考慮する必要があります。"
+        },
+        {
+          "en": "A plan made without checking local conditions may fail despite good intentions.",
+          "ja": "地域の状況を確認しない計画は善意でも失敗するかもしれません。"
+        },
+        {
+          "en": "Residents and scientists can offer useful information about the area.",
+          "ja": "住民と科学者はその地域について役立つ情報を提供できます。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Nevertheless, students do not need expensive equipment to begin studying wetlands.",
+          "ja": "それでも湿地を学び始めるのに高価な機器は必要ありません。"
+        },
+        {
+          "en": "They can compare photographs taken at different times of the year.",
+          "ja": "年間の異なる時期に撮られた写真を比べられます。"
+        },
+        {
+          "en": "They might notice changes in water levels or the number of birds.",
+          "ja": "水位や鳥の数の変化に気づくかもしれません。"
+        },
+        {
+          "en": "These observations cannot explain everything, but they may lead to new questions.",
+          "ja": "こうした観察ですべては分かりませんが、新しい問いにつながるかもしれません。"
+        },
+        {
+          "en": "Understanding a wetland can change how people value apparently unused land.",
+          "ja": "湿地を理解することは一見使われていない土地の価値への考えを変え得ます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the passage mainly about?",
+      "options": [
+        "Why roads are always better than wetlands.",
+        "How wetlands benefit communities and need thoughtful care.",
+        "Why animals avoid water.",
+        "Why students should never study nature."
+      ],
+      "answer": 1,
+      "explanation_ja": "湿地の利点と管理の必要性が中心です。",
+      "paragraph_ids": [
+        "p1",
+        "p4"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What can wetland soil do after heavy rain?",
+      "options": [
+        "Create new roads.",
+        "Stop rain completely.",
+        "Hold some water.",
+        "Make all birds disappear."
+      ],
+      "answer": 2,
+      "explanation_ja": "土が水を保持する働きを示します。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why might wetlands help protect nearby homes?",
+      "options": [
+        "They may slow the movement of floodwater.",
+        "They make storms impossible.",
+        "They always make roads wider.",
+        "They prevent the seasons from changing."
+      ],
+      "answer": 0,
+      "explanation_ja": "水をたくわえ洪水の流れを遅らせるためです。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What can birds do in wetlands?",
+      "options": [
+        "Buy food.",
+        "Build roads.",
+        "Read signs.",
+        "Rest during long journeys."
+      ],
+      "answer": 3,
+      "explanation_ja": "鳥の休息場所になると述べています。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What may happen when concrete covers a wetland?",
+      "options": [
+        "More habitats appear.",
+        "Some animal habitats may disappear.",
+        "All water becomes clean instantly.",
+        "Fish learn to travel on roads."
+      ],
+      "answer": 1,
+      "explanation_ja": "生息地が失われ得ると述べます。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why might walking paths be helpful?",
+      "options": [
+        "They invite everyone into sensitive areas.",
+        "They replace all animal habitats.",
+        "They help visitors enjoy nature without damaging delicate places.",
+        "They stop the need for care."
+      ],
+      "answer": 2,
+      "explanation_ja": "利用と保護の両立を助けるためです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'preserves' mean?",
+      "options": [
+        "Keeps something from being lost.",
+        "Changes something completely.",
+        "Makes something louder.",
+        "Sells something at a low price."
+      ],
+      "answer": 0,
+      "explanation_ja": "preservesは守り保つことです。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What should officials consider?",
+      "options": [
+        "Only the size of signs.",
+        "Only the number of shops.",
+        "Only students' grades.",
+        "Costs, safety, and seasonal water changes."
+      ],
+      "answer": 3,
+      "explanation_ja": "費用・安全・水の季節変化を考慮します。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Why are students' observations limited?",
+      "options": [
+        "They always prove everything.",
+        "Simple observations cannot explain every aspect of a wetland.",
+        "They cannot compare photographs.",
+        "They need to buy expensive machines."
+      ],
+      "answer": 1,
+      "explanation_ja": "簡単な観察だけではすべての関係を説明できないからです。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "Why does the writer mention unused land at the end?",
+      "options": [
+        "To say nature should be ignored.",
+        "To argue all wetlands should become roads.",
+        "To challenge the idea that seemingly empty land lacks value.",
+        "To suggest that land cannot change."
+      ],
+      "answer": 2,
+      "explanation_ja": "一見空いている土地にも価値があると示す結論です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "wetland",
+      "ja": "湿地",
+      "synonym": "marsh",
+      "definition": "land often covered or filled with water"
+    },
+    {
+      "term": "field",
+      "ja": "野原",
+      "synonym": "open area",
+      "definition": "an area of land without many buildings"
+    },
+    {
+      "term": "filled",
+      "ja": "満たされた",
+      "synonym": "full",
+      "definition": "containing much of something"
+    },
+    {
+      "term": "grass",
+      "ja": "草",
+      "synonym": "green plants",
+      "definition": "small green plants covering ground"
+    },
+    {
+      "term": "land",
+      "ja": "土地",
+      "synonym": "ground",
+      "definition": "the solid surface of the earth"
+    },
+    {
+      "term": "useful",
+      "ja": "役立つ",
+      "synonym": "helpful",
+      "definition": "able to serve a purpose"
+    },
+    {
+      "term": "road",
+      "ja": "道路",
+      "synonym": "street",
+      "definition": "a route for vehicles"
+    },
+    {
+      "term": "perform",
+      "ja": "果たす",
+      "synonym": "carry out",
+      "definition": "to do a task"
+    },
+    {
+      "term": "important",
+      "ja": "重要な",
+      "synonym": "valuable",
+      "definition": "having great worth"
+    },
+    {
+      "term": "plants",
+      "ja": "植物",
+      "synonym": "vegetation",
+      "definition": "living things that grow"
+    },
+    {
+      "term": "soil",
+      "ja": "土",
+      "synonym": "earth",
+      "definition": "material supporting plant roots"
+    },
+    {
+      "term": "hold",
+      "ja": "保持する",
+      "synonym": "keep",
+      "definition": "to contain something"
+    },
+    {
+      "term": "heavy",
+      "ja": "大量の・強い",
+      "synonym": "strong",
+      "definition": "great in amount"
+    },
+    {
+      "term": "rain",
+      "ja": "雨",
+      "synonym": "rainfall",
+      "definition": "water falling from clouds"
+    },
+    {
+      "term": "stored",
+      "ja": "蓄えられた",
+      "synonym": "kept",
+      "definition": "held for later use"
+    },
+    {
+      "term": "movement",
+      "ja": "動き",
+      "synonym": "motion",
+      "definition": "a change of position"
+    },
+    {
+      "term": "floodwater",
+      "ja": "洪水の水",
+      "synonym": "overflow",
+      "definition": "water flooding dry land"
+    },
+    {
+      "term": "nearby",
+      "ja": "近くの",
+      "synonym": "local",
+      "definition": "not far away"
+    },
+    {
+      "term": "homes",
+      "ja": "家・住みか",
+      "synonym": "houses",
+      "definition": "places used for living"
+    },
+    {
+      "term": "appears",
+      "ja": "見える",
+      "synonym": "seems",
+      "definition": "looks a certain way"
+    },
+    {
+      "term": "unused",
+      "ja": "未利用の",
+      "synonym": "not used",
+      "definition": "not currently being used"
+    },
+    {
+      "term": "protect",
+      "ja": "守る",
+      "synonym": "safeguard",
+      "definition": "to keep from harm"
+    },
+    {
+      "term": "community",
+      "ja": "地域社会",
+      "synonym": "local society",
+      "definition": "people connected to an area"
+    },
+    {
+      "term": "provide",
+      "ja": "提供する",
+      "synonym": "offer",
+      "definition": "to make something available"
+    },
+    {
+      "term": "animals",
+      "ja": "動物",
+      "synonym": "creatures",
+      "definition": "living things able to move"
+    },
+    {
+      "term": "birds",
+      "ja": "鳥",
+      "synonym": "feathered animals",
+      "definition": "animals with feathers"
+    },
+    {
+      "term": "journeys",
+      "ja": "旅",
+      "synonym": "trips",
+      "definition": "travel from one place to another"
+    },
+    {
+      "term": "insects",
+      "ja": "昆虫",
+      "synonym": "small creatures",
+      "definition": "animals typically having six legs"
+    },
+    {
+      "term": "fish",
+      "ja": "魚",
+      "synonym": "aquatic animals",
+      "definition": "animals living in water"
+    },
+    {
+      "term": "offer",
+      "ja": "提供する",
+      "synonym": "give",
+      "definition": "to make available"
+    },
+    {
+      "term": "safe",
+      "ja": "安全な",
+      "synonym": "protected",
+      "definition": "not likely to cause harm"
+    },
+    {
+      "term": "hide",
+      "ja": "隠れる",
+      "synonym": "stay unseen",
+      "definition": "to avoid being noticed"
+    },
+    {
+      "term": "covered",
+      "ja": "覆われた",
+      "synonym": "hidden",
+      "definition": "having something over the surface"
+    },
+    {
+      "term": "concrete",
+      "ja": "コンクリート",
+      "synonym": "construction material",
+      "definition": "a hard material for building"
+    },
+    {
+      "term": "habitats",
+      "ja": "生息地",
+      "synonym": "living places",
+      "definition": "places where animals live"
+    },
+    {
+      "term": "disappear",
+      "ja": "消える",
+      "synonym": "vanish",
+      "definition": "to stop being present"
+    },
+    {
+      "term": "protecting",
+      "ja": "守ること",
+      "synonym": "safeguarding",
+      "definition": "keeping safe"
+    },
+    {
+      "term": "preserves",
+      "ja": "保つ",
+      "synonym": "maintains",
+      "definition": "keeps something from being lost"
+    },
+    {
+      "term": "wildlife",
+      "ja": "野生動物",
+      "synonym": "wild animals",
+      "definition": "animals living in nature"
+    },
+    {
+      "term": "walking",
+      "ja": "歩行",
+      "synonym": "moving on foot",
+      "definition": "traveling by foot"
+    },
+    {
+      "term": "paths",
+      "ja": "小道",
+      "synonym": "walkways",
+      "definition": "routes people walk on"
+    },
+    {
+      "term": "visitors",
+      "ja": "来訪者",
+      "synonym": "guests",
+      "definition": "people who visit a place"
+    },
+    {
+      "term": "sensitive",
+      "ja": "繊細な",
+      "synonym": "delicate",
+      "definition": "easily damaged"
+    },
+    {
+      "term": "signs",
+      "ja": "標識",
+      "synonym": "notices",
+      "definition": "objects showing information"
+    },
+    {
+      "term": "officials",
+      "ja": "担当者",
+      "synonym": "authorities",
+      "definition": "people in public positions"
+    },
+    {
+      "term": "seasonal",
+      "ja": "季節的な",
+      "synonym": "time-of-year",
+      "definition": "connected with a season"
+    },
+    {
+      "term": "scientists",
+      "ja": "科学者",
+      "synonym": "researchers",
+      "definition": "people who study the natural world"
+    },
+    {
+      "term": "photographs",
+      "ja": "写真",
+      "synonym": "images",
+      "definition": "pictures taken with a camera"
+    },
+    {
+      "term": "observations",
+      "ja": "観察",
+      "synonym": "findings",
+      "definition": "things noticed carefully"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 4,
+      "focus": "that may slow the movement of floodwater",
+      "explanation_ja": "関係代名詞thatが水の働きを説明します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "When a wetland is covered with concrete",
+      "explanation_ja": "When節は時を表し、is coveredは受動態です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 4,
+      "focus": "without checking local conditions",
+      "explanation_ja": "without＋動名詞は『〜をせずに』です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "focus": "do not need expensive equipment to begin studying wetlands",
+      "explanation_ja": "do not needは不必要性、to beginは目的を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "土地の利用という見方と湿地の機能を対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "幼い動物の隠れ場所の具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "In addition",
+      "role_ja": "歩道に加え標識という方法を提示。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "管理の難しさの後に身近な観察方法を示します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Their plants and soil can hold water after heavy rain",
+      "rewrite": "vegetation and ground can store water following rainfall",
+      "explanation_ja": "plants→vegetation、hold→storeです。"
+    },
+    {
+      "source": "It also preserves relationships among water, soil, plants, and wildlife",
+      "rewrite": "it also protects connections among elements of nature",
+      "explanation_ja": "preserves→protects、relationships→connectionsです。"
+    },
+    {
+      "source": "A plan made without checking local conditions may fail despite good intentions",
+      "rewrite": "good intentions cannot ensure success when local needs are ignored",
+      "explanation_ja": "without checking→ignoredです。"
+    },
+    {
+      "source": "These observations cannot explain everything, but they may lead to new questions",
+      "rewrite": "simple observations have limits while encouraging further inquiry",
+      "explanation_ja": "cannot explain everything→have limitsです。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "土地の利用という見方と湿地の機能を対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Therefore",
+        "In addition"
+      ],
+      "explanation_ja": "幼い動物の隠れ場所の具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "In addition",
+      "options": [
+        "In addition",
+        "However",
+        "Therefore",
+        "For example"
+      ],
+      "explanation_ja": "歩道に加え標識という方法を提示。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "管理の難しさの後に身近な観察方法を示します。"
+    }
+  ]
+}
