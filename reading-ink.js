@@ -70,7 +70,7 @@
    toggle.setAttribute('aria-pressed',String(open&&mode!=='off'));
    toggle.setAttribute('aria-label',open?'書き込みを終了':'書き込みを開始');
    toggle.classList.toggle('ink-on',open&&mode!=='off');
-   panel.hidden=!panelOpen;
+   panel.hidden=!open;
    if(settings){
     settings.hidden=!open;
     settings.setAttribute('aria-expanded',String(panelOpen));
@@ -277,14 +277,10 @@
   }
   toggle.addEventListener('click',()=>{
    if(open){finish();return;}
-   open=true;mode='pen';visible=true;panelOpen=false;setControls();
+   open=true;mode='pen';visible=true;panelOpen=true;setControls();
    notice('書き込み中：この端末へ自動保存されます。',false);
   });
-  settings?.addEventListener('click',()=>{
-   if(!open)return;
-   panelOpen=!panelOpen;
-   setControls();
-  });
+  // The tool row is always shown while writing is ON; no extra settings tap.
   panel.addEventListener('click',event=>{
    const btn=event.target.closest?.('[data-ink-action]');
    if(!btn)return;
@@ -298,9 +294,10 @@
     case 'visibility':visible=!visible;if(!visible)mode='off';else mode='pen';break;
     case 'done':finish();return;
    }
-   panelOpen=false;setControls();
+   // Keep the inline tools visible: pen and eraser switch with one tap.
+   panelOpen=open;setControls();
   });
-  tool('finger')?.addEventListener('change',event=>{finger=!!event.target.checked;panelOpen=false;setControls();});
+  tool('finger')?.addEventListener('change',event=>{finger=!!event.target.checked;panelOpen=open;setControls();});
   return {sync,finish,undo,notice,getKey:()=>key,debug:()=>({key,mode,open,strokes:Object.values(doc.paragraphs).reduce((n,arr)=>n+arr.length,0)})};
  }
  function init(){
