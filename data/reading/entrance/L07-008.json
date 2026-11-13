@@ -1,0 +1,730 @@
+{
+  "id": "L07-008",
+  "category_id": "L07",
+  "title": "The Price of a School Lunch",
+  "title_ja": "給食の値段だけでは見えないもの",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "word_count": 289,
+  "source_links": [
+    {
+      "title": "General background reference",
+      "url": "https://www.unep.org/topics/resource-efficiency"
+    }
+  ],
+  "fact_notes": [
+    "出来事・関係者は架空のオリジナル教材です。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A student council wants to offer affordable lunches during a school event.",
+          "ja": "生徒会は学校行事で手頃な価格の昼食を提供したいと考えます。"
+        },
+        {
+          "en": "Several members choose the cheapest menu without checking its ingredients.",
+          "ja": "一部の役員は材料を確認せず最も安い献立を選びます。"
+        },
+        {
+          "en": "However, another student asks how much food might be left uneaten.",
+          "ja": "しかし別の生徒はどのくらい食べ残しが出るか尋ねます。"
+        },
+        {
+          "en": "She also wonders whether the menu suits students with different dietary needs.",
+          "ja": "異なる食事上の必要を持つ生徒に献立が合うかも気になります。"
+        },
+        {
+          "en": "The council realizes that price is only one part of planning meals.",
+          "ja": "生徒会は価格は食事計画の一要素にすぎないと気づきます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The members compare several meal options using a simple table.",
+          "ja": "役員たちは簡単な表を使って複数の献立を比べます。"
+        },
+        {
+          "en": "For example, one option is inexpensive but includes portions that many students may find too large.",
+          "ja": "例えば一つの献立は安いものの、多くの生徒には量が多すぎるかもしれません。"
+        },
+        {
+          "en": "Another has a higher initial price but allows smaller portions.",
+          "ja": "別の献立は最初の価格は高いですが少なめの量を選べます。"
+        },
+        {
+          "en": "The council asks students about their preferences without collecting private health information.",
+          "ja": "生徒会は個人の健康情報を集めず好みを尋ねます。"
+        },
+        {
+          "en": "It learns that a useful comparison should include both cost and likely use.",
+          "ja": "役立つ比較には費用と実際の利用見込みの両方が必要だと学びます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The council also talks with people who prepare and serve food.",
+          "ja": "生徒会は調理や配膳をする人々とも話します。"
+        },
+        {
+          "en": "They explain that preparing different portions can require extra planning.",
+          "ja": "人々は異なる量を準備するには追加の計画が必要だと説明します。"
+        },
+        {
+          "en": "Instead of assuming every change is easy, the students consider the workers' time.",
+          "ja": "すべての変更が簡単だと決めつけず作業者の時間を考慮します。"
+        },
+        {
+          "en": "They calculate a possible budget without claiming that their estimates are exact.",
+          "ja": "見積もりが正確だと主張せず予算を計算します。"
+        },
+        {
+          "en": "A small trial could show which choices students actually make.",
+          "ja": "小さな試験運用は生徒が実際に何を選ぶか示すでしょう。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "During the trial, students choose between two portion sizes.",
+          "ja": "試験運用では生徒は二つの量から選びます。"
+        },
+        {
+          "en": "Nevertheless, the council knows that one event cannot predict every future meal.",
+          "ja": "それでも一回の行事で今後のすべての食事は予測できないと理解します。"
+        },
+        {
+          "en": "It records how much food remains and asks for feedback.",
+          "ja": "どのくらい食べ物が残ったかを記録し、意見を尋ねます。"
+        },
+        {
+          "en": "Some students prefer a small meal, while others still need a larger one.",
+          "ja": "少なめを好む生徒もいれば多めが必要な生徒もいます。"
+        },
+        {
+          "en": "The findings help the group revise its plan without forcing one choice on everyone.",
+          "ja": "調査結果は全員に一つの選択を強制せず計画を修正する助けとなります。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "At the end, the council presents its cost and waste estimates to teachers.",
+          "ja": "最後に生徒会は費用と食べ残しの見積もりを教師に示します。"
+        },
+        {
+          "en": "It explains which questions still require more information.",
+          "ja": "まだ情報が必要な問いも説明します。"
+        },
+        {
+          "en": "As a result, the plan becomes more practical than simply selecting the lowest price.",
+          "ja": "その結果、単に最低価格を選ぶより実用的な計画になります。"
+        },
+        {
+          "en": "The students learn that economic choices often involve several connected costs.",
+          "ja": "生徒たちは経済的な選択に関連した複数の費用が伴うと学びます。"
+        },
+        {
+          "en": "A thoughtful budget considers people, resources, and what actually gets used.",
+          "ja": "慎重な予算では人、資源、実際に使われるものを考慮します。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "How do some members first choose the menu?",
+      "options": [
+        "By selecting the cheapest option.",
+        "By surveying every student.",
+        "By checking every food restriction.",
+        "By comparing food waste."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「一部の役員は材料を確認せず最も安い献立を選びます。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What do council members come to realize?",
+      "options": [
+        "Every student eats the same amount.",
+        "Food waste cannot be reduced.",
+        "All low-priced meals are unhealthy.",
+        "Price is only one factor in planning."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「生徒会は価格は食事計画の一要素にすぎないと気づきます。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What is a possible problem with the cheapest option?",
+      "options": [
+        "It requires every student to travel.",
+        "It has no price.",
+        "Its portions may be too large.",
+        "It contains no food."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「例えば一つの献立は安いものの、多くの生徒には量が多すぎるかもしれません。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What information does the survey avoid collecting?",
+      "options": [
+        "Choices between lunches.",
+        "Private health information.",
+        "Students' food preferences.",
+        "Opinions about portions."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「生徒会は個人の健康情報を集めず好みを尋ねます。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "Why may changing portions take work?",
+      "options": [
+        "It can require extra planning by staff.",
+        "It always reduces preparation time to zero.",
+        "Every portion is identical.",
+        "No food needs to be prepared."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「人々は異なる量を準備するには追加の計画が必要だと説明します。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What does the council calculate?",
+      "options": [
+        "The exact cost of every future event.",
+        "All students' family income.",
+        "The school's building price.",
+        "A possible budget."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「見積もりが正確だと主張せず予算を計算します。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "Why is one trial insufficient?",
+      "options": [
+        "It can never collect feedback.",
+        "The school has no kitchen.",
+        "It cannot predict every later meal.",
+        "It includes no student choices."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「それでも一回の行事で今後のすべての食事は予測できないと理解します。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "How do findings influence the plan?",
+      "options": [
+        "They end discussion permanently.",
+        "They help adjust it without forcing one portion size.",
+        "They show all students eat the same amount.",
+        "They prove that prices never matter."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「調査結果は全員に一つの選択を強制せず計画を修正する助けとなります。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Who hears the estimates?",
+      "options": [
+        "Teachers.",
+        "Only local drivers.",
+        "Only students at another school.",
+        "Nobody."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「その結果、単に最低価格を選ぶより実用的な計画になります。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the main argument?",
+      "options": [
+        "The cheapest menu is always the best choice.",
+        "Food choices have only one cost.",
+        "Student preferences should never be considered.",
+        "Meal planning should compare price, needs, resources, and likely waste."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「慎重な予算では人、資源、実際に使われるものを考慮します。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "actually",
+      "ja": "実際に",
+      "synonym": "really",
+      "definition": "in fact rather than only in theory"
+    },
+    {
+      "term": "checking",
+      "ja": "確認すること",
+      "synonym": "verification",
+      "definition": "testing whether something is right"
+    },
+    {
+      "term": "choice",
+      "ja": "選択",
+      "synonym": "decision",
+      "definition": "the act of selecting an action"
+    },
+    {
+      "term": "choices",
+      "ja": "選択",
+      "synonym": "options",
+      "definition": "things people can select"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "contrast",
+      "definition": "to examine differences and similarities"
+    },
+    {
+      "term": "connected",
+      "ja": "関わりのある",
+      "synonym": "associated",
+      "definition": "having a meaningful relationship with something"
+    },
+    {
+      "term": "consider",
+      "ja": "考慮する",
+      "synonym": "think about",
+      "definition": "to examine an idea before deciding"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "event",
+      "ja": "行事",
+      "synonym": "occasion",
+      "definition": "a planned activity"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "feedback",
+      "ja": "意見",
+      "synonym": "responses",
+      "definition": "comments on an experience"
+    },
+    {
+      "term": "findings",
+      "ja": "調査結果",
+      "synonym": "results",
+      "definition": "information learned through investigation"
+    },
+    {
+      "term": "health",
+      "ja": "健康",
+      "synonym": "well-being",
+      "definition": "condition of body and mind"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "details",
+      "definition": "facts people can use"
+    },
+    {
+      "term": "needs",
+      "ja": "必要",
+      "synonym": "requirements",
+      "definition": "things necessary for well-being"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "practical",
+      "ja": "実用的な",
+      "synonym": "useful",
+      "definition": "possible and helpful"
+    },
+    {
+      "term": "prefer",
+      "ja": "好む",
+      "synonym": "favor",
+      "definition": "to like one option more"
+    },
+    {
+      "term": "prepare",
+      "ja": "準備する",
+      "synonym": "make",
+      "definition": "get something ready"
+    },
+    {
+      "term": "private",
+      "ja": "個人的な",
+      "synonym": "personal",
+      "definition": "not shared with everyone"
+    },
+    {
+      "term": "records",
+      "ja": "記録",
+      "synonym": "documents",
+      "definition": "written accounts kept for later use"
+    },
+    {
+      "term": "resources",
+      "ja": "資源",
+      "synonym": "materials",
+      "definition": "things used to produce goods"
+    },
+    {
+      "term": "revise",
+      "ja": "修正する",
+      "synonym": "reconsider",
+      "definition": "to change after reviewing"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "student",
+      "ja": "生徒",
+      "synonym": "learner",
+      "definition": "a person learning at school"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "Teachers",
+      "ja": "教師たち",
+      "synonym": "educators",
+      "definition": "people who teach"
+    },
+    {
+      "term": "thoughtful",
+      "ja": "思慮深い",
+      "synonym": "considerate",
+      "definition": "showing care and attention"
+    },
+    {
+      "term": "workers",
+      "ja": "作業者",
+      "synonym": "staff",
+      "definition": "people doing a job"
+    },
+    {
+      "term": "council",
+      "ja": "生徒会",
+      "synonym": "committee",
+      "definition": "a group that plans school decisions"
+    },
+    {
+      "term": "affordable",
+      "ja": "手頃な",
+      "synonym": "inexpensive",
+      "definition": "not too costly"
+    },
+    {
+      "term": "lunches",
+      "ja": "昼食",
+      "synonym": "meals",
+      "definition": "food eaten in the middle of the day"
+    },
+    {
+      "term": "menu",
+      "ja": "献立",
+      "synonym": "meal list",
+      "definition": "a list of dishes"
+    },
+    {
+      "term": "ingredients",
+      "ja": "材料",
+      "synonym": "components",
+      "definition": "things used to prepare food"
+    },
+    {
+      "term": "uneaten",
+      "ja": "食べられていない",
+      "synonym": "leftover",
+      "definition": "not consumed"
+    },
+    {
+      "term": "dietary",
+      "ja": "食事の",
+      "synonym": "food-related",
+      "definition": "connected with food needs"
+    },
+    {
+      "term": "portions",
+      "ja": "分量",
+      "synonym": "servings",
+      "definition": "amounts of food served"
+    },
+    {
+      "term": "portion",
+      "ja": "分量",
+      "synonym": "serving",
+      "definition": "an amount of food"
+    },
+    {
+      "term": "price",
+      "ja": "価格",
+      "synonym": "cost",
+      "definition": "money paid for something"
+    },
+    {
+      "term": "budget",
+      "ja": "予算",
+      "synonym": "funds",
+      "definition": "money available for a purpose"
+    },
+    {
+      "term": "estimates",
+      "ja": "見積もり",
+      "synonym": "approximations",
+      "definition": "possible amounts calculated"
+    },
+    {
+      "term": "waste",
+      "ja": "廃棄",
+      "synonym": "unused material",
+      "definition": "unwanted food or material"
+    },
+    {
+      "term": "preferences",
+      "ja": "好み",
+      "synonym": "choices",
+      "definition": "things people prefer"
+    },
+    {
+      "term": "trial",
+      "ja": "試験運用",
+      "synonym": "test",
+      "definition": "a small attempt to evaluate a plan"
+    },
+    {
+      "term": "costs",
+      "ja": "費用",
+      "synonym": "expenses",
+      "definition": "money required for something"
+    },
+    {
+      "term": "economic",
+      "ja": "経済的な",
+      "synonym": "financial",
+      "definition": "related to resources and choices"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "whether the menu suits students with different dietary needs",
+      "explanation_ja": "whether節は献立が合うかどうかを示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "without collecting private health information",
+      "explanation_ja": "without + 動名詞で調査の条件を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of assuming every change is easy",
+      "explanation_ja": "instead of + 動名詞は思い込みを避けることです。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 4,
+      "focus": "what actually gets used",
+      "explanation_ja": "what節は実際の利用を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "安さ以外の問題を導きます。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "量が多すぎる献立を例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "一度の試験では限界があると示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "複数の費用を考えた計画になる結果です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The council realizes that price is only one part of planning meals.",
+      "rewrite": "Students realize that planning involves more than menu price.",
+      "explanation_ja": "価格以外の要素もあるという意味です。"
+    },
+    {
+      "source": "It learns that a useful comparison should include both cost and likely use.",
+      "rewrite": "Both cost and actual demand should guide the comparison.",
+      "explanation_ja": "費用と需要を併せて考えます。"
+    },
+    {
+      "source": "The findings help the group revise its plan without forcing one choice on everyone.",
+      "rewrite": "The trial helps revise the plan without imposing a single choice.",
+      "explanation_ja": "選択を強制せず計画を改善します。"
+    },
+    {
+      "source": "A thoughtful budget considers people, resources, and what actually gets used.",
+      "rewrite": "Good budgeting considers people and resources as well as money.",
+      "explanation_ja": "人や資源も考慮するという結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "安さ以外の問題を導きます。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "量が多すぎる献立を例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "一度の試験では限界があると示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "複数の費用を考えた計画になる結果です。"
+    }
+  ]
+}
