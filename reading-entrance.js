@@ -71,8 +71,11 @@ function renderSetList(){
  $('availableCount').textContent='('+list.length+'件)';
  $('setList').innerHTML=list.length?list.map(s=>{
  const cat=label(s.category_id,state.manifest.categories),lvl=(s.level_ids||[s.level_id]).map(id=>label(id,state.manifest.levels)).join(' / ');
- const score=readProgress(s.id).answers||{};const done=Object.keys(score).length;
- return '<button type="button" role="listitem" data-set="'+esc(s.id)+'" class="'+(state.lesson?.id===s.id?'active':'')+'"><strong>'+esc(s.title)+'</strong><small>'+esc(cat)+' · '+esc(lvl)+' · '+s.word_count+'語 · 回答 '+done+'/'+s.questions.length+'</small></button>';
+ const progress=readProgress(s.id),score=progress.answers||{};
+ const ids=progress.questionIds||[];
+ const done=ids.length?ids.filter(id=>Number.isInteger(score[id])).length:Object.keys(score).length;
+ const total=ids.length||Math.min(10,s.questions.length);
+ return '<button type="button" role="listitem" data-set="'+esc(s.id)+'" class="'+(state.lesson?.id===s.id?'active':'')+'"><strong>'+esc(s.title)+'</strong><small>'+esc(cat)+' · '+esc(lvl)+' · '+s.word_count+'語 · 回答 '+done+'/'+total+'</small></button>';
  }).join(''):'<p class="empty">この条件の長文はまだ準備中です。他のレベル・分野をご覧ください。</p>';
  $('setList').querySelectorAll('[data-set]').forEach(b=>b.addEventListener('click',()=>selectLesson(b.dataset.set)));
 }
@@ -120,10 +123,12 @@ function renderBrowse(){
  }else{
   $('browseCards').className='browse-cards browse-articles';
   html=browseAvailable(category,level).map((item,i)=>{
-   const done=Object.keys(readProgress(item.id).answers||{}).length;
+   const previous=readProgress(item.id),ids=previous.questionIds||[];
+   const done=ids.length?ids.filter(id=>Number.isInteger(previous.answers?.[id])).length:Object.keys(previous.answers||{}).length;
+   const total=ids.length||Math.min(10,item.questions.length);
    return browseCard(item.id,item.title_ja||item.title,
-    item.title+' · '+item.word_count+' words · '+item.questions.length+' 問',
-    '回答 '+done+'/'+item.questions.length,String(i+1).padStart(2,'0'),false,'📖');
+    item.title+' · '+item.word_count+' words · 最大'+Math.min(10,item.questions.length)+' 問',
+    '回答 '+done+'/'+total,String(i+1).padStart(2,'0'),false,'📖');
   }).join('')||'<p class="browse-empty">この条件にはまだ教材がありません。戻って別のレベルを選択してください。</p>';
  }
  $('browseCards').innerHTML=html;
@@ -1179,9 +1184,23 @@ $('vocabListSearch').addEventListener('input',event=>{
  });
  $('vocabListCount').textContent=count+' / '+(state.lesson?.vocabulary.length||0)+'語を表示';
 });
+$('readingQuestionCountChoices').addEventListener('click',event=>{
+ const card=event.target.closest?.('[data-reading-count]');
+ if(!card)return;
+ selectQuestionCount(Number(card.dataset.readingCount));
+});
+$('changeQuestionCount').addEventListener('click',()=>{
+ if(!state.lesson)return;
+ state.questionCountChosen=false;
+ state.gradingChosen=false;
+ state.support=false;state.activeQuestionId=null;
+ renderQuestions();renderPassage(true);focusEvidence(null,false);
+ $('questionScroll').scrollTop=0;
+ $('readingQuestionCountChoices').querySelector('[data-reading-count]')?.focus({preventScroll:true});
+});
 $('gradingSettings').querySelectorAll('[data-grading-mode]').forEach(button=>button.addEventListener('click',()=>{
  const selected=button.dataset.gradingMode;
- if(selected!=='batch'&&selected!=='immediate'||state.gradingChosen||!state.lesson)return;
+ if(selected!=='batch'&&selected!=='immediate'||state.gradingChosen||!state.questionCountChosen||!state.lesson)return;
  state.gradingMode=selected;state.gradingChosen=true;
  try{localStorage.setItem('copeak-reading-grading-mode',selected);}catch(_){}
  renderQuestions();$('questionScroll').scrollTop=0;
@@ -1189,10 +1208,10 @@ $('gradingSettings').querySelectorAll('[data-grading-mode]').forEach(button=>but
 }));
 $('gradeAll').addEventListener('click',()=>{
  if(!state.lesson||state.gradingMode!=='batch'||state.graded)return;
- if(!state.lesson.questions.every(q=>Number.isInteger(state.answers[q.id])))return;
+ if(!activeQuestions().length||!activeQuestions().every(q=>Number.isInteger(state.answers[q.id])))return;
  state.graded=true;recordCompletion('questions');renderQuestions();renderPracticeProgress();
- const accurate=state.lesson.questions.filter(q=>state.answers[q.id]===q.answer).length;
- if(accurate/state.lesson.questions.length>=0.8)window.CopeakReadingEffects?.celebrate();
+ const active=activeQuestions(),accurate=active.filter(q=>state.answers[q.id]===q.answer).length;
+ if(accurate/active.length>=0.8)window.CopeakReadingEffects?.celebrate();
  $('questionScroll').scrollTo({top:0,behavior:'smooth'});
 });
 $('resetAnswers').addEventListener('click',()=>{
@@ -1206,7 +1225,12 @@ try{state.gradingMode=localStorage.getItem('copeak-reading-grading-mode')==='bat
 
 $('printOpen').addEventListener('click',()=>$('printDialog').showModal());
 $('printPdf').addEventListener('click',printPDF);$('printDocx').addEventListener('click',downloadDocx);
-window.CopeakReadingExamContext=()=>({lesson:state.lesson,mode:state.exercise||'questions',sets:state.sets,direction:$('vocabQuizMode').value});
+window.CopeakReadingExamContext=()=>({
+ lesson:state.lesson&&(state.exercise||'questions')==='questions'&&state.questionCountChosen
+  ?{...state.lesson,questions:activeQuestions()}:state.lesson,
+ mode:state.exercise||'questions',sets:state.sets,direction:$('vocabQuizMode').value,
+ requiresQuestionCount:(state.exercise||'questions')==='questions'&&!state.questionCountChosen
+});
 try{state.lookupEnabled=localStorage.getItem('copeak-reading-lookup-enabled')!=='false';}catch(_){}
 function updateLookupUI(){
  const button=$('wordLookupToggle');
