@@ -619,6 +619,12 @@ function practiceRecord(mode){
   }
   record.migrated=true;
  }
+ // A legacy six-word/ two-blank bank may already be marked complete.
+ // Preserve past runs and best scores, but reopen newly added questions.
+ if(record.finished&&state.lesson&&['vocab','grammar','cloze'].includes(mode)){
+  const items=practiceBank(mode);
+  if(items.some(item=>!Number.isInteger(record.answers[item.id])))record.finished=false;
+ }
  return record;
 }
 function modeSummary(mode){
@@ -696,6 +702,7 @@ function renderModeList(){
   '<span>類義語：'+esc(v.synonym||'—')+'</span><span>英英定義：'+esc(v.definition)+'</span></article>'
  ).join('');
  $('vocabListCount').textContent=list.length+'語を収録';
+ $('vocabListToggle').textContent='語彙一覧を見る（'+list.length+'語）';
  $('vocabListSearch').value='';
 }
 function practiceSourceHtml(mode,item){
