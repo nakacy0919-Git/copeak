@@ -1,0 +1,778 @@
+{
+  "id": "L15-002",
+  "category_id": "L15",
+  "title": "When a Helpful Algorithm Makes the Wrong Choice",
+  "title_ja": "便利なAIが誤った判断をしたとき",
+  "level_id": "eiken-pre1",
+  "word_count": 490,
+  "original": true,
+  "status": "draft",
+  "source_links": [
+    {
+      "title": "UNESCO: Recommendation on the Ethics of Artificial Intelligence",
+      "url": "https://www.unesco.org/en/legal-affairs/recommendation-ethics-artificial-intelligence"
+    }
+  ],
+  "fact_notes": [
+    "背景となる考え方は添付の資料で確認。本文と練習問題は新規制作。例示した人物・学校・活動は架空の説明用設定。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A school uses an automated system to help organize the many requests it receives from students each week.",
+          "ja": "ある学校は毎週生徒から届く多くの申請を整理するため、自動化されたシステムを使います。"
+        },
+        {
+          "en": "The system sorts forms, suggests which office should answer them, and saves staff members time during busy periods.",
+          "ja": "その仕組みは書類を分類し、担当部署を提案し、忙しい時期に職員の時間を節約します。"
+        },
+        {
+          "en": "However, a useful suggestion is not the same as a decision that should be accepted without question.",
+          "ja": "しかし役に立つ提案は、疑問を持たず受け入れるべき決定と同じではありません。"
+        },
+        {
+          "en": "Imagine that the software repeatedly directs requests written in an unfamiliar language to the wrong office.",
+          "ja": "例えば、そのソフトがなじみのない言語で書かれた申請を繰り返し誤った部署へ送ると想像してください。"
+        },
+        {
+          "en": "The mistake might appear small to a designer but become serious for students who need support quickly.",
+          "ja": "設計者には小さな誤りに見えても、素早い支援を必要とする生徒には重大になり得ます。"
+        },
+        {
+          "en": "This raises a question about responsibility: Who notices, explains, and corrects a harmful automated decision?",
+          "ja": "これは責任についての問いを生みます。害を与える自動判断に誰が気づき、説明し、訂正するのでしょうか。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The UNESCO Recommendation on the Ethics of Artificial Intelligence emphasizes human oversight and accountability for AI systems.",
+          "ja": "ユネスコのAI倫理勧告は、AIシステムに対する人間の監督と説明責任を重視しています。"
+        },
+        {
+          "en": "Human oversight does not mean that a person must check every harmless computer operation by hand.",
+          "ja": "人間の監督とは、無害なすべてのコンピューター処理を人が手作業で確かめることではありません。"
+        },
+        {
+          "en": "Instead, it means that meaningful human responsibility must remain when decisions affect people's rights or well-being.",
+          "ja": "むしろ人々の権利や幸福に判断が影響するとき、意味ある人間の責任が残る必要があるということです。"
+        },
+        {
+          "en": "For example, an automated recommendation concerning access to an important service should be open to review.",
+          "ja": "例えば重要なサービスへのアクセスに関する自動的な提案は、見直しが可能であるべきです。"
+        },
+        {
+          "en": "Someone affected by the outcome needs a way to ask questions and request correction if the result is wrong.",
+          "ja": "結果によって影響を受けた人には、質問し、結果が誤っている場合に訂正を求める方法が必要です。"
+        },
+        {
+          "en": "A system that cannot be challenged may be efficient for administrators while leaving users with little protection.",
+          "ja": "異議を唱えられない仕組みは管理者には効率的でも、利用者の保護は不十分になり得ます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Designers also need to examine the information used to train or evaluate an automated system.",
+          "ja": "設計者は自動化された仕組みの学習や評価に使う情報も調べる必要があります。"
+        },
+        {
+          "en": "If the examples come mainly from one language group, the system may perform less reliably for others.",
+          "ja": "事例が主に一つの言語集団から来ていれば、他の集団には性能が安定しないかもしれません。"
+        },
+        {
+          "en": "In addition, a system may seem accurate on familiar test cases but fail when circumstances change.",
+          "ja": "さらに、見慣れたテスト例では正確に見えても、状況が変わると失敗する場合があります。"
+        },
+        {
+          "en": "Checking only the average result can hide errors that repeatedly affect a smaller group of users.",
+          "ja": "平均の結果だけの確認では、少数の利用者集団に繰り返し起こる誤りを隠してしまうことがあります。"
+        },
+        {
+          "en": "A responsible evaluation therefore considers who benefits, who may be harmed, and how often problems occur.",
+          "ja": "したがって責任ある評価では、誰が利益を得て誰が害を受け得るか、問題の頻度も考慮します。"
+        },
+        {
+          "en": "Such questions are important even when no one intentionally designed the software to treat people unfairly.",
+          "ja": "誰も不公平な扱いを意図して設計していない場合でも、こうした問いは重要です。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Transparency is another principle, but it must be connected with explanations that ordinary users can understand.",
+          "ja": "透明性ももう一つの原則ですが、一般の利用者が理解できる説明と結びつける必要があります。"
+        },
+        {
+          "en": "Publishing thousands of technical lines may reveal information without helping a student understand a particular decision.",
+          "ja": "何千行もの技術情報を公開しても、個別の判断を生徒が理解する助けにはならないかもしれません。"
+        },
+        {
+          "en": "Nevertheless, a useful explanation should identify the main factors involved and describe a realistic way to request review.",
+          "ja": "それでも役立つ説明は、主な要因を示し、現実的な再検討の依頼方法を説明すべきです。"
+        },
+        {
+          "en": "For example, the school might tell a student which office received the request and whom to contact if it was misplaced.",
+          "ja": "例えば学校は申請が届いた部署と、送付先が誤っていた場合の連絡先を伝えられます。"
+        },
+        {
+          "en": "This information would be more helpful than a message simply announcing that the system made its decision.",
+          "ja": "その情報はシステムが判断したと告げるだけのメッセージより有益でしょう。"
+        },
+        {
+          "en": "The quality of an explanation should be judged by whether it enables people to understand and respond.",
+          "ja": "説明の質は、人々が理解し対応できるかで評価されるべきです。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "Students discussing AI ethics can begin with an ordinary situation rather than an imaginary future disaster.",
+          "ja": "AI倫理を話し合う生徒は、架空の未来の大災害ではなく日常的な状況から考え始められます。"
+        },
+        {
+          "en": "They might compare a system that only recommends an office with one that automatically rejects a request.",
+          "ja": "単に部署を提案する仕組みと、自動的に申請を却下する仕組みを比較できます。"
+        },
+        {
+          "en": "The second has greater consequences, so it may require stronger checks and a clearer path for human intervention.",
+          "ja": "後者は影響が大きいため、より厳密な確認と明確な人間の介入方法が必要かもしれません。"
+        },
+        {
+          "en": "Therefore, the most important question is not whether automation saves time, but who remains responsible when it fails.",
+          "ja": "したがって最も重要なのは自動化が時間を節約するかではなく、失敗時に誰が責任を持つかです。"
+        },
+        {
+          "en": "A genuinely helpful system makes work easier while keeping affected people visible, informed, and able to seek change.",
+          "ja": "真に役立つ仕組みは仕事を楽にしつつ、影響を受ける人々を見落とさず、情報を与え、変更を求められるようにします。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the central claim of the passage?",
+      "options": [
+        "All automated systems should be banned from schools.",
+        "Saving staff time is the only measure of a useful system.",
+        "Human accountability and opportunities for review are essential when automated systems affect people.",
+        "Technical explanations should always be longer."
+      ],
+      "answer": 2,
+      "explanation_ja": "自動化された判断に人間の責任と見直しの機会が必要という主題です。",
+      "paragraph_ids": [
+        "p1",
+        "p2",
+        "p5"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What does the fictional school system do?",
+      "options": [
+        "It sorts requests and suggests which office should respond.",
+        "It decides the country's laws.",
+        "It replaces every teacher.",
+        "It writes all students' homework."
+      ],
+      "answer": 0,
+      "explanation_ja": "申請の仕分けと担当部署の提案を行う仕組みです。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why could an apparently small mistake be serious?",
+      "options": [
+        "The system would stop using computers.",
+        "A student needing quick help may be sent to the wrong office.",
+        "Every student speaks the same language.",
+        "Only administrators have problems."
+      ],
+      "answer": 1,
+      "explanation_ja": "支援が必要な生徒に重大な影響を与え得るからです。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "Which principle is emphasized by UNESCO?",
+      "options": [
+        "Replacing all human judgment.",
+        "Preventing every harmless computer calculation.",
+        "Using only one language for training.",
+        "Human oversight and accountability."
+      ],
+      "answer": 3,
+      "explanation_ja": "人間の監督と説明責任を明示しています。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What should an affected person be able to do?",
+      "options": [
+        "Ignore every school rule.",
+        "See all private records.",
+        "Ask questions and request correction.",
+        "Choose the computer's next training example."
+      ],
+      "answer": 2,
+      "explanation_ja": "疑問を示し訂正を求める方法が必要と述べます。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why might average accuracy be misleading?",
+      "options": [
+        "Repeated mistakes involving a small group can be hidden.",
+        "An average always describes each individual exactly.",
+        "Small groups never use the software.",
+        "Most test results are necessarily false."
+      ],
+      "answer": 0,
+      "explanation_ja": "一部の集団に集中した問題が平均値に隠れる場合があります。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'intervention' most nearly mean in the final paragraph?",
+      "options": [
+        "A new computer chip.",
+        "Human action taken to change or correct a situation.",
+        "A form that is never read.",
+        "A document written in secret."
+      ],
+      "answer": 1,
+      "explanation_ja": "interventionは人が介入し状況を修正することです。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What can make an explanation more helpful?",
+      "options": [
+        "Including every technical line in full.",
+        "Removing all contact information.",
+        "Announcing only that a decision was made.",
+        "Naming the responsible office and a route to review."
+      ],
+      "answer": 3,
+      "explanation_ja": "担当部署と再検討の連絡方法が役立つと述べます。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Why compare recommendations with automatic rejections?",
+      "options": [
+        "The two systems necessarily have equal risks.",
+        "The first can never be mistaken.",
+        "Different consequences may require different levels of checking.",
+        "Students should always accept automatic decisions."
+      ],
+      "answer": 2,
+      "explanation_ja": "人への影響の大きさで監督の厳しさが変わるためです。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "What does the final sentence emphasize?",
+      "options": [
+        "Efficiency must be combined with people knowing and exercising their rights.",
+        "Systems should never make work easier.",
+        "The most expensive system is always the safest.",
+        "Users should not question decisions."
+      ],
+      "answer": 0,
+      "explanation_ja": "便利さと人への説明・訂正の権利を両立すべきという結論です。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "automated",
+      "ja": "自動化された",
+      "synonym": "machine-operated",
+      "definition": "performed by a computer without each action being done by a person"
+    },
+    {
+      "term": "organize",
+      "ja": "整理する",
+      "synonym": "arrange",
+      "definition": "to put things into a useful order"
+    },
+    {
+      "term": "requests",
+      "ja": "申請・依頼",
+      "synonym": "applications",
+      "definition": "formal or informal asks for help"
+    },
+    {
+      "term": "sorts",
+      "ja": "分類する",
+      "synonym": "categorizes",
+      "definition": "puts things into groups"
+    },
+    {
+      "term": "forms",
+      "ja": "書類",
+      "synonym": "documents",
+      "definition": "papers containing information"
+    },
+    {
+      "term": "suggests",
+      "ja": "提案する",
+      "synonym": "recommends",
+      "definition": "offers a possible course of action"
+    },
+    {
+      "term": "office",
+      "ja": "部署・事務室",
+      "synonym": "department",
+      "definition": "part of an organization handling work"
+    },
+    {
+      "term": "staff",
+      "ja": "職員",
+      "synonym": "employees",
+      "definition": "people working for an organization"
+    },
+    {
+      "term": "periods",
+      "ja": "時期",
+      "synonym": "intervals",
+      "definition": "lengths of time"
+    },
+    {
+      "term": "accepted",
+      "ja": "受け入れられた",
+      "synonym": "approved",
+      "definition": "received as correct or suitable"
+    },
+    {
+      "term": "software",
+      "ja": "ソフトウェア",
+      "synonym": "programs",
+      "definition": "computer instructions used to perform tasks"
+    },
+    {
+      "term": "unfamiliar",
+      "ja": "なじみのない",
+      "synonym": "unknown",
+      "definition": "not recognized from past experience"
+    },
+    {
+      "term": "mistake",
+      "ja": "間違い",
+      "synonym": "error",
+      "definition": "an incorrect action or result"
+    },
+    {
+      "term": "serious",
+      "ja": "重大な",
+      "synonym": "important",
+      "definition": "likely to have significant effects"
+    },
+    {
+      "term": "designer",
+      "ja": "設計者",
+      "synonym": "developer",
+      "definition": "a person who plans how a system works"
+    },
+    {
+      "term": "responsibility",
+      "ja": "責任",
+      "synonym": "duty",
+      "definition": "an obligation to deal with consequences"
+    },
+    {
+      "term": "notices",
+      "ja": "気づく",
+      "synonym": "observes",
+      "definition": "becomes aware of something"
+    },
+    {
+      "term": "corrects",
+      "ja": "訂正する",
+      "synonym": "fixes",
+      "definition": "changes an error to make it right"
+    },
+    {
+      "term": "harmful",
+      "ja": "有害な",
+      "synonym": "damaging",
+      "definition": "likely to cause harm"
+    },
+    {
+      "term": "oversight",
+      "ja": "監督",
+      "synonym": "supervision",
+      "definition": "human checking and control of a system"
+    },
+    {
+      "term": "accountability",
+      "ja": "説明責任",
+      "synonym": "answerability",
+      "definition": "being responsible and able to explain decisions"
+    },
+    {
+      "term": "harmless",
+      "ja": "無害な",
+      "synonym": "safe",
+      "definition": "not causing injury or damage"
+    },
+    {
+      "term": "operation",
+      "ja": "動作",
+      "synonym": "process",
+      "definition": "a task performed by a system"
+    },
+    {
+      "term": "meaningful",
+      "ja": "意味のある",
+      "synonym": "significant",
+      "definition": "having practical value"
+    },
+    {
+      "term": "affect",
+      "ja": "影響する",
+      "synonym": "influence",
+      "definition": "to produce a change in something"
+    },
+    {
+      "term": "rights",
+      "ja": "権利",
+      "synonym": "entitlements",
+      "definition": "protections people may claim"
+    },
+    {
+      "term": "well-being",
+      "ja": "幸福・健康",
+      "synonym": "welfare",
+      "definition": "the state of being healthy and comfortable"
+    },
+    {
+      "term": "recommendation",
+      "ja": "提案・勧告",
+      "synonym": "advice",
+      "definition": "a suggested action or decision"
+    },
+    {
+      "term": "review",
+      "ja": "再検討",
+      "synonym": "reconsideration",
+      "definition": "another examination of a decision"
+    },
+    {
+      "term": "outcome",
+      "ja": "結果",
+      "synonym": "result",
+      "definition": "what follows from an action"
+    },
+    {
+      "term": "challenged",
+      "ja": "異議を唱えられる",
+      "synonym": "questioned",
+      "definition": "able to be questioned or disputed"
+    },
+    {
+      "term": "efficient",
+      "ja": "効率的な",
+      "synonym": "productive",
+      "definition": "achieving a result with little wasted effort"
+    },
+    {
+      "term": "administrators",
+      "ja": "管理者",
+      "synonym": "managers",
+      "definition": "people who organize an institution"
+    },
+    {
+      "term": "reliably",
+      "ja": "安定して",
+      "synonym": "dependably",
+      "definition": "in a consistent manner"
+    },
+    {
+      "term": "circumstances",
+      "ja": "状況",
+      "synonym": "conditions",
+      "definition": "facts affecting an event"
+    },
+    {
+      "term": "accurate",
+      "ja": "正確な",
+      "synonym": "correct",
+      "definition": "free from errors"
+    },
+    {
+      "term": "repeatedly",
+      "ja": "繰り返し",
+      "synonym": "again and again",
+      "definition": "many times"
+    },
+    {
+      "term": "average",
+      "ja": "平均の",
+      "synonym": "typical",
+      "definition": "representing the mean value"
+    },
+    {
+      "term": "hide",
+      "ja": "隠す",
+      "synonym": "conceal",
+      "definition": "to keep from being noticed"
+    },
+    {
+      "term": "benefits",
+      "ja": "利益・利点",
+      "synonym": "advantages",
+      "definition": "positive results"
+    },
+    {
+      "term": "intentionally",
+      "ja": "意図的に",
+      "synonym": "deliberately",
+      "definition": "done on purpose"
+    },
+    {
+      "term": "unfairly",
+      "ja": "不公平に",
+      "synonym": "inequitably",
+      "definition": "not treating people reasonably"
+    },
+    {
+      "term": "transparency",
+      "ja": "透明性",
+      "synonym": "openness",
+      "definition": "being open about how things work"
+    },
+    {
+      "term": "principle",
+      "ja": "原則",
+      "synonym": "rule",
+      "definition": "a basic idea guiding actions"
+    },
+    {
+      "term": "publishing",
+      "ja": "公表すること",
+      "synonym": "releasing",
+      "definition": "making information publicly available"
+    },
+    {
+      "term": "technical",
+      "ja": "技術的な",
+      "synonym": "specialized",
+      "definition": "connected with particular practical skills"
+    },
+    {
+      "term": "factors",
+      "ja": "要因",
+      "synonym": "elements",
+      "definition": "things affecting a result"
+    },
+    {
+      "term": "realistic",
+      "ja": "現実的な",
+      "synonym": "practical",
+      "definition": "suitable for actual conditions"
+    },
+    {
+      "term": "misplaced",
+      "ja": "誤った場所へ送られた",
+      "synonym": "misdirected",
+      "definition": "sent or put in the wrong place"
+    },
+    {
+      "term": "consequences",
+      "ja": "結果・影響",
+      "synonym": "effects",
+      "definition": "things that follow from an action"
+    },
+    {
+      "term": "intervention",
+      "ja": "介入",
+      "synonym": "action to help",
+      "definition": "action intended to change or correct a situation"
+    },
+    {
+      "term": "genuinely",
+      "ja": "本当に",
+      "synonym": "truly",
+      "definition": "in a real and honest way"
+    },
+    {
+      "term": "informed",
+      "ja": "情報を与えられた",
+      "synonym": "aware",
+      "definition": "having the necessary information"
+    },
+    {
+      "term": "affected",
+      "ja": "影響を受けた",
+      "synonym": "influenced",
+      "definition": "changed by the result of an action"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 4,
+      "focus": "who need support quickly",
+      "explanation_ja": "関係代名詞whoがstudentsを修飾しています。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "does not mean that a person must check every harmless computer operation by hand",
+      "explanation_ja": "does not mean that〜で誤った解釈を明確に否定します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "focus": "If the examples come mainly from one language group",
+      "explanation_ja": "Ifが条件節を導き、偏った例の影響を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "focus": "that ordinary users can understand",
+      "explanation_ja": "関係代名詞thatがexplanationsを修飾しています。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "not whether automation saves time, but who remains responsible when it fails",
+      "explanation_ja": "not A but Bで重要な問いを対比し、whetherとwhoは間接疑問節です。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "便利さと無批判の判断受容を対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "Instead",
+      "role_ja": "人の手作業との誤解から責任の必要へ転換。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "In addition",
+      "role_ja": "学習データの偏りに変化への弱さを追加。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "技術説明の限界を受けて役立つ説明の条件を示します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "a useful suggestion is not the same as a decision that should be accepted without question",
+      "rewrite": "helpful advice should not automatically become an unquestionable ruling",
+      "explanation_ja": "suggestion→advice、without question→unquestionableです。"
+    },
+    {
+      "source": "meaningful human responsibility must remain when decisions affect people's rights or well-being",
+      "rewrite": "people must keep real accountability for decisions influencing rights and welfare",
+      "explanation_ja": "meaningful→real、well-being→welfareです。"
+    },
+    {
+      "source": "Checking only the average result can hide errors that repeatedly affect a smaller group of users",
+      "rewrite": "overall accuracy can conceal recurring mistakes experienced by a minority of users",
+      "explanation_ja": "average result→overall accuracy、hide→concealです。"
+    },
+    {
+      "source": "the most important question is not whether automation saves time, but who remains responsible when it fails",
+      "rewrite": "the crucial issue is accountability for errors rather than efficiency alone",
+      "explanation_ja": "most important→crucial、saves time→efficiencyです。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "便利さと無批判の判断受容を対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "Instead",
+      "options": [
+        "Instead",
+        "Therefore",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "人の手作業との誤解から責任の必要へ転換。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "In addition",
+      "options": [
+        "In addition",
+        "However",
+        "Therefore",
+        "For example"
+      ],
+      "explanation_ja": "学習データの偏りに変化への弱さを追加。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "技術説明の限界を受けて役立つ説明の条件を示します。"
+    }
+  ]
+}
