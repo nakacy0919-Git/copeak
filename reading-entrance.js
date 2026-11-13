@@ -124,6 +124,11 @@ function renderBrowse(){
   }).join('')||'<p class="browse-empty">この条件にはまだ教材がありません。戻って別のレベルを選択してください。</p>';
  }
  $('browseCards').innerHTML=html;
+ // Expose the actual number of selectable cards for responsive grid balancing.
+ const cardCount=$('browseCards').querySelectorAll('.browse-card').length;
+ $('browseCards').dataset.count=String(cardCount);
+ // When advancing or returning between steps, show the first row, not the previous scroll position.
+ $('browseCards').scrollTop=0;
  $('browseNotice').textContent=step==='category'?'現在 '+state.sets.length+' セット収録 · 追加制作中':
   step==='level'?cLabel+' · '+browseAvailable(category).length+' セット収録':'学習記録はこの端末に保存されます。';
  $('browseCards').querySelectorAll('[data-browse-pick]').forEach(b=>b.addEventListener('click',()=>{
