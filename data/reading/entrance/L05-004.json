@@ -1,0 +1,712 @@
+{
+  "id": "L05-004",
+  "category_id": "L05",
+  "title": "A Global Project with Local Voices",
+  "title_ja": "世界とつながる活動に地域の声が必要な理由",
+  "level_id": "eiken-pre2",
+  "word_count": 277,
+  "original": true,
+  "status": "draft",
+  "source_links": [
+    {
+      "title": "UNESCO: Languages Matter in Multilingual Education",
+      "url": "https://www.unesco.org/en/articles/languages-matter-global-guidance-multilingual-education?hub=66678"
+    }
+  ],
+  "fact_notes": [
+    "背景となる考え方は添付の資料で確認。本文と練習問題は新規制作。例示した人物・学校・活動は架空の説明用設定。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Two schools in different countries decide to work on a project about clean water.",
+          "ja": "別々の国の二つの学校がきれいな水について共同の活動をすることにします。"
+        },
+        {
+          "en": "Students want to compare the problems that people face in their communities.",
+          "ja": "生徒たちはそれぞれの地域の人々が直面する問題を比べたいと思っています。"
+        },
+        {
+          "en": "However, copying one school's plan may not work in another place.",
+          "ja": "しかし一方の学校の計画をそのまま真似しても、別の場所ではうまくいかないかもしれません。"
+        },
+        {
+          "en": "A mountain village and a coastal town may have very different needs.",
+          "ja": "山間の村と海辺の町では必要なことが大きく異なる場合があります。"
+        },
+        {
+          "en": "The best starting point is to ask local people what matters to them.",
+          "ja": "最もよい出発点は地域の人々に大切なことを尋ねることです。"
+        },
+        {
+          "en": "International cooperation requires curiosity as well as a willingness to listen.",
+          "ja": "国際協力には好奇心だけでなく耳を傾ける姿勢も必要です。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Imagine that one group wants to produce an English poster about water safety.",
+          "ja": "あるグループが水の安全について英語のポスターを作りたがっていると想像してください。"
+        },
+        {
+          "en": "They believe English will help their message reach a wider audience.",
+          "ja": "英語なら広い相手にメッセージが届くと考えています。"
+        },
+        {
+          "en": "For example, students in several countries might understand a simple English headline.",
+          "ja": "例えば複数の国の生徒が簡単な英語の見出しを理解できるかもしれません。"
+        },
+        {
+          "en": "Yet local residents may prefer another language for detailed instructions.",
+          "ja": "それでも地域の住民は詳しい説明には別の言語を好むかもしれません。"
+        },
+        {
+          "en": "The group decides to make short versions in the languages used by its community.",
+          "ja": "そのグループは地域で使う言語で短い版を作ることにします。"
+        },
+        {
+          "en": "A useful message is one that its intended readers can understand.",
+          "ja": "役立つメッセージとは、届けたい読み手が理解できるものです。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Students should also ask whether their ideas fit the available resources.",
+          "ja": "生徒は自分たちの案が利用できる資源に合うかも考えるべきです。"
+        },
+        {
+          "en": "Some communities may have limited internet access or few public meeting spaces.",
+          "ja": "インターネットが使いにくい地域や公共の会合場所が少ない地域もあります。"
+        },
+        {
+          "en": "In addition, customs and daily routines can affect when people read notices.",
+          "ja": "さらに習慣や日々の生活は人々が案内を読む時間に影響します。"
+        },
+        {
+          "en": "A plan designed far away may overlook practical details like these.",
+          "ja": "遠くで作った計画はこうした実際的な細部を見逃すかもしれません。"
+        },
+        {
+          "en": "Local partners can explain which solutions are realistic and which need changes.",
+          "ja": "地元の協力者は実現可能な解決策と変更が必要な案を説明できます。"
+        },
+        {
+          "en": "Working together should involve learning from both sides rather than sending instructions in only one direction.",
+          "ja": "協力とは一方から指示するだけでなく双方が学ぶことです。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Nevertheless, listening to local voices does not mean that every suggestion can be adopted.",
+          "ja": "それでも地元の声を聞くことはすべての案を採用することではありません。"
+        },
+        {
+          "en": "Students must consider evidence, costs, and the possible effects of each proposal.",
+          "ja": "生徒は証拠、費用、各提案の影響を考える必要があります。"
+        },
+        {
+          "en": "They can compare ideas and explain why some changes are made.",
+          "ja": "案を比べ、変更の理由を説明できます。"
+        },
+        {
+          "en": "Finally, they should share the results with the people who helped them.",
+          "ja": "最後に協力してくれた人々と結果を共有すべきです。"
+        },
+        {
+          "en": "A truly global classroom learns to listen before offering solutions.",
+          "ja": "本当に世界とつながる教室は解決策を示す前に聞くことを学びます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the passage mainly about?",
+      "options": [
+        "Why every country should use the same plan.",
+        "Why international projects should listen to local needs and languages.",
+        "Why posters must always be in English.",
+        "Why students should avoid community work."
+      ],
+      "answer": 1,
+      "explanation_ja": "地元の需要・言語を尊重する国際協力が中心です。",
+      "paragraph_ids": [
+        "p1",
+        "p4"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What topic do the two schools study?",
+      "options": [
+        "Sports training.",
+        "School uniforms.",
+        "Clean water.",
+        "Space travel."
+      ],
+      "answer": 2,
+      "explanation_ja": "共同テーマはきれいな水です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why might copying another school's plan fail?",
+      "options": [
+        "Local needs can be different.",
+        "Every village has identical conditions.",
+        "English cannot be learned.",
+        "Only large schools can cooperate."
+      ],
+      "answer": 0,
+      "explanation_ja": "地域によって課題が異なるためです。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "Why does one group want an English poster?",
+      "options": [
+        "To avoid writing.",
+        "To keep visitors away.",
+        "To replace all local languages.",
+        "To reach a wider audience."
+      ],
+      "answer": 3,
+      "explanation_ja": "より広い相手に届けるためです。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What do residents sometimes prefer?",
+      "options": [
+        "More pictures of mountains.",
+        "Their local language for detailed instructions.",
+        "Only very long English texts.",
+        "Messages with no words."
+      ],
+      "answer": 1,
+      "explanation_ja": "詳しい指示には地元の言語を好む場合があります。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why should students check resources and routines?",
+      "options": [
+        "It makes posters heavier.",
+        "It guarantees everyone agrees.",
+        "Practical conditions affect whether a plan can work.",
+        "Those details never matter."
+      ],
+      "answer": 2,
+      "explanation_ja": "計画の実行可能性に関わるからです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'overlook' mean?",
+      "options": [
+        "Fail to notice.",
+        "Explain carefully.",
+        "Buy at a shop.",
+        "Look at a map from above."
+      ],
+      "answer": 0,
+      "explanation_ja": "overlookは見落とすことです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "Who can explain practical solutions?",
+      "options": [
+        "Only distant officials.",
+        "Only international companies.",
+        "Only the poster designer.",
+        "Local partners."
+      ],
+      "answer": 3,
+      "explanation_ja": "地元の協力者が実際的な案を説明できます。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Why shouldn't students adopt every suggestion?",
+      "options": [
+        "Every local suggestion is wrong.",
+        "Ideas must also be checked against evidence and costs.",
+        "Listening is unnecessary.",
+        "The project must finish immediately."
+      ],
+      "answer": 1,
+      "explanation_ja": "提案も証拠や費用から評価する必要があるためです。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "Why does the author end with listening?",
+      "options": [
+        "To suggest students should stop working.",
+        "To show that no solution is possible.",
+        "To emphasize cooperation instead of one-way instruction.",
+        "To argue that only experts may speak."
+      ],
+      "answer": 2,
+      "explanation_ja": "一方的な指示ではなく相互の学びが結論です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "schools",
+      "ja": "学校",
+      "synonym": "educational institutions",
+      "definition": "places where students learn"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same"
+    },
+    {
+      "term": "countries",
+      "ja": "国々",
+      "synonym": "nations",
+      "definition": "political areas with governments"
+    },
+    {
+      "term": "decide",
+      "ja": "決める",
+      "synonym": "choose",
+      "definition": "to select an action"
+    },
+    {
+      "term": "project",
+      "ja": "プロジェクト",
+      "synonym": "planned activity",
+      "definition": "organized work with a goal"
+    },
+    {
+      "term": "clean",
+      "ja": "きれいな",
+      "synonym": "unpolluted",
+      "definition": "free from unwanted substances"
+    },
+    {
+      "term": "water",
+      "ja": "水",
+      "synonym": "liquid",
+      "definition": "a transparent liquid essential to life"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "examine together",
+      "definition": "to look at differences and similarities"
+    },
+    {
+      "term": "problems",
+      "ja": "問題",
+      "synonym": "difficulties",
+      "definition": "situations needing solutions"
+    },
+    {
+      "term": "face",
+      "ja": "直面する",
+      "synonym": "encounter",
+      "definition": "to experience a problem"
+    },
+    {
+      "term": "communities",
+      "ja": "地域社会",
+      "synonym": "local groups",
+      "definition": "people living or working together"
+    },
+    {
+      "term": "copying",
+      "ja": "そのまま真似すること",
+      "synonym": "imitating",
+      "definition": "doing the same as someone else"
+    },
+    {
+      "term": "plan",
+      "ja": "計画",
+      "synonym": "proposal",
+      "definition": "a proposed series of actions"
+    },
+    {
+      "term": "mountain",
+      "ja": "山の",
+      "synonym": "highland",
+      "definition": "related to high land"
+    },
+    {
+      "term": "village",
+      "ja": "村",
+      "synonym": "small settlement",
+      "definition": "a small rural community"
+    },
+    {
+      "term": "coastal",
+      "ja": "沿岸の",
+      "synonym": "seaside",
+      "definition": "near the sea"
+    },
+    {
+      "term": "needs",
+      "ja": "必要なもの",
+      "synonym": "requirements",
+      "definition": "things people need"
+    },
+    {
+      "term": "local",
+      "ja": "地元の",
+      "synonym": "nearby",
+      "definition": "connected with a particular place"
+    },
+    {
+      "term": "starting",
+      "ja": "出発すること",
+      "synonym": "beginning",
+      "definition": "the first stage of an action"
+    },
+    {
+      "term": "international",
+      "ja": "国際的な",
+      "synonym": "worldwide",
+      "definition": "involving more than one country"
+    },
+    {
+      "term": "cooperation",
+      "ja": "協力",
+      "synonym": "joint work",
+      "definition": "working together toward a goal"
+    },
+    {
+      "term": "curiosity",
+      "ja": "好奇心",
+      "synonym": "interest",
+      "definition": "a desire to know"
+    },
+    {
+      "term": "willingness",
+      "ja": "進んでする気持ち",
+      "synonym": "readiness",
+      "definition": "being prepared to do something"
+    },
+    {
+      "term": "listen",
+      "ja": "聞く",
+      "synonym": "pay attention",
+      "definition": "to attend to what people say"
+    },
+    {
+      "term": "produce",
+      "ja": "作る",
+      "synonym": "create",
+      "definition": "to make something"
+    },
+    {
+      "term": "poster",
+      "ja": "ポスター",
+      "synonym": "notice",
+      "definition": "a large printed message"
+    },
+    {
+      "term": "safety",
+      "ja": "安全",
+      "synonym": "protection",
+      "definition": "being free from danger"
+    },
+    {
+      "term": "message",
+      "ja": "メッセージ",
+      "synonym": "communication",
+      "definition": "information shared"
+    },
+    {
+      "term": "audience",
+      "ja": "受け手・聴衆",
+      "synonym": "readers",
+      "definition": "people for whom a message is intended"
+    },
+    {
+      "term": "headline",
+      "ja": "見出し",
+      "synonym": "title",
+      "definition": "large words at the top of a report"
+    },
+    {
+      "term": "residents",
+      "ja": "住民",
+      "synonym": "inhabitants",
+      "definition": "people living in an area"
+    },
+    {
+      "term": "prefer",
+      "ja": "好む",
+      "synonym": "favor",
+      "definition": "to like one option more"
+    },
+    {
+      "term": "detailed",
+      "ja": "詳しい",
+      "synonym": "specific",
+      "definition": "including many small facts"
+    },
+    {
+      "term": "instructions",
+      "ja": "指示",
+      "synonym": "directions",
+      "definition": "information telling people what to do"
+    },
+    {
+      "term": "versions",
+      "ja": "版",
+      "synonym": "forms",
+      "definition": "different forms of a document"
+    },
+    {
+      "term": "languages",
+      "ja": "言語",
+      "synonym": "speech systems",
+      "definition": "systems used for communication"
+    },
+    {
+      "term": "intended",
+      "ja": "想定された",
+      "synonym": "planned",
+      "definition": "meant for a particular purpose"
+    },
+    {
+      "term": "resources",
+      "ja": "資源",
+      "synonym": "supplies",
+      "definition": "things available to help"
+    },
+    {
+      "term": "limited",
+      "ja": "限られた",
+      "synonym": "restricted",
+      "definition": "small in amount"
+    },
+    {
+      "term": "internet",
+      "ja": "インターネット",
+      "synonym": "online network",
+      "definition": "a global communication system"
+    },
+    {
+      "term": "access",
+      "ja": "アクセス",
+      "synonym": "availability",
+      "definition": "the ability to use something"
+    },
+    {
+      "term": "customs",
+      "ja": "慣習",
+      "synonym": "traditions",
+      "definition": "usual ways of behaving"
+    },
+    {
+      "term": "routines",
+      "ja": "日課",
+      "synonym": "habits",
+      "definition": "regular activities"
+    },
+    {
+      "term": "overlook",
+      "ja": "見落とす",
+      "synonym": "miss",
+      "definition": "to fail to notice"
+    },
+    {
+      "term": "practical",
+      "ja": "実際的な",
+      "synonym": "realistic",
+      "definition": "suitable for real conditions"
+    },
+    {
+      "term": "partners",
+      "ja": "協力者",
+      "synonym": "collaborators",
+      "definition": "people working together"
+    },
+    {
+      "term": "realistic",
+      "ja": "現実的な",
+      "synonym": "possible",
+      "definition": "likely to work in practice"
+    },
+    {
+      "term": "adopted",
+      "ja": "採用された",
+      "synonym": "accepted",
+      "definition": "chosen for use"
+    },
+    {
+      "term": "proposal",
+      "ja": "提案",
+      "synonym": "plan",
+      "definition": "an idea offered for consideration"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "may not work in another place",
+      "explanation_ja": "may not＋動詞で成功しない可能性を表します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 5,
+      "focus": "that its intended readers can understand",
+      "explanation_ja": "関係代名詞thatがoneを修飾します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "when people read notices",
+      "explanation_ja": "when節は時を表す副詞節です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "focus": "that every suggestion can be adopted",
+      "explanation_ja": "that節がmeanの内容を表し受動態can be adoptedを含みます。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "計画の共通化と地域による相違を対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "英語の見出しの具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "In addition",
+      "role_ja": "資源に加えて習慣の影響を追加。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "地元の意見への尊重と採用の限界を対比。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "copying one school's plan may not work in another place",
+      "rewrite": "a plan from one school may fail in a different community",
+      "explanation_ja": "may not work→may failです。"
+    },
+    {
+      "source": "A useful message is one that its intended readers can understand",
+      "rewrite": "communication helps only when the target audience grasps it",
+      "explanation_ja": "intended readers→target audienceです。"
+    },
+    {
+      "source": "A plan designed far away may overlook practical details like these",
+      "rewrite": "a distant proposal may miss important local conditions",
+      "explanation_ja": "overlook→missです。"
+    },
+    {
+      "source": "A truly global classroom learns to listen before offering solutions",
+      "rewrite": "international learning begins with hearing local perspectives",
+      "explanation_ja": "listen→hearing perspectivesです。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "計画の共通化と地域による相違を対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Therefore",
+        "In addition"
+      ],
+      "explanation_ja": "英語の見出しの具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "In addition",
+      "options": [
+        "In addition",
+        "However",
+        "Therefore",
+        "For example"
+      ],
+      "explanation_ja": "資源に加えて習慣の影響を追加。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "地元の意見への尊重と採用の限界を対比。"
+    }
+  ]
+}
