@@ -1,0 +1,670 @@
+{
+  "id": "L04-003",
+  "category_id": "L04",
+  "title": "Listening Before Giving Advice",
+  "title_ja": "助言する前に耳を傾ける",
+  "level_id": "eiken-pre2",
+  "word_count": 285,
+  "original": true,
+  "status": "draft",
+  "source_links": [
+    {
+      "title": "UNICEF: Communicating with your teen",
+      "url": "https://www.unicef.org/eca/11-tips-communicating-your-teen"
+    }
+  ],
+  "fact_notes": [
+    "UNICEFの傾聴に関する一般的な指針を背景として参照。生徒と友人の場面は架空の教育例。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A friend tells you that she had a difficult day at school.",
+          "ja": "友人が学校でつらい一日を過ごしたと話します。"
+        },
+        {
+          "en": "You may want to give advice immediately because you care about her.",
+          "ja": "あなたは彼女を大切に思うので、すぐに助言したくなるかもしれません。"
+        },
+        {
+          "en": "However, advice is not always what a person needs first.",
+          "ja": "しかし、助言がその人にまず必要なものとは限りません。"
+        },
+        {
+          "en": "Sometimes people want someone to listen without judging their feelings.",
+          "ja": "ときには、気持ちを判断せず聞いてくれる人を求めます。"
+        },
+        {
+          "en": "Active listening means paying attention and trying to understand the speaker.",
+          "ja": "積極的傾聴とは、注意を向け、話し手を理解しようとすることです。"
+        },
+        {
+          "en": "It is more than simply waiting for a chance to speak.",
+          "ja": "それは単に話す順番を待つこと以上のものです。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Imagine that your friend is worried about a coming examination.",
+          "ja": "友人が近づく試験を心配していると想像してください。"
+        },
+        {
+          "en": "You could quickly tell her to study harder, but that may miss the real problem.",
+          "ja": "もっと勉強するようすぐ言うこともできますが、本当の問題を見逃すかもしれません。"
+        },
+        {
+          "en": "For example, she might already study every evening but feel afraid of disappointing her family.",
+          "ja": "例えば、彼女は毎晩勉強していても、家族をがっかりさせることを恐れているかもしれません。"
+        },
+        {
+          "en": "Asking a calm question can help you understand why she feels stressed.",
+          "ja": "落ち着いて質問すると、彼女がストレスを感じる理由を理解できます。"
+        },
+        {
+          "en": "A short response such as 'That sounds hard' may show that you heard her.",
+          "ja": "「それは大変そうだね」のような短い返事でも、話を聞いたことを示せます。"
+        },
+        {
+          "en": "You do not need to agree with every opinion to respect the person speaking.",
+          "ja": "話し手を尊重するためにすべての意見に賛成する必要はありません。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Listening also requires care when conversations happen through messages.",
+          "ja": "メッセージを通じて会話するときも、聞く姿勢には配慮が必要です。"
+        },
+        {
+          "en": "A short reply can sometimes seem cold even if the writer means to be helpful.",
+          "ja": "短い返事は、書いた人が助けようとしていても冷たく見える場合があります。"
+        },
+        {
+          "en": "In addition, a person may misunderstand the meaning of a joke without seeing a face.",
+          "ja": "さらに、顔が見えないと冗談の意味を誤解するかもしれません。"
+        },
+        {
+          "en": "If a message is unclear, asking what the sender meant is often better than guessing.",
+          "ja": "メッセージが不明確なら、推測するより送り手の意味を尋ねる方がよいことが多いです。"
+        },
+        {
+          "en": "People can also choose a phone call when a topic feels especially serious.",
+          "ja": "話題が特に重大なら、電話を選ぶこともできます。"
+        },
+        {
+          "en": "The best method depends on the people and the situation.",
+          "ja": "最適な方法は人と状況によって変わります。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Nevertheless, listening does not mean that one friend must solve every problem alone.",
+          "ja": "それでも、聞くことは一人の友人がすべての問題を解決すべきという意味ではありません。"
+        },
+        {
+          "en": "Some situations need support from a teacher, parent, or another trusted adult.",
+          "ja": "状況によっては教師、親、信頼できる大人の支援が必要です。"
+        },
+        {
+          "en": "Friends can be kind while recognizing the limits of what they can do.",
+          "ja": "友人は自分にできることの限界を認めながら親切にできます。"
+        },
+        {
+          "en": "Students can practice listening by repeating the main idea of a partner's story.",
+          "ja": "生徒は相手の話の要点を言い直して傾聴を練習できます。"
+        },
+        {
+          "en": "A useful conversation begins with understanding rather than an immediate answer.",
+          "ja": "役立つ会話は即答ではなく、理解することから始まります。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the passage mainly about?",
+      "options": [
+        "Why all advice is harmful.",
+        "Why listening carefully should come before giving advice.",
+        "Why friends must agree about everything.",
+        "Why messages are better than speaking."
+      ],
+      "answer": 1,
+      "explanation_ja": "相手を理解してから助言する傾聴の重要性が主題です。",
+      "paragraph_ids": [
+        "p1",
+        "p4"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What does active listening involve?",
+      "options": [
+        "Waiting silently without attention.",
+        "Telling the speaker what to do.",
+        "Paying attention and trying to understand.",
+        "Changing the topic immediately."
+      ],
+      "answer": 2,
+      "explanation_ja": "話し手に注意を向け理解を試みることです。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why might 'study harder' be unhelpful?",
+      "options": [
+        "The student might already be studying and have a different worry.",
+        "Studying always causes problems.",
+        "Exams are not difficult for anyone.",
+        "Family expectations never affect feelings."
+      ],
+      "answer": 0,
+      "explanation_ja": "努力不足ではなく家族への不安が原因かもしれないからです。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What example of a caring response is given?",
+      "options": [
+        "Ignore the worry.",
+        "Send a long lecture.",
+        "Tell the person to stop.",
+        "Say 'That sounds hard.'"
+      ],
+      "answer": 3,
+      "explanation_ja": "相手の大変さを認める短い返事が挙げられます。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "Why can jokes be misunderstood in messages?",
+      "options": [
+        "Messages are always incorrect.",
+        "The reader cannot see facial expressions.",
+        "Every joke is offensive.",
+        "Phones cannot send text."
+      ],
+      "answer": 1,
+      "explanation_ja": "顔が見えないことが誤解の一因になります。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "What should a reader do when a message is unclear?",
+      "options": [
+        "Assume the worst meaning.",
+        "Share it with everyone.",
+        "Ask what the sender intended.",
+        "Delete every conversation."
+      ],
+      "answer": 2,
+      "explanation_ja": "推測より意味の確認がよいと述べています。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'trusted' mean in paragraph 4?",
+      "options": [
+        "Reliable and able to be depended on.",
+        "Unknown to everyone.",
+        "Very young.",
+        "Always available online."
+      ],
+      "answer": 0,
+      "explanation_ja": "trusted adultは信頼できる大人という意味です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "Who may help with problems that friends cannot solve?",
+      "options": [
+        "Only classmates.",
+        "Only online strangers.",
+        "Only school visitors.",
+        "Teachers, parents, or trusted adults."
+      ],
+      "answer": 3,
+      "explanation_ja": "大人の支援が必要な場合があると述べます。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What is the author's view of friendship?",
+      "options": [
+        "Friends must solve every problem.",
+        "Friendship includes care and recognizing personal limits.",
+        "Friends should never ask questions.",
+        "Disagreement makes respect impossible."
+      ],
+      "answer": 1,
+      "explanation_ja": "親切さと自分の限界の認識を両立します。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "Why does the author suggest repeating a partner's main idea?",
+      "options": [
+        "To make stories longer.",
+        "To prove one answer is correct.",
+        "To practice checking understanding.",
+        "To avoid speaking with a partner."
+      ],
+      "answer": 2,
+      "explanation_ja": "話の要点を言い直す活動は理解の確認につながります。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "advice",
+      "ja": "助言",
+      "synonym": "guidance",
+      "definition": "ideas offered to help someone decide"
+    },
+    {
+      "term": "immediately",
+      "ja": "すぐに",
+      "synonym": "at once",
+      "definition": "without delay"
+    },
+    {
+      "term": "care",
+      "ja": "大切に思う",
+      "synonym": "be concerned",
+      "definition": "to feel concern for another person"
+    },
+    {
+      "term": "judging",
+      "ja": "決めつけること",
+      "synonym": "evaluating",
+      "definition": "making a judgment about something"
+    },
+    {
+      "term": "feelings",
+      "ja": "気持ち",
+      "synonym": "emotions",
+      "definition": "emotional experiences"
+    },
+    {
+      "term": "active",
+      "ja": "積極的な",
+      "synonym": "engaged",
+      "definition": "taking part attentively"
+    },
+    {
+      "term": "listening",
+      "ja": "傾聴・聞くこと",
+      "synonym": "paying attention",
+      "definition": "giving attention to spoken words"
+    },
+    {
+      "term": "attention",
+      "ja": "注意",
+      "synonym": "focus",
+      "definition": "careful concentration"
+    },
+    {
+      "term": "speaker",
+      "ja": "話し手",
+      "synonym": "person talking",
+      "definition": "the person who is speaking"
+    },
+    {
+      "term": "chance",
+      "ja": "機会",
+      "synonym": "opportunity",
+      "definition": "a time when something may happen"
+    },
+    {
+      "term": "worried",
+      "ja": "心配している",
+      "synonym": "anxious",
+      "definition": "feeling concern about something"
+    },
+    {
+      "term": "examination",
+      "ja": "試験",
+      "synonym": "test",
+      "definition": "a formal check of learning"
+    },
+    {
+      "term": "disappointing",
+      "ja": "がっかりさせること",
+      "synonym": "letting down",
+      "definition": "making someone unhappy with an outcome"
+    },
+    {
+      "term": "calm",
+      "ja": "落ち着いた",
+      "synonym": "peaceful",
+      "definition": "not excited or angry"
+    },
+    {
+      "term": "stressed",
+      "ja": "ストレスを感じた",
+      "synonym": "anxious",
+      "definition": "feeling under pressure"
+    },
+    {
+      "term": "response",
+      "ja": "反応・返事",
+      "synonym": "reply",
+      "definition": "something said or done in answer"
+    },
+    {
+      "term": "respect",
+      "ja": "尊重する",
+      "synonym": "value",
+      "definition": "to treat a person with care"
+    },
+    {
+      "term": "opinion",
+      "ja": "意見",
+      "synonym": "view",
+      "definition": "a belief about a topic"
+    },
+    {
+      "term": "conversations",
+      "ja": "会話",
+      "synonym": "discussions",
+      "definition": "exchanges of ideas"
+    },
+    {
+      "term": "messages",
+      "ja": "メッセージ",
+      "synonym": "texts",
+      "definition": "written communications"
+    },
+    {
+      "term": "reply",
+      "ja": "返信",
+      "synonym": "answer",
+      "definition": "a response to a message"
+    },
+    {
+      "term": "cold",
+      "ja": "冷たい",
+      "synonym": "unfriendly",
+      "definition": "lacking warmth"
+    },
+    {
+      "term": "writer",
+      "ja": "書き手",
+      "synonym": "author",
+      "definition": "the person who writes something"
+    },
+    {
+      "term": "misunderstand",
+      "ja": "誤解する",
+      "synonym": "misread",
+      "definition": "to understand incorrectly"
+    },
+    {
+      "term": "joke",
+      "ja": "冗談",
+      "synonym": "funny comment",
+      "definition": "something intended to amuse"
+    },
+    {
+      "term": "meaning",
+      "ja": "意味",
+      "synonym": "sense",
+      "definition": "what words or actions express"
+    },
+    {
+      "term": "unclear",
+      "ja": "不明確な",
+      "synonym": "confusing",
+      "definition": "difficult to understand"
+    },
+    {
+      "term": "sender",
+      "ja": "送り手",
+      "synonym": "person sending",
+      "definition": "someone who sends a message"
+    },
+    {
+      "term": "guessing",
+      "ja": "推測すること",
+      "synonym": "assuming",
+      "definition": "deciding without enough evidence"
+    },
+    {
+      "term": "phone",
+      "ja": "電話",
+      "synonym": "telephone",
+      "definition": "a device for speaking at a distance"
+    },
+    {
+      "term": "serious",
+      "ja": "重大な",
+      "synonym": "important",
+      "definition": "requiring careful thought"
+    },
+    {
+      "term": "method",
+      "ja": "方法",
+      "synonym": "approach",
+      "definition": "a way of doing something"
+    },
+    {
+      "term": "depends",
+      "ja": "左右される",
+      "synonym": "relies",
+      "definition": "is influenced by something"
+    },
+    {
+      "term": "support",
+      "ja": "支援",
+      "synonym": "help",
+      "definition": "assistance given to someone"
+    },
+    {
+      "term": "trusted",
+      "ja": "信頼できる",
+      "synonym": "reliable",
+      "definition": "believed to be honest or dependable"
+    },
+    {
+      "term": "recognizing",
+      "ja": "認識すること",
+      "synonym": "noticing",
+      "definition": "becoming aware of something"
+    },
+    {
+      "term": "limits",
+      "ja": "限界",
+      "synonym": "boundaries",
+      "definition": "what one can or cannot do"
+    },
+    {
+      "term": "partner",
+      "ja": "相手",
+      "synonym": "companion",
+      "definition": "someone working with another person"
+    },
+    {
+      "term": "understanding",
+      "ja": "理解",
+      "synonym": "comprehension",
+      "definition": "knowing what something means"
+    },
+    {
+      "term": "conversation",
+      "ja": "会話",
+      "synonym": "talk",
+      "definition": "an exchange of spoken ideas"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "learners",
+      "definition": "people receiving education at school"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "not always what a person needs first",
+      "explanation_ja": "not alwaysは部分否定で、いつも必要とは限らないという意味です。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 5,
+      "focus": "to respect the person speaking",
+      "explanation_ja": "to不定詞は目的を表し、speakingは人を修飾しています。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "focus": "If a message is unclear",
+      "explanation_ja": "Ifは条件を表す従属節を導きます。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "focus": "does not mean that one friend must solve every problem alone",
+      "explanation_ja": "does not mean thatは誤解を否定する構文です。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "助言の善意と傾聴の必要を対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "勉強への不安の具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "In addition",
+      "role_ja": "文字の返事に加えて冗談の誤解を説明。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "傾聴の大切さと支援の限界を対比。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "advice is not always what a person needs first",
+      "rewrite": "someone may need understanding before suggestions",
+      "explanation_ja": "not always→may need something elseです。"
+    },
+    {
+      "source": "may show that you heard her",
+      "rewrite": "can demonstrate that you listened to her",
+      "explanation_ja": "may show→can demonstrate、heard→listenedです。"
+    },
+    {
+      "source": "asking what the sender meant is often better than guessing",
+      "rewrite": "checking the writer's intention is usually wiser than assuming",
+      "explanation_ja": "asking→checking、guessing→assumingです。"
+    },
+    {
+      "source": "A useful conversation begins with understanding rather than an immediate answer",
+      "rewrite": "a helpful discussion starts with comprehension instead of a quick reply",
+      "explanation_ja": "begins with→starts with、rather than→instead ofです。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Therefore",
+        "In addition"
+      ],
+      "explanation_ja": "助言の善意と傾聴の必要を対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Therefore",
+        "In addition"
+      ],
+      "explanation_ja": "勉強への不安の具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "In addition",
+      "options": [
+        "In addition",
+        "However",
+        "Therefore",
+        "For example"
+      ],
+      "explanation_ja": "文字の返事に加えて冗談の誤解を説明。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "傾聴の大切さと支援の限界を対比。"
+    }
+  ]
+}
