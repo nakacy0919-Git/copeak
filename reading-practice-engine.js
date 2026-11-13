@@ -29,6 +29,13 @@
  }
  function build(l,mode,allLessons,direction){
   const corpus=Array.isArray(allLessons)&&allLessons.length?allLessons:[l];
+  if(mode==='vocab'&&direction==='context'){
+   return (l.vocabulary_questions||[]).map((q,i)=>({
+    id:q.id,mode,index:i,prompt:q.prompt,options:[...q.options],answer:q.answer,
+    explanation:q.explanation_ja,source:locate(l,q.term,q.paragraph_ids?.[0])||locate(l,q.term),
+    sourceText:q.term,sourceStyle:'underline'
+   }));
+  }
   if(mode==='vocab'){
    const entries=l.vocabulary||[];
    const dir=['en-ja','ja-en','definition'].includes(direction)?direction:'en-ja';
