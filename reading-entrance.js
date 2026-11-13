@@ -172,6 +172,7 @@ function safeSourceUrl(raw){
 }
 function selectLesson(id,startFocus=true){
  const s=state.sets.find(x=>x.id===id);if(!s)return;
+ if($('vocabListPanel').open)$('vocabListPanel').close();
  state.lesson=s;const progress=readProgress(s.id);state.answers=progress.answers||{};state.clozeAnswers=progress.clozeAnswers||{};state.graded=progress.graded===true;state.gradingChosen=false;state.activeQuestionId=null;state.practice=progress.practice&&typeof progress.practice==='object'?progress.practice:{};state.quizCursor={};
  state.showAll=false;state.support=false;state.vocabIndex=0;state.vocabChoice=null;state.panel='questions';state.exercise=null;
  $('supportToggle').disabled=false;$('printOpen').disabled=false;$('focusStart').disabled=false;$('examModeStart').disabled=false;
@@ -687,9 +688,25 @@ function resetMode(mode){
 }
 function renderModeList(){
  const lesson=state.lesson;if(!lesson)return;
- $('vocabList').innerHTML=lesson.vocabulary.map(v=>
-  '<article><strong>'+esc(v.term)+'</strong><span>日本語：'+esc(v.ja)+'</span><span>Synonym: '+esc(v.synonym)+'</span><span>Definition: '+esc(v.definition)+'</span></article>'
+ const list=lesson.vocabulary||[];
+ $('vocabQuestionCount').textContent='この長文の登録語彙：'+list.length+'語 ／ クイズ：各方向 '+list.length+'問';
+ $('vocabList').innerHTML=list.map((v,i)=>
+  '<article role="listitem" data-vocab-search="'+esc([v.term,v.ja,v.definition,v.synonym].join(' ').toLowerCase())+'">'+
+  '<span class="vocab-entry-number">'+(i+1)+'</span><strong>'+esc(v.term)+'</strong><span>日本語：'+esc(v.ja)+'</span>'+
+  '<span>類義語：'+esc(v.synonym||'—')+'</span><span>英英定義：'+esc(v.definition)+'</span></article>'
  ).join('');
+ $('vocabListCount').textContent=list.length+'語を収録';
+ $('vocabListSearch').value='';
+}
+function practiceSourceHtml(mode,item){
+ if(!['grammar','paraphrase'].includes(mode)||!item?.source||!state.lesson)return '';
+ const p=state.lesson.paragraphs.find(p=>p.id===item.source.paragraphId);
+ const sentence=p?.sentences?.[item.source.sentenceIndex]?.en||'';
+ if(!sentence)return '';
+ const phrase=String(item.sourceText||'').split('...')[0].trim();
+ const pos=phrase?sentence.toLowerCase().indexOf(phrase.toLowerCase()):-1;
+ const content=pos<0?esc(sentence):esc(sentence.slice(0,pos))+'<mark>'+esc(sentence.slice(pos,pos+phrase.length))+'</mark>'+esc(sentence.slice(pos+phrase.length));
+ return '<div class="practice-source"><span>READ THE SENTENCE · 本文からの出題</span><p>'+content+'</p></div>';
 }
 const panelIds={vocab:'vocabQuiz',grammar:'grammarNotes',discourse:'discourseNotes',paraphrase:'paraphraseNotes',cloze:'clozeQuestions'};
 /* A completed set can be reviewed without erasing the achievement history. */
@@ -704,6 +721,7 @@ function renderPracticeReview(mode,onlyWrong=false){
    return '<article class="practice-review-card">'+
     '<p class="practice-review-number">QUESTION '+(q.index+1)+'</p>'+
     '<h4>'+esc(q.prompt)+'</h4>'+
+    practiceSourceHtml(mode,q)+
     (q.subprompt?'<p class="practice-subprompt">'+esc(q.subprompt)+'</p>':'')+
     '<div class="practice-review-options">'+q.options.map((op,j)=>
      '<div class="'+(j===q.answer?'is-answer':j===picked?'is-mistake':'')+'">'+String.fromCharCode(65+j)+'. '+esc(op)+
@@ -744,7 +762,7 @@ function renderPracticeQuiz(mode){
  const score=modeSummary(mode);
  const prompt=(item.subprompt?'<p class="practice-subprompt">'+esc(item.subprompt)+'</p>':'');
  pane.innerHTML='<div class="practice-meta"><span>'+esc(practiceEngine.labels[mode])+'</span><span>QUESTION '+(index+1)+' / '+items.length+'</span><span>'+score.answered+'問解答済み</span></div>'+
-  '<article class="practice-card"><h3>'+esc(item.prompt)+'</h3>'+prompt+
+  '<article class="practice-card"><h3>'+esc(item.prompt)+'</h3>'+practiceSourceHtml(mode,item)+prompt+
   '<div class="practice-options">'+item.options.map((op,j)=>{
    const cls=answered?(j===item.answer?'correct':j===picked?'wrong':''):'';
    return '<button type="button" data-practice-option="'+j+'" '+(answered?'disabled ':'')+'aria-pressed="'+(picked===j)+'" class="'+cls+'"><span class="option-letter">'+String.fromCharCode(65+j)+'</span><span>'+esc(op)+'</span></button>';
@@ -820,12 +838,8 @@ function switchTab(tab){
   const list=practiceBank(tab),rec=practiceRecord(tab);
   const first=list.findIndex(item=>!Number.isInteger(rec.answers[item.id]));
   state.quizCursor[tab]=first<0?list.length:first;
-  if(tab==='vocab'){
-    $('vocabListPanel').hidden=true;
-    $('vocabListToggle').setAttribute('aria-expanded','false');
-    $('vocabListToggle').textContent='語彙一覧を見る';
-  }
-  renderPracticeQuiz(tab);
+  if(tab==='vocab'&&$('vocabListPanel').open)$('vocabListPanel').close();
+    renderPracticeQuiz(tab);
  }
  renderPassage(true);
  updateSupportUI();
@@ -1067,6 +1081,7 @@ async function init(){
    status('教材を読み込み中… '+Math.min(offset+batchSize,manifest.sets.length)+' / '+manifest.sets.length);
   }
   state.sets=results.filter(r=>r.status==='fulfilled'&&r.value).map(r=>r.value);
+  if(window.CopeakReadingEnrichment?.expandAll)state.sets=window.CopeakReadingEnrichment.expandAll(state.sets);
   const errors=results.filter(r=>r.status==='rejected');status(errors.length?errors.length+'件の教材を検証できませんでした。編集データを確認してください。':'現在の収録教材 '+state.sets.length+'セット / 目標450セット');
   renderCatalog();openBrowse('category');
  }catch(e){
@@ -1091,10 +1106,22 @@ $('vocabQuizMode').addEventListener('change',()=>{
 });
 $('vocabRestart').addEventListener('click',()=>{if(state.lesson)resetMode('vocab');});
 $('vocabListToggle').addEventListener('click',()=>{
- const list=$('vocabListPanel'),show=list.hidden;
- list.hidden=!show;
- $('vocabListToggle').setAttribute('aria-expanded',String(show));
- $('vocabListToggle').textContent=show?'語彙一覧を閉じる':'語彙一覧を見る';
+ if(!state.lesson)return;
+ $('vocabListPanel').showModal();
+ $('vocabListSearch').focus({preventScroll:true});
+});
+$('vocabListClose').addEventListener('click',()=>$('vocabListPanel').close());
+$('vocabListPanel').addEventListener('click',event=>{
+ if(event.target===$('vocabListPanel'))$('vocabListPanel').close();
+});
+$('vocabListSearch').addEventListener('input',event=>{
+ const q=event.target.value.trim().toLowerCase();
+ let count=0;
+ $('vocabList').querySelectorAll('[data-vocab-search]').forEach(card=>{
+  card.hidden=!!q&&!card.dataset.vocabSearch.includes(q);
+  if(!card.hidden)count++;
+ });
+ $('vocabListCount').textContent=count+' / '+(state.lesson?.vocabulary.length||0)+'語を表示';
 });
 $('gradingSettings').querySelectorAll('[data-grading-mode]').forEach(button=>button.addEventListener('click',()=>{
  const selected=button.dataset.gradingMode;
