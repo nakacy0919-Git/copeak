@@ -41,8 +41,17 @@ for(const file of manifest.sets){
  const minimumVocabulary=d.level_id==='eiken-3'?20:40;
  if((d.vocabulary||[]).length<minimumVocabulary)fail(id,'too few vocabulary entries (minimum '+minimumVocabulary+')');
  for(const v of d.vocabulary||[])if(!v.term||!v.ja||!v.definition||!v.synonym||!inText(textAll,v.term))fail(id,'vocabulary: '+v.term);
- if((d.questions||[]).length!==10)fail(id,'expected 10 reading questions');
+ if((d.questions||[]).length<10)fail(id,'expected at least 10 reading questions');
+ if(d.question_bank_version===2&&(d.questions||[]).length<20)fail(id,'expanded bank requires at least 20 reading questions');
  for(const q of d.questions||[])if(!q.prompt||q.options?.length!==4||new Set(q.options).size!==4||!Number.isInteger(q.answer)||q.answer<0||q.answer>3||!q.explanation_ja||!q.paragraph_ids?.length||!q.paragraph_ids.every(p=>pids.has(p)))fail(id,'reading question: '+q.id);
+ if(d.question_bank_version===2){
+  if((d.vocabulary_questions||[]).length<20)fail(id,'expanded bank requires at least 20 vocabulary-in-context questions');
+  const seen=new Set();
+  for(const q of d.vocabulary_questions||[]){
+   if(seen.has(q.id))fail(id,'duplicate vocabulary question '+q.id);seen.add(q.id);
+   if(!q.term||!inText(textAll,q.term)||!q.prompt||q.options?.length!==4||new Set(q.options).size!==4||!Number.isInteger(q.answer)||q.answer<0||q.answer>3||!q.explanation_ja||!q.paragraph_ids?.length||!q.paragraph_ids.every(p=>pids.has(p)))fail(id,'bad context vocabulary question '+q.id);
+  }
+ }
  if((d.grammar||[]).length<4)fail(id,'expected >=4 grammar notes');
  for(const g of d.grammar||[])if(!sentence(g.paragraph_id,g.sentence_index).includes(g.focus||'__missing__')||!g.explanation_ja)fail(id,'grammar: '+g.focus);
  if((d.discourse||[]).length<4)fail(id,'expected >=4 discourse items');
