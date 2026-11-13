@@ -1,0 +1,723 @@
+{
+  "id": "L03-004",
+  "category_id": "L03",
+  "title": "Can a Small Sensor Tell the Whole Story?",
+  "title_ja": "小さなセンサーだけで全体がわかるのか",
+  "level_id": "eiken-2",
+  "word_count": 373,
+  "original": true,
+  "status": "draft",
+  "source_links": [
+    {
+      "title": "U.S. EPA: Air Sensor Toolbox",
+      "url": "https://www.epa.gov/air-sensor-toolbox"
+    }
+  ],
+  "fact_notes": [
+    "空気質の簡易センサーと測定の注意を題材にしたオリジナル長文。学校の測定結果や値は架空であり、科学的な閾値の提示は避けている。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Students are increasingly interested in measuring the air around their schools and homes.",
+          "ja": "生徒たちは学校や家庭の周囲の空気を測ることにますます関心を持っています。"
+        },
+        {
+          "en": "Small sensors can show changes in particles that may be present in the atmosphere.",
+          "ja": "小さなセンサーは大気中に存在する粒子の変化を示せます。"
+        },
+        {
+          "en": "However, a number displayed by a device does not automatically give a complete picture of air quality.",
+          "ja": "しかし機器の示す数値が、空気の質の全体像を自動的に示すわけではありません。"
+        },
+        {
+          "en": "A sensor may respond differently when temperature or humidity changes during the day.",
+          "ja": "センサーは日中の温度や湿度の変化によって反応が違う場合があります。"
+        },
+        {
+          "en": "The location of the sensor and the way it is maintained may also affect the results.",
+          "ja": "センサーの場所や管理方法も結果に影響するかもしれません。"
+        },
+        {
+          "en": "Understanding these limits is part of using technology responsibly.",
+          "ja": "こうした限界を理解することは技術を責任を持って使う一部です。"
+        },
+        {
+          "en": "A useful measurement begins with asking what the device is actually designed to detect.",
+          "ja": "役立つ測定は、その機器が実際に何を検知する設計なのか問うことから始まります。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Imagine a science class placing two sensors near different sides of a school building.",
+          "ja": "科学の授業で校舎の異なる側に二つのセンサーを置く場面を想像してください。"
+        },
+        {
+          "en": "One is beside a busy road, while another is near a quiet garden.",
+          "ja": "一つは交通量の多い道路のそば、もう一つは静かな庭の近くにあります。"
+        },
+        {
+          "en": "For example, the first sensor may show a higher reading during a period of heavy traffic.",
+          "ja": "例えば交通量が多い時間帯には一つ目のセンサーがより高い数値を示すかもしれません。"
+        },
+        {
+          "en": "It would be tempting to conclude immediately that every classroom on that side is unsafe.",
+          "ja": "その側のすべての教室が危険だとすぐ結論づけたくなるでしょう。"
+        },
+        {
+          "en": "Yet one reading cannot prove the cause of the difference or describe conditions at all times.",
+          "ja": "それでも一回の測定では差の原因も常時の状況も証明できません。"
+        },
+        {
+          "en": "Students should compare several measurements and record the weather and time.",
+          "ja": "生徒は複数の測定値を比較し、天気と時間を記録すべきです。"
+        },
+        {
+          "en": "They also need to consider whether the two devices have been checked in the same way.",
+          "ja": "二つの機器が同じ方法で点検されているかも考える必要があります。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Public agencies often use more carefully maintained instruments for official monitoring.",
+          "ja": "公共機関は公式の監視に、より慎重に維持管理された機器を使うことがよくあります。"
+        },
+        {
+          "en": "In addition, the Environmental Protection Agency offers information to help people understand lower-cost air sensors.",
+          "ja": "さらに米国環境保護庁は安価な空気センサーを理解するための情報を提供しています。"
+        },
+        {
+          "en": "A student project can still be valuable even when its readings are not official measurements.",
+          "ja": "生徒の活動は、その数値が公式の測定値でなくても価値があります。"
+        },
+        {
+          "en": "The class can learn to ask what might explain a pattern and what evidence is missing.",
+          "ja": "生徒は模様の理由や不足する根拠が何か問うことを学べます。"
+        },
+        {
+          "en": "Nevertheless, they should avoid presenting an uncertain estimate as a certain warning to the public.",
+          "ja": "それでも不確かな推定を確かな警報として市民に示すべきではありません。"
+        },
+        {
+          "en": "A short note about uncertainty can prevent readers from drawing a misleading conclusion.",
+          "ja": "不確実性についての短い注記は読み手の誤解を防げます。"
+        },
+        {
+          "en": "Good science communication explains both observations and their limits.",
+          "ja": "よい科学情報の伝達は観察結果とその限界の両方を説明します。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The same lesson applies to data from fitness watches, weather apps, and other everyday devices.",
+          "ja": "同じ学びは運動用時計、天気アプリ、その他の日常機器のデータにも当てはまります。"
+        },
+        {
+          "en": "A useful display should tell users what was measured and when the reading was taken.",
+          "ja": "役立つ表示は、何をいつ測ったか利用者に伝えるべきです。"
+        },
+        {
+          "en": "It may also explain which conditions could make the result less reliable.",
+          "ja": "結果の信頼性を下げる条件も説明するとよいでしょう。"
+        },
+        {
+          "en": "Therefore, collecting more numbers is not always the same as gaining more knowledge.",
+          "ja": "したがって数値を多く集めることが、必ずしも知識を増やすことと同じではありません。"
+        },
+        {
+          "en": "Students become better investigators when they compare information instead of trusting one screen.",
+          "ja": "一つの画面を信じるより情報を比べると、生徒はよりよい探究者になります。"
+        },
+        {
+          "en": "The most important skill is deciding what a measurement can and cannot tell us.",
+          "ja": "最も重要な技能は測定値が何を語れ、何を語れないか判断することです。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the passage mainly about?",
+      "options": [
+        "Why everyone should buy expensive sensors.",
+        "Why measuring devices should never be used.",
+        "How to interpret sensor data carefully and understand its limits.",
+        "Why air quality never changes."
+      ],
+      "answer": 2,
+      "explanation_ja": "測定値を慎重に解釈し、限界を理解することが中心です。",
+      "paragraph_ids": [
+        "p1",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What can change how a sensor responds?",
+      "options": [
+        "Temperature or humidity.",
+        "Only the sensor's color.",
+        "The number of students in a class.",
+        "The teacher's favorite subject."
+      ],
+      "answer": 0,
+      "explanation_ja": "温度や湿度の変化が反応に影響する場合があります。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why should a user know what the device detects?",
+      "options": [
+        "All devices show exactly the same data.",
+        "Measurements are meaningful only in relation to what the device can measure.",
+        "The device will otherwise stop working.",
+        "Sensors can predict every future event."
+      ],
+      "answer": 1,
+      "explanation_ja": "測定対象を理解しないと数値を正しく読めないためです。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "Where are the two fictional sensors placed?",
+      "options": [
+        "Both inside one classroom.",
+        "Both on a mountain.",
+        "Both under water.",
+        "One by a road and one near a garden."
+      ],
+      "answer": 3,
+      "explanation_ja": "道路脇と庭の近くに置かれています。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What should students record with their measurements?",
+      "options": [
+        "Only the school calendar.",
+        "Only a list of names.",
+        "The weather and the time.",
+        "The cost of each window."
+      ],
+      "answer": 2,
+      "explanation_ja": "天気や時間とともに記録すべきだとあります。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why is a single high reading insufficient?",
+      "options": [
+        "It cannot establish a lasting condition or explain its cause alone.",
+        "It proves every classroom is unsafe.",
+        "It always comes from a broken sensor.",
+        "It cannot be written down."
+      ],
+      "answer": 0,
+      "explanation_ja": "一回の数値だけでは原因や常時の状況を判断できないためです。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'misleading' most nearly mean?",
+      "options": [
+        "Especially colorful.",
+        "Likely to create a wrong impression.",
+        "Easy to measure.",
+        "Made of metal."
+      ],
+      "answer": 1,
+      "explanation_ja": "misleadingは誤解を招くという意味です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "Who provides guidance on lower-cost air sensors?",
+      "options": [
+        "Only local shops.",
+        "Every school club.",
+        "A group of bicycle riders.",
+        "The Environmental Protection Agency."
+      ],
+      "answer": 3,
+      "explanation_ja": "米国環境保護庁が情報を提供しています。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Why mention fitness watches and weather apps?",
+      "options": [
+        "To show only air sensors can be wrong.",
+        "To recommend replacing air sensors.",
+        "To extend the lesson to other everyday data.",
+        "To claim all technologies are useless."
+      ],
+      "answer": 2,
+      "explanation_ja": "日常のデータにも同じ注意が必要と示すためです。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "What does the final sentence emphasize?",
+      "options": [
+        "Understanding what measurements can and cannot establish.",
+        "Buying the newest device.",
+        "Collecting the largest possible number of readings.",
+        "Avoiding all questions about data."
+      ],
+      "answer": 0,
+      "explanation_ja": "測定値の可能性と限界を見極める姿勢を結びにします。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "sensors",
+      "ja": "センサー",
+      "synonym": "detectors",
+      "definition": "devices that respond to a physical condition"
+    },
+    {
+      "term": "measuring",
+      "ja": "測定すること",
+      "synonym": "quantifying",
+      "definition": "finding a value through observation"
+    },
+    {
+      "term": "particles",
+      "ja": "粒子",
+      "synonym": "tiny pieces",
+      "definition": "very small bits of material"
+    },
+    {
+      "term": "atmosphere",
+      "ja": "大気",
+      "synonym": "air",
+      "definition": "the gases around Earth"
+    },
+    {
+      "term": "displayed",
+      "ja": "表示された",
+      "synonym": "shown",
+      "definition": "presented visibly"
+    },
+    {
+      "term": "device",
+      "ja": "機器",
+      "synonym": "instrument",
+      "definition": "a tool made to perform a task"
+    },
+    {
+      "term": "automatically",
+      "ja": "自動的に",
+      "synonym": "without extra work",
+      "definition": "happening by itself"
+    },
+    {
+      "term": "quality",
+      "ja": "質",
+      "synonym": "standard",
+      "definition": "how good or suitable something is"
+    },
+    {
+      "term": "temperature",
+      "ja": "温度",
+      "synonym": "heat level",
+      "definition": "how hot or cold something is"
+    },
+    {
+      "term": "humidity",
+      "ja": "湿度",
+      "synonym": "air moisture",
+      "definition": "the amount of water vapor in air"
+    },
+    {
+      "term": "location",
+      "ja": "場所",
+      "synonym": "position",
+      "definition": "a particular place"
+    },
+    {
+      "term": "maintained",
+      "ja": "維持管理された",
+      "synonym": "kept working",
+      "definition": "cared for to remain usable"
+    },
+    {
+      "term": "affect",
+      "ja": "影響する",
+      "synonym": "influence",
+      "definition": "to cause a change"
+    },
+    {
+      "term": "responsibly",
+      "ja": "責任を持って",
+      "synonym": "carefully",
+      "definition": "with proper care and judgment"
+    },
+    {
+      "term": "measurement",
+      "ja": "測定",
+      "synonym": "reading",
+      "definition": "an observed numerical value"
+    },
+    {
+      "term": "detect",
+      "ja": "検知する",
+      "synonym": "sense",
+      "definition": "to notice something using an instrument"
+    },
+    {
+      "term": "placing",
+      "ja": "置くこと",
+      "synonym": "positioning",
+      "definition": "putting something somewhere"
+    },
+    {
+      "term": "building",
+      "ja": "建物",
+      "synonym": "structure",
+      "definition": "a roofed construction"
+    },
+    {
+      "term": "busy",
+      "ja": "交通量の多い",
+      "synonym": "crowded",
+      "definition": "containing much activity"
+    },
+    {
+      "term": "quiet",
+      "ja": "静かな",
+      "synonym": "calm",
+      "definition": "not noisy or active"
+    },
+    {
+      "term": "reading",
+      "ja": "測定値",
+      "synonym": "measurement",
+      "definition": "a value shown by an instrument"
+    },
+    {
+      "term": "traffic",
+      "ja": "交通",
+      "synonym": "vehicle movement",
+      "definition": "movement of vehicles"
+    },
+    {
+      "term": "tempting",
+      "ja": "ついしたくなる",
+      "synonym": "appealing",
+      "definition": "attractive even if risky"
+    },
+    {
+      "term": "conclude",
+      "ja": "結論づける",
+      "synonym": "decide",
+      "definition": "to reach a judgment"
+    },
+    {
+      "term": "unsafe",
+      "ja": "危険な",
+      "synonym": "dangerous",
+      "definition": "not free from risk"
+    },
+    {
+      "term": "cause",
+      "ja": "原因",
+      "synonym": "reason",
+      "definition": "something that produces an effect"
+    },
+    {
+      "term": "conditions",
+      "ja": "状況",
+      "synonym": "circumstances",
+      "definition": "facts surrounding a situation"
+    },
+    {
+      "term": "record",
+      "ja": "記録する",
+      "synonym": "document",
+      "definition": "to save information"
+    },
+    {
+      "term": "weather",
+      "ja": "天気",
+      "synonym": "atmospheric conditions",
+      "definition": "conditions of rain, wind and temperature"
+    },
+    {
+      "term": "checked",
+      "ja": "点検された",
+      "synonym": "tested",
+      "definition": "examined for proper performance"
+    },
+    {
+      "term": "agencies",
+      "ja": "機関",
+      "synonym": "organizations",
+      "definition": "bodies that carry out public work"
+    },
+    {
+      "term": "instruments",
+      "ja": "計器",
+      "synonym": "devices",
+      "definition": "tools for measurement"
+    },
+    {
+      "term": "official",
+      "ja": "公式の",
+      "synonym": "authorized",
+      "definition": "accepted as a formal standard"
+    },
+    {
+      "term": "monitoring",
+      "ja": "監視",
+      "synonym": "observation",
+      "definition": "regular checking of conditions"
+    },
+    {
+      "term": "environmental",
+      "ja": "環境の",
+      "synonym": "ecological",
+      "definition": "related to natural surroundings"
+    },
+    {
+      "term": "protection",
+      "ja": "保護",
+      "synonym": "safety",
+      "definition": "action taken to prevent harm"
+    },
+    {
+      "term": "lower-cost",
+      "ja": "低価格の",
+      "synonym": "inexpensive",
+      "definition": "costing less money"
+    },
+    {
+      "term": "valuable",
+      "ja": "価値がある",
+      "synonym": "worthwhile",
+      "definition": "important or useful"
+    },
+    {
+      "term": "evidence",
+      "ja": "証拠",
+      "synonym": "supporting facts",
+      "definition": "information used to test a claim"
+    },
+    {
+      "term": "uncertain",
+      "ja": "不確かな",
+      "synonym": "not known",
+      "definition": "not established with confidence"
+    },
+    {
+      "term": "estimate",
+      "ja": "推定値",
+      "synonym": "approximation",
+      "definition": "a roughly calculated value"
+    },
+    {
+      "term": "warning",
+      "ja": "警告",
+      "synonym": "alert",
+      "definition": "information about danger"
+    },
+    {
+      "term": "misleading",
+      "ja": "誤解を招く",
+      "synonym": "deceptive",
+      "definition": "likely to give a wrong impression"
+    },
+    {
+      "term": "conclusion",
+      "ja": "結論",
+      "synonym": "judgment",
+      "definition": "an opinion reached after examination"
+    },
+    {
+      "term": "fitness",
+      "ja": "健康・運動の",
+      "synonym": "exercise-related",
+      "definition": "connected with physical activity"
+    },
+    {
+      "term": "reliable",
+      "ja": "信頼できる",
+      "synonym": "dependable",
+      "definition": "consistently accurate"
+    },
+    {
+      "term": "investigators",
+      "ja": "探究者",
+      "synonym": "researchers",
+      "definition": "people who examine questions"
+    },
+    {
+      "term": "trusting",
+      "ja": "信じること",
+      "synonym": "relying on",
+      "definition": "accepting something as dependable"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "does not automatically give a complete picture of air quality",
+      "explanation_ja": "does not automaticallyは表示値が全体を示すとは限らないことを表します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "during a period of heavy traffic",
+      "explanation_ja": "duringは期間を示す前置詞です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 4,
+      "focus": "presenting an uncertain estimate as a certain warning",
+      "explanation_ja": "present A as Bは『AをBとして示す』という構文です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 3,
+      "focus": "not always the same as gaining more knowledge",
+      "explanation_ja": "not alwaysは部分否定で『必ずしも同じではない』ことを示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "便利な測定と数値の限界を対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "道路脇と庭のセンサーの具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "In addition",
+      "role_ja": "監視に加え低価格センサーの情報を提示。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Therefore",
+      "role_ja": "数値の量と知識の質の違いをまとめる。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "does not automatically give a complete picture of air quality",
+      "rewrite": "cannot by itself provide a full understanding of the air",
+      "explanation_ja": "automatically→by itself、complete→fullです。"
+    },
+    {
+      "source": "one reading cannot prove the cause of the difference",
+      "rewrite": "a single measurement cannot establish why the values differ",
+      "explanation_ja": "prove→establish、cause→whyです。"
+    },
+    {
+      "source": "avoid presenting an uncertain estimate as a certain warning",
+      "rewrite": "not describe a doubtful reading as a definite alert",
+      "explanation_ja": "uncertain→doubtful、certain→definiteです。"
+    },
+    {
+      "source": "collecting more numbers is not always the same as gaining more knowledge",
+      "rewrite": "more data do not necessarily lead to deeper understanding",
+      "explanation_ja": "not always→not necessarilyです。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "便利な測定と数値の限界を対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Therefore",
+        "Nevertheless"
+      ],
+      "explanation_ja": "道路脇と庭のセンサーの具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "In addition",
+      "options": [
+        "In addition",
+        "However",
+        "Therefore",
+        "For example"
+      ],
+      "explanation_ja": "監視に加え低価格センサーの情報を提示。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 3,
+      "answer": "Therefore",
+      "options": [
+        "Therefore",
+        "However",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "数値の量と知識の質の違いをまとめる。"
+    }
+  ]
+}
