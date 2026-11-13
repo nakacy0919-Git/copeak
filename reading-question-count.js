@@ -13,8 +13,8 @@
      const count=source[i];
      if(seen.has(count))continue;
      seen.add(count);
-     result.push({count,label:count===max&&max<5?'全問':names[i],
-       description:count===max&&max<5?'収録済みの問題に挑戦':descriptions[i]});
+     result.push({count,label:count===max&&max<10?'全問':names[i],
+       description:count===max&&max<10?'この長文の収録問題をすべて解く':descriptions[i]});
    }
    return result;
  };
@@ -24,7 +24,7 @@
    if(n===0)return [];
    if(n>=bank.length)return bank.slice();
    const chosen=[],usedParas=new Set(),usedSkills=new Set();
-   const pick=(entry)=>{chosen.push(entry);for(const pid of entry.q.paragraph_ids||[])usedParas.add(pid);usedSkills.add(entry.q.skill||'other');};
+   const pick=(entry)=>{chosen.push(entry);if(!/main.idea|main.topic|overall/i.test(entry.q.skill||'')){for(const pid of entry.q.paragraph_ids||[])usedParas.add(pid);}usedSkills.add(entry.q.skill||'other');};
    const indexed=bank.map((q,i)=>({q,i}));
    const main=indexed.find(v=>/main.idea|main.topic|overall/i.test(v.q.skill||''));
    if(main)pick(main);
