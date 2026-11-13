@@ -143,6 +143,19 @@ function build(d){
  const band=bands[x.level_id];
  if(!band||count<band[0]||count>band[1])errors.push('word count '+count+' outside '+(band||'unknown'));
  if(questions.length!==10)errors.push('questions '+questions.length);
+ // New passages must function as five-question entrance-style tests, not as
+ // ten nearly identical isolated facts.
+ const presentSkills=new Set(questions.map(q=>q.skill));
+ for(const skill of ['main-idea','detail','inference','purpose','vocabulary-in-context']){
+  if(!presentSkills.has(skill))errors.push('missing comprehension skill '+skill);
+ }
+ if(new Set(questions.map(q=>q.prompt)).size!==questions.length)errors.push('repeated question prompts');
+ if(new Set(questions.map(q=>q.answer)).size<4)errors.push('answer positions must use all four choices');
+ const evidenceParagraphs=new Set(questions.flatMap(q=>q.paragraph_ids));
+ if(evidenceParagraphs.size<Math.min(4,ps.length))errors.push('insufficient paragraph coverage');
+ for(const p of ps)if(!questions.some(q=>q.skill!=='main-idea'&&q.paragraph_ids.includes(p.id))){
+  errors.push('no focused comprehension evidence in paragraph '+p.id);
+ }
  if(words.length<40)errors.push('vocabulary count '+words.length);
  for(const v of words){if(!isWord(v.term))errors.push('word not in passage '+v.term);if(!v.ja||!v.definition||!v.synonym)errors.push('incomplete dictionary entry '+v.term);}
  for(const p of ps)for(const s of p.sentences)if(!s.en||!s.ja)errors.push('empty sentence or translation');
