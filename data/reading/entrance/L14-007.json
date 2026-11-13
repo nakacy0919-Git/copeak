@@ -1,0 +1,572 @@
+{
+  "id": "L14-007",
+  "category_id": "L14",
+  "title": "The Weekend Invitation",
+  "title_ja": "週末の誘いと友情",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 196,
+  "source_links": [
+    {
+      "title": "UNICEF Convention on the Rights of the Child",
+      "url": "https://www.unicef.org/child-rights-convention/convention-text"
+    }
+  ],
+  "fact_notes": [
+    "人物と物語は架空。本文・和訳・設問・解説は独自制作。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Kei invites his friend Rina to ride bicycles on Saturday.",
+          "ja": "ケイは土曜日に自転車に乗ろうと友達のリナを誘います。"
+        },
+        {
+          "en": "They often spend weekends together and enjoy visiting new parks.",
+          "ja": "二人は週末によく一緒に過ごし新しい公園を訪れるのを楽しみます。"
+        },
+        {
+          "en": "However, Rina says that she wants to stay home this weekend.",
+          "ja": "しかしリナは今週末は家にいたいと言います。"
+        },
+        {
+          "en": "Kei wonders whether he has done something to upset her.",
+          "ja": "ケイは自分が彼女を怒らせたのかと考えます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Rina explains that she had a busy week at school.",
+          "ja": "リナは学校で忙しい一週間だったと説明します。"
+        },
+        {
+          "en": "For example, she practiced for a concert every afternoon.",
+          "ja": "例えば毎日午後に演奏会の練習をしていました。"
+        },
+        {
+          "en": "She wants time to read a book and rest quietly.",
+          "ja": "静かに本を読み休む時間が欲しいのです。"
+        },
+        {
+          "en": "Kei realizes that needing rest does not mean ending a friendship.",
+          "ja": "ケイは休息を必要とすることは友情を終えることではないと気づきます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Kei asks whether they could meet on another weekend.",
+          "ja": "ケイは別の週末に会えるか尋ねます。"
+        },
+        {
+          "en": "Rina smiles and suggests visiting the park next Saturday.",
+          "ja": "リナは笑顔で次の土曜日に公園へ行こうと提案します。"
+        },
+        {
+          "en": "Instead of asking her to change her mind immediately, Kei agrees.",
+          "ja": "すぐに考えを変えさせようとせずケイは同意します。"
+        },
+        {
+          "en": "They both feel comfortable with the new plan.",
+          "ja": "二人とも新しい計画に気持ちよく同意できます。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "At school, Kei hears another friend talk about personal time.",
+          "ja": "学校でケイは別の友達が自分の時間について話すのを聞きます。"
+        },
+        {
+          "en": "He learns that people enjoy spending free time differently.",
+          "ja": "人によって自由時間の楽しみ方が違うと学びます。"
+        },
+        {
+          "en": "Nevertheless, friends can respect different choices and still stay close.",
+          "ja": "それでも友達は違う選択を尊重し親しくいられます。"
+        },
+        {
+          "en": "Kei decides to ask questions instead of making quick assumptions.",
+          "ja": "ケイはすぐ決めつけず質問することにします。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The following Saturday, Kei and Rina ride bicycles together.",
+          "ja": "次の土曜日にケイとリナは一緒に自転車に乗ります。"
+        },
+        {
+          "en": "They stop at a park and enjoy talking about their week.",
+          "ja": "公園に寄り一週間の出来事について話すのを楽しみます。"
+        },
+        {
+          "en": "As a result, Kei understands their friendship better than before.",
+          "ja": "その結果ケイは以前より二人の友情を理解します。"
+        },
+        {
+          "en": "He learns that listening and patience can strengthen relationships.",
+          "ja": "耳を傾け忍耐強く待つことが人間関係を強くすると学びます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What does Kei invite Rina to do?",
+      "options": [
+        "Ride bicycles.",
+        "Watch a concert.",
+        "Go shopping.",
+        "Play football."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落の「ケイは土曜日に自転車に乗ろうと友達のリナを誘います。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What does Rina want this Saturday?",
+      "options": [
+        "To go to the park.",
+        "To visit another school.",
+        "To travel abroad.",
+        "To stay home."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落の「しかしリナは今週末は家にいたいと言います。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "Why was Rina busy?",
+      "options": [
+        "She was moving houses.",
+        "She was working at a shop.",
+        "She practiced for a concert.",
+        "She was traveling."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落の「例えば毎日午後に演奏会の練習をしていました。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What does Kei realize?",
+      "options": [
+        "Books are not enjoyable.",
+        "Rest does not end a friendship.",
+        "Friends must meet every day.",
+        "A concert is always tiring."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落の「ケイは休息を必要とすることは友情を終えることではないと気づきます。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "When does Rina suggest meeting?",
+      "options": [
+        "Next Saturday.",
+        "That evening.",
+        "Monday morning.",
+        "During class."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落の「リナは笑顔で次の土曜日に公園へ行こうと提案します。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "How do they feel about the new plan?",
+      "options": [
+        "Angry.",
+        "Confused.",
+        "Frightened.",
+        "Comfortable."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落の「二人とも新しい計画に気持ちよく同意できます。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What does Kei learn about free time?",
+      "options": [
+        "No one likes sports.",
+        "All friends have identical habits.",
+        "People enjoy it differently.",
+        "Everyone must be alone."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落の「人によって自由時間の楽しみ方が違うと学びます。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "How can friends stay close?",
+      "options": [
+        "By forcing the same hobbies.",
+        "By respecting different choices.",
+        "By meeting every single day.",
+        "By avoiding all questions."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落の「それでも友達は違う選択を尊重し親しくいられます。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "detail",
+      "prompt": "Where do they stop the following Saturday?",
+      "options": [
+        "At a park.",
+        "At a library.",
+        "At a train station.",
+        "At a restaurant."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落の「公園に寄り一週間の出来事について話すのを楽しみます。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the main lesson?",
+      "options": [
+        "Good friends never need a break.",
+        "Every invitation must be accepted.",
+        "Resting means ending a friendship.",
+        "Listening and patience help friendships."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落の「耳を傾け忍耐強く待つことが人間関係を強くすると学びます。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "afternoon",
+      "ja": "午後",
+      "synonym": "later day",
+      "definition": "the time after noon"
+    },
+    {
+      "term": "assumptions",
+      "ja": "思い込み",
+      "synonym": "guesses",
+      "definition": "ideas accepted without evidence"
+    },
+    {
+      "term": "better",
+      "ja": "より良い",
+      "synonym": "improved",
+      "definition": "of higher quality than before"
+    },
+    {
+      "term": "choices",
+      "ja": "選択",
+      "synonym": "decisions",
+      "definition": "different options"
+    },
+    {
+      "term": "comfortable",
+      "ja": "心地よい",
+      "synonym": "at ease",
+      "definition": "feeling relaxed"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "friendship",
+      "ja": "友情",
+      "synonym": "bond",
+      "definition": "a relationship between friends"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "immediately",
+      "ja": "すぐに",
+      "synonym": "at once",
+      "definition": "without delay"
+    },
+    {
+      "term": "Listening",
+      "ja": "耳を傾けること",
+      "synonym": "paying attention",
+      "definition": "giving attention to spoken information"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "patience",
+      "ja": "忍耐",
+      "synonym": "calm waiting",
+      "definition": "the ability to wait"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "personal",
+      "ja": "個人的な",
+      "synonym": "private",
+      "definition": "relating to an individual"
+    },
+    {
+      "term": "relationships",
+      "ja": "人間関係",
+      "synonym": "connections",
+      "definition": "links between people"
+    },
+    {
+      "term": "respect",
+      "ja": "敬意・尊重",
+      "synonym": "consideration",
+      "definition": "careful treatment of another person's feelings or rights"
+    },
+    {
+      "term": "rest",
+      "ja": "休む",
+      "synonym": "relax",
+      "definition": "stop working for a time"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "learning place",
+      "definition": "a place for education"
+    },
+    {
+      "term": "strengthen",
+      "ja": "強くする",
+      "synonym": "improve",
+      "definition": "make stronger"
+    },
+    {
+      "term": "bicycles",
+      "ja": "自転車",
+      "synonym": "bikes",
+      "definition": "vehicles with two wheels"
+    },
+    {
+      "term": "weekends",
+      "ja": "週末",
+      "synonym": "days off",
+      "definition": "Saturdays and Sundays"
+    },
+    {
+      "term": "concert",
+      "ja": "演奏会",
+      "synonym": "performance",
+      "definition": "a musical event"
+    },
+    {
+      "term": "weekend",
+      "ja": "週末",
+      "synonym": "days off",
+      "definition": "Saturday and Sunday"
+    },
+    {
+      "term": "park",
+      "ja": "公園",
+      "synonym": "public garden",
+      "definition": "an outdoor place for visitors"
+    },
+    {
+      "term": "friend",
+      "ja": "友達",
+      "synonym": "companion",
+      "definition": "someone one knows and likes"
+    },
+    {
+      "term": "friends",
+      "ja": "友達",
+      "synonym": "companions",
+      "definition": "people who like each other"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "whether he has done something to upset her",
+      "explanation_ja": "whether節はケイの疑問を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "does not mean ending a friendship",
+      "explanation_ja": "does not mean + 動名詞は同じ意味ではないことを示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of asking her to change her mind",
+      "explanation_ja": "instead of + 動名詞は代替行動です。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "that listening and patience can strengthen relationships",
+      "explanation_ja": "that節が学んだ内容です。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "誘いを断る理由が生まれます。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "忙しい一週間の例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "違う過ごし方でも親しくいられると示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "理解が深まった結果を示します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Kei wonders whether he has done something to upset her.",
+      "rewrite": "Kei worries that he may have upset Rina.",
+      "explanation_ja": "ケイはリナを怒らせたか心配しています。"
+    },
+    {
+      "source": "Kei realizes that needing rest does not mean ending a friendship.",
+      "rewrite": "A need for rest does not end a relationship.",
+      "explanation_ja": "休みたい気持ちは友情の終了ではありません。"
+    },
+    {
+      "source": "Kei decides to ask questions instead of making quick assumptions.",
+      "rewrite": "Kei decides to question assumptions rather than judge quickly.",
+      "explanation_ja": "決めつけずに質問するという意味です。"
+    },
+    {
+      "source": "He learns that listening and patience can strengthen relationships.",
+      "rewrite": "Patience and listening can improve friendships.",
+      "explanation_ja": "待つことと聞くことの価値が結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "誘いを断る理由が生まれます。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "忙しい一週間の例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "違う過ごし方でも親しくいられると示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "理解が深まった結果を示します。"
+    }
+  ]
+}
