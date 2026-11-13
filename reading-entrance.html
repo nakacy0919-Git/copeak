@@ -10,14 +10,14 @@
 <link rel="stylesheet" href="reading-entrance.css?v=20261112-1">
 <link rel="stylesheet" href="reading-focus.css?v=20261112-focus1">
 <link rel="stylesheet" href="reading-study-desk.css?v=20261112-desk2">
-<link rel="stylesheet" href="reading-practice-premium.css?v=20261112-review2">
+<link rel="stylesheet" href="reading-practice-premium.css?v=20261113-richer1">
 <link rel="stylesheet" href="reading-lookup-enhanced.css?v=20261112-words2">
 <link rel="stylesheet" href="reading-chooser-responsive.css?v=20261112-layout1">
 <link rel="stylesheet" href="reading-exam-mode.css?v=20261112-full4">
-<link rel="stylesheet" href="reading-ink.css?v=20261112-toolbar4">
+<link rel="stylesheet" href="reading-ink.css?v=20261113-inline1">
 <link rel="stylesheet" href="reading-access.css?v=20261112-2">
-<link rel="stylesheet" href="reading-workflow.css?v=20261113-ipadfill1">
-<script defer src="reading-access.js?v=20261113-ipadfill1"></script>
+<link rel="stylesheet" href="reading-workflow.css?v=20261113-richer1">
+<script defer src="reading-access.js?v=20261113-richer1"></script>
 </head>
 <body>
 <section id="readingGate" class="reading-gate" aria-labelledby="readingGateHeading">
@@ -88,23 +88,20 @@
     <div class="pane-tools">
       <strong>英文</strong><span class="pane-tools-spacer"></span>
       <button type="button" id="inkStudyToggle" class="ink-launch" aria-controls="inkStudyPanel" aria-expanded="false" aria-label="書き込みON/OFF" aria-pressed="false" title="書き込みを有効にする"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 5 6 6M3 21l4.5-1 12-12a2.12 2.12 0 0 0-3-3l-12 12L3 21z"/></svg><span>書き込み</span></button>
-      <button type="button" id="inkStudySettings" class="ink-settings" aria-controls="inkStudyPanel" aria-expanded="false" hidden>ペン設定</button>
+      <div id="inkStudyPanel" class="ink-panel ink-inline-tools" hidden role="toolbar" aria-label="書き込みツール">
+        <button type="button" data-ink-action="pen" class="ink-tool-icon" aria-pressed="false" aria-label="黒ペン" title="黒ペン"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 20 4.3-.9L19 8.4a2.1 2.1 0 0 0-3-3L5.3 16.1 4 20Z"/><path d="m14 7 3 3"/></svg></button>
+        <button type="button" data-ink-action="eraser" class="ink-tool-icon" aria-pressed="false" aria-label="消しゴム" title="消しゴム"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m20 14-7 7H7a3 3 0 0 1-2.1-.9l-2-2a3 3 0 0 1 0-4.2L12 4.8a2.5 2.5 0 0 1 3.5 0l4.5 4.5a3.3 3.3 0 0 1 0 4.7Z"/><path d="m8.5 12 6.5 6.5M13 21h8"/></svg></button>
+        <button type="button" data-ink-action="undo" class="ink-tool-icon" aria-label="一つ戻す" title="一つ戻す"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 14 4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-2"/></svg></button>
+        <label class="ink-finger-label" title="オンにすると指でも書けます"><input type="checkbox" data-ink-action="finger">指も使う</label>
+        <span class="ink-save-status" role="status" aria-live="polite"></span>
+      </div>
       <button type="button" id="wordLookupToggle" class="lookup-toggle" aria-pressed="true" title="単語や英文をタップして意味を表示">単語 ON</button>
       <span class="pane-size-label">文字</span>
       <button id="passageFontMinus" type="button" aria-label="英文の文字を小さく">A−</button>
       <output id="passageFontValue" aria-live="off">18px</output>
       <button id="passageFontPlus" type="button" aria-label="英文の文字を大きく">A＋</button>
     </div>
-    <div id="inkStudyPanel" class="ink-panel" hidden role="toolbar" aria-label="英文への書き込み">
-      <button type="button" data-ink-action="pen" aria-pressed="false">✎ 黒ペン</button>
-      <button type="button" data-ink-action="eraser" aria-pressed="false">消しゴム</button>
-      <button type="button" data-ink-action="undo">↶ 戻す</button>
-      <button type="button" data-ink-action="visibility" aria-pressed="true">書き込み非表示</button>
-      <label class="ink-finger-label"><input type="checkbox" data-ink-action="finger">指でも描く</label>
-      <button type="button" data-ink-action="done">終了</button>
-      <span class="ink-tip">ペンで書き込み、指でスクロールできます。</span>
-      <span class="ink-save-status" role="status" aria-live="polite"></span>
-    </div>
+    
     <div class="passage-scroll" id="passageScroll" tabindex="0" aria-label="英文を上下にスクロール">
   <div class="reading-panel">
    <h3>英文</h3>
@@ -132,9 +129,9 @@
    <div class="exercise-choices" id="exerciseChoices">
     <button type="button" class="practice-choice" data-exercise="questions"><span class="practice-choice-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h7M8 16h5"/></svg></span><span class="practice-choice-copy"><strong>読解問題</strong><small>本文の内容を読み解く</small></span><span class="practice-choice-progress" data-choice-progress="questions">0%</span></button>
     <button type="button" class="practice-choice" data-exercise="vocab"><span class="practice-choice-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m4 20 5-13 5 13M6 15h6"/><path d="M16 8h4M18 6v13M16 12h4"/></svg></span><span class="practice-choice-copy"><strong>語彙クイズ</strong><small>英日・日英・英英</small></span><span class="practice-choice-progress" data-choice-progress="vocab">0%</span></button>
-    <button type="button" class="practice-choice" data-exercise="grammar"><span class="practice-choice-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M7 4v6M17 4v6M4 17h16M8 14v6M16 14v6"/></svg></span><span class="practice-choice-copy"><strong>文法トレーニング</strong><small>下線部の構文を考える</small></span><span class="practice-choice-progress" data-choice-progress="grammar">0%</span></button>
+    <button type="button" class="practice-choice" data-exercise="grammar"><span class="practice-choice-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M7 4v6M17 4v6M4 17h16M8 14v6M16 14v6"/></svg></span><span class="practice-choice-copy"><strong>文法トレーニング</strong><small>構文を見抜く四択問題</small></span><span class="practice-choice-progress" data-choice-progress="grammar">0%</span></button>
     <button type="button" class="practice-choice" data-exercise="discourse"><span class="practice-choice-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><path d="M10 6h4v11M10 17h4"/></svg></span><span class="practice-choice-copy"><strong>ディスコース</strong><small>接続表現を文脈から選ぶ</small></span><span class="practice-choice-progress" data-choice-progress="discourse">0%</span></button>
-    <button type="button" class="practice-choice" data-exercise="paraphrase"><span class="practice-choice-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h15l-3-3m3 3-3 3M20 17H5l3-3m-3 3 3 3"/><path d="M8 12h8"/></svg></span><span class="practice-choice-copy"><strong>言い換え</strong><small>下線部の意味を選ぶ</small></span><span class="practice-choice-progress" data-choice-progress="paraphrase">0%</span></button>
+    <button type="button" class="practice-choice" data-exercise="paraphrase"><span class="practice-choice-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h15l-3-3m3 3-3 3M20 17H5l3-3m-3 3 3 3"/><path d="M8 12h8"/></svg></span><span class="practice-choice-copy"><strong>言い換え</strong><small>英文から同義表現を選ぶ</small></span><span class="practice-choice-progress" data-choice-progress="paraphrase">0%</span></button>
     <button type="button" class="practice-choice" data-exercise="cloze"><span class="practice-choice-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4zM8 9h8M8 14h2M13 14h3"/></svg></span><span class="practice-choice-copy"><strong>本文穴埋め</strong><small>本文と問題を連動</small></span><span class="practice-choice-progress" data-choice-progress="cloze">0%</span></button>
 
    </div>
@@ -142,7 +139,7 @@
   <nav id="tabNavigation" class="tabs" aria-label="学習する内容">
    <button type="button" data-tab="questions" aria-current="true">読解問題</button>
    <button type="button" data-tab="vocab">語彙・クイズ</button>
-   <button type="button" data-tab="grammar">文法解説</button>
+   <button type="button" data-tab="grammar">文法問題</button>
    <button type="button" data-tab="discourse">ディスコース</button>
    <button type="button" data-tab="paraphrase">言い換え</button>
    <button type="button" data-tab="cloze">本文穴埋め</button>
@@ -180,7 +177,7 @@
       <button type="button" id="resetAnswers">この読解をやり直す</button>
     </div>
   </section>
-  <section class="work-panel" data-panel="vocab" hidden><div class="vocab-quiz-controls"><label for="vocabQuizMode">出題方向</label><select id="vocabQuizMode"><option value="en-ja">英語 → 日本語</option><option value="ja-en">日本語 → 英語</option><option value="definition">英英定義 → 英単語</option></select><button type="button" id="vocabRestart">最初から</button><button type="button" id="vocabListToggle" aria-controls="vocabListPanel" aria-expanded="false">語彙一覧を見る</button></div><div id="vocabQuiz" class="practice-quiz"></div><section id="vocabListPanel" class="vocab-list-panel" hidden><h3>重要語彙一覧</h3><div id="vocabList" class="vocab-list"></div></section></section>
+  <section class="work-panel" data-panel="vocab" hidden><div class="vocab-quiz-controls"><label for="vocabQuizMode">出題方向</label><select id="vocabQuizMode"><option value="en-ja">英語 → 日本語</option><option value="ja-en">日本語 → 英語</option><option value="definition">英英定義 → 英単語</option></select><button type="button" id="vocabRestart">最初から</button><button type="button" id="vocabListToggle" aria-haspopup="dialog" aria-controls="vocabListPanel">語彙一覧を見る</button></div><span id="vocabQuestionCount" class="vocab-question-count" aria-live="polite"></span><div id="vocabQuiz" class="practice-quiz"></div></section>
   <section class="work-panel" data-panel="grammar" hidden><div id="grammarNotes" class="practice-quiz"></div></section>
   <section class="work-panel" data-panel="discourse" hidden><div id="discourseNotes" class="practice-quiz"></div></section>
   <section class="work-panel" data-panel="paraphrase" hidden><div id="paraphraseNotes" class="practice-quiz"></div></section>
@@ -194,16 +191,13 @@
  <div id="examLayout" class="exam-layout">
   <section class="exam-passage-pane" aria-label="試験の英文">
    <button type="button" id="inkExamToggle" class="ink-launch ink-exam-launch" aria-controls="inkExamPanel" aria-expanded="false" aria-label="試験中の書き込みON/OFF" title="ペンで書き込む">✎ <span>書き込み</span></button>
-   <button type="button" id="inkExamSettings" class="ink-settings ink-exam-settings" aria-controls="inkExamPanel" aria-expanded="false" hidden>設定</button>
-   <div id="inkExamPanel" class="ink-panel ink-exam-panel" hidden role="toolbar" aria-label="試験中の手書き">
-     <button type="button" data-ink-action="pen" aria-pressed="false">✎ 黒ペン</button>
-     <button type="button" data-ink-action="eraser" aria-pressed="false">消しゴム</button>
-     <button type="button" data-ink-action="undo">↶ 戻す</button>
-     <button type="button" data-ink-action="visibility" aria-pressed="true">非表示</button>
-     <label class="ink-finger-label"><input type="checkbox" data-ink-action="finger">指でも描く</label>
-     <button type="button" data-ink-action="done">終了</button>
-     <span class="ink-save-status" role="status" aria-live="polite"></span>
-   </div>
+   <div id="inkExamPanel" class="ink-panel ink-exam-panel ink-inline-tools" hidden role="toolbar" aria-label="試験中の書き込みツール">
+      <button type="button" data-ink-action="pen" class="ink-tool-icon" aria-pressed="false" aria-label="黒ペン" title="黒ペン"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 20 4.3-.9L19 8.4a2.1 2.1 0 0 0-3-3L5.3 16.1 4 20Z"/><path d="m14 7 3 3"/></svg></button>
+      <button type="button" data-ink-action="eraser" class="ink-tool-icon" aria-pressed="false" aria-label="消しゴム" title="消しゴム"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m20 14-7 7H7a3 3 0 0 1-2.1-.9l-2-2a3 3 0 0 1 0-4.2L12 4.8a2.5 2.5 0 0 1 3.5 0l4.5 4.5a3.3 3.3 0 0 1 0 4.7Z"/><path d="m8.5 12 6.5 6.5M13 21h8"/></svg></button>
+      <button type="button" data-ink-action="undo" class="ink-tool-icon" aria-label="一つ戻す" title="一つ戻す"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 14 4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-2"/></svg></button>
+      <label class="ink-finger-label" title="オンにすると指でも書けます"><input type="checkbox" data-ink-action="finger">指も使う</label>
+      <span class="ink-save-status" role="status" aria-live="polite"></span>
+    </div>
    <div id="examPassageScroll" class="exam-pane-scroll" tabindex="0" aria-label="英文をスクロール">
     <div id="examPassage" class="exam-passage"></div>
    </div>
@@ -237,6 +231,15 @@
  </div>
  <div class="dialog-actions"><button id="printPdf" type="button" class="primary">印刷・PDF保存</button><button id="printDocx" type="button">Word保存（.docx）</button></div>
  <p id="printStatus" role="status"></p>
+</dialog>
+<dialog id="vocabListPanel" class="vocab-list-dialog" aria-labelledby="vocabListHeading">
+  <div class="vocab-dialog-head">
+    <div><span class="vocab-dialog-eyebrow">VOCABULARY BANK</span><h2 id="vocabListHeading">本文の重要語彙一覧</h2><p id="vocabListCount" class="muted"></p></div>
+    <button type="button" id="vocabListClose" class="vocab-dialog-close" aria-label="語彙一覧を閉じる">×</button>
+  </div>
+  <label class="vocab-dialog-search-label" for="vocabListSearch">単語・日本語訳・英英定義で検索</label>
+  <input id="vocabListSearch" type="search" placeholder="例：environment／環境" autocomplete="off">
+  <div id="vocabList" class="vocab-list" role="list"></div>
 </dialog>
 <dialog id="readingLookupDialog" class="reading-lookup-dialog reading-lookup-wide" aria-labelledby="lookupHeading">
  <div class="lookup-title"><span id="lookupKind">CONTEXT DICTIONARY</span><span id="lookupSource" class="lookup-source"></span><button id="lookupClose" type="button" aria-label="閉じる">×</button></div>
