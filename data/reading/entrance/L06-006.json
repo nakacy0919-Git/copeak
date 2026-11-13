@@ -1,0 +1,694 @@
+{
+  "id": "L06-006",
+  "category_id": "L06",
+  "title": "Why the First Guess Felt Right",
+  "title_ja": "最初の予想が正しく感じられた理由",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "word_count": 288,
+  "source_links": [
+    {
+      "title": "Psychology background reference",
+      "url": "https://www.apa.org/topics/decision-making"
+    }
+  ],
+  "fact_notes": [
+    "授業場面は架空。英文と和訳、問題は独自制作。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A class studies pictures of plants growing in different places.",
+          "ja": "クラスは異なる場所で育つ植物の写真を調べます。"
+        },
+        {
+          "en": "Many students believe that more sunlight always means faster growth.",
+          "ja": "多くの生徒は日光が多いほど必ず成長が速いと考えます。"
+        },
+        {
+          "en": "Their first guess seems reasonable because plants need sunlight.",
+          "ja": "植物には日光が必要なので最初の予想はもっともらしく見えます。"
+        },
+        {
+          "en": "However, some plants in the pictures do not follow that pattern.",
+          "ja": "しかし写真の中にはその傾向に当てはまらない植物もあります。"
+        },
+        {
+          "en": "The teacher asks students to look for facts that challenge their expectations.",
+          "ja": "教師は予想に反する事実も探すよう求めます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "People sometimes notice information that agrees with ideas they already believe.",
+          "ja": "人はすでに信じている考えと一致する情報に気づきやすいことがあります。"
+        },
+        {
+          "en": "For example, someone expecting a sunny day may remember sunshine but forget a short rain shower.",
+          "ja": "例えば晴れを予想している人は日差しを覚え、短い雨を忘れるかもしれません。"
+        },
+        {
+          "en": "This does not mean that every first guess is wrong.",
+          "ja": "だからといって最初の予想がすべて間違いというわけではありません。"
+        },
+        {
+          "en": "Instead, it suggests that careful thinkers should check different kinds of evidence.",
+          "ja": "むしろ慎重な人は異なる種類の証拠を確認すべきだと示しています。"
+        },
+        {
+          "en": "The class learns to separate a strong feeling of confidence from accurate information.",
+          "ja": "クラスは強い自信と正確な情報を区別するようになります。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Students write down their predictions before examining the remaining photographs.",
+          "ja": "生徒たちは残りの写真を見る前に自分の予想を書き出します。"
+        },
+        {
+          "en": "They compare sunlight, water, soil, and the age of each plant.",
+          "ja": "日光、水、土、それぞれの植物の年齢を比べます。"
+        },
+        {
+          "en": "Instead of selecting only pictures that support their guesses, they examine the entire set.",
+          "ja": "予想を支える写真だけを選ばず、すべての写真を調べます。"
+        },
+        {
+          "en": "Some plants grow differently even when the amount of sunlight is similar.",
+          "ja": "日光の量が似ていても育ち方が異なる植物もあります。"
+        },
+        {
+          "en": "Students realize that several conditions can influence the same result.",
+          "ja": "生徒たちは複数の条件が同じ結果に影響することに気づきます。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Nevertheless, the students do not conclude that sunlight is unimportant.",
+          "ja": "それでも生徒たちは日光が重要でないとは結論づけません。"
+        },
+        {
+          "en": "They ask which measurements could help explain the unexpected differences.",
+          "ja": "予想外の違いを説明するためにどの測定が役立つか尋ねます。"
+        },
+        {
+          "en": "The teacher encourages them to report observations before offering explanations.",
+          "ja": "教師は説明を示す前に観察結果を報告するよう促します。"
+        },
+        {
+          "en": "The students begin to understand why a useful scientific question needs evidence.",
+          "ja": "生徒たちは役立つ科学的な問いに証拠が必要な理由を理解し始めます。"
+        },
+        {
+          "en": "They also discover that changing an opinion can be part of learning.",
+          "ja": "意見を変えることも学びの一部になり得ると気づきます。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "At the final meeting, groups describe which predictions changed during their work.",
+          "ja": "最後の話し合いで各グループは活動中に変わった予想を説明します。"
+        },
+        {
+          "en": "The teacher praises clear reasons rather than confidence alone.",
+          "ja": "教師は自信だけでなく明確な理由を評価します。"
+        },
+        {
+          "en": "As a result, students become less afraid of admitting that a guess was incorrect.",
+          "ja": "その結果、生徒は予想が間違っていたと認めることをあまり恐れなくなります。"
+        },
+        {
+          "en": "They learn that a first answer can begin an investigation without ending it.",
+          "ja": "最初の答えが調査の終わりではなく始まりになり得ると学びます。"
+        },
+        {
+          "en": "Looking for evidence against an idea is sometimes as valuable as finding support for it.",
+          "ja": "考えに反する証拠を探すことは、それを支える証拠を見つけることと同じくらい価値がある場合もあります。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What do most students believe at first?",
+      "options": [
+        "More sunlight always means faster growth.",
+        "Plants do not need light.",
+        "All plants grow at one speed.",
+        "Every photograph shows the same plant."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落の「多くの生徒は日光が多いほど必ず成長が速いと考えます。」を確認します。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What does the teacher ask students to find?",
+      "options": [
+        "Only matching photographs.",
+        "The fastest classroom computer.",
+        "More colorful notebooks.",
+        "Facts that challenge their guesses."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落の「教師は予想に反する事実も探すよう求めます。」を確認します。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What might someone expecting sunshine forget?",
+      "options": [
+        "The name of a friend.",
+        "The day of the week.",
+        "A short period of rain.",
+        "A bright afternoon."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落の「例えば晴れを予想している人は日差しを覚え、短い雨を忘れるかもしれません。」を確認します。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What two things do students learn to distinguish?",
+      "options": [
+        "Plants and animals.",
+        "Confidence and accurate information.",
+        "Paper and plastic.",
+        "Two kinds of classroom chairs."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落の「クラスは強い自信と正確な情報を区別するようになります。」を確認します。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What conditions do students compare?",
+      "options": [
+        "Sunlight, water, soil, and plant age.",
+        "Only the colors of leaves.",
+        "The cost of gardening tools.",
+        "The location of the classroom."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落の「日光、水、土、それぞれの植物の年齢を比べます。」を確認します。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "How do students select photographs?",
+      "options": [
+        "They keep only those supporting the guess.",
+        "They choose the biggest picture.",
+        "They discard every unusual result.",
+        "They examine all of them."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落の「予想を支える写真だけを選ばず、すべての写真を調べます。」を確認します。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What does the class not conclude?",
+      "options": [
+        "That evidence matters.",
+        "That opinions can change.",
+        "That sunlight is unimportant.",
+        "That measurements may help."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落の「それでも生徒たちは日光が重要でないとは結論づけません。」を確認します。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What do students discover about changing opinions?",
+      "options": [
+        "It proves all earlier work was useless.",
+        "It may be part of learning.",
+        "It always means failure.",
+        "It is forbidden in science."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落の「意見を変えることも学びの一部になり得ると気づきます。」を確認します。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What does the teacher praise?",
+      "options": [
+        "Clear reasons.",
+        "Confidence without evidence.",
+        "The fastest answer.",
+        "The longest report."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落の「教師は自信だけでなく明確な理由を評価します。」を確認します。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the passage's main idea?",
+      "options": [
+        "Initial guesses should never change.",
+        "Scientists should ignore conflicting facts.",
+        "Confidence guarantees accuracy.",
+        "Good inquiry tests initial ideas against evidence."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落の「考えに反する証拠を探すことは、それを支える証拠を見つけることと同じくらい価値がある場合もあります。」を確認します。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "accurate",
+      "ja": "正確な",
+      "synonym": "correct",
+      "definition": "matching the facts"
+    },
+    {
+      "term": "challenge",
+      "ja": "疑わせる",
+      "synonym": "question",
+      "definition": "cause someone to reconsider"
+    },
+    {
+      "term": "changing",
+      "ja": "変化する",
+      "synonym": "shifting",
+      "definition": "becoming different"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "examine together",
+      "definition": "look for similarities and differences"
+    },
+    {
+      "term": "conditions",
+      "ja": "条件",
+      "synonym": "factors",
+      "definition": "circumstances affecting an outcome"
+    },
+    {
+      "term": "confidence",
+      "ja": "自信",
+      "synonym": "certainty",
+      "definition": "a feeling of being sure"
+    },
+    {
+      "term": "describe",
+      "ja": "説明する",
+      "synonym": "explain",
+      "definition": "to give an account of something"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "discover",
+      "ja": "気づく・発見する",
+      "synonym": "find out",
+      "definition": "to learn something previously unknown"
+    },
+    {
+      "term": "entire",
+      "ja": "全体の",
+      "synonym": "whole",
+      "definition": "including everything or everyone"
+    },
+    {
+      "term": "evidence",
+      "ja": "証拠",
+      "synonym": "proof",
+      "definition": "information used to support or question a claim"
+    },
+    {
+      "term": "examine",
+      "ja": "調べる",
+      "synonym": "inspect",
+      "definition": "to look carefully"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "incorrect",
+      "ja": "誤った",
+      "synonym": "wrong",
+      "definition": "not accurate or true"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "facts",
+      "definition": "facts or details provided about something"
+    },
+    {
+      "term": "investigation",
+      "ja": "調査",
+      "synonym": "research",
+      "definition": "a careful study"
+    },
+    {
+      "term": "meeting",
+      "ja": "集合",
+      "synonym": "gathering",
+      "definition": "coming together at a place"
+    },
+    {
+      "term": "needs",
+      "ja": "必要",
+      "synonym": "requirements",
+      "definition": "things necessary for well-being"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "observations",
+      "ja": "観察",
+      "synonym": "records",
+      "definition": "information gained by watching"
+    },
+    {
+      "term": "opinion",
+      "ja": "意見",
+      "synonym": "view",
+      "definition": "a personal judgment"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "photographs",
+      "ja": "写真",
+      "synonym": "pictures",
+      "definition": "images taken using a camera"
+    },
+    {
+      "term": "question",
+      "ja": "疑問を持つ・問い直す",
+      "synonym": "challenge",
+      "definition": "to examine whether an assumption is correct"
+    },
+    {
+      "term": "scientific",
+      "ja": "科学的な",
+      "synonym": "research-based",
+      "definition": "connected with studying nature"
+    },
+    {
+      "term": "similar",
+      "ja": "似ている",
+      "synonym": "alike",
+      "definition": "having many features in common"
+    },
+    {
+      "term": "soil",
+      "ja": "土",
+      "synonym": "earth",
+      "definition": "ground in which plants grow"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "support",
+      "ja": "支え・支援",
+      "synonym": "help",
+      "definition": "help that keeps an activity going"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who helps others learn"
+    },
+    {
+      "term": "valuable",
+      "ja": "価値のある",
+      "synonym": "worthwhile",
+      "definition": "important or useful enough to be appreciated"
+    },
+    {
+      "term": "water",
+      "ja": "水をやる",
+      "synonym": "irrigate",
+      "definition": "to give water to a plant"
+    },
+    {
+      "term": "predictions",
+      "ja": "予想",
+      "synonym": "forecasts",
+      "definition": "ideas about future results"
+    },
+    {
+      "term": "sunlight",
+      "ja": "日光",
+      "synonym": "sunshine",
+      "definition": "light from the sun"
+    },
+    {
+      "term": "growth",
+      "ja": "成長",
+      "synonym": "development",
+      "definition": "becoming larger over time"
+    },
+    {
+      "term": "measurements",
+      "ja": "測定",
+      "synonym": "data",
+      "definition": "information collected by measuring"
+    },
+    {
+      "term": "influence",
+      "ja": "影響する",
+      "synonym": "affect",
+      "definition": "change an outcome"
+    },
+    {
+      "term": "expectations",
+      "ja": "予想",
+      "synonym": "beliefs",
+      "definition": "what people think will happen"
+    },
+    {
+      "term": "sunshine",
+      "ja": "日差し",
+      "synonym": "sunlight",
+      "definition": "light from the Sun"
+    },
+    {
+      "term": "guesses",
+      "ja": "推測",
+      "synonym": "predictions",
+      "definition": "answers proposed without full evidence"
+    },
+    {
+      "term": "plants",
+      "ja": "植物",
+      "synonym": "vegetation",
+      "definition": "living things that grow"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "that more sunlight always means faster growth",
+      "explanation_ja": "that節は生徒の予想を表します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "does not mean that every first guess is wrong",
+      "explanation_ja": "does not mean thatは一般化の否定です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of selecting only pictures that support their guesses",
+      "explanation_ja": "instead of + 動名詞は方法の転換を示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 4,
+      "focus": "as valuable as finding support for it",
+      "explanation_ja": "as ... asは重要性を比較します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "最初の考えに合わない事実を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "予想による記憶の偏りを例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "日光の重要性を否定するわけではないと示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "予想の間違いを認めるようになる結果です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The teacher asks students to look for facts that challenge their expectations.",
+      "rewrite": "Students seek evidence that questions their predictions.",
+      "explanation_ja": "予想に反する証拠も探します。"
+    },
+    {
+      "source": "The class learns to separate a strong feeling of confidence from accurate information.",
+      "rewrite": "The class separates confidence from correctness.",
+      "explanation_ja": "自信と正確さを分けます。"
+    },
+    {
+      "source": "They also discover that changing an opinion can be part of learning.",
+      "rewrite": "Changing a belief can support learning.",
+      "explanation_ja": "考えを変えることも学びです。"
+    },
+    {
+      "source": "Looking for evidence against an idea is sometimes as valuable as finding support for it.",
+      "rewrite": "Testing opposing evidence is as useful as finding support.",
+      "explanation_ja": "反証も調べることが大切という結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "最初の考えに合わない事実を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "予想による記憶の偏りを例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "日光の重要性を否定するわけではないと示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "予想の間違いを認めるようになる結果です。"
+    }
+  ]
+}
