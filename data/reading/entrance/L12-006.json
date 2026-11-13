@@ -1,0 +1,676 @@
+{
+  "id": "L12-006",
+  "category_id": "L12",
+  "title": "A Label Everyone Could Understand",
+  "title_ja": "誰にでもわかる説明ラベル",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "word_count": 279,
+  "source_links": [
+    {
+      "title": "Official background reference",
+      "url": "https://www.who.int/health-topics/health-literacy"
+    }
+  ],
+  "fact_notes": [
+    "学校・博物館・保健センターの事例は架空。英文、和訳、問題、解説はオリジナル。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A community health center gives visitors a leaflet about preparing for an appointment.",
+          "ja": "地域の保健センターは来訪者に予約の準備に関する案内紙を配ります。"
+        },
+        {
+          "en": "The leaflet includes information about the date, location, and documents to bring.",
+          "ja": "案内には日時、場所、持参する書類についての情報が入っています。"
+        },
+        {
+          "en": "However, several visitors say the instructions are too difficult to follow.",
+          "ja": "しかし数人は指示が難しすぎて理解できないと言います。"
+        },
+        {
+          "en": "Important details are hidden inside long sentences and small text.",
+          "ja": "重要な細部が長い文や小さな文字の中に埋もれています。"
+        },
+        {
+          "en": "The staff decide to test whether a clearer design would help.",
+          "ja": "職員たちはより明確な設計が役立つか試すことにします。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "A group of volunteers reads the original leaflet and answers simple questions.",
+          "ja": "ボランティアのグループが元の案内を読み簡単な質問に答えます。"
+        },
+        {
+          "en": "For example, they must find the appointment time and the correct entrance.",
+          "ja": "例えば予約時刻と正しい入口を見つけなければなりません。"
+        },
+        {
+          "en": "Some find the date quickly but have trouble locating other details.",
+          "ja": "日付はすぐ見つけても他の細部が見つけにくい人がいます。"
+        },
+        {
+          "en": "The staff realize that including information does not always mean communicating it clearly.",
+          "ja": "職員たちは情報を含めることが必ずしも明確に伝えることではないと気づきます。"
+        },
+        {
+          "en": "They ask which parts people find confusing and why.",
+          "ja": "どの部分がなぜわかりにくいか尋ねます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The new leaflet uses short sentences and clear headings.",
+          "ja": "新しい案内は短い文と明確な見出しを使います。"
+        },
+        {
+          "en": "The appointment information appears near the top of the page.",
+          "ja": "予約情報はページの上の方に表示されます。"
+        },
+        {
+          "en": "Instead of filling every space with words, the design leaves room between sections.",
+          "ja": "すべての場所を文字で埋めるのではなく、段落の間に余白を残します。"
+        },
+        {
+          "en": "A simple drawing shows where the entrance is located.",
+          "ja": "簡単な図で入口の位置を示します。"
+        },
+        {
+          "en": "The staff also explain where visitors can ask for help.",
+          "ja": "どこで助けを求められるかも説明します。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Nevertheless, the team knows that one version may not help everyone equally.",
+          "ja": "それでも一つの版が全員を同じように助けるとは限らないとチームは理解しています。"
+        },
+        {
+          "en": "Some people prefer spoken explanations or information in another language.",
+          "ja": "口頭の説明や別の言語での情報を好む人もいます。"
+        },
+        {
+          "en": "Others may have difficulty traveling to the center itself.",
+          "ja": "センターまでの移動が難しい人もいるかもしれません。"
+        },
+        {
+          "en": "The staff continue listening to different needs rather than assuming all problems are identical.",
+          "ja": "職員はすべての問題が同じだと決めつけず、異なる必要に耳を傾け続けます。"
+        },
+        {
+          "en": "A useful service begins by considering the people receiving it.",
+          "ja": "役立つサービスはそれを受ける人を考慮することから始まります。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "After the changes, many visitors report that the new leaflet is easier to read.",
+          "ja": "変更後、多くの来訪者が新しい案内は読みやすいと述べます。"
+        },
+        {
+          "en": "The center continues asking whether the information helps people prepare.",
+          "ja": "センターは情報が準備に役立つか尋ね続けます。"
+        },
+        {
+          "en": "As a result, the staff understand that good communication requires regular review.",
+          "ja": "その結果、職員はよい伝達には定期的な見直しが必要だと理解します。"
+        },
+        {
+          "en": "They learn that correct facts and clear explanations must work together.",
+          "ja": "正しい事実とわかりやすい説明が一緒に機能する必要があると学びます。"
+        },
+        {
+          "en": "A message is useful when the reader can actually act on it.",
+          "ja": "メッセージは読み手が実際に行動できるとき役立ちます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What does the original leaflet explain?",
+      "options": [
+        "Appointment details and documents to bring.",
+        "All staff members' hobbies.",
+        "The price of a new building.",
+        "School sports results."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「案内には日時、場所、持参する書類についての情報が入っています。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Why do visitors struggle with the leaflet?",
+      "options": [
+        "No date is ever needed.",
+        "Every visitor has the same needs.",
+        "The leaflet contains only pictures.",
+        "Important details are buried in long text."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「重要な細部が長い文や小さな文字の中に埋もれています。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What information do volunteers try to find?",
+      "options": [
+        "The center's favorite food.",
+        "The number of local schools.",
+        "The appointment time and entrance.",
+        "The oldest hospital in the world."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「例えば予約時刻と正しい入口を見つけなければなりません。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What do staff learn about including correct facts?",
+      "options": [
+        "A leaflet should contain no words.",
+        "Facts can still be hard to communicate.",
+        "Facts automatically become clear.",
+        "Short writing always hides the date."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「職員たちは情報を含めることが必ずしも明確に伝えることではないと気づきます。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What does the new design do differently?",
+      "options": [
+        "It leaves space between sections.",
+        "It hides the appointment time.",
+        "It removes all headings.",
+        "It uses only longer sentences."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「すべての場所を文字で埋めるのではなく、段落の間に余白を残します。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What extra help is offered?",
+      "options": [
+        "A free train for every visitor.",
+        "A list of school examinations.",
+        "A new sports club.",
+        "Information on where to ask questions."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「どこで助けを求められるかも説明します。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "Why might one version not suit everyone?",
+      "options": [
+        "No visitor needs help.",
+        "All visitors read at the same speed.",
+        "People have different communication needs.",
+        "Everyone speaks the same language."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「口頭の説明や別の言語での情報を好む人もいます。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "How do staff respond to different needs?",
+      "options": [
+        "They blame readers for confusion.",
+        "They listen rather than assume identical problems.",
+        "They stop collecting feedback.",
+        "They remove all translations."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「職員はすべての問題が同じだと決めつけず、異なる必要に耳を傾け続けます。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "How do many visitors respond to the revision?",
+      "options": [
+        "They find it easier to read.",
+        "They cannot find the center anymore.",
+        "They demand longer sentences.",
+        "They stop reading every notice."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「変更後、多くの来訪者が新しい案内は読みやすいと述べます。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the central lesson?",
+      "options": [
+        "A correct fact always guarantees understanding.",
+        "One format works perfectly for everyone.",
+        "A leaflet is only decoration.",
+        "Useful health information must be understandable and usable."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「メッセージは読み手が実際に行動できるとき役立ちます。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "actually",
+      "ja": "実際に",
+      "synonym": "really",
+      "definition": "in fact rather than only in theory"
+    },
+    {
+      "term": "communication",
+      "ja": "伝達",
+      "synonym": "exchange",
+      "definition": "sharing information"
+    },
+    {
+      "term": "community",
+      "ja": "地域社会",
+      "synonym": "neighborhood",
+      "definition": "people living in the same area"
+    },
+    {
+      "term": "confusing",
+      "ja": "わかりにくい",
+      "synonym": "unclear",
+      "definition": "difficult to understand"
+    },
+    {
+      "term": "correct",
+      "ja": "訂正する・正しい",
+      "synonym": "fix",
+      "definition": "to remove errors or make something accurate"
+    },
+    {
+      "term": "decide",
+      "ja": "決める",
+      "synonym": "choose",
+      "definition": "to make a choice"
+    },
+    {
+      "term": "details",
+      "ja": "細部",
+      "synonym": "particulars",
+      "definition": "small pieces of information"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "difficulty",
+      "ja": "困難",
+      "synonym": "trouble",
+      "definition": "a problem that makes something hard"
+    },
+    {
+      "term": "documents",
+      "ja": "書類",
+      "synonym": "papers",
+      "definition": "written records"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "health",
+      "ja": "健康",
+      "synonym": "wellness",
+      "definition": "the condition of a person's body and mind"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "identical",
+      "ja": "同一の",
+      "synonym": "the same",
+      "definition": "exactly alike"
+    },
+    {
+      "term": "important",
+      "ja": "重要な",
+      "synonym": "significant",
+      "definition": "having a great effect or value"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "details",
+      "definition": "useful facts"
+    },
+    {
+      "term": "instructions",
+      "ja": "指示",
+      "synonym": "directions",
+      "definition": "information about what to do"
+    },
+    {
+      "term": "leaves",
+      "ja": "葉",
+      "synonym": "foliage",
+      "definition": "flat green parts of a plant"
+    },
+    {
+      "term": "Listening",
+      "ja": "耳を傾けること",
+      "synonym": "paying attention",
+      "definition": "giving attention to spoken information"
+    },
+    {
+      "term": "message",
+      "ja": "メッセージ",
+      "synonym": "communication",
+      "definition": "information sent to someone"
+    },
+    {
+      "term": "needs",
+      "ja": "必要",
+      "synonym": "requirements",
+      "definition": "things necessary for well-being"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "original",
+      "ja": "元の",
+      "synonym": "first",
+      "definition": "the version used at first"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "prefer",
+      "ja": "好む",
+      "synonym": "favor",
+      "definition": "to like one option more"
+    },
+    {
+      "term": "prepare",
+      "ja": "準備する",
+      "synonym": "get ready",
+      "definition": "to make something ready for use"
+    },
+    {
+      "term": "space",
+      "ja": "空間",
+      "synonym": "room",
+      "definition": "an area available for use"
+    },
+    {
+      "term": "visitors",
+      "ja": "訪問者",
+      "synonym": "guests",
+      "definition": "people who visit a place"
+    },
+    {
+      "term": "volunteers",
+      "ja": "ボランティア",
+      "synonym": "helpers",
+      "definition": "people providing help"
+    },
+    {
+      "term": "center",
+      "ja": "センター",
+      "synonym": "facility",
+      "definition": "a place providing services"
+    },
+    {
+      "term": "leaflet",
+      "ja": "案内紙",
+      "synonym": "handout",
+      "definition": "a short printed information sheet"
+    },
+    {
+      "term": "appointment",
+      "ja": "予約",
+      "synonym": "scheduled visit",
+      "definition": "a planned meeting time"
+    },
+    {
+      "term": "location",
+      "ja": "場所",
+      "synonym": "place",
+      "definition": "where something is located"
+    },
+    {
+      "term": "entrance",
+      "ja": "入口",
+      "synonym": "doorway",
+      "definition": "where someone enters"
+    },
+    {
+      "term": "headings",
+      "ja": "見出し",
+      "synonym": "titles",
+      "definition": "short introductions to sections"
+    },
+    {
+      "term": "language",
+      "ja": "言語",
+      "synonym": "speech system",
+      "definition": "a system people use to communicate"
+    },
+    {
+      "term": "design",
+      "ja": "設計",
+      "synonym": "layout",
+      "definition": "arrangement of information"
+    },
+    {
+      "term": "review",
+      "ja": "見直し",
+      "synonym": "inspection",
+      "definition": "checking for improvement"
+    },
+    {
+      "term": "regular",
+      "ja": "定期的な",
+      "synonym": "frequent",
+      "definition": "happening again and again"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "inside long sentences and small text",
+      "explanation_ja": "insideは情報が埋もれる位置を表します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "that including information does not always mean communicating it clearly",
+      "explanation_ja": "that節は気づいた内容を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of filling every space with words",
+      "explanation_ja": "instead of + 動名詞で改善方法を示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 4,
+      "focus": "when the reader can actually act on it",
+      "explanation_ja": "when節が有益になる条件です。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "案内を配っても理解が難しい場合があると示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "読み取るべき予約情報の例を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "一種類の案内で全員には対応できないと示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "見直しを続ける必要性を理解した結果です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Important details are hidden inside long sentences and small text.",
+      "rewrite": "Small text and long sentences hide essential information.",
+      "explanation_ja": "長い文と小さな文字が重要な情報を見えにくくします。"
+    },
+    {
+      "source": "The staff realize that including information does not always mean communicating it clearly.",
+      "rewrite": "Accurate information is not always communicated effectively.",
+      "explanation_ja": "正確な情報でも明確に伝わるとは限りません。"
+    },
+    {
+      "source": "A useful service begins by considering the people receiving it.",
+      "rewrite": "Services should be designed around the people who use them.",
+      "explanation_ja": "利用者を考えた設計が必要という意味です。"
+    },
+    {
+      "source": "A message is useful when the reader can actually act on it.",
+      "rewrite": "Information matters when readers can use it to take action.",
+      "explanation_ja": "読んだ人が行動できる情報が有益という結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "案内を配っても理解が難しい場合があると示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "読み取るべき予約情報の例を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "一種類の案内で全員には対応できないと示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "見直しを続ける必要性を理解した結果です。"
+    }
+  ]
+}
