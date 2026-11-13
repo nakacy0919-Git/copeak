@@ -179,7 +179,7 @@ function selectLesson(id,startFocus=true){
   return href?'<a target="_blank" rel="noopener noreferrer" href="'+esc(href)+'">'+esc(l.title)+'</a>':'';
  }).join('');
  const questionPicker=$('readingQuestionCount'),countRow=$('readingQuestionCountRow');
- const available=s.questions.length,limits=[10,15,20,25,30,40,50].filter(n=>n<available);limits.push(available);
+ const available=s.questions.length,limits=[...new Set([...([10,15,20,25,30,40,50].filter(n=>n<available)),state.questionLimit,available])].sort((a,b)=>a-b);
  questionPicker.innerHTML=limits.map(n=>'<option value="'+n+'">'+(n===available?'全'+n+'問':n+'問')+'</option>').join('');
  questionPicker.value=String(state.questionLimit);if(countRow)countRow.hidden=available<=10;
  renderPassage();renderQuestions();renderVocab();renderNotes();renderCloze();switchTab('questions');renderSetList();chooseExercise('questions');renderPracticeProgress();
