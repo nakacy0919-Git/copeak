@@ -1,0 +1,858 @@
+{
+  "id": "L03-007",
+  "category_id": "L03",
+  "title": "The Sensor That Reported Two Temperatures",
+  "title_ja": "二つの温度を示したセンサー",
+  "level_id": "eiken-2",
+  "status": "draft",
+  "original": true,
+  "word_count": 481,
+  "source_links": [
+    {
+      "title": "Official background reference",
+      "url": "https://www.nist.gov/measurement-standards"
+    }
+  ],
+  "fact_notes": [
+    "学校や地域の活動は架空の教育用ケース。英文・和訳・設問・解説は独自制作。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A group of students installs two small temperature sensors in the school courtyard for a science project.",
+          "ja": "生徒のグループは科学活動で学校の中庭に二つの小さな温度センサーを設置します。"
+        },
+        {
+          "en": "They want to compare a shaded area with a place that receives direct sunlight during the afternoon.",
+          "ja": "午後に日陰の区域と直射日光が当たる場所を比べたいのです。"
+        },
+        {
+          "en": "When they check the readings, one sensor shows a temperature much higher than the other.",
+          "ja": "数値を確認すると、一方のセンサーはもう一方よりずっと高い温度を示します。"
+        },
+        {
+          "en": "However, the students are unsure whether the difference is caused by the environment or by the equipment.",
+          "ja": "しかし生徒たちは差が環境によるものか機器によるものかわかりません。"
+        },
+        {
+          "en": "Their teacher asks them to examine how the sensors are used before announcing a conclusion.",
+          "ja": "教師は結論を発表する前にセンサーの使用方法を調べるよう求めます。"
+        },
+        {
+          "en": "The surprising result becomes a lesson in measurement rather than an immediate discovery about the weather.",
+          "ja": "意外な結果は天候についての即時の発見ではなく測定の学習になります。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "A sensor produces a reading, but that number must be understood in the conditions where it was collected.",
+          "ja": "センサーは数値を示しますが、その値は収集された条件の中で理解する必要があります。"
+        },
+        {
+          "en": "For example, direct sunlight may warm the surface of a sensor even when students are interested in air temperature.",
+          "ja": "例えば生徒たちが気温を知りたい場合でも、直射日光がセンサーの表面を温めることがあります。"
+        },
+        {
+          "en": "The device's position, surrounding materials, and time of measurement may also influence its readings.",
+          "ja": "機器の位置、周囲の素材、測定時刻も数値に影響するかもしれません。"
+        },
+        {
+          "en": "The students realize that a precise-looking number is not automatically an accurate description of the question they intended to study.",
+          "ja": "生徒たちは細かい数値が、調べたかった問いの正確な説明になるとは限らないと気づきます。"
+        },
+        {
+          "en": "They decide to record the conditions beside each temperature rather than collecting numbers alone.",
+          "ja": "数字だけを集めるのではなく各温度の横に条件も記録することにします。"
+        },
+        {
+          "en": "This record helps other people understand how the observations were made.",
+          "ja": "その記録は他の人が観察方法を理解する助けになります。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The group moves both sensors to the same sheltered location and compares their readings over several short periods.",
+          "ja": "グループは二つのセンサーを同じ日差しから守られた場所に移し、短い時間帯をいくつか使って数値を比べます。"
+        },
+        {
+          "en": "Instead of changing several conditions at once, they try to keep the placement and timing similar.",
+          "ja": "一度に複数の条件を変えず、設置場所と時刻を似せるようにします。"
+        },
+        {
+          "en": "The results are closer than before, although a small difference remains between the two devices.",
+          "ja": "結果は以前より近づきますが、二つの機器の間には小さな差が残ります。"
+        },
+        {
+          "en": "The teacher explains that measurement tools may have limits and should be checked when accuracy matters.",
+          "ja": "教師は測定道具には限界があり、正確さが大切なときには検査すべきだと説明します。"
+        },
+        {
+          "en": "Students also consult the equipment instructions to learn how the manufacturer recommends using each sensor.",
+          "ja": "生徒たちは製造者が各センサーの使用方法をどう勧めているか説明書も確認します。"
+        },
+        {
+          "en": "They do not change a result simply because it fails to match their original expectation.",
+          "ja": "最初の予想に合わないからといって結果を書き換えることはしません。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The class then repeats its courtyard observations while keeping the recording method consistent.",
+          "ja": "クラスは記録方法を一貫させながら中庭の観察を繰り返します。"
+        },
+        {
+          "en": "They write down the time, location, weather, and conditions around each sensor.",
+          "ja": "時刻、場所、天候、各センサーの周囲の条件を書きます。"
+        },
+        {
+          "en": "Nevertheless, the group knows that a few observations cannot describe every afternoon of the year.",
+          "ja": "それでも数回の観察で一年のすべての午後を説明できないと理解しています。"
+        },
+        {
+          "en": "The students discuss how additional measurements from different days might strengthen their conclusions.",
+          "ja": "異なる日の追加測定がどう結論を強めるか話し合います。"
+        },
+        {
+          "en": "They also distinguish the question of which place feels comfortable from the narrower question of what their devices measure.",
+          "ja": "どの場所が快適に感じられるかという問いと、機器が何を測るかというより狭い問いも区別します。"
+        },
+        {
+          "en": "Their findings become more careful because they now explain the limits of their evidence.",
+          "ja": "証拠の限界を説明するようになったため調査結果はより慎重になります。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "At the final presentation, the students show both the original readings and the results of their checks.",
+          "ja": "最終発表で生徒たちは最初の数値と検査後の結果を両方示します。"
+        },
+        {
+          "en": "They explain why it would have been misleading to treat the first difference as a certain fact about air temperature.",
+          "ja": "最初の差を気温についての確定した事実とみなすと誤解を招く理由を説明します。"
+        },
+        {
+          "en": "As a result, their classmates learn to ask how measurements were collected before trusting a surprising graph.",
+          "ja": "その結果、同級生たちは驚くようなグラフを信じる前に測定方法を尋ねるようになります。"
+        },
+        {
+          "en": "The group still values technology because sensors can help people observe conditions that are difficult to judge by sight.",
+          "ja": "グループは視覚だけでは判断しにくい条件を観察する助けになるため技術を評価し続けます。"
+        },
+        {
+          "en": "But it now understands that useful data depends on thoughtful questions, suitable tools, and honest reporting.",
+          "ja": "しかし役立つデータは慎重な問い、適切な道具、正直な報告に左右されると理解しています。"
+        },
+        {
+          "en": "Good measurement begins not with a number alone but with knowing what the number can reasonably tell us.",
+          "ja": "よい測定は数値だけではなくその数値が何を合理的に伝えられるかを知ることから始まります。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What causes the students' uncertainty?",
+      "options": [
+        "They cannot tell whether equipment or conditions explain the difference.",
+        "They have lost all their sensors.",
+        "The courtyard has been closed permanently.",
+        "They are measuring the length of the school building."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「しかし生徒たちは差が環境によるものか機器によるものかわかりません。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What does the teacher ask before a conclusion?",
+      "options": [
+        "Choose the highest number automatically.",
+        "Publish results without explanation.",
+        "Remove every measurement.",
+        "Examine how the sensors are being used."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「教師は結論を発表する前にセンサーの使用方法を調べるよう求めます。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "Why might a sensor in sunlight be misleading?",
+      "options": [
+        "Air temperature cannot be measured.",
+        "The sensor changes the weather.",
+        "Sunlight can heat its surface independently of the intended air measurement.",
+        "Sunlight always turns a sensor off."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「例えば生徒たちが気温を知りたい場合でも、直射日光がセンサーの表面を温めることがあります。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What do students add beside each reading?",
+      "options": [
+        "A random color.",
+        "The conditions under which it was collected.",
+        "Only the name of the student.",
+        "The price of the device."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「数字だけを集めるのではなく各温度の横に条件も記録することにします。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "Why do they try to keep placement and timing similar?",
+      "options": [
+        "To avoid changing many conditions at once.",
+        "To ensure all numbers are identical.",
+        "To measure the school gate.",
+        "To make their project shorter."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「一度に複数の条件を変えず、設置場所と時刻を似せるようにします。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What happens when the sensors are checked together?",
+      "options": [
+        "One immediately disappears.",
+        "They report exactly the same number forever.",
+        "The project becomes impossible.",
+        "Their readings become closer, though not identical."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「教師は測定道具には限界があり、正確さが大切なときには検査すべきだと説明します。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "Why do students want observations on more days?",
+      "options": [
+        "To avoid using the instructions.",
+        "To guarantee every day has the same weather.",
+        "To support conclusions beyond a few afternoons.",
+        "To make the first reading disappear."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「それでも数回の観察で一年のすべての午後を説明できないと理解しています。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What two questions do the students distinguish?",
+      "options": [
+        "The color and shape of a classroom.",
+        "Comfort and what the devices measure.",
+        "School rules and sports.",
+        "Reading and writing."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「どの場所が快適に感じられるかという問いと、機器が何を測るかというより狭い問いも区別します。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What do students show in the final presentation?",
+      "options": [
+        "Original readings and their later checks.",
+        "Only the largest number.",
+        "A completely new unrelated project.",
+        "A list of imaginary measurements."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「その結果、同級生たちは驚くようなグラフを信じる前に測定方法を尋ねるようになります。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the passage's main argument?",
+      "options": [
+        "Precise-looking numbers are always accurate.",
+        "A first sensor reading should never be questioned.",
+        "Technology removes the need for interpretation.",
+        "Reliable measurement requires attention to tools, conditions, and limits."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「よい測定は数値だけではなくその数値が何を合理的に伝えられるかを知ることから始まります。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "accuracy",
+      "ja": "正確さ",
+      "synonym": "correctness",
+      "definition": "the quality of being correct"
+    },
+    {
+      "term": "accurate",
+      "ja": "正確な",
+      "synonym": "correct",
+      "definition": "consistent with the facts"
+    },
+    {
+      "term": "additional",
+      "ja": "追加の",
+      "synonym": "extra",
+      "definition": "more than what is already present"
+    },
+    {
+      "term": "afternoon",
+      "ja": "午後",
+      "synonym": "later day",
+      "definition": "the time after noon"
+    },
+    {
+      "term": "automatically",
+      "ja": "自動的に",
+      "synonym": "without intervention",
+      "definition": "without a separate human action"
+    },
+    {
+      "term": "certain",
+      "ja": "特定の",
+      "synonym": "particular",
+      "definition": "specific but not named"
+    },
+    {
+      "term": "changing",
+      "ja": "変化する",
+      "synonym": "shifting",
+      "definition": "becoming different"
+    },
+    {
+      "term": "classmates",
+      "ja": "同級生",
+      "synonym": "school peers",
+      "definition": "students in the same class"
+    },
+    {
+      "term": "comfortable",
+      "ja": "快適な",
+      "synonym": "pleasant",
+      "definition": "physically pleasant"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "contrast",
+      "definition": "to examine differences and similarities"
+    },
+    {
+      "term": "conditions",
+      "ja": "条件",
+      "synonym": "circumstances",
+      "definition": "factors affecting an outcome"
+    },
+    {
+      "term": "decide",
+      "ja": "決める",
+      "synonym": "choose",
+      "definition": "to make a choice"
+    },
+    {
+      "term": "describe",
+      "ja": "説明する",
+      "synonym": "explain",
+      "definition": "to give an account of something"
+    },
+    {
+      "term": "device",
+      "ja": "機器",
+      "synonym": "instrument",
+      "definition": "a piece of equipment"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "distinguish",
+      "ja": "区別する",
+      "synonym": "differentiate",
+      "definition": "to recognize differences"
+    },
+    {
+      "term": "equipment",
+      "ja": "機器",
+      "synonym": "apparatus",
+      "definition": "tools used for a task"
+    },
+    {
+      "term": "evidence",
+      "ja": "証拠",
+      "synonym": "support",
+      "definition": "information supporting a claim"
+    },
+    {
+      "term": "examine",
+      "ja": "調べる",
+      "synonym": "inspect",
+      "definition": "to look carefully"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "findings",
+      "ja": "調査結果",
+      "synonym": "results",
+      "definition": "information learned through investigation"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "instructions",
+      "ja": "指示",
+      "synonym": "directions",
+      "definition": "statements telling people what to do"
+    },
+    {
+      "term": "judge",
+      "ja": "判断する",
+      "synonym": "evaluate",
+      "definition": "to assess the value of something"
+    },
+    {
+      "term": "materials",
+      "ja": "材料",
+      "synonym": "substances",
+      "definition": "things objects are made of"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "observations",
+      "ja": "観察",
+      "synonym": "records",
+      "definition": "information gathered by examining"
+    },
+    {
+      "term": "original",
+      "ja": "原文の",
+      "synonym": "initial",
+      "definition": "existing before a copy or revision"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "position",
+      "ja": "立場",
+      "synonym": "viewpoint",
+      "definition": "a side taken in an argument"
+    },
+    {
+      "term": "produces",
+      "ja": "生み出す",
+      "synonym": "generates",
+      "definition": "creates an output"
+    },
+    {
+      "term": "question",
+      "ja": "疑問を持つ・問い直す",
+      "synonym": "challenge",
+      "definition": "to examine whether an assumption is correct"
+    },
+    {
+      "term": "reasonably",
+      "ja": "もっともなことに",
+      "synonym": "sensibly",
+      "definition": "in a way that makes sense"
+    },
+    {
+      "term": "record",
+      "ja": "記録する",
+      "synonym": "note",
+      "definition": "to write information down for later use"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "similar",
+      "ja": "似ている",
+      "synonym": "alike",
+      "definition": "having many features in common"
+    },
+    {
+      "term": "strengthen",
+      "ja": "強める",
+      "synonym": "reinforce",
+      "definition": "to make something stronger"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "study",
+      "ja": "調べる・学習する",
+      "synonym": "examine",
+      "definition": "to learn or investigate something carefully"
+    },
+    {
+      "term": "suitable",
+      "ja": "適切な",
+      "synonym": "appropriate",
+      "definition": "right for the situation"
+    },
+    {
+      "term": "surprising",
+      "ja": "驚くべき",
+      "synonym": "unexpected",
+      "definition": "not expected"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who helps others learn"
+    },
+    {
+      "term": "temperature",
+      "ja": "温度",
+      "synonym": "heat level",
+      "definition": "a measure of warmth or cold"
+    },
+    {
+      "term": "thoughtful",
+      "ja": "思慮深い",
+      "synonym": "considerate",
+      "definition": "showing care and attention"
+    },
+    {
+      "term": "weather",
+      "ja": "天候",
+      "synonym": "conditions",
+      "definition": "the state of the atmosphere"
+    },
+    {
+      "term": "sensor",
+      "ja": "センサー",
+      "synonym": "detector",
+      "definition": "a device that measures conditions"
+    },
+    {
+      "term": "sensors",
+      "ja": "センサー",
+      "synonym": "detectors",
+      "definition": "devices that measure physical conditions"
+    },
+    {
+      "term": "readings",
+      "ja": "測定値",
+      "synonym": "measurements",
+      "definition": "numbers shown by an instrument"
+    },
+    {
+      "term": "reading",
+      "ja": "測定値",
+      "synonym": "measurement",
+      "definition": "a number obtained with a device"
+    },
+    {
+      "term": "measurement",
+      "ja": "測定",
+      "synonym": "measuring",
+      "definition": "the act of obtaining numerical information"
+    },
+    {
+      "term": "measurements",
+      "ja": "測定",
+      "synonym": "records",
+      "definition": "numbers obtained from measuring"
+    },
+    {
+      "term": "courtyard",
+      "ja": "中庭",
+      "synonym": "open yard",
+      "definition": "an outdoor area surrounded by buildings"
+    },
+    {
+      "term": "devices",
+      "ja": "機器",
+      "synonym": "instruments",
+      "definition": "pieces of equipment"
+    },
+    {
+      "term": "precise",
+      "ja": "精密な",
+      "synonym": "exact",
+      "definition": "expressed with fine detail"
+    },
+    {
+      "term": "sheltered",
+      "ja": "日差しから守られた",
+      "synonym": "protected",
+      "definition": "kept away from direct exposure"
+    },
+    {
+      "term": "placement",
+      "ja": "配置",
+      "synonym": "positioning",
+      "definition": "where an object is put"
+    },
+    {
+      "term": "sunlight",
+      "ja": "日光",
+      "synonym": "sunshine",
+      "definition": "light from the Sun"
+    },
+    {
+      "term": "surrounding",
+      "ja": "周囲の",
+      "synonym": "nearby",
+      "definition": "located around something"
+    },
+    {
+      "term": "data",
+      "ja": "データ",
+      "synonym": "information",
+      "definition": "recorded facts and values"
+    },
+    {
+      "term": "manufacturer",
+      "ja": "製造者",
+      "synonym": "maker",
+      "definition": "a company making a product"
+    },
+    {
+      "term": "conclusion",
+      "ja": "結論",
+      "synonym": "finding",
+      "definition": "an explanation drawn from evidence"
+    },
+    {
+      "term": "conclusions",
+      "ja": "結論",
+      "synonym": "findings",
+      "definition": "judgments based on evidence"
+    },
+    {
+      "term": "consistent",
+      "ja": "一貫した",
+      "synonym": "uniform",
+      "definition": "kept the same across trials"
+    },
+    {
+      "term": "misleading",
+      "ja": "誤解を招く",
+      "synonym": "deceptive",
+      "definition": "likely to create a false impression"
+    },
+    {
+      "term": "graph",
+      "ja": "グラフ",
+      "synonym": "chart",
+      "definition": "a picture showing data"
+    },
+    {
+      "term": "environment",
+      "ja": "環境",
+      "synonym": "surroundings",
+      "definition": "conditions around an object"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "whether the difference is caused by the environment or by the equipment",
+      "explanation_ja": "whether A or Bは二つの可能性を表します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "that a precise-looking number is not automatically an accurate description",
+      "explanation_ja": "that節は生徒が理解した内容を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "focus": "Instead of changing several conditions at once",
+      "explanation_ja": "instead of + 動名詞は方法の転換です。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 5,
+      "focus": "what the number can reasonably tell us",
+      "explanation_ja": "what節は数値が伝えられる内容を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "測定結果と原因がわからない問題を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "直射日光による測定への影響を例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "数回の観察の限界を示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "測定方法を問う姿勢が広がる結果を示します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "However, the students are unsure whether the difference is caused by the environment or by the equipment.",
+      "rewrite": "The students cannot yet determine whether the surroundings or equipment caused the difference.",
+      "explanation_ja": "環境と機器のどちらが原因か不明という意味です。"
+    },
+    {
+      "source": "The students realize that a precise-looking number is not automatically an accurate description of the question they intended to study.",
+      "rewrite": "A detailed reading may not accurately represent the intended question.",
+      "explanation_ja": "細かな数値でも調査対象に合うとは限りません。"
+    },
+    {
+      "source": "Their findings become more careful because they now explain the limits of their evidence.",
+      "rewrite": "Explaining the limits makes their conclusions more careful.",
+      "explanation_ja": "限界を明らかにすることで慎重な結論になります。"
+    },
+    {
+      "source": "Good measurement begins not with a number alone but with knowing what the number can reasonably tell us.",
+      "rewrite": "Understanding what a reading represents is essential to good measurement.",
+      "explanation_ja": "数値が意味することの理解が重要という結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "測定結果と原因がわからない問題を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "直射日光による測定への影響を例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "数回の観察の限界を示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "測定方法を問う姿勢が広がる結果を示します。"
+    }
+  ]
+}
