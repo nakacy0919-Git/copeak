@@ -157,8 +157,8 @@
       if(['手段','by＋','by+','without＋','without+'].some(t=>x.includes(t)))return 'means';
       if(['名詞節','that節','同格'].some(t=>x.includes(t)))return 'noun';
       if(['分詞構文','現在分詞','過去分詞'].some(t=>x.includes(t)))return 'participle';
+      if(['理由・原因','理由を示す接続詞','因果関係','理由を示','結果を示'].some(t=>x.includes(t)))return 'cause';
       if(['接続詞','並列','動詞describeとcommunicate'].some(t=>x.includes(t)))return 'coordination';
-      if(['理由・原因','理由を示す接続詞'].some(t=>x.includes(t)))return 'cause';
       if(['因果関係','理由を示','結果を示'].some(t=>x.includes(t)))return 'cause';
       if(['限定','強調','対象の範囲'].some(t=>x.includes(t)))return 'emphasis';
       if(f.includes('not necessarily')||f.includes('not always'))return 'negation';
