@@ -561,6 +561,7 @@ function activeQuestions(){
 }
 function renderQuestionCountChoices(){
  const counts=questionSelector?.availableCounts(state.lesson?.questions.length)||[];
+ $('readingQuestionCountChoices').dataset.count=String(counts.length);
  $('readingQuestionCountChoices').innerHTML=counts.map(c=>
   '<button type="button" class="reading-count-card" data-reading-count="'+c.count+'" title="'+esc(c.description)+'">'+
   '<span class="reading-count-number" aria-hidden="true">'+c.count+'</span><strong>'+esc(c.label)+' '+c.count+'問</strong>'+
