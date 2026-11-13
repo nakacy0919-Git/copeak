@@ -30,19 +30,22 @@
    {match:/\brather than\b/i,focus:'rather than',explain:'rather thanは比較・対比を表し、「〜よりむしろ」「〜ではなく」という意味を示します。'},
    {match:/\bnot only\b/i,focus:'not only',explain:'not onlyは「〜だけでなく」という対比・追加の構文を作ります。'},
    {match:/,\s*which\b/i,focus:'which',explain:'コンマに続くwhichは関係代名詞の継続用法で、直前の情報に補足説明を加えます。'},
+   {match:/\bwhether\b/i,focus:'whether',explain:'whetherは「〜かどうか」という間接疑問の名詞節を導きます。'},
+   {match:/\b(people|workers|person|students|researchers|engineers|programmers|scientists|countries)\s+who\b/i,focus:'who',explain:'whoは人を先行詞とする関係代名詞で、その人物を後ろから説明します。'},
+   {match:/\b(opportunities|situations|places|areas|communities)\s+where\b/i,focus:'where',explain:'whereは先行詞に場所・場面の情報を加える関係副詞です。'},
    {match:/^However\b/i,focus:'However',explain:'Howeverは前の文と対比する接続副詞で、「しかしながら」という逆接を表します。'}
   ];
-  const added=[];
+  const added=[],usedKinds=new Set();
   for(const [pi,p] of (lesson.paragraphs||[]).entries()){
    for(const [si,part] of (p.sentences||[]).entries()){
     if(added.length+existing.length>=6)break;
     if(used.has(p.id+':'+si))continue;
     for(const pattern of patterns){
+     if(usedKinds.has(pattern.focus))continue;
      const m=part.en.match(pattern.match);if(!m)continue;
-     const term=part.en.slice(m.index,m.index+m[0].length).includes('which')?'which':m[0];
-     const focus=pattern.focus==='which'?term:m[0];
+     const focus=['which','who','where','whether'].includes(pattern.focus)?pattern.focus:m[0];
      added.push({paragraph_id:p.id,sentence_index:si,focus,explanation_ja:pattern.explain});
-     used.add(p.id+':'+si);break;
+     used.add(p.id+':'+si);usedKinds.add(pattern.focus);break;
     }
    }
    if(added.length+existing.length>=6)break;
