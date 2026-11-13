@@ -4,10 +4,11 @@ const $=id=>document.getElementById(id);
 const practiceEngine=window.CopeakReadingPractice;
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const escapeXml=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&apos;'}[c])).replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/g,'');
-const state={manifest:null,sets:[],lesson:null,category:'all',level:'all',showAll:false,support:false,lookupEnabled:true,answers:{},clozeAnswers:{},vocabIndex:0,vocabChoice:null,vocabOrder:[],panel:'questions',exercise:null,graded:false,gradingMode:'immediate',gradingChosen:false,activeQuestionId:null,practice:{},quizCursor:{}};
+const state={manifest:null,sets:[],lesson:null,category:'all',level:'all',showAll:false,support:false,lookupEnabled:true,answers:{},clozeAnswers:{},vocabIndex:0,vocabChoice:null,vocabOrder:[],panel:'questions',exercise:null,graded:false,gradingMode:'immediate',gradingChosen:false,activeQuestionId:null,questionLimit:null,practice:{},quizCursor:{}};
 const label=(id,collection)=>collection.find(x=>x.id===id)?.label||id;
 const status=s=>{$('loadStatus').textContent=s;};
 const words=lesson=>lesson.paragraphs.flatMap(p=>p.sentences).map(s=>s.en).join(' ').trim().split(/\s+/).filter(Boolean).length;
+const readingItems=()=>{const list=state.lesson?.questions||[];return list.slice(0,Math.max(1,Math.min(state.questionLimit||list.length,list.length)));};
 const readProgress=id=>{
  try{
   const data=JSON.parse(localStorage.getItem('copeak-reading-'+id)||'{}');
@@ -33,13 +34,13 @@ const readProgress=id=>{
     };
    }
   }
-  return {answers:cleanAnswers(data.answers),clozeAnswers:cleanAnswers(data.clozeAnswers),graded:data.graded===true,practice};
+  return {answers:cleanAnswers(data.answers),clozeAnswers:cleanAnswers(data.clozeAnswers),graded:data.graded===true,questionLimit:Number.isInteger(data.questionLimit)?data.questionLimit:null,practice};
  }catch{return {};}
 };
 const saveProgress=()=>{
  if(!state.lesson)return;
  try{
-  localStorage.setItem('copeak-reading-'+state.lesson.id,JSON.stringify({answers:state.answers,clozeAnswers:state.clozeAnswers,graded:state.graded,practice:state.practice}));
+  localStorage.setItem('copeak-reading-'+state.lesson.id,JSON.stringify({answers:state.answers,clozeAnswers:state.clozeAnswers,graded:state.graded,questionLimit:state.questionLimit,practice:state.practice}));
   const warn=$('storageStatus');if(warn)warn.hidden=true;
  }catch{
   const warn=$('storageStatus');
@@ -167,7 +168,7 @@ function safeSourceUrl(raw){
 }
 function selectLesson(id,startFocus=true){
  const s=state.sets.find(x=>x.id===id);if(!s)return;
- state.lesson=s;const progress=readProgress(s.id);state.answers=progress.answers||{};state.clozeAnswers=progress.clozeAnswers||{};state.graded=progress.graded===true;state.gradingChosen=false;state.activeQuestionId=null;state.practice=progress.practice&&typeof progress.practice==='object'?progress.practice:{};state.quizCursor={};
+ state.lesson=s;const progress=readProgress(s.id);state.answers=progress.answers||{};state.clozeAnswers=progress.clozeAnswers||{};state.graded=progress.graded===true;state.gradingChosen=false;state.activeQuestionId=null;state.questionLimit=Math.max(1,Math.min(progress.questionLimit||s.question_bank_settings?.default_reading_count||s.questions.length,s.questions.length));state.practice=progress.practice&&typeof progress.practice==='object'?progress.practice:{};state.quizCursor={};
  state.showAll=false;state.support=false;state.vocabIndex=0;state.vocabChoice=null;state.panel='questions';state.exercise=null;
  $('supportToggle').disabled=false;$('printOpen').disabled=false;$('focusStart').disabled=false;$('examModeStart').disabled=false;
  $('supportToggle').setAttribute('aria-pressed','false');$('supportToggle').setAttribute('aria-label','読解の根拠段落を表示');
@@ -177,6 +178,10 @@ function selectLesson(id,startFocus=true){
   const href=safeSourceUrl(l.url);
   return href?'<a target="_blank" rel="noopener noreferrer" href="'+esc(href)+'">'+esc(l.title)+'</a>':'';
  }).join('');
+ const questionPicker=$('readingQuestionCount'),countRow=$('readingQuestionCountRow');
+ const available=s.questions.length,limits=[10,15,20,25,30,40,50].filter(n=>n<available);limits.push(available);
+ questionPicker.innerHTML=limits.map(n=>'<option value="'+n+'">'+(n===available?'全'+n+'問':n+'問')+'</option>').join('');
+ questionPicker.value=String(state.questionLimit);if(countRow)countRow.hidden=available<=10;
  renderPassage();renderQuestions();renderVocab();renderNotes();renderCloze();switchTab('questions');renderSetList();chooseExercise('questions');renderPracticeProgress();
  if(startFocus)enterFocusMode();
  if(startFocus&&document.body.classList.contains('reading-focus'))closeCatalog();
@@ -542,8 +547,9 @@ function renderQuestions(){
  const s=state.lesson;if(!s)return;
  const panelScroll=$('questionScroll');
  const retainedScroll=panelScroll?.scrollTop||0;
- const qTotal=s.questions.length;
- const answered=s.questions.filter(q=>Number.isInteger(state.answers[q.id])).length;
+ const visible=readingItems();
+ const qTotal=visible.length;
+ const answered=visible.filter(q=>Number.isInteger(state.answers[q.id])).length;
  const complete=answered===qTotal;
  const isBatch=state.gradingMode==='batch';
  const showResults=state.gradingChosen&&(!isBatch||state.graded);
@@ -558,9 +564,9 @@ function renderQuestions(){
  $('gradeAll').textContent=state.graded?'採点済み':'全問の結果を表示';
  $('readingResult').hidden=!(complete&&showResults);
  $('readingResult').textContent=complete&&showResults
-  ?'採点結果：'+s.questions.filter(q=>state.answers[q.id]===q.answer).length+' / '+qTotal+' 問正解':'';
+  ?'採点結果：'+visible.filter(q=>state.answers[q.id]===q.answer).length+' / '+qTotal+' 問正解':'';
  $('evidenceStatus').hidden=!state.support;
- $('questions').innerHTML=s.questions.map((q,i)=>{
+ $('questions').innerHTML=visible.map((q,i)=>{
   const chosen=state.answers[q.id],selected=Number.isInteger(chosen);
   const revealed=selected&&showResults;
   return '<article class="question-card" data-question="'+esc(q.id)+'"><p class="skill">'+esc(q.skill.toUpperCase())+' · Q'+(i+1)+'</p><h4>'+esc(q.prompt)+'</h4><div class="choices">'+q.options.map((option,j)=>
@@ -577,7 +583,7 @@ function renderQuestions(){
   state.answers[q.id]=Number(b.dataset.option);
   if(state.gradingMode==='immediate'&&state.answers[q.id]===q.answer)window.CopeakReadingEffects?.celebrate();
   saveProgress();
-  if(state.gradingMode==='immediate'&&s.questions.every(x=>Number.isInteger(state.answers[x.id])))recordCompletion('questions');
+  if(state.gradingMode==='immediate'&&readingItems().every(x=>Number.isInteger(state.answers[x.id])))recordCompletion('questions');
   renderQuestions();renderSetList();renderPracticeProgress();renderPassage(true);
   if(state.support){const active=s.questions.find(x=>x.id===state.activeQuestionId);focusEvidence(active?.paragraph_ids,false);}
  }));
@@ -617,7 +623,7 @@ function practiceRecord(mode){
 }
 function modeSummary(mode){
  if(!state.lesson)return {total:0,answered:0,correct:0,percent:0,accuracy:0,runs:0,best:0};
- const items=mode==='questions'?state.lesson.questions:practiceBank(mode);
+ const items=mode==='questions'?readingItems():practiceBank(mode);
  const record=practiceRecord(mode);
  const answers=mode==='questions'?state.answers:record.answers;
  let answered=0,correct=0;
@@ -1091,6 +1097,13 @@ $('vocabListToggle').addEventListener('click',()=>{
  $('vocabListToggle').setAttribute('aria-expanded',String(show));
  $('vocabListToggle').textContent=show?'語彙一覧を閉じる':'語彙一覧を見る';
 });
+$('readingQuestionCount').addEventListener('change',()=>{
+ if(!state.lesson||state.gradingChosen)return;
+ const n=Number($('readingQuestionCount').value);
+ if(!Number.isInteger(n)||n<1||n>state.lesson.questions.length)return;
+ state.questionLimit=n;state.graded=false;
+ saveProgress();renderQuestions();renderPracticeProgress();
+});
 $('gradingSettings').querySelectorAll('[data-grading-mode]').forEach(button=>button.addEventListener('click',()=>{
  const selected=button.dataset.gradingMode;
  if(selected!=='batch'&&selected!=='immediate'||state.gradingChosen||!state.lesson)return;
@@ -1101,10 +1114,10 @@ $('gradingSettings').querySelectorAll('[data-grading-mode]').forEach(button=>but
 }));
 $('gradeAll').addEventListener('click',()=>{
  if(!state.lesson||state.gradingMode!=='batch'||state.graded)return;
- if(!state.lesson.questions.every(q=>Number.isInteger(state.answers[q.id])))return;
+ if(!readingItems().every(q=>Number.isInteger(state.answers[q.id])))return;
  state.graded=true;recordCompletion('questions');renderQuestions();renderPracticeProgress();
- const accurate=state.lesson.questions.filter(q=>state.answers[q.id]===q.answer).length;
- if(accurate/state.lesson.questions.length>=0.8)window.CopeakReadingEffects?.celebrate();
+ const accurate=readingItems().filter(q=>state.answers[q.id]===q.answer).length;
+ if(accurate/readingItems().length>=0.8)window.CopeakReadingEffects?.celebrate();
  $('questionScroll').scrollTo({top:0,behavior:'smooth'});
 });
 $('resetAnswers').addEventListener('click',()=>{
