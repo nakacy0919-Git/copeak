@@ -1,0 +1,675 @@
+{
+  "id": "L07-003",
+  "category_id": "L07",
+  "title": "Is a Free App Really Free?",
+  "title_ja": "無料アプリは本当に無料なのか",
+  "level_id": "eiken-2",
+  "word_count": 361,
+  "original": true,
+  "status": "draft",
+  "source_links": [
+    {
+      "title": "Federal Trade Commission: How Websites and Apps Collect Your Information",
+      "url": "https://consumer.ftc.gov/articles/how-websites-and-apps-collect-and-use-your-information"
+    },
+    {
+      "title": "FTC: Using a Shopping App",
+      "url": "https://consumer.ftc.gov/using-shopping-app"
+    }
+  ],
+  "fact_notes": [
+    "背景となる考え方は添付の資料で確認。本文と練習問題は新規制作。例示した人物・学校・活動は架空の説明用設定。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A student downloads a free shopping app because it promises discounts at nearby stores.",
+          "ja": "ある生徒は、近くの店の割引を約束する無料ショッピングアプリをダウンロードします。"
+        },
+        {
+          "en": "The app is easy to use, and no payment is required when the student creates an account.",
+          "ja": "アプリは使いやすく、アカウント作成時に支払いは求められません。"
+        },
+        {
+          "en": "However, the absence of a price does not mean that using the service has no cost at all.",
+          "ja": "しかし料金がないからといって、そのサービスの利用にまったく代償がないとは限りません。"
+        },
+        {
+          "en": "Many online businesses earn money through advertising or by offering services based on user information.",
+          "ja": "多くのオンライン企業は広告や利用者情報に基づくサービスによって収益を得ています。"
+        },
+        {
+          "en": "The important question is not whether every free app is dangerous, but what information the app requests and why.",
+          "ja": "大切なのは無料アプリがすべて危険かではなく、どんな情報をなぜ求めるかという問いです。"
+        },
+        {
+          "en": "A sensible decision begins before the download button is pressed.",
+          "ja": "分別ある判断は、ダウンロードのボタンを押す前から始まります。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "An app may ask for permission to use a phone's location, camera, contacts, or photographs.",
+          "ja": "アプリは携帯電話の位置情報、カメラ、連絡先、写真を使う許可を求める場合があります。"
+        },
+        {
+          "en": "Some permissions are necessary for particular functions, while others may be difficult to explain.",
+          "ja": "特定の機能に必要な権限もあれば、必要性を説明しにくい権限もあります。"
+        },
+        {
+          "en": "For example, a map application needs location information to show where a person is standing.",
+          "ja": "例えば地図アプリは現在位置を示すため位置情報を必要とします。"
+        },
+        {
+          "en": "A simple calculator, in contrast, may have little reason to request access to someone's contacts.",
+          "ja": "対照的に簡単な計算機アプリが連絡先へのアクセスを求める理由はほとんどないかもしれません。"
+        },
+        {
+          "en": "The Federal Trade Commission advises consumers to review permissions and turn off unnecessary access.",
+          "ja": "米国連邦取引委員会は、権限を見直し、不要なアクセスを切るよう消費者に勧めています。"
+        },
+        {
+          "en": "This helps users make choices instead of giving every application the same level of access.",
+          "ja": "これはすべてのアプリに同じ権限を与える代わりに、利用者が選択する助けになります。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Privacy policies describe how information may be collected, used, or shared with other companies.",
+          "ja": "プライバシーポリシーは情報がどう収集、使用、他社共有され得るかを説明します。"
+        },
+        {
+          "en": "Nevertheless, a long policy can be difficult for a teenager or adult to understand quickly.",
+          "ja": "それでも長い方針文書は、10代でも大人でもすぐ理解するのが難しい場合があります。"
+        },
+        {
+          "en": "A useful summary should identify what types of data are collected and how people can control them.",
+          "ja": "役立つ要約は、集めるデータの種類と利用者が管理する方法を示すべきです。"
+        },
+        {
+          "en": "It should also explain whether the app shares information with advertising partners and how long records are kept.",
+          "ja": "広告パートナーと情報を共有するか、記録がどのくらい保存されるかも説明すべきです。"
+        },
+        {
+          "en": "The presence of a privacy policy alone does not guarantee that the service protects its users well.",
+          "ja": "プライバシーポリシーが存在するだけで、サービスが利用者を適切に守る保証にはなりません。"
+        },
+        {
+          "en": "Users may need to compare several sources before deciding whether the promised convenience is worth the trade-off.",
+          "ja": "利用者は約束された便利さが代償に見合うか決める前に、複数の情報源を比べる必要があるかもしれません。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Imagine that students are asked to compare two fictional apps offering the same timetable function.",
+          "ja": "同じ時間割機能を提供する二つの架空のアプリを生徒が比較するよう求められたと想像してください。"
+        },
+        {
+          "en": "One app asks only for information necessary to save a timetable on the device.",
+          "ja": "一方は端末に時間割を保存するのに必要な情報だけを求めます。"
+        },
+        {
+          "en": "The other requests access to contacts and location even though those details are not needed for the task.",
+          "ja": "もう一方は、その作業に不要なのに連絡先と位置情報へのアクセスを求めます。"
+        },
+        {
+          "en": "Therefore, the class should ask questions about data collection rather than assume that a familiar design means safety.",
+          "ja": "したがって、見慣れたデザインは安全の証だと思い込まず、データ収集について問うべきです。"
+        },
+        {
+          "en": "A thoughtful consumer considers both the visible price and the less visible cost of sharing personal information.",
+          "ja": "思慮深い消費者は目に見える価格と、個人情報を共有する見えにくい代償の両方を考えます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the passage mainly about?",
+      "options": [
+        "Why all shopping apps should be banned.",
+        "How to make every paid app free.",
+        "Why app users should consider information costs as well as money.",
+        "Why cameras are always unsafe."
+      ],
+      "answer": 2,
+      "explanation_ja": "金銭的料金だけでなく情報の扱いも考慮することが中心です。",
+      "paragraph_ids": [
+        "p1",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "How can some online businesses earn money?",
+      "options": [
+        "Through advertising and information-based services.",
+        "Only by selling paper maps.",
+        "Only through school donations.",
+        "By refusing every customer."
+      ],
+      "answer": 0,
+      "explanation_ja": "広告や利用者情報に基づくサービスを挙げています。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why is a free app not necessarily without cost?",
+      "options": [
+        "Users always pay a monthly bill.",
+        "Personal information may have value even without a fee.",
+        "Smartphones cannot store free apps.",
+        "The app store charges everyone cash."
+      ],
+      "answer": 1,
+      "explanation_ja": "料金がなくても情報提供という代償があり得るためです。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "Which permission does a map app reasonably need?",
+      "options": [
+        "Access to all family photographs.",
+        "Access to private emails.",
+        "Information about school grades.",
+        "Location information."
+      ],
+      "answer": 3,
+      "explanation_ja": "現在位置の表示には位置情報が必要です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What does the FTC advise consumers to review?",
+      "options": [
+        "The color of the app icon.",
+        "The number of students in a class.",
+        "App permissions and unnecessary access.",
+        "Only the price of a phone."
+      ],
+      "answer": 2,
+      "explanation_ja": "不要なアクセス権の確認を勧めます。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why mention a calculator requesting contacts?",
+      "options": [
+        "To demonstrate that every request is essential.",
+        "To show that a permission can be unrelated to an app's purpose.",
+        "To suggest contacts are public information.",
+        "To show that calculators are more useful than maps."
+      ],
+      "answer": 1,
+      "explanation_ja": "目的と関係の薄い権限要求を具体化するためです。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'trade-off' mean?",
+      "options": [
+        "A balance in which one benefit involves giving something up.",
+        "A place to buy phones.",
+        "A computer error.",
+        "A payment made only in cash."
+      ],
+      "answer": 0,
+      "explanation_ja": "trade-offは利益と代償の兼ね合いです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What should a useful privacy summary explain?",
+      "options": [
+        "Only the developer's favorite color.",
+        "Only the number of advertisements.",
+        "Only the day the app was created.",
+        "What data are collected and how users control them."
+      ],
+      "answer": 3,
+      "explanation_ja": "データの種類と管理方法を示す必要があります。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Why does the fictional timetable comparison matter?",
+      "options": [
+        "Both apps have identical privacy settings.",
+        "The first app must be more expensive.",
+        "The second app asks for information not required by its main function.",
+        "Timetables cannot be stored on phones."
+      ],
+      "answer": 2,
+      "explanation_ja": "機能に不要な情報を求めることの問題を示します。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "What does the final sentence emphasize?",
+      "options": [
+        "Money is the only cost that matters.",
+        "Consumers should consider visible and hidden costs.",
+        "Free apps can never help anyone.",
+        "All data should be made public."
+      ],
+      "answer": 1,
+      "explanation_ja": "見える価格と見えにくい情報の代償を両方考えるよう促します。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "downloads",
+      "ja": "ダウンロードする",
+      "synonym": "installs",
+      "definition": "gets a file or program from the internet"
+    },
+    {
+      "term": "shopping",
+      "ja": "買い物の",
+      "synonym": "purchasing",
+      "definition": "related to buying goods"
+    },
+    {
+      "term": "app",
+      "ja": "アプリ",
+      "synonym": "application",
+      "definition": "software that performs tasks on a device"
+    },
+    {
+      "term": "promises",
+      "ja": "約束する",
+      "synonym": "assures",
+      "definition": "says that something will happen"
+    },
+    {
+      "term": "discounts",
+      "ja": "割引",
+      "synonym": "price reductions",
+      "definition": "amounts taken off a normal price"
+    },
+    {
+      "term": "nearby",
+      "ja": "近くの",
+      "synonym": "local",
+      "definition": "not far away"
+    },
+    {
+      "term": "payment",
+      "ja": "支払い",
+      "synonym": "fee",
+      "definition": "money given for a product or service"
+    },
+    {
+      "term": "required",
+      "ja": "要求された",
+      "synonym": "necessary",
+      "definition": "needed or demanded"
+    },
+    {
+      "term": "account",
+      "ja": "アカウント",
+      "synonym": "user profile",
+      "definition": "a record that lets a person use a service"
+    },
+    {
+      "term": "absence",
+      "ja": "欠如",
+      "synonym": "lack",
+      "definition": "the state of not being there"
+    },
+    {
+      "term": "price",
+      "ja": "価格",
+      "synonym": "cost",
+      "definition": "the amount of money charged"
+    },
+    {
+      "term": "service",
+      "ja": "サービス",
+      "synonym": "assistance",
+      "definition": "an activity provided for others"
+    },
+    {
+      "term": "advertising",
+      "ja": "広告",
+      "synonym": "promotion",
+      "definition": "messages encouraging purchases"
+    },
+    {
+      "term": "businesses",
+      "ja": "企業",
+      "synonym": "companies",
+      "definition": "organizations selling products or services"
+    },
+    {
+      "term": "earn",
+      "ja": "得る・稼ぐ",
+      "synonym": "make money",
+      "definition": "to receive money through work"
+    },
+    {
+      "term": "requests",
+      "ja": "求める",
+      "synonym": "asks for",
+      "definition": "seeks permission or information"
+    },
+    {
+      "term": "permission",
+      "ja": "許可",
+      "synonym": "authorization",
+      "definition": "agreement to allow an action"
+    },
+    {
+      "term": "location",
+      "ja": "位置情報",
+      "synonym": "position",
+      "definition": "the place where someone or something is"
+    },
+    {
+      "term": "camera",
+      "ja": "カメラ",
+      "synonym": "photographic device",
+      "definition": "a device that takes pictures"
+    },
+    {
+      "term": "contacts",
+      "ja": "連絡先",
+      "synonym": "address book entries",
+      "definition": "stored information about people"
+    },
+    {
+      "term": "photographs",
+      "ja": "写真",
+      "synonym": "pictures",
+      "definition": "images created with a camera"
+    },
+    {
+      "term": "functions",
+      "ja": "機能",
+      "synonym": "features",
+      "definition": "tasks a product can perform"
+    },
+    {
+      "term": "calculator",
+      "ja": "計算機",
+      "synonym": "computing tool",
+      "definition": "a device or program used for arithmetic"
+    },
+    {
+      "term": "contrast",
+      "ja": "対比",
+      "synonym": "difference",
+      "definition": "a difference shown by comparing things"
+    },
+    {
+      "term": "access",
+      "ja": "アクセス・利用権",
+      "synonym": "entry",
+      "definition": "the ability to use information or a device"
+    },
+    {
+      "term": "unnecessary",
+      "ja": "不要な",
+      "synonym": "not required",
+      "definition": "not needed for the intended purpose"
+    },
+    {
+      "term": "consumers",
+      "ja": "消費者",
+      "synonym": "buyers",
+      "definition": "people using or buying products"
+    },
+    {
+      "term": "privacy",
+      "ja": "プライバシー",
+      "synonym": "personal confidentiality",
+      "definition": "control over personal information"
+    },
+    {
+      "term": "policies",
+      "ja": "方針",
+      "synonym": "rules",
+      "definition": "statements explaining organizational practices"
+    },
+    {
+      "term": "collected",
+      "ja": "収集された",
+      "synonym": "gathered",
+      "definition": "brought together from sources"
+    },
+    {
+      "term": "shared",
+      "ja": "共有された",
+      "synonym": "given to others",
+      "definition": "made available to others"
+    },
+    {
+      "term": "teenager",
+      "ja": "10代の若者",
+      "synonym": "adolescent",
+      "definition": "a person aged thirteen to nineteen"
+    },
+    {
+      "term": "summary",
+      "ja": "要約",
+      "synonym": "overview",
+      "definition": "a shorter explanation of key ideas"
+    },
+    {
+      "term": "identify",
+      "ja": "特定する",
+      "synonym": "recognize",
+      "definition": "to name or find something clearly"
+    },
+    {
+      "term": "data",
+      "ja": "データ",
+      "synonym": "information",
+      "definition": "recorded facts"
+    },
+    {
+      "term": "partners",
+      "ja": "提携先",
+      "synonym": "associates",
+      "definition": "organizations working together"
+    },
+    {
+      "term": "records",
+      "ja": "記録",
+      "synonym": "files",
+      "definition": "information stored for later use"
+    },
+    {
+      "term": "convenience",
+      "ja": "利便性",
+      "synonym": "ease",
+      "definition": "the quality of being easy to use"
+    },
+    {
+      "term": "trade-off",
+      "ja": "引き換え・兼ね合い",
+      "synonym": "compromise",
+      "definition": "a choice involving both benefit and cost"
+    },
+    {
+      "term": "fictional",
+      "ja": "架空の",
+      "synonym": "imaginary",
+      "definition": "created for illustration"
+    },
+    {
+      "term": "timetable",
+      "ja": "時間割",
+      "synonym": "schedule",
+      "definition": "a plan showing when classes occur"
+    },
+    {
+      "term": "personal",
+      "ja": "個人の",
+      "synonym": "individual",
+      "definition": "belonging to one person"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "does not mean that using the service has no cost at all",
+      "explanation_ja": "does not mean that〜は『〜という意味ではない』という否定の構文です。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "while others may be difficult to explain",
+      "explanation_ja": "whileは二つの性質を対比する接続詞です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 5,
+      "focus": "whether the promised convenience is worth the trade-off",
+      "explanation_ja": "whether以下は『〜かどうか』という間接疑問節です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "focus": "even though those details are not needed for the task",
+      "explanation_ja": "even thoughが譲歩を導き、必要がないのに求めることを表します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "料金が無料であることと情報の代償を対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "地図アプリの権限を具体例で説明。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Nevertheless",
+      "role_ja": "方針の存在と読みづらさの逆接。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Therefore",
+      "role_ja": "比較の例を受けて判断に必要な問いを導く結論。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "the absence of a price does not mean that using the service has no cost at all",
+      "rewrite": "a free price tag does not guarantee that the service involves no sacrifice",
+      "explanation_ja": "absence of a price→free price tag、cost→sacrificeです。"
+    },
+    {
+      "source": "others may be difficult to explain",
+      "rewrite": "some other requests may have no clear justification",
+      "explanation_ja": "difficult to explain→no clear justificationです。"
+    },
+    {
+      "source": "the presence of a privacy policy alone does not guarantee that the service protects its users well",
+      "rewrite": "having a privacy statement does not by itself prove that users are adequately protected",
+      "explanation_ja": "presence→having、guarantee→proveです。"
+    },
+    {
+      "source": "considers both the visible price and the less visible cost of sharing personal information",
+      "rewrite": "thinks about money and the hidden consequences of providing personal data",
+      "explanation_ja": "visible price→money、less visible cost→hidden consequencesです。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "料金が無料であることと情報の代償を対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Therefore",
+        "Nevertheless"
+      ],
+      "explanation_ja": "地図アプリの権限を具体例で説明。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "方針の存在と読みづらさの逆接。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 3,
+      "answer": "Therefore",
+      "options": [
+        "Therefore",
+        "However",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "比較の例を受けて判断に必要な問いを導く結論。"
+    }
+  ]
+}
