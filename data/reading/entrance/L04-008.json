@@ -1,0 +1,614 @@
+{
+  "id": "L04-008",
+  "category_id": "L04",
+  "title": "The Friend Who Changed Teams",
+  "title_ja": "別のチームを選んだ友達",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 205,
+  "source_links": [
+    {
+      "title": "Educational background reference",
+      "url": "https://www.unicef.org/child-rights-convention/convention-text"
+    }
+  ],
+  "fact_notes": [
+    "物語・学校の活動は架空。本文、対訳、設問・解説は独自制作。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Two friends, Hana and Emi, always play on the same team during school games.",
+          "ja": "ハナとエミは学校のゲームでいつも同じチームに入ります。"
+        },
+        {
+          "en": "One day Emi decides to join a different group.",
+          "ja": "ある日エミは別のグループに入ると決めます。"
+        },
+        {
+          "en": "However, Hana feels that Emi no longer wants to be her friend.",
+          "ja": "しかしハナはエミがもう友達でいたくないのかと感じます。"
+        },
+        {
+          "en": "She becomes quiet and stops talking during the game.",
+          "ja": "ハナは静かになりゲーム中に話さなくなります。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "After class, their teacher notices that Hana seems unhappy.",
+          "ja": "授業後、教師はハナが悲しそうなのに気づきます。"
+        },
+        {
+          "en": "For example, Hana says she expected Emi to choose the same team.",
+          "ja": "例えばハナはエミが同じチームを選ぶと思っていたと言います。"
+        },
+        {
+          "en": "The teacher suggests asking Emi what she was thinking.",
+          "ja": "教師はエミが何を考えていたか尋ねるよう提案します。"
+        },
+        {
+          "en": "Hana agrees to talk instead of guessing the reason.",
+          "ja": "ハナは理由を推測せず話すことに同意します。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Emi explains that she wanted to meet other classmates.",
+          "ja": "エミはほかの同級生と知り合いたかったと説明します。"
+        },
+        {
+          "en": "She still enjoys spending time with Hana after school.",
+          "ja": "放課後にハナと過ごすのも今までどおり楽しんでいます。"
+        },
+        {
+          "en": "Instead of accusing Emi, Hana describes how she felt.",
+          "ja": "エミを責める代わりにハナは自分の気持ちを説明します。"
+        },
+        {
+          "en": "Both friends listen and discover why they misunderstood each other.",
+          "ja": "二人は聞き合い、互いを誤解した理由に気づきます。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "They decide that friends do not need to make identical choices.",
+          "ja": "友達がまったく同じ選択をする必要はないと決めます。"
+        },
+        {
+          "en": "Nevertheless, they agree to tell each other about changes in plans.",
+          "ja": "それでも計画を変える際は互いに伝えると約束します。"
+        },
+        {
+          "en": "Hana tries joining another team during the next game.",
+          "ja": "ハナは次のゲームで別のチームに入ってみます。"
+        },
+        {
+          "en": "She enjoys meeting people she did not know well before.",
+          "ja": "以前よく知らなかった人々と知り合うのを楽しみます。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The next week, Hana and Emi work together on a classroom project.",
+          "ja": "翌週、ハナとエミは教室の活動で一緒に取り組みます。"
+        },
+        {
+          "en": "They still share jokes and help each other with difficult tasks.",
+          "ja": "二人は今も冗談を言い合い難しい仕事を助け合います。"
+        },
+        {
+          "en": "As a result, Hana worries less when her friends choose different activities.",
+          "ja": "その結果、ハナは友達が異なる活動を選んでも心配しなくなります。"
+        },
+        {
+          "en": "Trust grows when friends explain feelings and respect choices.",
+          "ja": "友達が気持ちを説明し選択を尊重すると信頼が育ちます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What does Emi decide to do?",
+      "options": [
+        "Join a different group.",
+        "Leave school.",
+        "Stop playing games.",
+        "Move to another city."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「ある日エミは別のグループに入ると決めます。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "How does Hana interpret Emi's choice?",
+      "options": [
+        "She thinks the teacher changed the rules.",
+        "She believes the game has ended.",
+        "She wants to join the same group immediately.",
+        "She thinks Emi may not want to be friends."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「しかしハナはエミがもう友達でいたくないのかと感じます。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What did Hana expect?",
+      "options": [
+        "That there would be no game.",
+        "That the class would be canceled.",
+        "That Emi would join her team.",
+        "That Emi would go home."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「例えばハナはエミが同じチームを選ぶと思っていたと言います。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What does Hana choose over guessing?",
+      "options": [
+        "Ignoring the teacher.",
+        "Talking with Emi.",
+        "Ending the friendship.",
+        "Changing schools."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「ハナは理由を推測せず話すことに同意します。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "Why did Emi choose a different group?",
+      "options": [
+        "To meet other classmates.",
+        "To avoid schoolwork.",
+        "To learn about a new town.",
+        "To win a prize."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「エミはほかの同級生と知り合いたかったと説明します。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "How does Hana express her concern?",
+      "options": [
+        "By accusing Emi immediately.",
+        "By writing a school rule.",
+        "By refusing to speak.",
+        "By describing her feelings."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「エミを責める代わりにハナは自分の気持ちを説明します。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What do the friends decide?",
+      "options": [
+        "They should never play games.",
+        "They must spend every day together.",
+        "Friends can make different choices.",
+        "Friends must always choose the same team."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「友達がまったく同じ選択をする必要はないと決めます。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What does Hana discover in another team?",
+      "options": [
+        "The game has no rules.",
+        "She enjoys meeting new people.",
+        "No one wants to play.",
+        "Her friends dislike games."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「以前よく知らなかった人々と知り合うのを楽しみます。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What do they still do together?",
+      "options": [
+        "Help with difficult tasks.",
+        "Avoid classroom projects.",
+        "Ignore one another.",
+        "Join every different team."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「二人は今も冗談を言い合い難しい仕事を助け合います。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the central lesson?",
+      "options": [
+        "All friends must choose identical activities.",
+        "Changing teams always ends trust.",
+        "Keeping feelings secret prevents conflict.",
+        "Friendship can include different choices and open communication."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「友達が気持ちを説明し選択を尊重すると信頼が育ちます。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "accusing",
+      "ja": "責めること",
+      "synonym": "blaming",
+      "definition": "claiming someone did something wrong"
+    },
+    {
+      "term": "choices",
+      "ja": "選択",
+      "synonym": "decisions",
+      "definition": "options selected"
+    },
+    {
+      "term": "classmates",
+      "ja": "同級生",
+      "synonym": "peers",
+      "definition": "students in the same class"
+    },
+    {
+      "term": "decide",
+      "ja": "決める",
+      "synonym": "choose",
+      "definition": "to make a choice"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same"
+    },
+    {
+      "term": "discover",
+      "ja": "気づく・発見する",
+      "synonym": "find out",
+      "definition": "to learn something previously unknown"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "expected",
+      "ja": "予想された",
+      "synonym": "anticipated",
+      "definition": "thought likely to happen"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "feelings",
+      "ja": "気持ち",
+      "synonym": "emotions",
+      "definition": "personal experiences of emotion"
+    },
+    {
+      "term": "guessing",
+      "ja": "推測",
+      "synonym": "estimating",
+      "definition": "forming an opinion without full information"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "identical",
+      "ja": "同一の",
+      "synonym": "same",
+      "definition": "exactly alike"
+    },
+    {
+      "term": "joining",
+      "ja": "参加すること",
+      "synonym": "participating",
+      "definition": "becoming part of a group activity"
+    },
+    {
+      "term": "meeting",
+      "ja": "集合",
+      "synonym": "gathering",
+      "definition": "coming together at a place"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "reason",
+      "ja": "理由",
+      "synonym": "cause",
+      "definition": "an explanation for why something happens"
+    },
+    {
+      "term": "respect",
+      "ja": "尊重する",
+      "synonym": "value",
+      "definition": "treat as important"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "share",
+      "ja": "共有する",
+      "synonym": "communicate",
+      "definition": "to let others know or use something"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "someone teaching"
+    },
+    {
+      "term": "trust",
+      "ja": "信頼",
+      "synonym": "confidence",
+      "definition": "belief in someone's good intentions"
+    },
+    {
+      "term": "friends",
+      "ja": "友達",
+      "synonym": "companions",
+      "definition": "people who like each other"
+    },
+    {
+      "term": "friend",
+      "ja": "友達",
+      "synonym": "companion",
+      "definition": "someone one knows and likes"
+    },
+    {
+      "term": "team",
+      "ja": "チーム",
+      "synonym": "group",
+      "definition": "people working or playing together"
+    },
+    {
+      "term": "group",
+      "ja": "グループ",
+      "synonym": "team",
+      "definition": "people acting together"
+    },
+    {
+      "term": "misunderstood",
+      "ja": "誤解した",
+      "synonym": "misread",
+      "definition": "understood incorrectly"
+    },
+    {
+      "term": "activities",
+      "ja": "活動",
+      "synonym": "tasks",
+      "definition": "things people do"
+    },
+    {
+      "term": "difficult",
+      "ja": "難しい",
+      "synonym": "challenging",
+      "definition": "not easy"
+    },
+    {
+      "term": "classroom",
+      "ja": "教室",
+      "synonym": "schoolroom",
+      "definition": "a room used for study"
+    },
+    {
+      "term": "project",
+      "ja": "活動",
+      "synonym": "task",
+      "definition": "organized work"
+    },
+    {
+      "term": "quiet",
+      "ja": "静かな",
+      "synonym": "silent",
+      "definition": "not speaking much"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "that Emi no longer wants to be her friend",
+      "explanation_ja": "that節がハナの考えを示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "what she was thinking",
+      "explanation_ja": "間接疑問文でエミの考えを尋ねます。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of accusing Emi",
+      "explanation_ja": "instead of + 動名詞は別の行動です。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "when friends explain feelings and respect choices",
+      "explanation_ja": "when節で信頼が育つ状況を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "チーム選びとハナの不安を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "ハナの期待を具体的に説明します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "別の選択を認めつつ連絡を大切にすると示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "違いへの不安が減る結果です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "However, Hana feels that Emi no longer wants to be her friend.",
+      "rewrite": "Hana worries that Emi's decision threatens their friendship.",
+      "explanation_ja": "エミの選択で友情が揺らいだと感じます。"
+    },
+    {
+      "source": "Hana agrees to talk instead of guessing the reason.",
+      "rewrite": "Hana decides to talk rather than assume the cause.",
+      "explanation_ja": "推測せず話し合います。"
+    },
+    {
+      "source": "They decide that friends do not need to make identical choices.",
+      "rewrite": "Friends may make different decisions without losing their bond.",
+      "explanation_ja": "異なる選択でも友情は続くという意味です。"
+    },
+    {
+      "source": "Trust grows when friends explain feelings and respect choices.",
+      "rewrite": "Explaining feelings and respecting choices builds trust.",
+      "explanation_ja": "対話と尊重によって信頼が育つという結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "チーム選びとハナの不安を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "ハナの期待を具体的に説明します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "別の選択を認めつつ連絡を大切にすると示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "違いへの不安が減る結果です。"
+    }
+  ]
+}
