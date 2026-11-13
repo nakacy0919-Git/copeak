@@ -3,8 +3,8 @@
   "as_of": "2026-11-14",
   "goal": 450,
   "category_target": 30,
-  "registered_total": 93,
-  "remaining": 357,
+  "registered_total": 103,
+  "remaining": 347,
   "level_targets_per_category": {
     "eiken-3": 1,
     "eiken-pre2": 4,
@@ -21,36 +21,36 @@
       "category_id": "L01",
       "name": "自然",
       "target": 30,
-      "registered": 6,
-      "remaining": 24
+      "registered": 7,
+      "remaining": 23
     },
     {
       "category_id": "L02",
       "name": "歴史",
       "target": 30,
-      "registered": 6,
-      "remaining": 24
+      "registered": 7,
+      "remaining": 23
     },
     {
       "category_id": "L03",
       "name": "科学技術",
       "target": 30,
-      "registered": 6,
-      "remaining": 24
+      "registered": 7,
+      "remaining": 23
     },
     {
       "category_id": "L04",
       "name": "人間関係",
       "target": 30,
-      "registered": 6,
-      "remaining": 24
+      "registered": 7,
+      "remaining": 23
     },
     {
       "category_id": "L05",
       "name": "国際社会",
       "target": 30,
-      "registered": 6,
-      "remaining": 24
+      "registered": 7,
+      "remaining": 23
     },
     {
       "category_id": "L06",
@@ -77,29 +77,29 @@
       "category_id": "L09",
       "name": "文学・言語",
       "target": 30,
-      "registered": 6,
-      "remaining": 24
+      "registered": 7,
+      "remaining": 23
     },
     {
       "category_id": "L10",
       "name": "教育・学習",
       "target": 30,
-      "registered": 6,
-      "remaining": 24
+      "registered": 7,
+      "remaining": 23
     },
     {
       "category_id": "L11",
       "name": "法律・政治",
       "target": 30,
-      "registered": 6,
-      "remaining": 24
+      "registered": 7,
+      "remaining": 23
     },
     {
       "category_id": "L12",
       "name": "医療・健康",
       "target": 30,
-      "registered": 6,
-      "remaining": 24
+      "registered": 7,
+      "remaining": 23
     },
     {
       "category_id": "L13",
@@ -119,21 +119,21 @@
       "category_id": "L15",
       "name": "倫理・道徳",
       "target": 30,
-      "registered": 6,
-      "remaining": 24
+      "registered": 7,
+      "remaining": 23
     }
   ],
   "latest_unpublished_batch": [
-    "L02-006",
-    "L04-006",
-    "L07-004",
-    "L08-004",
-    "L14-003",
-    "L06-006",
-    "L09-006",
-    "L11-006",
-    "L14-007",
-    "L15-006"
+    "L01-007",
+    "L02-007",
+    "L03-007",
+    "L04-007",
+    "L05-007",
+    "L09-007",
+    "L10-007",
+    "L11-007",
+    "L12-007",
+    "L15-007"
   ],
   "release_policy": {
     "new_works_default_status": "draft",
@@ -148,10 +148,11 @@
     ]
   },
   "notes": [
-    "2026-11-14: 前回83本から10本増加して93本。残り357本。",
-    "未登録だった5本の構造検査と、新規作成した5本の構造検査を完了。",
-    "新教材はすべて status=draft で main マージも Vercel 本番デプロイもしない。",
-    "意味の妥当性・人手校閲・iPad実機動作は未完了。"
+    "2026-11-14: 開発側93本から新作10本を追加して103本、目標まで残り347本。",
+    "今回の10本について英文3,248語、全文和訳255文、語彙485、読解100問、復習160演習を登録。",
+    "対象10本の語数・辞書・参照・四択・訳文有無・ドラフト状態の構造検査でエラー0件。",
+    "ユーザーの明示承認までは main マージ・Vercel本番デプロイを行わない。",
+    "英文・訳文・選択肢の意味上の正答一意性、参照資料の実到達性、iPad実機表示は未確認。"
   ],
-  "all_unpublished_batches_note": "main の登録は28本。今回の開発ブランチでは93本登録（65本が未公開ドラフト）。新作5本と以前未登録だったドラフト5本を確認して一覧に追加。"
+  "all_unpublished_batches_note": "main に28本登録。開発ブランチには103本あり、75本が未公開のドラフト。今回の10本は content/reading-batch-20261114-h に保存。"
 }
