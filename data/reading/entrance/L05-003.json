@@ -1,0 +1,676 @@
+{
+  "id": "L05-003",
+  "category_id": "L05",
+  "title": "A Warning for Everyone",
+  "title_ja": "すべての人に届く災害警報",
+  "level_id": "eiken-pre2",
+  "word_count": 284,
+  "original": true,
+  "status": "draft",
+  "source_links": [
+    {
+      "title": "United Nations: Early Warnings for All",
+      "url": "https://www.un.org/en/climatechange/early-warnings-for-all"
+    }
+  ],
+  "fact_notes": [
+    "背景となる考え方は添付の資料で確認。本文と練習問題は新規制作。例示した人物・学校・活動は架空の説明用設定。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A storm warning is useful only when people understand it and have time to act.",
+          "ja": "嵐の警報は、人々が理解し行動する時間があるときに役立ちます。"
+        },
+        {
+          "en": "A message arriving too late may describe danger without helping anyone avoid it.",
+          "ja": "遅すぎる警報は、危険を避ける助けにならず、状況を伝えるだけかもしれません。"
+        },
+        {
+          "en": "However, speed is not the only important part of a warning.",
+          "ja": "しかし、警報で大切なのは速さだけではありません。"
+        },
+        {
+          "en": "The United Nations describes a system that includes risk knowledge, monitoring, communication, and preparation.",
+          "ja": "国連は、危険の理解、監視、情報伝達、備えを含む仕組みを説明しています。"
+        },
+        {
+          "en": "For example, even an accurate forecast cannot protect residents who do not know where to go.",
+          "ja": "例えば正確な予報でも、行き先を知らない住民は守れません。"
+        },
+        {
+          "en": "Information must help people make practical choices before danger arrives.",
+          "ja": "情報は危険が来る前に、人々が実際の選択をする助けにならなければなりません。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Imagine a coastal town preparing for a powerful storm.",
+          "ja": "強い嵐に備える沿岸の町を想像してください。"
+        },
+        {
+          "en": "Officials send a warning to smartphones, but some older residents do not own one.",
+          "ja": "職員はスマートフォンに警報を送りますが、それを持たない高齢者もいます。"
+        },
+        {
+          "en": "Others may speak another language or find small letters difficult to read.",
+          "ja": "別の言語を話す人や、小さな文字を読むのが難しい人もいます。"
+        },
+        {
+          "en": "In addition, some families may lose electricity during the storm.",
+          "ja": "さらに嵐の間に停電する家族もいるかもしれません。"
+        },
+        {
+          "en": "Therefore, the town uses radio, pictures, volunteers, and messages in several languages.",
+          "ja": "そのため町はラジオ、絵、ボランティア、複数言語のメッセージを使います。"
+        },
+        {
+          "en": "Different methods give more people a chance to receive the warning.",
+          "ja": "さまざまな方法で、より多くの人が警報を受け取れるようになります。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "A strong warning explains not only what may happen but also what people should do.",
+          "ja": "優れた警報は、起こり得ることだけでなく取るべき行動も説明します。"
+        },
+        {
+          "en": "People may need a safe route, a meeting place, and a way to contact relatives.",
+          "ja": "人々は安全な経路、集合場所、親族への連絡方法を必要とするかもしれません。"
+        },
+        {
+          "en": "Nevertheless, officials should not make a prediction sound completely certain when it is not.",
+          "ja": "それでも予測が不確かなとき、職員は完全に確実であるかのように伝えるべきではありません。"
+        },
+        {
+          "en": "New information can change a forecast, so updates should explain what has changed.",
+          "ja": "新情報で予報が変わるため、更新では変更点を説明すべきです。"
+        },
+        {
+          "en": "Families can also practice what to do before the next emergency.",
+          "ja": "家族も次の緊急事態に備えて行動を練習できます。"
+        },
+        {
+          "en": "The purpose is to turn information into safe action.",
+          "ja": "目的は情報を安全な行動に変えることです。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Students can test warning messages by thinking about different people.",
+          "ja": "生徒は異なる人々を想像して警報文を検証できます。"
+        },
+        {
+          "en": "One group could rewrite a long notice using simpler words.",
+          "ja": "あるグループは長い案内をもっと簡単な語で書き直せます。"
+        },
+        {
+          "en": "Another could design a picture guide for people who need visual information.",
+          "ja": "別のグループは視覚情報を必要とする人向けに絵の案内を作れます。"
+        },
+        {
+          "en": "However, a shorter message must not leave out a critical safety step.",
+          "ja": "ただし短いメッセージでも重要な安全行動を省いてはいけません。"
+        },
+        {
+          "en": "A community is better prepared when its people understand the warning and know how to respond.",
+          "ja": "住民が警報を理解し対応を知っていれば、地域の備えはより強くなります。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the main idea?",
+      "options": [
+        "Warnings should be sent only online.",
+        "Good warnings help different people understand and act safely.",
+        "More words always make warnings better.",
+        "Forecasts are never useful."
+      ],
+      "answer": 1,
+      "explanation_ja": "多様な人々が理解して行動できる警報の大切さが主題です。",
+      "paragraph_ids": [
+        "p1",
+        "p4"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What does the UN warning system include?",
+      "options": [
+        "Risk knowledge, monitoring, communication, and preparation.",
+        "Only smartphones.",
+        "Only rain and wind.",
+        "Only radio messages."
+      ],
+      "answer": 0,
+      "explanation_ja": "四つの要素を本文で挙げています。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why is an accurate forecast sometimes not enough?",
+      "options": [
+        "It always arrives early.",
+        "It uses too many colors.",
+        "People may not know where to go.",
+        "Only officials can read forecasts."
+      ],
+      "answer": 2,
+      "explanation_ja": "具体的な行動を知らなければ役立たないことがあります。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "Who may not own smartphones?",
+      "options": [
+        "All students.",
+        "Every volunteer.",
+        "Only officials.",
+        "Some older residents."
+      ],
+      "answer": 3,
+      "explanation_ja": "高齢住民の中には所有しない人もいます。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What channels does the town use?",
+      "options": [
+        "Only television.",
+        "Radio, pictures, volunteers, and several languages.",
+        "Only private letters.",
+        "Only websites."
+      ],
+      "answer": 1,
+      "explanation_ja": "複数の情報伝達方法が示されています。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why use different methods?",
+      "options": [
+        "To make the storm weaker.",
+        "To stop families from meeting.",
+        "To reach more people.",
+        "To avoid any preparation."
+      ],
+      "answer": 2,
+      "explanation_ja": "より多くの住民に情報を届けるためです。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'critical' mean?",
+      "options": [
+        "Extremely important.",
+        "Unnecessary.",
+        "Very noisy.",
+        "Long and colorful."
+      ],
+      "answer": 0,
+      "explanation_ja": "critical safety stepは欠かせない行動という意味です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What should forecast updates explain?",
+      "options": [
+        "The price of a smartphone.",
+        "The names of volunteers.",
+        "Why storms are beautiful.",
+        "What has changed."
+      ],
+      "answer": 3,
+      "explanation_ja": "新しい予報で何が変わったか示します。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Why can simpler wording be dangerous?",
+      "options": [
+        "Pictures are never helpful.",
+        "An important action might be omitted.",
+        "All short messages are false.",
+        "Students dislike reading."
+      ],
+      "answer": 1,
+      "explanation_ja": "省いてはいけない安全行動が欠ける場合があるためです。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "What does the final sentence emphasize?",
+      "options": [
+        "Only collecting data matters.",
+        "Every warning is correct.",
+        "Understanding and responding are the goals.",
+        "All families should own smartphones."
+      ],
+      "answer": 2,
+      "explanation_ja": "理解し行動することが警報の目的です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "storm",
+      "ja": "嵐",
+      "synonym": "severe weather",
+      "definition": "a period of strong wind and rain"
+    },
+    {
+      "term": "warning",
+      "ja": "警報",
+      "synonym": "alert",
+      "definition": "a message about danger"
+    },
+    {
+      "term": "arriving",
+      "ja": "届くこと",
+      "synonym": "reaching",
+      "definition": "coming to a place or person"
+    },
+    {
+      "term": "danger",
+      "ja": "危険",
+      "synonym": "risk",
+      "definition": "the possibility of harm"
+    },
+    {
+      "term": "speed",
+      "ja": "速さ",
+      "synonym": "quickness",
+      "definition": "how fast something happens"
+    },
+    {
+      "term": "risk",
+      "ja": "危険・リスク",
+      "synonym": "danger",
+      "definition": "a chance of harm"
+    },
+    {
+      "term": "monitoring",
+      "ja": "監視",
+      "synonym": "observation",
+      "definition": "checking conditions over time"
+    },
+    {
+      "term": "communication",
+      "ja": "情報伝達",
+      "synonym": "exchange",
+      "definition": "sharing information"
+    },
+    {
+      "term": "preparation",
+      "ja": "備え",
+      "synonym": "readiness",
+      "definition": "getting ready for possible events"
+    },
+    {
+      "term": "accurate",
+      "ja": "正確な",
+      "synonym": "correct",
+      "definition": "not containing significant errors"
+    },
+    {
+      "term": "forecast",
+      "ja": "予報",
+      "synonym": "prediction",
+      "definition": "an estimate of future conditions"
+    },
+    {
+      "term": "protect",
+      "ja": "守る",
+      "synonym": "keep safe",
+      "definition": "to prevent harm"
+    },
+    {
+      "term": "residents",
+      "ja": "住民",
+      "synonym": "inhabitants",
+      "definition": "people who live in an area"
+    },
+    {
+      "term": "coastal",
+      "ja": "沿岸の",
+      "synonym": "seaside",
+      "definition": "near the sea"
+    },
+    {
+      "term": "powerful",
+      "ja": "強力な",
+      "synonym": "strong",
+      "definition": "having great force"
+    },
+    {
+      "term": "officials",
+      "ja": "職員",
+      "synonym": "authorities",
+      "definition": "people responsible for public work"
+    },
+    {
+      "term": "smartphones",
+      "ja": "スマートフォン",
+      "synonym": "mobile phones",
+      "definition": "phones with computer functions"
+    },
+    {
+      "term": "older",
+      "ja": "より年上の",
+      "synonym": "elderly",
+      "definition": "having lived longer"
+    },
+    {
+      "term": "electricity",
+      "ja": "電気",
+      "synonym": "power",
+      "definition": "energy for operating devices"
+    },
+    {
+      "term": "radio",
+      "ja": "ラジオ",
+      "synonym": "broadcasting",
+      "definition": "a system for sending audio information"
+    },
+    {
+      "term": "pictures",
+      "ja": "絵・画像",
+      "synonym": "images",
+      "definition": "visual representations"
+    },
+    {
+      "term": "volunteers",
+      "ja": "ボランティア",
+      "synonym": "helpers",
+      "definition": "people giving help freely"
+    },
+    {
+      "term": "languages",
+      "ja": "言語",
+      "synonym": "speech systems",
+      "definition": "systems people use to communicate"
+    },
+    {
+      "term": "methods",
+      "ja": "方法",
+      "synonym": "approaches",
+      "definition": "ways to perform a task"
+    },
+    {
+      "term": "receive",
+      "ja": "受け取る",
+      "synonym": "get",
+      "definition": "to obtain something sent"
+    },
+    {
+      "term": "explains",
+      "ja": "説明する",
+      "synonym": "clarifies",
+      "definition": "makes something clear"
+    },
+    {
+      "term": "route",
+      "ja": "経路",
+      "synonym": "path",
+      "definition": "a way to travel"
+    },
+    {
+      "term": "meeting",
+      "ja": "集合・会うこと",
+      "synonym": "gathering",
+      "definition": "people coming together"
+    },
+    {
+      "term": "contact",
+      "ja": "連絡する",
+      "synonym": "reach",
+      "definition": "to communicate with someone"
+    },
+    {
+      "term": "relatives",
+      "ja": "親族",
+      "synonym": "family members",
+      "definition": "people connected by family"
+    },
+    {
+      "term": "prediction",
+      "ja": "予測",
+      "synonym": "forecast",
+      "definition": "a statement about what may happen"
+    },
+    {
+      "term": "completely",
+      "ja": "完全に",
+      "synonym": "entirely",
+      "definition": "without any missing part"
+    },
+    {
+      "term": "certain",
+      "ja": "確実な",
+      "synonym": "sure",
+      "definition": "known without doubt"
+    },
+    {
+      "term": "updates",
+      "ja": "更新情報",
+      "synonym": "revisions",
+      "definition": "new information that replaces older information"
+    },
+    {
+      "term": "emergency",
+      "ja": "緊急事態",
+      "synonym": "crisis",
+      "definition": "a dangerous situation requiring quick action"
+    },
+    {
+      "term": "test",
+      "ja": "検証する",
+      "synonym": "check",
+      "definition": "to examine whether something works"
+    },
+    {
+      "term": "notice",
+      "ja": "案内・通知",
+      "synonym": "announcement",
+      "definition": "a public message"
+    },
+    {
+      "term": "simpler",
+      "ja": "より簡単な",
+      "synonym": "easier",
+      "definition": "less complicated"
+    },
+    {
+      "term": "design",
+      "ja": "設計する",
+      "synonym": "create",
+      "definition": "to plan how something looks or works"
+    },
+    {
+      "term": "visual",
+      "ja": "視覚的な",
+      "synonym": "seen",
+      "definition": "connected with sight"
+    },
+    {
+      "term": "critical",
+      "ja": "非常に重要な",
+      "synonym": "essential",
+      "definition": "too important to ignore"
+    },
+    {
+      "term": "respond",
+      "ja": "対応する",
+      "synonym": "react",
+      "definition": "to act after receiving information"
+    },
+    {
+      "term": "prepared",
+      "ja": "備えができている",
+      "synonym": "ready",
+      "definition": "able to act when necessary"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 0,
+      "focus": "only when people understand it",
+      "explanation_ja": "only whenは『〜の時に限り』という条件を表します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 5,
+      "focus": "give more people a chance to receive the warning",
+      "explanation_ja": "give＋人＋物で機会を与える構文です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 0,
+      "focus": "not only what may happen but also what people should do",
+      "explanation_ja": "not only A but also Bの構文で二つの情報を並べます。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 3,
+      "focus": "must not leave out a critical safety step",
+      "explanation_ja": "must not＋動詞で強い禁止を表します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "速さだけではないという論点への転換。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "In addition",
+      "role_ja": "言語・端末の問題に停電も追加。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Nevertheless",
+      "role_ja": "よい警報の要件と予報の不確かさを対比。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "However",
+      "role_ja": "簡潔化の利点と安全情報の欠落を対比。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "speed is not the only important part of a warning",
+      "rewrite": "a warning needs more than quick delivery",
+      "explanation_ja": "speed→quick delivery、not the only→needs more thanと言い換えます。"
+    },
+    {
+      "source": "Different methods give more people a chance to receive the warning",
+      "rewrite": "Using several channels increases the chance of reaching residents",
+      "explanation_ja": "different methods→several channelsと言い換えます。"
+    },
+    {
+      "source": "turn information into safe action",
+      "rewrite": "make information lead to safer behavior",
+      "explanation_ja": "turn into→lead toの言い換えです。"
+    },
+    {
+      "source": "a shorter message must not leave out a critical safety step",
+      "rewrite": "a brief notice should not omit an essential action",
+      "explanation_ja": "shorter→brief、leave out→omitと言い換えます。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "速さだけではないという論点への転換。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "answer": "In addition",
+      "options": [
+        "In addition",
+        "However",
+        "For example",
+        "Therefore"
+      ],
+      "explanation_ja": "言語・端末の問題に停電も追加。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "For example",
+        "Therefore",
+        "In addition"
+      ],
+      "explanation_ja": "よい警報の要件と予報の不確かさを対比。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 3,
+      "answer": "However",
+      "options": [
+        "However",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "簡潔化の利点と安全情報の欠落を対比。"
+    }
+  ]
+}
