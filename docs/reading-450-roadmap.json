@@ -3,18 +3,19 @@
   "as_of": "2026-11-13",
   "goal": 450,
   "category_target": 30,
-  "registered_total": 43,
-  "remaining": 407,
+  "registered_total": 53,
+  "remaining": 397,
   "level_targets_per_category": {
+    "eiken-3": 1,
     "eiken-pre2": 4,
     "eiken-2": 5,
     "eiken-pre1": 5,
     "eiken-1": 3,
-    "university-mid": 5,
+    "university-mid": 4,
     "university-advanced": 4,
     "university-national": 4
   },
-  "level_targets_note": "Planning quotas for future work, not a claim about current registered level totals. Adjust per-category mix only after auditing existing level distribution.",
+  "level_targets_note": "各分野30本を8レベルに仮配分した制作計画。既存教材のレベル分布の確認後に必要に応じて調整する。",
   "categories": [
     {
       "category_id": "L01",
@@ -34,8 +35,8 @@
       "category_id": "L03",
       "name": "科学技術",
       "target": 30,
-      "registered": 3,
-      "remaining": 27
+      "registered": 4,
+      "remaining": 26
     },
     {
       "category_id": "L04",
@@ -48,8 +49,8 @@
       "category_id": "L05",
       "name": "国際社会",
       "target": 30,
-      "registered": 3,
-      "remaining": 27
+      "registered": 4,
+      "remaining": 26
     },
     {
       "category_id": "L06",
@@ -62,29 +63,29 @@
       "category_id": "L07",
       "name": "経済・ビジネス",
       "target": 30,
-      "registered": 2,
-      "remaining": 28
+      "registered": 4,
+      "remaining": 26
     },
     {
       "category_id": "L08",
       "name": "芸術・文化",
       "target": 30,
-      "registered": 2,
-      "remaining": 28
+      "registered": 4,
+      "remaining": 26
     },
     {
       "category_id": "L09",
       "name": "文学・言語",
       "target": 30,
-      "registered": 3,
-      "remaining": 27
+      "registered": 4,
+      "remaining": 26
     },
     {
       "category_id": "L10",
       "name": "教育・学習",
       "target": 30,
-      "registered": 3,
-      "remaining": 27
+      "registered": 4,
+      "remaining": 26
     },
     {
       "category_id": "L11",
@@ -97,8 +98,8 @@
       "category_id": "L12",
       "name": "医療・健康",
       "target": 30,
-      "registered": 3,
-      "remaining": 27
+      "registered": 4,
+      "remaining": 26
     },
     {
       "category_id": "L13",
@@ -111,8 +112,8 @@
       "category_id": "L14",
       "name": "婚姻・交友",
       "target": 30,
-      "registered": 2,
-      "remaining": 28
+      "registered": 3,
+      "remaining": 27
     },
     {
       "category_id": "L15",
@@ -123,33 +124,34 @@
     }
   ],
   "latest_unpublished_batch": [
-    "L01-004",
-    "L02-003",
-    "L04-003",
-    "L06-003",
-    "L09-003",
-    "L10-003",
-    "L11-003",
-    "L13-003",
-    "L14-002",
-    "L15-003"
+    "L03-004",
+    "L05-004",
+    "L07-003",
+    "L07-005",
+    "L08-003",
+    "L08-005",
+    "L09-004",
+    "L10-004",
+    "L12-004",
+    "L14-004"
   ],
   "release_policy": {
     "new_works_default_status": "draft",
     "no_production_without_explicit_approval": true,
     "do_not_merge_main_until_approved": true,
     "pre_release_checks": [
-      "sentence-level English/Japanese translation fidelity",
+      "English/Japanese translation fidelity",
       "level and vocabulary suitability",
-      "originality and source checks",
+      "originality and source verification",
       "unique correct answer and plausible distractors",
       "iPad usability",
       "Vercel preview smoke test"
     ]
   },
   "notes": [
-    "33 previously registered lessons plus 10 new draft lessons gives 43 in this branch.",
-    "The 10 new lessons are stored only on the content branch. Five earlier drafts are also still unmerged.",
-    "Only validated, editorially reviewed materials should be switched to published and deployed."
-  ]
+    "本番 main へのマージやVercel本番デプロイは禁止。",
+    "今回の10本は branch content/reading-batch-20261113-c にのみ保存。",
+    "構造検査は通過済みだが、教師による最終校閲・実機iPad操作確認は未完了。"
+  ],
+  "all_unpublished_batches_note": "前回15本と今回の10本はすべて draft で未公開。ほかの未登録ファイルは登録数に含めない。"
 }
