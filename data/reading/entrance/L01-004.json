@@ -1,0 +1,719 @@
+{
+  "id": "L01-004",
+  "category_id": "L01",
+  "title": "The Field That Holds the Rain",
+  "title_ja": "雨水を受け止める湿地",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "word_count": 284,
+  "source_links": [
+    {
+      "title": "US EPA: Why Are Wetlands Important?",
+      "url": "https://www.epa.gov/wetlands/why-are-wetlands-important"
+    }
+  ],
+  "fact_notes": [
+    "湿地の生態と水の貯留に関する一般的機能はEPA資料を参照。町の土地利用は架空の教育用例。",
+    "本文・和訳・設問はオリジナル。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A town plans to build a new parking area near a river.",
+          "ja": "ある町が川の近くに新しい駐車場を造る計画を立てます。"
+        },
+        {
+          "en": "The land looks like an empty field, but it becomes wet after heavy rain.",
+          "ja": "土地は空き地のように見えますが、大雨の後には湿ります。"
+        },
+        {
+          "en": "Some residents believe that the field has little value.",
+          "ja": "住民の中には、その土地にはほとんど価値がないと考える人もいます。"
+        },
+        {
+          "en": "However, a science teacher explains that the area is a wetland.",
+          "ja": "しかし理科の教師は、その場所が湿地であると説明します。"
+        },
+        {
+          "en": "The plants and soil may provide services that people cannot easily see.",
+          "ja": "植物と土壌は、人々には見えにくい働きをしているかもしれません。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Wetlands can collect rainwater and release it more slowly.",
+          "ja": "湿地は雨水を集め、ゆっくり放出することができます。"
+        },
+        {
+          "en": "This ability may help reduce the effects of flooding in nearby areas.",
+          "ja": "その働きは近隣地域の洪水の影響を減らす助けとなることがあります。"
+        },
+        {
+          "en": "For example, water moving through wetland plants often slows down.",
+          "ja": "例えば、湿地の植物を通る水はしばしば流れが遅くなります。"
+        },
+        {
+          "en": "Some wetland plants also provide places where insects, birds, and fish can live.",
+          "ja": "湿地の植物の中には、昆虫、鳥、魚が暮らせる場所を提供するものもあります。"
+        },
+        {
+          "en": "A field can therefore support both wildlife and the surrounding community.",
+          "ja": "したがって、その土地は野生生物と周囲の地域社会の両方を支えることができます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The town council asks students to study the area before any decision.",
+          "ja": "町議会は決定前にその場所を調べるよう生徒に依頼します。"
+        },
+        {
+          "en": "They observe plants, take photographs, and compare maps from different years.",
+          "ja": "生徒たちは植物を観察し、写真を撮り、異なる年の地図を比較します。"
+        },
+        {
+          "en": "Nevertheless, one visit cannot tell them everything about the wetland.",
+          "ja": "それでも一度の訪問だけですべてがわかるわけではありません。"
+        },
+        {
+          "en": "Rainfall changes during the year, and some animals are difficult to notice.",
+          "ja": "雨の量は年間を通じて変化し、見つけにくい動物もいます。"
+        },
+        {
+          "en": "The students decide to ask experts and collect more information.",
+          "ja": "生徒たちは専門家に尋ね、さらに情報を集めることにします。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Other residents explain that the town also needs safe parking places.",
+          "ja": "別の住民は、町には安全な駐車場所も必要だと説明します。"
+        },
+        {
+          "en": "The students listen instead of treating the disagreement as a fight between good and bad people.",
+          "ja": "生徒たちは意見の相違を善悪の対立と考えずに耳を傾けます。"
+        },
+        {
+          "en": "They suggest comparing several possible locations for the parking area.",
+          "ja": "駐車場の候補地をいくつか比較することを提案します。"
+        },
+        {
+          "en": "They also ask how each choice might affect the river and nearby homes.",
+          "ja": "また、各選択肢が川や近くの家にどう影響するか尋ねます。"
+        },
+        {
+          "en": "Good decisions require considering different needs and their likely effects.",
+          "ja": "よい決定には、異なる必要と起こり得る影響を考えることが求められます。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "After the study, the town agrees to review the original plan.",
+          "ja": "調査後、町は元の計画を見直すことに同意します。"
+        },
+        {
+          "en": "Some people still disagree about the best place for parking.",
+          "ja": "最善の駐車場所について、なお意見が異なる人もいます。"
+        },
+        {
+          "en": "Therefore, the council explains what evidence it used and what remains uncertain.",
+          "ja": "そこで町議会は、使った根拠とまだ不確かな点を説明します。"
+        },
+        {
+          "en": "The wetland has become more than an empty field on a map.",
+          "ja": "その湿地は、地図上の単なる空き地以上の存在となりました。"
+        },
+        {
+          "en": "It reminds residents that nature may be doing important work quietly.",
+          "ja": "自然は静かに重要な働きをしているかもしれないと住民に思い出させます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What happens to the field after heavy rain?",
+      "options": [
+        "It becomes wet.",
+        "It turns into a mountain.",
+        "It disappears completely.",
+        "It becomes a desert."
+      ],
+      "answer": 0,
+      "explanation_ja": "第1段落の「土地は空き地のように見えますが、大雨の後には湿ります。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What does the teacher suggest about the area?",
+      "options": [
+        "The field contains no living things.",
+        "The parking lot already exists.",
+        "No rain ever reaches the land.",
+        "Plants and soil may provide hidden services."
+      ],
+      "answer": 3,
+      "explanation_ja": "第1段落の「植物と土壌は、人々には見えにくい働きをしているかもしれません。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What can wetlands do with rainwater?",
+      "options": [
+        "Keep every river dry forever.",
+        "Stop all storms from forming.",
+        "Collect it and release it slowly.",
+        "Turn it into salt water immediately."
+      ],
+      "answer": 2,
+      "explanation_ja": "第2段落の「湿地は雨水を集め、ゆっくり放出することができます。」が根拠です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What wildlife may use wetland plants?",
+      "options": [
+        "No animals at all.",
+        "Insects, birds, and fish.",
+        "Only large desert animals.",
+        "Only animals inside buildings."
+      ],
+      "answer": 1,
+      "explanation_ja": "第2段落の「湿地の植物の中には、昆虫、鳥、魚が暮らせる場所を提供するものもあります。」が根拠です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What do the students compare?",
+      "options": [
+        "Maps from different years.",
+        "Prices of winter jackets.",
+        "Results of an English test.",
+        "Maps of distant planets."
+      ],
+      "answer": 0,
+      "explanation_ja": "第3段落の「生徒たちは植物を観察し、写真を撮り、異なる年の地図を比較します。」が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "Why is one visit not enough?",
+      "options": [
+        "The area contains no plants.",
+        "All wetlands look identical.",
+        "Students are forbidden to ask questions.",
+        "Conditions and animals can change over time."
+      ],
+      "answer": 3,
+      "explanation_ja": "第3段落の「それでも一度の訪問だけですべてがわかるわけではありません。」が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "purpose",
+      "prompt": "What other need do residents mention?",
+      "options": [
+        "A bigger sports stadium.",
+        "A new airport.",
+        "Safe places to park.",
+        "A second language school."
+      ],
+      "answer": 2,
+      "explanation_ja": "第4段落の「別の住民は、町には安全な駐車場所も必要だと説明します。」が根拠です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "How do students respond to disagreement?",
+      "options": [
+        "They cancel the study immediately.",
+        "They compare possible locations.",
+        "They refuse to hear other residents.",
+        "They label everyone as bad."
+      ],
+      "answer": 1,
+      "explanation_ja": "第4段落の「駐車場の候補地をいくつか比較することを提案します。」が根拠です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Why does the council explain its evidence?",
+      "options": [
+        "Some uncertainties and disagreements remain.",
+        "The parking area has already vanished.",
+        "No residents are interested.",
+        "Every possible choice is identical."
+      ],
+      "answer": 0,
+      "explanation_ja": "第5段落の「そこで町議会は、使った根拠とまだ不確かな点を説明します。」が根拠です。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "Which message best expresses the main idea?",
+      "options": [
+        "All construction should always be banned.",
+        "Wetlands never change with the seasons.",
+        "Photographs can answer every environmental question.",
+        "Land that looks empty may provide important environmental services."
+      ],
+      "answer": 3,
+      "explanation_ja": "第5段落の「自然は静かに重要な働きをしているかもしれないと住民に思い出させます。」が根拠です。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "affect",
+      "ja": "影響を与える",
+      "synonym": "influence",
+      "definition": "to change how something happens"
+    },
+    {
+      "term": "choice",
+      "ja": "選択",
+      "synonym": "decision",
+      "definition": "the act of selecting an action"
+    },
+    {
+      "term": "community",
+      "ja": "地域社会",
+      "synonym": "neighborhood",
+      "definition": "people living in the same area"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "contrast",
+      "definition": "to examine differences and similarities"
+    },
+    {
+      "term": "decide",
+      "ja": "決める",
+      "synonym": "choose",
+      "definition": "to make a choice"
+    },
+    {
+      "term": "decisions",
+      "ja": "決定・判断",
+      "synonym": "choices",
+      "definition": "choices made after thinking"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "disagreement",
+      "ja": "意見の相違",
+      "synonym": "difference of opinion",
+      "definition": "a situation in which people hold different views"
+    },
+    {
+      "term": "evidence",
+      "ja": "根拠",
+      "synonym": "proof",
+      "definition": "information supporting a conclusion"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "experts",
+      "ja": "専門家",
+      "synonym": "specialists",
+      "definition": "people with particular knowledge"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "important",
+      "ja": "重要な",
+      "synonym": "significant",
+      "definition": "having a great effect or value"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "facts",
+      "definition": "facts or details provided about something"
+    },
+    {
+      "term": "map",
+      "ja": "地図",
+      "synonym": "chart",
+      "definition": "a drawing showing features of an area"
+    },
+    {
+      "term": "moving",
+      "ja": "引っ越すこと",
+      "synonym": "relocating",
+      "definition": "changing one's place of residence"
+    },
+    {
+      "term": "nature",
+      "ja": "自然",
+      "synonym": "natural world",
+      "definition": "plants, animals, and the environment"
+    },
+    {
+      "term": "nearby",
+      "ja": "近くの",
+      "synonym": "close",
+      "definition": "not far away"
+    },
+    {
+      "term": "needs",
+      "ja": "必要",
+      "synonym": "requirements",
+      "definition": "things necessary for well-being"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "original",
+      "ja": "原文の",
+      "synonym": "initial",
+      "definition": "existing before a copy or revision"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "photographs",
+      "ja": "写真",
+      "synonym": "pictures",
+      "definition": "images made with a camera"
+    },
+    {
+      "term": "reduce",
+      "ja": "減らす",
+      "synonym": "decrease",
+      "definition": "to make something smaller in amount"
+    },
+    {
+      "term": "residents",
+      "ja": "住民",
+      "synonym": "locals",
+      "definition": "people who live in a place"
+    },
+    {
+      "term": "services",
+      "ja": "公共サービス",
+      "synonym": "facilities",
+      "definition": "things provided to meet needs"
+    },
+    {
+      "term": "soil",
+      "ja": "土壌",
+      "synonym": "earth",
+      "definition": "upper ground where plants grow"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "study",
+      "ja": "調べる・学習する",
+      "synonym": "examine",
+      "definition": "to learn or investigate something carefully"
+    },
+    {
+      "term": "support",
+      "ja": "支え・支援",
+      "synonym": "help",
+      "definition": "help that keeps an activity going"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who helps others learn"
+    },
+    {
+      "term": "therefore",
+      "ja": "したがって",
+      "synonym": "consequently",
+      "definition": "used to introduce a logical result"
+    },
+    {
+      "term": "uncertain",
+      "ja": "不確かな",
+      "synonym": "unclear",
+      "definition": "not fully known"
+    },
+    {
+      "term": "value",
+      "ja": "価値",
+      "synonym": "worth",
+      "definition": "usefulness or importance"
+    },
+    {
+      "term": "water",
+      "ja": "水をやる",
+      "synonym": "irrigate",
+      "definition": "to give water to a plant"
+    },
+    {
+      "term": "wetland",
+      "ja": "湿地",
+      "synonym": "marsh",
+      "definition": "land that remains wet for long periods"
+    },
+    {
+      "term": "parking",
+      "ja": "駐車",
+      "synonym": "car storage",
+      "definition": "leaving vehicles in a place"
+    },
+    {
+      "term": "river",
+      "ja": "川",
+      "synonym": "waterway",
+      "definition": "a natural stream of water"
+    },
+    {
+      "term": "rainwater",
+      "ja": "雨水",
+      "synonym": "rainfall",
+      "definition": "water that falls as rain"
+    },
+    {
+      "term": "flooding",
+      "ja": "洪水",
+      "synonym": "overflow",
+      "definition": "water covering normally dry land"
+    },
+    {
+      "term": "insects",
+      "ja": "昆虫",
+      "synonym": "bugs",
+      "definition": "small animals with six legs"
+    },
+    {
+      "term": "wildlife",
+      "ja": "野生生物",
+      "synonym": "wild animals",
+      "definition": "animals living in nature"
+    },
+    {
+      "term": "council",
+      "ja": "議会",
+      "synonym": "committee",
+      "definition": "people making public decisions"
+    },
+    {
+      "term": "observe",
+      "ja": "観察する",
+      "synonym": "watch",
+      "definition": "to look carefully"
+    },
+    {
+      "term": "rainfall",
+      "ja": "降雨量",
+      "synonym": "precipitation",
+      "definition": "rain that falls in an area"
+    },
+    {
+      "term": "locations",
+      "ja": "場所",
+      "synonym": "sites",
+      "definition": "places where something may be built"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "but it becomes wet after heavy rain",
+      "explanation_ja": "butは空き地に見えることと大雨後の状態を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "may help reduce the effects of flooding",
+      "explanation_ja": "mayは可能性を示し、help + 動詞原形で『助ける』です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "focus": "instead of treating the disagreement",
+      "explanation_ja": "instead of + 動名詞は『対立と扱う代わりに』です。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "focus": "what evidence it used and what remains uncertain",
+      "explanation_ja": "二つのwhat節が説明する内容を表します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "逆接：一見価値のない土地が実は湿地だと示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "例示：植物が水の流れを遅くする具体例です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Nevertheless",
+      "role_ja": "譲歩：観察しても一回では十分でないと示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "Therefore",
+      "role_ja": "帰結：不確実性が残るため根拠を説明します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The plants and soil may provide services that people cannot easily see.",
+      "rewrite": "The natural area may perform valuable functions that are not obvious.",
+      "explanation_ja": "自然の働きが見えにくいという意味です。"
+    },
+    {
+      "source": "This ability may help reduce the effects of flooding in nearby areas.",
+      "rewrite": "Wetland water storage can sometimes lessen nearby flood impacts.",
+      "explanation_ja": "洪水の影響を小さくする可能性を表します。"
+    },
+    {
+      "source": "Good decisions require considering different needs and their likely effects.",
+      "rewrite": "Sound choices depend on evaluating needs and consequences.",
+      "explanation_ja": "必要と影響を考慮するという内容です。"
+    },
+    {
+      "source": "It reminds residents that nature may be doing important work quietly.",
+      "rewrite": "Nature can quietly provide services people need.",
+      "explanation_ja": "自然が静かに役立つという結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Therefore",
+        "Nevertheless"
+      ],
+      "explanation_ja": "逆接：一見価値のない土地が実は湿地だと示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Therefore",
+        "Nevertheless"
+      ],
+      "explanation_ja": "例示：植物が水の流れを遅くする具体例です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "Therefore"
+      ],
+      "explanation_ja": "譲歩：観察しても一回では十分でないと示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "Therefore",
+      "options": [
+        "Therefore",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "帰結：不確実性が残るため根拠を説明します。"
+    }
+  ]
+}

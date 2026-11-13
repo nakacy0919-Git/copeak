@@ -286,3 +286,10 @@ body.reading-focus #readingApp .reader-head .eyebrow{display:none}
  border-left:3px solid #8db9b0;border-radius:5px;
  color:#536a63;font-size:calc(var(--reading-question-size,16px)*.85);line-height:1.7;
 }
+
+/* Multi-question bank selector — compact and accessible on iPad. */
+.reading-count-row{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:12px auto 18px;padding:10px 12px;border:1px solid var(--border,#dce4eb);border-radius:12px;max-width:640px;background:var(--surface,#fff)}
+.reading-count-row[hidden]{display:none}
+.reading-count-row label{font-weight:700;font-size:14px}
+.reading-count-row select{font:inherit;min-height:42px;min-width:100px;border:1px solid #a4b1bd;border-radius:9px;padding:4px 10px;background:#fff;color:#172b3a}
+.reading-count-row small{font-size:12px;color:#556777}

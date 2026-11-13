@@ -96,6 +96,18 @@
   ],
   "levels": [
     {
+      "id": "eiken-3",
+      "label": "英検3級",
+      "words": [
+        170,
+        250
+      ],
+      "minutes": [
+        4,
+        7
+      ]
+    },
+    {
       "id": "eiken-pre2",
       "label": "英検準2級",
       "words": [
@@ -194,12 +206,36 @@
       "file": "data/reading/entrance/L01-003.json"
     },
     {
+      "id": "L01-004",
+      "file": "data/reading/entrance/L01-004.json"
+    },
+    {
+      "id": "L01-005",
+      "file": "data/reading/entrance/L01-005.json"
+    },
+    {
+      "id": "L01-006",
+      "file": "data/reading/entrance/L01-006.json"
+    },
+    {
       "id": "L02-001",
       "file": "data/reading/entrance/L02-001.json"
     },
     {
       "id": "L02-002",
       "file": "data/reading/entrance/L02-002.json"
+    },
+    {
+      "id": "L02-003",
+      "file": "data/reading/entrance/L02-003.json"
+    },
+    {
+      "id": "L02-004",
+      "file": "data/reading/entrance/L02-004.json"
+    },
+    {
+      "id": "L02-005",
+      "file": "data/reading/entrance/L02-005.json"
     },
     {
       "id": "L03-001",
@@ -210,12 +246,24 @@
       "file": "data/reading/entrance/L03-002.json"
     },
     {
+      "id": "L03-003",
+      "file": "data/reading/entrance/L03-003.json"
+    },
+    {
+      "id": "L03-004",
+      "file": "data/reading/entrance/L03-004.json"
+    },
+    {
       "id": "L04-001",
       "file": "data/reading/entrance/L04-001.json"
     },
     {
       "id": "L04-002",
       "file": "data/reading/entrance/L04-002.json"
+    },
+    {
+      "id": "L04-003",
+      "file": "data/reading/entrance/L04-003.json"
     },
     {
       "id": "L05-001",
@@ -226,12 +274,28 @@
       "file": "data/reading/entrance/L05-002.json"
     },
     {
+      "id": "L05-003",
+      "file": "data/reading/entrance/L05-003.json"
+    },
+    {
+      "id": "L05-004",
+      "file": "data/reading/entrance/L05-004.json"
+    },
+    {
       "id": "L06-001",
       "file": "data/reading/entrance/L06-001.json"
     },
     {
       "id": "L06-002",
       "file": "data/reading/entrance/L06-002.json"
+    },
+    {
+      "id": "L06-003",
+      "file": "data/reading/entrance/L06-003.json"
+    },
+    {
+      "id": "L06-004",
+      "file": "data/reading/entrance/L06-004.json"
     },
     {
       "id": "L07-001",
@@ -242,12 +306,32 @@
       "file": "data/reading/entrance/L07-002.json"
     },
     {
+      "id": "L07-004",
+      "file": "data/reading/entrance/L07-004.json"
+    },
+    {
+      "id": "L07-006",
+      "file": "data/reading/entrance/L07-006.json"
+    },
+    {
+      "id": "L07-007",
+      "file": "data/reading/entrance/L07-007.json"
+    },
+    {
       "id": "L08-001",
       "file": "data/reading/entrance/L08-001.json"
     },
     {
       "id": "L08-002",
       "file": "data/reading/entrance/L08-002.json"
+    },
+    {
+      "id": "L08-004",
+      "file": "data/reading/entrance/L08-004.json"
+    },
+    {
+      "id": "L08-005",
+      "file": "data/reading/entrance/L08-005.json"
     },
     {
       "id": "L09-001",
@@ -258,12 +342,28 @@
       "file": "data/reading/entrance/L09-002.json"
     },
     {
+      "id": "L09-003",
+      "file": "data/reading/entrance/L09-003.json"
+    },
+    {
+      "id": "L09-004",
+      "file": "data/reading/entrance/L09-004.json"
+    },
+    {
       "id": "L10-001",
       "file": "data/reading/entrance/L10-001.json"
     },
     {
       "id": "L10-002",
       "file": "data/reading/entrance/L10-002.json"
+    },
+    {
+      "id": "L10-003",
+      "file": "data/reading/entrance/L10-003.json"
+    },
+    {
+      "id": "L10-004",
+      "file": "data/reading/entrance/L10-004.json"
     },
     {
       "id": "L11-001",
@@ -274,6 +374,14 @@
       "file": "data/reading/entrance/L11-002.json"
     },
     {
+      "id": "L11-003",
+      "file": "data/reading/entrance/L11-003.json"
+    },
+    {
+      "id": "L11-004",
+      "file": "data/reading/entrance/L11-004.json"
+    },
+    {
       "id": "L12-001",
       "file": "data/reading/entrance/L12-001.json"
     },
@@ -282,16 +390,52 @@
       "file": "data/reading/entrance/L12-002.json"
     },
     {
+      "id": "L12-003",
+      "file": "data/reading/entrance/L12-003.json"
+    },
+    {
+      "id": "L12-005",
+      "file": "data/reading/entrance/L12-005.json"
+    },
+    {
       "id": "L13-001",
       "file": "data/reading/entrance/L13-001.json"
+    },
+    {
+      "id": "L13-002",
+      "file": "data/reading/entrance/L13-002.json"
+    },
+    {
+      "id": "L13-003",
+      "file": "data/reading/entrance/L13-003.json"
     },
     {
       "id": "L14-001",
       "file": "data/reading/entrance/L14-001.json"
     },
     {
+      "id": "L14-002",
+      "file": "data/reading/entrance/L14-002.json"
+    },
+    {
+      "id": "L14-003",
+      "file": "data/reading/entrance/L14-003.json"
+    },
+    {
       "id": "L15-001",
       "file": "data/reading/entrance/L15-001.json"
+    },
+    {
+      "id": "L15-002",
+      "file": "data/reading/entrance/L15-002.json"
+    },
+    {
+      "id": "L15-003",
+      "file": "data/reading/entrance/L15-003.json"
+    },
+    {
+      "id": "L15-004",
+      "file": "data/reading/entrance/L15-004.json"
     }
   ],
   "editorial": {

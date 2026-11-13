@@ -1,0 +1,557 @@
+{
+  "id": "L10-004",
+  "category_id": "L10",
+  "title": "A Reading Club Challenge",
+  "title_ja": "読書クラブのチャレンジ",
+  "format": "explanation",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 223,
+  "source_links": [
+    {
+      "title": "Official EIKEN Grade 3 question formats",
+      "url": "https://www.eiken.or.jp/eiken/exam/grade_3/solutions.html"
+    }
+  ],
+  "fact_notes": [
+    "英検3級の文章形式を参考とした架空の教材。英検の過去問や他者の文章を引用していない。",
+    "英文、和訳、問題、解説はオリジナル。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Our school's reading club has a new challenge this month.",
+          "ja": "私たちの学校の読書クラブでは今月新しいチャレンジがあります。"
+        },
+        {
+          "en": "Students can read any book they like and share one interesting thing about it.",
+          "ja": "生徒は好きな本を読み、面白いことを一つ紹介できます。"
+        },
+        {
+          "en": "You can choose a story, a picture book, or a book about science.",
+          "ja": "物語、絵本、理科についての本を選べます。"
+        },
+        {
+          "en": "However, you do not have to finish a long book in one week.",
+          "ja": "ただし、一週間で長い本を読み終える必要はありません。"
+        },
+        {
+          "en": "Our goal is to enjoy reading and talk with friends.",
+          "ja": "目標は読書を楽しみ、友達と話すことです。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "On Mondays, club members meet in the school library.",
+          "ja": "月曜日には部員が学校の図書館に集まります。"
+        },
+        {
+          "en": "Each student has two minutes to talk about a book.",
+          "ja": "それぞれの生徒に本について話すための2分間があります。"
+        },
+        {
+          "en": "For example, you can tell us about your favorite person in a story.",
+          "ja": "例えば、物語で好きな人物について話せます。"
+        },
+        {
+          "en": "You can also explain why a picture or an idea was interesting.",
+          "ja": "絵や考えがなぜ面白かったかを説明することもできます。"
+        },
+        {
+          "en": "Other students can ask one or two questions after you speak.",
+          "ja": "話した後、ほかの生徒が一つか二つ質問できます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Last week, Haru was afraid to speak in front of the group.",
+          "ja": "先週、ハルはグループの前で話すのが怖かったです。"
+        },
+        {
+          "en": "He liked a short book about birds but did not know what to say.",
+          "ja": "鳥についての短い本が好きでしたが、何を言えばよいかわかりませんでした。"
+        },
+        {
+          "en": "Instead of making him speak first, his friends gave him time to think.",
+          "ja": "最初に話させるのではなく、友達は考える時間をあげました。"
+        },
+        {
+          "en": "Haru wrote three simple sentences about his favorite bird.",
+          "ja": "ハルは好きな鳥について簡単な文を三つ書きました。"
+        },
+        {
+          "en": "Then he read them aloud and answered a question.",
+          "ja": "それからそれらを音読し、質問に答えました。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "After the meeting, Haru wanted to try another book.",
+          "ja": "会の後、ハルは別の本も読んでみたくなりました。"
+        },
+        {
+          "en": "His friends told him that his ideas were easy to understand.",
+          "ja": "友達は彼の考えがわかりやすかったと伝えました。"
+        },
+        {
+          "en": "Therefore, he felt more comfortable sharing his thoughts.",
+          "ja": "そのため自分の考えを伝えることが前より楽に感じられました。"
+        },
+        {
+          "en": "The club is not a race to read the most books.",
+          "ja": "このクラブは最も多く本を読む競争ではありません。"
+        },
+        {
+          "en": "It is a place where everyone can learn at their own speed.",
+          "ja": "一人ひとりが自分のペースで学べる場所です。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What is new this month?",
+      "options": [
+        "A reading challenge.",
+        "A sports festival.",
+        "A cooking class.",
+        "A music contest."
+      ],
+      "answer": 0,
+      "explanation_ja": "第1段落：「私たちの学校の読書クラブでは今月新しいチャレンジがあります。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What kind of book can students choose?",
+      "options": [
+        "Only a long story.",
+        "Only a school textbook.",
+        "Only an English dictionary.",
+        "A story, picture book, or science book."
+      ],
+      "answer": 3,
+      "explanation_ja": "第1段落：「物語、絵本、理科についての本を選べます。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "Must students finish a long book in a week?",
+      "options": [
+        "Only on Mondays.",
+        "Only in summer.",
+        "No.",
+        "Yes."
+      ],
+      "answer": 2,
+      "explanation_ja": "第1段落：「ただし、一週間で長い本を読み終える必要はありません。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "Where do members meet?",
+      "options": [
+        "At the station.",
+        "In the school library.",
+        "In the gym.",
+        "At the market."
+      ],
+      "answer": 1,
+      "explanation_ja": "第2段落：「月曜日には部員が学校の図書館に集まります。」が根拠です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "How long can each student speak?",
+      "options": [
+        "Two minutes.",
+        "One minute.",
+        "Ten minutes.",
+        "Thirty minutes."
+      ],
+      "answer": 0,
+      "explanation_ja": "第2段落：「それぞれの生徒に本について話すための2分間があります。」が根拠です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What can students talk about?",
+      "options": [
+        "Their bus tickets.",
+        "A new school rule.",
+        "A difficult math test.",
+        "A favorite person in a story."
+      ],
+      "answer": 3,
+      "explanation_ja": "第2段落：「例えば、物語で好きな人物について話せます。」が根拠です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What book did Haru like?",
+      "options": [
+        "A book about cooking.",
+        "A book about sports.",
+        "A book about birds.",
+        "A book about cars."
+      ],
+      "answer": 2,
+      "explanation_ja": "第3段落：「鳥についての短い本が好きでしたが、何を言えばよいかわかりませんでした。」が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "How did Haru's friends help him?",
+      "options": [
+        "They made him speak first.",
+        "They gave him time to think.",
+        "They told him to stop reading.",
+        "They left the library."
+      ],
+      "answer": 1,
+      "explanation_ja": "第3段落：「最初に話させるのではなく、友達は考える時間をあげました。」が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "detail",
+      "prompt": "What did Haru do after writing sentences?",
+      "options": [
+        "He read them aloud and answered a question.",
+        "He sent them to another school.",
+        "He threw away the book.",
+        "He went home without speaking."
+      ],
+      "answer": 0,
+      "explanation_ja": "第3段落：「それからそれらを音読し、質問に答えました。」が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the club's main goal?",
+      "options": [
+        "To read the most books in a race.",
+        "To finish only long books.",
+        "To give every student a test.",
+        "To let everyone learn at their own speed."
+      ],
+      "answer": 3,
+      "explanation_ja": "第4段落：「一人ひとりが自分のペースで学べる場所です。」が根拠です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "challenge",
+      "ja": "チャレンジ",
+      "synonym": "task",
+      "definition": "something difficult but useful"
+    },
+    {
+      "term": "comfortable",
+      "ja": "気楽な",
+      "synonym": "at ease",
+      "definition": "feeling relaxed"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "meeting",
+      "ja": "集合",
+      "synonym": "gathering",
+      "definition": "coming together at a place"
+    },
+    {
+      "term": "question",
+      "ja": "疑問を持つ・問い直す",
+      "synonym": "challenge",
+      "definition": "to examine whether an assumption is correct"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "share",
+      "ja": "共有する",
+      "synonym": "communicate",
+      "definition": "to let others know or use something"
+    },
+    {
+      "term": "sharing",
+      "ja": "共有すること",
+      "synonym": "forwarding",
+      "definition": "passing information to others"
+    },
+    {
+      "term": "student",
+      "ja": "生徒",
+      "synonym": "learner",
+      "definition": "a person learning at school"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "therefore",
+      "ja": "したがって",
+      "synonym": "consequently",
+      "definition": "used to introduce a logical result"
+    },
+    {
+      "term": "reading club",
+      "ja": "読書クラブ",
+      "synonym": "book club",
+      "definition": "a group that reads and discusses books"
+    },
+    {
+      "term": "picture book",
+      "ja": "絵本",
+      "synonym": "book with pictures",
+      "definition": "a book that tells a story with pictures"
+    },
+    {
+      "term": "science",
+      "ja": "理科",
+      "synonym": "school subject",
+      "definition": "the study of nature"
+    },
+    {
+      "term": "finish",
+      "ja": "終える",
+      "synonym": "complete",
+      "definition": "come to the end of something"
+    },
+    {
+      "term": "goal",
+      "ja": "目標",
+      "synonym": "aim",
+      "definition": "something people want to do"
+    },
+    {
+      "term": "Mondays",
+      "ja": "月曜日",
+      "synonym": "weekday",
+      "definition": "the first school day of the week"
+    },
+    {
+      "term": "members",
+      "ja": "部員",
+      "synonym": "participants",
+      "definition": "people in a group"
+    },
+    {
+      "term": "favorite",
+      "ja": "お気に入りの",
+      "synonym": "best liked",
+      "definition": "liked more than others"
+    },
+    {
+      "term": "aloud",
+      "ja": "声に出して",
+      "synonym": "out loud",
+      "definition": "in a voice others can hear"
+    },
+    {
+      "term": "race",
+      "ja": "競争",
+      "synonym": "contest",
+      "definition": "an event people try to win"
+    },
+    {
+      "term": "speed",
+      "ja": "速さ",
+      "synonym": "pace",
+      "definition": "how fast something happens"
+    },
+    {
+      "term": "thoughts",
+      "ja": "考え",
+      "synonym": "ideas",
+      "definition": "things people think about"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "any book they like",
+      "explanation_ja": "they likeはany bookを説明します。"
+    },
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "do not have to finish a long book",
+      "explanation_ja": "do not have toは『〜する必要がない』です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of making him speak first",
+      "explanation_ja": "instead of + 動名詞は『最初に話させる代わりに』です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 4,
+      "focus": "where everyone can learn at their own speed",
+      "explanation_ja": "whereは場所を説明します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "一週間で読み終える必要はないという注意を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "発表内容の具体例を挙げます。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Instead",
+      "role_ja": "話す順番を変えることを示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Therefore",
+      "role_ja": "勇気が出たという結果を示します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "However, you do not have to finish a long book in one week.",
+      "rewrite": "Students are not required to finish a long book in seven days.",
+      "explanation_ja": "一週間で読み終える必要はありません。"
+    },
+    {
+      "source": "Each student has two minutes to talk about a book.",
+      "rewrite": "Each member gets two minutes to explain a book.",
+      "explanation_ja": "2分間話せるという内容です。"
+    },
+    {
+      "source": "Instead of making him speak first, his friends gave him time to think.",
+      "rewrite": "Haru's friends let him think before he spoke.",
+      "explanation_ja": "考える時間をあげたという意味です。"
+    },
+    {
+      "source": "It is a place where everyone can learn at their own speed.",
+      "rewrite": "The club lets members learn at a speed that is right for them.",
+      "explanation_ja": "自分に合うペースで学べることを述べます。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Instead",
+        "Therefore"
+      ],
+      "explanation_ja": "一週間で読み終える必要はないという注意を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Instead",
+        "Therefore"
+      ],
+      "explanation_ja": "発表内容の具体例を挙げます。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "Instead",
+      "options": [
+        "Instead",
+        "However",
+        "For example",
+        "Therefore"
+      ],
+      "explanation_ja": "話す順番を変えることを示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "Therefore",
+      "options": [
+        "Therefore",
+        "However",
+        "For example",
+        "Instead"
+      ],
+      "explanation_ja": "勇気が出たという結果を示します。"
+    }
+  ]
+}

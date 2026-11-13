@@ -1,0 +1,532 @@
+{
+  "id": "L02-004",
+  "category_id": "L02",
+  "title": "A Walk Through Old Town",
+  "title_ja": "古い町を歩いてみよう",
+  "level_id": "eiken-3",
+  "format": "explanation",
+  "status": "draft",
+  "original": true,
+  "word_count": 208,
+  "source_links": [
+    {
+      "title": "EIKEN 3 official question types",
+      "url": "https://www.eiken.or.jp/eiken/exam/grade_3/solutions.html"
+    }
+  ],
+  "fact_notes": [
+    "中学卒業程度の英語と英検3級の題材形式を参考にした架空のオリジナル教材。公式過去問の転載ではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Last Saturday, our history club took a walk through our town.",
+          "ja": "先週土曜日、歴史部は町を歩きました。"
+        },
+        {
+          "en": "Our teacher gave us a map made many years ago.",
+          "ja": "先生は何年も前に作られた地図を渡しました。"
+        },
+        {
+          "en": "We wanted to find places that were still there today.",
+          "ja": "私たちは今も残っている場所を探したかったのです。"
+        },
+        {
+          "en": "However, some old roads had become new streets.",
+          "ja": "しかし、古い道の中には新しい通りになったものもありました。"
+        },
+        {
+          "en": "We had to look carefully at buildings and rivers.",
+          "ja": "建物や川を注意深く見る必要がありました。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "First, we visited a small bridge near the station.",
+          "ja": "まず駅の近くの小さな橋を訪れました。"
+        },
+        {
+          "en": "The bridge was shown on the old map.",
+          "ja": "その橋は古い地図にも載っていました。"
+        },
+        {
+          "en": "For example, the map showed a school near the bridge, but that school is now a shop.",
+          "ja": "例えば地図には橋の近くに学校がありましたが、今ではその建物は店です。"
+        },
+        {
+          "en": "Our teacher said that old maps can tell us about the past.",
+          "ja": "先生は古い地図は過去について教えてくれると言いました。"
+        },
+        {
+          "en": "They also make us ask new questions.",
+          "ja": "地図は新しい疑問も生み出します。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Next, we met a woman who has lived in the town for sixty years.",
+          "ja": "次に、60年間その町に住む女性に会いました。"
+        },
+        {
+          "en": "She told us stories about the market near the river.",
+          "ja": "彼女は川の近くの市場について話してくれました。"
+        },
+        {
+          "en": "Instead of writing down every word, we listened and asked questions.",
+          "ja": "一語ずつ書き取るのではなく、耳を傾け質問をしました。"
+        },
+        {
+          "en": "Some of her memories were different from the old map.",
+          "ja": "彼女の記憶の中には古い地図と異なるものもありました。"
+        },
+        {
+          "en": "We decided to look for more information at the library.",
+          "ja": "私たちは図書館でさらに情報を探すことにしました。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "At school, we made a poster with two maps and our notes.",
+          "ja": "学校で二つの地図とメモを使ったポスターを作りました。"
+        },
+        {
+          "en": "We showed how some places had changed over time.",
+          "ja": "いくつかの場所が時間とともにどう変わったか示しました。"
+        },
+        {
+          "en": "Therefore, our town looked more interesting to us than before.",
+          "ja": "そのため町が以前より興味深く見えるようになりました。"
+        },
+        {
+          "en": "We learned that history is not only in textbooks.",
+          "ja": "歴史は教科書の中だけにあるのではないと学びました。"
+        },
+        {
+          "en": "It can also be found in the streets we use every day.",
+          "ja": "毎日使う通りの中にも見つけられます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "When did the history club take a walk?",
+      "options": [
+        "Last Saturday.",
+        "Last Monday.",
+        "Next Tuesday.",
+        "Next Sunday."
+      ],
+      "answer": 0,
+      "explanation_ja": "第1段落：「先週土曜日、歴史部は町を歩きました。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What did the teacher give students?",
+      "options": [
+        "A new computer.",
+        "A music book.",
+        "A train ticket.",
+        "An old map."
+      ],
+      "answer": 3,
+      "explanation_ja": "第1段落：「先生は何年も前に作られた地図を渡しました。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What did students have to look at?",
+      "options": [
+        "Only animals.",
+        "Only the weather.",
+        "Buildings and rivers.",
+        "Only cars."
+      ],
+      "answer": 2,
+      "explanation_ja": "第1段落：「建物や川を注意深く見る必要がありました。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "Where did they go first?",
+      "options": [
+        "To a supermarket.",
+        "To a bridge near the station.",
+        "To the airport.",
+        "To a park far away."
+      ],
+      "answer": 1,
+      "explanation_ja": "第2段落：「まず駅の近くの小さな橋を訪れました。」が根拠です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What is the old school building now?",
+      "options": [
+        "A shop.",
+        "A museum.",
+        "A hospital.",
+        "A library."
+      ],
+      "answer": 0,
+      "explanation_ja": "第2段落：「例えば地図には橋の近くに学校がありましたが、今ではその建物は店です。」が根拠です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "How long had the woman lived in town?",
+      "options": [
+        "Ten years.",
+        "Twenty years.",
+        "Thirty years.",
+        "Sixty years."
+      ],
+      "answer": 3,
+      "explanation_ja": "第3段落：「次に、60年間その町に住む女性に会いました。」が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What did the woman talk about?",
+      "options": [
+        "Her favorite music.",
+        "An old mountain.",
+        "A market near the river.",
+        "A new train."
+      ],
+      "answer": 2,
+      "explanation_ja": "第3段落：「彼女は川の近くの市場について話してくれました。」が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "Where will students look for more information?",
+      "options": [
+        "At the restaurant.",
+        "At the library.",
+        "At the swimming pool.",
+        "At the gym."
+      ],
+      "answer": 1,
+      "explanation_ja": "第3段落：「私たちは図書館でさらに情報を探すことにしました。」が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "detail",
+      "prompt": "What did the students make at school?",
+      "options": [
+        "A poster.",
+        "A cake.",
+        "A music video.",
+        "A new bridge."
+      ],
+      "answer": 0,
+      "explanation_ja": "第4段落：「学校で二つの地図とメモを使ったポスターを作りました。」が根拠です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What did they learn about history?",
+      "options": [
+        "It is only in textbooks.",
+        "Old maps are always wrong.",
+        "History never changes.",
+        "It can be found in everyday streets."
+      ],
+      "answer": 3,
+      "explanation_ja": "第4段落：「毎日使う通りの中にも見つけられます。」が根拠です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "buildings",
+      "ja": "建物",
+      "synonym": "structures",
+      "definition": "things built for people to use"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "facts",
+      "definition": "things people know"
+    },
+    {
+      "term": "map",
+      "ja": "地図",
+      "synonym": "drawing of places",
+      "definition": "a picture that shows roads and places"
+    },
+    {
+      "term": "memories",
+      "ja": "思い出",
+      "synonym": "things remembered",
+      "definition": "things people remember"
+    },
+    {
+      "term": "notes",
+      "ja": "メモ",
+      "synonym": "records",
+      "definition": "short things written to remember"
+    },
+    {
+      "term": "rivers",
+      "ja": "川",
+      "synonym": "waterways",
+      "definition": "natural streams of water"
+    },
+    {
+      "term": "roads",
+      "ja": "道",
+      "synonym": "streets",
+      "definition": "places for walking and driving"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who helps others learn"
+    },
+    {
+      "term": "therefore",
+      "ja": "したがって",
+      "synonym": "consequently",
+      "definition": "used to introduce a logical result"
+    },
+    {
+      "term": "writing",
+      "ja": "作文・文章を書くこと",
+      "synonym": "composition",
+      "definition": "the activity of creating text"
+    },
+    {
+      "term": "history",
+      "ja": "歴史",
+      "synonym": "the past",
+      "definition": "events from long ago"
+    },
+    {
+      "term": "bridge",
+      "ja": "橋",
+      "synonym": "crossing",
+      "definition": "a road built across water"
+    },
+    {
+      "term": "station",
+      "ja": "駅",
+      "synonym": "train stop",
+      "definition": "a place where trains stop"
+    },
+    {
+      "term": "market",
+      "ja": "市場",
+      "synonym": "fair",
+      "definition": "a place where people buy things"
+    },
+    {
+      "term": "poster",
+      "ja": "ポスター",
+      "synonym": "notice",
+      "definition": "large paper showing information"
+    },
+    {
+      "term": "textbooks",
+      "ja": "教科書",
+      "synonym": "school books",
+      "definition": "books used for lessons"
+    },
+    {
+      "term": "carefully",
+      "ja": "注意深く",
+      "synonym": "with care",
+      "definition": "with attention to detail"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "a map made many years ago",
+      "explanation_ja": "madeは過去分詞でmapを説明しています。"
+    },
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "places that were still there today",
+      "explanation_ja": "thatはplacesを説明する関係代名詞です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 0,
+      "focus": "a woman who has lived in the town",
+      "explanation_ja": "whoはwomanを説明します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "focus": "how some places had changed over time",
+      "explanation_ja": "how節は場所の変化を表します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "古い道が変わっていたことを対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "橋の近くの学校の例を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Instead",
+      "role_ja": "書き取る代わりに質問する方法を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Therefore",
+      "role_ja": "歴史を調べたことで町の見方が変わった結果を示します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Our teacher gave us a map made many years ago.",
+      "rewrite": "Our teacher gave us a map from long ago.",
+      "explanation_ja": "古い地図をもらったという意味です。"
+    },
+    {
+      "source": "They also make us ask new questions.",
+      "rewrite": "The old maps helped us think of new questions.",
+      "explanation_ja": "地図が問いを生み出すことを述べます。"
+    },
+    {
+      "source": "We decided to look for more information at the library.",
+      "rewrite": "We planned to find more facts in the library.",
+      "explanation_ja": "追加の情報を探すという意味です。"
+    },
+    {
+      "source": "It can also be found in the streets we use every day.",
+      "rewrite": "The streets we know can teach us about the past.",
+      "explanation_ja": "身近な場所にも歴史があるという結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Instead",
+        "Therefore"
+      ],
+      "explanation_ja": "古い道が変わっていたことを対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Instead",
+        "Therefore"
+      ],
+      "explanation_ja": "橋の近くの学校の例を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "Instead",
+      "options": [
+        "Instead",
+        "However",
+        "For example",
+        "Therefore"
+      ],
+      "explanation_ja": "書き取る代わりに質問する方法を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "Therefore",
+      "options": [
+        "Therefore",
+        "However",
+        "For example",
+        "Instead"
+      ],
+      "explanation_ja": "歴史を調べたことで町の見方が変わった結果を示します。"
+    }
+  ]
+}

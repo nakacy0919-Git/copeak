@@ -1,0 +1,586 @@
+{
+  "id": "L03-004",
+  "category_id": "L03",
+  "title": "The Weather Box on Our Roof",
+  "title_ja": "屋上にある天気の箱",
+  "level_id": "eiken-3",
+  "format": "explanation",
+  "status": "draft",
+  "original": true,
+  "word_count": 212,
+  "source_links": [
+    {
+      "title": "EIKEN 3 official question types",
+      "url": "https://www.eiken.or.jp/eiken/exam/grade_3/solutions.html"
+    }
+  ],
+  "fact_notes": [
+    "中学卒業程度の英語と英検3級の題材形式を参考にした架空のオリジナル教材。公式過去問の転載ではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Our science club has a small weather box on the school roof.",
+          "ja": "私たちの理科部には学校の屋上に小さな天気の箱があります。"
+        },
+        {
+          "en": "It has a sensor that measures the temperature outside.",
+          "ja": "それには外の気温を測るセンサーがあります。"
+        },
+        {
+          "en": "Students can see the numbers on a computer in the classroom.",
+          "ja": "生徒たちは教室のコンピューターで数字を見られます。"
+        },
+        {
+          "en": "However, the numbers do not always look the same.",
+          "ja": "しかし数字はいつも同じに見えるわけではありません。"
+        },
+        {
+          "en": "The class wants to understand why they change during the day.",
+          "ja": "クラスはなぜ一日の中で変わるのか知りたいのです。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "On Monday morning, the temperature was cool.",
+          "ja": "月曜の朝、気温は涼しいものでした。"
+        },
+        {
+          "en": "By afternoon, the number on the screen was higher.",
+          "ja": "午後には画面の数字がもっと高くなりました。"
+        },
+        {
+          "en": "For example, it was eighteen degrees in the morning and twenty-five in the afternoon.",
+          "ja": "例えば朝は18度、午後には25度でした。"
+        },
+        {
+          "en": "The teacher said that we should look at more than one day's information.",
+          "ja": "先生は一日分だけでなく、より多くの日の情報を見るべきだと言いました。"
+        },
+        {
+          "en": "The club began writing the numbers in a table.",
+          "ja": "部員は表に数字を書き始めました。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "One day, the number suddenly looked much too high.",
+          "ja": "ある日、数字が突然高すぎるように見えました。"
+        },
+        {
+          "en": "The students checked the box and found that sunlight was shining directly on it.",
+          "ja": "生徒たちは箱を調べ、太陽の光が直接当たっているとわかりました。"
+        },
+        {
+          "en": "Instead of believing the strange number immediately, they asked the teacher for help.",
+          "ja": "その不思議な数字をすぐに信じる代わりに、先生に助けを求めました。"
+        },
+        {
+          "en": "They learned that a sensor needs a good place to work well.",
+          "ja": "センサーが正しく働くにはよい場所が必要だと学びました。"
+        },
+        {
+          "en": "They also learned that one number can sometimes be wrong.",
+          "ja": "一つの数字が間違っていることもあると学びました。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The club now checks the weather box every week.",
+          "ja": "部員は今、毎週天気の箱を確認します。"
+        },
+        {
+          "en": "They compare the readings with a local weather report.",
+          "ja": "地元の天気予報と測定値を比べます。"
+        },
+        {
+          "en": "Therefore, they understand that science includes checking information, not just collecting it.",
+          "ja": "そのため科学には情報を集めるだけでなく確認することも含まれると理解します。"
+        },
+        {
+          "en": "Their teacher says that asking questions is an important part of learning.",
+          "ja": "教師は問いを立てることが学びの大切な部分だと言います。"
+        },
+        {
+          "en": "The students are proud of their small project.",
+          "ja": "生徒たちは小さな研究を誇りに思っています。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "Where is the weather box?",
+      "options": [
+        "On the school roof.",
+        "In the library.",
+        "In a car.",
+        "At a shop."
+      ],
+      "answer": 0,
+      "explanation_ja": "第1段落：「私たちの理科部には学校の屋上に小さな天気の箱があります。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What does the sensor measure?",
+      "options": [
+        "The number of books.",
+        "The color of the sky.",
+        "The number of birds.",
+        "Temperature."
+      ],
+      "answer": 3,
+      "explanation_ja": "第1段落：「それには外の気温を測るセンサーがあります。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "Where can students see the numbers?",
+      "options": [
+        "At the train station.",
+        "In a garden.",
+        "On a classroom computer.",
+        "On the gym wall."
+      ],
+      "answer": 2,
+      "explanation_ja": "第1段落：「生徒たちは教室のコンピューターで数字を見られます。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What was the afternoon temperature in the example?",
+      "options": [
+        "Thirty-five degrees.",
+        "Twenty-five degrees.",
+        "Ten degrees.",
+        "Eighteen degrees."
+      ],
+      "answer": 1,
+      "explanation_ja": "第2段落：「例えば朝は18度、午後には25度でした。」が根拠です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "Where did students write their numbers?",
+      "options": [
+        "In a table.",
+        "On the gym floor.",
+        "On a bus ticket.",
+        "On a cake."
+      ],
+      "answer": 0,
+      "explanation_ja": "第2段落：「部員は表に数字を書き始めました。」が根拠です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What happened to one number?",
+      "options": [
+        "It disappeared forever.",
+        "It stayed the same.",
+        "It turned into a word.",
+        "It became unusually high."
+      ],
+      "answer": 3,
+      "explanation_ja": "第3段落：「ある日、数字が突然高すぎるように見えました。」が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What was shining on the weather box?",
+      "options": [
+        "A flashlight.",
+        "The Moon.",
+        "Direct sunlight.",
+        "A streetlight."
+      ],
+      "answer": 2,
+      "explanation_ja": "第3段落：「生徒たちは箱を調べ、太陽の光が直接当たっているとわかりました。」が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What did students do about the strange number?",
+      "options": [
+        "They changed the school day.",
+        "They asked the teacher.",
+        "They forgot the box.",
+        "They bought a new computer."
+      ],
+      "answer": 1,
+      "explanation_ja": "第3段落：「その不思議な数字をすぐに信じる代わりに、先生に助けを求めました。」が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "detail",
+      "prompt": "What do they compare the readings with?",
+      "options": [
+        "A local weather report.",
+        "A music concert.",
+        "A train ticket.",
+        "A school lunch menu."
+      ],
+      "answer": 0,
+      "explanation_ja": "第4段落：「地元の天気予報と測定値を比べます。」が根拠です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What important lesson did they learn?",
+      "options": [
+        "All numbers are always correct.",
+        "Collecting numbers is enough.",
+        "Weather never changes.",
+        "Science involves checking information."
+      ],
+      "answer": 3,
+      "explanation_ja": "第4段落：「そのため科学には情報を集めるだけでなく確認することも含まれると理解します。」が根拠です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "afternoon",
+      "ja": "午後",
+      "synonym": "later day",
+      "definition": "the time after noon"
+    },
+    {
+      "term": "checking",
+      "ja": "確認すること",
+      "synonym": "verification",
+      "definition": "testing whether something is right"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "contrast",
+      "definition": "to examine differences and similarities"
+    },
+    {
+      "term": "cool",
+      "ja": "涼しい",
+      "synonym": "not hot",
+      "definition": "having a comfortably low temperature"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "immediately",
+      "ja": "すぐに",
+      "synonym": "at once",
+      "definition": "without delay"
+    },
+    {
+      "term": "important",
+      "ja": "重要な",
+      "synonym": "significant",
+      "definition": "having a great effect or value"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "facts",
+      "definition": "facts or details provided about something"
+    },
+    {
+      "term": "local",
+      "ja": "地域の",
+      "synonym": "nearby",
+      "definition": "relating to a particular place"
+    },
+    {
+      "term": "needs",
+      "ja": "必要",
+      "synonym": "requirements",
+      "definition": "things necessary for well-being"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who helps others learn"
+    },
+    {
+      "term": "temperature",
+      "ja": "気温",
+      "synonym": "how warm",
+      "definition": "how hot or cold something is"
+    },
+    {
+      "term": "therefore",
+      "ja": "したがって",
+      "synonym": "consequently",
+      "definition": "used to introduce a logical result"
+    },
+    {
+      "term": "weather",
+      "ja": "天気",
+      "synonym": "conditions outside",
+      "definition": "sun, rain, wind, and temperature"
+    },
+    {
+      "term": "writing",
+      "ja": "作文・文章を書くこと",
+      "synonym": "composition",
+      "definition": "the activity of creating text"
+    },
+    {
+      "term": "sensor",
+      "ja": "センサー",
+      "synonym": "measuring device",
+      "definition": "a machine that measures something"
+    },
+    {
+      "term": "roof",
+      "ja": "屋根・屋上",
+      "synonym": "top",
+      "definition": "the top part of a building"
+    },
+    {
+      "term": "measures",
+      "ja": "測る",
+      "synonym": "checks",
+      "definition": "finds the size or amount"
+    },
+    {
+      "term": "screen",
+      "ja": "画面",
+      "synonym": "display",
+      "definition": "the part of a computer that shows information"
+    },
+    {
+      "term": "degrees",
+      "ja": "度",
+      "synonym": "units",
+      "definition": "numbers used for temperature"
+    },
+    {
+      "term": "table",
+      "ja": "表",
+      "synonym": "chart",
+      "definition": "information in rows and columns"
+    },
+    {
+      "term": "sunlight",
+      "ja": "日光",
+      "synonym": "sunshine",
+      "definition": "light from the sun"
+    },
+    {
+      "term": "directly",
+      "ja": "直接",
+      "synonym": "straight",
+      "definition": "without something in between"
+    },
+    {
+      "term": "readings",
+      "ja": "測定値",
+      "synonym": "results",
+      "definition": "numbers from a measuring device"
+    },
+    {
+      "term": "report",
+      "ja": "報告",
+      "synonym": "news",
+      "definition": "information about a subject"
+    },
+    {
+      "term": "project",
+      "ja": "研究・活動",
+      "synonym": "task",
+      "definition": "work done to reach a goal"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "a sensor that measures the temperature",
+      "explanation_ja": "thatはsensorを説明します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "we should look at more than one day's information",
+      "explanation_ja": "shouldは助言・必要性を表します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of believing the strange number immediately",
+      "explanation_ja": "instead of + 動名詞は『すぐに信じる代わりに』です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "focus": "not just collecting it",
+      "explanation_ja": "not justは『集めるだけではなく』という意味です。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "数字は一定ではないという対比を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "朝と午後の気温の例を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Instead",
+      "role_ja": "数字を信じる代わりに確認する行動を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Therefore",
+      "role_ja": "測定と確認を通じた学びの結論です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "It has a sensor that measures the temperature outside.",
+      "rewrite": "The device records how hot or cold the air is.",
+      "explanation_ja": "気温を測るという意味です。"
+    },
+    {
+      "source": "For example, it was eighteen degrees in the morning and twenty-five in the afternoon.",
+      "rewrite": "It was warmer in the afternoon than in the morning.",
+      "explanation_ja": "朝より午後の気温が高かったことです。"
+    },
+    {
+      "source": "They also learned that one number can sometimes be wrong.",
+      "rewrite": "One reading is not always correct.",
+      "explanation_ja": "測定値が必ずしも正しいとは限りません。"
+    },
+    {
+      "source": "Therefore, they understand that science includes checking information, not just collecting it.",
+      "rewrite": "Good science means checking data as well as collecting it.",
+      "explanation_ja": "情報収集と確認の両方が必要という意味です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Instead",
+        "Therefore"
+      ],
+      "explanation_ja": "数字は一定ではないという対比を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Instead",
+        "Therefore"
+      ],
+      "explanation_ja": "朝と午後の気温の例を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "Instead",
+      "options": [
+        "Instead",
+        "However",
+        "For example",
+        "Therefore"
+      ],
+      "explanation_ja": "数字を信じる代わりに確認する行動を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "Therefore",
+      "options": [
+        "Therefore",
+        "However",
+        "For example",
+        "Instead"
+      ],
+      "explanation_ja": "測定と確認を通じた学びの結論です。"
+    }
+  ]
+}

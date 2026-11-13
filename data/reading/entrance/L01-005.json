@@ -1,0 +1,563 @@
+{
+  "id": "L01-005",
+  "category_id": "L01",
+  "title": "A Garden That Helps in the Rain",
+  "title_ja": "雨の日に役立つ学校の庭",
+  "format": "explanation",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 212,
+  "source_links": [
+    {
+      "title": "Official EIKEN Grade 3 question formats",
+      "url": "https://www.eiken.or.jp/eiken/exam/grade_3/solutions.html"
+    }
+  ],
+  "fact_notes": [
+    "英検3級の文章形式を参考とした架空の教材。英検の過去問や他者の文章を引用していない。",
+    "英文、和訳、問題、解説はオリジナル。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Our school has a small garden beside the main building.",
+          "ja": "私たちの学校には本館の横に小さな庭があります。"
+        },
+        {
+          "en": "Last year, students planted flowers and grass there.",
+          "ja": "昨年、生徒たちはそこに花と草を植えました。"
+        },
+        {
+          "en": "They also made a place where rainwater can go into the soil.",
+          "ja": "雨水が土にしみこむ場所も作りました。"
+        },
+        {
+          "en": "However, some students asked why the school needed this kind of garden.",
+          "ja": "しかし、なぜ学校にこのような庭が必要なのか尋ねる生徒もいました。"
+        },
+        {
+          "en": "The science teacher decided to explain how it works.",
+          "ja": "理科の先生はその仕組みを説明することにしました。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "When heavy rain falls, water runs from roofs and roads.",
+          "ja": "大雨が降ると、水は屋根や道路から流れます。"
+        },
+        {
+          "en": "Some water can go into the ground where plants are growing.",
+          "ja": "植物が育つ場所では水の一部が地面にしみこみます。"
+        },
+        {
+          "en": "For example, the school garden takes in some rainwater.",
+          "ja": "例えば、学校の庭は雨水の一部を吸収します。"
+        },
+        {
+          "en": "It cannot stop all flooding, but it may slow the water down.",
+          "ja": "すべての洪水を止めることはできませんが、水の流れを遅くするかもしれません。"
+        },
+        {
+          "en": "The students learn that plants can have more than one job.",
+          "ja": "生徒たちは植物には一つ以上の役割があると学びます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The class wants to keep the garden healthy.",
+          "ja": "クラスは庭を元気に保ちたいと思っています。"
+        },
+        {
+          "en": "They check the soil and pull out unwanted plants every week.",
+          "ja": "毎週、土を確かめ、不要な草を抜きます。"
+        },
+        {
+          "en": "Instead of watering every day, they look at the weather first.",
+          "ja": "毎日水をやる代わりに、まず天気を確認します。"
+        },
+        {
+          "en": "On rainy days, they often do not need to add more water.",
+          "ja": "雨の日は水を追加する必要がないことが多いのです。"
+        },
+        {
+          "en": "They also watch insects and birds that visit the flowers.",
+          "ja": "花を訪れる昆虫や鳥も観察します。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "At the school festival, the students make a poster about the garden.",
+          "ja": "文化祭で生徒たちは庭についてのポスターを作ります。"
+        },
+        {
+          "en": "They show photos taken before and after the rain.",
+          "ja": "雨の前後に撮った写真を見せます。"
+        },
+        {
+          "en": "Their friends ask questions about the plants and the soil.",
+          "ja": "友達が植物や土について質問します。"
+        },
+        {
+          "en": "Therefore, the garden becomes a place for learning as well as growing flowers.",
+          "ja": "そのため庭は花を育てるだけでなく学ぶ場所にもなります。"
+        },
+        {
+          "en": "The students are proud because they can care for their school together.",
+          "ja": "一緒に学校を大切にできるので、生徒たちは誇らしく思います。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What did students plant last year?",
+      "options": [
+        "Flowers and grass.",
+        "Rice and corn.",
+        "Large trees only.",
+        "Carrots and potatoes."
+      ],
+      "answer": 0,
+      "explanation_ja": "第1段落：「昨年、生徒たちはそこに花と草を植えました。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Where can rainwater go in the garden?",
+      "options": [
+        "Into the library.",
+        "Into the gym.",
+        "Into the classroom.",
+        "Into the soil."
+      ],
+      "answer": 3,
+      "explanation_ja": "第1段落：「雨水が土にしみこむ場所も作りました。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "Who explains how the garden works?",
+      "options": [
+        "A train driver.",
+        "A shop owner.",
+        "The science teacher.",
+        "The music teacher."
+      ],
+      "answer": 2,
+      "explanation_ja": "第1段落：「理科の先生はその仕組みを説明することにしました。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "Where does water run from in heavy rain?",
+      "options": [
+        "Birds and flowers.",
+        "Roofs and roads.",
+        "Books and pencils.",
+        "Desks and chairs."
+      ],
+      "answer": 1,
+      "explanation_ja": "第2段落：「大雨が降ると、水は屋根や道路から流れます。」が根拠です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What can the garden do with some rainwater?",
+      "options": [
+        "Slow it down.",
+        "Make it disappear forever.",
+        "Turn it into snow.",
+        "Stop all rain."
+      ],
+      "answer": 0,
+      "explanation_ja": "第2段落：「すべての洪水を止めることはできませんが、水の流れを遅くするかもしれません。」が根拠です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What do students do every week?",
+      "options": [
+        "Paint the school gym.",
+        "Build a new road.",
+        "Plant a large forest.",
+        "Check the soil and remove unwanted plants."
+      ],
+      "answer": 3,
+      "explanation_ja": "第3段落：「毎週、土を確かめ、不要な草を抜きます。」が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "Why do students look at the weather?",
+      "options": [
+        "To know the lunch menu.",
+        "To find their homework.",
+        "To decide when to water the plants.",
+        "To choose school uniforms."
+      ],
+      "answer": 2,
+      "explanation_ja": "第3段落：「毎日水をやる代わりに、まず天気を確認します。」が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What animals do students watch?",
+      "options": [
+        "Horses and cows.",
+        "Insects and birds.",
+        "Dogs and cats only.",
+        "Fish and dolphins."
+      ],
+      "answer": 1,
+      "explanation_ja": "第3段落：「花を訪れる昆虫や鳥も観察します。」が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "detail",
+      "prompt": "What photos do students show?",
+      "options": [
+        "Photos before and after rain.",
+        "Photos of a birthday party.",
+        "Photos from a train.",
+        "Photos of a music concert."
+      ],
+      "answer": 0,
+      "explanation_ja": "第4段落：「雨の前後に撮った写真を見せます。」が根拠です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "detail",
+      "prompt": "Why are the students proud?",
+      "options": [
+        "They won a sports game.",
+        "They bought a new building.",
+        "They finished school early.",
+        "They care for their school together."
+      ],
+      "answer": 3,
+      "explanation_ja": "第4段落：「一緒に学校を大切にできるので、生徒たちは誇らしく思います。」が根拠です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "care",
+      "ja": "世話・管理",
+      "synonym": "maintenance",
+      "definition": "attention that keeps something healthy"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "festival",
+      "ja": "祭り",
+      "synonym": "celebration",
+      "definition": "a special public event"
+    },
+    {
+      "term": "healthy",
+      "ja": "元気な",
+      "synonym": "well",
+      "definition": "in good condition"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "roads",
+      "ja": "道路",
+      "synonym": "streets",
+      "definition": "routes for people and vehicles"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "soil",
+      "ja": "土",
+      "synonym": "earth",
+      "definition": "ground where plants grow"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who helps others learn"
+    },
+    {
+      "term": "therefore",
+      "ja": "したがって",
+      "synonym": "consequently",
+      "definition": "used to introduce a logical result"
+    },
+    {
+      "term": "water",
+      "ja": "水をやる",
+      "synonym": "irrigate",
+      "definition": "to give water to a plant"
+    },
+    {
+      "term": "weather",
+      "ja": "天候",
+      "synonym": "conditions",
+      "definition": "the state of the atmosphere"
+    },
+    {
+      "term": "garden",
+      "ja": "庭",
+      "synonym": "yard",
+      "definition": "a place where plants grow"
+    },
+    {
+      "term": "flowers",
+      "ja": "花",
+      "synonym": "blossoms",
+      "definition": "colored parts of plants"
+    },
+    {
+      "term": "grass",
+      "ja": "草",
+      "synonym": "green plants",
+      "definition": "short green plants on the ground"
+    },
+    {
+      "term": "rainwater",
+      "ja": "雨水",
+      "synonym": "rain",
+      "definition": "water from rain"
+    },
+    {
+      "term": "roofs",
+      "ja": "屋根",
+      "synonym": "tops of buildings",
+      "definition": "covers over buildings"
+    },
+    {
+      "term": "ground",
+      "ja": "地面",
+      "synonym": "earth",
+      "definition": "the land people stand on"
+    },
+    {
+      "term": "flooding",
+      "ja": "洪水",
+      "synonym": "high water",
+      "definition": "too much water on land"
+    },
+    {
+      "term": "insects",
+      "ja": "昆虫",
+      "synonym": "bugs",
+      "definition": "small animals with six legs"
+    },
+    {
+      "term": "unwanted",
+      "ja": "不要な",
+      "synonym": "not needed",
+      "definition": "not wanted"
+    },
+    {
+      "term": "watering",
+      "ja": "水やり",
+      "synonym": "giving water",
+      "definition": "putting water on plants"
+    },
+    {
+      "term": "poster",
+      "ja": "ポスター",
+      "synonym": "sign",
+      "definition": "large paper with information"
+    },
+    {
+      "term": "proud",
+      "ja": "誇りに思う",
+      "synonym": "pleased",
+      "definition": "happy about good work"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "where rainwater can go into the soil",
+      "explanation_ja": "whereは場所を説明します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "but it may slow the water down",
+      "explanation_ja": "mayは可能性を表します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of watering every day",
+      "explanation_ja": "instead of + 動名詞は『毎日水をやる代わりに』です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "focus": "taken before and after the rain",
+      "explanation_ja": "takenは過去分詞で写真を説明しています。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "庭の必要性に疑問を持つ人の考えを示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "庭が水を受け止める例を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Instead",
+      "role_ja": "毎日水をやるのとは別の方法を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Therefore",
+      "role_ja": "庭が学びの場所にもなった結果を示します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "They also made a place where rainwater can go into the soil.",
+      "rewrite": "The garden gives rainwater a place to enter the ground.",
+      "explanation_ja": "雨水が地面にしみこめる場所という意味です。"
+    },
+    {
+      "source": "It cannot stop all flooding, but it may slow the water down.",
+      "rewrite": "The garden may make the water move more slowly.",
+      "explanation_ja": "水の流れを遅くする可能性を言い換えます。"
+    },
+    {
+      "source": "Instead of watering every day, they look at the weather first.",
+      "rewrite": "They check the weather before deciding to water.",
+      "explanation_ja": "天気を見て水やりを考える内容です。"
+    },
+    {
+      "source": "Therefore, the garden becomes a place for learning as well as growing flowers.",
+      "rewrite": "Students can learn in the garden while growing flowers.",
+      "explanation_ja": "花と学習の両方に役立つことを述べます。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Instead",
+        "Therefore"
+      ],
+      "explanation_ja": "庭の必要性に疑問を持つ人の考えを示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Instead",
+        "Therefore"
+      ],
+      "explanation_ja": "庭が水を受け止める例を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "Instead",
+      "options": [
+        "Instead",
+        "However",
+        "For example",
+        "Therefore"
+      ],
+      "explanation_ja": "毎日水をやるのとは別の方法を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 3,
+      "answer": "Therefore",
+      "options": [
+        "Therefore",
+        "However",
+        "For example",
+        "Instead"
+      ],
+      "explanation_ja": "庭が学びの場所にもなった結果を示します。"
+    }
+  ]
+}

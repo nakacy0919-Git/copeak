@@ -1,0 +1,580 @@
+{
+  "id": "L12-005",
+  "category_id": "L12",
+  "title": "A New Break Time at School",
+  "title_ja": "学校の新しい休み時間",
+  "level_id": "eiken-3",
+  "format": "explanation",
+  "status": "draft",
+  "original": true,
+  "word_count": 206,
+  "source_links": [
+    {
+      "title": "EIKEN 3 official question types",
+      "url": "https://www.eiken.or.jp/eiken/exam/grade_3/solutions.html"
+    }
+  ],
+  "fact_notes": [
+    "中学卒業程度の英語と英検3級の題材形式を参考にした架空のオリジナル教材。公式過去問の転載ではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Students at Midori School sit in classrooms for many hours.",
+          "ja": "みどり学校の生徒たちは教室に長い時間座っています。"
+        },
+        {
+          "en": "Some students say they feel tired in the afternoon.",
+          "ja": "午後には疲れを感じると言う生徒もいます。"
+        },
+        {
+          "en": "A teacher suggests a short walking break after lunch.",
+          "ja": "教師は昼食後に短い散歩の休憩を提案します。"
+        },
+        {
+          "en": "However, not every student can or wants to walk quickly.",
+          "ja": "しかし、すべての生徒が速く歩けるわけでも、そうしたいわけでもありません。"
+        },
+        {
+          "en": "The class decides to make a plan with different choices.",
+          "ja": "クラスは異なる選択肢のある計画を立てます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Students can walk in the school yard or do gentle movements inside.",
+          "ja": "生徒たちは校庭を歩くか、屋内で軽い運動をできます。"
+        },
+        {
+          "en": "The break lasts ten minutes and is not a race.",
+          "ja": "休憩は10分間で、競争ではありません。"
+        },
+        {
+          "en": "For example, some students walk with friends while others stretch their arms.",
+          "ja": "例えば、友達と歩く生徒もいれば腕を伸ばす生徒もいます。"
+        },
+        {
+          "en": "Students can also rest quietly when they need a break.",
+          "ja": "休みが必要なときには静かに休むこともできます。"
+        },
+        {
+          "en": "The teacher wants everyone to feel welcome.",
+          "ja": "教師は全員が参加しやすく感じるようにしたいのです。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The school asks students what they think about the new break.",
+          "ja": "学校は新しい休憩についてどう思うか生徒に尋ねます。"
+        },
+        {
+          "en": "Many say that they enjoy talking with friends outside.",
+          "ja": "多くの生徒が外で友達と話すのを楽しんでいると言います。"
+        },
+        {
+          "en": "Instead of judging the plan only by how many students walk, the school listens to different opinions.",
+          "ja": "何人が歩いたかだけで計画を評価する代わりに、学校はさまざまな意見を聞きます。"
+        },
+        {
+          "en": "Some students suggest adding a quiet place to sit.",
+          "ja": "静かに座れる場所を増やすよう提案する生徒もいます。"
+        },
+        {
+          "en": "The teachers agree to think about this idea.",
+          "ja": "教師たちはその考えを検討することに同意します。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "After one month, the school keeps the short break.",
+          "ja": "一か月後、学校は短い休み時間を続けます。"
+        },
+        {
+          "en": "It also provides benches for students who want to sit.",
+          "ja": "座りたい生徒のためにベンチも用意します。"
+        },
+        {
+          "en": "Therefore, more students can choose how to spend the time.",
+          "ja": "そのため、より多くの生徒が時間の過ごし方を選べます。"
+        },
+        {
+          "en": "The students learn that a good plan should consider different needs.",
+          "ja": "生徒たちはよい計画は異なる必要を考えるべきだと学びます。"
+        },
+        {
+          "en": "A small change can make school life better when everyone has a voice.",
+          "ja": "全員が意見を言えるなら、小さな変化も学校生活をよくできます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "When do some students feel tired?",
+      "options": [
+        "In the afternoon.",
+        "Early on Sunday.",
+        "At midnight.",
+        "Before breakfast."
+      ],
+      "answer": 0,
+      "explanation_ja": "第1段落：「午後には疲れを感じると言う生徒もいます。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What does the teacher suggest?",
+      "options": [
+        "A new homework book.",
+        "A long school trip.",
+        "An afternoon test.",
+        "A short break after lunch."
+      ],
+      "answer": 3,
+      "explanation_ja": "第1段落：「教師は昼食後に短い散歩の休憩を提案します。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What does the class plan include?",
+      "options": [
+        "A race for everyone.",
+        "A new sports team.",
+        "Different choices.",
+        "Only one activity."
+      ],
+      "answer": 2,
+      "explanation_ja": "第1段落：「クラスは異なる選択肢のある計画を立てます。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "How long is the break?",
+      "options": [
+        "One hour.",
+        "Ten minutes.",
+        "Five minutes.",
+        "Thirty minutes."
+      ],
+      "answer": 1,
+      "explanation_ja": "第2段落：「休憩は10分間で、競争ではありません。」が根拠です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What do some students do?",
+      "options": [
+        "Walk with friends or stretch.",
+        "Read a long exam paper.",
+        "Buy train tickets.",
+        "Clean the city hall."
+      ],
+      "answer": 0,
+      "explanation_ja": "第2段落：「例えば、友達と歩く生徒もいれば腕を伸ばす生徒もいます。」が根拠です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "Can students rest quietly?",
+      "options": [
+        "No.",
+        "Only on Sundays.",
+        "Only in the morning.",
+        "Yes."
+      ],
+      "answer": 3,
+      "explanation_ja": "第2段落：「休みが必要なときには静かに休むこともできます。」が根拠です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What does the school ask students?",
+      "options": [
+        "Their family addresses.",
+        "Their English test grades.",
+        "What they think about the break.",
+        "Their favorite movie."
+      ],
+      "answer": 2,
+      "explanation_ja": "第3段落：「学校は新しい休憩についてどう思うか生徒に尋ねます。」が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What is one suggestion?",
+      "options": [
+        "Make everyone run fast.",
+        "Add a quiet place to sit.",
+        "Build a swimming pool.",
+        "Stop all breaks."
+      ],
+      "answer": 1,
+      "explanation_ja": "第3段落：「静かに座れる場所を増やすよう提案する生徒もいます。」が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "detail",
+      "prompt": "What does the school add?",
+      "options": [
+        "Benches.",
+        "More tests.",
+        "New buses.",
+        "Large speakers."
+      ],
+      "answer": 0,
+      "explanation_ja": "第4段落：「座りたい生徒のためにベンチも用意します。」が根拠です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What can make a small change helpful?",
+      "options": [
+        "Ignoring students' ideas.",
+        "Making every activity a race.",
+        "Offering only one choice.",
+        "Listening to everyone's needs."
+      ],
+      "answer": 3,
+      "explanation_ja": "第4段落：「全員が意見を言えるなら、小さな変化も学校生活をよくできます。」が根拠です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "afternoon",
+      "ja": "午後",
+      "synonym": "later day",
+      "definition": "the time after noon"
+    },
+    {
+      "term": "better",
+      "ja": "より良い",
+      "synonym": "improved",
+      "definition": "of higher quality than before"
+    },
+    {
+      "term": "choices",
+      "ja": "選択肢",
+      "synonym": "options",
+      "definition": "available possibilities"
+    },
+    {
+      "term": "consider",
+      "ja": "考慮する",
+      "synonym": "think about",
+      "definition": "to examine an idea before deciding"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "gentle",
+      "ja": "軽い",
+      "synonym": "not strong",
+      "definition": "soft and easy"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "needs",
+      "ja": "必要",
+      "synonym": "requirements",
+      "definition": "things necessary for well-being"
+    },
+    {
+      "term": "opinions",
+      "ja": "意見",
+      "synonym": "views",
+      "definition": "ideas people have"
+    },
+    {
+      "term": "rest",
+      "ja": "休む",
+      "synonym": "relax",
+      "definition": "to stop working for a while"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "student",
+      "ja": "生徒",
+      "synonym": "learner",
+      "definition": "a person learning at school"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who helps others learn"
+    },
+    {
+      "term": "Teachers",
+      "ja": "教師たち",
+      "synonym": "educators",
+      "definition": "people who teach"
+    },
+    {
+      "term": "therefore",
+      "ja": "したがって",
+      "synonym": "consequently",
+      "definition": "used to introduce a logical result"
+    },
+    {
+      "term": "break",
+      "ja": "休み時間",
+      "synonym": "rest",
+      "definition": "time to stop working"
+    },
+    {
+      "term": "tired",
+      "ja": "疲れた",
+      "synonym": "not full of energy",
+      "definition": "needing rest"
+    },
+    {
+      "term": "walking",
+      "ja": "歩くこと",
+      "synonym": "going on foot",
+      "definition": "moving using one's feet"
+    },
+    {
+      "term": "yard",
+      "ja": "校庭",
+      "synonym": "school ground",
+      "definition": "an open area beside a school"
+    },
+    {
+      "term": "movements",
+      "ja": "動き",
+      "synonym": "actions",
+      "definition": "ways the body moves"
+    },
+    {
+      "term": "stretch",
+      "ja": "伸ばす",
+      "synonym": "reach out",
+      "definition": "make a part of the body longer"
+    },
+    {
+      "term": "quietly",
+      "ja": "静かに",
+      "synonym": "without noise",
+      "definition": "not making much sound"
+    },
+    {
+      "term": "judging",
+      "ja": "評価すること",
+      "synonym": "deciding",
+      "definition": "forming an opinion"
+    },
+    {
+      "term": "benches",
+      "ja": "ベンチ",
+      "synonym": "seats",
+      "definition": "long seats for several people"
+    },
+    {
+      "term": "provides",
+      "ja": "用意する",
+      "synonym": "offers",
+      "definition": "makes something available"
+    },
+    {
+      "term": "choose",
+      "ja": "選ぶ",
+      "synonym": "select",
+      "definition": "pick one option"
+    },
+    {
+      "term": "welcome",
+      "ja": "歓迎される",
+      "synonym": "accepted",
+      "definition": "feeling invited to join"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "not every student can or wants to walk quickly",
+      "explanation_ja": "not everyは『すべてが〜というわけではない』です。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "while others stretch their arms",
+      "explanation_ja": "whileは二つの活動を対比します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of judging the plan only by how many students walk",
+      "explanation_ja": "instead of + 動名詞は『評価する代わりに』です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 4,
+      "focus": "when everyone has a voice",
+      "explanation_ja": "when節は条件・状況を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "すべての生徒に同じ運動が合うわけではないと示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "運動と休み方の例を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Instead",
+      "role_ja": "参加人数だけで判断しないという選択を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Therefore",
+      "role_ja": "選択肢を増やす結果につなげます。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "However, not every student can or wants to walk quickly.",
+      "rewrite": "Not all students are able or willing to walk fast.",
+      "explanation_ja": "全員が速く歩けるわけではないことです。"
+    },
+    {
+      "source": "Students can also rest quietly when they need a break.",
+      "rewrite": "Students may take a quiet rest if they need one.",
+      "explanation_ja": "静かに休む選択肢もあることです。"
+    },
+    {
+      "source": "Instead of judging the plan only by how many students walk, the school listens to different opinions.",
+      "rewrite": "The school listens rather than just counting walkers.",
+      "explanation_ja": "人数だけで評価しないという意味です。"
+    },
+    {
+      "source": "A small change can make school life better when everyone has a voice.",
+      "rewrite": "School can improve when people can share their views.",
+      "explanation_ja": "意見を聞くことの大切さを述べます。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Instead",
+        "Therefore"
+      ],
+      "explanation_ja": "すべての生徒に同じ運動が合うわけではないと示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Instead",
+        "Therefore"
+      ],
+      "explanation_ja": "運動と休み方の例を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "Instead",
+      "options": [
+        "Instead",
+        "However",
+        "For example",
+        "Therefore"
+      ],
+      "explanation_ja": "参加人数だけで判断しないという選択を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "Therefore",
+      "options": [
+        "Therefore",
+        "However",
+        "For example",
+        "Instead"
+      ],
+      "explanation_ja": "選択肢を増やす結果につなげます。"
+    }
+  ]
+}

@@ -1,0 +1,824 @@
+{
+  "id": "L03-003",
+  "category_id": "L03",
+  "title": "What an AI Tutor Cannot See",
+  "title_ja": "AI学習支援ツールに見えないもの",
+  "level_id": "eiken-pre1",
+  "status": "draft",
+  "original": true,
+  "word_count": 554,
+  "source_links": [
+    {
+      "title": "UNESCO: Recommendation on the Ethics of Artificial Intelligence",
+      "url": "https://www.unesco.org/en/legal-affairs/recommendation-ethics-artificial-intelligence"
+    }
+  ],
+  "fact_notes": [
+    "公平性、透明性、人間による監督等の倫理原則はUNESCO勧告を参照。生徒の学習場面は架空の教育用事例。",
+    "英文・全文和訳・設問・解説はオリジナル。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A student opens an artificial intelligence tutor and asks it to explain a difficult paragraph from an English article.",
+          "ja": "ある生徒が人工知能の学習支援ツールを開き、英語の記事の難しい段落を説明するよう頼みます。"
+        },
+        {
+          "en": "Within seconds, the program produces a smooth explanation and offers three practice questions with encouraging comments.",
+          "ja": "数秒で、そのプログラムは滑らかな解説を出し、励ましのコメント付きで三つの練習問題を提示します。"
+        },
+        {
+          "en": "The student feels that the work has become much easier, and a teacher might reasonably welcome this extra support.",
+          "ja": "生徒は学習がずっと簡単になったと感じ、教師もその追加支援を歓迎するでしょう。"
+        },
+        {
+          "en": "However, an answer that sounds confident is not necessarily accurate, and an explanation that seems clear may hide a misunderstanding.",
+          "ja": "しかし、自信があるように聞こえる答えが必ずしも正確とは限らず、明快に見える説明が誤解を隠すこともあります。"
+        },
+        {
+          "en": "The central challenge is therefore not whether a machine can produce helpful words, but how people can judge their educational value.",
+          "ja": "したがって中心となる課題は、機械が役立つ言葉を作れるかではなく、その教育的価値を人がどう判断できるかです。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "An AI tutor usually receives only the information a student enters or the surrounding system provides.",
+          "ja": "AI学習支援ツールが通常受け取るのは、生徒が入力した情報や周辺システムが提供する情報に限られます。"
+        },
+        {
+          "en": "It cannot automatically know whether the learner is confused, tired, embarrassed, or simply rushing to finish an assignment.",
+          "ja": "学習者が混乱しているか、疲れているか、恥ずかしいと感じているか、単に課題を急いで終えようとしているかを自動的には知れません。"
+        },
+        {
+          "en": "Two students may submit identical answers while having completely different reasons for choosing them.",
+          "ja": "二人の生徒が全く同じ答えを提出しても、選んだ理由は完全に異なるかもしれません。"
+        },
+        {
+          "en": "For example, one may understand a grammar rule, whereas the other may have guessed from a familiar word.",
+          "ja": "例えば、一人は文法規則を理解していても、もう一人は見覚えのある単語から推測したのかもしれません。"
+        },
+        {
+          "en": "If the program treats these responses as equal evidence of understanding, it may recommend the wrong next step.",
+          "ja": "プログラムが両者の回答を同等の理解の証拠として扱えば、次に取り組むべき課題を誤って勧めるかもしれません。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "This limitation suggests that teachers should ask not only what an AI system recommends but why the recommendation seems appropriate.",
+          "ja": "この限界は、教師がAIシステムの勧める内容だけでなく、その推奨がなぜ適切に見えるかも問うべきだと示します。"
+        },
+        {
+          "en": "A short conversation can reveal whether a learner can explain a choice using evidence from the text.",
+          "ja": "短い対話によって、学習者が本文の根拠を使って選択理由を説明できるかがわかります。"
+        },
+        {
+          "en": "Students can also compare an AI-generated summary with the original passage and mark claims that the passage does not support.",
+          "ja": "生徒自身もAIが作った要約を原文と比べ、本文で裏付けられない主張を印付けできます。"
+        },
+        {
+          "en": "In contrast, accepting every answer without checking may reward speed rather than careful reading.",
+          "ja": "対照的に、すべての答えを確認せず受け入れることは、丁寧な読解よりも速さを評価することになりかねません。"
+        },
+        {
+          "en": "The purpose of feedback should be to improve judgment, not merely to make a task appear completed.",
+          "ja": "フィードバックの目的は、課題を完了したように見せることではなく、判断力を高めることのはずです。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "There is also a question of fairness when schools introduce advanced digital tools into ordinary classrooms.",
+          "ja": "学校が高度なデジタルツールを通常の教室に導入すると、公平性の問題も生じます。"
+        },
+        {
+          "en": "Some learners have reliable internet access and quiet spaces, while others depend on shared devices or unstable connections.",
+          "ja": "安定したインターネット環境や静かな場所がある学習者もいれば、共用端末や不安定な接続に頼る学習者もいます。"
+        },
+        {
+          "en": "A lesson designed around constant access may unintentionally disadvantage students who cannot use the same technology outside school.",
+          "ja": "常時接続を前提に設計された授業は、学校外で同じ技術を使えない生徒を意図せず不利にする可能性があります。"
+        },
+        {
+          "en": "Moreover, students should understand what personal information is entered into a service and how that information may be handled.",
+          "ja": "さらに生徒は、サービスにどの個人情報を入力し、その情報がどう扱われる可能性があるかを理解すべきです。"
+        },
+        {
+          "en": "Convenience alone is not enough to justify a system that creates avoidable risks to privacy or equal participation.",
+          "ja": "便利さだけでは、プライバシーや平等な参加に避けられる危険を生む仕組みを正当化するには不十分です。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "UNESCO's recommendation on AI ethics highlights human oversight, transparency, fairness, and the protection of human rights.",
+          "ja": "ユネスコのAI倫理に関する勧告は、人間による監督、透明性、公平性、人権の保護を重視しています。"
+        },
+        {
+          "en": "These principles do not require educators to reject every new technology, nor do they guarantee that every tool is safe.",
+          "ja": "これらの原則は教育者にすべての新技術を拒否するよう求めるものでも、すべてのツールの安全性を保証するものでもありません。"
+        },
+        {
+          "en": "Instead, they encourage people to examine whose needs are served, who carries the risks, and who remains responsible for decisions.",
+          "ja": "むしろ、誰のニーズが満たされ、誰が危険を負い、誰が判断の責任を担い続けるのかを検討するよう促します。"
+        },
+        {
+          "en": "A classroom trial could begin with a small task, clear rules, student feedback, and an alternative for those who cannot participate digitally.",
+          "ja": "教室での試行は、小さな課題、明確な規則、生徒の意見、デジタル参加が難しい生徒の代替手段から始められます。"
+        },
+        {
+          "en": "As a result, the success of an AI tutor should be measured by what learners can understand independently, not by how impressive its sentences sound.",
+          "ja": "その結果、AI学習支援ツールの成功は、文章がどれほど見事に聞こえるかではなく、学習者が自力で何を理解できるかで測るべきです。"
+        }
+      ]
+    },
+    {
+      "id": "p6",
+      "sentences": [
+        {
+          "en": "The most useful role for an AI tutor may be to offer possibilities that teachers and students can test together.",
+          "ja": "AI学習支援ツールの最も有益な役割は、教師と生徒が一緒に検証できる可能性を提示することかもしれません。"
+        },
+        {
+          "en": "It can suggest another example, provide a new explanation, or invite a learner to defend an interpretation.",
+          "ja": "別の例を提案し、新しい説明を示し、学習者に解釈を根拠づけるよう促せます。"
+        },
+        {
+          "en": "Nevertheless, someone must still notice when the learner is silent because the task is confusing rather than because it is easy.",
+          "ja": "それでも、学習者が黙っているのは簡単だからではなく、課題が難しいからだと気づく人は必要です。"
+        },
+        {
+          "en": "Technology may expand the number of available explanations, but it cannot replace the human responsibility to listen and respond thoughtfully.",
+          "ja": "技術は利用可能な説明の数を増やせますが、耳を傾け丁寧に応えるという人間の責任を代替できません。"
+        },
+        {
+          "en": "Education becomes stronger when machines support human understanding instead of quietly taking over the work of thinking.",
+          "ja": "機械が思考をひそかに肩代わりするのではなく、人間の理解を支えるとき、教育はより豊かになります。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "Which statement best expresses the main message?",
+      "options": [
+        "AI explanations should always replace teaching.",
+        "AI tutors are useless in every context.",
+        "The success of AI education depends on checking learning and preserving human responsibility.",
+        "A student's speed proves understanding."
+      ],
+      "answer": 2,
+      "explanation_ja": "AIの支援を活用しつつ、学びの検証と人間の責任を維持するという論旨です。",
+      "paragraph_ids": [
+        "p1",
+        "p5",
+        "p6"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Why can two identical answers require different feedback?",
+      "options": [
+        "The students may have arrived at them for different reasons.",
+        "All identical answers are necessarily wrong.",
+        "Machines can see every learner's feelings.",
+        "Neither student could know grammar."
+      ],
+      "answer": 0,
+      "explanation_ja": "片方は理解、もう片方は推測という例が示されています。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'oversight' in paragraph 5 mean?",
+      "options": [
+        "Complete replacement of teachers.",
+        "A faster network connection.",
+        "Making decisions randomly.",
+        "Human supervision and checking."
+      ],
+      "answer": 3,
+      "explanation_ja": "oversightは人間による監督・確認を表します。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What is suggested as a way to check AI-generated summaries?",
+      "options": [
+        "Memorize only the summary.",
+        "Compare claims with the original passage.",
+        "Ask the AI to grade itself without evidence.",
+        "Remove difficult sentences."
+      ],
+      "answer": 1,
+      "explanation_ja": "原文と比べ、本文に支えられない主張を印付けすると述べます。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "inference",
+      "prompt": "What could happen if the same technology is required for homework?",
+      "options": [
+        "Everyone will have identical internet access.",
+        "All students will obtain perfect results.",
+        "Students without stable access may be disadvantaged.",
+        "Teachers will no longer need lesson plans."
+      ],
+      "answer": 2,
+      "explanation_ja": "接続環境や端末に差があるため不公平を生む可能性があります。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "Which concern accompanies personal information entered into a tool?",
+      "options": [
+        "How the service may handle that information.",
+        "Whether the computer has a colorful screen.",
+        "Whether paragraphs contain long words.",
+        "How many pencils the student owns."
+      ],
+      "answer": 0,
+      "explanation_ja": "個人情報の取り扱いを理解する必要があります。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "purpose",
+      "prompt": "Why is UNESCO mentioned?",
+      "options": [
+        "To claim AI must be prohibited.",
+        "To state that technology always guarantees fairness.",
+        "To describe a fictional teacher.",
+        "To introduce principles for ethical choices about AI."
+      ],
+      "answer": 3,
+      "explanation_ja": "倫理原則を示し、責任ある導入に話を進めるためです。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "Which classroom plan best fits paragraph 5?",
+      "options": [
+        "Require permanent access and offer no alternative.",
+        "Try a limited activity with rules, feedback, and an alternative.",
+        "Keep all AI decisions secret.",
+        "Use a tool only because its sentences sound sophisticated."
+      ],
+      "answer": 1,
+      "explanation_ja": "小規模な試行と代替手段を含める計画が提案されています。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What does the author's contrast between silence and ease imply?",
+      "options": [
+        "A quiet student has always understood.",
+        "AI can always detect embarrassment.",
+        "Silence can have more than one cause.",
+        "Teachers should never speak to learners."
+      ],
+      "answer": 2,
+      "explanation_ja": "沈黙は理解を示すとは限らず、困難による場合もあるという推論です。",
+      "paragraph_ids": [
+        "p6"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "Why does the passage end with a contrast between support and taking over?",
+      "options": [
+        "To emphasize that technology should assist rather than replace thinking.",
+        "To suggest that students should never use digital tools.",
+        "To argue that the number of explanations is irrelevant.",
+        "To propose removing all homework."
+      ],
+      "answer": 0,
+      "explanation_ja": "機械の支援と人間の思考の代行を区別して締めくくっています。",
+      "paragraph_ids": [
+        "p6"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "artificial",
+      "ja": "人工の",
+      "synonym": "man-made",
+      "definition": "created by people"
+    },
+    {
+      "term": "intelligence",
+      "ja": "知能",
+      "synonym": "mental ability",
+      "definition": "capacity to learn and reason"
+    },
+    {
+      "term": "tutor",
+      "ja": "学習支援者",
+      "synonym": "coach",
+      "definition": "a person or tool offering individual instruction"
+    },
+    {
+      "term": "paragraph",
+      "ja": "段落",
+      "synonym": "section",
+      "definition": "a group of related sentences"
+    },
+    {
+      "term": "produces",
+      "ja": "生み出す",
+      "synonym": "generates",
+      "definition": "creates an output"
+    },
+    {
+      "term": "encouraging",
+      "ja": "励ます",
+      "synonym": "supportive",
+      "definition": "helping someone feel confident"
+    },
+    {
+      "term": "comments",
+      "ja": "コメント",
+      "synonym": "remarks",
+      "definition": "spoken or written observations"
+    },
+    {
+      "term": "reasonably",
+      "ja": "もっともなことに",
+      "synonym": "sensibly",
+      "definition": "in a way that makes sense"
+    },
+    {
+      "term": "support",
+      "ja": "支援",
+      "synonym": "assistance",
+      "definition": "help provided for a task"
+    },
+    {
+      "term": "confident",
+      "ja": "自信がある",
+      "synonym": "certain",
+      "definition": "seeming sure of an answer"
+    },
+    {
+      "term": "accurate",
+      "ja": "正確な",
+      "synonym": "correct",
+      "definition": "consistent with the facts"
+    },
+    {
+      "term": "misunderstanding",
+      "ja": "誤解",
+      "synonym": "mistaken belief",
+      "definition": "an incorrect interpretation"
+    },
+    {
+      "term": "challenge",
+      "ja": "課題",
+      "synonym": "difficulty",
+      "definition": "something requiring effort to solve"
+    },
+    {
+      "term": "educational",
+      "ja": "教育的な",
+      "synonym": "instructional",
+      "definition": "connected with teaching and learning"
+    },
+    {
+      "term": "judge",
+      "ja": "判断する",
+      "synonym": "evaluate",
+      "definition": "to assess the value of something"
+    },
+    {
+      "term": "value",
+      "ja": "価値",
+      "synonym": "worth",
+      "definition": "usefulness or importance"
+    },
+    {
+      "term": "automatically",
+      "ja": "自動的に",
+      "synonym": "without intervention",
+      "definition": "without a separate human action"
+    },
+    {
+      "term": "learner",
+      "ja": "学習者",
+      "synonym": "student",
+      "definition": "someone who is studying"
+    },
+    {
+      "term": "confused",
+      "ja": "混乱した",
+      "synonym": "uncertain",
+      "definition": "unable to understand clearly"
+    },
+    {
+      "term": "embarrassed",
+      "ja": "恥ずかしい",
+      "synonym": "self-conscious",
+      "definition": "uncomfortable about being judged"
+    },
+    {
+      "term": "assignment",
+      "ja": "課題",
+      "synonym": "task",
+      "definition": "a piece of schoolwork"
+    },
+    {
+      "term": "identical",
+      "ja": "同一の",
+      "synonym": "the same",
+      "definition": "exactly alike"
+    },
+    {
+      "term": "grammar",
+      "ja": "文法",
+      "synonym": "language rules",
+      "definition": "the system governing sentence structure"
+    },
+    {
+      "term": "whereas",
+      "ja": "一方で",
+      "synonym": "while",
+      "definition": "introducing a contrast"
+    },
+    {
+      "term": "guessed",
+      "ja": "推測した",
+      "synonym": "estimated",
+      "definition": "chose without certain knowledge"
+    },
+    {
+      "term": "familiar",
+      "ja": "見覚えのある",
+      "synonym": "known",
+      "definition": "recognized from previous experience"
+    },
+    {
+      "term": "responses",
+      "ja": "回答",
+      "synonym": "replies",
+      "definition": "answers to a prompt"
+    },
+    {
+      "term": "evidence",
+      "ja": "根拠",
+      "synonym": "proof",
+      "definition": "information supporting a conclusion"
+    },
+    {
+      "term": "recommend",
+      "ja": "勧める",
+      "synonym": "suggest",
+      "definition": "to propose a suitable action"
+    },
+    {
+      "term": "limitation",
+      "ja": "限界",
+      "synonym": "restriction",
+      "definition": "something a method cannot do"
+    },
+    {
+      "term": "appropriate",
+      "ja": "適切な",
+      "synonym": "suitable",
+      "definition": "right for the circumstances"
+    },
+    {
+      "term": "conversation",
+      "ja": "会話",
+      "synonym": "dialogue",
+      "definition": "an exchange of speech"
+    },
+    {
+      "term": "summary",
+      "ja": "要約",
+      "synonym": "outline",
+      "definition": "a shorter account of the main points"
+    },
+    {
+      "term": "original",
+      "ja": "原文の",
+      "synonym": "initial",
+      "definition": "existing before a copy or revision"
+    },
+    {
+      "term": "claims",
+      "ja": "主張",
+      "synonym": "assertions",
+      "definition": "statements offered as true"
+    },
+    {
+      "term": "checking",
+      "ja": "確認すること",
+      "synonym": "verification",
+      "definition": "testing whether something is right"
+    },
+    {
+      "term": "reward",
+      "ja": "報いる",
+      "synonym": "encourage",
+      "definition": "to encourage a behavior through a positive result"
+    },
+    {
+      "term": "feedback",
+      "ja": "フィードバック",
+      "synonym": "response",
+      "definition": "information about performance"
+    },
+    {
+      "term": "judgment",
+      "ja": "判断力",
+      "synonym": "evaluation",
+      "definition": "the ability to reach a reasoned conclusion"
+    },
+    {
+      "term": "fairness",
+      "ja": "公平性",
+      "synonym": "justice",
+      "definition": "treatment without unjust disadvantage"
+    },
+    {
+      "term": "reliable",
+      "ja": "安定した",
+      "synonym": "dependable",
+      "definition": "working consistently"
+    },
+    {
+      "term": "unstable",
+      "ja": "不安定な",
+      "synonym": "unreliable",
+      "definition": "likely to stop working"
+    },
+    {
+      "term": "connections",
+      "ja": "接続",
+      "synonym": "links",
+      "definition": "ways to connect to a network"
+    },
+    {
+      "term": "disadvantage",
+      "ja": "不利にする",
+      "synonym": "harm",
+      "definition": "to put someone in a worse position"
+    },
+    {
+      "term": "unintentionally",
+      "ja": "意図せず",
+      "synonym": "accidentally",
+      "definition": "without intending the result"
+    },
+    {
+      "term": "personal",
+      "ja": "個人の",
+      "synonym": "individual",
+      "definition": "belonging to one person"
+    },
+    {
+      "term": "privacy",
+      "ja": "プライバシー",
+      "synonym": "confidentiality",
+      "definition": "control over personal information"
+    },
+    {
+      "term": "participation",
+      "ja": "参加",
+      "synonym": "involvement",
+      "definition": "taking part in an activity"
+    },
+    {
+      "term": "oversight",
+      "ja": "監督",
+      "synonym": "supervision",
+      "definition": "human checking and control"
+    },
+    {
+      "term": "transparency",
+      "ja": "透明性",
+      "synonym": "openness",
+      "definition": "ability to understand how decisions are made"
+    },
+    {
+      "term": "principles",
+      "ja": "原則",
+      "synonym": "standards",
+      "definition": "basic rules that guide decisions"
+    },
+    {
+      "term": "educators",
+      "ja": "教育者",
+      "synonym": "teachers",
+      "definition": "people who teach students"
+    },
+    {
+      "term": "guarantee",
+      "ja": "保証する",
+      "synonym": "ensure",
+      "definition": "to promise a particular result"
+    },
+    {
+      "term": "responsible",
+      "ja": "責任を持つ",
+      "synonym": "accountable",
+      "definition": "expected to answer for decisions"
+    },
+    {
+      "term": "alternative",
+      "ja": "代替手段",
+      "synonym": "option",
+      "definition": "another available method"
+    },
+    {
+      "term": "independently",
+      "ja": "自力で",
+      "synonym": "without help",
+      "definition": "without relying on another source"
+    },
+    {
+      "term": "impressive",
+      "ja": "見事な",
+      "synonym": "striking",
+      "definition": "causing admiration"
+    },
+    {
+      "term": "interpretation",
+      "ja": "解釈",
+      "synonym": "reading",
+      "definition": "a particular understanding of a text"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "thoughtfully",
+      "ja": "丁寧に",
+      "synonym": "carefully",
+      "definition": "with considerate attention"
+    },
+    {
+      "term": "understanding",
+      "ja": "理解",
+      "synonym": "comprehension",
+      "definition": "the ability to know what something means"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "an answer that sounds confident is not necessarily accurate",
+      "explanation_ja": "関係代名詞thatがanswerを修飾し、not necessarilyが部分否定を表します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "whereas the other may have guessed",
+      "explanation_ja": "whereasは二人の生徒の理解の違いを対比します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "focus": "students who cannot use the same technology outside school",
+      "explanation_ja": "関係代名詞whoがstudentsを修飾しています。"
+    },
+    {
+      "paragraph_id": "p6",
+      "sentence_index": 3,
+      "focus": "but it cannot replace the human responsibility",
+      "explanation_ja": "butにより技術の利点と代替できない責任を対比します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "逆接：流暢な説明が正確とは限らないことへ転じます。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "例示：同じ回答でも理解度が異なる生徒の例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Moreover",
+      "role_ja": "追加：アクセス格差に加えて個人情報保護の課題を述べます。"
+    },
+    {
+      "paragraph_id": "p6",
+      "expression": "Nevertheless",
+      "role_ja": "譲歩：AIの利点を認めつつ人間の観察の必要を示します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "an answer that sounds confident is not necessarily accurate",
+      "rewrite": "a convincing response may still contain errors",
+      "explanation_ja": "confidentとconvincing、not necessarily accurateとmay contain errorsが対応します。"
+    },
+    {
+      "source": "Two students may submit identical answers while having completely different reasons for choosing them",
+      "rewrite": "matching responses do not prove that learners used the same reasoning",
+      "explanation_ja": "同一の回答が同じ思考過程を意味しないという趣旨です。"
+    },
+    {
+      "source": "Convenience alone is not enough to justify a system",
+      "rewrite": "ease of use by itself cannot make a system acceptable",
+      "explanation_ja": "Convenienceをease of use、not enoughをcannotに言い換えています。"
+    },
+    {
+      "source": "Technology may expand the number of available explanations",
+      "rewrite": "digital tools can increase the range of explanations students can access",
+      "explanation_ja": "expandをincrease、available explanationsをexplanations students can accessと言い換えます。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "answer": "However",
+      "options": [
+        "Therefore",
+        "For example",
+        "However",
+        "Likewise"
+      ],
+      "explanation_ja": "有用な説明に対して、誤りの可能性を提示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "Therefore",
+        "In conclusion",
+        "Instead"
+      ],
+      "explanation_ja": "同一回答でも異なる理由の具体例を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 3,
+      "answer": "Moreover",
+      "options": [
+        "Nevertheless",
+        "Instead",
+        "Finally",
+        "Moreover"
+      ],
+      "explanation_ja": "アクセスの差に加えて個人情報の論点を加えます。"
+    },
+    {
+      "paragraph_id": "p6",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "For example",
+        "Nevertheless",
+        "As a result",
+        "Similarly"
+      ],
+      "explanation_ja": "AIの利点があっても人間の観察が必要だと述べます。"
+    }
+  ]
+}

@@ -1,0 +1,3468 @@
+{
+  "description": "Non-public authoring reference from existing lesson vocabulary. Validate contextual meaning before reuse.",
+  "updated": "2026-11-13",
+  "terms": [
+    {
+      "term": "abandoned",
+      "ja": "放置された",
+      "synonym": "left behind",
+      "definition": "no longer being used or cared for"
+    },
+    {
+      "term": "absent",
+      "ja": "存在しない・不在の",
+      "synonym": "missing",
+      "definition": "not present in a place"
+    },
+    {
+      "term": "accepting",
+      "ja": "受け入れること",
+      "synonym": "welcoming",
+      "definition": "receiving something without rejection"
+    },
+    {
+      "term": "access",
+      "ja": "利用できること",
+      "synonym": "availability",
+      "definition": "ability to reach or use something"
+    },
+    {
+      "term": "accessibility",
+      "ja": "利用しやすさ",
+      "synonym": "access",
+      "definition": "the possibility of use for people with different needs"
+    },
+    {
+      "term": "accessible",
+      "ja": "利用しやすい",
+      "synonym": "usable",
+      "definition": "easy for different people to reach"
+    },
+    {
+      "term": "accumulated",
+      "ja": "蓄積した",
+      "synonym": "collected over time",
+      "definition": "built up gradually"
+    },
+    {
+      "term": "accuracy",
+      "ja": "正確さ",
+      "synonym": "correctness",
+      "definition": "matching the facts"
+    },
+    {
+      "term": "accurate",
+      "ja": "正確な",
+      "synonym": "correct",
+      "definition": "consistent with the facts"
+    },
+    {
+      "term": "accurately",
+      "ja": "正確に",
+      "synonym": "correctly",
+      "definition": "without mistakes or misleading details"
+    },
+    {
+      "term": "accusing",
+      "ja": "責めること",
+      "synonym": "blaming",
+      "definition": "claiming someone has done wrong"
+    },
+    {
+      "term": "achieves",
+      "ja": "達成する",
+      "synonym": "accomplishes",
+      "definition": "successfully reaches an aim"
+    },
+    {
+      "term": "activity",
+      "ja": "活動",
+      "synonym": "action",
+      "definition": "something that a person does"
+    },
+    {
+      "term": "actual",
+      "ja": "実際の",
+      "synonym": "real",
+      "definition": "existing in fact"
+    },
+    {
+      "term": "actually",
+      "ja": "実際に",
+      "synonym": "really",
+      "definition": "in fact rather than only in theory"
+    },
+    {
+      "term": "additional",
+      "ja": "追加の",
+      "synonym": "extra",
+      "definition": "more than what is already present"
+    },
+    {
+      "term": "adults",
+      "ja": "大人",
+      "synonym": "grown-ups",
+      "definition": "people who are not children"
+    },
+    {
+      "term": "advertisements",
+      "ja": "広告",
+      "synonym": "promotions",
+      "definition": "messages encouraging people to buy"
+    },
+    {
+      "term": "affect",
+      "ja": "影響を与える",
+      "synonym": "influence",
+      "definition": "to change how something happens"
+    },
+    {
+      "term": "afternoon",
+      "ja": "午後",
+      "synonym": "later day",
+      "definition": "the time after noon"
+    },
+    {
+      "term": "agreement",
+      "ja": "合意・約束",
+      "synonym": "understanding",
+      "definition": "a decision accepted by two sides"
+    },
+    {
+      "term": "alternative",
+      "ja": "代替手段",
+      "synonym": "option",
+      "definition": "another available method"
+    },
+    {
+      "term": "ancient",
+      "ja": "古代の",
+      "synonym": "very old",
+      "definition": "belonging to a distant past"
+    },
+    {
+      "term": "announcement",
+      "ja": "発表",
+      "synonym": "notice",
+      "definition": "information made publicly known"
+    },
+    {
+      "term": "anonymous",
+      "ja": "匿名の",
+      "synonym": "unnamed",
+      "definition": "not identified by name"
+    },
+    {
+      "term": "apparent",
+      "ja": "見かけ上の",
+      "synonym": "seeming",
+      "definition": "appearing to be true"
+    },
+    {
+      "term": "application",
+      "ja": "応用",
+      "synonym": "use",
+      "definition": "the act of putting knowledge to practical use"
+    },
+    {
+      "term": "approaches",
+      "ja": "近づく",
+      "synonym": "comes near",
+      "definition": "moves closer to a place"
+    },
+    {
+      "term": "appropriate",
+      "ja": "適切な",
+      "synonym": "suitable",
+      "definition": "right for the circumstances"
+    },
+    {
+      "term": "argument",
+      "ja": "論説・主張",
+      "synonym": "reasoned claim",
+      "definition": "a connected set of reasons supporting a position"
+    },
+    {
+      "term": "article",
+      "ja": "記事",
+      "synonym": "report",
+      "definition": "a piece of writing for publication"
+    },
+    {
+      "term": "artificial",
+      "ja": "人工の",
+      "synonym": "man-made",
+      "definition": "created by people"
+    },
+    {
+      "term": "assess",
+      "ja": "評価する",
+      "synonym": "evaluate",
+      "definition": "to judge a situation using evidence"
+    },
+    {
+      "term": "assignment",
+      "ja": "課題",
+      "synonym": "task",
+      "definition": "a piece of schoolwork"
+    },
+    {
+      "term": "assume",
+      "ja": "決めつける",
+      "synonym": "suppose",
+      "definition": "to accept an idea without checking"
+    },
+    {
+      "term": "assumptions",
+      "ja": "思い込み",
+      "synonym": "unproven beliefs",
+      "definition": "ideas accepted without enough evidence"
+    },
+    {
+      "term": "attached",
+      "ja": "添付された",
+      "synonym": "included",
+      "definition": "added to a document"
+    },
+    {
+      "term": "attempts",
+      "ja": "試み",
+      "synonym": "tries",
+      "definition": "efforts to do or achieve something"
+    },
+    {
+      "term": "attention",
+      "ja": "注目",
+      "synonym": "notice",
+      "definition": "interest directed at something"
+    },
+    {
+      "term": "audience",
+      "ja": "受け手",
+      "synonym": "recipients",
+      "definition": "the people receiving a message"
+    },
+    {
+      "term": "audiences",
+      "ja": "想定読者・利用者",
+      "synonym": "users",
+      "definition": "groups for whom information is made"
+    },
+    {
+      "term": "authority",
+      "ja": "権限",
+      "synonym": "decision power",
+      "definition": "the right to make or influence decisions"
+    },
+    {
+      "term": "automatically",
+      "ja": "自動的に",
+      "synonym": "without intervention",
+      "definition": "without a separate human action"
+    },
+    {
+      "term": "availability",
+      "ja": "利用可能性",
+      "synonym": "accessibility",
+      "definition": "the state of being obtainable"
+    },
+    {
+      "term": "backgrounds",
+      "ja": "生い立ち・背景",
+      "synonym": "histories",
+      "definition": "experiences that shape people's lives"
+    },
+    {
+      "term": "balance",
+      "ja": "バランス",
+      "synonym": "fair proportion",
+      "definition": "a reasonable distribution between needs"
+    },
+    {
+      "term": "bargain",
+      "ja": "お買い得品",
+      "synonym": "good deal",
+      "definition": "something bought at a favorable price"
+    },
+    {
+      "term": "battery",
+      "ja": "バッテリー",
+      "synonym": "power cell",
+      "definition": "a unit that stores electrical energy"
+    },
+    {
+      "term": "beautiful",
+      "ja": "美しい",
+      "synonym": "attractive",
+      "definition": "pleasant to look at"
+    },
+    {
+      "term": "beliefs",
+      "ja": "信念",
+      "synonym": "convictions",
+      "definition": "ideas people hold to be true"
+    },
+    {
+      "term": "better",
+      "ja": "より良い",
+      "synonym": "improved",
+      "definition": "of higher quality than before"
+    },
+    {
+      "term": "boundaries",
+      "ja": "境界・許容範囲",
+      "synonym": "limits",
+      "definition": "rules about acceptable behavior"
+    },
+    {
+      "term": "branches",
+      "ja": "枝",
+      "synonym": "tree arms",
+      "definition": "parts growing from a tree trunk"
+    },
+    {
+      "term": "buildings",
+      "ja": "建物",
+      "synonym": "structures",
+      "definition": "things built for people to use"
+    },
+    {
+      "term": "cancelled",
+      "ja": "中止された",
+      "synonym": "called off",
+      "definition": "stopped before taking place"
+    },
+    {
+      "term": "capturing",
+      "ja": "捕獲すること",
+      "synonym": "grasping",
+      "definition": "taking hold of a moving target"
+    },
+    {
+      "term": "care",
+      "ja": "世話・管理",
+      "synonym": "maintenance",
+      "definition": "attention that keeps something healthy"
+    },
+    {
+      "term": "carrying",
+      "ja": "運ぶこと",
+      "synonym": "transporting",
+      "definition": "moving something from one place to another"
+    },
+    {
+      "term": "certain",
+      "ja": "特定の",
+      "synonym": "particular",
+      "definition": "specific but not named"
+    },
+    {
+      "term": "certainty",
+      "ja": "確実性",
+      "synonym": "confidence",
+      "definition": "how sure one can be"
+    },
+    {
+      "term": "challenge",
+      "ja": "課題",
+      "synonym": "difficulty",
+      "definition": "something requiring effort to solve"
+    },
+    {
+      "term": "chances",
+      "ja": "機会",
+      "synonym": "opportunities",
+      "definition": "opportunities for something to happen"
+    },
+    {
+      "term": "changing",
+      "ja": "変化する",
+      "synonym": "shifting",
+      "definition": "becoming different"
+    },
+    {
+      "term": "channel",
+      "ja": "伝達手段",
+      "synonym": "medium",
+      "definition": "a way to communicate information"
+    },
+    {
+      "term": "checking",
+      "ja": "確認すること",
+      "synonym": "verification",
+      "definition": "testing whether something is right"
+    },
+    {
+      "term": "choice",
+      "ja": "選択",
+      "synonym": "decision",
+      "definition": "the act of selecting an action"
+    },
+    {
+      "term": "choices",
+      "ja": "選択肢",
+      "synonym": "options",
+      "definition": "available possibilities"
+    },
+    {
+      "term": "circular",
+      "ja": "循環する",
+      "synonym": "round",
+      "definition": "involving repeated movement or use"
+    },
+    {
+      "term": "citizenship",
+      "ja": "市民としての在り方",
+      "synonym": "civic participation",
+      "definition": "responsible membership in society"
+    },
+    {
+      "term": "claim",
+      "ja": "主張",
+      "synonym": "assertion",
+      "definition": "a statement that someone argues is true"
+    },
+    {
+      "term": "claims",
+      "ja": "主張",
+      "synonym": "assertions",
+      "definition": "statements offered as true"
+    },
+    {
+      "term": "clarify",
+      "ja": "明確にする",
+      "synonym": "explain",
+      "definition": "make easier to understand"
+    },
+    {
+      "term": "classmate",
+      "ja": "同級生",
+      "synonym": "fellow student",
+      "definition": "a student in the same class"
+    },
+    {
+      "term": "classmates",
+      "ja": "同級生",
+      "synonym": "school peers",
+      "definition": "students in the same class"
+    },
+    {
+      "term": "clothing",
+      "ja": "衣服",
+      "synonym": "garments",
+      "definition": "items worn to cover the body"
+    },
+    {
+      "term": "collection",
+      "ja": "収蔵品・収集",
+      "synonym": "group of objects",
+      "definition": "objects gathered and kept by an institution"
+    },
+    {
+      "term": "collision",
+      "ja": "衝突",
+      "synonym": "crash",
+      "definition": "an event in which moving objects strike each other"
+    },
+    {
+      "term": "comfortable",
+      "ja": "快適な",
+      "synonym": "pleasant",
+      "definition": "physically pleasant"
+    },
+    {
+      "term": "comments",
+      "ja": "コメント",
+      "synonym": "remarks",
+      "definition": "spoken or written observations"
+    },
+    {
+      "term": "communicate",
+      "ja": "伝える・意思疎通する",
+      "synonym": "exchange information",
+      "definition": "to share ideas or messages"
+    },
+    {
+      "term": "communication",
+      "ja": "情報伝達",
+      "synonym": "exchange",
+      "definition": "sharing messages with others"
+    },
+    {
+      "term": "communities",
+      "ja": "地域社会",
+      "synonym": "local groups",
+      "definition": "people sharing a local area"
+    },
+    {
+      "term": "community",
+      "ja": "地域社会",
+      "synonym": "neighborhood",
+      "definition": "people living in the same area"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "contrast",
+      "definition": "to examine differences and similarities"
+    },
+    {
+      "term": "competing",
+      "ja": "競合する",
+      "synonym": "rival",
+      "definition": "working against another source"
+    },
+    {
+      "term": "complex",
+      "ja": "複雑な",
+      "synonym": "complicated",
+      "definition": "made of many connected parts"
+    },
+    {
+      "term": "components",
+      "ja": "部品",
+      "synonym": "parts",
+      "definition": "pieces making up a machine"
+    },
+    {
+      "term": "computing",
+      "ja": "計算処理の",
+      "synonym": "processing",
+      "definition": "using a computer to handle information"
+    },
+    {
+      "term": "concept",
+      "ja": "概念",
+      "synonym": "idea",
+      "definition": "a general idea or mental understanding"
+    },
+    {
+      "term": "concern",
+      "ja": "懸念・問題",
+      "synonym": "worry",
+      "definition": "something that causes uneasiness"
+    },
+    {
+      "term": "concerns",
+      "ja": "不安・懸念",
+      "synonym": "worries",
+      "definition": "matters people feel uneasy about"
+    },
+    {
+      "term": "condition",
+      "ja": "状態",
+      "synonym": "state",
+      "definition": "the current quality of something"
+    },
+    {
+      "term": "conditions",
+      "ja": "状況",
+      "synonym": "circumstances",
+      "definition": "things affecting an event"
+    },
+    {
+      "term": "confidence",
+      "ja": "自信",
+      "synonym": "self-belief",
+      "definition": "a feeling that one can do something well"
+    },
+    {
+      "term": "confident",
+      "ja": "自信がある",
+      "synonym": "certain",
+      "definition": "seeming sure of an answer"
+    },
+    {
+      "term": "confirmations",
+      "ja": "確認",
+      "synonym": "verifications",
+      "definition": "acts that establish accuracy"
+    },
+    {
+      "term": "confuse",
+      "ja": "混乱させる",
+      "synonym": "puzzle",
+      "definition": "to make someone uncertain"
+    },
+    {
+      "term": "confused",
+      "ja": "混乱した",
+      "synonym": "uncertain",
+      "definition": "unable to understand clearly"
+    },
+    {
+      "term": "confusing",
+      "ja": "わかりにくい",
+      "synonym": "unclear",
+      "definition": "difficult to understand"
+    },
+    {
+      "term": "confusion",
+      "ja": "混乱",
+      "synonym": "uncertainty",
+      "definition": "a state of not understanding something clearly"
+    },
+    {
+      "term": "connected",
+      "ja": "関わりのある",
+      "synonym": "associated",
+      "definition": "having a meaningful relationship with something"
+    },
+    {
+      "term": "connection",
+      "ja": "つながり・関係",
+      "synonym": "bond",
+      "definition": "a relationship linking two or more people"
+    },
+    {
+      "term": "connections",
+      "ja": "接続",
+      "synonym": "links",
+      "definition": "ways to connect to a network"
+    },
+    {
+      "term": "consent",
+      "ja": "同意",
+      "synonym": "permission",
+      "definition": "agreement allowing something to happen"
+    },
+    {
+      "term": "consider",
+      "ja": "考慮する",
+      "synonym": "think about",
+      "definition": "to examine an idea before deciding"
+    },
+    {
+      "term": "contacts",
+      "ja": "知人・連絡のある相手",
+      "synonym": "acquaintances",
+      "definition": "people one knows or communicates with"
+    },
+    {
+      "term": "contemporary",
+      "ja": "現代の",
+      "synonym": "modern",
+      "definition": "relating to the present period"
+    },
+    {
+      "term": "context",
+      "ja": "文脈",
+      "synonym": "background",
+      "definition": "information needed to understand something"
+    },
+    {
+      "term": "contributors",
+      "ja": "協力者",
+      "synonym": "participants",
+      "definition": "people who provide knowledge or materials"
+    },
+    {
+      "term": "convenience",
+      "ja": "便利さ",
+      "synonym": "ease",
+      "definition": "the quality of being easy to use"
+    },
+    {
+      "term": "conversation",
+      "ja": "会話",
+      "synonym": "dialogue",
+      "definition": "an exchange of speech"
+    },
+    {
+      "term": "conversations",
+      "ja": "会話",
+      "synonym": "talks",
+      "definition": "exchanges of spoken words"
+    },
+    {
+      "term": "cool",
+      "ja": "涼しい",
+      "synonym": "not hot",
+      "definition": "having a comfortably low temperature"
+    },
+    {
+      "term": "cooperation",
+      "ja": "協力",
+      "synonym": "collaboration",
+      "definition": "working together toward a common aim"
+    },
+    {
+      "term": "correct",
+      "ja": "訂正する・正しい",
+      "synonym": "fix",
+      "definition": "to remove errors or make something accurate"
+    },
+    {
+      "term": "creativity",
+      "ja": "創造性",
+      "synonym": "imagination",
+      "definition": "the ability to produce original ideas"
+    },
+    {
+      "term": "creator",
+      "ja": "作り手",
+      "synonym": "maker",
+      "definition": "a person who makes something"
+    },
+    {
+      "term": "curiosity",
+      "ja": "好奇心",
+      "synonym": "interest",
+      "definition": "a desire to learn and understand"
+    },
+    {
+      "term": "customer",
+      "ja": "顧客",
+      "synonym": "buyer",
+      "definition": "a person purchasing a service or product"
+    },
+    {
+      "term": "customs",
+      "ja": "習慣",
+      "synonym": "traditions",
+      "definition": "ways of acting common to a group"
+    },
+    {
+      "term": "damaged",
+      "ja": "損傷した",
+      "synonym": "broken",
+      "definition": "harmed so it works less well"
+    },
+    {
+      "term": "danger",
+      "ja": "危険",
+      "synonym": "risk",
+      "definition": "the possibility that something harmful will happen"
+    },
+    {
+      "term": "dangerous",
+      "ja": "危険な",
+      "synonym": "unsafe",
+      "definition": "likely to cause harm"
+    },
+    {
+      "term": "deadline",
+      "ja": "締切",
+      "synonym": "due date",
+      "definition": "the last time allowed for a task"
+    },
+    {
+      "term": "debris",
+      "ja": "ごみ・破片",
+      "synonym": "waste",
+      "definition": "pieces left over after an object is damaged or used"
+    },
+    {
+      "term": "decide",
+      "ja": "決める",
+      "synonym": "choose",
+      "definition": "to make a choice"
+    },
+    {
+      "term": "decisions",
+      "ja": "決定・判断",
+      "synonym": "choices",
+      "definition": "choices made after thinking"
+    },
+    {
+      "term": "delay",
+      "ja": "遅れ",
+      "synonym": "postponement",
+      "definition": "a period of waiting"
+    },
+    {
+      "term": "delivered",
+      "ja": "届けられた",
+      "synonym": "sent",
+      "definition": "made available to a recipient"
+    },
+    {
+      "term": "demanding",
+      "ja": "負担が大きい・難しい",
+      "synonym": "challenging",
+      "definition": "requiring considerable effort"
+    },
+    {
+      "term": "depending",
+      "ja": "頼ること",
+      "synonym": "relying",
+      "definition": "needing support from something"
+    },
+    {
+      "term": "describe",
+      "ja": "説明する",
+      "synonym": "explain",
+      "definition": "to give an account of something"
+    },
+    {
+      "term": "designers",
+      "ja": "設計者",
+      "synonym": "creators",
+      "definition": "people who plan how things will be made"
+    },
+    {
+      "term": "details",
+      "ja": "細部",
+      "synonym": "particulars",
+      "definition": "small pieces of information"
+    },
+    {
+      "term": "detects",
+      "ja": "検知する",
+      "synonym": "identifies",
+      "definition": "discovers the presence of something"
+    },
+    {
+      "term": "device",
+      "ja": "機器",
+      "synonym": "machine",
+      "definition": "an object made for a particular purpose"
+    },
+    {
+      "term": "dictionary",
+      "ja": "辞書",
+      "synonym": "reference book",
+      "definition": "a source explaining the meanings of words"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "difficulty",
+      "ja": "困難",
+      "synonym": "trouble",
+      "definition": "a problem that makes something hard"
+    },
+    {
+      "term": "disadvantage",
+      "ja": "不利にする",
+      "synonym": "harm",
+      "definition": "to put someone in a worse position"
+    },
+    {
+      "term": "disagreement",
+      "ja": "意見の相違",
+      "synonym": "difference of opinion",
+      "definition": "a situation in which people hold different views"
+    },
+    {
+      "term": "discover",
+      "ja": "気づく・発見する",
+      "synonym": "find out",
+      "definition": "to learn something previously unknown"
+    },
+    {
+      "term": "discussing",
+      "ja": "話し合うこと",
+      "synonym": "talking about",
+      "definition": "exchanging ideas or opinions about a subject"
+    },
+    {
+      "term": "discussion",
+      "ja": "話し合い",
+      "synonym": "conversation",
+      "definition": "an exchange of views"
+    },
+    {
+      "term": "disposal",
+      "ja": "廃棄",
+      "synonym": "discarding",
+      "definition": "the act of getting rid of something"
+    },
+    {
+      "term": "distinguish",
+      "ja": "区別する",
+      "synonym": "differentiate",
+      "definition": "to recognize differences"
+    },
+    {
+      "term": "distinguishes",
+      "ja": "区別する",
+      "synonym": "differentiates",
+      "definition": "recognizes a difference between things"
+    },
+    {
+      "term": "divide",
+      "ja": "分担する・分ける",
+      "synonym": "share",
+      "definition": "to separate into parts"
+    },
+    {
+      "term": "documents",
+      "ja": "文書",
+      "synonym": "records",
+      "definition": "written sources of information"
+    },
+    {
+      "term": "earthquakes",
+      "ja": "地震",
+      "synonym": "ground movements",
+      "definition": "sudden shaking of the ground"
+    },
+    {
+      "term": "economy",
+      "ja": "経済",
+      "synonym": "economic system",
+      "definition": "the system of production and exchange"
+    },
+    {
+      "term": "editorial",
+      "ja": "編集上の",
+      "synonym": "publication-related",
+      "definition": "connected with preparing articles"
+    },
+    {
+      "term": "editors",
+      "ja": "編集者",
+      "synonym": "publication managers",
+      "definition": "people who choose and prepare articles"
+    },
+    {
+      "term": "educational",
+      "ja": "教育的な",
+      "synonym": "instructional",
+      "definition": "connected with teaching and learning"
+    },
+    {
+      "term": "educators",
+      "ja": "教育者",
+      "synonym": "teachers",
+      "definition": "people who teach students"
+    },
+    {
+      "term": "effective",
+      "ja": "効果的な",
+      "synonym": "successful",
+      "definition": "producing the desired result"
+    },
+    {
+      "term": "electronic",
+      "ja": "電子の",
+      "synonym": "digital",
+      "definition": "operated using electronic components"
+    },
+    {
+      "term": "embarrass",
+      "ja": "恥ずかしい思いをさせる",
+      "synonym": "humiliate",
+      "definition": "to make someone feel uncomfortable or ashamed"
+    },
+    {
+      "term": "embarrassed",
+      "ja": "恥ずかしい",
+      "synonym": "self-conscious",
+      "definition": "uncomfortable about being judged"
+    },
+    {
+      "term": "emergencies",
+      "ja": "緊急事態",
+      "synonym": "crises",
+      "definition": "situations requiring urgent action"
+    },
+    {
+      "term": "emphasize",
+      "ja": "強調する",
+      "synonym": "highlight",
+      "definition": "to make something stand out as important"
+    },
+    {
+      "term": "emphasizes",
+      "ja": "強調する",
+      "synonym": "highlights",
+      "definition": "gives special importance to"
+    },
+    {
+      "term": "employment",
+      "ja": "雇用",
+      "synonym": "work",
+      "definition": "paid jobs for people"
+    },
+    {
+      "term": "encourage",
+      "ja": "促す",
+      "synonym": "support",
+      "definition": "to make someone more willing to act"
+    },
+    {
+      "term": "encouraging",
+      "ja": "励ます",
+      "synonym": "supportive",
+      "definition": "helping someone feel confident"
+    },
+    {
+      "term": "engineers",
+      "ja": "技術者",
+      "synonym": "technical specialists",
+      "definition": "people who design or maintain technical systems"
+    },
+    {
+      "term": "entire",
+      "ja": "全体の",
+      "synonym": "whole",
+      "definition": "including everything or everyone"
+    },
+    {
+      "term": "entry",
+      "ja": "項目",
+      "synonym": "item",
+      "definition": "one part of a list or reference book"
+    },
+    {
+      "term": "environmental",
+      "ja": "環境の",
+      "synonym": "ecological",
+      "definition": "related to nature and surroundings"
+    },
+    {
+      "term": "environments",
+      "ja": "環境",
+      "synonym": "surroundings",
+      "definition": "conditions around living or working things"
+    },
+    {
+      "term": "equipment",
+      "ja": "機器",
+      "synonym": "devices",
+      "definition": "tools and machines used for a task"
+    },
+    {
+      "term": "estimate",
+      "ja": "見積もる",
+      "synonym": "calculate",
+      "definition": "to judge an approximate amount"
+    },
+    {
+      "term": "ethical",
+      "ja": "倫理的な",
+      "synonym": "morally responsible",
+      "definition": "consistent with principles of right conduct"
+    },
+    {
+      "term": "evacuation",
+      "ja": "避難",
+      "synonym": "moving to safety",
+      "definition": "leaving an unsafe area"
+    },
+    {
+      "term": "event",
+      "ja": "行事",
+      "synonym": "occasion",
+      "definition": "a planned activity"
+    },
+    {
+      "term": "evidence",
+      "ja": "根拠",
+      "synonym": "proof",
+      "definition": "information supporting a conclusion"
+    },
+    {
+      "term": "examination",
+      "ja": "試験",
+      "synonym": "test",
+      "definition": "a formal check of knowledge or ability"
+    },
+    {
+      "term": "examinations",
+      "ja": "試験",
+      "synonym": "tests",
+      "definition": "formal assessments of knowledge or ability"
+    },
+    {
+      "term": "examine",
+      "ja": "調べる",
+      "synonym": "inspect",
+      "definition": "to look carefully"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "exciting",
+      "ja": "わくわくする",
+      "synonym": "interesting",
+      "definition": "causing positive interest"
+    },
+    {
+      "term": "excused",
+      "ja": "許された・免責された",
+      "synonym": "forgiven",
+      "definition": "treated as not responsible for an action"
+    },
+    {
+      "term": "exercise",
+      "ja": "練習",
+      "synonym": "activity",
+      "definition": "a task used to build a skill"
+    },
+    {
+      "term": "exhibition",
+      "ja": "展示",
+      "synonym": "display",
+      "definition": "an arranged presentation of objects or information"
+    },
+    {
+      "term": "expected",
+      "ja": "予想された",
+      "synonym": "anticipated",
+      "definition": "thought likely to happen"
+    },
+    {
+      "term": "experiences",
+      "ja": "経験",
+      "synonym": "experiences of life",
+      "definition": "events or activities that a person has lived through"
+    },
+    {
+      "term": "expert",
+      "ja": "専門家",
+      "synonym": "specialist",
+      "definition": "someone with advanced knowledge"
+    },
+    {
+      "term": "experts",
+      "ja": "専門家",
+      "synonym": "specialists",
+      "definition": "people with advanced knowledge in a subject"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "explanation",
+      "ja": "説明",
+      "synonym": "account",
+      "definition": "a statement of why something happened"
+    },
+    {
+      "term": "express",
+      "ja": "表現する",
+      "synonym": "state",
+      "definition": "to communicate ideas or feelings"
+    },
+    {
+      "term": "expression",
+      "ja": "表現",
+      "synonym": "phrase",
+      "definition": "words used to convey a meaning"
+    },
+    {
+      "term": "expressions",
+      "ja": "表現",
+      "synonym": "phrases",
+      "definition": "groups of words used for meaning"
+    },
+    {
+      "term": "extend",
+      "ja": "延ばす",
+      "synonym": "lengthen",
+      "definition": "to make something last longer"
+    },
+    {
+      "term": "extreme",
+      "ja": "極端な",
+      "synonym": "very great",
+      "definition": "much stronger than usual"
+    },
+    {
+      "term": "facilities",
+      "ja": "施設",
+      "synonym": "equipment and buildings",
+      "definition": "places and equipment provided for use"
+    },
+    {
+      "term": "fair",
+      "ja": "公正な",
+      "synonym": "just",
+      "definition": "treating people reasonably"
+    },
+    {
+      "term": "fairness",
+      "ja": "公平性",
+      "synonym": "justice",
+      "definition": "treatment without unjust disadvantage"
+    },
+    {
+      "term": "familiar",
+      "ja": "見覚えのある",
+      "synonym": "known",
+      "definition": "recognized from previous experience"
+    },
+    {
+      "term": "familiarity",
+      "ja": "見慣れていること・親しみ",
+      "synonym": "recognition",
+      "definition": "the feeling of knowing something from previous experience"
+    },
+    {
+      "term": "families",
+      "ja": "家族",
+      "synonym": "households",
+      "definition": "groups living together as relatives"
+    },
+    {
+      "term": "fears",
+      "ja": "恐れ・不安",
+      "synonym": "worries",
+      "definition": "feelings of danger or anxiety"
+    },
+    {
+      "term": "features",
+      "ja": "機能・特徴",
+      "synonym": "functions",
+      "definition": "parts or qualities of a product"
+    },
+    {
+      "term": "feedback",
+      "ja": "フィードバック",
+      "synonym": "response",
+      "definition": "information about performance"
+    },
+    {
+      "term": "feelings",
+      "ja": "感情",
+      "synonym": "emotions",
+      "definition": "personal emotional experiences"
+    },
+    {
+      "term": "festival",
+      "ja": "祭り",
+      "synonym": "celebration",
+      "definition": "a special public event"
+    },
+    {
+      "term": "fictional",
+      "ja": "架空の",
+      "synonym": "imaginary",
+      "definition": "invented for a story or example"
+    },
+    {
+      "term": "findings",
+      "ja": "調査結果",
+      "synonym": "results",
+      "definition": "information learned through investigation"
+    },
+    {
+      "term": "fishing",
+      "ja": "漁業の",
+      "synonym": "catching fish",
+      "definition": "related to catching fish for food or work"
+    },
+    {
+      "term": "For instance",
+      "ja": "例えば",
+      "synonym": "for example",
+      "definition": "introducing a specific case"
+    },
+    {
+      "term": "forced",
+      "ja": "強制された",
+      "synonym": "compelled",
+      "definition": "made to act against one's wishes"
+    },
+    {
+      "term": "forecasts",
+      "ja": "予報",
+      "synonym": "predictions",
+      "definition": "statements about likely future conditions"
+    },
+    {
+      "term": "forgetting",
+      "ja": "忘却",
+      "synonym": "loss of memory",
+      "definition": "the process of no longer remembering something"
+    },
+    {
+      "term": "formal",
+      "ja": "改まった",
+      "synonym": "official",
+      "definition": "following established polite rules"
+    },
+    {
+      "term": "forwarded",
+      "ja": "転送された",
+      "synonym": "passed along",
+      "definition": "sent on to another person"
+    },
+    {
+      "term": "fragments",
+      "ja": "破片",
+      "synonym": "pieces",
+      "definition": "small parts broken off a larger object"
+    },
+    {
+      "term": "frequency",
+      "ja": "頻度",
+      "synonym": "rate",
+      "definition": "how often something happens"
+    },
+    {
+      "term": "friendship",
+      "ja": "友情",
+      "synonym": "close relationship",
+      "definition": "a relationship between friends"
+    },
+    {
+      "term": "fuel",
+      "ja": "燃料",
+      "synonym": "energy source",
+      "definition": "material that supplies power"
+    },
+    {
+      "term": "generations",
+      "ja": "世代",
+      "synonym": "age groups",
+      "definition": "groups of people born during different periods"
+    },
+    {
+      "term": "generous",
+      "ja": "好意的な",
+      "synonym": "kind",
+      "definition": "willing to give or understand"
+    },
+    {
+      "term": "gentle",
+      "ja": "穏やかな",
+      "synonym": "kind",
+      "definition": "not harsh or forceful"
+    },
+    {
+      "term": "genuine",
+      "ja": "本当の・心からの",
+      "synonym": "sincere",
+      "definition": "real rather than pretended"
+    },
+    {
+      "term": "grammar",
+      "ja": "文法",
+      "synonym": "language rules",
+      "definition": "the system governing sentence structure"
+    },
+    {
+      "term": "greater",
+      "ja": "より大きな",
+      "synonym": "larger",
+      "definition": "higher in amount or importance"
+    },
+    {
+      "term": "greener",
+      "ja": "より緑豊かな",
+      "synonym": "more leafy",
+      "definition": "having more plants or green areas"
+    },
+    {
+      "term": "greeting",
+      "ja": "挨拶",
+      "synonym": "salutation",
+      "definition": "words used when meeting someone"
+    },
+    {
+      "term": "guarantee",
+      "ja": "保証する",
+      "synonym": "ensure",
+      "definition": "to promise a particular result"
+    },
+    {
+      "term": "guessed",
+      "ja": "推測した",
+      "synonym": "estimated",
+      "definition": "chose without certain knowledge"
+    },
+    {
+      "term": "guessing",
+      "ja": "推測",
+      "synonym": "estimating",
+      "definition": "forming an opinion without full information"
+    },
+    {
+      "term": "guidance",
+      "ja": "指導・助言",
+      "synonym": "advice",
+      "definition": "help about what to do"
+    },
+    {
+      "term": "guide",
+      "ja": "案内",
+      "synonym": "instructions",
+      "definition": "information helping someone find a way"
+    },
+    {
+      "term": "gym",
+      "ja": "体育館",
+      "synonym": "sports hall",
+      "definition": "a building for indoor exercise"
+    },
+    {
+      "term": "habits",
+      "ja": "習慣",
+      "synonym": "customs",
+      "definition": "actions people do regularly"
+    },
+    {
+      "term": "harm",
+      "ja": "害",
+      "synonym": "damage",
+      "definition": "physical or emotional injury"
+    },
+    {
+      "term": "harmless",
+      "ja": "無害な",
+      "synonym": "safe",
+      "definition": "not causing damage"
+    },
+    {
+      "term": "hazard",
+      "ja": "危険",
+      "synonym": "danger",
+      "definition": "a source of possible harm"
+    },
+    {
+      "term": "hazards",
+      "ja": "危険",
+      "synonym": "threats",
+      "definition": "events that may cause harm"
+    },
+    {
+      "term": "headline",
+      "ja": "見出し",
+      "synonym": "news title",
+      "definition": "a title printed above an article"
+    },
+    {
+      "term": "health",
+      "ja": "健康",
+      "synonym": "well-being",
+      "definition": "condition of body and mind"
+    },
+    {
+      "term": "healthy",
+      "ja": "健康な",
+      "synonym": "well",
+      "definition": "living or growing well"
+    },
+    {
+      "term": "heat",
+      "ja": "暑さ",
+      "synonym": "high temperature",
+      "definition": "very warm conditions"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "hints",
+      "ja": "ヒント",
+      "synonym": "clues",
+      "definition": "small pieces of information that help someone find an answer"
+    },
+    {
+      "term": "historians",
+      "ja": "歴史家",
+      "synonym": "history researchers",
+      "definition": "people who study the past"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "humility",
+      "ja": "謙虚さ",
+      "synonym": "modesty",
+      "definition": "awareness of one's limited knowledge"
+    },
+    {
+      "term": "humorous",
+      "ja": "ユーモラスな",
+      "synonym": "funny",
+      "definition": "showing a sense of humor"
+    },
+    {
+      "term": "identical",
+      "ja": "同一の",
+      "synonym": "the same",
+      "definition": "exactly alike"
+    },
+    {
+      "term": "ignored",
+      "ja": "見過ごした",
+      "synonym": "overlooked",
+      "definition": "failed to pay attention to"
+    },
+    {
+      "term": "imagine",
+      "ja": "想像する",
+      "synonym": "picture",
+      "definition": "to form a picture in your mind"
+    },
+    {
+      "term": "immediately",
+      "ja": "すぐに",
+      "synonym": "at once",
+      "definition": "without delay"
+    },
+    {
+      "term": "important",
+      "ja": "重要な",
+      "synonym": "significant",
+      "definition": "having a great effect or value"
+    },
+    {
+      "term": "impressive",
+      "ja": "見事な",
+      "synonym": "striking",
+      "definition": "causing admiration"
+    },
+    {
+      "term": "improvement",
+      "ja": "改善・向上",
+      "synonym": "progress",
+      "definition": "a change that makes something better"
+    },
+    {
+      "term": "inappropriate",
+      "ja": "不適切な",
+      "synonym": "unsuitable",
+      "definition": "not right for the situation"
+    },
+    {
+      "term": "included",
+      "ja": "含まれた",
+      "synonym": "contained",
+      "definition": "made part of something"
+    },
+    {
+      "term": "inclusion",
+      "ja": "包摂",
+      "synonym": "participation",
+      "definition": "making sure people are not excluded"
+    },
+    {
+      "term": "inclusive",
+      "ja": "包摂的な",
+      "synonym": "welcoming",
+      "definition": "allowing different people to take part"
+    },
+    {
+      "term": "incomplete",
+      "ja": "不完全な",
+      "synonym": "unfinished",
+      "definition": "missing an important part"
+    },
+    {
+      "term": "incorrect",
+      "ja": "誤った",
+      "synonym": "wrong",
+      "definition": "not accurate or true"
+    },
+    {
+      "term": "independence",
+      "ja": "独立性",
+      "synonym": "freedom",
+      "definition": "the ability to make decisions without control"
+    },
+    {
+      "term": "independent",
+      "ja": "独立した",
+      "synonym": "separate",
+      "definition": "not relying on the same source"
+    },
+    {
+      "term": "independently",
+      "ja": "自力で",
+      "synonym": "without help",
+      "definition": "without relying on another source"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "facts",
+      "definition": "facts or details provided about something"
+    },
+    {
+      "term": "institutions",
+      "ja": "機関",
+      "synonym": "organizations",
+      "definition": "established groups serving particular purposes"
+    },
+    {
+      "term": "instructions",
+      "ja": "指示",
+      "synonym": "directions",
+      "definition": "statements telling people what to do"
+    },
+    {
+      "term": "intelligence",
+      "ja": "知能",
+      "synonym": "mental ability",
+      "definition": "capacity to learn and reason"
+    },
+    {
+      "term": "interpretation",
+      "ja": "解釈",
+      "synonym": "reading",
+      "definition": "a particular understanding of a text"
+    },
+    {
+      "term": "intervals",
+      "ja": "間隔",
+      "synonym": "gaps",
+      "definition": "periods of time separating events"
+    },
+    {
+      "term": "interview",
+      "ja": "取材する",
+      "synonym": "question",
+      "definition": "to ask someone questions for information"
+    },
+    {
+      "term": "invent",
+      "ja": "作り出す",
+      "synonym": "create",
+      "definition": "to make something new or imagined"
+    },
+    {
+      "term": "investigation",
+      "ja": "調査",
+      "synonym": "inquiry",
+      "definition": "a careful search for facts"
+    },
+    {
+      "term": "invite",
+      "ja": "招く・勧める",
+      "synonym": "ask",
+      "definition": "to ask someone to join an activity"
+    },
+    {
+      "term": "isolation",
+      "ja": "孤立",
+      "synonym": "separation",
+      "definition": "a state of having limited contact with other people"
+    },
+    {
+      "term": "joining",
+      "ja": "参加すること",
+      "synonym": "participating",
+      "definition": "becoming part of a group activity"
+    },
+    {
+      "term": "journalism",
+      "ja": "報道活動",
+      "synonym": "news reporting",
+      "definition": "gathering and presenting information to the public"
+    },
+    {
+      "term": "judge",
+      "ja": "判断する",
+      "synonym": "evaluate",
+      "definition": "to assess the value of something"
+    },
+    {
+      "term": "judgment",
+      "ja": "判断力",
+      "synonym": "evaluation",
+      "definition": "the ability to reach a reasoned conclusion"
+    },
+    {
+      "term": "kindness",
+      "ja": "親切",
+      "synonym": "consideration",
+      "definition": "friendly treatment of other people"
+    },
+    {
+      "term": "label",
+      "ja": "展示ラベル",
+      "synonym": "description card",
+      "definition": "a short explanation placed beside an object"
+    },
+    {
+      "term": "labor",
+      "ja": "労働",
+      "synonym": "work",
+      "definition": "physical or mental effort used in work"
+    },
+    {
+      "term": "laptop",
+      "ja": "ノートパソコン",
+      "synonym": "portable computer",
+      "definition": "a small computer designed for carrying"
+    },
+    {
+      "term": "latest",
+      "ja": "最新の",
+      "synonym": "most recent",
+      "definition": "newest available"
+    },
+    {
+      "term": "launched",
+      "ja": "打ち上げられた",
+      "synonym": "sent upward",
+      "definition": "sent into space from the ground"
+    },
+    {
+      "term": "lazy",
+      "ja": "怠けた",
+      "synonym": "unwilling to work",
+      "definition": "avoiding effort despite being able to work"
+    },
+    {
+      "term": "learner",
+      "ja": "学習者",
+      "synonym": "student",
+      "definition": "someone who is studying"
+    },
+    {
+      "term": "leaves",
+      "ja": "葉",
+      "synonym": "foliage",
+      "definition": "flat green parts of a plant"
+    },
+    {
+      "term": "limitation",
+      "ja": "限界",
+      "synonym": "restriction",
+      "definition": "something a method cannot do"
+    },
+    {
+      "term": "limited",
+      "ja": "限られた",
+      "synonym": "restricted",
+      "definition": "small in amount or restricted in extent"
+    },
+    {
+      "term": "Listening",
+      "ja": "耳を傾けること",
+      "synonym": "paying attention",
+      "definition": "giving attention to spoken information"
+    },
+    {
+      "term": "literacy",
+      "ja": "リテラシー",
+      "synonym": "competence",
+      "definition": "ability to use and assess information"
+    },
+    {
+      "term": "local",
+      "ja": "地域の",
+      "synonym": "nearby",
+      "definition": "relating to a particular place"
+    },
+    {
+      "term": "loneliness",
+      "ja": "孤独感",
+      "synonym": "feeling disconnected",
+      "definition": "an unwanted feeling of lacking social connection"
+    },
+    {
+      "term": "lonely",
+      "ja": "孤独な",
+      "synonym": "isolated",
+      "definition": "unhappy from lack of company"
+    },
+    {
+      "term": "long-term",
+      "ja": "長期の",
+      "synonym": "lasting",
+      "definition": "continuing for a long period"
+    },
+    {
+      "term": "manageable",
+      "ja": "対処可能な",
+      "synonym": "within one's ability",
+      "definition": "possible to handle without excessive difficulty"
+    },
+    {
+      "term": "manufacturing",
+      "ja": "製造",
+      "synonym": "production",
+      "definition": "making goods in a factory"
+    },
+    {
+      "term": "map",
+      "ja": "地図",
+      "synonym": "chart",
+      "definition": "a drawing showing features of an area"
+    },
+    {
+      "term": "mapmaker",
+      "ja": "地図作成者",
+      "synonym": "cartographer",
+      "definition": "someone who produces maps"
+    },
+    {
+      "term": "materials",
+      "ja": "材料",
+      "synonym": "substances",
+      "definition": "matter used to make products"
+    },
+    {
+      "term": "meaningfully",
+      "ja": "意味ある形で",
+      "synonym": "effectively",
+      "definition": "in a way that matters"
+    },
+    {
+      "term": "meeting",
+      "ja": "集合",
+      "synonym": "gathering",
+      "definition": "coming together at a place"
+    },
+    {
+      "term": "memories",
+      "ja": "記憶",
+      "synonym": "recollections",
+      "definition": "personal accounts of past experiences"
+    },
+    {
+      "term": "memorizing",
+      "ja": "暗記すること",
+      "synonym": "learning by heart",
+      "definition": "remembering information through repetition"
+    },
+    {
+      "term": "memory",
+      "ja": "記憶",
+      "synonym": "remembrance",
+      "definition": "the ability to store and recall information"
+    },
+    {
+      "term": "merely",
+      "ja": "単に",
+      "synonym": "only",
+      "definition": "without anything more"
+    },
+    {
+      "term": "message",
+      "ja": "メッセージ",
+      "synonym": "communication",
+      "definition": "information sent to someone"
+    },
+    {
+      "term": "Meteorological",
+      "ja": "気象の",
+      "synonym": "weather-related",
+      "definition": "connected with weather conditions"
+    },
+    {
+      "term": "methods",
+      "ja": "方法",
+      "synonym": "techniques",
+      "definition": "ways of doing a task"
+    },
+    {
+      "term": "military",
+      "ja": "軍の",
+      "synonym": "army-related",
+      "definition": "connected with armed forces"
+    },
+    {
+      "term": "missed",
+      "ja": "間違えた・逃した",
+      "synonym": "failed to answer",
+      "definition": "not answered correctly or not obtained"
+    },
+    {
+      "term": "missing",
+      "ja": "欠けている",
+      "synonym": "absent",
+      "definition": "not present where expected"
+    },
+    {
+      "term": "mistaken",
+      "ja": "誤った",
+      "synonym": "incorrect",
+      "definition": "based on an error"
+    },
+    {
+      "term": "mistakes",
+      "ja": "誤り",
+      "synonym": "errors",
+      "definition": "things done or answered incorrectly"
+    },
+    {
+      "term": "misunderstanding",
+      "ja": "誤解",
+      "synonym": "mistaken belief",
+      "definition": "an incorrect interpretation"
+    },
+    {
+      "term": "misunderstandings",
+      "ja": "誤解",
+      "synonym": "mistaken interpretations",
+      "definition": "incorrect understandings"
+    },
+    {
+      "term": "models",
+      "ja": "モデル",
+      "synonym": "representations",
+      "definition": "simplified descriptions used to study a system"
+    },
+    {
+      "term": "Moreover",
+      "ja": "さらに",
+      "synonym": "additionally",
+      "definition": "introducing another point"
+    },
+    {
+      "term": "moving",
+      "ja": "引っ越すこと",
+      "synonym": "relocating",
+      "definition": "changing one's place of residence"
+    },
+    {
+      "term": "multilingual",
+      "ja": "多言語の",
+      "synonym": "in several languages",
+      "definition": "using more than one language"
+    },
+    {
+      "term": "museum",
+      "ja": "博物館",
+      "synonym": "heritage institution",
+      "definition": "an institution that collects, studies, and exhibits heritage"
+    },
+    {
+      "term": "narrow",
+      "ja": "狭い",
+      "synonym": "thin",
+      "definition": "not wide"
+    },
+    {
+      "term": "nature",
+      "ja": "自然",
+      "synonym": "natural world",
+      "definition": "plants, animals, and the environment"
+    },
+    {
+      "term": "navigation",
+      "ja": "位置案内",
+      "synonym": "route finding",
+      "definition": "the process of finding where to go"
+    },
+    {
+      "term": "nearby",
+      "ja": "近くの",
+      "synonym": "close",
+      "definition": "not far away"
+    },
+    {
+      "term": "necessarily",
+      "ja": "必ずしも",
+      "synonym": "inevitably",
+      "definition": "in a way that must be true"
+    },
+    {
+      "term": "necessary",
+      "ja": "必要な",
+      "synonym": "required",
+      "definition": "needed for a particular purpose"
+    },
+    {
+      "term": "needs",
+      "ja": "必要",
+      "synonym": "requirements",
+      "definition": "things necessary for well-being"
+    },
+    {
+      "term": "negative",
+      "ja": "否定的な",
+      "synonym": "unfavorable",
+      "definition": "expressing a bad opinion"
+    },
+    {
+      "term": "neglect",
+      "ja": "軽視する",
+      "synonym": "ignore",
+      "definition": "to fail to give necessary attention"
+    },
+    {
+      "term": "neighbor",
+      "ja": "近所の人",
+      "synonym": "local resident",
+      "definition": "a person living nearby"
+    },
+    {
+      "term": "neighborhood",
+      "ja": "近所・地域",
+      "synonym": "community",
+      "definition": "an area where people live"
+    },
+    {
+      "term": "neighbors",
+      "ja": "近所の人たち",
+      "synonym": "nearby residents",
+      "definition": "people who live close to each other"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "newcomer",
+      "ja": "新しく来た人",
+      "synonym": "new arrival",
+      "definition": "someone recently arrived at a place"
+    },
+    {
+      "term": "newspaper",
+      "ja": "新聞",
+      "synonym": "news publication",
+      "definition": "a publication reporting events and opinions"
+    },
+    {
+      "term": "notes",
+      "ja": "ノート・メモ",
+      "synonym": "written records",
+      "definition": "short written records used to remember or study"
+    },
+    {
+      "term": "obligations",
+      "ja": "義務",
+      "synonym": "duties",
+      "definition": "things someone is responsible for doing"
+    },
+    {
+      "term": "observations",
+      "ja": "観測",
+      "synonym": "measurements",
+      "definition": "information obtained by watching carefully"
+    },
+    {
+      "term": "observing",
+      "ja": "観察すること",
+      "synonym": "watching",
+      "definition": "looking carefully to notice details"
+    },
+    {
+      "term": "official",
+      "ja": "公式の",
+      "synonym": "authorized",
+      "definition": "issued by a responsible institution"
+    },
+    {
+      "term": "officials",
+      "ja": "担当者",
+      "synonym": "authorities",
+      "definition": "people in public positions"
+    },
+    {
+      "term": "opinion",
+      "ja": "意見",
+      "synonym": "view",
+      "definition": "a personal judgment"
+    },
+    {
+      "term": "opinions",
+      "ja": "意見",
+      "synonym": "views",
+      "definition": "personal beliefs or judgments"
+    },
+    {
+      "term": "opportunities",
+      "ja": "機会",
+      "synonym": "chances",
+      "definition": "situations allowing people to do things"
+    },
+    {
+      "term": "orbital",
+      "ja": "軌道上の",
+      "synonym": "in orbit",
+      "definition": "relating to the path of an object around a planet"
+    },
+    {
+      "term": "ordinary",
+      "ja": "日常的な",
+      "synonym": "usual",
+      "definition": "common rather than special"
+    },
+    {
+      "term": "organization",
+      "ja": "組織",
+      "synonym": "institution",
+      "definition": "a group working together for a purpose"
+    },
+    {
+      "term": "organizers",
+      "ja": "主催者",
+      "synonym": "coordinators",
+      "definition": "people who arrange and manage an activity"
+    },
+    {
+      "term": "original",
+      "ja": "原文の",
+      "synonym": "initial",
+      "definition": "existing before a copy or revision"
+    },
+    {
+      "term": "outdoors",
+      "ja": "屋外で",
+      "synonym": "outside",
+      "definition": "not inside a building"
+    },
+    {
+      "term": "overlook",
+      "ja": "見落とす",
+      "synonym": "miss",
+      "definition": "to fail to notice"
+    },
+    {
+      "term": "overseas",
+      "ja": "海外の",
+      "synonym": "abroad",
+      "definition": "in or to another country"
+    },
+    {
+      "term": "oversight",
+      "ja": "監督",
+      "synonym": "supervision",
+      "definition": "human checking and control"
+    },
+    {
+      "term": "owner",
+      "ja": "所有者",
+      "synonym": "holder",
+      "definition": "a person who owns something"
+    },
+    {
+      "term": "paragraph",
+      "ja": "段落",
+      "synonym": "section",
+      "definition": "a group of related sentences"
+    },
+    {
+      "term": "participants",
+      "ja": "参加者",
+      "synonym": "people taking part",
+      "definition": "individuals who join an activity or event"
+    },
+    {
+      "term": "participate",
+      "ja": "参加する",
+      "synonym": "join",
+      "definition": "to take part in an event"
+    },
+    {
+      "term": "participation",
+      "ja": "参加",
+      "synonym": "involvement",
+      "definition": "taking part in an activity"
+    },
+    {
+      "term": "particular",
+      "ja": "特定の",
+      "synonym": "specific",
+      "definition": "clearly identified rather than general"
+    },
+    {
+      "term": "partner",
+      "ja": "相手・パートナー",
+      "synonym": "collaborator",
+      "definition": "a person with whom someone works"
+    },
+    {
+      "term": "paths",
+      "ja": "経路",
+      "synonym": "routes",
+      "definition": "courses followed by moving objects"
+    },
+    {
+      "term": "patience",
+      "ja": "忍耐",
+      "synonym": "calm endurance",
+      "definition": "the ability to remain calm during difficulty or delay"
+    },
+    {
+      "term": "patterns",
+      "ja": "傾向・パターン",
+      "synonym": "regularities",
+      "definition": "repeated ways something happens"
+    },
+    {
+      "term": "payment",
+      "ja": "報酬",
+      "synonym": "compensation",
+      "definition": "money provided for work"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "personal",
+      "ja": "個人の",
+      "synonym": "individual",
+      "definition": "belonging to one person"
+    },
+    {
+      "term": "perspective",
+      "ja": "視点",
+      "synonym": "viewpoint",
+      "definition": "a way of seeing or understanding"
+    },
+    {
+      "term": "perspectives",
+      "ja": "視点",
+      "synonym": "viewpoints",
+      "definition": "ways of understanding something"
+    },
+    {
+      "term": "photographs",
+      "ja": "写真",
+      "synonym": "pictures",
+      "definition": "images taken using a camera"
+    },
+    {
+      "term": "planners",
+      "ja": "計画担当者",
+      "synonym": "organizers",
+      "definition": "people who make plans"
+    },
+    {
+      "term": "planting",
+      "ja": "植えること",
+      "synonym": "growing",
+      "definition": "putting a plant into soil"
+    },
+    {
+      "term": "pleasant",
+      "ja": "心地よい",
+      "synonym": "nice",
+      "definition": "enjoyable or comfortable"
+    },
+    {
+      "term": "policy",
+      "ja": "方針",
+      "synonym": "rule",
+      "definition": "an official plan or set of rules"
+    },
+    {
+      "term": "port",
+      "ja": "港",
+      "synonym": "harbor",
+      "definition": "a place where ships stop"
+    },
+    {
+      "term": "position",
+      "ja": "立場",
+      "synonym": "viewpoint",
+      "definition": "a side taken in an argument"
+    },
+    {
+      "term": "practical",
+      "ja": "実際的な",
+      "synonym": "workable",
+      "definition": "suitable for real conditions"
+    },
+    {
+      "term": "practice",
+      "ja": "練習",
+      "synonym": "training",
+      "definition": "repeated activity intended to improve a skill"
+    },
+    {
+      "term": "prediction",
+      "ja": "予測",
+      "synonym": "forecast",
+      "definition": "a statement about the future"
+    },
+    {
+      "term": "prefer",
+      "ja": "好む",
+      "synonym": "favor",
+      "definition": "to like one option more"
+    },
+    {
+      "term": "preparation",
+      "ja": "準備",
+      "synonym": "readiness",
+      "definition": "actions taken before an event"
+    },
+    {
+      "term": "prepare",
+      "ja": "準備する",
+      "synonym": "get ready",
+      "definition": "to make something ready for use"
+    },
+    {
+      "term": "pressure",
+      "ja": "圧力",
+      "synonym": "force",
+      "definition": "an attempt to make someone act"
+    },
+    {
+      "term": "pretending",
+      "ja": "装うこと",
+      "synonym": "acting as if",
+      "definition": "behaving as though something is true"
+    },
+    {
+      "term": "preventing",
+      "ja": "防止すること",
+      "synonym": "stopping",
+      "definition": "keeping an unwanted event from happening"
+    },
+    {
+      "term": "principles",
+      "ja": "原則",
+      "synonym": "standards",
+      "definition": "basic rules that guide decisions"
+    },
+    {
+      "term": "printed",
+      "ja": "印刷された",
+      "synonym": "on paper",
+      "definition": "produced on physical pages"
+    },
+    {
+      "term": "privacy",
+      "ja": "プライバシー",
+      "synonym": "confidentiality",
+      "definition": "control over personal information"
+    },
+    {
+      "term": "private",
+      "ja": "私的な",
+      "synonym": "confidential",
+      "definition": "not intended to be public"
+    },
+    {
+      "term": "processors",
+      "ja": "処理装置",
+      "synonym": "chips",
+      "definition": "computer parts that process instructions"
+    },
+    {
+      "term": "produces",
+      "ja": "生み出す",
+      "synonym": "generates",
+      "definition": "creates an output"
+    },
+    {
+      "term": "producing",
+      "ja": "作り出すこと・答えを出すこと",
+      "synonym": "generating",
+      "definition": "creating or bringing something into existence"
+    },
+    {
+      "term": "professional",
+      "ja": "専門職の",
+      "synonym": "expert",
+      "definition": "working with specialized skills"
+    },
+    {
+      "term": "proposed",
+      "ja": "提案された",
+      "synonym": "suggested",
+      "definition": "put forward for consideration"
+    },
+    {
+      "term": "protect",
+      "ja": "守る",
+      "synonym": "keep safe",
+      "definition": "prevent harm to something"
+    },
+    {
+      "term": "psychologists",
+      "ja": "心理学者",
+      "synonym": "behavior researchers",
+      "definition": "people who study the mind"
+    },
+    {
+      "term": "public",
+      "ja": "公衆の",
+      "synonym": "community",
+      "definition": "connected with people generally"
+    },
+    {
+      "term": "publicity",
+      "ja": "広報",
+      "synonym": "promotion",
+      "definition": "communication intended to attract attention"
+    },
+    {
+      "term": "publishing",
+      "ja": "公表すること",
+      "synonym": "making public",
+      "definition": "making written information available to others"
+    },
+    {
+      "term": "purpose",
+      "ja": "目的",
+      "synonym": "aim",
+      "definition": "the reason for doing something"
+    },
+    {
+      "term": "quality",
+      "ja": "質",
+      "synonym": "standard",
+      "definition": "how good or meaningful something is"
+    },
+    {
+      "term": "question",
+      "ja": "疑問を持つ・問い直す",
+      "synonym": "challenge",
+      "definition": "to examine whether an assumption is correct"
+    },
+    {
+      "term": "railway",
+      "ja": "鉄道",
+      "synonym": "railroad",
+      "definition": "a transport system using trains"
+    },
+    {
+      "term": "raw",
+      "ja": "未加工の",
+      "synonym": "unprocessed",
+      "definition": "in a natural state before processing"
+    },
+    {
+      "term": "reaction",
+      "ja": "反応",
+      "synonym": "response",
+      "definition": "an action caused by an event"
+    },
+    {
+      "term": "reason",
+      "ja": "理由",
+      "synonym": "cause",
+      "definition": "an explanation for why something happens"
+    },
+    {
+      "term": "reasonably",
+      "ja": "もっともなことに",
+      "synonym": "sensibly",
+      "definition": "in a way that makes sense"
+    },
+    {
+      "term": "reasoning",
+      "ja": "論理的な考え方",
+      "synonym": "logical thinking",
+      "definition": "the process of using evidence to reach a conclusion"
+    },
+    {
+      "term": "recall",
+      "ja": "思い出すこと",
+      "synonym": "remembering",
+      "definition": "bringing information back from memory"
+    },
+    {
+      "term": "recalled",
+      "ja": "思い出された",
+      "synonym": "remembered",
+      "definition": "brought back into memory"
+    },
+    {
+      "term": "recognize",
+      "ja": "認識する",
+      "synonym": "identify",
+      "definition": "to notice and understand"
+    },
+    {
+      "term": "recognizes",
+      "ja": "認める",
+      "synonym": "acknowledges",
+      "definition": "accepts the importance or existence of something"
+    },
+    {
+      "term": "recognizing",
+      "ja": "認識すること",
+      "synonym": "noticing",
+      "definition": "realizing something is true"
+    },
+    {
+      "term": "recommend",
+      "ja": "勧める",
+      "synonym": "suggest",
+      "definition": "to propose a suitable action"
+    },
+    {
+      "term": "record",
+      "ja": "記録する",
+      "synonym": "note",
+      "definition": "to write information down for later use"
+    },
+    {
+      "term": "recordings",
+      "ja": "録音",
+      "synonym": "audio records",
+      "definition": "sounds preserved for later listening"
+    },
+    {
+      "term": "records",
+      "ja": "記録",
+      "synonym": "documents",
+      "definition": "written accounts kept for later use"
+    },
+    {
+      "term": "recycling",
+      "ja": "再資源化",
+      "synonym": "reprocessing",
+      "definition": "turning waste into usable materials"
+    },
+    {
+      "term": "reduce",
+      "ja": "減らす",
+      "synonym": "decrease",
+      "definition": "to make something smaller in amount"
+    },
+    {
+      "term": "reduction",
+      "ja": "削減",
+      "synonym": "decrease",
+      "definition": "making a danger or amount smaller"
+    },
+    {
+      "term": "reflecting",
+      "ja": "考察すること",
+      "synonym": "thinking carefully",
+      "definition": "considering meaning rather than merely seeing"
+    },
+    {
+      "term": "refurbished",
+      "ja": "整備再生された",
+      "synonym": "restored",
+      "definition": "repaired and prepared for reuse"
+    },
+    {
+      "term": "refurbishment",
+      "ja": "整備再生",
+      "synonym": "restoration",
+      "definition": "repairing products for further use"
+    },
+    {
+      "term": "region",
+      "ja": "領域",
+      "synonym": "area",
+      "definition": "a particular part of space or a place"
+    },
+    {
+      "term": "relationships",
+      "ja": "人間関係",
+      "synonym": "connections",
+      "definition": "links between people"
+    },
+    {
+      "term": "relevant",
+      "ja": "関係する",
+      "synonym": "related",
+      "definition": "connected to the situation"
+    },
+    {
+      "term": "reliability",
+      "ja": "信頼性",
+      "synonym": "dependability",
+      "definition": "the quality of being trustworthy"
+    },
+    {
+      "term": "reliable",
+      "ja": "安定した",
+      "synonym": "dependable",
+      "definition": "working consistently"
+    },
+    {
+      "term": "repairing",
+      "ja": "修理すること",
+      "synonym": "fixing",
+      "definition": "restoring something that is broken"
+    },
+    {
+      "term": "repeated",
+      "ja": "繰り返された",
+      "synonym": "recurring",
+      "definition": "done more than once"
+    },
+    {
+      "term": "repeatedly",
+      "ja": "繰り返し",
+      "synonym": "again and again",
+      "definition": "happening many times"
+    },
+    {
+      "term": "replacement",
+      "ja": "買い替え品",
+      "synonym": "substitute",
+      "definition": "an item that takes the place of another"
+    },
+    {
+      "term": "reply",
+      "ja": "返信する",
+      "synonym": "respond",
+      "definition": "to answer a message"
+    },
+    {
+      "term": "reporter",
+      "ja": "記者",
+      "synonym": "journalist",
+      "definition": "a person who collects and reports news"
+    },
+    {
+      "term": "represent",
+      "ja": "表す",
+      "synonym": "portray",
+      "definition": "to show people or things in a particular way"
+    },
+    {
+      "term": "represents",
+      "ja": "代表する",
+      "synonym": "stands for",
+      "definition": "speaks or acts on behalf of others"
+    },
+    {
+      "term": "requirements",
+      "ja": "要件",
+      "synonym": "rules",
+      "definition": "conditions that must be satisfied"
+    },
+    {
+      "term": "researchers",
+      "ja": "研究者",
+      "synonym": "investigators",
+      "definition": "people who study questions systematically"
+    },
+    {
+      "term": "resident",
+      "ja": "住民",
+      "synonym": "inhabitant",
+      "definition": "a person who lives in a particular place"
+    },
+    {
+      "term": "residents",
+      "ja": "住民",
+      "synonym": "locals",
+      "definition": "people who live in a place"
+    },
+    {
+      "term": "resources",
+      "ja": "資料",
+      "synonym": "materials",
+      "definition": "things useful for a task"
+    },
+    {
+      "term": "respect",
+      "ja": "敬意・尊重",
+      "synonym": "consideration",
+      "definition": "careful treatment of another person's feelings or rights"
+    },
+    {
+      "term": "responses",
+      "ja": "回答",
+      "synonym": "replies",
+      "definition": "answers to a prompt"
+    },
+    {
+      "term": "responsibility",
+      "ja": "責任",
+      "synonym": "duty",
+      "definition": "something a person should do"
+    },
+    {
+      "term": "responsible",
+      "ja": "責任を持つ",
+      "synonym": "accountable",
+      "definition": "expected to answer for decisions"
+    },
+    {
+      "term": "responsibly",
+      "ja": "責任を持って",
+      "synonym": "with care",
+      "definition": "in a way that accepts duty for effects"
+    },
+    {
+      "term": "rest",
+      "ja": "休む",
+      "synonym": "relax",
+      "definition": "to stop working for a while"
+    },
+    {
+      "term": "retired",
+      "ja": "退職した",
+      "synonym": "no longer employed",
+      "definition": "having stopped working, often after a long career"
+    },
+    {
+      "term": "retrieval",
+      "ja": "記憶からの取り出し・想起",
+      "synonym": "recalling",
+      "definition": "the process of bringing stored information back to mind"
+    },
+    {
+      "term": "retrieval practice",
+      "ja": "検索練習・想起練習",
+      "synonym": "active recall",
+      "definition": "the act of trying to bring previously learned information to mind"
+    },
+    {
+      "term": "reusing",
+      "ja": "再利用すること",
+      "synonym": "using again",
+      "definition": "using an item for another period"
+    },
+    {
+      "term": "reveal",
+      "ja": "明らかにする",
+      "synonym": "show",
+      "definition": "to make something known"
+    },
+    {
+      "term": "reveals",
+      "ja": "明らかにする",
+      "synonym": "shows",
+      "definition": "makes something noticeable"
+    },
+    {
+      "term": "reviews",
+      "ja": "総説・レビュー",
+      "synonym": "surveys",
+      "definition": "studies that examine and summarize previous research"
+    },
+    {
+      "term": "revise",
+      "ja": "修正する",
+      "synonym": "reconsider",
+      "definition": "to change after reviewing"
+    },
+    {
+      "term": "revision",
+      "ja": "修正",
+      "synonym": "change",
+      "definition": "a modification made after review"
+    },
+    {
+      "term": "reward",
+      "ja": "報いる",
+      "synonym": "encourage",
+      "definition": "to encourage a behavior through a positive result"
+    },
+    {
+      "term": "risks",
+      "ja": "危険",
+      "synonym": "dangers",
+      "definition": "possibilities of harm"
+    },
+    {
+      "term": "rivers",
+      "ja": "川",
+      "synonym": "waterways",
+      "definition": "natural streams of flowing water"
+    },
+    {
+      "term": "roads",
+      "ja": "道路",
+      "synonym": "streets",
+      "definition": "routes for people and vehicles"
+    },
+    {
+      "term": "roots",
+      "ja": "根",
+      "synonym": "underground parts",
+      "definition": "parts of plants below ground"
+    },
+    {
+      "term": "routine",
+      "ja": "習慣的な手順",
+      "synonym": "regular habit",
+      "definition": "a series of actions performed regularly"
+    },
+    {
+      "term": "satellites",
+      "ja": "人工衛星",
+      "synonym": "spacecraft",
+      "definition": "machines that travel around Earth or another object"
+    },
+    {
+      "term": "schedule",
+      "ja": "予定",
+      "synonym": "timetable",
+      "definition": "a plan showing when activities happen"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "scientific",
+      "ja": "科学的な",
+      "synonym": "research-based",
+      "definition": "related to systematic investigation"
+    },
+    {
+      "term": "seasons",
+      "ja": "季節",
+      "synonym": "times of year",
+      "definition": "parts of the year with different weather"
+    },
+    {
+      "term": "securely",
+      "ja": "安全に",
+      "synonym": "safely",
+      "definition": "in a way that prevents unwanted access"
+    },
+    {
+      "term": "security",
+      "ja": "安全対策",
+      "synonym": "protection",
+      "definition": "measures that protect against harm"
+    },
+    {
+      "term": "services",
+      "ja": "公共サービス",
+      "synonym": "facilities",
+      "definition": "things provided to meet needs"
+    },
+    {
+      "term": "severe",
+      "ja": "激しい",
+      "synonym": "intense",
+      "definition": "strong and potentially harmful"
+    },
+    {
+      "term": "shade",
+      "ja": "日陰",
+      "synonym": "shadow",
+      "definition": "a cool area away from direct sunlight"
+    },
+    {
+      "term": "shape",
+      "ja": "形作る",
+      "synonym": "influence",
+      "definition": "to influence how something develops"
+    },
+    {
+      "term": "share",
+      "ja": "共有する",
+      "synonym": "communicate",
+      "definition": "to let others know or use something"
+    },
+    {
+      "term": "shared",
+      "ja": "共有された",
+      "synonym": "common",
+      "definition": "used or affected by several groups"
+    },
+    {
+      "term": "sharing",
+      "ja": "共有すること",
+      "synonym": "forwarding",
+      "definition": "passing information to others"
+    },
+    {
+      "term": "shelter",
+      "ja": "避難所",
+      "synonym": "refuge",
+      "definition": "a place offering protection"
+    },
+    {
+      "term": "similar",
+      "ja": "似ている",
+      "synonym": "alike",
+      "definition": "having many features in common"
+    },
+    {
+      "term": "simplify",
+      "ja": "簡単にする",
+      "synonym": "make clearer",
+      "definition": "reduce unnecessary complexity"
+    },
+    {
+      "term": "social",
+      "ja": "社会的な",
+      "synonym": "relational",
+      "definition": "connected with people and their interactions"
+    },
+    {
+      "term": "social connection",
+      "ja": "社会的なつながり",
+      "synonym": "social bond",
+      "definition": "a relationship or interaction that links people"
+    },
+    {
+      "term": "software",
+      "ja": "ソフトウェア",
+      "synonym": "programs",
+      "definition": "computer instructions and applications"
+    },
+    {
+      "term": "soil",
+      "ja": "土壌",
+      "synonym": "earth",
+      "definition": "the ground where plants grow"
+    },
+    {
+      "term": "source",
+      "ja": "情報源",
+      "synonym": "origin",
+      "definition": "where information comes from"
+    },
+    {
+      "term": "space",
+      "ja": "空間",
+      "synonym": "room",
+      "definition": "an area available for use"
+    },
+    {
+      "term": "spacecraft",
+      "ja": "宇宙船",
+      "synonym": "space vehicle",
+      "definition": "a vehicle designed to travel in space"
+    },
+    {
+      "term": "spaced",
+      "ja": "時間をあけて分散した",
+      "synonym": "spread out",
+      "definition": "arranged with time intervals between events"
+    },
+    {
+      "term": "spaced practice",
+      "ja": "分散学習",
+      "synonym": "distributed study",
+      "definition": "learning spread across multiple sessions over time"
+    },
+    {
+      "term": "specialists",
+      "ja": "専門家",
+      "synonym": "experts",
+      "definition": "people with deep skills or knowledge"
+    },
+    {
+      "term": "specific",
+      "ja": "具体的な",
+      "synonym": "particular",
+      "definition": "clearly identified"
+    },
+    {
+      "term": "sports",
+      "ja": "スポーツ",
+      "synonym": "athletics",
+      "definition": "physical games and activities"
+    },
+    {
+      "term": "statement",
+      "ja": "主張・発言",
+      "synonym": "claim",
+      "definition": "a spoken or written assertion"
+    },
+    {
+      "term": "stereotypes",
+      "ja": "固定観念",
+      "synonym": "oversimplified beliefs",
+      "definition": "fixed ideas about whole groups"
+    },
+    {
+      "term": "storm",
+      "ja": "嵐",
+      "synonym": "violent weather",
+      "definition": "a period of dangerous wind and rain"
+    },
+    {
+      "term": "storms",
+      "ja": "嵐",
+      "synonym": "bad weather",
+      "definition": "periods of very bad weather"
+    },
+    {
+      "term": "strategy",
+      "ja": "方略・方法",
+      "synonym": "method",
+      "definition": "a planned way to reach a goal"
+    },
+    {
+      "term": "street",
+      "ja": "通り",
+      "synonym": "road",
+      "definition": "a road with buildings along it"
+    },
+    {
+      "term": "strengthen",
+      "ja": "強める",
+      "synonym": "reinforce",
+      "definition": "to make something stronger"
+    },
+    {
+      "term": "struggle",
+      "ja": "苦労する",
+      "synonym": "have difficulty",
+      "definition": "to find something difficult to do"
+    },
+    {
+      "term": "struggling",
+      "ja": "苦労している",
+      "synonym": "having difficulty",
+      "definition": "finding something hard to do"
+    },
+    {
+      "term": "student",
+      "ja": "生徒",
+      "synonym": "learner",
+      "definition": "a person learning at school"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "study",
+      "ja": "調べる・学習する",
+      "synonym": "examine",
+      "definition": "to learn or investigate something carefully"
+    },
+    {
+      "term": "suitable",
+      "ja": "適切な",
+      "synonym": "appropriate",
+      "definition": "right for the situation"
+    },
+    {
+      "term": "summary",
+      "ja": "要約",
+      "synonym": "outline",
+      "definition": "a shorter account of the main points"
+    },
+    {
+      "term": "summer",
+      "ja": "夏",
+      "synonym": "warm season",
+      "definition": "the warmest season of the year"
+    },
+    {
+      "term": "support",
+      "ja": "支え・支援",
+      "synonym": "help",
+      "definition": "help that keeps an activity going"
+    },
+    {
+      "term": "supported",
+      "ja": "支えられている",
+      "synonym": "helped",
+      "definition": "given practical or emotional help"
+    },
+    {
+      "term": "surprising",
+      "ja": "驚くべき",
+      "synonym": "unexpected",
+      "definition": "not expected"
+    },
+    {
+      "term": "survive",
+      "ja": "生き延びる",
+      "synonym": "live",
+      "definition": "to stay alive in difficulty"
+    },
+    {
+      "term": "target",
+      "ja": "対象",
+      "synonym": "objective",
+      "definition": "the object that someone aims to reach"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who helps others learn"
+    },
+    {
+      "term": "Teachers",
+      "ja": "教師たち",
+      "synonym": "educators",
+      "definition": "people who teach"
+    },
+    {
+      "term": "technical",
+      "ja": "専門的な",
+      "synonym": "specialized",
+      "definition": "using knowledge from a subject"
+    },
+    {
+      "term": "technically",
+      "ja": "技術的に",
+      "synonym": "in engineering terms",
+      "definition": "in a way related to practical technology"
+    },
+    {
+      "term": "technician",
+      "ja": "技術者",
+      "synonym": "specialist",
+      "definition": "a person skilled in technical work"
+    },
+    {
+      "term": "teenager",
+      "ja": "10代の若者",
+      "synonym": "adolescent",
+      "definition": "someone between thirteen and nineteen years of age"
+    },
+    {
+      "term": "temperature",
+      "ja": "気温",
+      "synonym": "heat level",
+      "definition": "a measure of warmth"
+    },
+    {
+      "term": "therefore",
+      "ja": "したがって",
+      "synonym": "consequently",
+      "definition": "used to introduce a logical result"
+    },
+    {
+      "term": "thoughtful",
+      "ja": "思慮深い",
+      "synonym": "considerate",
+      "definition": "showing care and attention"
+    },
+    {
+      "term": "thoughtfully",
+      "ja": "丁寧に",
+      "synonym": "carefully",
+      "definition": "with considerate attention"
+    },
+    {
+      "term": "threat",
+      "ja": "脅威",
+      "synonym": "danger",
+      "definition": "something that may cause harm"
+    },
+    {
+      "term": "threaten",
+      "ja": "脅かす",
+      "synonym": "endanger",
+      "definition": "to create a danger to someone or something"
+    },
+    {
+      "term": "timely",
+      "ja": "適時の",
+      "synonym": "well-timed",
+      "definition": "happening at a useful moment"
+    },
+    {
+      "term": "trade",
+      "ja": "貿易",
+      "synonym": "commerce",
+      "definition": "the buying and selling of goods"
+    },
+    {
+      "term": "traditional",
+      "ja": "伝統的な",
+      "synonym": "customary",
+      "definition": "handed down through generations"
+    },
+    {
+      "term": "traditions",
+      "ja": "伝統",
+      "synonym": "customs",
+      "definition": "beliefs or practices passed down"
+    },
+    {
+      "term": "transferred",
+      "ja": "引き渡された",
+      "synonym": "passed on",
+      "definition": "moved from one owner to another"
+    },
+    {
+      "term": "translating",
+      "ja": "翻訳すること",
+      "synonym": "rendering",
+      "definition": "expressing words in another language"
+    },
+    {
+      "term": "translation",
+      "ja": "翻訳",
+      "synonym": "rendering in another language",
+      "definition": "expressing meaning in a different language"
+    },
+    {
+      "term": "transparency",
+      "ja": "透明性",
+      "synonym": "openness",
+      "definition": "ability to understand how decisions are made"
+    },
+    {
+      "term": "travel",
+      "ja": "移動",
+      "synonym": "journey",
+      "definition": "going between places"
+    },
+    {
+      "term": "traveled",
+      "ja": "旅した・移動した",
+      "synonym": "journeyed",
+      "definition": "moved from one place to another"
+    },
+    {
+      "term": "travelers",
+      "ja": "旅行者",
+      "synonym": "visitors",
+      "definition": "people making journeys"
+    },
+    {
+      "term": "trees",
+      "ja": "木々",
+      "synonym": "woody plants",
+      "definition": "large plants with trunks and branches"
+    },
+    {
+      "term": "trust",
+      "ja": "信頼",
+      "synonym": "confidence",
+      "definition": "belief in someone's reliability"
+    },
+    {
+      "term": "trusted",
+      "ja": "信頼できる",
+      "synonym": "reliable",
+      "definition": "considered dependable"
+    },
+    {
+      "term": "tsunamis",
+      "ja": "津波",
+      "synonym": "sea waves",
+      "definition": "large waves caused by underwater disturbances"
+    },
+    {
+      "term": "tutor",
+      "ja": "学習支援者",
+      "synonym": "coach",
+      "definition": "a person or tool offering individual instruction"
+    },
+    {
+      "term": "Ultimately",
+      "ja": "結局",
+      "synonym": "in the end",
+      "definition": "used to introduce a final conclusion"
+    },
+    {
+      "term": "unanswered",
+      "ja": "未回答の",
+      "synonym": "unresolved",
+      "definition": "not given a final answer"
+    },
+    {
+      "term": "unavailable",
+      "ja": "入手できない",
+      "synonym": "inaccessible",
+      "definition": "not possible to obtain"
+    },
+    {
+      "term": "uncertain",
+      "ja": "不確かな",
+      "synonym": "not established",
+      "definition": "not known with confidence"
+    },
+    {
+      "term": "uncomfortable",
+      "ja": "不快な",
+      "synonym": "uneasy",
+      "definition": "not physically pleasant"
+    },
+    {
+      "term": "unconfirmed",
+      "ja": "未確認の",
+      "synonym": "unverified",
+      "definition": "not yet established as true"
+    },
+    {
+      "term": "understanding",
+      "ja": "理解",
+      "synonym": "comprehension",
+      "definition": "the ability to know what something means"
+    },
+    {
+      "term": "unfamiliar",
+      "ja": "なじみのない",
+      "synonym": "unknown",
+      "definition": "not recognized or understood"
+    },
+    {
+      "term": "unintentionally",
+      "ja": "意図せず",
+      "synonym": "accidentally",
+      "definition": "without intending the result"
+    },
+    {
+      "term": "uninterested",
+      "ja": "関心がない",
+      "synonym": "indifferent",
+      "definition": "not interested in something"
+    },
+    {
+      "term": "universal",
+      "ja": "普遍的な",
+      "synonym": "general",
+      "definition": "applying to all places or people"
+    },
+    {
+      "term": "unofficial",
+      "ja": "非公式の",
+      "synonym": "unauthorized",
+      "definition": "not issued by an institution"
+    },
+    {
+      "term": "unrealistic",
+      "ja": "現実的でない",
+      "synonym": "impractical",
+      "definition": "not reasonable in actual conditions"
+    },
+    {
+      "term": "unstable",
+      "ja": "不安定な",
+      "synonym": "unreliable",
+      "definition": "likely to stop working"
+    },
+    {
+      "term": "unverified",
+      "ja": "未確認の",
+      "synonym": "unchecked",
+      "definition": "not supported by reliable checking"
+    },
+    {
+      "term": "updates",
+      "ja": "更新",
+      "synonym": "revisions",
+      "definition": "new improvements to software"
+    },
+    {
+      "term": "urgent",
+      "ja": "緊急の",
+      "synonym": "pressing",
+      "definition": "requiring quick attention"
+    },
+    {
+      "term": "usually",
+      "ja": "普段",
+      "synonym": "normally",
+      "definition": "in most situations"
+    },
+    {
+      "term": "vague",
+      "ja": "曖昧な",
+      "synonym": "unclear",
+      "definition": "not expressed precisely"
+    },
+    {
+      "term": "valuable",
+      "ja": "価値のある",
+      "synonym": "worthwhile",
+      "definition": "important or useful enough to be appreciated"
+    },
+    {
+      "term": "value",
+      "ja": "価値",
+      "synonym": "worth",
+      "definition": "usefulness or importance"
+    },
+    {
+      "term": "vegetarian",
+      "ja": "菜食の",
+      "synonym": "meat-free",
+      "definition": "not containing meat or fish"
+    },
+    {
+      "term": "verification",
+      "ja": "検証",
+      "synonym": "checking",
+      "definition": "examining whether a claim is accurate"
+    },
+    {
+      "term": "viewpoint",
+      "ja": "立場・視点",
+      "synonym": "perspective",
+      "definition": "a way of thinking about a situation"
+    },
+    {
+      "term": "visitor",
+      "ja": "来館者",
+      "synonym": "guest",
+      "definition": "a person who comes to see a place"
+    },
+    {
+      "term": "visitors",
+      "ja": "訪問者",
+      "synonym": "guests",
+      "definition": "people coming to a place"
+    },
+    {
+      "term": "visual",
+      "ja": "視覚の",
+      "synonym": "sight-related",
+      "definition": "connected with seeing"
+    },
+    {
+      "term": "vocabulary",
+      "ja": "語彙",
+      "synonym": "words",
+      "definition": "the words used or known in a language"
+    },
+    {
+      "term": "volunteers",
+      "ja": "ボランティア",
+      "synonym": "helpers",
+      "definition": "people who offer help without pay"
+    },
+    {
+      "term": "warehouses",
+      "ja": "倉庫",
+      "synonym": "storehouses",
+      "definition": "large buildings for keeping goods"
+    },
+    {
+      "term": "warn",
+      "ja": "警告する",
+      "synonym": "alert",
+      "definition": "to tell someone about possible danger"
+    },
+    {
+      "term": "warning",
+      "ja": "警報",
+      "synonym": "alert",
+      "definition": "a message about a potential danger"
+    },
+    {
+      "term": "water",
+      "ja": "水をやる",
+      "synonym": "irrigate",
+      "definition": "to give water to a plant"
+    },
+    {
+      "term": "weather",
+      "ja": "天候",
+      "synonym": "conditions",
+      "definition": "the state of the atmosphere"
+    },
+    {
+      "term": "whereas",
+      "ja": "一方で",
+      "synonym": "while",
+      "definition": "introducing a contrast"
+    },
+    {
+      "term": "workers",
+      "ja": "労働者",
+      "synonym": "employees",
+      "definition": "people who perform work"
+    },
+    {
+      "term": "writing",
+      "ja": "作文・文章を書くこと",
+      "synonym": "composition",
+      "definition": "the activity of creating text"
+    }
+  ]
+}

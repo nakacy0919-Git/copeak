@@ -155,7 +155,8 @@
         <h3 id="gradingModeHeading">採点方法を選ぶ</h3>
         <p>どちらの方法で解答しますか？</p>
       </div>
-      <div class="grading-mode-grid" role="group" aria-label="採点方法">
+      <div class="reading-count-row" id="readingQuestionCountRow" hidden><label for="readingQuestionCount">挑戦する読解問題数</label><select id="readingQuestionCount" aria-label="今回の読解問題数を選択"></select><small>問題バンクから選べます。残りの問題は保存されます。</small></div>
+       <div class="grading-mode-grid" role="group" aria-label="採点方法">
         <button type="button" class="grading-mode-card" data-grading-mode="immediate" aria-pressed="false">
           <span class="grading-mode-icon grading-mode-icon-immediate" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12.5l3 3 5.5-6"/><circle cx="12" cy="12" r="9"/></svg></span>
           <strong>1問ずつ採点</strong>
@@ -180,7 +181,7 @@
       <button type="button" id="resetAnswers">この読解をやり直す</button>
     </div>
   </section>
-  <section class="work-panel" data-panel="vocab" hidden><div class="vocab-quiz-controls"><label for="vocabQuizMode">出題方向</label><select id="vocabQuizMode"><option value="en-ja">英語 → 日本語</option><option value="ja-en">日本語 → 英語</option><option value="definition">英英定義 → 英単語</option></select><button type="button" id="vocabRestart">最初から</button><button type="button" id="vocabListToggle" aria-controls="vocabListPanel" aria-expanded="false">語彙一覧を見る</button></div><div id="vocabQuiz" class="practice-quiz"></div><section id="vocabListPanel" class="vocab-list-panel" hidden><h3>重要語彙一覧</h3><div id="vocabList" class="vocab-list"></div></section></section>
+  <section class="work-panel" data-panel="vocab" hidden><div class="vocab-quiz-controls"><label for="vocabQuizMode">出題方向</label><select id="vocabQuizMode"><option value="en-ja">英語 → 日本語</option><option value="ja-en">日本語 → 英語</option><option value="definition">英英定義 → 英単語</option><option value="context">本文の文脈から語句の意味を選ぶ</option></select><button type="button" id="vocabRestart">最初から</button><button type="button" id="vocabListToggle" aria-controls="vocabListPanel" aria-expanded="false">語彙一覧を見る</button></div><div id="vocabQuiz" class="practice-quiz"></div><section id="vocabListPanel" class="vocab-list-panel" hidden><h3>重要語彙一覧</h3><div id="vocabList" class="vocab-list"></div></section></section>
   <section class="work-panel" data-panel="grammar" hidden><div id="grammarNotes" class="practice-quiz"></div></section>
   <section class="work-panel" data-panel="discourse" hidden><div id="discourseNotes" class="practice-quiz"></div></section>
   <section class="work-panel" data-panel="paraphrase" hidden><div id="paraphraseNotes" class="practice-quiz"></div></section>

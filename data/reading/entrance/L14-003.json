@@ -1,0 +1,544 @@
+{
+  "id": "L14-003",
+  "category_id": "L14",
+  "title": "A Letter from Yui",
+  "title_ja": "ユイからのメール",
+  "level_id": "eiken-3",
+  "format": "email",
+  "status": "draft",
+  "original": true,
+  "word_count": 188,
+  "source_links": [
+    {
+      "title": "EIKEN Grade 3 question types and level",
+      "url": "https://www.eiken.or.jp/eiken/exam/grade_3/solutions.html"
+    }
+  ],
+  "fact_notes": [
+    "本文はすべて架空のオリジナル。公式英検3級の試験形式のみを参考にし、過去問は引用していない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Dear Ken, how are things at your new school?",
+          "ja": "ケンへ、新しい学校での生活はどうですか。"
+        },
+        {
+          "en": "I joined a cooking club last month and want to tell you about it.",
+          "ja": "私は先月料理部に入り、そのことを伝えたいです。"
+        },
+        {
+          "en": "We meet every Wednesday after school.",
+          "ja": "私たちは毎週水曜日の放課後に集まります。"
+        },
+        {
+          "en": "Last week we made vegetable soup for our families.",
+          "ja": "先週は家族のために野菜スープを作りました。"
+        },
+        {
+          "en": "However, we changed our plan because one member could not eat carrots.",
+          "ja": "ただし、一人の部員がニンジンを食べられなかったので計画を変えました。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Our teacher told us to ask everyone about food before cooking.",
+          "ja": "先生は料理前に食べ物について全員に尋ねるよう言いました。"
+        },
+        {
+          "en": "For example, some students cannot eat certain foods, and others do not like them.",
+          "ja": "例えば、特定の食べ物を食べられない人もいれば、好きではない人もいます。"
+        },
+        {
+          "en": "We decided to make two different kinds of soup.",
+          "ja": "私たちは異なる二種類のスープを作ることにしました。"
+        },
+        {
+          "en": "Everyone helped by cutting vegetables or washing dishes.",
+          "ja": "全員が野菜を切ったり皿を洗ったりして手伝いました。"
+        },
+        {
+          "en": "The room was busy, but we enjoyed working together.",
+          "ja": "部屋は忙しかったですが、一緒に作業するのを楽しみました。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Next month our club will visit the town market.",
+          "ja": "来月、料理部は町の市場を訪れます。"
+        },
+        {
+          "en": "We want to learn where the vegetables come from.",
+          "ja": "野菜がどこから来るのかを学びたいのです。"
+        },
+        {
+          "en": "Instead of buying everything at a large store, we will talk with local farmers.",
+          "ja": "大型店ですべてを買う代わりに、地元の農家の人たちと話します。"
+        },
+        {
+          "en": "Our teacher says that asking good questions is important.",
+          "ja": "先生はよい質問をすることが大切だと言います。"
+        },
+        {
+          "en": "I think this trip will be very interesting.",
+          "ja": "私はこの訪問がとても興味深いものになると思います。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "I remember you liked cooking with your grandmother.",
+          "ja": "あなたがおばあさんと料理をするのが好きだったことを覚えています。"
+        },
+        {
+          "en": "Do you have a cooking club at your new school?",
+          "ja": "新しい学校には料理部がありますか。"
+        },
+        {
+          "en": "Therefore, I want to hear about your activities after school.",
+          "ja": "だから、放課後に何をしているのか聞きたいです。"
+        },
+        {
+          "en": "Please write back when you have time.",
+          "ja": "時間があるときに返事を書いてください。"
+        },
+        {
+          "en": "Your friend, Yui.",
+          "ja": "友達のユイより。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "When did Yui join the club?",
+      "options": [
+        "Last month.",
+        "Yesterday.",
+        "Last year.",
+        "Last week."
+      ],
+      "answer": 0,
+      "explanation_ja": "第1段落「私は先月料理部に入り、そのことを伝えたいです。」に書かれています。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "When does the club meet?",
+      "options": [
+        "Every Monday.",
+        "Every Friday.",
+        "Every Sunday.",
+        "Every Wednesday."
+      ],
+      "answer": 3,
+      "explanation_ja": "第1段落「私たちは毎週水曜日の放課後に集まります。」に書かれています。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What food did the club make?",
+      "options": [
+        "Fish sandwiches.",
+        "Rice balls.",
+        "Vegetable soup.",
+        "Fruit cake."
+      ],
+      "answer": 2,
+      "explanation_ja": "第1段落「先週は家族のために野菜スープを作りました。」に書かれています。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "Why did the plan change?",
+      "options": [
+        "Yui lost her book.",
+        "A member could not eat carrots.",
+        "The kitchen closed.",
+        "The teacher was sick."
+      ],
+      "answer": 1,
+      "explanation_ja": "第1段落「ただし、一人の部員がニンジンを食べられなかったので計画を変えました。」に書かれています。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "How many kinds of soup did they make?",
+      "options": [
+        "Two.",
+        "One.",
+        "Three.",
+        "Four."
+      ],
+      "answer": 0,
+      "explanation_ja": "第2段落「私たちは異なる二種類のスープを作ることにしました。」に書かれています。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "How did everyone help?",
+      "options": [
+        "By buying books.",
+        "By making a poster.",
+        "By sending emails.",
+        "By cutting vegetables or washing dishes."
+      ],
+      "answer": 3,
+      "explanation_ja": "第2段落「全員が野菜を切ったり皿を洗ったりして手伝いました。」に書かれています。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "Where will the club go next month?",
+      "options": [
+        "To a library.",
+        "To Ken's school.",
+        "To the town market.",
+        "To a park."
+      ],
+      "answer": 2,
+      "explanation_ja": "第3段落「来月、料理部は町の市場を訪れます。」に書かれています。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "Who will they speak with?",
+      "options": [
+        "Music teachers.",
+        "Local farmers.",
+        "Train drivers.",
+        "New students."
+      ],
+      "answer": 1,
+      "explanation_ja": "第3段落「大型店ですべてを買う代わりに、地元の農家の人たちと話します。」に書かれています。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "detail",
+      "prompt": "Who did Ken enjoy cooking with?",
+      "options": [
+        "His grandmother.",
+        "His uncle.",
+        "His teacher.",
+        "His neighbor."
+      ],
+      "answer": 0,
+      "explanation_ja": "第4段落「あなたがおばあさんと料理をするのが好きだったことを覚えています。」に書かれています。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "detail",
+      "prompt": "What does Yui ask Ken to do?",
+      "options": [
+        "Visit her today.",
+        "Buy carrots.",
+        "Join the club now.",
+        "Write back."
+      ],
+      "answer": 3,
+      "explanation_ja": "第4段落「時間があるときに返事を書いてください。」に書かれています。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "certain",
+      "ja": "特定の",
+      "synonym": "particular",
+      "definition": "some but not all"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "families",
+      "ja": "家族",
+      "synonym": "households",
+      "definition": "groups living together as relatives"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "important",
+      "ja": "重要な",
+      "synonym": "significant",
+      "definition": "having a great effect or value"
+    },
+    {
+      "term": "local",
+      "ja": "地域の",
+      "synonym": "nearby",
+      "definition": "relating to a particular place"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who helps others learn"
+    },
+    {
+      "term": "therefore",
+      "ja": "したがって",
+      "synonym": "consequently",
+      "definition": "used to introduce a logical result"
+    },
+    {
+      "term": "joined",
+      "ja": "入った",
+      "synonym": "became a member",
+      "definition": "started to belong to a group"
+    },
+    {
+      "term": "club",
+      "ja": "部活動",
+      "synonym": "group",
+      "definition": "students meeting for an activity"
+    },
+    {
+      "term": "Wednesday",
+      "ja": "水曜日",
+      "synonym": "weekday",
+      "definition": "the day after Tuesday"
+    },
+    {
+      "term": "vegetable",
+      "ja": "野菜の",
+      "synonym": "plant food",
+      "definition": "food from plants"
+    },
+    {
+      "term": "soup",
+      "ja": "スープ",
+      "synonym": "liquid food",
+      "definition": "food cooked in water"
+    },
+    {
+      "term": "carrots",
+      "ja": "ニンジン",
+      "synonym": "vegetables",
+      "definition": "orange vegetables"
+    },
+    {
+      "term": "member",
+      "ja": "部員",
+      "synonym": "participant",
+      "definition": "a person in a group"
+    },
+    {
+      "term": "washing",
+      "ja": "洗うこと",
+      "synonym": "cleaning",
+      "definition": "making things clean with water"
+    },
+    {
+      "term": "market",
+      "ja": "市場",
+      "synonym": "fair",
+      "definition": "a place where people buy food"
+    },
+    {
+      "term": "farmers",
+      "ja": "農家",
+      "synonym": "growers",
+      "definition": "people who grow plants for food"
+    },
+    {
+      "term": "grandmother",
+      "ja": "祖母",
+      "synonym": "grandparent",
+      "definition": "one's mother's or father's mother"
+    },
+    {
+      "term": "dishes",
+      "ja": "皿",
+      "synonym": "plates",
+      "definition": "things used to eat food"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "I joined a cooking club last month",
+      "explanation_ja": "joinedは過去形で過去のことを表します。"
+    },
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 4,
+      "focus": "because one member could not eat carrots",
+      "explanation_ja": "becauseは理由を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of buying everything",
+      "explanation_ja": "instead of + 動名詞は『〜する代わりに』です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "focus": "Do you have a cooking club",
+      "explanation_ja": "Doから始まる疑問文です。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "料理の計画を変えた事情を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "食べられない物の例を挙げます。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Instead",
+      "role_ja": "大型店での買い物と異なる行動を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Therefore",
+      "role_ja": "相手に返事を求める話につなぎます。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "We meet every Wednesday after school.",
+      "rewrite": "We get together every Wednesday after school.",
+      "explanation_ja": "活動日を言い換えています。"
+    },
+    {
+      "source": "Everyone helped by cutting vegetables or washing dishes.",
+      "rewrite": "Each member helped cook or clean.",
+      "explanation_ja": "全員が協力したことを言い換えています。"
+    },
+    {
+      "source": "Instead of buying everything at a large store, we will talk with local farmers.",
+      "rewrite": "We plan to speak with farmers rather than buy everything in one big store.",
+      "explanation_ja": "農家の人たちと話す計画を表しています。"
+    },
+    {
+      "source": "Please write back when you have time.",
+      "rewrite": "Please answer my message when you are free.",
+      "explanation_ja": "時間があるときの返事をお願いしています。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 4,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Instead",
+        "Therefore"
+      ],
+      "explanation_ja": "料理の計画を変えた事情を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Instead",
+        "Therefore"
+      ],
+      "explanation_ja": "食べられない物の例を挙げます。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "Instead",
+      "options": [
+        "Instead",
+        "However",
+        "For example",
+        "Therefore"
+      ],
+      "explanation_ja": "大型店での買い物と異なる行動を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "Therefore",
+      "options": [
+        "Therefore",
+        "However",
+        "For example",
+        "Instead"
+      ],
+      "explanation_ja": "相手に返事を求める話につなぎます。"
+    }
+  ]
+}

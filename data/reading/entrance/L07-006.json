@@ -1,0 +1,1411 @@
+{
+  "id": "L07-006",
+  "category_id": "L07",
+  "title": "A Library That Lends More Than Books",
+  "title_ja": "本以外も借りられる図書館",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "question_bank_version": 2,
+  "word_count": 275,
+  "source_links": [
+    {
+      "title": "Official EIKEN Grade Criteria",
+      "url": "https://www.eiken.or.jp/eiken/result/criteria/index.html"
+    }
+  ],
+  "fact_notes": [
+    "施設と登場人物は架空。共有物の活用と責任を考える独自教材。過去問は使用していない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A town opened a small place where families can borrow useful things.",
+          "ja": "ある町が家族向けに役立つ物を借りられる小さな施設を開きました。"
+        },
+        {
+          "en": "People can borrow tools, sports equipment, and games instead of buying them.",
+          "ja": "人々は道具、スポーツ用品、ゲームを買う代わりに借りられます。"
+        },
+        {
+          "en": "The town calls this place the Library of Things.",
+          "ja": "町はこの場所を「ものの図書館」と呼びます。"
+        },
+        {
+          "en": "However, some residents wonder if borrowing is more difficult than shopping.",
+          "ja": "しかし住民の中には、借りることは買い物より難しいのではと考える人もいます。"
+        },
+        {
+          "en": "A student named Rina visits the library to learn how it works.",
+          "ja": "リナという生徒は仕組みを知るために施設を訪れます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Rina wants to make a garden at home, but she needs a special tool.",
+          "ja": "リナは家で庭を作りたいのですが、特別な道具が必要です。"
+        },
+        {
+          "en": "The tool is expensive, and she may use it only once.",
+          "ja": "その道具は高価で、一度しか使わないかもしれません。"
+        },
+        {
+          "en": "For example, she can borrow the tool for three days without buying it.",
+          "ja": "例えば買わずに三日間その道具を借りられます。"
+        },
+        {
+          "en": "She fills out a short form and agrees to return it on time.",
+          "ja": "彼女は短い用紙に記入し、期限どおりに返すことに同意します。"
+        },
+        {
+          "en": "The staff also show her how to use it safely.",
+          "ja": "職員は安全な使い方も教えてくれます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "After finishing the garden, Rina returns the tool to the library.",
+          "ja": "庭を完成させた後、リナは道具を施設に返します。"
+        },
+        {
+          "en": "She sees another family waiting to borrow the same tool.",
+          "ja": "彼女は別の家族が同じ道具を借りるために待っているのを見ます。"
+        },
+        {
+          "en": "Instead of keeping something she rarely needs, she has helped share it.",
+          "ja": "めったに必要としない物を持ち続ける代わりに、共有に役立ったのです。"
+        },
+        {
+          "en": "The staff check that the tool is still in good condition.",
+          "ja": "職員は道具がまだよい状態か確認します。"
+        },
+        {
+          "en": "They explain that everyone must take care of shared things.",
+          "ja": "共有する物を全員が大切に扱う必要があると説明します。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The library is useful, but it also faces some problems.",
+          "ja": "この施設は便利ですが、問題もあります。"
+        },
+        {
+          "en": "Some people return things late, and others forget to clean them.",
+          "ja": "返すのが遅れる人もいれば、掃除を忘れる人もいます。"
+        },
+        {
+          "en": "Nevertheless, the staff do not think these problems make sharing impossible.",
+          "ja": "それでも職員はこうした問題で共有が不可能になるとは考えていません。"
+        },
+        {
+          "en": "They ask visitors to report damage and follow simple rules.",
+          "ja": "来訪者に破損を報告し、簡単な規則を守るよう求めます。"
+        },
+        {
+          "en": "The town plans to review which items people borrow most often.",
+          "ja": "町はよく借りられる物を調べる計画です。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "At school, Rina explains the idea to her classmates.",
+          "ja": "学校でリナはその考えを同級生に説明します。"
+        },
+        {
+          "en": "They discuss whether their school could share some art materials.",
+          "ja": "学校でも美術の材料を共有できるか話し合います。"
+        },
+        {
+          "en": "Therefore, the project becomes a lesson about money and responsibility.",
+          "ja": "そのため活動はお金と責任について学ぶ機会になります。"
+        },
+        {
+          "en": "Rina learns that buying a new object is not always the only choice.",
+          "ja": "新しい物を買うことがいつも唯一の選択ではないとリナは学びます。"
+        },
+        {
+          "en": "Sometimes taking good care of shared things helps everyone.",
+          "ja": "共有物を大切に扱うことがみんなの役に立つ場合もあります。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What did the town open?",
+      "options": [
+        "A sports stadium.",
+        "A new train station.",
+        "A place to borrow useful things.",
+        "A shopping center."
+      ],
+      "answer": 2,
+      "explanation_ja": "第1段落の説明に一致するのは「A place to borrow useful things.」です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Which items are available?",
+      "options": [
+        "Only school uniforms.",
+        "Tools, sports equipment, and games.",
+        "Only food and drinks.",
+        "Only cars and bicycles."
+      ],
+      "answer": 1,
+      "explanation_ja": "第1段落の説明に一致するのは「Tools, sports equipment, and games.」です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What do some residents worry about?",
+      "options": [
+        "Borrowing might be difficult.",
+        "The town needs new schools.",
+        "The library has too many books.",
+        "Rina has no friends."
+      ],
+      "answer": 0,
+      "explanation_ja": "第1段落の説明に一致するのは「Borrowing might be difficult.」です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why does Rina visit?",
+      "options": [
+        "To buy a sports uniform.",
+        "To take a school exam.",
+        "To start a new restaurant.",
+        "To learn how the place works."
+      ],
+      "answer": 3,
+      "explanation_ja": "第1段落の説明に一致するのは「To learn how the place works.」です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What does Rina want to make?",
+      "options": [
+        "A bicycle.",
+        "A classroom.",
+        "A garden.",
+        "A computer."
+      ],
+      "answer": 2,
+      "explanation_ja": "第2段落の説明に一致するのは「A garden.」です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "Why is buying the tool not ideal for Rina?",
+      "options": [
+        "The staff refuse to sell it.",
+        "It is costly and may be needed only once.",
+        "It is free but broken.",
+        "She already owns many copies."
+      ],
+      "answer": 1,
+      "explanation_ja": "第2段落の説明に一致するのは「It is costly and may be needed only once.」です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "How long can Rina borrow it?",
+      "options": [
+        "Three days.",
+        "One hour.",
+        "Two weeks.",
+        "One month."
+      ],
+      "answer": 0,
+      "explanation_ja": "第2段落の説明に一致するのは「Three days.」です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "What help does the staff provide?",
+      "options": [
+        "They give Rina a new garden.",
+        "They cook lunch for her.",
+        "They paint her house.",
+        "They explain safe use."
+      ],
+      "answer": 3,
+      "explanation_ja": "第2段落の説明に一致するのは「They explain safe use.」です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "detail",
+      "prompt": "What does Rina do after making the garden?",
+      "options": [
+        "She throws the tool away.",
+        "She gives it to her school.",
+        "She returns the tool.",
+        "She sells the library."
+      ],
+      "answer": 2,
+      "explanation_ja": "第3段落の説明に一致するのは「She returns the tool.」です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "detail",
+      "prompt": "Who is waiting for the tool?",
+      "options": [
+        "A bus driver.",
+        "Another family.",
+        "Her teacher.",
+        "A shop owner."
+      ],
+      "answer": 1,
+      "explanation_ja": "第3段落の説明に一致するのは「Another family.」です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q11",
+      "skill": "detail",
+      "prompt": "Why do staff check the returned tool?",
+      "options": [
+        "To make sure it is still usable.",
+        "To decide the next school holiday.",
+        "To change its color.",
+        "To count the garden's flowers."
+      ],
+      "answer": 0,
+      "explanation_ja": "第3段落の説明に一致するのは「To make sure it is still usable.」です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q12",
+      "skill": "inference",
+      "prompt": "What responsibility do users have?",
+      "options": [
+        "Keep every borrowed item.",
+        "Avoid reporting damage.",
+        "Return things only if convenient.",
+        "Care for shared items."
+      ],
+      "answer": 3,
+      "explanation_ja": "第3段落の説明に一致するのは「Care for shared items.」です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q13",
+      "skill": "detail",
+      "prompt": "What is a problem the library faces?",
+      "options": [
+        "No visitors.",
+        "A broken school gym.",
+        "Late returns.",
+        "Too many teachers."
+      ],
+      "answer": 2,
+      "explanation_ja": "第4段落の説明に一致するのは「Late returns.」です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q14",
+      "skill": "detail",
+      "prompt": "How do staff respond to problems?",
+      "options": [
+        "They ask everyone to buy new tools.",
+        "They request damage reports and rule-following.",
+        "They end all borrowing immediately.",
+        "They refuse to check things."
+      ],
+      "answer": 1,
+      "explanation_ja": "第4段落の説明に一致するのは「They request damage reports and rule-following.」です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q15",
+      "skill": "detail",
+      "prompt": "What does the town plan to examine?",
+      "options": [
+        "Frequently borrowed items.",
+        "Only school lunches.",
+        "Local train prices.",
+        "New television programs."
+      ],
+      "answer": 0,
+      "explanation_ja": "第4段落の説明に一致するのは「Frequently borrowed items.」です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q16",
+      "skill": "inference",
+      "prompt": "What does 'Nevertheless' indicate in paragraph four?",
+      "options": [
+        "Every item has disappeared.",
+        "The town has given up.",
+        "All borrowing is free forever.",
+        "Sharing can still work despite problems."
+      ],
+      "answer": 3,
+      "explanation_ja": "第4段落の説明に一致するのは「Sharing can still work despite problems.」です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q17",
+      "skill": "detail",
+      "prompt": "What does Rina discuss at school?",
+      "options": [
+        "Buying a large bus.",
+        "Closing the school garden.",
+        "Sharing art materials.",
+        "Building a new library."
+      ],
+      "answer": 2,
+      "explanation_ja": "第5段落の説明に一致するのは「Sharing art materials.」です。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q18",
+      "skill": "detail",
+      "prompt": "What two subjects does the project help teach?",
+      "options": [
+        "Cooking and travel.",
+        "Money and responsibility.",
+        "Music and math.",
+        "Sports and history."
+      ],
+      "answer": 1,
+      "explanation_ja": "第5段落の説明に一致するのは「Money and responsibility.」です。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q19",
+      "skill": "detail",
+      "prompt": "What has Rina learned about purchases?",
+      "options": [
+        "Buying is not always the only option.",
+        "Borrowing always costs more.",
+        "Everyone must own their tools.",
+        "A library can lend only books."
+      ],
+      "answer": 0,
+      "explanation_ja": "第5段落の説明に一致するのは「Buying is not always the only option.」です。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q20",
+      "skill": "main-idea",
+      "prompt": "What is the central message?",
+      "options": [
+        "Every object should be purchased new.",
+        "Shared items need no care.",
+        "Borrowing can never work.",
+        "Sharing carefully can benefit a community."
+      ],
+      "answer": 3,
+      "explanation_ja": "第5段落の説明に一致するのは「Sharing carefully can benefit a community.」です。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "care",
+      "ja": "世話・管理",
+      "synonym": "maintenance",
+      "definition": "attention that keeps something healthy"
+    },
+    {
+      "term": "choice",
+      "ja": "選択",
+      "synonym": "decision",
+      "definition": "the act of selecting an action"
+    },
+    {
+      "term": "classmates",
+      "ja": "同級生",
+      "synonym": "school peers",
+      "definition": "students in the same class"
+    },
+    {
+      "term": "condition",
+      "ja": "状態",
+      "synonym": "state",
+      "definition": "how well something works"
+    },
+    {
+      "term": "equipment",
+      "ja": "用具",
+      "synonym": "gear",
+      "definition": "things needed for an activity"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "families",
+      "ja": "家族",
+      "synonym": "households",
+      "definition": "groups living together as relatives"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "materials",
+      "ja": "材料",
+      "synonym": "supplies",
+      "definition": "things used to make something"
+    },
+    {
+      "term": "needs",
+      "ja": "必要",
+      "synonym": "requirements",
+      "definition": "things necessary for well-being"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "residents",
+      "ja": "住民",
+      "synonym": "locals",
+      "definition": "people who live in a place"
+    },
+    {
+      "term": "responsibility",
+      "ja": "責任",
+      "synonym": "duty",
+      "definition": "being expected to care for something"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "share",
+      "ja": "共有する",
+      "synonym": "communicate",
+      "definition": "to let others know or use something"
+    },
+    {
+      "term": "shared",
+      "ja": "共有の",
+      "synonym": "common",
+      "definition": "used by more than one person"
+    },
+    {
+      "term": "sharing",
+      "ja": "共有すること",
+      "synonym": "forwarding",
+      "definition": "passing information to others"
+    },
+    {
+      "term": "sports",
+      "ja": "スポーツ",
+      "synonym": "athletics",
+      "definition": "physical games and activities"
+    },
+    {
+      "term": "student",
+      "ja": "生徒",
+      "synonym": "learner",
+      "definition": "a person learning at school"
+    },
+    {
+      "term": "therefore",
+      "ja": "したがって",
+      "synonym": "consequently",
+      "definition": "used to introduce a logical result"
+    },
+    {
+      "term": "visitors",
+      "ja": "訪問者",
+      "synonym": "guests",
+      "definition": "people coming to a place"
+    },
+    {
+      "term": "borrow",
+      "ja": "借りる",
+      "synonym": "take temporarily",
+      "definition": "use something and return it"
+    },
+    {
+      "term": "tools",
+      "ja": "道具",
+      "synonym": "equipment",
+      "definition": "things used to make or fix something"
+    },
+    {
+      "term": "games",
+      "ja": "ゲーム",
+      "synonym": "activities",
+      "definition": "activities played for fun"
+    },
+    {
+      "term": "shopping",
+      "ja": "買い物",
+      "synonym": "buying",
+      "definition": "getting things for money"
+    },
+    {
+      "term": "special",
+      "ja": "特別な",
+      "synonym": "particular",
+      "definition": "not ordinary"
+    },
+    {
+      "term": "expensive",
+      "ja": "高価な",
+      "synonym": "costly",
+      "definition": "needing a lot of money"
+    },
+    {
+      "term": "form",
+      "ja": "用紙",
+      "synonym": "document",
+      "definition": "paper for filling in information"
+    },
+    {
+      "term": "agrees",
+      "ja": "同意する",
+      "synonym": "accepts",
+      "definition": "says yes to a plan"
+    },
+    {
+      "term": "safely",
+      "ja": "安全に",
+      "synonym": "without danger",
+      "definition": "in a way that prevents harm"
+    },
+    {
+      "term": "returns",
+      "ja": "返す",
+      "synonym": "gives back",
+      "definition": "takes something back to its owner"
+    },
+    {
+      "term": "late",
+      "ja": "遅れて",
+      "synonym": "after time",
+      "definition": "later than expected"
+    },
+    {
+      "term": "damage",
+      "ja": "損傷",
+      "synonym": "harm",
+      "definition": "a broken or harmed part"
+    },
+    {
+      "term": "items",
+      "ja": "物品",
+      "synonym": "objects",
+      "definition": "things in a group"
+    },
+    {
+      "term": "rarely",
+      "ja": "めったに〜ない",
+      "synonym": "not often",
+      "definition": "almost never"
+    },
+    {
+      "term": "staff",
+      "ja": "職員",
+      "synonym": "workers",
+      "definition": "people employed at a place"
+    },
+    {
+      "term": "review",
+      "ja": "見直す",
+      "synonym": "examine",
+      "definition": "look at something again"
+    },
+    {
+      "term": "wonder",
+      "ja": "疑問に思う",
+      "synonym": "ask oneself",
+      "definition": "think about a question"
+    }
+  ],
+  "vocabulary_questions": [
+    {
+      "id": "vq1",
+      "term": "care",
+      "skill": "vocabulary",
+      "prompt": "本文の「care」はどのような意味ですか。",
+      "options": [
+        "世話・管理",
+        "材料",
+        "共有すること",
+        "特別な"
+      ],
+      "answer": 0,
+      "explanation_ja": "本文では「世話・管理」という意味です。英英定義：attention that keeps something healthy",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "vq2",
+      "term": "choice",
+      "skill": "vocabulary",
+      "prompt": "本文の「choice」はどのような意味ですか。",
+      "options": [
+        "高価な",
+        "選択",
+        "必要",
+        "スポーツ"
+      ],
+      "answer": 1,
+      "explanation_ja": "本文では「選択」という意味です。英英定義：the act of selecting an action",
+      "paragraph_ids": [
+        "p5"
+      ]
+    },
+    {
+      "id": "vq3",
+      "term": "classmates",
+      "skill": "vocabulary",
+      "prompt": "本文の「classmates」はどのような意味ですか。",
+      "options": [
+        "生徒",
+        "用紙",
+        "同級生",
+        "それでも"
+      ],
+      "answer": 2,
+      "explanation_ja": "本文では「同級生」という意味です。英英定義：students in the same class",
+      "paragraph_ids": [
+        "p5"
+      ]
+    },
+    {
+      "id": "vq4",
+      "term": "condition",
+      "skill": "vocabulary",
+      "prompt": "本文の「condition」はどのような意味ですか。",
+      "options": [
+        "人々",
+        "したがって",
+        "同意する",
+        "状態"
+      ],
+      "answer": 3,
+      "explanation_ja": "本文では「状態」という意味です。英英定義：how well something works",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "vq5",
+      "term": "equipment",
+      "skill": "vocabulary",
+      "prompt": "本文の「equipment」はどのような意味ですか。",
+      "options": [
+        "用具",
+        "住民",
+        "訪問者",
+        "安全に"
+      ],
+      "answer": 0,
+      "explanation_ja": "本文では「用具」という意味です。英英定義：things needed for an activity",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "vq6",
+      "term": "example",
+      "skill": "vocabulary",
+      "prompt": "本文の「example」はどのような意味ですか。",
+      "options": [
+        "返す",
+        "例",
+        "責任",
+        "借りる"
+      ],
+      "answer": 1,
+      "explanation_ja": "本文では「例」という意味です。英英定義：one case used to make an idea clear",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "vq7",
+      "term": "explain",
+      "skill": "vocabulary",
+      "prompt": "本文の「explain」はどのような意味ですか。",
+      "options": [
+        "道具",
+        "遅れて",
+        "説明する",
+        "学校"
+      ],
+      "answer": 2,
+      "explanation_ja": "本文では「説明する」という意味です。英英定義：to make something understandable through words",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "vq8",
+      "term": "families",
+      "skill": "vocabulary",
+      "prompt": "本文の「families」はどのような意味ですか。",
+      "options": [
+        "共有する",
+        "ゲーム",
+        "損傷",
+        "家族"
+      ],
+      "answer": 3,
+      "explanation_ja": "本文では「家族」という意味です。英英定義：groups living together as relatives",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "vq9",
+      "term": "however",
+      "skill": "vocabulary",
+      "prompt": "本文の「however」はどのような意味ですか。",
+      "options": [
+        "しかし",
+        "共有の",
+        "買い物",
+        "物品"
+      ],
+      "answer": 0,
+      "explanation_ja": "本文では「しかし」という意味です。英英定義：used to introduce an opposing idea",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "vq10",
+      "term": "materials",
+      "skill": "vocabulary",
+      "prompt": "本文の「materials」はどのような意味ですか。",
+      "options": [
+        "めったに〜ない",
+        "材料",
+        "共有すること",
+        "特別な"
+      ],
+      "answer": 1,
+      "explanation_ja": "本文では「材料」という意味です。英英定義：things used to make something",
+      "paragraph_ids": [
+        "p5"
+      ]
+    },
+    {
+      "id": "vq11",
+      "term": "needs",
+      "skill": "vocabulary",
+      "prompt": "本文の「needs」はどのような意味ですか。",
+      "options": [
+        "高価な",
+        "職員",
+        "必要",
+        "スポーツ"
+      ],
+      "answer": 2,
+      "explanation_ja": "本文では「必要」という意味です。英英定義：things necessary for well-being",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "vq12",
+      "term": "nevertheless",
+      "skill": "vocabulary",
+      "prompt": "本文の「nevertheless」はどのような意味ですか。",
+      "options": [
+        "生徒",
+        "用紙",
+        "見直す",
+        "それでも"
+      ],
+      "answer": 3,
+      "explanation_ja": "本文では「それでも」という意味です。英英定義：introducing an opposing point",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "vq13",
+      "term": "people",
+      "skill": "vocabulary",
+      "prompt": "本文の「people」はどのような意味ですか。",
+      "options": [
+        "人々",
+        "したがって",
+        "同意する",
+        "疑問に思う"
+      ],
+      "answer": 0,
+      "explanation_ja": "本文では「人々」という意味です。英英定義：human beings in a group",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "vq14",
+      "term": "residents",
+      "skill": "vocabulary",
+      "prompt": "本文の「residents」はどのような意味ですか。",
+      "options": [
+        "世話・管理",
+        "住民",
+        "訪問者",
+        "安全に"
+      ],
+      "answer": 1,
+      "explanation_ja": "本文では「住民」という意味です。英英定義：people who live in a place",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "vq15",
+      "term": "responsibility",
+      "skill": "vocabulary",
+      "prompt": "本文の「responsibility」はどのような意味ですか。",
+      "options": [
+        "返す",
+        "選択",
+        "責任",
+        "借りる"
+      ],
+      "answer": 2,
+      "explanation_ja": "本文では「責任」という意味です。英英定義：being expected to care for something",
+      "paragraph_ids": [
+        "p5"
+      ]
+    },
+    {
+      "id": "vq16",
+      "term": "school",
+      "skill": "vocabulary",
+      "prompt": "本文の「school」はどのような意味ですか。",
+      "options": [
+        "道具",
+        "遅れて",
+        "同級生",
+        "学校"
+      ],
+      "answer": 3,
+      "explanation_ja": "本文では「学校」という意味です。英英定義：a place where children or young adults learn",
+      "paragraph_ids": [
+        "p5"
+      ]
+    },
+    {
+      "id": "vq17",
+      "term": "share",
+      "skill": "vocabulary",
+      "prompt": "本文の「share」はどのような意味ですか。",
+      "options": [
+        "共有する",
+        "ゲーム",
+        "損傷",
+        "状態"
+      ],
+      "answer": 0,
+      "explanation_ja": "本文では「共有する」という意味です。英英定義：to let others know or use something",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "vq18",
+      "term": "shared",
+      "skill": "vocabulary",
+      "prompt": "本文の「shared」はどのような意味ですか。",
+      "options": [
+        "用具",
+        "共有の",
+        "買い物",
+        "物品"
+      ],
+      "answer": 1,
+      "explanation_ja": "本文では「共有の」という意味です。英英定義：used by more than one person",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "vq19",
+      "term": "sharing",
+      "skill": "vocabulary",
+      "prompt": "本文の「sharing」はどのような意味ですか。",
+      "options": [
+        "めったに〜ない",
+        "例",
+        "共有すること",
+        "特別な"
+      ],
+      "answer": 2,
+      "explanation_ja": "本文では「共有すること」という意味です。英英定義：passing information to others",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "vq20",
+      "term": "sports",
+      "skill": "vocabulary",
+      "prompt": "本文の「sports」はどのような意味ですか。",
+      "options": [
+        "高価な",
+        "職員",
+        "説明する",
+        "スポーツ"
+      ],
+      "answer": 3,
+      "explanation_ja": "本文では「スポーツ」という意味です。英英定義：physical games and activities",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "vq21",
+      "term": "student",
+      "skill": "vocabulary",
+      "prompt": "本文の「student」はどのような意味ですか。",
+      "options": [
+        "生徒",
+        "用紙",
+        "見直す",
+        "家族"
+      ],
+      "answer": 0,
+      "explanation_ja": "本文では「生徒」という意味です。英英定義：a person learning at school",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "vq22",
+      "term": "therefore",
+      "skill": "vocabulary",
+      "prompt": "本文の「therefore」はどのような意味ですか。",
+      "options": [
+        "しかし",
+        "したがって",
+        "同意する",
+        "疑問に思う"
+      ],
+      "answer": 1,
+      "explanation_ja": "本文では「したがって」という意味です。英英定義：used to introduce a logical result",
+      "paragraph_ids": [
+        "p5"
+      ]
+    },
+    {
+      "id": "vq23",
+      "term": "visitors",
+      "skill": "vocabulary",
+      "prompt": "本文の「visitors」はどのような意味ですか。",
+      "options": [
+        "世話・管理",
+        "材料",
+        "訪問者",
+        "安全に"
+      ],
+      "answer": 2,
+      "explanation_ja": "本文では「訪問者」という意味です。英英定義：people coming to a place",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "vq24",
+      "term": "borrow",
+      "skill": "vocabulary",
+      "prompt": "本文の「borrow」はどのような意味ですか。",
+      "options": [
+        "返す",
+        "選択",
+        "必要",
+        "借りる"
+      ],
+      "answer": 3,
+      "explanation_ja": "本文では「借りる」という意味です。英英定義：use something and return it",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "vq25",
+      "term": "tools",
+      "skill": "vocabulary",
+      "prompt": "本文の「tools」はどのような意味ですか。",
+      "options": [
+        "道具",
+        "遅れて",
+        "同級生",
+        "それでも"
+      ],
+      "answer": 0,
+      "explanation_ja": "本文では「道具」という意味です。英英定義：things used to make or fix something",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "vq26",
+      "term": "games",
+      "skill": "vocabulary",
+      "prompt": "本文の「games」はどのような意味ですか。",
+      "options": [
+        "人々",
+        "ゲーム",
+        "損傷",
+        "状態"
+      ],
+      "answer": 1,
+      "explanation_ja": "本文では「ゲーム」という意味です。英英定義：activities played for fun",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "vq27",
+      "term": "shopping",
+      "skill": "vocabulary",
+      "prompt": "本文の「shopping」はどのような意味ですか。",
+      "options": [
+        "用具",
+        "住民",
+        "買い物",
+        "物品"
+      ],
+      "answer": 2,
+      "explanation_ja": "本文では「買い物」という意味です。英英定義：getting things for money",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "vq28",
+      "term": "special",
+      "skill": "vocabulary",
+      "prompt": "本文の「special」はどのような意味ですか。",
+      "options": [
+        "めったに〜ない",
+        "例",
+        "責任",
+        "特別な"
+      ],
+      "answer": 3,
+      "explanation_ja": "本文では「特別な」という意味です。英英定義：not ordinary",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "vq29",
+      "term": "expensive",
+      "skill": "vocabulary",
+      "prompt": "本文の「expensive」はどのような意味ですか。",
+      "options": [
+        "高価な",
+        "職員",
+        "説明する",
+        "学校"
+      ],
+      "answer": 0,
+      "explanation_ja": "本文では「高価な」という意味です。英英定義：needing a lot of money",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "vq30",
+      "term": "form",
+      "skill": "vocabulary",
+      "prompt": "本文の「form」はどのような意味ですか。",
+      "options": [
+        "共有する",
+        "用紙",
+        "見直す",
+        "家族"
+      ],
+      "answer": 1,
+      "explanation_ja": "本文では「用紙」という意味です。英英定義：paper for filling in information",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "vq31",
+      "term": "agrees",
+      "skill": "vocabulary",
+      "prompt": "本文の「agrees」はどのような意味ですか。",
+      "options": [
+        "しかし",
+        "共有の",
+        "同意する",
+        "疑問に思う"
+      ],
+      "answer": 2,
+      "explanation_ja": "本文では「同意する」という意味です。英英定義：says yes to a plan",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "vq32",
+      "term": "safely",
+      "skill": "vocabulary",
+      "prompt": "本文の「safely」はどのような意味ですか。",
+      "options": [
+        "世話・管理",
+        "材料",
+        "共有すること",
+        "安全に"
+      ],
+      "answer": 3,
+      "explanation_ja": "本文では「安全に」という意味です。英英定義：in a way that prevents harm",
+      "paragraph_ids": [
+        "p2"
+      ]
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "instead of buying them",
+      "explanation_ja": "instead of + 動名詞で『買う代わりに』です。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "agrees to return it on time",
+      "explanation_ja": "agree to + 動詞で『〜することに同意する』です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of keeping something she rarely needs",
+      "explanation_ja": "instead of +動名詞で別の選択を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "focus": "do not think these problems make sharing impossible",
+      "explanation_ja": "make + 目的語 + 形容詞の形です。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "is not always the only choice",
+      "explanation_ja": "not alwaysは部分否定です。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "利用の手軽さへの期待と不安を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "三日間借りる具体例です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Instead",
+      "role_ja": "所有より共有を選ぶことを示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "問題があっても共有できるという譲歩です。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "Therefore",
+      "role_ja": "お金と責任を学ぶ結論につなげます。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "People can borrow tools, sports equipment, and games instead of buying them.",
+      "rewrite": "Families can borrow equipment rather than purchase everything.",
+      "explanation_ja": "すべてを買わずに共有物を借りられるという意味です。"
+    },
+    {
+      "source": "The tool is expensive, and she may use it only once.",
+      "rewrite": "Rina may only need the costly tool once.",
+      "explanation_ja": "一度しか使わない可能性を表します。"
+    },
+    {
+      "source": "Instead of keeping something she rarely needs, she has helped share it.",
+      "rewrite": "Sharing allows others to use things she seldom needs.",
+      "explanation_ja": "めったに使わない物を他者が使えるという意味です。"
+    },
+    {
+      "source": "Nevertheless, the staff do not think these problems make sharing impossible.",
+      "rewrite": "Staff believe sharing can continue even with problems.",
+      "explanation_ja": "問題があっても共有できると考える意味です。"
+    },
+    {
+      "source": "Sometimes taking good care of shared things helps everyone.",
+      "rewrite": "Caring for common equipment may be useful to many people.",
+      "explanation_ja": "共有物の手入れが皆に役立つという意味です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Instead",
+        "Nevertheless"
+      ],
+      "explanation_ja": "利用の手軽さへの期待と不安を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Instead",
+        "Nevertheless"
+      ],
+      "explanation_ja": "三日間借りる具体例です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "Instead",
+      "options": [
+        "Instead",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "所有より共有を選ぶことを示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "Instead"
+      ],
+      "explanation_ja": "問題があっても共有できるという譲歩です。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "Therefore",
+      "options": [
+        "Therefore",
+        "However",
+        "For example",
+        "Instead"
+      ],
+      "explanation_ja": "お金と責任を学ぶ結論につなげます。"
+    }
+  ],
+  "question_bank_settings": {
+    "default_reading_count": 10,
+    "default_vocabulary_context_count": 12,
+    "reading_available": 20,
+    "vocabulary_context_available": 32
+  }
+}

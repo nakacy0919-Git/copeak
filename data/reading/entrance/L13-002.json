@@ -1,0 +1,707 @@
+{
+  "id": "L13-002",
+  "category_id": "L13",
+  "title": "Who Cleans Up the Sky?",
+  "title_ja": "宇宙のごみは誰が片づけるのか",
+  "level_id": "eiken-2",
+  "status": "draft",
+  "original": true,
+  "word_count": 380,
+  "source_links": [
+    {
+      "title": "NASA Orbital Debris Program Office: Debris Mitigation",
+      "url": "https://orbitaldebris.jsc.nasa.gov/mitigation/"
+    },
+    {
+      "title": "NASA Orbital Debris Mitigation Requirements",
+      "url": "https://nodis3.gsfc.nasa.gov/displayDir.cfm?Internal_ID=N_PR_8715_006E_&page_name=Preface"
+    }
+  ],
+  "fact_notes": [
+    "宇宙ごみの説明、発生防止の方針はNASA公式資料に基づく。衛星同士の接近は教育用の仮定例。",
+    "本文・全文和訳・設問・解説はすべてオリジナル。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "On a clear night, the stars may appear to shine over a peaceful and empty sky.",
+          "ja": "晴れた夜には、星々が静かで何もない空に輝いているように見えるかもしれません。"
+        },
+        {
+          "en": "Yet the region around Earth contains satellites that support navigation, weather forecasts, and communication.",
+          "ja": "しかし、地球の周囲には、位置案内や天気予報、通信を支える人工衛星が存在します。"
+        },
+        {
+          "en": "Some objects moving through that region are no longer useful, including pieces from old rockets and broken equipment.",
+          "ja": "その領域を移動する物体の中には、古いロケットや壊れた機器の破片など、もはや役に立たないものもあります。"
+        },
+        {
+          "en": "These abandoned objects are called orbital debris, and even small fragments can threaten working spacecraft.",
+          "ja": "こうした放置された物体は宇宙ごみと呼ばれ、小さな破片でさえ稼働中の宇宙船を脅かす可能性があります。"
+        },
+        {
+          "en": "However, the problem is not as simple as collecting rubbish from a park.",
+          "ja": "しかし、この問題は公園のごみを拾うほど単純ではありません。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Imagine that a broken satellite and an active satellite are traveling along paths that may cross.",
+          "ja": "壊れた衛星と稼働中の衛星が、交差する可能性のある軌道を進んでいると想像してください。"
+        },
+        {
+          "en": "Engineers must estimate where the objects will be at a particular time rather than where they are now.",
+          "ja": "技術者は物体の現在位置ではなく、特定の時刻にどこにあるかを推定しなければなりません。"
+        },
+        {
+          "en": "They use observations and models to assess whether a collision is possible and whether action is necessary.",
+          "ja": "技術者たちは観測とモデルを使って、衝突の可能性と対処の必要性を評価します。"
+        },
+        {
+          "en": "For example, an operating satellite may change its path when the estimated danger is high enough.",
+          "ja": "例えば、推定される危険が十分に大きい場合、稼働中の衛星は軌道を変更することがあります。"
+        },
+        {
+          "en": "Such a decision requires careful judgment because moving a satellite can consume limited fuel.",
+          "ja": "そのような判断には慎重さが必要です。衛星を動かすと限られた燃料を消費する場合があるからです。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Removing debris would be useful, but capturing an object moving through space is technically demanding.",
+          "ja": "宇宙ごみの除去は有益ですが、宇宙空間を動く物体を捕獲することは技術的に難しい作業です。"
+        },
+        {
+          "en": "A machine designed for this task must reach a target without creating additional fragments.",
+          "ja": "そのための機械は、さらに破片を作ることなく対象に到達しなければなりません。"
+        },
+        {
+          "en": "It must also operate safely near equipment that may belong to another organization or country.",
+          "ja": "また、別の組織や国が所有する可能性のある装置の近くで、安全に作業する必要もあります。"
+        },
+        {
+          "en": "However, removing old objects alone cannot solve the problem if each new mission produces more waste.",
+          "ja": "しかし、新しい任務のたびにごみが増え続けるなら、古い物体を除去するだけでは問題を解決できません。"
+        },
+        {
+          "en": "Preventing unnecessary debris is therefore just as important as developing machines to collect it.",
+          "ja": "したがって、不要な宇宙ごみを発生させないことは、回収する機械の開発と同じくらい重要です。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "NASA publishes requirements intended to reduce the creation of debris during its space missions.",
+          "ja": "NASAは、宇宙ミッション中のごみの発生を減らすための要件を公表しています。"
+        },
+        {
+          "en": "These rules encourage mission planners to consider what happens to equipment after its useful work ends.",
+          "ja": "こうした規則は、機器の使用目的が終わった後に何が起こるかを計画者に考えさせます。"
+        },
+        {
+          "en": "Designers may need to consider disposal plans long before a spacecraft is launched.",
+          "ja": "設計者は、宇宙船の打ち上げよりずっと前に廃棄計画を検討する必要があるかもしれません。"
+        },
+        {
+          "en": "Therefore, a responsible space mission should be judged not only by what it achieves but also by what it leaves behind.",
+          "ja": "したがって、責任ある宇宙ミッションは、その成果だけでなく、何を残すかによっても評価されるべきです。"
+        },
+        {
+          "en": "A successful mission today should not make tomorrow's missions unnecessarily dangerous.",
+          "ja": "今日のミッションの成功が、明日のミッションを不必要に危険にしてはなりません。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The debris problem raises a broader question about how people use shared environments.",
+          "ja": "宇宙ごみの問題は、人々が共有する環境をどのように利用するかという、より大きな問いを投げかけます。"
+        },
+        {
+          "en": "Each organization may benefit from launching one more satellite, while the risks of accumulated waste are shared by many.",
+          "ja": "各組織は衛星を一基追加で打ち上げることで利益を得るかもしれませんが、蓄積するごみの危険は多くの人々に共有されます。"
+        },
+        {
+          "en": "As a result, solutions require cooperation among engineers, companies, governments, and researchers.",
+          "ja": "その結果、解決には技術者、企業、政府、研究者の協力が必要となります。"
+        },
+        {
+          "en": "Students who study this issue can compare short-term convenience with long-term responsibility.",
+          "ja": "この問題を学ぶ生徒たちは、短期的な便利さと長期的な責任を比べることができます。"
+        },
+        {
+          "en": "The sky may look empty from the ground, but our decisions have already left their marks upon it.",
+          "ja": "地上からは空が何もないように見えても、私たちの決定はすでにそこに痕跡を残しています。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the central claim of the passage?",
+      "options": [
+        "The main goal of satellites is to carry rubbish.",
+        "Collecting debris is simple if enough people volunteer.",
+        "Space activities should consider both immediate benefits and future risks.",
+        "No organization has published rules about space debris."
+      ],
+      "answer": 2,
+      "explanation_ja": "本文は宇宙ごみの危険、発生防止、将来への責任を結び付けています。",
+      "paragraph_ids": [
+        "p3",
+        "p4",
+        "p5"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Which object is an example of orbital debris?",
+      "options": [
+        "A fragment from an old rocket.",
+        "A new satellite giving weather reports.",
+        "A space station actively used for research.",
+        "A planet seen through a telescope."
+      ],
+      "answer": 0,
+      "explanation_ja": "p1は古いロケットの破片など、役割を終えた物体を挙げています。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What do engineers need to estimate?",
+      "options": [
+        "The names of all satellite owners.",
+        "Where the objects will be at a specific time.",
+        "The exact number of stars above Earth.",
+        "How much rain will fall next month."
+      ],
+      "answer": 1,
+      "explanation_ja": "p2では現在位置よりも将来の位置を推定すると述べています。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why might moving a satellite be a difficult choice?",
+      "options": [
+        "Every movement creates a new satellite.",
+        "A satellite can never change its course.",
+        "All satellites are owned by one country.",
+        "A change of path may use fuel that is limited."
+      ],
+      "answer": 3,
+      "explanation_ja": "p2の限られた燃料の消費から判断できます。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What is one challenge of removing debris?",
+      "options": [
+        "Objects in space are always stationary.",
+        "Capture must avoid making new fragments.",
+        "Rockets cannot be tracked from Earth.",
+        "All targets have the same owner."
+      ],
+      "answer": 1,
+      "explanation_ja": "p3は回収そのものが新しい破片を生まないようにする必要を説明します。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "What would weaken a debris-removal policy?",
+      "options": [
+        "Preventing fragments during launches.",
+        "Designing a safe disposal plan.",
+        "Continuing to produce large amounts of new debris.",
+        "Cooperation among different organizations."
+      ],
+      "answer": 2,
+      "explanation_ja": "除去しても新たなごみが生じ続ければ解決しないという逆接が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "purpose",
+      "prompt": "Why does the author mention NASA's requirements?",
+      "options": [
+        "To give an example of planning to reduce debris.",
+        "To prove NASA owns every satellite.",
+        "To describe a specific astronaut's journey.",
+        "To argue that technical design is unnecessary."
+      ],
+      "answer": 0,
+      "explanation_ja": "NASAの要件は、発生防止と計画的な廃棄の具体例です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'accumulated' in paragraph 5 mean?",
+      "options": [
+        "Completely removed at once.",
+        "Carefully painted.",
+        "Shared for free.",
+        "Built up over time."
+      ],
+      "answer": 3,
+      "explanation_ja": "accumulated wasteは時間をかけてたまったごみという意味です。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Why is cooperation important?",
+      "options": [
+        "No single organization experiences all shared risks alone.",
+        "Every satellite has exactly the same purpose.",
+        "Engineers cannot use scientific models.",
+        "There is no reason to protect future missions."
+      ],
+      "answer": 0,
+      "explanation_ja": "多くの主体に影響が及ぶ共有環境の問題なので協力が必要です。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "What is the effect of the last sentence?",
+      "options": [
+        "It claims the sky is truly empty.",
+        "It introduces a new mathematical formula.",
+        "It contrasts the appearance of an empty sky with human impact.",
+        "It suggests satellites can be seen without equipment."
+      ],
+      "answer": 2,
+      "explanation_ja": "見た目の空虚さと、人間が残してきた影響を対比して締めくくっています。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "satellites",
+      "ja": "人工衛星",
+      "synonym": "spacecraft",
+      "definition": "machines that travel around Earth or another object"
+    },
+    {
+      "term": "navigation",
+      "ja": "位置案内",
+      "synonym": "route finding",
+      "definition": "the process of finding where to go"
+    },
+    {
+      "term": "forecasts",
+      "ja": "予報",
+      "synonym": "predictions",
+      "definition": "statements about likely future conditions"
+    },
+    {
+      "term": "communication",
+      "ja": "通信",
+      "synonym": "exchange of messages",
+      "definition": "the sharing of information over a distance"
+    },
+    {
+      "term": "region",
+      "ja": "領域",
+      "synonym": "area",
+      "definition": "a particular part of space or a place"
+    },
+    {
+      "term": "fragments",
+      "ja": "破片",
+      "synonym": "pieces",
+      "definition": "small parts broken off a larger object"
+    },
+    {
+      "term": "equipment",
+      "ja": "機器",
+      "synonym": "devices",
+      "definition": "tools and machines used for a task"
+    },
+    {
+      "term": "abandoned",
+      "ja": "放置された",
+      "synonym": "left behind",
+      "definition": "no longer being used or cared for"
+    },
+    {
+      "term": "orbital",
+      "ja": "軌道上の",
+      "synonym": "in orbit",
+      "definition": "relating to the path of an object around a planet"
+    },
+    {
+      "term": "debris",
+      "ja": "ごみ・破片",
+      "synonym": "waste",
+      "definition": "pieces left over after an object is damaged or used"
+    },
+    {
+      "term": "threaten",
+      "ja": "脅かす",
+      "synonym": "endanger",
+      "definition": "to create a danger to someone or something"
+    },
+    {
+      "term": "spacecraft",
+      "ja": "宇宙船",
+      "synonym": "space vehicle",
+      "definition": "a vehicle designed to travel in space"
+    },
+    {
+      "term": "paths",
+      "ja": "経路",
+      "synonym": "routes",
+      "definition": "courses followed by moving objects"
+    },
+    {
+      "term": "engineers",
+      "ja": "技術者",
+      "synonym": "technical specialists",
+      "definition": "people who design or maintain technical systems"
+    },
+    {
+      "term": "estimate",
+      "ja": "推定する",
+      "synonym": "calculate approximately",
+      "definition": "to judge a value using available information"
+    },
+    {
+      "term": "observations",
+      "ja": "観測",
+      "synonym": "measurements",
+      "definition": "information obtained by watching carefully"
+    },
+    {
+      "term": "models",
+      "ja": "モデル",
+      "synonym": "representations",
+      "definition": "simplified descriptions used to study a system"
+    },
+    {
+      "term": "assess",
+      "ja": "評価する",
+      "synonym": "evaluate",
+      "definition": "to judge a situation using evidence"
+    },
+    {
+      "term": "collision",
+      "ja": "衝突",
+      "synonym": "crash",
+      "definition": "an event in which moving objects strike each other"
+    },
+    {
+      "term": "necessary",
+      "ja": "必要な",
+      "synonym": "required",
+      "definition": "needed for a particular purpose"
+    },
+    {
+      "term": "danger",
+      "ja": "危険",
+      "synonym": "risk",
+      "definition": "the possibility that something harmful will happen"
+    },
+    {
+      "term": "fuel",
+      "ja": "燃料",
+      "synonym": "energy source",
+      "definition": "material that supplies power"
+    },
+    {
+      "term": "capturing",
+      "ja": "捕獲すること",
+      "synonym": "grasping",
+      "definition": "taking hold of a moving target"
+    },
+    {
+      "term": "technically",
+      "ja": "技術的に",
+      "synonym": "in engineering terms",
+      "definition": "in a way related to practical technology"
+    },
+    {
+      "term": "demanding",
+      "ja": "難しい",
+      "synonym": "challenging",
+      "definition": "requiring considerable effort or skill"
+    },
+    {
+      "term": "target",
+      "ja": "対象",
+      "synonym": "objective",
+      "definition": "the object that someone aims to reach"
+    },
+    {
+      "term": "additional",
+      "ja": "追加の",
+      "synonym": "extra",
+      "definition": "more than what is already present"
+    },
+    {
+      "term": "organization",
+      "ja": "組織",
+      "synonym": "institution",
+      "definition": "a group working together for a purpose"
+    },
+    {
+      "term": "preventing",
+      "ja": "防止すること",
+      "synonym": "stopping",
+      "definition": "keeping an unwanted event from happening"
+    },
+    {
+      "term": "requirements",
+      "ja": "要件",
+      "synonym": "rules",
+      "definition": "conditions that must be satisfied"
+    },
+    {
+      "term": "reduce",
+      "ja": "減らす",
+      "synonym": "decrease",
+      "definition": "to make something smaller in amount"
+    },
+    {
+      "term": "planners",
+      "ja": "計画者",
+      "synonym": "organizers",
+      "definition": "people who prepare actions in advance"
+    },
+    {
+      "term": "designers",
+      "ja": "設計者",
+      "synonym": "creators",
+      "definition": "people who plan how things will be made"
+    },
+    {
+      "term": "disposal",
+      "ja": "廃棄",
+      "synonym": "removal",
+      "definition": "the act of getting rid of something safely"
+    },
+    {
+      "term": "launched",
+      "ja": "打ち上げられた",
+      "synonym": "sent upward",
+      "definition": "sent into space from the ground"
+    },
+    {
+      "term": "responsible",
+      "ja": "責任ある",
+      "synonym": "accountable",
+      "definition": "acting with care for consequences"
+    },
+    {
+      "term": "achieves",
+      "ja": "達成する",
+      "synonym": "accomplishes",
+      "definition": "successfully reaches an aim"
+    },
+    {
+      "term": "shared",
+      "ja": "共有された",
+      "synonym": "common",
+      "definition": "used or affected by several groups"
+    },
+    {
+      "term": "environments",
+      "ja": "環境",
+      "synonym": "surroundings",
+      "definition": "conditions around living or working things"
+    },
+    {
+      "term": "accumulated",
+      "ja": "蓄積した",
+      "synonym": "collected over time",
+      "definition": "built up gradually"
+    },
+    {
+      "term": "cooperation",
+      "ja": "協力",
+      "synonym": "collaboration",
+      "definition": "working together toward a common aim"
+    },
+    {
+      "term": "researchers",
+      "ja": "研究者",
+      "synonym": "investigators",
+      "definition": "people who study questions systematically"
+    },
+    {
+      "term": "convenience",
+      "ja": "便利さ",
+      "synonym": "ease",
+      "definition": "the quality of being easy to use"
+    },
+    {
+      "term": "responsibility",
+      "ja": "責任",
+      "synonym": "duty",
+      "definition": "the need to consider the effects of actions"
+    },
+    {
+      "term": "decisions",
+      "ja": "決定",
+      "synonym": "choices",
+      "definition": "conclusions reached after considering options"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "even small fragments can threaten",
+      "explanation_ja": "evenは『小さな破片でさえ』という意外性を強調します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "rather than where they are now",
+      "explanation_ja": "rather thanは現在位置ではなく未来の位置に注目する対比です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "focus": "if each new mission produces more waste",
+      "explanation_ja": "if節で、除去だけでは不十分となる条件を述べています。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 3,
+      "focus": "not only by what it achieves but also by what it leaves behind",
+      "explanation_ja": "not only A but also Bは成果と負の遺産の両方を評価対象にします。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "逆接：宇宙ごみの問題が普通の清掃と異なる点を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "例示：衛星の軌道変更を具体例として述べます。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "However",
+      "role_ja": "逆接：回収の利点に対して発生防止の必要性を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Therefore",
+      "role_ja": "帰結：計画段階から考える責任ある宇宙活動の評価基準を示します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "even small fragments can threaten working spacecraft",
+      "rewrite": "tiny pieces may endanger satellites that are still in service",
+      "explanation_ja": "small fragmentsをtiny pieces、threatenをendangerに言い換えます。"
+    },
+    {
+      "source": "moving a satellite can consume limited fuel",
+      "rewrite": "changing a satellite's course may use a scarce resource",
+      "explanation_ja": "fuelという限られた資源の消費に抽象化しています。"
+    },
+    {
+      "source": "removing old objects alone cannot solve the problem",
+      "rewrite": "debris collection by itself is not a sufficient solution",
+      "explanation_ja": "aloneをby itselfに置き換え、不十分という意味を保持しています。"
+    },
+    {
+      "source": "a responsible space mission should be judged not only by what it achieves but also by what it leaves behind",
+      "rewrite": "evaluating missions requires consideration of both results and consequences",
+      "explanation_ja": "成果と残された影響の両方を考慮すべきという主張です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 4,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Therefore",
+        "Moreover"
+      ],
+      "explanation_ja": "宇宙ごみの紹介から清掃との難しさを対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "answer": "For example",
+      "options": [
+        "Similarly",
+        "For example",
+        "Nevertheless",
+        "In conclusion"
+      ],
+      "explanation_ja": "軌道変更という例を導入します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "answer": "However",
+      "options": [
+        "As a result",
+        "For example",
+        "However",
+        "Furthermore"
+      ],
+      "explanation_ja": "回収の必要性と限界を対比します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 3,
+      "answer": "Therefore",
+      "options": [
+        "Nevertheless",
+        "For example",
+        "Likewise",
+        "Therefore"
+      ],
+      "explanation_ja": "計画と廃棄を考慮すべきという結論につなげます。"
+    }
+  ]
+}

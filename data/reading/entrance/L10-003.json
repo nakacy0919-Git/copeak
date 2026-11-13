@@ -1,0 +1,689 @@
+{
+  "id": "L10-003",
+  "category_id": "L10",
+  "title": "The Question After the Quiz",
+  "title_ja": "小テストの後に残る問い",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "word_count": 290,
+  "source_links": [
+    {
+      "title": "UNESCO Assessment for Improved Learning Outcomes",
+      "url": "https://www.unesco.org/en/learning-assessments?hub=779"
+    }
+  ],
+  "fact_notes": [
+    "形成的評価に関する一般原理をUNESCO公式資料で確認。教室場面は架空の例。",
+    "本文・対訳・設問はオリジナル。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "After a short science quiz, a student feels pleased with a high score.",
+          "ja": "短い理科の小テストの後、生徒は高得点を喜びます。"
+        },
+        {
+          "en": "However, the teacher asks everyone to explain one answer that they found difficult.",
+          "ja": "しかし教師は、難しいと感じた答えを一つ説明するよう全員に求めます。"
+        },
+        {
+          "en": "The student realizes that he guessed the correct choice without understanding the reason.",
+          "ja": "生徒は理由を理解せずに正解を推測していたと気づきます。"
+        },
+        {
+          "en": "A correct answer can therefore hide a question that still needs attention.",
+          "ja": "したがって正答にも、まだ注意が必要な問いが隠れていることがあります。"
+        },
+        {
+          "en": "The teacher wants students to notice their learning needs before beginning a new lesson.",
+          "ja": "教師は新しい授業を始める前に学習上の必要に気づいてほしいのです。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The class receives a small paper with two simple questions.",
+          "ja": "クラスに二つの簡単な問いが書かれた紙が配られます。"
+        },
+        {
+          "en": "One asks what each student understands, while the other asks what remains unclear.",
+          "ja": "一つは理解していること、もう一つはまだ不明なことを尋ねます。"
+        },
+        {
+          "en": "For example, a student may understand a definition but not know how to use it.",
+          "ja": "例えば定義は理解できても、使い方を知らない生徒がいるかもしれません。"
+        },
+        {
+          "en": "The teacher reads the answers and plans the next activity.",
+          "ja": "教師は回答を読み、次の活動を計画します。"
+        },
+        {
+          "en": "This short check gives more useful information than a score alone.",
+          "ja": "この短い確認は、点数だけより役立つ情報を与えます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The next day, the teacher prepares two different practice tasks.",
+          "ja": "翌日、教師は二種類の練習課題を用意します。"
+        },
+        {
+          "en": "Some students compare examples, while others explain a process using pictures.",
+          "ja": "例を比較する生徒もいれば、絵を使って過程を説明する生徒もいます。"
+        },
+        {
+          "en": "Instead of treating every learner as identical, the teacher responds to different needs.",
+          "ja": "すべての学習者を同じように扱うのではなく、教師は異なる必要に応えます。"
+        },
+        {
+          "en": "Students can ask questions and change activities when they are ready.",
+          "ja": "生徒は質問し、準備ができれば活動を変えられます。"
+        },
+        {
+          "en": "The goal is improvement rather than simply finishing the paper.",
+          "ja": "目的は単に紙の課題を終わらせることではなく改善です。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Nevertheless, short checks are not perfect pictures of student understanding.",
+          "ja": "それでも短い確認は、生徒の理解を完全に示すものではありません。"
+        },
+        {
+          "en": "A nervous student might know an answer but find it hard to explain.",
+          "ja": "緊張した生徒は答えを知っていても説明しにくいかもしれません。"
+        },
+        {
+          "en": "Another student might write a confident sentence that contains a mistake.",
+          "ja": "別の生徒は、自信に満ちていても間違いを含む文を書くかもしれません。"
+        },
+        {
+          "en": "Teachers therefore compare several kinds of evidence over time.",
+          "ja": "そのため教師は時間をかけて複数の種類の根拠を比較します。"
+        },
+        {
+          "en": "They also invite students to explain their thinking in different ways.",
+          "ja": "また生徒に異なる方法で考えを説明するよう促します。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "At the end of the unit, students look back at their first answers.",
+          "ja": "単元末に生徒たちは最初の回答を振り返ります。"
+        },
+        {
+          "en": "They notice that some questions have become easier to explain.",
+          "ja": "説明しやすくなった問いがあると気づきます。"
+        },
+        {
+          "en": "As a result, a small classroom check becomes a record of progress.",
+          "ja": "その結果、小さな教室の確認が進歩の記録になります。"
+        },
+        {
+          "en": "The teacher uses the record to improve future lessons as well.",
+          "ja": "教師もその記録を今後の授業改善に使います。"
+        },
+        {
+          "en": "Assessment can guide learning when it shows what to try next.",
+          "ja": "評価は、次に試すことを示すとき学びを導けます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What does the student realize after the quiz?",
+      "options": [
+        "He guessed a correct answer without understanding why.",
+        "He has received a perfect explanation.",
+        "He forgot to write his name.",
+        "He cannot read the question."
+      ],
+      "answer": 0,
+      "explanation_ja": "第1段落の「生徒は理由を理解せずに正解を推測していたと気づきます。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Why does the teacher ask about difficult answers?",
+      "options": [
+        "To lower everyone's score.",
+        "To stop future quizzes.",
+        "To make every student repeat the whole test.",
+        "To identify learning needs before the next lesson."
+      ],
+      "answer": 3,
+      "explanation_ja": "第1段落の「教師は新しい授業を始める前に学習上の必要に気づいてほしいのです。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What do the two short questions ask students?",
+      "options": [
+        "What time the school opens.",
+        "Whether they want a holiday.",
+        "What they understand and what is still unclear.",
+        "How many books they own."
+      ],
+      "answer": 2,
+      "explanation_ja": "第2段落の「一つは理解していること、もう一つはまだ不明なことを尋ねます。」が根拠です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "Why can the short check be more useful than a score?",
+      "options": [
+        "It always takes more time than a quiz.",
+        "It shows what help learners may need next.",
+        "It guarantees every answer is correct.",
+        "It removes all difficult ideas."
+      ],
+      "answer": 1,
+      "explanation_ja": "第2段落の「この短い確認は、点数だけより役立つ情報を与えます。」が根拠です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What different practice tasks are described?",
+      "options": [
+        "Comparing examples and explaining with pictures.",
+        "Writing letters and playing soccer.",
+        "Buying new science equipment.",
+        "Watching only the same video."
+      ],
+      "answer": 0,
+      "explanation_ja": "第3段落の「例を比較する生徒もいれば、絵を使って過程を説明する生徒もいます。」が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "Why does the teacher prepare different tasks?",
+      "options": [
+        "All students prefer the same method.",
+        "No one needs further practice.",
+        "Every learner has identical knowledge.",
+        "Students may have different learning needs."
+      ],
+      "answer": 3,
+      "explanation_ja": "第3段落の「すべての学習者を同じように扱うのではなく、教師は異なる必要に応えます。」が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "purpose",
+      "prompt": "Why might one short answer not show true understanding?",
+      "options": [
+        "Only teachers feel nervous.",
+        "All explanations are equally accurate.",
+        "Nervousness may make an answer hard to explain.",
+        "A correct answer always proves full understanding."
+      ],
+      "answer": 2,
+      "explanation_ja": "第4段落の「緊張した生徒は答えを知っていても説明しにくいかもしれません。」が根拠です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What do teachers compare over time?",
+      "options": [
+        "The number of pages in a textbook.",
+        "Several kinds of evidence.",
+        "Only the highest score.",
+        "A single student's name."
+      ],
+      "answer": 1,
+      "explanation_ja": "第4段落の「そのため教師は時間をかけて複数の種類の根拠を比較します。」が根拠です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What do first answers become at the end?",
+      "options": [
+        "A record that helps show progress.",
+        "A reason to cancel learning.",
+        "A list of unrelated facts.",
+        "A replacement for every class."
+      ],
+      "answer": 0,
+      "explanation_ja": "第5段落の「その結果、小さな教室の確認が進歩の記録になります。」が根拠です。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "Which statement best gives the main idea?",
+      "options": [
+        "Students should study only for numerical scores.",
+        "A short quiz reveals every thought.",
+        "Teachers should ignore learner questions.",
+        "Assessment should inform useful next steps in learning."
+      ],
+      "answer": 3,
+      "explanation_ja": "第5段落の「評価は、次に試すことを示すとき学びを導けます。」が根拠です。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "activity",
+      "ja": "活動",
+      "synonym": "task",
+      "definition": "something people do"
+    },
+    {
+      "term": "attention",
+      "ja": "注意",
+      "synonym": "focus",
+      "definition": "careful thought"
+    },
+    {
+      "term": "choice",
+      "ja": "選択肢",
+      "synonym": "option",
+      "definition": "one possible answer"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "examine together",
+      "definition": "look at similarities and differences"
+    },
+    {
+      "term": "confident",
+      "ja": "自信のある",
+      "synonym": "certain",
+      "definition": "showing confidence"
+    },
+    {
+      "term": "correct",
+      "ja": "訂正する・正しい",
+      "synonym": "fix",
+      "definition": "to remove errors or make something accurate"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "evidence",
+      "ja": "根拠",
+      "synonym": "support",
+      "definition": "information backing a judgment"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "guessed",
+      "ja": "推測した",
+      "synonym": "estimated",
+      "definition": "selected without certainty"
+    },
+    {
+      "term": "guide",
+      "ja": "導く",
+      "synonym": "direct",
+      "definition": "show someone a useful path"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "identical",
+      "ja": "同じ",
+      "synonym": "the same",
+      "definition": "exactly alike"
+    },
+    {
+      "term": "improvement",
+      "ja": "改善",
+      "synonym": "progress",
+      "definition": "becoming better"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "facts",
+      "definition": "facts or details provided about something"
+    },
+    {
+      "term": "invite",
+      "ja": "促す",
+      "synonym": "ask",
+      "definition": "request that someone participate"
+    },
+    {
+      "term": "learner",
+      "ja": "学習者",
+      "synonym": "student",
+      "definition": "someone who is studying"
+    },
+    {
+      "term": "needs",
+      "ja": "必要",
+      "synonym": "requirements",
+      "definition": "things necessary for well-being"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "practice",
+      "ja": "練習",
+      "synonym": "training",
+      "definition": "repeated activity intended to improve a skill"
+    },
+    {
+      "term": "question",
+      "ja": "疑問を持つ・問い直す",
+      "synonym": "challenge",
+      "definition": "to examine whether an assumption is correct"
+    },
+    {
+      "term": "reason",
+      "ja": "理由",
+      "synonym": "cause",
+      "definition": "an explanation for why something happens"
+    },
+    {
+      "term": "record",
+      "ja": "記録",
+      "synonym": "account",
+      "definition": "information saved for future use"
+    },
+    {
+      "term": "student",
+      "ja": "生徒",
+      "synonym": "learner",
+      "definition": "a person learning at school"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who helps others learn"
+    },
+    {
+      "term": "Teachers",
+      "ja": "教師たち",
+      "synonym": "educators",
+      "definition": "people who teach"
+    },
+    {
+      "term": "therefore",
+      "ja": "したがって",
+      "synonym": "consequently",
+      "definition": "used to introduce a logical result"
+    },
+    {
+      "term": "understanding",
+      "ja": "理解",
+      "synonym": "comprehension",
+      "definition": "the ability to know what something means"
+    },
+    {
+      "term": "quiz",
+      "ja": "小テスト",
+      "synonym": "test",
+      "definition": "a short test"
+    },
+    {
+      "term": "score",
+      "ja": "得点",
+      "synonym": "mark",
+      "definition": "a measure of performance"
+    },
+    {
+      "term": "receives",
+      "ja": "受け取る",
+      "synonym": "gets",
+      "definition": "obtains something"
+    },
+    {
+      "term": "unclear",
+      "ja": "不明な",
+      "synonym": "confusing",
+      "definition": "not easy to understand"
+    },
+    {
+      "term": "definition",
+      "ja": "定義",
+      "synonym": "meaning",
+      "definition": "a statement explaining a term"
+    },
+    {
+      "term": "check",
+      "ja": "確認",
+      "synonym": "review",
+      "definition": "a way to find out what is known"
+    },
+    {
+      "term": "prepares",
+      "ja": "用意する",
+      "synonym": "arranges",
+      "definition": "makes something ready"
+    },
+    {
+      "term": "process",
+      "ja": "過程",
+      "synonym": "sequence",
+      "definition": "a set of related steps"
+    },
+    {
+      "term": "responds",
+      "ja": "応える",
+      "synonym": "reacts",
+      "definition": "acts in response to a need"
+    },
+    {
+      "term": "nervous",
+      "ja": "緊張した",
+      "synonym": "anxious",
+      "definition": "worried about performing"
+    },
+    {
+      "term": "mistake",
+      "ja": "間違い",
+      "synonym": "error",
+      "definition": "something incorrect"
+    },
+    {
+      "term": "assessment",
+      "ja": "評価",
+      "synonym": "evaluation",
+      "definition": "a process of understanding performance"
+    },
+    {
+      "term": "unit",
+      "ja": "単元",
+      "synonym": "section",
+      "definition": "a part of a course"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "without understanding the reason",
+      "explanation_ja": "without + 動名詞は『理解しないまま』を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "while the other asks what remains unclear",
+      "explanation_ja": "whileは二つの質問内容を対比します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of treating every learner as identical",
+      "explanation_ja": "instead of + 動名詞で『同じように扱う代わりに』です。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 4,
+      "focus": "when it shows what to try next",
+      "explanation_ja": "when節は学習を導くための条件を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "逆接：高得点への安心と未理解の発見を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "例示：定義理解と活用の違いを説明します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "譲歩：短い確認には限界があると述べます。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "帰結：確認が進歩の記録に変わったことを示します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "A correct answer can therefore hide a question that still needs attention.",
+      "rewrite": "An answer may be correct even when important uncertainty remains.",
+      "explanation_ja": "正答が理解の完了を示すとは限らないという意味です。"
+    },
+    {
+      "source": "This short check gives more useful information than a score alone.",
+      "rewrite": "The brief check reveals more than a number can show.",
+      "explanation_ja": "得点以上の情報が得られるという内容です。"
+    },
+    {
+      "source": "Teachers therefore compare several kinds of evidence over time.",
+      "rewrite": "Teachers examine varied information across time.",
+      "explanation_ja": "複数の証拠を比較するという意味です。"
+    },
+    {
+      "source": "Assessment can guide learning when it shows what to try next.",
+      "rewrite": "Evaluation supports learning by suggesting the next action.",
+      "explanation_ja": "評価は次の行動を示すという結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Therefore",
+        "Nevertheless"
+      ],
+      "explanation_ja": "逆接：高得点への安心と未理解の発見を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Therefore",
+        "Nevertheless"
+      ],
+      "explanation_ja": "例示：定義理解と活用の違いを説明します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "Therefore"
+      ],
+      "explanation_ja": "譲歩：短い確認には限界があると述べます。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Therefore"
+      ],
+      "explanation_ja": "帰結：確認が進歩の記録に変わったことを示します。"
+    }
+  ]
+}
