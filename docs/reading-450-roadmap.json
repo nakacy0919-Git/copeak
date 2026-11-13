@@ -3,8 +3,8 @@
   "as_of": "2026-11-14",
   "goal": 450,
   "category_target": 30,
-  "registered_total": 83,
-  "remaining": 367,
+  "registered_total": 85,
+  "remaining": 365,
   "level_targets_per_category": {
     "eiken-3": 1,
     "eiken-pre2": 4,
@@ -28,8 +28,8 @@
       "category_id": "L02",
       "name": "歴史",
       "target": 30,
-      "registered": 5,
-      "remaining": 25
+      "registered": 6,
+      "remaining": 24
     },
     {
       "category_id": "L03",
@@ -42,8 +42,8 @@
       "category_id": "L04",
       "name": "人間関係",
       "target": 30,
-      "registered": 5,
-      "remaining": 25
+      "registered": 6,
+      "remaining": 24
     },
     {
       "category_id": "L05",
@@ -125,10 +125,10 @@
   ],
   "latest_unpublished_batch": [
     "L01-006",
+    "L02-006",
     "L03-006",
+    "L04-006",
     "L05-006",
-    "L07-007",
-    "L08-007",
     "L10-006",
     "L12-006",
     "L13-006",
@@ -149,11 +149,9 @@
     ]
   },
   "notes": [
-    "新規10本を追加し、累計83本、残り367本となった。",
-    "今回は英検3級4本・準2級4本・中堅私大2本。",
-    "新作は全て status=draft で、mainへのマージやVercel本番デプロイを行わない。",
-    "構造検査では語数帯、和訳・語彙・読解・文法・論理展開・言い換え・穴埋めの必須要件を確認。",
-    "英語・和訳の人手による品質校閲、内容上の正答一意性、出典リンクの実検証、iPad実機テストは未完了。"
+    "追加原稿10本の構造検査：エラー0件（全文和訳、語数、四択、語彙、復習演習）。",
+    "本番mainへのマージとVercelへのデプロイは禁止。利用者の明示承認を得るまで全ての新規教材をドラフトで管理。",
+    "最終的な英文・和訳・正答一意性・参考資料の人手校閲、iPadとプレビュー表示の動作確認は未実施。"
   ],
-  "all_unpublished_batches_note": "main には28本。開発ブランチ登録合計83本で、未公開ドラフト55本。最新10本は content/reading-batch-20261114-f で管理する。"
+  "all_unpublished_batches_note": "本番 main の登録は28本。開発側は85本。新規57本は未公開ドラフトとして管理。"
 }
