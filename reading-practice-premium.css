@@ -384,3 +384,83 @@ body.reading-focus #readingApp .reader-head .eyebrow{display:none}
   #readingApp #vocabListPanel .vocab-list{grid-template-columns:minmax(0,1fr)}
   #readingApp .practice-source{padding:10px 12px}
 }
+
+
+/* 2026-11-13: iPad-friendly comprehension question count selector. */
+#readingApp #questionCountSettings.reading-count-settings{
+  display:flex;flex-direction:column;align-items:center;
+  gap:8px;padding:clamp(10px,2dvh,20px) 2px 16px;
+  text-align:center;background:transparent;
+}
+#readingApp #questionCountSettings[hidden],
+#readingApp #readingCountSummary[hidden]{display:none!important}
+#readingApp .reading-count-eyebrow{
+  color:#5b8991;font-size:10px;font-weight:900;letter-spacing:.12em;
+}
+#readingApp .reading-count-settings h3{
+  margin:0;font-size:clamp(19px,2.1vw,24px);line-height:1.3;color:#21465a;
+}
+#readingApp .reading-count-settings>p{
+  font-size:12px;line-height:1.55;color:#647d88;margin:0;
+}
+#readingApp .reading-count-grid{
+  width:100%;max-width:690px;display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(8px,1.4vw,15px);margin:12px auto 0;
+}
+#readingApp .reading-count-card{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:9px;min-width:0;min-height:144px;
+  padding:13px 8px;border:1.5px solid #d6e4e6;border-radius:19px;
+  background:linear-gradient(155deg,#fff,#f2f8f8);
+  box-shadow:0 6px 17px rgba(36,77,86,.07);
+  color:#21485b;text-align:center;touch-action:manipulation;
+  transition:transform .15s,box-shadow .15s,border-color .15s;
+}
+#readingApp .reading-count-card:nth-child(2){
+  background:linear-gradient(155deg,#fff,#f0f7ff);
+}
+#readingApp .reading-count-card:nth-child(3){
+  background:linear-gradient(155deg,#fff,#f7f2fd);
+}
+#readingApp .reading-count-card:hover{
+  transform:translateY(-2px);border-color:#68a1ae;
+  box-shadow:0 11px 24px rgba(36,77,86,.12);
+}
+#readingApp .reading-count-card:active{transform:scale(.985)}
+#readingApp .reading-count-card:focus-visible{outline:3px solid #3089a2;outline-offset:3px}
+#readingApp .reading-count-card strong{
+  display:block;font-size:clamp(15px,1.7vw,20px);
+  line-height:1.15;font-weight:900;
+}
+#readingApp .reading-count-number{
+  display:grid;place-items:center;
+  width:47px;height:47px;border-radius:16px;
+  background:#dff0ed;color:#297c7b;
+  font-size:24px;font-weight:900;
+}
+#readingApp .reading-count-card:nth-child(2) .reading-count-number{background:#e0eef9;color:#3f78a2}
+#readingApp .reading-count-card:nth-child(3) .reading-count-number{background:#eee8fb;color:#6a5aa2}
+#readingApp .reading-count-card small{
+  font-size:11px;color:#67808b;line-height:1.45;font-weight:600;
+}
+#readingApp .reading-count-summary{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:10px;margin:4px 0 13px;padding:8px 12px;border:1px solid #d9e7e7;
+  border-radius:12px;background:#f4faf9;
+}
+#readingApp #readingQuestionCountLabel{font-size:12px;font-weight:850;color:#225c68}
+#readingApp #changeQuestionCount{
+  min-height:32px;padding:5px 11px;border-radius:9px;
+  background:#fff;border:1px solid #c4d8df;color:#356b7a;
+  font-size:12px;font-weight:800;
+}
+#readingApp .reading-count-hint{margin-top:5px!important;font-size:11px!important}
+@media(max-width:580px){
+  #readingApp .reading-count-grid{gap:6px}
+  #readingApp .reading-count-card{min-height:125px;padding:11px 5px;border-radius:14px;gap:6px}
+  #readingApp .reading-count-number{width:38px;height:38px;border-radius:12px;font-size:20px}
+  #readingApp .reading-count-card strong{font-size:13px}
+  #readingApp .reading-count-card small{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){#readingApp .reading-count-card{transition:none}}
