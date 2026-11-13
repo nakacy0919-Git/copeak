@@ -1,0 +1,700 @@
+{
+  "id": "L11-006",
+  "category_id": "L11",
+  "title": "Who Gets to Ask a Question?",
+  "title_ja": "誰が質問できる会議なのか",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "word_count": 285,
+  "source_links": [
+    {
+      "title": "UNICEF Convention on the Rights of the Child",
+      "url": "https://www.unicef.org/child-rights-convention/convention-text"
+    }
+  ],
+  "fact_notes": [
+    "架空の生徒会。英文・和訳・問題・解説は独自に作成。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A school council invites students to a meeting about a new sports area.",
+          "ja": "生徒会は新しい運動施設についての会議に生徒を招きます。"
+        },
+        {
+          "en": "Many students want a place to play after class.",
+          "ja": "多くの生徒は放課後に遊べる場所を望みます。"
+        },
+        {
+          "en": "However, the meeting is held when some students have important lessons.",
+          "ja": "しかし会議は一部の生徒に大事な授業がある時間に開かれます。"
+        },
+        {
+          "en": "Those students cannot attend and later ask whether their opinions were considered.",
+          "ja": "その生徒たちは出席できず、後で意見が考慮されたか尋ねます。"
+        },
+        {
+          "en": "The council begins to examine other ways to collect views.",
+          "ja": "生徒会は意見を集める別の方法を調べ始めます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "At first, the council says that the meeting was open to everyone.",
+          "ja": "最初生徒会は会議は全員に開かれていたと言います。"
+        },
+        {
+          "en": "For example, a notice appeared on the school website before the event.",
+          "ja": "例えば会議前に学校のサイトに案内が載りました。"
+        },
+        {
+          "en": "Nevertheless, seeing information does not guarantee a real chance to speak.",
+          "ja": "それでも情報を見ることは実際に話せる機会を保証しません。"
+        },
+        {
+          "en": "Some students also feel nervous about asking questions in a large room.",
+          "ja": "大勢の前で質問することに緊張する生徒もいます。"
+        },
+        {
+          "en": "The council realizes that identical invitations do not always create equal opportunities.",
+          "ja": "生徒会は同じ招待でも機会が平等になるとは限らないと気づきます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The members decide to collect written suggestions before the next meeting.",
+          "ja": "役員は次の会議前に書面で提案を集めると決めます。"
+        },
+        {
+          "en": "They offer a short online form and a paper form at school.",
+          "ja": "短いオンラインと紙のフォームを学校で用意します。"
+        },
+        {
+          "en": "Instead of asking only confident speakers, they invite different ways to respond.",
+          "ja": "自信のある発言者だけに尋ねず、異なる回答方法を用意します。"
+        },
+        {
+          "en": "A teacher helps them write questions in clear language.",
+          "ja": "教師はわかりやすい言葉で質問を作るのを助けます。"
+        },
+        {
+          "en": "The council explains how the collected suggestions will be used.",
+          "ja": "生徒会は集めた提案の使われ方を説明します。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Some students request quiet spaces, while others want equipment for team games.",
+          "ja": "静かな場所を求める生徒もいればチーム競技の用品を望む人もいます。"
+        },
+        {
+          "en": "The council cannot promise to include every idea in its final plan.",
+          "ja": "生徒会はすべての案を最終計画に入れると約束できません。"
+        },
+        {
+          "en": "It discusses limits such as space, safety, and the available budget.",
+          "ja": "空間、安全、利用可能な予算などの制約を話し合います。"
+        },
+        {
+          "en": "Students learn that listening carefully does not mean accepting every suggestion.",
+          "ja": "丁寧に聞くことはすべての提案を採用することではないと学びます。"
+        },
+        {
+          "en": "A fair decision should explain why particular options were chosen.",
+          "ja": "公正な決定では特定の案を選んだ理由を説明すべきです。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "After the council publishes a summary, more students understand the plan.",
+          "ja": "生徒会が概要を公開するとさらに多くの生徒が計画を理解します。"
+        },
+        {
+          "en": "They can see which suggestions were considered and which questions remain.",
+          "ja": "どの提案が考慮され、どの問いが残るか確認できます。"
+        },
+        {
+          "en": "As a result, the next meeting offers both written and spoken participation.",
+          "ja": "その結果次の会議では書面と口頭の両方で参加できます。"
+        },
+        {
+          "en": "The school learns that real access involves more than opening a meeting room.",
+          "ja": "学校は本当の参加機会が会議室を開けるだけではないと学びます。"
+        },
+        {
+          "en": "Giving students a voice means helping them find a practical way to be heard.",
+          "ja": "生徒の声を聞くとは実際に意見を伝える方法を助けることです。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "Why do some students miss the first meeting?",
+      "options": [
+        "They have lessons at that time.",
+        "The school is closed.",
+        "There is no meeting room.",
+        "They are not students."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「しかし会議は一部の生徒に大事な授業がある時間に開かれます。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What does the council examine?",
+      "options": [
+        "How to stop all meetings.",
+        "A new school uniform.",
+        "Train ticket prices.",
+        "Other ways to collect views."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「生徒会は意見を集める別の方法を調べ始めます。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What does a website notice fail to guarantee?",
+      "options": [
+        "The school name.",
+        "The presence of teachers.",
+        "A chance to speak.",
+        "The meeting time."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「それでも情報を見ることは実際に話せる機会を保証しません。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "Why may some students avoid speaking?",
+      "options": [
+        "They have moved abroad.",
+        "They feel nervous in a large group.",
+        "They dislike sports.",
+        "They cannot read English."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「大勢の前で質問することに緊張する生徒もいます。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "Which two response methods are provided?",
+      "options": [
+        "Online and paper forms.",
+        "Only speeches.",
+        "Only private phone calls.",
+        "Only sports contests."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「短いオンラインと紙のフォームを学校で用意します。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "Why does a teacher help write the questions?",
+      "options": [
+        "To make them more difficult.",
+        "To change the school year.",
+        "To remove every suggestion.",
+        "To make them clear."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「教師はわかりやすい言葉で質問を作るのを助けます。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What different facilities do students request?",
+      "options": [
+        "Only a bigger library.",
+        "New train platforms.",
+        "Quiet spaces and equipment for team games.",
+        "Only school buses."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「静かな場所を求める生徒もいればチーム競技の用品を望む人もいます。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What limits the council's options?",
+      "options": [
+        "Only the weather forecast.",
+        "Space, safety, and money.",
+        "Only the number of teachers.",
+        "Only the school colors."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「空間、安全、利用可能な予算などの制約を話し合います。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What does the council publish?",
+      "options": [
+        "A summary.",
+        "Everyone's private data.",
+        "Every exam result.",
+        "A secret list."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「生徒会が概要を公開するとさらに多くの生徒が計画を理解します。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the central message?",
+      "options": [
+        "Inviting everyone guarantees equal opportunities.",
+        "Good councils must accept all ideas.",
+        "Only confident speakers should join.",
+        "Participation requires practical ways to be heard."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「生徒の声を聞くとは実際に意見を伝える方法を助けることです。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "accepting",
+      "ja": "受け入れること",
+      "synonym": "welcoming",
+      "definition": "receiving something without rejection"
+    },
+    {
+      "term": "access",
+      "ja": "利用できること",
+      "synonym": "availability",
+      "definition": "ability to reach or use something"
+    },
+    {
+      "term": "confident",
+      "ja": "自信のある",
+      "synonym": "sure",
+      "definition": "feeling certain"
+    },
+    {
+      "term": "decide",
+      "ja": "決める",
+      "synonym": "choose",
+      "definition": "to make a choice"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "equipment",
+      "ja": "用具",
+      "synonym": "tools",
+      "definition": "items used for an activity"
+    },
+    {
+      "term": "event",
+      "ja": "行事",
+      "synonym": "occasion",
+      "definition": "a planned activity"
+    },
+    {
+      "term": "examine",
+      "ja": "調べる",
+      "synonym": "inspect",
+      "definition": "to look carefully"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "fair",
+      "ja": "公正な",
+      "synonym": "just",
+      "definition": "treating people appropriately"
+    },
+    {
+      "term": "guarantee",
+      "ja": "保証する",
+      "synonym": "ensure",
+      "definition": "to promise a particular result"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "identical",
+      "ja": "同一の",
+      "synonym": "the same",
+      "definition": "exactly alike"
+    },
+    {
+      "term": "important",
+      "ja": "重要な",
+      "synonym": "significant",
+      "definition": "having high value"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "facts",
+      "definition": "facts or details provided about something"
+    },
+    {
+      "term": "invite",
+      "ja": "招く・勧める",
+      "synonym": "ask",
+      "definition": "to ask someone to join an activity"
+    },
+    {
+      "term": "Listening",
+      "ja": "耳を傾けること",
+      "synonym": "paying attention",
+      "definition": "giving attention to spoken information"
+    },
+    {
+      "term": "meeting",
+      "ja": "会議",
+      "synonym": "gathering",
+      "definition": "an event for discussion"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "opinions",
+      "ja": "意見",
+      "synonym": "thoughts",
+      "definition": "what people believe"
+    },
+    {
+      "term": "opportunities",
+      "ja": "機会",
+      "synonym": "chances",
+      "definition": "possibilities to take part"
+    },
+    {
+      "term": "participation",
+      "ja": "参加",
+      "synonym": "involvement",
+      "definition": "taking part in activities"
+    },
+    {
+      "term": "particular",
+      "ja": "特定の",
+      "synonym": "specific",
+      "definition": "clearly identified rather than general"
+    },
+    {
+      "term": "practical",
+      "ja": "実際的な",
+      "synonym": "useful",
+      "definition": "possible in real life"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "space",
+      "ja": "空間",
+      "synonym": "room",
+      "definition": "an area available for use"
+    },
+    {
+      "term": "sports",
+      "ja": "スポーツ",
+      "synonym": "athletics",
+      "definition": "physical games and activities"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "summary",
+      "ja": "概要",
+      "synonym": "outline",
+      "definition": "a short description"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who helps others learn"
+    },
+    {
+      "term": "council",
+      "ja": "生徒会",
+      "synonym": "committee",
+      "definition": "a group making decisions"
+    },
+    {
+      "term": "attend",
+      "ja": "出席する",
+      "synonym": "be present",
+      "definition": "go to a meeting"
+    },
+    {
+      "term": "suggestions",
+      "ja": "提案",
+      "synonym": "ideas",
+      "definition": "possible plans"
+    },
+    {
+      "term": "equal",
+      "ja": "平等な",
+      "synonym": "same",
+      "definition": "giving appropriate access"
+    },
+    {
+      "term": "budget",
+      "ja": "予算",
+      "synonym": "funds",
+      "definition": "money available"
+    },
+    {
+      "term": "online",
+      "ja": "オンライン",
+      "synonym": "on the internet",
+      "definition": "using a digital network"
+    },
+    {
+      "term": "paper",
+      "ja": "紙",
+      "synonym": "sheet",
+      "definition": "material used for writing"
+    },
+    {
+      "term": "written",
+      "ja": "書かれた",
+      "synonym": "recorded",
+      "definition": "expressed in text"
+    },
+    {
+      "term": "decision",
+      "ja": "決定",
+      "synonym": "choice",
+      "definition": "an outcome selected"
+    },
+    {
+      "term": "notice",
+      "ja": "案内",
+      "synonym": "announcement",
+      "definition": "information made available"
+    },
+    {
+      "term": "website",
+      "ja": "ウェブサイト",
+      "synonym": "online pages",
+      "definition": "a place for online information"
+    },
+    {
+      "term": "safety",
+      "ja": "安全",
+      "synonym": "security",
+      "definition": "freedom from danger"
+    },
+    {
+      "term": "collected",
+      "ja": "集められた",
+      "synonym": "gathered",
+      "definition": "brought together"
+    },
+    {
+      "term": "speakers",
+      "ja": "発言者",
+      "synonym": "talkers",
+      "definition": "people who speak"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "whether their opinions were considered",
+      "explanation_ja": "whether節は意見が考慮されたかを尋ねます。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "does not guarantee a real chance to speak",
+      "explanation_ja": "does not guaranteeは必ずしも保障しないことを示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of asking only confident speakers",
+      "explanation_ja": "instead of + 動名詞は別の方法です。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 4,
+      "focus": "a practical way to be heard",
+      "explanation_ja": "to be heardは受動態の不定詞です。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "会議の予定と出席できない事情を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "ウェブサイトの案内を例示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "Nevertheless",
+      "role_ja": "告知があっても発言できるとは限りません。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "参加方法が変わった結果です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The council begins to examine other ways to collect views.",
+      "rewrite": "The council seeks other ways to hear students.",
+      "explanation_ja": "別の意見収集方法を探します。"
+    },
+    {
+      "source": "The council realizes that identical invitations do not always create equal opportunities.",
+      "rewrite": "Equal invitations do not ensure equal opportunities.",
+      "explanation_ja": "同じ案内でも機会は同じとは限りません。"
+    },
+    {
+      "source": "A fair decision should explain why particular options were chosen.",
+      "rewrite": "Fair decisions should explain the selected options.",
+      "explanation_ja": "選んだ理由の説明が必要ということです。"
+    },
+    {
+      "source": "Giving students a voice means helping them find a practical way to be heard.",
+      "rewrite": "People need real opportunities to express themselves.",
+      "explanation_ja": "実際に意見を伝えられる機会が必要という結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "会議の予定と出席できない事情を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "ウェブサイトの案内を例示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "告知があっても発言できるとは限りません。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "参加方法が変わった結果です。"
+    }
+  ]
+}
