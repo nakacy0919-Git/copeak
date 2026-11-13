@@ -1,0 +1,670 @@
+{
+  "id": "L13-003",
+  "category_id": "L13",
+  "title": "Why a Message to Mars Cannot Be Instant",
+  "title_ja": "火星へのメッセージはなぜすぐ届かないのか",
+  "level_id": "eiken-pre2",
+  "word_count": 291,
+  "original": true,
+  "status": "draft",
+  "source_links": [
+    {
+      "title": "NASA: Communication Delays, Disruptions, and Blackouts for Crewed Mars Missions",
+      "url": "https://ntrs.nasa.gov/citations/20220013418"
+    }
+  ],
+  "fact_notes": [
+    "背景となる考え方は添付の資料で確認。本文と練習問題は新規制作。例示した人物・学校・活動は架空の説明用設定。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "When people make a video call on Earth, they usually expect an answer almost immediately.",
+          "ja": "地球でビデオ通話をすると、人々はほぼすぐ返事を期待します。"
+        },
+        {
+          "en": "Imagine instead speaking with astronauts traveling toward Mars.",
+          "ja": "代わりに火星へ向かう宇宙飛行士と話すことを想像してください。"
+        },
+        {
+          "en": "However, a message between Earth and Mars may take many minutes to arrive.",
+          "ja": "しかし地球と火星のメッセージは届くまで何分もかかるかもしれません。"
+        },
+        {
+          "en": "Radio signals travel extremely fast, but the distance between the two planets is enormous.",
+          "ja": "電波は非常に速く進みますが、二つの惑星の距離は途方もなく大きいのです。"
+        },
+        {
+          "en": "The delay changes as Earth and Mars move along their different paths around the Sun.",
+          "ja": "地球と火星が太陽の周りの異なる軌道を動くため遅れは変わります。"
+        },
+        {
+          "en": "NASA researchers study how these delays affect communication during long missions.",
+          "ja": "NASAの研究者は長期任務でこの遅れが通信にどう影響するか調べています。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Imagine a crew member sending a question about a piece of equipment.",
+          "ja": "乗組員が機器について質問を送ると想像してください。"
+        },
+        {
+          "en": "For example, the astronaut may want to know whether a warning light means that a part needs checking.",
+          "ja": "例えば警告灯が部品の点検を意味するのか知りたいかもしれません。"
+        },
+        {
+          "en": "The message travels to Earth, where specialists examine the question.",
+          "ja": "メッセージは地球へ届き、専門家が質問を調べます。"
+        },
+        {
+          "en": "Their reply must then travel all the way back to the spacecraft.",
+          "ja": "返事はさらに宇宙船まで戻らなければなりません。"
+        },
+        {
+          "en": "If the distance is large, waiting for both messages may take a long time.",
+          "ja": "距離が大きければ往復のメッセージ待ちは長くなります。"
+        },
+        {
+          "en": "The crew therefore needs instructions and skills to handle some problems without an immediate reply.",
+          "ja": "そのため乗組員にはすぐの返答なしでも問題を扱う指示と技能が必要です。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Communication delay is not the same as a complete communication blackout.",
+          "ja": "通信の遅れは通信の完全な途絶と同じではありません。"
+        },
+        {
+          "en": "In addition, signals can sometimes be disrupted by the positions of planets and the Sun.",
+          "ja": "さらに惑星と太陽の位置によって電波が妨げられる場合があります。"
+        },
+        {
+          "en": "During certain periods, direct contact may become especially difficult.",
+          "ja": "特定の期間には直接の連絡が特に難しくなるかもしれません。"
+        },
+        {
+          "en": "Mission planners must think about both waiting times and possible interruptions.",
+          "ja": "任務の計画者は待ち時間と途絶の可能性の両方を考える必要があります。"
+        },
+        {
+          "en": "A reliable system includes careful schedules and plans for unexpected problems.",
+          "ja": "信頼できる仕組みには慎重な予定と予期しない問題への計画が含まれます。"
+        },
+        {
+          "en": "Better technology may improve the amount of data sent without removing the basic delay caused by distance.",
+          "ja": "よりよい技術で送る情報量は増やせても、距離による基本的な遅れは消えません。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Nevertheless, long delays do not mean that people must stop working together.",
+          "ja": "それでも長い遅れがあるからといって協力をやめる必要はありません。"
+        },
+        {
+          "en": "Earth teams can prepare useful information before astronauts need it.",
+          "ja": "地球のチームは宇宙飛行士が必要とする前に役立つ情報を準備できます。"
+        },
+        {
+          "en": "Astronauts can practice making decisions and explaining what they did.",
+          "ja": "宇宙飛行士は判断して行動を説明する練習ができます。"
+        },
+        {
+          "en": "Students can experience a small version of this problem by communicating with a deliberate delay.",
+          "ja": "生徒もわざと通信を遅らせてこの問題を小さく体験できます。"
+        },
+        {
+          "en": "The challenge shows why exploring distant worlds requires both technology and independent thinking.",
+          "ja": "この課題は遠い世界の探査に技術と自律的な思考の両方が必要な理由を示します。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the passage mainly about?",
+      "options": [
+        "Why Mars has no radio signals.",
+        "How communication delays create challenges that require preparation and independence.",
+        "Why video calls on Earth are impossible.",
+        "Why astronauts never need advice."
+      ],
+      "answer": 1,
+      "explanation_ja": "通信の遅延と準備・自律的判断の必要が主題です。",
+      "paragraph_ids": [
+        "p1",
+        "p4"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Why do messages to Mars take time?",
+      "options": [
+        "The signals move slowly.",
+        "Astronauts cannot speak.",
+        "The distance is enormous.",
+        "Earth has no communication equipment."
+      ],
+      "answer": 2,
+      "explanation_ja": "惑星間の距離が非常に大きいためです。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why does the delay change?",
+      "options": [
+        "Earth and Mars move relative to each other.",
+        "All messages use different languages.",
+        "Every crew member speaks slowly.",
+        "The Sun changes its size every day."
+      ],
+      "answer": 0,
+      "explanation_ja": "両惑星の位置が動くためです。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "Where do specialists examine the astronaut's question?",
+      "options": [
+        "On the Moon.",
+        "Inside a forest.",
+        "On a passing airplane.",
+        "On Earth."
+      ],
+      "answer": 3,
+      "explanation_ja": "地球で専門家が質問を検討します。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What must the crew be able to do?",
+      "options": [
+        "Wait for a reply to every tiny action.",
+        "Handle some problems without immediate answers.",
+        "Avoid all equipment.",
+        "Return to Earth within minutes."
+      ],
+      "answer": 1,
+      "explanation_ja": "返事を待たず扱える問題が必要です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why plan for blackouts as well as delays?",
+      "options": [
+        "Blackouts always last forever.",
+        "Delays and blackouts are identical.",
+        "Some signals may be interrupted completely at certain times.",
+        "Signals cannot travel in space."
+      ],
+      "answer": 2,
+      "explanation_ja": "遅延だけでなく途絶の可能性もあるからです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'disrupted' mean?",
+      "options": [
+        "Interrupted or disturbed.",
+        "Made much faster.",
+        "Translated into English.",
+        "Recorded on paper."
+      ],
+      "answer": 0,
+      "explanation_ja": "disruptedは妨げられた・途絶したという意味です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What might better technology improve?",
+      "options": [
+        "The speed of light.",
+        "The number of planets.",
+        "The size of Mars.",
+        "The amount of data sent."
+      ],
+      "answer": 3,
+      "explanation_ja": "送信できる情報量を改善し得ます。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Why might training help astronauts?",
+      "options": [
+        "They can predict every problem.",
+        "They may need to decide before Earth can reply.",
+        "All missions are completely safe.",
+        "They can eliminate the planet's distance."
+      ],
+      "answer": 1,
+      "explanation_ja": "返事が遅れる間の判断が必要なためです。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "Why suggest delayed communication in class?",
+      "options": [
+        "To show students that messages are useless.",
+        "To make all tasks impossible.",
+        "To help students experience the challenge of delayed teamwork.",
+        "To stop international communication."
+      ],
+      "answer": 2,
+      "explanation_ja": "遅れのある協力の難しさを体験するためです。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "Mars",
+      "ja": "火星",
+      "synonym": "the red planet",
+      "definition": "the fourth planet from the Sun"
+    },
+    {
+      "term": "astronauts",
+      "ja": "宇宙飛行士",
+      "synonym": "space travelers",
+      "definition": "people trained to travel in space"
+    },
+    {
+      "term": "signals",
+      "ja": "信号・電波",
+      "synonym": "transmissions",
+      "definition": "electromagnetic messages"
+    },
+    {
+      "term": "enormous",
+      "ja": "非常に大きい",
+      "synonym": "huge",
+      "definition": "extremely large"
+    },
+    {
+      "term": "delay",
+      "ja": "遅れ",
+      "synonym": "waiting time",
+      "definition": "a period before something arrives"
+    },
+    {
+      "term": "distance",
+      "ja": "距離",
+      "synonym": "separation",
+      "definition": "space between two points"
+    },
+    {
+      "term": "planets",
+      "ja": "惑星",
+      "synonym": "worlds",
+      "definition": "large bodies orbiting stars"
+    },
+    {
+      "term": "Sun",
+      "ja": "太陽",
+      "synonym": "our star",
+      "definition": "the star at the center of the solar system"
+    },
+    {
+      "term": "researchers",
+      "ja": "研究者",
+      "synonym": "investigators",
+      "definition": "people conducting studies"
+    },
+    {
+      "term": "missions",
+      "ja": "任務",
+      "synonym": "operations",
+      "definition": "planned activities with specific aims"
+    },
+    {
+      "term": "crew",
+      "ja": "乗組員",
+      "synonym": "team aboard",
+      "definition": "people working together on a spacecraft"
+    },
+    {
+      "term": "equipment",
+      "ja": "機器",
+      "synonym": "apparatus",
+      "definition": "tools and machines for a task"
+    },
+    {
+      "term": "warning light",
+      "ja": "警告灯",
+      "synonym": "alert lamp",
+      "definition": "a light indicating a possible problem"
+    },
+    {
+      "term": "specialists",
+      "ja": "専門家",
+      "synonym": "experts",
+      "definition": "people with detailed knowledge"
+    },
+    {
+      "term": "reply",
+      "ja": "返事",
+      "synonym": "response",
+      "definition": "an answer to a message"
+    },
+    {
+      "term": "spacecraft",
+      "ja": "宇宙船",
+      "synonym": "space vehicle",
+      "definition": "a machine designed for space travel"
+    },
+    {
+      "term": "instructions",
+      "ja": "指示",
+      "synonym": "directions",
+      "definition": "information about what to do"
+    },
+    {
+      "term": "blackout",
+      "ja": "通信途絶",
+      "synonym": "loss of contact",
+      "definition": "a period without communication"
+    },
+    {
+      "term": "disrupted",
+      "ja": "妨げられた",
+      "synonym": "interrupted",
+      "definition": "prevented from working normally"
+    },
+    {
+      "term": "contact",
+      "ja": "連絡",
+      "synonym": "communication",
+      "definition": "the ability to exchange information"
+    },
+    {
+      "term": "planners",
+      "ja": "計画担当者",
+      "synonym": "organizers",
+      "definition": "people preparing plans"
+    },
+    {
+      "term": "interruptions",
+      "ja": "中断",
+      "synonym": "breaks",
+      "definition": "periods when a process stops"
+    },
+    {
+      "term": "unexpected",
+      "ja": "予想外の",
+      "synonym": "unplanned",
+      "definition": "not expected"
+    },
+    {
+      "term": "reliable",
+      "ja": "信頼できる",
+      "synonym": "dependable",
+      "definition": "working consistently"
+    },
+    {
+      "term": "independent",
+      "ja": "自律的な",
+      "synonym": "self-directed",
+      "definition": "able to act without immediate assistance"
+    },
+    {
+      "term": "deliberate",
+      "ja": "意図的な",
+      "synonym": "intentional",
+      "definition": "done on purpose"
+    },
+    {
+      "term": "traveling",
+      "ja": "移動している",
+      "synonym": "journeying",
+      "definition": "moving from place to place"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "changes",
+      "ja": "変化",
+      "synonym": "differences",
+      "definition": "things that become different over time"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "learners",
+      "definition": "people receiving education at school"
+    },
+    {
+      "term": "study",
+      "ja": "調べる・学習する",
+      "synonym": "examine",
+      "definition": "to learn or investigate something carefully"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "facts",
+      "definition": "facts or details provided about something"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "therefore",
+      "ja": "したがって",
+      "synonym": "consequently",
+      "definition": "used to introduce a logical result"
+    },
+    {
+      "term": "possible",
+      "ja": "可能な・あり得る",
+      "synonym": "potential",
+      "definition": "able to happen or be true"
+    },
+    {
+      "term": "experience",
+      "ja": "経験",
+      "synonym": "personal knowledge",
+      "definition": "knowledge gained from living through events"
+    },
+    {
+      "term": "improve",
+      "ja": "改善する",
+      "synonym": "make better",
+      "definition": "to change something for the better"
+    },
+    {
+      "term": "better",
+      "ja": "より良い",
+      "synonym": "improved",
+      "definition": "of higher quality than before"
+    },
+    {
+      "term": "problem",
+      "ja": "問題",
+      "synonym": "difficulty",
+      "definition": "something that needs attention or a solution"
+    },
+    {
+      "term": "problems",
+      "ja": "問題",
+      "synonym": "difficulties",
+      "definition": "situations that need solutions"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "astronauts traveling toward Mars",
+      "explanation_ja": "現在分詞travelingがastronautsを修飾します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "whether a warning light means that a part needs checking",
+      "explanation_ja": "whetherとthatの名詞節を含む間接疑問です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 5,
+      "focus": "without removing the basic delay",
+      "explanation_ja": "without＋動名詞で『〜せずに』を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "focus": "do not mean that people must stop working together",
+      "explanation_ja": "do not mean thatは誤解を否定する構文です。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "通常の即時通話と火星通信を対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "警告灯に関する具体的質問。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "In addition",
+      "role_ja": "遅れと通信途絶の可能性を追加。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "通信の困難と協力の可能性を対比。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "a message between Earth and Mars may take many minutes to arrive",
+      "rewrite": "interplanetary communication may have a delay of several minutes",
+      "explanation_ja": "take many minutes→delayです。"
+    },
+    {
+      "source": "The crew therefore needs instructions and skills to handle some problems without an immediate reply",
+      "rewrite": "astronauts need preparation to solve certain issues before receiving guidance",
+      "explanation_ja": "without an immediate reply→before receiving guidanceです。"
+    },
+    {
+      "source": "Communication delay is not the same as a complete communication blackout",
+      "rewrite": "waiting for a signal differs from losing contact entirely",
+      "explanation_ja": "not the same as→differs fromです。"
+    },
+    {
+      "source": "exploring distant worlds requires both technology and independent thinking",
+      "rewrite": "space exploration needs equipment and the ability to make decisions without immediate help",
+      "explanation_ja": "independent thinking→decisions without immediate helpです。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "通常の即時通話と火星通信を対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Therefore",
+        "In addition"
+      ],
+      "explanation_ja": "警告灯に関する具体的質問。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "In addition",
+      "options": [
+        "In addition",
+        "However",
+        "Therefore",
+        "For example"
+      ],
+      "explanation_ja": "遅れと通信途絶の可能性を追加。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "通信の困難と協力の可能性を対比。"
+    }
+  ]
+}
