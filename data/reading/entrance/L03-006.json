@@ -1,0 +1,972 @@
+{
+  "id": "L03-006",
+  "category_id": "L03",
+  "title": "When an AI Correction Changed the Writer's Voice",
+  "title_ja": "AIの添削が書き手らしさを変えたとき",
+  "level_id": "university-mid",
+  "status": "draft",
+  "original": true,
+  "word_count": 544,
+  "source_links": [
+    {
+      "title": "UNESCO Recommendation on the Ethics of Artificial Intelligence",
+      "url": "https://www.unesco.org/en/artificial-intelligence/recommendation-ethics"
+    }
+  ],
+  "fact_notes": [
+    "書き手、教師、AI添削の事例は架空。本文と対訳、設問は独自制作であり特定サービスの実際の挙動を表さない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "An English teacher invites students to use an automatic writing assistant before submitting short reflections about their local community.",
+          "ja": "英語教師は地域社会についての短い振り返りを提出する前に、自動ライティング支援を使うよう生徒に勧めます。"
+        },
+        {
+          "en": "The program identifies possible grammar errors, suggests alternative expressions, and gives each draft a numerical score.",
+          "ja": "プログラムは文法上の誤りの可能性を示し、別の表現を勧め、草稿に数値の点数を付けます。"
+        },
+        {
+          "en": "Most students welcome the quick feedback because they can revise their writing without waiting for the next lesson.",
+          "ja": "多くの生徒は次の授業を待たずに修正できるため、素早いフィードバックを歓迎します。"
+        },
+        {
+          "en": "However, one student notices that the assistant changes a sentence about her grandmother into a more formal statement.",
+          "ja": "しかし一人の生徒は祖母についての文が支援ツールによってより形式的な文に変わると気づきます。"
+        },
+        {
+          "en": "The new sentence is grammatically smooth, but it no longer communicates the warm, personal feeling she wanted to express.",
+          "ja": "新しい文は文法的に滑らかですが、伝えたかった温かい個人的な感情がなくなっています。"
+        },
+        {
+          "en": "Her experience leads the class to ask whether a correction should be accepted simply because it sounds more professional.",
+          "ja": "この経験からクラスはより専門的に聞こえるというだけで添削を受け入れるべきか尋ね始めます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "A writing assistant can be useful when it draws attention to unclear sentences or patterns a learner has not noticed.",
+          "ja": "書くことを助けるツールは、学習者が気づかない不明瞭な文や傾向に注意を向けさせるとき役立ちます。"
+        },
+        {
+          "en": "For example, it may detect that a writer has used different verb forms while describing events from the same period.",
+          "ja": "例えば同じ時期の出来事を描きながら異なる動詞の形を使っていることを発見するかもしれません。"
+        },
+        {
+          "en": "Nevertheless, a system that predicts likely expressions does not necessarily know why the writer selected a particular word.",
+          "ja": "それでもありそうな表現を予測する仕組みは、筆者がなぜ特定の語を選んだかを必ずしも知りません。"
+        },
+        {
+          "en": "A short informal phrase may be appropriate in a personal reflection even if a formal alternative sounds more academic.",
+          "ja": "短いくだけた表現は、形式的な別案が学術的に聞こえても、個人的な振り返りでは適切なことがあります。"
+        },
+        {
+          "en": "The quality of a suggestion therefore depends on the purpose, intended reader, and meaning of the original passage.",
+          "ja": "そのため提案の質は元の文章の目的、想定読者、意味に左右されます。"
+        },
+        {
+          "en": "Students need to distinguish an actual error from a different but equally reasonable choice of style.",
+          "ja": "生徒は本当の誤りと、異なるが同じように妥当な文体の選択を区別する必要があります。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The teacher asks each student to compare one original sentence with the assistant's suggestion and explain any difference in meaning.",
+          "ja": "教師は各生徒に元の一文と支援ツールの提案を比較し、意味の違いを説明するよう求めます。"
+        },
+        {
+          "en": "Instead of automatically accepting the proposed version, students decide whether it improves their intended message.",
+          "ja": "提案された版を自動的に受け入れるのではなく、意図する内容が改善されるか判断します。"
+        },
+        {
+          "en": "Some suggestions make complicated sentences easier to understand, while others remove details that give the writing a distinctive voice.",
+          "ja": "複雑な文を理解しやすくする提案もあれば、文章に独特の声を与える細部を消す提案もあります。"
+        },
+        {
+          "en": "The teacher also reminds the class that a high score does not guarantee an original or convincing argument.",
+          "ja": "教師は高得点が独創的で説得力ある議論を保証するわけではないと注意します。"
+        },
+        {
+          "en": "A writer can choose simple words and still communicate an important insight about personal experience.",
+          "ja": "筆者は簡単な語を選んでも個人的経験について重要な気づきを伝えられます。"
+        },
+        {
+          "en": "The comparison turns automated feedback into material for discussion rather than an unquestionable final answer.",
+          "ja": "比較によって自動フィードバックは疑いようのない最終答えではなく、議論のための材料となります。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Another question concerns what happens to student writing after it is submitted to an online service.",
+          "ja": "別の問題は生徒の文章がオンラインサービスに送信された後どうなるかです。"
+        },
+        {
+          "en": "Students may include names, details about family members, or personal experiences that they would not want widely shared.",
+          "ja": "生徒は広く共有したくない名前、家族の詳細、個人的経験を含めるかもしれません。"
+        },
+        {
+          "en": "The class therefore discusses which information is necessary for receiving feedback and whether sensitive details can be removed.",
+          "ja": "そこでクラスはフィードバックに必要な情報と、慎重に扱うべき細部を除けるか話し合います。"
+        },
+        {
+          "en": "It also asks teachers to explain which services are approved and how writing data will be handled or retained.",
+          "ja": "どのサービスが承認されているか、文章データをどう扱い保管するかを教師に説明してもらいます。"
+        },
+        {
+          "en": "Good intentions to improve learning do not remove the responsibility to consider privacy and informed participation.",
+          "ja": "学習改善の善意はプライバシーと十分理解した上での参加を考える責任を取り除きません。"
+        },
+        {
+          "en": "The students realize that choosing a tool involves both its educational value and the conditions under which it is used.",
+          "ja": "生徒は道具の選択には教育的価値と利用条件の両方が関わると気づきます。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "At the final workshop, students submit their own revised paragraphs together with a brief explanation of the changes they made.",
+          "ja": "最後のワークショップでは生徒は修正した段落と変更理由の短い説明を一緒に提出します。"
+        },
+        {
+          "en": "They can describe corrections they accepted, suggestions they rejected, and questions they still want to ask their teacher.",
+          "ja": "受け入れた添削、拒否した提案、教師にまだ尋ねたい問いを説明できます。"
+        },
+        {
+          "en": "As a result, the writing assistant becomes a source of possibilities instead of a judge that determines the final version.",
+          "ja": "その結果、ライティング支援は最終版を決める裁判官ではなく、可能性の情報源になります。"
+        },
+        {
+          "en": "The teacher evaluates how clearly students communicate their ideas and how thoughtfully they use feedback to revise them.",
+          "ja": "教師は考えをどれほど明確に伝え、フィードバックをどれほど思慮深く修正に用いるか評価します。"
+        },
+        {
+          "en": "The class understands that useful technology should strengthen a learner's ability to make decisions rather than replace it.",
+          "ja": "クラスは役立つ技術が学習者の判断力を置き換えるのでなく強めるべきだと理解します。"
+        },
+        {
+          "en": "A good correction is not merely one that sounds polished; it is one that helps the writer say what truly matters.",
+          "ja": "よい添削は洗練されて聞こえるだけのものではなく、書き手が本当に大切なことを伝えるのを助けるものです。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What concern does a student identify?",
+      "options": [
+        "The assistant makes her writing less personal.",
+        "The program refuses to find grammar errors.",
+        "The school has no writing assignments.",
+        "Her grandmother cannot read English."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「しかし一人の生徒は祖母についての文が支援ツールによってより形式的な文に変わると気づきます。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What does the experience make the class question?",
+      "options": [
+        "Whether students should stop writing.",
+        "Whether grammar errors can ever be corrected.",
+        "Whether every reflection needs a numerical score.",
+        "Whether polished suggestions should be accepted automatically."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「この経験からクラスはより専門的に聞こえるというだけで添削を受け入れるべきか尋ね始めます。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "Which error could an assistant help identify?",
+      "options": [
+        "The total number of classrooms.",
+        "The color of a notebook.",
+        "Inconsistent verb forms in a passage.",
+        "The student's favorite word."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「例えば同じ時期の出来事を描きながら異なる動詞の形を使っていることを発見するかもしれません。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What distinction should students make?",
+      "options": [
+        "Spoken English versus all other languages.",
+        "Errors versus reasonable stylistic choices.",
+        "Good handwriting versus bad handwriting only.",
+        "Short stories versus novels."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「生徒は本当の誤りと、異なるが同じように妥当な文体の選択を区別する必要があります。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What may an automatic suggestion remove?",
+      "options": [
+        "Details that give writing its personal voice.",
+        "Every spelling mistake.",
+        "The need for any feedback.",
+        "All information about grammar."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「複雑な文を理解しやすくする提案もあれば、文章に独特の声を与える細部を消す提案もあります。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What does a high score fail to guarantee?",
+      "options": [
+        "That the computer has processed the text.",
+        "A number displayed on the screen.",
+        "That the document has sentences.",
+        "An original and convincing argument."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「教師は高得点が独創的で説得力ある議論を保証するわけではないと注意します。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "Why is online submission discussed?",
+      "options": [
+        "Online tools always delete everything.",
+        "The school forbids all digital writing.",
+        "Writing may include sensitive personal details.",
+        "Every student must publish a family history."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「生徒は広く共有したくない名前、家族の詳細、個人的経験を含めるかもしれません。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What should tool selection consider?",
+      "options": [
+        "The highest automatic score alone.",
+        "Educational value and conditions of data use.",
+        "Only the appearance of buttons.",
+        "Only the longest possible text."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「生徒は道具の選択には教育的価値と利用条件の両方が関わると気づきます。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What do students submit with revised writing?",
+      "options": [
+        "A short explanation of decisions about feedback.",
+        "A copy of every suggestion without review.",
+        "Only an automatic score.",
+        "A list of every student's private data."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「受け入れた添削、拒否した提案、教師にまだ尋ねたい問いを説明できます。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the passage's main message?",
+      "options": [
+        "More formal language always improves writing.",
+        "A single score reveals complete writing quality.",
+        "Students should accept every machine suggestion.",
+        "AI feedback should support a writer's judgment and intended meaning."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「よい添削は洗練されて聞こえるだけのものではなく、書き手が本当に大切なことを伝えるのを助けるものです。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "accepting",
+      "ja": "受け入れること",
+      "synonym": "welcoming",
+      "definition": "receiving something without rejection"
+    },
+    {
+      "term": "actual",
+      "ja": "実際の",
+      "synonym": "real",
+      "definition": "existing in fact"
+    },
+    {
+      "term": "alternative",
+      "ja": "代替手段",
+      "synonym": "option",
+      "definition": "another available method"
+    },
+    {
+      "term": "appropriate",
+      "ja": "適切な",
+      "synonym": "suitable",
+      "definition": "right for the circumstances"
+    },
+    {
+      "term": "argument",
+      "ja": "議論",
+      "synonym": "reasoning",
+      "definition": "claims supported by explanations"
+    },
+    {
+      "term": "attention",
+      "ja": "注目",
+      "synonym": "notice",
+      "definition": "interest directed at something"
+    },
+    {
+      "term": "automatically",
+      "ja": "自動的に",
+      "synonym": "without checking",
+      "definition": "done without human action"
+    },
+    {
+      "term": "choice",
+      "ja": "選択",
+      "synonym": "decision",
+      "definition": "the act of selecting an action"
+    },
+    {
+      "term": "communicate",
+      "ja": "伝える・意思疎通する",
+      "synonym": "exchange information",
+      "definition": "to share ideas or messages"
+    },
+    {
+      "term": "community",
+      "ja": "地域社会",
+      "synonym": "neighborhood",
+      "definition": "people living in the same area"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "contrast",
+      "definition": "to examine differences and similarities"
+    },
+    {
+      "term": "concerns",
+      "ja": "不安・懸念",
+      "synonym": "worries",
+      "definition": "matters people feel uneasy about"
+    },
+    {
+      "term": "conditions",
+      "ja": "状況",
+      "synonym": "circumstances",
+      "definition": "things affecting an event"
+    },
+    {
+      "term": "consider",
+      "ja": "考慮する",
+      "synonym": "think about",
+      "definition": "to examine an idea before deciding"
+    },
+    {
+      "term": "decide",
+      "ja": "決める",
+      "synonym": "choose",
+      "definition": "to make a choice"
+    },
+    {
+      "term": "decisions",
+      "ja": "決定・判断",
+      "synonym": "choices",
+      "definition": "choices made after thinking"
+    },
+    {
+      "term": "describe",
+      "ja": "説明する",
+      "synonym": "explain",
+      "definition": "to give an account of something"
+    },
+    {
+      "term": "details",
+      "ja": "細部",
+      "synonym": "particulars",
+      "definition": "small pieces of information"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "discussion",
+      "ja": "話し合い",
+      "synonym": "conversation",
+      "definition": "an exchange of views"
+    },
+    {
+      "term": "distinguish",
+      "ja": "区別する",
+      "synonym": "differentiate",
+      "definition": "to recognize differences"
+    },
+    {
+      "term": "educational",
+      "ja": "教育的な",
+      "synonym": "instructional",
+      "definition": "connected with teaching and learning"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "experiences",
+      "ja": "経験",
+      "synonym": "experiences of life",
+      "definition": "events or activities that a person has lived through"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "explanation",
+      "ja": "説明",
+      "synonym": "account",
+      "definition": "a statement of why something happened"
+    },
+    {
+      "term": "express",
+      "ja": "表現する",
+      "synonym": "state",
+      "definition": "to communicate ideas or feelings"
+    },
+    {
+      "term": "expressions",
+      "ja": "表現",
+      "synonym": "phrases",
+      "definition": "groups of words used for meaning"
+    },
+    {
+      "term": "feedback",
+      "ja": "フィードバック",
+      "synonym": "response",
+      "definition": "information given to improve work"
+    },
+    {
+      "term": "formal",
+      "ja": "形式的な",
+      "synonym": "official",
+      "definition": "suited to formal situations"
+    },
+    {
+      "term": "grammar",
+      "ja": "文法",
+      "synonym": "language rules",
+      "definition": "rules governing sentences"
+    },
+    {
+      "term": "guarantee",
+      "ja": "保証する",
+      "synonym": "ensure",
+      "definition": "to promise a particular result"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "important",
+      "ja": "重要な",
+      "synonym": "significant",
+      "definition": "having a great effect or value"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "facts",
+      "definition": "facts or details provided about something"
+    },
+    {
+      "term": "judge",
+      "ja": "判断する",
+      "synonym": "evaluate",
+      "definition": "to assess the value of something"
+    },
+    {
+      "term": "learner",
+      "ja": "学習者",
+      "synonym": "student",
+      "definition": "someone who is studying"
+    },
+    {
+      "term": "local",
+      "ja": "地域の",
+      "synonym": "nearby",
+      "definition": "relating to a particular place"
+    },
+    {
+      "term": "merely",
+      "ja": "単に",
+      "synonym": "only",
+      "definition": "without anything more"
+    },
+    {
+      "term": "message",
+      "ja": "メッセージ",
+      "synonym": "communication",
+      "definition": "information sent to someone"
+    },
+    {
+      "term": "necessarily",
+      "ja": "必ずしも",
+      "synonym": "inevitably",
+      "definition": "in a way that must be true"
+    },
+    {
+      "term": "necessary",
+      "ja": "必要な",
+      "synonym": "required",
+      "definition": "needed for a particular purpose"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "original",
+      "ja": "独創的な",
+      "synonym": "new",
+      "definition": "not copied from other work"
+    },
+    {
+      "term": "participation",
+      "ja": "参加",
+      "synonym": "involvement",
+      "definition": "taking part in an activity"
+    },
+    {
+      "term": "particular",
+      "ja": "特定の",
+      "synonym": "specific",
+      "definition": "clearly identified rather than general"
+    },
+    {
+      "term": "patterns",
+      "ja": "傾向・パターン",
+      "synonym": "regularities",
+      "definition": "repeated ways something happens"
+    },
+    {
+      "term": "personal",
+      "ja": "個人の",
+      "synonym": "individual",
+      "definition": "belonging to one person"
+    },
+    {
+      "term": "privacy",
+      "ja": "プライバシー",
+      "synonym": "confidentiality",
+      "definition": "protection of personal information"
+    },
+    {
+      "term": "professional",
+      "ja": "専門的な",
+      "synonym": "expert",
+      "definition": "associated with specialized work"
+    },
+    {
+      "term": "proposed",
+      "ja": "提案された",
+      "synonym": "suggested",
+      "definition": "put forward for consideration"
+    },
+    {
+      "term": "purpose",
+      "ja": "目的",
+      "synonym": "aim",
+      "definition": "the reason for doing something"
+    },
+    {
+      "term": "quality",
+      "ja": "質",
+      "synonym": "standard",
+      "definition": "how good something is"
+    },
+    {
+      "term": "question",
+      "ja": "疑問を持つ・問い直す",
+      "synonym": "challenge",
+      "definition": "to examine whether an assumption is correct"
+    },
+    {
+      "term": "responsibility",
+      "ja": "責任",
+      "synonym": "duty",
+      "definition": "something a person should do"
+    },
+    {
+      "term": "revise",
+      "ja": "修正する",
+      "synonym": "reconsider",
+      "definition": "to change after reviewing"
+    },
+    {
+      "term": "services",
+      "ja": "公共サービス",
+      "synonym": "facilities",
+      "definition": "things provided to meet needs"
+    },
+    {
+      "term": "shared",
+      "ja": "共有された",
+      "synonym": "common",
+      "definition": "used or affected by several groups"
+    },
+    {
+      "term": "source",
+      "ja": "情報源",
+      "synonym": "origin",
+      "definition": "where information comes from"
+    },
+    {
+      "term": "statement",
+      "ja": "主張・発言",
+      "synonym": "claim",
+      "definition": "a spoken or written assertion"
+    },
+    {
+      "term": "strengthen",
+      "ja": "強める",
+      "synonym": "reinforce",
+      "definition": "to make something stronger"
+    },
+    {
+      "term": "student",
+      "ja": "生徒",
+      "synonym": "learner",
+      "definition": "a person learning at school"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who teaches"
+    },
+    {
+      "term": "Teachers",
+      "ja": "教師たち",
+      "synonym": "educators",
+      "definition": "people who teach"
+    },
+    {
+      "term": "therefore",
+      "ja": "したがって",
+      "synonym": "consequently",
+      "definition": "used to introduce a logical result"
+    },
+    {
+      "term": "thoughtfully",
+      "ja": "丁寧に",
+      "synonym": "carefully",
+      "definition": "with considerate attention"
+    },
+    {
+      "term": "value",
+      "ja": "価値",
+      "synonym": "worth",
+      "definition": "usefulness or importance"
+    },
+    {
+      "term": "writing",
+      "ja": "作文",
+      "synonym": "composition",
+      "definition": "producing written language"
+    },
+    {
+      "term": "assistant",
+      "ja": "支援ツール",
+      "synonym": "helper",
+      "definition": "a tool that helps perform a task"
+    },
+    {
+      "term": "automated",
+      "ja": "自動化された",
+      "synonym": "automatic",
+      "definition": "performed by a program"
+    },
+    {
+      "term": "correction",
+      "ja": "添削",
+      "synonym": "revision",
+      "definition": "a change intended to fix an error"
+    },
+    {
+      "term": "corrections",
+      "ja": "添削",
+      "synonym": "revisions",
+      "definition": "changes fixing or improving text"
+    },
+    {
+      "term": "suggestion",
+      "ja": "提案",
+      "synonym": "recommendation",
+      "definition": "a proposed change"
+    },
+    {
+      "term": "suggestions",
+      "ja": "提案",
+      "synonym": "recommendations",
+      "definition": "possible changes"
+    },
+    {
+      "term": "reflection",
+      "ja": "振り返り",
+      "synonym": "personal account",
+      "definition": "a short text about experience"
+    },
+    {
+      "term": "reflections",
+      "ja": "振り返り",
+      "synonym": "accounts",
+      "definition": "texts about experiences"
+    },
+    {
+      "term": "numerical",
+      "ja": "数値の",
+      "synonym": "number-based",
+      "definition": "expressed using numbers"
+    },
+    {
+      "term": "sensitive",
+      "ja": "慎重に扱うべき",
+      "synonym": "private",
+      "definition": "requiring care in handling"
+    },
+    {
+      "term": "retained",
+      "ja": "保管された",
+      "synonym": "kept",
+      "definition": "saved for later use"
+    },
+    {
+      "term": "revised",
+      "ja": "修正した",
+      "synonym": "edited",
+      "definition": "changed after review"
+    },
+    {
+      "term": "distinctive",
+      "ja": "独特の",
+      "synonym": "unique",
+      "definition": "noticeably different"
+    },
+    {
+      "term": "intended",
+      "ja": "意図した",
+      "synonym": "planned",
+      "definition": "meant by the writer"
+    },
+    {
+      "term": "informal",
+      "ja": "くだけた",
+      "synonym": "casual",
+      "definition": "not highly formal"
+    },
+    {
+      "term": "style",
+      "ja": "文体",
+      "synonym": "manner",
+      "definition": "the way someone uses language"
+    },
+    {
+      "term": "meaning",
+      "ja": "意味",
+      "synonym": "sense",
+      "definition": "the idea carried by language"
+    },
+    {
+      "term": "data",
+      "ja": "データ",
+      "synonym": "information",
+      "definition": "recorded information"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 4,
+      "focus": "but it no longer communicates the warm, personal feeling",
+      "explanation_ja": "but節が文法面と意味面の差を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "does not necessarily know why the writer selected a particular word",
+      "explanation_ja": "not necessarilyは部分否定です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "focus": "Instead of automatically accepting the proposed version",
+      "explanation_ja": "instead of + 動名詞で判断する行動を示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 5,
+      "focus": "not merely one that sounds polished",
+      "explanation_ja": "not merelyは見た目だけでないことを強調します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "素早い添削への好意と不適切な変更を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "時制の不一致を例示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Instead",
+      "role_ja": "自動承認の代わりに意図を基準に考えます。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "自動添削が最終判断でなく提案になる結果です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Her experience leads the class to ask whether a correction should be accepted simply because it sounds more professional.",
+      "rewrite": "The class questions whether professional-sounding edits should always be used.",
+      "explanation_ja": "洗練された文を常に採用すべきか問うています。"
+    },
+    {
+      "source": "Students need to distinguish an actual error from a different but equally reasonable choice of style.",
+      "rewrite": "Writers must separate mistakes from acceptable stylistic differences.",
+      "explanation_ja": "誤りと妥当な文体差を区別します。"
+    },
+    {
+      "source": "The students realize that choosing a tool involves both its educational value and the conditions under which it is used.",
+      "rewrite": "Choosing a writing tool requires attention to both learning and data conditions.",
+      "explanation_ja": "学習と個人データの扱いを考える必要があります。"
+    },
+    {
+      "source": "A good correction is not merely one that sounds polished; it is one that helps the writer say what truly matters.",
+      "rewrite": "An effective correction helps a writer express the intended message.",
+      "explanation_ja": "書き手の意図を伝える添削が有益という結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "素早い添削への好意と不適切な変更を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "時制の不一致を例示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "Instead",
+      "options": [
+        "Instead",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "自動承認の代わりに意図を基準に考えます。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "自動添削が最終判断でなく提案になる結果です。"
+    }
+  ]
+}

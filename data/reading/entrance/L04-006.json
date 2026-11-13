@@ -1,0 +1,596 @@
+{
+  "id": "L04-006",
+  "category_id": "L04",
+  "title": "A Place for Every Voice",
+  "title_ja": "みんなの声を聞くための場所",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 184,
+  "source_links": [
+    {
+      "title": "Background reference",
+      "url": "https://www.unicef.org/child-rights-convention/convention-text"
+    }
+  ],
+  "fact_notes": [
+    "人物と学校、駅の事例は架空。英文・和訳・設問・解説は独自作成。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A class plans a game for its school festival.",
+          "ja": "クラスは学校のお祭りのゲームを計画します。"
+        },
+        {
+          "en": "Some students speak quickly during every meeting.",
+          "ja": "生徒の中には毎回の会議ですぐに発言する人がいます。"
+        },
+        {
+          "en": "However, Yuna often stays quiet even when she has an idea.",
+          "ja": "しかしユナは考えがあっても静かなことが多いです。"
+        },
+        {
+          "en": "Her teacher notices that not everyone has spoken.",
+          "ja": "教師は全員が発言していないと気づきます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The teacher gives each student a small paper card.",
+          "ja": "教師は生徒一人ひとりに小さな紙のカードを渡します。"
+        },
+        {
+          "en": "Everyone can write an idea before talking.",
+          "ja": "全員が発言する前に考えを書けます。"
+        },
+        {
+          "en": "For example, Yuna suggests a game using pictures and words.",
+          "ja": "例えばユナは絵と言葉を使うゲームを提案します。"
+        },
+        {
+          "en": "Several classmates think her idea sounds interesting.",
+          "ja": "何人かの同級生はその案を面白そうだと思います。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "At the next meeting, students read the cards together.",
+          "ja": "次の会議で生徒たちは一緒にカードを読みます。"
+        },
+        {
+          "en": "They discuss ideas without asking who wrote them first.",
+          "ja": "最初に誰が書いたか尋ねずに考えを話し合います。"
+        },
+        {
+          "en": "Instead of choosing the loudest person's suggestion, they compare the plans.",
+          "ja": "最も声の大きい人の案を選ぶ代わりに計画を比べます。"
+        },
+        {
+          "en": "Yuna feels comfortable enough to explain her picture game.",
+          "ja": "ユナは安心して絵のゲームを説明できるようになります。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The class chooses a game that everyone can help prepare.",
+          "ja": "クラスは全員が準備を手伝えるゲームを選びます。"
+        },
+        {
+          "en": "They still need to discuss how visitors will play it.",
+          "ja": "来場者がどう遊ぶかはまだ話し合う必要があります。"
+        },
+        {
+          "en": "Nevertheless, more students now offer questions and suggestions.",
+          "ja": "それでも今はより多くの生徒が質問や提案をします。"
+        },
+        {
+          "en": "The group learns that different people need different ways to join.",
+          "ja": "グループは人によって参加しやすい方法が違うと学びます。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "On festival day, the game becomes popular with visitors.",
+          "ja": "お祭り当日、ゲームは来場者に人気になります。"
+        },
+        {
+          "en": "Yuna thanks the classmates who listened to her.",
+          "ja": "ユナは自分の話を聞いた同級生に感謝します。"
+        },
+        {
+          "en": "As a result, the class uses paper cards at later meetings too.",
+          "ja": "その結果、クラスは後の会議でも紙のカードを使います。"
+        },
+        {
+          "en": "A fair meeting gives everyone a way to share ideas.",
+          "ja": "公平な会議は全員に考えを伝える方法を与えます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What does Yuna often do?",
+      "options": [
+        "Leave school before class.",
+        "Teach every school subject.",
+        "Choose the festival date alone.",
+        "Stay quiet even when she has an idea."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「しかしユナは考えがあっても静かなことが多いです。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What does the teacher notice?",
+      "options": [
+        "The festival has been canceled.",
+        "Everyone dislikes games.",
+        "Not everyone has spoken.",
+        "The class has no room."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「教師は全員が発言していないと気づきます。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What does the teacher give students?",
+      "options": [
+        "Bus tickets.",
+        "Small paper cards.",
+        "New computers.",
+        "Sports clothes."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「教師は生徒一人ひとりに小さな紙のカードを渡します。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What game does Yuna suggest?",
+      "options": [
+        "One using pictures and words.",
+        "One using only music.",
+        "One that requires new phones.",
+        "One involving a long train trip."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「例えばユナは絵と言葉を使うゲームを提案します。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "How do students discuss the cards?",
+      "options": [
+        "Only after the festival.",
+        "Only with the teacher.",
+        "By reading the loudest card first.",
+        "Without first focusing on the writers' names."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「最初に誰が書いたか尋ねずに考えを話し合います。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "How does Yuna feel after the discussion?",
+      "options": [
+        "Too busy to join.",
+        "Uninterested in the festival.",
+        "Comfortable enough to explain her game.",
+        "Angry because no one listened."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「ユナは安心して絵のゲームを説明できるようになります。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What happens after the new discussion method?",
+      "options": [
+        "Every game becomes impossible.",
+        "More students ask questions and offer ideas.",
+        "Only the loudest person talks.",
+        "The group stops planning."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「それでも今はより多くの生徒が質問や提案をします。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What do students learn about joining?",
+      "options": [
+        "Different people need different ways.",
+        "Everyone must speak quickly.",
+        "Writing makes ideas useless.",
+        "Only teachers can make suggestions."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「グループは人によって参加しやすい方法が違うと学びます。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "How is the game received?",
+      "options": [
+        "No one attends the festival.",
+        "It is removed before opening.",
+        "Only Yuna plays it.",
+        "It becomes popular with visitors."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「お祭り当日、ゲームは来場者に人気になります。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the main message?",
+      "options": [
+        "Every student must speak first.",
+        "Paper cards should replace all speech.",
+        "Fair meetings offer ways for everyone to contribute.",
+        "The loudest student always has the best idea."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「公平な会議は全員に考えを伝える方法を与えます。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "classmates",
+      "ja": "同級生",
+      "synonym": "peers",
+      "definition": "people in the same class"
+    },
+    {
+      "term": "comfortable",
+      "ja": "安心した",
+      "synonym": "at ease",
+      "definition": "feeling relaxed"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "contrast",
+      "definition": "to examine differences and similarities"
+    },
+    {
+      "term": "different",
+      "ja": "違う",
+      "synonym": "unlike",
+      "definition": "not the same"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "fair",
+      "ja": "公平な",
+      "synonym": "just",
+      "definition": "offering appropriate opportunities"
+    },
+    {
+      "term": "festival",
+      "ja": "お祭り",
+      "synonym": "celebration",
+      "definition": "a special event"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "meeting",
+      "ja": "会議",
+      "synonym": "discussion",
+      "definition": "people coming together to plan"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "prepare",
+      "ja": "準備する",
+      "synonym": "get ready",
+      "definition": "to make something ready for use"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "share",
+      "ja": "共有する",
+      "synonym": "communicate",
+      "definition": "to let others know or use something"
+    },
+    {
+      "term": "student",
+      "ja": "生徒",
+      "synonym": "learner",
+      "definition": "a person learning at school"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "learners",
+      "definition": "people studying"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who teaches"
+    },
+    {
+      "term": "visitors",
+      "ja": "来場者",
+      "synonym": "guests",
+      "definition": "people visiting an event"
+    },
+    {
+      "term": "quiet",
+      "ja": "静かな",
+      "synonym": "silent",
+      "definition": "not speaking much"
+    },
+    {
+      "term": "paper",
+      "ja": "紙",
+      "synonym": "sheet",
+      "definition": "material used for writing"
+    },
+    {
+      "term": "card",
+      "ja": "カード",
+      "synonym": "small sheet",
+      "definition": "a small piece of paper"
+    },
+    {
+      "term": "pictures",
+      "ja": "絵",
+      "synonym": "images",
+      "definition": "drawings or photographs"
+    },
+    {
+      "term": "words",
+      "ja": "言葉",
+      "synonym": "expressions",
+      "definition": "parts of speech"
+    },
+    {
+      "term": "suggestion",
+      "ja": "提案",
+      "synonym": "idea",
+      "definition": "something suggested"
+    },
+    {
+      "term": "suggestions",
+      "ja": "提案",
+      "synonym": "ideas",
+      "definition": "possible plans"
+    },
+    {
+      "term": "popular",
+      "ja": "人気の",
+      "synonym": "well liked",
+      "definition": "liked by many people"
+    },
+    {
+      "term": "loudest",
+      "ja": "最も声の大きい",
+      "synonym": "noisiest",
+      "definition": "making the most sound"
+    },
+    {
+      "term": "chooses",
+      "ja": "選ぶ",
+      "synonym": "selects",
+      "definition": "picks an option"
+    },
+    {
+      "term": "join",
+      "ja": "参加する",
+      "synonym": "take part",
+      "definition": "become involved"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "even when she has an idea",
+      "explanation_ja": "even whenは予想に反する状況を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "before talking",
+      "explanation_ja": "before + 動名詞で「話す前に」です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of choosing the loudest person's suggestion",
+      "explanation_ja": "instead of + 動名詞で別の選び方を示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "to share ideas",
+      "explanation_ja": "to不定詞が方法の目的を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "よく話す生徒と静かなユナを対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "ユナの具体的な提案を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "まだ課題があっても参加が広がったと示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "カードを使い続ける結果です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Her teacher notices that not everyone has spoken.",
+      "rewrite": "The teacher sees that some students have not had a chance to speak.",
+      "explanation_ja": "発言する機会が十分にない人がいるという意味です。"
+    },
+    {
+      "source": "Several classmates think her idea sounds interesting.",
+      "rewrite": "Some classmates are interested in Yuna's picture game.",
+      "explanation_ja": "ユナの提案に関心を持つ生徒がいるという意味です。"
+    },
+    {
+      "source": "The group learns that different people need different ways to join.",
+      "rewrite": "People may need different opportunities to take part.",
+      "explanation_ja": "参加の方法は人によって違うという意味です。"
+    },
+    {
+      "source": "A fair meeting gives everyone a way to share ideas.",
+      "rewrite": "Fair meetings allow every person to contribute.",
+      "explanation_ja": "全員が貢献できる会議が公平だという結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "よく話す生徒と静かなユナを対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "ユナの具体的な提案を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "まだ課題があっても参加が広がったと示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "カードを使い続ける結果です。"
+    }
+  ]
+}

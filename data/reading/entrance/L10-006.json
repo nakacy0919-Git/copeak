@@ -1,0 +1,840 @@
+{
+  "id": "L10-006",
+  "category_id": "L10",
+  "title": "What a Learning Score Cannot Show",
+  "title_ja": "学習の得点だけでは見えないこと",
+  "level_id": "university-mid",
+  "status": "draft",
+  "original": true,
+  "word_count": 456,
+  "source_links": [
+    {
+      "title": "UNESCO Education",
+      "url": "https://www.unesco.org/en/education"
+    }
+  ],
+  "fact_notes": [
+    "学校・システム・生徒の事例は架空。学習評価について考えるためのオリジナル教材。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A school introduces a digital system that displays each student's English learning progress as one number.",
+          "ja": "ある学校は各生徒の英語学習進捗を一つの数字で示すデジタルシステムを導入します。"
+        },
+        {
+          "en": "The score combines results from reading speed, vocabulary exercises, and short speaking tasks completed on tablets.",
+          "ja": "得点は読解速度、語彙演習、タブレットでの短い発話課題の結果を組み合わせます。"
+        },
+        {
+          "en": "Teachers hope that the number will help students recognize improvement and plan future practice.",
+          "ja": "教師は数字が生徒の成長の認識と今後の練習計画に役立つと期待します。"
+        },
+        {
+          "en": "However, one student notices that her score falls after she chooses a more difficult reading passage.",
+          "ja": "しかし一人の生徒はより難しい長文を選ぶと得点が下がることに気づきます。"
+        },
+        {
+          "en": "She wonders whether choosing challenging work should be treated as evidence that she is learning less.",
+          "ja": "彼女は難しい課題への挑戦を学習が減った証拠とみなしてよいのか疑問に思います。"
+        },
+        {
+          "en": "The experience raises a question about what a single number can actually tell us.",
+          "ja": "この経験は一つの数字が実際に何を教えるのかという問いを生みます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "A score can summarize useful information, but it cannot describe every important part of learning.",
+          "ja": "得点は有益な情報を要約できますが、学習のあらゆる重要な部分を説明できません。"
+        },
+        {
+          "en": "For example, reading quickly does not automatically mean that someone understands the writer's reasoning.",
+          "ja": "例えば速く読むことは筆者の推論を理解していることを自動的には意味しません。"
+        },
+        {
+          "en": "A student might remember many vocabulary items while avoiding unfamiliar words in real conversations.",
+          "ja": "生徒は多くの語を覚えながら、実際の会話ではなじみのない語を避けるかもしれません。"
+        },
+        {
+          "en": "Another learner may speak slowly but ask thoughtful questions that help a partner express ideas.",
+          "ja": "別の学習者はゆっくり話しても、相手の考えを引き出す思慮深い質問をするかもしれません。"
+        },
+        {
+          "en": "These examples do not make numerical measurement useless; they show why its limits must be understood.",
+          "ja": "こうした例は数値測定を無価値にするのではなく、その限界を理解すべき理由を示します。"
+        },
+        {
+          "en": "The problem begins when a partial measure is mistaken for a complete description of ability.",
+          "ja": "問題は部分的な測定を能力の完全な説明と取り違えるときに始まります。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Teachers ask students whether the displayed score affects which activities they choose each week.",
+          "ja": "教師は表示された得点が毎週選ぶ活動に影響するか生徒に尋ねます。"
+        },
+        {
+          "en": "Some say that seeing improvement encourages regular practice and gives them confidence.",
+          "ja": "成長が見えると定期的な練習が促され自信が持てると言う生徒もいます。"
+        },
+        {
+          "en": "Nevertheless, others admit that they select easier tasks because they do not want their averages to fall.",
+          "ja": "それでも平均を下げたくないため易しい課題を選ぶと認める生徒もいます。"
+        },
+        {
+          "en": "Instead of assuming that higher numbers always mean better learning, the teachers examine these choices.",
+          "ja": "高い数字が常によい学習を意味すると決めつけず、教師はそうした選択を調べます。"
+        },
+        {
+          "en": "They discover that the way progress is displayed can influence learning behavior itself.",
+          "ja": "進捗の表示方法が学習行動そのものに影響し得るとわかります。"
+        },
+        {
+          "en": "A system designed to describe achievement may also change what students consider worth attempting.",
+          "ja": "成績を説明するための仕組みが、生徒が挑戦する価値を見いだす対象も変えるかもしれません。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The school also considers whether comparing scores is fair when students work under different conditions.",
+          "ja": "学校は異なる条件下で取り組む生徒の得点を比較することが公正かも考えます。"
+        },
+        {
+          "en": "One student may record speaking tasks in a quiet room, while another works near distracting background noise.",
+          "ja": "一人は静かな部屋で録音し、別の生徒は注意をそらす雑音の近くで行うかもしれません。"
+        },
+        {
+          "en": "A speech recognition tool might respond differently to these recordings even when the students communicate equally well.",
+          "ja": "生徒たちが同じくらいうまく伝えていても、音声認識ツールは録音に異なる反応を示すかもしれません。"
+        },
+        {
+          "en": "The teachers therefore offer a way to review unusual results rather than relying on a ranking alone.",
+          "ja": "そこで教師は順位だけに頼るのではなく、通常と異なる結果を確認する方法を用意します。"
+        },
+        {
+          "en": "They also explain what data are collected and who can see each student's records.",
+          "ja": "集められるデータと各生徒の記録を誰が見られるかも説明します。"
+        },
+        {
+          "en": "Fair evaluation requires attention to both the evidence and the circumstances in which it was gathered.",
+          "ja": "公正な評価には証拠と、それが集められた状況の両方への注意が必要です。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "After a trial period, the school keeps the digital tool but changes how its results are presented.",
+          "ja": "試行期間後、学校はデジタルツールを残しますが、結果の示し方を変えます。"
+        },
+        {
+          "en": "Instead of showing only one total, the dashboard displays reading, vocabulary, and speaking results separately.",
+          "ja": "一つの合計だけでなく、読解、語彙、発話の結果を別々に表示します。"
+        },
+        {
+          "en": "Teachers add comments about strategies, effort, and challenges that numbers may not fully capture.",
+          "ja": "教師は数字で十分捉えられない方法、努力、挑戦についてコメントを加えます。"
+        },
+        {
+          "en": "As a result, students can discuss which kind of practice would best support their next step.",
+          "ja": "その結果、生徒は次の一歩を最も支える練習を話し合えるようになります。"
+        },
+        {
+          "en": "The school concludes that useful assessment should help people make decisions without replacing careful human judgment.",
+          "ja": "学校は有益な評価は慎重な人間の判断を置き換えず、意思決定を助けるべきだと結論づけます。"
+        },
+        {
+          "en": "A good score does not answer every question; it helps teachers and students ask better ones.",
+          "ja": "よい得点はすべての問いに答えるものではなく、教師と生徒がよりよい問いを立てる助けとなります。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "Why does a student question the scoring system?",
+      "options": [
+        "Her score falls after choosing harder reading.",
+        "The school has no tablets.",
+        "The program measures only grammar.",
+        "Her teacher cancels every exercise."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「しかし一人の生徒はより難しい長文を選ぶと得点が下がることに気づきます。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What is the central problem introduced?",
+      "options": [
+        "How to choose a school building.",
+        "Whether all students enjoy speaking.",
+        "Why teachers never use data.",
+        "What one score can reveal about learning."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「この経験は一つの数字が実際に何を教えるのかという問いを生みます。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "Why can reading speed be misleading?",
+      "options": [
+        "Fast reading is never useful.",
+        "All readers have identical knowledge.",
+        "It does not guarantee understanding.",
+        "It always proves a learner is confident."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「例えば速く読むことは筆者の推論を理解していることを自動的には意味しません。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What is the danger of a single score?",
+      "options": [
+        "Providing feedback after tasks.",
+        "Mistaking a partial measure for complete ability.",
+        "Keeping records of practice.",
+        "Explaining how a score works."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「問題は部分的な測定を能力の完全な説明と取り違えるときに始まります。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What behavior do some learners report?",
+      "options": [
+        "Choosing easier work to protect their averages.",
+        "Always selecting more challenging texts.",
+        "Refusing to look at any numbers.",
+        "Speaking only with teachers."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「それでも平均を下げたくないため易しい課題を選ぶと認める生徒もいます。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What additional effect can a dashboard have?",
+      "options": [
+        "It automatically removes every mistake.",
+        "It gives all students identical abilities.",
+        "It prevents anyone from learning vocabulary.",
+        "It can influence the tasks learners choose."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「成績を説明するための仕組みが、生徒が挑戦する価値を見いだす対象も変えるかもしれません。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "Why might speech scores differ unfairly?",
+      "options": [
+        "A quiet room always makes learners less fluent.",
+        "Technology never makes any errors.",
+        "Recording conditions may affect recognition.",
+        "Students always have identical microphones."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「生徒たちが同じくらいうまく伝えていても、音声認識ツールは録音に異なる反応を示すかもしれません。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What does fair assessment require?",
+      "options": [
+        "Using one number without explanation.",
+        "Considering evidence and the circumstances of its collection.",
+        "Ranking every student permanently.",
+        "Ignoring recording conditions."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「公正な評価には証拠と、それが集められた状況の両方への注意が必要です。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "How does the dashboard change?",
+      "options": [
+        "It displays several skill areas separately.",
+        "It removes all vocabulary information.",
+        "It ranks students by one secret number.",
+        "It prevents learners from reviewing progress."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「一つの合計だけでなく、読解、語彙、発話の結果を別々に表示します。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the author's main message?",
+      "options": [
+        "Numbers are completely useless for education.",
+        "One score captures every aspect of learning.",
+        "Students should always avoid difficult tasks.",
+        "Assessment should inform thoughtful learning decisions rather than replace human judgment."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「よい得点はすべての問いに答えるものではなく、教師と生徒がよりよい問いを立てる助けとなります。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "actually",
+      "ja": "実際に",
+      "synonym": "really",
+      "definition": "in fact rather than only in theory"
+    },
+    {
+      "term": "attention",
+      "ja": "注目",
+      "synonym": "notice",
+      "definition": "interest directed at something"
+    },
+    {
+      "term": "automatically",
+      "ja": "自動的に",
+      "synonym": "without intervention",
+      "definition": "without a separate human action"
+    },
+    {
+      "term": "better",
+      "ja": "より良い",
+      "synonym": "improved",
+      "definition": "of higher quality than before"
+    },
+    {
+      "term": "choices",
+      "ja": "選択肢",
+      "synonym": "options",
+      "definition": "available possibilities"
+    },
+    {
+      "term": "comments",
+      "ja": "コメント",
+      "synonym": "remarks",
+      "definition": "spoken or written observations"
+    },
+    {
+      "term": "communicate",
+      "ja": "伝える・意思疎通する",
+      "synonym": "exchange information",
+      "definition": "to share ideas or messages"
+    },
+    {
+      "term": "conditions",
+      "ja": "状況",
+      "synonym": "circumstances",
+      "definition": "things affecting an event"
+    },
+    {
+      "term": "confidence",
+      "ja": "自信",
+      "synonym": "self-belief",
+      "definition": "belief in one's ability"
+    },
+    {
+      "term": "consider",
+      "ja": "考慮する",
+      "synonym": "think about",
+      "definition": "to examine an idea before deciding"
+    },
+    {
+      "term": "conversations",
+      "ja": "会話",
+      "synonym": "talks",
+      "definition": "exchanges of spoken words"
+    },
+    {
+      "term": "decisions",
+      "ja": "決定・判断",
+      "synonym": "choices",
+      "definition": "choices made after thinking"
+    },
+    {
+      "term": "describe",
+      "ja": "説明する",
+      "synonym": "explain",
+      "definition": "to give an account of something"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "discover",
+      "ja": "気づく・発見する",
+      "synonym": "find out",
+      "definition": "to learn something previously unknown"
+    },
+    {
+      "term": "evidence",
+      "ja": "証拠",
+      "synonym": "support",
+      "definition": "information supporting a conclusion"
+    },
+    {
+      "term": "examine",
+      "ja": "調べる",
+      "synonym": "inspect",
+      "definition": "to look carefully"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "express",
+      "ja": "表現する",
+      "synonym": "state",
+      "definition": "to communicate ideas or feelings"
+    },
+    {
+      "term": "fair",
+      "ja": "公正な",
+      "synonym": "just",
+      "definition": "appropriate for different people"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "important",
+      "ja": "重要な",
+      "synonym": "significant",
+      "definition": "having a great effect or value"
+    },
+    {
+      "term": "improvement",
+      "ja": "改善",
+      "synonym": "growth",
+      "definition": "becoming better"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "facts",
+      "definition": "facts or details provided about something"
+    },
+    {
+      "term": "judgment",
+      "ja": "判断力",
+      "synonym": "evaluation",
+      "definition": "the ability to reach a reasoned conclusion"
+    },
+    {
+      "term": "learner",
+      "ja": "学習者",
+      "synonym": "student",
+      "definition": "someone who is studying"
+    },
+    {
+      "term": "mistaken",
+      "ja": "誤った",
+      "synonym": "incorrect",
+      "definition": "based on an error"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "partner",
+      "ja": "相手・パートナー",
+      "synonym": "collaborator",
+      "definition": "a person with whom someone works"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "practice",
+      "ja": "練習",
+      "synonym": "training",
+      "definition": "repeated activity intended to improve a skill"
+    },
+    {
+      "term": "question",
+      "ja": "疑問を持つ・問い直す",
+      "synonym": "challenge",
+      "definition": "to examine whether an assumption is correct"
+    },
+    {
+      "term": "reasoning",
+      "ja": "推論",
+      "synonym": "thinking",
+      "definition": "developing explanations from evidence"
+    },
+    {
+      "term": "recognize",
+      "ja": "認識する",
+      "synonym": "notice",
+      "definition": "become aware of something"
+    },
+    {
+      "term": "record",
+      "ja": "記録する",
+      "synonym": "note",
+      "definition": "to write information down for later use"
+    },
+    {
+      "term": "recordings",
+      "ja": "録音",
+      "synonym": "audio files",
+      "definition": "saved spoken sounds"
+    },
+    {
+      "term": "records",
+      "ja": "記録",
+      "synonym": "documents",
+      "definition": "stored information about activities"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "student",
+      "ja": "生徒",
+      "synonym": "learner",
+      "definition": "a person learning at school"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "support",
+      "ja": "支え・支援",
+      "synonym": "help",
+      "definition": "help that keeps an activity going"
+    },
+    {
+      "term": "Teachers",
+      "ja": "教師たち",
+      "synonym": "educators",
+      "definition": "people who teach"
+    },
+    {
+      "term": "therefore",
+      "ja": "したがって",
+      "synonym": "consequently",
+      "definition": "used to introduce a logical result"
+    },
+    {
+      "term": "thoughtful",
+      "ja": "思慮深い",
+      "synonym": "considerate",
+      "definition": "showing care and attention"
+    },
+    {
+      "term": "unfamiliar",
+      "ja": "なじみのない",
+      "synonym": "unknown",
+      "definition": "not recognized or understood"
+    },
+    {
+      "term": "vocabulary",
+      "ja": "語彙",
+      "synonym": "word knowledge",
+      "definition": "words a person knows"
+    },
+    {
+      "term": "assessment",
+      "ja": "評価",
+      "synonym": "evaluation",
+      "definition": "judging learning with evidence"
+    },
+    {
+      "term": "dashboard",
+      "ja": "画面",
+      "synonym": "results display",
+      "definition": "a display of learning records"
+    },
+    {
+      "term": "score",
+      "ja": "得点",
+      "synonym": "result",
+      "definition": "a numerical outcome"
+    },
+    {
+      "term": "scores",
+      "ja": "得点",
+      "synonym": "results",
+      "definition": "numbers showing performance"
+    },
+    {
+      "term": "measurement",
+      "ja": "測定",
+      "synonym": "quantification",
+      "definition": "putting values on observations"
+    },
+    {
+      "term": "numerical",
+      "ja": "数値の",
+      "synonym": "number-based",
+      "definition": "expressed with numbers"
+    },
+    {
+      "term": "recognition",
+      "ja": "認識",
+      "synonym": "identification",
+      "definition": "detecting patterns in speech"
+    },
+    {
+      "term": "circumstances",
+      "ja": "事情",
+      "synonym": "conditions",
+      "definition": "features of a particular situation"
+    },
+    {
+      "term": "averages",
+      "ja": "平均",
+      "synonym": "means",
+      "definition": "values calculated from many numbers"
+    },
+    {
+      "term": "ranking",
+      "ja": "順位",
+      "synonym": "order",
+      "definition": "arrangement based on results"
+    },
+    {
+      "term": "evaluation",
+      "ja": "評価",
+      "synonym": "judgment",
+      "definition": "assessment of quality or results"
+    },
+    {
+      "term": "speaking",
+      "ja": "発話",
+      "synonym": "speech",
+      "definition": "using language aloud"
+    },
+    {
+      "term": "reading",
+      "ja": "読解",
+      "synonym": "reading skill",
+      "definition": "understanding written words"
+    },
+    {
+      "term": "challenging",
+      "ja": "難しい",
+      "synonym": "demanding",
+      "definition": "requiring considerable effort"
+    },
+    {
+      "term": "review",
+      "ja": "見直し",
+      "synonym": "recheck",
+      "definition": "examining again"
+    },
+    {
+      "term": "learning",
+      "ja": "学習",
+      "synonym": "study",
+      "definition": "gaining knowledge and skills"
+    },
+    {
+      "term": "ability",
+      "ja": "能力",
+      "synonym": "skill",
+      "definition": "capacity to do a task"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 4,
+      "focus": "whether choosing challenging work should be treated as evidence",
+      "explanation_ja": "whether節が疑問の内容です。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "does not automatically mean that someone understands the writer's reasoning",
+      "explanation_ja": "does not automaticallyは十分条件ではないことを示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "focus": "Instead of assuming that higher numbers always mean better learning",
+      "explanation_ja": "instead of + 動名詞で評価の方法を切り替えます。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 4,
+      "focus": "without replacing careful human judgment",
+      "explanation_ja": "without + 動名詞で人間の判断を残すことを表します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "得点への期待と難しい課題での得点低下を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "読解速度の限界を示す例です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Nevertheless",
+      "role_ja": "得点が動機になる一方で難問を避ける人がいると示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "複数指標への変更による学習相談の改善です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The experience raises a question about what a single number can actually tell us.",
+      "rewrite": "The case raises doubts about what one total can represent.",
+      "explanation_ja": "一つの合計点が何を示せるかという疑問です。"
+    },
+    {
+      "source": "The problem begins when a partial measure is mistaken for a complete description of ability.",
+      "rewrite": "Problems arise when a limited measure is treated as a full description of ability.",
+      "explanation_ja": "限られた測定で能力全体を判断する危険です。"
+    },
+    {
+      "source": "Fair evaluation requires attention to both the evidence and the circumstances in which it was gathered.",
+      "rewrite": "Fair assessment depends on evidence and the conditions under which it was collected.",
+      "explanation_ja": "証拠と収集条件を両方考える必要があります。"
+    },
+    {
+      "source": "A good score does not answer every question; it helps teachers and students ask better ones.",
+      "rewrite": "A useful score should prompt better questions rather than claim to answer everything.",
+      "explanation_ja": "得点がよりよい問いを生むという結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "得点への期待と難しい課題での得点低下を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "読解速度の限界を示す例です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "得点が動機になる一方で難問を避ける人がいると示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "複数指標への変更による学習相談の改善です。"
+    }
+  ]
+}

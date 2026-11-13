@@ -1,0 +1,578 @@
+{
+  "id": "L02-006",
+  "category_id": "L02",
+  "title": "The Sign at the Old Station",
+  "title_ja": "古い駅の看板",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 181,
+  "source_links": [
+    {
+      "title": "Background reference",
+      "url": "https://siarchives.si.edu/"
+    }
+  ],
+  "fact_notes": [
+    "人物と学校、駅の事例は架空。英文・和訳・設問・解説は独自作成。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A class visits an old station near its school.",
+          "ja": "クラスは学校の近くの古い駅を訪れます。"
+        },
+        {
+          "en": "A wooden sign hangs above the entrance.",
+          "ja": "入口の上には木の看板があります。"
+        },
+        {
+          "en": "Some students think the sign looks too old.",
+          "ja": "生徒の中には看板が古すぎると思う人もいます。"
+        },
+        {
+          "en": "However, their teacher asks them to learn its story.",
+          "ja": "しかし教師はその物語を調べるよう求めます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The teacher shows a photograph from many years ago.",
+          "ja": "教師は何年も前の写真を見せます。"
+        },
+        {
+          "en": "The same sign appears in the picture.",
+          "ja": "同じ看板が写真に写っています。"
+        },
+        {
+          "en": "For example, people once met their friends under it.",
+          "ja": "例えば人々は昔その下で友達と待ち合わせました。"
+        },
+        {
+          "en": "The students discover that a sign can hold memories.",
+          "ja": "生徒は看板が記憶を持つこともあると気づきます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The class talks about fixing the old sign.",
+          "ja": "クラスは古い看板の修理について話します。"
+        },
+        {
+          "en": "A worker says that some wooden parts need care.",
+          "ja": "職員は木の部分の一部に手入れが必要だと言います。"
+        },
+        {
+          "en": "Instead of replacing it immediately, they ask for advice.",
+          "ja": "すぐ交換する代わりに助言を求めます。"
+        },
+        {
+          "en": "They also want visitors to read the station name clearly.",
+          "ja": "駅名を来訪者がはっきり読めるようにもしたいのです。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The students suggest keeping the old sign near a new one.",
+          "ja": "生徒たちは古い看板を新しいものの近くに残すよう提案します。"
+        },
+        {
+          "en": "The new sign could be easier for visitors to read.",
+          "ja": "新しい看板なら訪問者が読みやすいでしょう。"
+        },
+        {
+          "en": "Nevertheless, the older sign could still tell its story.",
+          "ja": "それでも古い看板は物語を伝え続けられます。"
+        },
+        {
+          "en": "Their teacher likes the idea of using both signs.",
+          "ja": "教師は両方を使う案を気に入ります。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The class presents the plan at a school meeting.",
+          "ja": "クラスは学校の会議で計画を発表します。"
+        },
+        {
+          "en": "Students explain why the old sign matters to the town.",
+          "ja": "古い看板が町にとって大切な理由を説明します。"
+        },
+        {
+          "en": "As a result, more classmates become interested in local history.",
+          "ja": "その結果、地域の歴史に興味を持つ同級生が増えます。"
+        },
+        {
+          "en": "They learn that old objects can still be useful today.",
+          "ja": "古い物も今日役に立てると学びます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "Where does the class go?",
+      "options": [
+        "To a new hospital.",
+        "To a large factory.",
+        "To a sports stadium.",
+        "To an old station."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「クラスは学校の近くの古い駅を訪れます。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What hangs over the entrance?",
+      "options": [
+        "A school flag.",
+        "A clock without numbers.",
+        "A wooden sign.",
+        "A television."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「入口の上には木の看板があります。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What does the teacher show?",
+      "options": [
+        "A new school map.",
+        "An old photograph.",
+        "A modern train ticket.",
+        "A sports result."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「教師は何年も前の写真を見せます。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "How did people use the area under the sign?",
+      "options": [
+        "They met friends.",
+        "They cooked school lunches.",
+        "They played computer games.",
+        "They studied in a library."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「例えば人々は昔その下で友達と待ち合わせました。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What does the worker say?",
+      "options": [
+        "The sign is made of paper.",
+        "The station never had a name.",
+        "There are no signs at the station.",
+        "Some wooden parts need care."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「職員は木の部分の一部に手入れが必要だと言います。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What do students want for visitors?",
+      "options": [
+        "A new school uniform.",
+        "A longer train journey.",
+        "A clearly readable station name.",
+        "A locked station door."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「駅名を来訪者がはっきり読めるようにもしたいのです。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What do students suggest?",
+      "options": [
+        "Painting every train blue.",
+        "Keeping the old sign beside a new one.",
+        "Removing every sign.",
+        "Closing the station forever."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「生徒たちは古い看板を新しいものの近くに残すよう提案します。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "Why keep the older sign?",
+      "options": [
+        "It can still tell a story.",
+        "It displays tomorrow's weather.",
+        "It holds the school timetable.",
+        "It can never be repaired."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「それでも古い看板は物語を伝え続けられます。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What becomes more interesting to classmates?",
+      "options": [
+        "Only sports results.",
+        "School lunch menus.",
+        "Foreign train prices.",
+        "Local history."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「その結果、地域の歴史に興味を持つ同級生が増えます。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the main lesson?",
+      "options": [
+        "History has no connection to daily life.",
+        "Only new things can help visitors.",
+        "Old objects can have value today.",
+        "All old signs should be thrown away."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「古い物も今日役に立てると学びます。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "care",
+      "ja": "世話・管理",
+      "synonym": "maintenance",
+      "definition": "attention that keeps something healthy"
+    },
+    {
+      "term": "classmates",
+      "ja": "同級生",
+      "synonym": "peers",
+      "definition": "students in the same class"
+    },
+    {
+      "term": "discover",
+      "ja": "気づく・発見する",
+      "synonym": "find out",
+      "definition": "to learn something previously unknown"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "immediately",
+      "ja": "すぐに",
+      "synonym": "at once",
+      "definition": "without delay"
+    },
+    {
+      "term": "local",
+      "ja": "地域の",
+      "synonym": "nearby",
+      "definition": "relating to a particular place"
+    },
+    {
+      "term": "meeting",
+      "ja": "会議",
+      "synonym": "gathering",
+      "definition": "people discussing plans"
+    },
+    {
+      "term": "memories",
+      "ja": "記憶",
+      "synonym": "recollections",
+      "definition": "things remembered"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational place",
+      "definition": "a place for learning"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "learners",
+      "definition": "people attending school"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who teaches"
+    },
+    {
+      "term": "visitors",
+      "ja": "来訪者",
+      "synonym": "guests",
+      "definition": "people visiting"
+    },
+    {
+      "term": "sign",
+      "ja": "看板",
+      "synonym": "notice",
+      "definition": "a board giving information"
+    },
+    {
+      "term": "station",
+      "ja": "駅",
+      "synonym": "railway stop",
+      "definition": "a place for trains and passengers"
+    },
+    {
+      "term": "entrance",
+      "ja": "入口",
+      "synonym": "doorway",
+      "definition": "a place used to enter"
+    },
+    {
+      "term": "photograph",
+      "ja": "写真",
+      "synonym": "picture",
+      "definition": "an image recorded by a camera"
+    },
+    {
+      "term": "wooden",
+      "ja": "木製の",
+      "synonym": "made of wood",
+      "definition": "consisting of wood"
+    },
+    {
+      "term": "worker",
+      "ja": "職員",
+      "synonym": "employee",
+      "definition": "someone doing a job"
+    },
+    {
+      "term": "history",
+      "ja": "歴史",
+      "synonym": "past",
+      "definition": "events from earlier times"
+    },
+    {
+      "term": "suggest",
+      "ja": "提案する",
+      "synonym": "propose",
+      "definition": "offer an idea"
+    },
+    {
+      "term": "replacing",
+      "ja": "取り替えること",
+      "synonym": "substituting",
+      "definition": "using a new one instead"
+    },
+    {
+      "term": "clearly",
+      "ja": "はっきりと",
+      "synonym": "plainly",
+      "definition": "in an easy to understand way"
+    },
+    {
+      "term": "old",
+      "ja": "古い",
+      "synonym": "aged",
+      "definition": "from a long time ago"
+    },
+    {
+      "term": "learn",
+      "ja": "学ぶ",
+      "synonym": "study",
+      "definition": "gain knowledge"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "asks them to learn its story",
+      "explanation_ja": "ask + 人 + to不定詞で依頼を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "under it",
+      "explanation_ja": "underは位置を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of replacing it immediately",
+      "explanation_ja": "instead of + 動名詞で代替行動を示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "that old objects can still be useful today",
+      "explanation_ja": "that節が学んだ内容を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "古い看板への否定的な感想から調査へ変わります。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "昔の待ち合わせの具体例を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "新しい看板を置いても古い看板の意味は残ります。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "歴史に興味を持つ生徒が増えた結果を示します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "However, their teacher asks them to learn its story.",
+      "rewrite": "Their teacher wants them to discover the sign's history.",
+      "explanation_ja": "看板の歴史を調べるという意味です。"
+    },
+    {
+      "source": "The students discover that a sign can hold memories.",
+      "rewrite": "The old sign carries memories of the town.",
+      "explanation_ja": "看板が地域の記憶とつながるという意味です。"
+    },
+    {
+      "source": "The students suggest keeping the old sign near a new one.",
+      "rewrite": "They want to keep the older sign next to a new sign.",
+      "explanation_ja": "保存と実用を組み合わせる提案です。"
+    },
+    {
+      "source": "They learn that old objects can still be useful today.",
+      "rewrite": "Old things can continue to serve a purpose.",
+      "explanation_ja": "古い物にも今の価値があるという結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "古い看板への否定的な感想から調査へ変わります。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "昔の待ち合わせの具体例を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "新しい看板を置いても古い看板の意味は残ります。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "歴史に興味を持つ生徒が増えた結果を示します。"
+    }
+  ]
+}

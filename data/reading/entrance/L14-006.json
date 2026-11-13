@@ -1,0 +1,584 @@
+{
+  "id": "L14-006",
+  "category_id": "L14",
+  "title": "The Picnic with Two Families",
+  "title_ja": "二つの家族のピクニック",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 178,
+  "source_links": [
+    {
+      "title": "UNESCO Intercultural Dialogue",
+      "url": "https://www.unesco.org/en/interculturaldialogue"
+    }
+  ],
+  "fact_notes": [
+    "家族とピクニックは架空の教材例。本文と和訳、問題は独自制作。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Mei invites her friend Lina to a family picnic.",
+          "ja": "メイは友達のリナを家族のピクニックに招きます。"
+        },
+        {
+          "en": "Lina asks if she should bring some food.",
+          "ja": "リナは食べ物を持っていくべきか尋ねます。"
+        },
+        {
+          "en": "However, Mei says her grandmother will cook enough.",
+          "ja": "しかしメイは祖母が十分な量を作ると言います。"
+        },
+        {
+          "en": "Lina's family usually brings food when visiting friends.",
+          "ja": "リナの家族は友人を訪ねるとき普通食べ物を持参します。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Mei explains that her family wants guests to relax.",
+          "ja": "メイは家族が客にくつろいでほしいと説明します。"
+        },
+        {
+          "en": "Lina says that bringing a gift is a way to say thank you.",
+          "ja": "リナは贈り物を持参するのは感謝を伝える方法だと言います。"
+        },
+        {
+          "en": "For example, her mother often makes cakes for friends.",
+          "ja": "例えば母親は友達のためにケーキをよく作ります。"
+        },
+        {
+          "en": "They understand that both families want to be kind.",
+          "ja": "二人は両方の家族が親切にしたいのだと理解します。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Mei asks her grandmother about bringing a small cake.",
+          "ja": "メイは小さなケーキを持参することを祖母に尋ねます。"
+        },
+        {
+          "en": "Her grandmother smiles and welcomes the idea.",
+          "ja": "祖母は笑顔でその案を歓迎します。"
+        },
+        {
+          "en": "Instead of worrying, the friends begin planning the picnic.",
+          "ja": "心配する代わりに友達はピクニックの計画を始めます。"
+        },
+        {
+          "en": "They decide to share stories about their families too.",
+          "ja": "家族についての話も共有することにします。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "On picnic day, Lina offers the cake to everyone.",
+          "ja": "ピクニック当日、リナは全員にケーキを差し出します。"
+        },
+        {
+          "en": "Mei's grandmother thanks her for the gift.",
+          "ja": "メイの祖母は贈り物に感謝します。"
+        },
+        {
+          "en": "Nevertheless, nobody asks the other family to change its customs.",
+          "ja": "それでも誰も相手の家族に習慣を変えるよう求めません。"
+        },
+        {
+          "en": "They enjoy eating and talking together in the park.",
+          "ja": "みんなは公園で食事と会話を楽しみます。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "After the picnic, Mei and Lina feel closer.",
+          "ja": "ピクニックの後、二人はより親しく感じます。"
+        },
+        {
+          "en": "They learn that people can show thanks in different ways.",
+          "ja": "人は違う方法で感謝を示せると学びます。"
+        },
+        {
+          "en": "As a result, they ask more questions about family traditions.",
+          "ja": "その結果、家族の伝統についてさらに質問します。"
+        },
+        {
+          "en": "Listening can make a friendship stronger than before.",
+          "ja": "耳を傾けることは友情を以前より強くします。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "Who does Mei invite?",
+      "options": [
+        "Lina.",
+        "Her teacher.",
+        "A shop owner.",
+        "A famous singer."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「メイは友達のリナを家族のピクニックに招きます。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Who will prepare enough food?",
+      "options": [
+        "Lina's science teacher.",
+        "The bus driver.",
+        "The school principal.",
+        "Mei's grandmother."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「しかしメイは祖母が十分な量を作ると言います。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What does bringing a gift mean to Lina's family?",
+      "options": [
+        "Ending a friendship.",
+        "Making a complaint.",
+        "Saying thank you.",
+        "Asking for money."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「リナは贈り物を持参するのは感謝を伝える方法だと言います。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What does Lina's mother often make?",
+      "options": [
+        "Wooden chairs.",
+        "Cakes.",
+        "Maps.",
+        "School uniforms."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「例えば母親は友達のためにケーキをよく作ります。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "Who does Mei ask about a small cake?",
+      "options": [
+        "Her grandmother.",
+        "The mayor.",
+        "Her class teacher.",
+        "The shop manager."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「メイは小さなケーキを持参することを祖母に尋ねます。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "How does the grandmother respond?",
+      "options": [
+        "She cancels the picnic.",
+        "She refuses to speak.",
+        "She changes schools.",
+        "She welcomes the idea."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「祖母は笑顔でその案を歓迎します。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What does Lina offer on picnic day?",
+      "options": [
+        "An exam paper.",
+        "A computer.",
+        "A cake.",
+        "A new bike."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「ピクニック当日、リナは全員にケーキを差し出します。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What does neither family demand?",
+      "options": [
+        "A shared story.",
+        "A change in the other's customs.",
+        "An enjoyable meal.",
+        "A friendly conversation."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「それでも誰も相手の家族に習慣を変えるよう求めません。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "detail",
+      "prompt": "What do the girls learn about gratitude?",
+      "options": [
+        "It can be shown in different ways.",
+        "It requires expensive gifts.",
+        "It is never shown with food.",
+        "It means following one rule."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「人は違う方法で感謝を示せると学びます。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the main message?",
+      "options": [
+        "Only one family tradition is correct.",
+        "Friends should never exchange food.",
+        "Picnics must always be formal.",
+        "Listening helps friendship across different traditions."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「耳を傾けることは友情を以前より強くします。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "customs",
+      "ja": "習慣",
+      "synonym": "traditions",
+      "definition": "familiar ways of acting"
+    },
+    {
+      "term": "decide",
+      "ja": "決める",
+      "synonym": "choose",
+      "definition": "to make a choice"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "families",
+      "ja": "家族",
+      "synonym": "households",
+      "definition": "groups living together as relatives"
+    },
+    {
+      "term": "friendship",
+      "ja": "友情",
+      "synonym": "bond",
+      "definition": "a friendly relationship"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "listening",
+      "ja": "聞くこと",
+      "synonym": "hearing",
+      "definition": "paying attention to words"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "share",
+      "ja": "共有する",
+      "synonym": "communicate",
+      "definition": "to let others know or use something"
+    },
+    {
+      "term": "traditions",
+      "ja": "伝統",
+      "synonym": "customs",
+      "definition": "practices shared in families"
+    },
+    {
+      "term": "usually",
+      "ja": "普段",
+      "synonym": "normally",
+      "definition": "in most situations"
+    },
+    {
+      "term": "picnic",
+      "ja": "ピクニック",
+      "synonym": "outdoor meal",
+      "definition": "a meal eaten outside"
+    },
+    {
+      "term": "family",
+      "ja": "家族",
+      "synonym": "relatives",
+      "definition": "people related to each other"
+    },
+    {
+      "term": "friend",
+      "ja": "友達",
+      "synonym": "companion",
+      "definition": "someone one knows and likes"
+    },
+    {
+      "term": "grandmother",
+      "ja": "祖母",
+      "synonym": "grandparent",
+      "definition": "the mother of a parent"
+    },
+    {
+      "term": "guests",
+      "ja": "客",
+      "synonym": "visitors",
+      "definition": "people invited to an event"
+    },
+    {
+      "term": "gift",
+      "ja": "贈り物",
+      "synonym": "present",
+      "definition": "something given to another person"
+    },
+    {
+      "term": "cake",
+      "ja": "ケーキ",
+      "synonym": "dessert",
+      "definition": "a sweet baked food"
+    },
+    {
+      "term": "cakes",
+      "ja": "ケーキ",
+      "synonym": "desserts",
+      "definition": "sweet baked foods"
+    },
+    {
+      "term": "visiting",
+      "ja": "訪問すること",
+      "synonym": "calling on",
+      "definition": "going to see someone"
+    },
+    {
+      "term": "stories",
+      "ja": "話",
+      "synonym": "accounts",
+      "definition": "things people tell about experiences"
+    },
+    {
+      "term": "invites",
+      "ja": "招待する",
+      "synonym": "welcomes",
+      "definition": "asks someone to come"
+    },
+    {
+      "term": "welcomes",
+      "ja": "歓迎する",
+      "synonym": "greets",
+      "definition": "accepts someone kindly"
+    },
+    {
+      "term": "thanks",
+      "ja": "感謝",
+      "synonym": "gratitude",
+      "definition": "words showing appreciation"
+    },
+    {
+      "term": "smiles",
+      "ja": "ほほ笑む",
+      "synonym": "grins",
+      "definition": "shows happiness on the face"
+    },
+    {
+      "term": "stronger",
+      "ja": "より強い",
+      "synonym": "firmer",
+      "definition": "having greater strength"
+    },
+    {
+      "term": "enjoy",
+      "ja": "楽しむ",
+      "synonym": "like",
+      "definition": "take pleasure in something"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "if she should bring some food",
+      "explanation_ja": "if節が間接疑問を表します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "to say thank you",
+      "explanation_ja": "to不定詞は目的を表します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of worrying",
+      "explanation_ja": "instead of + 動名詞で行動の転換を示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "focus": "that people can show thanks in different ways",
+      "explanation_ja": "that節が学んだ内容を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "食べ物を持参したいリナとメイの返答を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "母が作るケーキを例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "習慣は違っても変化を強制しないと示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "相互理解の後の行動を示します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Lina's family usually brings food when visiting friends.",
+      "rewrite": "Lina's family often brings something when visiting people.",
+      "explanation_ja": "訪問時に手土産を持つ習慣という意味です。"
+    },
+    {
+      "source": "They understand that both families want to be kind.",
+      "rewrite": "Both families hope to be friendly and thoughtful.",
+      "explanation_ja": "両家族とも親切にしたいという意味です。"
+    },
+    {
+      "source": "Nevertheless, nobody asks the other family to change its customs.",
+      "rewrite": "Neither family demands that the other change its habits.",
+      "explanation_ja": "相手に習慣の変更を求めないという意味です。"
+    },
+    {
+      "source": "Listening can make a friendship stronger than before.",
+      "rewrite": "Friendship can grow when people listen to each other.",
+      "explanation_ja": "互いに聞くことで友情が育つという結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "食べ物を持参したいリナとメイの返答を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "母が作るケーキを例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "習慣は違っても変化を強制しないと示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "相互理解の後の行動を示します。"
+    }
+  ]
+}

@@ -1,0 +1,712 @@
+{
+  "id": "L01-006",
+  "category_id": "L01",
+  "title": "A Garden for Small Visitors",
+  "title_ja": "小さな訪問者のための庭",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "word_count": 279,
+  "source_links": [
+    {
+      "title": "Educational background reference",
+      "url": "https://www.epa.gov/pollinator-protection"
+    }
+  ],
+  "fact_notes": [
+    "学校や町の活動は架空。事実に関する一般的な背景資料を参照したオリジナル教材。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Students notice fewer insects visiting the flowers outside their school building.",
+          "ja": "生徒たちは校舎の外の花を訪れる昆虫が少ないことに気づきます。"
+        },
+        {
+          "en": "They want to make a small garden that will welcome more insects.",
+          "ja": "もっと多くの昆虫を迎える小さな庭を作りたいと考えます。"
+        },
+        {
+          "en": "However, several students worry that every insect will be dangerous.",
+          "ja": "しかしどんな昆虫も危険なのではないかと心配する生徒もいます。"
+        },
+        {
+          "en": "Their teacher explains that many insects help plants by moving pollen between flowers.",
+          "ja": "教師は多くの昆虫が花の間で花粉を運んで植物を助けると説明します。"
+        },
+        {
+          "en": "The class decides to learn about the visitors before changing the garden.",
+          "ja": "クラスは庭を変える前に訪れる生き物を調べることにします。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The students begin by observing flowers at different times of day.",
+          "ja": "生徒たちは一日の異なる時間に花を観察することから始めます。"
+        },
+        {
+          "en": "For example, they see some bees visiting flowers in the morning.",
+          "ja": "例えば朝に花を訪れるハチを見かけます。"
+        },
+        {
+          "en": "They also notice butterflies near plants that have many open flowers.",
+          "ja": "花が多く開いた植物の近くにチョウも見つけます。"
+        },
+        {
+          "en": "The teacher reminds them not to touch or disturb unfamiliar insects.",
+          "ja": "教師は知らない昆虫に触れたり邪魔したりしないよう注意します。"
+        },
+        {
+          "en": "They take notes from a safe distance and compare their observations.",
+          "ja": "安全な距離から記録し、観察結果を比べます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The class chooses several plants that can offer food for different insects.",
+          "ja": "クラスは異なる昆虫に食べ物を提供できる植物をいくつか選びます。"
+        },
+        {
+          "en": "They check which plants are suitable for the local weather and available space.",
+          "ja": "地域の天候や利用できる空間に合う植物を確認します。"
+        },
+        {
+          "en": "Instead of planting only one kind of flower, they plan for different seasons.",
+          "ja": "一種類の花だけを植えるのではなく異なる季節を考えて計画します。"
+        },
+        {
+          "en": "Students also decide who will water the plants during school holidays.",
+          "ja": "学校の休み中に誰が水をやるかも決めます。"
+        },
+        {
+          "en": "They understand that creating a garden involves continuing care.",
+          "ja": "庭を作ることには継続的な世話が必要だと理解します。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "After several weeks, the garden has more flowers and attracts different visitors.",
+          "ja": "数週間後、庭では花が増え、異なる訪問者を引きつけます。"
+        },
+        {
+          "en": "Nevertheless, the class does not claim that every insect population has increased.",
+          "ja": "それでも昆虫のすべての個体数が増えたとは主張しません。"
+        },
+        {
+          "en": "Weather and seasonal changes may affect the numbers they observe.",
+          "ja": "天気や季節の変化が観察する数に影響するかもしれません。"
+        },
+        {
+          "en": "They continue recording insects so they can compare results over time.",
+          "ja": "時間を通じて結果を比べるため昆虫の記録を続けます。"
+        },
+        {
+          "en": "Their project becomes an opportunity to practice careful scientific thinking.",
+          "ja": "活動は慎重な科学的思考を練習する機会になります。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The students share pictures of the garden with younger classes.",
+          "ja": "生徒たちは庭の写真を下級生のクラスと共有します。"
+        },
+        {
+          "en": "They explain why flowers and insects can depend on each other.",
+          "ja": "花と昆虫が互いに頼り合う理由を説明します。"
+        },
+        {
+          "en": "As a result, more students become interested in observing nearby nature.",
+          "ja": "その結果、身近な自然の観察に興味を持つ生徒が増えます。"
+        },
+        {
+          "en": "The class learns that protecting nature begins with understanding local conditions.",
+          "ja": "クラスは自然を守ることは地域の条件を理解することから始まると学びます。"
+        },
+        {
+          "en": "A small garden can inspire larger questions about the environment.",
+          "ja": "小さな庭から環境についての大きな問いが生まれることもあります。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What do students notice near the building?",
+      "options": [
+        "Fewer insects visiting flowers.",
+        "More buses on the road.",
+        "A newly built train station.",
+        "The school library closing."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「生徒たちは校舎の外の花を訪れる昆虫が少ないことに気づきます。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "How can many insects help plants?",
+      "options": [
+        "By turning all leaves into food.",
+        "By removing every flower.",
+        "By making rain fall.",
+        "By carrying pollen between flowers."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「教師は多くの昆虫が花の間で花粉を運んで植物を助けると説明します。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What insects are seen in the morning?",
+      "options": [
+        "Birds inside the classroom.",
+        "House cats.",
+        "Bees.",
+        "Fish."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「例えば朝に花を訪れるハチを見かけます。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "How do students observe safely?",
+      "options": [
+        "By moving every flower.",
+        "Without touching unfamiliar insects.",
+        "By catching every insect.",
+        "By standing in the middle of bee nests."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「教師は知らない昆虫に触れたり邪魔したりしないよう注意します。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "How do students select plants?",
+      "options": [
+        "They consider weather and available space.",
+        "They choose only the largest plants.",
+        "They plant everything at the same time.",
+        "They avoid local conditions."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「地域の天候や利用できる空間に合う植物を確認します。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "Why do they consider different seasons?",
+      "options": [
+        "To make the garden empty in winter.",
+        "To avoid watering forever.",
+        "To remove all butterflies.",
+        "To support insects at different times."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「一種類の花だけを植えるのではなく異なる季節を考えて計画します。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "Why do students avoid claiming populations increased?",
+      "options": [
+        "No insects can live near schools.",
+        "The garden contains no flowers.",
+        "Weather and seasons can change observations.",
+        "They have never visited the garden."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「それでも昆虫のすべての個体数が増えたとは主張しません。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What do students continue doing?",
+      "options": [
+        "Counting school desks.",
+        "Recording and comparing observations.",
+        "Removing all plants.",
+        "Stopping the project immediately."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「活動は慎重な科学的思考を練習する機会になります。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Who sees pictures of the garden?",
+      "options": [
+        "Younger classes.",
+        "Only people in another country.",
+        "Only the school bus drivers.",
+        "Nobody outside the group."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「その結果、身近な自然の観察に興味を持つ生徒が増えます。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the central lesson?",
+      "options": [
+        "Every insect near flowers is dangerous.",
+        "A garden requires no maintenance.",
+        "One observation proves every environmental change.",
+        "Understanding local nature helps people care for it."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「小さな庭から環境についての大きな問いが生まれることもあります。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "affect",
+      "ja": "影響を与える",
+      "synonym": "influence",
+      "definition": "to change how something happens"
+    },
+    {
+      "term": "care",
+      "ja": "世話",
+      "synonym": "maintenance",
+      "definition": "work keeping living things healthy"
+    },
+    {
+      "term": "changing",
+      "ja": "変化する",
+      "synonym": "shifting",
+      "definition": "becoming different"
+    },
+    {
+      "term": "claim",
+      "ja": "主張",
+      "synonym": "assertion",
+      "definition": "a statement that someone argues is true"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "contrast",
+      "definition": "to examine differences and similarities"
+    },
+    {
+      "term": "conditions",
+      "ja": "状況",
+      "synonym": "circumstances",
+      "definition": "things affecting an event"
+    },
+    {
+      "term": "dangerous",
+      "ja": "危険な",
+      "synonym": "unsafe",
+      "definition": "likely to cause harm"
+    },
+    {
+      "term": "decide",
+      "ja": "決める",
+      "synonym": "choose",
+      "definition": "to make a choice"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "local",
+      "ja": "地域の",
+      "synonym": "nearby",
+      "definition": "related to the area"
+    },
+    {
+      "term": "moving",
+      "ja": "引っ越すこと",
+      "synonym": "relocating",
+      "definition": "changing one's place of residence"
+    },
+    {
+      "term": "nature",
+      "ja": "自然",
+      "synonym": "natural world",
+      "definition": "the world of plants and animals"
+    },
+    {
+      "term": "nearby",
+      "ja": "近くの",
+      "synonym": "close",
+      "definition": "not far away"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "notes",
+      "ja": "ノート・メモ",
+      "synonym": "written records",
+      "definition": "short written records used to remember or study"
+    },
+    {
+      "term": "observations",
+      "ja": "観察",
+      "synonym": "records",
+      "definition": "information collected by watching"
+    },
+    {
+      "term": "observing",
+      "ja": "観察すること",
+      "synonym": "watching",
+      "definition": "looking carefully"
+    },
+    {
+      "term": "planting",
+      "ja": "植えること",
+      "synonym": "growing",
+      "definition": "putting a plant into soil"
+    },
+    {
+      "term": "practice",
+      "ja": "練習",
+      "synonym": "training",
+      "definition": "repeated activity intended to improve a skill"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "scientific",
+      "ja": "科学的な",
+      "synonym": "research-based",
+      "definition": "related to systematic investigation"
+    },
+    {
+      "term": "seasons",
+      "ja": "季節",
+      "synonym": "times of year",
+      "definition": "parts of the year"
+    },
+    {
+      "term": "share",
+      "ja": "共有する",
+      "synonym": "communicate",
+      "definition": "to let others know or use something"
+    },
+    {
+      "term": "space",
+      "ja": "空間",
+      "synonym": "room",
+      "definition": "an area available for use"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "suitable",
+      "ja": "適切な",
+      "synonym": "appropriate",
+      "definition": "right for the situation"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who helps others learn"
+    },
+    {
+      "term": "understanding",
+      "ja": "理解",
+      "synonym": "comprehension",
+      "definition": "the ability to know what something means"
+    },
+    {
+      "term": "unfamiliar",
+      "ja": "見慣れない",
+      "synonym": "unknown",
+      "definition": "not well known"
+    },
+    {
+      "term": "visitors",
+      "ja": "訪問者",
+      "synonym": "guests",
+      "definition": "people coming to a place"
+    },
+    {
+      "term": "water",
+      "ja": "水をやる",
+      "synonym": "give water",
+      "definition": "provide water to plants"
+    },
+    {
+      "term": "weather",
+      "ja": "天候",
+      "synonym": "conditions",
+      "definition": "daily conditions in the atmosphere"
+    },
+    {
+      "term": "garden",
+      "ja": "庭",
+      "synonym": "planting area",
+      "definition": "a place where plants are grown"
+    },
+    {
+      "term": "insects",
+      "ja": "昆虫",
+      "synonym": "small animals",
+      "definition": "six-legged small animals"
+    },
+    {
+      "term": "pollen",
+      "ja": "花粉",
+      "synonym": "flower powder",
+      "definition": "material moved between flowers"
+    },
+    {
+      "term": "bees",
+      "ja": "ハチ",
+      "synonym": "flying insects",
+      "definition": "insects often visiting flowers"
+    },
+    {
+      "term": "butterflies",
+      "ja": "チョウ",
+      "synonym": "winged insects",
+      "definition": "insects with large colorful wings"
+    },
+    {
+      "term": "flowers",
+      "ja": "花",
+      "synonym": "blooms",
+      "definition": "flowering parts of plants"
+    },
+    {
+      "term": "plants",
+      "ja": "植物",
+      "synonym": "vegetation",
+      "definition": "living things that grow"
+    },
+    {
+      "term": "seasonal",
+      "ja": "季節の",
+      "synonym": "time-of-year",
+      "definition": "related to a season"
+    },
+    {
+      "term": "environment",
+      "ja": "環境",
+      "synonym": "surroundings",
+      "definition": "conditions around living things"
+    },
+    {
+      "term": "disturb",
+      "ja": "邪魔する",
+      "synonym": "interrupt",
+      "definition": "interfere with an activity"
+    },
+    {
+      "term": "holidays",
+      "ja": "休み",
+      "synonym": "breaks",
+      "definition": "days without regular classes"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "by moving pollen between flowers",
+      "explanation_ja": "by + 動名詞は手段を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "not to touch or disturb unfamiliar insects",
+      "explanation_ja": "not to不定詞で禁止する内容を表します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of planting only one kind of flower",
+      "explanation_ja": "instead of + 動名詞で別の計画を示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "that protecting nature begins with understanding local conditions",
+      "explanation_ja": "that節が学んだ内容を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "庭づくりへの期待と昆虫への不安を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "朝にハチを見かける例を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "訪問数が増えても断定を避けます。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "観察への関心が広がる結果です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Their teacher explains that many insects help plants by moving pollen between flowers.",
+      "rewrite": "Many insects support flowers by carrying pollen.",
+      "explanation_ja": "昆虫が花粉を運ぶことで植物を助けるという意味です。"
+    },
+    {
+      "source": "They take notes from a safe distance and compare their observations.",
+      "rewrite": "They observe insects carefully from a safe distance.",
+      "explanation_ja": "安全に距離を置いて調べることです。"
+    },
+    {
+      "source": "Their project becomes an opportunity to practice careful scientific thinking.",
+      "rewrite": "The garden helps the students practice careful observation.",
+      "explanation_ja": "慎重な観察を学べるという意味です。"
+    },
+    {
+      "source": "A small garden can inspire larger questions about the environment.",
+      "rewrite": "One small garden can raise questions about the wider environment.",
+      "explanation_ja": "身近な庭から広い環境について学べるという結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "庭づくりへの期待と昆虫への不安を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "朝にハチを見かける例を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "訪問数が増えても断定を避けます。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "観察への関心が広がる結果です。"
+    }
+  ]
+}

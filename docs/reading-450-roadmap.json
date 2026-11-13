@@ -3,8 +3,8 @@
   "as_of": "2026-11-14",
   "goal": 450,
   "category_target": 30,
-  "registered_total": 73,
-  "remaining": 377,
+  "registered_total": 85,
+  "remaining": 365,
   "level_targets_per_category": {
     "eiken-3": 1,
     "eiken-pre2": 4,
@@ -21,36 +21,36 @@
       "category_id": "L01",
       "name": "自然",
       "target": 30,
-      "registered": 5,
-      "remaining": 25
+      "registered": 6,
+      "remaining": 24
     },
     {
       "category_id": "L02",
       "name": "歴史",
       "target": 30,
-      "registered": 5,
-      "remaining": 25
+      "registered": 6,
+      "remaining": 24
     },
     {
       "category_id": "L03",
       "name": "科学技術",
       "target": 30,
-      "registered": 5,
-      "remaining": 25
+      "registered": 6,
+      "remaining": 24
     },
     {
       "category_id": "L04",
       "name": "人間関係",
       "target": 30,
-      "registered": 5,
-      "remaining": 25
+      "registered": 6,
+      "remaining": 24
     },
     {
       "category_id": "L05",
       "name": "国際社会",
       "target": 30,
-      "registered": 5,
-      "remaining": 25
+      "registered": 6,
+      "remaining": 24
     },
     {
       "category_id": "L06",
@@ -63,15 +63,15 @@
       "category_id": "L07",
       "name": "経済・ビジネス",
       "target": 30,
-      "registered": 5,
-      "remaining": 25
+      "registered": 6,
+      "remaining": 24
     },
     {
       "category_id": "L08",
       "name": "芸術・文化",
       "target": 30,
-      "registered": 5,
-      "remaining": 25
+      "registered": 6,
+      "remaining": 24
     },
     {
       "category_id": "L09",
@@ -84,8 +84,8 @@
       "category_id": "L10",
       "name": "教育・学習",
       "target": 30,
-      "registered": 5,
-      "remaining": 25
+      "registered": 6,
+      "remaining": 24
     },
     {
       "category_id": "L11",
@@ -98,42 +98,42 @@
       "category_id": "L12",
       "name": "医療・健康",
       "target": 30,
-      "registered": 5,
-      "remaining": 25
+      "registered": 6,
+      "remaining": 24
     },
     {
       "category_id": "L13",
       "name": "宇宙・未来",
       "target": 30,
-      "registered": 5,
-      "remaining": 25
+      "registered": 6,
+      "remaining": 24
     },
     {
       "category_id": "L14",
       "name": "婚姻・交友",
       "target": 30,
-      "registered": 4,
-      "remaining": 26
+      "registered": 5,
+      "remaining": 25
     },
     {
       "category_id": "L15",
       "name": "倫理・道徳",
       "target": 30,
-      "registered": 4,
-      "remaining": 26
+      "registered": 5,
+      "remaining": 25
     }
   ],
   "latest_unpublished_batch": [
-    "L02-005",
-    "L04-005",
-    "L06-005",
-    "L07-006",
-    "L08-006",
-    "L09-005",
-    "L10-005",
-    "L11-005",
-    "L12-005",
-    "L13-005"
+    "L01-006",
+    "L02-006",
+    "L03-006",
+    "L04-006",
+    "L05-006",
+    "L10-006",
+    "L12-006",
+    "L13-006",
+    "L14-006",
+    "L15-005"
   ],
   "release_policy": {
     "new_works_default_status": "draft",
@@ -149,11 +149,9 @@
     ]
   },
   "notes": [
-    "前回63本からさらに10本の新作を追加、合計73本。",
-    "15分野×各30本で450本、残り377本。",
-    "今回の10本は全文和訳・語彙・読解・復習演習の機械的構造チェックを通過。",
-    "新規教材の status はすべて draft。main へのマージとVercel本番デプロイは利用者の明示指示まで禁止。",
-    "内容上の正答一意性、訳文の自然さ、参考資料との整合性、iPad実機操作は未確認。"
+    "追加原稿10本の構造検査：エラー0件（全文和訳、語数、四択、語彙、復習演習）。",
+    "本番mainへのマージとVercelへのデプロイは禁止。利用者の明示承認を得るまで全ての新規教材をドラフトで管理。",
+    "最終的な英文・和訳・正答一意性・参考資料の人手校閲、iPadとプレビュー表示の動作確認は未実施。"
   ],
-  "all_unpublished_batches_note": "本番 main に28本、開発ブランチに合計73本登録。追加45本はいずれも未公開ドラフト。今回の10本は content/reading-batch-20261114-e2 で管理。"
+  "all_unpublished_batches_note": "本番 main の登録は28本。開発側は85本。新規57本は未公開ドラフトとして管理。"
 }

@@ -1,0 +1,626 @@
+{
+  "id": "L07-007",
+  "category_id": "L07",
+  "title": "The School Repair Corner",
+  "title_ja": "学校の修理コーナー",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 178,
+  "source_links": [
+    {
+      "title": "UNEP Resource Efficiency",
+      "url": "https://www.unep.org/explore-topics/resource-efficiency"
+    }
+  ],
+  "fact_notes": [
+    "架空の修理活動。機器修理の指示や専門的な安全助言ではない。英文・訳・問題は独自制作。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Students notice many small bags and clothes being thrown away.",
+          "ja": "生徒たちは小さなかばんや服がたくさん捨てられるのに気づきます。"
+        },
+        {
+          "en": "They want to start a repair corner at school.",
+          "ja": "学校に修理コーナーを作りたいと考えます。"
+        },
+        {
+          "en": "However, their teacher says that safety must come first.",
+          "ja": "しかし教師は安全が第一だと言います。"
+        },
+        {
+          "en": "The group chooses simple jobs such as fixing buttons.",
+          "ja": "グループはボタンを直すような簡単な仕事を選びます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "A local volunteer visits the class to teach sewing.",
+          "ja": "地域のボランティアが裁縫を教えるためクラスを訪れます。"
+        },
+        {
+          "en": "For example, she shows how to check a torn bag.",
+          "ja": "例えば破れたかばんの確認方法を示します。"
+        },
+        {
+          "en": "Students learn to choose suitable tools and materials.",
+          "ja": "生徒たちは適切な道具と材料を選ぶことを学びます。"
+        },
+        {
+          "en": "They also talk about how long a repair may take.",
+          "ja": "修理にかかる時間についても話します。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The class writes a short guide for the repair corner.",
+          "ja": "クラスは修理コーナーの短い案内を作ります。"
+        },
+        {
+          "en": "The guide explains which items students can accept.",
+          "ja": "案内は生徒が受け付けられる物を説明します。"
+        },
+        {
+          "en": "Instead of repairing electrical equipment, they focus on fabric items.",
+          "ja": "電気機器を修理する代わりに布製品に集中します。"
+        },
+        {
+          "en": "They do not promise that everything can be fixed.",
+          "ja": "すべて直せると約束することもしません。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Several classmates bring bags with loose buttons.",
+          "ja": "同級生数人がボタンの緩んだかばんを持ってきます。"
+        },
+        {
+          "en": "Nevertheless, the group refuses unsafe repairs.",
+          "ja": "それでもグループは危険な修理は断ります。"
+        },
+        {
+          "en": "The volunteer explains why saying no can be responsible.",
+          "ja": "ボランティアは断ることも責任あることだと説明します。"
+        },
+        {
+          "en": "The students record how much time each repair takes.",
+          "ja": "生徒は各修理に必要な時間を記録します。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "After one month, the school continues the project.",
+          "ja": "一か月後も学校は活動を続けます。"
+        },
+        {
+          "en": "More students want to learn simple sewing skills.",
+          "ja": "もっと多くの生徒が基本的な裁縫技術を学びたがります。"
+        },
+        {
+          "en": "As a result, fewer useful items are thrown away immediately.",
+          "ja": "その結果、まだ役立つ物がすぐに捨てられることが減ります。"
+        },
+        {
+          "en": "The class learns that smart choices consider safety and cost.",
+          "ja": "クラスは賢い選択には安全と費用の考慮が必要だと学びます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What do students notice being thrown away?",
+      "options": [
+        "Bags and clothes.",
+        "Only books.",
+        "Cars and bicycles.",
+        "School computers."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落の「生徒たちは小さなかばんや服がたくさん捨てられるのに気づきます。」が正答の根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What does the teacher say matters most?",
+      "options": [
+        "Bright colors.",
+        "Speed.",
+        "Music.",
+        "Safety."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落の「グループはボタンを直すような簡単な仕事を選びます。」が正答の根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "Who teaches sewing?",
+      "options": [
+        "A museum guide.",
+        "A doctor.",
+        "A local volunteer.",
+        "A bus driver."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落の「地域のボランティアが裁縫を教えるためクラスを訪れます。」が正答の根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What do students discuss about repairs?",
+      "options": [
+        "Train schedules.",
+        "Time and materials.",
+        "Only exam scores.",
+        "Only weather forecasts."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落の「修理にかかる時間についても話します。」が正答の根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What does the guide explain?",
+      "options": [
+        "Which items can be accepted.",
+        "The prices of school lunches.",
+        "The school bus route.",
+        "Every student's address."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落の「案内は生徒が受け付けられる物を説明します。」が正答の根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What equipment is not repaired?",
+      "options": [
+        "Fabric bags.",
+        "Loose buttons.",
+        "Clothes.",
+        "Electrical equipment."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落の「電気機器を修理する代わりに布製品に集中します。」が正答の根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What repairs does the group refuse?",
+      "options": [
+        "Every fabric item.",
+        "All repair requests without checking.",
+        "Unsafe repairs.",
+        "Every simple button."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落の「それでもグループは危険な修理は断ります。」が正答の根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What do students record?",
+      "options": [
+        "The number of classrooms.",
+        "Time spent on repairs.",
+        "Only the item's color.",
+        "Every teacher's age."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落の「生徒は各修理に必要な時間を記録します。」が正答の根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "detail",
+      "prompt": "What do more students want to learn?",
+      "options": [
+        "Simple sewing skills.",
+        "How to fix electrical motors.",
+        "How to build a train.",
+        "How to change the school's name."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落の「もっと多くの生徒が基本的な裁縫技術を学びたがります。」が正答の根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the main message?",
+      "options": [
+        "Every item must be repaired.",
+        "Repair takes no time.",
+        "Dangerous work is always a good challenge.",
+        "Good repair decisions consider safety and cost."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落の「クラスは賢い選択には安全と費用の考慮が必要だと学びます。」が正答の根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "choices",
+      "ja": "選択肢",
+      "synonym": "options",
+      "definition": "available possibilities"
+    },
+    {
+      "term": "classmates",
+      "ja": "同級生",
+      "synonym": "peers",
+      "definition": "students in the same class"
+    },
+    {
+      "term": "consider",
+      "ja": "考慮する",
+      "synonym": "think about",
+      "definition": "to examine an idea before deciding"
+    },
+    {
+      "term": "equipment",
+      "ja": "機器",
+      "synonym": "devices",
+      "definition": "tools for a task"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "guide",
+      "ja": "案内",
+      "synonym": "instructions",
+      "definition": "information describing rules"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "immediately",
+      "ja": "すぐに",
+      "synonym": "at once",
+      "definition": "without delay"
+    },
+    {
+      "term": "local",
+      "ja": "地域の",
+      "synonym": "nearby",
+      "definition": "relating to a particular place"
+    },
+    {
+      "term": "materials",
+      "ja": "材料",
+      "synonym": "supplies",
+      "definition": "things used for making"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "record",
+      "ja": "記録する",
+      "synonym": "note",
+      "definition": "to write information down for later use"
+    },
+    {
+      "term": "repairing",
+      "ja": "修理すること",
+      "synonym": "fixing",
+      "definition": "restoring items for use"
+    },
+    {
+      "term": "responsible",
+      "ja": "責任ある",
+      "synonym": "careful",
+      "definition": "thinking about consequences"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "suitable",
+      "ja": "適切な",
+      "synonym": "appropriate",
+      "definition": "right for the situation"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who helps others learn"
+    },
+    {
+      "term": "repair",
+      "ja": "修理",
+      "synonym": "fix",
+      "definition": "work that restores damaged things"
+    },
+    {
+      "term": "repairs",
+      "ja": "修理",
+      "synonym": "fixes",
+      "definition": "work to make items usable"
+    },
+    {
+      "term": "corner",
+      "ja": "コーナー",
+      "synonym": "area",
+      "definition": "a small section of a place"
+    },
+    {
+      "term": "volunteer",
+      "ja": "ボランティア",
+      "synonym": "helper",
+      "definition": "someone helping without payment"
+    },
+    {
+      "term": "sewing",
+      "ja": "裁縫",
+      "synonym": "stitching",
+      "definition": "joining cloth using thread"
+    },
+    {
+      "term": "fabric",
+      "ja": "布",
+      "synonym": "cloth",
+      "definition": "material used to make clothes"
+    },
+    {
+      "term": "buttons",
+      "ja": "ボタン",
+      "synonym": "fasteners",
+      "definition": "small pieces used to close clothes"
+    },
+    {
+      "term": "loose",
+      "ja": "緩い",
+      "synonym": "not firm",
+      "definition": "not tightly attached"
+    },
+    {
+      "term": "torn",
+      "ja": "破れた",
+      "synonym": "ripped",
+      "definition": "damaged by pulling"
+    },
+    {
+      "term": "safety",
+      "ja": "安全",
+      "synonym": "security",
+      "definition": "freedom from harm"
+    },
+    {
+      "term": "unsafe",
+      "ja": "危険な",
+      "synonym": "dangerous",
+      "definition": "not safe"
+    },
+    {
+      "term": "tools",
+      "ja": "道具",
+      "synonym": "equipment",
+      "definition": "objects used for work"
+    },
+    {
+      "term": "electrical",
+      "ja": "電気の",
+      "synonym": "powered",
+      "definition": "connected with electricity"
+    },
+    {
+      "term": "clothes",
+      "ja": "服",
+      "synonym": "clothing",
+      "definition": "things people wear"
+    },
+    {
+      "term": "bags",
+      "ja": "かばん",
+      "synonym": "containers",
+      "definition": "things used to carry items"
+    },
+    {
+      "term": "cost",
+      "ja": "費用",
+      "synonym": "price",
+      "definition": "money required"
+    },
+    {
+      "term": "skills",
+      "ja": "技能",
+      "synonym": "abilities",
+      "definition": "things people learn to do"
+    },
+    {
+      "term": "thrown",
+      "ja": "捨てられた",
+      "synonym": "discarded",
+      "definition": "sent away as waste"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "such as fixing buttons",
+      "explanation_ja": "such as + 動名詞で具体例を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "how long a repair may take",
+      "explanation_ja": "how long節は時間の長さを示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of repairing electrical equipment",
+      "explanation_ja": "instead of + 動名詞で別の選択を示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "that smart choices consider safety and cost",
+      "explanation_ja": "that節が学んだ内容を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "修理への意欲に対して安全の必要性を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "かばんの確認を例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "簡単な修理でも危険なら断ります。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "修理活動を続けた結果を示します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The group chooses simple jobs such as fixing buttons.",
+      "rewrite": "The group starts with easy work such as replacing buttons.",
+      "explanation_ja": "簡単な修理から始めるという意味です。"
+    },
+    {
+      "source": "They also talk about how long a repair may take.",
+      "rewrite": "Students discuss how much time repairs require.",
+      "explanation_ja": "修理時間を考えるという意味です。"
+    },
+    {
+      "source": "The volunteer explains why saying no can be responsible.",
+      "rewrite": "Refusing dangerous work can be the responsible choice.",
+      "explanation_ja": "危険な仕事を断ることも責任という意味です。"
+    },
+    {
+      "source": "The class learns that smart choices consider safety and cost.",
+      "rewrite": "Thoughtful choices account for safety and cost.",
+      "explanation_ja": "安全と費用を考えることが重要という結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "修理への意欲に対して安全の必要性を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "かばんの確認を例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "簡単な修理でも危険なら断ります。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "修理活動を続けた結果を示します。"
+    }
+  ]
+}
