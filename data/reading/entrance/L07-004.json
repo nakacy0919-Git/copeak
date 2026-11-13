@@ -1,0 +1,538 @@
+{
+  "id": "L07-004",
+  "category_id": "L07",
+  "title": "Our School Market Day",
+  "title_ja": "学校マーケットのお知らせ",
+  "level_id": "eiken-3",
+  "format": "notice",
+  "status": "draft",
+  "original": true,
+  "word_count": 208,
+  "source_links": [
+    {
+      "title": "EIKEN Grade 3 question types and level",
+      "url": "https://www.eiken.or.jp/eiken/exam/grade_3/solutions.html"
+    }
+  ],
+  "fact_notes": [
+    "本文はすべて架空のオリジナル。公式英検3級の試験形式のみを参考にし、過去問は引用していない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Our school will have a market next Saturday.",
+          "ja": "私たちの学校では次の土曜日にマーケットを開きます。"
+        },
+        {
+          "en": "Students will sell things they made in class.",
+          "ja": "生徒たちは授業で作った物を売ります。"
+        },
+        {
+          "en": "It starts at ten in the morning and ends at two.",
+          "ja": "午前10時に始まり、午後2時に終わります。"
+        },
+        {
+          "en": "The shops will be in the school gym.",
+          "ja": "お店は学校の体育館にあります。"
+        },
+        {
+          "en": "However, please bring your own bag because we want to use less plastic.",
+          "ja": "ただし、プラスチックを減らしたいので、自分の袋を持ってきてください。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Mika and her friends are making cards for the market.",
+          "ja": "ミカと友達はマーケット用のカードを作っています。"
+        },
+        {
+          "en": "One card costs one hundred yen, but three cards cost two hundred yen.",
+          "ja": "カード一枚は100円ですが、三枚なら200円です。"
+        },
+        {
+          "en": "For example, you can choose a birthday card and two thank-you cards.",
+          "ja": "例えば、誕生日カード一枚とお礼のカード二枚を選べます。"
+        },
+        {
+          "en": "The students put price signs on their table.",
+          "ja": "生徒たちはテーブルに値札を置きます。"
+        },
+        {
+          "en": "They want customers to know the prices before they buy anything.",
+          "ja": "お客さんに買う前に値段を知ってもらいたいのです。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Some students want to use the money for new library books.",
+          "ja": "生徒の中には、お金を新しい図書館の本に使いたい人もいます。"
+        },
+        {
+          "en": "Other students want to help a small park near the school.",
+          "ja": "ほかの生徒たちは学校近くの小さな公園を助けたいと思っています。"
+        },
+        {
+          "en": "The class talks about both ideas before making a decision.",
+          "ja": "クラスは決定前に両方の考えについて話し合います。"
+        },
+        {
+          "en": "Instead of choosing only one idea, they decide to share the money.",
+          "ja": "一方だけを選ぶのではなく、お金を分けることにします。"
+        },
+        {
+          "en": "Everyone can read the plan on a poster near the entrance.",
+          "ja": "みんなが入口近くのポスターで計画を読めます。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The students are excited, but they have many jobs.",
+          "ja": "生徒たちは楽しみですが、することもたくさんあります。"
+        },
+        {
+          "en": "They count the cards and prepare change for customers.",
+          "ja": "カードを数え、お客さんのためのおつりを用意します。"
+        },
+        {
+          "en": "They ask teachers to help them keep the gym clean.",
+          "ja": "体育館をきれいに保つため先生にも手伝いを頼みます。"
+        },
+        {
+          "en": "Therefore, the market is not only a place to sell things.",
+          "ja": "そのためマーケットは物を売るだけの場所ではありません。"
+        },
+        {
+          "en": "It is also a chance to learn how to work with others.",
+          "ja": "ほかの人と協力する方法を学ぶ機会でもあります。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "When does the market close?",
+      "options": [
+        "At two.",
+        "At ten.",
+        "At nine.",
+        "At four."
+      ],
+      "answer": 0,
+      "explanation_ja": "第1段落「午前10時に始まり、午後2時に終わります。」に書かれています。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Where can visitors find the market?",
+      "options": [
+        "At a station.",
+        "At a park.",
+        "At Mika's house.",
+        "In the school gym."
+      ],
+      "answer": 3,
+      "explanation_ja": "第1段落「お店は学校の体育館にあります。」に書かれています。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What should visitors bring?",
+      "options": [
+        "A book.",
+        "A lunch box.",
+        "A bag.",
+        "A bicycle."
+      ],
+      "answer": 2,
+      "explanation_ja": "第1段落「ただし、プラスチックを減らしたいので、自分の袋を持ってきてください。」に書かれています。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "How much are three cards?",
+      "options": [
+        "Four hundred yen.",
+        "Two hundred yen.",
+        "One hundred yen.",
+        "Three hundred yen."
+      ],
+      "answer": 1,
+      "explanation_ja": "第2段落「カード一枚は100円ですが、三枚なら200円です。」に書かれています。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What do students put on the table?",
+      "options": [
+        "Price signs.",
+        "School bags.",
+        "Sports shoes.",
+        "Train tickets."
+      ],
+      "answer": 0,
+      "explanation_ja": "第2段落「生徒たちはテーブルに値札を置きます。」に書かれています。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What do some students want to buy?",
+      "options": [
+        "A new bus.",
+        "Computer games.",
+        "New desks.",
+        "Library books."
+      ],
+      "answer": 3,
+      "explanation_ja": "第3段落「生徒の中には、お金を新しい図書館の本に使いたい人もいます。」に書かれています。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What will the class do with the money?",
+      "options": [
+        "Buy only food.",
+        "Keep it in a box forever.",
+        "Share it between two ideas.",
+        "Give it all to Mika."
+      ],
+      "answer": 2,
+      "explanation_ja": "第3段落「一方だけを選ぶのではなく、お金を分けることにします。」に書かれています。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "Where can people read the plan?",
+      "options": [
+        "On the school roof.",
+        "Near the entrance.",
+        "In a classroom.",
+        "At the park."
+      ],
+      "answer": 1,
+      "explanation_ja": "第3段落「みんなが入口近くのポスターで計画を読めます。」に書かれています。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "detail",
+      "prompt": "What do students prepare for buyers?",
+      "options": [
+        "Change.",
+        "Lunch.",
+        "Music.",
+        "Tickets."
+      ],
+      "answer": 0,
+      "explanation_ja": "第4段落「カードを数え、お客さんのためのおつりを用意します。」に書かれています。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What can students learn from the market?",
+      "options": [
+        "Driving a car.",
+        "Swimming quickly.",
+        "Drawing maps.",
+        "Working with others."
+      ],
+      "answer": 3,
+      "explanation_ja": "第4段落「ほかの人と協力する方法を学ぶ機会でもあります。」に書かれています。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "decide",
+      "ja": "決める",
+      "synonym": "choose",
+      "definition": "to make a choice"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "gym",
+      "ja": "体育館",
+      "synonym": "sports hall",
+      "definition": "a school room for sports"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "prepare",
+      "ja": "準備する",
+      "synonym": "get ready",
+      "definition": "to make something ready for use"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "share",
+      "ja": "共有する",
+      "synonym": "communicate",
+      "definition": "to let others know or use something"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "Teachers",
+      "ja": "教師たち",
+      "synonym": "educators",
+      "definition": "people who teach"
+    },
+    {
+      "term": "therefore",
+      "ja": "したがって",
+      "synonym": "consequently",
+      "definition": "used to introduce a logical result"
+    },
+    {
+      "term": "market",
+      "ja": "マーケット",
+      "synonym": "fair",
+      "definition": "a place to buy and sell"
+    },
+    {
+      "term": "sell",
+      "ja": "売る",
+      "synonym": "trade",
+      "definition": "give goods for money"
+    },
+    {
+      "term": "plastic",
+      "ja": "プラスチック",
+      "synonym": "material",
+      "definition": "a material used for many bags"
+    },
+    {
+      "term": "cards",
+      "ja": "カード",
+      "synonym": "paper items",
+      "definition": "small papers with messages"
+    },
+    {
+      "term": "yen",
+      "ja": "円",
+      "synonym": "money",
+      "definition": "Japanese money"
+    },
+    {
+      "term": "customers",
+      "ja": "お客さん",
+      "synonym": "buyers",
+      "definition": "people who buy things"
+    },
+    {
+      "term": "price",
+      "ja": "値段",
+      "synonym": "cost",
+      "definition": "the money needed to buy something"
+    },
+    {
+      "term": "signs",
+      "ja": "表示",
+      "synonym": "notices",
+      "definition": "papers showing information"
+    },
+    {
+      "term": "change",
+      "ja": "おつり",
+      "synonym": "money back",
+      "definition": "money given back after paying"
+    },
+    {
+      "term": "poster",
+      "ja": "ポスター",
+      "synonym": "notice",
+      "definition": "a large paper showing information"
+    },
+    {
+      "term": "entrance",
+      "ja": "入口",
+      "synonym": "doorway",
+      "definition": "a place to go into a building"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "things they made in class",
+      "explanation_ja": "they made in classはthingsを説明しています。"
+    },
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 4,
+      "focus": "because we want to use less plastic",
+      "explanation_ja": "becauseは理由を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 4,
+      "focus": "before they buy anything",
+      "explanation_ja": "beforeは『買う前に』という意味です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 3,
+      "focus": "not only a place to sell things",
+      "explanation_ja": "not onlyは『〜だけではない』です。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "開催案内に注意点を付け加えます。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "カードの具体的な組み合わせの例です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Instead",
+      "role_ja": "別の方法を選ぶことを示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Therefore",
+      "role_ja": "学びにつながるという結論を示します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "However, please bring your own bag because we want to use less plastic.",
+      "rewrite": "Visitors should use their own bags to reduce plastic.",
+      "explanation_ja": "袋を持参してプラスチック使用を減らすという内容です。"
+    },
+    {
+      "source": "One card costs one hundred yen, but three cards cost two hundred yen.",
+      "rewrite": "A set of three cards costs two hundred yen.",
+      "explanation_ja": "三枚のカードの値段を言い換えています。"
+    },
+    {
+      "source": "Instead of choosing only one idea, they decide to share the money.",
+      "rewrite": "They will use the money for both plans.",
+      "explanation_ja": "二つの使い道に分けると述べています。"
+    },
+    {
+      "source": "It is also a chance to learn how to work with others.",
+      "rewrite": "Students can practice teamwork at the market.",
+      "explanation_ja": "協力を学ぶという意味です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 4,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Instead",
+        "Therefore"
+      ],
+      "explanation_ja": "開催案内に注意点を付け加えます。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Instead",
+        "Therefore"
+      ],
+      "explanation_ja": "カードの具体的な組み合わせの例です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "answer": "Instead",
+      "options": [
+        "Instead",
+        "However",
+        "For example",
+        "Therefore"
+      ],
+      "explanation_ja": "別の方法を選ぶことを示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 3,
+      "answer": "Therefore",
+      "options": [
+        "Therefore",
+        "However",
+        "For example",
+        "Instead"
+      ],
+      "explanation_ja": "学びにつながるという結論を示します。"
+    }
+  ]
+}
