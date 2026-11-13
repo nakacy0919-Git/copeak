@@ -1,0 +1,724 @@
+{
+  "id": "L11-003",
+  "category_id": "L11",
+  "title": "Who Gets a Voice in a Town Meeting?",
+  "title_ja": "町の会議で誰の声を聞くべきか",
+  "level_id": "eiken-pre2",
+  "word_count": 255,
+  "original": true,
+  "status": "draft",
+  "source_links": [
+    {
+      "title": "OECD: Guidelines for Citizen Participation",
+      "url": "https://www.oecd.org/en/publications/oecd-guidelines-for-citizen-participation-processes_f765caf6-en.html"
+    }
+  ],
+  "fact_notes": [
+    "背景となる考え方は添付の資料で確認。本文と練習問題は新規制作。例示した人物・学校・活動は架空の説明用設定。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A town plans a new playground in a public park.",
+          "ja": "ある町は公共の公園に新しい遊び場を作る計画です。"
+        },
+        {
+          "en": "The mayor asks residents to share their opinions before choosing a design.",
+          "ja": "町長は設計を選ぶ前に住民の意見を求めます。"
+        },
+        {
+          "en": "However, inviting everyone to one meeting does not mean everyone can attend.",
+          "ja": "しかし一度の会議に全員を招いても、誰もが参加できるわけではありません。"
+        },
+        {
+          "en": "Some parents work in the evening, while some older residents cannot travel easily.",
+          "ja": "夕方に働く親も、簡単に移動できない高齢者もいます。"
+        },
+        {
+          "en": "A fair process must notice whose voices are missing.",
+          "ja": "公正な手続きでは、誰の声が欠けているか気づく必要があります。"
+        },
+        {
+          "en": "An invitation alone is not the same as real participation.",
+          "ja": "招待するだけでは本当の参加とは同じでありません。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The town therefore collects ideas through different methods.",
+          "ja": "そこで町は異なる方法で意見を集めます。"
+        },
+        {
+          "en": "People may speak at meetings, send written comments, or answer online questions.",
+          "ja": "人々は会議で話したり、書面で意見を送ったり、オンラインの質問に答えたりできます。"
+        },
+        {
+          "en": "For example, students draw pictures showing where they want benches and trees.",
+          "ja": "例えば生徒はベンチや木を置きたい場所を絵にします。"
+        },
+        {
+          "en": "Wheelchair users explain which paths are difficult to use.",
+          "ja": "車いす利用者はどの歩道が使いにくいか説明します。"
+        },
+        {
+          "en": "Different experiences can reveal problems that officials did not notice.",
+          "ja": "異なる経験は、担当者が気づかなかった問題を明らかにできます。"
+        },
+        {
+          "en": "Listening widely can therefore improve the information used for decisions.",
+          "ja": "広く耳を傾けることは決定に用いる情報を改善できます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The town also needs to explain what it can actually change.",
+          "ja": "町は何を実際に変えられるか説明する必要もあります。"
+        },
+        {
+          "en": "A limited budget and the park's size may restrict the final design.",
+          "ja": "限られた予算と公園の広さは最終設計を制限するかもしれません。"
+        },
+        {
+          "en": "In addition, some requests may conflict with other people's needs.",
+          "ja": "さらに、ある要望は他の人の必要と対立する場合があります。"
+        },
+        {
+          "en": "A quiet garden and a noisy sports area may compete for the same space.",
+          "ja": "静かな庭とにぎやかな運動場所が同じ場所を取り合うかもしれません。"
+        },
+        {
+          "en": "Officials cannot honestly promise that every suggestion will be accepted.",
+          "ja": "担当者はすべての提案を採用すると正直に約束できません。"
+        },
+        {
+          "en": "They should explain how ideas will be compared and why decisions are made.",
+          "ja": "提案の比較方法と決定理由を説明すべきです。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Nevertheless, asking for opinions is meaningless if leaders have already decided everything.",
+          "ja": "それでも指導者がすべて決めていれば意見募集は無意味です。"
+        },
+        {
+          "en": "Residents need to know which parts of the plan they can influence.",
+          "ja": "住民は計画のどの部分に影響できるか知る必要があります。"
+        },
+        {
+          "en": "After the decision, the town should report what changed because of public comments.",
+          "ja": "決定後、町は住民の意見で何が変わったか報告すべきです。"
+        },
+        {
+          "en": "Students can judge whether the process was open, practical, and fair.",
+          "ja": "生徒はその手続きが開かれ、実際的で公正か判断できます。"
+        },
+        {
+          "en": "True participation means more than simply being invited to speak.",
+          "ja": "本当の参加とは、単に発言に招かれる以上のことです。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the passage mainly about?",
+      "options": [
+        "Why public meetings should be stopped.",
+        "How towns can make citizen participation meaningful and fair.",
+        "Why only mayors should decide.",
+        "How to build a sports field quickly."
+      ],
+      "answer": 1,
+      "explanation_ja": "多様な参加の機会と説明責任が中心です。",
+      "paragraph_ids": [
+        "p1",
+        "p4"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Why can some residents not attend meetings?",
+      "options": [
+        "They all dislike parks.",
+        "The park is already complete.",
+        "Work and travel difficulties.",
+        "Every meeting is canceled."
+      ],
+      "answer": 2,
+      "explanation_ja": "時間と移動の難しさが示されています。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why offer several ways to share opinions?",
+      "options": [
+        "To include people with different circumstances.",
+        "To avoid listening to young people.",
+        "To close the park.",
+        "To make all ideas identical."
+      ],
+      "answer": 0,
+      "explanation_ja": "多様な事情に対応するためです。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What can students draw?",
+      "options": [
+        "Pictures of trains.",
+        "Pictures of exams.",
+        "Pictures of the mayor.",
+        "Where benches and trees might go."
+      ],
+      "answer": 3,
+      "explanation_ja": "ベンチと木の配置案です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What may restrict the final design?",
+      "options": [
+        "Only visitors' ages.",
+        "Budget and available space.",
+        "Only the time of day.",
+        "The names of students."
+      ],
+      "answer": 1,
+      "explanation_ja": "予算と公園の広さが制約になります。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why might officials reject some ideas?",
+      "options": [
+        "Every opinion is mistaken.",
+        "Residents cannot understand plans.",
+        "Some requests conflict with limits or other needs.",
+        "Officials must ignore all comments."
+      ],
+      "answer": 2,
+      "explanation_ja": "要望が互いに両立しないこともあるためです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'conflict' mean?",
+      "options": [
+        "Be difficult to satisfy together.",
+        "Be exactly the same.",
+        "Look attractive.",
+        "Become cheaper."
+      ],
+      "answer": 0,
+      "explanation_ja": "ここでは要望同士が対立することです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What should the town report after deciding?",
+      "options": [
+        "The number of nearby shops.",
+        "Every student's phone number.",
+        "The mayor's travel plans.",
+        "Changes made because of public comments."
+      ],
+      "answer": 3,
+      "explanation_ja": "住民の意見で変更した内容を報告します。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Why is a consultation meaningless if the plan is already fixed?",
+      "options": [
+        "Because parks are not useful.",
+        "Because citizens cannot influence the decision.",
+        "Because all comments are long.",
+        "Because budgets are unlimited."
+      ],
+      "answer": 1,
+      "explanation_ja": "意見が決定に反映される余地がないためです。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "What is the purpose of the final sentence?",
+      "options": [
+        "To encourage fewer meetings.",
+        "To suggest one person's view is enough.",
+        "To distinguish genuine participation from a formal invitation.",
+        "To say only officials should speak."
+      ],
+      "answer": 2,
+      "explanation_ja": "招くだけでない実質的な参加を強調します。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "town",
+      "ja": "町",
+      "synonym": "municipality",
+      "definition": "a small urban community"
+    },
+    {
+      "term": "playground",
+      "ja": "遊び場",
+      "synonym": "play area",
+      "definition": "a place where children can play"
+    },
+    {
+      "term": "public",
+      "ja": "公共の",
+      "synonym": "community",
+      "definition": "available to everyone"
+    },
+    {
+      "term": "park",
+      "ja": "公園",
+      "synonym": "green space",
+      "definition": "an open area for recreation"
+    },
+    {
+      "term": "mayor",
+      "ja": "町長",
+      "synonym": "local leader",
+      "definition": "the head of local government"
+    },
+    {
+      "term": "residents",
+      "ja": "住民",
+      "synonym": "inhabitants",
+      "definition": "people living in an area"
+    },
+    {
+      "term": "share",
+      "ja": "共有する",
+      "synonym": "express",
+      "definition": "to make ideas available to others"
+    },
+    {
+      "term": "opinions",
+      "ja": "意見",
+      "synonym": "views",
+      "definition": "beliefs about a subject"
+    },
+    {
+      "term": "choosing",
+      "ja": "選ぶこと",
+      "synonym": "selecting",
+      "definition": "picking one option"
+    },
+    {
+      "term": "design",
+      "ja": "設計",
+      "synonym": "plan",
+      "definition": "a plan for arranging things"
+    },
+    {
+      "term": "inviting",
+      "ja": "招待すること",
+      "synonym": "asking to join",
+      "definition": "requesting someone to attend"
+    },
+    {
+      "term": "meeting",
+      "ja": "会議",
+      "synonym": "gathering",
+      "definition": "a planned discussion"
+    },
+    {
+      "term": "attend",
+      "ja": "出席する",
+      "synonym": "participate",
+      "definition": "to be present at an event"
+    },
+    {
+      "term": "parents",
+      "ja": "親",
+      "synonym": "caregivers",
+      "definition": "adults raising children"
+    },
+    {
+      "term": "evening",
+      "ja": "夕方",
+      "synonym": "late day",
+      "definition": "time close to night"
+    },
+    {
+      "term": "older",
+      "ja": "高齢の",
+      "synonym": "elderly",
+      "definition": "having greater age"
+    },
+    {
+      "term": "travel",
+      "ja": "移動する",
+      "synonym": "journey",
+      "definition": "to move between places"
+    },
+    {
+      "term": "fair",
+      "ja": "公正な",
+      "synonym": "just",
+      "definition": "treating people reasonably"
+    },
+    {
+      "term": "process",
+      "ja": "手続き",
+      "synonym": "procedure",
+      "definition": "a series of steps"
+    },
+    {
+      "term": "voices",
+      "ja": "声・意見",
+      "synonym": "views",
+      "definition": "opinions expressed by people"
+    },
+    {
+      "term": "missing",
+      "ja": "欠けている",
+      "synonym": "absent",
+      "definition": "not present"
+    },
+    {
+      "term": "invitation",
+      "ja": "招待",
+      "synonym": "request to come",
+      "definition": "an offer to attend"
+    },
+    {
+      "term": "participation",
+      "ja": "参加",
+      "synonym": "involvement",
+      "definition": "taking part in a process"
+    },
+    {
+      "term": "collects",
+      "ja": "集める",
+      "synonym": "gathers",
+      "definition": "brings information together"
+    },
+    {
+      "term": "methods",
+      "ja": "方法",
+      "synonym": "approaches",
+      "definition": "ways of doing something"
+    },
+    {
+      "term": "comments",
+      "ja": "コメント・意見",
+      "synonym": "remarks",
+      "definition": "short statements of opinion"
+    },
+    {
+      "term": "online",
+      "ja": "オンラインで",
+      "synonym": "on the internet",
+      "definition": "using an internet service"
+    },
+    {
+      "term": "students",
+      "ja": "生徒",
+      "synonym": "learners",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "draw",
+      "ja": "描く",
+      "synonym": "sketch",
+      "definition": "to create a picture with lines"
+    },
+    {
+      "term": "benches",
+      "ja": "ベンチ",
+      "synonym": "seats",
+      "definition": "long places for sitting"
+    },
+    {
+      "term": "trees",
+      "ja": "木",
+      "synonym": "plants",
+      "definition": "tall plants with woody trunks"
+    },
+    {
+      "term": "wheelchair",
+      "ja": "車いす",
+      "synonym": "mobility chair",
+      "definition": "a wheeled chair for moving"
+    },
+    {
+      "term": "users",
+      "ja": "利用者",
+      "synonym": "people using",
+      "definition": "those who use something"
+    },
+    {
+      "term": "paths",
+      "ja": "歩道",
+      "synonym": "walkways",
+      "definition": "routes for walking"
+    },
+    {
+      "term": "experiences",
+      "ja": "経験",
+      "synonym": "situations lived through",
+      "definition": "things people have done"
+    },
+    {
+      "term": "reveal",
+      "ja": "明らかにする",
+      "synonym": "show",
+      "definition": "to make something known"
+    },
+    {
+      "term": "officials",
+      "ja": "担当者",
+      "synonym": "authorities",
+      "definition": "people with official responsibilities"
+    },
+    {
+      "term": "limited",
+      "ja": "限られた",
+      "synonym": "restricted",
+      "definition": "small in amount"
+    },
+    {
+      "term": "budget",
+      "ja": "予算",
+      "synonym": "funds",
+      "definition": "money available for a task"
+    },
+    {
+      "term": "restrict",
+      "ja": "制限する",
+      "synonym": "limit",
+      "definition": "to prevent complete freedom"
+    },
+    {
+      "term": "requests",
+      "ja": "要望",
+      "synonym": "appeals",
+      "definition": "things people ask for"
+    },
+    {
+      "term": "conflict",
+      "ja": "対立する",
+      "synonym": "clash",
+      "definition": "to be difficult to satisfy together"
+    },
+    {
+      "term": "quiet",
+      "ja": "静かな",
+      "synonym": "peaceful",
+      "definition": "making little noise"
+    },
+    {
+      "term": "sports",
+      "ja": "スポーツ",
+      "synonym": "games",
+      "definition": "physical activities"
+    },
+    {
+      "term": "compete",
+      "ja": "競合する",
+      "synonym": "struggle",
+      "definition": "to try to obtain the same thing"
+    },
+    {
+      "term": "accepted",
+      "ja": "採用された",
+      "synonym": "approved",
+      "definition": "agreed to as suitable"
+    },
+    {
+      "term": "decisions",
+      "ja": "決定",
+      "synonym": "choices",
+      "definition": "conclusions reached after thinking"
+    },
+    {
+      "term": "meaningless",
+      "ja": "無意味な",
+      "synonym": "without value",
+      "definition": "having no useful purpose"
+    },
+    {
+      "term": "influence",
+      "ja": "影響する",
+      "synonym": "affect",
+      "definition": "to change something"
+    },
+    {
+      "term": "report",
+      "ja": "報告する",
+      "synonym": "describe",
+      "definition": "to give information"
+    },
+    {
+      "term": "judge",
+      "ja": "判断する",
+      "synonym": "evaluate",
+      "definition": "to assess a situation"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "that everyone can attend",
+      "explanation_ja": "that節はmeanの内容を示しています。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "which paths are difficult to use",
+      "explanation_ja": "which節はexplainの目的語となる間接疑問です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "focus": "may compete for the same space",
+      "explanation_ja": "may＋動詞で可能性を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "focus": "if leaders have already decided everything",
+      "explanation_ja": "ifが条件節を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "会議を開くだけでは参加できないという対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "生徒の意見の具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "In addition",
+      "role_ja": "制約に加えて要望の対立を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "意見収集と形だけの参加を対比。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "inviting everyone to one meeting does not mean everyone can attend",
+      "rewrite": "a single invitation does not ensure that all people can participate",
+      "explanation_ja": "inviting→invitation、can attend→participateです。"
+    },
+    {
+      "source": "Different experiences can reveal problems that officials did not notice",
+      "rewrite": "varied perspectives can uncover issues overlooked by leaders",
+      "explanation_ja": "reveal→uncover、problems→issuesです。"
+    },
+    {
+      "source": "some requests may conflict with other people's needs",
+      "rewrite": "some suggestions may clash with others' requirements",
+      "explanation_ja": "conflict→clashです。"
+    },
+    {
+      "source": "asking for opinions is meaningless if leaders have already decided everything",
+      "rewrite": "consultation has little value when the outcome is fixed",
+      "explanation_ja": "meaningless→little valueです。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "会議を開くだけでは参加できないという対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Therefore",
+        "In addition"
+      ],
+      "explanation_ja": "生徒の意見の具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "In addition",
+      "options": [
+        "In addition",
+        "However",
+        "Therefore",
+        "For example"
+      ],
+      "explanation_ja": "制約に加えて要望の対立を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "意見収集と形だけの参加を対比。"
+    }
+  ]
+}
