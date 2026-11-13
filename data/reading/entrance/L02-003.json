@@ -1,0 +1,671 @@
+{
+  "id": "L02-003",
+  "category_id": "L02",
+  "title": "What Broken Pots Tell Us About the Past",
+  "title_ja": "壊れた土器が語る昔の暮らし",
+  "level_id": "eiken-pre2",
+  "word_count": 284,
+  "original": true,
+  "status": "draft",
+  "source_links": [
+    {
+      "title": "Smithsonian Tropical Research Institute: Ceramic puzzles",
+      "url": "https://stri.si.edu/story/ceramic-puzzles"
+    }
+  ],
+  "fact_notes": [
+    "背景となる考え方は添付の資料で確認。本文と練習問題は新規制作。例示した人物・学校・活動は架空の説明用設定。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "An old pot is often found in pieces rather than as one complete object.",
+          "ja": "古い土器は、一つの完全な品物ではなく破片で見つかることがよくあります。"
+        },
+        {
+          "en": "At first, broken pieces may look like things that should be thrown away.",
+          "ja": "最初は、壊れた破片は捨てるべきものに見えるかもしれません。"
+        },
+        {
+          "en": "However, archaeologists can learn a great deal by studying their shapes and surfaces.",
+          "ja": "しかし考古学者は、その形や表面を調べて多くを学べます。"
+        },
+        {
+          "en": "A small mark might show that a pot was used near a fire.",
+          "ja": "小さな跡が、その土器が火の近くで使われたことを示すかもしれません。"
+        },
+        {
+          "en": "A painted pattern may tell researchers something about the people who made it.",
+          "ja": "描かれた模様は、製作者について研究者に何かを教えるかもしれません。"
+        },
+        {
+          "en": "Even an object that cannot be repaired may be useful for understanding history.",
+          "ja": "修復できない品物でも、歴史を理解するのに役立つ場合があります。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Imagine a group of students visiting a museum workshop.",
+          "ja": "博物館の作業室を訪れる生徒たちを想像してください。"
+        },
+        {
+          "en": "On the table are pieces of pottery from an imaginary ancient village.",
+          "ja": "机の上には、架空の古代の村の土器の破片があります。"
+        },
+        {
+          "en": "The students first sort the pieces by color, thickness, and decoration.",
+          "ja": "生徒たちはまず色、厚さ、装飾によって破片を分類します。"
+        },
+        {
+          "en": "For example, two pieces with the same painted line may have belonged to one pot.",
+          "ja": "例えば同じ線の模様を持つ二つの破片は、一つの土器の一部だったかもしれません。"
+        },
+        {
+          "en": "The group carefully puts the pieces together without forcing them into place.",
+          "ja": "生徒たちは無理にはめ込まず、慎重に破片を合わせます。"
+        },
+        {
+          "en": "They discover that some parts are missing, so the original shape remains uncertain.",
+          "ja": "一部が欠けていることに気づき、元の形は依然として不確かなままです。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Finding a possible shape is only one part of the investigation.",
+          "ja": "あり得る形を見つけることは調査の一部にすぎません。"
+        },
+        {
+          "en": "Researchers also ask where the object was found and what was nearby.",
+          "ja": "研究者はその品物がどこで見つかり、近くに何があったかも尋ねます。"
+        },
+        {
+          "en": "In addition, they may compare it with pottery from another village.",
+          "ja": "さらに別の村の土器と比較することもあります。"
+        },
+        {
+          "en": "Similar designs might suggest contact between communities, but they cannot prove it alone.",
+          "ja": "似たデザインは地域間の交流を示唆するかもしれませんが、それだけでは証明できません。"
+        },
+        {
+          "en": "People may have developed similar patterns for different reasons.",
+          "ja": "人々が異なる理由で似た模様を考え出した可能性もあります。"
+        },
+        {
+          "en": "The most careful explanation considers several kinds of evidence together.",
+          "ja": "最も慎重な説明では、複数種類の証拠を合わせて考えます。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Museums must also decide how to display objects that are not complete.",
+          "ja": "博物館は不完全な品物をどう展示するかも決めなければなりません。"
+        },
+        {
+          "en": "A drawing can show one possible reconstruction while explaining which details are unknown.",
+          "ja": "図は、どの細部が不明かを説明しながら、復元案の一つを示せます。"
+        },
+        {
+          "en": "Nevertheless, the drawing should not be presented as a certain picture of the past.",
+          "ja": "それでも、その図を過去の確かな姿として示してはいけません。"
+        },
+        {
+          "en": "Visitors can learn from both the pieces and the questions that remain unanswered.",
+          "ja": "来館者は破片からも、未解決の問いからも学べます。"
+        },
+        {
+          "en": "Sometimes a broken pot tells a richer story when its missing parts are honestly acknowledged.",
+          "ja": "時には欠けた部分を率直に認めることで、壊れた土器がより豊かな物語を語ります。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the passage mainly about?",
+      "options": [
+        "Why museums should sell old pottery.",
+        "How pottery pieces can provide clues about the past.",
+        "Why all ancient pots were painted.",
+        "How to make modern plates quickly."
+      ],
+      "answer": 1,
+      "explanation_ja": "土器の破片を手がかりに過去を調査する姿勢が主題です。",
+      "paragraph_ids": [
+        "p1",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What might a small mark on pottery show?",
+      "options": [
+        "That the pot was used near a fire.",
+        "That its owner traveled by train.",
+        "That it was made yesterday.",
+        "That it always contained gold."
+      ],
+      "answer": 0,
+      "explanation_ja": "表面の跡が使用状況を示す例です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "How do the students first sort the pieces?",
+      "options": [
+        "By price and owner.",
+        "By weight only.",
+        "By color, thickness, and decoration.",
+        "By how loudly they sound."
+      ],
+      "answer": 2,
+      "explanation_ja": "色・厚さ・装飾で分類します。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why should students avoid forcing pieces together?",
+      "options": [
+        "To hide the original color.",
+        "To prove every piece belongs to one pot.",
+        "To make the investigation shorter.",
+        "To prevent an incorrect or damaging reconstruction."
+      ],
+      "answer": 3,
+      "explanation_ja": "無理にはめると誤った組み立てや破損につながり得ます。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What remains uncertain in the workshop?",
+      "options": [
+        "The museum's address.",
+        "The pot's complete original shape.",
+        "The number of students in the group.",
+        "The color of the table."
+      ],
+      "answer": 1,
+      "explanation_ja": "欠けた部分があるため元の形が不明です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What else do researchers ask?",
+      "options": [
+        "Who invented computers.",
+        "Which train stops nearby.",
+        "Where the pottery was found.",
+        "How many people like pottery today."
+      ],
+      "answer": 2,
+      "explanation_ja": "発見場所や周囲の情報を確認します。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "inference",
+      "prompt": "Why do similar designs not prove contact between villages?",
+      "options": [
+        "People can develop similar designs for separate reasons.",
+        "Every pot was made in the same factory.",
+        "All designs are completely random.",
+        "Archaeologists never compare objects."
+      ],
+      "answer": 0,
+      "explanation_ja": "似た模様だけでは交流があったと断定できません。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'reconstruction' most nearly mean?",
+      "options": [
+        "A new kind of museum.",
+        "A painting sold for money.",
+        "The destruction of an old building.",
+        "An attempt to recreate an original form."
+      ],
+      "answer": 3,
+      "explanation_ja": "reconstructionは元の形を復元することです。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "detail",
+      "prompt": "How can a drawing help visitors?",
+      "options": [
+        "By hiding uncertain details.",
+        "By showing one possible form and explaining unknown parts.",
+        "By replacing all actual objects.",
+        "By proving the pot's exact age."
+      ],
+      "answer": 1,
+      "explanation_ja": "復元案と不明点を明示できます。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "Why is honesty about missing parts important?",
+      "options": [
+        "It makes every historical claim certain.",
+        "It means the object has no value.",
+        "It shows that history involves evidence and unanswered questions.",
+        "It removes the need for museums."
+      ],
+      "answer": 2,
+      "explanation_ja": "不確実性を示す姿勢も歴史学習の一部だという結びです。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "pot",
+      "ja": "土器・つぼ",
+      "synonym": "container",
+      "definition": "a vessel for holding materials"
+    },
+    {
+      "term": "pieces",
+      "ja": "破片",
+      "synonym": "fragments",
+      "definition": "parts broken off from a whole"
+    },
+    {
+      "term": "complete",
+      "ja": "完全な",
+      "synonym": "whole",
+      "definition": "having all parts"
+    },
+    {
+      "term": "object",
+      "ja": "品物",
+      "synonym": "item",
+      "definition": "a physical thing that can be touched"
+    },
+    {
+      "term": "thrown",
+      "ja": "投げられた・捨てられた",
+      "synonym": "discarded",
+      "definition": "put away or removed"
+    },
+    {
+      "term": "archaeologists",
+      "ja": "考古学者",
+      "synonym": "past researchers",
+      "definition": "people who study human history through objects"
+    },
+    {
+      "term": "shapes",
+      "ja": "形",
+      "synonym": "forms",
+      "definition": "outer forms of objects"
+    },
+    {
+      "term": "surfaces",
+      "ja": "表面",
+      "synonym": "outer parts",
+      "definition": "the outside layers of objects"
+    },
+    {
+      "term": "mark",
+      "ja": "跡",
+      "synonym": "trace",
+      "definition": "a visible sign left on something"
+    },
+    {
+      "term": "painted",
+      "ja": "描かれた",
+      "synonym": "decorated",
+      "definition": "covered or marked with paint"
+    },
+    {
+      "term": "pattern",
+      "ja": "模様",
+      "synonym": "design",
+      "definition": "a repeated arrangement of shapes"
+    },
+    {
+      "term": "researchers",
+      "ja": "研究者",
+      "synonym": "investigators",
+      "definition": "people who study a topic carefully"
+    },
+    {
+      "term": "repaired",
+      "ja": "修復された",
+      "synonym": "fixed",
+      "definition": "restored after damage"
+    },
+    {
+      "term": "museum",
+      "ja": "博物館",
+      "synonym": "collection institution",
+      "definition": "a place that preserves and exhibits objects"
+    },
+    {
+      "term": "workshop",
+      "ja": "作業室・講習会",
+      "synonym": "practical session",
+      "definition": "a place or event for hands-on work"
+    },
+    {
+      "term": "pottery",
+      "ja": "土器類",
+      "synonym": "ceramics",
+      "definition": "objects made from fired clay"
+    },
+    {
+      "term": "imaginary",
+      "ja": "架空の",
+      "synonym": "fictional",
+      "definition": "created in imagination rather than real"
+    },
+    {
+      "term": "ancient",
+      "ja": "古代の",
+      "synonym": "very old",
+      "definition": "belonging to a distant past"
+    },
+    {
+      "term": "village",
+      "ja": "村",
+      "synonym": "small settlement",
+      "definition": "a small rural community"
+    },
+    {
+      "term": "sort",
+      "ja": "分類する",
+      "synonym": "group",
+      "definition": "to arrange things by their features"
+    },
+    {
+      "term": "thickness",
+      "ja": "厚さ",
+      "synonym": "depth",
+      "definition": "the distance between two surfaces"
+    },
+    {
+      "term": "decoration",
+      "ja": "装飾",
+      "synonym": "ornament",
+      "definition": "features added to make something attractive"
+    },
+    {
+      "term": "belonged",
+      "ja": "属していた",
+      "synonym": "was part of",
+      "definition": "formed part of something"
+    },
+    {
+      "term": "forcing",
+      "ja": "無理に押し込むこと",
+      "synonym": "pushing",
+      "definition": "applying pressure to make something fit"
+    },
+    {
+      "term": "missing",
+      "ja": "欠けている",
+      "synonym": "absent",
+      "definition": "not present where expected"
+    },
+    {
+      "term": "original",
+      "ja": "元の",
+      "synonym": "first",
+      "definition": "existing before later changes"
+    },
+    {
+      "term": "uncertain",
+      "ja": "不確かな",
+      "synonym": "not known",
+      "definition": "not established with confidence"
+    },
+    {
+      "term": "investigation",
+      "ja": "調査",
+      "synonym": "inquiry",
+      "definition": "a careful search for facts"
+    },
+    {
+      "term": "contact",
+      "ja": "交流・接触",
+      "synonym": "connection",
+      "definition": "communication or interaction between groups"
+    },
+    {
+      "term": "designs",
+      "ja": "意匠・デザイン",
+      "synonym": "patterns",
+      "definition": "planned arrangements of visual features"
+    },
+    {
+      "term": "evidence",
+      "ja": "証拠",
+      "synonym": "supporting facts",
+      "definition": "information used to test a claim"
+    },
+    {
+      "term": "display",
+      "ja": "展示する",
+      "synonym": "exhibit",
+      "definition": "to show an object publicly"
+    },
+    {
+      "term": "reconstruction",
+      "ja": "復元",
+      "synonym": "re-creation",
+      "definition": "an attempt to rebuild an earlier form"
+    },
+    {
+      "term": "drawing",
+      "ja": "図",
+      "synonym": "illustration",
+      "definition": "a picture made with lines"
+    },
+    {
+      "term": "visitors",
+      "ja": "来館者",
+      "synonym": "guests",
+      "definition": "people who visit a place"
+    },
+    {
+      "term": "acknowledged",
+      "ja": "認められた",
+      "synonym": "admitted",
+      "definition": "openly accepted as true"
+    },
+    {
+      "term": "explanation",
+      "ja": "説明",
+      "synonym": "account",
+      "definition": "a statement that makes something clear"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "similar",
+      "ja": "似ている",
+      "synonym": "alike",
+      "definition": "having features in common"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "learners",
+      "definition": "people receiving education at school"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 0,
+      "focus": "rather than as one complete object",
+      "explanation_ja": "rather thanは比較・対比を示し、破片と完全な品物を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "may have belonged to one pot",
+      "explanation_ja": "may have＋過去分詞は過去の出来事についての可能性を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "focus": "but they cannot prove it alone",
+      "explanation_ja": "butは推論と証明の違いを示す逆接です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "focus": "while explaining which details are unknown",
+      "explanation_ja": "while＋動名詞で同時動作を示し、which以下は間接疑問です。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "壊れたものの見た目と研究価値の逆接。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "同じ模様を持つ破片という具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "In addition",
+      "role_ja": "発見場所の調査に比較作業を追加。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "復元案の提示と断定の危険を対比。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "can learn a great deal by studying their shapes and surfaces",
+      "rewrite": "can discover much from examining the form and outside of the fragments",
+      "explanation_ja": "learn a great deal→discover much、surfaces→outsideです。"
+    },
+    {
+      "source": "the original shape remains uncertain",
+      "rewrite": "the object's first form is still unknown",
+      "explanation_ja": "remains uncertain→is still unknownです。"
+    },
+    {
+      "source": "cannot prove it alone",
+      "rewrite": "are insufficient by themselves to establish the claim",
+      "explanation_ja": "cannot prove→insufficient to establishです。"
+    },
+    {
+      "source": "both the pieces and the questions that remain unanswered",
+      "rewrite": "the fragments as well as the issues that have not been solved",
+      "explanation_ja": "both A and B→A as well as Bと言い換えます。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "壊れたものの見た目と研究価値の逆接。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Therefore",
+        "Nevertheless"
+      ],
+      "explanation_ja": "同じ模様を持つ破片という具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "In addition",
+      "options": [
+        "In addition",
+        "However",
+        "Therefore",
+        "For example"
+      ],
+      "explanation_ja": "発見場所の調査に比較作業を追加。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "復元案の提示と断定の危険を対比。"
+    }
+  ]
+}
