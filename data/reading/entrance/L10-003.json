@@ -196,18 +196,18 @@
     },
     {
       "id": "q3",
-      "skill": "inference",
-      "prompt": "Why is memorizing only the answer letter insufficient?",
+      "skill": "detail",
+      "prompt": "What does 'metacognition' refer to in paragraph 1?",
       "options": [
-        "Letter names never repeat.",
-        "The exam always changes every word.",
-        "It does not address why the original reasoning failed.",
-        "Reading questions have no meanings."
+        "Memorizing correct answer letters.",
+        "Reading scores without reviewing the work.",
+        "Thinking about one's own thinking and learning choices.",
+        "Writing a long report after every test."
       ],
       "answer": 2,
-      "explanation_ja": "誤りを生んだ考え方の修正につながらないためです。",
+      "explanation_ja": "メタ認知は、自分の思考について考え、学び方を意識することと説明されています。",
       "paragraph_ids": [
-        "p2"
+        "p1"
       ]
     },
     {
