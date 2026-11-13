@@ -1,0 +1,706 @@
+{
+  "id": "L09-006",
+  "category_id": "L09",
+  "title": "The Story in Two Languages",
+  "title_ja": "二つの言語で語られる物語",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "word_count": 297,
+  "source_links": [
+    {
+      "title": "UNESCO Languages and Education",
+      "url": "https://www.unesco.org/en/languages-education"
+    }
+  ],
+  "fact_notes": [
+    "登場人物や作品は架空の例で、文章・対訳・問題は独自制作。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A school library asks students to share short stories from their families.",
+          "ja": "学校の図書館は生徒に家族の短い物語を共有するよう求めます。"
+        },
+        {
+          "en": "Mia brings a story that her grandfather told in another language.",
+          "ja": "ミアは祖父が別の言語で語った話を持ってきます。"
+        },
+        {
+          "en": "She has translated it into English for her classmates.",
+          "ja": "同級生のため英語に訳しました。"
+        },
+        {
+          "en": "However, she worries that one important joke may be difficult to explain.",
+          "ja": "しかし大切な冗談の一つを説明するのが難しいと心配します。"
+        },
+        {
+          "en": "The class begins to discuss what a good translation should preserve.",
+          "ja": "クラスはよい翻訳で何を残すべきか話し合い始めます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The story describes a clever child who solves a problem in an unexpected way.",
+          "ja": "物語は意外な方法で問題を解く賢い子どもを描きます。"
+        },
+        {
+          "en": "For example, a sentence that sounds ordinary in English is funny in the original language.",
+          "ja": "例えば英語では普通の文も原語では面白い場合があります。"
+        },
+        {
+          "en": "Mia explains that the joke depends on two words with similar sounds.",
+          "ja": "ミアはその冗談が似た音の二語に依存していると説明します。"
+        },
+        {
+          "en": "A word-for-word translation cannot reproduce exactly the same sound pattern.",
+          "ja": "一語一語の翻訳ではまったく同じ音の形を再現できません。"
+        },
+        {
+          "en": "The students realize that a translator may need to explain the intended effect.",
+          "ja": "生徒たちは翻訳者が意図した効果を説明する必要があるかもしれないと気づきます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Mia prepares two English versions for the class to compare.",
+          "ja": "ミアはクラスが比較するための二つの英語版を用意します。"
+        },
+        {
+          "en": "The first follows the original words closely and adds a note about the joke.",
+          "ja": "最初の版は原語に忠実で、冗談について注を加えます。"
+        },
+        {
+          "en": "Instead of copying every expression, the second changes the wording to create similar humor.",
+          "ja": "すべての表現を写す代わりに二つ目は似たユーモアを生むよう表現を変えます。"
+        },
+        {
+          "en": "Classmates discuss what each version helps readers understand and what it leaves out.",
+          "ja": "同級生は各版が何の理解を助け何が抜けるか話し合います。"
+        },
+        {
+          "en": "They discover that neither method can preserve every feature of a story.",
+          "ja": "どちらの方法でも物語の全特徴は保てないと気づきます。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Nevertheless, the class does not decide that translation is impossible.",
+          "ja": "それでもクラスは翻訳が不可能だとは考えません。"
+        },
+        {
+          "en": "Students ask Mia which details are most important to her grandfather.",
+          "ja": "生徒たちは祖父にとってどの細部が最も大切かミアに尋ねます。"
+        },
+        {
+          "en": "She learns that he values the story's message about helping neighbors.",
+          "ja": "祖父は近所の人を助けるという物語の教訓を大切にするとわかります。"
+        },
+        {
+          "en": "The class decides to make that meaning clear in both English versions.",
+          "ja": "クラスは両方の英語版でその意味を明確にすると決めます。"
+        },
+        {
+          "en": "They also agree to mention where the original story came from.",
+          "ja": "元の物語の出所にも触れると同意します。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "At the library event, Mia reads her translation and explains the joke.",
+          "ja": "図書館の行事でミアは訳文を読み、冗談を説明します。"
+        },
+        {
+          "en": "Her classmates enjoy asking questions about language and different ways of telling stories.",
+          "ja": "同級生は言語や物語の伝え方について質問することを楽しみます。"
+        },
+        {
+          "en": "As a result, several students decide to collect their own family stories.",
+          "ja": "その結果、何人かの生徒は自分の家族の話を集めると決めます。"
+        },
+        {
+          "en": "They understand that translation involves choices about readers, meaning, and culture.",
+          "ja": "翻訳には読者、意味、文化についての選択があると理解します。"
+        },
+        {
+          "en": "A story can connect people even when its words change between languages.",
+          "ja": "言葉が言語間で変わっても物語は人を結びつけられます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "Who originally told Mia the story?",
+      "options": [
+        "Her teacher.",
+        "A visitor.",
+        "Her younger brother.",
+        "Her grandfather."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落の「ミアは祖父が別の言語で語った話を持ってきます。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What concerns Mia about the translation?",
+      "options": [
+        "The library has closed.",
+        "No one can read English.",
+        "A joke may be hard to explain.",
+        "The story has no ending."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落の「しかし大切な冗談の一つを説明するのが難しいと心配します。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "Why is the joke difficult to translate?",
+      "options": [
+        "It is about science.",
+        "It uses similar sounds.",
+        "It uses only numbers.",
+        "It has no characters."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落の「ミアはその冗談が似た音の二語に依存していると説明します。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What cannot a literal translation fully reproduce?",
+      "options": [
+        "The sound pattern.",
+        "The number of pages.",
+        "The narrator's name.",
+        "The story's main character."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落の「一語一語の翻訳ではまったく同じ音の形を再現できません。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What does the first translation include?",
+      "options": [
+        "A new ending.",
+        "Only pictures.",
+        "No original words.",
+        "A note about the joke."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落の「最初の版は原語に忠実で、冗談について注を加えます。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "How does the second version create humor?",
+      "options": [
+        "By repeating the original language.",
+        "By using numbers only.",
+        "By changing wording.",
+        "By deleting every sentence."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落の「すべての表現を写す代わりに二つ目は似たユーモアを生むよう表現を変えます。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "Whose opinion helps Mia identify important details?",
+      "options": [
+        "A librarian's pet's.",
+        "Her grandfather's.",
+        "The mayor's.",
+        "A train driver's."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落の「生徒たちは祖父にとってどの細部が最も大切かミアに尋ねます。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What is the important message?",
+      "options": [
+        "Helping neighbors.",
+        "Winning a sports contest.",
+        "Keeping secrets from friends.",
+        "Buying an expensive gift."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落の「祖父は近所の人を助けるという物語の教訓を大切にするとわかります。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What do other students decide to collect?",
+      "options": [
+        "Train tickets.",
+        "Weather reports.",
+        "Exam papers.",
+        "Family stories."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落の「その結果、何人かの生徒は自分の家族の話を集めると決めます。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the passage mainly about?",
+      "options": [
+        "English stories cannot be funny.",
+        "Original stories should never be shared.",
+        "Translation involves meaning and cultural choices.",
+        "Every word has one exact translation."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落の「言葉が言語間で変わっても物語は人を結びつけられます。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "choices",
+      "ja": "選択肢",
+      "synonym": "options",
+      "definition": "available possibilities"
+    },
+    {
+      "term": "classmates",
+      "ja": "同級生",
+      "synonym": "peers",
+      "definition": "students in one class"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "contrast",
+      "definition": "to examine differences and similarities"
+    },
+    {
+      "term": "decide",
+      "ja": "決める",
+      "synonym": "choose",
+      "definition": "to make a choice"
+    },
+    {
+      "term": "details",
+      "ja": "細部",
+      "synonym": "particulars",
+      "definition": "small pieces of information"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "discover",
+      "ja": "気づく・発見する",
+      "synonym": "find out",
+      "definition": "to learn something previously unknown"
+    },
+    {
+      "term": "event",
+      "ja": "行事",
+      "synonym": "occasion",
+      "definition": "a planned activity"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "expression",
+      "ja": "表現",
+      "synonym": "phrase",
+      "definition": "a way of saying something"
+    },
+    {
+      "term": "families",
+      "ja": "家族",
+      "synonym": "households",
+      "definition": "groups living together as relatives"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "important",
+      "ja": "重要な",
+      "synonym": "significant",
+      "definition": "having a great effect or value"
+    },
+    {
+      "term": "leaves",
+      "ja": "葉",
+      "synonym": "foliage",
+      "definition": "flat green parts of a plant"
+    },
+    {
+      "term": "message",
+      "ja": "教訓",
+      "synonym": "idea",
+      "definition": "a point communicated by a story"
+    },
+    {
+      "term": "neighbors",
+      "ja": "近所の人",
+      "synonym": "people nearby",
+      "definition": "people living close by"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "ordinary",
+      "ja": "日常的な",
+      "synonym": "usual",
+      "definition": "common rather than special"
+    },
+    {
+      "term": "original",
+      "ja": "原文の",
+      "synonym": "initial",
+      "definition": "existing before translation"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "share",
+      "ja": "共有する",
+      "synonym": "communicate",
+      "definition": "to let others know or use something"
+    },
+    {
+      "term": "similar",
+      "ja": "似た",
+      "synonym": "alike",
+      "definition": "sharing features"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "translation",
+      "ja": "翻訳",
+      "synonym": "rendering",
+      "definition": "expressing meaning in another language"
+    },
+    {
+      "term": "translator",
+      "ja": "翻訳者",
+      "synonym": "interpreter",
+      "definition": "someone translating text"
+    },
+    {
+      "term": "language",
+      "ja": "言語",
+      "synonym": "speech system",
+      "definition": "a system used for communication"
+    },
+    {
+      "term": "languages",
+      "ja": "言語",
+      "synonym": "speech systems",
+      "definition": "ways people communicate using words"
+    },
+    {
+      "term": "story",
+      "ja": "物語",
+      "synonym": "tale",
+      "definition": "an account of events"
+    },
+    {
+      "term": "stories",
+      "ja": "物語",
+      "synonym": "tales",
+      "definition": "accounts of events"
+    },
+    {
+      "term": "grandfather",
+      "ja": "祖父",
+      "synonym": "grandparent",
+      "definition": "the father of a parent"
+    },
+    {
+      "term": "humor",
+      "ja": "ユーモア",
+      "synonym": "amusement",
+      "definition": "something people find funny"
+    },
+    {
+      "term": "joke",
+      "ja": "冗談",
+      "synonym": "funny remark",
+      "definition": "a remark intended to make people laugh"
+    },
+    {
+      "term": "sounds",
+      "ja": "音",
+      "synonym": "noises",
+      "definition": "things people can hear"
+    },
+    {
+      "term": "version",
+      "ja": "版",
+      "synonym": "form",
+      "definition": "a particular form of a text"
+    },
+    {
+      "term": "versions",
+      "ja": "版",
+      "synonym": "forms",
+      "definition": "different forms of a text"
+    },
+    {
+      "term": "culture",
+      "ja": "文化",
+      "synonym": "tradition",
+      "definition": "a community's shared customs"
+    },
+    {
+      "term": "readers",
+      "ja": "読者",
+      "synonym": "people reading",
+      "definition": "people who read a text"
+    },
+    {
+      "term": "meaning",
+      "ja": "意味",
+      "synonym": "sense",
+      "definition": "what words communicate"
+    },
+    {
+      "term": "unexpected",
+      "ja": "意外な",
+      "synonym": "surprising",
+      "definition": "not predicted"
+    },
+    {
+      "term": "library",
+      "ja": "図書館",
+      "synonym": "book center",
+      "definition": "a place containing books"
+    },
+    {
+      "term": "word-for-word",
+      "ja": "逐語的な",
+      "synonym": "literal",
+      "definition": "matching individual words"
+    },
+    {
+      "term": "preserve",
+      "ja": "保つ",
+      "synonym": "keep",
+      "definition": "maintain something"
+    },
+    {
+      "term": "intended",
+      "ja": "意図した",
+      "synonym": "planned",
+      "definition": "meant by the writer"
+    },
+    {
+      "term": "feature",
+      "ja": "特徴",
+      "synonym": "quality",
+      "definition": "a distinctive aspect"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "for her classmates",
+      "explanation_ja": "forは対象を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "that the joke depends on two words",
+      "explanation_ja": "that節は冗談の仕組みです。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of copying every expression",
+      "explanation_ja": "instead of + 動名詞は代替の方法です。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 4,
+      "focus": "even when its words change between languages",
+      "explanation_ja": "even whenは状況が変わっても成立することを示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "翻訳と冗談の難しさを対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "直訳しにくい例を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "翻訳の限界から可能性へ転じます。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "家族の話を集める新たな行動を示します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The class begins to discuss what a good translation should preserve.",
+      "rewrite": "Students examine what a translation should keep.",
+      "explanation_ja": "翻訳で残すべきことを考えます。"
+    },
+    {
+      "source": "A word-for-word translation cannot reproduce exactly the same sound pattern.",
+      "rewrite": "A literal translation may lose sound-based humor.",
+      "explanation_ja": "逐語訳では音の冗談が失われ得ます。"
+    },
+    {
+      "source": "The class decides to make that meaning clear in both English versions.",
+      "rewrite": "Both translations should preserve the central message.",
+      "explanation_ja": "どちらも中心の教訓を保ちます。"
+    },
+    {
+      "source": "A story can connect people even when its words change between languages.",
+      "rewrite": "Stories create links across languages.",
+      "explanation_ja": "物語は言語を超えて人を結びます。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "翻訳と冗談の難しさを対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "直訳しにくい例を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "翻訳の限界から可能性へ転じます。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "家族の話を集める新たな行動を示します。"
+    }
+  ]
+}
