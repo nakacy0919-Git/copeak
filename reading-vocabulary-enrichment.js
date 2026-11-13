@@ -18,6 +18,37 @@
   }
   return false;
  }
+ function expandGrammar(lesson){
+  const existing=lesson.grammar||[];
+  if(existing.length>=6)return existing;
+  const used=new Set(existing.map(g=>g.paragraph_id+':'+g.sentence_index));
+  const patterns=[
+   {match:/^Although\b/i,focus:'Although',explain:'Althoughは譲歩を導く接続詞で、「〜だけれども」という意味で主節と対比します。'},
+   {match:/^When\b/i,focus:'When',explain:'Whenは時を表す副詞節を導き、「〜するとき」という時間関係を示します。'},
+   {match:/^If\b/i,focus:'If',explain:'Ifは条件節を導き、主節が成り立つための条件を示します。'},
+   {match:/\bbecause\b/i,focus:'because',explain:'becauseは理由・原因を示す接続詞です。前後の因果関係に注目します。'},
+   {match:/\brather than\b/i,focus:'rather than',explain:'rather thanは比較・対比を表し、「〜よりむしろ」「〜ではなく」という意味を示します。'},
+   {match:/\bnot only\b/i,focus:'not only',explain:'not onlyは「〜だけでなく」という対比・追加の構文を作ります。'},
+   {match:/,\s*which\b/i,focus:'which',explain:'コンマに続くwhichは関係代名詞の継続用法で、直前の情報に補足説明を加えます。'},
+   {match:/^However\b/i,focus:'However',explain:'Howeverは前の文と対比する接続副詞で、「しかしながら」という逆接を表します。'}
+  ];
+  const added=[];
+  for(const [pi,p] of (lesson.paragraphs||[]).entries()){
+   for(const [si,part] of (p.sentences||[]).entries()){
+    if(added.length+existing.length>=6)break;
+    if(used.has(p.id+':'+si))continue;
+    for(const pattern of patterns){
+     const m=part.en.match(pattern.match);if(!m)continue;
+     const term=part.en.slice(m.index,m.index+m[0].length).includes('which')?'which':m[0];
+     const focus=pattern.focus==='which'?term:m[0];
+     added.push({paragraph_id:p.id,sentence_index:si,focus,explanation_ja:pattern.explain});
+     used.add(p.id+':'+si);break;
+    }
+   }
+   if(added.length+existing.length>=6)break;
+  }
+  return [...existing,...added];
+ }
  function expandAll(lessons){
   if(!Array.isArray(lessons))return lessons;
   const fromLessons=lessons.flatMap(l=>l.vocabulary||[]).filter(v=>v.term&&v.ja&&v.definition&&v.synonym);
@@ -34,7 +65,7 @@
     seen.add(term);
     additions.push({term:entry.term,ja:entry.ja,synonym:entry.synonym,definition:entry.definition});
    }
-   return {...lesson,vocabulary:[...original,...additions]};
+   return {...lesson,vocabulary:[...original,...additions],grammar:expandGrammar(lesson)};
   });
  }
  root.CopeakReadingEnrichment=Object.freeze({expandAll});
