@@ -41,12 +41,41 @@
    });
   }
   if(mode==='cloze'){
-    return (l.cloze||[]).map((q,i)=>({
+    const authored=(l.cloze||[]).map((q,i)=>({
      id:'c-'+i,mode,index:i,prompt:'左の本文【'+(i+1)+'】に入る最も適切な表現を選びなさい。',
      subprompt:'第'+((l.paragraphs||[]).findIndex(p=>p.id===q.paragraph_id)+1)+'段落',
      options:[...q.options],answer:q.options.indexOf(q.answer),explanation:q.explanation_ja,
      source:locate(l,q.answer,q.paragraph_id,q.sentence_index),sourceText:q.answer,sourceStyle:'mask',
     }));
+    // Older sets offered only 2 cloze questions. Supplement from checked
+    // vocabulary actually present in the original passage.
+    const used=new Set(authored.map(x=>x.source?x.source.paragraphId+':'+x.source.sentenceIndex:''));
+    const entries=uniq((l.vocabulary||[]).map(v=>v.term)).filter(t=>t.length>=5&&!['however','therefore','because','although','nevertheless','instead','moreover'].includes(t.toLowerCase()));
+    const candidates=mix(entries,l.id+':supplemental-cloze');
+    const fullPool=corpus.flatMap(x=>(x.vocabulary||[]).map(v=>v.term));
+    const extra=[];
+    for(const term of candidates){
+      if(authored.length+extra.length>=10)break;
+      const source=locate(l,term);if(!source)continue;
+      const sentence=passageSentences(l).find(x=>x.paragraphId===source.paragraphId&&x.sentenceIndex===source.sentenceIndex)?.text||'';
+      const pos=sentence.toLowerCase().indexOf(term.toLowerCase());
+      if(pos<0)continue;
+      const before=sentence[pos-1]||'',after=sentence[pos+term.length]||'';
+      if(/[a-z]/i.test(before)||/[a-z]/i.test(after))continue;
+      const key=source.paragraphId+':'+source.sentenceIndex;
+      if(used.has(key))continue;
+      const usable=fullPool.filter(w=>w.toLowerCase()!==term.toLowerCase()&&w.length>=Math.max(4,term.length-5)&&w.length<=term.length+5);
+      if(uniq(usable).length<3)continue;
+      const ans=options(term,usable,l.id+':cloze-extra:'+key);
+      const index=authored.length+extra.length;
+      extra.push({id:'cx-'+extra.length,mode,index,
+       prompt:'左の本文【'+(index+1)+'】に入る最も適切な語句を選びなさい。',
+       subprompt:'第'+((l.paragraphs||[]).findIndex(p=>p.id===source.paragraphId)+1)+'段落',
+       ...ans,explanation:'本文では「'+term+'」が文脈に合います。該当文を読み直して確かめましょう。',
+       source,sourceText:term,sourceStyle:'mask'});
+      used.add(key);
+    }
+    return [...authored,...extra];
   }
   if(mode==='discourse'){
    const bank=['However','Therefore','For example','In addition','Nevertheless','In contrast','As a result','Meanwhile','Similarly','Rather than','although','because','yet','but','so','also'];
@@ -83,26 +112,65 @@
    return (l.paraphrases||[]).map((p,i)=>{
     const correct=p.rewrite;
     const ans=options(correct,corpusRewrites,l.id+':paraphrase:'+i);
-    return {id:'p-'+i,mode,index:i,prompt:'左の英文の下線部と最も近い意味の表現を選びなさい。',
-     subprompt:'Underlined expression: '+p.source,...ans,explanation:p.explanation_ja+' ／ 言い換え：'+p.rewrite,
+    return {id:'p-'+i,mode,index:i,prompt:'本文の下線部と同じ意味になる英文表現を選びなさい。',
+     subprompt:'本文の英文を読み、意味が変わらない言い換えを選んでください。',...ans,explanation:p.explanation_ja+' ／ 言い換え：'+p.rewrite,
      source:locate(l,p.source),sourceText:p.source,sourceStyle:'underline'};
    });
   }
   if(mode==='grammar'){
-   const corpusExplanations=corpus.flatMap(x=>(x.grammar||[]).map(g=>g.explanation_ja));
-   const classify=x=>{const t=String(x);
-    for(const [re,k] of [[/関係代名詞|関係節|which|who/i,'relative'],[/動名詞/,'gerund'],[/副詞節|if節|when節|条件節/,'conditional'],[/分詞構文|現在分詞|過去分詞/,'participial'],[/間接疑問|whether|what節/,'interrogative'],[/受動態/,'passive'],[/同格|that節/,'that'],[/比較|not.*as|rather than/,'comparison'],[/不定詞/,'infinitive']])if(re.test(t))return k;
-    return 'general';
-   };
-   return (l.grammar||[]).map((g,i)=>{
-    const correct=g.explanation_ja,key=classify(correct);
-    const others=corpusExplanations.filter(x=>x!==correct&&classify(x)!==key);
-    const fallback=corpusExplanations.filter(x=>x!==correct);
-    const ans=options(correct,others.length>=3?others:fallback,l.id+':grammar:'+i);
-    return {id:'g-'+i,mode,index:i,prompt:'左の英文の下線部の文法的な働きとして最も適切な説明は？',
-     subprompt:'Underlined expression: '+g.focus,...ans,explanation:g.explanation_ja,
-     source:locate(l,g.focus,g.paragraph_id,g.sentence_index)||locate(l,g.focus,g.paragraph_id),sourceText:g.focus,sourceStyle:'underline'};
-   });
+    // Answer choices are short grammatical functions; detailed explanations
+    // remain hidden until the student submits an answer.
+    const roles=[
+      ['indirect','間接疑問・疑問詞を含む名詞節'],
+      ['relative','関係代名詞による名詞の修飾'],
+      ['relative-adverb','関係副詞による場所・時などの説明'],
+      ['passive','受動態（〜される）'],
+      ['conditional','条件を表す節'],
+      ['comparison','比較・対比の表現'],
+      ['negation','否定・部分否定の表現'],
+      ['gerund','動名詞の用法'],
+      ['infinitive','to不定詞の用法'],
+      ['means','手段を表す表現'],
+      ['concession','譲歩を表す節'],
+      ['noun','名詞節・内容を示すthat節'],
+      ['coordination','接続詞による語句・節の並列'],
+      ['participle','分詞による修飾'],
+      ['cause','理由・結果を表す構文'],
+      ['emphasis','強調・限定を表す表現']
+    ];
+    function category(g){
+      const x=String(g.explanation_ja||'').toLowerCase(),f=String(g.focus||'').toLowerCase();
+      if(['間接疑問','疑問詞を含む'].some(t=>x.includes(t)))return 'indirect';
+      if(['関係副詞','whereが','whereは','whereで始まる関係'].some(t=>x.includes(t)))return 'relative-adverb';
+      if(['関係代名詞','関係詞節','継続用法','whoが'].some(t=>x.includes(t)))return 'relative';
+      if(x.includes('動名詞'))return 'gerund';
+      if(x.includes('to不定詞')||x.includes('不定詞'))return 'infinitive';
+      if(x.includes('受動態')||x.includes('受身'))return 'passive';
+      if(['条件節','if節','条件を表','仮定法','仮定的'].some(t=>x.includes(t)))return 'conditional';
+      if(['譲歩','although','even though'].some(t=>x.includes(t)))return 'concession';
+      if(['部分否定','not necessarily','not always'].some(t=>x.includes(t)))return 'negation';
+      if(['比較','対比','rather than','not a but b','not only'].some(t=>x.includes(t)))return 'comparison';
+      if(['手段','by＋','by+','without＋','without+'].some(t=>x.includes(t)))return 'means';
+      if(['名詞節','that節','同格'].some(t=>x.includes(t)))return 'noun';
+      if(['分詞構文','現在分詞','過去分詞'].some(t=>x.includes(t)))return 'participle';
+      if(['接続詞','並列','動詞describeとcommunicate'].some(t=>x.includes(t)))return 'coordination';
+      if(['因果関係','理由を示','結果を示'].some(t=>x.includes(t)))return 'cause';
+      if(['限定','強調','対象の範囲'].some(t=>x.includes(t)))return 'emphasis';
+      if(f.includes('not necessarily')||f.includes('not always'))return 'negation';
+      if(f.includes('rather than')||f.includes('not only'))return 'comparison';
+      if(f.includes('where '))return 'relative-adverb';
+      return 'emphasis';
+    }
+    return (l.grammar||[]).map((g,i)=>{
+      const kind=category(g),correct=roles.find(r=>r[0]===kind)[1];
+      const ans=options(correct,roles.filter(r=>r[0]!==kind).map(r=>r[1]),l.id+':grammar-v2:'+i);
+      return {id:'g2-'+i,mode,index:i,
+       prompt:'下線部の文法・構文上の働きとして、最も適切なものを選びなさい。',
+       subprompt:'本文の一文と下線部を確認してください。',
+       ...ans,explanation:g.explanation_ja,
+       source:locate(l,g.focus,g.paragraph_id,g.sentence_index)||locate(l,g.focus,g.paragraph_id),
+       sourceText:g.focus,sourceStyle:'underline'};
+    });
   }
   return [];
  }
