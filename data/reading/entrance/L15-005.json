@@ -1,0 +1,742 @@
+{
+  "id": "L15-005",
+  "category_id": "L15",
+  "title": "The Picture with the Wrong Date",
+  "title_ja": "日付が違っていた写真",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "word_count": 276,
+  "source_links": [
+    {
+      "title": "Official background reference",
+      "url": "https://www.unesco.org/en/media-information-literacy"
+    }
+  ],
+  "fact_notes": [
+    "架空の教育用ケース。本文と日本語対訳、設問と解説は独自に作成。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A student receives a photograph of a flooded road near a city hall.",
+          "ja": "ある生徒が市役所の近くの道路が浸水している写真を受け取ります。"
+        },
+        {
+          "en": "The message beside it says that a storm happened that morning.",
+          "ja": "添えられたメッセージにはその朝に嵐が起きたと書いてあります。"
+        },
+        {
+          "en": "Several classmates want to share the news immediately.",
+          "ja": "同級生の何人かはすぐにニュースを共有したがります。"
+        },
+        {
+          "en": "However, Yuta asks where the picture came from and when it was taken.",
+          "ja": "しかしユウタは写真の出所と撮影時刻を尋ねます。"
+        },
+        {
+          "en": "Nobody can find the name of the original photographer.",
+          "ja": "誰も元の撮影者の名前を見つけられません。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "A photograph may show a real event without proving the words beside it.",
+          "ja": "写真が実際の出来事を示しても、添えられた言葉を証明するとは限りません。"
+        },
+        {
+          "en": "For example, an old picture can be shared with a new date.",
+          "ja": "例えば古い写真が新しい日付で共有されるかもしれません。"
+        },
+        {
+          "en": "A picture can also be edited to change its appearance.",
+          "ja": "写真は見た目を変えるために編集される場合もあります。"
+        },
+        {
+          "en": "The students decide that a strong impression is not enough evidence.",
+          "ja": "生徒たちは強い印象だけでは十分な証拠にならないと考えます。"
+        },
+        {
+          "en": "They look for independent reports before accepting the message.",
+          "ja": "メッセージを信じる前に独立した報告を探します。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The group checks local news and official weather reports.",
+          "ja": "グループは地元のニュースと公式の気象情報を確認します。"
+        },
+        {
+          "en": "They compare buildings in the photograph with pictures from other cities.",
+          "ja": "写真の建物を他の都市の写真と比べます。"
+        },
+        {
+          "en": "Instead of trusting the first search result, they check several sources.",
+          "ja": "最初の検索結果を信じず、複数の情報源を確かめます。"
+        },
+        {
+          "en": "They discover that the picture shows a flood from several years earlier.",
+          "ja": "写真は数年前の洪水を示すものだと発見します。"
+        },
+        {
+          "en": "The image was real, but the attached message was misleading.",
+          "ja": "画像は本物でも添えられたメッセージは誤解を招くものでした。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "One student says that sharing the picture might encourage people to prepare for storms.",
+          "ja": "ある生徒は写真の共有で嵐への備えを促せるかもしれないと言います。"
+        },
+        {
+          "en": "Nevertheless, inaccurate information can also cause unnecessary fear.",
+          "ja": "それでも不正確な情報は不要な不安も生みます。"
+        },
+        {
+          "en": "The students agree to write a correction and explain what they checked.",
+          "ja": "生徒たちは訂正を書き、何を調べたか説明することに同意します。"
+        },
+        {
+          "en": "They do not accuse their classmates of spreading false information on purpose.",
+          "ja": "同級生が故意に嘘の情報を広めたと非難しません。"
+        },
+        {
+          "en": "Their goal is to help everyone understand the facts.",
+          "ja": "目標は全員が事実を理解するのを助けることです。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "Later, the class makes a checklist for sharing surprising images.",
+          "ja": "後にクラスは驚くような画像を共有するための確認リストを作ります。"
+        },
+        {
+          "en": "It asks who created the picture, where it came from, and when it was taken.",
+          "ja": "誰が作り、どこから来て、いつ撮影されたかを尋ねます。"
+        },
+        {
+          "en": "As a result, students become more careful before sharing online messages.",
+          "ja": "その結果、生徒たちはネットのメッセージを共有する前により注意深くなります。"
+        },
+        {
+          "en": "They learn that even a real picture needs a correct explanation.",
+          "ja": "本物の写真にも正しい説明が必要だと学びます。"
+        },
+        {
+          "en": "Responsible sharing means checking sources before asking others to believe a claim.",
+          "ja": "責任ある共有とは他の人に主張を信じてもらう前に情報源を確かめることです。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What does the message claim?",
+      "options": [
+        "A storm happened that morning.",
+        "The city hall was built yesterday.",
+        "The photograph is from a history book.",
+        "The road has never flooded."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「添えられたメッセージにはその朝に嵐が起きたと書いてあります。」が正答の根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What does Yuta ask?",
+      "options": [
+        "Who owns the newest phone.",
+        "How many students can print the image.",
+        "What time school will finish.",
+        "Where and when the photograph was taken."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「しかしユウタは写真の出所と撮影時刻を尋ねます。」が正答の根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "Why may a real photo still mislead?",
+      "options": [
+        "A photograph cannot be copied.",
+        "All photographs are made by software.",
+        "It may be shown with an incorrect date.",
+        "Every photo has only one possible meaning."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「例えば古い写真が新しい日付で共有されるかもしれません。」が正答の根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What do students seek before accepting the claim?",
+      "options": [
+        "A longer caption without evidence.",
+        "Independent reports.",
+        "A brighter screen.",
+        "A newer phone."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「メッセージを信じる前に独立した報告を探します。」が正答の根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "How do the students investigate?",
+      "options": [
+        "They compare reports and images from other places.",
+        "They share the message many times.",
+        "They avoid checking news.",
+        "They ask only the original sender."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「最初の検索結果を信じず、複数の情報源を確かめます。」が正答の根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What do they discover about the photograph?",
+      "options": [
+        "It proves the new storm happened.",
+        "It comes from their classroom.",
+        "It is an image of a different planet.",
+        "It shows a flood from years earlier."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「写真は数年前の洪水を示すものだと発見します。」が正答の根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What concern is raised about inaccurate messages?",
+      "options": [
+        "They cannot influence any decision.",
+        "They guarantee accurate weather preparation.",
+        "They can cause unnecessary fear.",
+        "They always make people calm."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「それでも不正確な情報は不要な不安も生みます。」が正答の根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "How does the class correct the mistake?",
+      "options": [
+        "They refuse to speak about the picture.",
+        "They explain their checks without accusing classmates.",
+        "They delete all reports.",
+        "They continue sharing the false date."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「生徒たちは訂正を書き、何を調べたか説明することに同意します。」が正答の根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What does their checklist ask?",
+      "options": [
+        "Who made an image and when and where it was taken.",
+        "Only the image's color.",
+        "Only the number of likes.",
+        "The student's favorite school subject."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「誰が作り、どこから来て、いつ撮影されたかを尋ねます。」が正答の根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the main lesson?",
+      "options": [
+        "A convincing photo proves every attached claim.",
+        "An old photo always shows a recent event.",
+        "Good intentions replace checking facts.",
+        "Even real images need verified context before sharing."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「責任ある共有とは他の人に主張を信じてもらう前に情報源を確かめることです。」が正答の根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "accepting",
+      "ja": "受け入れること",
+      "synonym": "welcoming",
+      "definition": "receiving something without rejection"
+    },
+    {
+      "term": "attached",
+      "ja": "添付された",
+      "synonym": "included",
+      "definition": "added to a document"
+    },
+    {
+      "term": "buildings",
+      "ja": "建物",
+      "synonym": "structures",
+      "definition": "things built for people to use"
+    },
+    {
+      "term": "checking",
+      "ja": "確認すること",
+      "synonym": "verification",
+      "definition": "testing whether something is right"
+    },
+    {
+      "term": "claim",
+      "ja": "主張",
+      "synonym": "statement",
+      "definition": "something said to be true"
+    },
+    {
+      "term": "classmates",
+      "ja": "同級生",
+      "synonym": "school peers",
+      "definition": "students in the same class"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "contrast",
+      "definition": "to examine differences and similarities"
+    },
+    {
+      "term": "correct",
+      "ja": "訂正する・正しい",
+      "synonym": "fix",
+      "definition": "to remove errors or make something accurate"
+    },
+    {
+      "term": "decide",
+      "ja": "決める",
+      "synonym": "choose",
+      "definition": "to make a choice"
+    },
+    {
+      "term": "discover",
+      "ja": "気づく・発見する",
+      "synonym": "find out",
+      "definition": "to learn something previously unknown"
+    },
+    {
+      "term": "encourage",
+      "ja": "促す",
+      "synonym": "support",
+      "definition": "to make someone more willing to act"
+    },
+    {
+      "term": "event",
+      "ja": "行事",
+      "synonym": "occasion",
+      "definition": "a planned activity"
+    },
+    {
+      "term": "evidence",
+      "ja": "証拠",
+      "synonym": "support",
+      "definition": "information supporting a claim"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "explanation",
+      "ja": "説明",
+      "synonym": "account",
+      "definition": "a statement of why something happened"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "immediately",
+      "ja": "すぐに",
+      "synonym": "at once",
+      "definition": "without delay"
+    },
+    {
+      "term": "independent",
+      "ja": "独立した",
+      "synonym": "separate",
+      "definition": "not from the same origin"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "facts",
+      "definition": "facts or details provided about something"
+    },
+    {
+      "term": "local",
+      "ja": "地域の",
+      "synonym": "nearby",
+      "definition": "connected with a place"
+    },
+    {
+      "term": "message",
+      "ja": "メッセージ",
+      "synonym": "note",
+      "definition": "information sent to others"
+    },
+    {
+      "term": "needs",
+      "ja": "必要",
+      "synonym": "requirements",
+      "definition": "things necessary for well-being"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "official",
+      "ja": "公式の",
+      "synonym": "authorized",
+      "definition": "provided by a public organization"
+    },
+    {
+      "term": "original",
+      "ja": "原文の",
+      "synonym": "initial",
+      "definition": "existing before a copy or revision"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "prepare",
+      "ja": "準備する",
+      "synonym": "get ready",
+      "definition": "to make something ready for use"
+    },
+    {
+      "term": "purpose",
+      "ja": "目的",
+      "synonym": "aim",
+      "definition": "the reason for doing something"
+    },
+    {
+      "term": "responsible",
+      "ja": "責任を持つ",
+      "synonym": "accountable",
+      "definition": "expected to answer for decisions"
+    },
+    {
+      "term": "share",
+      "ja": "共有する",
+      "synonym": "communicate",
+      "definition": "to let others know or use something"
+    },
+    {
+      "term": "shared",
+      "ja": "共有された",
+      "synonym": "distributed",
+      "definition": "given to other people"
+    },
+    {
+      "term": "sharing",
+      "ja": "共有",
+      "synonym": "distribution",
+      "definition": "allowing others to see something"
+    },
+    {
+      "term": "storm",
+      "ja": "嵐",
+      "synonym": "severe weather",
+      "definition": "a period of strong wind or rain"
+    },
+    {
+      "term": "storms",
+      "ja": "嵐",
+      "synonym": "bad weather",
+      "definition": "periods of very bad weather"
+    },
+    {
+      "term": "student",
+      "ja": "生徒",
+      "synonym": "learner",
+      "definition": "a person learning at school"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "surprising",
+      "ja": "驚くべき",
+      "synonym": "unexpected",
+      "definition": "not expected"
+    },
+    {
+      "term": "weather",
+      "ja": "天候",
+      "synonym": "conditions",
+      "definition": "the state of the atmosphere"
+    },
+    {
+      "term": "photograph",
+      "ja": "写真",
+      "synonym": "picture",
+      "definition": "an image taken with a camera"
+    },
+    {
+      "term": "photographer",
+      "ja": "撮影者",
+      "synonym": "picture taker",
+      "definition": "a person making a photo"
+    },
+    {
+      "term": "flood",
+      "ja": "洪水",
+      "synonym": "overflow",
+      "definition": "water covering a road or land"
+    },
+    {
+      "term": "sources",
+      "ja": "情報源",
+      "synonym": "origins",
+      "definition": "places where information comes from"
+    },
+    {
+      "term": "reports",
+      "ja": "報告",
+      "synonym": "accounts",
+      "definition": "statements about events"
+    },
+    {
+      "term": "misleading",
+      "ja": "誤解を招く",
+      "synonym": "deceptive",
+      "definition": "giving a wrong impression"
+    },
+    {
+      "term": "inaccurate",
+      "ja": "不正確な",
+      "synonym": "incorrect",
+      "definition": "not matching the facts"
+    },
+    {
+      "term": "correction",
+      "ja": "訂正",
+      "synonym": "revision",
+      "definition": "a change that fixes a mistake"
+    },
+    {
+      "term": "checklist",
+      "ja": "確認リスト",
+      "synonym": "list",
+      "definition": "a written set of items to check"
+    },
+    {
+      "term": "appearance",
+      "ja": "見た目",
+      "synonym": "look",
+      "definition": "how something seems"
+    },
+    {
+      "term": "city",
+      "ja": "都市",
+      "synonym": "town",
+      "definition": "a place where many people live"
+    },
+    {
+      "term": "news",
+      "ja": "ニュース",
+      "synonym": "reports",
+      "definition": "information about recent events"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "where the picture came from and when it was taken",
+      "explanation_ja": "間接疑問文が出所と時刻を尋ねています。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 0,
+      "focus": "without proving the words beside it",
+      "explanation_ja": "without + 動名詞は「証明せずに」です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of trusting the first search result",
+      "explanation_ja": "instead of + 動名詞は別の方法を示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 4,
+      "focus": "before asking others to believe a claim",
+      "explanation_ja": "before + 動名詞は事前確認を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "共有したい気持ちから出所確認に向かいます。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "古い写真に新しい日付が付く例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "善意でも誤情報が害を生むと示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "今後の共有行動が慎重になります。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "However, Yuta asks where the picture came from and when it was taken.",
+      "rewrite": "Yuta wants to verify the image's origin and date.",
+      "explanation_ja": "ユウタが出所と日付を確かめたいという意味です。"
+    },
+    {
+      "source": "A photograph may show a real event without proving the words beside it.",
+      "rewrite": "A real photograph does not automatically support its accompanying message.",
+      "explanation_ja": "本物の写真と添えられた主張は別という意味です。"
+    },
+    {
+      "source": "Their goal is to help everyone understand the facts.",
+      "rewrite": "The students aim to improve understanding of facts.",
+      "explanation_ja": "目的は正しい理解を助けることです。"
+    },
+    {
+      "source": "Responsible sharing means checking sources before asking others to believe a claim.",
+      "rewrite": "Sharing responsibly requires checking evidence first.",
+      "explanation_ja": "共有前に証拠を確認するという結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "共有したい気持ちから出所確認に向かいます。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "古い写真に新しい日付が付く例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "善意でも誤情報が害を生むと示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "今後の共有行動が慎重になります。"
+    }
+  ]
+}
