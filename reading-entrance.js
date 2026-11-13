@@ -170,6 +170,8 @@ function selectLesson(id,startFocus=true){
  const s=state.sets.find(x=>x.id===id);if(!s)return;
  state.lesson=s;const progress=readProgress(s.id);state.answers=progress.answers||{};state.clozeAnswers=progress.clozeAnswers||{};state.graded=progress.graded===true;state.gradingChosen=false;state.activeQuestionId=null;state.questionLimit=Math.max(1,Math.min(progress.questionLimit||s.question_bank_settings?.default_reading_count||s.questions.length,s.questions.length));state.practice=progress.practice&&typeof progress.practice==='object'?progress.practice:{};state.quizCursor={};
  state.showAll=false;state.support=false;state.vocabIndex=0;state.vocabChoice=null;state.panel='questions';state.exercise=null;
+ const contextOption=$('vocabQuizMode').querySelector('option[value="context"]');
+ if(contextOption){const enabled=Array.isArray(s.vocabulary_questions)&&s.vocabulary_questions.length>0;contextOption.disabled=!enabled;contextOption.hidden=!enabled;if(!enabled&&$('vocabQuizMode').value==='context')$('vocabQuizMode').value='en-ja';}
  $('supportToggle').disabled=false;$('printOpen').disabled=false;$('focusStart').disabled=false;$('examModeStart').disabled=false;
  $('supportToggle').setAttribute('aria-pressed','false');$('supportToggle').setAttribute('aria-label','読解の根拠段落を表示');
  $('lessonTitle').textContent=s.title+' / '+s.title_ja;
