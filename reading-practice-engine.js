@@ -126,6 +126,7 @@
       ['relative-adverb','関係副詞による場所・時などの説明'],
       ['passive','受動態（〜される）'],
       ['conditional','条件を表す節'],
+      ['time','時を表す副詞節'],
       ['comparison','比較・対比の表現'],
       ['negation','否定・部分否定の表現'],
       ['gerund','動名詞の用法'],
@@ -140,6 +141,9 @@
     ];
     function category(g){
       const x=String(g.explanation_ja||'').toLowerCase(),f=String(g.focus||'').toLowerCase();
+      if(['時を表す副詞節','時を示す副詞節','when＋'].some(t=>x.includes(t)))return 'time';
+      if(['not mean that','誤解を明確に否定','誤った解釈を排除','not ... by itself','部分否定'].some(t=>x.includes(t)))return 'negation';
+      if(x.includes('however')&&x.includes('接続副詞'))return 'comparison';
       if(['間接疑問','疑問詞を含む'].some(t=>x.includes(t)))return 'indirect';
       if(['関係副詞','whereが','whereは','whereで始まる関係'].some(t=>x.includes(t)))return 'relative-adverb';
       if(['関係代名詞','関係詞節','継続用法','whoが'].some(t=>x.includes(t)))return 'relative';
@@ -154,6 +158,7 @@
       if(['名詞節','that節','同格'].some(t=>x.includes(t)))return 'noun';
       if(['分詞構文','現在分詞','過去分詞'].some(t=>x.includes(t)))return 'participle';
       if(['接続詞','並列','動詞describeとcommunicate'].some(t=>x.includes(t)))return 'coordination';
+      if(['理由・原因','理由を示す接続詞'].some(t=>x.includes(t)))return 'cause';
       if(['因果関係','理由を示','結果を示'].some(t=>x.includes(t)))return 'cause';
       if(['限定','強調','対象の範囲'].some(t=>x.includes(t)))return 'emphasis';
       if(f.includes('not necessarily')||f.includes('not always'))return 'negation';
