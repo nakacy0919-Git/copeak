@@ -1,0 +1,650 @@
+{
+  "id": "L05-006",
+  "category_id": "L05",
+  "title": "Two Clocks, One Classroom",
+  "title_ja": "二つの時計で一つの教室",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 196,
+  "source_links": [
+    {
+      "title": "Official background reference",
+      "url": "https://www.unesco.org/en/interculturaldialogue"
+    }
+  ],
+  "fact_notes": [
+    "授業場面は架空。英文と日本語訳・問題は独自制作。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "An English class in Japan plans a video meeting with students in Brazil.",
+          "ja": "日本の英語クラスはブラジルの生徒とビデオ会議を計画します。"
+        },
+        {
+          "en": "The teacher writes two different times on the board.",
+          "ja": "教師は黒板に二つの異なる時刻を書きます。"
+        },
+        {
+          "en": "However, some students think both schools will meet at noon.",
+          "ja": "しかし両校とも正午に会うと考える生徒もいます。"
+        },
+        {
+          "en": "The teacher explains that countries can have different local times.",
+          "ja": "教師は国によって現地時刻が違うと説明します。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Students look at a map and compare the two clocks.",
+          "ja": "生徒たちは地図を見て二つの時計を比べます。"
+        },
+        {
+          "en": "They learn to check the date as well as the time.",
+          "ja": "時刻だけでなく日付も確認するようになります。"
+        },
+        {
+          "en": "For example, it can be morning in one country and evening in another.",
+          "ja": "例えば一方の国で朝、もう一方で夕方の場合があります。"
+        },
+        {
+          "en": "The class chooses a time that works for both schools.",
+          "ja": "クラスは両校に都合のよい時刻を選びます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The Japanese students prepare simple questions about school life.",
+          "ja": "日本の生徒たちは学校生活について簡単な質問を準備します。"
+        },
+        {
+          "en": "Their partners send questions about food and sports.",
+          "ja": "相手の生徒は食べ物とスポーツについて質問を送ります。"
+        },
+        {
+          "en": "Instead of writing only long speeches, they practice short conversations.",
+          "ja": "長いスピーチだけを書くのではなく、短い会話を練習します。"
+        },
+        {
+          "en": "They also plan to listen carefully to the answers.",
+          "ja": "答えに注意深く耳を傾けることも計画します。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "On the meeting day, one student has trouble hearing a question.",
+          "ja": "会議当日、一人の生徒が質問を聞き取れません。"
+        },
+        {
+          "en": "Nevertheless, the partners repeat it slowly and kindly.",
+          "ja": "それでも相手はゆっくり親切に繰り返します。"
+        },
+        {
+          "en": "Everyone learns that communication needs patience.",
+          "ja": "全員が意思疎通には忍耐が必要だと学びます。"
+        },
+        {
+          "en": "They smile when they discover a shared interest in music.",
+          "ja": "音楽という共通の関心を発見し笑顔になります。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "After the meeting, the class sends a thank-you message.",
+          "ja": "会議後、クラスは感謝のメッセージを送ります。"
+        },
+        {
+          "en": "The students check the other school's time before sending it.",
+          "ja": "送る前に相手校の時刻を確認します。"
+        },
+        {
+          "en": "As a result, they become more careful about international meetings.",
+          "ja": "その結果、国際的な会議により注意深くなります。"
+        },
+        {
+          "en": "Two clocks can help one classroom connect with the world.",
+          "ja": "二つの時計は一つの教室が世界とつながる助けになります。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "Which country is the partner school in?",
+      "options": [
+        "Brazil.",
+        "Japan.",
+        "Canada.",
+        "France."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「日本の英語クラスはブラジルの生徒とビデオ会議を計画します。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What does the teacher explain?",
+      "options": [
+        "Every school meets at noon.",
+        "Every country has the same date.",
+        "The clocks are broken.",
+        "Countries can have different local times."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「教師は国によって現地時刻が違うと説明します。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What else should students check besides time?",
+      "options": [
+        "The school's colors.",
+        "The nearest river.",
+        "The date.",
+        "The weather forecast."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「時刻だけでなく日付も確認するようになります。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "How do students choose a meeting time?",
+      "options": [
+        "They cancel the meeting.",
+        "They find one suitable for both schools.",
+        "They choose only Japan's lunch hour.",
+        "They use a random number."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「クラスは両校に都合のよい時刻を選びます。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What questions do Japanese students prepare?",
+      "options": [
+        "Questions about school life.",
+        "Questions about train repairs.",
+        "Questions about the moon.",
+        "Questions about hospital appointments."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「日本の生徒たちは学校生活について簡単な質問を準備します。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What do students practice?",
+      "options": [
+        "Only long speeches.",
+        "Only singing.",
+        "Writing long examinations.",
+        "Short conversations."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「長いスピーチだけを書くのではなく、短い会話を練習します。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What happens during the meeting?",
+      "options": [
+        "No one joins the call.",
+        "The teachers leave the classroom.",
+        "A student cannot hear a question clearly.",
+        "The schools stop using English."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「それでも相手はゆっくり親切に繰り返します。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "How do partners respond?",
+      "options": [
+        "They write an angry letter.",
+        "They repeat the question slowly.",
+        "They refuse to speak again.",
+        "They close the meeting."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「全員が意思疎通には忍耐が必要だと学びます。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "detail",
+      "prompt": "What do students check before sending thanks?",
+      "options": [
+        "The partner school's time.",
+        "The price of lunch.",
+        "The number of books.",
+        "The date of graduation."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「送る前に相手校の時刻を確認します。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the main message?",
+      "options": [
+        "All schools should meet at noon.",
+        "Time zones make friendship impossible.",
+        "Speaking quickly is always best.",
+        "Careful time planning and listening help international communication."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「二つの時計は一つの教室が世界とつながる助けになります。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "communication",
+      "ja": "意思疎通",
+      "synonym": "exchange",
+      "definition": "sharing ideas between people"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "contrast",
+      "definition": "to examine differences and similarities"
+    },
+    {
+      "term": "conversations",
+      "ja": "会話",
+      "synonym": "dialogues",
+      "definition": "exchanges of speech"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "not alike",
+      "definition": "not the same"
+    },
+    {
+      "term": "discover",
+      "ja": "気づく・発見する",
+      "synonym": "find out",
+      "definition": "to learn something previously unknown"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "local",
+      "ja": "地域の",
+      "synonym": "nearby",
+      "definition": "relating to a particular place"
+    },
+    {
+      "term": "map",
+      "ja": "地図",
+      "synonym": "chart",
+      "definition": "a drawing showing features of an area"
+    },
+    {
+      "term": "meeting",
+      "ja": "会議",
+      "synonym": "session",
+      "definition": "an organized time to communicate"
+    },
+    {
+      "term": "message",
+      "ja": "メッセージ",
+      "synonym": "communication",
+      "definition": "information sent to someone"
+    },
+    {
+      "term": "needs",
+      "ja": "必要",
+      "synonym": "requirements",
+      "definition": "things necessary for well-being"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "patience",
+      "ja": "忍耐",
+      "synonym": "calm waiting",
+      "definition": "ability to wait without anger"
+    },
+    {
+      "term": "practice",
+      "ja": "練習",
+      "synonym": "training",
+      "definition": "repeated activity intended to improve a skill"
+    },
+    {
+      "term": "prepare",
+      "ja": "準備する",
+      "synonym": "get ready",
+      "definition": "to make something ready for use"
+    },
+    {
+      "term": "question",
+      "ja": "疑問を持つ・問い直す",
+      "synonym": "challenge",
+      "definition": "to examine whether an assumption is correct"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "shared",
+      "ja": "共有された",
+      "synonym": "common",
+      "definition": "used or affected by several groups"
+    },
+    {
+      "term": "sports",
+      "ja": "スポーツ",
+      "synonym": "athletics",
+      "definition": "physical games and activities"
+    },
+    {
+      "term": "student",
+      "ja": "生徒",
+      "synonym": "learner",
+      "definition": "a person learning at school"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who helps others learn"
+    },
+    {
+      "term": "writing",
+      "ja": "作文・文章を書くこと",
+      "synonym": "composition",
+      "definition": "the activity of creating text"
+    },
+    {
+      "term": "clocks",
+      "ja": "時計",
+      "synonym": "timepieces",
+      "definition": "devices showing time"
+    },
+    {
+      "term": "classroom",
+      "ja": "教室",
+      "synonym": "schoolroom",
+      "definition": "a room where lessons happen"
+    },
+    {
+      "term": "countries",
+      "ja": "国々",
+      "synonym": "nations",
+      "definition": "political regions of the world"
+    },
+    {
+      "term": "international",
+      "ja": "国際的な",
+      "synonym": "global",
+      "definition": "involving several countries"
+    },
+    {
+      "term": "video",
+      "ja": "動画",
+      "synonym": "moving picture",
+      "definition": "visual images shown electronically"
+    },
+    {
+      "term": "partners",
+      "ja": "相手",
+      "synonym": "counterparts",
+      "definition": "people working or speaking together"
+    },
+    {
+      "term": "date",
+      "ja": "日付",
+      "synonym": "calendar day",
+      "definition": "a specific day"
+    },
+    {
+      "term": "noon",
+      "ja": "正午",
+      "synonym": "midday",
+      "definition": "twelve o'clock during the day"
+    },
+    {
+      "term": "morning",
+      "ja": "朝",
+      "synonym": "early day",
+      "definition": "the time before noon"
+    },
+    {
+      "term": "evening",
+      "ja": "夕方",
+      "synonym": "late day",
+      "definition": "the time before night"
+    },
+    {
+      "term": "carefully",
+      "ja": "注意深く",
+      "synonym": "with care",
+      "definition": "with close attention"
+    },
+    {
+      "term": "repeat",
+      "ja": "繰り返す",
+      "synonym": "say again",
+      "definition": "to say a word again"
+    },
+    {
+      "term": "slowly",
+      "ja": "ゆっくり",
+      "synonym": "not quickly",
+      "definition": "at a slow speed"
+    },
+    {
+      "term": "world",
+      "ja": "世界",
+      "synonym": "Earth",
+      "definition": "people and places across Earth"
+    },
+    {
+      "term": "interest",
+      "ja": "興味",
+      "synonym": "curiosity",
+      "definition": "something a person likes"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "that countries can have different local times",
+      "explanation_ja": "that節は教師が説明した内容です。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "it can be morning in one country and evening in another",
+      "explanation_ja": "andで二つの地域の状況を対比します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of writing only long speeches",
+      "explanation_ja": "instead of + 動名詞で代わりの学習活動を示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "focus": "before sending it",
+      "explanation_ja": "before + 動名詞で送信前を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "正午という思い込みと時差の説明を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "二か国の時刻が違う例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "聞き取れない場合も相手が支援します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "会議後に時差への意識が高まった結果です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The teacher explains that countries can have different local times.",
+      "rewrite": "The teacher says that local times vary between countries.",
+      "explanation_ja": "国によって現地時刻が違うという意味です。"
+    },
+    {
+      "source": "The class chooses a time that works for both schools.",
+      "rewrite": "The class finds a meeting time that suits both groups.",
+      "explanation_ja": "両校に合う時間を選ぶという意味です。"
+    },
+    {
+      "source": "Everyone learns that communication needs patience.",
+      "rewrite": "The students recognize that patience supports communication.",
+      "explanation_ja": "忍耐が意思疎通に必要という意味です。"
+    },
+    {
+      "source": "Two clocks can help one classroom connect with the world.",
+      "rewrite": "Checking time differences helps students connect internationally.",
+      "explanation_ja": "時差への配慮が国際交流を支えるという結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "正午という思い込みと時差の説明を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "二か国の時刻が違う例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "聞き取れない場合も相手が支援します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "会議後に時差への意識が高まった結果です。"
+    }
+  ]
+}
