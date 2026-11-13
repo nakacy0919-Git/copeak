@@ -20,7 +20,7 @@ const readProgress=id=>{
    }
    return result;
   };
-  const practice=Object.create(null),allowed=new Set(['questions','vocab:en-ja','vocab:ja-en','vocab:definition','grammar','discourse','paraphrase','cloze']);
+  const practice=Object.create(null),allowed=new Set(['questions','vocab:en-ja','vocab:ja-en','vocab:definition','vocab:context','grammar','discourse','paraphrase','cloze']);
   if(data.practice&&typeof data.practice==='object'&&!Array.isArray(data.practice)){
    for(const [key,value] of Object.entries(data.practice)){
     if(!allowed.has(key)||!value||typeof value!=='object'||Array.isArray(value))continue;
