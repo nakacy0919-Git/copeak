@@ -3,8 +3,8 @@
   "as_of": "2026-11-14",
   "goal": 450,
   "category_target": 30,
-  "registered_total": 83,
-  "remaining": 367,
+  "registered_total": 93,
+  "remaining": 357,
   "level_targets_per_category": {
     "eiken-3": 1,
     "eiken-pre2": 4,
@@ -28,8 +28,8 @@
       "category_id": "L02",
       "name": "歴史",
       "target": 30,
-      "registered": 5,
-      "remaining": 25
+      "registered": 6,
+      "remaining": 24
     },
     {
       "category_id": "L03",
@@ -42,8 +42,8 @@
       "category_id": "L04",
       "name": "人間関係",
       "target": 30,
-      "registered": 5,
-      "remaining": 25
+      "registered": 6,
+      "remaining": 24
     },
     {
       "category_id": "L05",
@@ -56,29 +56,29 @@
       "category_id": "L06",
       "name": "心理・哲学",
       "target": 30,
-      "registered": 5,
-      "remaining": 25
+      "registered": 6,
+      "remaining": 24
     },
     {
       "category_id": "L07",
       "name": "経済・ビジネス",
       "target": 30,
-      "registered": 6,
-      "remaining": 24
+      "registered": 7,
+      "remaining": 23
     },
     {
       "category_id": "L08",
       "name": "芸術・文化",
       "target": 30,
-      "registered": 6,
-      "remaining": 24
+      "registered": 7,
+      "remaining": 23
     },
     {
       "category_id": "L09",
       "name": "文学・言語",
       "target": 30,
-      "registered": 5,
-      "remaining": 25
+      "registered": 6,
+      "remaining": 24
     },
     {
       "category_id": "L10",
@@ -91,8 +91,8 @@
       "category_id": "L11",
       "name": "法律・政治",
       "target": 30,
-      "registered": 5,
-      "remaining": 25
+      "registered": 6,
+      "remaining": 24
     },
     {
       "category_id": "L12",
@@ -112,48 +112,46 @@
       "category_id": "L14",
       "name": "婚姻・交友",
       "target": 30,
-      "registered": 5,
-      "remaining": 25
+      "registered": 7,
+      "remaining": 23
     },
     {
       "category_id": "L15",
       "name": "倫理・道徳",
       "target": 30,
-      "registered": 5,
-      "remaining": 25
+      "registered": 6,
+      "remaining": 24
     }
   ],
   "latest_unpublished_batch": [
-    "L01-006",
-    "L03-006",
-    "L05-006",
-    "L07-007",
-    "L08-007",
-    "L10-006",
-    "L12-006",
-    "L13-006",
-    "L14-006",
-    "L15-005"
+    "L02-006",
+    "L04-006",
+    "L07-004",
+    "L08-004",
+    "L14-003",
+    "L06-006",
+    "L09-006",
+    "L11-006",
+    "L14-007",
+    "L15-006"
   ],
   "release_policy": {
     "new_works_default_status": "draft",
     "no_production_without_explicit_approval": true,
     "do_not_merge_main_until_approved": true,
     "pre_release_checks": [
-      "English/Japanese translation fidelity",
-      "level and vocabulary suitability",
-      "originality and source verification",
-      "unique correct answer and plausible distractors",
-      "iPad usability",
-      "Vercel preview smoke test"
+      "Editorial English/Japanese proofread",
+      "Confirm answer uniqueness and evidence",
+      "Verify source claims and links",
+      "iPad interface smoke testing",
+      "Preview deployment testing"
     ]
   },
   "notes": [
-    "新規10本を追加し、累計83本、残り367本となった。",
-    "今回は英検3級4本・準2級4本・中堅私大2本。",
-    "新作は全て status=draft で、mainへのマージやVercel本番デプロイを行わない。",
-    "構造検査では語数帯、和訳・語彙・読解・文法・論理展開・言い換え・穴埋めの必須要件を確認。",
-    "英語・和訳の人手による品質校閲、内容上の正答一意性、出典リンクの実検証、iPad実機テストは未完了。"
+    "2026-11-14: 前回83本から10本増加して93本。残り357本。",
+    "未登録だった5本の構造検査と、新規作成した5本の構造検査を完了。",
+    "新教材はすべて status=draft で main マージも Vercel 本番デプロイもしない。",
+    "意味の妥当性・人手校閲・iPad実機動作は未完了。"
   ],
-  "all_unpublished_batches_note": "main には28本。開発ブランチ登録合計83本で、未公開ドラフト55本。最新10本は content/reading-batch-20261114-f で管理する。"
+  "all_unpublished_batches_note": "main の登録は28本。今回の開発ブランチでは93本登録（65本が未公開ドラフト）。新作5本と以前未登録だったドラフト5本を確認して一覧に追加。"
 }
