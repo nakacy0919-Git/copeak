@@ -1,0 +1,700 @@
+{
+  "id": "L03-004",
+  "category_id": "L03",
+  "title": "A Sensor That Counts Without Knowing Your Name",
+  "title_ja": "名前を知らずに人数を数えるセンサー",
+  "level_id": "eiken-pre2",
+  "word_count": 252,
+  "original": true,
+  "status": "draft",
+  "source_links": [
+    {
+      "title": "NIST: Privacy Framework",
+      "url": "https://www.nist.gov/privacy-framework"
+    }
+  ],
+  "fact_notes": [
+    "データ最小化の考え方に基づく、架空の図書館センサー計画。特定の製品・性能を説明するものではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A school library becomes crowded before examinations.",
+          "ja": "試験前になると学校の図書館は混み合います。"
+        },
+        {
+          "en": "The librarian wants to know how many students use each study area.",
+          "ja": "司書は各学習スペースを何人の生徒が使うか知りたいと考えます。"
+        },
+        {
+          "en": "However, counting people does not always require recording their names or faces.",
+          "ja": "しかし人数を数えるために名前や顔を記録する必要があるとは限りません。"
+        },
+        {
+          "en": "A simple sensor could record each time a person passes through a doorway.",
+          "ja": "簡単なセンサーなら、誰かが出入口を通るたびに記録できます。"
+        },
+        {
+          "en": "The count could help staff decide where more chairs are needed.",
+          "ja": "その人数はどこに椅子を追加すべきか職員が決める助けになります。"
+        },
+        {
+          "en": "A useful system should collect only the information needed for its purpose.",
+          "ja": "役立つ仕組みでは目的に必要な情報だけを集めるべきです。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Imagine a sensor that counts movement but does not take photographs.",
+          "ja": "写真を撮らず動きを数えるセンサーを想像してください。"
+        },
+        {
+          "en": "It reports that thirty people entered a room during one hour.",
+          "ja": "一時間で30人が部屋に入ったと報告します。"
+        },
+        {
+          "en": "For example, the library could compare the counts before lunch and after school.",
+          "ja": "例えば図書館は昼食前と放課後の人数を比較できます。"
+        },
+        {
+          "en": "Staff might use this information to adjust opening hours or seating.",
+          "ja": "職員は情報を使って開館時間や座席を調整できるかもしれません。"
+        },
+        {
+          "en": "The numbers do not tell them which student was reading a particular book.",
+          "ja": "数値から、誰が特定の本を読んでいたかはわかりません。"
+        },
+        {
+          "en": "This limitation can help protect students' privacy.",
+          "ja": "この限界は生徒のプライバシー保護に役立ちます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Even a simple counting system can make mistakes.",
+          "ja": "簡単な人数計測の仕組みでも間違いは起こります。"
+        },
+        {
+          "en": "Two friends entering together might be counted as one person.",
+          "ja": "友人二人が一緒に入ると一人と数えられるかもしれません。"
+        },
+        {
+          "en": "In addition, a student who leaves and returns may be counted twice.",
+          "ja": "さらに、出て戻った生徒が二回数えられるかもしれません。"
+        },
+        {
+          "en": "The library should compare the numbers with occasional human checks.",
+          "ja": "図書館は数値をときどき人の確認と比べるべきです。"
+        },
+        {
+          "en": "It should explain what the counts mean and what they cannot show.",
+          "ja": "数字が何を意味し何を示せないか説明すべきです。"
+        },
+        {
+          "en": "Reliable decisions require understanding both data and its limits.",
+          "ja": "信頼できる決定にはデータと限界の両方の理解が必要です。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Nevertheless, privacy does not end when a system avoids collecting names.",
+          "ja": "それでも名前を集めなければプライバシーの問題が終わるわけではありません。"
+        },
+        {
+          "en": "The school should decide how long counts are kept and who may view them.",
+          "ja": "学校は人数データを保存する期間と閲覧できる人を決めるべきです。"
+        },
+        {
+          "en": "Students deserve a clear explanation of why the system exists.",
+          "ja": "生徒には仕組みが存在する理由の明確な説明が必要です。"
+        },
+        {
+          "en": "A class can discuss whether the benefits are worth the remaining risks.",
+          "ja": "クラスは利点が残るリスクに見合うか話し合えます。"
+        },
+        {
+          "en": "Good technology answers a real question without collecting more than necessary.",
+          "ja": "よい技術は必要以上に情報を集めず、実際の問いに答えます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the main idea?",
+      "options": [
+        "All libraries should store students' photographs.",
+        "Useful technology should balance counting needs with privacy.",
+        "A sensor can never make mistakes.",
+        "Every person should be identified by name."
+      ],
+      "answer": 1,
+      "explanation_ja": "人数把握とプライバシーの両立が主題です。",
+      "paragraph_ids": [
+        "p1",
+        "p4"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Why does the librarian want counts?",
+      "options": [
+        "To choose each student's books.",
+        "To close the school.",
+        "To plan chairs and study spaces.",
+        "To learn students' passwords."
+      ],
+      "answer": 2,
+      "explanation_ja": "席とスペースの利用を考えるためです。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why may a count-only sensor be better for privacy?",
+      "options": [
+        "It avoids collecting names and faces that are not needed.",
+        "It can predict every exam score.",
+        "It guarantees no mistakes.",
+        "It automatically records private messages."
+      ],
+      "answer": 0,
+      "explanation_ja": "不要な個人情報を集めずに目的を達成できるためです。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What does the imagined sensor report?",
+      "options": [
+        "The title of every book.",
+        "The names of students.",
+        "The temperature of the building.",
+        "Thirty entries in one hour."
+      ],
+      "answer": 3,
+      "explanation_ja": "一時間で三十回の入室を記録します。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What could staff adjust using the counts?",
+      "options": [
+        "Only the color of book covers.",
+        "Opening hours or seating.",
+        "Students' birthdays.",
+        "All classroom tests."
+      ],
+      "answer": 1,
+      "explanation_ja": "開館時間や座席の調整につなげられます。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why might the sensor count the same student twice?",
+      "options": [
+        "The student reads two books.",
+        "The doorway has two signs.",
+        "The student leaves and then returns.",
+        "The student speaks to a friend."
+      ],
+      "answer": 2,
+      "explanation_ja": "退室後の再入室で二回数えることがあるためです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'occasional' mean here?",
+      "options": [
+        "Happening from time to time.",
+        "Never happening.",
+        "Always happening every second.",
+        "Difficult to explain."
+      ],
+      "answer": 0,
+      "explanation_ja": "occasionalは時々という意味です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What should the school decide about the counts?",
+      "options": [
+        "Which books should be sold.",
+        "What all parents should buy.",
+        "Which exams to cancel.",
+        "How long they are stored and who may see them."
+      ],
+      "answer": 3,
+      "explanation_ja": "保存期間と閲覧権限を決めるべきです。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What is one limit of count data?",
+      "options": [
+        "It always identifies each student.",
+        "It cannot explain which individual read a specific book.",
+        "It never changes.",
+        "It can replace all library staff."
+      ],
+      "answer": 1,
+      "explanation_ja": "人数データでは個人の読書行動を示せません。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "Why does the writer say technology should answer a real question?",
+      "options": [
+        "To recommend collecting everything.",
+        "To argue technology is unnecessary.",
+        "To emphasize collecting only useful information.",
+        "To suggest fewer students should study."
+      ],
+      "answer": 2,
+      "explanation_ja": "必要最小限のデータ収集という結論を示します。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "library",
+      "ja": "図書館",
+      "synonym": "book collection",
+      "definition": "a place for reading and borrowing books"
+    },
+    {
+      "term": "crowded",
+      "ja": "混雑した",
+      "synonym": "busy",
+      "definition": "filled with many people"
+    },
+    {
+      "term": "examinations",
+      "ja": "試験",
+      "synonym": "tests",
+      "definition": "formal checks of learning"
+    },
+    {
+      "term": "librarian",
+      "ja": "司書",
+      "synonym": "library worker",
+      "definition": "a person who manages a library"
+    },
+    {
+      "term": "students",
+      "ja": "生徒",
+      "synonym": "learners",
+      "definition": "people attending school"
+    },
+    {
+      "term": "study",
+      "ja": "学習",
+      "synonym": "learning",
+      "definition": "the process of gaining knowledge"
+    },
+    {
+      "term": "area",
+      "ja": "場所",
+      "synonym": "space",
+      "definition": "a part of a location"
+    },
+    {
+      "term": "counting",
+      "ja": "数えること",
+      "synonym": "measuring number",
+      "definition": "finding how many things exist"
+    },
+    {
+      "term": "recording",
+      "ja": "記録すること",
+      "synonym": "saving",
+      "definition": "keeping information for later use"
+    },
+    {
+      "term": "names",
+      "ja": "名前",
+      "synonym": "identities",
+      "definition": "words used to identify people"
+    },
+    {
+      "term": "faces",
+      "ja": "顔",
+      "synonym": "features",
+      "definition": "the front parts of people's heads"
+    },
+    {
+      "term": "sensor",
+      "ja": "センサー",
+      "synonym": "detector",
+      "definition": "a device that detects changes"
+    },
+    {
+      "term": "passes",
+      "ja": "通る",
+      "synonym": "moves through",
+      "definition": "goes from one side to another"
+    },
+    {
+      "term": "doorway",
+      "ja": "出入口",
+      "synonym": "entrance",
+      "definition": "an opening through which people enter"
+    },
+    {
+      "term": "count",
+      "ja": "人数・数",
+      "synonym": "number",
+      "definition": "how many things are recorded"
+    },
+    {
+      "term": "staff",
+      "ja": "職員",
+      "synonym": "employees",
+      "definition": "people who work for an institution"
+    },
+    {
+      "term": "chairs",
+      "ja": "椅子",
+      "synonym": "seats",
+      "definition": "objects used for sitting"
+    },
+    {
+      "term": "needed",
+      "ja": "必要な",
+      "synonym": "required",
+      "definition": "wanted for a purpose"
+    },
+    {
+      "term": "purpose",
+      "ja": "目的",
+      "synonym": "goal",
+      "definition": "the reason for an activity"
+    },
+    {
+      "term": "collect",
+      "ja": "集める",
+      "synonym": "gather",
+      "definition": "to bring information together"
+    },
+    {
+      "term": "movement",
+      "ja": "動き",
+      "synonym": "motion",
+      "definition": "a change of position"
+    },
+    {
+      "term": "photographs",
+      "ja": "写真",
+      "synonym": "images",
+      "definition": "pictures created with a camera"
+    },
+    {
+      "term": "reports",
+      "ja": "報告する",
+      "synonym": "states",
+      "definition": "gives information about a result"
+    },
+    {
+      "term": "entered",
+      "ja": "入った",
+      "synonym": "went inside",
+      "definition": "moved into a place"
+    },
+    {
+      "term": "room",
+      "ja": "部屋",
+      "synonym": "space",
+      "definition": "an area within a building"
+    },
+    {
+      "term": "hour",
+      "ja": "一時間",
+      "synonym": "sixty minutes",
+      "definition": "a period of sixty minutes"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "examine together",
+      "definition": "to consider differences"
+    },
+    {
+      "term": "counts",
+      "ja": "数・人数記録",
+      "synonym": "numbers",
+      "definition": "recorded totals"
+    },
+    {
+      "term": "lunch",
+      "ja": "昼食",
+      "synonym": "midday meal",
+      "definition": "food eaten around noon"
+    },
+    {
+      "term": "adjust",
+      "ja": "調整する",
+      "synonym": "change",
+      "definition": "to modify something"
+    },
+    {
+      "term": "opening",
+      "ja": "開いていること",
+      "synonym": "starting",
+      "definition": "the act or time of opening"
+    },
+    {
+      "term": "seating",
+      "ja": "座席",
+      "synonym": "chairs",
+      "definition": "places where people sit"
+    },
+    {
+      "term": "numbers",
+      "ja": "数値",
+      "synonym": "figures",
+      "definition": "values used in counting"
+    },
+    {
+      "term": "particular",
+      "ja": "特定の",
+      "synonym": "specific",
+      "definition": "one clearly identified"
+    },
+    {
+      "term": "limitation",
+      "ja": "限界",
+      "synonym": "restriction",
+      "definition": "something a method cannot do"
+    },
+    {
+      "term": "privacy",
+      "ja": "プライバシー",
+      "synonym": "personal confidentiality",
+      "definition": "control over personal information"
+    },
+    {
+      "term": "mistakes",
+      "ja": "誤り",
+      "synonym": "errors",
+      "definition": "incorrect outcomes"
+    },
+    {
+      "term": "friends",
+      "ja": "友人",
+      "synonym": "companions",
+      "definition": "people with a friendship"
+    },
+    {
+      "term": "together",
+      "ja": "一緒に",
+      "synonym": "jointly",
+      "definition": "with another person"
+    },
+    {
+      "term": "returns",
+      "ja": "戻る",
+      "synonym": "comes back",
+      "definition": "goes to an earlier place"
+    },
+    {
+      "term": "twice",
+      "ja": "二回",
+      "synonym": "two times",
+      "definition": "on two occasions"
+    },
+    {
+      "term": "occasional",
+      "ja": "ときどきの",
+      "synonym": "infrequent",
+      "definition": "happening from time to time"
+    },
+    {
+      "term": "human",
+      "ja": "人間の",
+      "synonym": "person-based",
+      "definition": "relating to people"
+    },
+    {
+      "term": "checks",
+      "ja": "確認",
+      "synonym": "inspections",
+      "definition": "activities that test correctness"
+    },
+    {
+      "term": "reliable",
+      "ja": "信頼できる",
+      "synonym": "dependable",
+      "definition": "able to be counted on"
+    },
+    {
+      "term": "limits",
+      "ja": "限界",
+      "synonym": "boundaries",
+      "definition": "things a method cannot show"
+    },
+    {
+      "term": "risks",
+      "ja": "リスク",
+      "synonym": "dangers",
+      "definition": "possibilities of harm"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "does not always require recording their names or faces",
+      "explanation_ja": "does not alwaysは部分否定で、必須ではないという意味です。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 4,
+      "focus": "which student was reading a particular book",
+      "explanation_ja": "which以下はtellの目的語となる間接疑問です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "who leaves and returns",
+      "explanation_ja": "関係代名詞whoがstudentを修飾します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 4,
+      "focus": "without collecting more than necessary",
+      "explanation_ja": "without＋動名詞でしない方法を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "人数の確認と個人の特定を区別する逆接。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "時間帯による数値比較の具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "In addition",
+      "role_ja": "数え落としに加えて二重計上を説明。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "名前を集めないことと残るプライバシー問題を対比。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "counting people does not always require recording their names or faces",
+      "rewrite": "tracking totals need not identify individuals",
+      "explanation_ja": "counting→tracking totals、not require→need notです。"
+    },
+    {
+      "source": "The numbers do not tell them which student was reading a particular book",
+      "rewrite": "totals do not identify the individual using a given book",
+      "explanation_ja": "do not tell→do not identifyです。"
+    },
+    {
+      "source": "Reliable decisions require understanding both data and its limits",
+      "rewrite": "good choices depend on recognizing what numbers can and cannot show",
+      "explanation_ja": "reliable→good、limits→cannot showです。"
+    },
+    {
+      "source": "Good technology answers a real question without collecting more than necessary",
+      "rewrite": "effective systems solve practical problems while limiting data collection",
+      "explanation_ja": "answers a real question→solve practical problemsです。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "人数の確認と個人の特定を区別する逆接。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Therefore",
+        "In addition"
+      ],
+      "explanation_ja": "時間帯による数値比較の具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "In addition",
+      "options": [
+        "In addition",
+        "However",
+        "Therefore",
+        "For example"
+      ],
+      "explanation_ja": "数え落としに加えて二重計上を説明。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "名前を集めないことと残るプライバシー問題を対比。"
+    }
+  ]
+}
