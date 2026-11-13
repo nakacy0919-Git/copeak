@@ -1,0 +1,895 @@
+{
+  "id": "L03-004",
+  "category_id": "L03",
+  "title": "When a Prediction Becomes a Decision",
+  "title_ja": "予測が意思決定に変わるとき",
+  "level_id": "eiken-pre1",
+  "status": "draft",
+  "original": true,
+  "word_count": 503,
+  "source_links": [
+    {
+      "title": "UNESCO Recommendation on the Ethics of AI",
+      "url": "https://www.unesco.org/en/artificial-intelligence/recommendation-ethics?hub=66941"
+    }
+  ],
+  "fact_notes": [
+    "UNESCOのAI倫理原則（監督、公正性、説明可能性、プライバシー）を参照。図書館の座席予約を扱う架空のシステム。",
+    "英文・全文和訳・問題と解説は新規制作。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A school introduces a computer system to predict how crowded its library will become during examination weeks.",
+          "ja": "学校は試験週間に図書館がどれほど混雑するか予測するコンピューターシステムを導入します。"
+        },
+        {
+          "en": "The program examines past attendance and recommends times when students are likely to find seats.",
+          "ja": "そのプログラムは過去の利用状況を調べ、生徒が席を見つけやすい時間帯を勧めます。"
+        },
+        {
+          "en": "At first, teachers appreciate the convenience because they can prepare extra study spaces before the busiest periods.",
+          "ja": "最初教師たちは、最も混む時期より前に追加の学習場所を準備できる便利さを評価します。"
+        },
+        {
+          "en": "However, some students notice that the recommendations repeatedly direct them to times when they cannot travel to school.",
+          "ja": "しかし一部の生徒は、登校できない時間帯ばかり勧められると気づきます。"
+        },
+        {
+          "en": "The predictions may be statistically reasonable while remaining unhelpful for particular learners.",
+          "ja": "予測は統計的に妥当でも、特定の学習者には役立たないかもしれません。"
+        },
+        {
+          "en": "The school therefore faces a question about the difference between producing a prediction and making a fair decision.",
+          "ja": "そこで学校は、予測を作ることと公正な決定を下すことの違いという問題に直面します。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "A prediction is based on information that a system has been given, not on every detail of a student's life.",
+          "ja": "予測は生徒の生活のすべてではなく、システムに与えられた情報に基づきます。"
+        },
+        {
+          "en": "For example, the attendance record may show when students visited the library but not why they chose those times.",
+          "ja": "例えば利用記録は来館時刻を示せても、なぜその時刻を選んだかは示しません。"
+        },
+        {
+          "en": "A student who cares for a younger sibling might have fewer opportunities to study after school.",
+          "ja": "年下のきょうだいの世話をする生徒は、放課後の学習機会が少ないかもしれません。"
+        },
+        {
+          "en": "Another student might rely on a bus that runs only a few times in the evening.",
+          "ja": "別の生徒は夜に数本しか走らないバスに頼っているかもしれません。"
+        },
+        {
+          "en": "If the model treats low attendance as a lack of interest, it may confuse limited access with personal choice.",
+          "ja": "モデルが利用の少なさを興味の欠如とみなせば、利用制約と本人の選択を混同するかもしれません。"
+        },
+        {
+          "en": "Such errors can remain invisible when administrators examine only the average accuracy of predictions.",
+          "ja": "管理者が予測の平均的な正確さだけを見ると、そうした誤りは見えないままになり得ます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The school decides to test the system before using its recommendations to assign study spaces.",
+          "ja": "学校は勧められた内容を学習場所の割り当てに使う前にシステムを検証することにします。"
+        },
+        {
+          "en": "Students can report when a recommended time is impossible for them and explain the reason if they wish.",
+          "ja": "生徒は推奨時刻が不可能な場合に知らせ、希望すれば理由も説明できます。"
+        },
+        {
+          "en": "The teachers compare these reports with the system's predictions rather than assuming that an average score proves fairness.",
+          "ja": "教師たちは平均点が公正さを証明すると決めつけず、こうした報告と予測を比較します。"
+        },
+        {
+          "en": "In addition, they make sure that students who do not use the digital tool can still reserve a seat.",
+          "ja": "さらにデジタルツールを使わない生徒も席を予約できるようにします。"
+        },
+        {
+          "en": "This alternative prevents one form of assistance from becoming a new barrier to participation.",
+          "ja": "この代替手段によって、一つの支援方法が新たな参加の障壁になることを防ぎます。"
+        },
+        {
+          "en": "The trial reveals that technology needs to fit actual student circumstances instead of demanding that students fit the technology.",
+          "ja": "試行を通して、技術は生徒に合わせるべきであり、生徒を技術に合わせさせるべきではないとわかります。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "There is also a question about how much personal information the system should collect.",
+          "ja": "システムが個人情報をどれだけ集めるべきかという問題もあります。"
+        },
+        {
+          "en": "Knowing the exact reasons for a student's schedule might improve some predictions, but those details could be sensitive.",
+          "ja": "生徒の予定の正確な理由を知れば予測が改善する場合もありますが、そうした詳細は慎重に扱うべき情報かもしれません。"
+        },
+        {
+          "en": "UNESCO's recommendation on artificial intelligence emphasizes privacy, fairness, transparency, and meaningful human oversight.",
+          "ja": "ユネスコの人工知能に関する勧告は、プライバシー、公平性、透明性、意味のある人間の監督を重視しています。"
+        },
+        {
+          "en": "Nevertheless, these principles cannot be satisfied merely by displaying a statement that a program is responsible.",
+          "ja": "それでもプログラムは責任あるものだという声明を示すだけでは、こうした原則を満たせません。"
+        },
+        {
+          "en": "The school must decide what data are genuinely necessary, who may access them, and how errors can be challenged.",
+          "ja": "学校はどのデータが本当に必要で、誰がアクセスでき、誤りにどう異議を申し立てられるか決めなければなりません。"
+        },
+        {
+          "en": "Human responsibility remains important even when a system produces answers faster than a teacher could.",
+          "ja": "システムが教師より速く答えを出せる場合でも、人間の責任は重要なままです。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "After several weeks, the school retains the program as an optional planning tool rather than an automatic decision maker.",
+          "ja": "数週間後、学校はプログラムを自動的な決定者ではなく、任意の計画支援ツールとして残します。"
+        },
+        {
+          "en": "Teachers review unusual cases, and students can choose a different time if the recommendation does not work.",
+          "ja": "教師は通常と異なる事例を確認し、生徒は推奨時刻が合わなければ別の時間を選べます。"
+        },
+        {
+          "en": "As a result, the system's value is judged by whether it expands useful options without unfairly excluding anyone.",
+          "ja": "その結果、システムの価値は不当に誰かを排除せず、役立つ選択肢を広げられるかで判断されます。"
+        },
+        {
+          "en": "The school also plans to examine the program again because patterns of attendance may change from year to year.",
+          "ja": "利用の傾向は年ごとに変わり得るため、学校はプログラムを再検証する計画も立てます。"
+        },
+        {
+          "en": "The experiment shows why a successful numerical prediction does not by itself justify a social decision.",
+          "ja": "この実験は、数字上の予測の成功だけでは社会的な決定を正当化できない理由を示しています。"
+        },
+        {
+          "en": "Good technology should help people ask better questions, not remove their responsibility to answer them.",
+          "ja": "よい技術は人々から答える責任を取り除くのではなく、よりよい問いを立てる助けとなるべきです。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What problem do some students report?",
+      "options": [
+        "The library has no computers.",
+        "They want fewer books in the library.",
+        "The system refuses to count attendance.",
+        "Recommended times are not possible for them."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落：「しかし一部の生徒は、登校できない時間帯ばかり勧められると気づきます。」が正答の根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What information may attendance data fail to reveal?",
+      "options": [
+        "Whether a seat was used.",
+        "The day of a visit.",
+        "Why students visited at particular times.",
+        "The number of visits recorded."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落：「例えば利用記録は来館時刻を示せても、なぜその時刻を選んだかは示しません。」が正答の根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "Why might a student have limited evening access?",
+      "options": [
+        "No student travels by public transport.",
+        "The bus service may be infrequent.",
+        "All students have personal cars.",
+        "The library is on another planet."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落：「モデルが利用の少なさを興味の欠如とみなせば、利用制約と本人の選択を混同するかもしれません。」が正答の根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What mistake could a model make?",
+      "options": [
+        "Confusing restricted access with lack of interest.",
+        "Measuring how often the library is visited.",
+        "Comparing predictions with observations.",
+        "Offering multiple available times."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落：「管理者が予測の平均的な正確さだけを見ると、そうした誤りは見えないままになり得ます。」が正答の根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "How do teachers examine the recommendations?",
+      "options": [
+        "They accept every recommendation without review.",
+        "They remove all reservations.",
+        "They ask only the fastest students.",
+        "They compare student reports with model predictions."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落：「さらにデジタルツールを使わない生徒も席を予約できるようにします。」が正答の根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "Why is a non-digital reservation option offered?",
+      "options": [
+        "To make predictions secret.",
+        "To reduce the number of study spaces.",
+        "To prevent digital access from becoming a barrier.",
+        "To stop students using technology entirely."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落：「この代替手段によって、一つの支援方法が新たな参加の障壁になることを防ぎます。」が正答の根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "purpose",
+      "prompt": "Which ethical principles does UNESCO emphasize?",
+      "options": [
+        "Maximum data collection at any cost.",
+        "Privacy, fairness, transparency, and human oversight.",
+        "Speed and popularity without any review.",
+        "Strictly secret decisions."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落：「ユネスコの人工知能に関する勧告は、プライバシー、公平性、透明性、意味のある人間の監督を重視しています。」が正答の根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What should a school decide about personal data?",
+      "options": [
+        "Which data are necessary and who may access them.",
+        "How to publish all students' schedules.",
+        "Why sensitive details should always be shared.",
+        "How to avoid considering data use."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落：「学校はどのデータが本当に必要で、誰がアクセスでき、誤りにどう異議を申し立てられるか決めなければなりません。」が正答の根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "How is the program ultimately used?",
+      "options": [
+        "As an unquestionable final judge.",
+        "To automatically punish irregular attendance.",
+        "To prevent teachers from giving advice.",
+        "As an optional tool with human review."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落：「数週間後、学校はプログラムを自動的な決定者ではなく、任意の計画支援ツールとして残します。」が正答の根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "Which conclusion best reflects the author's argument?",
+      "options": [
+        "Human oversight always makes a tool useless.",
+        "Collecting more personal data is always safe.",
+        "Predictive accuracy alone does not make a decision fair.",
+        "The fastest model should decide every student need."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落：「よい技術は人々から答える責任を取り除くのではなく、よりよい問いを立てる助けとなるべきです。」が正答の根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "access",
+      "ja": "利用できること",
+      "synonym": "availability",
+      "definition": "ability to reach or use something"
+    },
+    {
+      "term": "accuracy",
+      "ja": "正確さ",
+      "synonym": "correctness",
+      "definition": "the extent to which results are right"
+    },
+    {
+      "term": "actual",
+      "ja": "実際の",
+      "synonym": "real",
+      "definition": "existing in fact"
+    },
+    {
+      "term": "alternative",
+      "ja": "代替手段",
+      "synonym": "option",
+      "definition": "another available method"
+    },
+    {
+      "term": "artificial",
+      "ja": "人工の",
+      "synonym": "man-made",
+      "definition": "created by people"
+    },
+    {
+      "term": "better",
+      "ja": "より良い",
+      "synonym": "improved",
+      "definition": "of higher quality than before"
+    },
+    {
+      "term": "choice",
+      "ja": "選択",
+      "synonym": "decision",
+      "definition": "the act of selecting an action"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "contrast",
+      "definition": "to examine differences and similarities"
+    },
+    {
+      "term": "confuse",
+      "ja": "混乱させる",
+      "synonym": "puzzle",
+      "definition": "to make someone uncertain"
+    },
+    {
+      "term": "convenience",
+      "ja": "便利さ",
+      "synonym": "ease",
+      "definition": "the quality of being easy to use"
+    },
+    {
+      "term": "decide",
+      "ja": "決める",
+      "synonym": "choose",
+      "definition": "to make a choice"
+    },
+    {
+      "term": "demanding",
+      "ja": "負担が大きい・難しい",
+      "synonym": "challenging",
+      "definition": "requiring considerable effort"
+    },
+    {
+      "term": "details",
+      "ja": "細部",
+      "synonym": "particulars",
+      "definition": "small pieces of information"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "emphasizes",
+      "ja": "強調する",
+      "synonym": "highlights",
+      "definition": "gives special importance to"
+    },
+    {
+      "term": "examination",
+      "ja": "試験",
+      "synonym": "test",
+      "definition": "a formal check of knowledge or ability"
+    },
+    {
+      "term": "examine",
+      "ja": "調べる",
+      "synonym": "inspect",
+      "definition": "to look carefully"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "fair",
+      "ja": "公正な",
+      "synonym": "just",
+      "definition": "treating people reasonably"
+    },
+    {
+      "term": "fairness",
+      "ja": "公平性",
+      "synonym": "justice",
+      "definition": "treatment without unjust disadvantage"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "important",
+      "ja": "重要な",
+      "synonym": "significant",
+      "definition": "having a great effect or value"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "facts",
+      "definition": "facts or details provided about something"
+    },
+    {
+      "term": "intelligence",
+      "ja": "知能",
+      "synonym": "mental ability",
+      "definition": "capacity to learn and reason"
+    },
+    {
+      "term": "limited",
+      "ja": "限られた",
+      "synonym": "restricted",
+      "definition": "small in amount or restricted in extent"
+    },
+    {
+      "term": "merely",
+      "ja": "単に",
+      "synonym": "only",
+      "definition": "without anything more"
+    },
+    {
+      "term": "necessary",
+      "ja": "必要な",
+      "synonym": "required",
+      "definition": "needed for a particular purpose"
+    },
+    {
+      "term": "needs",
+      "ja": "必要",
+      "synonym": "requirements",
+      "definition": "things necessary for well-being"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "opportunities",
+      "ja": "機会",
+      "synonym": "chances",
+      "definition": "situations allowing people to do things"
+    },
+    {
+      "term": "oversight",
+      "ja": "監督",
+      "synonym": "supervision",
+      "definition": "human checking of decisions"
+    },
+    {
+      "term": "participation",
+      "ja": "参加",
+      "synonym": "involvement",
+      "definition": "taking part in an activity"
+    },
+    {
+      "term": "particular",
+      "ja": "特定の",
+      "synonym": "specific",
+      "definition": "clearly identified rather than general"
+    },
+    {
+      "term": "patterns",
+      "ja": "傾向・パターン",
+      "synonym": "regularities",
+      "definition": "repeated ways something happens"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "personal",
+      "ja": "個人の",
+      "synonym": "individual",
+      "definition": "belonging to one person"
+    },
+    {
+      "term": "prediction",
+      "ja": "予測",
+      "synonym": "forecast",
+      "definition": "a statement about what may happen"
+    },
+    {
+      "term": "prepare",
+      "ja": "準備する",
+      "synonym": "get ready",
+      "definition": "to make something ready for use"
+    },
+    {
+      "term": "principles",
+      "ja": "原則",
+      "synonym": "standards",
+      "definition": "basic rules that guide decisions"
+    },
+    {
+      "term": "privacy",
+      "ja": "プライバシー",
+      "synonym": "confidentiality",
+      "definition": "control over personal information"
+    },
+    {
+      "term": "produces",
+      "ja": "生み出す",
+      "synonym": "generates",
+      "definition": "creates an output"
+    },
+    {
+      "term": "producing",
+      "ja": "作り出すこと・答えを出すこと",
+      "synonym": "generating",
+      "definition": "creating or bringing something into existence"
+    },
+    {
+      "term": "question",
+      "ja": "疑問を持つ・問い直す",
+      "synonym": "challenge",
+      "definition": "to examine whether an assumption is correct"
+    },
+    {
+      "term": "reason",
+      "ja": "理由",
+      "synonym": "cause",
+      "definition": "an explanation for why something happens"
+    },
+    {
+      "term": "record",
+      "ja": "記録する",
+      "synonym": "note",
+      "definition": "to write information down for later use"
+    },
+    {
+      "term": "repeatedly",
+      "ja": "繰り返し",
+      "synonym": "again and again",
+      "definition": "happening many times"
+    },
+    {
+      "term": "responsibility",
+      "ja": "責任",
+      "synonym": "duty",
+      "definition": "something a person should do"
+    },
+    {
+      "term": "responsible",
+      "ja": "責任を持つ",
+      "synonym": "accountable",
+      "definition": "expected to answer for decisions"
+    },
+    {
+      "term": "reveals",
+      "ja": "明らかにする",
+      "synonym": "shows",
+      "definition": "makes something noticeable"
+    },
+    {
+      "term": "schedule",
+      "ja": "予定",
+      "synonym": "timetable",
+      "definition": "a plan showing when activities happen"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "social",
+      "ja": "社会的な",
+      "synonym": "relational",
+      "definition": "connected with people and their interactions"
+    },
+    {
+      "term": "statement",
+      "ja": "主張・発言",
+      "synonym": "claim",
+      "definition": "a spoken or written assertion"
+    },
+    {
+      "term": "student",
+      "ja": "生徒",
+      "synonym": "learner",
+      "definition": "a person learning at school"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "study",
+      "ja": "調べる・学習する",
+      "synonym": "examine",
+      "definition": "to learn or investigate something carefully"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who helps others learn"
+    },
+    {
+      "term": "Teachers",
+      "ja": "教師たち",
+      "synonym": "educators",
+      "definition": "people who teach"
+    },
+    {
+      "term": "therefore",
+      "ja": "したがって",
+      "synonym": "consequently",
+      "definition": "used to introduce a logical result"
+    },
+    {
+      "term": "transparency",
+      "ja": "透明性",
+      "synonym": "openness",
+      "definition": "the ability to see how something works"
+    },
+    {
+      "term": "travel",
+      "ja": "移動",
+      "synonym": "journey",
+      "definition": "going between places"
+    },
+    {
+      "term": "value",
+      "ja": "価値",
+      "synonym": "worth",
+      "definition": "usefulness or importance"
+    },
+    {
+      "term": "recommendations",
+      "ja": "推奨",
+      "synonym": "suggestions",
+      "definition": "advice about what to do"
+    },
+    {
+      "term": "administrators",
+      "ja": "管理者",
+      "synonym": "managers",
+      "definition": "people responsible for an institution"
+    },
+    {
+      "term": "attendance",
+      "ja": "利用記録",
+      "synonym": "presence",
+      "definition": "being present at a place or event"
+    },
+    {
+      "term": "barrier",
+      "ja": "障壁",
+      "synonym": "obstacle",
+      "definition": "something that makes action difficult"
+    },
+    {
+      "term": "sensitive",
+      "ja": "慎重に扱うべき",
+      "synonym": "private",
+      "definition": "requiring care because disclosure could cause harm"
+    },
+    {
+      "term": "optional",
+      "ja": "任意の",
+      "synonym": "not required",
+      "definition": "available by choice"
+    },
+    {
+      "term": "sibling",
+      "ja": "きょうだい",
+      "synonym": "brother or sister",
+      "definition": "a child of the same parent"
+    },
+    {
+      "term": "circumstances",
+      "ja": "事情",
+      "synonym": "conditions",
+      "definition": "features of a person's situation"
+    },
+    {
+      "term": "statistically",
+      "ja": "統計的に",
+      "synonym": "numerically",
+      "definition": "based on patterns in data"
+    },
+    {
+      "term": "challenged",
+      "ja": "異議を申し立てられた",
+      "synonym": "questioned",
+      "definition": "formally disputed"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 4,
+      "focus": "while remaining unhelpful for particular learners",
+      "explanation_ja": "whileは統計的な妥当性と個別の不便を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 4,
+      "focus": "If the model treats low attendance as a lack of interest",
+      "explanation_ja": "If節は誤判定が起こる条件を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "rather than assuming that an average score proves fairness",
+      "explanation_ja": "rather thanは平均値に頼る考えと比較検証を対比します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 5,
+      "focus": "not remove their responsibility to answer them",
+      "explanation_ja": "notは技術が人間の責任を取り除くべきでないことを示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "逆接：利便性に対して個別の不都合が見つかります。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "例示：記録が示さない事情を説明します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "譲歩：原則を掲げるだけでは十分でないと述べます。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "帰結：排除を避けるという評価基準をまとめます。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The school therefore faces a question about the difference between producing a prediction and making a fair decision.",
+      "rewrite": "The problem is how a prediction differs from a fair decision.",
+      "explanation_ja": "予測と公正な意思決定の区別です。"
+    },
+    {
+      "source": "If the model treats low attendance as a lack of interest, it may confuse limited access with personal choice.",
+      "rewrite": "A model may mistake limited access for personal preference.",
+      "explanation_ja": "利用制約を本人の意向と誤認する危険です。"
+    },
+    {
+      "source": "The school must decide what data are genuinely necessary, who may access them, and how errors can be challenged.",
+      "rewrite": "Schools must limit data use and provide ways to question mistakes.",
+      "explanation_ja": "必要な情報と誤りの異議申立てが重要という意味です。"
+    },
+    {
+      "source": "The experiment shows why a successful numerical prediction does not by itself justify a social decision.",
+      "rewrite": "Good numerical performance does not by itself justify decisions affecting people.",
+      "explanation_ja": "数値上の成功と社会的妥当性の区別です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "逆接：利便性に対して個別の不都合が見つかります。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "例示：記録が示さない事情を説明します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 3,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "譲歩：原則を掲げるだけでは十分でないと述べます。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "帰結：排除を避けるという評価基準をまとめます。"
+    }
+  ]
+}
