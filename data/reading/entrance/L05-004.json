@@ -1,0 +1,533 @@
+{
+  "id": "L05-004",
+  "category_id": "L05",
+  "title": "Welcome to Our School, Mia!",
+  "title_ja": "ミアへ、私たちの学校へようこそ",
+  "format": "email",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 204,
+  "source_links": [
+    {
+      "title": "Official EIKEN Grade 3 question formats",
+      "url": "https://www.eiken.or.jp/eiken/exam/grade_3/solutions.html"
+    }
+  ],
+  "fact_notes": [
+    "英検3級の文章形式を参考とした架空の教材。英検の過去問や他者の文章を引用していない。",
+    "英文、和訳、問題、解説はオリジナル。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Dear Mia, we are happy that you will visit our school next Tuesday.",
+          "ja": "ミアへ、来週火曜日に私たちの学校に来てくれるのでうれしいです。"
+        },
+        {
+          "en": "I am Nao, a student in Class Two.",
+          "ja": "私は2組の生徒ナオです。"
+        },
+        {
+          "en": "Our class will meet you at the school gate at nine.",
+          "ja": "私たちのクラスは9時に校門であなたを迎えます。"
+        },
+        {
+          "en": "We will show you the library and the music room first.",
+          "ja": "最初に図書館と音楽室を案内します。"
+        },
+        {
+          "en": "However, please tell us if you need help finding the gate.",
+          "ja": "ただし、門の場所がわからなければ教えてください。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "You will join our English lesson in the morning.",
+          "ja": "午前中は私たちの英語の授業に参加します。"
+        },
+        {
+          "en": "We want to learn about your school and your hobbies.",
+          "ja": "あなたの学校や趣味について知りたいです。"
+        },
+        {
+          "en": "For example, we can ask about your favorite school subject.",
+          "ja": "例えば、好きな教科について質問できます。"
+        },
+        {
+          "en": "Please feel free to ask us questions about Japan, too.",
+          "ja": "日本についても気軽に質問してください。"
+        },
+        {
+          "en": "You do not need to speak perfect Japanese to talk with us.",
+          "ja": "私たちと話すために完璧な日本語を話す必要はありません。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "At noon, we will eat lunch together in the classroom.",
+          "ja": "正午には教室で一緒に昼食を食べます。"
+        },
+        {
+          "en": "Some students bring lunch from home, and others buy food at school.",
+          "ja": "家から昼食を持ってくる生徒もいれば、学校で買う生徒もいます。"
+        },
+        {
+          "en": "Instead of choosing food for you, we will show you the menu.",
+          "ja": "私たちが食べ物を選ぶ代わりに、メニューを見せます。"
+        },
+        {
+          "en": "Please tell us about any food that you cannot eat.",
+          "ja": "食べられない物があれば教えてください。"
+        },
+        {
+          "en": "We want everyone to enjoy lunch safely.",
+          "ja": "全員が安全に昼食を楽しめるようにしたいです。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "After lunch, our class will play a short word game.",
+          "ja": "昼食後、クラスでは短い言葉のゲームをします。"
+        },
+        {
+          "en": "You can work with two classmates to find answers.",
+          "ja": "二人の同級生と一緒に答えを探せます。"
+        },
+        {
+          "en": "Therefore, you will have many chances to talk with new friends.",
+          "ja": "そのため新しい友達と話す機会がたくさんあります。"
+        },
+        {
+          "en": "We hope you have a wonderful day with us.",
+          "ja": "私たちとすばらしい一日を過ごせるよう願っています。"
+        },
+        {
+          "en": "See you on Tuesday! From Nao and Class Two.",
+          "ja": "火曜日に会いましょう。ナオと2組より。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "When will Mia visit the school?",
+      "options": [
+        "Next Tuesday.",
+        "Next Friday.",
+        "Tomorrow morning.",
+        "Next Sunday."
+      ],
+      "answer": 0,
+      "explanation_ja": "第1段落：「ミアへ、来週火曜日に私たちの学校に来てくれるのでうれしいです。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Where will students meet Mia?",
+      "options": [
+        "At a train station.",
+        "At a park.",
+        "At a restaurant.",
+        "At the school gate."
+      ],
+      "answer": 3,
+      "explanation_ja": "第1段落：「私たちのクラスは9時に校門であなたを迎えます。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "Which place will they show Mia first?",
+      "options": [
+        "The town market.",
+        "The science museum.",
+        "The library and music room.",
+        "The gym and pool."
+      ],
+      "answer": 2,
+      "explanation_ja": "第1段落：「最初に図書館と音楽室を案内します。」が根拠です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "Which lesson will Mia join?",
+      "options": [
+        "History.",
+        "English.",
+        "Math.",
+        "Music."
+      ],
+      "answer": 1,
+      "explanation_ja": "第2段落：「午前中は私たちの英語の授業に参加します。」が根拠です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What might students ask Mia about?",
+      "options": [
+        "Her favorite school subject.",
+        "Her train ticket.",
+        "Her family car.",
+        "Her school uniform size."
+      ],
+      "answer": 0,
+      "explanation_ja": "第2段落：「例えば、好きな教科について質問できます。」が根拠です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "Does Mia need perfect Japanese?",
+      "options": [
+        "Yes, always.",
+        "Only at lunch.",
+        "Only during the game.",
+        "No."
+      ],
+      "answer": 3,
+      "explanation_ja": "第2段落：「私たちと話すために完璧な日本語を話す必要はありません。」が根拠です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "How will students help Mia choose lunch?",
+      "options": [
+        "By giving only one choice.",
+        "By asking her to leave.",
+        "By showing her the menu.",
+        "By ordering for her without asking."
+      ],
+      "answer": 2,
+      "explanation_ja": "第3段落：「私たちが食べ物を選ぶ代わりに、メニューを見せます。」が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What should Mia tell the class?",
+      "options": [
+        "Her test scores.",
+        "Food she cannot eat.",
+        "How to buy a bicycle.",
+        "Where to find a hotel."
+      ],
+      "answer": 1,
+      "explanation_ja": "第3段落：「食べられない物があれば教えてください。」が根拠です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "detail",
+      "prompt": "What will the class do after lunch?",
+      "options": [
+        "Play a word game.",
+        "Visit the city hall.",
+        "Have a swimming race.",
+        "Go shopping."
+      ],
+      "answer": 0,
+      "explanation_ja": "第4段落：「昼食後、クラスでは短い言葉のゲームをします。」が根拠です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "Why will Mia have chances to make friends?",
+      "options": [
+        "She must stay alone all day.",
+        "She will take a long test.",
+        "She will leave before lunch.",
+        "She can work and talk with classmates."
+      ],
+      "answer": 3,
+      "explanation_ja": "第4段落：「そのため新しい友達と話す機会がたくさんあります。」が根拠です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "chances",
+      "ja": "機会",
+      "synonym": "opportunities",
+      "definition": "opportunities for something to happen"
+    },
+    {
+      "term": "classmates",
+      "ja": "同級生",
+      "synonym": "school friends",
+      "definition": "students in the same class"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "student",
+      "ja": "生徒",
+      "synonym": "learner",
+      "definition": "a person learning at school"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "therefore",
+      "ja": "したがって",
+      "synonym": "consequently",
+      "definition": "used to introduce a logical result"
+    },
+    {
+      "term": "visit",
+      "ja": "訪ねる",
+      "synonym": "come to",
+      "definition": "go to see a person or place"
+    },
+    {
+      "term": "Tuesday",
+      "ja": "火曜日",
+      "synonym": "weekday",
+      "definition": "the day after Monday"
+    },
+    {
+      "term": "gate",
+      "ja": "門",
+      "synonym": "entrance",
+      "definition": "a place to enter school"
+    },
+    {
+      "term": "library",
+      "ja": "図書館",
+      "synonym": "book room",
+      "definition": "a place with books"
+    },
+    {
+      "term": "music room",
+      "ja": "音楽室",
+      "synonym": "classroom",
+      "definition": "a room for learning music"
+    },
+    {
+      "term": "hobbies",
+      "ja": "趣味",
+      "synonym": "interests",
+      "definition": "things people enjoy doing"
+    },
+    {
+      "term": "subject",
+      "ja": "教科",
+      "synonym": "school topic",
+      "definition": "a class such as English"
+    },
+    {
+      "term": "perfect",
+      "ja": "完璧な",
+      "synonym": "without mistakes",
+      "definition": "having no errors"
+    },
+    {
+      "term": "noon",
+      "ja": "正午",
+      "synonym": "midday",
+      "definition": "twelve in the day"
+    },
+    {
+      "term": "menu",
+      "ja": "メニュー",
+      "synonym": "food list",
+      "definition": "a list of foods"
+    },
+    {
+      "term": "safely",
+      "ja": "安全に",
+      "synonym": "without harm",
+      "definition": "in a safe way"
+    },
+    {
+      "term": "wonderful",
+      "ja": "すばらしい",
+      "synonym": "great",
+      "definition": "very good"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 0,
+      "focus": "you will visit our school next Tuesday",
+      "explanation_ja": "willは未来の予定を表します。"
+    },
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 4,
+      "focus": "if you need help finding the gate",
+      "explanation_ja": "ifは条件を表します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 4,
+      "focus": "do not need to speak perfect Japanese",
+      "explanation_ja": "do not need toは『〜する必要がない』です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of choosing food for you",
+      "explanation_ja": "instead of + 動名詞は『代わりに』を表します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "来校の案内に助けが必要な場合の注意を加えます。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "質問の具体例を挙げます。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Instead",
+      "role_ja": "勝手に選ばずメニューを見せる方法を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Therefore",
+      "role_ja": "交流する機会が多いという結果を示します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Our class will meet you at the school gate at nine.",
+      "rewrite": "We will wait for you by the school entrance at nine.",
+      "explanation_ja": "校門で9時に会う予定を言い換えています。"
+    },
+    {
+      "source": "You do not need to speak perfect Japanese to talk with us.",
+      "rewrite": "You can talk with us even if your Japanese is not perfect.",
+      "explanation_ja": "完璧な日本語は必要ないという内容です。"
+    },
+    {
+      "source": "Instead of choosing food for you, we will show you the menu.",
+      "rewrite": "We will let you look at the menu and choose your own food.",
+      "explanation_ja": "食べ物を選べるようにする意味です。"
+    },
+    {
+      "source": "Therefore, you will have many chances to talk with new friends.",
+      "rewrite": "There will be many opportunities to speak with classmates.",
+      "explanation_ja": "会話の機会があるという結論です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 4,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Instead",
+        "Therefore"
+      ],
+      "explanation_ja": "来校の案内に助けが必要な場合の注意を加えます。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Instead",
+        "Therefore"
+      ],
+      "explanation_ja": "質問の具体例を挙げます。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "Instead",
+      "options": [
+        "Instead",
+        "However",
+        "For example",
+        "Therefore"
+      ],
+      "explanation_ja": "勝手に選ばずメニューを見せる方法を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "Therefore",
+      "options": [
+        "Therefore",
+        "However",
+        "For example",
+        "Instead"
+      ],
+      "explanation_ja": "交流する機会が多いという結果を示します。"
+    }
+  ]
+}
