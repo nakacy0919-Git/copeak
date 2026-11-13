@@ -1,0 +1,672 @@
+{
+  "id": "L02-004",
+  "category_id": "L02",
+  "title": "The Street That Disappeared from the Map",
+  "title_ja": "古い地図から消えた通り",
+  "level_id": "eiken-pre2",
+  "word_count": 288,
+  "original": true,
+  "status": "draft",
+  "source_links": [
+    {
+      "title": "Library of Congress: Sanborn Time Series",
+      "url": "https://www.loc.gov/collections/sanborn-maps/articles-and-essays/sanborn-time-series/"
+    }
+  ],
+  "fact_notes": [
+    "背景となる考え方は添付の資料で確認。本文と練習問題は新規制作。例示した人物・学校・活動は架空の説明用設定。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "An old map shows a narrow street where a large shopping center stands today.",
+          "ja": "古い地図には、今は大きなショッピングセンターが建つ場所に細い道が描かれています。"
+        },
+        {
+          "en": "A student wonders when the street disappeared and why the town changed.",
+          "ja": "ある生徒はいつその道がなくなり、なぜ町が変わったのか疑問に思います。"
+        },
+        {
+          "en": "However, one map cannot tell the whole history of a place.",
+          "ja": "しかし一枚の地図では場所の歴史全体はわかりません。"
+        },
+        {
+          "en": "The Library of Congress preserves historical maps that can be compared across different years.",
+          "ja": "米国議会図書館は、異なる年にわたって比較できる歴史地図を保存しています。"
+        },
+        {
+          "en": "Some maps were originally created to show buildings and help companies understand fire risks.",
+          "ja": "建物を示し、会社が火災リスクを理解するために作られた地図もあります。"
+        },
+        {
+          "en": "Today, researchers can use those same records to study changes in neighborhoods.",
+          "ja": "現在の研究者は同じ記録を地域の変化を調べるために使えます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Imagine that the student finds three maps of the same town.",
+          "ja": "その生徒が同じ町の三枚の地図を見つけたと想像してください。"
+        },
+        {
+          "en": "The earliest map shows several homes and a small road near a river.",
+          "ja": "最も古い地図には川の近くの家々と小道があります。"
+        },
+        {
+          "en": "For example, a later map shows a wider road and two new shops.",
+          "ja": "例えば後の地図には広い道と新しい店が二軒示されています。"
+        },
+        {
+          "en": "The newest map shows that a large building now covers the old road.",
+          "ja": "一番新しい地図では大きな建物が昔の道を覆っています。"
+        },
+        {
+          "en": "Comparing them helps the student identify what changed between the map dates.",
+          "ja": "比較することで地図の年の間に何が変わったか特定できます。"
+        },
+        {
+          "en": "Yet the drawings alone may not explain who made the decisions or what residents thought.",
+          "ja": "ただし図だけでは誰が決め、住民が何を考えたか説明できないかもしれません。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The student visits a local archive to learn more about the road.",
+          "ja": "生徒はその道についてもっと知るため地元の資料館を訪れます。"
+        },
+        {
+          "en": "Old photographs and newspaper reports may provide additional clues.",
+          "ja": "古い写真や新聞記事は追加の手がかりになります。"
+        },
+        {
+          "en": "In addition, interviews with longtime residents might reveal memories of the area.",
+          "ja": "さらに長年の住民への聞き取りは地域の記憶を明らかにするかもしれません。"
+        },
+        {
+          "en": "Different sources do not always agree, so their dates and purposes must be checked.",
+          "ja": "資料がいつも一致するわけではないので日付と目的を確認する必要があります。"
+        },
+        {
+          "en": "A person's memory can be valuable even when some details are uncertain.",
+          "ja": "細部が不確かでも個人の記憶は価値があります。"
+        },
+        {
+          "en": "Careful history uses several types of evidence rather than treating one story as proof.",
+          "ja": "慎重な歴史研究は一つの話を証明とせず複数の証拠を使います。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Nevertheless, a missing street should not automatically be described as a tragedy or an improvement.",
+          "ja": "それでも消えた通りを自動的に悲劇や改善と呼ぶべきではありません。"
+        },
+        {
+          "en": "New buildings may create jobs while also changing familiar places.",
+          "ja": "新しい建物は仕事を生む一方、見慣れた場所を変えることもあります。"
+        },
+        {
+          "en": "The student can present the maps and explain which conclusions remain uncertain.",
+          "ja": "生徒は地図を示し、どの結論が不確かなままか説明できます。"
+        },
+        {
+          "en": "Classmates can then discuss what they would need to investigate next.",
+          "ja": "クラスメートは次に何を調べる必要があるか話し合えます。"
+        },
+        {
+          "en": "History becomes richer when people compare evidence instead of trusting a single picture.",
+          "ja": "一枚の絵を信じるだけでなく証拠を比べると、歴史理解はより豊かになります。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the central message?",
+      "options": [
+        "Old maps show everything that happened.",
+        "Historical maps become more useful when compared with other evidence.",
+        "New buildings always improve a town.",
+        "The oldest map is always incorrect."
+      ],
+      "answer": 1,
+      "explanation_ja": "歴史地図を他の資料と比較する重要性が中心です。",
+      "paragraph_ids": [
+        "p1",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What does the old map show in place of the shopping center?",
+      "options": [
+        "A school library.",
+        "An airport.",
+        "A narrow street.",
+        "A large sports field."
+      ],
+      "answer": 2,
+      "explanation_ja": "現在の商業施設の場所に細い通りが描かれます。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why is one map insufficient?",
+      "options": [
+        "It cannot explain every decision or experience behind a change.",
+        "Maps always contain imaginary buildings.",
+        "People never use roads.",
+        "Maps have no dates."
+      ],
+      "answer": 0,
+      "explanation_ja": "変化の背景や人の経験は一枚だけでは不十分だからです。",
+      "paragraph_ids": [
+        "p1",
+        "p2"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What appears on the later map?",
+      "options": [
+        "A new river.",
+        "An old forest.",
+        "A closed railway.",
+        "A wider road and two new shops."
+      ],
+      "answer": 3,
+      "explanation_ja": "広い道と新しい店二軒が登場します。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What can old newspapers provide?",
+      "options": [
+        "Only entertainment.",
+        "Additional evidence about the town.",
+        "The exact feelings of every resident.",
+        "Future weather forecasts."
+      ],
+      "answer": 1,
+      "explanation_ja": "新聞資料は追加の手がかりになります。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why check the dates and purposes of sources?",
+      "options": [
+        "All sources must tell the same story.",
+        "Dates are never helpful.",
+        "Different records may reflect different times and aims.",
+        "One interview always proves the truth."
+      ],
+      "answer": 2,
+      "explanation_ja": "資料の性質が異なり内容が一致しない場合があるためです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'archive' mean?",
+      "options": [
+        "A place where historical records are kept.",
+        "A new type of shopping center.",
+        "A modern road.",
+        "A map drawn yesterday."
+      ],
+      "answer": 0,
+      "explanation_ja": "archiveは記録を保存する資料館・文書館です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What might interviews with longtime residents reveal?",
+      "options": [
+        "Only exact building costs.",
+        "Names of all shop customers.",
+        "The city's future population.",
+        "Memories about the neighborhood."
+      ],
+      "answer": 3,
+      "explanation_ja": "長く住む人々の記憶を知ることができます。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Why avoid calling the change simply good or bad?",
+      "options": [
+        "All town changes are harmless.",
+        "Changes may bring benefits as well as losses.",
+        "New buildings never create jobs.",
+        "Residents always agree about changes."
+      ],
+      "answer": 1,
+      "explanation_ja": "変化には利益も損失もあり得るからです。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "What does the ending encourage students to do?",
+      "options": [
+        "Memorize map colors.",
+        "Choose only the most recent source.",
+        "Compare evidence and acknowledge uncertainty.",
+        "Ignore interviews."
+      ],
+      "answer": 2,
+      "explanation_ja": "証拠を比較し不確実性を認める姿勢を促しています。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "historical",
+      "ja": "歴史的な",
+      "synonym": "connected with history",
+      "definition": "relating to the past"
+    },
+    {
+      "term": "maps",
+      "ja": "地図",
+      "synonym": "plans of places",
+      "definition": "drawings showing locations"
+    },
+    {
+      "term": "narrow",
+      "ja": "細い・狭い",
+      "synonym": "not wide",
+      "definition": "having little width"
+    },
+    {
+      "term": "shopping center",
+      "ja": "ショッピングセンター",
+      "synonym": "mall",
+      "definition": "a building with several stores"
+    },
+    {
+      "term": "disappeared",
+      "ja": "消えた",
+      "synonym": "vanished",
+      "definition": "was no longer there"
+    },
+    {
+      "term": "library",
+      "ja": "図書館",
+      "synonym": "collection of records",
+      "definition": "a place keeping books and records"
+    },
+    {
+      "term": "preserves",
+      "ja": "保存する",
+      "synonym": "protects",
+      "definition": "keeps something from being lost"
+    },
+    {
+      "term": "fire",
+      "ja": "火災",
+      "synonym": "flames",
+      "definition": "burning that can cause damage"
+    },
+    {
+      "term": "risks",
+      "ja": "危険性",
+      "synonym": "dangers",
+      "definition": "possibilities of harm"
+    },
+    {
+      "term": "records",
+      "ja": "記録",
+      "synonym": "documents",
+      "definition": "information kept for reference"
+    },
+    {
+      "term": "neighborhoods",
+      "ja": "地域・近隣",
+      "synonym": "local districts",
+      "definition": "areas where people live"
+    },
+    {
+      "term": "earliest",
+      "ja": "最も古い",
+      "synonym": "oldest",
+      "definition": "happening before all others"
+    },
+    {
+      "term": "river",
+      "ja": "川",
+      "synonym": "stream",
+      "definition": "a natural flow of water"
+    },
+    {
+      "term": "wider",
+      "ja": "より広い",
+      "synonym": "broader",
+      "definition": "having more width"
+    },
+    {
+      "term": "newest",
+      "ja": "最も新しい",
+      "synonym": "most recent",
+      "definition": "made most recently"
+    },
+    {
+      "term": "drawings",
+      "ja": "図",
+      "synonym": "illustrations",
+      "definition": "pictures made with lines"
+    },
+    {
+      "term": "decisions",
+      "ja": "決定",
+      "synonym": "choices",
+      "definition": "conclusions reached after thought"
+    },
+    {
+      "term": "residents",
+      "ja": "住民",
+      "synonym": "inhabitants",
+      "definition": "people living in a place"
+    },
+    {
+      "term": "archive",
+      "ja": "文書館・資料館",
+      "synonym": "record collection",
+      "definition": "a place where old documents are kept"
+    },
+    {
+      "term": "photographs",
+      "ja": "写真",
+      "synonym": "pictures",
+      "definition": "images taken with a camera"
+    },
+    {
+      "term": "newspaper",
+      "ja": "新聞",
+      "synonym": "printed news",
+      "definition": "a publication reporting events"
+    },
+    {
+      "term": "reports",
+      "ja": "記事・報告",
+      "synonym": "accounts",
+      "definition": "written descriptions of events"
+    },
+    {
+      "term": "clues",
+      "ja": "手がかり",
+      "synonym": "hints",
+      "definition": "information helping solve a question"
+    },
+    {
+      "term": "interviews",
+      "ja": "聞き取り・取材",
+      "synonym": "conversations",
+      "definition": "questions asked to learn from people"
+    },
+    {
+      "term": "longtime",
+      "ja": "長年の",
+      "synonym": "long-standing",
+      "definition": "lasting for many years"
+    },
+    {
+      "term": "memories",
+      "ja": "記憶",
+      "synonym": "recollections",
+      "definition": "things remembered from the past"
+    },
+    {
+      "term": "sources",
+      "ja": "資料",
+      "synonym": "references",
+      "definition": "materials containing information"
+    },
+    {
+      "term": "agree",
+      "ja": "一致する",
+      "synonym": "match",
+      "definition": "to have the same meaning"
+    },
+    {
+      "term": "valuable",
+      "ja": "価値ある",
+      "synonym": "worthwhile",
+      "definition": "worth considering"
+    },
+    {
+      "term": "uncertain",
+      "ja": "不確かな",
+      "synonym": "not established",
+      "definition": "not known exactly"
+    },
+    {
+      "term": "tragedy",
+      "ja": "悲劇",
+      "synonym": "sad event",
+      "definition": "an event involving serious loss"
+    },
+    {
+      "term": "improvement",
+      "ja": "改善",
+      "synonym": "progress",
+      "definition": "a change toward a better situation"
+    },
+    {
+      "term": "jobs",
+      "ja": "仕事",
+      "synonym": "employment",
+      "definition": "paid work"
+    },
+    {
+      "term": "conclusions",
+      "ja": "結論",
+      "synonym": "judgments",
+      "definition": "views reached after examination"
+    },
+    {
+      "term": "investigate",
+      "ja": "調査する",
+      "synonym": "examine",
+      "definition": "to study a subject carefully"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "changes",
+      "ja": "変化",
+      "synonym": "differences",
+      "definition": "things that become different over time"
+    },
+    {
+      "term": "student",
+      "ja": "生徒",
+      "synonym": "learner",
+      "definition": "a person learning at school"
+    },
+    {
+      "term": "study",
+      "ja": "調べる・学習する",
+      "synonym": "examine",
+      "definition": "to learn or investigate something carefully"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "that can be compared across different years",
+      "explanation_ja": "関係代名詞thatがmapsを修飾します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 5,
+      "focus": "who made the decisions or what residents thought",
+      "explanation_ja": "whoとwhatが間接疑問節を導きます。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 4,
+      "focus": "even when some details are uncertain",
+      "explanation_ja": "even whenが譲歩・時間の節を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "focus": "which conclusions remain uncertain",
+      "explanation_ja": "which以下はexplainの目的語となる間接疑問です。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "地図から分かることと限界を対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "新しい道と店の具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "In addition",
+      "role_ja": "写真や記事に加えて聞き取りを紹介。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "歴史研究から単純な価値判断への注意を示す逆接。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "one map cannot tell the whole history of a place",
+      "rewrite": "a single map cannot explain everything that occurred in an area",
+      "explanation_ja": "one→single、whole history→everything occurredです。"
+    },
+    {
+      "source": "Comparing them helps the student identify what changed between the map dates",
+      "rewrite": "looking at the maps together reveals changes over time",
+      "explanation_ja": "comparing→looking together、identify→revealsです。"
+    },
+    {
+      "source": "Different sources do not always agree",
+      "rewrite": "historical records may contain conflicting information",
+      "explanation_ja": "do not always agree→may conflictです。"
+    },
+    {
+      "source": "History becomes richer when people compare evidence",
+      "rewrite": "understanding the past improves through examining several kinds of proof",
+      "explanation_ja": "richer→improves、evidence→proofです。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "地図から分かることと限界を対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Therefore",
+        "In addition"
+      ],
+      "explanation_ja": "新しい道と店の具体例。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "In addition",
+      "options": [
+        "In addition",
+        "However",
+        "Therefore",
+        "For example"
+      ],
+      "explanation_ja": "写真や記事に加えて聞き取りを紹介。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "歴史研究から単純な価値判断への注意を示す逆接。"
+    }
+  ]
+}
