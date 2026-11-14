@@ -3,8 +3,8 @@
   "as_of": "2026-11-14",
   "goal": 450,
   "category_target": 30,
-  "registered_total": 177,
-  "remaining": 273,
+  "registered_total": 180,
+  "remaining": 270,
   "level_targets_per_category": {
     "eiken-3": 1,
     "eiken-pre2": 4,
@@ -105,28 +105,28 @@
       "category_id": "L13",
       "name": "宇宙・未来",
       "target": 30,
-      "registered": 11,
-      "remaining": 19
+      "registered": 12,
+      "remaining": 18
     },
     {
       "category_id": "L14",
       "name": "婚姻・交友",
       "target": 30,
-      "registered": 11,
-      "remaining": 19
+      "registered": 12,
+      "remaining": 18
     },
     {
       "category_id": "L15",
       "name": "倫理・道徳",
       "target": 30,
-      "registered": 11,
-      "remaining": 19
+      "registered": 12,
+      "remaining": 18
     }
   ],
   "latest_unpublished_batch": [
-    "L10-012",
-    "L11-012",
-    "L12-012"
+    "L13-012",
+    "L14-012",
+    "L15-012"
   ],
   "release_policy": {
     "new_works_default_status": "draft",
@@ -151,7 +151,8 @@
     "2026-11-14: Added L01-012, L02-012, L03-012 (603 words, 60 bilingual sentences, 80 vocabulary entries, 30 comprehension questions and 48 review exercises); draft only. Individual structural checks passed; full repository guard and human review pending.",
     "2026-11-14: Added L07-012, L08-012, L09-012 (650 words, 60 bilingual sentences, 86 vocabulary entries, 30 comprehension questions and 48 review exercises); draft only. Individual structural checks passed; full repository guard and human review pending.",
     "2026-11-14: Added L04-012, L05-012, L06-012 (849 words, 60 bilingual sentences, 148 vocabulary entries, 30 comprehension questions, 48 review exercises); draft only. Individual structural checks passed; full repository guard and human review pending.",
-    "2026-11-14: Added L10-012, L11-012, L12-012 (644 words, 60 bilingual sentences, 81 vocabulary entries, 30 comprehension questions and 48 review exercises); draft only. Individual structural checks passed; full repository guard and human review pending."
+    "2026-11-14: Added L10-012, L11-012, L12-012 (644 words, 60 bilingual sentences, 81 vocabulary entries, 30 comprehension questions and 48 review exercises); draft only. Individual structural checks passed; full repository guard and human review pending.",
+    "2026-11-14: Added L13-012, L14-012, L15-012 (648 words, 60 bilingual sentences, 93 vocabulary entries, 30 comprehension questions and 48 review exercises); draft only. Individual structural checks passed; full repository guard and human review pending."
   ],
-  "all_unpublished_batches_note": "Authoritative non-production branch: coord/reading-450-registry; 177 unique registered IDs; main reference count 28."
+  "all_unpublished_batches_note": "Authoritative non-production branch: coord/reading-450-registry; 180 unique registered IDs; main reference count 28."
 }
