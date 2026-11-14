@@ -3,8 +3,8 @@
   "as_of": "2026-11-14",
   "goal": 450,
   "category_target": 30,
-  "registered_total": 165,
-  "remaining": 285,
+  "registered_total": 168,
+  "remaining": 282,
   "level_targets_per_category": {
     "eiken-3": 1,
     "eiken-pre2": 4,
@@ -21,22 +21,22 @@
       "category_id": "L01",
       "name": "自然",
       "target": 30,
-      "registered": 11,
-      "remaining": 19
+      "registered": 12,
+      "remaining": 18
     },
     {
       "category_id": "L02",
       "name": "歴史",
       "target": 30,
-      "registered": 11,
-      "remaining": 19
+      "registered": 12,
+      "remaining": 18
     },
     {
       "category_id": "L03",
       "name": "科学技術",
       "target": 30,
-      "registered": 11,
-      "remaining": 19
+      "registered": 12,
+      "remaining": 18
     },
     {
       "category_id": "L04",
@@ -124,8 +124,9 @@
     }
   ],
   "latest_unpublished_batch": [
-    "L06-011",
-    "L14-011"
+    "L01-012",
+    "L02-012",
+    "L03-012"
   ],
   "release_policy": {
     "new_works_default_status": "draft",
@@ -146,7 +147,8 @@
     "PR #55 and #56 diverged from the same base with nine colliding IDs containing different lesson content. Do not merge PR #55 blindly; recovered copies are on coord/reading-450-registry.",
     "Shared registry docs/reading-450-ledger.json uses SHA-based reservation writes to prevent two compliant chats from choosing the same ID. scripts/reading_450_guard.py checks local manifest/ledger and content integrity.",
     "Human semantic editing and factual link verification are required before publication; no main merge or Vercel production deploy.",
-    "2026-11-14: Added L06-011 and L14-011 (549 words, 50 bilingual sentences, 99 vocabulary entries, 20 comprehension questions and 32 review exercises); draft only. Individual structural checks performed; full repository guard and human review pending."
+    "2026-11-14: Added L06-011 and L14-011 (549 words, 50 bilingual sentences, 99 vocabulary entries, 20 comprehension questions and 32 review exercises); draft only. Individual structural checks performed; full repository guard and human review pending.",
+    "2026-11-14: Added L01-012, L02-012, L03-012 (603 words, 60 bilingual sentences, 80 vocabulary entries, 30 comprehension questions and 48 review exercises); draft only. Individual structural checks passed; full repository guard and human review pending."
   ],
-  "all_unpublished_batches_note": "Authoritative non-production branch: coord/reading-450-registry; 165 unique registered IDs; main reference count 28."
+  "all_unpublished_batches_note": "Authoritative non-production branch: coord/reading-450-registry; 168 unique registered IDs; main reference count 28."
 }

@@ -5,9 +5,9 @@
   "as_of": "2026-11-14",
   "authoritative_branch": "coord/reading-450-registry",
   "manifest_path": "data/reading/entrance/manifest.json",
-  "registered_total": 165,
+  "registered_total": 168,
   "production_reference_count": 28,
-  "development_unpublished_total": 137,
+  "development_unpublished_total": 140,
   "accepted_ids": [
     "L01-001",
     "L01-002",
@@ -20,6 +20,7 @@
     "L01-009",
     "L01-010",
     "L01-011",
+    "L01-012",
     "L02-001",
     "L02-002",
     "L02-003",
@@ -31,6 +32,7 @@
     "L02-009",
     "L02-010",
     "L02-011",
+    "L02-012",
     "L03-001",
     "L03-002",
     "L03-003",
@@ -42,6 +44,7 @@
     "L03-009",
     "L03-010",
     "L03-011",
+    "L03-012",
     "L04-001",
     "L04-002",
     "L04-003",
@@ -179,20 +182,20 @@
     {
       "id": "L01",
       "label": "自然",
-      "registered": 11,
-      "next_suggested_id": "L01-012"
+      "registered": 12,
+      "next_suggested_id": "L01-013"
     },
     {
       "id": "L02",
       "label": "歴史",
-      "registered": 11,
-      "next_suggested_id": "L02-012"
+      "registered": 12,
+      "next_suggested_id": "L02-013"
     },
     {
       "id": "L03",
       "label": "科学技術",
-      "registered": 11,
-      "next_suggested_id": "L03-012"
+      "registered": 12,
+      "next_suggested_id": "L03-013"
     },
     {
       "id": "L04",
@@ -267,29 +270,7 @@
       "next_suggested_id": "L15-012"
     }
   ],
-  "reservations": [
-    {
-      "id": "L01-012",
-      "owner": "noon-b",
-      "work_branch": "content/reading-20261114-noon-b",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L02-012",
-      "owner": "noon-b",
-      "work_branch": "content/reading-20261114-noon-b",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L03-012",
-      "owner": "noon-b",
-      "work_branch": "content/reading-20261114-noon-b",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    }
-  ],
+  "reservations": [],
   "reservation_workflow": {
     "before_drafting": "Fetch THIS file from authoritative_branch and manifest from the same branch; check the requested ID is absent from accepted_ids and reservations.",
     "claim": "Update THIS file on authoritative_branch using its freshly fetched GitHub blob SHA. If update_file rejects because the SHA changed, refetch and choose again; do not write any lesson before the successful reservation commit.",
