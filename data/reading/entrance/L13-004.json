@@ -236,15 +236,15 @@
     {
       "id": "q7",
       "skill": "vocabulary-in-context",
-      "prompt": "What does 'premature' most nearly mean in 'premature conclusions'?",
+      "prompt": "What does 'investigation' most nearly mean in paragraph 3?",
       "options": [
-        "Made before enough evidence is available.",
-        "Made after careful testing.",
-        "Repeated regularly.",
-        "Difficult to pronounce."
+        "A careful effort to find facts and explanations.",
+        "An idea accepted without any checking.",
+        "A short period of darkness.",
+        "A confirmed journey to another planet."
       ],
       "answer": 0,
-      "explanation_ja": "premature conclusionsは根拠が十分でない早すぎる結論です。",
+      "explanation_ja": "investigationは情報を集め、原因や説明を調べることです。",
       "paragraph_ids": [
         "p3"
       ]
