@@ -3,8 +3,8 @@
   "as_of": "2026-11-14",
   "goal": 450,
   "category_target": 30,
-  "registered_total": 113,
-  "remaining": 337,
+  "registered_total": 123,
+  "remaining": 327,
   "level_targets_per_category": {
     "eiken-3": 1,
     "eiken-pre2": 4,
@@ -21,50 +21,50 @@
       "category_id": "L01",
       "name": "自然",
       "target": 30,
-      "registered": 8,
-      "remaining": 22
+      "registered": 9,
+      "remaining": 21
     },
     {
       "category_id": "L02",
       "name": "歴史",
       "target": 30,
-      "registered": 7,
-      "remaining": 23
+      "registered": 8,
+      "remaining": 22
     },
     {
       "category_id": "L03",
       "name": "科学技術",
       "target": 30,
-      "registered": 7,
-      "remaining": 23
+      "registered": 8,
+      "remaining": 22
     },
     {
       "category_id": "L04",
       "name": "人間関係",
       "target": 30,
-      "registered": 8,
-      "remaining": 22
+      "registered": 9,
+      "remaining": 21
     },
     {
       "category_id": "L05",
       "name": "国際社会",
       "target": 30,
-      "registered": 7,
-      "remaining": 23
+      "registered": 8,
+      "remaining": 22
     },
     {
       "category_id": "L06",
       "name": "心理・哲学",
       "target": 30,
-      "registered": 7,
-      "remaining": 23
+      "registered": 8,
+      "remaining": 22
     },
     {
       "category_id": "L07",
       "name": "経済・ビジネス",
       "target": 30,
-      "registered": 8,
-      "remaining": 22
+      "registered": 9,
+      "remaining": 21
     },
     {
       "category_id": "L08",
@@ -77,8 +77,8 @@
       "category_id": "L09",
       "name": "文学・言語",
       "target": 30,
-      "registered": 7,
-      "remaining": 23
+      "registered": 8,
+      "remaining": 22
     },
     {
       "category_id": "L10",
@@ -91,8 +91,8 @@
       "category_id": "L11",
       "name": "法律・政治",
       "target": 30,
-      "registered": 7,
-      "remaining": 23
+      "registered": 8,
+      "remaining": 22
     },
     {
       "category_id": "L12",
@@ -105,8 +105,8 @@
       "category_id": "L13",
       "name": "宇宙・未来",
       "target": 30,
-      "registered": 7,
-      "remaining": 23
+      "registered": 8,
+      "remaining": 22
     },
     {
       "category_id": "L14",
@@ -124,16 +124,16 @@
     }
   ],
   "latest_unpublished_batch": [
-    "L01-008",
-    "L04-008",
-    "L06-007",
-    "L07-008",
-    "L08-008",
-    "L10-008",
-    "L12-008",
-    "L13-007",
-    "L14-008",
-    "L15-008"
+    "L01-009",
+    "L02-008",
+    "L03-008",
+    "L04-009",
+    "L05-008",
+    "L06-008",
+    "L07-009",
+    "L09-008",
+    "L11-008",
+    "L13-008"
   ],
   "release_policy": {
     "new_works_default_status": "draft",
@@ -148,11 +148,11 @@
     ]
   },
   "notes": [
-    "2026-11-14: 前回103本から10本の新作を追加して113本、残り337本。",
-    "今回の10本：英文3,607語、対訳260文、語彙543、読解100問、復習160演習。難関大学レベル803語、国公立大学レベル773語を含む。",
-    "新作はすべて status=draft。mainへのマージとVercel本番デプロイはユーザーの明示承認まで禁止。",
-    "10本の語数・全文対訳・語彙参照・四択構造・解説・文法・接続語・穴埋めの機械的検査はエラー0。",
-    "英文・訳文・設問の意味の最終校閲、参考リンクの到達性、iPad実機動作は未確認。"
+    "2026-11-14: dev 113→123, 10 original unpublished readings, remaining 327/450.",
+    "Batch contents: English 3736 words, 265 full bilingual sentence pairs, 598 vocabulary entries, 100 four-choice reading questions, 160 review exercises.",
+    "All ten structural validation checks passed with 0 errors (word bands, bilingual coverage, vocabulary term matches and fields, MC question schema and answer indexes, source sentence references).",
+    "Human editorial review of translated meaning, question uniqueness and distractor quality, source link reachability, and iPad UI validation are still required.",
+    "No merge to main or production deployment without explicit user instruction."
   ],
-  "all_unpublished_batches_note": "main: 28 registered readings. Current development branch: 113 registered readings, of which 85 are unpublished drafts. All ten latest readings were added on content/reading-batch-20261114-i."
+  "all_unpublished_batches_note": "main contains 28 registered lessons; development branch contains 123, including 95 unpublished draft lessons. This batch is only on content/reading-batch-20261114-j."
 }
