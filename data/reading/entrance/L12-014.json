@@ -1,0 +1,686 @@
+{
+  "id": "L12-014",
+  "category_id": "L12",
+  "title": "A Map to the Right Room",
+  "title_ja": "目的の診察室へ導く地図",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "word_count": 299,
+  "source_links": [
+    {
+      "title": "Original authoring registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "登場人物・出来事は架空の教材例。実在の調査結果ではない。リンクは制作台帳であり実証資料ではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A small community clinic decided to ask its patients about the difficulties they experienced during their visits.",
+          "ja": "小さな地域診療所は来院時に感じる困難について患者に尋ねることにした。"
+        },
+        {
+          "en": "The staff expected to receive comments mainly about the length of time spent waiting for an appointment.",
+          "ja": "職員は主に診察までの待ち時間について意見が寄せられると予想していた。"
+        },
+        {
+          "en": "However, several patients described problems finding the correct room after entering the building.",
+          "ja": "しかし何人かの患者は建物に入ってから正しい部屋を探すことに苦労したと述べた。"
+        },
+        {
+          "en": "One patient had even waited near the wrong door until a nurse noticed the mistake.",
+          "ja": "ある患者は看護師が間違いに気づくまで別のドアの近くで待っていた。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The clinic already had signs showing the names of its different departments on the walls.",
+          "ja": "診療所の壁にはすでに各部門の名称を示す標識があった。"
+        },
+        {
+          "en": "The problem was that visitors sometimes received appointment cards using slightly different words from the signs.",
+          "ja": "問題は来院者が標識と少し異なる言葉を使った予約カードを受け取ることがある点だった。"
+        },
+        {
+          "en": "Staff members understood that these expressions referred to the same place because they used them every day.",
+          "ja": "職員は毎日使うため、それらの表現が同じ場所を指すと理解していた。"
+        },
+        {
+          "en": "For first-time visitors, however, the connection between the two expressions was not always obvious.",
+          "ja": "しかし初めて来る人には二つの表現のつながりが必ずしも明らかではなかった。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Instead of simply adding more signs, the clinic created a small map showing the route from reception.",
+          "ja": "単に標識を増やす代わりに、診療所は受付からの経路を示す小さな地図を作った。"
+        },
+        {
+          "en": "The designers used consistent room numbers and included simple pictures next to important written instructions.",
+          "ja": "作成担当者は統一した部屋番号を使い、重要な文章による指示の横に簡単な絵を加えた。"
+        },
+        {
+          "en": "They invited several volunteers who had never visited the clinic to test the map.",
+          "ja": "診療所に来たことのない数人のボランティアに地図を試してもらった。"
+        },
+        {
+          "en": "The volunteers were asked to find particular rooms without receiving additional spoken directions.",
+          "ja": "ボランティアは追加の口頭案内なしに指定の部屋を探すよう求められた。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "During the test, the volunteers identified several places where the map was still confusing.",
+          "ja": "試行中、ボランティアは地図がまだ分かりにくい箇所をいくつか特定した。"
+        },
+        {
+          "en": "One arrow appeared to point toward a staircase rather than the intended hallway.",
+          "ja": "ある矢印は意図された廊下ではなく階段を指すように見えた。"
+        },
+        {
+          "en": "The designers revised the map according to these observations and arranged another short test.",
+          "ja": "担当者は観察結果に基づいて地図を修正し、再度短い試行を手配した。"
+        },
+        {
+          "en": "They also kept staff available to assist patients who preferred personal guidance.",
+          "ja": "個別の案内を希望する患者を支援する職員も引き続き配置した。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The project reminded the clinic that clear information is part of making a service accessible.",
+          "ja": "この活動は分かりやすい情報がサービスを利用しやすくする一部だと思い出させた。"
+        },
+        {
+          "en": "A system that seems logical to its designers might not be equally easy for unfamiliar visitors.",
+          "ja": "設計者には論理的に思える仕組みも、初めての来院者には同じように簡単とは限らない。"
+        },
+        {
+          "en": "By listening to patients and testing the map, the staff could identify obstacles they had previously overlooked.",
+          "ja": "患者の話を聞き地図を試すことで、以前は見落とした障害を特定できた。"
+        },
+        {
+          "en": "The most useful improvement began with a question about the patient's experience of the building.",
+          "ja": "最も役立つ改善は建物を利用する患者の体験についての問いから始まった。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "community clinic",
+      "ja": "地域診療所",
+      "synonym": "local health center",
+      "definition": "a local facility providing medical care"
+    },
+    {
+      "term": "patients",
+      "ja": "患者",
+      "synonym": "people receiving care",
+      "definition": "people receiving medical treatment"
+    },
+    {
+      "term": "difficulties",
+      "ja": "困難",
+      "synonym": "problems",
+      "definition": "things that are hard to deal with"
+    },
+    {
+      "term": "experienced",
+      "ja": "経験した",
+      "synonym": "encountered",
+      "definition": "went through something"
+    },
+    {
+      "term": "staff",
+      "ja": "職員",
+      "synonym": "employees",
+      "definition": "people working for an organization"
+    },
+    {
+      "term": "expected",
+      "ja": "予想した",
+      "synonym": "anticipated",
+      "definition": "believed something would happen"
+    },
+    {
+      "term": "receive",
+      "ja": "受け取る",
+      "synonym": "get",
+      "definition": "be given something"
+    },
+    {
+      "term": "comments",
+      "ja": "意見",
+      "synonym": "feedback",
+      "definition": "statements expressing a view"
+    },
+    {
+      "term": "appointment",
+      "ja": "予約診察",
+      "synonym": "scheduled visit",
+      "definition": "an arranged time to meet someone"
+    },
+    {
+      "term": "described",
+      "ja": "述べた",
+      "synonym": "explained",
+      "definition": "gave an account of something"
+    },
+    {
+      "term": "correct",
+      "ja": "正しい",
+      "synonym": "right",
+      "definition": "free from error"
+    },
+    {
+      "term": "entering",
+      "ja": "入ること",
+      "synonym": "going into",
+      "definition": "moving inside a place"
+    },
+    {
+      "term": "nurse",
+      "ja": "看護師",
+      "synonym": "nursing professional",
+      "definition": "a professional who provides nursing care"
+    },
+    {
+      "term": "noticed",
+      "ja": "気づいた",
+      "synonym": "observed",
+      "definition": "became aware of something"
+    },
+    {
+      "term": "departments",
+      "ja": "部門",
+      "synonym": "sections",
+      "definition": "divisions of an organization"
+    },
+    {
+      "term": "visitors",
+      "ja": "来院者",
+      "synonym": "guests",
+      "definition": "people who come to a place"
+    },
+    {
+      "term": "slightly",
+      "ja": "少し",
+      "synonym": "a little",
+      "definition": "to a small degree"
+    },
+    {
+      "term": "expressions",
+      "ja": "表現",
+      "synonym": "phrases",
+      "definition": "words used to express an idea"
+    },
+    {
+      "term": "referred to",
+      "ja": "〜を指した",
+      "synonym": "indicated",
+      "definition": "mentioned or meant something"
+    },
+    {
+      "term": "connection",
+      "ja": "つながり",
+      "synonym": "link",
+      "definition": "a relationship between things"
+    },
+    {
+      "term": "obvious",
+      "ja": "明らかな",
+      "synonym": "clear",
+      "definition": "easy to understand"
+    },
+    {
+      "term": "created",
+      "ja": "作った",
+      "synonym": "made",
+      "definition": "caused something to exist"
+    },
+    {
+      "term": "route",
+      "ja": "経路",
+      "synonym": "path",
+      "definition": "a way from one place to another"
+    },
+    {
+      "term": "reception",
+      "ja": "受付",
+      "synonym": "front desk",
+      "definition": "a place where visitors are welcomed"
+    },
+    {
+      "term": "designers",
+      "ja": "作成担当者",
+      "synonym": "planners",
+      "definition": "people who plan how something works"
+    },
+    {
+      "term": "consistent",
+      "ja": "統一した",
+      "synonym": "uniform",
+      "definition": "remaining the same throughout"
+    },
+    {
+      "term": "instructions",
+      "ja": "指示",
+      "synonym": "directions",
+      "definition": "information about what to do"
+    },
+    {
+      "term": "volunteers",
+      "ja": "ボランティア",
+      "synonym": "unpaid helpers",
+      "definition": "people who freely offer to help"
+    },
+    {
+      "term": "particular",
+      "ja": "指定の",
+      "synonym": "specific",
+      "definition": "relating to an individual thing"
+    },
+    {
+      "term": "additional",
+      "ja": "追加の",
+      "synonym": "extra",
+      "definition": "more than what is already present"
+    },
+    {
+      "term": "identified",
+      "ja": "特定した",
+      "synonym": "recognized",
+      "definition": "found or made clear"
+    },
+    {
+      "term": "confusing",
+      "ja": "分かりにくい",
+      "synonym": "unclear",
+      "definition": "difficult to understand"
+    },
+    {
+      "term": "arrow",
+      "ja": "矢印",
+      "synonym": "pointer",
+      "definition": "a pointed symbol showing direction"
+    },
+    {
+      "term": "intended",
+      "ja": "意図された",
+      "synonym": "planned",
+      "definition": "meant for a purpose"
+    },
+    {
+      "term": "hallway",
+      "ja": "廊下",
+      "synonym": "corridor",
+      "definition": "a passage inside a building"
+    },
+    {
+      "term": "revised",
+      "ja": "修正した",
+      "synonym": "modified",
+      "definition": "changed to improve something"
+    },
+    {
+      "term": "observations",
+      "ja": "観察結果",
+      "synonym": "findings",
+      "definition": "things noticed through watching"
+    },
+    {
+      "term": "arranged",
+      "ja": "手配した",
+      "synonym": "organized",
+      "definition": "made plans for something"
+    },
+    {
+      "term": "assist",
+      "ja": "支援する",
+      "synonym": "help",
+      "definition": "provide help"
+    },
+    {
+      "term": "guidance",
+      "ja": "案内",
+      "synonym": "direction",
+      "definition": "help or advice about what to do"
+    },
+    {
+      "term": "accessible",
+      "ja": "利用しやすい",
+      "synonym": "easy to use",
+      "definition": "able to be reached or used"
+    },
+    {
+      "term": "logical",
+      "ja": "論理的な",
+      "synonym": "reasonable",
+      "definition": "following clear reasoning"
+    },
+    {
+      "term": "unfamiliar",
+      "ja": "慣れていない",
+      "synonym": "inexperienced with",
+      "definition": "not familiar with something"
+    },
+    {
+      "term": "obstacles",
+      "ja": "障害",
+      "synonym": "barriers",
+      "definition": "things that make progress difficult"
+    },
+    {
+      "term": "previously",
+      "ja": "以前に",
+      "synonym": "earlier",
+      "definition": "at an earlier time"
+    },
+    {
+      "term": "overlooked",
+      "ja": "見落とした",
+      "synonym": "missed",
+      "definition": "failed to notice"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What did the staff first expect patients to comment on?",
+      "options": [
+        "Waiting time before appointments.",
+        "The color of the reception desk.",
+        "The price of medical books.",
+        "The number of volunteers."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "診察までの待ち時間を予想した。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What problem did several patients mention?",
+      "options": [
+        "Reading medical research.",
+        "Choosing a nurse's uniform.",
+        "Getting to another town.",
+        "Finding the correct room."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "診察室の場所が分かりにくかった。"
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why could appointment cards confuse visitors?",
+      "options": [
+        "They never showed any written information.",
+        "The signs named only the patients.",
+        "Their wording sometimes differed from the signs.",
+        "The cards were given after every visit."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "予約カードと標識で表現が違うことがあった。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "Why did staff understand the two expressions?",
+      "options": [
+        "They had just learned a new language.",
+        "They had never visited the clinic.",
+        "They used them every day.",
+        "They knew every patient's name."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "職員は日常的に使っていた。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What did the new map use consistently?",
+      "options": [
+        "Patient names.",
+        "Room numbers.",
+        "Appointment prices.",
+        "Names of medicines."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "統一した部屋番号。"
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why were volunteers unfamiliar with the clinic invited?",
+      "options": [
+        "They could reveal problems that regular staff might not notice.",
+        "They could deliver medical treatment.",
+        "They knew the building better than the staff.",
+        "They had designed the original signs."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "初めて利用する人の視点を得るため。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What mistake did the volunteers identify?",
+      "options": [
+        "An arrow appeared to point toward a staircase.",
+        "The clinic had no staircase.",
+        "The map showed a different town.",
+        "The reception desk was closed."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "矢印が階段を指すように見えた。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What other help did the clinic retain?",
+      "options": [
+        "A telephone that only staff could use.",
+        "An extra appointment fee.",
+        "A map available only to doctors.",
+        "Staff giving personal guidance."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "個別案内をする職員も残した。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does overlooked mean?",
+      "options": [
+        "Looked at carefully.",
+        "Repaired quickly.",
+        "Failed to notice.",
+        "Explained repeatedly."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "見落とすという意味。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the main point?",
+      "options": [
+        "Patients should memorize every room in a clinic.",
+        "Adding more signs always solves navigation problems.",
+        "Services become easier to use when information is tested from the user's perspective.",
+        "Personal support should be removed once a map exists."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "利用者の視点で情報を検証することが大切。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 0,
+      "focus": "the difficulties they experienced",
+      "explanation_ja": "関係代名詞が省略されdifficultiesを修飾する。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "because they used them every day",
+      "explanation_ja": "becauseは理由を表す。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "focus": "without receiving additional spoken directions",
+      "explanation_ja": "without＋動名詞は〜することなく。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "focus": "might not be equally easy",
+      "explanation_ja": "might notは〜とは限らないという可能性を表す。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "予想外の問題を導入。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "however",
+      "role_ja": "職員と来院者の理解を対比。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Instead of",
+      "role_ja": "標識を増やさず地図を作る。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "also",
+      "role_ja": "地図以外の支援を追加。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "A small community clinic decided to ask its patients about the difficulties they experienced during their visits.",
+      "rewrite": "The clinic asked patients what problems they had encountered during visits.",
+      "explanation_ja": "来院時の困難を尋ねた。"
+    },
+    {
+      "source": "Staff members understood that these expressions referred to the same place because they used them every day.",
+      "rewrite": "Daily use made it clear to staff that the terms meant the same location.",
+      "explanation_ja": "毎日使う職員には意味が明瞭だった。"
+    },
+    {
+      "source": "The volunteers were asked to find particular rooms without receiving additional spoken directions.",
+      "rewrite": "The volunteers tried to locate assigned rooms with no extra verbal help.",
+      "explanation_ja": "追加の口頭案内なしに部屋を探した。"
+    },
+    {
+      "source": "A system that seems logical to its designers might not be equally easy for unfamiliar visitors.",
+      "rewrite": "A system that its creators find logical may be harder for newcomers to understand.",
+      "explanation_ja": "設計者の論理が初来訪者にも通じるとは限らない。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "different",
+      "options": [
+        "different",
+        "empty",
+        "annual",
+        "frozen"
+      ],
+      "explanation_ja": "異なる言葉が使われた。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "consistent",
+      "options": [
+        "expensive",
+        "consistent",
+        "noisy",
+        "late"
+      ],
+      "explanation_ja": "番号を統一した。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "staircase",
+      "options": [
+        "garden",
+        "vehicle",
+        "staircase",
+        "desk"
+      ],
+      "explanation_ja": "矢印が階段を指すように見えた。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "obstacles",
+      "options": [
+        "tickets",
+        "recipes",
+        "windows",
+        "obstacles"
+      ],
+      "explanation_ja": "見落としていた障害を発見。"
+    }
+  ]
+}
