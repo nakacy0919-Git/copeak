@@ -1,0 +1,790 @@
+{
+  "id": "L13-028",
+  "category_id": "L13",
+  "title": "A Future Built from Spare Parts",
+  "title_ja": "予備部品からつくる未来",
+  "level_id": "university-national",
+  "status": "draft",
+  "original": true,
+  "word_count": 718,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "オリジナル論説・架空事例。実在の機器の設計・運用手順、法令、実証結果ではない。制作台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Systems intended to operate far from the organizations that originally designed them present a particular problem concerning the relationship between technical efficiency and the ability to respond to unforeseen circumstances.",
+          "ja": "当初設計した組織から遠く離れた場所で運用されるシステムには、技術的効率と予期しない状況への対応能力との関係に特有の問題がある。"
+        },
+        {
+          "en": "A device manufactured for use in an ordinary workshop can sometimes be replaced when a component fails, provided that a suitable replacement is available and can be delivered within an acceptable period.",
+          "ja": "通常の作業場用に製造された装置は部品が故障した際、適切な代替品があり許容期間内に配送できれば交換できる場合がある。"
+        },
+        {
+          "en": "In a hypothetical future settlement beyond Earth, the assumption that a missing component can readily be obtained from elsewhere would have to be examined in the light of the actual conditions of transportation and communication.",
+          "ja": "仮想の将来の地球外居住地では、不足部品を他の場所から容易に取得できるという前提を実際の輸送・通信条件に照らして吟味する必要がある。"
+        },
+        {
+          "en": "The design of a system for such an environment may therefore involve questions that would receive less attention when the same equipment was intended for use near well-established facilities.",
+          "ja": "そこでその環境向けのシステム設計には、同じ機器を確立した施設の近くで使う場合ほど注意されない問いが伴い得る。"
+        },
+        {
+          "en": "The challenge is not simply to determine how equipment should function under expected conditions, but to consider what resources and forms of knowledge would remain available when something unexpected occurred.",
+          "ja": "課題は予想条件下で機器がどう機能すべきか決めるだけでなく、予想外のことが起きたとき利用できる資源と知識形態を検討することだ。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Imagine a fictional engineering team responsible for proposing several devices that perform different essential functions in a small research station.",
+          "ja": "小研究所で異なる不可欠な機能を果たす複数装置を提案する架空工学チームを想像しよう。"
+        },
+        {
+          "en": "The team initially evaluates each device separately, comparing alternative designs according to their expected performance and the amount of material that would be required to manufacture them.",
+          "ja": "チームは当初、予想性能と製造に必要な材料量に従って代替設計を比較し、各装置を個別に評価する。"
+        },
+        {
+          "en": "Several of the proposed designs involve highly specialized components that appear appropriate for their intended tasks but cannot readily be substituted for the components used in any of the other devices.",
+          "ja": "提案設計の一部は目的作業に適して見えるが他装置の部品とは容易に代用できない高度に特化した部品を伴う。"
+        },
+        {
+          "en": "Another engineer asks whether selecting every device on the basis of its individual efficiency could create difficulties for the people responsible for maintaining the collection of devices over an extended period.",
+          "ja": "別の技術者は個々の効率に基づいて全装置を選ぶことが、長期に装置群を維持する人々に困難を生み得るか尋ねる。"
+        },
+        {
+          "en": "The question concerns the characteristics of the entire system that the decisions would produce, rather than simply the relative merits of competing designs for one particular task.",
+          "ja": "問いは単一作業用の競合設計の相対的利点だけでなく、判断が生むシステム全体の特性に関わる。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The team consequently considers whether some components could be made interchangeable across several devices without introducing unacceptable limitations in their performance.",
+          "ja": "そこでチームは性能に許容できない制限をもたらさず複数装置間で一部部品を交換可能にできるか検討する。"
+        },
+        {
+          "en": "Such an arrangement might reduce the variety of spare components that would need to be stored and create further opportunities for replacing a damaged part when a particular kind of component was unavailable.",
+          "ja": "そうした仕組みは保管必要な予備部品の種類を減らし特定種の部品が利用できない時に破損部品を交換するさらなる機会を作り得る。"
+        },
+        {
+          "en": "However, standardizing components around a shared design could also introduce a form of dependence that would be less significant if different devices relied on genuinely different technical solutions.",
+          "ja": "しかし共通設計を中心に部品を標準化することは、装置が本当に異なる技術的解決策に依存する場合ほど重大でない依存形態を導入する可能性もある。"
+        },
+        {
+          "en": "A defect affecting the shared design might have consequences for several functions that had previously been regarded as separate.",
+          "ja": "共通設計に影響する欠陥は以前別個と見なされた複数機能に影響を及ぼすかもしれない。"
+        },
+        {
+          "en": "The engineers recognize that the benefits of interchangeability and the potential consequences of common dependence would need to be investigated together rather than treating either specialization or standardization as inherently preferable.",
+          "ja": "技術者は特化か標準化のいずれかを本質的に望ましいと扱うのでなく交換可能性の利点と共通依存の潜在的影響を合わせて調査する必要があると認識する。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "A further question concerns the knowledge that would be available to the station's inhabitants when the original design specialists could not participate directly in a repair.",
+          "ja": "さらなる問いは当初の設計専門家が修理に直接参加できないとき居住者が利用できる知識に関わる。"
+        },
+        {
+          "en": "An extensive collection of spare parts would not necessarily allow a damaged device to be restored if the people maintaining it could not identify the relevant information or determine which actions were permissible under the circumstances.",
+          "ja": "維持担当者が関連情報を特定したり事情下でどの行動が許容されるか判断できなければ多くの予備部品があっても装置の復旧が可能とは限らない。"
+        },
+        {
+          "en": "The team discusses how the documentation accompanying each device could describe the relationships among its components while making clear the limits of what a local operator could safely undertake.",
+          "ja": "チームは各装置の付属文書が構成部品間の関係を記述しつつ現地運用者が安全に行える範囲を明確にする方法を議論する。"
+        },
+        {
+          "en": "The proposed documentation would not eliminate the need for specialized training or establish that equipment could be repaired safely under every possible condition.",
+          "ja": "提案文書は専門訓練の必要をなくさず、あらゆる条件下で安全に修理できると確立するものでもない。"
+        },
+        {
+          "en": "The design exercise is a thought experiment about the scope of a problem, not a verified engineering plan for an actual space settlement, whose requirements would demand detailed testing and technical assessment.",
+          "ja": "設計活動は問題範囲についての思考実験であり実際の宇宙居住地の検証済み工学計画ではない。その要件には詳細試験と技術評価が必要になる。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The central issue is that efficiency at the level of an individual device cannot necessarily be equated with efficiency at the level of the system in which that device will operate.",
+          "ja": "中心課題は個別装置レベルの効率が、その装置を運用するシステムレベルの効率と必ずしも同一視できないことだ。"
+        },
+        {
+          "en": "A decision that appears advantageous when its immediate effects are examined in isolation may introduce additional demands that become visible only when other decisions are taken into account.",
+          "ja": "即時影響を切り離して調べると有利に見える判断も、他の判断を考慮して初めて見える追加需要をもたらす場合がある。"
+        },
+        {
+          "en": "The capacity to respond to unexpected conditions is not a property that can always be established by evaluating the expected behavior of each component separately.",
+          "ja": "予想外の条件への対応能力は各部品の予想動作を個別に評価することによって常に確立できる特性ではない。"
+        },
+        {
+          "en": "It may depend on the relationships among resources, the people who can make use of them, and the practical limitations of the environment in which they must act.",
+          "ja": "資源、それを利用できる人々、行動すべき環境の実務上の制限の関係に依存し得る。"
+        },
+        {
+          "en": "The future built from spare parts thus invites us to consider whether the systems we design today provide not only the performance we expect, but also appropriate opportunities for responding when those expectations are not fulfilled.",
+          "ja": "予備部品からつくる未来は、今日設計するシステムが期待性能だけでなく期待が満たされない時に対応する適切な機会も提供するか考えるよう促す。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "intended",
+      "ja": "意図された",
+      "synonym": "meant",
+      "definition": "planned for a purpose"
+    },
+    {
+      "term": "organizations",
+      "ja": "組織",
+      "synonym": "institutions",
+      "definition": "established groups"
+    },
+    {
+      "term": "concerning",
+      "ja": "に関する",
+      "synonym": "regarding",
+      "definition": "about something"
+    },
+    {
+      "term": "technical",
+      "ja": "技術的な",
+      "synonym": "technological",
+      "definition": "relating to specialized methods"
+    },
+    {
+      "term": "efficiency",
+      "ja": "効率",
+      "synonym": "productivity",
+      "definition": "degree of useful output relative to input"
+    },
+    {
+      "term": "unforeseen",
+      "ja": "予期しない",
+      "synonym": "unexpected",
+      "definition": "not anticipated"
+    },
+    {
+      "term": "manufactured",
+      "ja": "製造された",
+      "synonym": "produced",
+      "definition": "made as a product"
+    },
+    {
+      "term": "component",
+      "ja": "部品",
+      "synonym": "part",
+      "definition": "piece forming a whole"
+    },
+    {
+      "term": "provided that",
+      "ja": "〜であれば",
+      "synonym": "on condition that",
+      "definition": "introducing a condition"
+    },
+    {
+      "term": "replacement",
+      "ja": "代替品",
+      "synonym": "substitute",
+      "definition": "thing used in place of another"
+    },
+    {
+      "term": "acceptable",
+      "ja": "許容できる",
+      "synonym": "adequate",
+      "definition": "good enough for a purpose"
+    },
+    {
+      "term": "hypothetical",
+      "ja": "仮想の",
+      "synonym": "imagined",
+      "definition": "assumed for reasoning"
+    },
+    {
+      "term": "settlement",
+      "ja": "居住地",
+      "synonym": "community",
+      "definition": "place where people establish homes"
+    },
+    {
+      "term": "assumption",
+      "ja": "前提",
+      "synonym": "belief",
+      "definition": "idea accepted without proof"
+    },
+    {
+      "term": "readily",
+      "ja": "容易に",
+      "synonym": "easily",
+      "definition": "without much difficulty"
+    },
+    {
+      "term": "obtained",
+      "ja": "得られた",
+      "synonym": "acquired",
+      "definition": "got something"
+    },
+    {
+      "term": "transportation",
+      "ja": "輸送",
+      "synonym": "transport",
+      "definition": "movement of goods or people"
+    },
+    {
+      "term": "well-established",
+      "ja": "確立した",
+      "synonym": "firmly established",
+      "definition": "already developed and functioning"
+    },
+    {
+      "term": "facilities",
+      "ja": "施設",
+      "synonym": "amenities",
+      "definition": "places provided for use"
+    },
+    {
+      "term": "determine",
+      "ja": "決める",
+      "synonym": "establish",
+      "definition": "find or decide"
+    },
+    {
+      "term": "essential",
+      "ja": "不可欠な",
+      "synonym": "necessary",
+      "definition": "absolutely needed"
+    },
+    {
+      "term": "alternative",
+      "ja": "代替の",
+      "synonym": "different",
+      "definition": "available instead of another"
+    },
+    {
+      "term": "performance",
+      "ja": "性能",
+      "synonym": "operation",
+      "definition": "how well something works"
+    },
+    {
+      "term": "specialized",
+      "ja": "特化した",
+      "synonym": "specific",
+      "definition": "designed for a particular purpose"
+    },
+    {
+      "term": "substituted",
+      "ja": "代用された",
+      "synonym": "replaced",
+      "definition": "used in place of something"
+    },
+    {
+      "term": "extended",
+      "ja": "長期の",
+      "synonym": "prolonged",
+      "definition": "lasting for a longer time"
+    },
+    {
+      "term": "relative",
+      "ja": "相対的な",
+      "synonym": "comparative",
+      "definition": "considered in relation to something"
+    },
+    {
+      "term": "merits",
+      "ja": "利点",
+      "synonym": "advantages",
+      "definition": "good qualities"
+    },
+    {
+      "term": "competing",
+      "ja": "競合する",
+      "synonym": "rival",
+      "definition": "seeking priority over another"
+    },
+    {
+      "term": "interchangeable",
+      "ja": "交換可能な",
+      "synonym": "replaceable",
+      "definition": "able to be used in place of each other"
+    },
+    {
+      "term": "unacceptable",
+      "ja": "許容できない",
+      "synonym": "inadequate",
+      "definition": "not good enough to be accepted"
+    },
+    {
+      "term": "limitations",
+      "ja": "制限",
+      "synonym": "constraints",
+      "definition": "bounds on possibilities"
+    },
+    {
+      "term": "variety",
+      "ja": "種類",
+      "synonym": "range",
+      "definition": "set of different kinds"
+    },
+    {
+      "term": "spare",
+      "ja": "予備の",
+      "synonym": "extra",
+      "definition": "available as an extra"
+    },
+    {
+      "term": "damaged",
+      "ja": "破損した",
+      "synonym": "broken",
+      "definition": "harmed or impaired"
+    },
+    {
+      "term": "unavailable",
+      "ja": "利用できない",
+      "synonym": "inaccessible",
+      "definition": "not able to be obtained"
+    },
+    {
+      "term": "standardizing",
+      "ja": "標準化すること",
+      "synonym": "unifying",
+      "definition": "making things conform to a common standard"
+    },
+    {
+      "term": "dependence",
+      "ja": "依存",
+      "synonym": "reliance",
+      "definition": "state of relying on something"
+    },
+    {
+      "term": "genuinely",
+      "ja": "本当に",
+      "synonym": "truly",
+      "definition": "in an authentic manner"
+    },
+    {
+      "term": "defect",
+      "ja": "欠陥",
+      "synonym": "flaw",
+      "definition": "problem in an object or design"
+    },
+    {
+      "term": "consequences",
+      "ja": "影響",
+      "synonym": "effects",
+      "definition": "results of an action"
+    },
+    {
+      "term": "interchangeability",
+      "ja": "交換可能性",
+      "synonym": "replaceability",
+      "definition": "ability to be used in place of one another"
+    },
+    {
+      "term": "potential",
+      "ja": "潜在的な",
+      "synonym": "possible",
+      "definition": "capable of occurring"
+    },
+    {
+      "term": "specialization",
+      "ja": "特化",
+      "synonym": "focusing on a specific purpose",
+      "definition": "development for a particular purpose"
+    },
+    {
+      "term": "standardization",
+      "ja": "標準化",
+      "synonym": "unification",
+      "definition": "adoption of common standards"
+    },
+    {
+      "term": "inherently",
+      "ja": "本質的に",
+      "synonym": "intrinsically",
+      "definition": "as an essential characteristic"
+    },
+    {
+      "term": "inhabitants",
+      "ja": "居住者",
+      "synonym": "residents",
+      "definition": "people living in a place"
+    },
+    {
+      "term": "restored",
+      "ja": "復旧された",
+      "synonym": "repaired",
+      "definition": "returned to working condition"
+    },
+    {
+      "term": "permissible",
+      "ja": "許容される",
+      "synonym": "allowed",
+      "definition": "permitted under applicable conditions"
+    },
+    {
+      "term": "documentation",
+      "ja": "文書資料",
+      "synonym": "records",
+      "definition": "documents describing a system"
+    },
+    {
+      "term": "accompanying",
+      "ja": "付属する",
+      "synonym": "going with",
+      "definition": "being present together with"
+    },
+    {
+      "term": "undertake",
+      "ja": "行う",
+      "synonym": "carry out",
+      "definition": "accept and perform a task"
+    },
+    {
+      "term": "eliminate",
+      "ja": "なくす",
+      "synonym": "remove",
+      "definition": "cause something to be absent"
+    },
+    {
+      "term": "verified",
+      "ja": "検証済みの",
+      "synonym": "confirmed",
+      "definition": "checked as true"
+    },
+    {
+      "term": "assessment",
+      "ja": "評価",
+      "synonym": "evaluation",
+      "definition": "considered judgment"
+    },
+    {
+      "term": "equated",
+      "ja": "同一視された",
+      "synonym": "treated as equal",
+      "definition": "considered to be the same"
+    },
+    {
+      "term": "advantageous",
+      "ja": "有利な",
+      "synonym": "beneficial",
+      "definition": "leading to a helpful result"
+    },
+    {
+      "term": "in isolation",
+      "ja": "切り離して",
+      "synonym": "separately",
+      "definition": "apart from other things"
+    },
+    {
+      "term": "capacity",
+      "ja": "能力",
+      "synonym": "ability",
+      "definition": "power to do something"
+    },
+    {
+      "term": "fulfilled",
+      "ja": "満たされた",
+      "synonym": "met",
+      "definition": "achieved as expected"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "inference",
+      "prompt": "Why might ordinary workshop assumptions be unsuitable for a distant settlement?",
+      "options": [
+        "Every distant settlement necessarily manufactures identical devices.",
+        "Expected conditions cannot be considered during design.",
+        "Access to replacements may depend on different transport and communication conditions.",
+        "Ordinary workshops never replace damaged components."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "代替部品入手の前提が異なる。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What broader challenge is identified?",
+      "options": [
+        "Considering resources and knowledge available under unexpected conditions.",
+        "Maximizing the weight of every component.",
+        "Preventing every operator from learning about equipment.",
+        "Measuring distance alone."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "予想外の条件への対応資源と知識。"
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why question evaluating each device separately?",
+      "options": [
+        "Devices performing different functions never interact indirectly.",
+        "Individual efficiency may create collective maintenance difficulties.",
+        "Every specialized part is necessarily defective.",
+        "Maintaining devices has no relation to design."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "個別効率と全体維持。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What initial design criteria does the team use?",
+      "options": [
+        "Only the appearance of components.",
+        "Only the amount of documentation.",
+        "The age of each engineer.",
+        "Expected performance and manufacturing material requirements."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "性能と材料量。"
+    },
+    {
+      "id": "q5",
+      "skill": "inference",
+      "prompt": "What potential benefit arises from interchangeability?",
+      "options": [
+        "All shared components become immune to defects.",
+        "Each device becomes completely independent of the others.",
+        "A smaller variety of spare parts may support replacements across devices.",
+        "No maintenance knowledge is required."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "予備部品の種類削減と代替可能性。"
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "What risk accompanies using common components?",
+      "options": [
+        "A shared defect could affect multiple functions.",
+        "Every device automatically requires more unique parts.",
+        "The equipment can no longer be examined.",
+        "Every technical solution becomes more expensive by definition."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "共通欠陥が複数機能に影響。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What problem might remain despite a large stock of spare parts?",
+      "options": [
+        "The parts necessarily become unusable immediately.",
+        "Original specialists will always be physically present.",
+        "Documentation automatically provides every required skill.",
+        "Operators may lack the knowledge needed to identify and carry out permissible actions."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "知識と許容範囲。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "Why distinguish the thought experiment from an engineering plan?",
+      "options": [
+        "Fictional designs establish universal operating procedures.",
+        "Actual safety and feasibility require technical evidence and testing.",
+        "The author intends to provide specific repair instructions.",
+        "All space systems have identical design requirements."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "実際の安全性と実現性は検証が必要。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does in isolation mean?",
+      "options": [
+        "Separately from other relevant factors.",
+        "Under conditions of complete certainty.",
+        "With full technical training.",
+        "In a heavily populated area."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "他の要素と切り離して。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "Which statement best captures the argument?",
+      "options": [
+        "Standardizing all equipment inevitably produces the most reliable system.",
+        "Highly specialized devices should never be used.",
+        "System design should consider relationships that affect responses to unexpected conditions, not merely optimize individual devices.",
+        "Efficient operation under expected conditions proves readiness for every failure."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "個別最適だけでなく、例外対応を支える関係性を考える。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "provided that a suitable replacement is available",
+      "explanation_ja": "provided thatは条件を表す。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "whether selecting every device on the basis of its individual efficiency",
+      "explanation_ja": "whether節がasksの内容、動名詞句が主語。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "that would be less significant if different devices relied",
+      "explanation_ja": "関係節内の仮定法過去。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 0,
+      "focus": "cannot necessarily be equated with",
+      "explanation_ja": "not necessarilyは部分否定、equate A with Bの受動態。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "A device manufactured for use in an ordinary workshop can sometimes be replaced when a component fails, provided that a suitable replacement is available and can be delivered within an acceptable period.",
+      "rewrite": "A failed component may be replaced if an appropriate substitute can be obtained promptly.",
+      "explanation_ja": "代替品の入手が条件。"
+    },
+    {
+      "source": "Another engineer asks whether selecting every device on the basis of its individual efficiency could create difficulties for the people responsible for maintaining the collection of devices over an extended period.",
+      "rewrite": "The engineer questions whether optimizing each device might complicate maintenance of the whole system.",
+      "explanation_ja": "個別最適と全体。"
+    },
+    {
+      "source": "However, standardizing components around a shared design could also introduce a form of dependence that would be less significant if different devices relied on genuinely different technical solutions.",
+      "rewrite": "Common designs may introduce shared risks that would matter less if devices used different solutions.",
+      "explanation_ja": "共通依存とリスク。"
+    },
+    {
+      "source": "The central issue is that efficiency at the level of an individual device cannot necessarily be equated with efficiency at the level of the system in which that device will operate.",
+      "rewrite": "Efficiency of a single device does not automatically mean that the entire system is efficient.",
+      "explanation_ja": "個別と全体の効率。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "therefore",
+      "role_ja": "遠隔環境の制約から設計の論点へ。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "rather than",
+      "role_ja": "個別の比較とシステム全体の特性。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "However",
+      "role_ja": "共通化のメリットと共通故障のリスク。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "A further question",
+      "role_ja": "部品から知識へ論点を追加。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "specialized",
+      "options": [
+        "specialized",
+        "ordinary",
+        "unrelated",
+        "accidental"
+      ],
+      "explanation_ja": "用途に特化した部品。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 0,
+      "answer": "interchangeable",
+      "options": [
+        "isolated",
+        "interchangeable",
+        "permanent",
+        "irreversible"
+      ],
+      "explanation_ja": "交換可能な部品。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "permissible",
+      "options": [
+        "forbidden",
+        "unrelated",
+        "permissible",
+        "accidental"
+      ],
+      "explanation_ja": "許容される行動。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "capacity",
+      "options": [
+        "receipt",
+        "portrait",
+        "destination",
+        "capacity"
+      ],
+      "explanation_ja": "予想外の状況に対応する能力。"
+    }
+  ]
+}
