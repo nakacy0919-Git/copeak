@@ -1,0 +1,592 @@
+{
+  "id": "L09-012",
+  "category_id": "L09",
+  "title": "A Pinch of Confusion",
+  "title_ja": "ひとつまみの混乱",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 212,
+  "source_links": [
+    {
+      "title": "Original lesson authoring registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "人物・状況・会話・結果は架空の教材例。実在の統計や研究結果ではない。参考リンクは制作台帳であり外部の実証資料ではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Tom offered to translate his grandmother's soup recipe for a friend.",
+          "ja": "トムは祖母のスープのレシピを友人のために翻訳すると申し出た。"
+        },
+        {
+          "en": "His friend was learning English and wanted to cook the soup.",
+          "ja": "友人は英語を学んでいて、そのスープを作りたかった。"
+        },
+        {
+          "en": "The recipe seemed simple, with only a few lines of instructions.",
+          "ja": "レシピは数行の指示だけで簡単そうに見えた。"
+        },
+        {
+          "en": "However, one short expression caused an unexpected problem.",
+          "ja": "しかし短い表現が一つ、予想外の問題を起こした。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The recipe told the cook to add a pinch of salt.",
+          "ja": "レシピは塩をひとつまみ加えるよう指示していた。"
+        },
+        {
+          "en": "Tom's friend understood the word salt but not the word pinch.",
+          "ja": "友人はsaltという単語を理解したがpinchは分からなかった。"
+        },
+        {
+          "en": "He asked whether a pinch meant a whole spoonful of salt.",
+          "ja": "ひとつまみとはスプーン一杯の塩なのかと尋ねた。"
+        },
+        {
+          "en": "Tom showed him how to hold a little salt between two fingers.",
+          "ja": "トムは2本の指の間に少量の塩を取る方法を見せた。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The next difficult instruction was to cook until the onions were soft.",
+          "ja": "次の難しい指示はタマネギが柔らかくなるまで加熱することだった。"
+        },
+        {
+          "en": "His friend wanted to know the exact number of minutes.",
+          "ja": "友人は正確な分数を知りたかった。"
+        },
+        {
+          "en": "Instead of inventing a number, Tom showed him a cooked onion.",
+          "ja": "数字を作り上げる代わりに、トムは加熱したタマネギを見せた。"
+        },
+        {
+          "en": "Together, they checked its texture with a fork.",
+          "ja": "二人はフォークでその感触を確かめた。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Later, Tom rewrote the recipe using clearer descriptions and small drawings.",
+          "ja": "その後トムはより明確な説明と小さな絵を使ってレシピを書き直した。"
+        },
+        {
+          "en": "He kept the original instructions beside the new explanations.",
+          "ja": "新しい説明のそばに元の指示も残した。"
+        },
+        {
+          "en": "His friend could now follow the recipe without asking so many questions.",
+          "ja": "友人はそれほど多くの質問をせずにレシピに従えるようになった。"
+        },
+        {
+          "en": "He also learned several useful expressions for his next cooking lesson.",
+          "ja": "次の料理の授業に役立つ表現もいくつか学んだ。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "Tom realized that translation involves more than replacing individual words.",
+          "ja": "トムは翻訳には個々の単語を置き換える以上のことが含まれると気づいた。"
+        },
+        {
+          "en": "The reader needs to understand what the instructions actually require.",
+          "ja": "読み手は指示が実際に何を求めているか理解する必要がある。"
+        },
+        {
+          "en": "Sometimes an example communicates meaning more clearly than a dictionary definition.",
+          "ja": "時には例が辞書の定義より明確に意味を伝える。"
+        },
+        {
+          "en": "A good translation considers both the original message and the reader.",
+          "ja": "良い翻訳は元のメッセージと読み手の両方を考慮する。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "offered",
+      "ja": "申し出た",
+      "synonym": "volunteered",
+      "definition": "said one was willing to do something"
+    },
+    {
+      "term": "translate",
+      "ja": "翻訳する",
+      "synonym": "render",
+      "definition": "express a message in another language"
+    },
+    {
+      "term": "recipe",
+      "ja": "レシピ",
+      "synonym": "cooking instructions",
+      "definition": "directions for preparing food"
+    },
+    {
+      "term": "instructions",
+      "ja": "指示",
+      "synonym": "directions",
+      "definition": "information about how to do something"
+    },
+    {
+      "term": "expression",
+      "ja": "表現",
+      "synonym": "phrase",
+      "definition": "a word or group of words conveying an idea"
+    },
+    {
+      "term": "unexpected",
+      "ja": "予想外の",
+      "synonym": "unforeseen",
+      "definition": "not thought likely to happen"
+    },
+    {
+      "term": "pinch",
+      "ja": "ひとつまみ",
+      "synonym": "small amount",
+      "definition": "an amount held between a finger and thumb"
+    },
+    {
+      "term": "salt",
+      "ja": "塩",
+      "synonym": "seasoning salt",
+      "definition": "a substance used to flavor food"
+    },
+    {
+      "term": "whole",
+      "ja": "丸々一杯の",
+      "synonym": "entire",
+      "definition": "all of something"
+    },
+    {
+      "term": "spoonful",
+      "ja": "スプーン一杯",
+      "synonym": "spoon-sized amount",
+      "definition": "the quantity that fills a spoon"
+    },
+    {
+      "term": "exact",
+      "ja": "正確な",
+      "synonym": "precise",
+      "definition": "completely accurate"
+    },
+    {
+      "term": "inventing",
+      "ja": "作り上げること",
+      "synonym": "making up",
+      "definition": "creating something not based on known facts"
+    },
+    {
+      "term": "texture",
+      "ja": "感触",
+      "synonym": "feel",
+      "definition": "the way a surface or food feels"
+    },
+    {
+      "term": "fork",
+      "ja": "フォーク",
+      "synonym": "pronged utensil",
+      "definition": "a tool with points used to eat or test food"
+    },
+    {
+      "term": "rewrote",
+      "ja": "書き直した",
+      "synonym": "revised",
+      "definition": "wrote something again with changes"
+    },
+    {
+      "term": "clearer",
+      "ja": "より明確な",
+      "synonym": "more understandable",
+      "definition": "easier to understand"
+    },
+    {
+      "term": "descriptions",
+      "ja": "説明",
+      "synonym": "accounts",
+      "definition": "words that explain how something looks or is done"
+    },
+    {
+      "term": "drawings",
+      "ja": "絵",
+      "synonym": "sketches",
+      "definition": "pictures made using lines"
+    },
+    {
+      "term": "original",
+      "ja": "元の",
+      "synonym": "initial",
+      "definition": "existing before later changes"
+    },
+    {
+      "term": "explanations",
+      "ja": "説明",
+      "synonym": "clarifications",
+      "definition": "information making something easier to understand"
+    },
+    {
+      "term": "follow",
+      "ja": "従う",
+      "synonym": "carry out",
+      "definition": "do what instructions say"
+    },
+    {
+      "term": "useful",
+      "ja": "役立つ",
+      "synonym": "helpful",
+      "definition": "able to help someone"
+    },
+    {
+      "term": "translation",
+      "ja": "翻訳",
+      "synonym": "rendering",
+      "definition": "the process of expressing meaning in another language"
+    },
+    {
+      "term": "involves",
+      "ja": "含む",
+      "synonym": "includes",
+      "definition": "has something as a necessary part"
+    },
+    {
+      "term": "replacing",
+      "ja": "置き換えること",
+      "synonym": "substituting",
+      "definition": "putting one thing in place of another"
+    },
+    {
+      "term": "individual",
+      "ja": "個々の",
+      "synonym": "separate",
+      "definition": "considered one at a time"
+    },
+    {
+      "term": "require",
+      "ja": "求める",
+      "synonym": "call for",
+      "definition": "make something necessary"
+    },
+    {
+      "term": "communicates",
+      "ja": "伝える",
+      "synonym": "conveys",
+      "definition": "passes information or meaning to others"
+    },
+    {
+      "term": "definition",
+      "ja": "定義",
+      "synonym": "explanation of meaning",
+      "definition": "a statement of what something means"
+    },
+    {
+      "term": "considers",
+      "ja": "考慮する",
+      "synonym": "takes into account",
+      "definition": "thinks about something when making a judgment"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "Why did Tom translate the recipe?",
+      "answer": 3,
+      "options": [
+        "To enter a writing contest.",
+        "To open a restaurant.",
+        "To teach his grandmother English.",
+        "To help a friend cook the soup."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "友人のための翻訳だった。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Which word first confused the friend?",
+      "answer": 0,
+      "options": [
+        "Pinch.",
+        "Soup.",
+        "Salt.",
+        "Cook."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "pinchの意味が分からなかった。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What did the friend ask about a pinch?",
+      "answer": 2,
+      "options": [
+        "Whether it was a kind of onion.",
+        "Whether it was a cooking tool.",
+        "Whether it meant a whole spoonful.",
+        "Whether it meant a glass of water."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "スプーン一杯かどうか尋ねた。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "How did Tom explain the small amount?",
+      "answer": 1,
+      "options": [
+        "By writing a long story.",
+        "By showing salt between two fingers.",
+        "By using a large bowl.",
+        "By adding all the salt at once."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "指で少量を取る様子を見せた。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What did the friend want to know about the onions?",
+      "answer": 0,
+      "options": [
+        "The exact cooking time.",
+        "Where they were grown.",
+        "Their price.",
+        "Their English name."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "正確な加熱時間を知りたかった。"
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why did Tom not invent an exact number?",
+      "answer": 3,
+      "options": [
+        "He disliked cooking.",
+        "There were no clocks in the house.",
+        "His friend could not read numbers.",
+        "Checking softness was a better way to explain the instruction."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "柔らかさという状態を実物とフォークで示した。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What did Tom add when rewriting the recipe?",
+      "answer": 2,
+      "options": [
+        "A list of restaurants.",
+        "A new name for his grandmother.",
+        "Clearer descriptions and small drawings.",
+        "Several expensive ingredients."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "明確な説明と小さな絵を加えた。"
+    },
+    {
+      "id": "q8",
+      "skill": "vocabulary",
+      "prompt": "What does 'individual' mean in the last paragraph?",
+      "answer": 1,
+      "options": [
+        "Difficult.",
+        "Separate.",
+        "Ancient.",
+        "Incorrect."
+      ],
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "個々の、別々のという意味。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Why did Tom keep the original wording?",
+      "answer": 3,
+      "options": [
+        "To make the recipe unusable.",
+        "To remove the new explanation.",
+        "To stop his friend learning English.",
+        "To preserve the original message alongside the clarification."
+      ],
+      "paragraph_ids": [
+        "p4",
+        "p5"
+      ],
+      "explanation_ja": "元のメッセージを保ちながら明確な説明を加えた。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the main message?",
+      "answer": 0,
+      "options": [
+        "Translation should help the reader understand the intended meaning.",
+        "Translation requires replacing every word with a longer one.",
+        "Cooking requires no language skills.",
+        "Dictionaries are always wrong."
+      ],
+      "paragraph_ids": [
+        "p3",
+        "p5"
+      ],
+      "explanation_ja": "読み手が意図を理解できる翻訳が大切。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 0,
+      "focus": "offered to translate",
+      "explanation_ja": "offer to＋動詞は〜すると申し出る。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "whether a pinch meant a whole spoonful of salt",
+      "explanation_ja": "whether節は間接疑問。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 0,
+      "focus": "until the onions were soft",
+      "explanation_ja": "untilは状態に達するまでを示す。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 0,
+      "focus": "more than replacing individual words",
+      "explanation_ja": "more thanは単なる置き換え以上という意味。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "簡単そうなレシピから問題への転換。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Instead of",
+      "role_ja": "推測する代わりに実物を示した。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Later",
+      "role_ja": "次の行動の時期を示す。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "Sometimes",
+      "role_ja": "常にではなく場合によることを示す。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Tom showed him how to hold a little salt between two fingers.",
+      "rewrite": "Tom demonstrated how to take a small amount of salt with his fingers.",
+      "explanation_ja": "指で少量を取る方法を実演した。"
+    },
+    {
+      "source": "Together, they checked its texture with a fork.",
+      "rewrite": "They used a fork to find out how the cooked onion felt.",
+      "explanation_ja": "フォークで加熱後の感触を確認した。"
+    },
+    {
+      "source": "His friend could now follow the recipe without asking so many questions.",
+      "rewrite": "His friend was able to use the directions with fewer questions.",
+      "explanation_ja": "質問を減らし指示に従えるようになった。"
+    },
+    {
+      "source": "A good translation considers both the original message and the reader.",
+      "rewrite": "Effective translation takes the source meaning and its audience into account.",
+      "explanation_ja": "原文の意味と読み手を考慮する。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "spoonful",
+      "options": [
+        "cupboard",
+        "spoonful",
+        "minute",
+        "notebook"
+      ],
+      "explanation_ja": "塩の量を確認する質問。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "answer": "texture",
+      "options": [
+        "weather",
+        "price",
+        "texture",
+        "name"
+      ],
+      "explanation_ja": "フォークで柔らかさを確認。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "original",
+      "options": [
+        "broken",
+        "silent",
+        "empty",
+        "original"
+      ],
+      "explanation_ja": "元の指示も残した。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "meaning",
+      "options": [
+        "meaning",
+        "chair",
+        "road",
+        "temperature"
+      ],
+      "explanation_ja": "例が意味を伝える。"
+    }
+  ]
+}

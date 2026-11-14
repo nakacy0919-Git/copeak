@@ -5,9 +5,9 @@
   "as_of": "2026-11-14",
   "authoritative_branch": "coord/reading-450-registry",
   "manifest_path": "data/reading/entrance/manifest.json",
-  "registered_total": 168,
+  "registered_total": 171,
   "production_reference_count": 28,
-  "development_unpublished_total": 140,
+  "development_unpublished_total": 143,
   "accepted_ids": [
     "L01-001",
     "L01-002",
@@ -89,6 +89,7 @@
     "L07-009",
     "L07-010",
     "L07-011",
+    "L07-012",
     "L08-001",
     "L08-002",
     "L08-003",
@@ -100,6 +101,7 @@
     "L08-009",
     "L08-010",
     "L08-011",
+    "L08-012",
     "L09-001",
     "L09-002",
     "L09-003",
@@ -111,6 +113,7 @@
     "L09-009",
     "L09-010",
     "L09-011",
+    "L09-012",
     "L10-001",
     "L10-002",
     "L10-003",
@@ -201,55 +204,55 @@
       "id": "L04",
       "label": "人間関係",
       "registered": 11,
-      "next_suggested_id": "L04-012"
+      "next_suggested_id": "L04-013"
     },
     {
       "id": "L05",
       "label": "国際社会",
       "registered": 11,
-      "next_suggested_id": "L05-012"
+      "next_suggested_id": "L05-013"
     },
     {
       "id": "L06",
       "label": "心理・哲学",
       "registered": 11,
-      "next_suggested_id": "L06-012"
+      "next_suggested_id": "L06-013"
     },
     {
       "id": "L07",
       "label": "経済・ビジネス",
-      "registered": 11,
-      "next_suggested_id": "L07-012"
+      "registered": 12,
+      "next_suggested_id": "L07-013"
     },
     {
       "id": "L08",
       "label": "芸術・文化",
-      "registered": 11,
-      "next_suggested_id": "L08-012"
+      "registered": 12,
+      "next_suggested_id": "L08-013"
     },
     {
       "id": "L09",
       "label": "文学・言語",
-      "registered": 11,
-      "next_suggested_id": "L09-012"
+      "registered": 12,
+      "next_suggested_id": "L09-013"
     },
     {
       "id": "L10",
       "label": "教育・学習",
       "registered": 11,
-      "next_suggested_id": "L10-012"
+      "next_suggested_id": "L10-013"
     },
     {
       "id": "L11",
       "label": "法律・政治",
       "registered": 11,
-      "next_suggested_id": "L11-012"
+      "next_suggested_id": "L11-013"
     },
     {
       "id": "L12",
       "label": "医療・健康",
       "registered": 11,
-      "next_suggested_id": "L12-012"
+      "next_suggested_id": "L12-013"
     },
     {
       "id": "L13",
@@ -289,27 +292,6 @@
       "id": "L06-012",
       "owner": "noon-c",
       "work_branch": "content/reading-20261114-noon-c",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L07-012",
-      "owner": "noon-d",
-      "work_branch": "content/reading-20261114-noon-d",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L08-012",
-      "owner": "noon-d",
-      "work_branch": "content/reading-20261114-noon-d",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L09-012",
-      "owner": "noon-d",
-      "work_branch": "content/reading-20261114-noon-d",
       "reserved_at": "2026-11-14",
       "status": "reserved"
     },
