@@ -1,0 +1,496 @@
+{
+  "id": "L03-031",
+  "category_id": "L03",
+  "title": "A Delivery Robot Learns to Wait",
+  "title_ja": "待つことを学ぶ配達ロボット",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 178,
+  "source_links": [
+    {
+      "title": "Original fictional lesson — project authoring provenance, not factual evidence",
+      "url": "https://github.com/nakacy0919-Git/copeak/blob/coord/reading-450-registry/docs/reading-450-parallel-authoring.md"
+    }
+  ],
+  "fact_notes": [
+    "完全オリジナルの架空事例。実在の学校・人物・調査結果を示さない。リンクは制作方針の来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A group of students built a small robot to carry books between two rooms in their school.",
+          "ja": "生徒のグループが校内の二つの部屋の間で本を運ぶ小さなロボットを作りました。"
+        },
+        {
+          "en": "It followed a dark line on the floor and could stop when it found something in its way.",
+          "ja": "床の黒い線をたどり、前に物があれば止まることができました。"
+        },
+        {
+          "en": "At first, the students were pleased because the robot worked well when the hall was empty.",
+          "ja": "廊下が空いている時によく動いたので、最初は生徒たちは満足しました。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "However, during a break, the robot kept stopping as students walked past it.",
+          "ja": "しかし休み時間には、生徒が通り過ぎるたびにロボットは止まり続けました。"
+        },
+        {
+          "en": "The team could have made it move faster, but that might have caused a problem.",
+          "ja": "チームはもっと速く動かすこともできましたが、それは問題を引き起こしたかもしれません。"
+        },
+        {
+          "en": "Instead, they changed the program so that the robot would wait until the path was clear.",
+          "ja": "代わりに、通路が空くまで待つようプログラムを変えました。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "They also added a light to show when the robot was ready to move again.",
+          "ja": "再び動ける状態を示すライトも追加しました。"
+        },
+        {
+          "en": "Then they tested it with an empty box rather than a heavy pile of books.",
+          "ja": "次に、重い本の山ではなく空の箱で試験しました。"
+        },
+        {
+          "en": "A student stood nearby to stop the robot if anything unexpected happened.",
+          "ja": "予想外のことが起きた場合に止めるため、生徒が近くに立ちました。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The new trip sometimes took longer than the first one, yet the team accepted this result.",
+          "ja": "新しい移動は最初より長くかかることもありましたが、チームはこの結果を受け入れました。"
+        },
+        {
+          "en": "Their goal was not simply to finish a delivery quickly.",
+          "ja": "目標は単に配達を素早く終えることではありませんでした。"
+        },
+        {
+          "en": "They wanted their machine to share the hall safely with people who were using it.",
+          "ja": "廊下を利用する人と機械が安全に同じ空間を使えるようにしたかったのです。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "built",
+      "ja": "作った",
+      "synonym": "constructed",
+      "definition": "made something by joining parts"
+    },
+    {
+      "term": "robot",
+      "ja": "ロボット",
+      "synonym": "machine",
+      "definition": "a machine that can perform actions"
+    },
+    {
+      "term": "carry",
+      "ja": "運ぶ",
+      "synonym": "transport",
+      "definition": "move something from place to place"
+    },
+    {
+      "term": "followed",
+      "ja": "たどった",
+      "synonym": "went along",
+      "definition": "moved along a route"
+    },
+    {
+      "term": "floor",
+      "ja": "床",
+      "synonym": "ground surface",
+      "definition": "the bottom surface of a room"
+    },
+    {
+      "term": "in its way",
+      "ja": "進路をふさいで",
+      "synonym": "blocking its path",
+      "definition": "preventing forward movement"
+    },
+    {
+      "term": "pleased",
+      "ja": "満足した",
+      "synonym": "happy",
+      "definition": "satisfied with something"
+    },
+    {
+      "term": "hall",
+      "ja": "廊下",
+      "synonym": "corridor",
+      "definition": "a passage inside a building"
+    },
+    {
+      "term": "empty",
+      "ja": "空の",
+      "synonym": "unoccupied",
+      "definition": "with nothing or nobody inside"
+    },
+    {
+      "term": "break",
+      "ja": "休み時間",
+      "synonym": "pause",
+      "definition": "a short period of rest"
+    },
+    {
+      "term": "caused",
+      "ja": "引き起こした",
+      "synonym": "led to",
+      "definition": "made something happen"
+    },
+    {
+      "term": "program",
+      "ja": "プログラム",
+      "synonym": "instructions",
+      "definition": "instructions a computer follows"
+    },
+    {
+      "term": "path",
+      "ja": "通路",
+      "synonym": "route",
+      "definition": "a way to travel"
+    },
+    {
+      "term": "clear",
+      "ja": "ふさがれていない",
+      "synonym": "unblocked",
+      "definition": "free from obstacles"
+    },
+    {
+      "term": "tested",
+      "ja": "試験した",
+      "synonym": "tried out",
+      "definition": "checked how well something works"
+    },
+    {
+      "term": "pile",
+      "ja": "山",
+      "synonym": "stack",
+      "definition": "a group of things placed together"
+    },
+    {
+      "term": "unexpected",
+      "ja": "予想外の",
+      "synonym": "unforeseen",
+      "definition": "not expected to happen"
+    },
+    {
+      "term": "accepted",
+      "ja": "受け入れた",
+      "synonym": "agreed to",
+      "definition": "recognized something as acceptable"
+    },
+    {
+      "term": "delivery",
+      "ja": "配達",
+      "synonym": "transportation",
+      "definition": "taking something to a destination"
+    },
+    {
+      "term": "safely",
+      "ja": "安全に",
+      "synonym": "securely",
+      "definition": "without unacceptable danger"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What did the robot carry in its intended task?",
+      "options": [
+        "Hot food",
+        "People",
+        "Books",
+        "School desks"
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "本を運ぶ目的。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "How did it find its route?",
+      "options": [
+        "By listening to a bell",
+        "By following a dark line",
+        "By reading a wall clock",
+        "By flying above the hall"
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "床の黒い線に沿った。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "When did the robot initially work well?",
+      "options": [
+        "When the hall was empty",
+        "When the hall was crowded",
+        "When it was raining outdoors",
+        "When its battery was removed"
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "廊下が空いている時。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What problem appeared during a break?",
+      "options": [
+        "The books became wet",
+        "The dark line disappeared",
+        "The students could not enter school",
+        "The robot kept stopping"
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "人の通過で止まり続けた。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "How did the team change the program?",
+      "options": [
+        "It made the robot move without stopping",
+        "It removed all safety functions",
+        "It made the robot wait for a clear path",
+        "It directed the robot outdoors"
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "通路が空くまで待つ。"
+    },
+    {
+      "id": "q6",
+      "skill": "purpose",
+      "prompt": "Why was a light added?",
+      "options": [
+        "To heat the books",
+        "To signal readiness to move",
+        "To replace the floor",
+        "To measure the robot's weight"
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "動く準備ができたことを示す。"
+    },
+    {
+      "id": "q7",
+      "skill": "purpose",
+      "prompt": "Why did a student stand nearby?",
+      "options": [
+        "To intervene if something unexpected happened",
+        "To hold the school door open all day",
+        "To draw a new line",
+        "To count all the books in the school"
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "予想外の際に止めるため。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "How did the changed trip differ?",
+      "options": [
+        "It always took half as long",
+        "It took no time at all",
+        "It could only happen outdoors",
+        "It sometimes took longer"
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "長くかかることもあった。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What did the team value more than speed alone?",
+      "options": [
+        "Selling more robots",
+        "Making the machine look expensive",
+        "Safe sharing of the hall",
+        "Keeping students out of the hall"
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "人と安全に廊下を共有すること。"
+    },
+    {
+      "id": "q10",
+      "skill": "main",
+      "prompt": "What is the main point of the passage?",
+      "options": [
+        "School robots should always move as fast as possible",
+        "Useful technology must suit the people and places around it",
+        "Robots should replace all students",
+        "A successful test never needs further changes"
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1",
+        "p2",
+        "p3",
+        "p4"
+      ],
+      "explanation_ja": "実際の環境と人の安全に合わせる技術。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 0,
+      "focus": "to carry books",
+      "explanation_ja": "目的を表すto不定詞。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "could have made",
+      "explanation_ja": "過去に可能だったが行わなかったこと。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "so that the robot would wait",
+      "explanation_ja": "so thatで目的。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "if anything unexpected happened",
+      "explanation_ja": "ifで条件を表す。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "It followed a dark line on the floor and could stop when it found something in its way.",
+      "rewrite": "The machine stopped when an object blocked its route.",
+      "explanation_ja": "進路に物があると止まった。"
+    },
+    {
+      "source": "Instead, they changed the program so that the robot would wait until the path was clear.",
+      "rewrite": "They reprogrammed the robot to move only when nothing blocked the route.",
+      "explanation_ja": "進路が空くまで動かないようにした。"
+    },
+    {
+      "source": "Then they tested it with an empty box rather than a heavy pile of books.",
+      "rewrite": "They used an empty container for the next trial instead of heavy books.",
+      "explanation_ja": "次の試験は空箱を使用。"
+    },
+    {
+      "source": "Their goal was not simply to finish a delivery quickly.",
+      "rewrite": "Making deliveries fast was not their only purpose.",
+      "explanation_ja": "速さだけが目的ではない。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "At first",
+      "role_ja": "初期の評価。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "However",
+      "role_ja": "空の廊下と混雑時の対照。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "Instead",
+      "role_ja": "速さを増す案の代替。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "yet",
+      "role_ja": "時間増加を受容した対照。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "answer": "line",
+      "options": [
+        "window",
+        "voice",
+        "line",
+        "book"
+      ],
+      "explanation_ja": "床の線。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "wait",
+      "options": [
+        "jump",
+        "sing",
+        "fall",
+        "wait"
+      ],
+      "explanation_ja": "通路が空くまで待つ。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 0,
+      "answer": "light",
+      "options": [
+        "light",
+        "clock",
+        "chair",
+        "book"
+      ],
+      "explanation_ja": "準備を知らせる光。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "safely",
+      "options": [
+        "secretly",
+        "safely",
+        "carelessly",
+        "alone"
+      ],
+      "explanation_ja": "安全に共有。"
+    }
+  ]
+}

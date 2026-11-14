@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "title": "Copeak Study extension after 450 — foundations A",
+  "base_registry_commit": "88ba2f0a07d37212db193efbd02216b89f142deb",
+  "status": "draft",
+  "note": "追加教材。450本の台帳と本番manifestは変更しない。統合時に仮IDの重複確認、校閲、正式manifest登録が必要。",
+  "sets": [
+    {
+      "id": "L01-031",
+      "file": "data/reading/entrance/L01-031.json"
+    },
+    {
+      "id": "L02-031",
+      "file": "data/reading/entrance/L02-031.json"
+    },
+    {
+      "id": "L03-031",
+      "file": "data/reading/entrance/L03-031.json"
+    },
+    {
+      "id": "L08-031",
+      "file": "data/reading/entrance/L08-031.json"
+    },
+    {
+      "id": "L10-031",
+      "file": "data/reading/entrance/L10-031.json"
+    }
+  ]
+}
