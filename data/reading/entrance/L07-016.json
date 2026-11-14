@@ -1,0 +1,596 @@
+{
+  "id": "L07-016",
+  "category_id": "L07",
+  "title": "The Return Policy Experiment",
+  "title_ja": "返品ルールの実験",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 205,
+  "source_links": [
+    {
+      "title": "Original lesson authoring registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "登場人物、具体的な出来事・観察・記録は架空の教材例。実在の調査結果ではない。参考リンクは制作台帳であり外部の実証資料ではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A small shop sold secondhand sports equipment near a station.",
+          "ja": "駅近くの小さな店が中古のスポーツ用品を売っていた。"
+        },
+        {
+          "en": "Its owner wanted customers to feel confident about buying used items.",
+          "ja": "店主は客が中古品を安心して購入できるようにしたかった。"
+        },
+        {
+          "en": "Some visitors examined products but left without buying anything.",
+          "ja": "商品を調べても何も買わずに帰る来店者がいた。"
+        },
+        {
+          "en": "They worried that the equipment might not fit or work properly.",
+          "ja": "用品が合わなかったり正常に動かなかったりすることを心配していた。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The owner decided to test a simple return policy.",
+          "ja": "店主は簡単な返品ルールを試すことにした。"
+        },
+        {
+          "en": "Customers could return certain items within seven days under clear conditions.",
+          "ja": "明確な条件の下、特定の商品を7日以内に返品できた。"
+        },
+        {
+          "en": "The owner explained those conditions on a card beside the counter.",
+          "ja": "カウンター横のカードで条件を説明した。"
+        },
+        {
+          "en": "Every customer received a receipt showing the return deadline.",
+          "ja": "全員の客に返品期限を示すレシートを渡した。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "At first, the owner expected many more returns.",
+          "ja": "最初、店主は返品が大幅に増えると予想した。"
+        },
+        {
+          "en": "However, several customers said that the policy had encouraged them to buy.",
+          "ja": "しかし数人の客はルールが購入を後押ししたと述べた。"
+        },
+        {
+          "en": "They appreciated knowing what would happen if a problem occurred.",
+          "ja": "問題が起きた場合の対応が分かることを評価した。"
+        },
+        {
+          "en": "The owner recorded purchases and returns during the trial period.",
+          "ja": "試行期間中の購入と返品を記録した。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "After a month, the owner examined the results carefully.",
+          "ja": "1か月後、店主は結果を慎重に調べた。"
+        },
+        {
+          "en": "The records suggested that some additional sales had covered the return costs.",
+          "ja": "記録は追加売上の一部が返品費用を補ったことを示唆した。"
+        },
+        {
+          "en": "Still, one month's results did not guarantee similar success in the future.",
+          "ja": "それでも1か月の結果は今後の同様の成功を保証しなかった。"
+        },
+        {
+          "en": "The owner continued testing the policy and reviewing the conditions.",
+          "ja": "返品ルールを試し、条件を見直し続けた。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The experiment taught the owner that price was not the only concern.",
+          "ja": "この実験で価格だけが懸念事項ではないと学んだ。"
+        },
+        {
+          "en": "Clear information could reduce uncertainty about a purchase.",
+          "ja": "明確な情報は購入への不安を減らし得る。"
+        },
+        {
+          "en": "Customers needed confidence in the process as well as the product.",
+          "ja": "客には商品だけでなく手続きへの信頼も必要だった。"
+        },
+        {
+          "en": "A useful business decision began with understanding the customer's concern.",
+          "ja": "有用な経営判断は客の懸念を理解することから始まった。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "secondhand",
+      "ja": "中古の",
+      "synonym": "used",
+      "definition": "previously owned by another person"
+    },
+    {
+      "term": "equipment",
+      "ja": "用品",
+      "synonym": "gear",
+      "definition": "tools or items needed for an activity"
+    },
+    {
+      "term": "owner",
+      "ja": "店主",
+      "synonym": "proprietor",
+      "definition": "person who owns a business"
+    },
+    {
+      "term": "customers",
+      "ja": "客",
+      "synonym": "buyers",
+      "definition": "people who purchase goods"
+    },
+    {
+      "term": "confident",
+      "ja": "安心した",
+      "synonym": "assured",
+      "definition": "feeling sure about something"
+    },
+    {
+      "term": "examined",
+      "ja": "調べた",
+      "synonym": "inspected",
+      "definition": "looked at carefully"
+    },
+    {
+      "term": "products",
+      "ja": "商品",
+      "synonym": "goods",
+      "definition": "things offered for sale"
+    },
+    {
+      "term": "properly",
+      "ja": "正常に",
+      "synonym": "correctly",
+      "definition": "in the correct or intended way"
+    },
+    {
+      "term": "return",
+      "ja": "返品する",
+      "synonym": "take back",
+      "definition": "bring a purchase back to a seller"
+    },
+    {
+      "term": "policy",
+      "ja": "方針・ルール",
+      "synonym": "rule",
+      "definition": "established way of handling situations"
+    },
+    {
+      "term": "certain",
+      "ja": "特定の",
+      "synonym": "particular",
+      "definition": "referring to particular things"
+    },
+    {
+      "term": "conditions",
+      "ja": "条件",
+      "synonym": "requirements",
+      "definition": "rules that must be met"
+    },
+    {
+      "term": "counter",
+      "ja": "カウンター",
+      "synonym": "service desk",
+      "definition": "surface where customers are served"
+    },
+    {
+      "term": "receipt",
+      "ja": "レシート",
+      "synonym": "proof of purchase",
+      "definition": "written record of payment"
+    },
+    {
+      "term": "deadline",
+      "ja": "期限",
+      "synonym": "due date",
+      "definition": "last time for doing something"
+    },
+    {
+      "term": "expected",
+      "ja": "予想した",
+      "synonym": "anticipated",
+      "definition": "believed likely to happen"
+    },
+    {
+      "term": "encouraged",
+      "ja": "後押しした",
+      "synonym": "prompted",
+      "definition": "gave support or confidence to act"
+    },
+    {
+      "term": "appreciated",
+      "ja": "評価した",
+      "synonym": "valued",
+      "definition": "recognized the value of something"
+    },
+    {
+      "term": "occurred",
+      "ja": "起きた",
+      "synonym": "happened",
+      "definition": "took place"
+    },
+    {
+      "term": "recorded",
+      "ja": "記録した",
+      "synonym": "noted",
+      "definition": "kept written information"
+    },
+    {
+      "term": "purchases",
+      "ja": "購入",
+      "synonym": "transactions",
+      "definition": "acts of buying something"
+    },
+    {
+      "term": "trial period",
+      "ja": "試行期間",
+      "synonym": "test period",
+      "definition": "time during which a plan is tested"
+    },
+    {
+      "term": "suggested",
+      "ja": "示唆した",
+      "synonym": "indicated",
+      "definition": "showed something might be true"
+    },
+    {
+      "term": "additional",
+      "ja": "追加の",
+      "synonym": "extra",
+      "definition": "more than what already exists"
+    },
+    {
+      "term": "covered",
+      "ja": "補った",
+      "synonym": "paid for",
+      "definition": "provided enough money for something"
+    },
+    {
+      "term": "guarantee",
+      "ja": "保証する",
+      "synonym": "ensure",
+      "definition": "make a result certain"
+    },
+    {
+      "term": "reviewing",
+      "ja": "見直すこと",
+      "synonym": "reexamining",
+      "definition": "examining something again"
+    },
+    {
+      "term": "concern",
+      "ja": "懸念",
+      "synonym": "worry",
+      "definition": "matter causing someone worry"
+    },
+    {
+      "term": "uncertainty",
+      "ja": "不安・不確実性",
+      "synonym": "doubt",
+      "definition": "state of not being sure"
+    },
+    {
+      "term": "process",
+      "ja": "手続き",
+      "synonym": "procedure",
+      "definition": "series of actions"
+    },
+    {
+      "term": "decision",
+      "ja": "判断",
+      "synonym": "choice",
+      "definition": "conclusion about what to do"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What did the shop sell?",
+      "options": [
+        "New computers.",
+        "Used sports equipment.",
+        "Fresh flowers.",
+        "Train tickets."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "中古スポーツ用品。"
+    },
+    {
+      "id": "q2",
+      "skill": "inference",
+      "prompt": "Why did some visitors leave without buying?",
+      "options": [
+        "They already worked at the shop.",
+        "The shop owner banned purchases.",
+        "The equipment was free.",
+        "They were uncertain whether the products would suit them."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "合うか正常に動くか心配した。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "How long was the return period for eligible items?",
+      "options": [
+        "One year.",
+        "Two hours.",
+        "Seven days.",
+        "Thirty days."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "7日間。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "Where were the conditions explained?",
+      "options": [
+        "On a card beside the counter.",
+        "Outside the train station.",
+        "On the customer's sports shoes.",
+        "Only in a private notebook."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "カウンター横のカード。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What had the owner expected at first?",
+      "options": [
+        "No visits from customers.",
+        "A new train station.",
+        "Many more returns.",
+        "A rise in equipment prices."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "返品の大幅増加。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What did several customers say?",
+      "options": [
+        "They wanted to return every item.",
+        "They could not read any receipts.",
+        "They had never visited the shop.",
+        "The policy encouraged them to buy."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "購入の後押しになった。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What records did the owner examine after a month?",
+      "options": [
+        "School examination results.",
+        "Records of purchases and returns.",
+        "Weather reports.",
+        "Train departure times."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "購入・返品記録。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "Why did the owner continue testing?",
+      "options": [
+        "One month's results could not guarantee future outcomes.",
+        "No information had been collected.",
+        "Every product had been returned.",
+        "The shop had permanently closed."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "1か月だけでは今後を保証できない。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does uncertainty mean?",
+      "options": [
+        "Being very wealthy.",
+        "Having a clear plan.",
+        "Being completely correct.",
+        "Not being sure."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "確信がないこと。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What was the business lesson?",
+      "options": [
+        "Price is the only factor in sales.",
+        "Return policies always cause losses.",
+        "Understanding customer uncertainty can guide useful decisions.",
+        "Records are never useful in business."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "客の懸念を理解すること。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "wanted customers to feel confident",
+      "explanation_ja": "want＋人＋to不定詞。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "within seven days",
+      "explanation_ja": "withinは期限内を示す。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "focus": "had encouraged them to buy",
+      "explanation_ja": "過去完了、encourage＋人＋to不定詞。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "focus": "did not guarantee",
+      "explanation_ja": "現在までの結果が将来も同じとは限らないことを示す。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p3",
+      "expression": "At first",
+      "role_ja": "当初の予想。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "However",
+      "role_ja": "予想と客の反応を対比。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Still",
+      "role_ja": "肯定的結果の限界。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "as well as",
+      "role_ja": "商品と手続き両方への信頼。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Its owner wanted customers to feel confident about buying used items.",
+      "rewrite": "He hoped buyers would feel assured when purchasing used goods.",
+      "explanation_ja": "安心して中古品を買ってほしかった。"
+    },
+    {
+      "source": "Customers could return certain items within seven days under clear conditions.",
+      "rewrite": "Under specified rules, buyers had seven days to take eligible products back.",
+      "explanation_ja": "条件付きで7日以内に返品。"
+    },
+    {
+      "source": "However, several customers said that the policy had encouraged them to buy.",
+      "rewrite": "Several customers said the return rules had given them confidence to make a purchase.",
+      "explanation_ja": "返品ルールが購入を後押し。"
+    },
+    {
+      "source": "Still, one month's results did not guarantee similar success in the future.",
+      "rewrite": "The results from one month could not ensure further success.",
+      "explanation_ja": "1か月の結果は将来の成功を保証しない。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 0,
+      "answer": "secondhand",
+      "options": [
+        "fresh",
+        "wooden",
+        "empty",
+        "secondhand"
+      ],
+      "explanation_ja": "中古用品。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "answer": "receipt",
+      "options": [
+        "flower",
+        "ball",
+        "receipt",
+        "book"
+      ],
+      "explanation_ja": "返品期限を示すレシート。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "costs",
+      "options": [
+        "costs",
+        "tickets",
+        "questions",
+        "colors"
+      ],
+      "explanation_ja": "返品費用を補った。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "answer": "uncertainty",
+      "options": [
+        "uncertainty",
+        "music",
+        "speed",
+        "height"
+      ],
+      "explanation_ja": "購入に関する不安を減らす。"
+    }
+  ]
+}
