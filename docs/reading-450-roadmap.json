@@ -3,8 +3,8 @@
   "as_of": "2026-11-14",
   "goal": 450,
   "category_target": 30,
-  "registered_total": 163,
-  "remaining": 287,
+  "registered_total": 165,
+  "remaining": 285,
   "level_targets_per_category": {
     "eiken-3": 1,
     "eiken-pre2": 4,
@@ -56,8 +56,8 @@
       "category_id": "L06",
       "name": "心理・哲学",
       "target": 30,
-      "registered": 10,
-      "remaining": 20
+      "registered": 11,
+      "remaining": 19
     },
     {
       "category_id": "L07",
@@ -112,8 +112,8 @@
       "category_id": "L14",
       "name": "婚姻・交友",
       "target": 30,
-      "registered": 10,
-      "remaining": 20
+      "registered": 11,
+      "remaining": 19
     },
     {
       "category_id": "L15",
@@ -124,16 +124,8 @@
     }
   ],
   "latest_unpublished_batch": [
-    "L02-011",
-    "L04-011",
-    "L07-011",
-    "L08-011",
-    "L09-011",
-    "L10-011",
-    "L11-011",
-    "L12-011",
-    "L13-011",
-    "L15-011"
+    "L06-011",
+    "L14-011"
   ],
   "release_policy": {
     "new_works_default_status": "draft",
@@ -153,7 +145,8 @@
     "Recovered content totals: 4,058 English words, 275 bilingual sentence pairs, 513 vocabulary entries, 100 comprehension MCQ and 160 review exercises.",
     "PR #55 and #56 diverged from the same base with nine colliding IDs containing different lesson content. Do not merge PR #55 blindly; recovered copies are on coord/reading-450-registry.",
     "Shared registry docs/reading-450-ledger.json uses SHA-based reservation writes to prevent two compliant chats from choosing the same ID. scripts/reading_450_guard.py checks local manifest/ledger and content integrity.",
-    "Human semantic editing and factual link verification are required before publication; no main merge or Vercel production deploy."
+    "Human semantic editing and factual link verification are required before publication; no main merge or Vercel production deploy.",
+    "2026-11-14: Added L06-011 and L14-011 (549 words, 50 bilingual sentences, 99 vocabulary entries, 20 comprehension questions and 32 review exercises); draft only. Individual structural checks performed; full repository guard and human review pending."
   ],
-  "all_unpublished_batches_note": "The authoritative non-production branch is coord/reading-450-registry, with 163 unique registered IDs. main remains 28. Ten previously divergent original drafts from PR #55 have been recovered with unique IDs; previous branch content/reading-batch-20261114-m has only 153."
+  "all_unpublished_batches_note": "Authoritative non-production branch: coord/reading-450-registry; 165 unique registered IDs; main reference count 28."
 }
