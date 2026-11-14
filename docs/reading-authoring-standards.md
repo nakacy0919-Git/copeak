@@ -384,3 +384,31 @@
 **公開前の未実施作業**：人手による英文・和訳・解説の意味的校閲、問題の正答一意性・誤答選択肢の質、出典URLの実到達と事実照合、iPad実機／プレビュー操作検査。形式チェックだけで公開可能とは判断しない。学校・町・人物・調査・予測の設定は創作であり、実在の政策評価・医療診断・緊急通報システムの実用性を示すものではない。
 
 **通算153／450、残297。** mainは28本、開発のみ125本。15分野すべて10本以上で、L01・L03・L05が11本、他の12分野が10本。次回は10本の分野を優先して均衡を保つ。
+
+## 20. 2026-11-14 別チャットの未統合原稿10本を回収・ID衝突解消（開発側163／450）
+
+**問題：** Draft PR #55 と #56 が同じ開発ブランチから分岐し、9つのIDが重複していました。例：`L02-005` はPR #55では *The Map with Two Names*、PR #56と最新開発側では *The Story Behind the Old Station*。両方を同じIDの1本として扱うと独自教材が失われるため、**旧稿を上書きせず別IDへ回収**しました。
+
+| 元のID（PR #55） | 新しいID | オリジナル題材 |
+| --- | --- | --- |
+| L02-005 | L02-011 | The Map with Two Names |
+| L04-005 | L04-011 | The Student Who Rarely Spoke |
+| L07-006 | L07-011 | The Library of Things |
+| L08-006 | L08-011 | The Film Without Spoken Words |
+| L09-005 | L09-011 | A Word with More Than One Home |
+| L10-005 | L10-011 | The Question That Changed an Answer |
+| L11-005 | L11-011 | Who Has a Voice in the Study Room Rule? |
+| L12-005 | L12-011 | The Bench Beside the Bus Stop |
+| L13-005 | L13-011 | The Telescope Time Everyone Wanted |
+| L15-005 | L15-011 | Helping Without Speaking for Others |
+
+**回収合計**：英文4,058語、英日全文和訳275文、語彙513項目、読解4択100問、復習160問。構造検査（語数・対訳・語彙本文出現・設問参照・文法4/論理展開4/言い換え4/穴埋め4）は**0エラー**。人による意味的校閲、誤答選択肢の検討、出典リンクの到達・事実照合は未実施。
+
+**並行制作の対策を追加**：
+- `coord/reading-450-registry` を共同作業の基準ブランチとする。
+- `docs/reading-450-ledger.json` にすべての確定ID・次回候補ID・予約一覧・回収履歴を記録。
+- 複数チャットは**同一ブランチ上の同一台帳へ最新SHAで予約を成功させてから**制作する。予約に競合したら別IDを再検討する。
+- `docs/reading-450-parallel-authoring.md` に必須手順と衝突例を記録。
+- `scripts/reading_450_guard.py` にID・manifest/台帳一致・全文の一致重複・指定教材の構造検査を実装。スクリプトはローカル確認用であり、予約は代行しない。
+
+**通算163／450（残り287）。** mainは28本、開発のみ135本。**回収稿はすべてdraft、本番マージ・デプロイ禁止。**
