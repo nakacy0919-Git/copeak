@@ -3,8 +3,8 @@
   "as_of": "2026-11-14",
   "goal": 450,
   "category_target": 30,
-  "registered_total": 420,
-  "remaining": 30,
+  "registered_total": 435,
+  "remaining": 15,
   "level_targets_per_category": {
     "eiken-3": 1,
     "eiken-pre2": 4,
@@ -21,129 +21,124 @@
       "category_id": "L01",
       "name": "自然",
       "target": 30,
-      "registered": 28,
-      "remaining": 2
+      "registered": 29,
+      "remaining": 1
     },
     {
       "category_id": "L02",
       "name": "歴史",
       "target": 30,
-      "registered": 28,
-      "remaining": 2
+      "registered": 29,
+      "remaining": 1
     },
     {
       "category_id": "L03",
       "name": "科学技術",
       "target": 30,
-      "registered": 28,
-      "remaining": 2
+      "registered": 29,
+      "remaining": 1
     },
     {
       "category_id": "L04",
       "name": "人間関係",
       "target": 30,
-      "registered": 28,
-      "remaining": 2
+      "registered": 29,
+      "remaining": 1
     },
     {
       "category_id": "L05",
       "name": "国際社会",
       "target": 30,
-      "registered": 28,
-      "remaining": 2
+      "registered": 29,
+      "remaining": 1
     },
     {
       "category_id": "L06",
       "name": "心理・哲学",
       "target": 30,
-      "registered": 28,
-      "remaining": 2
+      "registered": 29,
+      "remaining": 1
     },
     {
       "category_id": "L07",
       "name": "経済・ビジネス",
       "target": 30,
-      "registered": 28,
-      "remaining": 2
+      "registered": 29,
+      "remaining": 1
     },
     {
       "category_id": "L08",
       "name": "芸術・文化",
       "target": 30,
-      "registered": 28,
-      "remaining": 2
+      "registered": 29,
+      "remaining": 1
     },
     {
       "category_id": "L09",
       "name": "文学・言語",
       "target": 30,
-      "registered": 28,
-      "remaining": 2
+      "registered": 29,
+      "remaining": 1
     },
     {
       "category_id": "L10",
       "name": "教育・学習",
       "target": 30,
-      "registered": 28,
-      "remaining": 2
+      "registered": 29,
+      "remaining": 1
     },
     {
       "category_id": "L11",
       "name": "法律・政治",
       "target": 30,
-      "registered": 28,
-      "remaining": 2
+      "registered": 29,
+      "remaining": 1
     },
     {
       "category_id": "L12",
       "name": "医療・健康",
       "target": 30,
-      "registered": 28,
-      "remaining": 2
+      "registered": 29,
+      "remaining": 1
     },
     {
       "category_id": "L13",
       "name": "宇宙・未来",
       "target": 30,
-      "registered": 28,
-      "remaining": 2
+      "registered": 29,
+      "remaining": 1
     },
     {
       "category_id": "L14",
       "name": "婚姻・交友",
       "target": 30,
-      "registered": 28,
-      "remaining": 2
+      "registered": 29,
+      "remaining": 1
     },
     {
       "category_id": "L15",
       "name": "倫理・道徳",
       "target": 30,
-      "registered": 28,
-      "remaining": 2
+      "registered": 29,
+      "remaining": 1
     }
   ],
   "latest_unpublished_batch": [
-    "L01-028",
-    "L02-028",
-    "L03-028",
-    "L04-028",
-    "L05-028",
-    "L06-028",
-    "L07-028",
-    "L08-028",
-    "L09-027",
-    "L10-028",
-    "L11-027",
-    "L12-027",
-    "L13-028",
-    "L14-027",
-    "L15-027",
-    "L09-028",
-    "L11-028",
-    "L12-028",
-    "L14-028",
-    "L15-028"
+    "L01-029",
+    "L02-029",
+    "L03-029",
+    "L04-029",
+    "L05-029",
+    "L06-029",
+    "L07-029",
+    "L08-029",
+    "L09-029",
+    "L10-029",
+    "L11-029",
+    "L12-029",
+    "L13-029",
+    "L14-029",
+    "L15-029"
   ],
   "release_policy": {
     "new_works_default_status": "draft",
@@ -187,7 +182,8 @@
     "2026-11-14: bulk-r added L01-025, L02-024, L03-025, L04-024, L05-024, L06-025, L07-024, L08-024, L09-024, L10-025, L11-024, L12-024, L13-025, L14-024, L15-024 (7118 words, 306 bilingual sentence entries, 743 vocabulary entries, 150 comprehension questions and 240 review entries). Draft only; individual structural checks and registry reconciliation passed; full repository guard, semantic duplication check and human review pending.",
     "2026-11-14: bulk-s added L01-026, L02-025, L03-026, L04-025, L05-025, L06-026, L07-025, L08-025, L09-025, L10-026, L11-025, L12-025, L13-026, L14-025, L15-025 (5613 words, 310 bilingual sentence entries, 677 vocabulary entries, 150 comprehension questions and 240 review entries). Draft only; individual structural checks and registry reconciliation passed; full repository guard, semantic duplication check and human review pending.",
     "2026-11-14: bulk-t added L01-027, L02-026, L03-027, L04-026, L05-026, L06-027, L07-026, L08-026, L09-026, L10-027, L11-026, L12-026, L13-027, L14-026, L15-026, L02-027, L04-027, L05-027, L07-027, L08-027 (6700 words, 408 bilingual sentence entries, 879 vocabulary entries, 200 comprehension questions and 320 review entries). Draft only; individual structural checks and registry reconciliation passed; full repository guard, semantic duplication check and human review pending.",
-    "2026-11-14: bulk-u added L01-028, L02-028, L03-028, L04-028, L05-028, L06-028, L07-028, L08-028, L09-027, L10-028, L11-027, L12-027, L13-028, L14-027, L15-027, L09-028, L11-028, L12-028, L14-028, L15-028 (8024 words, 417 bilingual sentence entries, 975 vocabulary entries, 200 comprehension questions and 320 review entries). Draft only; individual structural checks and registry reconciliation passed; full repository guard, semantic duplication check and human review pending."
+    "2026-11-14: bulk-u added L01-028, L02-028, L03-028, L04-028, L05-028, L06-028, L07-028, L08-028, L09-027, L10-028, L11-027, L12-027, L13-028, L14-027, L15-027, L09-028, L11-028, L12-028, L14-028, L15-028 (8024 words, 417 bilingual sentence entries, 975 vocabulary entries, 200 comprehension questions and 320 review entries). Draft only; individual structural checks and registry reconciliation passed; full repository guard, semantic duplication check and human review pending.",
+    "2026-11-14: bulk-v added L01-029, L02-029, L03-029, L04-029, L05-029, L06-029, L07-029, L08-029, L09-029, L10-029, L11-029, L12-029, L13-029, L14-029, L15-029 (6646 words, 315 bilingual sentence entries, 736 vocabulary entries, 150 comprehension questions and 240 review entries). Draft only; individual structural checks and registry reconciliation passed; full repository guard, semantic duplication check and human review pending."
   ],
-  "all_unpublished_batches_note": "Authoritative non-production branch: coord/reading-450-registry; 420 unique registered IDs; main reference count 28."
+  "all_unpublished_batches_note": "Authoritative non-production branch: coord/reading-450-registry; 435 unique registered IDs; main reference count 28."
 }

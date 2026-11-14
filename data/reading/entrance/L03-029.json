@@ -1,0 +1,725 @@
+{
+  "id": "L03-029",
+  "category_id": "L03",
+  "title": "When an Algorithm Meets a New Population",
+  "title_ja": "新たな集団に適用されるアルゴリズム",
+  "level_id": "eiken-pre1",
+  "status": "draft",
+  "original": true,
+  "word_count": 529,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "オリジナル教材。一般原理を扱う架空の事例・論説。実際の史料、調査、実証結果ではない。台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A computational system that has performed well on a collection of past examples may appear to provide a reliable basis for making decisions about new cases.",
+          "ja": "過去の事例の集合で良好に動作した計算システムは、新たな事例の判断を行う信頼できる基礎を提供するように見えるかもしれない。"
+        },
+        {
+          "en": "The validity of that expectation depends, however, on the relationship between the examples used to evaluate the system and the circumstances in which it will subsequently be employed.",
+          "ja": "しかしその期待の妥当性は、システム評価に使われた事例と後にそれが使用される事情との関係に依存する。"
+        },
+        {
+          "en": "A numerical measure of performance may summarize one set of observations accurately without establishing that a comparable result should be expected in a different environment.",
+          "ja": "性能の数値尺度は一組の観察を正確に要約しても、別環境で同等の結果を期待すべきだと確定しない場合がある。"
+        },
+        {
+          "en": "An imagined application involving the classification of written documents illustrates why this distinction matters to the people selecting and maintaining automated systems.",
+          "ja": "文書分類を含む仮想応用は、自動化システムを選定・維持する人々にこの区別が重要な理由を例示する。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Consider an organization that develops a program to identify the general subject of messages submitted by visitors to a public information service.",
+          "ja": "公共情報サービスに来訪者が提出するメッセージの一般的な主題を特定するプログラムを開発する組織を考えよう。"
+        },
+        {
+          "en": "The developers evaluate the program using previously collected documents that contain vocabulary and expressions characteristic of the people who have regularly used the service.",
+          "ja": "開発者はこれまで定期的にサービスを利用してきた人々に特徴的な語彙や表現を含む過去収集文書を使ってプログラムを評価する。"
+        },
+        {
+          "en": "The resulting measurements suggest that the program can distinguish several common categories with a degree of accuracy that the organization considers satisfactory for the intended task.",
+          "ja": "得られた測定値はプログラムが組織が想定作業に満足できると考える精度で複数の一般的分類を区別できることを示唆する。"
+        },
+        {
+          "en": "The organization then considers introducing the same service to communities whose inhabitants may use significantly different expressions when describing comparable needs.",
+          "ja": "そこで同じサービスを住民が同様の必要を記述する際かなり異なる表現を使うかもしれない地域へ導入することを検討する。"
+        },
+        {
+          "en": "A successful evaluation involving the earlier participants would not necessarily reveal the difficulties that these additional users might experience.",
+          "ja": "以前の参加者を対象にした成功した評価は追加利用者が経験するかもしれない困難を必ずしも明らかにしない。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The developers discuss several ways in which the system could be examined before its use is expanded.",
+          "ja": "利用拡大前にシステムを調べ得る複数方法を開発者は議論する。"
+        },
+        {
+          "en": "One proposal involves collecting additional examples with the appropriate permissions and evaluating how the existing program handles them rather than immediately assuming that the program requires complete replacement.",
+          "ja": "一案は適切な許可を得て追加事例を収集し、プログラムの全面交換が必要とすぐ想定せず既存プログラムがどう処理するか評価することを含む。"
+        },
+        {
+          "en": "Another involves examining whether particular categories of errors are associated with expressions or patterns that were uncommon in the original collection of documents.",
+          "ja": "別案は特定の誤り分類が当初文書集では珍しかった表現やパターンに関連しているか調べることを含む。"
+        },
+        {
+          "en": "The purpose of these investigations would be to understand the limitations of the available evidence, not merely to produce another overall number that could be displayed in a report.",
+          "ja": "これらの調査の目的は報告に表示できる別の全体数値を単に生むことではなく、利用可能な根拠の限界を理解することだ。"
+        },
+        {
+          "en": "A similar overall measure of accuracy could conceivably conceal substantial differences in the kinds of mistakes made when the system processes messages from different users.",
+          "ja": "同様の全体精度尺度が、異なる利用者のメッセージをシステムが処理する際の誤り種類の相当な違いを隠すことも考えられる。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The organization also needs to consider the consequences of assigning a message to an inappropriate category.",
+          "ja": "組織はメッセージを不適切分類へ割り当てる影響も考慮する必要がある。"
+        },
+        {
+          "en": "Some mistakes might merely cause a brief delay, whereas others might prevent a request from reaching the people capable of responding to it appropriately.",
+          "ja": "ある誤りは単に短い遅延を起こすが別のものは依頼が適切に対応できる人々に届くのを妨げるかもしれない。"
+        },
+        {
+          "en": "An evaluation that treats every incorrect classification as having an equivalent practical consequence could therefore provide insufficient information for deciding how the program should be used.",
+          "ja": "全誤分類が同等の実務的影響を持つと扱う評価はプログラムの利用方法を決めるには不十分な情報を提供し得る。"
+        },
+        {
+          "en": "The fictional case cannot establish the performance of an actual technology, but it highlights questions that a technically and socially responsible evaluation would need to address.",
+          "ja": "架空例は実技術の性能を確定できないが、技術的・社会的に責任ある評価が扱う必要のある問いを強調する。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The reliability of a computational system is not necessarily a property that can be described independently of the people and situations involved in its use.",
+          "ja": "計算システムの信頼性は利用に関わる人々と状況から独立して記述できる特性とは限らない。"
+        },
+        {
+          "en": "Evidence obtained in one setting should be interpreted with attention to the conditions under which it was produced and the decisions it is intended to support.",
+          "ja": "一環境で得た根拠は生成条件と支持しようとする判断に注意して解釈すべきだ。"
+        },
+        {
+          "en": "The challenge is to identify both the information that justifies using a program and the additional information that would be needed to justify using it in new circumstances.",
+          "ja": "課題はプログラム使用を正当化する情報と、新事情での使用を正当化するため必要な追加情報の両方を特定することだ。"
+        },
+        {
+          "en": "A system's past success may be the beginning of an inquiry about its future use rather than the final answer to that inquiry.",
+          "ja": "過去の成功は将来使用の調査への最終回答でなく始まりになり得る。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "computational",
+      "ja": "計算の",
+      "synonym": "computer-based",
+      "definition": "relating to computation"
+    },
+    {
+      "term": "collection",
+      "ja": "集合",
+      "synonym": "set",
+      "definition": "group of items gathered together"
+    },
+    {
+      "term": "reliable",
+      "ja": "信頼できる",
+      "synonym": "dependable",
+      "definition": "able to be relied on"
+    },
+    {
+      "term": "validity",
+      "ja": "妥当性",
+      "synonym": "soundness",
+      "definition": "quality of being well supported"
+    },
+    {
+      "term": "circumstances",
+      "ja": "事情",
+      "synonym": "conditions",
+      "definition": "factors affecting a situation"
+    },
+    {
+      "term": "subsequently",
+      "ja": "後に",
+      "synonym": "later",
+      "definition": "after an event"
+    },
+    {
+      "term": "employed",
+      "ja": "使用された",
+      "synonym": "used",
+      "definition": "put into use"
+    },
+    {
+      "term": "numerical",
+      "ja": "数値の",
+      "synonym": "quantitative",
+      "definition": "relating to numbers"
+    },
+    {
+      "term": "measure",
+      "ja": "尺度",
+      "synonym": "indicator",
+      "definition": "standard used for evaluation"
+    },
+    {
+      "term": "observations",
+      "ja": "観察",
+      "synonym": "findings",
+      "definition": "things noticed or measured"
+    },
+    {
+      "term": "comparable",
+      "ja": "同等の",
+      "synonym": "similar",
+      "definition": "similar enough for comparison"
+    },
+    {
+      "term": "application",
+      "ja": "応用",
+      "synonym": "use",
+      "definition": "practical use of something"
+    },
+    {
+      "term": "classification",
+      "ja": "分類",
+      "synonym": "categorization",
+      "definition": "act of arranging into groups"
+    },
+    {
+      "term": "automated",
+      "ja": "自動化された",
+      "synonym": "automatic",
+      "definition": "operating without continuous human action"
+    },
+    {
+      "term": "submitted",
+      "ja": "提出された",
+      "synonym": "handed in",
+      "definition": "given for consideration"
+    },
+    {
+      "term": "developers",
+      "ja": "開発者",
+      "synonym": "creators",
+      "definition": "people developing systems"
+    },
+    {
+      "term": "previously",
+      "ja": "以前に",
+      "synonym": "earlier",
+      "definition": "before the present time"
+    },
+    {
+      "term": "characteristic",
+      "ja": "特徴的な",
+      "synonym": "typical",
+      "definition": "distinctive of something"
+    },
+    {
+      "term": "measurements",
+      "ja": "測定値",
+      "synonym": "readings",
+      "definition": "values obtained by measuring"
+    },
+    {
+      "term": "categories",
+      "ja": "分類",
+      "synonym": "classes",
+      "definition": "groups of similar things"
+    },
+    {
+      "term": "accuracy",
+      "ja": "正確性",
+      "synonym": "correctness",
+      "definition": "quality of being accurate"
+    },
+    {
+      "term": "satisfactory",
+      "ja": "満足できる",
+      "synonym": "adequate",
+      "definition": "good enough for a purpose"
+    },
+    {
+      "term": "intended",
+      "ja": "意図された",
+      "synonym": "meant",
+      "definition": "planned for a purpose"
+    },
+    {
+      "term": "inhabitants",
+      "ja": "住民",
+      "synonym": "residents",
+      "definition": "people living in a place"
+    },
+    {
+      "term": "significantly",
+      "ja": "かなり",
+      "synonym": "substantially",
+      "definition": "to a large degree"
+    },
+    {
+      "term": "evaluation",
+      "ja": "評価",
+      "synonym": "assessment",
+      "definition": "considered judgment"
+    },
+    {
+      "term": "expanded",
+      "ja": "拡大された",
+      "synonym": "extended",
+      "definition": "made larger"
+    },
+    {
+      "term": "permissions",
+      "ja": "許可",
+      "synonym": "authorizations",
+      "definition": "agreements allowing action"
+    },
+    {
+      "term": "existing",
+      "ja": "既存の",
+      "synonym": "current",
+      "definition": "already present"
+    },
+    {
+      "term": "replacement",
+      "ja": "交換",
+      "synonym": "substitution",
+      "definition": "act of using something in place of another"
+    },
+    {
+      "term": "associated",
+      "ja": "関連した",
+      "synonym": "connected",
+      "definition": "linked with something"
+    },
+    {
+      "term": "uncommon",
+      "ja": "珍しい",
+      "synonym": "unusual",
+      "definition": "not often encountered"
+    },
+    {
+      "term": "investigations",
+      "ja": "調査",
+      "synonym": "inquiries",
+      "definition": "careful searches for information"
+    },
+    {
+      "term": "limitations",
+      "ja": "限界",
+      "synonym": "constraints",
+      "definition": "bounds on possibilities"
+    },
+    {
+      "term": "merely",
+      "ja": "単に",
+      "synonym": "only",
+      "definition": "nothing more than"
+    },
+    {
+      "term": "overall",
+      "ja": "全体の",
+      "synonym": "general",
+      "definition": "including the whole"
+    },
+    {
+      "term": "conceivably",
+      "ja": "考えられることに",
+      "synonym": "possibly",
+      "definition": "in a way that might happen"
+    },
+    {
+      "term": "conceal",
+      "ja": "隠す",
+      "synonym": "hide",
+      "definition": "prevent something from being seen"
+    },
+    {
+      "term": "substantial",
+      "ja": "相当な",
+      "synonym": "considerable",
+      "definition": "large in degree"
+    },
+    {
+      "term": "processes",
+      "ja": "処理する",
+      "synonym": "handles",
+      "definition": "performs operations on something"
+    },
+    {
+      "term": "consequences",
+      "ja": "影響",
+      "synonym": "effects",
+      "definition": "results of an action"
+    },
+    {
+      "term": "assigning",
+      "ja": "割り当てること",
+      "synonym": "allocating",
+      "definition": "giving something a place or category"
+    },
+    {
+      "term": "inappropriate",
+      "ja": "不適切な",
+      "synonym": "unsuitable",
+      "definition": "not right for a purpose"
+    },
+    {
+      "term": "whereas",
+      "ja": "一方",
+      "synonym": "while",
+      "definition": "introducing contrast"
+    },
+    {
+      "term": "equivalent",
+      "ja": "同等の",
+      "synonym": "equal",
+      "definition": "having the same value or meaning"
+    },
+    {
+      "term": "insufficient",
+      "ja": "不十分な",
+      "synonym": "inadequate",
+      "definition": "not enough"
+    },
+    {
+      "term": "reliability",
+      "ja": "信頼性",
+      "synonym": "dependability",
+      "definition": "quality of being dependable"
+    },
+    {
+      "term": "independently",
+      "ja": "独立して",
+      "synonym": "separately",
+      "definition": "without relying on others"
+    },
+    {
+      "term": "interpreted",
+      "ja": "解釈された",
+      "synonym": "understood",
+      "definition": "assigned meaning"
+    },
+    {
+      "term": "justifies",
+      "ja": "正当化する",
+      "synonym": "supports",
+      "definition": "gives sufficient reasons for"
+    },
+    {
+      "term": "inquiry",
+      "ja": "調査",
+      "synonym": "investigation",
+      "definition": "search for information"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "inference",
+      "prompt": "What limitation does a performance measure have?",
+      "options": [
+        "It cannot summarize past observations accurately.",
+        "It may not establish how well the system will work in a new setting.",
+        "It gives no information about the system's function.",
+        "It necessarily exaggerates the number of errors."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "新環境への一般化の限界。"
+    },
+    {
+      "id": "q2",
+      "skill": "vocabulary",
+      "prompt": "What does validity mean in the passage?",
+      "options": [
+        "The duration of a computer operation.",
+        "The number of documents collected.",
+        "Permission to use an information service.",
+        "The degree to which an expectation is well supported."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "妥当性。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What characterizes the original evaluation documents?",
+      "options": [
+        "They were created solely by the new communities.",
+        "They contain every possible subject.",
+        "They reflect expressions used by regular service users.",
+        "They contain no information from past visitors."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "既存利用者の表現。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why might the expansion cause difficulties?",
+      "options": [
+        "New users may express similar needs in different ways.",
+        "The program has never classified any message.",
+        "The organization will stop collecting documents.",
+        "Every new community necessarily uses another language."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "表現の違い。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What is a proposed first step before replacement?",
+      "options": [
+        "Replace every category with a single category.",
+        "Ignore the performance of earlier examples.",
+        "Train a new program without examining existing errors.",
+        "Evaluate the existing program using additional appropriately collected examples."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "追加例による検証。"
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why examine types of errors in addition to total accuracy?",
+      "options": [
+        "All errors are necessarily identical.",
+        "The same overall score could conceal different error patterns.",
+        "The overall measure always identifies each cause.",
+        "Error patterns are independent of vocabulary."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "全体値が違いを隠す。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "Which difference between mistakes is emphasized?",
+      "options": [
+        "Some delay a message briefly while others may prevent it from reaching appropriate staff.",
+        "Some are written in blue while others are in black.",
+        "Some always improve service quality.",
+        "Some occur only during evaluation."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "実務影響の違い。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "Why might equal weighting of errors be inadequate?",
+      "options": [
+        "Every error changes the numerical score in an unpredictable way.",
+        "All mistakes have the same practical consequence.",
+        "Errors can have unequal consequences for users.",
+        "Organizations should not evaluate accuracy at all."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "影響の重大さが異なる。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What does the author suggest about past success?",
+      "options": [
+        "It makes additional evaluation unnecessary.",
+        "It supplies relevant evidence but may leave further questions about new use.",
+        "It proves the system cannot be improved.",
+        "It should be ignored whenever users change."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "過去の成功は出発点。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "Which statement best expresses the argument?",
+      "options": [
+        "Evaluating automated systems requires considering the relationship between evidence, populations and consequences of use.",
+        "The highest past accuracy always identifies the best system.",
+        "Any change of population requires complete replacement.",
+        "A reliable program is independent of its circumstances of use."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1",
+        "p5"
+      ],
+      "explanation_ja": "根拠と利用条件・影響の関係。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "without establishing that a comparable result",
+      "explanation_ja": "without＋動名詞。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "whose inhabitants may use significantly different expressions",
+      "explanation_ja": "whoseは所有格の関係代名詞。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 4,
+      "focus": "could conceivably conceal substantial differences",
+      "explanation_ja": "couldは可能性、conceivablyで可能性を示す。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "rather than the final answer to that inquiry",
+      "explanation_ja": "rather thanは対比。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "A numerical measure of performance may summarize one set of observations accurately without establishing that a comparable result should be expected in a different environment.",
+      "rewrite": "A past performance figure can be accurate without proving similar performance elsewhere.",
+      "explanation_ja": "過去評価からの一般化。"
+    },
+    {
+      "source": "The organization then considers introducing the same service to communities whose inhabitants may use significantly different expressions when describing comparable needs.",
+      "rewrite": "The new communities may describe comparable needs using different wording.",
+      "explanation_ja": "利用者の表現の違い。"
+    },
+    {
+      "source": "A similar overall measure of accuracy could conceivably conceal substantial differences in the kinds of mistakes made when the system processes messages from different users.",
+      "rewrite": "Similar total accuracy scores might hide different kinds of errors.",
+      "explanation_ja": "全体値と内訳。"
+    },
+    {
+      "source": "A system's past success may be the beginning of an inquiry about its future use rather than the final answer to that inquiry.",
+      "rewrite": "Past success can initiate further evaluation instead of settling every future question.",
+      "explanation_ja": "成功は調査の始まり。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "however",
+      "role_ja": "成功と妥当性の条件。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "then",
+      "role_ja": "導入拡大へ。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "whereas",
+      "role_ja": "誤分類の異なる影響。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "rather than",
+      "role_ja": "出発点と最終回答。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "answer": "validity",
+      "options": [
+        "validity",
+        "expense",
+        "appearance",
+        "duration"
+      ],
+      "explanation_ja": "期待の妥当性。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 4,
+      "answer": "conceal",
+      "options": [
+        "reveal",
+        "conceal",
+        "correct",
+        "measure"
+      ],
+      "explanation_ja": "違いを隠す可能性。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "equivalent",
+      "options": [
+        "unequal",
+        "irrelevant",
+        "equivalent",
+        "uncertain"
+      ],
+      "explanation_ja": "同等の影響と扱う。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "answer": "inquiry",
+      "options": [
+        "receipt",
+        "portrait",
+        "appointment",
+        "inquiry"
+      ],
+      "explanation_ja": "将来利用の調査。"
+    }
+  ]
+}
