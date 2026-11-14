@@ -29,7 +29,7 @@ for(const item of m.sets){
   if(vocab.length<minimum||new Set(vocab.map(x=>String(x.term).toLowerCase())).size!==vocab.length||vocab.some(x=>!['term','ja','definition','synonym'].every(k=>nonempty(x[k]))||!termIn(text,x.term)))errs.push('vocabulary');
   if((d.grammar||[]).length<4||d.grammar.some(x=>!nonempty(x.focus)||!sentence(x.paragraph_id,x.sentence_index).includes(x.focus)||!nonempty(x.explanation_ja)))errs.push('grammar');
   if((d.discourse||[]).length<4||d.discourse.some(x=>!nonempty(x.expression)||!nonempty(x.role_ja)||!paragraphs.find(p=>p.id===x.paragraph_id)?.sentences.some(s=>s.en.includes(x.expression))))errs.push('discourse');
-  if((d.paraphrases||[]).length<4||d.paraphrases.some(x=>!sentences.some(s=>s.en===x.source)||!nonempty(x.rewrite)||!nonempty(x.explanation_ja)))errs.push('paraphrases');
+  if((d.paraphrases||[]).length<4||d.paraphrases.some(x=>!nonempty(x.source)||!text.includes(x.source)||!nonempty(x.rewrite)||!nonempty(x.explanation_ja)))errs.push('paraphrases');
   if((d.cloze||[]).length<4||d.cloze.some(x=>!nonempty(x.answer)||!sentence(x.paragraph_id,x.sentence_index).includes(x.answer)||!choices(x.options)||!x.options.includes(x.answer)||!nonempty(x.explanation_ja)))errs.push('cloze');
  }
  const fp=crypto.createHash('sha256').update(text.toLowerCase().trim().replace(/\s+/g,' ')).digest('hex');

@@ -3,5 +3,6 @@
   "git": {
     "deploymentEnabled": false
   },
-  "buildCommand": "node --check reading-entrance.js && node scripts/prepare-reading-release.js"
+  "buildCommand": "node --check reading-entrance.js && node scripts/prepare-reading-release.js",
+  "outputDirectory": "."
 }
