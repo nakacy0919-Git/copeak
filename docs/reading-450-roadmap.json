@@ -3,8 +3,8 @@
   "as_of": "2026-11-14",
   "goal": 450,
   "category_target": 30,
-  "registered_total": 133,
-  "remaining": 317,
+  "registered_total": 143,
+  "remaining": 307,
   "level_targets_per_category": {
     "eiken-3": 1,
     "eiken-pre2": 4,
@@ -21,57 +21,57 @@
       "category_id": "L01",
       "name": "自然",
       "target": 30,
-      "registered": 9,
-      "remaining": 21
+      "registered": 10,
+      "remaining": 20
     },
     {
       "category_id": "L02",
       "name": "歴史",
       "target": 30,
-      "registered": 9,
-      "remaining": 21
+      "registered": 10,
+      "remaining": 20
     },
     {
       "category_id": "L03",
       "name": "科学技術",
       "target": 30,
-      "registered": 9,
-      "remaining": 21
+      "registered": 10,
+      "remaining": 20
     },
     {
       "category_id": "L04",
       "name": "人間関係",
       "target": 30,
-      "registered": 9,
-      "remaining": 21
+      "registered": 10,
+      "remaining": 20
     },
     {
       "category_id": "L05",
       "name": "国際社会",
       "target": 30,
-      "registered": 9,
-      "remaining": 21
+      "registered": 10,
+      "remaining": 20
     },
     {
       "category_id": "L06",
       "name": "心理・哲学",
       "target": 30,
-      "registered": 9,
-      "remaining": 21
+      "registered": 10,
+      "remaining": 20
     },
     {
       "category_id": "L07",
       "name": "経済・ビジネス",
       "target": 30,
-      "registered": 9,
-      "remaining": 21
+      "registered": 10,
+      "remaining": 20
     },
     {
       "category_id": "L08",
       "name": "芸術・文化",
       "target": 30,
-      "registered": 9,
-      "remaining": 21
+      "registered": 10,
+      "remaining": 20
     },
     {
       "category_id": "L09",
@@ -112,28 +112,28 @@
       "category_id": "L14",
       "name": "婚姻・交友",
       "target": 30,
-      "registered": 8,
-      "remaining": 22
+      "registered": 9,
+      "remaining": 21
     },
     {
       "category_id": "L15",
       "name": "倫理・道徳",
       "target": 30,
-      "registered": 8,
-      "remaining": 22
+      "registered": 9,
+      "remaining": 21
     }
   ],
   "latest_unpublished_batch": [
-    "L02-009",
-    "L03-009",
-    "L05-009",
-    "L06-009",
-    "L08-009",
-    "L09-009",
-    "L10-009",
-    "L11-009",
-    "L12-009",
-    "L13-009"
+    "L01-010",
+    "L02-010",
+    "L03-010",
+    "L04-010",
+    "L05-010",
+    "L06-010",
+    "L07-010",
+    "L08-010",
+    "L14-009",
+    "L15-009"
   ],
   "release_policy": {
     "new_works_default_status": "draft",
@@ -148,12 +148,11 @@
     ]
   },
   "notes": [
-    "2026-11-14: development total 123→133 with ten new unpublished original readings; remaining 317 of goal 450.",
-    "Batch totals: English 4,107 words; full bilingual sentence pairs 270; vocabulary entries 579; ten-question comprehension sets 10; review exercises 160.",
-    "Included high-level readings: Eiken 1 (878 words), university-national (820 words), Eiken pre-1 (565 words).",
-    "Structural validation passed with 0 errors for IDs, word bands, bilingual coverage, vocabulary fields/occurrence, four-choice answer indexes and references, review exercise references, draft state.",
-    "NASA and ESA public exoplanet explanations were consulted for the fictional scientific lesson. Human copyediting, semantically unique correct answers, all link checks and iPad preview remain pending.",
-    "No main merge or production deployment without explicit user instructions."
+    "2026-11-14: development total 133→143, ten new original unpublished readings, 307 remaining of goal 450.",
+    "Batch totals: English 4,043 words; 275 bilingual pairs; 640 vocabulary entries; 100 comprehension questions; 160 review exercises.",
+    "Advanced content includes university-mid 608 words on measurement sampling and university-advanced 788 words on algorithmic rankings and participation.",
+    "Ten lessons passed structural validation with 0 errors: level word bands, all English/Japanese translations, vocabulary required fields and passage occurrence, MCQ answer index and citations, grammar and cloze references, draft status.",
+    "Human semantic editing, correctness and unique distractors, factual source checking and link access, and iPad UI preview remain pending. Main merge and production deploy prohibited without user explicit authorization."
   ],
-  "all_unpublished_batches_note": "main has 28 registered reading lessons. Current development branch has 133 registered lessons, including 105 unpublished drafts. This new batch exists on content/reading-batch-20261114-k only."
+  "all_unpublished_batches_note": "main has 28 registered lessons. Current development branch has 143 registered lessons, including 115 unpublished draft lessons. This batch is only on content/reading-batch-20261114-l."
 }

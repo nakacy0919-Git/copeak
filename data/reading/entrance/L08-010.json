@@ -1,0 +1,614 @@
+{
+  "id": "L08-010",
+  "category_id": "L08",
+  "title": "The Empty Frame in the School Gallery",
+  "title_ja": "学校ギャラリーの空っぽの額",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 192,
+  "source_links": [
+    {
+      "title": "General public background reference",
+      "url": "https://www.unesco.org/en/culture"
+    }
+  ],
+  "fact_notes": [
+    "登場人物・学校の活動は架空。英文、和訳、設問、解説は独自制作。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Students prepare an art exhibition in an empty classroom.",
+          "ja": "生徒たちは空いている教室で美術展を準備します。"
+        },
+        {
+          "en": "Most pictures show colorful animals, streets, or flowers.",
+          "ja": "ほとんどの絵には色鮮やかな動物や通りや花が描かれています。"
+        },
+        {
+          "en": "However, Yuna places an empty frame on the wall.",
+          "ja": "しかしユナは壁に空の額を置きます。"
+        },
+        {
+          "en": "Some classmates wonder whether she has forgotten her picture.",
+          "ja": "同級生の中には絵を忘れたのではないかと思う人もいます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Yuna explains that the empty frame has a meaning.",
+          "ja": "ユナは空の額にも意味があると説明します。"
+        },
+        {
+          "en": "For example, she wants visitors to imagine a place they miss.",
+          "ja": "例えば来訪者に懐かしい場所を想像してほしいのです。"
+        },
+        {
+          "en": "She hopes each person will think of a different scene.",
+          "ja": "一人ひとりが異なる風景を思い浮かべてほしいと考えます。"
+        },
+        {
+          "en": "Her teacher encourages her to write a short explanation.",
+          "ja": "教師は短い説明を書くよう勧めます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The class designs a small card beside the frame.",
+          "ja": "クラスは額の横に置く小さなカードを作ります。"
+        },
+        {
+          "en": "The card asks visitors what they imagine seeing.",
+          "ja": "カードには何が見えると想像するか問いかけます。"
+        },
+        {
+          "en": "Instead of providing one answer, it invites different ideas.",
+          "ja": "一つの答えを示すのではなく様々な考えを招きます。"
+        },
+        {
+          "en": "Students make room for visitors to write their responses.",
+          "ja": "生徒たちは来訪者が返事を書ける場所も作ります。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "On exhibition day, some people imagine a beach or a forest.",
+          "ja": "展覧会の日、海辺や森を想像する人がいます。"
+        },
+        {
+          "en": "Nevertheless, other visitors do not understand the activity immediately.",
+          "ja": "それでもすぐ活動を理解できない来訪者もいます。"
+        },
+        {
+          "en": "Yuna explains that no one has to share a private memory.",
+          "ja": "ユナは個人的な記憶を話す必要はないと説明します。"
+        },
+        {
+          "en": "Everyone is free to enjoy the frame in a different way.",
+          "ja": "全員が別々の方法で額を楽しめます。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "At the end of the day, Yuna reads several responses.",
+          "ja": "一日の終わりにユナはいくつかの回答を読みます。"
+        },
+        {
+          "en": "The imagined scenes are surprisingly different from one another.",
+          "ja": "想像された風景は驚くほど互いに異なります。"
+        },
+        {
+          "en": "As a result, the class discusses how art can invite questions.",
+          "ja": "その結果クラスは芸術が問いを生む方法を話し合います。"
+        },
+        {
+          "en": "An empty frame can encourage people to create their own meaning.",
+          "ja": "空の額は人々が自分なりの意味を作るよう促せます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What does Yuna put on the wall?",
+      "options": [
+        "A broken clock.",
+        "A photograph of a castle.",
+        "A painting of a bird.",
+        "An empty frame."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「しかしユナは壁に空の額を置きます。」が正答の根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What do classmates first wonder?",
+      "options": [
+        "Whether the frame is expensive.",
+        "Whether she is leaving school.",
+        "Whether Yuna forgot her picture.",
+        "Whether the room is closed."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「同級生の中には絵を忘れたのではないかと思う人もいます。」が正答の根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What does Yuna hope visitors imagine?",
+      "options": [
+        "A famous painter's name.",
+        "A place they miss.",
+        "Her own bedroom.",
+        "The teacher's family."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「例えば来訪者に懐かしい場所を想像してほしいのです。」が正答の根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What does the teacher suggest?",
+      "options": [
+        "Writing a short explanation.",
+        "Removing the frame.",
+        "Painting every visitor.",
+        "Closing the exhibition."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「教師は短い説明を書くよう勧めます。」が正答の根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What does the card ask?",
+      "options": [
+        "How much the frame costs.",
+        "What time the school ends.",
+        "Who made the wall.",
+        "What visitors imagine seeing."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「カードには何が見えると想像するか問いかけます。」が正答の根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What can visitors write?",
+      "options": [
+        "The school's rules.",
+        "Their test results.",
+        "Their own responses.",
+        "Their passwords."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「生徒たちは来訪者が返事を書ける場所も作ります。」が正答の根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What do some people imagine?",
+      "options": [
+        "Only the empty classroom.",
+        "A beach or a forest.",
+        "A new school bus.",
+        "A shopping receipt."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「展覧会の日、海辺や森を想像する人がいます。」が正答の根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What are visitors not required to do?",
+      "options": [
+        "Share private memories.",
+        "Look at the frame.",
+        "Read the card.",
+        "Enter the gallery."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「ユナは個人的な記憶を話す必要はないと説明します。」が正答の根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "How are the responses?",
+      "options": [
+        "Exactly the same.",
+        "Written only by Yuna.",
+        "All about one city.",
+        "Surprisingly different."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「想像された風景は驚くほど互いに異なります。」が正答の根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the main point?",
+      "options": [
+        "An empty frame can never be art.",
+        "Visitors should always explain private memories.",
+        "Art can invite many personal interpretations.",
+        "Every artwork has only one correct meaning."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「空の額は人々が自分なりの意味を作るよう促せます。」が正答の根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "activity",
+      "ja": "活動",
+      "synonym": "action",
+      "definition": "something that a person does"
+    },
+    {
+      "term": "classmates",
+      "ja": "同級生",
+      "synonym": "peers",
+      "definition": "students in the same class"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "encourage",
+      "ja": "促す",
+      "synonym": "support",
+      "definition": "to make someone more willing to act"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "exhibition",
+      "ja": "展覧会",
+      "synonym": "display",
+      "definition": "a public showing of art"
+    },
+    {
+      "term": "explanation",
+      "ja": "説明",
+      "synonym": "description",
+      "definition": "words making meaning clear"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "imagine",
+      "ja": "想像する",
+      "synonym": "picture",
+      "definition": "form an image in the mind"
+    },
+    {
+      "term": "immediately",
+      "ja": "すぐに",
+      "synonym": "at once",
+      "definition": "without delay"
+    },
+    {
+      "term": "invite",
+      "ja": "招く・勧める",
+      "synonym": "ask",
+      "definition": "to ask someone to join an activity"
+    },
+    {
+      "term": "memory",
+      "ja": "記憶",
+      "synonym": "recollection",
+      "definition": "something remembered"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "prepare",
+      "ja": "準備する",
+      "synonym": "get ready",
+      "definition": "to make something ready for use"
+    },
+    {
+      "term": "private",
+      "ja": "個人的な",
+      "synonym": "personal",
+      "definition": "not meant for everyone"
+    },
+    {
+      "term": "responses",
+      "ja": "回答",
+      "synonym": "answers",
+      "definition": "replies to questions"
+    },
+    {
+      "term": "share",
+      "ja": "共有する",
+      "synonym": "communicate",
+      "definition": "to let others know or use something"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who helps others learn"
+    },
+    {
+      "term": "visitors",
+      "ja": "来訪者",
+      "synonym": "guests",
+      "definition": "people attending a place"
+    },
+    {
+      "term": "art",
+      "ja": "美術",
+      "synonym": "creative expression",
+      "definition": "work that communicates ideas"
+    },
+    {
+      "term": "frame",
+      "ja": "額",
+      "synonym": "border",
+      "definition": "a structure surrounding a picture"
+    },
+    {
+      "term": "empty",
+      "ja": "空の",
+      "synonym": "unfilled",
+      "definition": "containing nothing"
+    },
+    {
+      "term": "wall",
+      "ja": "壁",
+      "synonym": "surface",
+      "definition": "a vertical part of a room"
+    },
+    {
+      "term": "picture",
+      "ja": "絵",
+      "synonym": "image",
+      "definition": "a visual representation"
+    },
+    {
+      "term": "pictures",
+      "ja": "絵",
+      "synonym": "images",
+      "definition": "visual representations"
+    },
+    {
+      "term": "colorful",
+      "ja": "色鮮やかな",
+      "synonym": "bright",
+      "definition": "having strong colors"
+    },
+    {
+      "term": "imagined",
+      "ja": "想像された",
+      "synonym": "pictured",
+      "definition": "created in the mind"
+    },
+    {
+      "term": "meaning",
+      "ja": "意味",
+      "synonym": "significance",
+      "definition": "an idea communicated by something"
+    },
+    {
+      "term": "scene",
+      "ja": "風景",
+      "synonym": "view",
+      "definition": "a picture or imagined setting"
+    },
+    {
+      "term": "scenes",
+      "ja": "風景",
+      "synonym": "views",
+      "definition": "places shown or imagined"
+    },
+    {
+      "term": "encourages",
+      "ja": "促す",
+      "synonym": "invites",
+      "definition": "helps someone take action"
+    },
+    {
+      "term": "questions",
+      "ja": "問い",
+      "synonym": "inquiries",
+      "definition": "things to think about"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "whether she has forgotten her picture",
+      "explanation_ja": "whether節は同級生の疑問を表します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "each person will think of a different scene",
+      "explanation_ja": "eachが一人ひとりを表します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of providing one answer",
+      "explanation_ja": "instead of + 動名詞は方法の違いを示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "to create their own meaning",
+      "explanation_ja": "to不定詞が促す行動を表します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "他の絵と空の額を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "想像する場所の例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "すぐには伝わらない来訪者もいることを示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "芸術の意味を話し合う結果です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Some classmates wonder whether she has forgotten her picture.",
+      "rewrite": "Some classmates suspect that Yuna forgot to bring her artwork.",
+      "explanation_ja": "絵を忘れたのではないかと思います。"
+    },
+    {
+      "source": "She hopes each person will think of a different scene.",
+      "rewrite": "She hopes visitors will imagine their own scenes.",
+      "explanation_ja": "各自の風景を思い浮かべてほしいのです。"
+    },
+    {
+      "source": "Everyone is free to enjoy the frame in a different way.",
+      "rewrite": "Visitors may experience the frame in their own ways.",
+      "explanation_ja": "自由な鑑賞が認められます。"
+    },
+    {
+      "source": "An empty frame can encourage people to create their own meaning.",
+      "rewrite": "The frame invites people to make personal meaning.",
+      "explanation_ja": "額が自分なりの意味を生むきっかけです。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "As a result",
+        "In addition",
+        "However",
+        "For example"
+      ],
+      "explanation_ja": "他の絵と空の額を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "In contrast",
+        "For example",
+        "However",
+        "As a result"
+      ],
+      "explanation_ja": "想像する場所の例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "For example",
+        "As a result",
+        "Moreover"
+      ],
+      "explanation_ja": "すぐには伝わらない来訪者もいることを示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "For example",
+        "However",
+        "Meanwhile",
+        "As a result"
+      ],
+      "explanation_ja": "芸術の意味を話し合う結果です。"
+    }
+  ]
+}
