@@ -1,0 +1,716 @@
+{
+  "id": "L08-017",
+  "category_id": "L08",
+  "title": "A Museum Label with Two Authors",
+  "title_ja": "二人の作者による展示解説",
+  "level_id": "eiken-2",
+  "status": "draft",
+  "original": true,
+  "word_count": 353,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "人物・具体的な出来事は架空の思考実験・教材例。実在の調査・統計を示すものではない。制作台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Imagine a small museum preparing an exhibition of handmade objects donated by people in the surrounding community.",
+          "ja": "周辺地域の人々が寄贈した手作り品の展示を準備する小さな博物館を想像しよう。"
+        },
+        {
+          "en": "Among the objects is a woven basket that a retired shopkeeper used to carry vegetables home from the market.",
+          "ja": "展示品の中には引退した店主が市場から野菜を運ぶために使った編みかごがある。"
+        },
+        {
+          "en": "A curator writes a label describing the material, technique, age, and physical condition of the basket.",
+          "ja": "学芸員はかごの素材、技法、年代、物理的状態を説明する解説を書く。"
+        },
+        {
+          "en": "The information is accurate within the fictional example, but the donor feels that something significant is missing.",
+          "ja": "架空の例の中で情報は正確だが寄贈者は重要な何かが欠けていると感じる。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "For the retired shopkeeper, the basket is associated with conversations she had with neighbors on the way to the market.",
+          "ja": "引退した店主にとってかごは市場へ向かう途中で近所の人と交わした会話と結びついている。"
+        },
+        {
+          "en": "She remembers borrowing it from a relative and eventually learning to repair its handle herself.",
+          "ja": "親族から借り最終的に取っ手を自分で修理することを学んだと覚えている。"
+        },
+        {
+          "en": "None of these memories can be inferred simply by examining the appearance of the object.",
+          "ja": "これらの記憶はいずれも物の外見を調べるだけでは推測できない。"
+        },
+        {
+          "en": "The curator realizes that technical descriptions and personal accounts can answer quite different questions about the same item.",
+          "ja": "学芸員は技術的記述と個人の話が同じ品について異なる問いに答え得ると気づく。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The museum decides to experiment with a label consisting of two clearly distinguished sections.",
+          "ja": "博物館は明確に区別した二つの部分からなる解説を試すことにする。"
+        },
+        {
+          "en": "The first section describes the object using information that the museum can reasonably verify.",
+          "ja": "最初の部分は博物館が合理的に確認できる情報で物を記述する。"
+        },
+        {
+          "en": "The second contains a short personal account attributed to the donor and published with her permission.",
+          "ja": "二つ目には寄贈者に帰属し本人の許可を得た短い個人の話を載せる。"
+        },
+        {
+          "en": "The two sections are presented together without suggesting that every visitor must interpret the object in the same way.",
+          "ja": "来館者全員が同じ解釈をする必要があるとは示さず両方を一緒に提示する。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "During a trial visit, some readers concentrate on the design and construction of the basket, while others become interested in its social history.",
+          "ja": "試験的な見学でかごの設計と作り方に集中する人も社会的歴史に関心を持つ人もいる。"
+        },
+        {
+          "en": "The museum staff discuss whether the personal story might be mistaken for a complete account of everyday life in the entire community.",
+          "ja": "職員は個人の話が地域全体の日常生活の完全な説明と誤解されるかもしれないと話し合う。"
+        },
+        {
+          "en": "They therefore identify the source of the testimony and avoid making claims that go beyond what the donor has actually described.",
+          "ja": "そこで証言の出所を明示し寄贈者が実際に述べた内容を超える主張を避ける。"
+        },
+        {
+          "en": "They also invite other contributors to share experiences that may differ from those presented in the exhibition.",
+          "ja": "展示された経験とは異なるかもしれない経験をほかの提供者に共有するよう促す。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The example illustrates that an object can have several kinds of significance without those meanings necessarily contradicting one another.",
+          "ja": "この例は物が複数の意味を持っても、それらが必ずしも矛盾しないことを示す。"
+        },
+        {
+          "en": "A description of its physical features and an account of its personal use can complement each other.",
+          "ja": "物理的特徴の記述と個人的な使用の話は補い合える。"
+        },
+        {
+          "en": "However, distinguishing the evidence supporting each description remains an essential part of responsible interpretation.",
+          "ja": "しかし各記述を支える根拠を区別することは責任ある解釈に欠かせない。"
+        },
+        {
+          "en": "The basket becomes meaningful not because one author controls its story, but because several perspectives are carefully brought into conversation.",
+          "ja": "かごは一人の作者が物語を支配するのでなく、複数の視点が慎重に対話に持ち込まれることで意味を持つ。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "museum",
+      "ja": "博物館",
+      "synonym": "gallery",
+      "definition": "a place exhibiting objects"
+    },
+    {
+      "term": "exhibition",
+      "ja": "展示",
+      "synonym": "display",
+      "definition": "a public presentation"
+    },
+    {
+      "term": "handmade",
+      "ja": "手作りの",
+      "synonym": "handcrafted",
+      "definition": "made by hand"
+    },
+    {
+      "term": "donated",
+      "ja": "寄贈された",
+      "synonym": "given",
+      "definition": "given without payment"
+    },
+    {
+      "term": "surrounding",
+      "ja": "周辺の",
+      "synonym": "nearby",
+      "definition": "located around a place"
+    },
+    {
+      "term": "community",
+      "ja": "地域社会",
+      "synonym": "local area",
+      "definition": "people living in an area"
+    },
+    {
+      "term": "woven",
+      "ja": "編まれた",
+      "synonym": "interlaced",
+      "definition": "made by crossing strands"
+    },
+    {
+      "term": "basket",
+      "ja": "かご",
+      "synonym": "container",
+      "definition": "a container made from interlaced material"
+    },
+    {
+      "term": "retired",
+      "ja": "引退した",
+      "synonym": "former",
+      "definition": "no longer working in a previous job"
+    },
+    {
+      "term": "shopkeeper",
+      "ja": "店主",
+      "synonym": "store owner",
+      "definition": "a person managing a shop"
+    },
+    {
+      "term": "curator",
+      "ja": "学芸員",
+      "synonym": "collection manager",
+      "definition": "a specialist managing museum collections"
+    },
+    {
+      "term": "label",
+      "ja": "解説",
+      "synonym": "caption",
+      "definition": "text identifying or explaining an exhibit"
+    },
+    {
+      "term": "material",
+      "ja": "素材",
+      "synonym": "substance",
+      "definition": "what something is made of"
+    },
+    {
+      "term": "technique",
+      "ja": "技法",
+      "synonym": "method",
+      "definition": "a way of doing something"
+    },
+    {
+      "term": "physical",
+      "ja": "物理的な",
+      "synonym": "material",
+      "definition": "relating to tangible features"
+    },
+    {
+      "term": "condition",
+      "ja": "状態",
+      "synonym": "state",
+      "definition": "the state of something"
+    },
+    {
+      "term": "accurate",
+      "ja": "正確な",
+      "synonym": "correct",
+      "definition": "free from error"
+    },
+    {
+      "term": "fictional",
+      "ja": "架空の",
+      "synonym": "imaginary",
+      "definition": "existing in imagination"
+    },
+    {
+      "term": "donor",
+      "ja": "寄贈者",
+      "synonym": "giver",
+      "definition": "a person who gives something"
+    },
+    {
+      "term": "significant",
+      "ja": "重要な",
+      "synonym": "important",
+      "definition": "having considerable importance"
+    },
+    {
+      "term": "associated",
+      "ja": "結びついた",
+      "synonym": "linked",
+      "definition": "connected with something"
+    },
+    {
+      "term": "conversations",
+      "ja": "会話",
+      "synonym": "discussions",
+      "definition": "exchanges of spoken words"
+    },
+    {
+      "term": "borrowing",
+      "ja": "借りること",
+      "synonym": "taking on loan",
+      "definition": "using something temporarily"
+    },
+    {
+      "term": "relative",
+      "ja": "親族",
+      "synonym": "family member",
+      "definition": "a person related by family"
+    },
+    {
+      "term": "eventually",
+      "ja": "最終的に",
+      "synonym": "in the end",
+      "definition": "after some time"
+    },
+    {
+      "term": "repair",
+      "ja": "修理する",
+      "synonym": "fix",
+      "definition": "restore to good condition"
+    },
+    {
+      "term": "handle",
+      "ja": "取っ手",
+      "synonym": "grip",
+      "definition": "a part used to hold something"
+    },
+    {
+      "term": "inferred",
+      "ja": "推測された",
+      "synonym": "deduced",
+      "definition": "concluded from information"
+    },
+    {
+      "term": "examining",
+      "ja": "調べること",
+      "synonym": "inspecting",
+      "definition": "looking at carefully"
+    },
+    {
+      "term": "appearance",
+      "ja": "外見",
+      "synonym": "look",
+      "definition": "the way something looks"
+    },
+    {
+      "term": "technical",
+      "ja": "技術的な",
+      "synonym": "specialized",
+      "definition": "relating to practical methods"
+    },
+    {
+      "term": "accounts",
+      "ja": "話・記述",
+      "synonym": "descriptions",
+      "definition": "spoken or written descriptions"
+    },
+    {
+      "term": "experiment",
+      "ja": "試す",
+      "synonym": "test",
+      "definition": "try an approach"
+    },
+    {
+      "term": "distinguished",
+      "ja": "区別された",
+      "synonym": "differentiated",
+      "definition": "recognized as different"
+    },
+    {
+      "term": "reasonably",
+      "ja": "合理的に",
+      "synonym": "sensibly",
+      "definition": "in a sensible way"
+    },
+    {
+      "term": "verify",
+      "ja": "確認する",
+      "synonym": "check",
+      "definition": "establish that something is true"
+    },
+    {
+      "term": "attributed",
+      "ja": "帰属された",
+      "synonym": "credited",
+      "definition": "identified as coming from someone"
+    },
+    {
+      "term": "permission",
+      "ja": "許可",
+      "synonym": "consent",
+      "definition": "agreement allowing an action"
+    },
+    {
+      "term": "interpret",
+      "ja": "解釈する",
+      "synonym": "understand",
+      "definition": "assign meaning to something"
+    },
+    {
+      "term": "trial",
+      "ja": "試験的な",
+      "synonym": "test",
+      "definition": "done to evaluate something"
+    },
+    {
+      "term": "concentrate",
+      "ja": "集中する",
+      "synonym": "focus",
+      "definition": "direct attention toward something"
+    },
+    {
+      "term": "construction",
+      "ja": "作り方",
+      "synonym": "structure",
+      "definition": "the way something is built"
+    },
+    {
+      "term": "testimony",
+      "ja": "証言",
+      "synonym": "account",
+      "definition": "a person's statement about an experience"
+    },
+    {
+      "term": "contributors",
+      "ja": "提供者",
+      "synonym": "participants",
+      "definition": "people giving something to a shared effort"
+    },
+    {
+      "term": "significance",
+      "ja": "意味・重要性",
+      "synonym": "importance",
+      "definition": "the meaning or value of something"
+    },
+    {
+      "term": "contradicting",
+      "ja": "矛盾すること",
+      "synonym": "conflicting with",
+      "definition": "being inconsistent with something"
+    },
+    {
+      "term": "complement",
+      "ja": "補い合う",
+      "synonym": "supplement",
+      "definition": "complete or improve something"
+    },
+    {
+      "term": "evidence",
+      "ja": "根拠",
+      "synonym": "support",
+      "definition": "information supporting a conclusion"
+    },
+    {
+      "term": "essential",
+      "ja": "欠かせない",
+      "synonym": "necessary",
+      "definition": "absolutely important"
+    },
+    {
+      "term": "interpretation",
+      "ja": "解釈",
+      "synonym": "reading",
+      "definition": "a way of understanding something"
+    },
+    {
+      "term": "perspectives",
+      "ja": "視点",
+      "synonym": "viewpoints",
+      "definition": "ways of seeing something"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What object is exhibited?",
+      "answer": 2,
+      "options": [
+        "A painted window.",
+        "A modern computer.",
+        "A woven basket.",
+        "A railway ticket."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "編みかごを展示。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What did the curator first describe?",
+      "answer": 0,
+      "options": [
+        "Material, technique, age, and condition.",
+        "The donor's entire family history.",
+        "The price of every vegetable.",
+        "The names of all market visitors."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "素材・技法など。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What does the donor associate with the basket?",
+      "answer": 1,
+      "options": [
+        "A competition at school.",
+        "Conversations on the way to the market.",
+        "The construction of the museum.",
+        "A trip to another planet."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "市場へ行く途中の会話。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why is examining appearance insufficient?",
+      "answer": 3,
+      "options": [
+        "The object has no visible features.",
+        "All personal accounts are false.",
+        "The curator cannot see the basket.",
+        "Personal experiences cannot necessarily be inferred from physical features."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "物の外見だけでは経験は分からない。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What did the second label section contain?",
+      "answer": 1,
+      "options": [
+        "A universal history of the town.",
+        "A personal account with permission.",
+        "An invented quotation.",
+        "The curator's private address."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "許可を得た個人の話。"
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why distinguish the two sections?",
+      "answer": 0,
+      "options": [
+        "They present different kinds of information and evidence.",
+        "One section must be incorrect.",
+        "The object can have only one meaning.",
+        "Visitors should ignore personal memories."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "異なる情報の種類を区別。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What did staff worry about?",
+      "answer": 3,
+      "options": [
+        "Visitors might read the date incorrectly in every case.",
+        "The basket might become a photograph.",
+        "The donor had never used the basket.",
+        "A personal story might be mistaken for a complete community history."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "一人の話を地域全体と誤解する可能性。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "How did staff address that concern?",
+      "answer": 2,
+      "options": [
+        "Removed all source information.",
+        "Invented extra accounts.",
+        "Identified the source and avoided unsupported claims.",
+        "Required everyone to agree."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "出所を明示し根拠を超えない。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does complement mean?",
+      "answer": 0,
+      "options": [
+        "Complete or improve something else.",
+        "Contradict without reason.",
+        "Hide from view.",
+        "Make a copy of something."
+      ],
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "補い合う。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the main point?",
+      "answer": 2,
+      "options": [
+        "A museum must use only technical labels.",
+        "Every memory represents an entire society.",
+        "Several perspectives can enrich an exhibit when their sources are distinguished.",
+        "The physical object alone reveals all meanings."
+      ],
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "根拠を区別した複数の視点が理解を豊かにする。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "that a retired shopkeeper used",
+      "explanation_ja": "that以下がbasketを修飾する。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "can be inferred simply by examining",
+      "explanation_ja": "can be＋過去分詞で可能性の受動態、by＋動名詞は手段。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "attributed to the donor",
+      "explanation_ja": "過去分詞句がaccountを説明。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "focus": "can complement each other",
+      "explanation_ja": "canは可能性、each otherは相互関係。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Among the objects is a woven basket that a retired shopkeeper used to carry vegetables home from the market.",
+      "rewrite": "One exhibit is a woven container once used by a retired shopkeeper to bring vegetables home.",
+      "explanation_ja": "店主が使ったかご。"
+    },
+    {
+      "source": "None of these memories can be inferred simply by examining the appearance of the object.",
+      "rewrite": "Merely looking at the object cannot reveal those personal memories.",
+      "explanation_ja": "外見だけでは記憶は分からない。"
+    },
+    {
+      "source": "The second contains a short personal account attributed to the donor and published with her permission.",
+      "rewrite": "The second part presents the donor's personal story with her consent and identifies her as its source.",
+      "explanation_ja": "同意を得て出所を示す。"
+    },
+    {
+      "source": "A description of its physical features and an account of its personal use can complement each other.",
+      "rewrite": "Information about physical qualities can enrich a personal account, and vice versa.",
+      "explanation_ja": "双方が補い合う。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p2",
+      "expression": "For the retired shopkeeper",
+      "role_ja": "個人の視点に移る。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "The second",
+      "role_ja": "二種類の解説を順に示す。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "therefore",
+      "role_ja": "誤解の懸念から出所明示へ。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "However",
+      "role_ja": "多角的解釈と根拠区別の必要性。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "inferred",
+      "options": [
+        "inferred",
+        "painted",
+        "shipped",
+        "sold"
+      ],
+      "explanation_ja": "外見から推測できない。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "permission",
+      "options": [
+        "distance",
+        "permission",
+        "temperature",
+        "age"
+      ],
+      "explanation_ja": "本人の許可。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "testimony",
+      "options": [
+        "furniture",
+        "music",
+        "testimony",
+        "landscape"
+      ],
+      "explanation_ja": "証言の出所。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "answer": "complement",
+      "options": [
+        "ignore",
+        "replace",
+        "erase",
+        "complement"
+      ],
+      "explanation_ja": "互いを補う。"
+    }
+  ]
+}
