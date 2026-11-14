@@ -1,0 +1,710 @@
+{
+  "id": "L03-013",
+  "category_id": "L03",
+  "title": "The Sensor That Needed a Second Question",
+  "title_ja": "もう一つの問いが必要だったセンサー",
+  "level_id": "eiken-2",
+  "status": "draft",
+  "original": true,
+  "word_count": 382,
+  "source_links": [
+    {
+      "title": "Original lesson authoring registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "人物、具体的な出来事・実験・記録は架空の教材例。実在の調査や統計の結果ではない。参考リンクは制作台帳であり外部の実証資料ではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A student engineering team was asked to design a system that would remind people to switch off unused classroom lights.",
+          "ja": "生徒の技術チームは、使われていない教室の照明を消すよう促す仕組みを設計することになった。"
+        },
+        {
+          "en": "Their first prototype used a simple movement sensor placed near the front wall of a teaching room.",
+          "ja": "最初の試作品は教室の前方の壁に設置した簡単な動作センサーを使用した。"
+        },
+        {
+          "en": "Whenever the sensor detected no movement for a certain period, the system displayed a message encouraging someone to turn off the lights.",
+          "ja": "一定時間動作を検知しないと、照明を消すよう促すメッセージが表示された。"
+        },
+        {
+          "en": "At the beginning of the trial, the team believed that the absence of movement was a useful sign of an empty room.",
+          "ja": "試行開始時、チームは動作がないことが無人の部屋を示す有用なサインだと考えた。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "During the first week, however, several teachers reported that the reminder sometimes appeared while students were quietly reading.",
+          "ja": "しかし最初の週、数人の教師から、生徒が静かに読書している際にも通知が表示されたと報告があった。"
+        },
+        {
+          "en": "The students in those classrooms had been sitting still for long periods, so the sensor had detected very little movement.",
+          "ja": "それらの教室では生徒が長時間静止していたため、センサーはほとんど動作を検知していなかった。"
+        },
+        {
+          "en": "The engineering team realized that its original assumption had confused two different ideas: physical activity and the presence of people.",
+          "ja": "技術チームは当初の前提が身体の動きと人の存在という異なる概念を混同していたと気づいた。"
+        },
+        {
+          "en": "Although the sensor had operated as designed, the interpretation of its output was unreliable in some ordinary classroom situations.",
+          "ja": "センサーは設計通り動作していたが、通常の教室の一部の状況ではその出力の解釈が信頼できなかった。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The team then considered adding a camera, but several members raised concerns about recording individuals during their lessons.",
+          "ja": "チームは次にカメラの追加を考えたが、数人が授業中に個人を撮影することへの懸念を示した。"
+        },
+        {
+          "en": "They discussed whether the objective could be achieved without collecting images or identifying the people in the classroom.",
+          "ja": "画像を収集したり教室の人を特定したりせずに目的を達成できるか議論した。"
+        },
+        {
+          "en": "Instead of attempting to determine occupancy automatically, they redesigned the system to display a question whenever movement was absent.",
+          "ja": "在室状況を自動判定しようとする代わりに、動作がないときに質問を表示するよう再設計した。"
+        },
+        {
+          "en": "The revised message asked whether the room was empty and invited a person to confirm the answer before any action was taken.",
+          "ja": "修正したメッセージは部屋が無人かどうかを尋ね、行動を起こす前に人が答えを確認するよう促した。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "During a second trial, the students recorded when the reminder appeared and whether the people in the room considered it appropriate.",
+          "ja": "2回目の試行中、生徒たちは通知が表示された時刻と、教室の人が妥当だと考えたかどうかを記録した。"
+        },
+        {
+          "en": "They also collected comments from teachers about situations in which the message was unnecessary or distracting.",
+          "ja": "メッセージが不要だったり気が散ったりする状況について教師から意見も集めた。"
+        },
+        {
+          "en": "The revised system was not perfect, but the team could now distinguish a technical detection from a human decision.",
+          "ja": "修正した仕組みは完璧ではなかったが、チームは技術的検知と人間の判断を区別できるようになった。"
+        },
+        {
+          "en": "Rather than hide the weaknesses of their product, the students included them in their presentation at the school festival.",
+          "ja": "製品の弱点を隠す代わりに、生徒たちは学校祭での発表にそれらを含めた。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The project taught the students that a sensor does not directly answer every question that matters to its users.",
+          "ja": "この計画から生徒たちは、センサーが利用者にとって重要なすべての問いに直接答えるわけではないと学んだ。"
+        },
+        {
+          "en": "A measurement can be accurate while the conclusion drawn from it is mistaken or incomplete.",
+          "ja": "測定が正確でも、それから導かれる結論が誤っていたり不完全だったりすることがある。"
+        },
+        {
+          "en": "Designers therefore need to understand the difference between what a machine detects and what people actually want to know.",
+          "ja": "したがって設計者は機械が検知するものと人が実際に知りたいものの違いを理解する必要がある。"
+        },
+        {
+          "en": "For this team, the most valuable improvement was not a more powerful sensor but a more carefully defined question.",
+          "ja": "このチームにとって最も価値ある改善は、より高性能なセンサーではなく、より慎重に定義された問いだった。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "engineering",
+      "ja": "工学",
+      "synonym": "technical design",
+      "definition": "the practical design of systems and machines"
+    },
+    {
+      "term": "design",
+      "ja": "設計する",
+      "synonym": "plan",
+      "definition": "create a plan for something"
+    },
+    {
+      "term": "remind",
+      "ja": "思い出させる",
+      "synonym": "prompt",
+      "definition": "cause someone to remember an action"
+    },
+    {
+      "term": "switch off",
+      "ja": "消す",
+      "synonym": "turn off",
+      "definition": "stop a device from operating"
+    },
+    {
+      "term": "unused",
+      "ja": "使われていない",
+      "synonym": "idle",
+      "definition": "not being used"
+    },
+    {
+      "term": "prototype",
+      "ja": "試作品",
+      "synonym": "model",
+      "definition": "an early version made for testing"
+    },
+    {
+      "term": "sensor",
+      "ja": "センサー",
+      "synonym": "detector",
+      "definition": "a device that detects a physical condition"
+    },
+    {
+      "term": "movement",
+      "ja": "動作",
+      "synonym": "motion",
+      "definition": "a change in position"
+    },
+    {
+      "term": "detected",
+      "ja": "検知した",
+      "synonym": "sensed",
+      "definition": "noticed or measured the presence of"
+    },
+    {
+      "term": "period",
+      "ja": "期間",
+      "synonym": "interval",
+      "definition": "a length of time"
+    },
+    {
+      "term": "displayed",
+      "ja": "表示した",
+      "synonym": "showed",
+      "definition": "made something visible"
+    },
+    {
+      "term": "encouraging",
+      "ja": "促す",
+      "synonym": "urging",
+      "definition": "giving someone a reason to act"
+    },
+    {
+      "term": "trial",
+      "ja": "試行",
+      "synonym": "test",
+      "definition": "an attempt to evaluate something"
+    },
+    {
+      "term": "absence",
+      "ja": "不在",
+      "synonym": "lack",
+      "definition": "the state of not being present"
+    },
+    {
+      "term": "reported",
+      "ja": "報告した",
+      "synonym": "informed",
+      "definition": "gave information about something"
+    },
+    {
+      "term": "reminder",
+      "ja": "通知",
+      "synonym": "prompt",
+      "definition": "something that helps someone remember"
+    },
+    {
+      "term": "quietly",
+      "ja": "静かに",
+      "synonym": "silently",
+      "definition": "with little noise"
+    },
+    {
+      "term": "assumption",
+      "ja": "前提",
+      "synonym": "supposition",
+      "definition": "something accepted without adequate proof"
+    },
+    {
+      "term": "confused",
+      "ja": "混同した",
+      "synonym": "mixed up",
+      "definition": "failed to distinguish separate things"
+    },
+    {
+      "term": "physical",
+      "ja": "身体的な",
+      "synonym": "bodily",
+      "definition": "relating to the body"
+    },
+    {
+      "term": "presence",
+      "ja": "存在",
+      "synonym": "attendance",
+      "definition": "the state of being present"
+    },
+    {
+      "term": "operated",
+      "ja": "動作した",
+      "synonym": "functioned",
+      "definition": "worked as a device"
+    },
+    {
+      "term": "interpretation",
+      "ja": "解釈",
+      "synonym": "understanding",
+      "definition": "the meaning assigned to something"
+    },
+    {
+      "term": "output",
+      "ja": "出力",
+      "synonym": "result",
+      "definition": "information produced by a system"
+    },
+    {
+      "term": "unreliable",
+      "ja": "信頼できない",
+      "synonym": "undependable",
+      "definition": "not consistently trustworthy"
+    },
+    {
+      "term": "ordinary",
+      "ja": "通常の",
+      "synonym": "normal",
+      "definition": "not unusual or special"
+    },
+    {
+      "term": "concerns",
+      "ja": "懸念",
+      "synonym": "worries",
+      "definition": "feelings of worry about something"
+    },
+    {
+      "term": "recording",
+      "ja": "記録すること",
+      "synonym": "capturing",
+      "definition": "storing sounds or images"
+    },
+    {
+      "term": "individuals",
+      "ja": "個人",
+      "synonym": "people",
+      "definition": "separate persons"
+    },
+    {
+      "term": "objective",
+      "ja": "目的",
+      "synonym": "goal",
+      "definition": "a result someone aims to achieve"
+    },
+    {
+      "term": "achieved",
+      "ja": "達成された",
+      "synonym": "accomplished",
+      "definition": "successfully reached"
+    },
+    {
+      "term": "identifying",
+      "ja": "特定すること",
+      "synonym": "recognizing",
+      "definition": "determining who or what something is"
+    },
+    {
+      "term": "determine",
+      "ja": "判定する",
+      "synonym": "establish",
+      "definition": "find out with confidence"
+    },
+    {
+      "term": "occupancy",
+      "ja": "在室状況",
+      "synonym": "presence of users",
+      "definition": "the state of a space being occupied"
+    },
+    {
+      "term": "automatically",
+      "ja": "自動的に",
+      "synonym": "by itself",
+      "definition": "without direct human action"
+    },
+    {
+      "term": "redesigned",
+      "ja": "再設計した",
+      "synonym": "reworked",
+      "definition": "designed again in a different way"
+    },
+    {
+      "term": "absent",
+      "ja": "存在しない",
+      "synonym": "missing",
+      "definition": "not present"
+    },
+    {
+      "term": "revised",
+      "ja": "修正された",
+      "synonym": "modified",
+      "definition": "changed to improve something"
+    },
+    {
+      "term": "confirm",
+      "ja": "確認する",
+      "synonym": "verify",
+      "definition": "check that something is true"
+    },
+    {
+      "term": "appropriate",
+      "ja": "妥当な",
+      "synonym": "suitable",
+      "definition": "right for a situation"
+    },
+    {
+      "term": "unnecessary",
+      "ja": "不要な",
+      "synonym": "unneeded",
+      "definition": "not required"
+    },
+    {
+      "term": "distracting",
+      "ja": "気が散る",
+      "synonym": "disruptive",
+      "definition": "drawing attention away from a task"
+    },
+    {
+      "term": "distinguish",
+      "ja": "区別する",
+      "synonym": "tell apart",
+      "definition": "recognize the difference between things"
+    },
+    {
+      "term": "technical",
+      "ja": "技術的な",
+      "synonym": "technological",
+      "definition": "related to practical technical methods"
+    },
+    {
+      "term": "weaknesses",
+      "ja": "弱点",
+      "synonym": "limitations",
+      "definition": "features that make something less effective"
+    },
+    {
+      "term": "measurement",
+      "ja": "測定",
+      "synonym": "reading",
+      "definition": "an amount found by measuring"
+    },
+    {
+      "term": "accurate",
+      "ja": "正確な",
+      "synonym": "correct",
+      "definition": "free from measurement error"
+    },
+    {
+      "term": "conclusion",
+      "ja": "結論",
+      "synonym": "inference",
+      "definition": "a judgment drawn from information"
+    },
+    {
+      "term": "incomplete",
+      "ja": "不完全な",
+      "synonym": "partial",
+      "definition": "not having all required parts"
+    },
+    {
+      "term": "defined",
+      "ja": "定義された",
+      "synonym": "specified",
+      "definition": "made clear and precise"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What was the purpose of the team's first system?",
+      "options": [
+        "Measure the temperature outside.",
+        "Automatically grade classroom tests.",
+        "Remind people to turn off unused lights.",
+        "Record students' conversations."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "使われていない照明を消すよう促す目的。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What triggered the first reminder?",
+      "options": [
+        "No detected movement for a period.",
+        "A teacher opening a window.",
+        "A student answering a question.",
+        "An increase in temperature."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "一定時間動作を検知しないこと。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "When did teachers sometimes see an incorrect reminder?",
+      "options": [
+        "During outdoor sports lessons.",
+        "When the lights were already broken.",
+        "Whenever the classroom was crowded and noisy.",
+        "While students were quietly reading."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "静かに読書している時にも表示された。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "What distinction had the students overlooked?",
+      "options": [
+        "All sensors detect sound rather than motion.",
+        "Movement is not the same as human presence.",
+        "People cannot sit still for long periods.",
+        "Teachers never use classroom lights."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "動作と在室は別の概念。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "Why did some members object to adding a camera?",
+      "options": [
+        "They believed cameras cannot capture images.",
+        "They wanted to collect more personal details.",
+        "They worried about recording individuals.",
+        "They wanted to remove all reminders."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "個人を撮影することへの懸念。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "How was the system redesigned?",
+      "options": [
+        "It asked a person to confirm whether the room was empty.",
+        "It turned every light off immediately.",
+        "It identified every student by name.",
+        "It stopped using a movement sensor entirely."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "無人かどうか人に確認を求めた。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What did the team collect in the second trial?",
+      "options": [
+        "Students' exam grades.",
+        "Teacher feedback about unnecessary or distracting messages.",
+        "Photos of every lesson.",
+        "Names of all visitors."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "不要または気が散る場面の意見を収集した。"
+    },
+    {
+      "id": "q8",
+      "skill": "vocabulary",
+      "prompt": "What does distinguish mean here?",
+      "options": [
+        "Make two things identical.",
+        "Remove from a room.",
+        "Measure at a fixed time.",
+        "Recognize the difference between."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "区別するという意味。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What can be true of an accurate measurement?",
+      "options": [
+        "A conclusion based on it can still be mistaken.",
+        "It always answers the user's real question.",
+        "It eliminates every need for human judgment.",
+        "It guarantees confidential data handling."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "正確な測定でも解釈が誤る場合がある。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "Which statement best expresses the author's point?",
+      "options": [
+        "More powerful sensors always solve design problems.",
+        "Cameras are necessary in every classroom.",
+        "Define the real question before trusting a technical signal.",
+        "Human feedback makes experiments unnecessary."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "検知対象と知りたいことを区別する。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "Whenever the sensor detected no movement",
+      "explanation_ja": "wheneverは〜するたびにという時間条件。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "Although the sensor had operated as designed",
+      "explanation_ja": "althoughは譲歩を示す。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "focus": "whether the objective could be achieved",
+      "explanation_ja": "whether節は間接疑問、could be achievedは受動態。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "not a more powerful sensor but a more carefully defined question",
+      "explanation_ja": "not A but BはAでなくBを強調する。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p2",
+      "expression": "however",
+      "role_ja": "初期想定と実際の問題を対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "Although",
+      "role_ja": "正常動作と解釈の問題を対比。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Instead of",
+      "role_ja": "自動判定から人間の確認への転換。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "therefore",
+      "role_ja": "前段の考察から設計者への結論を示す。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Whenever the sensor detected no movement for a certain period, the system displayed a message encouraging someone to turn off the lights.",
+      "rewrite": "Every time the detector registered no motion for a set time, a message appeared asking someone to turn the lights off.",
+      "explanation_ja": "一定時間動きを検知しないたびに通知が出た。"
+    },
+    {
+      "source": "Although the sensor had operated as designed, the interpretation of its output was unreliable in some ordinary classroom situations.",
+      "rewrite": "The device worked as intended, yet its data could be interpreted incorrectly in normal classes.",
+      "explanation_ja": "装置は正常でも解釈が誤る場合があった。"
+    },
+    {
+      "source": "They discussed whether the objective could be achieved without collecting images or identifying the people in the classroom.",
+      "rewrite": "They considered if their goal was possible without gathering images or knowing people's identities.",
+      "explanation_ja": "画像や個人の特定なしで目的を達成できるか考えた。"
+    },
+    {
+      "source": "For this team, the most valuable improvement was not a more powerful sensor but a more carefully defined question.",
+      "rewrite": "What improved the project most was a clearer question rather than a stronger detector.",
+      "explanation_ja": "設問の明確化が最大の改善だった。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "answer": "prototype",
+      "options": [
+        "prototype",
+        "receipt",
+        "portrait",
+        "holiday"
+      ],
+      "explanation_ja": "初期試作品を作った。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "presence",
+      "options": [
+        "absence",
+        "presence",
+        "distance",
+        "temperature"
+      ],
+      "explanation_ja": "活動と人の存在を混同した。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "answer": "confirm",
+      "options": [
+        "erase",
+        "ignore",
+        "confirm",
+        "delay"
+      ],
+      "explanation_ja": "行動前に人が答えを確認した。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "distracting",
+      "options": [
+        "refreshing",
+        "invisible",
+        "cheerful",
+        "distracting"
+      ],
+      "explanation_ja": "気が散る状況を調べた。"
+    }
+  ]
+}
