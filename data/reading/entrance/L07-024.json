@@ -1,0 +1,710 @@
+{
+  "id": "L07-024",
+  "category_id": "L07",
+  "title": "The Price of Being Available",
+  "title_ja": "いつでも利用できることの価格",
+  "level_id": "university-mid",
+  "status": "draft",
+  "original": true,
+  "word_count": 501,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "オリジナル論説・架空例。実在の人物・調査結果・史料・収蔵品ではない。制作台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A fictional business rents tools to people who need them for occasional repairs or small construction projects, allowing customers to avoid buying equipment that they would use only rarely.",
+          "ja": "架空の企業は時折の修理や小規模工事に工具が必要な人に貸し出し、めったに使わない機器を購入せずにすむようにする。"
+        },
+        {
+          "en": "The manager initially evaluates the performance of the business by calculating the proportion of time during which each tool is rented to a customer.",
+          "ja": "管理者は当初、各工具を顧客が借りている時間の割合で業績を評価する。"
+        },
+        {
+          "en": "Tools that remain in the shop for several consecutive days appear to represent resources that are not producing any immediate financial return.",
+          "ja": "数日連続で店に残る工具は即時の金銭的利益を生まない資源に見える。"
+        },
+        {
+          "en": "She therefore considers selling some of the equipment that has been used least frequently in order to reduce the amount of money invested in the collection.",
+          "ja": "そこで工具群への投資額を減らすため利用頻度が最も低い機器の一部を売ることを考える。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "An employee asks whether the availability of a tool might itself contribute to the value of the service, even during periods when nobody happens to rent it.",
+          "ja": "工具を誰も借りていない期間でも利用可能であること自体がサービスの価値に貢献し得るか職員が尋ねる。"
+        },
+        {
+          "en": "A customer who discovers an unexpected problem at home may appreciate being able to obtain the appropriate equipment without having to reserve it several weeks in advance.",
+          "ja": "家庭で予期しない問題に気づいた顧客は数週間前から予約せず適切な機器を得られることをありがたく思うかもしれない。"
+        },
+        {
+          "en": "If every item were rented continuously, the business might be unable to respond to requests made by people whose need for assistance could not have been predicted.",
+          "ja": "全品が連続して貸し出されていれば、援助の必要を予測できなかった人の依頼に応じられないかもしれない。"
+        },
+        {
+          "en": "The employee therefore distinguishes the revenue generated through actual rentals from the practical value that customers may attach to the possibility of obtaining equipment when necessary.",
+          "ja": "そこで実際の貸出による収益と必要時に機器を得られる可能性に顧客が付す実務的価値を区別する。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The manager nevertheless recognizes that maintaining an unnecessarily large collection could create significant costs associated with storage, maintenance, and the replacement of damaged items.",
+          "ja": "それでも不必要に大きい工具群の維持には保管、保守、損傷品の交換に伴う大きな費用が生じ得ると認識する。"
+        },
+        {
+          "en": "The business cannot assume that every unused item is a valuable reserve merely because some customers occasionally require unexpected assistance.",
+          "ja": "時折予期しない援助を必要とする客がいるというだけで全未使用品が有益な予備だと想定できない。"
+        },
+        {
+          "en": "Employees consequently propose recording both unsuccessful requests and completed rentals, together with information about whether customers were able to obtain an acceptable alternative.",
+          "ja": "そこで職員は不成立の依頼と成立した貸出の両方を、受け入れ可能な代替品を得られたかの情報とともに記録する案を出す。"
+        },
+        {
+          "en": "These records could help the manager examine whether maintaining additional capacity for particular categories of equipment addresses a meaningful problem rather than simply increasing the size of the collection.",
+          "ja": "これらは特定機器の予備能力が単に工具数を増やすのでなく意味のある問題に対応するかを調べる助けになり得る。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The proposed approach does not establish how many tools any actual rental business should purchase, since that decision would depend on costs, demand, and the characteristics of its customers.",
+          "ja": "提案は実際の貸出企業が何個購入すべきかを確立しない。その判断は費用、需要、顧客特性に依存するからだ。"
+        },
+        {
+          "en": "It is instead a hypothetical illustration of the limitations of evaluating an organization's resources exclusively through measures of current utilization.",
+          "ja": "むしろ組織資源を現在の稼働率だけで評価する限界についての仮想例だ。"
+        },
+        {
+          "en": "A service that responds to unpredictable needs may require resources that are not occupied at every moment of its operation.",
+          "ja": "予測不能な必要に応じるサービスには稼働中常に使われていない資源が必要かもしれない。"
+        },
+        {
+          "en": "The challenge is to determine when such resources provide a justified capacity for responding to demand and when they merely impose expenses that could reasonably be avoided.",
+          "ja": "課題は資源がいつ需要対応の正当化された能力を提供し、いつ合理的に避けられる費用だけを課すか判断することだ。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "Efficiency does not necessarily mean maximizing the immediate use of every available resource without regard to the purpose for which the resource has been provided.",
+          "ja": "効率は資源の提供目的を無視して全資源の即時利用を最大化することとは限らない。"
+        },
+        {
+          "en": "A numerical indicator can reveal an important aspect of performance while concealing another aspect that is difficult to measure through the same procedure.",
+          "ja": "数値指標は業績の重要側面を明らかにしても同手順で測りにくい別側面を隠すことがある。"
+        },
+        {
+          "en": "Responsible business decisions therefore require attention to the relationship between current expenditure and the opportunities that an organization seeks to make available to its customers.",
+          "ja": "責任ある経営判断には現在支出と顧客に提供しようとする機会の関係への注意が必要だ。"
+        },
+        {
+          "en": "In the imagined tool shop, an empty rental schedule may signal either waste or an essential part of the service, depending on the circumstances that give it meaning.",
+          "ja": "架空の工具店で空きのある日程は意味を与える事情に応じて浪費またはサービスの重要部分を示し得る。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "rents",
+      "ja": "貸し出す",
+      "synonym": "leases",
+      "definition": "allows use in exchange for payment"
+    },
+    {
+      "term": "occasional",
+      "ja": "時折の",
+      "synonym": "infrequent",
+      "definition": "happening sometimes"
+    },
+    {
+      "term": "repairs",
+      "ja": "修理",
+      "synonym": "fixes",
+      "definition": "actions restoring working condition"
+    },
+    {
+      "term": "construction",
+      "ja": "工事",
+      "synonym": "building",
+      "definition": "process of making a structure"
+    },
+    {
+      "term": "equipment",
+      "ja": "機器",
+      "synonym": "tools",
+      "definition": "items needed for a task"
+    },
+    {
+      "term": "initially",
+      "ja": "当初",
+      "synonym": "at first",
+      "definition": "at the beginning"
+    },
+    {
+      "term": "evaluates",
+      "ja": "評価する",
+      "synonym": "assesses",
+      "definition": "judges quality or value"
+    },
+    {
+      "term": "performance",
+      "ja": "業績",
+      "synonym": "achievement",
+      "definition": "how well an activity is done"
+    },
+    {
+      "term": "calculating",
+      "ja": "計算すること",
+      "synonym": "computing",
+      "definition": "determining a number"
+    },
+    {
+      "term": "proportion",
+      "ja": "割合",
+      "synonym": "fraction",
+      "definition": "part of a whole"
+    },
+    {
+      "term": "consecutive",
+      "ja": "連続した",
+      "synonym": "successive",
+      "definition": "following without interruption"
+    },
+    {
+      "term": "represent",
+      "ja": "表す",
+      "synonym": "stand for",
+      "definition": "show or symbolize"
+    },
+    {
+      "term": "immediate",
+      "ja": "即時の",
+      "synonym": "instant",
+      "definition": "happening without delay"
+    },
+    {
+      "term": "financial",
+      "ja": "金銭的な",
+      "synonym": "monetary",
+      "definition": "relating to money"
+    },
+    {
+      "term": "return",
+      "ja": "利益",
+      "synonym": "gain",
+      "definition": "benefit received from investment"
+    },
+    {
+      "term": "frequently",
+      "ja": "頻繁に",
+      "synonym": "often",
+      "definition": "on many occasions"
+    },
+    {
+      "term": "invested",
+      "ja": "投資された",
+      "synonym": "committed",
+      "definition": "put resources into an activity"
+    },
+    {
+      "term": "availability",
+      "ja": "利用可能性",
+      "synonym": "accessibility",
+      "definition": "state of being available"
+    },
+    {
+      "term": "contribute",
+      "ja": "貢献する",
+      "synonym": "add",
+      "definition": "help produce a result"
+    },
+    {
+      "term": "unexpected",
+      "ja": "予期しない",
+      "synonym": "unforeseen",
+      "definition": "not expected"
+    },
+    {
+      "term": "appreciate",
+      "ja": "ありがたく思う",
+      "synonym": "value",
+      "definition": "recognize the usefulness of"
+    },
+    {
+      "term": "obtain",
+      "ja": "得る",
+      "synonym": "acquire",
+      "definition": "get something"
+    },
+    {
+      "term": "appropriate",
+      "ja": "適切な",
+      "synonym": "suitable",
+      "definition": "right for a purpose"
+    },
+    {
+      "term": "reserve",
+      "ja": "予約する",
+      "synonym": "book",
+      "definition": "arrange access in advance"
+    },
+    {
+      "term": "continuously",
+      "ja": "連続して",
+      "synonym": "without interruption",
+      "definition": "without breaks"
+    },
+    {
+      "term": "respond",
+      "ja": "応じる",
+      "synonym": "react",
+      "definition": "act in response"
+    },
+    {
+      "term": "assistance",
+      "ja": "援助",
+      "synonym": "help",
+      "definition": "support given to others"
+    },
+    {
+      "term": "predicted",
+      "ja": "予測された",
+      "synonym": "anticipated",
+      "definition": "expected before occurring"
+    },
+    {
+      "term": "distinguishes",
+      "ja": "区別する",
+      "synonym": "differentiates",
+      "definition": "recognizes differences"
+    },
+    {
+      "term": "revenue",
+      "ja": "収益",
+      "synonym": "income",
+      "definition": "money received by a business"
+    },
+    {
+      "term": "generated",
+      "ja": "生まれた",
+      "synonym": "produced",
+      "definition": "caused to exist"
+    },
+    {
+      "term": "attach",
+      "ja": "付与する",
+      "synonym": "assign",
+      "definition": "connect a value with something"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "even so",
+      "definition": "despite that fact"
+    },
+    {
+      "term": "significant",
+      "ja": "大きな",
+      "synonym": "considerable",
+      "definition": "important in size or effect"
+    },
+    {
+      "term": "storage",
+      "ja": "保管",
+      "synonym": "keeping",
+      "definition": "act of keeping for future use"
+    },
+    {
+      "term": "maintenance",
+      "ja": "保守",
+      "synonym": "upkeep",
+      "definition": "work keeping something in good condition"
+    },
+    {
+      "term": "replacement",
+      "ja": "交換",
+      "synonym": "substitution",
+      "definition": "act of putting another item in place"
+    },
+    {
+      "term": "damaged",
+      "ja": "損傷した",
+      "synonym": "harmed",
+      "definition": "adversely affected"
+    },
+    {
+      "term": "unsuccessful",
+      "ja": "不成立の",
+      "synonym": "failed",
+      "definition": "not achieving a desired result"
+    },
+    {
+      "term": "acceptable",
+      "ja": "受け入れ可能な",
+      "synonym": "suitable",
+      "definition": "able to be accepted"
+    },
+    {
+      "term": "alternative",
+      "ja": "代替品",
+      "synonym": "option",
+      "definition": "different possible choice"
+    },
+    {
+      "term": "capacity",
+      "ja": "能力・余力",
+      "synonym": "capability",
+      "definition": "ability to handle an amount"
+    },
+    {
+      "term": "categories",
+      "ja": "分類",
+      "synonym": "classes",
+      "definition": "groups of similar items"
+    },
+    {
+      "term": "utilization",
+      "ja": "稼働率・利用",
+      "synonym": "use",
+      "definition": "extent to which something is used"
+    },
+    {
+      "term": "unpredictable",
+      "ja": "予測不能な",
+      "synonym": "unforeseeable",
+      "definition": "not able to be predicted"
+    },
+    {
+      "term": "justified",
+      "ja": "正当化された",
+      "synonym": "warranted",
+      "definition": "supported by good reasons"
+    },
+    {
+      "term": "expenditure",
+      "ja": "支出",
+      "synonym": "spending",
+      "definition": "money spent"
+    },
+    {
+      "term": "indicator",
+      "ja": "指標",
+      "synonym": "measure",
+      "definition": "sign used for evaluation"
+    },
+    {
+      "term": "concealing",
+      "ja": "隠すこと",
+      "synonym": "hiding",
+      "definition": "keeping from view"
+    },
+    {
+      "term": "essential",
+      "ja": "不可欠な",
+      "synonym": "necessary",
+      "definition": "absolutely needed"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "Which measure did the manager originally use?",
+      "options": [
+        "The proportion of customers who owned tools.",
+        "The proportion of time each tool was rented.",
+        "The price of all repairs undertaken by customers.",
+        "The number of stores in the region."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "貸出時間の割合。"
+    },
+    {
+      "id": "q2",
+      "skill": "inference",
+      "prompt": "Why consider selling rarely rented tools?",
+      "options": [
+        "They had all become physically dangerous.",
+        "Customers requested a smaller collection.",
+        "The business had no rental records.",
+        "They appeared to tie up money without immediate returns."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "収益のない投資とみなした。"
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "What value did the employee identify?",
+      "options": [
+        "Keeping every tool occupied at all times.",
+        "Guaranteeing identical prices for every item.",
+        "Being able to obtain a tool when an unexpected need arises.",
+        "Making customers purchase their own tools."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "必要時に利用可能。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What could happen if every tool were continuously rented?",
+      "options": [
+        "Unexpected requests might go unfulfilled.",
+        "Every customer would pay less.",
+        "The tools would require no maintenance.",
+        "The business would stop receiving revenue."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "突然の依頼に応じられない。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What additional information should the business record?",
+      "options": [
+        "Only the purchase dates of all tools.",
+        "The color of every tool.",
+        "Unrelated costs in other industries.",
+        "Unsuccessful requests and availability of alternatives."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "不成立依頼と代替手段。"
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why not automatically retain every unused item?",
+      "options": [
+        "All unused tools are guaranteed to become damaged.",
+        "Reserve capacity may impose costs without addressing a meaningful need.",
+        "Unused items cannot ever be rented.",
+        "Customers necessarily reject alternatives."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "予備の費用対効果。"
+    },
+    {
+      "id": "q7",
+      "skill": "inference",
+      "prompt": "What distinguishes a justified reserve from waste?",
+      "options": [
+        "Its ability to address demand relative to its costs.",
+        "Its size alone.",
+        "The fact that it is never occupied.",
+        "The manager's initial purchase price alone."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "対応能力と費用。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What is the limitation of the example?",
+      "options": [
+        "It cannot illustrate a possible limitation of utilization measures.",
+        "It establishes exact future demand.",
+        "It does not determine the optimal inventory for an actual business.",
+        "It demonstrates a universally profitable strategy."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "個別事業の最適値は未確定。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does expenditure mean?",
+      "options": [
+        "Revenue earned.",
+        "Money spent.",
+        "Time remaining.",
+        "Equipment borrowed."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "支出。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "Which statement best expresses the argument?",
+      "options": [
+        "Efficiency measures should account for the value and costs of reserve capacity in relation to the service's purpose.",
+        "Unused resources always represent waste.",
+        "A business should retain every tool regardless of demand.",
+        "The immediate use of resources is the only measure of value."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "サービス目的と予備余力。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 0,
+      "focus": "allowing customers to avoid buying equipment",
+      "explanation_ja": "分詞構文で結果を補足。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "If every item were rented continuously",
+      "explanation_ja": "仮定法過去。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "focus": "merely because some customers occasionally require",
+      "explanation_ja": "merely becauseは理由を限定。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 0,
+      "focus": "without regard to the purpose",
+      "explanation_ja": "without regard toは〜を考慮せず。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "A fictional business rents tools to people who need them for occasional repairs or small construction projects, allowing customers to avoid buying equipment that they would use only rarely.",
+      "rewrite": "By renting tools, customers can avoid purchases of rarely used items.",
+      "explanation_ja": "貸出の利点。"
+    },
+    {
+      "source": "If every item were rented continuously, the business might be unable to respond to requests made by people whose need for assistance could not have been predicted.",
+      "rewrite": "Continuous rental of all equipment could prevent the firm from responding to unexpected needs.",
+      "explanation_ja": "すべて稼働することの欠点。"
+    },
+    {
+      "source": "The business cannot assume that every unused item is a valuable reserve merely because some customers occasionally require unexpected assistance.",
+      "rewrite": "Occasional unexpected requests do not justify maintaining every possible unused item.",
+      "explanation_ja": "予備の無条件正当化を避ける。"
+    },
+    {
+      "source": "Efficiency does not necessarily mean maximizing the immediate use of every available resource without regard to the purpose for which the resource has been provided.",
+      "rewrite": "Efficiency is not simply maximum immediate utilization irrespective of the resource's purpose.",
+      "explanation_ja": "目的を考慮した効率。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "therefore",
+      "role_ja": "元の評価から売却検討。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "even during",
+      "role_ja": "利用可能性の価値を強調。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "nevertheless",
+      "role_ja": "予備維持費の反対側面。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "therefore",
+      "role_ja": "経営判断の結論。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 0,
+      "answer": "availability",
+      "options": [
+        "availability",
+        "decoration",
+        "transportation",
+        "ownership"
+      ],
+      "explanation_ja": "工具が利用可能であること。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 0,
+      "answer": "maintenance",
+      "options": [
+        "admission",
+        "maintenance",
+        "celebration",
+        "translation"
+      ],
+      "explanation_ja": "保守費用。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "utilization",
+      "options": [
+        "reputation",
+        "definition",
+        "utilization",
+        "appearance"
+      ],
+      "explanation_ja": "資源の利用。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "expenditure",
+      "options": [
+        "permission",
+        "arrival",
+        "description",
+        "expenditure"
+      ],
+      "explanation_ja": "現在支出。"
+    }
+  ]
+}
