@@ -1,0 +1,686 @@
+{
+  "id": "L11-013",
+  "category_id": "L11",
+  "title": "A Rule for the Shared Street",
+  "title_ja": "みんなの道路を守るルール",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "word_count": 287,
+  "source_links": [
+    {
+      "title": "Original lesson authoring registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "登場人物・場所・具体的な出来事や結果は架空の事例。特定の実在の制度、診療上の助言、研究結果の説明ではない。参考リンクは制作台帳であり外部の実証資料ではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "In a fictional coastal town, residents began to disagree about the use of a narrow shopping street.",
+          "ja": "架空の海辺の町で、住民は狭い商店街の使い方をめぐって意見が分かれ始めた。"
+        },
+        {
+          "en": "Shop owners wanted delivery vehicles to reach their stores easily during the morning.",
+          "ja": "店主たちは朝の時間帯に配送車が店に容易に到着できるようにしたかった。"
+        },
+        {
+          "en": "Parents, on the other hand, worried about children walking to school along the same street.",
+          "ja": "一方、保護者は同じ通りを歩いて登校する子どもたちを心配した。"
+        },
+        {
+          "en": "The town council considered banning all vehicles from the street before twelve o'clock.",
+          "ja": "町議会は正午まで全車両の通行を禁止することを検討した。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Before voting, the council invited residents to describe their daily needs at a public meeting.",
+          "ja": "採決の前に、議会は住民を公開会議に招き、日常の必要事項を説明してもらった。"
+        },
+        {
+          "en": "A bakery owner explained that certain ingredients had to arrive early in the morning.",
+          "ja": "パン屋の店主は、一部の食材が早朝に到着する必要があると説明した。"
+        },
+        {
+          "en": "A parent described several occasions when a large van had blocked the view at a crossing.",
+          "ja": "ある保護者は大型のバンが横断歩道で視界を遮ったことが何度かあったと述べた。"
+        },
+        {
+          "en": "The council recognized that a single rule could affect different groups in different ways.",
+          "ja": "議会は一つの規則が異なる集団に異なる形で影響し得ると認識した。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Instead of introducing a permanent ban immediately, the council proposed a temporary delivery schedule.",
+          "ja": "すぐに恒久的な禁止措置を設ける代わりに、議会は一時的な配送時間の計画を提案した。"
+        },
+        {
+          "en": "Vehicles could enter during an early period that ended before most children arrived.",
+          "ja": "車両は子どもたちの大半が到着する前に終了する早い時間帯に入ることができた。"
+        },
+        {
+          "en": "An exception was included for emergency vehicles, which needed access at any time.",
+          "ja": "いつでも通行する必要がある緊急車両については例外が設けられた。"
+        },
+        {
+          "en": "The town also published a clear map showing the locations of alternative loading areas.",
+          "ja": "町は代わりの荷積み場所の位置を示す明確な地図も公表した。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "During the trial, officials collected reports from residents and observed traffic near the crossing.",
+          "ja": "試行中、職員は住民の報告を集め、横断歩道付近の交通を観察した。"
+        },
+        {
+          "en": "Although some shops had to adjust their routines, several families reported feeling more comfortable.",
+          "ja": "一部の店は日課を調整する必要があったものの、何組かの家族はより安心できると報告した。"
+        },
+        {
+          "en": "The council arranged another meeting to discuss unexpected problems before making a final decision.",
+          "ja": "議会は最終決定前に予期せぬ問題を話し合うため、もう一度会議を開いた。"
+        },
+        {
+          "en": "It did not treat the absence of complaints as proof that every resident was satisfied.",
+          "ja": "苦情がないことをすべての住民が満足している証拠とは見なさなかった。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The process demonstrated that a fair rule does not necessarily give everyone exactly the same freedom.",
+          "ja": "この過程は、公平な規則が必ずしも全員にまったく同じ自由を与えるわけではないことを示した。"
+        },
+        {
+          "en": "It should consider competing needs and explain why particular restrictions are justified.",
+          "ja": "規則は対立する必要性を考慮し、特定の制限がなぜ正当化されるかを説明すべきである。"
+        },
+        {
+          "en": "People should also have a reasonable opportunity to challenge or improve the proposed arrangements.",
+          "ja": "人々には提案された取り決めに異議を唱えたり改善したりする妥当な機会もあるべきだ。"
+        },
+        {
+          "en": "In this town, establishing the rule was only one part of making the street work for everyone.",
+          "ja": "この町では規則を設けることは、道路を皆にとって使えるようにする一部分にすぎなかった。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "fictional",
+      "ja": "架空の",
+      "synonym": "imaginary",
+      "definition": "existing in a made-up story"
+    },
+    {
+      "term": "coastal",
+      "ja": "海辺の",
+      "synonym": "seaside",
+      "definition": "near the sea"
+    },
+    {
+      "term": "residents",
+      "ja": "住民",
+      "synonym": "inhabitants",
+      "definition": "people who live in an area"
+    },
+    {
+      "term": "disagree",
+      "ja": "意見が分かれる",
+      "synonym": "differ",
+      "definition": "have different opinions"
+    },
+    {
+      "term": "narrow",
+      "ja": "狭い",
+      "synonym": "not wide",
+      "definition": "having little width"
+    },
+    {
+      "term": "delivery",
+      "ja": "配送",
+      "synonym": "transport",
+      "definition": "the act of taking goods to a destination"
+    },
+    {
+      "term": "vehicles",
+      "ja": "車両",
+      "synonym": "motor vehicles",
+      "definition": "means of transport on land"
+    },
+    {
+      "term": "council",
+      "ja": "議会",
+      "synonym": "governing body",
+      "definition": "a group making decisions for a community"
+    },
+    {
+      "term": "banning",
+      "ja": "禁止すること",
+      "synonym": "prohibiting",
+      "definition": "officially preventing an activity"
+    },
+    {
+      "term": "voting",
+      "ja": "採決すること",
+      "synonym": "casting votes",
+      "definition": "expressing a choice in a formal decision"
+    },
+    {
+      "term": "invited",
+      "ja": "招いた",
+      "synonym": "asked",
+      "definition": "requested a person to attend"
+    },
+    {
+      "term": "describe",
+      "ja": "説明する",
+      "synonym": "explain",
+      "definition": "give details about something"
+    },
+    {
+      "term": "public",
+      "ja": "公開の",
+      "synonym": "open",
+      "definition": "available to people generally"
+    },
+    {
+      "term": "ingredients",
+      "ja": "食材",
+      "synonym": "components",
+      "definition": "things used to prepare food"
+    },
+    {
+      "term": "occasions",
+      "ja": "場合",
+      "synonym": "instances",
+      "definition": "particular times when things happen"
+    },
+    {
+      "term": "blocked",
+      "ja": "遮った",
+      "synonym": "obstructed",
+      "definition": "prevented movement or sight"
+    },
+    {
+      "term": "crossing",
+      "ja": "横断歩道",
+      "synonym": "crosswalk",
+      "definition": "a place to cross a road"
+    },
+    {
+      "term": "recognized",
+      "ja": "認識した",
+      "synonym": "realized",
+      "definition": "became aware of something"
+    },
+    {
+      "term": "affect",
+      "ja": "影響する",
+      "synonym": "influence",
+      "definition": "produce a change in something"
+    },
+    {
+      "term": "permanent",
+      "ja": "恒久的な",
+      "synonym": "lasting",
+      "definition": "intended to continue indefinitely"
+    },
+    {
+      "term": "immediately",
+      "ja": "すぐに",
+      "synonym": "at once",
+      "definition": "without delay"
+    },
+    {
+      "term": "proposed",
+      "ja": "提案した",
+      "synonym": "suggested",
+      "definition": "put forward for consideration"
+    },
+    {
+      "term": "temporary",
+      "ja": "一時的な",
+      "synonym": "short-term",
+      "definition": "lasting for a limited time"
+    },
+    {
+      "term": "schedule",
+      "ja": "時間計画",
+      "synonym": "timetable",
+      "definition": "a plan showing when events happen"
+    },
+    {
+      "term": "exception",
+      "ja": "例外",
+      "synonym": "exemption",
+      "definition": "a case not covered by a usual rule"
+    },
+    {
+      "term": "emergency",
+      "ja": "緊急の",
+      "synonym": "urgent",
+      "definition": "relating to a serious situation requiring immediate action"
+    },
+    {
+      "term": "access",
+      "ja": "通行・利用",
+      "synonym": "entry",
+      "definition": "the ability to enter or use something"
+    },
+    {
+      "term": "published",
+      "ja": "公表した",
+      "synonym": "released",
+      "definition": "made information publicly available"
+    },
+    {
+      "term": "alternative",
+      "ja": "代わりの",
+      "synonym": "substitute",
+      "definition": "offering another possible choice"
+    },
+    {
+      "term": "loading areas",
+      "ja": "荷積み場所",
+      "synonym": "loading zones",
+      "definition": "places where goods are put onto or removed from vehicles"
+    },
+    {
+      "term": "trial",
+      "ja": "試行",
+      "synonym": "test",
+      "definition": "a limited attempt to evaluate an approach"
+    },
+    {
+      "term": "officials",
+      "ja": "職員",
+      "synonym": "public officers",
+      "definition": "people holding public positions"
+    },
+    {
+      "term": "observed",
+      "ja": "観察した",
+      "synonym": "watched",
+      "definition": "looked at carefully"
+    },
+    {
+      "term": "adjust",
+      "ja": "調整する",
+      "synonym": "adapt",
+      "definition": "change to suit a situation"
+    },
+    {
+      "term": "routines",
+      "ja": "日課",
+      "synonym": "habits",
+      "definition": "regular ways of doing things"
+    },
+    {
+      "term": "unexpected",
+      "ja": "予期せぬ",
+      "synonym": "unforeseen",
+      "definition": "not expected in advance"
+    },
+    {
+      "term": "absence",
+      "ja": "欠如",
+      "synonym": "lack",
+      "definition": "the state of not being present"
+    },
+    {
+      "term": "complaints",
+      "ja": "苦情",
+      "synonym": "objections",
+      "definition": "statements of dissatisfaction"
+    },
+    {
+      "term": "satisfied",
+      "ja": "満足した",
+      "synonym": "content",
+      "definition": "pleased with a situation"
+    },
+    {
+      "term": "necessarily",
+      "ja": "必ずしも",
+      "synonym": "inevitably",
+      "definition": "in a way that must be true"
+    },
+    {
+      "term": "competing",
+      "ja": "対立する",
+      "synonym": "conflicting",
+      "definition": "seeking incompatible things"
+    },
+    {
+      "term": "restrictions",
+      "ja": "制限",
+      "synonym": "limits",
+      "definition": "rules that limit what can be done"
+    },
+    {
+      "term": "justified",
+      "ja": "正当化された",
+      "synonym": "warranted",
+      "definition": "supported by good reasons"
+    },
+    {
+      "term": "reasonable",
+      "ja": "妥当な",
+      "synonym": "fair",
+      "definition": "appropriate and sensible"
+    },
+    {
+      "term": "challenge",
+      "ja": "異議を唱える",
+      "synonym": "question",
+      "definition": "express doubt about a decision"
+    },
+    {
+      "term": "arrangements",
+      "ja": "取り決め",
+      "synonym": "plans",
+      "definition": "agreements about how things will be done"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "Why did parents oppose unrestricted delivery traffic?",
+      "options": [
+        "They wanted to close every shop.",
+        "They disliked morning lessons.",
+        "They worried about children walking to school.",
+        "They needed a larger car park."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "登校中の子どもを心配した。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What initial rule did the council consider?",
+      "options": [
+        "A ban on vehicles before noon.",
+        "A ban on walking after noon.",
+        "A tax on every shop.",
+        "A requirement to build a new school."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "正午まで車両の通行を禁止する案。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What did the bakery owner explain?",
+      "options": [
+        "Bread was no longer sold.",
+        "Every delivery arrived at night.",
+        "The shop had already closed.",
+        "Some ingredients needed to arrive early."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "食材が早朝に必要だった。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "What did the public meeting reveal?",
+      "options": [
+        "All residents had identical needs.",
+        "The same rule could have different effects on different people.",
+        "Traffic had no relationship to safety.",
+        "A permanent ban had already passed."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "一律の規則でも影響は異なる。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What did the council propose instead of an immediate permanent ban?",
+      "options": [
+        "A permanent closure of the street.",
+        "A requirement for children to use vans.",
+        "A temporary delivery schedule.",
+        "A ban on all emergency services."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "一時的な配送時間の計画。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "Which vehicles received an exception?",
+      "options": [
+        "Emergency vehicles.",
+        "All vehicles belonging to parents.",
+        "Every delivery truck.",
+        "Only buses used by tourists."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "緊急車両は例外だった。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What did officials do during the trial?",
+      "options": [
+        "Stopped listening to residents.",
+        "Collected reports and observed traffic.",
+        "Built a new shopping street.",
+        "Canceled the public meeting permanently."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "報告を集め交通を観察した。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "Why did the council not assume everyone was satisfied?",
+      "options": [
+        "All residents had filed complaints.",
+        "The survey had proved universal agreement.",
+        "The council had never heard a report.",
+        "Silence did not necessarily indicate satisfaction."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "苦情がないことと満足は同じではない。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does justified mean here?",
+      "options": [
+        "Supported by good reasons.",
+        "Forgotten over time.",
+        "Written in secret.",
+        "Prohibited completely."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "正当な理由で裏付けられること。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What principle does the passage emphasize?",
+      "options": [
+        "A single ban always solves public problems.",
+        "The loudest group should determine every rule.",
+        "Fair rules need reasons, attention to different needs, and opportunities for review.",
+        "Rules should never be changed after publication."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "必要性の考慮・理由・見直しの機会が重要。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "on the other hand",
+      "explanation_ja": "対照的な立場を導入する表現。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "could affect different groups in different ways",
+      "explanation_ja": "couldは可能性を表す。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "which needed access at any time",
+      "explanation_ja": "非制限用法の関係代名詞whichが補足説明を加える。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "focus": "to challenge or improve",
+      "explanation_ja": "to不定詞がopportunityを修飾する。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "on the other hand",
+      "role_ja": "店主と保護者の立場の対比。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Instead of",
+      "role_ja": "恒久的禁止から試行への転換。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Although",
+      "role_ja": "店の負担と家族の安心を対比。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "also",
+      "role_ja": "規則の理由に加え異議と改善の機会を示す。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Parents, on the other hand, worried about children walking to school along the same street.",
+      "rewrite": "Parents, by contrast, were concerned about the safety of children using the street to get to school.",
+      "explanation_ja": "対照的に保護者は児童の安全を心配した。"
+    },
+    {
+      "source": "The council recognized that a single rule could affect different groups in different ways.",
+      "rewrite": "The council saw that one policy might have unequal effects on various groups.",
+      "explanation_ja": "規則の影響は集団ごとに異なり得る。"
+    },
+    {
+      "source": "An exception was included for emergency vehicles, which needed access at any time.",
+      "rewrite": "Emergency vehicles were exempt because they required access whenever necessary.",
+      "explanation_ja": "緊急車両は必要時に通れるよう例外とした。"
+    },
+    {
+      "source": "People should also have a reasonable opportunity to challenge or improve the proposed arrangements.",
+      "rewrite": "Residents should have a fair chance to question or revise the suggested plan.",
+      "explanation_ja": "取り決めを見直す機会が必要。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "blocked",
+      "options": [
+        "opened",
+        "blocked",
+        "cleaned",
+        "repaired"
+      ],
+      "explanation_ja": "大型車が視界を遮った。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 0,
+      "answer": "temporary",
+      "options": [
+        "permanent",
+        "ordinary",
+        "temporary",
+        "invisible"
+      ],
+      "explanation_ja": "まず一時的な計画を試した。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 3,
+      "answer": "complaints",
+      "options": [
+        "tickets",
+        "pictures",
+        "ingredients",
+        "complaints"
+      ],
+      "explanation_ja": "苦情がないことを満足の証拠としなかった。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "answer": "restrictions",
+      "options": [
+        "restrictions",
+        "celebrations",
+        "invitations",
+        "photographs"
+      ],
+      "explanation_ja": "制限に理由が必要。"
+    }
+  ]
+}
