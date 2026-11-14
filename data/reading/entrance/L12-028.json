@@ -1,0 +1,686 @@
+{
+  "id": "L12-028",
+  "category_id": "L12",
+  "title": "The Difference Between an Average and a Person",
+  "title_ja": "平均と一人の違い",
+  "level_id": "eiken-2",
+  "status": "draft",
+  "original": true,
+  "word_count": 376,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "オリジナル論説・架空事例。実在の史料、法律、医療助言、調査結果ではない。制作台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A numerical summary can help readers recognize a general pattern in a collection of observations that would otherwise be difficult to examine.",
+          "ja": "数値要約はそうでなければ調べにくい観察の集合における一般傾向を読者が認識する助けになり得る。"
+        },
+        {
+          "en": "An average, for example, can express the central tendency of a group of measurements in a compact form.",
+          "ja": "例えば平均は測定値集団の中心傾向を簡潔な形で表せる。"
+        },
+        {
+          "en": "However, the same average may be obtained from collections of values that differ considerably in their distribution.",
+          "ja": "しかし分布がかなり異なる値の集合から同じ平均を得ることがある。"
+        },
+        {
+          "en": "The distinction is important when information about a group is interpreted as though it directly described every individual within that group.",
+          "ja": "集団情報がその集団の各個人を直接記述するかのように解釈される時に区別は重要だ。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Imagine a classroom exercise in which students examine two invented collections of daily walking times.",
+          "ja": "生徒が二つの創作された毎日の歩行時間の集合を調べる教室活動を想像しよう。"
+        },
+        {
+          "en": "In the first collection, most values are close to the average, whereas the second contains values distributed over a much wider range.",
+          "ja": "第一集合では大半の値が平均近くにあるが第二にははるかに広い範囲に分布する値がある。"
+        },
+        {
+          "en": "The students discover that both collections can have the same average even though a randomly selected value might be quite different from that average.",
+          "ja": "無作為に選んだ値が平均からかなり異なることがあっても両集合は同じ平均を持ち得ると発見する。"
+        },
+        {
+          "en": "The numbers are invented to illustrate a mathematical relationship, not collected from actual people.",
+          "ja": "数値は数学的関係を示すための創作であり実際の人々から集めたものではない。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The teacher asks the students whether the average alone would be sufficient to explain the experiences of the people represented in either imaginary collection.",
+          "ja": "教師は平均だけでどちらかの仮想集合に示された人々の経験を説明するのに十分か尋ねる。"
+        },
+        {
+          "en": "One student suggests examining the range of values in addition to the average.",
+          "ja": "一人は平均に加えて値の範囲を調べることを提案する。"
+        },
+        {
+          "en": "Another notes that the figures would still provide no direct information about the reasons why a particular person walked for a particular length of time.",
+          "ja": "別の生徒は数値が特定の人が特定時間歩いた理由について直接情報をなお提供しないと指摘する。"
+        },
+        {
+          "en": "The class distinguishes the description of a pattern from an explanation of the circumstances that produced it.",
+          "ja": "クラスは傾向の記述とそれを生んだ事情の説明を区別する。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The students then consider an imaginary report that presents only the average value in a large headline.",
+          "ja": "次に大見出しに平均値のみを示す架空報告を検討する。"
+        },
+        {
+          "en": "They propose including a simple representation of the distribution and an explanation of the information that was actually collected.",
+          "ja": "分布の簡単な表現と実際に収集された情報の説明を含める提案をする。"
+        },
+        {
+          "en": "These additions would help readers understand the scope of the summary without implying that every question about individual circumstances can be answered from the figures.",
+          "ja": "追加情報は個人事情についての全問いに数値から答えられると暗示せず要約の範囲を読者が理解する助けになる。"
+        },
+        {
+          "en": "The activity provides practice in interpreting data rather than recommending a particular amount of exercise.",
+          "ja": "活動は特定運動量を推奨するのでなくデータ解釈の練習を提供する。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "Population-level descriptions can be informative while remaining incomplete as accounts of individual experiences.",
+          "ja": "集団レベルの記述は個人経験の説明として不完全でも情報に富み得る。"
+        },
+        {
+          "en": "A useful numerical summary should be interpreted in relation to the question it can actually help answer.",
+          "ja": "有用な数値要約は実際に答える助けになり得る問いに照らし解釈すべきだ。"
+        },
+        {
+          "en": "Understanding the relationship between a measurement and its limitations makes it easier to avoid conclusions that extend beyond the available information.",
+          "ja": "測定値と限界の関係を理解すると利用可能情報を超える結論を避けやすくなる。"
+        },
+        {
+          "en": "An average can tell us something important about a group without telling us everything about a person.",
+          "ja": "平均は一人についてすべてを語らずとも集団について重要なことを伝えられる。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "numerical",
+      "ja": "数値の",
+      "synonym": "quantitative",
+      "definition": "relating to numbers"
+    },
+    {
+      "term": "summary",
+      "ja": "要約",
+      "synonym": "outline",
+      "definition": "brief account of main points"
+    },
+    {
+      "term": "recognize",
+      "ja": "認識する",
+      "synonym": "identify",
+      "definition": "know what something is"
+    },
+    {
+      "term": "pattern",
+      "ja": "傾向",
+      "synonym": "trend",
+      "definition": "regular arrangement or tendency"
+    },
+    {
+      "term": "collection",
+      "ja": "集合",
+      "synonym": "set",
+      "definition": "group of things gathered together"
+    },
+    {
+      "term": "observations",
+      "ja": "観察",
+      "synonym": "findings",
+      "definition": "things noticed or measured"
+    },
+    {
+      "term": "otherwise",
+      "ja": "そうでなければ",
+      "synonym": "in other circumstances",
+      "definition": "under a different condition"
+    },
+    {
+      "term": "average",
+      "ja": "平均",
+      "synonym": "mean",
+      "definition": "value obtained by dividing a total by the number of values"
+    },
+    {
+      "term": "express",
+      "ja": "表す",
+      "synonym": "state",
+      "definition": "put into words or another form"
+    },
+    {
+      "term": "central tendency",
+      "ja": "中心傾向",
+      "synonym": "typical value",
+      "definition": "measure describing the center of a distribution"
+    },
+    {
+      "term": "measurements",
+      "ja": "測定値",
+      "synonym": "readings",
+      "definition": "values obtained by measuring"
+    },
+    {
+      "term": "compact",
+      "ja": "簡潔な",
+      "synonym": "concise",
+      "definition": "using little space"
+    },
+    {
+      "term": "obtained",
+      "ja": "得られた",
+      "synonym": "acquired",
+      "definition": "got something"
+    },
+    {
+      "term": "considerably",
+      "ja": "かなり",
+      "synonym": "substantially",
+      "definition": "to a large degree"
+    },
+    {
+      "term": "distribution",
+      "ja": "分布",
+      "synonym": "spread",
+      "definition": "way values are arranged across a range"
+    },
+    {
+      "term": "distinction",
+      "ja": "区別",
+      "synonym": "difference",
+      "definition": "difference between things"
+    },
+    {
+      "term": "interpreted",
+      "ja": "解釈された",
+      "synonym": "understood",
+      "definition": "assigned meaning"
+    },
+    {
+      "term": "directly",
+      "ja": "直接に",
+      "synonym": "immediately",
+      "definition": "without an intermediate step"
+    },
+    {
+      "term": "individual",
+      "ja": "個人",
+      "synonym": "person",
+      "definition": "single person"
+    },
+    {
+      "term": "invented",
+      "ja": "創作された",
+      "synonym": "imagined",
+      "definition": "created in imagination"
+    },
+    {
+      "term": "whereas",
+      "ja": "一方",
+      "synonym": "while",
+      "definition": "introducing a contrast"
+    },
+    {
+      "term": "distributed",
+      "ja": "分布した",
+      "synonym": "spread",
+      "definition": "arranged over an area or range"
+    },
+    {
+      "term": "range",
+      "ja": "範囲",
+      "synonym": "span",
+      "definition": "extent of values"
+    },
+    {
+      "term": "randomly",
+      "ja": "無作為に",
+      "synonym": "by chance",
+      "definition": "without a deliberately selected pattern"
+    },
+    {
+      "term": "selected",
+      "ja": "選ばれた",
+      "synonym": "chosen",
+      "definition": "picked from options"
+    },
+    {
+      "term": "illustrate",
+      "ja": "例示する",
+      "synonym": "demonstrate",
+      "definition": "explain by example"
+    },
+    {
+      "term": "mathematical",
+      "ja": "数学的な",
+      "synonym": "numerical",
+      "definition": "relating to mathematics"
+    },
+    {
+      "term": "sufficient",
+      "ja": "十分な",
+      "synonym": "adequate",
+      "definition": "enough for a purpose"
+    },
+    {
+      "term": "represented",
+      "ja": "示された",
+      "synonym": "depicted",
+      "definition": "shown or expressed"
+    },
+    {
+      "term": "imaginary",
+      "ja": "仮想の",
+      "synonym": "fictional",
+      "definition": "existing in imagination"
+    },
+    {
+      "term": "examining",
+      "ja": "調べること",
+      "synonym": "inspecting",
+      "definition": "looking at carefully"
+    },
+    {
+      "term": "in addition to",
+      "ja": "に加えて",
+      "synonym": "as well as",
+      "definition": "along with something"
+    },
+    {
+      "term": "figures",
+      "ja": "数値",
+      "synonym": "numbers",
+      "definition": "numerical values"
+    },
+    {
+      "term": "particular",
+      "ja": "特定の",
+      "synonym": "specific",
+      "definition": "relating to one thing"
+    },
+    {
+      "term": "description",
+      "ja": "記述",
+      "synonym": "account",
+      "definition": "statement explaining something"
+    },
+    {
+      "term": "circumstances",
+      "ja": "事情",
+      "synonym": "conditions",
+      "definition": "factors affecting a situation"
+    },
+    {
+      "term": "headline",
+      "ja": "見出し",
+      "synonym": "heading",
+      "definition": "title of a report"
+    },
+    {
+      "term": "representation",
+      "ja": "表現",
+      "synonym": "depiction",
+      "definition": "way of showing something"
+    },
+    {
+      "term": "scope",
+      "ja": "範囲",
+      "synonym": "range",
+      "definition": "extent of an activity"
+    },
+    {
+      "term": "implying",
+      "ja": "暗示すること",
+      "synonym": "suggesting",
+      "definition": "indicating something indirectly"
+    },
+    {
+      "term": "recommending",
+      "ja": "推奨すること",
+      "synonym": "suggesting",
+      "definition": "offering advice about what to do"
+    },
+    {
+      "term": "Population-level",
+      "ja": "集団レベルの",
+      "synonym": "group-level",
+      "definition": "relating to a group as a whole"
+    },
+    {
+      "term": "informative",
+      "ja": "情報に富む",
+      "synonym": "enlightening",
+      "definition": "providing useful information"
+    },
+    {
+      "term": "incomplete",
+      "ja": "不完全な",
+      "synonym": "partial",
+      "definition": "not covering everything"
+    },
+    {
+      "term": "limitations",
+      "ja": "限界",
+      "synonym": "constraints",
+      "definition": "bounds on possibilities"
+    },
+    {
+      "term": "extend",
+      "ja": "広がる",
+      "synonym": "go beyond",
+      "definition": "reach past a boundary"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What does an average help represent?",
+      "options": [
+        "Every person's complete circumstances.",
+        "The reason for every observation.",
+        "The central tendency of a set of measurements.",
+        "The exact largest value in every group."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "中心傾向。"
+    },
+    {
+      "id": "q2",
+      "skill": "inference",
+      "prompt": "Why might equal averages be misleading?",
+      "options": [
+        "The underlying values may have different distributions.",
+        "Equal averages prove equal distributions.",
+        "An average cannot be calculated from values.",
+        "Every observation is necessarily incorrect."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "分布が異なる可能性。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What differs between the two invented collections?",
+      "options": [
+        "The mathematical meaning of an average.",
+        "The actual people being interviewed.",
+        "The units used to measure time.",
+        "How widely the values are spread."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "分布の広がり。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "What does the example show about individual values?",
+      "options": [
+        "Every value always equals the average.",
+        "A value may differ substantially from the group's average.",
+        "The average must be greater than every value.",
+        "The example proves the best amount of exercise."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "個々の値は平均と異なり得る。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What extra information does one student suggest examining?",
+      "options": [
+        "The range of values.",
+        "The price of equipment.",
+        "The name of every walker.",
+        "The teacher's personal preferences."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "値の範囲。"
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why might knowing the range still be insufficient?",
+      "options": [
+        "The range always identifies every causal factor.",
+        "The figures prove that everyone walks for the same reason.",
+        "It does not explain the reasons for a particular person's behavior.",
+        "The average has no mathematical meaning."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "行動理由は分からない。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What additions are proposed for the report?",
+      "options": [
+        "A single larger headline only.",
+        "A display of the distribution and description of the data collected.",
+        "Recommendations for every individual's health.",
+        "A claim that the data answer every question."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "分布と収集情報。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "Why explain what information was collected?",
+      "options": [
+        "To guarantee every interpretation is correct.",
+        "To replace the distribution with a guess.",
+        "To prove every person's circumstances are identical.",
+        "To help readers recognize the scope and limits of the summary."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "情報の範囲と限界。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does incomplete mean?",
+      "options": [
+        "Mathematically impossible.",
+        "Completely inaccurate.",
+        "Not covering everything.",
+        "Always unused."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "不完全な。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "Which statement best captures the passage?",
+      "options": [
+        "Every average describes each person accurately.",
+        "Group statistics can be useful without fully describing individual experiences or explaining their causes.",
+        "Numerical summaries are never useful.",
+        "The most frequent value always establishes the best health decision."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "集団統計と個人の経験を区別する。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 0,
+      "focus": "that would otherwise be difficult to examine",
+      "explanation_ja": "関係節、otherwiseはそうでなければ。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "whereas the second contains values",
+      "explanation_ja": "whereasは対比。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "about the reasons why a particular person walked",
+      "explanation_ja": "関係副詞whyがreasonsを説明。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 0,
+      "focus": "while remaining incomplete",
+      "explanation_ja": "while＋分詞で対比。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "A numerical summary can help readers recognize a general pattern in a collection of observations that would otherwise be difficult to examine.",
+      "rewrite": "A statistic can summarize observations that might be difficult to inspect one by one.",
+      "explanation_ja": "要約の利点。"
+    },
+    {
+      "source": "In the first collection, most values are close to the average, whereas the second contains values distributed over a much wider range.",
+      "rewrite": "The first set clusters near its average, while the second is more widely spread.",
+      "explanation_ja": "分布の違い。"
+    },
+    {
+      "source": "Another notes that the figures would still provide no direct information about the reasons why a particular person walked for a particular length of time.",
+      "rewrite": "The figures do not reveal why a person walked for a certain time.",
+      "explanation_ja": "数値と行動理由。"
+    },
+    {
+      "source": "Population-level descriptions can be informative while remaining incomplete as accounts of individual experiences.",
+      "rewrite": "Group descriptions can be useful despite failing to describe every individual completely.",
+      "explanation_ja": "統計の有用性と限界。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "平均の利点と分布の問題。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "whereas",
+      "role_ja": "二集合の対比。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Another",
+      "role_ja": "別の視点。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "rather than",
+      "role_ja": "データ解釈と運動推奨を区別。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "distribution",
+      "options": [
+        "distribution",
+        "receipt",
+        "portrait",
+        "expense"
+      ],
+      "explanation_ja": "値の分布。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "randomly",
+      "options": [
+        "deliberately",
+        "randomly",
+        "accurately",
+        "regularly"
+      ],
+      "explanation_ja": "無作為な選択。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "scope",
+      "options": [
+        "price",
+        "receipt",
+        "scope",
+        "portrait"
+      ],
+      "explanation_ja": "要約の範囲。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "limitations",
+      "options": [
+        "celebrations",
+        "transportations",
+        "arrivals",
+        "limitations"
+      ],
+      "explanation_ja": "測定の限界。"
+    }
+  ]
+}
