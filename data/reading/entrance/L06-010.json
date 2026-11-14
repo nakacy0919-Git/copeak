@@ -1,0 +1,1072 @@
+{
+  "id": "L06-010",
+  "category_id": "L06",
+  "title": "The Algorithm That Chose Whose Questions Were Heard",
+  "title_ja": "どの質問が聞かれるかを決めたアルゴリズム",
+  "level_id": "university-advanced",
+  "status": "draft",
+  "original": true,
+  "word_count": 788,
+  "source_links": [
+    {
+      "title": "UNESCO Digital Education background",
+      "url": "https://www.unesco.org/en/digital-education"
+    }
+  ],
+  "fact_notes": [
+    "大学の授業と試験運用は架空。本文・訳文・設問を独自に制作。定量的な実測結果を報告するものではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A university discussion course introduces a digital platform that displays the most highly rated questions during each class meeting.",
+          "ja": "大学の討論授業は授業中に評価の高い質問を表示するデジタル基盤を導入します。"
+        },
+        {
+          "en": "Students can submit questions anonymously and vote for those they find most relevant to the lesson.",
+          "ja": "学生は匿名で質問を投稿し授業に最も関係すると感じるものへ投票できます。"
+        },
+        {
+          "en": "At first, the system appears to make discussions more efficient because the lecturer can quickly identify topics attracting attention.",
+          "ja": "最初は講師が関心を集める話題を素早く見つけられるため制度は討論を効率化するように見えます。"
+        },
+        {
+          "en": "However, a student named Mina notices that questions submitted early often receive far more votes than equally thoughtful questions posted later.",
+          "ja": "しかしミナという学生は早く投稿された質問が後から投稿された同じくらい思慮深い質問よりずっと多くの票を得ることに気づきます。"
+        },
+        {
+          "en": "She also observes that a question written in confident language may attract attention even when its underlying assumption is questionable.",
+          "ja": "自信に満ちた言葉で書かれた質問はその前提が疑わしくても注目を集める場合があるとも観察します。"
+        },
+        {
+          "en": "The ranking is presented as an objective order, yet it may partly reflect when students looked at the screen and how statements were phrased.",
+          "ja": "順位は客観的な順序として示されますが学生が画面を見た時刻や表現方法を部分的に反映しているかもしれません。"
+        },
+        {
+          "en": "Mina asks whether visibility on the platform should be treated as the same thing as educational importance.",
+          "ja": "ミナは基盤上での目立ちやすさを教育上の重要性と同じとみなしてよいか尋ねます。"
+        },
+        {
+          "en": "Her question opens a debate about what a ranking system measures and whose contributions it may unintentionally conceal.",
+          "ja": "その問いは順位付けが何を測り誰の貢献を意図せず隠すかについての議論を開きます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "A ranking can provide useful information, but it depends on choices about how responses are collected and presented.",
+          "ja": "順位は役立つ情報を与えますが回答の収集や提示の方法についての選択に依存します。"
+        },
+        {
+          "en": "For example, displaying the first popular question at the top may encourage later readers to notice and support it again.",
+          "ja": "例えば最初に人気の質問を上位に示すと後の読者もそれに気づき再び支持するよう促されるかもしれません。"
+        },
+        {
+          "en": "Such a process can create a feedback loop in which earlier attention makes a contribution more visible, producing still more attention.",
+          "ja": "このような過程は初期の注目が投稿をさらに目立たせ、その結果さらに注目が集まる循環を生む場合があります。"
+        },
+        {
+          "en": "The resulting number of votes is real, but it does not automatically establish that the question is the most insightful one.",
+          "ja": "得られた票数は実際の数字ですが、その質問が最も洞察に富むことを自動的に確定しません。"
+        },
+        {
+          "en": "At the same time, the lecturer recognizes that removing rankings entirely could make it harder to identify common concerns in a large class.",
+          "ja": "同時に講師は順位を完全になくすと大人数の授業で共通の懸念を見つけにくくなる可能性を認識します。"
+        },
+        {
+          "en": "The challenge is therefore not simply to accept or reject the platform but to understand its particular strengths and limitations.",
+          "ja": "したがって課題は基盤を受け入れるか拒むかだけでなく、その具体的な長所と限界を理解することです。"
+        },
+        {
+          "en": "Students begin considering whether a system that rewards popularity can also leave room for minority perspectives and unfamiliar ideas.",
+          "ja": "学生たちは人気に報いる仕組みが少数派の視点やなじみのない考えの余地も残せるか考え始めます。"
+        },
+        {
+          "en": "They recognize that equal permission to submit a question does not necessarily produce equal opportunities for that question to be heard.",
+          "ja": "質問を投稿する許可が等しくても、その質問が聞かれる機会が等しくなるとは限らないと認識します。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The lecturer invites students to examine several alternative ways of choosing questions for the next discussion session.",
+          "ja": "講師は次の討論で質問を選ぶ複数の別の方法を調べるよう学生を招きます。"
+        },
+        {
+          "en": "Instead of relying only on the highest vote counts, one proposal combines popular questions with a randomly selected group of others.",
+          "ja": "最多票数だけに頼らず、一つの提案は人気の質問と別の質問の無作為抽出を組み合わせます。"
+        },
+        {
+          "en": "Another proposal hides the vote totals until the period for submitting questions has ended, reducing some early signals of popularity.",
+          "ja": "別の提案は投稿期間の終了まで票数を隠し人気の初期の兆候を一部減らします。"
+        },
+        {
+          "en": "Students consider whether these changes might support broader participation while preserving enough structure for a focused class discussion.",
+          "ja": "学生たちはこうした変更が集中した討論の仕組みを保ちつつ幅広い参加を支えるか考えます。"
+        },
+        {
+          "en": "They also ask how to explain the selection procedure clearly so students understand that not every unanswered question is unimportant.",
+          "ja": "取り上げられなかった質問も重要でないわけではないと理解できるよう選択手順を明確に説明する方法も尋ねます。"
+        },
+        {
+          "en": "The lecturer cautions that random selection could include repetitive questions and does not automatically guarantee fair treatment of every perspective.",
+          "ja": "講師は無作為抽出には重複する質問も含まれ得てすべての視点への公平な扱いを自動的に保証しないと注意します。"
+        },
+        {
+          "en": "The group therefore evaluates each proposal against the purpose of the course rather than assuming one technical method solves every social problem.",
+          "ja": "そこでグループは一つの技術的方法がすべての社会的問題を解決すると考えず授業の目的に照らして各提案を評価します。"
+        },
+        {
+          "en": "The exercise makes the design of classroom participation an explicit question rather than an invisible consequence of software settings.",
+          "ja": "この活動は教室参加の設計をソフトウェア設定の見えない結果ではなく明確な問いにします。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "During a short trial, the class uses a mixed procedure and compares the resulting discussion with earlier meetings.",
+          "ja": "短い試験ではクラスは混合方式を使い、その討論を以前の会議と比較します。"
+        },
+        {
+          "en": "Some students report that they heard unfamiliar questions they would probably have overlooked on the original ranking screen.",
+          "ja": "一部の学生は元の順位画面なら見落としていたであろうなじみのない質問を聞けたと話します。"
+        },
+        {
+          "en": "Nevertheless, other students feel that the session spends too much time on issues that many participants already understand.",
+          "ja": "それでも多くの参加者がすでに理解している問題に時間を使いすぎると感じる学生もいます。"
+        },
+        {
+          "en": "The lecturer collects these reactions but avoids claiming that one trial proves the revised platform is better in every situation.",
+          "ja": "講師はこうした反応を集めますが一回の試験で修正版があらゆる状況で優れていると証明できるとは主張しません。"
+        },
+        {
+          "en": "Students also consider what the comparison fails to measure, including whether quieter participants feel more willing to ask questions.",
+          "ja": "静かな参加者が質問しやすくなったかなど比較で測れないことも学生たちは考慮します。"
+        },
+        {
+          "en": "They learn that a measure of participation, such as the number of votes, is not identical to the experience of taking part.",
+          "ja": "投票数のような参加の指標は参加する経験そのものとは同一でないと学びます。"
+        },
+        {
+          "en": "Meaningful evaluation may require combining records of behavior with careful questions about what participants actually experience.",
+          "ja": "意味ある評価には行動の記録と参加者が実際経験することについての慎重な質問を組み合わせる必要があるかもしれません。"
+        },
+        {
+          "en": "The trial therefore produces useful uncertainties and possible improvements rather than a simple verdict about the technology.",
+          "ja": "そのため試験は技術への単純な判定ではなく有益な不明点と改善可能性を生みます。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "At the end of the term, Mina presents a reflection on how apparently neutral systems can shape the opportunities available to different people.",
+          "ja": "学期末にミナは一見中立的な仕組みが異なる人々に利用可能な機会をどう形づくるか振り返りを発表します。"
+        },
+        {
+          "en": "She explains that a platform need not be designed with an unfair intention in order to produce uneven patterns of visibility.",
+          "ja": "彼女は基盤が不公平な意図で設計されなくても目立ちやすさの不均衡な傾向を生み得ると説明します。"
+        },
+        {
+          "en": "As a result, classmates become more interested in asking what is being counted, when it is counted, and what remains outside the measurement.",
+          "ja": "その結果同級生は何をいつ数え何が測定の外に残るか尋ねることにより関心を持ちます。"
+        },
+        {
+          "en": "The lecturer continues using digital tools but explains their selection rules and invites feedback when students notice unexpected effects.",
+          "ja": "講師はデジタル道具を使い続けますが選択規則を説明し予想外の影響に気づいた学生から意見を求めます。"
+        },
+        {
+          "en": "The course does not conclude that popularity is always meaningless or that an algorithm necessarily treats people unfairly.",
+          "ja": "授業は人気が常に無意味だとかアルゴリズムが必ず人々を不公平に扱うとは結論づけません。"
+        },
+        {
+          "en": "Instead, it asks how a useful tool can be examined, revised, and combined with human judgment to serve educational goals.",
+          "ja": "むしろ役立つ道具をどう検討・修正し、人間の判断と組み合わせて教育目標に役立てるかを問います。"
+        },
+        {
+          "en": "Mina learns that fairness in participation concerns not only the formal right to contribute but also the practical possibility of being heard.",
+          "ja": "ミナは参加の公平さには投稿する形式的な権利だけでなく実際に聞いてもらえる可能性も関係すると学びます。"
+        },
+        {
+          "en": "A thoughtful classroom treats its measures of attention as evidence worth questioning, not as final statements about whose ideas matter.",
+          "ja": "慎重な教室は注目を測る数字を誰の考えが重要かの最終判断ではなく問い直す価値のある証拠として扱います。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What concern does Mina notice about question rankings?",
+      "options": [
+        "Only teachers can submit questions.",
+        "Students cannot vote anonymously.",
+        "Earlier submissions may receive more attention than later ones.",
+        "All questions receive exactly the same number of votes."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「しかしミナという学生は早く投稿された質問が後から投稿された同じくらい思慮深い質問よりずっと多くの票を得ることに気づきます。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What distinction does Mina raise?",
+      "options": [
+        "Morning lessons versus afternoon lessons.",
+        "Visibility on the platform versus educational importance.",
+        "Written questions versus spoken announcements.",
+        "Smartphones versus classroom computers."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「ミナは基盤上での目立ちやすさを教育上の重要性と同じとみなしてよいか尋ねます。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What feedback loop is described?",
+      "options": [
+        "Early popularity increases visibility and attracts more votes.",
+        "Every vote makes a question less visible.",
+        "All students independently evaluate each question.",
+        "Questions automatically lose popularity over time."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「このような過程は初期の注目が投稿をさらに目立たせ、その結果さらに注目が集まる循環を生む場合があります。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "Why is equal access to submission not necessarily enough?",
+      "options": [
+        "Every student has the same interests.",
+        "All ranking algorithms are intentionally unfair.",
+        "A teacher must always reject popular questions.",
+        "Questions may not have equal chances of being heard."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「質問を投稿する許可が等しくても、その質問が聞かれる機会が等しくなるとは限らないと認識します。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What does the mixed selection method include?",
+      "options": [
+        "Only questions submitted by the lecturer.",
+        "Only questions with identical wording.",
+        "Highly voted questions and some others chosen randomly.",
+        "Only the earliest questions."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「最多票数だけに頼らず、一つの提案は人気の質問と別の質問の無作為抽出を組み合わせます。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What possible disadvantage of random selection is noted?",
+      "options": [
+        "It prevents students from submitting questions.",
+        "Repetitive questions may be included.",
+        "It always removes every minority view.",
+        "It necessarily guarantees fairness."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「講師は無作為抽出には重複する質問も含まれ得てすべての視点への公平な扱いを自動的に保証しないと注意します。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "How does the lecturer interpret the short trial?",
+      "options": [
+        "It offers feedback but does not prove universal superiority.",
+        "It proves the platform should always be removed.",
+        "It establishes that every quiet student is now heard.",
+        "It shows all rankings are meaningless."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「講師はこうした反応を集めますが一回の試験で修正版があらゆる状況で優れていると証明できるとは主張しません。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "What may be needed to evaluate participation meaningfully?",
+      "options": [
+        "Vote counts alone without context.",
+        "The number of devices in a room.",
+        "Only the most popular student's views.",
+        "Behavioral records together with participants' experiences."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「意味ある評価には行動の記録と参加者が実際経験することについての慎重な質問を組み合わせる必要があるかもしれません。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What question gains importance among classmates?",
+      "options": [
+        "Who has the brightest screen.",
+        "How quickly a classroom can be painted.",
+        "What is counted and what is left outside the measurement.",
+        "Which device model is newest."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「その結果同級生は何をいつ数え何が測定の外に残るか尋ねることにより関心を持ちます。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the passage's central conclusion?",
+      "options": [
+        "Fair participation means only allowing everyone to click submit.",
+        "Measures of popularity should inform judgment without becoming unquestioned rankings of whose ideas matter.",
+        "Algorithms always produce deliberate discrimination.",
+        "Popularity is never useful evidence."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「慎重な教室は注目を測る数字を誰の考えが重要かの最終判断ではなく問い直す価値のある証拠として扱います。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "actually",
+      "ja": "実際に",
+      "synonym": "really",
+      "definition": "in fact rather than only in theory"
+    },
+    {
+      "term": "alternative",
+      "ja": "代替案",
+      "synonym": "option",
+      "definition": "another possibility"
+    },
+    {
+      "term": "attention",
+      "ja": "注目",
+      "synonym": "focus",
+      "definition": "concentration on something"
+    },
+    {
+      "term": "automatically",
+      "ja": "自動的に",
+      "synonym": "without intervention",
+      "definition": "without a separate human action"
+    },
+    {
+      "term": "better",
+      "ja": "より良い",
+      "synonym": "improved",
+      "definition": "of higher quality than before"
+    },
+    {
+      "term": "challenge",
+      "ja": "課題",
+      "synonym": "difficulty",
+      "definition": "something requiring effort to solve"
+    },
+    {
+      "term": "choices",
+      "ja": "選択肢",
+      "synonym": "options",
+      "definition": "available possibilities"
+    },
+    {
+      "term": "classmates",
+      "ja": "同級生",
+      "synonym": "school peers",
+      "definition": "students in the same class"
+    },
+    {
+      "term": "concerns",
+      "ja": "不安・懸念",
+      "synonym": "worries",
+      "definition": "matters people feel uneasy about"
+    },
+    {
+      "term": "confident",
+      "ja": "自信がある",
+      "synonym": "certain",
+      "definition": "seeming sure of an answer"
+    },
+    {
+      "term": "consider",
+      "ja": "考慮する",
+      "synonym": "think about",
+      "definition": "to examine an idea before deciding"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "discussion",
+      "ja": "討論",
+      "synonym": "conversation",
+      "definition": "an exchange of ideas"
+    },
+    {
+      "term": "educational",
+      "ja": "教育の",
+      "synonym": "teaching-related",
+      "definition": "related to learning"
+    },
+    {
+      "term": "encourage",
+      "ja": "促す",
+      "synonym": "support",
+      "definition": "to make someone more willing to act"
+    },
+    {
+      "term": "evidence",
+      "ja": "証拠",
+      "synonym": "support",
+      "definition": "information supporting a claim"
+    },
+    {
+      "term": "examine",
+      "ja": "調べる",
+      "synonym": "inspect",
+      "definition": "to look carefully"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "exercise",
+      "ja": "練習",
+      "synonym": "activity",
+      "definition": "a task used to build a skill"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "fair",
+      "ja": "公平な",
+      "synonym": "just",
+      "definition": "providing appropriate treatment"
+    },
+    {
+      "term": "fairness",
+      "ja": "公平さ",
+      "synonym": "justice",
+      "definition": "giving people appropriate opportunities"
+    },
+    {
+      "term": "feedback",
+      "ja": "フィードバック",
+      "synonym": "response",
+      "definition": "information about performance"
+    },
+    {
+      "term": "formal",
+      "ja": "形式的な",
+      "synonym": "official",
+      "definition": "following an established structure"
+    },
+    {
+      "term": "guarantee",
+      "ja": "保証する",
+      "synonym": "ensure",
+      "definition": "to promise a particular result"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "identical",
+      "ja": "同一の",
+      "synonym": "the same",
+      "definition": "exactly alike"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "facts",
+      "definition": "facts or details provided about something"
+    },
+    {
+      "term": "judgment",
+      "ja": "判断",
+      "synonym": "evaluation",
+      "definition": "a conclusion based on reasons"
+    },
+    {
+      "term": "meeting",
+      "ja": "集合",
+      "synonym": "gathering",
+      "definition": "coming together at a place"
+    },
+    {
+      "term": "necessarily",
+      "ja": "必ずしも",
+      "synonym": "inevitably",
+      "definition": "in a way that must be true"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "opportunities",
+      "ja": "機会",
+      "synonym": "chances",
+      "definition": "possibilities to take part"
+    },
+    {
+      "term": "original",
+      "ja": "原文の",
+      "synonym": "initial",
+      "definition": "existing before a copy or revision"
+    },
+    {
+      "term": "participants",
+      "ja": "参加者",
+      "synonym": "members",
+      "definition": "people taking part"
+    },
+    {
+      "term": "participation",
+      "ja": "参加",
+      "synonym": "involvement",
+      "definition": "taking part in an activity"
+    },
+    {
+      "term": "particular",
+      "ja": "特定の",
+      "synonym": "specific",
+      "definition": "clearly identified rather than general"
+    },
+    {
+      "term": "patterns",
+      "ja": "傾向・パターン",
+      "synonym": "regularities",
+      "definition": "repeated ways something happens"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "perspective",
+      "ja": "視点",
+      "synonym": "viewpoint",
+      "definition": "one way of understanding"
+    },
+    {
+      "term": "perspectives",
+      "ja": "視点",
+      "synonym": "viewpoints",
+      "definition": "different ways of understanding"
+    },
+    {
+      "term": "practical",
+      "ja": "実際的な",
+      "synonym": "workable",
+      "definition": "possible in real life"
+    },
+    {
+      "term": "produces",
+      "ja": "生み出す",
+      "synonym": "generates",
+      "definition": "creates an output"
+    },
+    {
+      "term": "producing",
+      "ja": "作り出すこと・答えを出すこと",
+      "synonym": "generating",
+      "definition": "creating or bringing something into existence"
+    },
+    {
+      "term": "purpose",
+      "ja": "目的",
+      "synonym": "aim",
+      "definition": "the reason for doing something"
+    },
+    {
+      "term": "question",
+      "ja": "疑問を持つ・問い直す",
+      "synonym": "challenge",
+      "definition": "to examine whether an assumption is correct"
+    },
+    {
+      "term": "recognize",
+      "ja": "認識する",
+      "synonym": "identify",
+      "definition": "to notice and understand"
+    },
+    {
+      "term": "recognizes",
+      "ja": "認める",
+      "synonym": "acknowledges",
+      "definition": "accepts the importance or existence of something"
+    },
+    {
+      "term": "records",
+      "ja": "記録",
+      "synonym": "documents",
+      "definition": "saved information"
+    },
+    {
+      "term": "relevant",
+      "ja": "関連する",
+      "synonym": "applicable",
+      "definition": "connected with a topic"
+    },
+    {
+      "term": "responses",
+      "ja": "回答",
+      "synonym": "replies",
+      "definition": "answers to a prompt"
+    },
+    {
+      "term": "shape",
+      "ja": "形作る",
+      "synonym": "influence",
+      "definition": "to influence how something develops"
+    },
+    {
+      "term": "social",
+      "ja": "社会的な",
+      "synonym": "relational",
+      "definition": "connected with people and their interactions"
+    },
+    {
+      "term": "software",
+      "ja": "ソフトウェア",
+      "synonym": "programs",
+      "definition": "computer instructions and applications"
+    },
+    {
+      "term": "student",
+      "ja": "生徒",
+      "synonym": "learner",
+      "definition": "a person learning at school"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "support",
+      "ja": "支え・支援",
+      "synonym": "help",
+      "definition": "help that keeps an activity going"
+    },
+    {
+      "term": "technical",
+      "ja": "技術的な",
+      "synonym": "technological",
+      "definition": "connected with technology"
+    },
+    {
+      "term": "therefore",
+      "ja": "したがって",
+      "synonym": "consequently",
+      "definition": "used to introduce a logical result"
+    },
+    {
+      "term": "thoughtful",
+      "ja": "思慮深い",
+      "synonym": "considerate",
+      "definition": "showing care and attention"
+    },
+    {
+      "term": "unanswered",
+      "ja": "未回答の",
+      "synonym": "unresolved",
+      "definition": "not given a final answer"
+    },
+    {
+      "term": "unfamiliar",
+      "ja": "なじみのない",
+      "synonym": "unknown",
+      "definition": "not recognized or understood"
+    },
+    {
+      "term": "unintentionally",
+      "ja": "意図せず",
+      "synonym": "accidentally",
+      "definition": "without intending the result"
+    },
+    {
+      "term": "algorithm",
+      "ja": "アルゴリズム",
+      "synonym": "procedure",
+      "definition": "a set of rules used for a task"
+    },
+    {
+      "term": "ranking",
+      "ja": "順位付け",
+      "synonym": "ordering",
+      "definition": "placing items in an order"
+    },
+    {
+      "term": "rankings",
+      "ja": "順位",
+      "synonym": "orders",
+      "definition": "lists arranged by a score"
+    },
+    {
+      "term": "platform",
+      "ja": "プラットフォーム",
+      "synonym": "system",
+      "definition": "a digital environment for activity"
+    },
+    {
+      "term": "digital",
+      "ja": "デジタルの",
+      "synonym": "electronic",
+      "definition": "using computer technology"
+    },
+    {
+      "term": "popularity",
+      "ja": "人気",
+      "synonym": "support",
+      "definition": "being liked by many people"
+    },
+    {
+      "term": "popular",
+      "ja": "人気の",
+      "synonym": "well-liked",
+      "definition": "supported by many"
+    },
+    {
+      "term": "votes",
+      "ja": "票",
+      "synonym": "ballots",
+      "definition": "choices recorded in a poll"
+    },
+    {
+      "term": "vote",
+      "ja": "投票",
+      "synonym": "ballot",
+      "definition": "a choice expressed in a poll"
+    },
+    {
+      "term": "feedback loop",
+      "ja": "フィードバックの循環",
+      "synonym": "reinforcing cycle",
+      "definition": "a process that strengthens itself"
+    },
+    {
+      "term": "visibility",
+      "ja": "目立ちやすさ",
+      "synonym": "exposure",
+      "definition": "how easily something is seen"
+    },
+    {
+      "term": "visible",
+      "ja": "見える",
+      "synonym": "noticeable",
+      "definition": "able to be seen"
+    },
+    {
+      "term": "minority",
+      "ja": "少数派",
+      "synonym": "smaller group",
+      "definition": "people holding a less common view"
+    },
+    {
+      "term": "objective",
+      "ja": "客観的な",
+      "synonym": "impartial",
+      "definition": "not based only on personal feelings"
+    },
+    {
+      "term": "neutral",
+      "ja": "中立の",
+      "synonym": "unbiased",
+      "definition": "not favoring one side"
+    },
+    {
+      "term": "uneven",
+      "ja": "不均衡な",
+      "synonym": "unequal",
+      "definition": "not equal in amount"
+    },
+    {
+      "term": "unfair",
+      "ja": "不公平な",
+      "synonym": "unjust",
+      "definition": "not treating people appropriately"
+    },
+    {
+      "term": "importance",
+      "ja": "重要性",
+      "synonym": "significance",
+      "definition": "how much something matters"
+    },
+    {
+      "term": "insightful",
+      "ja": "洞察に富む",
+      "synonym": "perceptive",
+      "definition": "showing deep understanding"
+    },
+    {
+      "term": "assumption",
+      "ja": "前提",
+      "synonym": "belief",
+      "definition": "something accepted as true"
+    },
+    {
+      "term": "contributions",
+      "ja": "貢献",
+      "synonym": "inputs",
+      "definition": "things offered to a shared activity"
+    },
+    {
+      "term": "contribution",
+      "ja": "貢献",
+      "synonym": "input",
+      "definition": "something offered to a group"
+    },
+    {
+      "term": "randomly",
+      "ja": "無作為に",
+      "synonym": "by chance",
+      "definition": "without following a preference"
+    },
+    {
+      "term": "random",
+      "ja": "無作為の",
+      "synonym": "unplanned",
+      "definition": "selected by chance"
+    },
+    {
+      "term": "selection",
+      "ja": "選択",
+      "synonym": "choice",
+      "definition": "the act of choosing"
+    },
+    {
+      "term": "procedure",
+      "ja": "手順",
+      "synonym": "method",
+      "definition": "a planned process"
+    },
+    {
+      "term": "lecturer",
+      "ja": "講師",
+      "synonym": "teacher",
+      "definition": "someone teaching a university class"
+    },
+    {
+      "term": "discussions",
+      "ja": "討論",
+      "synonym": "conversations",
+      "definition": "exchanges of ideas"
+    },
+    {
+      "term": "questions",
+      "ja": "質問",
+      "synonym": "inquiries",
+      "definition": "things people ask"
+    },
+    {
+      "term": "measurement",
+      "ja": "測定",
+      "synonym": "assessment",
+      "definition": "an act of measuring"
+    },
+    {
+      "term": "technology",
+      "ja": "技術",
+      "synonym": "tools",
+      "definition": "practical methods and equipment"
+    },
+    {
+      "term": "evaluation",
+      "ja": "評価",
+      "synonym": "assessment",
+      "definition": "the process of judging"
+    },
+    {
+      "term": "repetitive",
+      "ja": "重複する",
+      "synonym": "repeated",
+      "definition": "occurring again"
+    },
+    {
+      "term": "effects",
+      "ja": "影響",
+      "synonym": "impacts",
+      "definition": "changes caused by an action"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 4,
+      "focus": "even when its underlying assumption is questionable",
+      "explanation_ja": "even whenは前提に問題があってもという譲歩です。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 7,
+      "focus": "that equal permission to submit a question does not necessarily produce equal opportunities for that question to be heard",
+      "explanation_ja": "that節が形式的な機会と実質的な機会の違いを示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "focus": "Instead of relying only on the highest vote counts",
+      "explanation_ja": "instead of + 動名詞で選び方を変えます。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "focus": "in order to produce uneven patterns of visibility",
+      "explanation_ja": "in order to不定詞が意図と結果の区別を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "便利な順位に潜む時刻の影響を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "注目の循環が生じる例を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "試験による否定的な反応も示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "測定の仕組みへの関心が高まります。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Her question opens a debate about what a ranking system measures and whose contributions it may unintentionally conceal.",
+      "rewrite": "Mina questions what rankings measure and which contributions they leave less visible.",
+      "explanation_ja": "順位付けが隠す意見にも注意します。"
+    },
+    {
+      "source": "They recognize that equal permission to submit a question does not necessarily produce equal opportunities for that question to be heard.",
+      "rewrite": "The right to submit does not ensure an equal chance of being heard.",
+      "explanation_ja": "形式的な平等と実質的な機会は異なります。"
+    },
+    {
+      "source": "The trial therefore produces useful uncertainties and possible improvements rather than a simple verdict about the technology.",
+      "rewrite": "The trial reveals possible improvements rather than a final verdict.",
+      "explanation_ja": "試験は最終判定ではありません。"
+    },
+    {
+      "source": "A thoughtful classroom treats its measures of attention as evidence worth questioning, not as final statements about whose ideas matter.",
+      "rewrite": "Attention metrics should remain open to criticism rather than determining whose ideas have value.",
+      "explanation_ja": "人気の数字を最終的な価値判断にしません。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "answer": "However",
+      "options": [
+        "In addition",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "便利な順位に潜む時刻の影響を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "As a result",
+        "In contrast"
+      ],
+      "explanation_ja": "注目の循環が生じる例を示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "For example",
+        "As a result",
+        "Moreover",
+        "Nevertheless"
+      ],
+      "explanation_ja": "試験による否定的な反応も示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "However",
+        "Meanwhile",
+        "As a result",
+        "For example"
+      ],
+      "explanation_ja": "測定の仕組みへの関心が高まります。"
+    }
+  ]
+}
