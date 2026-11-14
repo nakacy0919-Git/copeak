@@ -3,8 +3,8 @@
   "as_of": "2026-11-14",
   "goal": 450,
   "category_target": 30,
-  "registered_total": 180,
-  "remaining": 270,
+  "registered_total": 190,
+  "remaining": 260,
   "level_targets_per_category": {
     "eiken-3": 1,
     "eiken-pre2": 4,
@@ -21,71 +21,71 @@
       "category_id": "L01",
       "name": "自然",
       "target": 30,
-      "registered": 12,
-      "remaining": 18
+      "registered": 13,
+      "remaining": 17
     },
     {
       "category_id": "L02",
       "name": "歴史",
       "target": 30,
-      "registered": 12,
-      "remaining": 18
+      "registered": 13,
+      "remaining": 17
     },
     {
       "category_id": "L03",
       "name": "科学技術",
       "target": 30,
-      "registered": 12,
-      "remaining": 18
+      "registered": 13,
+      "remaining": 17
     },
     {
       "category_id": "L04",
       "name": "人間関係",
       "target": 30,
-      "registered": 12,
-      "remaining": 18
+      "registered": 13,
+      "remaining": 17
     },
     {
       "category_id": "L05",
       "name": "国際社会",
       "target": 30,
-      "registered": 12,
-      "remaining": 18
+      "registered": 13,
+      "remaining": 17
     },
     {
       "category_id": "L06",
       "name": "心理・哲学",
       "target": 30,
-      "registered": 12,
-      "remaining": 18
+      "registered": 13,
+      "remaining": 17
     },
     {
       "category_id": "L07",
       "name": "経済・ビジネス",
       "target": 30,
-      "registered": 12,
-      "remaining": 18
+      "registered": 13,
+      "remaining": 17
     },
     {
       "category_id": "L08",
       "name": "芸術・文化",
       "target": 30,
-      "registered": 12,
-      "remaining": 18
+      "registered": 13,
+      "remaining": 17
     },
     {
       "category_id": "L09",
       "name": "文学・言語",
       "target": 30,
-      "registered": 12,
-      "remaining": 18
+      "registered": 13,
+      "remaining": 17
     },
     {
       "category_id": "L10",
       "name": "教育・学習",
       "target": 30,
-      "registered": 12,
-      "remaining": 18
+      "registered": 13,
+      "remaining": 17
     },
     {
       "category_id": "L11",
@@ -124,9 +124,16 @@
     }
   ],
   "latest_unpublished_batch": [
-    "L13-012",
-    "L14-012",
-    "L15-012"
+    "L01-013",
+    "L02-013",
+    "L03-013",
+    "L04-013",
+    "L05-013",
+    "L06-013",
+    "L07-013",
+    "L08-013",
+    "L09-013",
+    "L10-013"
   ],
   "release_policy": {
     "new_works_default_status": "draft",
@@ -152,7 +159,8 @@
     "2026-11-14: Added L07-012, L08-012, L09-012 (650 words, 60 bilingual sentences, 86 vocabulary entries, 30 comprehension questions and 48 review exercises); draft only. Individual structural checks passed; full repository guard and human review pending.",
     "2026-11-14: Added L04-012, L05-012, L06-012 (849 words, 60 bilingual sentences, 148 vocabulary entries, 30 comprehension questions, 48 review exercises); draft only. Individual structural checks passed; full repository guard and human review pending.",
     "2026-11-14: Added L10-012, L11-012, L12-012 (644 words, 60 bilingual sentences, 81 vocabulary entries, 30 comprehension questions and 48 review exercises); draft only. Individual structural checks passed; full repository guard and human review pending.",
-    "2026-11-14: Added L13-012, L14-012, L15-012 (648 words, 60 bilingual sentences, 93 vocabulary entries, 30 comprehension questions and 48 review exercises); draft only. Individual structural checks passed; full repository guard and human review pending."
+    "2026-11-14: Added L13-012, L14-012, L15-012 (648 words, 60 bilingual sentences, 93 vocabulary entries, 30 comprehension questions and 48 review exercises); draft only. Individual structural checks passed; full repository guard and human review pending.",
+    "2026-11-14: Volume batch added L01-013, L02-013, L03-013, L04-013, L05-013, L06-013, L07-013, L08-013, L09-013, L10-013 (3826 words, 205 bilingual sentences, 482 vocabulary entries, 100 comprehension questions and 160 review exercises). Draft only; individual structural checks and registry reconciliation passed; full repository guard, semantic duplication check and human review pending."
   ],
-  "all_unpublished_batches_note": "Authoritative non-production branch: coord/reading-450-registry; 180 unique registered IDs; main reference count 28."
+  "all_unpublished_batches_note": "Authoritative non-production branch: coord/reading-450-registry; 190 unique registered IDs; main reference count 28."
 }

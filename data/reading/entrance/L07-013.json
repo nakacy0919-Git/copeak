@@ -1,0 +1,717 @@
+{
+  "id": "L07-013",
+  "category_id": "L07",
+  "title": "When a Cheaper Order Costs More",
+  "title_ja": "安く注文するほど費用が増えるとき",
+  "level_id": "university-mid",
+  "status": "draft",
+  "original": true,
+  "word_count": 456,
+  "source_links": [
+    {
+      "title": "Original lesson authoring registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "人物、具体的な出来事・実験・記録は架空の教材例。実在の調査や統計の結果ではない。参考リンクは制作台帳であり外部の実証資料ではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "In an imaginary town, three independently owned cafes decided to explore whether ordering supplies together might reduce their operating expenses without affecting the quality of the food they offered.",
+          "ja": "ある架空の町で、独立経営の3軒のカフェは、提供する食事の質を損なわず共同で仕入れることで運営費を削減できるか検討することにした。"
+        },
+        {
+          "en": "Each cafe regularly purchased paper cups, cleaning materials, coffee beans, and a variety of ingredients from several different suppliers.",
+          "ja": "各カフェは定期的に紙コップ、清掃用品、コーヒー豆、さまざまな食材を複数の供給業者から購入していた。"
+        },
+        {
+          "en": "A wholesale company offered the owners a substantial discount on every unit if they agreed to place a single large order rather than several smaller ones.",
+          "ja": "卸売会社は複数の小口注文ではなく一度に大量注文することに同意すれば、一個あたりの価格を大幅に割り引くと申し出た。"
+        },
+        {
+          "en": "At first, the owners were enthusiastic because they calculated the difference between the advertised discount price and the price they normally paid.",
+          "ja": "最初、経営者たちは提示された割引価格と通常の支払価格との差額を計算して熱心になった。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "One owner, however, asked the others to consider expenses that would not appear directly on the invoice from the wholesale company.",
+          "ja": "しかし一人の経営者は卸売会社の請求書に直接現れない費用を考えるようほかの人に求めた。"
+        },
+        {
+          "en": "The cafes differed in size, and none of them possessed enough storage space to accommodate everything they would receive from the proposed joint order.",
+          "ja": "カフェの規模は異なり、どの店にも共同注文で受け取るものすべてを収容する保管場所はなかった。"
+        },
+        {
+          "en": "Renting an additional room and transporting goods between the three businesses could consume a significant proportion of the anticipated savings.",
+          "ja": "追加の部屋を借りて3店舗の間で商品を運ぶと、期待される節約額のかなりの部分が失われる可能性があった。"
+        },
+        {
+          "en": "Moreover, the owners would need to decide in advance how to distribute unexpected costs if one cafe changed its plans or used fewer supplies than expected.",
+          "ja": "さらに一店が計画を変えたり予想より仕入品を少なく使ったりした場合、予想外の費用をどう分担するか事前に決める必要があった。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Instead of rejecting the idea entirely, the group created a simple model that included the discount, estimated storage costs, delivery expenses, and the possibility of unused stock.",
+          "ja": "案を完全に拒絶する代わりに、割引、保管費の見積もり、配送費、在庫が余る可能性を含めた簡単なモデルを作った。"
+        },
+        {
+          "en": "They separated goods that could be stored safely for long periods from products whose quality might decline before they were used.",
+          "ja": "長期間安全に保管できる品と、使用前に品質が低下するおそれのある品を分けた。"
+        },
+        {
+          "en": "For products that were expensive to store or difficult to divide fairly, the model suggested that separate purchases might remain more practical despite their higher unit prices.",
+          "ja": "保管費が高いか公平に分けにくい商品については、単価が高くても個別購入の方が実用的な場合があるとモデルは示唆した。"
+        },
+        {
+          "en": "The group therefore decided to conduct a limited experiment involving only a few kinds of durable supplies.",
+          "ja": "そこでグループは一部の長期保存可能な用品だけを対象とした限定的な実験を行うことにした。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "They agreed on a written procedure for allocating each expense and assigned responsibility for checking the quantity delivered to a different owner each month.",
+          "ja": "各費用の分担手順を書面で合意し、配送された数量を確認する責任を経営者に月替わりで割り当てた。"
+        },
+        {
+          "en": "During the experiment, they collected information about expenses that had previously seemed too small or inconvenient to record.",
+          "ja": "実験中はこれまで少なすぎるか記録しにくいと考えていた費用についても情報を集めた。"
+        },
+        {
+          "en": "Although the accounting process took more time than expected, the resulting records allowed them to identify which purchases genuinely benefited all three cafes.",
+          "ja": "会計処理には予想以上の時間がかかったが、記録によってどの購入が3店すべてに実際に利益をもたらすか把握できた。"
+        },
+        {
+          "en": "They also discovered that the arrangements needed to be reviewed whenever the amount of business conducted by any of the cafes changed significantly.",
+          "ja": "いずれかの店の取引量が大きく変わるたびに取り決めを見直す必要があることも分かった。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The experiment did not demonstrate that collaboration was always cheaper, nor did it show that operating independently was necessarily the safest financial option.",
+          "ja": "実験は協力が常に安いことを示したわけでも、独立して経営することが必ずしも最も安全な財務上の選択肢だと示したわけでもなかった。"
+        },
+        {
+          "en": "Rather, it showed the importance of distinguishing the visible price of an individual item from the total expense of obtaining, storing, and managing it.",
+          "ja": "むしろ個々の品の目に見える価格と、それを入手・保管・管理する総費用を区別する重要性を示した。"
+        },
+        {
+          "en": "The owners learned that successful cooperation depends partly on the ability to discuss responsibilities and adjust agreements when circumstances change.",
+          "ja": "経営者たちは協力の成功が責任を話し合い、状況が変わると合意内容を調整する能力にも左右されると学んだ。"
+        },
+        {
+          "en": "Their most useful discovery was not a particular discount but a more comprehensive way of evaluating the choices available to their businesses.",
+          "ja": "最も有用な発見は特定の割引ではなく、事業上の選択肢をより包括的に評価する方法だった。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "independently",
+      "ja": "独立して",
+      "synonym": "separately",
+      "definition": "without being controlled by another"
+    },
+    {
+      "term": "explore",
+      "ja": "検討する",
+      "synonym": "investigate",
+      "definition": "examine a possibility in detail"
+    },
+    {
+      "term": "supplies",
+      "ja": "仕入品・用品",
+      "synonym": "materials",
+      "definition": "things needed for an activity"
+    },
+    {
+      "term": "reduce",
+      "ja": "削減する",
+      "synonym": "decrease",
+      "definition": "make an amount smaller"
+    },
+    {
+      "term": "operating expenses",
+      "ja": "運営費",
+      "synonym": "running costs",
+      "definition": "costs of running a business"
+    },
+    {
+      "term": "purchased",
+      "ja": "購入した",
+      "synonym": "bought",
+      "definition": "obtained by paying money"
+    },
+    {
+      "term": "ingredients",
+      "ja": "食材",
+      "synonym": "components",
+      "definition": "things used to make food"
+    },
+    {
+      "term": "suppliers",
+      "ja": "供給業者",
+      "synonym": "providers",
+      "definition": "businesses supplying goods"
+    },
+    {
+      "term": "wholesale",
+      "ja": "卸売の",
+      "synonym": "bulk selling",
+      "definition": "selling goods in large quantities to businesses"
+    },
+    {
+      "term": "substantial",
+      "ja": "大幅な",
+      "synonym": "considerable",
+      "definition": "large in amount or importance"
+    },
+    {
+      "term": "discount",
+      "ja": "割引",
+      "synonym": "reduction",
+      "definition": "a reduction in price"
+    },
+    {
+      "term": "unit",
+      "ja": "単位・一個",
+      "synonym": "item",
+      "definition": "one individual item or measure"
+    },
+    {
+      "term": "enthusiastic",
+      "ja": "熱心な",
+      "synonym": "eager",
+      "definition": "showing strong interest and excitement"
+    },
+    {
+      "term": "calculated",
+      "ja": "計算した",
+      "synonym": "computed",
+      "definition": "worked out using numbers"
+    },
+    {
+      "term": "advertised",
+      "ja": "提示された",
+      "synonym": "promoted",
+      "definition": "publicly announced to attract buyers"
+    },
+    {
+      "term": "invoice",
+      "ja": "請求書",
+      "synonym": "bill",
+      "definition": "a document listing goods and amounts owed"
+    },
+    {
+      "term": "possessed",
+      "ja": "所有した",
+      "synonym": "had",
+      "definition": "owned or had something"
+    },
+    {
+      "term": "storage",
+      "ja": "保管",
+      "synonym": "keeping",
+      "definition": "keeping things for future use"
+    },
+    {
+      "term": "accommodate",
+      "ja": "収容する",
+      "synonym": "hold",
+      "definition": "provide space for something"
+    },
+    {
+      "term": "proposed",
+      "ja": "提案された",
+      "synonym": "suggested",
+      "definition": "put forward for consideration"
+    },
+    {
+      "term": "joint",
+      "ja": "共同の",
+      "synonym": "shared",
+      "definition": "involving more than one party"
+    },
+    {
+      "term": "additional",
+      "ja": "追加の",
+      "synonym": "extra",
+      "definition": "more than what already exists"
+    },
+    {
+      "term": "transporting",
+      "ja": "運搬すること",
+      "synonym": "moving",
+      "definition": "taking goods from one place to another"
+    },
+    {
+      "term": "consume",
+      "ja": "消費する",
+      "synonym": "use up",
+      "definition": "use an amount of a resource"
+    },
+    {
+      "term": "proportion",
+      "ja": "割合",
+      "synonym": "share",
+      "definition": "a part or fraction of a whole"
+    },
+    {
+      "term": "anticipated",
+      "ja": "予想された",
+      "synonym": "expected",
+      "definition": "believed likely to happen"
+    },
+    {
+      "term": "distribute",
+      "ja": "分配する",
+      "synonym": "allocate",
+      "definition": "divide and give among several parties"
+    },
+    {
+      "term": "estimated",
+      "ja": "見積もられた",
+      "synonym": "approximate",
+      "definition": "roughly calculated"
+    },
+    {
+      "term": "stock",
+      "ja": "在庫",
+      "synonym": "inventory",
+      "definition": "goods kept for future use or sale"
+    },
+    {
+      "term": "decline",
+      "ja": "低下する",
+      "synonym": "deteriorate",
+      "definition": "become less in quality or amount"
+    },
+    {
+      "term": "practical",
+      "ja": "実用的な",
+      "synonym": "workable",
+      "definition": "suited to actual use"
+    },
+    {
+      "term": "durable",
+      "ja": "長持ちする",
+      "synonym": "long-lasting",
+      "definition": "able to remain useful for a long time"
+    },
+    {
+      "term": "procedure",
+      "ja": "手順",
+      "synonym": "process",
+      "definition": "an established way of doing something"
+    },
+    {
+      "term": "allocating",
+      "ja": "割り当てること",
+      "synonym": "assigning",
+      "definition": "giving a share to a particular party"
+    },
+    {
+      "term": "responsibility",
+      "ja": "責任",
+      "synonym": "duty",
+      "definition": "an obligation to do something"
+    },
+    {
+      "term": "quantity",
+      "ja": "数量",
+      "synonym": "amount",
+      "definition": "how much of something there is"
+    },
+    {
+      "term": "delivered",
+      "ja": "配送された",
+      "synonym": "transported",
+      "definition": "taken to the intended destination"
+    },
+    {
+      "term": "inconvenient",
+      "ja": "不便な",
+      "synonym": "troublesome",
+      "definition": "causing difficulty or trouble"
+    },
+    {
+      "term": "accounting",
+      "ja": "会計",
+      "synonym": "bookkeeping",
+      "definition": "recording and analyzing financial transactions"
+    },
+    {
+      "term": "genuinely",
+      "ja": "実際に",
+      "synonym": "truly",
+      "definition": "in a real or sincere way"
+    },
+    {
+      "term": "benefited",
+      "ja": "利益をもたらした",
+      "synonym": "helped",
+      "definition": "produced a useful result for"
+    },
+    {
+      "term": "arrangements",
+      "ja": "取り決め",
+      "synonym": "agreements",
+      "definition": "plans agreed upon by parties"
+    },
+    {
+      "term": "significantly",
+      "ja": "大きく",
+      "synonym": "considerably",
+      "definition": "to an important or large degree"
+    },
+    {
+      "term": "demonstrate",
+      "ja": "示す",
+      "synonym": "show",
+      "definition": "make something clear through evidence"
+    },
+    {
+      "term": "collaboration",
+      "ja": "協力",
+      "synonym": "cooperation",
+      "definition": "working together toward a purpose"
+    },
+    {
+      "term": "financial",
+      "ja": "財務上の",
+      "synonym": "monetary",
+      "definition": "related to money and its management"
+    },
+    {
+      "term": "distinguishing",
+      "ja": "区別すること",
+      "synonym": "differentiating",
+      "definition": "recognizing differences between things"
+    },
+    {
+      "term": "obtaining",
+      "ja": "入手すること",
+      "synonym": "acquiring",
+      "definition": "getting something"
+    },
+    {
+      "term": "circumstances",
+      "ja": "状況",
+      "synonym": "conditions",
+      "definition": "facts affecting a situation"
+    },
+    {
+      "term": "comprehensive",
+      "ja": "包括的な",
+      "synonym": "wide-ranging",
+      "definition": "including the relevant parts of something"
+    },
+    {
+      "term": "evaluating",
+      "ja": "評価すること",
+      "synonym": "assessing",
+      "definition": "judging the value or effectiveness of something"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "Why were the owners initially enthusiastic about ordering together?",
+      "options": [
+        "They had already rented a shared warehouse for free.",
+        "They planned to replace their suppliers with customers.",
+        "They had calculated every possible cost before receiving the offer.",
+        "They compared discounted and ordinary unit prices."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "割引後の価格と通常価格の差を見て期待した。"
+    },
+    {
+      "id": "q2",
+      "skill": "inference",
+      "prompt": "Why might the advertised discount overstate the real savings?",
+      "options": [
+        "The cafes were legally required to pay the original price.",
+        "The wholesale company would deliver nothing.",
+        "Storage and transport would generate costs beyond the invoice.",
+        "The cafes used no supplies at all."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "請求書には現れない保管や配送などの費用がある。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What issue did the owners need to settle in advance?",
+      "options": [
+        "Which cafe would change its name.",
+        "How to share unexpected costs if needs changed.",
+        "How many customers would visit every day.",
+        "Whether the cafes should stop selling food."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "予想外の費用の分担を決める必要があった。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What did the group's model include?",
+      "options": [
+        "The possibility of unused stock.",
+        "Future customers' personal information.",
+        "The exact cost of every transaction for the next year.",
+        "The prices of all competing cafes."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "余剰在庫の可能性も考慮した。"
+    },
+    {
+      "id": "q5",
+      "skill": "inference",
+      "prompt": "When might separate purchases be more sensible?",
+      "options": [
+        "Whenever the wholesale price is lower.",
+        "Whenever all three cafes have identical needs.",
+        "When goods are costly to store or difficult to divide fairly.",
+        "Only when a supplier refuses to sell separate items."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "保管や公平な分配の負担が大きい場合。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What did the group choose for the initial experiment?",
+      "options": [
+        "Every type of food ingredient.",
+        "All materials available from every supplier.",
+        "A warehouse for an unlimited quantity of products.",
+        "A few kinds of durable supplies."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "長期保存できる少数の用品だけを試した。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "How was responsibility for checking deliveries assigned?",
+      "options": [
+        "It rotated among the owners monthly.",
+        "It was given permanently to one customer.",
+        "It was transferred to a delivery driver without agreement.",
+        "It was assigned only at the end of the experiment."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "月替わりで経営者が担当した。"
+    },
+    {
+      "id": "q8",
+      "skill": "vocabulary",
+      "prompt": "What does genuinely mean in this context?",
+      "options": [
+        "Temporarily.",
+        "Truly.",
+        "Accidentally.",
+        "Financially unsustainably."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "実際に、本当にという意味。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Why might the arrangements need repeated review?",
+      "options": [
+        "The discount necessarily disappears every month.",
+        "The cafes are required to close after the trial.",
+        "All accounting records become invalid after a delivery.",
+        "A change in the volume of one cafe's business can change shared needs and costs."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p4",
+        "p5"
+      ],
+      "explanation_ja": "事業量の変化により分担や必要量が変わり得る。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the central argument of the passage?",
+      "options": [
+        "A low unit price always makes a joint purchase profitable.",
+        "Independent purchasing is necessarily the least risky approach.",
+        "Business decisions should account for total costs and the conditions of cooperation.",
+        "Business owners should avoid collecting detailed financial information."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "単価だけでなく総費用や協力条件を含めて判断する。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "if they agreed to place a single large order",
+      "explanation_ja": "if節は割引を受けるための条件を示す。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "could consume a significant proportion",
+      "explanation_ja": "couldは可能性、proportionは全体に占める割合。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "despite their higher unit prices",
+      "explanation_ja": "despiteは〜にもかかわらずという前置詞。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 0,
+      "focus": "nor did it show",
+      "explanation_ja": "否定表現norが文頭に置かれ、助動詞と主語が倒置する。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p2",
+      "expression": "however",
+      "role_ja": "価格上の魅力から見えない費用への転換。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "Moreover",
+      "role_ja": "さらに考慮すべき分担問題を追加。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Instead of",
+      "role_ja": "案を拒絶せずモデル化した対案。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "Rather",
+      "role_ja": "実験から導かれる本来の結論を示す。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "A wholesale company offered the owners a substantial discount on every unit if they agreed to place a single large order rather than several smaller ones.",
+      "rewrite": "The wholesaler promised a large per-item price reduction on condition that the cafes ordered together in bulk.",
+      "explanation_ja": "共同の大量注文が割引条件。"
+    },
+    {
+      "source": "Renting an additional room and transporting goods between the three businesses could consume a significant proportion of the anticipated savings.",
+      "rewrite": "The cost of extra space and moving goods might use up a considerable share of the money they expected to save.",
+      "explanation_ja": "追加費用が節約額を減らし得る。"
+    },
+    {
+      "source": "For products that were expensive to store or difficult to divide fairly, the model suggested that separate purchases might remain more practical despite their higher unit prices.",
+      "rewrite": "For goods that cost a lot to keep or were hard to share equitably, buying separately might be preferable even if each item cost more.",
+      "explanation_ja": "保管・分配費用によっては個別購入が合理的。"
+    },
+    {
+      "source": "The experiment did not demonstrate that collaboration was always cheaper, nor did it show that operating independently was necessarily the safest financial option.",
+      "rewrite": "The trial established neither that working together was invariably cheaper nor that separate purchasing was always financially safer.",
+      "explanation_ja": "どちらかが常に優れているとは示さなかった。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 0,
+      "answer": "invoice",
+      "options": [
+        "invoice",
+        "portrait",
+        "calendar",
+        "novel"
+      ],
+      "explanation_ja": "請求書に現れない費用。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "decline",
+      "options": [
+        "increase",
+        "decline",
+        "return",
+        "arrive"
+      ],
+      "explanation_ja": "品質低下の可能性。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "answer": "allocating",
+      "options": [
+        "ignoring",
+        "forgetting",
+        "allocating",
+        "collecting"
+      ],
+      "explanation_ja": "費用分担の手順。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "answer": "total",
+      "options": [
+        "annual",
+        "fictional",
+        "temporary",
+        "total"
+      ],
+      "explanation_ja": "品の価格と総費用を区別。"
+    }
+  ]
+}
