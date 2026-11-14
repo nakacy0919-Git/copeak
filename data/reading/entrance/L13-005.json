@@ -1,0 +1,698 @@
+{
+  "id": "L13-005",
+  "category_id": "L13",
+  "title": "Who Cleans Up After a Space Mission?",
+  "title_ja": "宇宙での活動が終わった後の責任",
+  "level_id": "eiken-pre1",
+  "word_count": 468,
+  "original": true,
+  "status": "draft",
+  "source_links": [
+    {
+      "title": "NASA: Orbital Debris",
+      "url": "https://www.nasa.gov/reference/jsc-orbital-debris/"
+    }
+  ],
+  "fact_notes": [
+    "背景となる考え方は添付の資料で確認。本文と練習問題は新規制作。例示した人物・学校・活動は架空の説明用設定。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A satellite completes its mission after many years of sending useful images and information back to researchers on Earth.",
+          "ja": "人工衛星は地球の研究者へ役立つ画像や情報を長年送り、任務を終えます。"
+        },
+        {
+          "en": "Its instruments may stop working, but the object itself does not necessarily disappear from the orbit it has been following.",
+          "ja": "機器は動かなくなっても、衛星そのものがそれまでの軌道から必ず消えるわけではありません。"
+        },
+        {
+          "en": "However, an inactive spacecraft can remain in space and become part of a growing problem known as orbital debris.",
+          "ja": "しかし活動していない宇宙船は宇宙に残り、軌道上のごみという増大する問題の一部になることがあります。"
+        },
+        {
+          "en": "NASA studies debris ranging from small fragments to large objects because collisions can threaten operating spacecraft and astronauts.",
+          "ja": "NASAは小さな破片から大きな物体まで研究します。衝突が運用中の宇宙船や宇宙飛行士を脅かすためです。"
+        },
+        {
+          "en": "At orbital speeds, even a small object may cause serious damage if it strikes a spacecraft.",
+          "ja": "軌道上の速さでは小さな物体でも宇宙船にぶつかれば重大な損傷を生むかもしれません。"
+        },
+        {
+          "en": "Successful space exploration therefore requires attention to what happens after a mission ends, not only what happens during it.",
+          "ja": "宇宙探査の成功には任務中だけでなく終了後の行方への配慮も必要です。"
+        },
+        {
+          "en": "A system that leaves behind risks for later missions cannot be evaluated solely by its immediate scientific achievements.",
+          "ja": "後の任務に危険を残す仕組みは目前の科学的成果だけでは評価できません。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Scientists track larger pieces of orbital debris with observations from the ground and other available sources.",
+          "ja": "科学者は地上からの観測などを用いて大きめの軌道ごみを追跡します。"
+        },
+        {
+          "en": "For example, information about an object's predicted movement can help operators consider whether an active satellite needs to change its path.",
+          "ja": "例えば物体の予測運動情報により運用者は活動中の衛星の進路変更が必要か検討できます。"
+        },
+        {
+          "en": "Nevertheless, not every tiny fragment can be tracked individually with the same level of confidence.",
+          "ja": "それでもすべての微小な破片を同じ確実さで個別に追跡できるわけではありません。"
+        },
+        {
+          "en": "Engineers must therefore think about protection against objects that cannot always be detected in advance.",
+          "ja": "そのため技術者は事前に必ず検出できるとは限らない物体への防護を考える必要があります。"
+        },
+        {
+          "en": "Planning a safe mission requires knowledge about both known objects and uncertainty about what remains unseen.",
+          "ja": "安全な任務の計画には既知の物体と見えない物体の不確実さの両方の知識が必要です。"
+        },
+        {
+          "en": "This is one reason why improving observations does not completely remove the challenge of operating safely in orbit.",
+          "ja": "これが観測を改善しても軌道上で安全に活動する課題が完全にはなくならない理由の一つです。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The problem also raises questions about how organizations should design satellites before they are launched.",
+          "ja": "この問題は組織が打ち上げ前に衛星をどう設計すべきかという問いも生みます。"
+        },
+        {
+          "en": "In addition, mission planners can consider how an object will be removed or moved to a safer place when its work is finished.",
+          "ja": "さらに任務計画者は仕事を終えた物体をどう除去したり安全な場所へ移したりするか考えられます。"
+        },
+        {
+          "en": "A design intended only to reduce present costs might leave future operators facing difficult and expensive consequences.",
+          "ja": "現在の費用を減らすことだけを目指す設計は将来の運用者に困難で高価な影響を残すかもしれません。"
+        },
+        {
+          "en": "The challenge resembles environmental decisions on Earth, where today's convenience may create tomorrow's responsibilities.",
+          "ja": "この課題は今日の便利さが明日の責任を生む地球上の環境判断に似ています。"
+        },
+        {
+          "en": "However, space is not simply an empty field where workers can easily collect every broken component.",
+          "ja": "しかし宇宙は作業員が壊れた部品を簡単に拾える空き地ではありません。"
+        },
+        {
+          "en": "Removing debris can involve difficult engineering choices and risks that must themselves be evaluated carefully.",
+          "ja": "ごみの除去には難しい工学的選択やそれ自体慎重な評価が必要な危険が伴います。"
+        },
+        {
+          "en": "Preventing unnecessary debris may therefore be more practical than assuming every object can be recovered after launch.",
+          "ja": "不要なごみを防ぐことは打ち上げ後すべてを回収できると考えるより実際的かもしれません。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "A science class models the issue using a diagram showing several objects moving around a planet.",
+          "ja": "理科のクラスは惑星の周囲を動く複数の物体を示す図を使って問題をモデル化します。"
+        },
+        {
+          "en": "Students compare a plan that launches many short-lived devices with one that includes careful end-of-mission arrangements.",
+          "ja": "生徒は短命な機器を多数打ち上げる案と任務終了時の対策を含む案を比較します。"
+        },
+        {
+          "en": "They identify advantages and disadvantages without pretending that the classroom model can predict every collision.",
+          "ja": "教室の模型ですべての衝突を予測できると装わず、利点と欠点を挙げます。"
+        },
+        {
+          "en": "A discussion about orbital debris also asks who should carry the costs of preventing damage to spacecraft used by other people.",
+          "ja": "軌道ごみの討論では他者の宇宙船への損害を防ぐ費用を誰が負担すべきかも問います。"
+        },
+        {
+          "en": "The students recognize that technical solutions and decisions about responsibility must be considered together.",
+          "ja": "生徒は技術的解決策と責任に関する判断を一緒に考える必要があると理解します。"
+        },
+        {
+          "en": "An international activity becomes sustainable only when today's missions account for the conditions that future missions will inherit.",
+          "ja": "国際的な活動は今日の任務が将来の任務に残す条件を考慮して初めて持続可能になります。"
+        },
+        {
+          "en": "The central question is not simply how much a satellite can achieve, but what it leaves behind for everyone who follows.",
+          "ja": "中心となる問いは衛星の成果だけでなく後に続く人々に何を残すかです。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the passage mainly arguing?",
+      "options": [
+        "Space missions should consider orbital debris and long-term responsibility from the planning stage.",
+        "All old satellites vanish when they stop working.",
+        "Space is too empty for collisions.",
+        "Only today's scientific results matter."
+      ],
+      "answer": 0,
+      "explanation_ja": "任務終了後の責任を含めた計画が主題です。",
+      "paragraph_ids": [
+        "p1",
+        "p4"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Why does NASA study orbital debris?",
+      "options": [
+        "Debris makes every planet brighter.",
+        "Collisions may damage spacecraft and threaten astronauts.",
+        "All satellites are made of plastic.",
+        "Every piece can be picked up easily."
+      ],
+      "answer": 1,
+      "explanation_ja": "衝突の危険があるためです。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why can a small fragment be dangerous?",
+      "options": [
+        "Small objects are always harmless.",
+        "Only large satellites orbit Earth.",
+        "Objects in orbit can move fast enough to cause damage on impact.",
+        "Fragments cannot move."
+      ],
+      "answer": 2,
+      "explanation_ja": "高速で衝突するためです。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What can tracking information help operators decide?",
+      "options": [
+        "What color a satellite should be.",
+        "Where to build a school.",
+        "How to improve television programs.",
+        "Whether a satellite should change its path."
+      ],
+      "answer": 3,
+      "explanation_ja": "進路変更の必要を検討できます。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What cannot be tracked equally well?",
+      "options": [
+        "Every tiny fragment individually.",
+        "Large pieces of equipment only.",
+        "The position of Earth.",
+        "The names of astronauts."
+      ],
+      "answer": 0,
+      "explanation_ja": "微小な破片の個別追跡には限界があります。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why consider end-of-mission plans before launch?",
+      "options": [
+        "The launch date is always unknown.",
+        "Early design can reduce risks and costs passed to future operators.",
+        "No one can plan a satellite mission.",
+        "All objects will leave orbit immediately."
+      ],
+      "answer": 1,
+      "explanation_ja": "将来へ残す危険を減らすためです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'consequences' mean in paragraph 3?",
+      "options": [
+        "Plans that have not been discussed.",
+        "A type of spacecraft.",
+        "Results or effects that follow an action.",
+        "The speed of a radio message."
+      ],
+      "answer": 2,
+      "explanation_ja": "consequencesは行動の結果・影響です。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What issue do students discuss besides engineering?",
+      "options": [
+        "Only the color of the classroom model.",
+        "Which planet is nearest.",
+        "Only the history of telescopes.",
+        "Who should bear the costs of preventing harm to others."
+      ],
+      "answer": 3,
+      "explanation_ja": "損害防止の費用と責任です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Why is a classroom orbital model limited?",
+      "options": [
+        "It cannot predict every real collision and condition.",
+        "All diagrams are false.",
+        "No object moves around planets.",
+        "Students cannot compare plans."
+      ],
+      "answer": 0,
+      "explanation_ja": "模型は実世界のすべてを予測できません。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "What does the final sentence emphasize?",
+      "options": [
+        "No satellite should send information.",
+        "A mission's impact includes what remains for people who come later.",
+        "International cooperation has no value.",
+        "Only short-term achievements should be measured."
+      ],
+      "answer": 1,
+      "explanation_ja": "未来の利用者への影響を結論としています。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "orbital debris",
+      "ja": "軌道上のごみ",
+      "synonym": "space junk",
+      "definition": "unwanted objects moving around Earth"
+    },
+    {
+      "term": "satellite",
+      "ja": "人工衛星",
+      "synonym": "orbiting spacecraft",
+      "definition": "a device moving around a planet"
+    },
+    {
+      "term": "collision",
+      "ja": "衝突",
+      "synonym": "impact",
+      "definition": "the hitting together of objects"
+    },
+    {
+      "term": "fragments",
+      "ja": "破片",
+      "synonym": "pieces",
+      "definition": "small broken parts"
+    },
+    {
+      "term": "spacecraft",
+      "ja": "宇宙船",
+      "synonym": "space vehicle",
+      "definition": "a craft designed for space"
+    },
+    {
+      "term": "orbit",
+      "ja": "軌道",
+      "synonym": "path around a planet",
+      "definition": "a repeated path around a body"
+    },
+    {
+      "term": "consequences",
+      "ja": "結果・影響",
+      "synonym": "effects",
+      "definition": "outcomes following an event"
+    },
+    {
+      "term": "sustainable",
+      "ja": "持続可能な",
+      "synonym": "lasting",
+      "definition": "able to continue without creating excessive harm"
+    },
+    {
+      "term": "operators",
+      "ja": "運用者",
+      "synonym": "controllers",
+      "definition": "people managing equipment"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "learners",
+      "definition": "people receiving education at school"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "question",
+      "ja": "問い・質問",
+      "synonym": "inquiry",
+      "definition": "something asked to obtain information"
+    },
+    {
+      "term": "because",
+      "ja": "なぜなら・〜なので",
+      "synonym": "since",
+      "definition": "introducing a reason or explanation"
+    },
+    {
+      "term": "future",
+      "ja": "未来",
+      "synonym": "time ahead",
+      "definition": "the period that has not happened yet"
+    },
+    {
+      "term": "useful",
+      "ja": "役立つ",
+      "synonym": "helpful",
+      "definition": "able to serve a practical purpose"
+    },
+    {
+      "term": "carefully",
+      "ja": "慎重に",
+      "synonym": "thoughtfully",
+      "definition": "with attention to accuracy and detail"
+    },
+    {
+      "term": "might",
+      "ja": "〜かもしれない",
+      "synonym": "possibly",
+      "definition": "expressing a possibility rather than certainty"
+    },
+    {
+      "term": "sources",
+      "ja": "資料",
+      "synonym": "references",
+      "definition": "materials containing information"
+    },
+    {
+      "term": "researchers",
+      "ja": "研究者",
+      "synonym": "investigators",
+      "definition": "people who study a topic carefully"
+    },
+    {
+      "term": "change",
+      "ja": "変える・変化",
+      "synonym": "alteration",
+      "definition": "to become or make something different"
+    },
+    {
+      "term": "therefore",
+      "ja": "したがって",
+      "synonym": "consequently",
+      "definition": "used to introduce a logical result"
+    },
+    {
+      "term": "uncertainty",
+      "ja": "不確実さ",
+      "synonym": "lack of certainty",
+      "definition": "limited confidence about an outcome"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "examine together",
+      "definition": "to consider differences"
+    },
+    {
+      "term": "risks",
+      "ja": "リスク",
+      "synonym": "dangers",
+      "definition": "possibilities of harm"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "facts",
+      "definition": "facts or details provided about something"
+    },
+    {
+      "term": "reason",
+      "ja": "理由",
+      "synonym": "cause",
+      "definition": "an explanation for why something happens"
+    },
+    {
+      "term": "international",
+      "ja": "国際的な",
+      "synonym": "worldwide",
+      "definition": "involving more than one country"
+    },
+    {
+      "term": "practical",
+      "ja": "実際的な",
+      "synonym": "realistic",
+      "definition": "suitable for real conditions"
+    },
+    {
+      "term": "knowledge",
+      "ja": "知識",
+      "synonym": "understanding",
+      "definition": "information gained through learning or experience"
+    },
+    {
+      "term": "attention",
+      "ja": "注意",
+      "synonym": "focus",
+      "definition": "careful concentration"
+    },
+    {
+      "term": "component",
+      "ja": "部品",
+      "synonym": "part",
+      "definition": "a piece of machinery"
+    },
+    {
+      "term": "environmental",
+      "ja": "環境の",
+      "synonym": "ecological",
+      "definition": "related to the natural world"
+    },
+    {
+      "term": "problem",
+      "ja": "問題",
+      "synonym": "difficulty",
+      "definition": "something that needs attention or a solution"
+    },
+    {
+      "term": "decisions",
+      "ja": "決定",
+      "synonym": "choices",
+      "definition": "choices made after considering options"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それにもかかわらず",
+      "synonym": "however",
+      "definition": "used to introduce an unexpected contrast"
+    },
+    {
+      "term": "also",
+      "ja": "さらに・また",
+      "synonym": "additionally",
+      "definition": "introducing another fact or action"
+    },
+    {
+      "term": "remain",
+      "ja": "とどまる",
+      "synonym": "stay",
+      "definition": "to continue to be"
+    },
+    {
+      "term": "successful",
+      "ja": "成功した",
+      "synonym": "effective",
+      "definition": "achieving a useful result"
+    },
+    {
+      "term": "responsibility",
+      "ja": "責任",
+      "synonym": "duty",
+      "definition": "an obligation to deal with consequences"
+    },
+    {
+      "term": "technical",
+      "ja": "技術的な",
+      "synonym": "specialized",
+      "definition": "connected with particular practical skills"
+    },
+    {
+      "term": "design",
+      "ja": "設計",
+      "synonym": "plan",
+      "definition": "a plan for arranging things"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "does not necessarily disappear from the orbit",
+      "explanation_ja": "not necessarilyは部分否定です。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "not every tiny fragment can be tracked individually",
+      "explanation_ja": "not everyは部分否定です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "that must themselves be evaluated carefully",
+      "explanation_ja": "thatがrisksを修飾し受動態を含みます。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 6,
+      "focus": "not simply how much a satellite can achieve, but what it leaves behind",
+      "explanation_ja": "not A but Bと間接疑問を組み合わせています。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "本文冒頭の考えと、その例外・注意を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "前の考えを具体例で説明します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "In addition",
+      "role_ja": "前の説明に新たな条件や視点を加えます。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "Nevertheless",
+      "role_ja": "先に述べた利点と、残る限界や条件を対比します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "A system that leaves behind risks for later missions cannot be evaluated solely by its immediate scientific achievements",
+      "rewrite": "short-term discoveries alone are insufficient to judge a mission that creates future hazards",
+      "explanation_ja": "solely→aloneです。"
+    },
+    {
+      "source": "not every tiny fragment can be tracked individually with the same level of confidence",
+      "rewrite": "some small pieces cannot be monitored precisely one by one",
+      "explanation_ja": "not every→some cannotです。"
+    },
+    {
+      "source": "Preventing unnecessary debris may therefore be more practical than assuming every object can be recovered",
+      "rewrite": "avoiding debris in the first place may be easier than removing all of it later",
+      "explanation_ja": "preventing→avoidingです。"
+    },
+    {
+      "source": "The central question is not simply how much a satellite can achieve, but what it leaves behind for everyone who follows",
+      "rewrite": "the worth of a mission must include future effects as well as current achievements",
+      "explanation_ja": "not simply A but Bの対比です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "In addition",
+        "Nevertheless"
+      ],
+      "explanation_ja": "本文冒頭の考えと、その例外・注意を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "In addition",
+        "Nevertheless"
+      ],
+      "explanation_ja": "前の考えを具体例で説明します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "In addition",
+      "options": [
+        "In addition",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "前の説明に新たな条件や視点を加えます。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "先に述べた利点と、残る限界や条件を対比します。"
+    }
+  ]
+}
