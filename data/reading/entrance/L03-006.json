@@ -1,0 +1,705 @@
+{
+  "id": "L03-006",
+  "category_id": "L03",
+  "title": "The Storm Map That People Misread",
+  "title_ja": "誤解されやすい暴風雨予測図",
+  "level_id": "eiken-pre1",
+  "word_count": 505,
+  "original": true,
+  "status": "draft",
+  "source_links": [
+    {
+      "title": "NOAA: Understand Forecast Information",
+      "url": "https://www.noaa.gov/understand-forecast-information"
+    },
+    {
+      "title": "National Hurricane Center: Definition of the Forecast Cone",
+      "url": "https://www.nhc.noaa.gov/aboutcone.shtml"
+    }
+  ],
+  "fact_notes": [
+    "背景となる考え方は添付の資料で確認。本文と練習問題は新規制作。例示した人物・学校・活動は架空の説明用設定。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A television report shows a map of an approaching tropical cyclone, with a narrow line running through a shaded cone.",
+          "ja": "テレビの報道では接近する熱帯低気圧の地図に、陰影のついた円すい状の範囲を通る細い線があります。"
+        },
+        {
+          "en": "Some viewers immediately look at the line and decide whether it crosses the place where they live.",
+          "ja": "視聴者の中にはすぐ線を見て自宅の場所を通るか判断する人もいます。"
+        },
+        {
+          "en": "If it does not, they may feel safe enough to stop checking the weather.",
+          "ja": "通らなければ安心して天気の確認をやめるかもしれません。"
+        },
+        {
+          "en": "However, the line describes a forecast position of the storm's center rather than a boundary separating danger from safety.",
+          "ja": "しかし線は危険と安全の境界でなく、嵐の中心の予想位置を示します。"
+        },
+        {
+          "en": "NOAA warns that dangerous winds, heavy rain, and flooding may affect places far outside the indicated cone.",
+          "ja": "NOAAは危険な風、大雨、洪水が示された円すい状範囲のずっと外まで及び得ると警告します。"
+        },
+        {
+          "en": "Understanding the meaning of a scientific graphic can therefore be as important as seeing the graphic itself.",
+          "ja": "したがって科学的な図表の意味を理解することは、図表を見ること自体と同じくらい重要です。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The forecast cone represents uncertainty about the likely path of the cyclone's center over the coming days.",
+          "ja": "予報の円すい状範囲は今後数日間の低気圧の中心経路に関する不確実さを示します。"
+        },
+        {
+          "en": "Its width is based on previous forecasting errors, not on the physical diameter of the approaching storm.",
+          "ja": "その幅は接近中の嵐の物理的な直径でなく、以前の予報誤差に基づきます。"
+        },
+        {
+          "en": "For example, the center may follow one of several possible paths even when the official forecast shows a single line.",
+          "ja": "例えば公式予報が一本の線を示していても、中心はいくつかの経路を進むかもしれません。"
+        },
+        {
+          "en": "A wider shaded area at later times indicates greater uncertainty about exactly where the center might be.",
+          "ja": "先の時刻で陰影の範囲が広いことは中心の位置の不確実さが大きいことを示します。"
+        },
+        {
+          "en": "Nevertheless, the cone does not directly display the full area where destructive winds or dangerous flooding could occur.",
+          "ja": "それでも円すい状範囲は破壊的な風や危険な洪水が起き得る全域を直接示しません。"
+        },
+        {
+          "en": "Treating the cone as the storm's size confuses uncertainty in one measurement with the extent of several different hazards.",
+          "ja": "円すい状範囲を嵐の大きさとみなすのは、一つの測定の不確実さと複数の危険の広がりを混同します。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Forecasts are created by combining many kinds of observations with models that describe the atmosphere.",
+          "ja": "予報はさまざまな観測と大気を記述するモデルを組み合わせて作られます。"
+        },
+        {
+          "en": "Weather scientists examine possible paths, compare predictions, and update their assessments when new information arrives.",
+          "ja": "気象科学者は考えられる経路を検討し予測を比べ、新しい情報が届くと評価を更新します。"
+        },
+        {
+          "en": "In addition, the potential impact of a cyclone depends on more than the location of its center.",
+          "ja": "さらに低気圧の影響は中心の位置以外にも左右されます。"
+        },
+        {
+          "en": "Coastal flooding, rainfall over inland areas, and damaging winds can present different risks to different communities.",
+          "ja": "沿岸の浸水、内陸の降雨、破壊的な風は地域ごとに異なる危険をもたらします。"
+        },
+        {
+          "en": "A forecast that improves the predicted center line does not automatically remove uncertainty about all these effects.",
+          "ja": "中心線の予測が改善しても、こうした影響すべての不確実さが消えるわけではありません。"
+        },
+        {
+          "en": "Responsible communication should therefore connect the map with locally relevant warnings and clear information about possible impacts.",
+          "ja": "責任ある伝達では地図を地域に関係する警報や影響の明確な情報と結びつけるべきです。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Imagine a school deciding whether to cancel an outdoor event based on a map shared through social media.",
+          "ja": "学校がSNSで共有された地図をもとに屋外行事を中止するか決める場面を想像してください。"
+        },
+        {
+          "en": "The students notice that the predicted center passes well away from the school and assume there is little reason for concern.",
+          "ja": "生徒は中心の予想経路が学校から遠く離れると気づき、心配はほとんど不要だと思います。"
+        },
+        {
+          "en": "A teacher asks them to check official local forecasts instead of relying on the center line alone.",
+          "ja": "教師は中心線だけに頼らず公式の地域予報を調べるよう求めます。"
+        },
+        {
+          "en": "They discover that rainfall and strong winds may still make the event unsafe, despite the center's predicted distance.",
+          "ja": "中心が遠い予測でも雨と強い風により行事が危険になる場合があるとわかります。"
+        },
+        {
+          "en": "Rather than treating uncertainty as a failure of science, the class considers how uncertainty should influence preparation.",
+          "ja": "不確実さを科学の失敗とみなさず、準備にどう影響させるべきか考えます。"
+        },
+        {
+          "en": "Their decision depends on the expected local conditions and reliable guidance, not on a dramatic image alone.",
+          "ja": "決定は劇的な画像だけでなく、予想される地元の状況と信頼できる指針によります。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The example illustrates a broader problem with scientific information presented to a general audience.",
+          "ja": "この例は一般の人向けに示される科学情報のより広い問題を表します。"
+        },
+        {
+          "en": "A visual simplification can help people notice a pattern, yet it may hide details that are essential for action.",
+          "ja": "視覚的な単純化はパターンへの気づきを助けますが、行動に不可欠な細部を隠す場合があります。"
+        },
+        {
+          "en": "Before interpreting a graph or map, readers should ask what has been measured and what information has been excluded.",
+          "ja": "図表を解釈する前に、何が測定され何が除外されたか尋ねるべきです。"
+        },
+        {
+          "en": "They should also consider how strongly the available evidence supports the conclusion they are about to draw.",
+          "ja": "得られる証拠がこれから下す結論をどの程度支えるかも考慮すべきです。"
+        },
+        {
+          "en": "A forecast becomes useful not when it promises certainty but when it helps people make better decisions despite uncertainty.",
+          "ja": "予報が役立つのは確実さを約束するときではなく、不確実さの中で人々がよりよい判断をできるときです。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the passage mainly about?",
+      "options": [
+        "Cyclone maps should never be shared.",
+        "Forecast graphics must be interpreted according to what they measure and what hazards they omit.",
+        "The storm center is always the most dangerous location.",
+        "Weather scientists can now eliminate uncertainty."
+      ],
+      "answer": 1,
+      "explanation_ja": "予測図の意味と表現されない危険を区別すべきという主題です。",
+      "paragraph_ids": [
+        "p1",
+        "p3",
+        "p5"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What does the forecast cone primarily represent?",
+      "options": [
+        "The exact size of the storm.",
+        "The area where all rain will fall.",
+        "Uncertainty about the cyclone center's possible track.",
+        "The locations of emergency shelters."
+      ],
+      "answer": 2,
+      "explanation_ja": "中心経路の不確実さを示します。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why might residents outside the cone remain at risk?",
+      "options": [
+        "Dangerous weather can extend beyond the likely center track.",
+        "The cone is always drawn incorrectly.",
+        "All coastal areas experience identical weather.",
+        "The storm never moves."
+      ],
+      "answer": 0,
+      "explanation_ja": "中心経路の範囲外にも危険な風や雨が及び得るためです。",
+      "paragraph_ids": [
+        "p1",
+        "p2"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What is the cone's width based on?",
+      "options": [
+        "The present diameter of the storm.",
+        "The number of people watching the news.",
+        "A measure of the storm's speed.",
+        "Historical forecast errors."
+      ],
+      "answer": 3,
+      "explanation_ja": "過去の予報誤差に基づきます。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What can influence local impacts besides the center's position?",
+      "options": [
+        "Only the color of the weather map.",
+        "Coastal water, inland rainfall, and wind.",
+        "Only the name of the cyclone.",
+        "Only the date of the forecast."
+      ],
+      "answer": 1,
+      "explanation_ja": "沿岸浸水、内陸の雨、風などです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why does a more accurate track not ensure a perfect hazard forecast?",
+      "options": [
+        "All hazards are measured with the same instrument.",
+        "A cyclone center is never observable.",
+        "Different impacts involve additional conditions and uncertainty.",
+        "Forecast models contain no observations."
+      ],
+      "answer": 2,
+      "explanation_ja": "複数の危険について別の条件と不確実さが残るためです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'simplification' mean in the final paragraph?",
+      "options": [
+        "Presenting something in a less complicated form.",
+        "Measuring every detail separately.",
+        "Repeating a warning without change.",
+        "Making a map larger."
+      ],
+      "answer": 0,
+      "explanation_ja": "simplificationは複雑な情報を単純化して示すことです。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What does the teacher ask students to do?",
+      "options": [
+        "Cancel every event automatically.",
+        "Use only a social media image.",
+        "Ignore official notices.",
+        "Check reliable local weather forecasts."
+      ],
+      "answer": 3,
+      "explanation_ja": "地元の公式予報を確認するよう求めます。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What does the school's example suggest about uncertainty?",
+      "options": [
+        "Scientific uncertainty makes decisions impossible.",
+        "Uncertainty should guide preparation rather than be mistaken for failure.",
+        "Official forecasts should never be updated.",
+        "Only the storm's category matters."
+      ],
+      "answer": 1,
+      "explanation_ja": "不確実さを準備と判断に生かすことが大切です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "What does the final sentence emphasize?",
+      "options": [
+        "Only perfectly certain forecasts are useful.",
+        "Every map must show all possible data.",
+        "Forecasts are valuable when they support decisions despite incomplete certainty.",
+        "Scientific graphics should be abandoned."
+      ],
+      "answer": 2,
+      "explanation_ja": "不確実でも判断に役立つことが予報の価値だと締めくくります。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "cyclone",
+      "ja": "熱帯低気圧",
+      "synonym": "tropical storm system",
+      "definition": "a large rotating storm system"
+    },
+    {
+      "term": "forecast cone",
+      "ja": "予測経路の円すい状範囲",
+      "synonym": "track uncertainty region",
+      "definition": "an area showing uncertainty about a storm center's path"
+    },
+    {
+      "term": "uncertainty",
+      "ja": "不確実さ",
+      "synonym": "lack of certainty",
+      "definition": "limited confidence about an outcome"
+    },
+    {
+      "term": "diameter",
+      "ja": "直径",
+      "synonym": "width through a circle",
+      "definition": "a line across the center of a circular object"
+    },
+    {
+      "term": "destructive",
+      "ja": "破壊的な",
+      "synonym": "damaging",
+      "definition": "able to cause severe harm"
+    },
+    {
+      "term": "hazards",
+      "ja": "危険要因",
+      "synonym": "dangers",
+      "definition": "potential sources of harm"
+    },
+    {
+      "term": "atmosphere",
+      "ja": "大気",
+      "synonym": "air surrounding Earth",
+      "definition": "the layer of gases around Earth"
+    },
+    {
+      "term": "forecasts",
+      "ja": "予報",
+      "synonym": "predictions",
+      "definition": "statements about future conditions"
+    },
+    {
+      "term": "assessments",
+      "ja": "評価",
+      "synonym": "judgments",
+      "definition": "considered evaluations"
+    },
+    {
+      "term": "coastal",
+      "ja": "沿岸の",
+      "synonym": "near the sea",
+      "definition": "located beside a coast"
+    },
+    {
+      "term": "inland",
+      "ja": "内陸の",
+      "synonym": "away from the coast",
+      "definition": "within a land area"
+    },
+    {
+      "term": "reliable",
+      "ja": "信頼できる",
+      "synonym": "dependable",
+      "definition": "good enough to trust"
+    },
+    {
+      "term": "guidance",
+      "ja": "指針・助言",
+      "synonym": "advice",
+      "definition": "information directing choices"
+    },
+    {
+      "term": "simplification",
+      "ja": "単純化",
+      "synonym": "reduction of complexity",
+      "definition": "making something easier by removing detail"
+    },
+    {
+      "term": "excluded",
+      "ja": "除外された",
+      "synonym": "left out",
+      "definition": "not included"
+    },
+    {
+      "term": "graphic",
+      "ja": "図表",
+      "synonym": "visual display",
+      "definition": "a picture showing data"
+    },
+    {
+      "term": "shaded",
+      "ja": "陰影のある",
+      "synonym": "colored",
+      "definition": "visually marked with a darker area"
+    },
+    {
+      "term": "students",
+      "ja": "生徒",
+      "synonym": "learners",
+      "definition": "people attending school"
+    },
+    {
+      "term": "area",
+      "ja": "場所",
+      "synonym": "space",
+      "definition": "a part of a location"
+    },
+    {
+      "term": "passes",
+      "ja": "通る",
+      "synonym": "moves through",
+      "definition": "goes from one side to another"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "examine together",
+      "definition": "to consider differences"
+    },
+    {
+      "term": "reliable",
+      "ja": "信頼できる",
+      "synonym": "dependable",
+      "definition": "able to be counted on"
+    },
+    {
+      "term": "risks",
+      "ja": "リスク",
+      "synonym": "dangers",
+      "definition": "possibilities of harm"
+    },
+    {
+      "term": "storm",
+      "ja": "嵐",
+      "synonym": "severe weather",
+      "definition": "a period of strong wind and rain"
+    },
+    {
+      "term": "danger",
+      "ja": "危険",
+      "synonym": "risk",
+      "definition": "the possibility of harm"
+    },
+    {
+      "term": "communication",
+      "ja": "情報伝達",
+      "synonym": "exchange",
+      "definition": "sharing information"
+    },
+    {
+      "term": "preparation",
+      "ja": "備え",
+      "synonym": "readiness",
+      "definition": "getting ready for possible events"
+    },
+    {
+      "term": "forecast",
+      "ja": "予報",
+      "synonym": "prediction",
+      "definition": "an estimate of future conditions"
+    },
+    {
+      "term": "coastal",
+      "ja": "沿岸の",
+      "synonym": "seaside",
+      "definition": "near the sea"
+    },
+    {
+      "term": "notice",
+      "ja": "案内・通知",
+      "synonym": "announcement",
+      "definition": "a public message"
+    },
+    {
+      "term": "visual",
+      "ja": "視覚的な",
+      "synonym": "seen",
+      "definition": "connected with sight"
+    },
+    {
+      "term": "important",
+      "ja": "重要な",
+      "synonym": "significant",
+      "definition": "having a great effect or value"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who helps others learn"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "facts",
+      "definition": "facts or details provided about something"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "therefore",
+      "ja": "したがって",
+      "synonym": "consequently",
+      "definition": "used to introduce a logical result"
+    },
+    {
+      "term": "reason",
+      "ja": "理由",
+      "synonym": "cause",
+      "definition": "an explanation for why something happens"
+    },
+    {
+      "term": "possible",
+      "ja": "可能な・あり得る",
+      "synonym": "potential",
+      "definition": "able to happen or be true"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "rather than a boundary separating danger from safety",
+      "explanation_ja": "rather thanで中心線と危険範囲の誤解を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "not on the physical diameter of the approaching storm",
+      "explanation_ja": "not onで本来の根拠と誤解を区別します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 4,
+      "focus": "does not automatically remove uncertainty about all these effects",
+      "explanation_ja": "not automaticallyは全効果の不確実さが消えないことを限定します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 4,
+      "focus": "not when it promises certainty but when it helps people make better decisions",
+      "explanation_ja": "not A but Bで予報の価値を再定義します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "経路の線と安全域の誤解を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "中心が複数経路を取る具体例です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "In addition",
+      "role_ja": "経路と影響範囲の違いを追加します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "Nevertheless",
+      "role_ja": "円すい状範囲の説明とその限界を対比します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "the line describes a forecast position of the storm's center rather than a boundary separating danger from safety",
+      "rewrite": "the plotted track is a prediction of the center, not a safe-zone border",
+      "explanation_ja": "rather than→notです。"
+    },
+    {
+      "source": "Its width is based on previous forecasting errors, not on the physical diameter of the approaching storm",
+      "rewrite": "the cone reflects historical track uncertainty instead of the storm's actual size",
+      "explanation_ja": "previous forecasting errors→historical track uncertaintyです。"
+    },
+    {
+      "source": "A forecast that improves the predicted center line does not automatically remove uncertainty about all these effects",
+      "rewrite": "a more accurate track cannot eliminate uncertainty in every possible impact",
+      "explanation_ja": "does not automatically→cannot eliminateです。"
+    },
+    {
+      "source": "A forecast becomes useful not when it promises certainty but when it helps people make better decisions despite uncertainty",
+      "rewrite": "forecast information matters because it improves decisions without eliminating doubt",
+      "explanation_ja": "not A but Bを因果関係として書き換えています。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "answer": "However",
+      "options": [
+        "However",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "経路の線と安全域の誤解を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Therefore",
+        "In addition"
+      ],
+      "explanation_ja": "中心が複数経路を取る具体例です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "In addition",
+      "options": [
+        "In addition",
+        "However",
+        "Therefore",
+        "For example"
+      ],
+      "explanation_ja": "経路と影響範囲の違いを追加します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 4,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "円すい状範囲の説明とその限界を対比します。"
+    }
+  ]
+}
