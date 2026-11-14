@@ -1,0 +1,704 @@
+{
+  "id": "L06-004",
+  "category_id": "L06",
+  "title": "Who Chooses What Appears on Your Screen?",
+  "title_ja": "画面に表示される情報を誰が選ぶのか",
+  "level_id": "eiken-pre1",
+  "word_count": 478,
+  "original": true,
+  "status": "draft",
+  "source_links": [
+    {
+      "title": "UNESCO: Media and Information Literacy Curriculum — Module 11",
+      "url": "https://www.unesco.org/mil4teachers/sites/default/files/medias/fichiers/2023/10/Modules_11_CI%20MIL_CURRICULUM.pdf"
+    },
+    {
+      "title": "OECD: Disinformation and Misinformation",
+      "url": "https://www.oecd.org/en/topics/disinformation-and-misinformation.html"
+    }
+  ],
+  "fact_notes": [
+    "背景となる考え方は添付の資料で確認。本文と練習問題は新規制作。例示した人物・学校・活動は架空の説明用設定。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Two students search for information about the same environmental issue and compare the articles recommended on their screens.",
+          "ja": "二人の生徒は同じ環境問題を調べ、画面で推薦された記事を比べます。"
+        },
+        {
+          "en": "Although both students use the same platform, the order and selection of articles are noticeably different.",
+          "ja": "同じサービスを使っていても記事の順番と選択には目立つ違いがあります。"
+        },
+        {
+          "en": "One sees reports that emphasize the economic costs of a proposal, while the other finds stories about its possible environmental benefits.",
+          "ja": "一方は提案の経済的負担を強調する記事、他方は環境面の利点の記事を見ます。"
+        },
+        {
+          "en": "The students wonder whether they have been shown different facts or merely different selections from a larger collection.",
+          "ja": "生徒は異なる事実を示されたのか、大きな情報群からの異なる選択だけなのか疑問に思います。"
+        },
+        {
+          "en": "Recommendation systems can personalize information using signals such as earlier clicks or viewing behavior.",
+          "ja": "推薦システムは過去のクリックや閲覧行動などの情報を使って情報を個人化できます。"
+        },
+        {
+          "en": "However, a personalized list is not necessarily a balanced summary of everything relevant to a difficult question.",
+          "ja": "しかし個人化された一覧が難しい問題に関するすべてを公平に要約しているとは限りません。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Personalization can be useful because it reduces the effort required to find material connected with a person's interests.",
+          "ja": "個人化は個人の関心に関係する資料を見つける手間を減らすため役立つことがあります。"
+        },
+        {
+          "en": "For example, someone learning a new language may appreciate recommendations for accessible articles and interesting cultural videos.",
+          "ja": "例えば新しい言語を学ぶ人には読みやすい記事や興味深い文化動画の推薦がありがたいでしょう。"
+        },
+        {
+          "en": "The same process, nevertheless, may repeatedly suggest content that resembles what the user already prefers.",
+          "ja": "それでも同じ仕組みは利用者がすでに好むものに似た情報を繰り返し勧めるかもしれません。"
+        },
+        {
+          "en": "Over time, familiar perspectives may begin to feel more common or more convincing than they actually are.",
+          "ja": "時間とともに見慣れた視点が実際以上に一般的、説得的に感じられるかもしれません。"
+        },
+        {
+          "en": "This possibility is related to confirmation bias, the tendency to favor information that supports an existing belief.",
+          "ja": "この可能性は既存の信念を支える情報を好む傾向である確証バイアスに関係します。"
+        },
+        {
+          "en": "The combination of human preferences and automated recommendations can influence which ideas receive attention.",
+          "ja": "人の好みと自動推薦が組み合わさると、どの考えが注意を集めるかに影響します。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The idea of a filter bubble describes a situation in which people encounter a limited range of information.",
+          "ja": "フィルターバブルとは人々が限られた範囲の情報に接する状況を表す考えです。"
+        },
+        {
+          "en": "Yet researchers and educators warn against assuming that every platform user is completely isolated from opposing views.",
+          "ja": "それでもすべての利用者が反対意見から完全に隔離されていると思い込まないよう研究者や教育者は注意します。"
+        },
+        {
+          "en": "People may encounter competing arguments through friends, school, other websites, or ordinary daily experiences.",
+          "ja": "人々は友人、学校、別サイト、日常経験を通じて対立する議論に出会うことがあります。"
+        },
+        {
+          "en": "In addition, seeing an opposing opinion is not the same as considering it seriously or evaluating its evidence fairly.",
+          "ja": "さらに反対意見を見ることと、それを真剣に考え根拠を公正に評価することは同じではありません。"
+        },
+        {
+          "en": "A person can encounter information that challenges a belief and still dismiss it without examination.",
+          "ja": "自分の信念に反する情報に出会っても、調べず退ける場合があります。"
+        },
+        {
+          "en": "Understanding this difference prevents the simple claim that algorithms alone explain every disagreement in society.",
+          "ja": "この違いを理解すると社会の意見の不一致をすべてアルゴリズムだけで説明する単純化を防げます。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "A classroom can investigate recommendation systems without claiming to know the private rules used by a particular company.",
+          "ja": "教室では特定企業の非公開規則を知っていると主張せず推薦システムを調べられます。"
+        },
+        {
+          "en": "Students might compare lists of articles from different starting points while recording how they selected sources.",
+          "ja": "生徒は情報源の選び方を記録しながら異なる出発点からの記事一覧を比較できます。"
+        },
+        {
+          "en": "They could examine whether articles refer to evidence, distinguish facts from opinions, and acknowledge reasonable counterarguments.",
+          "ja": "記事が根拠を示し、事実と意見を分け、妥当な反論を認めているか検討できます。"
+        },
+        {
+          "en": "However, a short experiment using a few screens cannot establish how all users experience the platform.",
+          "ja": "ただし数画面を使う短い実験で全利用者の経験を明らかにはできません。"
+        },
+        {
+          "en": "Students should describe their methods carefully and avoid treating a striking example as a universal result.",
+          "ja": "生徒は方法を丁寧に説明し、印象的な例を普遍的な結果とみなさないようにすべきです。"
+        },
+        {
+          "en": "The most useful habit is to investigate the origin and quality of information rather than trust its position in a feed.",
+          "ja": "最も役立つ習慣は表示順を信頼するのでなく情報の出所と質を調べることです。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "Platforms also have responsibilities because their choices affect what people are likely to see.",
+          "ja": "プラットフォームにも責任があります。選択が人々の見る情報に影響するためです。"
+        },
+        {
+          "en": "Designers can consider whether users have meaningful ways to change their recommendations or seek alternative material.",
+          "ja": "設計者は利用者が推薦を変えたり別の資料を探したりする意味ある方法を持つか考えられます。"
+        },
+        {
+          "en": "Nevertheless, giving people more buttons is not automatically enough to guarantee informed decisions.",
+          "ja": "それでもボタンを増やすだけで情報に基づく判断が保証されるわけではありません。"
+        },
+        {
+          "en": "Users need explanations that they can understand and opportunities to develop independent judgment.",
+          "ja": "利用者には理解できる説明と自律的な判断力を育てる機会が必要です。"
+        },
+        {
+          "en": "A healthy information environment depends on both thoughtful design and readers willing to examine more than what appears first.",
+          "ja": "健全な情報環境は丁寧な設計と最初に表示されたもの以外も調べる読み手の双方にかかっています。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the author's main argument?",
+      "options": [
+        "Every recommendation system deliberately spreads falsehoods.",
+        "Personalized information can be useful but requires critical evaluation and responsible design.",
+        "Algorithms completely determine every belief.",
+        "All people see identical online information."
+      ],
+      "answer": 1,
+      "explanation_ja": "推薦の利便性と批判的検証・設計責任の両立が主題です。",
+      "paragraph_ids": [
+        "p1",
+        "p3",
+        "p5"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "How do the students' article lists differ?",
+      "options": [
+        "One shows only pictures and the other videos.",
+        "The service is different for each student.",
+        "They emphasize different economic and environmental aspects.",
+        "One student cannot open the internet."
+      ],
+      "answer": 2,
+      "explanation_ja": "経済負担と環境利益で強調点が異なります。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why may a personalized feed be incomplete?",
+      "options": [
+        "It may reflect prior behavior rather than represent the full range of relevant arguments.",
+        "It can never display factual information.",
+        "Every algorithm uses no data.",
+        "All news articles are identical."
+      ],
+      "answer": 0,
+      "explanation_ja": "過去の行動を基に選ぶため、全論点の代表とは限りません。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What example illustrates a benefit of personalization?",
+      "options": [
+        "Avoiding all language learning.",
+        "Removing every video from a platform.",
+        "Making every learner read the same text.",
+        "Recommending accessible articles to a language learner."
+      ],
+      "answer": 3,
+      "explanation_ja": "語学学習者への読みやすい記事の推薦です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What is confirmation bias?",
+      "options": [
+        "An ability to read every argument.",
+        "A tendency to favor information supporting prior beliefs.",
+        "A type of computer hardware.",
+        "A promise that predictions are correct."
+      ],
+      "answer": 1,
+      "explanation_ja": "既存の信念を支持する情報を好む傾向です。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why doesn't exposure to another opinion guarantee open-mindedness?",
+      "options": [
+        "Different opinions do not exist.",
+        "Platforms never offer diverse material.",
+        "A person may dismiss opposing evidence without considering it.",
+        "Every disagreement involves a single cause."
+      ],
+      "answer": 2,
+      "explanation_ja": "反対意見を見ても吟味せず退けることがあるためです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'dismiss' mean in paragraph 3?",
+      "options": [
+        "Reject without serious consideration.",
+        "Explain in great detail.",
+        "Recommend to everyone.",
+        "Translate into another language."
+      ],
+      "answer": 0,
+      "explanation_ja": "dismissは十分考えず退けることです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What should the classroom investigation examine?",
+      "options": [
+        "Only the color of app icons.",
+        "Only the total number of likes.",
+        "Only articles from one website.",
+        "Sources, evidence, and recognition of counterarguments."
+      ],
+      "answer": 3,
+      "explanation_ja": "出典・証拠・反論への対応を確認します。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Why is a few-screen study limited?",
+      "options": [
+        "All screens display the same content.",
+        "A small sample cannot establish the experience of all users.",
+        "It proves the platform is harmful.",
+        "Students cannot record observations."
+      ],
+      "answer": 1,
+      "explanation_ja": "少数例から利用者全体を一般化できないためです。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "Why does the author mention both platforms and readers at the end?",
+      "options": [
+        "To say design does not matter.",
+        "To suggest readers cannot change their habits.",
+        "To emphasize shared responsibility for a healthy information environment.",
+        "To blame technology for every disagreement."
+      ],
+      "answer": 2,
+      "explanation_ja": "設計者と読み手の双方の責任を結論とします。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "personalization",
+      "ja": "個人化",
+      "synonym": "customization",
+      "definition": "adapting something to a person's preferences"
+    },
+    {
+      "term": "recommendation",
+      "ja": "推薦",
+      "synonym": "suggestion",
+      "definition": "content proposed for attention"
+    },
+    {
+      "term": "filter bubble",
+      "ja": "フィルターバブル",
+      "synonym": "restricted information environment",
+      "definition": "an environment showing a narrow range of viewpoints"
+    },
+    {
+      "term": "confirmation bias",
+      "ja": "確証バイアス",
+      "synonym": "belief-confirming tendency",
+      "definition": "favoring information that supports prior beliefs"
+    },
+    {
+      "term": "counterarguments",
+      "ja": "反論",
+      "synonym": "opposing reasons",
+      "definition": "arguments challenging a claim"
+    },
+    {
+      "term": "dismiss",
+      "ja": "退ける",
+      "synonym": "reject",
+      "definition": "to refuse to consider seriously"
+    },
+    {
+      "term": "universal",
+      "ja": "普遍的な",
+      "synonym": "applicable to all",
+      "definition": "true across all cases"
+    },
+    {
+      "term": "striking",
+      "ja": "印象的な",
+      "synonym": "remarkable",
+      "definition": "likely to attract attention"
+    },
+    {
+      "term": "isolated",
+      "ja": "隔離された",
+      "synonym": "separated",
+      "definition": "kept apart from other things"
+    },
+    {
+      "term": "perspectives",
+      "ja": "視点",
+      "synonym": "viewpoints",
+      "definition": "ways of seeing an issue"
+    },
+    {
+      "term": "automated",
+      "ja": "自動化された",
+      "synonym": "computer-run",
+      "definition": "performed automatically by a system"
+    },
+    {
+      "term": "selection",
+      "ja": "選択",
+      "synonym": "choice",
+      "definition": "the act of choosing items"
+    },
+    {
+      "term": "platform",
+      "ja": "プラットフォーム",
+      "synonym": "online service",
+      "definition": "a digital system supporting interactions"
+    },
+    {
+      "term": "attention",
+      "ja": "注意",
+      "synonym": "focus",
+      "definition": "careful concentration"
+    },
+    {
+      "term": "belief",
+      "ja": "信念",
+      "synonym": "conviction",
+      "definition": "a thought treated as true"
+    },
+    {
+      "term": "evidence",
+      "ja": "証拠",
+      "synonym": "proof",
+      "definition": "information supporting or testing an idea"
+    },
+    {
+      "term": "possibility",
+      "ja": "可能性",
+      "synonym": "chance",
+      "definition": "something that may be true"
+    },
+    {
+      "term": "trust",
+      "ja": "信じる",
+      "synonym": "rely on",
+      "definition": "to depend on something"
+    },
+    {
+      "term": "examination",
+      "ja": "試験",
+      "synonym": "test",
+      "definition": "a check of knowledge"
+    },
+    {
+      "term": "influence",
+      "ja": "影響を与える",
+      "synonym": "affect",
+      "definition": "to change something"
+    },
+    {
+      "term": "willing",
+      "ja": "進んで行う",
+      "synonym": "ready",
+      "definition": "prepared to do something"
+    },
+    {
+      "term": "opinions",
+      "ja": "意見",
+      "synonym": "views",
+      "definition": "personal beliefs"
+    },
+    {
+      "term": "automated",
+      "ja": "自動化された",
+      "synonym": "machine-operated",
+      "definition": "performed by a computer without each action being done by a person"
+    },
+    {
+      "term": "meaningful",
+      "ja": "意味のある",
+      "synonym": "significant",
+      "definition": "having practical value"
+    },
+    {
+      "term": "affect",
+      "ja": "影響する",
+      "synonym": "influence",
+      "definition": "to produce a change in something"
+    },
+    {
+      "term": "recommendation",
+      "ja": "提案・勧告",
+      "synonym": "advice",
+      "definition": "a suggested action or decision"
+    },
+    {
+      "term": "repeatedly",
+      "ja": "繰り返し",
+      "synonym": "again and again",
+      "definition": "many times"
+    },
+    {
+      "term": "benefits",
+      "ja": "利益・利点",
+      "synonym": "advantages",
+      "definition": "positive results"
+    },
+    {
+      "term": "informed",
+      "ja": "情報を与えられた",
+      "synonym": "aware",
+      "definition": "having the necessary information"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "change",
+      "ja": "変える・変化",
+      "synonym": "alteration",
+      "definition": "to become or make something different"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "learners",
+      "definition": "people receiving education at school"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "learning",
+      "ja": "学習",
+      "synonym": "study",
+      "definition": "the process of gaining knowledge or skills"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "facts",
+      "definition": "facts or details provided about something"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "result",
+      "ja": "結果",
+      "synonym": "outcome",
+      "definition": "what happens because of an action or event"
+    },
+    {
+      "term": "because",
+      "ja": "なぜなら・〜なので",
+      "synonym": "since",
+      "definition": "introducing a reason or explanation"
+    },
+    {
+      "term": "possible",
+      "ja": "可能な・あり得る",
+      "synonym": "potential",
+      "definition": "able to happen or be true"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 5,
+      "focus": "not necessarily a balanced summary of everything relevant",
+      "explanation_ja": "not necessarilyが公平な代表とは限らないことを示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "that resembles what the user already prefers",
+      "explanation_ja": "関係代名詞thatがcontentを修飾します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "focus": "not the same as considering it seriously or evaluating its evidence fairly",
+      "explanation_ja": "not the same asで接触と吟味を区別します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "focus": "not automatically enough to guarantee informed decisions",
+      "explanation_ja": "not automaticallyは単純な解決策への警告を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "個人化と情報の偏りの可能性を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "語学学習への推薦の利点を例示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "In addition",
+      "role_ja": "意見に出会うことと吟味することを区別します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "Nevertheless",
+      "role_ja": "選択ボタンの増加と判断力の必要を対比します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "a personalized list is not necessarily a balanced summary of everything relevant to a difficult question",
+      "rewrite": "customized results may not fairly represent all relevant positions",
+      "explanation_ja": "not necessarily→may notです。"
+    },
+    {
+      "source": "The combination of human preferences and automated recommendations can influence which ideas receive attention",
+      "rewrite": "personal habits and software suggestions together shape what people notice",
+      "explanation_ja": "combination→togetherです。"
+    },
+    {
+      "source": "seeing an opposing opinion is not the same as considering it seriously or evaluating its evidence fairly",
+      "rewrite": "encountering disagreement does not guarantee a careful assessment of the opposing case",
+      "explanation_ja": "not the same as→does not guaranteeです。"
+    },
+    {
+      "source": "The most useful habit is to investigate the origin and quality of information rather than trust its position in a feed",
+      "rewrite": "readers should check sources and evidence instead of relying on online ranking",
+      "explanation_ja": "rather than→instead ofです。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 5,
+      "answer": "However",
+      "options": [
+        "However",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "個人化と情報の偏りの可能性を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Therefore",
+        "In addition"
+      ],
+      "explanation_ja": "語学学習への推薦の利点を例示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "answer": "In addition",
+      "options": [
+        "In addition",
+        "However",
+        "Therefore",
+        "For example"
+      ],
+      "explanation_ja": "意見に出会うことと吟味することを区別します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "選択ボタンの増加と判断力の必要を対比します。"
+    }
+  ]
+}
