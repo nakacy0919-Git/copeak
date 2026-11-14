@@ -1,0 +1,740 @@
+{
+  "id": "L13-016",
+  "category_id": "L13",
+  "title": "A Greenhouse with a Limited Budget of Energy",
+  "title_ja": "限られた電力で運営する温室",
+  "level_id": "eiken-2",
+  "status": "draft",
+  "original": true,
+  "word_count": 387,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "人物・具体的な出来事・結果は架空の教材例。実在の調査・統計を示すものではない。制作台帳は来歴確認用であり外部の実証資料ではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "In a fictional design competition, students were asked to plan a small greenhouse for a future research station on the Moon.",
+          "ja": "架空の設計コンテストで、生徒たちは未来の月面研究基地の小さな温室を計画する課題を与えられた。"
+        },
+        {
+          "en": "The instructions stated that the greenhouse would receive a limited amount of electrical energy each day.",
+          "ja": "課題の指示には温室が毎日受け取れる電力量は限られているとあった。"
+        },
+        {
+          "en": "The team initially imagined growing as many different plants as possible in a comfortably heated room.",
+          "ja": "チームは当初、快適に暖めた部屋でできる限り多くの種類の植物を育てることを考えた。"
+        },
+        {
+          "en": "However, their first estimate showed that lighting and heating alone would use most of the available energy.",
+          "ja": "しかし最初の見積もりでは照明と暖房だけで利用可能な電力の大半を使うことが分かった。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The students examined the purpose of their proposed greenhouse before deciding which features should receive priority.",
+          "ja": "生徒たちはどの機能を優先するか決める前に計画中の温室の目的を検討した。"
+        },
+        {
+          "en": "They agreed that the station would use the facility mainly for small experiments rather than for producing all the food needed by the crew.",
+          "ja": "基地は乗組員に必要なすべての食料を生産するのでなく、主に小規模な実験に施設を使うと合意した。"
+        },
+        {
+          "en": "This decision allowed them to replace their original collection of plants with a smaller set suited to their research questions.",
+          "ja": "この決定によって当初の植物の集まりを研究課題に適した少数のものに置き換えられた。"
+        },
+        {
+          "en": "They also recognized that different experiments might require different conditions and could not necessarily be conducted simultaneously.",
+          "ja": "異なる実験には異なる条件が必要で、必ずしも同時に実施できないことも認識した。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Instead of operating every piece of equipment continuously, the team developed a schedule for sharing the available energy among the experiments.",
+          "ja": "各装置を連続運転する代わりに、利用可能な電力を実験間で分ける計画を作った。"
+        },
+        {
+          "en": "They included a reserve for unexpected equipment failure and other situations that could interrupt the normal operation of the greenhouse.",
+          "ja": "機器の予期しない故障など温室の通常運転を妨げ得る状況に備えて予備の電力も含めた。"
+        },
+        {
+          "en": "The students deliberately left some of the daily allocation unused in their model, although this reduced the number of planned experiments.",
+          "ja": "予定実験数は減ったが、モデルでは日々の配分の一部を意図的に使わずに残した。"
+        },
+        {
+          "en": "They explained that using every available unit of energy would leave little flexibility when circumstances changed.",
+          "ja": "利用可能な電力をすべて使うと状況が変わったときの柔軟性がほとんどなくなると説明した。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "During the final presentation, a judge asked whether the team's calculations took account of all the conditions that would exist on the Moon.",
+          "ja": "最終発表で審査員は計算が月面のあらゆる条件を考慮しているか尋ねた。"
+        },
+        {
+          "en": "The students acknowledged that their classroom model was highly simplified and could not serve as a complete engineering proposal.",
+          "ja": "生徒たちは教室でのモデルが大幅に単純化され完全な工学的提案にはならないと認めた。"
+        },
+        {
+          "en": "They presented their assumptions clearly and identified areas in which they would need more reliable information before proceeding.",
+          "ja": "前提を明確に示し、先に進む前にさらに信頼できる情報が必要な分野を特定した。"
+        },
+        {
+          "en": "Rather than claiming to have designed a practical lunar greenhouse, they described the trade-offs their exercise had helped them understand.",
+          "ja": "実用的な月面温室を設計したと主張せず、活動で理解できた両立困難な選択を説明した。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The group learned that a design for a distant environment must be evaluated in relation to the resources and objectives of the mission.",
+          "ja": "遠隔地の環境に向けた設計は任務の資源や目的に照らして評価すべきだと学んだ。"
+        },
+        {
+          "en": "A technically impressive feature may be less valuable than a simpler one if its energy requirements prevent more important work.",
+          "ja": "消費電力が重要な仕事を妨げるなら技術的に優れた機能も単純な機能より価値が低い場合がある。"
+        },
+        {
+          "en": "For the students, the most significant achievement of the competition was not the number of plants pictured in their design.",
+          "ja": "生徒たちにとってコンテストの最も重要な成果は設計図に描いた植物の数ではなかった。"
+        },
+        {
+          "en": "It was the realization that responsible planning involves deciding what not to do as well as what to do.",
+          "ja": "責任ある計画には何をするかだけでなく何をしないかの判断も含まれるという気づきだった。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "fictional",
+      "ja": "架空の",
+      "synonym": "imaginary",
+      "definition": "existing in imagination"
+    },
+    {
+      "term": "competition",
+      "ja": "コンテスト",
+      "synonym": "contest",
+      "definition": "an event in which participants compete"
+    },
+    {
+      "term": "greenhouse",
+      "ja": "温室",
+      "synonym": "plant house",
+      "definition": "a structure used to grow plants"
+    },
+    {
+      "term": "research station",
+      "ja": "研究基地",
+      "synonym": "research base",
+      "definition": "a facility for conducting research"
+    },
+    {
+      "term": "instructions",
+      "ja": "指示",
+      "synonym": "directions",
+      "definition": "information explaining what to do"
+    },
+    {
+      "term": "limited",
+      "ja": "限られた",
+      "synonym": "restricted",
+      "definition": "not unlimited"
+    },
+    {
+      "term": "electrical",
+      "ja": "電気の",
+      "synonym": "electric",
+      "definition": "relating to electricity"
+    },
+    {
+      "term": "energy",
+      "ja": "エネルギー",
+      "synonym": "power supply",
+      "definition": "capacity to do work"
+    },
+    {
+      "term": "initially",
+      "ja": "当初",
+      "synonym": "at first",
+      "definition": "at the beginning"
+    },
+    {
+      "term": "comfortably",
+      "ja": "快適に",
+      "synonym": "pleasantly",
+      "definition": "in a way that provides comfort"
+    },
+    {
+      "term": "heated",
+      "ja": "暖められた",
+      "synonym": "warmed",
+      "definition": "made warmer"
+    },
+    {
+      "term": "estimate",
+      "ja": "見積もり",
+      "synonym": "approximation",
+      "definition": "a roughly calculated amount"
+    },
+    {
+      "term": "lighting",
+      "ja": "照明",
+      "synonym": "illumination",
+      "definition": "the provision of light"
+    },
+    {
+      "term": "heating",
+      "ja": "暖房",
+      "synonym": "warming",
+      "definition": "the provision of warmth"
+    },
+    {
+      "term": "available",
+      "ja": "利用できる",
+      "synonym": "accessible",
+      "definition": "able to be used"
+    },
+    {
+      "term": "examined",
+      "ja": "検討した",
+      "synonym": "considered",
+      "definition": "looked at carefully"
+    },
+    {
+      "term": "purpose",
+      "ja": "目的",
+      "synonym": "aim",
+      "definition": "the reason for something"
+    },
+    {
+      "term": "proposed",
+      "ja": "計画された",
+      "synonym": "suggested",
+      "definition": "put forward for consideration"
+    },
+    {
+      "term": "features",
+      "ja": "機能",
+      "synonym": "characteristics",
+      "definition": "distinctive aspects of something"
+    },
+    {
+      "term": "priority",
+      "ja": "優先",
+      "synonym": "precedence",
+      "definition": "greater importance than other things"
+    },
+    {
+      "term": "facility",
+      "ja": "施設",
+      "synonym": "installation",
+      "definition": "a place or equipment provided for a purpose"
+    },
+    {
+      "term": "mainly",
+      "ja": "主に",
+      "synonym": "primarily",
+      "definition": "for the most part"
+    },
+    {
+      "term": "producing",
+      "ja": "生産すること",
+      "synonym": "creating",
+      "definition": "making something"
+    },
+    {
+      "term": "crew",
+      "ja": "乗組員",
+      "synonym": "team",
+      "definition": "people operating a vehicle or station"
+    },
+    {
+      "term": "collection",
+      "ja": "集まり",
+      "synonym": "set",
+      "definition": "a group of related things"
+    },
+    {
+      "term": "suited",
+      "ja": "適した",
+      "synonym": "appropriate",
+      "definition": "right for a particular purpose"
+    },
+    {
+      "term": "recognized",
+      "ja": "認識した",
+      "synonym": "realized",
+      "definition": "became aware of something"
+    },
+    {
+      "term": "conditions",
+      "ja": "条件",
+      "synonym": "circumstances",
+      "definition": "facts affecting a situation"
+    },
+    {
+      "term": "conducted",
+      "ja": "実施された",
+      "synonym": "carried out",
+      "definition": "performed or organized"
+    },
+    {
+      "term": "simultaneously",
+      "ja": "同時に",
+      "synonym": "at the same time",
+      "definition": "at the same moment"
+    },
+    {
+      "term": "equipment",
+      "ja": "機器",
+      "synonym": "apparatus",
+      "definition": "tools used for a task"
+    },
+    {
+      "term": "continuously",
+      "ja": "連続して",
+      "synonym": "without interruption",
+      "definition": "without stopping"
+    },
+    {
+      "term": "schedule",
+      "ja": "計画",
+      "synonym": "timetable",
+      "definition": "a plan of times and activities"
+    },
+    {
+      "term": "reserve",
+      "ja": "予備",
+      "synonym": "backup",
+      "definition": "something kept for later need"
+    },
+    {
+      "term": "failure",
+      "ja": "故障",
+      "synonym": "breakdown",
+      "definition": "a state in which something stops working"
+    },
+    {
+      "term": "interrupt",
+      "ja": "妨げる",
+      "synonym": "disrupt",
+      "definition": "cause an activity to stop temporarily"
+    },
+    {
+      "term": "operation",
+      "ja": "運転",
+      "synonym": "functioning",
+      "definition": "the process of working"
+    },
+    {
+      "term": "deliberately",
+      "ja": "意図的に",
+      "synonym": "intentionally",
+      "definition": "done on purpose"
+    },
+    {
+      "term": "allocation",
+      "ja": "配分",
+      "synonym": "assignment",
+      "definition": "an amount assigned for a purpose"
+    },
+    {
+      "term": "unused",
+      "ja": "未使用の",
+      "synonym": "unspent",
+      "definition": "not used"
+    },
+    {
+      "term": "flexibility",
+      "ja": "柔軟性",
+      "synonym": "adaptability",
+      "definition": "ability to adjust to change"
+    },
+    {
+      "term": "acknowledged",
+      "ja": "認めた",
+      "synonym": "admitted",
+      "definition": "accepted something as true"
+    },
+    {
+      "term": "simplified",
+      "ja": "単純化された",
+      "synonym": "made simpler",
+      "definition": "made less complex"
+    },
+    {
+      "term": "proposal",
+      "ja": "提案",
+      "synonym": "plan",
+      "definition": "a plan offered for consideration"
+    },
+    {
+      "term": "assumptions",
+      "ja": "前提",
+      "synonym": "suppositions",
+      "definition": "things accepted for the sake of reasoning"
+    },
+    {
+      "term": "reliable",
+      "ja": "信頼できる",
+      "synonym": "dependable",
+      "definition": "able to be trusted"
+    },
+    {
+      "term": "proceeding",
+      "ja": "先に進むこと",
+      "synonym": "continuing",
+      "definition": "going forward with an action"
+    },
+    {
+      "term": "lunar",
+      "ja": "月面の",
+      "synonym": "Moon-related",
+      "definition": "relating to the Moon"
+    },
+    {
+      "term": "trade-offs",
+      "ja": "両立困難な選択",
+      "synonym": "compromises",
+      "definition": "situations where gaining one thing costs another"
+    },
+    {
+      "term": "evaluated",
+      "ja": "評価された",
+      "synonym": "assessed",
+      "definition": "judged for quality or value"
+    },
+    {
+      "term": "resources",
+      "ja": "資源",
+      "synonym": "supplies",
+      "definition": "things available to use"
+    },
+    {
+      "term": "objectives",
+      "ja": "目的",
+      "synonym": "goals",
+      "definition": "results intended to be achieved"
+    },
+    {
+      "term": "significant",
+      "ja": "重要な",
+      "synonym": "important",
+      "definition": "having considerable importance"
+    },
+    {
+      "term": "achievement",
+      "ja": "成果",
+      "synonym": "accomplishment",
+      "definition": "something successfully done"
+    },
+    {
+      "term": "realization",
+      "ja": "気づき",
+      "synonym": "recognition",
+      "definition": "the act of becoming aware"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What was the design challenge?",
+      "answer": 1,
+      "options": [
+        "Build a working rocket in the classroom.",
+        "Plan a greenhouse for a future lunar station.",
+        "Grow all the food for a real space mission.",
+        "Design an unlimited power supply."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "月面研究基地向け温室を計画した。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What did their initial estimate reveal?",
+      "answer": 0,
+      "options": [
+        "Lighting and heating would consume most available energy.",
+        "Plants required no electricity.",
+        "The greenhouse would produce extra electricity.",
+        "They had an unlimited amount of energy."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "照明と暖房が電力の大半を使う。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What primary purpose did the team choose?",
+      "answer": 3,
+      "options": [
+        "Producing every meal for the crew.",
+        "Providing public tours.",
+        "Storing rocket fuel.",
+        "Small research experiments."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "小規模な研究実験を主目的にした。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why did the students reduce the variety of plants?",
+      "answer": 2,
+      "options": [
+        "They had concluded that plants cannot grow indoors.",
+        "The judge had banned all plant experiments.",
+        "The smaller set better fit the revised research purpose.",
+        "They no longer needed any research questions."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "研究目的に適した植物に絞った。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "How did they plan to share energy?",
+      "answer": 2,
+      "options": [
+        "By running every device all day.",
+        "By removing every experimental device.",
+        "By scheduling the use of equipment.",
+        "By assuming electricity would never run out."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "装置の使用を計画して配分した。"
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why did they leave part of the allocation unused?",
+      "answer": 1,
+      "options": [
+        "To prove the greenhouse needed no energy.",
+        "To retain flexibility for unexpected situations.",
+        "To increase the number of simultaneous experiments.",
+        "To avoid doing any calculations."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "予期しない状況に備える。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What did the students admit to the judge?",
+      "answer": 0,
+      "options": [
+        "Their model was too simplified to be a complete engineering proposal.",
+        "They had tested the greenhouse on the Moon.",
+        "They had considered every lunar condition.",
+        "Their calculations had no assumptions."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "完全な工学的提案ではないと認めた。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What did they identify in the presentation?",
+      "answer": 3,
+      "options": [
+        "The names of the future crew.",
+        "The exact launch date of the station.",
+        "A complete list of actual lunar crops.",
+        "Areas requiring more reliable information."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "信頼できる追加情報が必要な領域。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does evaluated mean here?",
+      "answer": 3,
+      "options": [
+        "Transported.",
+        "Heated.",
+        "Abandoned.",
+        "Assessed."
+      ],
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "評価される。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What lesson did the team learn?",
+      "answer": 2,
+      "options": [
+        "An impressive design always uses all available resources.",
+        "A classroom model proves the feasibility of a lunar greenhouse.",
+        "Design requires choices about priorities under resource constraints.",
+        "Growing the largest possible number of plants is always best."
+      ],
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "資源制約のもとで優先順位を判断する。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "would receive a limited amount",
+      "explanation_ja": "wouldは過去から見た将来、a limited amountは限られた量。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "rather than for producing all the food",
+      "explanation_ja": "rather thanは二つの利用目的の対比。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "although this reduced the number",
+      "explanation_ja": "althoughは譲歩。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "focus": "could not serve as a complete engineering proposal",
+      "explanation_ja": "serve asは〜として役立つ。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The instructions stated that the greenhouse would receive a limited amount of electrical energy each day.",
+      "rewrite": "The task specified a maximum amount of electrical energy available each day.",
+      "explanation_ja": "日々の電力量に上限があった。"
+    },
+    {
+      "source": "They agreed that the station would use the facility mainly for small experiments rather than for producing all the food needed by the crew.",
+      "rewrite": "They chose small research activities as the main purpose instead of trying to supply all the crew's food.",
+      "explanation_ja": "食料全量生産でなく小規模実験を選んだ。"
+    },
+    {
+      "source": "The students deliberately left some of the daily allocation unused in their model, although this reduced the number of planned experiments.",
+      "rewrite": "They kept some energy unused even though doing so meant planning fewer experiments.",
+      "explanation_ja": "実験数が減っても予備を残した。"
+    },
+    {
+      "source": "The students acknowledged that their classroom model was highly simplified and could not serve as a complete engineering proposal.",
+      "rewrite": "They admitted their simplified model was insufficient as a complete engineering plan.",
+      "explanation_ja": "簡略モデルは完全な設計案にならない。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "初期構想と電力制約を対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "also",
+      "role_ja": "実験条件の課題を追加。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Instead of",
+      "role_ja": "常時運転の代わりに計画運転。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Rather than",
+      "role_ja": "実現可能性の主張ではなく学びを説明。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 0,
+      "answer": "priority",
+      "options": [
+        "priority",
+        "receipt",
+        "grammar",
+        "distance"
+      ],
+      "explanation_ja": "機能の優先順位。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "reserve",
+      "options": [
+        "portrait",
+        "reserve",
+        "recipe",
+        "holiday"
+      ],
+      "explanation_ja": "予期しない状況への予備。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "assumptions",
+      "options": [
+        "invitations",
+        "paintings",
+        "assumptions",
+        "tickets"
+      ],
+      "explanation_ja": "前提を明示した。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 0,
+      "answer": "resources",
+      "options": [
+        "letters",
+        "windows",
+        "voices",
+        "resources"
+      ],
+      "explanation_ja": "任務の資源と目的。"
+    }
+  ]
+}
