@@ -1,0 +1,712 @@
+{
+  "id": "L14-010",
+  "category_id": "L14",
+  "title": "A Wedding Invitation with Two Ways to Celebrate",
+  "title_ja": "二つの祝い方を用意した結婚式",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "word_count": 258,
+  "source_links": [
+    {
+      "title": "General civic background reference",
+      "url": "https://www.unesco.org/en/interculturaldialogue"
+    }
+  ],
+  "fact_notes": [
+    "町議会と住民の会議は架空の事例。実在の条例や司法判断は述べていない。本文・和訳・設問は独自制作。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Mika receives an invitation to the wedding of a friend who now lives far away.",
+          "ja": "ミカは今は遠くに住む友人の結婚式への招待状を受け取ります。"
+        },
+        {
+          "en": "The couple asks guests to answer before a certain date.",
+          "ja": "二人は指定日までに返事を求めています。"
+        },
+        {
+          "en": "However, Mika may not be able to travel because she helps a family member.",
+          "ja": "しかしミカは家族を手伝うため旅行できないかもしれません。"
+        },
+        {
+          "en": "She worries that declining will make her seem unfriendly.",
+          "ja": "断ると冷たい人だと思われないか心配します。"
+        },
+        {
+          "en": "Her sister suggests that a kind invitation allows a real choice.",
+          "ja": "妹は親切な招待には本当の選択肢があると助言します。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Mika writes to explain that she cannot promise to attend.",
+          "ja": "ミカは出席を約束できないと手紙を書きます。"
+        },
+        {
+          "en": "For example, she offers to send a short video greeting.",
+          "ja": "例えば短い動画で祝福することを提案します。"
+        },
+        {
+          "en": "The couple replies that they would be happy to receive it.",
+          "ja": "二人は喜んで受け取ると答えます。"
+        },
+        {
+          "en": "They appreciate knowing early how many guests to expect.",
+          "ja": "何人の招待客が来るか早くわかることにも感謝します。"
+        },
+        {
+          "en": "Mika realizes that an honest answer can help with planning.",
+          "ja": "ミカは正直な返事が計画に役立つと気づきます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Mika and her sister discuss different traditions surrounding weddings.",
+          "ja": "ミカと妹は結婚式をめぐる異なる伝統を話し合います。"
+        },
+        {
+          "en": "Some families prefer large celebrations, while others prefer smaller events.",
+          "ja": "大きな祝いを好む家庭も小規模な行事を好む家庭もあります。"
+        },
+        {
+          "en": "Instead of assuming every couple follows the same custom, they ask about this wedding.",
+          "ja": "すべての二人が同じ習慣に従うと決めつけず今回の結婚式について尋ねます。"
+        },
+        {
+          "en": "They remember that guests also have different travel needs and budgets.",
+          "ja": "招待客にも異なる移動の事情や予算があることを思い出します。"
+        },
+        {
+          "en": "Good planning respects these differences without demanding private explanations.",
+          "ja": "よい計画は個人の説明を求めず違いを尊重します。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "After the ceremony, the couple plans to share a few photographs.",
+          "ja": "式の後、二人はいくつかの写真を共有する予定です。"
+        },
+        {
+          "en": "Nevertheless, they ask permission before posting pictures publicly.",
+          "ja": "それでも公に写真を投稿する前には許可を求めます。"
+        },
+        {
+          "en": "Mika sends her video greeting and wishes them happiness.",
+          "ja": "ミカは動画のあいさつを送り幸せを願います。"
+        },
+        {
+          "en": "The couple thanks her without asking about her family's situation.",
+          "ja": "二人は家族の事情を尋ねずに感謝します。"
+        },
+        {
+          "en": "Everyone understands that celebrating does not always require physical attendance.",
+          "ja": "祝いには必ずしもその場への出席が必要でないと皆が理解します。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "After the wedding, Mika receives a message describing the day.",
+          "ja": "結婚式の後ミカは当日の様子を伝えるメッセージを受け取ります。"
+        },
+        {
+          "en": "She feels included although she could not travel.",
+          "ja": "旅行できなかったものの自分も参加した気持ちになります。"
+        },
+        {
+          "en": "As a result, she feels more confident answering future invitations honestly.",
+          "ja": "その結果今後の招待にもより自信を持って正直に答えられます。"
+        },
+        {
+          "en": "She learns that friendship includes respecting personal limits.",
+          "ja": "友情には個人の限界を尊重することも含まれると学びます。"
+        },
+        {
+          "en": "A considerate invitation can strengthen a relationship even when someone declines.",
+          "ja": "思いやりある招待は断られた場合でも関係を強められます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "Why might Mika be unable to attend?",
+      "options": [
+        "She dislikes celebrations.",
+        "She helps a family member.",
+        "She does not know the couple.",
+        "The wedding has been canceled."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「しかしミカは家族を手伝うため旅行できないかもしれません。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What does Mika's sister suggest?",
+      "options": [
+        "A kind invitation should allow a choice.",
+        "Attendance must prove loyalty.",
+        "Guests should never reply.",
+        "All weddings need a large audience."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「妹は親切な招待には本当の選択肢があると助言します。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What alternative does Mika offer?",
+      "options": [
+        "A new wedding date.",
+        "An expensive gift.",
+        "A public speech.",
+        "A short video greeting."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「例えば短い動画で祝福することを提案します。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "Why is an early answer helpful?",
+      "options": [
+        "It removes the need for food.",
+        "It determines the wedding tradition.",
+        "It helps the couple plan guest numbers.",
+        "It guarantees everyone will attend."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「何人の招待客が来るか早くわかることにも感謝します。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What assumption do the sisters avoid?",
+      "options": [
+        "People may travel long distances.",
+        "All weddings follow the same custom.",
+        "Guests have different budgets.",
+        "A small wedding is possible."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「すべての二人が同じ習慣に従うと決めつけず今回の結婚式について尋ねます。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What should good planning avoid requiring?",
+      "options": [
+        "Private explanations from guests.",
+        "Clear arrangements.",
+        "A realistic answer date.",
+        "Respect for guests."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「よい計画は個人の説明を求めず違いを尊重します。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What do the couple ask before posting photos?",
+      "options": [
+        "A new venue.",
+        "The weather forecast.",
+        "A longer speech.",
+        "Permission."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「それでも公に写真を投稿する前には許可を求めます。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "What does the couple avoid requesting?",
+      "options": [
+        "A reply to the invitation.",
+        "Her good wishes.",
+        "Details of Mika's family situation.",
+        "Her video greeting."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「祝いには必ずしもその場への出席が必要でないと皆が理解します。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "How does Mika feel after receiving the message?",
+      "options": [
+        "Uninterested in the wedding.",
+        "Included despite not attending.",
+        "Angry about the ceremony.",
+        "Excluded by her friend."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「旅行できなかったものの自分も参加した気持ちになります。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the main message?",
+      "options": [
+        "Respectful invitations allow different ways to celebrate.",
+        "Declining an invitation always weakens friendship.",
+        "Every guest must attend in person.",
+        "All families should follow one tradition."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「思いやりある招待は断られた場合でも関係を強められます。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "certain",
+      "ja": "特定の",
+      "synonym": "particular",
+      "definition": "specific but not named"
+    },
+    {
+      "term": "choice",
+      "ja": "選択",
+      "synonym": "option",
+      "definition": "something one can select"
+    },
+    {
+      "term": "confident",
+      "ja": "自信のある",
+      "synonym": "sure",
+      "definition": "feeling capable"
+    },
+    {
+      "term": "demanding",
+      "ja": "負担が大きい・難しい",
+      "synonym": "challenging",
+      "definition": "requiring considerable effort"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "varied",
+      "definition": "not the same"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "families",
+      "ja": "家族",
+      "synonym": "households",
+      "definition": "groups living together as relatives"
+    },
+    {
+      "term": "friendship",
+      "ja": "友情",
+      "synonym": "bond",
+      "definition": "a connection between friends"
+    },
+    {
+      "term": "greeting",
+      "ja": "あいさつ",
+      "synonym": "message",
+      "definition": "kind words sent to someone"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "included",
+      "ja": "含まれた",
+      "synonym": "contained",
+      "definition": "made part of something"
+    },
+    {
+      "term": "message",
+      "ja": "メッセージ",
+      "synonym": "communication",
+      "definition": "information sent to someone"
+    },
+    {
+      "term": "needs",
+      "ja": "必要",
+      "synonym": "requirements",
+      "definition": "things necessary for well-being"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "personal",
+      "ja": "個人の",
+      "synonym": "individual",
+      "definition": "belonging to one person"
+    },
+    {
+      "term": "photographs",
+      "ja": "写真",
+      "synonym": "pictures",
+      "definition": "images made by a camera"
+    },
+    {
+      "term": "prefer",
+      "ja": "好む",
+      "synonym": "favor",
+      "definition": "to like one option more"
+    },
+    {
+      "term": "private",
+      "ja": "個人的な",
+      "synonym": "personal",
+      "definition": "not intended for others"
+    },
+    {
+      "term": "share",
+      "ja": "共有する",
+      "synonym": "communicate",
+      "definition": "to let others know or use something"
+    },
+    {
+      "term": "strengthen",
+      "ja": "強める",
+      "synonym": "reinforce",
+      "definition": "to make something stronger"
+    },
+    {
+      "term": "traditions",
+      "ja": "伝統",
+      "synonym": "customs",
+      "definition": "practices passed down"
+    },
+    {
+      "term": "travel",
+      "ja": "移動する",
+      "synonym": "journey",
+      "definition": "go to another place"
+    },
+    {
+      "term": "wedding",
+      "ja": "結婚式",
+      "synonym": "marriage ceremony",
+      "definition": "an event celebrating marriage"
+    },
+    {
+      "term": "invitation",
+      "ja": "招待",
+      "synonym": "request",
+      "definition": "a message asking someone to come"
+    },
+    {
+      "term": "invitations",
+      "ja": "招待状",
+      "synonym": "requests",
+      "definition": "messages asking people to come"
+    },
+    {
+      "term": "couple",
+      "ja": "二人",
+      "synonym": "partners",
+      "definition": "two people getting married"
+    },
+    {
+      "term": "guests",
+      "ja": "招待客",
+      "synonym": "attendees",
+      "definition": "people invited to an event"
+    },
+    {
+      "term": "attend",
+      "ja": "出席する",
+      "synonym": "join",
+      "definition": "be present at an event"
+    },
+    {
+      "term": "attendance",
+      "ja": "出席",
+      "synonym": "presence",
+      "definition": "being at an event"
+    },
+    {
+      "term": "declining",
+      "ja": "断ること",
+      "synonym": "refusing",
+      "definition": "saying no to a request"
+    },
+    {
+      "term": "declines",
+      "ja": "断る",
+      "synonym": "refuses",
+      "definition": "chooses not to attend"
+    },
+    {
+      "term": "relationship",
+      "ja": "関係",
+      "synonym": "bond",
+      "definition": "a connection between people"
+    },
+    {
+      "term": "ceremony",
+      "ja": "式",
+      "synonym": "formal event",
+      "definition": "a planned celebration"
+    },
+    {
+      "term": "celebrations",
+      "ja": "祝い",
+      "synonym": "events",
+      "definition": "special occasions"
+    },
+    {
+      "term": "celebrating",
+      "ja": "祝うこと",
+      "synonym": "honoring",
+      "definition": "enjoying a special occasion"
+    },
+    {
+      "term": "custom",
+      "ja": "習慣",
+      "synonym": "tradition",
+      "definition": "a usual cultural practice"
+    },
+    {
+      "term": "budgets",
+      "ja": "予算",
+      "synonym": "funds",
+      "definition": "money available to spend"
+    },
+    {
+      "term": "permission",
+      "ja": "許可",
+      "synonym": "consent",
+      "definition": "agreement to do something"
+    },
+    {
+      "term": "publicly",
+      "ja": "公に",
+      "synonym": "openly",
+      "definition": "in a way everyone can access"
+    },
+    {
+      "term": "considerate",
+      "ja": "思いやりある",
+      "synonym": "thoughtful",
+      "definition": "thinking about others"
+    },
+    {
+      "term": "limits",
+      "ja": "限界",
+      "synonym": "boundaries",
+      "definition": "what a person can reasonably do"
+    },
+    {
+      "term": "explanations",
+      "ja": "説明",
+      "synonym": "accounts",
+      "definition": "statements giving reasons"
+    },
+    {
+      "term": "honest",
+      "ja": "正直な",
+      "synonym": "truthful",
+      "definition": "saying what is true"
+    },
+    {
+      "term": "situation",
+      "ja": "状況",
+      "synonym": "circumstances",
+      "definition": "a person's conditions"
+    },
+    {
+      "term": "family",
+      "ja": "家族",
+      "synonym": "relatives",
+      "definition": "people related to one another"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "that declining will make her seem unfriendly",
+      "explanation_ja": "that節は心配の内容です。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 4,
+      "focus": "that an honest answer can help with planning",
+      "explanation_ja": "that節は気づいたことを示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of assuming every couple follows the same custom",
+      "explanation_ja": "instead of + 動名詞で決めつけを避けます。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 4,
+      "focus": "even when someone declines",
+      "explanation_ja": "even when節が断っても成り立つことを示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "招待と出席の難しさを対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "動画の祝福を例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "写真の公開には許可が必要だと示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "招待に正直に答える変化を示します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Her sister suggests that a kind invitation allows a real choice.",
+      "rewrite": "Mika's sister thinks guests should have freedom to choose.",
+      "explanation_ja": "招待には選択の自由が必要です。"
+    },
+    {
+      "source": "Mika realizes that an honest answer can help with planning.",
+      "rewrite": "Being truthful helps the couple organize the event.",
+      "explanation_ja": "正直な返事は計画に役立ちます。"
+    },
+    {
+      "source": "Everyone understands that celebrating does not always require physical attendance.",
+      "rewrite": "People can celebrate a wedding without attending physically.",
+      "explanation_ja": "遠くからでも祝福できます。"
+    },
+    {
+      "source": "A considerate invitation can strengthen a relationship even when someone declines.",
+      "rewrite": "Thoughtful invitations may maintain friendship despite a refusal.",
+      "explanation_ja": "断ることも尊重すると関係を守れます。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "For example",
+        "As a result",
+        "In addition",
+        "However"
+      ],
+      "explanation_ja": "招待と出席の難しさを対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "As a result",
+        "Meanwhile",
+        "For example",
+        "However"
+      ],
+      "explanation_ja": "動画の祝福を例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "Nevertheless",
+      "options": [
+        "Moreover",
+        "Nevertheless",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "写真の公開には許可が必要だと示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "For example",
+        "However",
+        "Meanwhile"
+      ],
+      "explanation_ja": "招待に正直に答える変化を示します。"
+    }
+  ]
+}
