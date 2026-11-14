@@ -307,3 +307,7 @@ body.reading-exam-mode{overflow:hidden!important;overscroll-behavior:none}
 #examOverlay .exam-ink-notice{font-size:12px;color:#88521a;padding:4px 9px;background:#fff3dc}
 #examOverlay .exam-ink-notice[hidden]{display:none}
 @media(max-width:699px){#examOverlay .exam-layout{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,46%) minmax(0,54%)}#examOverlay .exam-title{flex-basis:100%}#examOverlay .exam-workbench button{padding:4px 6px}#examOverlay .exam-passage-pane .exam-pane-scroll,#examOverlay .exam-question-pane .exam-pane-scroll{padding:9px 12px}}
+
+#examOverlay .exam-paragraph.exam-evidence-active{outline:2px solid #4b8d80;outline-offset:5px;border-radius:3px;background:#eef8f2}
+#examOverlay .exam-workbench{flex:none}
+#examOverlay .exam-layout{min-height:0}

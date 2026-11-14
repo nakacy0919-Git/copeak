@@ -13,14 +13,14 @@
  let current=null;
  let dragging=false;
  let leaving=false;
- let ticker=0,submitPending=false;
+ let ticker=0,submitPending=false,saveFailed=false;
  const elapsed=()=>current?Math.max(0,Math.floor((Date.now()-current.startedAt)/1000)):0;
  const durationText=s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
- function clock(){if(!current)return;const used=current.finished?current.elapsedSeconds:elapsed(),limit=current.limit*60,remaining=limit?Math.max(0,limit-used):used;const node=$('examClock');node.textContent=durationText(remaining);node.classList.toggle('is-urgent',!!limit&&remaining<=60&&!current.finished);node.setAttribute('aria-label',limit?'残り時間':'経過時間');$('examSessionStatus').textContent=current.finished?'採点済み':submitPending?'未解答があります。もう一度提出で確定':limit&&remaining===0?'時間終了・提出できます':'解答は端末に保存';}
+ function clock(){if(!current)return;const used=current.finished?current.elapsedSeconds:elapsed(),limit=current.limit*60,remaining=limit?Math.max(0,limit-used):used;const node=$('examClock');node.textContent=durationText(remaining);node.classList.toggle('is-urgent',!!limit&&remaining<=60&&!current.finished);node.setAttribute('aria-label',limit?'残り時間':'経過時間');$('examSessionStatus').textContent=saveFailed?'端末への保存に失敗しました':current.finished?'採点済み':submitPending?'未解答があります。もう一度提出で確定':limit&&remaining===0?'時間終了・提出できます':'解答は端末に保存';}
  function startClock(){clearInterval(ticker);clock();ticker=setInterval(clock,1000);}
  function stopClock(){clearInterval(ticker);ticker=0;}
  function resetSubmit(){submitPending=false;$('examSubmitTop').textContent='提出';$('examSubmit').textContent='提出・採点する';}
- function jumpQuestion(id){const node=[...$('examQuestions').querySelectorAll('[data-exam-question]')].find(el=>el.dataset.examQuestion===id);if(!node)return;current.active=id;const sc=$('examQuestionScroll');sc.scrollTop+=node.getBoundingClientRect().top-sc.getBoundingClientRect().top-6;renderNavigator();saveDraft();}
+ function jumpQuestion(id){resetSubmit();clock();const node=[...$('examQuestions').querySelectorAll('[data-exam-question]')].find(el=>el.dataset.examQuestion===id);if(!node)return;current.active=id;const sc=$('examQuestionScroll');sc.scrollTop+=node.getBoundingClientRect().top-sc.getBoundingClientRect().top-6;renderNavigator();saveDraft();}
  function jumpNext(test){if(!current)return;const n=current.items.length,at=current.items.findIndex(q=>q.id===current.active);for(let step=1;step<=n;step++){const q=current.items[(at+step+n)%n];if(test(q)){jumpQuestion(q.id);return;}}}
  function jumpParagraph(id){const node=[...$('examPassage').querySelectorAll('[data-exam-paragraph]')].find(x=>x.dataset.examParagraph===id);if(node){const sc=$('examPassageScroll');sc.scrollTop+=node.getBoundingClientRect().top-sc.getBoundingClientRect().top-6;}}
  function renderNavigator(){if(!current)return;const n=answerCount(),flags=current.items.filter(q=>current.flags[q.id]).length;$('examNavSummary').textContent=n+' / '+current.items.length+' 解答 · '+flags+' 見直し';$('examNextOpen').disabled=current.finished||n===current.items.length;$('examNextFlag').disabled=flags===0;const nav=$('examQuestionNav'),left=nav.scrollLeft;nav.innerHTML=current.items.map((q,i)=>{const answered=Number.isInteger(current.answers[q.id]),flag=!!current.flags[q.id],outcome=current.finished?(answered&&current.answers[q.id]===q.answer?' correct':' incorrect'):answered?' answered':'';return '<button type="button" data-jump-q="'+escapeHtml(q.id)+'" class="exam-nav-chip'+outcome+(flag?' flagged':'')+(current.active===q.id?' active':'')+'" aria-label="問題 '+(i+1)+(answered?' 解答済み':' 未解答')+(flag?' 見直し':'')+'">'+(i+1)+(flag?' ⚑':'')+'</button>';}).join('');nav.scrollLeft=left;}
@@ -87,7 +87,7 @@
    const answered=Number.isInteger(picked);
    const explained=current.finished;
    return '<article class="exam-question" data-exam-question="'+escapeHtml(q.id)+'">'+
-    '<div class="exam-question-number"><span>QUESTION '+(index+1)+' / '+current.items.length+'</span><button class="exam-flag" type="button" data-flag-q="'+escapeHtml(q.id)+'" aria-pressed="'+!!current.flags[q.id]+'">'+(current.flags[q.id]?'⚑ 見直し中':'⚐ 見直し')+'</button></div>'+
+    '<div class="exam-question-number"><span>QUESTION '+(index+1)+' / '+current.items.length+'</span><button class="exam-flag" type="button" data-flag-q="'+escapeHtml(q.id)+'" aria-pressed="'+!!current.flags[q.id]+'" '+(explained?'disabled':'')+'>(current.flags[q.id]?'⚑ 見直し中':'⚐ 見直し')+'</button></div>'+
     '<h3>' + escapeHtml(q.prompt) + '</h3>'+(q.subprompt?'<p class="exam-subprompt">'+escapeHtml(q.subprompt)+'</p>':'')+
     '<div class="exam-options">'+q.options.map((opt,j)=>{
      const cls=explained?(j===q.answer?'is-correct':j===picked?'is-wrong':''):(picked===j?'is-selected':'');
@@ -103,7 +103,7 @@
   const answered=answerCount();
   $('examAnswerCount').textContent=answered+' / '+current.items.length+' 問解答';
   $('examSubmit').disabled=current.finished;$('examSubmitTop').disabled=current.finished;$('examTimeLimit').disabled=current.finished;renderNavigator();clock();
-  $('examSubmitArea').hidden=current.finished;
+  $('examSubmitArea').hidden=current.finished&&!saveFailed;
   $('examResult').hidden=!current.finished;
   if(current.finished){
    const score=current.items.filter(q=>current.answers[q.id]===q.answer).length;
@@ -123,12 +123,12 @@
   return h>>>0;
  }
  function reportSaveError(){
-  const status=$('examSaveStatus');
+  saveFailed=true;clock();const status=$('examSaveStatus');
   status.hidden=false;
   status.textContent='この端末では途中の解答を保存できません。';
  }
  function clearSaveError(){
-  const status=$('examSaveStatus');
+  saveFailed=false;clock();const status=$('examSaveStatus');
   status.hidden=true;status.textContent='';
  }
  function saveDraft(){
@@ -136,13 +136,14 @@
   try{
    localStorage.setItem(draftName(current.key),JSON.stringify({
     fingerprint:current.fingerprint,
+    passageFont:overlay.style.getPropertyValue('--reading-passage-size'),questionFont:overlay.style.getPropertyValue('--reading-question-size'),
     answers:current.answers,flags:current.flags,crossed:current.crossed,active:current.active,startedAt:current.startedAt,limit:current.limit,passageTop:$('examPassageScroll').scrollTop,questionTop:$('examQuestionScroll').scrollTop
    }));
    clearSaveError();
   }catch{reportSaveError();}
  }
  function loadDraft(key,items){
-  const clean={answers:Object.create(null),flags:Object.create(null),crossed:Object.create(null),active:items[0]?.id,startedAt:Date.now(),limit:0,passageTop:0,questionTop:0};
+  const clean={answers:Object.create(null),flags:Object.create(null),crossed:Object.create(null),active:items[0]?.id,startedAt:Date.now(),limit:0,passageTop:0,questionTop:0,passageFont:'',questionFont:''};
   try{
    const d=JSON.parse(localStorage.getItem(draftName(key))||'null');
    if(!d||d.fingerprint!==bankFingerprint(items))return clean;
@@ -151,6 +152,7 @@
    if(Number.isFinite(d.startedAt)&&d.startedAt>0&&d.startedAt<=Date.now())clean.startedAt=d.startedAt;
    if([0,5,10,15,20,30,45].includes(d.limit))clean.limit=d.limit;
    for(const k of ['passageTop','questionTop'])if(Number.isFinite(d[k]))clean[k]=Math.max(0,d[k]);
+   for(const k of ['passageFont','questionFont'])if(typeof d[k]==='string'&&/^\d{2}px$/.test(d[k])&&parseInt(d[k])>=13&&parseInt(d[k])<=28)clean[k]=d[k];
   }catch{}
   return clean;
  }
@@ -206,7 +208,7 @@
   const key=ctx.lesson.id+'/'+ctx.mode+'/'+ctx.direction;
   if(!current||current.key!==key||current.finished||current.fingerprint!==bankFingerprint(items)){
    current={key,lessonId:ctx.lesson.id,mode:ctx.mode,direction:ctx.direction,items,...loadDraft(key,items),fingerprint:bankFingerprint(items),finished:false};
-  }else{const saved=loadDraft(key,items);current.passageTop=saved.passageTop;current.questionTop=saved.questionTop;}
+  }else{const saved=loadDraft(key,items);current.passageTop=saved.passageTop;current.questionTop=saved.questionTop;current.passageFont=saved.passageFont;current.questionFont=saved.questionFont;}
   resetSubmit();$('examLessonTitle').textContent=ctx.lesson.title;$('examTimeLimit').value=String(current.limit);
   renderPassage(ctx,current.items);
   // Attach handwriting when viewport dimensions are available.
@@ -218,8 +220,8 @@
   document.querySelector('.masthead').inert=true;
   const app=$('readingApp');
   for(const key of ['--reading-passage-size','--reading-question-size']){
-   const size=app.style.getPropertyValue(key);
-   if(size)overlay.style.setProperty(key,size);
+   const size=(key==='--reading-passage-size'?current.passageFont:current.questionFont)||app.style.getPropertyValue(key);
+   if(size)overlay.style.setProperty(key,size);else overlay.style.removeProperty(key);
   }
   setSplit(split);
   $('examPassageScroll').scrollTop=current.passageTop||0;
@@ -241,7 +243,7 @@
  $('examExit').addEventListener('click',leaveExam);
  $('examQuestions').addEventListener('click',e=>{
   const flag=e.target.closest?.('[data-flag-q]'),cross=e.target.closest?.('[data-cross-q]'),evidence=e.target.closest?.('[data-evidence-p]');
-  if(evidence&&current?.finished){jumpParagraph(evidence.dataset.evidenceP);return;}
+  if(evidence&&current?.finished){jumpParagraph(evidence.dataset.evidenceP);for(const p of $('examPassage').querySelectorAll('[data-exam-paragraph]'))p.classList.toggle('exam-evidence-active',p.dataset.examParagraph===evidence.dataset.evidenceP);return;}
   if(flag&&current&&!current.finished){const id=flag.dataset.flagQ;current.flags[id]=!current.flags[id];current.active=id;resetSubmit();saveDraft();renderQuestions();return;}
   if(cross&&current&&!current.finished){const id=cross.dataset.crossQ,i=Number(cross.dataset.crossChoice);if(current.answers[id]===i)delete current.answers[id];const list=current.crossed[id]||[];current.crossed[id]=list.includes(i)?list.filter(x=>x!==i):[...list,i];current.active=id;resetSubmit();saveDraft();renderQuestions();return;}
   const option=e.target.closest?.('[data-exam-q]');
@@ -268,8 +270,8 @@
  $('examParagraphNav').addEventListener('click',e=>{const b=e.target.closest('[data-jump-p]');if(b)jumpParagraph(b.dataset.jumpP);});
  $('examNextOpen').addEventListener('click',()=>jumpNext(q=>!Number.isInteger(current.answers[q.id])));
  $('examNextFlag').addEventListener('click',()=>jumpNext(q=>current.flags[q.id]));
- $('examTimeLimit').addEventListener('change',e=>{if(!current||current.finished)return;current.limit=Number(e.target.value)||0;clock();saveDraft();});
- function resizeText(delta){for(const [prop,base,min,max] of [['--reading-passage-size',19,14,28],['--reading-question-size',16,13,24]]){const old=Number.parseFloat(getComputedStyle(overlay).getPropertyValue(prop))||base;overlay.style.setProperty(prop,clamp(old+delta,min,max)+'px');}}
+ $('examTimeLimit').addEventListener('change',e=>{if(!current||current.finished)return;resetSubmit();current.limit=Number(e.target.value)||0;clock();saveDraft();});
+ function resizeText(delta){for(const [prop,base,min,max] of [['--reading-passage-size',19,14,28],['--reading-question-size',16,13,24]]){const old=Number.parseFloat(getComputedStyle(overlay).getPropertyValue(prop))||base;overlay.style.setProperty(prop,clamp(old+delta,min,max)+'px');}saveDraft();}
  $('examTextSmaller').addEventListener('click',()=>resizeText(-1));$('examTextLarger').addEventListener('click',()=>resizeText(1));
  let scrollTimer=0;for(const id of ['examPassageScroll','examQuestionScroll'])$(id).addEventListener('scroll',()=>{clearTimeout(scrollTimer);scrollTimer=setTimeout(()=>{if(!overlay.hidden)saveDraft();},300);},{passive:true});
  window.addEventListener('pagehide',()=>{if(!overlay.hidden)saveDraft();});document.addEventListener('visibilitychange',()=>{if(!overlay.hidden){if(document.hidden)saveDraft();else clock();}});
