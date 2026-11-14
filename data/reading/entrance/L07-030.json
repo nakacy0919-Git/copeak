@@ -1,0 +1,687 @@
+{
+  "id": "L07-030",
+  "category_id": "L07",
+  "title": "The Product That Could Be Borrowed",
+  "title_ja": "借りられる製品",
+  "level_id": "eiken-2",
+  "status": "draft",
+  "original": true,
+  "word_count": 357,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "オリジナル論説・架空事例。実在する企業、芸術作品、人物、調査結果ではない。台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A shop that sells tools usually receives payment when a customer takes ownership of a product.",
+          "ja": "工具を販売する店は通常、顧客が製品を所有するとき代金を受け取る。"
+        },
+        {
+          "en": "Yet a customer may need a particular tool for only a short period of time.",
+          "ja": "しかし顧客は特定の工具を短期間しか必要としないかもしれない。"
+        },
+        {
+          "en": "For such a person, reliable access to the tool may be more valuable than permanent ownership of it.",
+          "ja": "そのような人には工具を確実に利用できることが、永久に所有することより価値がある場合がある。"
+        },
+        {
+          "en": "A business that recognizes this distinction might develop a different relationship with its customers.",
+          "ja": "この区別を認識する事業者は顧客と異なる関係を築くかもしれない。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Imagine a small shop considering a service that allows local residents to borrow equipment for occasional household projects.",
+          "ja": "地域住民が時折の家庭作業に機器を借りられるサービスを検討する小さな店を想像しよう。"
+        },
+        {
+          "en": "The owner initially assumes that the service will be profitable whenever several customers pay to use the same item.",
+          "ja": "店主は当初、複数顧客が同じ品を使うために支払えばいつでもサービスが利益を生むと想定する。"
+        },
+        {
+          "en": "However, the equipment must be inspected after each return, and an item that is damaged or returned late may become unavailable to the next customer.",
+          "ja": "しかし機器は返却ごとに点検が必要であり、破損・返却遅れの品は次の顧客に利用できなくなるかもしれない。"
+        },
+        {
+          "en": "The owner discovers that the number of times an item is borrowed is only one factor in determining the viability of the service.",
+          "ja": "貸出回数はサービスの存続可能性を決める一要素にすぎないと店主は気づく。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The shop considers introducing a reservation system that records the expected return time of each item.",
+          "ja": "店は各品の返却予定時刻を記録する予約制度の導入を考える。"
+        },
+        {
+          "en": "It also sets aside time for maintenance before making returned equipment available again.",
+          "ja": "返却機器を再び利用可能にする前に維持管理の時間も確保する。"
+        },
+        {
+          "en": "These arrangements could increase the reliability of the service while reducing the total number of reservations that the shop can accept.",
+          "ja": "仕組みは店が受け付けられる予約総数を減らしながらサービスの信頼性を高め得る。"
+        },
+        {
+          "en": "The owner therefore needs to compare the income from lending equipment with the costs of maintaining it and fulfilling commitments to customers.",
+          "ja": "そこで貸出収入と維持管理費用、顧客への約束を果たす費用を比較する必要がある。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Customers may also evaluate the service differently according to their own circumstances.",
+          "ja": "顧客も自身の事情に応じサービスを異なって評価するかもしれない。"
+        },
+        {
+          "en": "A person who regularly needs the same tool might prefer to purchase one, whereas a person completing an unusual project might prefer temporary access.",
+          "ja": "同じ工具を定期的に必要とする人は購入を好み、珍しい作業をする人は一時的利用を好むかもしれない。"
+        },
+        {
+          "en": "The fictional example does not establish that borrowing is always less expensive or environmentally preferable to ownership.",
+          "ja": "架空例は借りることが所有より常に低費用または環境上望ましいと確定しない。"
+        },
+        {
+          "en": "Such conclusions would require information about actual usage, transportation, durability and other relevant conditions.",
+          "ja": "その結論には実際の利用、輸送、耐久性、他の関連条件の情報が必要になる。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "A business can create value by providing an opportunity to use a resource rather than transferring ownership of it.",
+          "ja": "事業は資源の所有権を移転するのでなく利用機会を提供することで価値を作れる。"
+        },
+        {
+          "en": "The practical requirements of that arrangement, however, differ from those of an ordinary sale.",
+          "ja": "しかしその仕組みの実務要件は通常販売のものと異なる。"
+        },
+        {
+          "en": "A successful lending service must consider the relationships among users whose activities depend on the availability of the same equipment.",
+          "ja": "成功する貸出サービスは同一機器の利用可能性に活動が依存する利用者間の関係を考慮しなければならない。"
+        },
+        {
+          "en": "The product is no longer merely an object to be sold but part of a continuing service.",
+          "ja": "製品はもはや販売物だけでなく継続サービスの一部だ。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "ownership",
+      "ja": "所有",
+      "synonym": "possession",
+      "definition": "state of owning something"
+    },
+    {
+      "term": "particular",
+      "ja": "特定の",
+      "synonym": "specific",
+      "definition": "relating to one thing"
+    },
+    {
+      "term": "reliable",
+      "ja": "信頼できる",
+      "synonym": "dependable",
+      "definition": "able to be relied on"
+    },
+    {
+      "term": "access",
+      "ja": "利用機会",
+      "synonym": "availability",
+      "definition": "ability to reach or use"
+    },
+    {
+      "term": "permanent",
+      "ja": "永続的な",
+      "synonym": "lasting",
+      "definition": "intended to continue"
+    },
+    {
+      "term": "distinction",
+      "ja": "区別",
+      "synonym": "difference",
+      "definition": "difference between things"
+    },
+    {
+      "term": "recognizes",
+      "ja": "認識する",
+      "synonym": "identifies",
+      "definition": "knows what something is"
+    },
+    {
+      "term": "relationship",
+      "ja": "関係",
+      "synonym": "connection",
+      "definition": "way things are connected"
+    },
+    {
+      "term": "residents",
+      "ja": "住民",
+      "synonym": "inhabitants",
+      "definition": "people living in a place"
+    },
+    {
+      "term": "borrow",
+      "ja": "借りる",
+      "synonym": "obtain temporarily",
+      "definition": "take for temporary use"
+    },
+    {
+      "term": "equipment",
+      "ja": "機器",
+      "synonym": "tools",
+      "definition": "items needed for a task"
+    },
+    {
+      "term": "occasional",
+      "ja": "時折の",
+      "synonym": "infrequent",
+      "definition": "happening sometimes"
+    },
+    {
+      "term": "household",
+      "ja": "家庭の",
+      "synonym": "domestic",
+      "definition": "relating to a home"
+    },
+    {
+      "term": "initially",
+      "ja": "当初",
+      "synonym": "at first",
+      "definition": "at the beginning"
+    },
+    {
+      "term": "assumes",
+      "ja": "想定する",
+      "synonym": "supposes",
+      "definition": "accepts without proof"
+    },
+    {
+      "term": "profitable",
+      "ja": "利益の出る",
+      "synonym": "lucrative",
+      "definition": "producing financial gain"
+    },
+    {
+      "term": "inspected",
+      "ja": "点検された",
+      "synonym": "examined",
+      "definition": "checked carefully"
+    },
+    {
+      "term": "damaged",
+      "ja": "破損した",
+      "synonym": "broken",
+      "definition": "harmed or impaired"
+    },
+    {
+      "term": "unavailable",
+      "ja": "利用できない",
+      "synonym": "inaccessible",
+      "definition": "not able to be obtained"
+    },
+    {
+      "term": "factor",
+      "ja": "要素",
+      "synonym": "element",
+      "definition": "thing contributing to a result"
+    },
+    {
+      "term": "determining",
+      "ja": "決めること",
+      "synonym": "establishing",
+      "definition": "finding or deciding"
+    },
+    {
+      "term": "viability",
+      "ja": "存続可能性",
+      "synonym": "feasibility",
+      "definition": "ability to continue successfully"
+    },
+    {
+      "term": "introducing",
+      "ja": "導入すること",
+      "synonym": "bringing in",
+      "definition": "putting into use"
+    },
+    {
+      "term": "reservation",
+      "ja": "予約",
+      "synonym": "booking",
+      "definition": "arrangement to use something later"
+    },
+    {
+      "term": "expected",
+      "ja": "予定された",
+      "synonym": "anticipated",
+      "definition": "thought likely to occur"
+    },
+    {
+      "term": "sets aside",
+      "ja": "確保する",
+      "synonym": "reserves",
+      "definition": "keeps for a particular purpose"
+    },
+    {
+      "term": "maintenance",
+      "ja": "維持管理",
+      "synonym": "upkeep",
+      "definition": "work keeping something in condition"
+    },
+    {
+      "term": "arrangements",
+      "ja": "仕組み",
+      "synonym": "plans",
+      "definition": "organized ways of doing things"
+    },
+    {
+      "term": "reliability",
+      "ja": "信頼性",
+      "synonym": "dependability",
+      "definition": "quality of being dependable"
+    },
+    {
+      "term": "reducing",
+      "ja": "減らすこと",
+      "synonym": "decreasing",
+      "definition": "making smaller"
+    },
+    {
+      "term": "income",
+      "ja": "収入",
+      "synonym": "revenue",
+      "definition": "money received"
+    },
+    {
+      "term": "fulfilling",
+      "ja": "果たすこと",
+      "synonym": "satisfying",
+      "definition": "meeting a promise or requirement"
+    },
+    {
+      "term": "commitments",
+      "ja": "約束",
+      "synonym": "obligations",
+      "definition": "firm decisions to do things"
+    },
+    {
+      "term": "evaluate",
+      "ja": "評価する",
+      "synonym": "assess",
+      "definition": "judge quality or value"
+    },
+    {
+      "term": "circumstances",
+      "ja": "事情",
+      "synonym": "conditions",
+      "definition": "factors affecting a situation"
+    },
+    {
+      "term": "regularly",
+      "ja": "定期的に",
+      "synonym": "routinely",
+      "definition": "at repeated intervals"
+    },
+    {
+      "term": "whereas",
+      "ja": "一方",
+      "synonym": "while",
+      "definition": "introducing contrast"
+    },
+    {
+      "term": "temporary",
+      "ja": "一時的な",
+      "synonym": "short-lived",
+      "definition": "lasting for a limited time"
+    },
+    {
+      "term": "preferable",
+      "ja": "望ましい",
+      "synonym": "desirable",
+      "definition": "more suitable or desirable"
+    },
+    {
+      "term": "usage",
+      "ja": "利用",
+      "synonym": "use",
+      "definition": "act or pattern of using something"
+    },
+    {
+      "term": "transportation",
+      "ja": "輸送",
+      "synonym": "transport",
+      "definition": "movement of goods or people"
+    },
+    {
+      "term": "durability",
+      "ja": "耐久性",
+      "synonym": "longevity",
+      "definition": "ability to withstand use over time"
+    },
+    {
+      "term": "transferring",
+      "ja": "移転すること",
+      "synonym": "handing over",
+      "definition": "moving from one owner to another"
+    },
+    {
+      "term": "requirements",
+      "ja": "要件",
+      "synonym": "conditions",
+      "definition": "things that must be met"
+    },
+    {
+      "term": "availability",
+      "ja": "利用可能性",
+      "synonym": "accessibility",
+      "definition": "state of being available"
+    },
+    {
+      "term": "merely",
+      "ja": "単に",
+      "synonym": "only",
+      "definition": "nothing more than"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "inference",
+      "prompt": "Why might a customer prefer a lending service?",
+      "options": [
+        "The customer needs access only temporarily.",
+        "The customer needs to own every tool permanently.",
+        "The customer cannot use a tool at home.",
+        "The customer wants equipment to remain unavailable."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "一時的な利用。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What does the owner initially assume?",
+      "options": [
+        "Every borrowed item will be sold immediately.",
+        "Only new equipment can be borrowed.",
+        "Several payments for the same item will make lending profitable.",
+        "Customers will never pay for temporary use."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "複数回の収入で利益が出ると想定。"
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why might a late return cause difficulties?",
+      "options": [
+        "It automatically increases the tool's durability.",
+        "It eliminates all maintenance costs.",
+        "It makes the equipment permanently owned by the shopkeeper.",
+        "It can prevent another customer from using reserved equipment."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "次の利用者への影響。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What is time set aside for?",
+      "options": [
+        "Closing the shop permanently.",
+        "Maintenance before equipment is lent again.",
+        "Selling all returned products.",
+        "Increasing advertising expenses."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "維持管理。"
+    },
+    {
+      "id": "q5",
+      "skill": "inference",
+      "prompt": "What trade-off results from maintenance intervals?",
+      "options": [
+        "Greater reliability but potentially fewer reservations.",
+        "More reservations without any effect on reliability.",
+        "Lower reliability and greater equipment availability.",
+        "Guaranteed profits regardless of costs."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "信頼性と予約数。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "Who might prefer to purchase a tool?",
+      "options": [
+        "Someone completing a single unusual project.",
+        "Someone unable to use the tool.",
+        "Someone who needs it regularly.",
+        "Someone seeking access for a few minutes only."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "定期利用者。"
+    },
+    {
+      "id": "q7",
+      "skill": "inference",
+      "prompt": "Why is the environmental comparison not settled?",
+      "options": [
+        "Borrowing is necessarily environmentally harmful.",
+        "Actual use, transport and durability need examination.",
+        "Ownership always has the same environmental impact.",
+        "The number of reservations proves the answer."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "条件次第。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "How does lending differ from a sale?",
+      "options": [
+        "It always transfers permanent ownership.",
+        "It ends the business relationship at purchase.",
+        "It removes the need for equipment maintenance.",
+        "It creates ongoing obligations concerning access and availability."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "継続的な利用の約束。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does fulfilling mean?",
+      "options": [
+        "Canceling before completion.",
+        "Calculating an unrelated price.",
+        "Meeting or carrying out a commitment.",
+        "Giving up responsibility."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "約束を果たす。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the main argument?",
+      "options": [
+        "Lending creates value through access but requires managing ongoing costs and shared availability.",
+        "Rental is always more profitable than selling.",
+        "The total number of loans determines success by itself.",
+        "Every customer should avoid ownership."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1",
+        "p5"
+      ],
+      "explanation_ja": "利用機会の価値と運用の責任。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "more valuable than permanent ownership",
+      "explanation_ja": "比較級＋than。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "whenever several customers pay",
+      "explanation_ja": "wheneverは〜するときはいつでも。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "while reducing the total number",
+      "explanation_ja": "while＋分詞は同時性や対比。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 0,
+      "focus": "rather than transferring ownership of it",
+      "explanation_ja": "rather than＋動名詞。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "For such a person, reliable access to the tool may be more valuable than permanent ownership of it.",
+      "rewrite": "Temporary access can matter more to a customer than owning a tool.",
+      "explanation_ja": "利用と所有の比較。"
+    },
+    {
+      "source": "The owner initially assumes that the service will be profitable whenever several customers pay to use the same item.",
+      "rewrite": "The owner expects repeated payments to produce profit.",
+      "explanation_ja": "当初の利益の想定。"
+    },
+    {
+      "source": "These arrangements could increase the reliability of the service while reducing the total number of reservations that the shop can accept.",
+      "rewrite": "Maintenance time can improve reliability but reduce booking capacity.",
+      "explanation_ja": "信頼性と受付数の両立。"
+    },
+    {
+      "source": "A business can create value by providing an opportunity to use a resource rather than transferring ownership of it.",
+      "rewrite": "A company may sell access instead of ownership.",
+      "explanation_ja": "事業モデルの違い。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "Yet",
+      "role_ja": "販売から一時的利用へ。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "However",
+      "role_ja": "収入だけでは判断できない。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "whereas",
+      "role_ja": "異なる顧客ニーズ。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "however",
+      "role_ja": "貸出と販売の実務差。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "answer": "viability",
+      "options": [
+        "viability",
+        "appearance",
+        "decoration",
+        "transportation"
+      ],
+      "explanation_ja": "サービスの存続可能性。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "maintenance",
+      "options": [
+        "advertising",
+        "maintenance",
+        "ownership",
+        "delivery"
+      ],
+      "explanation_ja": "返却後の点検。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 3,
+      "answer": "durability",
+      "options": [
+        "popularity",
+        "availability",
+        "durability",
+        "appearance"
+      ],
+      "explanation_ja": "製品の耐久性。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "availability",
+      "options": [
+        "ownership",
+        "expense",
+        "transaction",
+        "availability"
+      ],
+      "explanation_ja": "共有機器の利用可能性。"
+    }
+  ]
+}

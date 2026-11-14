@@ -5,9 +5,9 @@
   "as_of": "2026-11-14",
   "authoritative_branch": "coord/reading-450-registry",
   "manifest_path": "data/reading/entrance/manifest.json",
-  "registered_total": 435,
+  "registered_total": 450,
   "production_reference_count": 28,
-  "development_unpublished_total": 407,
+  "development_unpublished_total": 422,
   "accepted_ids": [
     "L01-001",
     "L01-002",
@@ -38,6 +38,7 @@
     "L01-027",
     "L01-028",
     "L01-029",
+    "L01-030",
     "L02-001",
     "L02-002",
     "L02-003",
@@ -67,6 +68,7 @@
     "L02-027",
     "L02-028",
     "L02-029",
+    "L02-030",
     "L03-001",
     "L03-002",
     "L03-003",
@@ -96,6 +98,7 @@
     "L03-027",
     "L03-028",
     "L03-029",
+    "L03-030",
     "L04-001",
     "L04-002",
     "L04-003",
@@ -125,6 +128,7 @@
     "L04-027",
     "L04-028",
     "L04-029",
+    "L04-030",
     "L05-001",
     "L05-002",
     "L05-003",
@@ -154,6 +158,7 @@
     "L05-027",
     "L05-028",
     "L05-029",
+    "L05-030",
     "L06-001",
     "L06-002",
     "L06-003",
@@ -183,6 +188,7 @@
     "L06-027",
     "L06-028",
     "L06-029",
+    "L06-030",
     "L07-001",
     "L07-002",
     "L07-003",
@@ -212,6 +218,7 @@
     "L07-027",
     "L07-028",
     "L07-029",
+    "L07-030",
     "L08-001",
     "L08-002",
     "L08-003",
@@ -241,6 +248,7 @@
     "L08-027",
     "L08-028",
     "L08-029",
+    "L08-030",
     "L09-001",
     "L09-002",
     "L09-003",
@@ -270,6 +278,7 @@
     "L09-027",
     "L09-028",
     "L09-029",
+    "L09-030",
     "L10-001",
     "L10-002",
     "L10-003",
@@ -299,6 +308,7 @@
     "L10-027",
     "L10-028",
     "L10-029",
+    "L10-030",
     "L11-001",
     "L11-002",
     "L11-003",
@@ -328,6 +338,7 @@
     "L11-027",
     "L11-028",
     "L11-029",
+    "L11-030",
     "L12-001",
     "L12-002",
     "L12-003",
@@ -357,6 +368,7 @@
     "L12-027",
     "L12-028",
     "L12-029",
+    "L12-030",
     "L13-001",
     "L13-002",
     "L13-003",
@@ -386,6 +398,7 @@
     "L13-027",
     "L13-028",
     "L13-029",
+    "L13-030",
     "L14-001",
     "L14-002",
     "L14-003",
@@ -415,6 +428,7 @@
     "L14-027",
     "L14-028",
     "L14-029",
+    "L14-030",
     "L15-001",
     "L15-002",
     "L15-003",
@@ -443,207 +457,102 @@
     "L15-026",
     "L15-027",
     "L15-028",
-    "L15-029"
+    "L15-029",
+    "L15-030"
   ],
   "categories": [
     {
       "id": "L01",
       "label": "自然",
-      "registered": 29,
-      "next_suggested_id": "L01-030"
+      "registered": 30,
+      "next_suggested_id": null
     },
     {
       "id": "L02",
       "label": "歴史",
-      "registered": 29,
-      "next_suggested_id": "L02-030"
+      "registered": 30,
+      "next_suggested_id": null
     },
     {
       "id": "L03",
       "label": "科学技術",
-      "registered": 29,
-      "next_suggested_id": "L03-030"
+      "registered": 30,
+      "next_suggested_id": null
     },
     {
       "id": "L04",
       "label": "人間関係",
-      "registered": 29,
-      "next_suggested_id": "L04-030"
+      "registered": 30,
+      "next_suggested_id": null
     },
     {
       "id": "L05",
       "label": "国際社会",
-      "registered": 29,
-      "next_suggested_id": "L05-030"
+      "registered": 30,
+      "next_suggested_id": null
     },
     {
       "id": "L06",
       "label": "心理・哲学",
-      "registered": 29,
-      "next_suggested_id": "L06-030"
+      "registered": 30,
+      "next_suggested_id": null
     },
     {
       "id": "L07",
       "label": "経済・ビジネス",
-      "registered": 29,
-      "next_suggested_id": "L07-030"
+      "registered": 30,
+      "next_suggested_id": null
     },
     {
       "id": "L08",
       "label": "芸術・文化",
-      "registered": 29,
-      "next_suggested_id": "L08-030"
+      "registered": 30,
+      "next_suggested_id": null
     },
     {
       "id": "L09",
       "label": "文学・言語",
-      "registered": 29,
-      "next_suggested_id": "L09-030"
+      "registered": 30,
+      "next_suggested_id": null
     },
     {
       "id": "L10",
       "label": "教育・学習",
-      "registered": 29,
-      "next_suggested_id": "L10-030"
+      "registered": 30,
+      "next_suggested_id": null
     },
     {
       "id": "L11",
       "label": "法律・政治",
-      "registered": 29,
-      "next_suggested_id": "L11-030"
+      "registered": 30,
+      "next_suggested_id": null
     },
     {
       "id": "L12",
       "label": "医療・健康",
-      "registered": 29,
-      "next_suggested_id": "L12-030"
+      "registered": 30,
+      "next_suggested_id": null
     },
     {
       "id": "L13",
       "label": "宇宙・未来",
-      "registered": 29,
-      "next_suggested_id": "L13-030"
+      "registered": 30,
+      "next_suggested_id": null
     },
     {
       "id": "L14",
       "label": "婚姻・交友",
-      "registered": 29,
-      "next_suggested_id": "L14-030"
+      "registered": 30,
+      "next_suggested_id": null
     },
     {
       "id": "L15",
       "label": "倫理・道徳",
-      "registered": 29,
-      "next_suggested_id": "L15-030"
+      "registered": 30,
+      "next_suggested_id": null
     }
   ],
-  "reservations": [
-    {
-      "id": "L01-030",
-      "owner": "bulk-w",
-      "work_branch": "content/reading-20261114-bulk-w",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L02-030",
-      "owner": "bulk-w",
-      "work_branch": "content/reading-20261114-bulk-w",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L03-030",
-      "owner": "bulk-w",
-      "work_branch": "content/reading-20261114-bulk-w",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L04-030",
-      "owner": "bulk-w",
-      "work_branch": "content/reading-20261114-bulk-w",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L05-030",
-      "owner": "bulk-w",
-      "work_branch": "content/reading-20261114-bulk-w",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L06-030",
-      "owner": "bulk-w",
-      "work_branch": "content/reading-20261114-bulk-w",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L07-030",
-      "owner": "bulk-w",
-      "work_branch": "content/reading-20261114-bulk-w",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L08-030",
-      "owner": "bulk-w",
-      "work_branch": "content/reading-20261114-bulk-w",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L09-030",
-      "owner": "bulk-w",
-      "work_branch": "content/reading-20261114-bulk-w",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L10-030",
-      "owner": "bulk-w",
-      "work_branch": "content/reading-20261114-bulk-w",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L11-030",
-      "owner": "bulk-w",
-      "work_branch": "content/reading-20261114-bulk-w",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L12-030",
-      "owner": "bulk-w",
-      "work_branch": "content/reading-20261114-bulk-w",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L13-030",
-      "owner": "bulk-w",
-      "work_branch": "content/reading-20261114-bulk-w",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L14-030",
-      "owner": "bulk-w",
-      "work_branch": "content/reading-20261114-bulk-w",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L15-030",
-      "owner": "bulk-w",
-      "work_branch": "content/reading-20261114-bulk-w",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    }
-  ],
+  "reservations": [],
   "reservation_workflow": {
     "before_drafting": "Fetch THIS file from authoritative_branch and manifest from the same branch; check the requested ID is absent from accepted_ids and reservations.",
     "claim": "Update THIS file on authoritative_branch using its freshly fetched GitHub blob SHA. If update_file rejects because the SHA changed, refetch and choose again; do not write any lesson before the successful reservation commit.",
