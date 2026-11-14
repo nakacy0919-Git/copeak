@@ -686,7 +686,7 @@
         "However",
         "For example",
         "As a result",
-        "In addition"
+        "Furthermore"
       ],
       "explanation_ja": "人気と席の占有を対比します。"
     },
@@ -695,10 +695,10 @@
       "sentence_index": 1,
       "answer": "For example",
       "options": [
-        "For example",
         "However",
         "As a result",
-        "In contrast"
+        "Meanwhile",
+        "For example"
       ],
       "explanation_ja": "利用目的の例です。"
     },
@@ -707,10 +707,10 @@
       "sentence_index": 1,
       "answer": "Nevertheless",
       "options": [
-        "Nevertheless",
-        "For example",
         "As a result",
-        "Moreover"
+        "In addition",
+        "Nevertheless",
+        "For example"
       ],
       "explanation_ja": "試験後も残る問題を示します。"
     },
@@ -719,10 +719,10 @@
       "sentence_index": 2,
       "answer": "As a result",
       "options": [
+        "Meanwhile",
         "As a result",
         "For example",
-        "However",
-        "Meanwhile"
+        "However"
       ],
       "explanation_ja": "議論の焦点が変わる結果です。"
     }
