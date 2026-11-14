@@ -1,0 +1,644 @@
+{
+  "id": "L01-011",
+  "category_id": "L01",
+  "title": "The Birds at the Empty Feeder",
+  "title_ja": "空っぽの餌台に戻ってきた鳥たち",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 184,
+  "source_links": [
+    {
+      "title": "National Park Service: Birds background",
+      "url": "https://www.nps.gov/subjects/birds/index.htm"
+    }
+  ],
+  "fact_notes": [
+    "学校・鳥の観察は架空の教材用設定。本文と日本語訳・問題はオリジナル。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A class watches birds in the school garden each morning.",
+          "ja": "クラスは毎朝学校の庭の鳥を観察します。"
+        },
+        {
+          "en": "There is a small feeder near a tree.",
+          "ja": "木の近くに小さな餌台があります。"
+        },
+        {
+          "en": "However, the birds stop visiting it one week.",
+          "ja": "しかしある週から鳥が来なくなります。"
+        },
+        {
+          "en": "Some students think the birds have left the neighborhood.",
+          "ja": "生徒の中には鳥が地域を去ったと思う人もいます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Their teacher asks students to record what they actually see.",
+          "ja": "教師は実際に見たことを記録するよう求めます。"
+        },
+        {
+          "en": "For example, some birds are still singing in other trees.",
+          "ja": "例えばほかの木では鳥がまだ鳴いています。"
+        },
+        {
+          "en": "The class notices that the feeder is empty.",
+          "ja": "クラスは餌台が空だと気づきます。"
+        },
+        {
+          "en": "They also see more people walking near the garden.",
+          "ja": "庭の近くを歩く人も増えています。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The students make a chart of their daily observations.",
+          "ja": "生徒たちは毎日の観察を表にします。"
+        },
+        {
+          "en": "They write the time and number of birds seen.",
+          "ja": "時刻と見た鳥の数を書きます。"
+        },
+        {
+          "en": "Instead of choosing one answer immediately, they consider several reasons.",
+          "ja": "すぐ一つの答えを選ばず複数の理由を考えます。"
+        },
+        {
+          "en": "The teacher reminds them not to disturb wild animals.",
+          "ja": "教師は野生動物を邪魔しないよう注意します。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "A gardener explains that birds can find food in many places.",
+          "ja": "庭師は鳥が多くの場所で食べ物を見つけられると説明します。"
+        },
+        {
+          "en": "Nevertheless, nobody can know exactly why each bird moved.",
+          "ja": "それでも個々の鳥が移動した正確な理由はわかりません。"
+        },
+        {
+          "en": "The class continues watching from a safe distance.",
+          "ja": "クラスは安全な距離から観察を続けます。"
+        },
+        {
+          "en": "After several days, some birds return to the garden.",
+          "ja": "数日後、何羽かの鳥が庭に戻ります。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The students share their chart during a class meeting.",
+          "ja": "生徒たちは授業の会議で表を共有します。"
+        },
+        {
+          "en": "They explain what they know and what remains uncertain.",
+          "ja": "わかっていることと不確かなことを説明します。"
+        },
+        {
+          "en": "As a result, the class becomes more interested in careful observation.",
+          "ja": "その結果クラスは慎重な観察にもっと関心を持ちます。"
+        },
+        {
+          "en": "Nature often gives us questions before it gives answers.",
+          "ja": "自然は答えをくれる前に問いを与えることがよくあります。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What happens to the feeder?",
+      "options": [
+        "It moves to another school.",
+        "Students paint it blue.",
+        "A tree grows inside it.",
+        "Birds stop visiting it for a time."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「しかしある週から鳥が来なくなります。」を根拠とします。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What do some students assume?",
+      "options": [
+        "Every tree has fallen.",
+        "The feeder is full.",
+        "The birds have left the neighborhood.",
+        "The birds are in the classroom."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「生徒の中には鳥が地域を去ったと思う人もいます。」を根拠とします。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "Where are birds still heard?",
+      "options": [
+        "Only in the classroom.",
+        "In other trees.",
+        "Inside the library.",
+        "Under the school bus."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「例えばほかの木では鳥がまだ鳴いています。」を根拠とします。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What do students notice about the feeder?",
+      "options": [
+        "It is empty.",
+        "It has a broken door.",
+        "It contains a book.",
+        "It is filled with water."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「クラスは餌台が空だと気づきます。」を根拠とします。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What information goes in the chart?",
+      "options": [
+        "Weather in another country.",
+        "Examination marks.",
+        "Only the feeder's color.",
+        "Time and number of birds."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「時刻と見た鳥の数を書きます。」を根拠とします。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What does the teacher warn students not to do?",
+      "options": [
+        "Compare observations.",
+        "Watch from a distance.",
+        "Disturb wild animals.",
+        "Write the time."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「教師は野生動物を邪魔しないよう注意します。」を根拠とします。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What does the gardener explain?",
+      "options": [
+        "Every bird returns each afternoon.",
+        "Birds can find food in different places.",
+        "Birds cannot leave a garden.",
+        "All birds eat the same thing."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「庭師は鳥が多くの場所で食べ物を見つけられると説明します。」を根拠とします。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "What does the class still not know?",
+      "options": [
+        "Exactly why each bird moved.",
+        "Whether birds make sounds.",
+        "Whether the tree is nearby.",
+        "The time of its meeting."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「それでも個々の鳥が移動した正確な理由はわかりません。」を根拠とします。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What do students share?",
+      "options": [
+        "A plan for a new school.",
+        "A sports timetable.",
+        "Classmates' addresses.",
+        "An observation chart."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「わかっていることと不確かなことを説明します。」を根拠とします。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the passage mainly about?",
+      "options": [
+        "Building an expensive garden.",
+        "Proving one cause without evidence.",
+        "Careful observation and uncertainty about nature.",
+        "Training birds to follow commands."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「自然は答えをくれる前に問いを与えることがよくあります。」を根拠とします。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "actually",
+      "ja": "実際に",
+      "synonym": "really",
+      "definition": "in fact"
+    },
+    {
+      "term": "consider",
+      "ja": "考慮する",
+      "synonym": "think about",
+      "definition": "to examine an idea before deciding"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "make something understandable"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "immediately",
+      "ja": "すぐに",
+      "synonym": "at once",
+      "definition": "without delay"
+    },
+    {
+      "term": "meeting",
+      "ja": "会議",
+      "synonym": "discussion",
+      "definition": "a gathering to share ideas"
+    },
+    {
+      "term": "nature",
+      "ja": "自然",
+      "synonym": "environment",
+      "definition": "plants and animals around us"
+    },
+    {
+      "term": "neighborhood",
+      "ja": "近所",
+      "synonym": "local area",
+      "definition": "places near where people live"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "observations",
+      "ja": "観察",
+      "synonym": "records",
+      "definition": "information collected by watching"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "record",
+      "ja": "記録する",
+      "synonym": "note",
+      "definition": "write information down"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "share",
+      "ja": "共有する",
+      "synonym": "communicate",
+      "definition": "to let others know or use something"
+    },
+    {
+      "term": "students",
+      "ja": "生徒",
+      "synonym": "learners",
+      "definition": "people attending school"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "someone teaching"
+    },
+    {
+      "term": "trees",
+      "ja": "木々",
+      "synonym": "plants",
+      "definition": "tall plants with trunks"
+    },
+    {
+      "term": "uncertain",
+      "ja": "不確かな",
+      "synonym": "unknown",
+      "definition": "not fully known"
+    },
+    {
+      "term": "birds",
+      "ja": "鳥",
+      "synonym": "feathered animals",
+      "definition": "animals with feathers"
+    },
+    {
+      "term": "bird",
+      "ja": "鳥",
+      "synonym": "feathered animal",
+      "definition": "an animal with feathers"
+    },
+    {
+      "term": "feeder",
+      "ja": "餌台",
+      "synonym": "feeding station",
+      "definition": "a place to feed birds"
+    },
+    {
+      "term": "garden",
+      "ja": "庭",
+      "synonym": "green area",
+      "definition": "a place where plants grow"
+    },
+    {
+      "term": "tree",
+      "ja": "木",
+      "synonym": "plant",
+      "definition": "a tall plant with a trunk"
+    },
+    {
+      "term": "wild",
+      "ja": "野生の",
+      "synonym": "untamed",
+      "definition": "living independently in nature"
+    },
+    {
+      "term": "animals",
+      "ja": "動物",
+      "synonym": "creatures",
+      "definition": "living organisms"
+    },
+    {
+      "term": "observation",
+      "ja": "観察",
+      "synonym": "watching",
+      "definition": "looking carefully"
+    },
+    {
+      "term": "chart",
+      "ja": "表",
+      "synonym": "table",
+      "definition": "information arranged for comparison"
+    },
+    {
+      "term": "number",
+      "ja": "数",
+      "synonym": "count",
+      "definition": "how many there are"
+    },
+    {
+      "term": "distance",
+      "ja": "距離",
+      "synonym": "space",
+      "definition": "how far apart things are"
+    },
+    {
+      "term": "safe",
+      "ja": "安全な",
+      "synonym": "secure",
+      "definition": "free from immediate danger"
+    },
+    {
+      "term": "careful",
+      "ja": "慎重な",
+      "synonym": "cautious",
+      "definition": "acting with care"
+    },
+    {
+      "term": "reasons",
+      "ja": "理由",
+      "synonym": "causes",
+      "definition": "explanations of events"
+    },
+    {
+      "term": "return",
+      "ja": "戻る",
+      "synonym": "come back",
+      "definition": "come to a place again"
+    },
+    {
+      "term": "food",
+      "ja": "食べ物",
+      "synonym": "nutrition",
+      "definition": "something animals eat"
+    },
+    {
+      "term": "walking",
+      "ja": "歩くこと",
+      "synonym": "moving on foot",
+      "definition": "traveling by walking"
+    },
+    {
+      "term": "gardener",
+      "ja": "庭師",
+      "synonym": "plant worker",
+      "definition": "a person caring for a garden"
+    },
+    {
+      "term": "empty",
+      "ja": "空の",
+      "synonym": "unfilled",
+      "definition": "containing nothing"
+    },
+    {
+      "term": "visiting",
+      "ja": "訪れること",
+      "synonym": "coming",
+      "definition": "going to a place"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "the birds have left the neighborhood",
+      "explanation_ja": "名詞節の内容が生徒の考えを示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 0,
+      "focus": "what they actually see",
+      "explanation_ja": "what節が実際に観察する内容です。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of choosing one answer immediately",
+      "explanation_ja": "instead of + 動名詞は別の方法です。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "before it gives answers",
+      "explanation_ja": "before節で時間の順序を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "観察していたのに鳥が来なくなります。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "ほかの木の鳥を例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "鳥の移動理由はまだ不明と示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "観察への関心が広がる結果を示します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Some students think the birds have left the neighborhood.",
+      "rewrite": "Some students believe that birds no longer live nearby.",
+      "explanation_ja": "近所からいなくなったと考えています。"
+    },
+    {
+      "source": "They also see more people walking near the garden.",
+      "rewrite": "More people walk close to the garden.",
+      "explanation_ja": "庭の近くの歩行者が増えています。"
+    },
+    {
+      "source": "After several days, some birds return to the garden.",
+      "rewrite": "Several birds are seen in the garden again.",
+      "explanation_ja": "何羽か戻ってきます。"
+    },
+    {
+      "source": "Nature often gives us questions before it gives answers.",
+      "rewrite": "Natural observations often create new questions.",
+      "explanation_ja": "自然観察は新しい問いを生みます。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "For example",
+        "Therefore",
+        "In addition",
+        "However"
+      ],
+      "explanation_ja": "観察していたのに鳥が来なくなります。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "As a result",
+        "Moreover",
+        "For example",
+        "However"
+      ],
+      "explanation_ja": "ほかの木の鳥を例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "Nevertheless",
+      "options": [
+        "As a result",
+        "Nevertheless",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "鳥の移動理由はまだ不明と示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "For example",
+        "Nevertheless",
+        "Meanwhile"
+      ],
+      "explanation_ja": "観察への関心が広がる結果を示します。"
+    }
+  ]
+}
