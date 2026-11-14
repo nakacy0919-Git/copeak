@@ -1,0 +1,692 @@
+{
+  "id": "L10-026",
+  "category_id": "L10",
+  "title": "A Diagram with No Labels",
+  "title_ja": "ラベルのない図",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "word_count": 272,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "オリジナル教材。人物、出来事は架空の例。実在の調査、実証結果、制度、個別医療の助言ではない。制作台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A science teacher asks her students to draw a diagram of a process they have studied.",
+          "ja": "理科教師は学んだ過程の図を描くよう生徒に頼む。"
+        },
+        {
+          "en": "Most students produce careful drawings that look similar to the illustration in their textbook.",
+          "ja": "多くの生徒が教科書の図に似た丁寧な絵を作る。"
+        },
+        {
+          "en": "They copy the labels accurately and use arrows to connect different parts.",
+          "ja": "ラベルを正確に写し矢印で異なる部分を結ぶ。"
+        },
+        {
+          "en": "The teacher is pleased with their work, but she wonders whether they understand the connections.",
+          "ja": "教師は作品に満足するがつながりを理解しているか疑問を持つ。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The following day, she gives them a diagram without any labels.",
+          "ja": "翌日、ラベルのない図を渡す。"
+        },
+        {
+          "en": "She asks the students to explain what each arrow represents before writing any technical terms.",
+          "ja": "専門用語を書く前に各矢印が何を表すか説明するよう求める。"
+        },
+        {
+          "en": "Some students remember the names of the parts but have difficulty describing the relationships between them.",
+          "ja": "部分の名前を覚えていても関係を記述するのに苦労する生徒もいる。"
+        },
+        {
+          "en": "Others can explain the process in ordinary language even when they cannot recall the exact vocabulary.",
+          "ja": "正確な語彙を思い出せなくても普通の言葉で過程を説明できる生徒もいる。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The teacher decides to provide a different kind of feedback to each group.",
+          "ja": "教師は各集団に異なる種類の助言を提供することにする。"
+        },
+        {
+          "en": "Students who know the terms practice explaining the function of each connection.",
+          "ja": "用語を知る生徒は各つながりの機能を説明する練習をする。"
+        },
+        {
+          "en": "Those who understand the relationships review the vocabulary necessary for communicating their ideas precisely.",
+          "ja": "関係を理解する生徒は考えを正確に伝えるため必要な語彙を復習する。"
+        },
+        {
+          "en": "Both groups return to the original illustration after attempting these activities independently.",
+          "ja": "両集団は活動を独力で試みた後元の図に戻る。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Later, the students create their own diagrams for a different example of the same general process.",
+          "ja": "後で同じ一般過程の別例について独自の図を作る。"
+        },
+        {
+          "en": "They compare their explanations and discuss why a particular connection is necessary.",
+          "ja": "説明を比較し特定のつながりがなぜ必要か議論する。"
+        },
+        {
+          "en": "The activity does not guarantee that every student will understand every scientific concept.",
+          "ja": "活動は全生徒が全科学概念を理解することを保証しない。"
+        },
+        {
+          "en": "Nevertheless, it gives the teacher more information about what students can actually explain.",
+          "ja": "それでも生徒が実際に何を説明できるかについて教師により多くの情報を与える。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "A successful drawing may demonstrate several useful abilities at once.",
+          "ja": "成功した図は複数の有用能力を一度に示し得る。"
+        },
+        {
+          "en": "However, copying an accurate illustration is not necessarily the same as understanding its meaning.",
+          "ja": "しかし正確な図を写すことは必ずしも意味の理解と同じではない。"
+        },
+        {
+          "en": "Learning becomes more effective when students recognize which aspects of a task they have mastered and which require further practice.",
+          "ja": "課題の習得した側面と追加練習が必要な側面を認識すると学習はより効果的になる。"
+        },
+        {
+          "en": "The missing labels help make those differences visible.",
+          "ja": "欠けたラベルはその違いを可視化する助けとなる。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "diagram",
+      "ja": "図",
+      "synonym": "chart",
+      "definition": "visual representation of information"
+    },
+    {
+      "term": "process",
+      "ja": "過程",
+      "synonym": "procedure",
+      "definition": "series of related actions"
+    },
+    {
+      "term": "produce",
+      "ja": "作る",
+      "synonym": "create",
+      "definition": "cause to exist"
+    },
+    {
+      "term": "careful",
+      "ja": "丁寧な",
+      "synonym": "thorough",
+      "definition": "showing attention"
+    },
+    {
+      "term": "similar",
+      "ja": "似た",
+      "synonym": "alike",
+      "definition": "having shared qualities"
+    },
+    {
+      "term": "illustration",
+      "ja": "図",
+      "synonym": "image",
+      "definition": "visual representation"
+    },
+    {
+      "term": "labels",
+      "ja": "ラベル",
+      "synonym": "tags",
+      "definition": "words identifying parts"
+    },
+    {
+      "term": "accurately",
+      "ja": "正確に",
+      "synonym": "precisely",
+      "definition": "without mistakes"
+    },
+    {
+      "term": "arrows",
+      "ja": "矢印",
+      "synonym": "pointers",
+      "definition": "symbols showing direction"
+    },
+    {
+      "term": "connect",
+      "ja": "結ぶ",
+      "synonym": "link",
+      "definition": "join together"
+    },
+    {
+      "term": "pleased",
+      "ja": "満足した",
+      "synonym": "happy",
+      "definition": "feeling satisfied"
+    },
+    {
+      "term": "wonders",
+      "ja": "疑問を持つ",
+      "synonym": "questions",
+      "definition": "thinks about whether something is true"
+    },
+    {
+      "term": "connections",
+      "ja": "つながり",
+      "synonym": "links",
+      "definition": "ways things are connected"
+    },
+    {
+      "term": "following",
+      "ja": "次の",
+      "synonym": "next",
+      "definition": "coming afterward"
+    },
+    {
+      "term": "represents",
+      "ja": "表す",
+      "synonym": "stands for",
+      "definition": "shows or symbolizes"
+    },
+    {
+      "term": "technical",
+      "ja": "専門的な",
+      "synonym": "specialized",
+      "definition": "relating to a specialized field"
+    },
+    {
+      "term": "terms",
+      "ja": "用語",
+      "synonym": "expressions",
+      "definition": "words used in a field"
+    },
+    {
+      "term": "difficulty",
+      "ja": "困難",
+      "synonym": "trouble",
+      "definition": "state of being hard to do"
+    },
+    {
+      "term": "describing",
+      "ja": "記述すること",
+      "synonym": "explaining",
+      "definition": "giving an account"
+    },
+    {
+      "term": "relationships",
+      "ja": "関係",
+      "synonym": "connections",
+      "definition": "ways things are connected"
+    },
+    {
+      "term": "ordinary",
+      "ja": "普通の",
+      "synonym": "usual",
+      "definition": "not unusual"
+    },
+    {
+      "term": "recall",
+      "ja": "思い出す",
+      "synonym": "remember",
+      "definition": "bring to mind"
+    },
+    {
+      "term": "exact",
+      "ja": "正確な",
+      "synonym": "precise",
+      "definition": "accurate in detail"
+    },
+    {
+      "term": "vocabulary",
+      "ja": "語彙",
+      "synonym": "lexicon",
+      "definition": "words known or used"
+    },
+    {
+      "term": "provide",
+      "ja": "提供する",
+      "synonym": "supply",
+      "definition": "make available"
+    },
+    {
+      "term": "feedback",
+      "ja": "助言",
+      "synonym": "response",
+      "definition": "information about performance"
+    },
+    {
+      "term": "function",
+      "ja": "機能",
+      "synonym": "role",
+      "definition": "purpose something serves"
+    },
+    {
+      "term": "review",
+      "ja": "復習する",
+      "synonym": "revisit",
+      "definition": "study again"
+    },
+    {
+      "term": "necessary",
+      "ja": "必要な",
+      "synonym": "required",
+      "definition": "needed for a purpose"
+    },
+    {
+      "term": "communicating",
+      "ja": "伝えること",
+      "synonym": "conveying",
+      "definition": "making information known"
+    },
+    {
+      "term": "precisely",
+      "ja": "正確に",
+      "synonym": "exactly",
+      "definition": "with exactness"
+    },
+    {
+      "term": "original",
+      "ja": "元の",
+      "synonym": "initial",
+      "definition": "existing at the beginning"
+    },
+    {
+      "term": "attempting",
+      "ja": "試みること",
+      "synonym": "trying",
+      "definition": "making an effort"
+    },
+    {
+      "term": "independently",
+      "ja": "独力で",
+      "synonym": "on one's own",
+      "definition": "without relying on others"
+    },
+    {
+      "term": "general",
+      "ja": "一般的な",
+      "synonym": "broad",
+      "definition": "applying widely"
+    },
+    {
+      "term": "particular",
+      "ja": "特定の",
+      "synonym": "specific",
+      "definition": "relating to one thing"
+    },
+    {
+      "term": "guarantee",
+      "ja": "保証する",
+      "synonym": "ensure",
+      "definition": "make certain"
+    },
+    {
+      "term": "scientific",
+      "ja": "科学的な",
+      "synonym": "science-related",
+      "definition": "relating to science"
+    },
+    {
+      "term": "concept",
+      "ja": "概念",
+      "synonym": "idea",
+      "definition": "general idea or principle"
+    },
+    {
+      "term": "Nevertheless",
+      "ja": "それでも",
+      "synonym": "even so",
+      "definition": "despite that fact"
+    },
+    {
+      "term": "demonstrate",
+      "ja": "示す",
+      "synonym": "show",
+      "definition": "make evident"
+    },
+    {
+      "term": "abilities",
+      "ja": "能力",
+      "synonym": "capabilities",
+      "definition": "powers to do something"
+    },
+    {
+      "term": "necessarily",
+      "ja": "必ずしも",
+      "synonym": "inevitably",
+      "definition": "in a way that must occur"
+    },
+    {
+      "term": "effective",
+      "ja": "効果的な",
+      "synonym": "successful",
+      "definition": "producing a desired result"
+    },
+    {
+      "term": "aspects",
+      "ja": "側面",
+      "synonym": "features",
+      "definition": "particular parts"
+    },
+    {
+      "term": "mastered",
+      "ja": "習得した",
+      "synonym": "learned",
+      "definition": "became proficient in"
+    },
+    {
+      "term": "visible",
+      "ja": "目に見える",
+      "synonym": "noticeable",
+      "definition": "able to be seen"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What do most students initially produce?",
+      "options": [
+        "A new scientific experiment.",
+        "A list of unrelated terms.",
+        "Drawings similar to the textbook illustration.",
+        "A diagram of a different subject."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "教科書の図に似た絵。"
+    },
+    {
+      "id": "q2",
+      "skill": "inference",
+      "prompt": "What does the teacher question?",
+      "options": [
+        "Whether the drawings contain any arrows.",
+        "Whether students understand the connections they draw.",
+        "Whether the students have a textbook.",
+        "Whether scientific diagrams can be printed."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "つながりの理解。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What does the teacher remove?",
+      "options": [
+        "Every part of the drawing.",
+        "The textbook's cover.",
+        "The students' pencils.",
+        "The labels."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "ラベル。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "What difference emerges?",
+      "options": [
+        "Knowing names and explaining relationships are distinct abilities.",
+        "Everyone has exactly the same difficulty.",
+        "Technical vocabulary is never useful.",
+        "Drawings cannot communicate processes."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "名前と関係の理解。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What do students who understand relationships review?",
+      "options": [
+        "Unrelated scientific illustrations.",
+        "The teacher's name.",
+        "Only the arrows' shapes.",
+        "The vocabulary needed to explain ideas precisely."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "正確な語彙。"
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why provide different kinds of feedback?",
+      "options": [
+        "Every student must do the same task first.",
+        "Feedback always replaces practice.",
+        "Students have different learning needs.",
+        "The teacher wants students to avoid the original illustration."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "課題に応じる助言。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What do students create later?",
+      "options": [
+        "A new textbook for every subject.",
+        "Diagrams of a different example of the process.",
+        "A list of classmates' scores.",
+        "Copies of the first illustration only."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "別例の図。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "What does the activity help the teacher find out?",
+      "options": [
+        "What students can actually explain.",
+        "Which student can draw most beautifully.",
+        "The exact result of every future test.",
+        "Whether all concepts are permanently mastered."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "説明できる内容。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does mastered mean?",
+      "options": [
+        "Forgotten completely.",
+        "Written down randomly.",
+        "Learned well.",
+        "Avoided entirely."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "習得した。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the main message?",
+      "options": [
+        "Copying a diagram always proves complete understanding.",
+        "Scientific vocabulary should never be taught.",
+        "Every student needs identical feedback.",
+        "Teachers can identify different learning needs by examining what students understand beyond copying."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "写すこと以上の理解。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "that look similar to the illustration",
+      "explanation_ja": "関係節がdrawingsを修飾。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "before writing any technical terms",
+      "explanation_ja": "before＋動名詞。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "necessary for communicating their ideas precisely",
+      "explanation_ja": "necessary for＋動名詞。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "focus": "is not necessarily the same as",
+      "explanation_ja": "not necessarilyは部分否定。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Most students produce careful drawings that look similar to the illustration in their textbook.",
+      "rewrite": "Most students draw pictures resembling the textbook figure.",
+      "explanation_ja": "教科書に似た絵。"
+    },
+    {
+      "source": "She asks the students to explain what each arrow represents before writing any technical terms.",
+      "rewrite": "The teacher requests an explanation before students add terminology.",
+      "explanation_ja": "用語の前に説明する。"
+    },
+    {
+      "source": "Those who understand the relationships review the vocabulary necessary for communicating their ideas precisely.",
+      "rewrite": "Students with conceptual understanding study words needed for precise explanations.",
+      "explanation_ja": "正確な語彙。"
+    },
+    {
+      "source": "However, copying an accurate illustration is not necessarily the same as understanding its meaning.",
+      "rewrite": "Accurate copying does not always demonstrate understanding.",
+      "explanation_ja": "写すことと理解。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "but",
+      "role_ja": "作品への満足と疑問。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "even when",
+      "role_ja": "語彙不足でも説明できる場合。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "活動の限界と価値。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "However",
+      "role_ja": "図の成功と理解の違い。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "represents",
+      "options": [
+        "represents",
+        "hides",
+        "forgets",
+        "removes"
+      ],
+      "explanation_ja": "矢印が表すもの。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 0,
+      "answer": "feedback",
+      "options": [
+        "decoration",
+        "feedback",
+        "transportation",
+        "celebration"
+      ],
+      "explanation_ja": "異なる助言。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "guarantee",
+      "options": [
+        "ignore",
+        "describe",
+        "guarantee",
+        "avoid"
+      ],
+      "explanation_ja": "理解を保証しない。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "answer": "visible",
+      "options": [
+        "invisible",
+        "unrelated",
+        "temporary",
+        "visible"
+      ],
+      "explanation_ja": "違いを可視化する。"
+    }
+  ]
+}
