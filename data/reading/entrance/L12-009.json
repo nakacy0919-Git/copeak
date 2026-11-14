@@ -537,10 +537,10 @@
       "sentence_index": 2,
       "answer": "However",
       "options": [
-        "However",
         "For example",
         "As a result",
-        "In addition"
+        "Furthermore",
+        "However"
       ],
       "explanation_ja": "難しいポスターの問題を導きます。"
     },
@@ -549,10 +549,10 @@
       "sentence_index": 1,
       "answer": "For example",
       "options": [
-        "For example",
-        "However",
         "As a result",
-        "In contrast"
+        "Meanwhile",
+        "For example",
+        "However"
       ],
       "explanation_ja": "新入生が必要な情報を例示します。"
     },
@@ -561,10 +561,10 @@
       "sentence_index": 1,
       "answer": "Nevertheless",
       "options": [
+        "In addition",
         "Nevertheless",
         "For example",
-        "As a result",
-        "Moreover"
+        "As a result"
       ],
       "explanation_ja": "改善後にも残る疑問を示します。"
     },
