@@ -43,8 +43,8 @@
       await loadScript('reading-dictionary-lookup.js?v=20261112-words2');
       await loadScript('reading-correct-effect.js?v=20261112-words2');
       await loadScript('reading-entrance.js?v=20261113-gradingcards1');
-      await loadScript('reading-exam-mode.js?v=20261112-full4');
-      await loadScript('reading-ink.js?v=20261112-toolbar4');
+      await loadScript('reading-exam-mode.js?v=20261114-workbench1');
+      await loadScript('reading-ink.js?v=20261114-workbench1');
       const view=window.CopeakReadingExamContext?.();
       if(view?.lesson)window.CopeakReadingInk?.syncStudy(view.lesson.id,view.mode||'questions');
     } catch (error) {

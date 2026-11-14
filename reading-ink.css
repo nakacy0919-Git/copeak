@@ -108,3 +108,14 @@
  #readingApp #inkExamSettings{right:54px;padding:5px}
  #readingApp #inkStudySettings{padding:5px;min-width:40px}
 }
+
+#readingApp #examOverlay .exam-ink-bar{display:flex;align-items:center;gap:5px;flex-wrap:wrap;flex:none;padding:5px 8px;background:#fffefa;border-bottom:1px solid #e4ddd1}
+#readingApp #examOverlay #inkExamToggle,#readingApp #examOverlay #inkExamSettings{position:static;min-height:44px;box-shadow:none}
+#readingApp #examOverlay #inkExamToggle span{display:inline}
+#readingApp #examOverlay #inkExamPanel{position:static;display:flex;flex:1 1 100%;width:100%;max-width:none;max-height:none;padding:3px 0;gap:5px;border:0;border-radius:0;box-shadow:none;background:transparent;overflow:visible}
+#readingApp #examOverlay #inkExamPanel[hidden]{display:none!important}
+#readingApp #examOverlay #inkExamPanel>button{min-height:44px;min-width:44px}
+#readingApp #examOverlay #inkExamPanel button[data-ink-action=blue]{border-bottom:3px solid #236cb6}
+#readingApp #examOverlay #inkExamPanel button[data-ink-action=highlight]{border-bottom:3px solid #e4c04e}
+#readingApp #examOverlay .reading-ink-canvas.ink-layout-mismatch{opacity:0;pointer-events:none}
+#readingApp #examOverlay .ink-enabled .reading-ink-canvas.ink-layout-mismatch{pointer-events:none}

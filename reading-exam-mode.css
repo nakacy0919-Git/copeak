@@ -267,3 +267,43 @@ body.reading-exam-mode #readingApp{overflow:hidden!important}
 #examOverlay:-webkit-full-screen .exam-layout{height:100%;width:100%}
 body.reading-exam-mode{overflow:hidden!important;overscroll-behavior:none}
 #examOverlay .exam-pane-scroll{touch-action:pan-y;overscroll-behavior:contain}
+
+/* Tablet workbench: no absolute toolbar overlap; touch targets 44px. */
+#examOverlay:not([hidden]){display:flex;flex-direction:column;gap:6px;overflow:hidden}
+#examOverlay .exam-layout{flex:1 1 auto;height:auto;grid-template-columns:minmax(0,var(--exam-left)) 18px minmax(0,1fr)}
+#examOverlay .exam-workbench{display:flex;align-items:center;gap:6px;flex-wrap:wrap;background:#fffefa;padding:5px 7px;border-radius:8px;min-height:46px;color:#27323a}
+#examOverlay .exam-title{display:flex;flex:1 1 140px;min-width:0;flex-direction:column;gap:2px}
+#examOverlay .exam-title strong{font-size:14px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+#examOverlay .exam-title small,#examOverlay .exam-timer-label{font-size:11px;color:#516471}
+#examOverlay #examClock{font:750 20px/1 system-ui;min-width:62px;text-align:center;font-variant-numeric:tabular-nums}
+#examOverlay #examClock.is-urgent{color:#a83b28}
+#examOverlay .exam-workbench button,#examOverlay #examTimeLimit,#examOverlay .exam-nav-bar button,#examOverlay .exam-paragraph-nav button,#examOverlay .exam-evidence button{min-height:44px;border:1px solid #cbd4d8;background:#fff;color:#23465b;border-radius:7px;padding:5px 9px;font-size:12px;font-weight:700;white-space:nowrap}
+#examOverlay .exam-workbench .exam-primary{background:#206987;color:white;border-color:#206987}
+#examOverlay button:disabled{opacity:.55}
+#examOverlay .exam-nav-bar{flex:none;padding:6px 9px;border-bottom:1px solid #e4ddd1;background:#fffefa}
+#examOverlay .exam-nav-summary{display:flex;gap:5px;align-items:center;flex-wrap:wrap}
+#examOverlay .exam-nav-summary strong{flex:1;font-size:12px;color:#516471}
+#examOverlay .exam-question-nav,#examOverlay .exam-paragraph-nav{display:flex;gap:5px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;padding:5px 0}
+#examOverlay .exam-nav-chip{flex:none;min-width:44px}
+#examOverlay .exam-nav-chip.answered{background:#e6f2f6;border-color:#3990ac}
+#examOverlay .exam-nav-chip.flagged{box-shadow:inset 0 -3px #b9772b}
+#examOverlay .exam-nav-chip.active{outline:2px solid #315e70;outline-offset:-2px}
+#examOverlay .exam-nav-chip.correct{background:#dbf2e3}
+#examOverlay .exam-nav-chip.incorrect{background:#fce7e1}
+#examOverlay .exam-paragraph-nav{padding:3px 8px;border-bottom:1px solid #e4ddd1;flex:none}
+#examOverlay .exam-paragraph-nav button{min-width:44px}
+#examOverlay .exam-question-pane .exam-pane-scroll{padding:16px clamp(12px,2vw,25px) 22px}
+#examOverlay .exam-passage-pane .exam-pane-scroll{padding:16px clamp(14px,2vw,30px)}
+#examOverlay .exam-question-number{display:flex;align-items:center;justify-content:space-between;gap:6px}
+#examOverlay .exam-flag,#examOverlay .exam-cross{min-height:44px;min-width:44px;border:1px solid #d7d8d4;background:#fffefa;border-radius:8px;color:#647480;font-weight:700}
+#examOverlay .exam-flag[aria-pressed=true]{background:#ffedcf;color:#875311;border-color:#c9903e}
+#examOverlay .exam-option-row{display:flex;gap:5px;align-items:stretch;min-width:0}
+#examOverlay .exam-option-row .exam-option{flex:1;min-width:0}
+#examOverlay .exam-option.is-crossed{opacity:.55;text-decoration:line-through}
+#examOverlay .exam-cross[aria-pressed=true]{background:#eee4db;color:#865846}
+#examOverlay .exam-subprompt{font-size:14px;line-height:1.5;color:#526670;margin:0 0 10px}
+#examOverlay .exam-evidence{display:flex;flex-wrap:wrap;gap:5px;margin-top:5px}
+#examOverlay .exam-splitter{min-width:18px}
+#examOverlay .exam-ink-notice{font-size:12px;color:#88521a;padding:4px 9px;background:#fff3dc}
+#examOverlay .exam-ink-notice[hidden]{display:none}
+@media(max-width:699px){#examOverlay .exam-layout{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,46%) minmax(0,54%)}#examOverlay .exam-title{flex-basis:100%}#examOverlay .exam-workbench button{padding:4px 6px}#examOverlay .exam-passage-pane .exam-pane-scroll,#examOverlay .exam-question-pane .exam-pane-scroll{padding:9px 12px}}

@@ -13,8 +13,8 @@
 <link rel="stylesheet" href="reading-practice-premium.css?v=20261112-review2">
 <link rel="stylesheet" href="reading-lookup-enhanced.css?v=20261112-words2">
 <link rel="stylesheet" href="reading-chooser-responsive.css?v=20261112-layout1">
-<link rel="stylesheet" href="reading-exam-mode.css?v=20261112-full4">
-<link rel="stylesheet" href="reading-ink.css?v=20261112-toolbar4">
+<link rel="stylesheet" href="reading-exam-mode.css?v=20261114-workbench1">
+<link rel="stylesheet" href="reading-ink.css?v=20261114-workbench1">
 <link rel="stylesheet" href="reading-access.css?v=20261112-2">
 <link rel="stylesheet" href="reading-workflow.css?v=20261113-gradingcards1">
 <script defer src="reading-access.js?v=20261113-gradingcards1"></script>
@@ -191,12 +191,20 @@
  </section>
 </main>
 <section id="examOverlay" class="exam-overlay" role="dialog" aria-modal="true" aria-label="全画面試験モード" hidden>
- <div id="examLayout" class="exam-layout">
+ <header class="exam-workbench">
+ <div class="exam-title"><strong id="examLessonTitle">Reading Exam</strong><small id="examSessionStatus" aria-live="polite"></small></div>
+ <label class="exam-timer-label">制限 <select id="examTimeLimit"><option value="0">なし</option><option value="5">5分</option><option value="10">10分</option><option value="15">15分</option><option value="20">20分</option><option value="30">30分</option><option value="45">45分</option></select></label><output id="examClock" aria-label="経過時間">00:00</output>
+ <button type="button" id="examTextSmaller" aria-label="文字を小さく">A−</button><button type="button" id="examTextLarger" aria-label="文字を大きく">A＋</button>
+ <button type="button" id="examSubmitTop" class="exam-primary">提出</button><button type="button" id="examExit">保存して終了</button>
+ </header><div id="examLayout" class="exam-layout">
   <section class="exam-passage-pane" aria-label="試験の英文">
+   <div class="exam-ink-bar" role="group" aria-label="書き込みツール">
    <button type="button" id="inkExamToggle" class="ink-launch ink-exam-launch" aria-controls="inkExamPanel" aria-expanded="false" aria-label="試験中の書き込みON/OFF" title="ペンで書き込む">✎ <span>書き込み</span></button>
    <button type="button" id="inkExamSettings" class="ink-settings ink-exam-settings" aria-controls="inkExamPanel" aria-expanded="false" hidden>設定</button>
    <div id="inkExamPanel" class="ink-panel ink-exam-panel" hidden role="toolbar" aria-label="試験中の手書き">
-     <button type="button" data-ink-action="pen" aria-pressed="false">✎ 黒ペン</button>
+     <button type="button" data-ink-action="pen" aria-pressed="false">✎ 黒</button>
+     <button type="button" data-ink-action="blue" aria-pressed="false">青</button>
+     <button type="button" data-ink-action="highlight" aria-pressed="false">蛍光</button>
      <button type="button" data-ink-action="eraser" aria-pressed="false">消しゴム</button>
      <button type="button" data-ink-action="undo">↶ 戻す</button>
      <button type="button" data-ink-action="visibility" aria-pressed="true">非表示</button>
@@ -204,19 +212,21 @@
      <button type="button" data-ink-action="done">終了</button>
      <span class="ink-save-status" role="status" aria-live="polite"></span>
    </div>
+   </div><div id="examInkNotice" class="exam-ink-notice" role="status" hidden></div>
+   <div id="examParagraphNav" class="exam-paragraph-nav" aria-label="段落に移動"></div>
    <div id="examPassageScroll" class="exam-pane-scroll" tabindex="0" aria-label="英文をスクロール">
     <div id="examPassage" class="exam-passage"></div>
    </div>
   </section>
   <div id="examSplitter" class="exam-splitter" role="separator" tabindex="0" aria-orientation="vertical" aria-label="英文と問題の幅を変更" aria-valuemin="30" aria-valuemax="70" aria-valuenow="50" title="ドラッグまたは矢印キーで幅を調整"><span aria-hidden="true">⋮</span></div>
   <section class="exam-question-pane" aria-label="試験の設問">
-   <button type="button" id="examExit" class="exam-exit" aria-label="試験モードを終了して学習画面に戻る" title="試験モード終了">× <span>終了</span></button>
+   <div class="exam-nav-bar"><div class="exam-nav-summary"><strong id="examNavSummary">0 / 0 問</strong><button id="examNextOpen" type="button">次の未解答</button><button id="examNextFlag" type="button">次の見直し</button></div><div id="examQuestionNav" class="exam-question-nav" aria-label="問題番号一覧"></div></div>
    <div id="examQuestionScroll" class="exam-pane-scroll" tabindex="0" aria-label="問題をスクロール">
     <div id="examQuestions" class="exam-questions"></div>
     <div id="examSubmitArea" class="exam-submit-area">
       <span id="examAnswerCount" class="exam-count" aria-live="polite">0 / 0 問解答</span>
       <span id="examSaveStatus" class="exam-save-warning" role="status" aria-live="polite" hidden></span>
-      <button type="button" id="examSubmit" class="exam-submit" disabled>採点する</button>
+      <button type="button" id="examSubmit" class="exam-submit">提出・採点する</button>
     </div>
     <section id="examResult" class="exam-result" role="status" aria-live="polite" hidden></section>
    </div>

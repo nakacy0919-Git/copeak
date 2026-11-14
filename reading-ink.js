@@ -20,6 +20,7 @@
     s&&Array.isArray(s.points)&&s.points.length>0&&s.points.length<=MAX_POINTS
    ).map(s=>({
     seq:Number.isSafeInteger(s.seq)&&s.seq>0?s.seq:0,
+    brush:['blue','highlight'].includes(s.brush)?s.brush:'pen',
     points:s.points.filter(p=>Array.isArray(p)&&p.length===2&&p.every(n=>typeof n==='number'&&Number.isFinite(n))).slice(0,MAX_POINTS)
      .map(p=>[clamp(p[0],0,1),clamp(p[1],0,1)])
    })).filter(s=>s.points.length);
@@ -76,7 +77,7 @@
     settings.setAttribute('aria-expanded',String(panelOpen));
     settings.setAttribute('aria-pressed',String(panelOpen));
    }
-   for(const action of ['pen','eraser']){
+   for(const action of ['pen','blue','highlight','eraser']){
     const btn=tool(action);
     if(btn)btn.setAttribute('aria-pressed',String(mode===action));
    }
@@ -109,9 +110,10 @@
    ctx.strokeStyle='#191919';ctx.fillStyle='#191919';
    ctx.lineWidth=2.2;ctx.lineCap='round';ctx.lineJoin='round';
    for(const stroke of (doc.paragraphs[index]||[])){
+    const brush=stroke.brush||'pen';ctx.strokeStyle=ctx.fillStyle=brush==='blue'?'#236cb6':brush==='highlight'?'rgba(236,192,40,.36)':'#191919';ctx.lineWidth=brush==='highlight'?12:2.2;
     const points=stroke.points;
     if(points.length===1){
-     const [x,y]=points[0];ctx.beginPath();ctx.arc(x*w,y*h,1.2,0,Math.PI*2);ctx.fill();continue;
+     const [x,y]=points[0];ctx.beginPath();ctx.arc(x*w,y*h,ctx.lineWidth/2,0,Math.PI*2);ctx.fill();continue;
     }
     ctx.beginPath();
     points.forEach(([x,y],i)=>i?ctx.lineTo(x*w,y*h):ctx.moveTo(x*w,y*h));
@@ -158,8 +160,10 @@
   function down(overlay,event){
    if(!open||!visible||mode==='off')return;
    if(event.button!==undefined&&event.button!==0)return;
-   if(active)return;
    const pointerType=event.pointerType||'mouse';
+   if(active&&pointerType==='pen'&&active.kind==='scroll')active=null;
+   if(active)return;
+   if(name==='exam'&&overlay.canvas.classList.contains('ink-layout-mismatch'))return;
    if(pointerType==='touch'&&!finger){
     active={kind:'scroll',id:event.pointerId,y:event.clientY};
    }else if(mode==='eraser'){
@@ -171,10 +175,10 @@
      notice('この段落の書き込みが上限に達しました。消しゴムや戻すを使ってください。',true);
      return;
     }
-    const stroke={seq:++doc.seq,points:[]};
+    const stroke={seq:++doc.seq,brush:mode,points:[]};
     appendPoint(stroke,overlay.canvas,event);
     list.push(stroke);
-    if(!doc.layouts[overlay.index]){
+    if(!doc.layouts[overlay.index]||list.length===1){
      doc.layouts[overlay.index]=[overlay.canvas.clientWidth,overlay.canvas.clientHeight];
     }
     history.push({kind:'add',index:overlay.index,seq:stroke.seq});
@@ -217,7 +221,7 @@
   }
   function sync(lessonId,exercise){
    if(!validKey(lessonId)||!validKey(exercise))return;
-   const next=lessonId+':'+exercise;
+   const next=(name==='exam'?'exam:':'')+lessonId+':'+exercise;
    const changed=next!==key;
    detach();
    if(changed){key=next;doc=read(key);history=[];open=false;panelOpen=false;mode='off';visible=true;finger=false;}
@@ -234,11 +238,17 @@
     canvas.addEventListener('pointerdown',e=>down(overlay,e));
     canvas.addEventListener('pointermove',e=>move(overlay,e));
     canvas.addEventListener('pointerup',end);
-    canvas.addEventListener('pointercancel',end);
+    canvas.addEventListener('pointercancel',end);canvas.addEventListener('lostpointercapture',end);
     canvas.addEventListener('contextmenu',e=>{if(open&&mode!=='off')e.preventDefault();});
    }
+   function checkLayout(){
+    if(name!=='exam'){redraw();return;}
+    let mismatch=false;
+    for(const o of overlays){const size=doc.layouts[o.index],hasInk=(doc.paragraphs[o.index]||[]).length>0,w=o.canvas.clientWidth,h=o.canvas.clientHeight;const bad=!!(hasInk&&size&&w&&h&&(Math.abs(w-size[0])>3||Math.abs(h-size[1])>3));o.canvas.classList.toggle('ink-layout-mismatch',bad);mismatch=mismatch||bad;}
+    const warning=$('examInkNotice');if(warning){warning.hidden=!mismatch;warning.textContent=mismatch?'表示幅や文字サイズが変わりました。該当段落のペン跡を一時非表示にし、元の表示に戻すと復元します。':'';}redraw();
+   }
    if(typeof ResizeObserver!=='undefined'){
-    observer=new ResizeObserver(()=>redraw());
+    observer=new ResizeObserver(checkLayout);
     for(const p of paras)observer.observe(p);
    }
    setControls();
@@ -250,7 +260,7 @@
      break;
     }
    }
-   redraw();
+   checkLayout();
   }
   function undo(){
    if(!key)return;
@@ -277,7 +287,7 @@
   }
   toggle.addEventListener('click',()=>{
    if(open){finish();return;}
-   open=true;mode='pen';visible=true;panelOpen=false;setControls();
+   open=true;mode='pen';visible=true;panelOpen=name==='exam';setControls();
    notice('書き込み中：この端末へ自動保存されます。',false);
   });
   settings?.addEventListener('click',()=>{
@@ -292,15 +302,15 @@
    // state here: doing so made "指でも描く" impossible to enable on iPad Safari.
    if(btn.dataset.inkAction==='finger')return;
    switch(btn.dataset.inkAction){
-    case 'pen':mode='pen';visible=true;break;
+    case 'pen':case 'blue':case 'highlight':mode=btn.dataset.inkAction;visible=true;break;
     case 'eraser':mode='eraser';visible=true;break;
     case 'undo':undo();break;
     case 'visibility':visible=!visible;if(!visible)mode='off';else mode='pen';break;
     case 'done':finish();return;
    }
-   panelOpen=false;setControls();
+   panelOpen=name==='exam';setControls();
   });
-  tool('finger')?.addEventListener('change',event=>{finger=!!event.target.checked;panelOpen=false;setControls();});
+  tool('finger')?.addEventListener('change',event=>{finger=!!event.target.checked;panelOpen=name==='exam';setControls();});
   return {sync,finish,undo,notice,getKey:()=>key,debug:()=>({key,mode,open,strokes:Object.values(doc.paragraphs).reduce((n,arr)=>n+arr.length,0)})};
  }
  function init(){
