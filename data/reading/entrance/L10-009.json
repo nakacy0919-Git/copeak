@@ -537,9 +537,9 @@
       "sentence_index": 2,
       "answer": "However",
       "options": [
+        "Furthermore",
         "However",
         "For example",
-        "Nevertheless",
         "As a result"
       ],
       "explanation_ja": "ノートの美しさと記憶の難しさを対比します。"
@@ -551,8 +551,8 @@
       "options": [
         "For example",
         "However",
-        "Nevertheless",
-        "As a result"
+        "As a result",
+        "Meanwhile"
       ],
       "explanation_ja": "普段の学習習慣を例示します。"
     },
@@ -561,10 +561,10 @@
       "sentence_index": 1,
       "answer": "Nevertheless",
       "options": [
-        "Nevertheless",
-        "However",
         "For example",
-        "As a result"
+        "As a result",
+        "In addition",
+        "Nevertheless"
       ],
       "explanation_ja": "一週間後も忘れる語があることを示します。"
     },
@@ -573,10 +573,10 @@
       "sentence_index": 2,
       "answer": "As a result",
       "options": [
-        "As a result",
         "However",
-        "For example",
-        "Nevertheless"
+        "Meanwhile",
+        "As a result",
+        "For example"
       ],
       "explanation_ja": "理解を確認する習慣が広がります。"
     }
