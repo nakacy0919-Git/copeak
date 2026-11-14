@@ -1,0 +1,608 @@
+{
+  "id": "L04-010",
+  "category_id": "L04",
+  "title": "The Notebook Nobody Had Stolen",
+  "title_ja": "誰も盗んでいなかったノート",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 187,
+  "source_links": [
+    {
+      "title": "General public background reference",
+      "url": "https://www.unicef.org/child-rights-convention/convention-text"
+    }
+  ],
+  "fact_notes": [
+    "登場人物・学校の活動は架空。英文、和訳、設問、解説は独自制作。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Ken cannot find his notebook after English class.",
+          "ja": "ケンは英語の授業後にノートが見つかりません。"
+        },
+        {
+          "en": "He remembers putting it near his friend Aki's desk.",
+          "ja": "友達のアキの机の近くに置いたことを覚えています。"
+        },
+        {
+          "en": "However, he begins thinking that Aki may have taken it.",
+          "ja": "しかしアキが持っていったのではないかと考え始めます。"
+        },
+        {
+          "en": "Ken feels angry but has no proof of what happened.",
+          "ja": "ケンは腹を立てますが何が起きたか証拠はありません。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Their teacher notices that Ken looks upset.",
+          "ja": "教師はケンが動揺しているのに気づきます。"
+        },
+        {
+          "en": "For example, he stops working with Aki during a group task.",
+          "ja": "例えばグループ活動でアキと一緒に取り組むのをやめます。"
+        },
+        {
+          "en": "The teacher asks Ken to describe what he actually saw.",
+          "ja": "教師は実際に見たことを説明するよう求めます。"
+        },
+        {
+          "en": "Ken realizes that he never saw Aki take the notebook.",
+          "ja": "ケンはアキがノートを取るところを見ていないと気づきます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The class checks the desks and shelves after school.",
+          "ja": "クラスは放課後に机と棚を確認します。"
+        },
+        {
+          "en": "They find a notebook inside a box of reading materials.",
+          "ja": "読書教材の箱の中にノートを見つけます。"
+        },
+        {
+          "en": "Instead of blaming Aki, Ken asks how it got there.",
+          "ja": "アキを責める代わりにどうしてそこにあるのか尋ねます。"
+        },
+        {
+          "en": "Another student remembers moving the materials before lunch.",
+          "ja": "別の生徒は昼食前に教材を移したことを思い出します。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Ken talks to Aki about his earlier suspicion.",
+          "ja": "ケンは先ほどの疑いについてアキと話します。"
+        },
+        {
+          "en": "Nevertheless, Aki is hurt that Ken avoided him without asking.",
+          "ja": "それでもアキは尋ねずに避けられたことに傷ついています。"
+        },
+        {
+          "en": "Ken apologizes and explains that he made an assumption.",
+          "ja": "ケンは謝罪し思い込みをしたと説明します。"
+        },
+        {
+          "en": "They agree to ask questions before accusing each other.",
+          "ja": "二人は互いを責める前に質問すると約束します。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The next week, the class discusses careful communication.",
+          "ja": "翌週、クラスは慎重な意思疎通について話し合います。"
+        },
+        {
+          "en": "Students describe times when they misunderstood a friend.",
+          "ja": "生徒たちは友達を誤解したときのことを話します。"
+        },
+        {
+          "en": "As a result, Ken becomes more careful about separating facts from guesses.",
+          "ja": "その結果ケンは事実と推測を区別することにより慎重になります。"
+        },
+        {
+          "en": "A missing object does not always mean someone has taken it.",
+          "ja": "物がなくなったことは必ずしも誰かが取ったことを意味しません。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What is Ken looking for?",
+      "options": [
+        "His sports uniform.",
+        "A school key.",
+        "A bicycle.",
+        "His notebook."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「ケンは英語の授業後にノートが見つかりません。」が正答の根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What does Ken lack?",
+      "options": [
+        "A teacher to ask.",
+        "A lesson to attend.",
+        "Proof that Aki took the notebook.",
+        "A desk in the classroom."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「ケンは腹を立てますが何が起きたか証拠はありません。」が正答の根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "How does Ken behave toward Aki?",
+      "options": [
+        "He invites him to lunch.",
+        "He stops working with him.",
+        "He immediately asks for help.",
+        "He gives him a new book."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「例えばグループ活動でアキと一緒に取り組むのをやめます。」が正答の根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What did Ken never see?",
+      "options": [
+        "Aki taking the notebook.",
+        "The teacher entering the room.",
+        "The box of reading materials.",
+        "His own desk."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「ケンはアキがノートを取るところを見ていないと気づきます。」が正答の根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "Where is the notebook found?",
+      "options": [
+        "Under a tree.",
+        "At the bus stop.",
+        "Inside Aki's bag.",
+        "In a box of reading materials."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「読書教材の箱の中にノートを見つけます。」が正答の根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "Who remembers moving the materials?",
+      "options": [
+        "The school nurse.",
+        "A visitor.",
+        "Another student.",
+        "Aki's family."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「別の生徒は昼食前に教材を移したことを思い出します。」が正答の根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "Why is Aki hurt?",
+      "options": [
+        "The notebook was old.",
+        "Ken avoided him without asking.",
+        "Ken shared his lunch.",
+        "The class has no English lesson."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「それでもアキは尋ねずに避けられたことに傷ついています。」が正答の根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What does Ken do?",
+      "options": [
+        "Apologize for his assumption.",
+        "Accuse Aki again.",
+        "Hide the notebook.",
+        "Stop speaking forever."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「二人は互いを責める前に質問すると約束します。」が正答の根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What does Ken learn to separate?",
+      "options": [
+        "Books and papers.",
+        "School subjects and homework.",
+        "Sports and music.",
+        "Facts and guesses."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「その結果ケンは事実と推測を区別することにより慎重になります。」が正答の根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the main idea?",
+      "options": [
+        "Avoiding friends solves misunderstandings.",
+        "A good friendship never requires apologies.",
+        "Ask for evidence before blaming someone.",
+        "A missing item proves someone stole it."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「物がなくなったことは必ずしも誰かが取ったことを意味しません。」が正答の根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "accusing",
+      "ja": "非難すること",
+      "synonym": "blaming",
+      "definition": "claiming someone did wrong"
+    },
+    {
+      "term": "actually",
+      "ja": "実際に",
+      "synonym": "really",
+      "definition": "in fact rather than only in theory"
+    },
+    {
+      "term": "communication",
+      "ja": "意思疎通",
+      "synonym": "exchange",
+      "definition": "sharing information"
+    },
+    {
+      "term": "describe",
+      "ja": "説明する",
+      "synonym": "explain",
+      "definition": "to give an account of something"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "materials",
+      "ja": "教材",
+      "synonym": "supplies",
+      "definition": "things used for an activity"
+    },
+    {
+      "term": "missing",
+      "ja": "欠けている",
+      "synonym": "absent",
+      "definition": "not present where expected"
+    },
+    {
+      "term": "moving",
+      "ja": "引っ越すこと",
+      "synonym": "relocating",
+      "definition": "changing one's place of residence"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "student",
+      "ja": "生徒",
+      "synonym": "learner",
+      "definition": "someone at school"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "someone teaching"
+    },
+    {
+      "term": "notebook",
+      "ja": "ノート",
+      "synonym": "exercise book",
+      "definition": "a book for writing"
+    },
+    {
+      "term": "friend",
+      "ja": "友達",
+      "synonym": "companion",
+      "definition": "someone one likes"
+    },
+    {
+      "term": "desk",
+      "ja": "机",
+      "synonym": "table",
+      "definition": "furniture used for work"
+    },
+    {
+      "term": "desks",
+      "ja": "机",
+      "synonym": "tables",
+      "definition": "furniture used for work"
+    },
+    {
+      "term": "proof",
+      "ja": "証拠",
+      "synonym": "evidence",
+      "definition": "information establishing a claim"
+    },
+    {
+      "term": "guesses",
+      "ja": "推測",
+      "synonym": "assumptions",
+      "definition": "ideas without proof"
+    },
+    {
+      "term": "assumption",
+      "ja": "思い込み",
+      "synonym": "belief",
+      "definition": "something accepted without proof"
+    },
+    {
+      "term": "suspicion",
+      "ja": "疑い",
+      "synonym": "doubt",
+      "definition": "a belief that something may be wrong"
+    },
+    {
+      "term": "angry",
+      "ja": "怒った",
+      "synonym": "upset",
+      "definition": "feeling strong displeasure"
+    },
+    {
+      "term": "hurt",
+      "ja": "傷ついた",
+      "synonym": "upset",
+      "definition": "feeling emotional pain"
+    },
+    {
+      "term": "avoided",
+      "ja": "避けた",
+      "synonym": "kept away",
+      "definition": "stayed away from someone"
+    },
+    {
+      "term": "blaming",
+      "ja": "責めること",
+      "synonym": "accusing",
+      "definition": "saying someone is responsible"
+    },
+    {
+      "term": "apologizes",
+      "ja": "謝る",
+      "synonym": "says sorry",
+      "definition": "expresses regret for wrongdoing"
+    },
+    {
+      "term": "reading",
+      "ja": "読書",
+      "synonym": "study",
+      "definition": "looking at written text"
+    },
+    {
+      "term": "box",
+      "ja": "箱",
+      "synonym": "container",
+      "definition": "an object that holds things"
+    },
+    {
+      "term": "shelves",
+      "ja": "棚",
+      "synonym": "racks",
+      "definition": "places to store items"
+    },
+    {
+      "term": "misunderstood",
+      "ja": "誤解した",
+      "synonym": "misread",
+      "definition": "understood incorrectly"
+    },
+    {
+      "term": "facts",
+      "ja": "事実",
+      "synonym": "truths",
+      "definition": "things that are true"
+    },
+    {
+      "term": "careful",
+      "ja": "慎重な",
+      "synonym": "cautious",
+      "definition": "acting with attention"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "that Aki may have taken it",
+      "explanation_ja": "that節がケンの考えを表します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "what he actually saw",
+      "explanation_ja": "what節が実際に見た内容を表します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of blaming Aki",
+      "explanation_ja": "instead of + 動名詞で代わりの行動を示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "does not always mean someone has taken it",
+      "explanation_ja": "not alwaysは必ずしも～ではないという部分否定です。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "場所の記憶と疑いの違いを示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "ケンの態度の具体例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "謝罪前に友達が傷ついたことを示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "事実を重視するようになる結果です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Ken feels angry but has no proof of what happened.",
+      "rewrite": "Ken is angry even though he has no evidence.",
+      "explanation_ja": "証拠がないのに怒っています。"
+    },
+    {
+      "source": "Ken realizes that he never saw Aki take the notebook.",
+      "rewrite": "Ken admits that he did not witness Aki taking anything.",
+      "explanation_ja": "アキが取るのを見ていません。"
+    },
+    {
+      "source": "They agree to ask questions before accusing each other.",
+      "rewrite": "The friends decide to ask before making accusations.",
+      "explanation_ja": "非難の前に尋ねます。"
+    },
+    {
+      "source": "A missing object does not always mean someone has taken it.",
+      "rewrite": "A lost object does not prove theft.",
+      "explanation_ja": "紛失だけで盗難は証明できません。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "As a result",
+        "In addition",
+        "However",
+        "For example"
+      ],
+      "explanation_ja": "場所の記憶と疑いの違いを示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "In contrast",
+        "For example",
+        "However",
+        "As a result"
+      ],
+      "explanation_ja": "ケンの態度の具体例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "For example",
+        "As a result",
+        "Moreover"
+      ],
+      "explanation_ja": "謝罪前に友達が傷ついたことを示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "For example",
+        "However",
+        "Meanwhile",
+        "As a result"
+      ],
+      "explanation_ja": "事実を重視するようになる結果です。"
+    }
+  ]
+}
