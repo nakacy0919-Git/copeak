@@ -1046,23 +1046,41 @@ async function init(){
   const response=await fetch('data/reading/entrance/manifest.json',{cache:'no-store'});if(!response.ok)throw Error('一覧 HTTP '+response.status);
   const manifest=await response.json();if(!Array.isArray(manifest.sets))throw Error('一覧形式が不正です');
   state.manifest=manifest;
-  // Keep the network request count bounded as the library grows toward 450 lessons.
-  // Loading 450 JSON files simultaneously can overwhelm Safari and school Wi-Fi.
-  const results=[];
-  const batchSize=8;
-  for(let offset=0;offset<manifest.sets.length;offset+=batchSize){
-   const batch=manifest.sets.slice(offset,offset+batchSize);
-   const settled=await Promise.allSettled(batch.map(async item=>{
-    const r=await fetch(item.file,{cache:'no-store'});if(!r.ok)throw Error(item.id+' HTTP '+r.status);
-    const obj=await r.json();const actual=words(obj),expected=manifest.levels.find(l=>l.id===obj.level_id)?.words,compatible=(obj.level_ids||[obj.level_id]).every(id=>{const band=manifest.levels.find(l=>l.id===id)?.words;return band&&actual>=band[0]&&actual<=band[1];});
-    if(!expected||!compatible||actual!==obj.word_count||actual<expected[0]||actual>expected[1]||!obj.original||!obj.source_links?.length||!obj.questions?.length)throw Error(item.id+' の内容・語数を確認してください');
-    if(obj.status!=='reviewed'&&obj.status!=='published')return null;return obj;
-   }));
-   results.push(...settled);
-   status('教材を読み込み中… '+Math.min(offset+batchSize,manifest.sets.length)+' / '+manifest.sets.length);
+  // Checked category snapshots reduce request count. Older manifests still work.
+  const check=(obj,item)=>{
+   const actual=words(obj),expected=manifest.levels.find(l=>l.id===obj.level_id)?.words;
+   const compatible=(obj.level_ids||[obj.level_id]).every(id=>{const band=manifest.levels.find(l=>l.id===id)?.words;return band&&actual>=band[0]&&actual<=band[1];});
+   if(obj.id!==item.id||!expected||!compatible||actual!==obj.word_count||actual<expected[0]||actual>expected[1]||!obj.original||!obj.source_links?.length||!obj.questions?.length)throw Error(item.id+' の内容・語数を確認してください');
+   return obj.status==='reviewed'||obj.status==='published'?obj:null;
+  };
+  let loaded=null;
+  if(Array.isArray(manifest.release_bundles)&&manifest.release_bundles.length){
+   try{
+    const indexed=new Map(manifest.sets.map(s=>[s.id,s])),seen=new Set();
+    const groups=await Promise.all(manifest.release_bundles.map(async file=>{
+     const r=await fetch(file,{cache:'no-store'});if(!r.ok)throw Error('bundle HTTP '+r.status);
+     const data=await r.json();if(!Array.isArray(data))throw Error('invalid bundle');
+     return data.map(obj=>{const item=indexed.get(obj.id);if(!item||seen.has(obj.id))throw Error('unexpected bundle ID '+obj.id);seen.add(obj.id);const checked=check(obj,item);if(!checked)throw Error('unpublished bundle item');return checked;});
+    }));
+    if(seen.size!==indexed.size)throw Error('bundle count mismatch');
+    const byId=new Map(groups.flat().map(obj=>[obj.id,obj]));loaded=manifest.sets.map(item=>byId.get(item.id));
+   }catch(e){console.warn('Reading bundle fallback:',e.message);}
   }
-  state.sets=results.filter(r=>r.status==='fulfilled'&&r.value).map(r=>r.value);
-  const errors=results.filter(r=>r.status==='rejected');status(errors.length?errors.length+'件の教材を検証できませんでした。編集データを確認してください。':'現在の収録教材 '+state.sets.length+'セット / 目標450セット');
+  if(loaded){
+   state.sets=loaded;status('現在の収録教材 '+loaded.length+'セット');
+  }else{
+   const results=[],batchSize=8;
+   for(let offset=0;offset<manifest.sets.length;offset+=batchSize){
+    const batch=manifest.sets.slice(offset,offset+batchSize);
+    results.push(...await Promise.allSettled(batch.map(async item=>{
+     const r=await fetch(item.file,{cache:'no-store'});if(!r.ok)throw Error(item.id+' HTTP '+r.status);
+     return check(await r.json(),item);
+    })));
+    status('教材を読み込み中… '+Math.min(offset+batchSize,manifest.sets.length)+' / '+manifest.sets.length);
+   }
+   state.sets=results.filter(r=>r.status==='fulfilled'&&r.value).map(r=>r.value);
+   const errors=results.filter(r=>r.status==='rejected');status(errors.length?errors.length+'件の教材を検証できませんでした。編集データを確認してください。':'現在の収録教材 '+state.sets.length+'セット');
+  }
   renderCatalog();openBrowse('category');
  }catch(e){
   status('教材一覧を読み込めませんでした：'+e.message);

@@ -2,5 +2,6 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "git": {
     "deploymentEnabled": false
-  }
+  },
+  "buildCommand": "node --check reading-entrance.js && node scripts/prepare-reading-release.js"
 }
