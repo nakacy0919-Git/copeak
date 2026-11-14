@@ -5,9 +5,9 @@
   "as_of": "2026-11-14",
   "authoritative_branch": "coord/reading-450-registry",
   "manifest_path": "data/reading/entrance/manifest.json",
-  "registered_total": 210,
+  "registered_total": 220,
   "production_reference_count": 28,
-  "development_unpublished_total": 182,
+  "development_unpublished_total": 192,
   "accepted_ids": [
     "L01-001",
     "L01-002",
@@ -23,6 +23,7 @@
     "L01-012",
     "L01-013",
     "L01-014",
+    "L01-015",
     "L02-001",
     "L02-002",
     "L02-003",
@@ -37,6 +38,7 @@
     "L02-012",
     "L02-013",
     "L02-014",
+    "L02-015",
     "L03-001",
     "L03-002",
     "L03-003",
@@ -51,6 +53,7 @@
     "L03-012",
     "L03-013",
     "L03-014",
+    "L03-015",
     "L04-001",
     "L04-002",
     "L04-003",
@@ -65,6 +68,7 @@
     "L04-012",
     "L04-013",
     "L04-014",
+    "L04-015",
     "L05-001",
     "L05-002",
     "L05-003",
@@ -79,6 +83,7 @@
     "L05-012",
     "L05-013",
     "L05-014",
+    "L05-015",
     "L06-001",
     "L06-002",
     "L06-003",
@@ -93,6 +98,7 @@
     "L06-012",
     "L06-013",
     "L06-014",
+    "L06-016",
     "L07-001",
     "L07-002",
     "L07-003",
@@ -107,6 +113,7 @@
     "L07-012",
     "L07-013",
     "L07-014",
+    "L07-016",
     "L08-001",
     "L08-002",
     "L08-003",
@@ -121,6 +128,7 @@
     "L08-012",
     "L08-013",
     "L08-014",
+    "L08-016",
     "L09-001",
     "L09-002",
     "L09-003",
@@ -135,6 +143,7 @@
     "L09-012",
     "L09-013",
     "L09-014",
+    "L09-016",
     "L10-001",
     "L10-002",
     "L10-003",
@@ -149,6 +158,7 @@
     "L10-012",
     "L10-013",
     "L10-014",
+    "L10-016",
     "L11-001",
     "L11-002",
     "L11-003",
@@ -224,61 +234,61 @@
     {
       "id": "L01",
       "label": "自然",
-      "registered": 14,
+      "registered": 15,
       "next_suggested_id": "L01-017"
     },
     {
       "id": "L02",
       "label": "歴史",
-      "registered": 14,
+      "registered": 15,
       "next_suggested_id": "L02-017"
     },
     {
       "id": "L03",
       "label": "科学技術",
-      "registered": 14,
+      "registered": 15,
       "next_suggested_id": "L03-017"
     },
     {
       "id": "L04",
       "label": "人間関係",
-      "registered": 14,
+      "registered": 15,
       "next_suggested_id": "L04-017"
     },
     {
       "id": "L05",
       "label": "国際社会",
-      "registered": 14,
+      "registered": 15,
       "next_suggested_id": "L05-017"
     },
     {
       "id": "L06",
       "label": "心理・哲学",
-      "registered": 14,
+      "registered": 15,
       "next_suggested_id": "L06-017"
     },
     {
       "id": "L07",
       "label": "経済・ビジネス",
-      "registered": 14,
+      "registered": 15,
       "next_suggested_id": "L07-017"
     },
     {
       "id": "L08",
       "label": "芸術・文化",
-      "registered": 14,
+      "registered": 15,
       "next_suggested_id": "L08-017"
     },
     {
       "id": "L09",
       "label": "文学・言語",
-      "registered": 14,
+      "registered": 15,
       "next_suggested_id": "L09-017"
     },
     {
       "id": "L10",
       "label": "教育・学習",
-      "registered": 14,
+      "registered": 15,
       "next_suggested_id": "L10-017"
     },
     {
@@ -380,76 +390,6 @@
       "id": "L15-015",
       "owner": "volume-h2",
       "work_branch": "content/reading-20261114-volume-h2",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L01-015",
-      "owner": "volume-h3",
-      "work_branch": "content/reading-20261114-volume-h3",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L02-015",
-      "owner": "volume-h3",
-      "work_branch": "content/reading-20261114-volume-h3",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L03-015",
-      "owner": "volume-h3",
-      "work_branch": "content/reading-20261114-volume-h3",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L04-015",
-      "owner": "volume-h3",
-      "work_branch": "content/reading-20261114-volume-h3",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L05-015",
-      "owner": "volume-h3",
-      "work_branch": "content/reading-20261114-volume-h3",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L06-016",
-      "owner": "volume-h3",
-      "work_branch": "content/reading-20261114-volume-h3",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L07-016",
-      "owner": "volume-h3",
-      "work_branch": "content/reading-20261114-volume-h3",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L08-016",
-      "owner": "volume-h3",
-      "work_branch": "content/reading-20261114-volume-h3",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L09-016",
-      "owner": "volume-h3",
-      "work_branch": "content/reading-20261114-volume-h3",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L10-016",
-      "owner": "volume-h3",
-      "work_branch": "content/reading-20261114-volume-h3",
       "reserved_at": "2026-11-14",
       "status": "reserved"
     },

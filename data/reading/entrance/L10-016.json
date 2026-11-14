@@ -1,0 +1,770 @@
+{
+  "id": "L10-016",
+  "category_id": "L10",
+  "title": "The Explanation That Needed a Counterexample",
+  "title_ja": "反例が必要だった説明",
+  "level_id": "eiken-2",
+  "status": "draft",
+  "original": true,
+  "word_count": 408,
+  "source_links": [
+    {
+      "title": "Original lesson authoring registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "登場人物、具体的な出来事・観察・記録は架空の教材例。実在の調査結果ではない。参考リンクは制作台帳であり外部の実証資料ではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A high school science teacher asked groups of students to prepare a brief explanation of an everyday scientific idea for younger pupils.",
+          "ja": "高校の理科教師は生徒のグループに、年下の児童生徒向けに身近な科学的な考えを短く説明する準備を求めた。"
+        },
+        {
+          "en": "Each group was responsible for choosing an appropriate example and developing a simple diagram to accompany its presentation.",
+          "ja": "各グループは適切な例を選び、発表に添える簡単な図を作ることを担当した。"
+        },
+        {
+          "en": "The teacher made it clear that the purpose was not to collect the largest number of technical expressions or to impress the audience with complicated language.",
+          "ja": "教師は目的が専門用語を最も多く集めたり複雑な言葉で聴衆に感銘を与えたりすることではないと明言した。"
+        },
+        {
+          "en": "Instead, she wanted the students to communicate a useful idea accurately enough for listeners to apply it in a new situation.",
+          "ja": "むしろ聞き手が新しい状況で使えるほど正確に、有用な考えを伝えてほしかった。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "One group decided to explain how a simple balance could be used to compare the masses of different objects.",
+          "ja": "あるグループは簡単な天びんを使って異なる物体の質量を比較する方法を説明することにした。"
+        },
+        {
+          "en": "Their first presentation showed two objects made of the same material, one of which was noticeably larger than the other.",
+          "ja": "最初の発表では同じ素材でできた二つの物体を示し、その一方はもう一方より明らかに大きかった。"
+        },
+        {
+          "en": "When the larger object caused its side of the balance to sink, the students described the result using an overly general statement about size and mass.",
+          "ja": "大きな物体の側が下がると、生徒は大きさと質量について過度に一般化した表現で結果を説明した。"
+        },
+        {
+          "en": "They did not initially recognize that their wording could encourage younger listeners to draw a conclusion that went beyond the particular example.",
+          "ja": "当初、その言い方が年下の聞き手に特定の例を超えた結論を導かせ得ると認識していなかった。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "During the rehearsal, another group asked what would happen if a large empty plastic container were compared with a small solid metal object.",
+          "ja": "リハーサル中、別のグループは大きな空のプラスチック容器と小さな金属の固まりを比べたらどうなるか尋ねた。"
+        },
+        {
+          "en": "The presenters selected two suitable objects and discovered that the smaller one had a greater mass in this particular comparison.",
+          "ja": "発表者は適切な二つの物体を選び、この特定の比較では小さい方の質量が大きいと分かった。"
+        },
+        {
+          "en": "They realized that their original demonstration had illustrated only one possible relationship between the size and mass of objects.",
+          "ja": "元の実演は物体の大きさと質量の関係の一つの可能性だけを示していたと気づいた。"
+        },
+        {
+          "en": "The new comparison helped them identify a limitation that they had overlooked when preparing their original explanation.",
+          "ja": "新たな比較は最初の説明を作る際に見落としていた限界を明らかにする助けとなった。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The students revised their presentation to include both examples and a more precise description of what the balance was comparing.",
+          "ja": "両方の例と天びんが比較しているものについて、より正確な説明を含めるよう発表を修正した。"
+        },
+        {
+          "en": "They asked their practice audience to predict the result of a third comparison before placing the objects on the balance.",
+          "ja": "練習時の聴衆に、物体を天びんに載せる前に三つ目の比較結果を予想するよう求めた。"
+        },
+        {
+          "en": "Rather than simply revealing the answer, they invited the listeners to explain which information was available and which information remained unknown.",
+          "ja": "単に答えを明かすのではなく、どの情報が得られ、何がまだ不明かを説明するよう促した。"
+        },
+        {
+          "en": "This allowed the presenters to check whether the new explanation had made the original limitation easier to understand.",
+          "ja": "これによって新しい説明が元の限界を理解しやすくしたか確認できた。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "After the lesson, the teacher asked the class to reflect on the role of counterexamples in developing clear explanations.",
+          "ja": "授業後、教師は明確な説明の作成における反例の役割を振り返るようクラスに求めた。"
+        },
+        {
+          "en": "A carefully chosen counterexample can reveal that a statement is too broad without suggesting that the original observation was necessarily incorrect.",
+          "ja": "慎重に選んだ反例は元の観察が必ずしも誤りだと示すことなく、主張の範囲が広すぎると明らかにできる。"
+        },
+        {
+          "en": "The students understood that providing a convincing explanation involved identifying the conditions under which a claim should be accepted.",
+          "ja": "説得力のある説明には主張を受け入れるべき条件を明らかにすることが含まれると理解した。"
+        },
+        {
+          "en": "For them, teaching younger pupils had become an opportunity to examine the accuracy of their own thinking.",
+          "ja": "年下の児童生徒に教えることは、自分たちの思考の正確さを調べる機会になった。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "brief",
+      "ja": "短い",
+      "synonym": "concise",
+      "definition": "using few words or little time"
+    },
+    {
+      "term": "scientific",
+      "ja": "科学的な",
+      "synonym": "science-related",
+      "definition": "relating to science"
+    },
+    {
+      "term": "pupils",
+      "ja": "児童生徒",
+      "synonym": "students",
+      "definition": "children who attend school"
+    },
+    {
+      "term": "responsible",
+      "ja": "担当する",
+      "synonym": "in charge",
+      "definition": "having a duty to do something"
+    },
+    {
+      "term": "appropriate",
+      "ja": "適切な",
+      "synonym": "suitable",
+      "definition": "right for a particular purpose"
+    },
+    {
+      "term": "developing",
+      "ja": "作成すること",
+      "synonym": "creating",
+      "definition": "bringing something into a usable form"
+    },
+    {
+      "term": "diagram",
+      "ja": "図",
+      "synonym": "illustration",
+      "definition": "drawing showing relationships or structure"
+    },
+    {
+      "term": "accompany",
+      "ja": "添える",
+      "synonym": "go with",
+      "definition": "be provided together with something"
+    },
+    {
+      "term": "presentation",
+      "ja": "発表",
+      "synonym": "demonstration",
+      "definition": "act of explaining or showing something"
+    },
+    {
+      "term": "purpose",
+      "ja": "目的",
+      "synonym": "aim",
+      "definition": "reason for doing something"
+    },
+    {
+      "term": "technical",
+      "ja": "専門的な",
+      "synonym": "specialized",
+      "definition": "relating to a specialized subject"
+    },
+    {
+      "term": "expressions",
+      "ja": "表現",
+      "synonym": "phrases",
+      "definition": "words used to convey ideas"
+    },
+    {
+      "term": "impress",
+      "ja": "感銘を与える",
+      "synonym": "make an impression on",
+      "definition": "cause someone to admire something"
+    },
+    {
+      "term": "audience",
+      "ja": "聴衆",
+      "synonym": "listeners",
+      "definition": "people watching or listening"
+    },
+    {
+      "term": "complicated",
+      "ja": "複雑な",
+      "synonym": "complex",
+      "definition": "consisting of many connected parts"
+    },
+    {
+      "term": "communicate",
+      "ja": "伝える",
+      "synonym": "convey",
+      "definition": "pass information to others"
+    },
+    {
+      "term": "accurately",
+      "ja": "正確に",
+      "synonym": "correctly",
+      "definition": "without error"
+    },
+    {
+      "term": "apply",
+      "ja": "適用する",
+      "synonym": "use",
+      "definition": "put an idea into practice"
+    },
+    {
+      "term": "situation",
+      "ja": "状況",
+      "synonym": "circumstance",
+      "definition": "particular set of conditions"
+    },
+    {
+      "term": "balance",
+      "ja": "天びん",
+      "synonym": "weighing scale",
+      "definition": "instrument used to compare masses"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "contrast",
+      "definition": "examine differences or similarities"
+    },
+    {
+      "term": "masses",
+      "ja": "質量",
+      "synonym": "amounts of matter",
+      "definition": "quantities of matter in objects"
+    },
+    {
+      "term": "material",
+      "ja": "素材",
+      "synonym": "substance",
+      "definition": "what something is made of"
+    },
+    {
+      "term": "noticeably",
+      "ja": "明らかに",
+      "synonym": "clearly",
+      "definition": "in a way that is easy to notice"
+    },
+    {
+      "term": "sink",
+      "ja": "沈む・下がる",
+      "synonym": "descend",
+      "definition": "move downward"
+    },
+    {
+      "term": "overly",
+      "ja": "過度に",
+      "synonym": "excessively",
+      "definition": "to a greater degree than appropriate"
+    },
+    {
+      "term": "general",
+      "ja": "一般的な",
+      "synonym": "broad",
+      "definition": "applying to many cases"
+    },
+    {
+      "term": "statement",
+      "ja": "主張・記述",
+      "synonym": "assertion",
+      "definition": "expression of an idea or claim"
+    },
+    {
+      "term": "initially",
+      "ja": "当初",
+      "synonym": "at first",
+      "definition": "at the beginning"
+    },
+    {
+      "term": "recognize",
+      "ja": "認識する",
+      "synonym": "realize",
+      "definition": "become aware of something"
+    },
+    {
+      "term": "wording",
+      "ja": "言い方",
+      "synonym": "phrasing",
+      "definition": "the way a statement is expressed"
+    },
+    {
+      "term": "encourage",
+      "ja": "促す",
+      "synonym": "prompt",
+      "definition": "give someone a reason to act"
+    },
+    {
+      "term": "conclusion",
+      "ja": "結論",
+      "synonym": "inference",
+      "definition": "judgment drawn from information"
+    },
+    {
+      "term": "particular",
+      "ja": "特定の",
+      "synonym": "specific",
+      "definition": "relating to one case"
+    },
+    {
+      "term": "rehearsal",
+      "ja": "リハーサル",
+      "synonym": "practice",
+      "definition": "practice before a presentation"
+    },
+    {
+      "term": "container",
+      "ja": "容器",
+      "synonym": "vessel",
+      "definition": "object used to hold something"
+    },
+    {
+      "term": "solid",
+      "ja": "中身の詰まった",
+      "synonym": "non-hollow",
+      "definition": "not hollow in this context"
+    },
+    {
+      "term": "presenters",
+      "ja": "発表者",
+      "synonym": "speakers",
+      "definition": "people giving a presentation"
+    },
+    {
+      "term": "selected",
+      "ja": "選んだ",
+      "synonym": "chose",
+      "definition": "picked from alternatives"
+    },
+    {
+      "term": "discovered",
+      "ja": "分かった",
+      "synonym": "found out",
+      "definition": "learned something previously unknown"
+    },
+    {
+      "term": "demonstration",
+      "ja": "実演",
+      "synonym": "illustration",
+      "definition": "act of showing how something works"
+    },
+    {
+      "term": "illustrated",
+      "ja": "例示した",
+      "synonym": "demonstrated",
+      "definition": "made an idea clear using an example"
+    },
+    {
+      "term": "relationship",
+      "ja": "関係",
+      "synonym": "connection",
+      "definition": "way things are related"
+    },
+    {
+      "term": "limitation",
+      "ja": "限界",
+      "synonym": "restriction",
+      "definition": "something that limits a claim or method"
+    },
+    {
+      "term": "overlooked",
+      "ja": "見落とした",
+      "synonym": "missed",
+      "definition": "failed to notice"
+    },
+    {
+      "term": "revised",
+      "ja": "修正した",
+      "synonym": "modified",
+      "definition": "changed something to improve it"
+    },
+    {
+      "term": "precise",
+      "ja": "正確な",
+      "synonym": "exact",
+      "definition": "clear and accurate in detail"
+    },
+    {
+      "term": "predict",
+      "ja": "予想する",
+      "synonym": "forecast",
+      "definition": "say what is expected to happen"
+    },
+    {
+      "term": "revealing",
+      "ja": "明かすこと",
+      "synonym": "disclosing",
+      "definition": "making something known"
+    },
+    {
+      "term": "available",
+      "ja": "得られる",
+      "synonym": "accessible",
+      "definition": "able to be obtained or used"
+    },
+    {
+      "term": "reflect",
+      "ja": "振り返る",
+      "synonym": "consider",
+      "definition": "think carefully about an experience"
+    },
+    {
+      "term": "counterexamples",
+      "ja": "反例",
+      "synonym": "contrary examples",
+      "definition": "examples showing a general statement is false"
+    },
+    {
+      "term": "observation",
+      "ja": "観察結果",
+      "synonym": "finding",
+      "definition": "something noticed by looking"
+    },
+    {
+      "term": "necessarily",
+      "ja": "必ずしも",
+      "synonym": "inevitably",
+      "definition": "in a way that must be true"
+    },
+    {
+      "term": "incorrect",
+      "ja": "誤った",
+      "synonym": "wrong",
+      "definition": "not accurate"
+    },
+    {
+      "term": "convincing",
+      "ja": "説得力のある",
+      "synonym": "persuasive",
+      "definition": "likely to make someone believe something"
+    },
+    {
+      "term": "conditions",
+      "ja": "条件",
+      "synonym": "circumstances",
+      "definition": "facts affecting a situation"
+    },
+    {
+      "term": "claim",
+      "ja": "主張",
+      "synonym": "assertion",
+      "definition": "statement presented as true"
+    },
+    {
+      "term": "accepted",
+      "ja": "受け入れられた",
+      "synonym": "agreed to",
+      "definition": "regarded as valid or true"
+    },
+    {
+      "term": "accuracy",
+      "ja": "正確さ",
+      "synonym": "precision",
+      "definition": "quality of being correct"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What was the purpose of the presentations?",
+      "options": [
+        "To use as many technical expressions as possible.",
+        "To select the students with the highest grades.",
+        "To replace all diagrams with long written reports.",
+        "To communicate scientific ideas that younger pupils could apply."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "年下の聞き手が活用できる説明が目的。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "How were the two objects in the first example related?",
+      "options": [
+        "They were made of the same material but differed in size.",
+        "They were made of different materials and had identical sizes.",
+        "Neither could be placed on a balance.",
+        "They had been selected by younger pupils."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "同じ素材で大きさが違った。"
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "What was the main weakness in the first explanation?",
+      "options": [
+        "It used a diagram that had no objects.",
+        "It reported the balance result incorrectly.",
+        "It made a claim broader than the example supported.",
+        "It refused to include a single example."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "特定の例から広すぎる一般化をした。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What did the second comparison demonstrate?",
+      "options": [
+        "A plastic container must always have greater mass than metal.",
+        "A smaller object could have greater mass than a larger object.",
+        "The balance always moved toward the larger object.",
+        "The two objects necessarily had the same mass."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "この比較では小さな物体の質量が大きかった。"
+    },
+    {
+      "id": "q5",
+      "skill": "inference",
+      "prompt": "Why was the question from another group valuable?",
+      "options": [
+        "It exposed a limitation in the original demonstration.",
+        "It proved the first observation had never occurred.",
+        "It made further explanation unnecessary.",
+        "It showed both materials were identical."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "元の実演が示す範囲の限界を明らかにした。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What did the presenters do before the third comparison?",
+      "options": [
+        "Announced that every guess would be wrong.",
+        "Showed the final result in advance.",
+        "Removed the balance from the room.",
+        "Asked the audience to predict the result."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "先に比較結果の予想を求めた。"
+    },
+    {
+      "id": "q7",
+      "skill": "inference",
+      "prompt": "Why did they ask listeners to identify what was still unknown?",
+      "options": [
+        "To avoid answering all questions about their presentation.",
+        "To check whether the audience recognized the limits of available information.",
+        "To prove that the objects had equal mass.",
+        "To make the original explanation more complicated."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "説明の限界を理解できたか確認するため。"
+    },
+    {
+      "id": "q8",
+      "skill": "vocabulary",
+      "prompt": "What does counterexample mean in this passage?",
+      "options": [
+        "An illustration that repeats the original case exactly.",
+        "A diagram that contains no information.",
+        "An example that challenges a general statement.",
+        "A surprising result that must be ignored."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "一般的主張を否定する例。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Does a counterexample necessarily make the first observation false?",
+      "options": [
+        "No, it may show only that the claim drawn from it was too broad.",
+        "Yes, every earlier observation must be rejected.",
+        "No, because the new example has no relevance.",
+        "Yes, unless both objects have the same size."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "元の観察ではなく一般化が問題の場合がある。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "Which idea best summarizes the passage?",
+      "options": [
+        "The more technical vocabulary an explanation contains, the better it is.",
+        "A convincing presentation should avoid counterexamples.",
+        "Younger pupils cannot benefit from scientific examples.",
+        "Effective teaching involves testing and clarifying the limits of one's explanations."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "説明を検証し、その適用範囲を明確にすることが有効。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "accurately enough for listeners to apply it",
+      "explanation_ja": "enough for＋人＋to不定詞は〜するのに十分な程度を表す。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "one of which was noticeably larger",
+      "explanation_ja": "one of whichは先行詞の二つの物体の一方を示す関係代名詞の表現。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 0,
+      "focus": "what would happen if",
+      "explanation_ja": "what以下は間接疑問、if節は仮定の条件を示す。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "focus": "without suggesting that the original observation was necessarily incorrect",
+      "explanation_ja": "without＋動名詞は元の観察が誤りだと示すことなくという意味。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "Instead",
+      "role_ja": "複雑な用語を重視しない教育目的。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "The new comparison",
+      "role_ja": "新たな比較から得られた発見を導入する。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Rather than",
+      "role_ja": "答えを伝えるだけでなく考えさせる方法。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "without",
+      "role_ja": "反例と元の観察の正誤を区別。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Instead, she wanted the students to communicate a useful idea accurately enough for listeners to apply it in a new situation.",
+      "rewrite": "She hoped students would explain an idea with sufficient accuracy for others to use it in unfamiliar circumstances.",
+      "explanation_ja": "別の状況で使えるほど正確に伝えることを望んだ。"
+    },
+    {
+      "source": "Their first presentation showed two objects made of the same material, one of which was noticeably larger than the other.",
+      "rewrite": "They first presented two objects of the same material, with one clearly bigger than the other.",
+      "explanation_ja": "同じ素材で大きさが異なる物体を示した。"
+    },
+    {
+      "source": "During the rehearsal, another group asked what would happen if a large empty plastic container were compared with a small solid metal object.",
+      "rewrite": "Another group asked about the possible result of comparing a big empty container with a smaller solid metal item.",
+      "explanation_ja": "別の条件での結果について尋ねた。"
+    },
+    {
+      "source": "A carefully chosen counterexample can reveal that a statement is too broad without suggesting that the original observation was necessarily incorrect.",
+      "rewrite": "A counterexample can disprove an excessively broad assertion even when the first observation itself was accurate.",
+      "explanation_ja": "最初の観察が正確でも広すぎる主張は否定できる。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "general",
+      "options": [
+        "wooden",
+        "general",
+        "annual",
+        "frozen"
+      ],
+      "explanation_ja": "過度に一般化した表現。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "answer": "limitation",
+      "options": [
+        "celebration",
+        "receipt",
+        "limitation",
+        "schedule"
+      ],
+      "explanation_ja": "見落とした限界を明らかにした。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "predict",
+      "options": [
+        "erase",
+        "buy",
+        "hide",
+        "predict"
+      ],
+      "explanation_ja": "第三の結果を予想。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "conditions",
+      "options": [
+        "conditions",
+        "tickets",
+        "costumes",
+        "ingredients"
+      ],
+      "explanation_ja": "主張が適用できる条件。"
+    }
+  ]
+}

@@ -1,0 +1,572 @@
+{
+  "id": "L02-015",
+  "category_id": "L02",
+  "title": "The Label with an Empty Date",
+  "title_ja": "日付欄が空白の展示ラベル",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 190,
+  "source_links": [
+    {
+      "title": "Original lesson authoring registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "登場人物、具体的な出来事・観察・記録は架空の教材例。実在の調査結果ではない。参考リンクは制作台帳であり外部の実証資料ではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Mina helped prepare an exhibition in a small local museum.",
+          "ja": "ミナは小さな地域博物館で展示の準備を手伝った。"
+        },
+        {
+          "en": "One object was a wooden box used for carrying tea.",
+          "ja": "展示品の一つはお茶を運ぶ木箱だった。"
+        },
+        {
+          "en": "It had a beautiful pattern on its lid.",
+          "ja": "ふたには美しい模様があった。"
+        },
+        {
+          "en": "Nobody knew exactly when it had been made.",
+          "ja": "いつ作られたのか正確には誰も知らなかった。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Mina wanted every museum label to include a year.",
+          "ja": "ミナはすべての展示ラベルに年を入れたかった。"
+        },
+        {
+          "en": "She suggested using the date of a similar box.",
+          "ja": "似た箱の日付を使うことを提案した。"
+        },
+        {
+          "en": "However, the museum worker pointed out an important difference.",
+          "ja": "しかし博物館の職員は重要な違いを指摘した。"
+        },
+        {
+          "en": "The two boxes had different marks on their bottoms.",
+          "ja": "二つの箱の底には異なる印があった。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "They searched a collection of old photographs and letters.",
+          "ja": "古い写真や手紙の集まりを調べた。"
+        },
+        {
+          "en": "One photograph showed the box in a shop window.",
+          "ja": "ある写真には店の窓に置かれた箱が写っていた。"
+        },
+        {
+          "en": "A note on the photograph gave the date of the picture.",
+          "ja": "写真のメモには撮影日が記されていた。"
+        },
+        {
+          "en": "This established that the box already existed on that date.",
+          "ja": "これでその日には箱がすでに存在したことが分かった。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Still, the photograph did not reveal when someone had made it.",
+          "ja": "それでも写真は誰かがいつ作ったかを示さなかった。"
+        },
+        {
+          "en": "Mina decided to explain both facts on the museum label.",
+          "ja": "ミナは両方の事実を展示ラベルに説明することにした。"
+        },
+        {
+          "en": "She included the date of the photograph, not a guessed production date.",
+          "ja": "推測の製作日ではなく撮影日を書いた。"
+        },
+        {
+          "en": "Visitors could examine the photograph displayed beside the box.",
+          "ja": "来場者は箱の隣に展示された写真を調べられた。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "Several visitors asked Mina about the remaining mystery.",
+          "ja": "数人の来場者が残る謎についてミナに尋ねた。"
+        },
+        {
+          "en": "She enjoyed explaining how the museum had searched for evidence.",
+          "ja": "博物館が証拠をどう探したか説明することを楽しんだ。"
+        },
+        {
+          "en": "An unknown date did not make the object less interesting.",
+          "ja": "不明の日付が展示品の面白さを損なうわけではなかった。"
+        },
+        {
+          "en": "Instead, it became a question that everyone could explore.",
+          "ja": "むしろ誰もが探求できる問いになった。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "exhibition",
+      "ja": "展示",
+      "synonym": "display",
+      "definition": "public presentation of objects"
+    },
+    {
+      "term": "object",
+      "ja": "物品",
+      "synonym": "item",
+      "definition": "a thing that can be seen or touched"
+    },
+    {
+      "term": "wooden",
+      "ja": "木製の",
+      "synonym": "made of wood",
+      "definition": "consisting of wood"
+    },
+    {
+      "term": "carrying",
+      "ja": "運ぶこと",
+      "synonym": "transporting",
+      "definition": "moving something from place to place"
+    },
+    {
+      "term": "pattern",
+      "ja": "模様",
+      "synonym": "design",
+      "definition": "arrangement of shapes"
+    },
+    {
+      "term": "lid",
+      "ja": "ふた",
+      "synonym": "cover",
+      "definition": "piece covering a container"
+    },
+    {
+      "term": "exactly",
+      "ja": "正確に",
+      "synonym": "precisely",
+      "definition": "without error"
+    },
+    {
+      "term": "label",
+      "ja": "ラベル",
+      "synonym": "tag",
+      "definition": "short description attached to an item"
+    },
+    {
+      "term": "include",
+      "ja": "含める",
+      "synonym": "contain",
+      "definition": "have as a part"
+    },
+    {
+      "term": "suggested",
+      "ja": "提案した",
+      "synonym": "proposed",
+      "definition": "offered an idea"
+    },
+    {
+      "term": "similar",
+      "ja": "似た",
+      "synonym": "alike",
+      "definition": "having features in common"
+    },
+    {
+      "term": "pointed out",
+      "ja": "指摘した",
+      "synonym": "highlighted",
+      "definition": "directed attention to something"
+    },
+    {
+      "term": "difference",
+      "ja": "違い",
+      "synonym": "contrast",
+      "definition": "way in which things differ"
+    },
+    {
+      "term": "bottoms",
+      "ja": "底",
+      "synonym": "bases",
+      "definition": "lowest parts of objects"
+    },
+    {
+      "term": "collection",
+      "ja": "集まり",
+      "synonym": "set",
+      "definition": "group of related things"
+    },
+    {
+      "term": "established",
+      "ja": "明らかにした",
+      "synonym": "demonstrated",
+      "definition": "showed something to be true"
+    },
+    {
+      "term": "existed",
+      "ja": "存在した",
+      "synonym": "was present",
+      "definition": "was real or present"
+    },
+    {
+      "term": "reveal",
+      "ja": "明らかにする",
+      "synonym": "show",
+      "definition": "make known"
+    },
+    {
+      "term": "guessed",
+      "ja": "推測した",
+      "synonym": "estimated",
+      "definition": "formed an idea without enough certainty"
+    },
+    {
+      "term": "production",
+      "ja": "製作",
+      "synonym": "manufacture",
+      "definition": "process of making something"
+    },
+    {
+      "term": "examine",
+      "ja": "調べる",
+      "synonym": "inspect",
+      "definition": "look at carefully"
+    },
+    {
+      "term": "displayed",
+      "ja": "展示された",
+      "synonym": "shown",
+      "definition": "put where people can see"
+    },
+    {
+      "term": "remaining",
+      "ja": "残る",
+      "synonym": "unresolved",
+      "definition": "still left"
+    },
+    {
+      "term": "mystery",
+      "ja": "謎",
+      "synonym": "puzzle",
+      "definition": "something not fully understood"
+    },
+    {
+      "term": "evidence",
+      "ja": "証拠",
+      "synonym": "support",
+      "definition": "information supporting a conclusion"
+    },
+    {
+      "term": "unknown",
+      "ja": "不明の",
+      "synonym": "uncertain",
+      "definition": "not known"
+    },
+    {
+      "term": "explore",
+      "ja": "探求する",
+      "synonym": "investigate",
+      "definition": "try to learn about something"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What was the object used for?",
+      "options": [
+        "Carrying tea.",
+        "Storing shoes.",
+        "Holding coins.",
+        "Growing flowers."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "お茶を運ぶ木箱。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What did nobody know exactly?",
+      "options": [
+        "What the box was made of.",
+        "Where the pattern was.",
+        "When the box had been made.",
+        "Who was helping at the museum."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "製作時期が不明。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What date did Mina first suggest using?",
+      "options": [
+        "Her birthday.",
+        "The date of a similar box.",
+        "The exhibition's closing date.",
+        "The photograph's date."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "似た箱の日付を提案。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "How were the boxes different?",
+      "options": [
+        "Their lids were both missing.",
+        "One was made of paper.",
+        "Both had identical marks.",
+        "Their bottoms had different marks."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "底の印が違った。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "Where did the photograph show the box?",
+      "options": [
+        "In a garden.",
+        "In a shop window.",
+        "On a boat.",
+        "Inside a school."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "店の窓に写っていた。"
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "What did the date on the photograph prove?",
+      "options": [
+        "The box was made on that date.",
+        "Every similar box was older.",
+        "The box existed by that date.",
+        "The box had never been used."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "その日に存在していたこと。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What date did Mina include?",
+      "options": [
+        "The photograph's date.",
+        "A guessed date of manufacture.",
+        "The worker's birthday.",
+        "No date of any kind."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "撮影日を記載。"
+    },
+    {
+      "id": "q8",
+      "skill": "vocabulary",
+      "prompt": "What does examine mean?",
+      "options": [
+        "Sell quickly.",
+        "Throw away.",
+        "Hide completely.",
+        "Look at carefully."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "注意して見る。"
+    },
+    {
+      "id": "q9",
+      "skill": "detail",
+      "prompt": "What did visitors ask about?",
+      "options": [
+        "The price of the box.",
+        "A new school.",
+        "The remaining mystery.",
+        "Mina's lunch."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "残っている謎。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What can an unknown historical detail do?",
+      "options": [
+        "Prove the object has no value.",
+        "Encourage investigation instead of making an object uninteresting.",
+        "Make guessing the best method.",
+        "Prevent every museum exhibition."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "不明点は探求のきっかけになる。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "when it had been made",
+      "explanation_ja": "when以下は間接疑問、過去完了受動態。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "suggested using",
+      "explanation_ja": "suggestの後に動名詞を使う。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "focus": "that the box already existed",
+      "explanation_ja": "that節が確定した事実。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "focus": "both facts",
+      "explanation_ja": "bothは二つともという意味。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p2",
+      "expression": "However",
+      "role_ja": "提案に対する異論。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Still",
+      "role_ja": "確認できたことと残る不明点。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "not",
+      "role_ja": "推測の日付との対比。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "Instead",
+      "role_ja": "不明点の肯定的な価値。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Nobody knew exactly when it had been made.",
+      "rewrite": "The exact date of manufacture was unknown to everyone.",
+      "explanation_ja": "製作日は誰にも分からなかった。"
+    },
+    {
+      "source": "She suggested using the date of a similar box.",
+      "rewrite": "She proposed taking the date from a similar object.",
+      "explanation_ja": "似た品の日付を提案した。"
+    },
+    {
+      "source": "This established that the box already existed on that date.",
+      "rewrite": "The picture proved the box was present by then.",
+      "explanation_ja": "その時点で存在した。"
+    },
+    {
+      "source": "Mina decided to explain both facts on the museum label.",
+      "rewrite": "Mina chose to describe the two facts on the label.",
+      "explanation_ja": "双方の事実を説明。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "lid",
+      "options": [
+        "lid",
+        "road",
+        "desk",
+        "wall"
+      ],
+      "explanation_ja": "木箱のふた。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "answer": "marks",
+      "options": [
+        "tickets",
+        "marks",
+        "leaves",
+        "clouds"
+      ],
+      "explanation_ja": "底の異なる印。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "date",
+      "options": [
+        "date",
+        "price",
+        "weight",
+        "length"
+      ],
+      "explanation_ja": "撮影日。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "interesting",
+      "options": [
+        "interesting",
+        "empty",
+        "heavy",
+        "bright"
+      ],
+      "explanation_ja": "不明でも面白さは失われない。"
+    }
+  ]
+}
