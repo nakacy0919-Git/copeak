@@ -1,0 +1,710 @@
+{
+  "id": "L12-017",
+  "category_id": "L12",
+  "title": "The Instruction Sheet That Was Too Full",
+  "title_ja": "情報が多すぎた説明用紙",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "word_count": 318,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "人物・具体的な出来事・制度・実験結果は架空の教材例。実在する統計、法制度、医療指示、実証研究を示すものではない。制作台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A fictional community clinic invited a group of students to help redesign a general information sheet for visitors.",
+          "ja": "架空の地域診療所は来院者向け一般案内用紙の再設計を生徒たちに頼んだ。"
+        },
+        {
+          "en": "The original sheet contained useful information about reception hours, waiting areas, and the procedure for asking staff questions.",
+          "ja": "元の用紙には受付時間、待合場所、職員に質問する手順など有用な情報があった。"
+        },
+        {
+          "en": "However, several visitors had reported that finding a particular detail on the crowded page was difficult.",
+          "ja": "しかし情報が詰まった紙面で特定の詳細を見つけるのが難しいと数人の来院者が報告した。"
+        },
+        {
+          "en": "The students were asked to improve the layout without changing the clinic's approved information.",
+          "ja": "診療所の承認済み情報を変えずにレイアウトを改善するよう求められた。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Their first idea was to reduce the amount of text by removing every sentence that seemed repetitive.",
+          "ja": "最初の案は繰り返しに見える文をすべて削除して文章量を減らすことだった。"
+        },
+        {
+          "en": "A staff member pointed out that some apparently similar sentences served different purposes.",
+          "ja": "職員は一見似た文の中には異なる目的を果たすものがあると指摘した。"
+        },
+        {
+          "en": "One sentence explained where visitors should go, whereas another explained when that instruction applied.",
+          "ja": "一文は行く場所を、もう一文はその指示が適用される時期を説明していた。"
+        },
+        {
+          "en": "The students realized that making a document shorter was not necessarily the same as making it clearer.",
+          "ja": "文書を短くすることは必ずしも明確にすることと同じではないと気づいた。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Instead, the group organized the information into several clearly labeled sections based on common visitor questions.",
+          "ja": "そこで来院者のよくある質問に基づき、明確な見出しのある区画に情報を整理した。"
+        },
+        {
+          "en": "They used larger headings and placed essential details near the beginning of each section.",
+          "ja": "大きい見出しを使い各区画の冒頭付近に重要な詳細を置いた。"
+        },
+        {
+          "en": "They asked volunteers to locate specific information in both versions without receiving any additional explanations.",
+          "ja": "追加説明なしに両方の版から特定の情報を探すよう協力者に依頼した。"
+        },
+        {
+          "en": "The group recorded which instructions were frequently overlooked and discussed the reasons with clinic staff.",
+          "ja": "見落とされがちな指示を記録し職員と理由を議論した。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The students also considered whether a written sheet would be sufficient for every person entering the clinic.",
+          "ja": "また書面だけですべての来院者に十分か考えた。"
+        },
+        {
+          "en": "Some volunteers suggested providing an alternative format with larger print, while others preferred an opportunity to ask questions directly.",
+          "ja": "大きな文字の別形式を提案する人もいれば、直接質問できる機会を好む人もいた。"
+        },
+        {
+          "en": "The students included a clearly visible message explaining that visitors could request assistance from staff.",
+          "ja": "職員に支援を求められることを説明する目立つメッセージを加えた。"
+        },
+        {
+          "en": "They left the final review of all medical and procedural information to qualified clinic personnel.",
+          "ja": "医学的・手続き上の情報の最終確認は資格のある診療所の職員に委ねた。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The project taught the students that information is useful only when people can find and understand what they need.",
+          "ja": "情報は必要なものを見つけ理解できるときに役立つと生徒は学んだ。"
+        },
+        {
+          "en": "A clearer design can support communication, but it cannot replace individual discussion or professional judgment.",
+          "ja": "分かりやすい設計は意思伝達を支援するが個別の対話や専門的判断の代わりにはならない。"
+        },
+        {
+          "en": "The team learned to consider accessibility as a practical part of responsible communication rather than an optional decoration.",
+          "ja": "利用しやすさを任意の装飾でなく責任ある意思伝達の実用的要素と考えるようになった。"
+        },
+        {
+          "en": "Their final sheet was designed around the questions visitors actually needed to answer.",
+          "ja": "最終版は来院者が実際に答えを必要とする質問を中心に設計された。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "fictional",
+      "ja": "架空の",
+      "synonym": "imaginary",
+      "definition": "existing in imagination"
+    },
+    {
+      "term": "community clinic",
+      "ja": "地域診療所",
+      "synonym": "local medical center",
+      "definition": "a place providing local medical care"
+    },
+    {
+      "term": "redesign",
+      "ja": "再設計する",
+      "synonym": "rework",
+      "definition": "design something again"
+    },
+    {
+      "term": "general",
+      "ja": "一般の",
+      "synonym": "ordinary",
+      "definition": "relating to the whole rather than a specific case"
+    },
+    {
+      "term": "original",
+      "ja": "元の",
+      "synonym": "initial",
+      "definition": "existing at the beginning"
+    },
+    {
+      "term": "contained",
+      "ja": "含んだ",
+      "synonym": "included",
+      "definition": "had something as a part"
+    },
+    {
+      "term": "reception",
+      "ja": "受付",
+      "synonym": "front desk",
+      "definition": "the place where visitors are received"
+    },
+    {
+      "term": "procedure",
+      "ja": "手順",
+      "synonym": "process",
+      "definition": "an established way of doing something"
+    },
+    {
+      "term": "reported",
+      "ja": "報告した",
+      "synonym": "stated",
+      "definition": "gave information about something"
+    },
+    {
+      "term": "particular",
+      "ja": "特定の",
+      "synonym": "specific",
+      "definition": "relating to one thing"
+    },
+    {
+      "term": "detail",
+      "ja": "詳細",
+      "synonym": "particular",
+      "definition": "a specific piece of information"
+    },
+    {
+      "term": "crowded",
+      "ja": "詰まった",
+      "synonym": "packed",
+      "definition": "containing too much in a space"
+    },
+    {
+      "term": "layout",
+      "ja": "配置",
+      "synonym": "arrangement",
+      "definition": "the way elements are arranged"
+    },
+    {
+      "term": "approved",
+      "ja": "承認された",
+      "synonym": "authorized",
+      "definition": "officially accepted"
+    },
+    {
+      "term": "reduce",
+      "ja": "減らす",
+      "synonym": "decrease",
+      "definition": "make smaller in amount"
+    },
+    {
+      "term": "repetitive",
+      "ja": "繰り返しの",
+      "synonym": "repeated",
+      "definition": "involving repeated elements"
+    },
+    {
+      "term": "pointed out",
+      "ja": "指摘した",
+      "synonym": "noted",
+      "definition": "drew attention to something"
+    },
+    {
+      "term": "apparently",
+      "ja": "一見",
+      "synonym": "seemingly",
+      "definition": "as something appears"
+    },
+    {
+      "term": "purposes",
+      "ja": "目的",
+      "synonym": "aims",
+      "definition": "reasons for doing things"
+    },
+    {
+      "term": "whereas",
+      "ja": "一方",
+      "synonym": "while",
+      "definition": "introduces a contrast"
+    },
+    {
+      "term": "instruction",
+      "ja": "指示",
+      "synonym": "direction",
+      "definition": "information telling someone what to do"
+    },
+    {
+      "term": "applied",
+      "ja": "適用された",
+      "synonym": "was relevant",
+      "definition": "was applicable in a situation"
+    },
+    {
+      "term": "necessarily",
+      "ja": "必ずしも",
+      "synonym": "inevitably",
+      "definition": "in a way that must be true"
+    },
+    {
+      "term": "organized",
+      "ja": "整理した",
+      "synonym": "arranged",
+      "definition": "put things in order"
+    },
+    {
+      "term": "labeled",
+      "ja": "見出しを付けた",
+      "synonym": "marked",
+      "definition": "provided with identifying words"
+    },
+    {
+      "term": "sections",
+      "ja": "区画",
+      "synonym": "parts",
+      "definition": "separate parts of something"
+    },
+    {
+      "term": "headings",
+      "ja": "見出し",
+      "synonym": "titles",
+      "definition": "words introducing sections"
+    },
+    {
+      "term": "essential",
+      "ja": "重要な",
+      "synonym": "necessary",
+      "definition": "extremely important or needed"
+    },
+    {
+      "term": "volunteers",
+      "ja": "協力者",
+      "synonym": "helpers",
+      "definition": "people freely offering help"
+    },
+    {
+      "term": "locate",
+      "ja": "見つける",
+      "synonym": "find",
+      "definition": "discover the position of something"
+    },
+    {
+      "term": "specific",
+      "ja": "特定の",
+      "synonym": "particular",
+      "definition": "clearly defined or identified"
+    },
+    {
+      "term": "versions",
+      "ja": "版",
+      "synonym": "editions",
+      "definition": "different forms of a document"
+    },
+    {
+      "term": "additional",
+      "ja": "追加の",
+      "synonym": "extra",
+      "definition": "more than what already exists"
+    },
+    {
+      "term": "frequently",
+      "ja": "頻繁に",
+      "synonym": "often",
+      "definition": "on many occasions"
+    },
+    {
+      "term": "overlooked",
+      "ja": "見落とされた",
+      "synonym": "missed",
+      "definition": "not noticed"
+    },
+    {
+      "term": "sufficient",
+      "ja": "十分な",
+      "synonym": "adequate",
+      "definition": "enough for a purpose"
+    },
+    {
+      "term": "alternative",
+      "ja": "別の",
+      "synonym": "different",
+      "definition": "available in place of another"
+    },
+    {
+      "term": "format",
+      "ja": "形式",
+      "synonym": "form",
+      "definition": "the way information is presented"
+    },
+    {
+      "term": "preferred",
+      "ja": "好んだ",
+      "synonym": "favored",
+      "definition": "liked one option more"
+    },
+    {
+      "term": "visible",
+      "ja": "目立つ",
+      "synonym": "noticeable",
+      "definition": "able to be seen"
+    },
+    {
+      "term": "request",
+      "ja": "求める",
+      "synonym": "ask for",
+      "definition": "ask to receive something"
+    },
+    {
+      "term": "assistance",
+      "ja": "支援",
+      "synonym": "help",
+      "definition": "support given to someone"
+    },
+    {
+      "term": "procedural",
+      "ja": "手続き上の",
+      "synonym": "process-related",
+      "definition": "relating to a procedure"
+    },
+    {
+      "term": "qualified",
+      "ja": "資格のある",
+      "synonym": "certified",
+      "definition": "having appropriate qualifications"
+    },
+    {
+      "term": "personnel",
+      "ja": "職員",
+      "synonym": "staff",
+      "definition": "people working for an organization"
+    },
+    {
+      "term": "communication",
+      "ja": "意思伝達",
+      "synonym": "exchange of information",
+      "definition": "the sharing of information"
+    },
+    {
+      "term": "judgment",
+      "ja": "判断",
+      "synonym": "assessment",
+      "definition": "an opinion reached after consideration"
+    },
+    {
+      "term": "accessibility",
+      "ja": "利用しやすさ",
+      "synonym": "ease of access",
+      "definition": "the quality of being usable by people"
+    },
+    {
+      "term": "optional",
+      "ja": "任意の",
+      "synonym": "elective",
+      "definition": "not required"
+    },
+    {
+      "term": "decoration",
+      "ja": "装飾",
+      "synonym": "ornament",
+      "definition": "something added for appearance"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What were the students asked to redesign?",
+      "answer": 3,
+      "options": [
+        "A medical treatment plan.",
+        "A hospital building.",
+        "A list of patient diagnoses.",
+        "A general visitor information sheet."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "一般案内用紙。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What problem had visitors reported?",
+      "answer": 2,
+      "options": [
+        "The clinic was always closed.",
+        "The sheet contained no information.",
+        "It was difficult to find details on the page.",
+        "Staff had refused to answer questions."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "必要な詳細を見つけづらかった。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What was the first proposal?",
+      "answer": 1,
+      "options": [
+        "Print every sentence twice.",
+        "Remove sentences that seemed repetitive.",
+        "Replace the sheet with a medical test.",
+        "Add unrelated information."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "繰り返しに見える文を削る案。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why might removing similar sentences cause trouble?",
+      "answer": 0,
+      "options": [
+        "They could provide different necessary information.",
+        "Every similar sentence was legally required.",
+        "Longer documents are always clearer.",
+        "The staff preferred all text to be hidden."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "似た文でも異なる役割があった。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "How did the group organize the new sheet?",
+      "answer": 2,
+      "options": [
+        "By the ages of all patients.",
+        "By the names of volunteers.",
+        "By common visitor questions.",
+        "By the length of each word."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "よくある質問で整理した。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What did the volunteers test?",
+      "answer": 3,
+      "options": [
+        "Choosing a medical treatment.",
+        "Writing a diagnosis.",
+        "Checking every visitor's identity.",
+        "Finding specific information in both versions."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "両版で情報を探す検証。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What alternative did some volunteers suggest?",
+      "answer": 0,
+      "options": [
+        "A version with larger print.",
+        "A smaller font for all readers.",
+        "A list of possible diseases.",
+        "A sheet with no headings."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "大きな文字の版。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "Why leave the final review to qualified staff?",
+      "answer": 1,
+      "options": [
+        "The students had refused to work on the layout.",
+        "The students were responsible for design, not professional medical accuracy.",
+        "Visitors should never see medical information.",
+        "The clinic wanted to hide all its procedures."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "設計と専門的な情報確認は別。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does optional mean?",
+      "answer": 3,
+      "options": [
+        "Always necessary.",
+        "Secret.",
+        "Professional.",
+        "Not required."
+      ],
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "任意の。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the main lesson?",
+      "answer": 2,
+      "options": [
+        "Shortening every document is always best.",
+        "Written information can replace clinical judgment.",
+        "Accessible design helps people understand information without replacing professional communication.",
+        "Everyone should use the same format regardless of needs."
+      ],
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "分かりやすい設計と対話の双方が大切。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "without changing the clinic's approved information",
+      "explanation_ja": "without＋動名詞は〜せずに。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "whereas another explained",
+      "explanation_ja": "whereasは対比を表す。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "without receiving any additional explanations",
+      "explanation_ja": "withoutは追加説明がない条件を示す。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "focus": "but it cannot replace",
+      "explanation_ja": "butは効果と限界の対比。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The students were asked to improve the layout without changing the clinic's approved information.",
+      "rewrite": "Their task was to improve the page arrangement while keeping the approved content unchanged.",
+      "explanation_ja": "内容を変えず配置を改善。"
+    },
+    {
+      "source": "One sentence explained where visitors should go, whereas another explained when that instruction applied.",
+      "rewrite": "One instruction told people where to go, while the other explained when it was relevant.",
+      "explanation_ja": "場所と適用時期の違い。"
+    },
+    {
+      "source": "They asked volunteers to locate specific information in both versions without receiving any additional explanations.",
+      "rewrite": "They asked helpers to find information in each version with no extra guidance.",
+      "explanation_ja": "追加の説明なしに探した。"
+    },
+    {
+      "source": "A clearer design can support communication, but it cannot replace individual discussion or professional judgment.",
+      "rewrite": "A better layout aids communication, yet individual conversations and expert decisions remain necessary.",
+      "explanation_ja": "設計は対話や判断を代替しない。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "案内の有用性と読みにくさを対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "whereas",
+      "role_ja": "似た文の役割を対比。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Instead",
+      "role_ja": "削除から配置改善に転換。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "rather than",
+      "role_ja": "利用しやすさを装飾ではなく実用的要素に位置づける。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 0,
+      "answer": "repetitive",
+      "options": [
+        "repetitive",
+        "wooden",
+        "annual",
+        "empty"
+      ],
+      "explanation_ja": "繰り返しに見える文。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 0,
+      "answer": "sections",
+      "options": [
+        "roads",
+        "sections",
+        "coins",
+        "trees"
+      ],
+      "explanation_ja": "情報を区画に整理。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "assistance",
+      "options": [
+        "temperature",
+        "distance",
+        "assistance",
+        "furniture"
+      ],
+      "explanation_ja": "職員に支援を求める。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "accessibility",
+      "options": [
+        "decoration",
+        "temperature",
+        "competition",
+        "accessibility"
+      ],
+      "explanation_ja": "利用しやすさを考える。"
+    }
+  ]
+}
