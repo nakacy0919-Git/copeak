@@ -1,0 +1,765 @@
+{
+  "id": "L10-018",
+  "category_id": "L10",
+  "title": "The Diagram with the Missing Arrows",
+  "title_ja": "矢印が欠けた図",
+  "level_id": "university-mid",
+  "status": "draft",
+  "original": true,
+  "word_count": 504,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "登場人物・出来事・観察結果は架空の教材例。実測値・実在資料を主張しない。リンクは制作台帳であり外部の実証資料ではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A secondary school teacher noticed that her students could reproduce a detailed diagram from their science textbook even when they could not explain the relationships represented by the diagram.",
+          "ja": "ある中等学校の教師は、生徒が理科教科書の詳しい図を再現できても、図に示された関係を説明できない場合があることに気づいた。"
+        },
+        {
+          "en": "The diagram illustrated how several parts of an imaginary greenhouse system worked together to maintain an environment suitable for the plants inside it.",
+          "ja": "その図は架空の温室システムの複数の部分が協力して内部の植物に適した環境を維持する仕組みを示していた。"
+        },
+        {
+          "en": "Many students remembered the position and color of each component, yet some struggled to describe what would happen if one of the connections stopped working.",
+          "ja": "多くの生徒は各部品の位置と色を覚えていたが、接続の一つが機能しなくなると何が起こるか説明するのに苦労する生徒もいた。"
+        },
+        {
+          "en": "The teacher began to wonder whether a successful drawing from memory was necessarily a reliable indication that the student understood the system as a whole.",
+          "ja": "教師は記憶に基づく図の再現が、システム全体を理解していることの信頼できる指標になるとは限らないのではと考え始めた。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "For the next lesson, she prepared a version of the diagram in which the individual components were already labeled but several important arrows had been removed.",
+          "ja": "次の授業に向け、個々の部品には名前が付いているが、重要な矢印をいくつか取り除いた版を用意した。"
+        },
+        {
+          "en": "Rather than asking students to remember the appearance of the original illustration, she invited them to reconstruct the missing connections and explain what each arrow represented.",
+          "ja": "元の図の見た目を思い出すよう求めず、欠けたつながりを再構成し、矢印が何を表すか説明するよう促した。"
+        },
+        {
+          "en": "Students could consult the written description of the system whenever they needed more information about how a particular component was supposed to operate.",
+          "ja": "特定の部品の動作に関する情報が必要なら、生徒はいつでもシステムの文章による説明を参照できた。"
+        },
+        {
+          "en": "The task therefore required them to move between two forms of information, interpreting a written account and expressing the relationships in a visual form.",
+          "ja": "したがって課題は、文章の説明を解釈し、関係を視覚的な形式で表すという二種類の情報を行き来することを求めた。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "During the activity, the teacher discovered that two students could draw an identical arrow while giving quite different explanations of what was moving along the connection.",
+          "ja": "活動中、教師は二人の生徒が同じ矢印を描いていても、そのつながりに沿って何が移動するかまったく違う説明をする場合があると発見した。"
+        },
+        {
+          "en": "For example, one imagined that an arrow showed the movement of water, while another believed that it represented information from a measuring instrument.",
+          "ja": "例えば、一人は水の移動を示すと考え、もう一人は測定機器からの情報を表していると思った。"
+        },
+        {
+          "en": "Both students had drawn the arrow in the expected direction, so grading the diagram without reading their explanations would have concealed the difference in their understanding.",
+          "ja": "二人とも期待された方向に矢印を描いていたため、説明を読まず図だけを採点すると理解の違いが隠れてしまうところだった。"
+        },
+        {
+          "en": "The teacher asked the class to label the arrows as well as the components and to compare the functions of several different connections.",
+          "ja": "教師は部品だけでなく矢印にも名前を付け、異なる接続の機能を比較するよう求めた。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "In a subsequent lesson, students received a new description of a system that performed a similar function but was organized in a slightly different way.",
+          "ja": "その後の授業で、生徒は似た機能を果たすが構成が少し異なるシステムの新しい説明を受け取った。"
+        },
+        {
+          "en": "They worked in pairs to create their own diagrams and were encouraged to justify the placement and direction of each connection before comparing their work with a suggested model.",
+          "ja": "ペアで独自の図を作成し、提示されたモデルと比較する前に各接続の位置と方向の根拠を説明するよう促された。"
+        },
+        {
+          "en": "The teacher accepted diagrams with different visual arrangements when the students could demonstrate that their representations preserved the essential relationships described in the text.",
+          "ja": "教師は本文に記された本質的な関係が保たれていることを生徒が示せれば、見た目の配置の異なる図も認めた。"
+        },
+        {
+          "en": "She also continued using completed diagrams when introducing new material, because students sometimes needed a clear example before they could construct a representation themselves.",
+          "ja": "新しい内容を導入するときは完成した図も引き続き使った。自分で表現を作る前に明確な例が必要な場合もあるからだ。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The teacher did not conclude that diagrams copied from textbooks were useless or that every student should always be asked to produce a new illustration independently.",
+          "ja": "教師は教科書から写す図が無益だとか、全生徒が常に自力で新しい図を作るべきだとは結論づけなかった。"
+        },
+        {
+          "en": "Instead, the activity made her more aware of the difference between recognizing the appearance of an explanation and understanding the relationships that the explanation was intended to communicate.",
+          "ja": "むしろ活動を通じ、説明の見た目を認識することと、その説明が伝えようとした関係を理解することの違いをより意識した。"
+        },
+        {
+          "en": "A student's drawing became a useful source of information when it was accompanied by reasoning that could be examined, discussed, and revised in response to new evidence.",
+          "ja": "生徒の図は、新しい根拠に応じて検討、議論、修正できる説明を伴うと有用な情報源になった。"
+        },
+        {
+          "en": "For the teacher, assessing understanding meant looking beyond the visible product and asking what ideas the student had used to create it.",
+          "ja": "教師にとって理解を評価することは、目に見える成果物の先を見て、生徒がそれを作るときにどのような考えを使ったか尋ねることだった。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "secondary",
+      "ja": "中等の",
+      "synonym": "high-school level",
+      "definition": "relating to education after primary school"
+    },
+    {
+      "term": "reproduce",
+      "ja": "再現する",
+      "synonym": "recreate",
+      "definition": "make something like the original again"
+    },
+    {
+      "term": "detailed",
+      "ja": "詳しい",
+      "synonym": "thorough",
+      "definition": "containing many specific facts"
+    },
+    {
+      "term": "diagram",
+      "ja": "図",
+      "synonym": "schematic",
+      "definition": "a drawing showing parts or relationships"
+    },
+    {
+      "term": "relationships",
+      "ja": "関係",
+      "synonym": "connections",
+      "definition": "ways in which things are related"
+    },
+    {
+      "term": "represented",
+      "ja": "表された",
+      "synonym": "depicted",
+      "definition": "shown or expressed by something"
+    },
+    {
+      "term": "illustrated",
+      "ja": "示した",
+      "synonym": "demonstrated",
+      "definition": "made something clear using an example or picture"
+    },
+    {
+      "term": "imaginary",
+      "ja": "架空の",
+      "synonym": "fictional",
+      "definition": "existing in imagination rather than reality"
+    },
+    {
+      "term": "greenhouse",
+      "ja": "温室",
+      "synonym": "glasshouse",
+      "definition": "a structure for growing plants in controlled conditions"
+    },
+    {
+      "term": "maintain",
+      "ja": "維持する",
+      "synonym": "preserve",
+      "definition": "keep something in a particular state"
+    },
+    {
+      "term": "environment",
+      "ja": "環境",
+      "synonym": "surroundings",
+      "definition": "conditions in which something exists"
+    },
+    {
+      "term": "suitable",
+      "ja": "適した",
+      "synonym": "appropriate",
+      "definition": "right for a particular purpose"
+    },
+    {
+      "term": "component",
+      "ja": "構成部品",
+      "synonym": "part",
+      "definition": "an individual part of a larger system"
+    },
+    {
+      "term": "struggled",
+      "ja": "苦労した",
+      "synonym": "had difficulty",
+      "definition": "experienced difficulty doing something"
+    },
+    {
+      "term": "connections",
+      "ja": "接続",
+      "synonym": "links",
+      "definition": "relationships joining things together"
+    },
+    {
+      "term": "necessarily",
+      "ja": "必ずしも",
+      "synonym": "inevitably",
+      "definition": "in a way that must be true"
+    },
+    {
+      "term": "reliable",
+      "ja": "信頼できる",
+      "synonym": "dependable",
+      "definition": "able to be trusted"
+    },
+    {
+      "term": "indication",
+      "ja": "指標",
+      "synonym": "sign",
+      "definition": "something suggesting a condition or fact"
+    },
+    {
+      "term": "version",
+      "ja": "版",
+      "synonym": "form",
+      "definition": "a particular form of something"
+    },
+    {
+      "term": "individual",
+      "ja": "個々の",
+      "synonym": "separate",
+      "definition": "considered one at a time"
+    },
+    {
+      "term": "labeled",
+      "ja": "名前を付けられた",
+      "synonym": "marked",
+      "definition": "given a name or identifying sign"
+    },
+    {
+      "term": "arrows",
+      "ja": "矢印",
+      "synonym": "directional marks",
+      "definition": "symbols pointing in particular directions"
+    },
+    {
+      "term": "appearance",
+      "ja": "見た目",
+      "synonym": "look",
+      "definition": "the way something looks"
+    },
+    {
+      "term": "illustration",
+      "ja": "図解",
+      "synonym": "picture",
+      "definition": "a drawing used to explain something"
+    },
+    {
+      "term": "reconstruct",
+      "ja": "再構成する",
+      "synonym": "rebuild",
+      "definition": "put something together again"
+    },
+    {
+      "term": "consult",
+      "ja": "参照する",
+      "synonym": "refer to",
+      "definition": "look at for information"
+    },
+    {
+      "term": "description",
+      "ja": "説明",
+      "synonym": "account",
+      "definition": "information showing what something is like"
+    },
+    {
+      "term": "particular",
+      "ja": "特定の",
+      "synonym": "specific",
+      "definition": "relating to one particular thing"
+    },
+    {
+      "term": "operate",
+      "ja": "動作する",
+      "synonym": "function",
+      "definition": "work as intended"
+    },
+    {
+      "term": "interpreting",
+      "ja": "解釈すること",
+      "synonym": "understanding",
+      "definition": "assigning meaning to information"
+    },
+    {
+      "term": "expressing",
+      "ja": "表すこと",
+      "synonym": "communicating",
+      "definition": "making a meaning known"
+    },
+    {
+      "term": "visual",
+      "ja": "視覚的な",
+      "synonym": "graphic",
+      "definition": "relating to seeing"
+    },
+    {
+      "term": "identical",
+      "ja": "同一の",
+      "synonym": "the same",
+      "definition": "exactly alike"
+    },
+    {
+      "term": "movement",
+      "ja": "移動",
+      "synonym": "motion",
+      "definition": "change in position"
+    },
+    {
+      "term": "instrument",
+      "ja": "機器",
+      "synonym": "device",
+      "definition": "a tool designed for a particular task"
+    },
+    {
+      "term": "expected",
+      "ja": "期待された",
+      "synonym": "anticipated",
+      "definition": "considered likely or required"
+    },
+    {
+      "term": "direction",
+      "ja": "方向",
+      "synonym": "orientation",
+      "definition": "a point or course toward which something moves"
+    },
+    {
+      "term": "grading",
+      "ja": "採点すること",
+      "synonym": "marking",
+      "definition": "assessing work according to standards"
+    },
+    {
+      "term": "concealed",
+      "ja": "隠された",
+      "synonym": "hidden",
+      "definition": "prevented from being noticed"
+    },
+    {
+      "term": "functions",
+      "ja": "機能",
+      "synonym": "roles",
+      "definition": "purposes served by things"
+    },
+    {
+      "term": "subsequent",
+      "ja": "その後の",
+      "synonym": "later",
+      "definition": "coming after something else"
+    },
+    {
+      "term": "organized",
+      "ja": "構成された",
+      "synonym": "arranged",
+      "definition": "put into a particular structure"
+    },
+    {
+      "term": "justify",
+      "ja": "根拠を示す",
+      "synonym": "explain",
+      "definition": "give reasons supporting an action or choice"
+    },
+    {
+      "term": "placement",
+      "ja": "配置",
+      "synonym": "positioning",
+      "definition": "the act of putting something in a particular place"
+    },
+    {
+      "term": "arrangements",
+      "ja": "配置",
+      "synonym": "layouts",
+      "definition": "ways in which things are positioned"
+    },
+    {
+      "term": "demonstrate",
+      "ja": "示す",
+      "synonym": "show",
+      "definition": "make something clear through evidence"
+    },
+    {
+      "term": "representations",
+      "ja": "表現",
+      "synonym": "models",
+      "definition": "forms in which ideas or things are shown"
+    },
+    {
+      "term": "preserved",
+      "ja": "保った",
+      "synonym": "maintained",
+      "definition": "kept something in existence or unchanged"
+    },
+    {
+      "term": "essential",
+      "ja": "本質的な",
+      "synonym": "fundamental",
+      "definition": "required for the main purpose"
+    },
+    {
+      "term": "construct",
+      "ja": "作る",
+      "synonym": "build",
+      "definition": "put parts together to create something"
+    },
+    {
+      "term": "independently",
+      "ja": "自力で",
+      "synonym": "on one's own",
+      "definition": "without relying on another person"
+    },
+    {
+      "term": "recognizing",
+      "ja": "認識すること",
+      "synonym": "identifying",
+      "definition": "noticing and knowing what something is"
+    },
+    {
+      "term": "intended",
+      "ja": "意図された",
+      "synonym": "meant",
+      "definition": "designed for a particular purpose"
+    },
+    {
+      "term": "accompanied",
+      "ja": "伴われた",
+      "synonym": "went with",
+      "definition": "occurred together with something"
+    },
+    {
+      "term": "reasoning",
+      "ja": "推論・根拠",
+      "synonym": "explanation",
+      "definition": "thought used to reach a conclusion"
+    },
+    {
+      "term": "examined",
+      "ja": "検討された",
+      "synonym": "inspected",
+      "definition": "considered carefully"
+    },
+    {
+      "term": "revised",
+      "ja": "修正された",
+      "synonym": "modified",
+      "definition": "changed to improve something"
+    },
+    {
+      "term": "evidence",
+      "ja": "根拠",
+      "synonym": "support",
+      "definition": "information that helps establish a conclusion"
+    },
+    {
+      "term": "assessing",
+      "ja": "評価すること",
+      "synonym": "evaluating",
+      "definition": "judging the quality or nature of something"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What problem did the teacher observe?",
+      "options": [
+        "Students could explain every connection but never draw it.",
+        "Students could copy the diagram without explaining its relationships.",
+        "The textbook contained no pictures of systems.",
+        "All students had forgotten the names of every component."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "図の再現と関係の説明に差があった。"
+    },
+    {
+      "id": "q2",
+      "skill": "inference",
+      "prompt": "Why did the teacher question the value of drawing from memory?",
+      "options": [
+        "Successful reproduction might reflect visual memory rather than understanding.",
+        "It was impossible for students to remember colors.",
+        "The textbook had been written in a different language.",
+        "The greenhouse system had already been dismantled."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "見た目の記憶だけで再現できる可能性があった。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What did the new diagram leave incomplete?",
+      "options": [
+        "All the component names.",
+        "Every written instruction about the system.",
+        "Several important connections shown by arrows.",
+        "The title of the textbook."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "重要な矢印を取り除いた。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "What skill did the new task require?",
+      "options": [
+        "Memorizing colors without reading the explanation.",
+        "Drawing any shape without considering what it represented.",
+        "Using a measuring instrument to test the real greenhouse.",
+        "Translating relationships understood from written information into a visual form."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "文章の情報を理解し図として表す力。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "How did the two students explain the identical arrow differently?",
+      "options": [
+        "One thought it showed water movement and the other thought it showed information.",
+        "One believed it was blue and the other believed it was red.",
+        "One described the component name and the other corrected a spelling error.",
+        "One drew it upward and the other drew it downward."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "水の移動と測定情報という異なる説明だった。"
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why would grading only the diagram be insufficient?",
+      "options": [
+        "It would always give a lower score to a correct explanation.",
+        "It would prevent students from remembering component names.",
+        "It could hide a difference in the students' interpretations.",
+        "The arrows were deliberately impossible to reproduce."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "同じ図でも理解が違うことを見逃す。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What condition allowed different visual arrangements to be accepted?",
+      "options": [
+        "They used exactly the same colors as the textbook.",
+        "They had no labeled arrows at all.",
+        "They showed a completely unrelated system.",
+        "They preserved the essential relationships in the description."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "本文の本質的な関係を保っていた。"
+    },
+    {
+      "id": "q8",
+      "skill": "vocabulary",
+      "prompt": "What does justify mean in this context?",
+      "options": [
+        "Avoid a decision entirely.",
+        "Provide reasons supporting a choice.",
+        "Copy something from memory.",
+        "Erase information from a drawing."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "選択の根拠を説明する。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Why did the teacher continue using completed diagrams for new topics?",
+      "options": [
+        "Examples could help students prepare to construct their own representations.",
+        "She believed students should never make original diagrams.",
+        "She found that explaining connections was always useless.",
+        "The class could no longer read written material."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4",
+        "p5"
+      ],
+      "explanation_ja": "完成図は自分で作る前の手がかりになる。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "Which statement best expresses the main claim?",
+      "options": [
+        "Visual reproduction proves understanding in every case.",
+        "Students should never use diagrams from textbooks.",
+        "Assessment should examine the reasoning behind a visible product as well as the product itself.",
+        "Learning science consists only of drawing accurate arrows."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "成果物に加え、その背後の考えを評価する。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 0,
+      "focus": "even when they could not explain",
+      "explanation_ja": "even whenは〜のときでさえ、という譲歩を示す。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 0,
+      "focus": "in which the individual components were already labeled",
+      "explanation_ja": "in whichはversion of the diagramを修飾する関係表現。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "would have concealed the difference",
+      "explanation_ja": "仮定法過去完了で、もし説明を読まなければ起きていた結果を表す。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "focus": "when the students could demonstrate",
+      "explanation_ja": "when節は異なる図が認められる条件を示す。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "yet",
+      "role_ja": "再現できても関係を説明できない場合を示す。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "Rather than",
+      "role_ja": "見た目を思い出す課題から関係の再構成への転換。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "For example",
+      "role_ja": "同じ矢印でも異なる理解があり得ることの具体例。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "Instead",
+      "role_ja": "図の否定ではなく理解の評価に結論を向ける。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "A secondary school teacher noticed that her students could reproduce a detailed diagram from their science textbook even when they could not explain the relationships represented by the diagram.",
+      "rewrite": "The teacher found that accurate reproduction of a diagram did not always mean students could describe its connections.",
+      "explanation_ja": "正確な再現が関係の理解を保証しない。"
+    },
+    {
+      "source": "For the next lesson, she prepared a version of the diagram in which the individual components were already labeled but several important arrows had been removed.",
+      "rewrite": "She prepared a diagram with the names of its parts already written in but with key arrows missing.",
+      "explanation_ja": "部品の名前はあり、矢印が欠けていた。"
+    },
+    {
+      "source": "Both students had drawn the arrow in the expected direction, so grading the diagram without reading their explanations would have concealed the difference in their understanding.",
+      "rewrite": "If she had assessed only the arrows, the students' different interpretations would have gone unnoticed.",
+      "explanation_ja": "矢印だけの採点なら理解の差を見落とした。"
+    },
+    {
+      "source": "The teacher accepted diagrams with different visual arrangements when the students could demonstrate that their representations preserved the essential relationships described in the text.",
+      "rewrite": "She allowed alternative layouts provided that students could show they retained the important connections from the description.",
+      "explanation_ja": "本質的な接続があれば別配置を認めた。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "reconstruct",
+      "options": [
+        "reconstruct",
+        "destroy",
+        "ignore",
+        "forget"
+      ],
+      "explanation_ja": "欠けた関係を再構成する。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "concealed",
+      "options": [
+        "revealed",
+        "concealed",
+        "explained",
+        "shared"
+      ],
+      "explanation_ja": "採点のみでは理解の差を隠す。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "essential",
+      "options": [
+        "irrelevant",
+        "accidental",
+        "essential",
+        "imaginary"
+      ],
+      "explanation_ja": "本質的な関係が維持される。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "reasoning",
+      "options": [
+        "decoration",
+        "weather",
+        "furniture",
+        "reasoning"
+      ],
+      "explanation_ja": "図の背後の考えを調べる。"
+    }
+  ]
+}
