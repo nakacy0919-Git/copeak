@@ -3,8 +3,8 @@
   "as_of": "2026-11-14",
   "goal": 450,
   "category_target": 30,
-  "registered_total": 285,
-  "remaining": 165,
+  "registered_total": 300,
+  "remaining": 150,
   "level_targets_per_category": {
     "eiken-3": 1,
     "eiken-pre2": 4,
@@ -21,124 +21,124 @@
       "category_id": "L01",
       "name": "自然",
       "target": 30,
-      "registered": 19,
-      "remaining": 11
+      "registered": 20,
+      "remaining": 10
     },
     {
       "category_id": "L02",
       "name": "歴史",
       "target": 30,
-      "registered": 19,
-      "remaining": 11
+      "registered": 20,
+      "remaining": 10
     },
     {
       "category_id": "L03",
       "name": "科学技術",
       "target": 30,
-      "registered": 19,
-      "remaining": 11
+      "registered": 20,
+      "remaining": 10
     },
     {
       "category_id": "L04",
       "name": "人間関係",
       "target": 30,
-      "registered": 19,
-      "remaining": 11
+      "registered": 20,
+      "remaining": 10
     },
     {
       "category_id": "L05",
       "name": "国際社会",
       "target": 30,
-      "registered": 19,
-      "remaining": 11
+      "registered": 20,
+      "remaining": 10
     },
     {
       "category_id": "L06",
       "name": "心理・哲学",
       "target": 30,
-      "registered": 19,
-      "remaining": 11
+      "registered": 20,
+      "remaining": 10
     },
     {
       "category_id": "L07",
       "name": "経済・ビジネス",
       "target": 30,
-      "registered": 19,
-      "remaining": 11
+      "registered": 20,
+      "remaining": 10
     },
     {
       "category_id": "L08",
       "name": "芸術・文化",
       "target": 30,
-      "registered": 19,
-      "remaining": 11
+      "registered": 20,
+      "remaining": 10
     },
     {
       "category_id": "L09",
       "name": "文学・言語",
       "target": 30,
-      "registered": 19,
-      "remaining": 11
+      "registered": 20,
+      "remaining": 10
     },
     {
       "category_id": "L10",
       "name": "教育・学習",
       "target": 30,
-      "registered": 19,
-      "remaining": 11
+      "registered": 20,
+      "remaining": 10
     },
     {
       "category_id": "L11",
       "name": "法律・政治",
       "target": 30,
-      "registered": 19,
-      "remaining": 11
+      "registered": 20,
+      "remaining": 10
     },
     {
       "category_id": "L12",
       "name": "医療・健康",
       "target": 30,
-      "registered": 19,
-      "remaining": 11
+      "registered": 20,
+      "remaining": 10
     },
     {
       "category_id": "L13",
       "name": "宇宙・未来",
       "target": 30,
-      "registered": 19,
-      "remaining": 11
+      "registered": 20,
+      "remaining": 10
     },
     {
       "category_id": "L14",
       "name": "婚姻・交友",
       "target": 30,
-      "registered": 19,
-      "remaining": 11
+      "registered": 20,
+      "remaining": 10
     },
     {
       "category_id": "L15",
       "name": "倫理・道徳",
       "target": 30,
-      "registered": 19,
-      "remaining": 11
+      "registered": 20,
+      "remaining": 10
     }
   ],
   "latest_unpublished_batch": [
-    "L01-019",
-    "L02-019",
-    "L03-019",
-    "L04-019",
-    "L05-019",
-    "L06-019",
-    "L07-019",
-    "L08-019",
-    "L09-019",
-    "L10-019",
-    "L11-019",
-    "L12-019",
-    "L13-019",
-    "L14-019",
-    "L15-019"
+    "L01-020",
+    "L02-020",
+    "L03-020",
+    "L04-020",
+    "L05-020",
+    "L06-020",
+    "L07-020",
+    "L08-020",
+    "L09-020",
+    "L10-020",
+    "L11-020",
+    "L12-020",
+    "L13-020",
+    "L14-020",
+    "L15-020"
   ],
   "release_policy": {
     "new_works_default_status": "draft",
@@ -174,7 +174,8 @@
     "2026-11-14: Volume batch L01-018 to L10-018 (3103 words, 200 bilingual sentences, 403 vocabulary entries, 100 comprehension questions and 160 review exercises). Draft only; per-lesson structure and registry checks passed; full-repository guard, semantic duplicate screening and final human review pending.",
     "2026-11-14: slate-k added L01-017, L02-017, L03-017, L04-017, L05-017, L11-017, L12-017, L13-017, L14-017, L15-017 (3678 words, 200 bilingual sentences, 527 vocabulary entries, 100 comprehension questions and 160 review exercises). Draft only; individual structural checks and registry reconciliation passed; full repository guard, semantic duplication check and human review pending.",
     "2026-11-14: cedar-l added L06-017, L07-017, L08-017, L09-017, L10-017, L11-018, L12-018, L13-018, L14-018, L15-018 (3145 words, 200 bilingual sentences, 504 vocabulary entries, 100 comprehension questions and 160 review exercises). Draft only; individual structural checks and registry reconciliation passed; full repository guard, semantic duplication check and human review pending.",
-    "2026-11-14: bulk-m added L01-019 through L15-019 (6539 words, 305 bilingual sentences, 738 vocabulary entries, 150 comprehension questions and 240 review entries). Draft only; 15 saved blobs individually checked and registry reconciled; full repository guard, semantic duplication check and human review pending."
+    "2026-11-14: bulk-m added L01-019 through L15-019 (6539 words, 305 bilingual sentences, 738 vocabulary entries, 150 comprehension questions and 240 review entries). Draft only; 15 saved blobs individually checked and registry reconciled; full repository guard, semantic duplication check and human review pending.",
+    "2026-11-14: bulk-n added L01-020 through L15-020 (6779 words, 305 bilingual sentences, 745 vocabulary entries, 150 comprehension questions and 240 review entries). Draft only; 15 saved blobs individually checked and registry reconciled; full repository guard, semantic duplication check and human review pending."
   ],
-  "all_unpublished_batches_note": "Authoritative non-production branch: coord/reading-450-registry; 285 unique registered IDs; main reference count 28."
+  "all_unpublished_batches_note": "Authoritative non-production branch: coord/reading-450-registry; 300 unique registered IDs; main reference count 28."
 }
