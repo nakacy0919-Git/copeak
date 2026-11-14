@@ -1,0 +1,586 @@
+{
+  "id": "L03-012",
+  "category_id": "L03",
+  "title": "The Door That Counted Twice",
+  "title_ja": "2回数えてしまうドア",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 204,
+  "source_links": [
+    {
+      "title": "Original lesson authoring registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "登場人物・場所・出来事・資料・数値は架空の教材例。実在の事実や研究結果を示すものではない。参考リンクは制作台帳であり外部の実証資料ではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A school science club wanted to count visitors to its exhibition.",
+          "ja": "学校の科学部は展示会への来場者数を数えたいと思った。"
+        },
+        {
+          "en": "The students built a small device near the entrance.",
+          "ja": "生徒たちは入口近くに小さな装置を作った。"
+        },
+        {
+          "en": "It added one to a digital number whenever someone passed through.",
+          "ja": "人が通るたびにデジタルの数字を1増やした。"
+        },
+        {
+          "en": "At first, the device seemed to work perfectly well.",
+          "ja": "最初は装置が完璧に動くように見えた。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "However, the number was surprisingly high at the end of the morning.",
+          "ja": "しかし午前の終わりには数字が驚くほど大きかった。"
+        },
+        {
+          "en": "Nora had been welcoming people beside the front door.",
+          "ja": "ノラは正面のドアのそばで来場者を迎えていた。"
+        },
+        {
+          "en": "She believed that fewer visitors had actually entered the room.",
+          "ja": "実際に入室した来場者はもっと少なかったと考えた。"
+        },
+        {
+          "en": "The club decided to test the device before reporting the total.",
+          "ja": "部は合計を報告する前に装置をテストすることにした。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "First, Nora walked into the room and checked the screen.",
+          "ja": "まずノラは部屋に入り、画面を確認した。"
+        },
+        {
+          "en": "Then she walked out again through the very same door.",
+          "ja": "次にまったく同じドアから再び外に出た。"
+        },
+        {
+          "en": "To everyone's surprise, the number increased on both occasions.",
+          "ja": "皆が驚いたことに、どちらの場合も数字が増えた。"
+        },
+        {
+          "en": "The device could not distinguish entering visitors from those leaving.",
+          "ja": "装置は入る来場者と出る来場者を区別できなかった。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The students discussed several possible ways to improve their system.",
+          "ja": "生徒たちは仕組みを改善するいくつかの方法を話し合った。"
+        },
+        {
+          "en": "One member suggested making separate paths for entering and leaving.",
+          "ja": "ある部員は入場と退場の通路を分けることを提案した。"
+        },
+        {
+          "en": "Another member prepared a clear sign to guide the visitors.",
+          "ja": "別の部員は来場者を案内する分かりやすい標識を用意した。"
+        },
+        {
+          "en": "After another test, the club could count people more accurately.",
+          "ja": "再テストの後、部はより正確に人数を数えられた。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "They did not publish the original number from that morning.",
+          "ja": "その朝の当初の数字は公表しなかった。"
+        },
+        {
+          "en": "Instead, they explained the mistake to their science teacher.",
+          "ja": "代わりに科学の先生に間違いを説明した。"
+        },
+        {
+          "en": "They realized that a digital result can look reliable but still be wrong.",
+          "ja": "デジタルの結果は信頼できそうに見えても誤っている場合があると気づいた。"
+        },
+        {
+          "en": "Testing their tool had become part of the scientific work itself.",
+          "ja": "道具を検証すること自体が科学的な作業の一部になった。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "visitors",
+      "ja": "来場者",
+      "synonym": "guests",
+      "definition": "people who come to a place"
+    },
+    {
+      "term": "exhibition",
+      "ja": "展示会",
+      "synonym": "show",
+      "definition": "an event where things are displayed"
+    },
+    {
+      "term": "device",
+      "ja": "装置",
+      "synonym": "instrument",
+      "definition": "a tool designed for a particular purpose"
+    },
+    {
+      "term": "entrance",
+      "ja": "入口",
+      "synonym": "entry",
+      "definition": "a place where people go in"
+    },
+    {
+      "term": "added",
+      "ja": "加えた",
+      "synonym": "increased",
+      "definition": "made a total larger by putting something with it"
+    },
+    {
+      "term": "digital",
+      "ja": "デジタルの",
+      "synonym": "electronic",
+      "definition": "using discrete numerical information"
+    },
+    {
+      "term": "whenever",
+      "ja": "〜するたびに",
+      "synonym": "every time",
+      "definition": "on any occasion when something happens"
+    },
+    {
+      "term": "passed through",
+      "ja": "通り抜けた",
+      "synonym": "went through",
+      "definition": "moved from one side to another"
+    },
+    {
+      "term": "perfectly",
+      "ja": "完璧に",
+      "synonym": "flawlessly",
+      "definition": "without any faults"
+    },
+    {
+      "term": "surprisingly",
+      "ja": "驚くほど",
+      "synonym": "unexpectedly",
+      "definition": "in a way that causes surprise"
+    },
+    {
+      "term": "welcoming",
+      "ja": "迎えている",
+      "synonym": "greeting",
+      "definition": "receiving people in a friendly way"
+    },
+    {
+      "term": "actually",
+      "ja": "実際に",
+      "synonym": "in fact",
+      "definition": "in reality"
+    },
+    {
+      "term": "entered",
+      "ja": "入った",
+      "synonym": "went into",
+      "definition": "moved inside a place"
+    },
+    {
+      "term": "reporting",
+      "ja": "報告すること",
+      "synonym": "announcing",
+      "definition": "giving information about something"
+    },
+    {
+      "term": "total",
+      "ja": "合計",
+      "synonym": "sum",
+      "definition": "the complete amount"
+    },
+    {
+      "term": "screen",
+      "ja": "画面",
+      "synonym": "display",
+      "definition": "a surface showing visual information"
+    },
+    {
+      "term": "increased",
+      "ja": "増えた",
+      "synonym": "rose",
+      "definition": "became larger in amount"
+    },
+    {
+      "term": "occasions",
+      "ja": "場合",
+      "synonym": "instances",
+      "definition": "particular times when something happens"
+    },
+    {
+      "term": "distinguish",
+      "ja": "区別する",
+      "synonym": "tell apart",
+      "definition": "recognize a difference between things"
+    },
+    {
+      "term": "possible",
+      "ja": "可能な",
+      "synonym": "feasible",
+      "definition": "able to happen or be done"
+    },
+    {
+      "term": "improve",
+      "ja": "改善する",
+      "synonym": "make better",
+      "definition": "change something so it works better"
+    },
+    {
+      "term": "system",
+      "ja": "仕組み",
+      "synonym": "arrangement",
+      "definition": "parts working together for a purpose"
+    },
+    {
+      "term": "separate",
+      "ja": "別々の",
+      "synonym": "distinct",
+      "definition": "not combined with another"
+    },
+    {
+      "term": "guide",
+      "ja": "案内する",
+      "synonym": "direct",
+      "definition": "show the way to someone"
+    },
+    {
+      "term": "accurately",
+      "ja": "正確に",
+      "synonym": "correctly",
+      "definition": "without errors"
+    },
+    {
+      "term": "publish",
+      "ja": "公表する",
+      "synonym": "release",
+      "definition": "make information publicly available"
+    },
+    {
+      "term": "original",
+      "ja": "当初の",
+      "synonym": "initial",
+      "definition": "existing at the beginning"
+    },
+    {
+      "term": "reliable",
+      "ja": "信頼できる",
+      "synonym": "dependable",
+      "definition": "able to be trusted"
+    },
+    {
+      "term": "scientific",
+      "ja": "科学的な",
+      "synonym": "science-based",
+      "definition": "related to systematic study and testing"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "Why did the club build the device?",
+      "answer": 3,
+      "options": [
+        "To open the door automatically.",
+        "To record students' voices.",
+        "To display photographs.",
+        "To count exhibition visitors."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "来場者数を数えるため。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "When did the device add one to the number?",
+      "answer": 0,
+      "options": [
+        "Whenever someone passed through the entrance.",
+        "Only when the teacher arrived.",
+        "Every five minutes.",
+        "When someone pressed a button."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "人が通るたびに1増えた。"
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why did Nora question the number?",
+      "answer": 2,
+      "options": [
+        "She had lost the screen.",
+        "She wanted to close the exhibition.",
+        "She thought fewer people had entered.",
+        "She had forgotten how to count."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "観察では実際の来場者がもっと少なかった。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What did the students decide to do before reporting?",
+      "answer": 1,
+      "options": [
+        "Buy a camera.",
+        "Test the device.",
+        "Remove the exhibition.",
+        "Open another school."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "装置を検証した。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What happened when Nora left the room?",
+      "answer": 2,
+      "options": [
+        "The number became zero.",
+        "The door locked.",
+        "The number increased again.",
+        "The number disappeared."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "退室時にも数字が増えた。"
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "What was the device's main problem?",
+      "answer": 0,
+      "options": [
+        "It counted people entering and leaving in the same way.",
+        "It missed all visitors.",
+        "It could not show numbers.",
+        "It worked only at night."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "入場と退場を区別できなかった。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What change did one club member suggest?",
+      "answer": 3,
+      "options": [
+        "Closing the entrance.",
+        "Using a larger screen.",
+        "Adding more exhibitions.",
+        "Providing separate paths for entry and exit."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "入退場の通路を分けること。"
+    },
+    {
+      "id": "q8",
+      "skill": "vocabulary",
+      "prompt": "What does 'accurately' mean?",
+      "answer": 1,
+      "options": [
+        "Quickly.",
+        "Correctly.",
+        "Loudly.",
+        "Secretly."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "間違いなく正確にという意味。"
+    },
+    {
+      "id": "q9",
+      "skill": "detail",
+      "prompt": "What did the students do with the original total?",
+      "answer": 0,
+      "options": [
+        "They chose not to publish it.",
+        "They printed it on posters.",
+        "They doubled it.",
+        "They sent it to every parent."
+      ],
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "当初の数は公表しなかった。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the main lesson of the passage?",
+      "answer": 2,
+      "options": [
+        "All digital devices are useless.",
+        "Counting visitors is impossible.",
+        "A digital tool needs testing before its results are trusted.",
+        "Science clubs should not hold exhibitions."
+      ],
+      "paragraph_ids": [
+        "p2",
+        "p3",
+        "p5"
+      ],
+      "explanation_ja": "デジタルの出力を信頼する前に検証すること。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "whenever someone passed through",
+      "explanation_ja": "whenever節は通るたびにという反復条件。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "had been welcoming",
+      "explanation_ja": "過去完了進行形でそれまで続いていた行動を表す。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "focus": "distinguish entering visitors from those leaving",
+      "explanation_ja": "distinguish A from BはAとBを区別する。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "focus": "can look reliable but still be wrong",
+      "explanation_ja": "butで見た目の信頼性と実際の誤りを対比する。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p2",
+      "expression": "However",
+      "role_ja": "順調に見えたことと不自然な数値を対比。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "First",
+      "role_ja": "最初の検証手順。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Then",
+      "role_ja": "続く検証手順。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "Instead",
+      "role_ja": "公表せず説明した別の行動。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "At first, the device seemed to work perfectly well.",
+      "rewrite": "Initially, the tool appeared to work without any problems.",
+      "explanation_ja": "当初は問題なく動いているように見えた。"
+    },
+    {
+      "source": "The club decided to test the device before reporting the total.",
+      "rewrite": "The club chose to check the tool before announcing the count.",
+      "explanation_ja": "人数を発表する前に装置を確認した。"
+    },
+    {
+      "source": "The device could not distinguish entering visitors from those leaving.",
+      "rewrite": "The tool could not tell people coming in apart from people going out.",
+      "explanation_ja": "入る人と出る人を区別できなかった。"
+    },
+    {
+      "source": "They realized that a digital result can look reliable but still be wrong.",
+      "rewrite": "They understood that computer-generated numbers may appear trustworthy even when incorrect.",
+      "explanation_ja": "誤っていても信頼できそうに見える場合がある。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "answer": "device",
+      "options": [
+        "device",
+        "bottle",
+        "sandwich",
+        "jacket"
+      ],
+      "explanation_ja": "入口に装置を設けた。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "increased",
+      "options": [
+        "vanished",
+        "increased",
+        "fell",
+        "stopped"
+      ],
+      "explanation_ja": "どちらの通過でも値が増えた。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "separate",
+      "options": [
+        "silent",
+        "empty",
+        "separate",
+        "square"
+      ],
+      "explanation_ja": "入退場の通路を分ける。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 0,
+      "answer": "publish",
+      "options": [
+        "count",
+        "carry",
+        "draw",
+        "publish"
+      ],
+      "explanation_ja": "誤った数字を公表しなかった。"
+    }
+  ]
+}
