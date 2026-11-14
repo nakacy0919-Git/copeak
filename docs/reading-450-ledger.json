@@ -5,9 +5,9 @@
   "as_of": "2026-11-14",
   "authoritative_branch": "coord/reading-450-registry",
   "manifest_path": "data/reading/entrance/manifest.json",
-  "registered_total": 230,
+  "registered_total": 240,
   "production_reference_count": 28,
-  "development_unpublished_total": 202,
+  "development_unpublished_total": 212,
   "accepted_ids": [
     "L01-001",
     "L01-002",
@@ -103,6 +103,7 @@
     "L06-012",
     "L06-013",
     "L06-014",
+    "L06-015",
     "L06-016",
     "L07-001",
     "L07-002",
@@ -118,6 +119,7 @@
     "L07-012",
     "L07-013",
     "L07-014",
+    "L07-015",
     "L07-016",
     "L08-001",
     "L08-002",
@@ -133,6 +135,7 @@
     "L08-012",
     "L08-013",
     "L08-014",
+    "L08-015",
     "L08-016",
     "L09-001",
     "L09-002",
@@ -148,6 +151,7 @@
     "L09-012",
     "L09-013",
     "L09-014",
+    "L09-015",
     "L09-016",
     "L10-001",
     "L10-002",
@@ -163,6 +167,7 @@
     "L10-012",
     "L10-013",
     "L10-014",
+    "L10-015",
     "L10-016",
     "L11-001",
     "L11-002",
@@ -178,6 +183,7 @@
     "L11-012",
     "L11-013",
     "L11-014",
+    "L11-015",
     "L11-016",
     "L12-001",
     "L12-002",
@@ -193,6 +199,7 @@
     "L12-012",
     "L12-013",
     "L12-014",
+    "L12-015",
     "L12-016",
     "L13-001",
     "L13-002",
@@ -208,6 +215,7 @@
     "L13-012",
     "L13-013",
     "L13-014",
+    "L13-015",
     "L13-016",
     "L14-001",
     "L14-002",
@@ -223,6 +231,7 @@
     "L14-012",
     "L14-013",
     "L14-014",
+    "L14-015",
     "L14-016",
     "L15-001",
     "L15-002",
@@ -238,6 +247,7 @@
     "L15-012",
     "L15-013",
     "L15-014",
+    "L15-015",
     "L15-016"
   ],
   "categories": [
@@ -274,135 +284,65 @@
     {
       "id": "L06",
       "label": "心理・哲学",
-      "registered": 15,
+      "registered": 16,
       "next_suggested_id": "L06-017"
     },
     {
       "id": "L07",
       "label": "経済・ビジネス",
-      "registered": 15,
+      "registered": 16,
       "next_suggested_id": "L07-017"
     },
     {
       "id": "L08",
       "label": "芸術・文化",
-      "registered": 15,
+      "registered": 16,
       "next_suggested_id": "L08-017"
     },
     {
       "id": "L09",
       "label": "文学・言語",
-      "registered": 15,
+      "registered": 16,
       "next_suggested_id": "L09-017"
     },
     {
       "id": "L10",
       "label": "教育・学習",
-      "registered": 15,
+      "registered": 16,
       "next_suggested_id": "L10-017"
     },
     {
       "id": "L11",
       "label": "法律・政治",
-      "registered": 15,
+      "registered": 16,
       "next_suggested_id": "L11-017"
     },
     {
       "id": "L12",
       "label": "医療・健康",
-      "registered": 15,
+      "registered": 16,
       "next_suggested_id": "L12-017"
     },
     {
       "id": "L13",
       "label": "宇宙・未来",
-      "registered": 15,
+      "registered": 16,
       "next_suggested_id": "L13-017"
     },
     {
       "id": "L14",
       "label": "婚姻・交友",
-      "registered": 15,
+      "registered": 16,
       "next_suggested_id": "L14-017"
     },
     {
       "id": "L15",
       "label": "倫理・道徳",
-      "registered": 15,
+      "registered": 16,
       "next_suggested_id": "L15-017"
     }
   ],
   "reservations": [
-    {
-      "id": "L06-015",
-      "owner": "volume-h2",
-      "work_branch": "content/reading-20261114-volume-h2",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L07-015",
-      "owner": "volume-h2",
-      "work_branch": "content/reading-20261114-volume-h2",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L08-015",
-      "owner": "volume-h2",
-      "work_branch": "content/reading-20261114-volume-h2",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L09-015",
-      "owner": "volume-h2",
-      "work_branch": "content/reading-20261114-volume-h2",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L10-015",
-      "owner": "volume-h2",
-      "work_branch": "content/reading-20261114-volume-h2",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L11-015",
-      "owner": "volume-h2",
-      "work_branch": "content/reading-20261114-volume-h2",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L12-015",
-      "owner": "volume-h2",
-      "work_branch": "content/reading-20261114-volume-h2",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L13-015",
-      "owner": "volume-h2",
-      "work_branch": "content/reading-20261114-volume-h2",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L14-015",
-      "owner": "volume-h2",
-      "work_branch": "content/reading-20261114-volume-h2",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L15-015",
-      "owner": "volume-h2",
-      "work_branch": "content/reading-20261114-volume-h2",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
     {
       "id": "L01-018",
       "owner": "volume-l",

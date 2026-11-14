@@ -3,8 +3,8 @@
   "as_of": "2026-11-14",
   "goal": 450,
   "category_target": 30,
-  "registered_total": 230,
-  "remaining": 220,
+  "registered_total": 240,
+  "remaining": 210,
   "level_targets_per_category": {
     "eiken-3": 1,
     "eiken-pre2": 4,
@@ -56,84 +56,84 @@
       "category_id": "L06",
       "name": "心理・哲学",
       "target": 30,
-      "registered": 15,
-      "remaining": 15
+      "registered": 16,
+      "remaining": 14
     },
     {
       "category_id": "L07",
       "name": "経済・ビジネス",
       "target": 30,
-      "registered": 15,
-      "remaining": 15
+      "registered": 16,
+      "remaining": 14
     },
     {
       "category_id": "L08",
       "name": "芸術・文化",
       "target": 30,
-      "registered": 15,
-      "remaining": 15
+      "registered": 16,
+      "remaining": 14
     },
     {
       "category_id": "L09",
       "name": "文学・言語",
       "target": 30,
-      "registered": 15,
-      "remaining": 15
+      "registered": 16,
+      "remaining": 14
     },
     {
       "category_id": "L10",
       "name": "教育・学習",
       "target": 30,
-      "registered": 15,
-      "remaining": 15
+      "registered": 16,
+      "remaining": 14
     },
     {
       "category_id": "L11",
       "name": "法律・政治",
       "target": 30,
-      "registered": 15,
-      "remaining": 15
+      "registered": 16,
+      "remaining": 14
     },
     {
       "category_id": "L12",
       "name": "医療・健康",
       "target": 30,
-      "registered": 15,
-      "remaining": 15
+      "registered": 16,
+      "remaining": 14
     },
     {
       "category_id": "L13",
       "name": "宇宙・未来",
       "target": 30,
-      "registered": 15,
-      "remaining": 15
+      "registered": 16,
+      "remaining": 14
     },
     {
       "category_id": "L14",
       "name": "婚姻・交友",
       "target": 30,
-      "registered": 15,
-      "remaining": 15
+      "registered": 16,
+      "remaining": 14
     },
     {
       "category_id": "L15",
       "name": "倫理・道徳",
       "target": 30,
-      "registered": 15,
-      "remaining": 15
+      "registered": 16,
+      "remaining": 14
     }
   ],
   "latest_unpublished_batch": [
-    "L01-016",
-    "L02-016",
-    "L03-016",
-    "L04-016",
-    "L05-016",
-    "L11-016",
-    "L12-016",
-    "L13-016",
-    "L14-016",
-    "L15-016"
+    "L06-015",
+    "L07-015",
+    "L08-015",
+    "L09-015",
+    "L10-015",
+    "L11-015",
+    "L12-015",
+    "L13-015",
+    "L14-015",
+    "L15-015"
   ],
   "release_policy": {
     "new_works_default_status": "draft",
@@ -164,7 +164,8 @@
     "2026-11-14: Volume batch added L11-013, L12-013, L13-013, L14-013, L15-013, L01-014, L02-014, L03-014, L04-014, L05-014 (3050 words, 200 bilingual sentences, 422 vocabulary entries, 100 comprehension questions and 160 review exercises). Draft only; individual structural checks and registry reconciliation passed; full repository guard, semantic duplication check and human review pending.",
     "2026-11-14: Volume-h batch added L06-014, L07-014, L08-014, L09-014, L10-014, L11-014, L12-014, L13-014, L14-014, L15-014 (2366 words, 200 bilingual sentences, 316 vocabulary entries, 100 comprehension questions and 160 review exercises). Draft only; individual structural checks and registry reconciliation passed; full repository guard, semantic duplication check and human review pending.",
     "2026-11-14: Volume batch added L01-015, L02-015, L03-015, L04-015, L05-015, L06-016, L07-016, L08-016, L09-016, L10-016 (2621 words, 200 bilingual sentences, 415 vocabulary entries, 100 comprehension questions and 160 review exercises). Draft only; individual structural checks and registry reconciliation passed; full repository guard, semantic duplication check and human review pending.",
-    "2026-11-14: amber-j added L01-016, L02-016, L03-016, L04-016, L05-016, L11-016, L12-016, L13-016, L14-016, L15-016 (3291 words, 200 bilingual sentences, 478 vocabulary entries, 100 comprehension questions and 160 review exercises). Draft only; individual structural checks and registry reconciliation passed; full repository guard, semantic duplication check and human review pending."
+    "2026-11-14: amber-j added L01-016, L02-016, L03-016, L04-016, L05-016, L11-016, L12-016, L13-016, L14-016, L15-016 (3291 words, 200 bilingual sentences, 478 vocabulary entries, 100 comprehension questions and 160 review exercises). Draft only; individual structural checks and registry reconciliation passed; full repository guard, semantic duplication check and human review pending.",
+    "2026-11-14: Volume H2 added L06-015, L07-015, L08-015, L09-015, L10-015, L11-015, L12-015, L13-015, L14-015, L15-015 (3767 words, 200 bilingual sentences, 480 vocabulary entries, 100 comprehension questions and 160 review exercises). Draft only; individual structural checks and registry reconciliation passed; full repository guard, semantic duplication check and human review pending."
   ],
-  "all_unpublished_batches_note": "Authoritative non-production branch: coord/reading-450-registry; 230 unique registered IDs; main reference count 28."
+  "all_unpublished_batches_note": "Authoritative non-production branch: coord/reading-450-registry; 240 unique registered IDs; main reference count 28."
 }
