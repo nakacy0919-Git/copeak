@@ -1,0 +1,584 @@
+{
+  "id": "L12-009",
+  "category_id": "L12",
+  "title": "The Poster with a Confusing Health Message",
+  "title_ja": "保健室のわかりにくい健康ポスター",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 185,
+  "source_links": [
+    {
+      "title": "General educational reference",
+      "url": "https://www.who.int/health-topics/health-literacy"
+    }
+  ],
+  "fact_notes": [
+    "学校と登場人物は架空。本文・和訳・設問・解説は独自制作。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "The school nurse makes a poster about asking for help.",
+          "ja": "養護教諭は助けを求めることについてポスターを作ります。"
+        },
+        {
+          "en": "The poster contains many long and difficult sentences.",
+          "ja": "ポスターには長く難しい文がたくさんあります。"
+        },
+        {
+          "en": "However, several students cannot understand the important message.",
+          "ja": "しかし何人かの生徒は大切な内容を理解できません。"
+        },
+        {
+          "en": "The nurse asks them what information they need first.",
+          "ja": "養護教諭は最初に必要な情報を尋ねます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "One student wants to know where the health room is.",
+          "ja": "ある生徒は保健室の場所を知りたがります。"
+        },
+        {
+          "en": "For example, a new student may not know the room number.",
+          "ja": "例えば新入生は部屋番号を知らないかもしれません。"
+        },
+        {
+          "en": "Another student asks when they can talk to the nurse.",
+          "ja": "別の生徒はいつ養護教諭と話せるか尋ねます。"
+        },
+        {
+          "en": "The nurse listens carefully and writes down their questions.",
+          "ja": "養護教諭は丁寧に耳を傾け質問を書き留めます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The class helps create a shorter and clearer poster.",
+          "ja": "クラスはより短く明確なポスター作りを手伝います。"
+        },
+        {
+          "en": "They include a map and the health room number.",
+          "ja": "地図と保健室の部屋番号を入れます。"
+        },
+        {
+          "en": "Instead of using long words, they write simple directions.",
+          "ja": "長い言葉を使う代わりに簡単な道順を書きます。"
+        },
+        {
+          "en": "They also make the most important information easy to see.",
+          "ja": "最も重要な情報も見やすくします。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Students read the new poster during a practice activity.",
+          "ja": "生徒たちは練習活動で新しいポスターを読みます。"
+        },
+        {
+          "en": "Nevertheless, one student still has a question about privacy.",
+          "ja": "それでも一人の生徒にはプライバシーについて疑問が残ります。"
+        },
+        {
+          "en": "The nurse explains how students can ask private questions.",
+          "ja": "養護教諭は個人的な質問の仕方を説明します。"
+        },
+        {
+          "en": "The class adds a short sentence inviting students to ask.",
+          "ja": "クラスは質問を促す短い文を加えます。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The poster is placed beside the school entrance.",
+          "ja": "ポスターは学校の入口の横に置かれます。"
+        },
+        {
+          "en": "More students can find the information they need.",
+          "ja": "より多くの生徒が必要な情報を見つけられます。"
+        },
+        {
+          "en": "As a result, the nurse checks other school notices too.",
+          "ja": "その結果養護教諭はほかの学校の案内も確認します。"
+        },
+        {
+          "en": "Good health information should be clear and easy to use.",
+          "ja": "よい健康情報は明確で使いやすいものであるべきです。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "Who makes the first poster?",
+      "options": [
+        "The school nurse.",
+        "A bus driver.",
+        "A shop worker.",
+        "A musician."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「養護教諭は助けを求めることについてポスターを作ります。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What is wrong with the first poster?",
+      "options": [
+        "It contains no words.",
+        "It shows the wrong school.",
+        "It is only a picture.",
+        "The writing is difficult to understand."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「しかし何人かの生徒は大切な内容を理解できません。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What does one student want to know?",
+      "options": [
+        "Where the library books are.",
+        "Which train to take.",
+        "Where the health room is.",
+        "How to play a sport."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「ある生徒は保健室の場所を知りたがります。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What do students ask about the nurse?",
+      "options": [
+        "Where she bought the poster.",
+        "When they can talk to her.",
+        "Whether she plays music.",
+        "How old the school is."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「別の生徒はいつ養護教諭と話せるか尋ねます。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What do students add?",
+      "options": [
+        "A map and room number.",
+        "A sports score.",
+        "A holiday timetable.",
+        "A shopping list."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「地図と保健室の部屋番号を入れます。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "How do students improve the directions?",
+      "options": [
+        "Add more difficult words.",
+        "Remove all locations.",
+        "Write only in pictures.",
+        "Use simple words."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「長い言葉を使う代わりに簡単な道順を書きます。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What question remains?",
+      "options": [
+        "A question about school lunch.",
+        "A question about music.",
+        "A question about privacy.",
+        "A question about sports."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「それでも一人の生徒にはプライバシーについて疑問が残ります。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What does the class add?",
+      "options": [
+        "A list of examination scores.",
+        "An invitation to ask questions.",
+        "Every student's phone number.",
+        "A new building plan."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「クラスは質問を促す短い文を加えます。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Where is the new poster placed?",
+      "options": [
+        "Near the school entrance.",
+        "Inside a supermarket.",
+        "At a train station.",
+        "On a school bus."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「より多くの生徒が必要な情報を見つけられます。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the story mainly about?",
+      "options": [
+        "Avoiding all visits to the nurse.",
+        "Making posters as long as possible.",
+        "Asking students to ignore questions.",
+        "Making health information clear and useful."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「よい健康情報は明確で使いやすいものであるべきです。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "activity",
+      "ja": "活動",
+      "synonym": "task",
+      "definition": "something people do"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "health",
+      "ja": "健康",
+      "synonym": "wellness",
+      "definition": "the condition of body and mind"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "important",
+      "ja": "重要な",
+      "synonym": "significant",
+      "definition": "having great value"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "details",
+      "definition": "facts people need"
+    },
+    {
+      "term": "map",
+      "ja": "地図",
+      "synonym": "chart",
+      "definition": "a drawing of locations"
+    },
+    {
+      "term": "message",
+      "ja": "メッセージ",
+      "synonym": "information",
+      "definition": "words conveying meaning"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "practice",
+      "ja": "練習",
+      "synonym": "training",
+      "definition": "work to improve a skill"
+    },
+    {
+      "term": "privacy",
+      "ja": "プライバシー",
+      "synonym": "confidentiality",
+      "definition": "protection of private information"
+    },
+    {
+      "term": "private",
+      "ja": "個人的な",
+      "synonym": "personal",
+      "definition": "not shared with everyone"
+    },
+    {
+      "term": "question",
+      "ja": "質問",
+      "synonym": "inquiry",
+      "definition": "something asked"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "student",
+      "ja": "生徒",
+      "synonym": "learner",
+      "definition": "a person learning at school"
+    },
+    {
+      "term": "students",
+      "ja": "生徒",
+      "synonym": "learners",
+      "definition": "people studying at a school"
+    },
+    {
+      "term": "nurse",
+      "ja": "養護教諭",
+      "synonym": "health worker",
+      "definition": "someone who supports health"
+    },
+    {
+      "term": "poster",
+      "ja": "ポスター",
+      "synonym": "notice",
+      "definition": "a public display"
+    },
+    {
+      "term": "questions",
+      "ja": "質問",
+      "synonym": "inquiries",
+      "definition": "things people ask"
+    },
+    {
+      "term": "entrance",
+      "ja": "入口",
+      "synonym": "doorway",
+      "definition": "a place for entering"
+    },
+    {
+      "term": "notices",
+      "ja": "案内",
+      "synonym": "announcements",
+      "definition": "public written information"
+    },
+    {
+      "term": "clear",
+      "ja": "明確な",
+      "synonym": "plain",
+      "definition": "easy to understand"
+    },
+    {
+      "term": "difficult",
+      "ja": "難しい",
+      "synonym": "hard",
+      "definition": "not easy"
+    },
+    {
+      "term": "simple",
+      "ja": "簡単な",
+      "synonym": "easy",
+      "definition": "not complicated"
+    },
+    {
+      "term": "directions",
+      "ja": "道順",
+      "synonym": "instructions",
+      "definition": "information on where to go"
+    },
+    {
+      "term": "room",
+      "ja": "部屋",
+      "synonym": "space",
+      "definition": "an area inside a building"
+    },
+    {
+      "term": "understand",
+      "ja": "理解する",
+      "synonym": "comprehend",
+      "definition": "know the meaning"
+    },
+    {
+      "term": "carefully",
+      "ja": "丁寧に",
+      "synonym": "attentively",
+      "definition": "with attention"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "what information they need first",
+      "explanation_ja": "what節は必要な情報を表します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "may not know the room number",
+      "explanation_ja": "mayは可能性を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of using long words",
+      "explanation_ja": "instead of + 動名詞で方法を対比します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "should be clear and easy to use",
+      "explanation_ja": "shouldで望ましい状態を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "難しいポスターの問題を導きます。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "新入生が必要な情報を例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "改善後にも残る疑問を示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "ほかの案内も見直す結果です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The nurse asks them what information they need first.",
+      "rewrite": "The nurse asks which details students need most.",
+      "explanation_ja": "必要な情報を尋ねます。"
+    },
+    {
+      "source": "The nurse listens carefully and writes down their questions.",
+      "rewrite": "She listens and records students' questions.",
+      "explanation_ja": "質問を聞いて記録します。"
+    },
+    {
+      "source": "The class adds a short sentence inviting students to ask.",
+      "rewrite": "The class invites students to ask for clarification.",
+      "explanation_ja": "質問を促す文を加えます。"
+    },
+    {
+      "source": "Good health information should be clear and easy to use.",
+      "rewrite": "Health notices need to be understandable and practical.",
+      "explanation_ja": "保健情報はわかりやすく使えることが重要です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "As a result",
+        "In addition"
+      ],
+      "explanation_ja": "難しいポスターの問題を導きます。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "As a result",
+        "In contrast"
+      ],
+      "explanation_ja": "新入生が必要な情報を例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "For example",
+        "As a result",
+        "Moreover"
+      ],
+      "explanation_ja": "改善後にも残る疑問を示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "For example",
+        "However",
+        "Meanwhile"
+      ],
+      "explanation_ja": "ほかの案内も見直す結果です。"
+    }
+  ]
+}
