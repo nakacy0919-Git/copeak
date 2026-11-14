@@ -1,0 +1,632 @@
+{
+  "id": "L08-009",
+  "category_id": "L08",
+  "title": "The Quiet Sound in the Art Room",
+  "title_ja": "美術室の静かな音",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 189,
+  "source_links": [
+    {
+      "title": "General background reference",
+      "url": "https://www.unesco.org/en/culture"
+    }
+  ],
+  "fact_notes": [
+    "物語・家庭・参加者は架空。英文・日本語訳・設問・解説は独自作成。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "An art teacher asks students to create pictures about their town.",
+          "ja": "美術の教師は生徒たちに町についての絵を作るよう求めます。"
+        },
+        {
+          "en": "Most students begin drawing buildings, bridges, and trees.",
+          "ja": "多くの生徒は建物や橋や木を描き始めます。"
+        },
+        {
+          "en": "However, Sora wants to draw a memory of rain.",
+          "ja": "しかしソラは雨の記憶を描きたいと考えます。"
+        },
+        {
+          "en": "He does not know how to show a sound in a picture.",
+          "ja": "絵で音を表す方法がわかりません。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The teacher asks Sora what rain sounds like to him.",
+          "ja": "教師はソラに雨がどんな音に聞こえるか尋ねます。"
+        },
+        {
+          "en": "For example, he remembers soft rain falling on his window.",
+          "ja": "例えば窓に静かな雨が降る音を覚えています。"
+        },
+        {
+          "en": "He chooses gentle lines and pale colors for his picture.",
+          "ja": "自分の絵に柔らかな線と淡い色を選びます。"
+        },
+        {
+          "en": "He also leaves part of the paper empty.",
+          "ja": "紙の一部を空白のまま残します。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "His classmate Mei creates a different picture about rain.",
+          "ja": "同級生のメイは雨について別の絵を作ります。"
+        },
+        {
+          "en": "She remembers a noisy storm during a school trip.",
+          "ja": "学校旅行中の激しい嵐を覚えています。"
+        },
+        {
+          "en": "Instead of copying Sora's colors, she uses dark shapes.",
+          "ja": "ソラの色を真似せず濃い形を使います。"
+        },
+        {
+          "en": "The two students talk about their different memories.",
+          "ja": "二人は異なる記憶について話し合います。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The class displays both pictures in the art room.",
+          "ja": "クラスは美術室に二枚の絵を展示します。"
+        },
+        {
+          "en": "Nevertheless, some visitors do not immediately understand the meaning.",
+          "ja": "それでも来訪者の中には意味をすぐ理解できない人もいます。"
+        },
+        {
+          "en": "Sora and Mei write short explanations beside their work.",
+          "ja": "ソラとメイは作品の横に短い説明を書きます。"
+        },
+        {
+          "en": "They enjoy hearing other people describe what they imagine.",
+          "ja": "他の人が何を想像するか聞くのを楽しみます。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "At the end, the teacher thanks everyone for sharing ideas.",
+          "ja": "最後に教師は考えを共有した全員に感謝します。"
+        },
+        {
+          "en": "The students see that art can express personal experiences.",
+          "ja": "生徒たちは芸術が個人的な経験を表せるとわかります。"
+        },
+        {
+          "en": "As a result, they become more willing to try unfamiliar styles.",
+          "ja": "その結果見慣れない表現方法にも挑戦したくなります。"
+        },
+        {
+          "en": "One sound can become many different pictures in people's minds.",
+          "ja": "一つの音が人々の心の中で多くの異なる絵になり得ます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What do most students begin drawing?",
+      "options": [
+        "Buildings, bridges, and trees.",
+        "Only musical notes.",
+        "Only animals in a zoo.",
+        "Only a school uniform."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「多くの生徒は建物や橋や木を描き始めます。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What does Sora want to show?",
+      "options": [
+        "A sports competition.",
+        "A train journey.",
+        "A new classroom.",
+        "A memory of rain."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「絵で音を表す方法がわかりません。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "How does Sora remember rain?",
+      "options": [
+        "As voices in a crowd.",
+        "As complete silence inside a train.",
+        "As soft sounds on his window.",
+        "As a loud school bell."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「例えば窓に静かな雨が降る音を覚えています。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What colors does Sora choose?",
+      "options": [
+        "No colors at all.",
+        "Pale colors.",
+        "Only black.",
+        "Only bright red."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「自分の絵に柔らかな線と淡い色を選びます。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What does Mei remember?",
+      "options": [
+        "A noisy storm on a school trip.",
+        "A quiet sunny morning.",
+        "A music concert.",
+        "A new art book."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「学校旅行中の激しい嵐を覚えています。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "How does Mei make her picture different?",
+      "options": [
+        "She copies every color.",
+        "She stops drawing.",
+        "She paints only buildings.",
+        "She uses dark shapes."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「ソラの色を真似せず濃い形を使います。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "Where are the works displayed?",
+      "options": [
+        "In a supermarket.",
+        "Inside the school bus.",
+        "In the art room.",
+        "At a railway station."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「それでも来訪者の中には意味をすぐ理解できない人もいます。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What do Sora and Mei add?",
+      "options": [
+        "A school timetable.",
+        "Short explanations.",
+        "New photographs of friends.",
+        "A list of prices."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「他の人が何を想像するか聞くのを楽しみます。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What can art express?",
+      "options": [
+        "Personal experiences.",
+        "Only exact measurements.",
+        "Only famous buildings.",
+        "Only historical dates."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「生徒たちは芸術が個人的な経験を表せるとわかります。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the main message?",
+      "options": [
+        "Art must show the same image for everyone.",
+        "Rain always requires dark colors.",
+        "Every viewer must reach one interpretation.",
+        "Different people can represent the same sound in different ways."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「一つの音が人々の心の中で多くの異なる絵になり得ます。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "buildings",
+      "ja": "建物",
+      "synonym": "structures",
+      "definition": "places constructed by people"
+    },
+    {
+      "term": "classmate",
+      "ja": "同級生",
+      "synonym": "peer",
+      "definition": "a student in the same class"
+    },
+    {
+      "term": "describe",
+      "ja": "説明する",
+      "synonym": "explain",
+      "definition": "to give an account of something"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "experiences",
+      "ja": "経験",
+      "synonym": "events",
+      "definition": "things people have lived through"
+    },
+    {
+      "term": "express",
+      "ja": "表現する",
+      "synonym": "state",
+      "definition": "to communicate ideas or feelings"
+    },
+    {
+      "term": "gentle",
+      "ja": "柔らかな",
+      "synonym": "soft",
+      "definition": "not harsh"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "imagine",
+      "ja": "想像する",
+      "synonym": "picture",
+      "definition": "create an idea in the mind"
+    },
+    {
+      "term": "immediately",
+      "ja": "すぐに",
+      "synonym": "at once",
+      "definition": "without delay"
+    },
+    {
+      "term": "leaves",
+      "ja": "葉",
+      "synonym": "foliage",
+      "definition": "flat green parts of a plant"
+    },
+    {
+      "term": "memories",
+      "ja": "記憶",
+      "synonym": "recollections",
+      "definition": "things remembered"
+    },
+    {
+      "term": "memory",
+      "ja": "記憶",
+      "synonym": "recollection",
+      "definition": "something remembered"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "personal",
+      "ja": "個人的な",
+      "synonym": "individual",
+      "definition": "related to one person"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "sharing",
+      "ja": "共有すること",
+      "synonym": "forwarding",
+      "definition": "passing information to others"
+    },
+    {
+      "term": "storm",
+      "ja": "嵐",
+      "synonym": "strong weather",
+      "definition": "weather with strong wind and rain"
+    },
+    {
+      "term": "students",
+      "ja": "生徒",
+      "synonym": "learners",
+      "definition": "people attending school"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "someone who teaches"
+    },
+    {
+      "term": "trees",
+      "ja": "木々",
+      "synonym": "woody plants",
+      "definition": "large plants with trunks and branches"
+    },
+    {
+      "term": "unfamiliar",
+      "ja": "なじみのない",
+      "synonym": "unknown",
+      "definition": "not recognized or understood"
+    },
+    {
+      "term": "visitors",
+      "ja": "来訪者",
+      "synonym": "guests",
+      "definition": "people attending an event"
+    },
+    {
+      "term": "art",
+      "ja": "芸術",
+      "synonym": "creative expression",
+      "definition": "works made to communicate ideas"
+    },
+    {
+      "term": "picture",
+      "ja": "絵",
+      "synonym": "image",
+      "definition": "a visual representation"
+    },
+    {
+      "term": "pictures",
+      "ja": "絵",
+      "synonym": "images",
+      "definition": "visual representations"
+    },
+    {
+      "term": "drawing",
+      "ja": "描くこと",
+      "synonym": "sketching",
+      "definition": "making images with lines"
+    },
+    {
+      "term": "sound",
+      "ja": "音",
+      "synonym": "noise",
+      "definition": "something that can be heard"
+    },
+    {
+      "term": "sounds",
+      "ja": "音",
+      "synonym": "noises",
+      "definition": "things that can be heard"
+    },
+    {
+      "term": "rain",
+      "ja": "雨",
+      "synonym": "rainfall",
+      "definition": "water falling from clouds"
+    },
+    {
+      "term": "colors",
+      "ja": "色",
+      "synonym": "shades",
+      "definition": "visual appearances of light"
+    },
+    {
+      "term": "shapes",
+      "ja": "形",
+      "synonym": "forms",
+      "definition": "outlines of objects"
+    },
+    {
+      "term": "pale",
+      "ja": "淡い",
+      "synonym": "light",
+      "definition": "not strongly colored"
+    },
+    {
+      "term": "styles",
+      "ja": "表現方法",
+      "synonym": "manners",
+      "definition": "different artistic approaches"
+    },
+    {
+      "term": "explanations",
+      "ja": "説明",
+      "synonym": "clarifications",
+      "definition": "words that make something clear"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "how to show a sound in a picture",
+      "explanation_ja": "how to不定詞は方法を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 0,
+      "focus": "what rain sounds like to him",
+      "explanation_ja": "what節はソラの感じ方を尋ねます。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of copying Sora's colors",
+      "explanation_ja": "instead of + 動名詞は別の表現を示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "can become many different pictures",
+      "explanation_ja": "canは可能性を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "一般的な町の絵と音の記憶を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "ソラの雨の記憶を例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "展示作品がすぐには伝わらないことを示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "表現に挑戦する意欲が増す結果です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "He does not know how to show a sound in a picture.",
+      "rewrite": "Sora is unsure how to represent a sound visually.",
+      "explanation_ja": "音を視覚的に表す方法を考えています。"
+    },
+    {
+      "source": "He chooses gentle lines and pale colors for his picture.",
+      "rewrite": "He expresses a gentle memory using soft lines and colors.",
+      "explanation_ja": "柔らかな線と色で記憶を表します。"
+    },
+    {
+      "source": "They enjoy hearing other people describe what they imagine.",
+      "rewrite": "The artists enjoy learning what visitors imagine.",
+      "explanation_ja": "他者の解釈を聞くのを楽しみます。"
+    },
+    {
+      "source": "One sound can become many different pictures in people's minds.",
+      "rewrite": "A similar experience may inspire different artworks.",
+      "explanation_ja": "同じ音が異なる作品になります。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "一般的な町の絵と音の記憶を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "ソラの雨の記憶を例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "展示作品がすぐには伝わらないことを示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "表現に挑戦する意欲が増す結果です。"
+    }
+  ]
+}
