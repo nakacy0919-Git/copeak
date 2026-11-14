@@ -1,0 +1,1142 @@
+{
+  "id": "L03-011",
+  "category_id": "L03",
+  "title": "The Machine That Misheard an Emergency Message",
+  "title_ja": "緊急メッセージを聞き間違えた機械",
+  "level_id": "university-advanced",
+  "status": "draft",
+  "original": true,
+  "word_count": 683,
+  "source_links": [
+    {
+      "title": "NIST Speech Recognition background",
+      "url": "https://www.nist.gov/itl/iad/mig/speech-recognition"
+    }
+  ],
+  "fact_notes": [
+    "試作システム、テスト結果、緊急訓練は架空の教育用設定。実際の緊急サービスとしての運用を推奨するものではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A technology research club tests a prototype that converts spoken requests for assistance into written messages during a fictional emergency exercise.",
+          "ja": "技術研究クラブは架空の緊急訓練で支援を求める音声を文章に変える試作システムを試します。"
+        },
+        {
+          "en": "The system displays the words it recognizes, allowing volunteers to read messages without repeatedly listening to recordings.",
+          "ja": "システムは認識した語を表示し、ボランティアが録音を繰り返し聞かずにメッセージを読めるようにします。"
+        },
+        {
+          "en": "The first demonstration impresses students because several clear recordings are transcribed almost immediately and appear easy to understand.",
+          "ja": "最初の実演では明瞭な録音のいくつかがほぼ即座に文字化され理解しやすく見えるため生徒たちは感心します。"
+        },
+        {
+          "en": "However, one recording from a speaker near a busy road is changed into a sentence requesting a different kind of help.",
+          "ja": "しかし車の多い道路の近くにいる話し手の録音の一つが別の種類の支援を求める文に変わってしまいます。"
+        },
+        {
+          "en": "The displayed sentence looks grammatically complete, making the mistake difficult to notice without checking the original sound.",
+          "ja": "表示された文は文法的に完成して見え、元の音声を確認しなければ誤りに気づきにくくなります。"
+        },
+        {
+          "en": "The instructor immediately explains that the activity is a classroom simulation rather than a service suitable for actual emergency decisions.",
+          "ja": "指導者はこの活動が実際の緊急判断に適したサービスではなく教室での模擬実験だとすぐに説明します。"
+        },
+        {
+          "en": "The students begin investigating why a system can produce convincing language while misunderstanding the message that mattered most.",
+          "ja": "生徒たちはシステムがもっとも重要な内容を誤解しながら説得力のある言葉を作れる理由を調べ始めます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Speech recognition systems attempt to infer words from acoustic information, but recorded sound rarely contains perfectly separated and identical word patterns.",
+          "ja": "音声認識システムは音響情報から語を推定しようとしますが録音には完全に区切られた同一の語のパターンがあるとは限りません。"
+        },
+        {
+          "en": "For example, background traffic, a weak microphone signal, or an unfamiliar speaking style can make a phrase more difficult to recognize.",
+          "ja": "例えば背景の交通音、弱いマイク信号、なじみのない話し方は句の認識を難しくします。"
+        },
+        {
+          "en": "The students discover that recognition errors may produce plausible sentences rather than obvious strings of meaningless letters.",
+          "ja": "生徒たちは認識の誤りが意味不明な文字列ではなくもっともらしい文を生む場合があると気づきます。"
+        },
+        {
+          "en": "They also notice that an overall accuracy score may hide important differences between the kinds of messages being processed.",
+          "ja": "全体の正確さの数値は処理されるメッセージの種類ごとの重要な差を隠す可能性もあると気づきます。"
+        },
+        {
+          "en": "Misunderstanding a harmless greeting is not necessarily equivalent to changing a location, a number, or a request for urgent assistance.",
+          "ja": "無害なあいさつの誤解は場所や数字や緊急支援の依頼の変更と必ずしも同じではありません。"
+        },
+        {
+          "en": "The club therefore considers not only how often the system makes mistakes, but also what consequences different mistakes could have.",
+          "ja": "そこでクラブは誤りの頻度だけでなく異なる誤りがどんな結果をもたらし得るか考えます。"
+        },
+        {
+          "en": "The instructor cautions that a high test score should not be confused with evidence of safety in unfamiliar real-world conditions.",
+          "ja": "指導者は高いテスト得点をなじみのない現実の状況での安全の証拠と取り違えないよう注意します。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "For a second classroom trial, volunteers record fictional requests using different speaking speeds and a range of ordinary environmental sounds.",
+          "ja": "二回目の教室実験ではボランティアが異なる発話速度と日常の環境音を使って架空の支援依頼を録音します。"
+        },
+        {
+          "en": "Instead of selecting only clean recordings, the class includes examples that challenge the prototype while keeping the exercise controlled.",
+          "ja": "きれいな録音だけを選ばず訓練を管理可能な範囲に保ちながら試作システムを難しくする例も入れます。"
+        },
+        {
+          "en": "The students compare the spoken reference messages with automatic transcripts and classify the differences by their possible importance.",
+          "ja": "生徒たちは元の音声内容と自動文字起こしを比べ、違いを考えられる重要度で分類します。"
+        },
+        {
+          "en": "Some errors affect small grammatical details, whereas others change the intended action or the place mentioned by a speaker.",
+          "ja": "一部の誤りは小さな文法事項に影響しますがほかは話し手の意図した行動や場所を変えます。"
+        },
+        {
+          "en": "The group proposes displaying uncertainty and providing a clear route to human review rather than silently treating every transcript as confirmed.",
+          "ja": "グループはすべての文字起こしを確定と扱うのではなく不確かさを示し人による確認への明確な道を用意するよう提案します。"
+        },
+        {
+          "en": "They also discuss why a request for clarification should be phrased carefully so it does not blame the person whose speech was misunderstood.",
+          "ja": "聞き間違えられた人を責めないよう確認の依頼を慎重に表現すべき理由も話し合います。"
+        },
+        {
+          "en": "The goal is not to announce a finished emergency tool but to understand the limits that any proposed design must address.",
+          "ja": "目標は完成した緊急ツールを発表することではなく、提案される設計が取り組むべき限界を理解することです。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The experiment raises questions about the personal information contained in voices and recordings, even when the messages themselves are fictional.",
+          "ja": "実験はメッセージ自体が架空でも声と録音に含まれる個人情報についての問いを生みます。"
+        },
+        {
+          "en": "Students recognize that voices can reveal characteristics of a speaker that are unnecessary for the purpose of testing sentence accuracy.",
+          "ja": "生徒たちは声が文章の正確さの検査に不要な話し手の特徴を明らかにし得ると認識します。"
+        },
+        {
+          "en": "Nevertheless, simply removing names from a file does not establish that every possible identifying detail has disappeared.",
+          "ja": "それでもファイルから名前を消しただけですべての特定可能な細部がなくなったと確定できません。"
+        },
+        {
+          "en": "The teacher requires informed permission for the exercise and restricts how recordings may be stored, accessed, and discussed.",
+          "ja": "教師は訓練への説明を受けた同意を求め、録音の保存、アクセス、議論の方法を制限します。"
+        },
+        {
+          "en": "The club considers whether some tests could use clearly fictional synthesized recordings rather than collecting more voices from real students.",
+          "ja": "クラブは実際の生徒の声をさらに集めるのでなく明らかに架空の合成音声で試せる検査があるか考えます。"
+        },
+        {
+          "en": "They understand that privacy and technical evaluation are related design responsibilities, not separate concerns to consider only after deployment.",
+          "ja": "生徒たちはプライバシーと技術評価が導入後に考える別々の問題ではなく関連した設計上の責任だと理解します。"
+        },
+        {
+          "en": "A responsible experiment protects participants while producing evidence that others can evaluate without exposing private recordings.",
+          "ja": "責任ある実験は参加者を守りながら個人的な録音を公開せずほかの人が評価できる証拠を作ります。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "At the final presentation, students show several simulated transcription errors and explain why their effects differ in significance.",
+          "ja": "最終発表で生徒たちはいくつかの模擬文字起こしの誤りを示し影響の重大さが異なる理由を説明します。"
+        },
+        {
+          "en": "They display a comparison of original messages and system output but do not present their prototype as approved for real emergency use.",
+          "ja": "元のメッセージとシステムの出力を比較して示しますが試作を実際の緊急利用に承認済みとは提示しません。"
+        },
+        {
+          "en": "As a result, the audience asks about independent testing, human review, and the consequences of errors rather than speed alone.",
+          "ja": "その結果聞き手は速度だけでなく独立した検査、人の確認、誤りの結果について質問します。"
+        },
+        {
+          "en": "The club concludes that convincing language should not be mistaken for accurate understanding, especially when people may rely on the result.",
+          "ja": "クラブは特に人が結果に頼る可能性があるとき説得力のある言葉を正確な理解と取り違えてはならないと結論づけます。"
+        },
+        {
+          "en": "It also recognizes that a trustworthy system requires decisions about who can correct mistakes and how limitations are communicated.",
+          "ja": "信頼できるシステムには誰が誤りを訂正できるか、限界をどう伝えるかの判断が必要だとも認識します。"
+        },
+        {
+          "en": "Technology can support human work, but the value of a system depends on how responsibly its output is interpreted and checked.",
+          "ja": "技術は人の仕事を支えますがシステムの価値は出力がどれほど責任をもって解釈・確認されるかに左右されます。"
+        },
+        {
+          "en": "The project teaches students to examine not just whether an algorithm produces words, but whether those words preserve the speaker's meaning.",
+          "ja": "この活動はアルゴリズムが語を生成するかだけでなくその語が話し手の意味を保つかを調べると教えます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What flaw appears in the first demonstration?",
+      "options": [
+        "Every recording fails to produce words.",
+        "The device stops recording all voices.",
+        "The students have no written messages.",
+        "A noisy recording is transformed into a different request."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「しかし車の多い道路の近くにいる話し手の録音の一つが別の種類の支援を求める文に変わってしまいます。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What limitation does the instructor state?",
+      "options": [
+        "The exercise contains real emergency calls.",
+        "Students must never test voice recognition.",
+        "The prototype is a classroom simulation, not a real emergency service.",
+        "The system has been approved for public deployment."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「指導者はこの活動が実際の緊急判断に適したサービスではなく教室での模擬実験だとすぐに説明します。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "Why might some errors be difficult to notice?",
+      "options": [
+        "They prevent all text from appearing.",
+        "They produce plausible-looking sentences.",
+        "They always display random letters.",
+        "They are shown in bright warning colors."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「生徒たちは認識の誤りが意味不明な文字列ではなくもっともらしい文を生む場合があると気づきます。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "Why does the club consider consequences as well as error rates?",
+      "options": [
+        "Different errors can have different importance.",
+        "Every wrong word has the same effect.",
+        "Total accuracy is impossible to calculate.",
+        "The program has no output."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「そこでクラブは誤りの頻度だけでなく異なる誤りがどんな結果をもたらし得るか考えます。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "How are the second trial's errors examined?",
+      "options": [
+        "By selecting only clean recordings.",
+        "By relying only on a single score.",
+        "By refusing to review the original sound.",
+        "By comparing references and transcripts and classifying the differences."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「一部の誤りは小さな文法事項に影響しますがほかは話し手の意図した行動や場所を変えます。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What design improvement is proposed?",
+      "options": [
+        "Hide mistakes from users.",
+        "Remove all clarification options.",
+        "Show uncertainty and provide human review.",
+        "Treat every transcript as confirmed."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「グループはすべての文字起こしを確定と扱うのではなく不確かさを示し人による確認への明確な道を用意するよう提案します。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What privacy concern remains after names are removed?",
+      "options": [
+        "Every voice must be published.",
+        "Other identifying information may remain in voices.",
+        "All voice data become anonymous automatically.",
+        "Recording access no longer matters."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「教師は訓練への説明を受けた同意を求め、録音の保存、アクセス、議論の方法を制限します。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "What alternative testing material is considered?",
+      "options": [
+        "Clearly fictional synthesized recordings.",
+        "Unrestricted access to real student voices.",
+        "Publishing personal recordings online.",
+        "Removing all forms of consent."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「生徒たちはプライバシーと技術評価が導入後に考える別々の問題ではなく関連した設計上の責任だと理解します。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What do audience questions focus on?",
+      "options": [
+        "Only how fast the text appears.",
+        "Only the design of the presentation.",
+        "Whether the computer uses a large screen.",
+        "Independent checks, human review, and error consequences."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「その結果聞き手は速度だけでなく独立した検査、人の確認、誤りの結果について質問します。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the main argument?",
+      "options": [
+        "A high overall score proves safety everywhere.",
+        "Human judgment has no role in using transcripts.",
+        "Reliable speech technology must preserve meaning and be assessed beyond fluent output.",
+        "Grammatically complete text guarantees comprehension."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「この活動はアルゴリズムが語を生成するかだけでなくその語が話し手の意味を保つかを調べると教えます。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "accuracy",
+      "ja": "正確さ",
+      "synonym": "correctness",
+      "definition": "agreement with the intended message"
+    },
+    {
+      "term": "accurate",
+      "ja": "正確な",
+      "synonym": "correct",
+      "definition": "consistent with the facts"
+    },
+    {
+      "term": "activity",
+      "ja": "活動",
+      "synonym": "action",
+      "definition": "something that a person does"
+    },
+    {
+      "term": "actual",
+      "ja": "実際の",
+      "synonym": "real",
+      "definition": "existing in fact"
+    },
+    {
+      "term": "affect",
+      "ja": "影響を与える",
+      "synonym": "influence",
+      "definition": "to change how something happens"
+    },
+    {
+      "term": "audience",
+      "ja": "受け手",
+      "synonym": "recipients",
+      "definition": "the people receiving a message"
+    },
+    {
+      "term": "challenge",
+      "ja": "課題",
+      "synonym": "difficulty",
+      "definition": "something requiring effort to solve"
+    },
+    {
+      "term": "changing",
+      "ja": "変化する",
+      "synonym": "shifting",
+      "definition": "becoming different"
+    },
+    {
+      "term": "checking",
+      "ja": "確認すること",
+      "synonym": "verification",
+      "definition": "testing whether something is right"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "contrast",
+      "definition": "to examine differences and similarities"
+    },
+    {
+      "term": "concerns",
+      "ja": "不安・懸念",
+      "synonym": "worries",
+      "definition": "matters people feel uneasy about"
+    },
+    {
+      "term": "conditions",
+      "ja": "条件",
+      "synonym": "circumstances",
+      "definition": "factors affecting a result"
+    },
+    {
+      "term": "confused",
+      "ja": "混乱した",
+      "synonym": "uncertain",
+      "definition": "unable to understand clearly"
+    },
+    {
+      "term": "consider",
+      "ja": "考慮する",
+      "synonym": "think about",
+      "definition": "to examine an idea before deciding"
+    },
+    {
+      "term": "correct",
+      "ja": "訂正する・正しい",
+      "synonym": "fix",
+      "definition": "to remove errors or make something accurate"
+    },
+    {
+      "term": "decisions",
+      "ja": "決定・判断",
+      "synonym": "choices",
+      "definition": "choices made after thinking"
+    },
+    {
+      "term": "details",
+      "ja": "細部",
+      "synonym": "particulars",
+      "definition": "small pieces of information"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "discover",
+      "ja": "気づく・発見する",
+      "synonym": "find out",
+      "definition": "to learn something previously unknown"
+    },
+    {
+      "term": "environmental",
+      "ja": "環境の",
+      "synonym": "surrounding",
+      "definition": "related to the environment"
+    },
+    {
+      "term": "evidence",
+      "ja": "根拠",
+      "synonym": "proof",
+      "definition": "information supporting a conclusion"
+    },
+    {
+      "term": "examine",
+      "ja": "調べる",
+      "synonym": "inspect",
+      "definition": "to look carefully"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "exercise",
+      "ja": "練習",
+      "synonym": "activity",
+      "definition": "a task used to build a skill"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "fictional",
+      "ja": "架空の",
+      "synonym": "imaginary",
+      "definition": "invented for a story or example"
+    },
+    {
+      "term": "greeting",
+      "ja": "挨拶",
+      "synonym": "salutation",
+      "definition": "words used when meeting someone"
+    },
+    {
+      "term": "harmless",
+      "ja": "無害な",
+      "synonym": "safe",
+      "definition": "not causing damage"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "identical",
+      "ja": "同一の",
+      "synonym": "the same",
+      "definition": "exactly alike"
+    },
+    {
+      "term": "immediately",
+      "ja": "すぐに",
+      "synonym": "at once",
+      "definition": "without delay"
+    },
+    {
+      "term": "important",
+      "ja": "重要な",
+      "synonym": "significant",
+      "definition": "having a great effect or value"
+    },
+    {
+      "term": "independent",
+      "ja": "独立した",
+      "synonym": "separate",
+      "definition": "not controlled by the same group"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "facts",
+      "definition": "facts or details provided about something"
+    },
+    {
+      "term": "Listening",
+      "ja": "耳を傾けること",
+      "synonym": "paying attention",
+      "definition": "giving attention to spoken information"
+    },
+    {
+      "term": "message",
+      "ja": "メッセージ",
+      "synonym": "communication",
+      "definition": "information being communicated"
+    },
+    {
+      "term": "mistaken",
+      "ja": "誤った",
+      "synonym": "incorrect",
+      "definition": "based on an error"
+    },
+    {
+      "term": "mistakes",
+      "ja": "誤り",
+      "synonym": "errors",
+      "definition": "things done or answered incorrectly"
+    },
+    {
+      "term": "misunderstanding",
+      "ja": "誤解",
+      "synonym": "mistaken belief",
+      "definition": "an incorrect interpretation"
+    },
+    {
+      "term": "necessarily",
+      "ja": "必ずしも",
+      "synonym": "inevitably",
+      "definition": "in a way that must be true"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "ordinary",
+      "ja": "日常的な",
+      "synonym": "usual",
+      "definition": "common rather than special"
+    },
+    {
+      "term": "original",
+      "ja": "原文の",
+      "synonym": "initial",
+      "definition": "existing before a copy or revision"
+    },
+    {
+      "term": "participants",
+      "ja": "参加者",
+      "synonym": "members",
+      "definition": "people taking part"
+    },
+    {
+      "term": "patterns",
+      "ja": "傾向・パターン",
+      "synonym": "regularities",
+      "definition": "repeated ways something happens"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "personal",
+      "ja": "個人の",
+      "synonym": "individual",
+      "definition": "belonging to one person"
+    },
+    {
+      "term": "privacy",
+      "ja": "プライバシー",
+      "synonym": "confidentiality",
+      "definition": "protection of personal information"
+    },
+    {
+      "term": "private",
+      "ja": "私的な",
+      "synonym": "confidential",
+      "definition": "not intended to be public"
+    },
+    {
+      "term": "produces",
+      "ja": "生み出す",
+      "synonym": "generates",
+      "definition": "creates an output"
+    },
+    {
+      "term": "producing",
+      "ja": "作り出すこと・答えを出すこと",
+      "synonym": "generating",
+      "definition": "creating or bringing something into existence"
+    },
+    {
+      "term": "proposed",
+      "ja": "提案された",
+      "synonym": "suggested",
+      "definition": "put forward for consideration"
+    },
+    {
+      "term": "purpose",
+      "ja": "目的",
+      "synonym": "aim",
+      "definition": "the reason for doing something"
+    },
+    {
+      "term": "recognize",
+      "ja": "認識する",
+      "synonym": "identify",
+      "definition": "to notice and understand"
+    },
+    {
+      "term": "recognizes",
+      "ja": "認める",
+      "synonym": "acknowledges",
+      "definition": "accepts the importance or existence of something"
+    },
+    {
+      "term": "record",
+      "ja": "記録する",
+      "synonym": "note",
+      "definition": "to write information down for later use"
+    },
+    {
+      "term": "recordings",
+      "ja": "録音",
+      "synonym": "audio files",
+      "definition": "stored sounds"
+    },
+    {
+      "term": "repeatedly",
+      "ja": "繰り返し",
+      "synonym": "again and again",
+      "definition": "happening many times"
+    },
+    {
+      "term": "responsible",
+      "ja": "責任ある",
+      "synonym": "careful",
+      "definition": "acting with appropriate care"
+    },
+    {
+      "term": "responsibly",
+      "ja": "責任を持って",
+      "synonym": "with care",
+      "definition": "in a way that accepts duty for effects"
+    },
+    {
+      "term": "reveal",
+      "ja": "明らかにする",
+      "synonym": "show",
+      "definition": "to make something known"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "suitable",
+      "ja": "適切な",
+      "synonym": "appropriate",
+      "definition": "right for the situation"
+    },
+    {
+      "term": "support",
+      "ja": "支え・支援",
+      "synonym": "help",
+      "definition": "help that keeps an activity going"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who helps others learn"
+    },
+    {
+      "term": "technical",
+      "ja": "技術的な",
+      "synonym": "technological",
+      "definition": "connected with technology"
+    },
+    {
+      "term": "therefore",
+      "ja": "したがって",
+      "synonym": "consequently",
+      "definition": "used to introduce a logical result"
+    },
+    {
+      "term": "understanding",
+      "ja": "理解",
+      "synonym": "comprehension",
+      "definition": "the ability to know what something means"
+    },
+    {
+      "term": "unfamiliar",
+      "ja": "なじみのない",
+      "synonym": "unknown",
+      "definition": "not recognized or understood"
+    },
+    {
+      "term": "urgent",
+      "ja": "緊急の",
+      "synonym": "pressing",
+      "definition": "requiring quick attention"
+    },
+    {
+      "term": "value",
+      "ja": "価値",
+      "synonym": "worth",
+      "definition": "usefulness or importance"
+    },
+    {
+      "term": "volunteers",
+      "ja": "ボランティア",
+      "synonym": "helpers",
+      "definition": "people choosing to assist"
+    },
+    {
+      "term": "whereas",
+      "ja": "一方で",
+      "synonym": "while",
+      "definition": "introducing a contrast"
+    },
+    {
+      "term": "transcription",
+      "ja": "文字起こし",
+      "synonym": "speech-to-text",
+      "definition": "converting speech into writing"
+    },
+    {
+      "term": "transcript",
+      "ja": "文字起こし",
+      "synonym": "record",
+      "definition": "written version of speech"
+    },
+    {
+      "term": "transcripts",
+      "ja": "文字起こし",
+      "synonym": "records",
+      "definition": "written versions of speech"
+    },
+    {
+      "term": "speech",
+      "ja": "発話",
+      "synonym": "spoken language",
+      "definition": "words said aloud"
+    },
+    {
+      "term": "recognition",
+      "ja": "認識",
+      "synonym": "identification",
+      "definition": "the process of identifying patterns"
+    },
+    {
+      "term": "speech recognition",
+      "ja": "音声認識",
+      "synonym": "voice transcription",
+      "definition": "technology converting speech into text"
+    },
+    {
+      "term": "prototype",
+      "ja": "試作",
+      "synonym": "model",
+      "definition": "an early version of a device"
+    },
+    {
+      "term": "simulation",
+      "ja": "模擬",
+      "synonym": "imitation",
+      "definition": "a practice version of a real situation"
+    },
+    {
+      "term": "simulated",
+      "ja": "模擬の",
+      "synonym": "imitated",
+      "definition": "made to resemble something"
+    },
+    {
+      "term": "emergency",
+      "ja": "緊急事態",
+      "synonym": "crisis",
+      "definition": "a situation needing urgent action"
+    },
+    {
+      "term": "assistance",
+      "ja": "支援",
+      "synonym": "help",
+      "definition": "support given to someone"
+    },
+    {
+      "term": "messages",
+      "ja": "メッセージ",
+      "synonym": "communications",
+      "definition": "information sent to someone"
+    },
+    {
+      "term": "recording",
+      "ja": "録音",
+      "synonym": "audio file",
+      "definition": "stored sound"
+    },
+    {
+      "term": "acoustic",
+      "ja": "音響の",
+      "synonym": "sound-related",
+      "definition": "connected with sound"
+    },
+    {
+      "term": "microphone",
+      "ja": "マイク",
+      "synonym": "audio input",
+      "definition": "a device recording sound"
+    },
+    {
+      "term": "background",
+      "ja": "背景",
+      "synonym": "surroundings",
+      "definition": "conditions around something"
+    },
+    {
+      "term": "errors",
+      "ja": "誤り",
+      "synonym": "mistakes",
+      "definition": "incorrect results"
+    },
+    {
+      "term": "consequences",
+      "ja": "結果",
+      "synonym": "effects",
+      "definition": "outcomes of an action"
+    },
+    {
+      "term": "meaning",
+      "ja": "意味",
+      "synonym": "sense",
+      "definition": "what words communicate"
+    },
+    {
+      "term": "clarification",
+      "ja": "確認",
+      "synonym": "explanation",
+      "definition": "making meaning clear"
+    },
+    {
+      "term": "uncertainty",
+      "ja": "不確かさ",
+      "synonym": "doubt",
+      "definition": "lack of confidence"
+    },
+    {
+      "term": "human review",
+      "ja": "人による確認",
+      "synonym": "manual check",
+      "definition": "inspection by a person"
+    },
+    {
+      "term": "permission",
+      "ja": "許可",
+      "synonym": "consent",
+      "definition": "agreement to an action"
+    },
+    {
+      "term": "informed",
+      "ja": "説明を受けた",
+      "synonym": "aware",
+      "definition": "knowing relevant facts"
+    },
+    {
+      "term": "synthesized",
+      "ja": "合成された",
+      "synonym": "artificially created",
+      "definition": "generated rather than recorded from a speaker"
+    },
+    {
+      "term": "safety",
+      "ja": "安全",
+      "synonym": "protection",
+      "definition": "avoidance of harm"
+    },
+    {
+      "term": "trustworthy",
+      "ja": "信頼できる",
+      "synonym": "reliable",
+      "definition": "deserving confidence"
+    },
+    {
+      "term": "technology",
+      "ja": "技術",
+      "synonym": "tools",
+      "definition": "practical methods and equipment"
+    },
+    {
+      "term": "algorithm",
+      "ja": "アルゴリズム",
+      "synonym": "procedure",
+      "definition": "a set of programmed rules"
+    },
+    {
+      "term": "evaluation",
+      "ja": "評価",
+      "synonym": "assessment",
+      "definition": "judging the quality of a system"
+    },
+    {
+      "term": "deployment",
+      "ja": "導入",
+      "synonym": "release",
+      "definition": "putting a system into use"
+    },
+    {
+      "term": "significance",
+      "ja": "重大さ",
+      "synonym": "importance",
+      "definition": "how much something matters"
+    },
+    {
+      "term": "plausible",
+      "ja": "もっともらしい",
+      "synonym": "believable",
+      "definition": "appearing to make sense"
+    },
+    {
+      "term": "grammatically",
+      "ja": "文法的に",
+      "synonym": "by grammar",
+      "definition": "according to language rules"
+    },
+    {
+      "term": "complete",
+      "ja": "完成した",
+      "synonym": "finished",
+      "definition": "containing all necessary parts"
+    },
+    {
+      "term": "interpreted",
+      "ja": "解釈された",
+      "synonym": "understood",
+      "definition": "given meaning"
+    },
+    {
+      "term": "identifying",
+      "ja": "特定可能な",
+      "synonym": "recognizing",
+      "definition": "helping determine identity"
+    },
+    {
+      "term": "instructor",
+      "ja": "指導者",
+      "synonym": "teacher",
+      "definition": "a person guiding learning"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 4,
+      "focus": "without checking the original sound",
+      "explanation_ja": "without + 動名詞で確認しない場合を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 4,
+      "focus": "not necessarily equivalent to changing a location, a number, or a request for urgent assistance",
+      "explanation_ja": "not necessarilyは必ずしも同等ではないことを示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "focus": "Instead of selecting only clean recordings",
+      "explanation_ja": "instead of + 動名詞は実験の変化を示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 6,
+      "focus": "whether those words preserve the speaker's meaning",
+      "explanation_ja": "whether節が評価すべき内容を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "成功した実演と重大な聞き間違いを対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "認識を難しくする条件の例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "名前を消すだけでは不十分と示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "聞き手が精度と安全の検査を問う結果です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The students begin investigating why a system can produce convincing language while misunderstanding the message that mattered most.",
+      "rewrite": "The class investigates why fluent output can misrepresent the message.",
+      "explanation_ja": "自然な文章でも意図を誤る理由を調べます。"
+    },
+    {
+      "source": "The instructor cautions that a high test score should not be confused with evidence of safety in unfamiliar real-world conditions.",
+      "rewrite": "A high score in a limited test does not establish real-world safety.",
+      "explanation_ja": "限定的な検査で現実の安全は保証できません。"
+    },
+    {
+      "source": "A responsible experiment protects participants while producing evidence that others can evaluate without exposing private recordings.",
+      "rewrite": "The experiment should protect participants without disclosing recordings.",
+      "explanation_ja": "参加者の保護と検証可能な情報が必要です。"
+    },
+    {
+      "source": "The project teaches students to examine not just whether an algorithm produces words, but whether those words preserve the speaker's meaning.",
+      "rewrite": "Generated words matter only if they communicate the speaker's intended meaning.",
+      "explanation_ja": "言葉の意味が保たれているかが重要です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "As a result",
+        "In addition"
+      ],
+      "explanation_ja": "成功した実演と重大な聞き間違いを対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "However",
+        "As a result",
+        "Meanwhile",
+        "For example"
+      ],
+      "explanation_ja": "認識を難しくする条件の例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "As a result",
+        "Moreover",
+        "Nevertheless",
+        "For example"
+      ],
+      "explanation_ja": "名前を消すだけでは不十分と示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "Meanwhile",
+        "As a result",
+        "For example",
+        "However"
+      ],
+      "explanation_ja": "聞き手が精度と安全の検査を問う結果です。"
+    }
+  ]
+}
