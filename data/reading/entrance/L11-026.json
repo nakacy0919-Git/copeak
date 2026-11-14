@@ -1,0 +1,686 @@
+{
+  "id": "L11-026",
+  "category_id": "L11",
+  "title": "A Rule with a Reason",
+  "title_ja": "理由のある規則",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "word_count": 294,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "オリジナル教材。架空の人物、事例、製品を使った文章であり、実在の制度・調査結果・個別の医療栄養助言ではない。制作台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A community center introduces a rule asking visitors to keep a particular door closed.",
+          "ja": "地域センターは特定の扉を閉めておくよう来訪者に求める規則を導入する。"
+        },
+        {
+          "en": "A sign near the entrance states the rule but does not explain why it is necessary.",
+          "ja": "入口近くの標識には規則があるが必要な理由は説明されていない。"
+        },
+        {
+          "en": "Some visitors assume that the staff simply prefer a tidy building.",
+          "ja": "職員が単に整った建物を好むと想定する来訪者もいる。"
+        },
+        {
+          "en": "Others regularly leave the door open because doing so makes it easier to carry equipment into the room.",
+          "ja": "部屋に機器を運びやすくなるため定期的に扉を開けたままにする人もいる。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "A staff member explains that the door separates a quiet reading area from a room used for noisy group activities.",
+          "ja": "その扉が静かな読書区域と騒がしい集団活動の部屋を分けると職員が説明する。"
+        },
+        {
+          "en": "The visitors begin to understand why keeping the door closed matters to people whom they cannot see.",
+          "ja": "見えない人々になぜ閉めることが重要か来訪者は理解し始める。"
+        },
+        {
+          "en": "However, one visitor asks how equipment should be moved without creating unnecessary difficulty.",
+          "ja": "しかし不要な困難を作らずどう機器を移すべきか尋ねる人もいる。"
+        },
+        {
+          "en": "The staff realize that understanding the rule does not automatically resolve every practical problem associated with following it.",
+          "ja": "規則理解は従うことに伴う全実務問題を自動解決しないと職員は気づく。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The center considers adding a short explanation to the sign.",
+          "ja": "標識に短い説明を加えることを検討する。"
+        },
+        {
+          "en": "It also identifies a way for visitors to request assistance when bringing large items into the room.",
+          "ja": "大きな物を部屋に持ち込む際に支援を求める方法も特定する。"
+        },
+        {
+          "en": "The arrangement is intended to protect the reading environment while allowing other activities to continue.",
+          "ja": "仕組みは他活動を継続可能にしつつ読書環境を守る目的だ。"
+        },
+        {
+          "en": "The staff invite visitors to report difficulties that the new arrangement does not address.",
+          "ja": "新しい仕組みが対応しない困難を報告するよう職員は促す。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The imagined center does not establish a design rule for every public building.",
+          "ja": "架空センターは全公共建物の設計規則を確定しない。"
+        },
+        {
+          "en": "Actual institutions may need to consider additional requirements involving access and safety.",
+          "ja": "実機関はアクセスと安全に関する追加要件を考慮する必要がある場合がある。"
+        },
+        {
+          "en": "Nevertheless, the example illustrates how explaining the purpose of a rule can support discussion about the way it is applied.",
+          "ja": "それでも例は規則目的の説明が適用方法の議論を支え得ることを示す。"
+        },
+        {
+          "en": "The visitors now have a clearer basis for suggesting possible improvements.",
+          "ja": "来訪者には改善提案のためのより明確な根拠ができた。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "A rule can communicate an expected action without explaining the problem it is intended to solve.",
+          "ja": "規則は解決したい問題を説明せず期待行動を伝えられる。"
+        },
+        {
+          "en": "Providing that explanation may help people understand its importance and identify situations that require further attention.",
+          "ja": "説明は重要性を理解し追加注意が必要な状況を特定する助けになり得る。"
+        },
+        {
+          "en": "Responsible rule-making involves considering practical ways to achieve a shared purpose.",
+          "ja": "責任ある規則作りには共通目的達成の実務的手段を考えることが伴う。"
+        },
+        {
+          "en": "The reason behind the rule can become a starting point for cooperation.",
+          "ja": "規則の背景の理由は協力の出発点になり得る。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "community center",
+      "ja": "地域センター",
+      "synonym": "community facility",
+      "definition": "place providing local activities"
+    },
+    {
+      "term": "introduces",
+      "ja": "導入する",
+      "synonym": "establishes",
+      "definition": "brings into use"
+    },
+    {
+      "term": "rule",
+      "ja": "規則",
+      "synonym": "regulation",
+      "definition": "statement governing action"
+    },
+    {
+      "term": "visitors",
+      "ja": "来訪者",
+      "synonym": "guests",
+      "definition": "people visiting a place"
+    },
+    {
+      "term": "particular",
+      "ja": "特定の",
+      "synonym": "specific",
+      "definition": "relating to one thing"
+    },
+    {
+      "term": "closed",
+      "ja": "閉じた",
+      "synonym": "shut",
+      "definition": "not open"
+    },
+    {
+      "term": "sign",
+      "ja": "標識",
+      "synonym": "notice",
+      "definition": "display giving information"
+    },
+    {
+      "term": "entrance",
+      "ja": "入口",
+      "synonym": "entryway",
+      "definition": "place for entering"
+    },
+    {
+      "term": "states",
+      "ja": "述べる",
+      "synonym": "expresses",
+      "definition": "puts into words"
+    },
+    {
+      "term": "necessary",
+      "ja": "必要な",
+      "synonym": "required",
+      "definition": "needed for a purpose"
+    },
+    {
+      "term": "assume",
+      "ja": "想定する",
+      "synonym": "suppose",
+      "definition": "accept without proof"
+    },
+    {
+      "term": "staff",
+      "ja": "職員",
+      "synonym": "employees",
+      "definition": "people working for an organization"
+    },
+    {
+      "term": "prefer",
+      "ja": "好む",
+      "synonym": "favor",
+      "definition": "like more than another"
+    },
+    {
+      "term": "tidy",
+      "ja": "整った",
+      "synonym": "neat",
+      "definition": "arranged in order"
+    },
+    {
+      "term": "regularly",
+      "ja": "定期的に",
+      "synonym": "routinely",
+      "definition": "at repeated intervals"
+    },
+    {
+      "term": "equipment",
+      "ja": "機器",
+      "synonym": "tools",
+      "definition": "items needed for a task"
+    },
+    {
+      "term": "separates",
+      "ja": "分ける",
+      "synonym": "divides",
+      "definition": "keeps things apart"
+    },
+    {
+      "term": "quiet",
+      "ja": "静かな",
+      "synonym": "peaceful",
+      "definition": "with little noise"
+    },
+    {
+      "term": "area",
+      "ja": "区域",
+      "synonym": "region",
+      "definition": "particular space"
+    },
+    {
+      "term": "noisy",
+      "ja": "騒がしい",
+      "synonym": "loud",
+      "definition": "making much noise"
+    },
+    {
+      "term": "matters",
+      "ja": "重要である",
+      "synonym": "is important",
+      "definition": "has importance"
+    },
+    {
+      "term": "unnecessary",
+      "ja": "不要な",
+      "synonym": "needless",
+      "definition": "not required"
+    },
+    {
+      "term": "difficulty",
+      "ja": "困難",
+      "synonym": "trouble",
+      "definition": "state of being hard to do"
+    },
+    {
+      "term": "realize",
+      "ja": "気づく",
+      "synonym": "recognize",
+      "definition": "become aware"
+    },
+    {
+      "term": "automatically",
+      "ja": "自動的に",
+      "synonym": "by itself",
+      "definition": "without further action"
+    },
+    {
+      "term": "resolve",
+      "ja": "解決する",
+      "synonym": "settle",
+      "definition": "bring a problem to a solution"
+    },
+    {
+      "term": "associated",
+      "ja": "関連した",
+      "synonym": "connected",
+      "definition": "linked with something"
+    },
+    {
+      "term": "considers",
+      "ja": "検討する",
+      "synonym": "examines",
+      "definition": "thinks about"
+    },
+    {
+      "term": "explanation",
+      "ja": "説明",
+      "synonym": "account",
+      "definition": "statement making something clear"
+    },
+    {
+      "term": "identifies",
+      "ja": "特定する",
+      "synonym": "determines",
+      "definition": "finds or names"
+    },
+    {
+      "term": "request",
+      "ja": "求める",
+      "synonym": "ask for",
+      "definition": "request information or assistance"
+    },
+    {
+      "term": "assistance",
+      "ja": "支援",
+      "synonym": "help",
+      "definition": "support given to others"
+    },
+    {
+      "term": "arrangement",
+      "ja": "仕組み",
+      "synonym": "plan",
+      "definition": "organized way of doing something"
+    },
+    {
+      "term": "protect",
+      "ja": "守る",
+      "synonym": "safeguard",
+      "definition": "keep from harm"
+    },
+    {
+      "term": "environment",
+      "ja": "環境",
+      "synonym": "surroundings",
+      "definition": "things around a place"
+    },
+    {
+      "term": "report",
+      "ja": "報告する",
+      "synonym": "notify",
+      "definition": "give information about something"
+    },
+    {
+      "term": "establish",
+      "ja": "確定する",
+      "synonym": "determine",
+      "definition": "show to be true"
+    },
+    {
+      "term": "institutions",
+      "ja": "機関",
+      "synonym": "organizations",
+      "definition": "established organizations"
+    },
+    {
+      "term": "requirements",
+      "ja": "要件",
+      "synonym": "conditions",
+      "definition": "things that must be met"
+    },
+    {
+      "term": "access",
+      "ja": "アクセス",
+      "synonym": "entry",
+      "definition": "ability to reach or use something"
+    },
+    {
+      "term": "safety",
+      "ja": "安全",
+      "synonym": "security",
+      "definition": "state of being protected from harm"
+    },
+    {
+      "term": "Nevertheless",
+      "ja": "それでも",
+      "synonym": "even so",
+      "definition": "despite that fact"
+    },
+    {
+      "term": "applied",
+      "ja": "適用された",
+      "synonym": "used",
+      "definition": "put into practice"
+    },
+    {
+      "term": "basis",
+      "ja": "根拠",
+      "synonym": "foundation",
+      "definition": "underlying support"
+    },
+    {
+      "term": "expected",
+      "ja": "期待される",
+      "synonym": "anticipated",
+      "definition": "thought likely or required"
+    },
+    {
+      "term": "cooperation",
+      "ja": "協力",
+      "synonym": "collaboration",
+      "definition": "working together"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What does the sign ask visitors to do?",
+      "options": [
+        "Avoid entering the entire center.",
+        "Move all equipment outside.",
+        "Keep every window open.",
+        "Keep a particular door closed."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "扉を閉める。"
+    },
+    {
+      "id": "q2",
+      "skill": "inference",
+      "prompt": "Why might some visitors ignore the rule?",
+      "options": [
+        "They have been told that the rule no longer exists.",
+        "They cannot see the building.",
+        "They do not know its purpose and find an open door convenient.",
+        "They all wish to disturb readers."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "理由が分からず利便性がある。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What is the door's purpose?",
+      "options": [
+        "Separate quiet reading from noisy activities.",
+        "Prevent all equipment from being used.",
+        "Separate staff from every visitor.",
+        "Keep the entire building empty."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "静かな読書と騒音を分離。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why does understanding the purpose not solve everything?",
+      "options": [
+        "The reading area has been removed.",
+        "Visitors may still face practical difficulties when following the rule.",
+        "Every visitor has the same needs.",
+        "The rule cannot be explained in words."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "遵守時の実務問題。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What additional arrangement is considered?",
+      "options": [
+        "A way to request help moving large items.",
+        "A permanent ban on group activities.",
+        "Removal of every sign.",
+        "A rule requiring everyone to read."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "機器運搬の支援。"
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why ask visitors to report difficulties?",
+      "options": [
+        "Every problem has already been resolved.",
+        "The staff want to ignore visitor needs.",
+        "Reporting will automatically cancel the rule.",
+        "The arrangement may not address every situation."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "未対応の問題を確認。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What other requirements may real institutions consider?",
+      "options": [
+        "Only the color of signs.",
+        "Only the number of staff.",
+        "Access and safety.",
+        "The price of books alone."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "アクセスと安全。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "What does an explanation give visitors?",
+      "options": [
+        "Proof that the rule must be removed.",
+        "A basis for proposing improvements.",
+        "Permission to ignore every rule.",
+        "A guaranteed answer to all safety questions."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "改善の根拠。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does cooperation mean?",
+      "options": [
+        "Making a purchase.",
+        "Refusing a request.",
+        "Removing a door.",
+        "Working together."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "協力。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the main message?",
+      "options": [
+        "Explaining the purpose of a rule can help people cooperate and solve practical difficulties.",
+        "Rules should never have explanations.",
+        "Every rule works equally well in all buildings.",
+        "A sign alone solves every problem."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "目的の共有と実務改善。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "but does not explain why it is necessary",
+      "explanation_ja": "why節がexplainの内容。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "people whom they cannot see",
+      "explanation_ja": "whomは目的格関係代名詞。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "while allowing other activities to continue",
+      "explanation_ja": "while＋分詞で並行する目的。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 0,
+      "focus": "it is intended to solve",
+      "explanation_ja": "関係代名詞の省略、受動態。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "A sign near the entrance states the rule but does not explain why it is necessary.",
+      "rewrite": "The sign states the required action without explaining its purpose.",
+      "explanation_ja": "規則の理由がない。"
+    },
+    {
+      "source": "The visitors begin to understand why keeping the door closed matters to people whom they cannot see.",
+      "rewrite": "Visitors understand that unseen readers may be affected by the open door.",
+      "explanation_ja": "見えない読者への配慮。"
+    },
+    {
+      "source": "The arrangement is intended to protect the reading environment while allowing other activities to continue.",
+      "rewrite": "The plan protects quiet reading without stopping other activities.",
+      "explanation_ja": "二つの活動の両立。"
+    },
+    {
+      "source": "A rule can communicate an expected action without explaining the problem it is intended to solve.",
+      "rewrite": "A rule may state an action without explaining the underlying problem.",
+      "explanation_ja": "解決すべき問題。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "but",
+      "role_ja": "規則と理由の欠如。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "However",
+      "role_ja": "理解と実務上の困難。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "also",
+      "role_ja": "説明に加えて支援。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "架空例の限界と教訓。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 0,
+      "answer": "separates",
+      "options": [
+        "separates",
+        "connects",
+        "joins",
+        "combines"
+      ],
+      "explanation_ja": "静かな区域を分ける。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "assistance",
+      "options": [
+        "expense",
+        "assistance",
+        "competition",
+        "decoration"
+      ],
+      "explanation_ja": "機器運搬の支援。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "requirements",
+      "options": [
+        "portraits",
+        "receipts",
+        "requirements",
+        "celebrations"
+      ],
+      "explanation_ja": "アクセス・安全要件。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "answer": "cooperation",
+      "options": [
+        "competition",
+        "transportation",
+        "admission",
+        "cooperation"
+      ],
+      "explanation_ja": "共通目的への協力。"
+    }
+  ]
+}
