@@ -1,0 +1,790 @@
+{
+  "id": "L10-013",
+  "category_id": "L10",
+  "title": "The Problem Set with No Labels",
+  "title_ja": "単元名が書かれていない問題集",
+  "level_id": "eiken-pre1",
+  "status": "draft",
+  "original": true,
+  "word_count": 600,
+  "source_links": [
+    {
+      "title": "Original lesson authoring registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "人物、具体的な出来事・実験・記録は架空の教材例。実在の調査や統計の結果ではない。参考リンクは制作台帳であり外部の実証資料ではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A mathematics teacher noticed that many students in her class could solve exercises accurately when they appeared at the end of a textbook chapter.",
+          "ja": "ある数学教師はクラスの多くの生徒が教科書の章末にある練習問題を正確に解けることに気づいた。"
+        },
+        {
+          "en": "When similar exercises appeared together on a practice examination, however, some of the same students struggled to decide how to begin.",
+          "ja": "しかし、似た問題が模擬試験で混在すると、同じ生徒の中にもどう始めるか悩む者がいた。"
+        },
+        {
+          "en": "The teacher suspected that success within a chapter might partly depend on knowing in advance which method was expected rather than on recognizing the mathematical situation independently.",
+          "ja": "教師は章末での成功が数学的状況を自力で認識することより、どの解法が求められるか事前に分かっていることにも依存しているのではないかと考えた。"
+        },
+        {
+          "en": "She decided to investigate the difficulty through a small classroom activity rather than assume that the students had simply forgotten the formulas they had studied.",
+          "ja": "生徒が学習した公式を単に忘れたと決めつけず、小さな教室活動を通じて困難の原因を調べることにした。"
+        },
+        {
+          "en": "Her objective was to learn more about the decisions involved in selecting an appropriate method, not to establish a general theory of learning.",
+          "ja": "目的は学習の一般理論を確立することではなく、適切な解法を選ぶ際の判断をより詳しく理解することだった。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "For the first part of the activity, students received a collection of familiar problems organized into groups according to the method used to solve them.",
+          "ja": "活動の前半では、生徒は解法ごとに分類された既習問題の集まりを受け取った。"
+        },
+        {
+          "en": "Each group of exercises was introduced by a heading that identified the relevant topic, and students could refer to the corresponding example in their textbook.",
+          "ja": "各グループには関連単元を示す見出しがあり、生徒は教科書の対応する例を参照できた。"
+        },
+        {
+          "en": "For the second part, the teacher prepared new problems of similar difficulty but arranged them in an order that did not reveal which method was needed.",
+          "ja": "後半では、教師は難度の似た新しい問題を用意したが、必要な解法が分からない順序に並べた。"
+        },
+        {
+          "en": "Students were asked to explain the reason for selecting a method before carrying out any detailed calculations.",
+          "ja": "生徒は詳細な計算をする前に、その解法を選んだ理由を説明するよう求められた。"
+        },
+        {
+          "en": "The teacher collected their explanations alongside their numerical answers so that she could distinguish difficulties with choosing a strategy from difficulties with performing calculations.",
+          "ja": "教師は数値解答とともに説明を集め、方略選択の困難と計算の困難を区別できるようにした。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The written explanations revealed that several students had been relying on headings and the position of an exercise to guide their initial decisions.",
+          "ja": "書面の説明から、数人の生徒が最初の判断の手がかりとして見出しや問題の位置に頼っていたことが分かった。"
+        },
+        {
+          "en": "Some could describe the steps of a familiar procedure but could not identify the circumstances under which that procedure would be useful.",
+          "ja": "慣れた手順の段階を説明できても、その手順が有用な状況を特定できない生徒もいた。"
+        },
+        {
+          "en": "Others selected an unsuitable strategy at first but recognized their mistakes while trying to justify the choices they had made.",
+          "ja": "最初は不適切な方略を選んだものの、その選択を正当化しようとする中で誤りに気づく生徒もいた。"
+        },
+        {
+          "en": "These observations suggested that an incorrect final answer might conceal several quite different kinds of difficulty, each requiring a different form of support.",
+          "ja": "これらの観察は、最終解答の誤りの背後に異なる種類の困難が隠れ、それぞれに異なる支援が必要な可能性を示した。"
+        },
+        {
+          "en": "The teacher therefore began to treat explanations of method selection as valuable information instead of focusing exclusively on whether a calculation produced the correct number.",
+          "ja": "そこで教師は計算が正答を得たかだけに注目せず、解法を選んだ説明を価値ある情報として扱い始めた。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Over the following weeks, the class continued practicing individual methods when new topics were introduced, because students still needed sufficient opportunities to understand the procedures themselves.",
+          "ja": "その後数週間、クラスは新しい単元が導入されると個々の解法の練習を続けた。手順自体を理解する十分な機会も依然必要だったからだ。"
+        },
+        {
+          "en": "However, the teacher gradually added review sessions in which previously studied topics were mixed and the names of the methods were not supplied.",
+          "ja": "しかし教師は徐々に既習単元を混ぜ、解法名を示さない復習活動を追加した。"
+        },
+        {
+          "en": "During these sessions, students compared two plausible approaches and discussed which features of a particular problem made one approach more suitable than the other.",
+          "ja": "この活動で生徒はもっともらしい二つの解法を比較し、問題のどの特徴が一方を他方より適切にするのか話し合った。"
+        },
+        {
+          "en": "The teacher also invited them to identify problems that could reasonably be solved in multiple ways, since choosing a strategy did not always mean finding a single uniquely correct procedure.",
+          "ja": "戦略を選ぶことが必ずしも唯一の正しい手順を見つけることではないため、複数の方法で合理的に解ける問題も探すよう促した。"
+        },
+        {
+          "en": "She deliberately avoided replacing every ordinary practice exercise with a mixed set, recognizing that the two formats could serve different educational purposes.",
+          "ja": "二つの形式が異なる教育目的に役立つ可能性を認識し、すべての通常練習を混合問題に置き換えることは意図的に避けた。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "At the end of the term, the teacher reviewed the students' work and noted examples of explanations that had become more precise and better connected to the problems themselves.",
+          "ja": "学期末、教師は生徒の学習成果を見直し、説明がより正確になり問題そのものとよりよく結びついた例を記録した。"
+        },
+        {
+          "en": "Nevertheless, she recognized that the activity provided no definitive evidence that the revised practice schedule alone had caused every improvement she observed.",
+          "ja": "それでも、この活動は改めた練習計画だけが観察されたすべての改善を引き起こしたという決定的な証拠を与えるものではないと認識した。"
+        },
+        {
+          "en": "The class had also received additional instruction and feedback during the same period, and the individual students' experiences had not been identical.",
+          "ja": "同時期にクラスは追加の指導とフィードバックも受けており、個々の生徒の経験も同一ではなかった。"
+        },
+        {
+          "en": "What the project had clarified was the importance of distinguishing knowledge of a procedure from knowledge of when and why to apply it.",
+          "ja": "活動が明確にしたのは、手順の知識と、その手順をいつなぜ使うかの知識を区別する重要性だった。"
+        },
+        {
+          "en": "For the teacher, designing meaningful exercises involved considering not only whether students could execute a method successfully but also whether they could recognize the conditions that made it useful.",
+          "ja": "教師にとって意義ある練習問題の設計とは、生徒が解法を正しく実行できるかだけでなく、それを有用にする条件を認識できるかも考えることだった。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "accurately",
+      "ja": "正確に",
+      "synonym": "correctly",
+      "definition": "without mistakes"
+    },
+    {
+      "term": "exercises",
+      "ja": "練習問題",
+      "synonym": "practice tasks",
+      "definition": "tasks designed for practice"
+    },
+    {
+      "term": "chapter",
+      "ja": "章",
+      "synonym": "section",
+      "definition": "a major division of a book"
+    },
+    {
+      "term": "practice examination",
+      "ja": "模擬試験",
+      "synonym": "mock test",
+      "definition": "a test designed to prepare for a real examination"
+    },
+    {
+      "term": "struggled",
+      "ja": "苦労した",
+      "synonym": "had difficulty",
+      "definition": "experienced difficulty doing something"
+    },
+    {
+      "term": "suspected",
+      "ja": "推測した",
+      "synonym": "believed possible",
+      "definition": "thought something might be true"
+    },
+    {
+      "term": "partly",
+      "ja": "部分的に",
+      "synonym": "in part",
+      "definition": "to some extent"
+    },
+    {
+      "term": "in advance",
+      "ja": "事前に",
+      "synonym": "beforehand",
+      "definition": "before an event happens"
+    },
+    {
+      "term": "expected",
+      "ja": "求められた",
+      "synonym": "anticipated",
+      "definition": "considered likely or required"
+    },
+    {
+      "term": "independently",
+      "ja": "自力で",
+      "synonym": "on one's own",
+      "definition": "without relying on another person"
+    },
+    {
+      "term": "investigate",
+      "ja": "調べる",
+      "synonym": "examine",
+      "definition": "try to discover facts about something"
+    },
+    {
+      "term": "assume",
+      "ja": "決めつける",
+      "synonym": "suppose",
+      "definition": "accept something without proof"
+    },
+    {
+      "term": "formulas",
+      "ja": "公式",
+      "synonym": "equations",
+      "definition": "mathematical expressions used in calculations"
+    },
+    {
+      "term": "objective",
+      "ja": "目的",
+      "synonym": "goal",
+      "definition": "something one aims to achieve"
+    },
+    {
+      "term": "appropriate",
+      "ja": "適切な",
+      "synonym": "suitable",
+      "definition": "right for a particular situation"
+    },
+    {
+      "term": "establish",
+      "ja": "確立する",
+      "synonym": "demonstrate",
+      "definition": "show or set up something firmly"
+    },
+    {
+      "term": "theory",
+      "ja": "理論",
+      "synonym": "explanatory framework",
+      "definition": "a system of ideas explaining a subject"
+    },
+    {
+      "term": "collection",
+      "ja": "集まり",
+      "synonym": "set",
+      "definition": "a group of related things"
+    },
+    {
+      "term": "familiar",
+      "ja": "慣れ親しんだ",
+      "synonym": "well-known",
+      "definition": "recognized from previous experience"
+    },
+    {
+      "term": "organized",
+      "ja": "分類された",
+      "synonym": "arranged",
+      "definition": "put into an orderly structure"
+    },
+    {
+      "term": "according to",
+      "ja": "〜に従って",
+      "synonym": "based on",
+      "definition": "in agreement with a rule or classification"
+    },
+    {
+      "term": "heading",
+      "ja": "見出し",
+      "synonym": "title",
+      "definition": "a label introducing a section"
+    },
+    {
+      "term": "identified",
+      "ja": "特定した",
+      "synonym": "specified",
+      "definition": "made the identity or nature of something clear"
+    },
+    {
+      "term": "relevant",
+      "ja": "関連する",
+      "synonym": "pertinent",
+      "definition": "connected to the matter being considered"
+    },
+    {
+      "term": "corresponding",
+      "ja": "対応する",
+      "synonym": "matching",
+      "definition": "related to another thing in a particular way"
+    },
+    {
+      "term": "difficulty",
+      "ja": "難度・困難",
+      "synonym": "challenge",
+      "definition": "the degree to which something is hard"
+    },
+    {
+      "term": "reveal",
+      "ja": "明らかにする",
+      "synonym": "show",
+      "definition": "make something known"
+    },
+    {
+      "term": "selecting",
+      "ja": "選択すること",
+      "synonym": "choosing",
+      "definition": "picking an option from several possibilities"
+    },
+    {
+      "term": "carrying out",
+      "ja": "実行すること",
+      "synonym": "conducting",
+      "definition": "doing a planned task"
+    },
+    {
+      "term": "calculations",
+      "ja": "計算",
+      "synonym": "computations",
+      "definition": "processes of working out numerical results"
+    },
+    {
+      "term": "numerical",
+      "ja": "数値の",
+      "synonym": "numeric",
+      "definition": "relating to numbers"
+    },
+    {
+      "term": "distinguish",
+      "ja": "区別する",
+      "synonym": "differentiate",
+      "definition": "recognize the difference between things"
+    },
+    {
+      "term": "strategy",
+      "ja": "方略",
+      "synonym": "approach",
+      "definition": "a planned way of achieving a goal"
+    },
+    {
+      "term": "relying on",
+      "ja": "頼ること",
+      "synonym": "depending on",
+      "definition": "using something as a source of support"
+    },
+    {
+      "term": "procedure",
+      "ja": "手順",
+      "synonym": "process",
+      "definition": "a series of steps for completing a task"
+    },
+    {
+      "term": "circumstances",
+      "ja": "状況",
+      "synonym": "conditions",
+      "definition": "facts affecting a particular situation"
+    },
+    {
+      "term": "unsuitable",
+      "ja": "不適切な",
+      "synonym": "inappropriate",
+      "definition": "not right for a particular purpose"
+    },
+    {
+      "term": "justify",
+      "ja": "根拠を示す",
+      "synonym": "defend",
+      "definition": "give reasons supporting an action or decision"
+    },
+    {
+      "term": "conceal",
+      "ja": "隠す",
+      "synonym": "hide",
+      "definition": "prevent something from being seen or known"
+    },
+    {
+      "term": "exclusively",
+      "ja": "専ら",
+      "synonym": "solely",
+      "definition": "only, without including anything else"
+    },
+    {
+      "term": "sufficient",
+      "ja": "十分な",
+      "synonym": "adequate",
+      "definition": "as much as is needed"
+    },
+    {
+      "term": "gradually",
+      "ja": "徐々に",
+      "synonym": "progressively",
+      "definition": "little by little over time"
+    },
+    {
+      "term": "previously",
+      "ja": "以前に",
+      "synonym": "formerly",
+      "definition": "at an earlier time"
+    },
+    {
+      "term": "plausible",
+      "ja": "もっともらしい",
+      "synonym": "reasonable",
+      "definition": "appearing to be sensible or possible"
+    },
+    {
+      "term": "features",
+      "ja": "特徴",
+      "synonym": "characteristics",
+      "definition": "noticeable qualities of something"
+    },
+    {
+      "term": "multiple",
+      "ja": "複数の",
+      "synonym": "several",
+      "definition": "more than one"
+    },
+    {
+      "term": "uniquely",
+      "ja": "唯一に",
+      "synonym": "exclusively",
+      "definition": "in a way that is the only one of its kind"
+    },
+    {
+      "term": "deliberately",
+      "ja": "意図的に",
+      "synonym": "intentionally",
+      "definition": "done with a conscious purpose"
+    },
+    {
+      "term": "formats",
+      "ja": "形式",
+      "synonym": "structures",
+      "definition": "ways in which things are arranged"
+    },
+    {
+      "term": "educational",
+      "ja": "教育的な",
+      "synonym": "instructional",
+      "definition": "relating to teaching or learning"
+    },
+    {
+      "term": "precise",
+      "ja": "正確な",
+      "synonym": "exact",
+      "definition": "clear and accurate in detail"
+    },
+    {
+      "term": "definitive",
+      "ja": "決定的な",
+      "synonym": "conclusive",
+      "definition": "settling a question with certainty"
+    },
+    {
+      "term": "evidence",
+      "ja": "証拠",
+      "synonym": "support",
+      "definition": "information that helps establish a conclusion"
+    },
+    {
+      "term": "revised",
+      "ja": "改められた",
+      "synonym": "modified",
+      "definition": "changed to improve something"
+    },
+    {
+      "term": "instruction",
+      "ja": "指導",
+      "synonym": "teaching",
+      "definition": "the act of helping someone learn"
+    },
+    {
+      "term": "feedback",
+      "ja": "フィードバック",
+      "synonym": "response",
+      "definition": "information or comments about performance"
+    },
+    {
+      "term": "identical",
+      "ja": "同一の",
+      "synonym": "the same",
+      "definition": "exactly alike"
+    },
+    {
+      "term": "clarified",
+      "ja": "明確にした",
+      "synonym": "made clear",
+      "definition": "made something easier to understand"
+    },
+    {
+      "term": "apply",
+      "ja": "適用する",
+      "synonym": "use",
+      "definition": "put knowledge or a method into practice"
+    },
+    {
+      "term": "execute",
+      "ja": "実行する",
+      "synonym": "perform",
+      "definition": "carry out an action or procedure"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What difference first attracted the teacher's attention?",
+      "options": [
+        "Students sometimes solved chapter exercises but struggled to choose a method in mixed tests.",
+        "Students performed equally badly on every chapter exercise.",
+        "Students understood tests better when no problems were provided.",
+        "Students refused to learn any mathematical formulas."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "章末では解けても混在する試験では解法の選択に悩んだ。"
+    },
+    {
+      "id": "q2",
+      "skill": "inference",
+      "prompt": "Why did the teacher doubt that forgetting formulas was the only explanation?",
+      "options": [
+        "Students had already memorized the answers to all future tests.",
+        "The class had never studied mathematical procedures.",
+        "Chapter organization might have supplied clues about which method to use.",
+        "The textbook lacked any headings or examples."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "章末の構成から解法を推測できていた可能性があった。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "How did the second set of problems differ from the first?",
+      "options": [
+        "It contained no familiar mathematical concepts.",
+        "It did not identify the method through its arrangement.",
+        "It had been designed to require no calculations.",
+        "It supplied the correct answers before students began."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "解法が分からない並べ方だった。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why did the teacher collect explanations as well as numerical answers?",
+      "options": [
+        "To replace all mathematical learning with creative writing.",
+        "To give every correct answer the same written explanation.",
+        "To remove the need to examine the solutions themselves.",
+        "To separate difficulties in strategy choice from difficulties in calculation."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "方略選択と計算の問題を区別するため。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What did some students realize while justifying their choices?",
+      "options": [
+        "Every method gave the same numerical answer.",
+        "The headings were unnecessary in every kind of exercise.",
+        "Their initial strategy was unsuitable.",
+        "The teacher had selected the wrong textbook."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "根拠を考えるうち自分の解法選択の誤りに気づいた。"
+    },
+    {
+      "id": "q6",
+      "skill": "vocabulary",
+      "prompt": "What does conceal mean in this context?",
+      "options": [
+        "Hide.",
+        "Correct.",
+        "Calculate.",
+        "Eliminate."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "隠すという意味。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What two practice formats did the teacher continue to use?",
+      "options": [
+        "Mixed practice only and completely new examinations every day.",
+        "Written explanations without ever practicing calculations.",
+        "Exercises with identical headings and no variation in methods.",
+        "Individual method practice and mixed review of previously studied topics."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "個別解法練習と既習単元の混合復習を併用した。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "Why did students discuss problems with several valid solutions?",
+      "options": [
+        "The teacher believed that mathematical answers were always subjective.",
+        "Strategy selection may involve comparing reasonable alternatives rather than finding just one possible method.",
+        "Every problem was deliberately designed to have no answer.",
+        "The students were expected to avoid choosing strategies altogether."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "唯一の方法ではなく複数の合理的な解法を比較できるため。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Why did the teacher avoid attributing every improvement to the revised schedule?",
+      "options": [
+        "Other instruction and differing experiences could also have influenced the results.",
+        "She had deliberately removed feedback from the class.",
+        "There had been no improvement in any student's explanation.",
+        "The activity had proved that mixed practice was ineffective in all circumstances."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "追加指導や個人差など他の要因もあった。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "Which statement best expresses the author's conclusion?",
+      "options": [
+        "Learning formulas makes all decisions about mathematical methods unnecessary.",
+        "Mixed exercises should completely replace all focused practice.",
+        "Knowing how to perform a procedure differs from recognizing when and why it is appropriate.",
+        "The quality of a student's understanding can always be determined by one numerical answer."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "手順の実行と適用条件の認識は異なる。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "might partly depend on knowing in advance",
+      "explanation_ja": "mightは可能性、depend on＋動名詞は〜することに依存する。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 4,
+      "focus": "so that she could distinguish",
+      "explanation_ja": "so thatは目的を表す副詞節。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "focus": "each requiring a different form of support",
+      "explanation_ja": "each＋現在分詞の補足表現で、それぞれが異なる支援を必要とすることを示す。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "focus": "no definitive evidence that the revised practice schedule alone had caused",
+      "explanation_ja": "that節はevidenceの具体的内容を示し、過去完了は先行する原因を表す。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "however",
+      "role_ja": "章末問題の成功と模擬試験の課題を対比。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "therefore",
+      "role_ja": "観察から教師が採った新たな方針。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "However",
+      "role_ja": "単元別練習の継続に加えて混合復習を導入。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "Nevertheless",
+      "role_ja": "改善例が見られても因果関係は確定できないことを示す。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The teacher suspected that success within a chapter might partly depend on knowing in advance which method was expected rather than on recognizing the mathematical situation independently.",
+      "rewrite": "She thought that chapter-based success might owe something to prior knowledge of the expected method, rather than fully independent recognition of the problem type.",
+      "explanation_ja": "章の情報が解法選択を補助している可能性を考えた。"
+    },
+    {
+      "source": "The teacher collected their explanations alongside their numerical answers so that she could distinguish difficulties with choosing a strategy from difficulties with performing calculations.",
+      "rewrite": "By gathering students' reasons together with their answers, the teacher hoped to tell strategy-selection problems apart from calculation problems.",
+      "explanation_ja": "説明を集め二種類の困難を区別したかった。"
+    },
+    {
+      "source": "These observations suggested that an incorrect final answer might conceal several quite different kinds of difficulty, each requiring a different form of support.",
+      "rewrite": "The observations indicated that one wrong answer could hide different problems that called for different kinds of help.",
+      "explanation_ja": "単一の誤答の原因は複数あり得る。"
+    },
+    {
+      "source": "Nevertheless, she recognized that the activity provided no definitive evidence that the revised practice schedule alone had caused every improvement she observed.",
+      "rewrite": "Still, she knew the activity could not prove that the changed schedule by itself accounted for all the improvements she had noticed.",
+      "explanation_ja": "改善のすべてを練習計画だけに帰属させられない。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "independently",
+      "options": [
+        "independently",
+        "accidentally",
+        "secretly",
+        "visually"
+      ],
+      "explanation_ja": "状況を自力で認識することとの対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 4,
+      "answer": "distinguish",
+      "options": [
+        "combine",
+        "distinguish",
+        "ignore",
+        "replace"
+      ],
+      "explanation_ja": "二種類の困難を区別する。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "plausible",
+      "options": [
+        "unrelated",
+        "impossible",
+        "plausible",
+        "irrelevant"
+      ],
+      "explanation_ja": "合理的に見える二つの解法を比較した。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "answer": "definitive",
+      "options": [
+        "decorative",
+        "temporary",
+        "irrelevant",
+        "definitive"
+      ],
+      "explanation_ja": "因果を確定する証拠は得られなかった。"
+    }
+  ]
+}
