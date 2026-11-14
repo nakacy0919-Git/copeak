@@ -1,0 +1,721 @@
+{
+  "id": "L03-030",
+  "category_id": "L03",
+  "title": "A System Designed to Be Repaired",
+  "title_ja": "修理できるよう設計されたシステム",
+  "level_id": "eiken-pre1",
+  "status": "draft",
+  "original": true,
+  "word_count": 498,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "オリジナル論説・架空事例。実在の史料、調査、システムの実証結果ではない。台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A technology that performs an intended task successfully when it is first introduced may appear to have satisfied the principal requirements of its designers.",
+          "ja": "初導入時に想定作業をうまく実行する技術は設計者の主要要件を満たしたように見えるかもしれない。"
+        },
+        {
+          "en": "However, the relationship between a technological system and the people who depend on it may continue long after the original development process has ended.",
+          "ja": "しかし技術システムとそれに依存する人々の関係は当初開発過程が終了した後も長く続く可能性がある。"
+        },
+        {
+          "en": "The people who maintain a system may need to understand decisions made by developers whom they have never met, and they may have to respond to circumstances that those developers could not originally have anticipated.",
+          "ja": "システムを維持する人は会ったこともない開発者の判断を理解する必要があり、その開発者が当初予想できなかった事情に対応しなければならないかもしれない。"
+        },
+        {
+          "en": "Designing for later maintenance therefore involves questions about the accessibility of knowledge as well as questions about the physical or computational performance of a product.",
+          "ja": "したがって後の維持を考えた設計には製品の物理的・計算的性能の問いだけでなく知識の利用しやすさについての問いが伴う。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Imagine a fictional team developing a digital system that helps an organization arrange the use of several shared facilities.",
+          "ja": "組織が複数共有施設の利用を手配するのを助けるデジタルシステムを開発する架空チームを想像しよう。"
+        },
+        {
+          "en": "One developer creates a compact procedure for determining whether a particular request is compatible with the reservations that have already been recorded.",
+          "ja": "ある開発者は特定依頼が既記録の予約と両立するか決める簡潔な手順を作る。"
+        },
+        {
+          "en": "The procedure works as intended during the original tests, and the organization begins using the system in its daily activities.",
+          "ja": "手順は当初試験中に意図通り働き、組織は日常活動でシステムを使い始める。"
+        },
+        {
+          "en": "Several months later, a change in the organization's activities makes it necessary to consider a kind of reservation that the procedure was not originally designed to accommodate.",
+          "ja": "数か月後、組織活動の変化で手順が当初対応するよう設計されなかった種類の予約を考慮する必要が生じる。"
+        },
+        {
+          "en": "The person responsible for modifying the system discovers that the existing procedure contains little information about the reasons behind several important choices made during development.",
+          "ja": "変更担当者は既存手順に開発時の重要選択の理由についてほとんど情報がないと発見する。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The maintainer could attempt to infer the intended purpose of each choice by examining how the system behaves under a variety of conditions.",
+          "ja": "維持担当者はさまざまな条件でシステムがどう動くか調べ、各選択の意図した目的を推論しようとできる。"
+        },
+        {
+          "en": "This approach might reveal useful information, but it would not necessarily establish why the original developers regarded one behavior as acceptable and another as undesirable.",
+          "ja": "この方法は有用情報を示し得るが、当初開発者が一挙動を許容でき別のものを望ましくないと考えた理由を必ずしも確定しない。"
+        },
+        {
+          "en": "The team consequently recognizes the value of recording the assumptions that support important decisions, particularly when the consequences of changing one part of a system depend on the behavior of other parts.",
+          "ja": "そこでチームは重要判断を支える前提の記録の価値を認識する。特に一部変更の影響が他部分の挙動に依存する場合である。"
+        },
+        {
+          "en": "A description of the intended relationships among components might enable future maintainers to identify which questions need to be investigated before a modification is made.",
+          "ja": "構成要素間の意図した関係の記述は変更前にどの問いを調べる必要があるか将来の維持担当者が特定することを可能にし得る。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Nevertheless, producing extensive documentation does not automatically make a system easy to maintain.",
+          "ja": "それでも大量の文書資料を作ることでシステムの維持が自動的に容易になるわけではない。"
+        },
+        {
+          "en": "Information that is difficult to locate or that no longer corresponds to the actual behavior of the system may create uncertainty rather than resolve it.",
+          "ja": "見つけにくい情報や実挙動ともはや一致しない情報は不確実性を解決するのでなく生む場合がある。"
+        },
+        {
+          "en": "The fictional team therefore considers how the descriptions of important decisions could be reviewed when the corresponding parts of the system are modified.",
+          "ja": "そこで架空チームはシステムの対応部分を変更した際に重要判断の記述をどう見直せるか検討する。"
+        },
+        {
+          "en": "The exercise illustrates a general design problem rather than establishing that any particular programming method or documentation practice would be effective in an actual project.",
+          "ja": "活動は一般設計問題を例示し、実事業で特定プログラミング法や文書化慣行が有効と確立するものではない。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The performance of a technological system can be understood partly in terms of what it enables its current users to accomplish.",
+          "ja": "技術システムの性能は現在の利用者が何を達成できるかという観点から部分的に理解できる。"
+        },
+        {
+          "en": "Its longer-term value may also depend on the opportunities it provides for future users and maintainers to understand, evaluate and modify its behavior.",
+          "ja": "長期価値は将来の利用者や維持担当者が挙動を理解・評価・変更するために提供する機会にも依存し得る。"
+        },
+        {
+          "en": "Knowledge about a system is not necessarily preserved merely because the system continues to operate.",
+          "ja": "システムが動作し続けるだけでそれについての知識が必ずしも保持されるわけではない。"
+        },
+        {
+          "en": "A technology designed to be repaired must take account of the people who will encounter it after the original design decisions have become part of its history.",
+          "ja": "修理できるよう設計された技術は当初設計判断が歴史の一部となった後にそれに出会う人々を考慮しなければならない。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "technology",
+      "ja": "技術",
+      "synonym": "technical system",
+      "definition": "application of technical knowledge"
+    },
+    {
+      "term": "intended",
+      "ja": "意図された",
+      "synonym": "meant",
+      "definition": "planned for a purpose"
+    },
+    {
+      "term": "introduced",
+      "ja": "導入された",
+      "synonym": "brought in",
+      "definition": "put into use"
+    },
+    {
+      "term": "principal",
+      "ja": "主要な",
+      "synonym": "main",
+      "definition": "of greatest importance"
+    },
+    {
+      "term": "requirements",
+      "ja": "要件",
+      "synonym": "conditions",
+      "definition": "things that must be met"
+    },
+    {
+      "term": "technological",
+      "ja": "技術的な",
+      "synonym": "technical",
+      "definition": "relating to technology"
+    },
+    {
+      "term": "depend on",
+      "ja": "依存する",
+      "synonym": "rely on",
+      "definition": "need support from"
+    },
+    {
+      "term": "development",
+      "ja": "開発",
+      "synonym": "creation",
+      "definition": "process of developing something"
+    },
+    {
+      "term": "maintain",
+      "ja": "維持する",
+      "synonym": "keep",
+      "definition": "continue in a condition"
+    },
+    {
+      "term": "developers",
+      "ja": "開発者",
+      "synonym": "creators",
+      "definition": "people developing systems"
+    },
+    {
+      "term": "circumstances",
+      "ja": "事情",
+      "synonym": "conditions",
+      "definition": "factors affecting a situation"
+    },
+    {
+      "term": "anticipated",
+      "ja": "予想された",
+      "synonym": "expected",
+      "definition": "thought likely to occur"
+    },
+    {
+      "term": "maintenance",
+      "ja": "維持管理",
+      "synonym": "upkeep",
+      "definition": "work keeping something in condition"
+    },
+    {
+      "term": "accessibility",
+      "ja": "利用しやすさ",
+      "synonym": "ease of access",
+      "definition": "quality of being easy to obtain or use"
+    },
+    {
+      "term": "computational",
+      "ja": "計算的な",
+      "synonym": "computer-based",
+      "definition": "relating to computation"
+    },
+    {
+      "term": "performance",
+      "ja": "性能",
+      "synonym": "operation",
+      "definition": "how well something works"
+    },
+    {
+      "term": "fictional",
+      "ja": "架空の",
+      "synonym": "imaginary",
+      "definition": "existing in imagination"
+    },
+    {
+      "term": "facilities",
+      "ja": "施設",
+      "synonym": "amenities",
+      "definition": "places provided for use"
+    },
+    {
+      "term": "compact",
+      "ja": "簡潔な",
+      "synonym": "concise",
+      "definition": "using little space"
+    },
+    {
+      "term": "procedure",
+      "ja": "手順",
+      "synonym": "process",
+      "definition": "established way of acting"
+    },
+    {
+      "term": "determining",
+      "ja": "決めること",
+      "synonym": "establishing",
+      "definition": "finding or deciding"
+    },
+    {
+      "term": "compatible",
+      "ja": "両立する",
+      "synonym": "consistent",
+      "definition": "able to exist together"
+    },
+    {
+      "term": "reservations",
+      "ja": "予約",
+      "synonym": "bookings",
+      "definition": "arrangements to use something later"
+    },
+    {
+      "term": "recorded",
+      "ja": "記録された",
+      "synonym": "documented",
+      "definition": "preserved in a record"
+    },
+    {
+      "term": "accommodate",
+      "ja": "対応する",
+      "synonym": "make allowance for",
+      "definition": "provide room for"
+    },
+    {
+      "term": "modifying",
+      "ja": "変更すること",
+      "synonym": "altering",
+      "definition": "making different"
+    },
+    {
+      "term": "existing",
+      "ja": "既存の",
+      "synonym": "current",
+      "definition": "already present"
+    },
+    {
+      "term": "choice",
+      "ja": "選択",
+      "synonym": "option",
+      "definition": "thing one can choose"
+    },
+    {
+      "term": "maintainer",
+      "ja": "維持担当者",
+      "synonym": "caretaker",
+      "definition": "person who maintains a system"
+    },
+    {
+      "term": "infer",
+      "ja": "推論する",
+      "synonym": "deduce",
+      "definition": "conclude from evidence"
+    },
+    {
+      "term": "behaves",
+      "ja": "動作する",
+      "synonym": "operates",
+      "definition": "works in a particular way"
+    },
+    {
+      "term": "variety",
+      "ja": "多様性",
+      "synonym": "range",
+      "definition": "set of different kinds"
+    },
+    {
+      "term": "acceptable",
+      "ja": "許容できる",
+      "synonym": "adequate",
+      "definition": "good enough to be accepted"
+    },
+    {
+      "term": "undesirable",
+      "ja": "望ましくない",
+      "synonym": "unwelcome",
+      "definition": "not worth wanting"
+    },
+    {
+      "term": "consequently",
+      "ja": "そこで",
+      "synonym": "therefore",
+      "definition": "as a result"
+    },
+    {
+      "term": "assumptions",
+      "ja": "前提",
+      "synonym": "suppositions",
+      "definition": "beliefs taken for granted"
+    },
+    {
+      "term": "consequences",
+      "ja": "影響",
+      "synonym": "effects",
+      "definition": "results of an action"
+    },
+    {
+      "term": "components",
+      "ja": "構成要素",
+      "synonym": "parts",
+      "definition": "pieces forming a whole"
+    },
+    {
+      "term": "enable",
+      "ja": "可能にする",
+      "synonym": "allow",
+      "definition": "make possible"
+    },
+    {
+      "term": "modification",
+      "ja": "変更",
+      "synonym": "alteration",
+      "definition": "change made to something"
+    },
+    {
+      "term": "Nevertheless",
+      "ja": "それでも",
+      "synonym": "even so",
+      "definition": "despite that fact"
+    },
+    {
+      "term": "extensive",
+      "ja": "大量の・広範な",
+      "synonym": "comprehensive",
+      "definition": "covering a large range"
+    },
+    {
+      "term": "documentation",
+      "ja": "文書資料",
+      "synonym": "records",
+      "definition": "documents describing a system"
+    },
+    {
+      "term": "locate",
+      "ja": "見つける",
+      "synonym": "find",
+      "definition": "discover a particular place"
+    },
+    {
+      "term": "corresponds",
+      "ja": "一致する",
+      "synonym": "matches",
+      "definition": "agrees with another thing"
+    },
+    {
+      "term": "uncertainty",
+      "ja": "不確実性",
+      "synonym": "doubt",
+      "definition": "lack of certainty"
+    },
+    {
+      "term": "resolve",
+      "ja": "解決する",
+      "synonym": "settle",
+      "definition": "bring a problem to a solution"
+    },
+    {
+      "term": "corresponding",
+      "ja": "対応する",
+      "synonym": "matching",
+      "definition": "related in a matching way"
+    },
+    {
+      "term": "programming",
+      "ja": "プログラミング",
+      "synonym": "coding",
+      "definition": "process of writing computer instructions"
+    },
+    {
+      "term": "accomplish",
+      "ja": "達成する",
+      "synonym": "achieve",
+      "definition": "bring to a desired result"
+    },
+    {
+      "term": "preserved",
+      "ja": "保持された",
+      "synonym": "retained",
+      "definition": "kept from loss"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "inference",
+      "prompt": "Why does successful initial performance not settle all design questions?",
+      "options": [
+        "Later maintainers may need to respond to situations the developers did not anticipate.",
+        "The system necessarily stops working immediately after its first use.",
+        "Designers can never evaluate initial performance.",
+        "All future users have identical needs."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "将来の維持と新状況。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Besides performance, what concern does maintenance introduce?",
+      "options": [
+        "The appearance of the organization's building.",
+        "A requirement to replace every developer.",
+        "Accessibility of knowledge about the system.",
+        "The cost of every shared facility."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "知識へのアクセス。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What function does the digital system perform?",
+      "options": [
+        "Replaces every building with a digital copy.",
+        "Measures the temperature of the rooms.",
+        "Creates educational materials for students.",
+        "Helps arrange the use of shared facilities."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "施設利用の手配。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why does a later reservation type create difficulty?",
+      "options": [
+        "The organization has stopped using all facilities.",
+        "The procedure was not designed for it and the reasons behind prior choices are unclear.",
+        "The initial tests had necessarily failed.",
+        "The maintainer has been given every relevant explanation."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "未想定の要件と設計理由不足。"
+    },
+    {
+      "id": "q5",
+      "skill": "inference",
+      "prompt": "Why may observing behavior be insufficient to reconstruct design reasons?",
+      "options": [
+        "It can show what happens without showing why a choice was made.",
+        "It always proves that the system is incorrect.",
+        "It cannot reveal any system behavior.",
+        "It establishes the developers' intentions with certainty."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "挙動と理由の違い。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What kind of information could help future maintainers?",
+      "options": [
+        "Only a list of developers' names.",
+        "The length of every program file.",
+        "Assumptions and intended relationships among components.",
+        "A history of unrelated systems."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "前提と構成要素間の関係。"
+    },
+    {
+      "id": "q7",
+      "skill": "inference",
+      "prompt": "Why can extensive documentation be counterproductive?",
+      "options": [
+        "It always makes the system consume more electricity.",
+        "It may be hard to find relevant material or may no longer match current behavior.",
+        "The documentation proves no maintenance is needed.",
+        "It automatically removes every ambiguity."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "古い情報や検索困難。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What practice does the team consider?",
+      "options": [
+        "Deleting all descriptions after launch.",
+        "Making every description identical.",
+        "Avoiding all modifications to the system.",
+        "Reviewing design descriptions when related system parts change."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "変更時に記述を見直す。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does preserved mean?",
+      "options": [
+        "Used without permission.",
+        "Modified repeatedly.",
+        "Retained or kept from loss.",
+        "Replaced completely."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "保持された。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "Which statement best expresses the argument?",
+      "options": [
+        "Designing maintainable technology involves preserving accessible knowledge of design reasoning as well as achieving technical performance.",
+        "Initial tests prove every future modification will be easy.",
+        "Documentation alone guarantees a dependable system.",
+        "Maintenance is unrelated to earlier design choices."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1",
+        "p5"
+      ],
+      "explanation_ja": "設計理由へのアクセスと性能。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "whom they have never met",
+      "explanation_ja": "whomは目的格の関係代名詞。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "was not originally designed to accommodate",
+      "explanation_ja": "受動態＋to不定詞。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "focus": "before a modification is made",
+      "explanation_ja": "before節、受動態。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "focus": "merely because the system continues to operate",
+      "explanation_ja": "merely becauseは単に〜というだけで。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The people who maintain a system may need to understand decisions made by developers whom they have never met, and they may have to respond to circumstances that those developers could not originally have anticipated.",
+      "rewrite": "Maintainers may need to understand earlier decisions made by unfamiliar developers.",
+      "explanation_ja": "開発者と維持担当者。"
+    },
+    {
+      "source": "Several months later, a change in the organization's activities makes it necessary to consider a kind of reservation that the procedure was not originally designed to accommodate.",
+      "rewrite": "The new reservation type falls outside the procedure's original design.",
+      "explanation_ja": "当初の想定外。"
+    },
+    {
+      "source": "A description of the intended relationships among components might enable future maintainers to identify which questions need to be investigated before a modification is made.",
+      "rewrite": "Documentation can help identify questions to investigate in advance of changes.",
+      "explanation_ja": "変更前の検討。"
+    },
+    {
+      "source": "Knowledge about a system is not necessarily preserved merely because the system continues to operate.",
+      "rewrite": "Continued operation does not by itself preserve knowledge about the system.",
+      "explanation_ja": "動作と知識。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "初期性能と長期維持へ。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "consequently",
+      "role_ja": "設計理由の記録の価値。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "文書化の利点と限界。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "also",
+      "role_ja": "長期価値を追加。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "compatible",
+      "options": [
+        "compatible",
+        "unrelated",
+        "invalid",
+        "temporary"
+      ],
+      "explanation_ja": "既存予約と両立するか。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 0,
+      "answer": "infer",
+      "options": [
+        "discard",
+        "infer",
+        "forget",
+        "ignore"
+      ],
+      "explanation_ja": "設計目的を推論。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "uncertainty",
+      "options": [
+        "certainty",
+        "precision",
+        "uncertainty",
+        "agreement"
+      ],
+      "explanation_ja": "古い文書が生む不確実性。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "preserved",
+      "options": [
+        "removed",
+        "replaced",
+        "forgotten",
+        "preserved"
+      ],
+      "explanation_ja": "知識の保持。"
+    }
+  ]
+}
