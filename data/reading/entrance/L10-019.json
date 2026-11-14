@@ -1,0 +1,686 @@
+{
+  "id": "L10-019",
+  "category_id": "L10",
+  "title": "The Notebook That Recorded Attempts",
+  "title_ja": "試行を記録したノート",
+  "level_id": "eiken-2",
+  "status": "draft",
+  "original": true,
+  "word_count": 380,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "人物・制度・具体的な出来事は架空の教材例・思考実験。実在の調査・統計・実証結果を示すものではない。制作台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A mathematics teacher in a fictional school noticed that students often erased their unsuccessful calculations as soon as they found a correct solution.",
+          "ja": "架空の学校の数学教師は生徒が正しい解法を見つけると失敗した計算を消すことが多いと気づいた。"
+        },
+        {
+          "en": "Consequently, a completed notebook might contain an accurate answer without showing how the student had arrived at it.",
+          "ja": "その結果、完成したノートには正答があってもそこに至る過程が示されないことがあった。"
+        },
+        {
+          "en": "The teacher wondered whether some earlier attempts could provide useful information about what the student understood or misunderstood.",
+          "ja": "以前の試行が理解・誤解について有用な情報を提供できるか教師は考えた。"
+        },
+        {
+          "en": "She introduced a voluntary activity in which students kept selected examples of their reasoning rather than recording every calculation they had ever made.",
+          "ja": "すべての計算を記録するのでなく選んだ思考過程の例を残す任意活動を導入した。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "One student chose an exercise that she had initially attempted by applying a familiar formula without checking its conditions.",
+          "ja": "ある生徒は条件を確認せず身近な公式を当てはめて最初に取り組んだ問題を選んだ。"
+        },
+        {
+          "en": "When the resulting answer seemed unreasonable, she reconsidered which quantities the formula was intended to describe.",
+          "ja": "結果が不合理に見えたとき公式がどの量を表すものか再考した。"
+        },
+        {
+          "en": "Her revised explanation identified the assumption that had made her first approach unsuitable for this particular problem.",
+          "ja": "修正した説明では最初の方法を不適切にした前提を特定した。"
+        },
+        {
+          "en": "The teacher asked her to include both the original attempt and the reason for changing it in her notebook.",
+          "ja": "教師は最初の試行と変更理由の両方をノートに含めるよう求めた。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "During the next lesson, the students compared several examples without revealing the names of the people who had produced them.",
+          "ja": "次の授業で作成者の名前を明かさずいくつかの例を比較した。"
+        },
+        {
+          "en": "They discovered that superficially similar mistakes could arise from quite different misunderstandings of a problem.",
+          "ja": "表面的に似た誤りでも問題について全く異なる誤解から生じ得ると分かった。"
+        },
+        {
+          "en": "Some mistakes concerned the meaning of a symbol, while others resulted from overlooking a condition stated in the question.",
+          "ja": "記号の意味に関する誤りもあれば問題文の条件の見落としによるものもあった。"
+        },
+        {
+          "en": "The class discussed which kinds of explanation would help someone recognize and correct each type of error independently.",
+          "ja": "各種の誤りを自力で認識し修正するのにどんな説明が役立つか議論した。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The teacher did not require every student to maintain a complete record of every unsuccessful attempt.",
+          "ja": "教師はすべての失敗した試行の完全な記録を全員に求めなかった。"
+        },
+        {
+          "en": "She recognized that excessive documentation could consume time needed for actually practicing the mathematical skills under consideration.",
+          "ja": "過剰な記録が実際に数学技能を練習するための時間を消費し得ると認識した。"
+        },
+        {
+          "en": "Instead, students periodically selected one example that illustrated a change in their understanding and explained why the change mattered.",
+          "ja": "代わりに定期的に理解の変化を示す一例を選び変化の重要性を説明した。"
+        },
+        {
+          "en": "They were encouraged to identify questions they could ask themselves when encountering similar difficulties in the future.",
+          "ja": "今後似た困難に遭遇したとき自分に問いかけられる質問を特定するよう促された。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The activity illustrates a distinction between recording mistakes as evidence of failure and examining them as evidence of an evolving understanding.",
+          "ja": "この活動は誤りを失敗の証拠として記録することと変化する理解の証拠として検討することの違いを示す。"
+        },
+        {
+          "en": "A useful learning record does not merely display the correct result, nor does it need to preserve every detail of an unsuccessful process.",
+          "ja": "有用な学習記録は正答を示すだけではなく、失敗過程の全詳細を保存する必要もない。"
+        },
+        {
+          "en": "Its value depends on whether the selected information helps a learner decide how to approach a future task more effectively.",
+          "ja": "価値は選ばれた情報が将来の課題への取り組み方の改善を助けるかによる。"
+        },
+        {
+          "en": "For this fictional class, a notebook became a tool for reflecting on reasoning rather than simply demonstrating that work had been completed.",
+          "ja": "架空のクラスにとってノートは作業完了を示すだけでなく思考を振り返る道具となった。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "mathematics",
+      "ja": "数学",
+      "synonym": "math",
+      "definition": "study of numbers and structures"
+    },
+    {
+      "term": "fictional",
+      "ja": "架空の",
+      "synonym": "imaginary",
+      "definition": "existing in imagination"
+    },
+    {
+      "term": "erased",
+      "ja": "消した",
+      "synonym": "removed",
+      "definition": "rubbed or deleted something away"
+    },
+    {
+      "term": "unsuccessful",
+      "ja": "失敗した",
+      "synonym": "failed",
+      "definition": "not achieving a goal"
+    },
+    {
+      "term": "calculations",
+      "ja": "計算",
+      "synonym": "computations",
+      "definition": "numerical operations"
+    },
+    {
+      "term": "solution",
+      "ja": "解法",
+      "synonym": "answer",
+      "definition": "way of solving a problem"
+    },
+    {
+      "term": "Consequently",
+      "ja": "その結果",
+      "synonym": "therefore",
+      "definition": "as a result"
+    },
+    {
+      "term": "accurate",
+      "ja": "正確な",
+      "synonym": "correct",
+      "definition": "free from error"
+    },
+    {
+      "term": "attempts",
+      "ja": "試行",
+      "synonym": "tries",
+      "definition": "efforts to do something"
+    },
+    {
+      "term": "misunderstood",
+      "ja": "誤解した",
+      "synonym": "misinterpreted",
+      "definition": "understood incorrectly"
+    },
+    {
+      "term": "voluntary",
+      "ja": "任意の",
+      "synonym": "optional",
+      "definition": "done by free choice"
+    },
+    {
+      "term": "selected",
+      "ja": "選んだ",
+      "synonym": "chose",
+      "definition": "picked from options"
+    },
+    {
+      "term": "reasoning",
+      "ja": "思考・推論",
+      "synonym": "logic",
+      "definition": "thinking through reasons"
+    },
+    {
+      "term": "initially",
+      "ja": "当初",
+      "synonym": "at first",
+      "definition": "at the beginning"
+    },
+    {
+      "term": "applying",
+      "ja": "適用すること",
+      "synonym": "using",
+      "definition": "putting a method into practice"
+    },
+    {
+      "term": "familiar",
+      "ja": "身近な",
+      "synonym": "well-known",
+      "definition": "known from experience"
+    },
+    {
+      "term": "formula",
+      "ja": "公式",
+      "synonym": "equation",
+      "definition": "mathematical rule or expression"
+    },
+    {
+      "term": "conditions",
+      "ja": "条件",
+      "synonym": "requirements",
+      "definition": "facts needed for application"
+    },
+    {
+      "term": "resulting",
+      "ja": "結果としての",
+      "synonym": "consequent",
+      "definition": "arising from something"
+    },
+    {
+      "term": "unreasonable",
+      "ja": "不合理な",
+      "synonym": "illogical",
+      "definition": "not based on good judgment"
+    },
+    {
+      "term": "reconsidered",
+      "ja": "再考した",
+      "synonym": "rethought",
+      "definition": "thought about again"
+    },
+    {
+      "term": "quantities",
+      "ja": "量",
+      "synonym": "amounts",
+      "definition": "measurable amounts"
+    },
+    {
+      "term": "intended",
+      "ja": "意図された",
+      "synonym": "meant",
+      "definition": "planned for a purpose"
+    },
+    {
+      "term": "revised",
+      "ja": "修正された",
+      "synonym": "modified",
+      "definition": "changed to improve"
+    },
+    {
+      "term": "assumption",
+      "ja": "前提",
+      "synonym": "supposition",
+      "definition": "something accepted without proof"
+    },
+    {
+      "term": "unsuitable",
+      "ja": "不適切な",
+      "synonym": "inappropriate",
+      "definition": "not right for a purpose"
+    },
+    {
+      "term": "revealing",
+      "ja": "明かすこと",
+      "synonym": "disclosing",
+      "definition": "making information known"
+    },
+    {
+      "term": "superficially",
+      "ja": "表面的に",
+      "synonym": "outwardly",
+      "definition": "in outward appearance"
+    },
+    {
+      "term": "arise",
+      "ja": "生じる",
+      "synonym": "emerge",
+      "definition": "begin to exist"
+    },
+    {
+      "term": "misunderstandings",
+      "ja": "誤解",
+      "synonym": "misinterpretations",
+      "definition": "incorrect understandings"
+    },
+    {
+      "term": "symbol",
+      "ja": "記号",
+      "synonym": "sign",
+      "definition": "something representing information"
+    },
+    {
+      "term": "overlooking",
+      "ja": "見落とすこと",
+      "synonym": "missing",
+      "definition": "failing to notice"
+    },
+    {
+      "term": "independently",
+      "ja": "自力で",
+      "synonym": "on one's own",
+      "definition": "without depending on others"
+    },
+    {
+      "term": "maintain",
+      "ja": "維持する",
+      "synonym": "keep",
+      "definition": "continue to have something"
+    },
+    {
+      "term": "excessive",
+      "ja": "過剰な",
+      "synonym": "too much",
+      "definition": "greater than necessary"
+    },
+    {
+      "term": "documentation",
+      "ja": "記録",
+      "synonym": "record keeping",
+      "definition": "process of recording information"
+    },
+    {
+      "term": "consume",
+      "ja": "消費する",
+      "synonym": "use up",
+      "definition": "use resources"
+    },
+    {
+      "term": "periodically",
+      "ja": "定期的に",
+      "synonym": "regularly",
+      "definition": "at intervals"
+    },
+    {
+      "term": "illustrated",
+      "ja": "示した",
+      "synonym": "demonstrated",
+      "definition": "made clear through an example"
+    },
+    {
+      "term": "encountering",
+      "ja": "遭遇すること",
+      "synonym": "meeting",
+      "definition": "coming across something"
+    },
+    {
+      "term": "distinction",
+      "ja": "区別",
+      "synonym": "difference",
+      "definition": "difference between things"
+    },
+    {
+      "term": "evidence",
+      "ja": "証拠",
+      "synonym": "support",
+      "definition": "information backing a conclusion"
+    },
+    {
+      "term": "evolving",
+      "ja": "変化する",
+      "synonym": "developing",
+      "definition": "changing over time"
+    },
+    {
+      "term": "preserve",
+      "ja": "保存する",
+      "synonym": "retain",
+      "definition": "keep from loss"
+    },
+    {
+      "term": "effectively",
+      "ja": "効果的に",
+      "synonym": "successfully",
+      "definition": "in a way producing results"
+    },
+    {
+      "term": "reflecting",
+      "ja": "振り返ること",
+      "synonym": "considering",
+      "definition": "thinking carefully about something"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What did the teacher notice?",
+      "answer": 1,
+      "options": [
+        "Students never wrote correct answers.",
+        "Students erased failed calculations after finding answers.",
+        "Notebooks contained only drawings.",
+        "Every exercise was completed orally."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "失敗計算を消す。"
+    },
+    {
+      "id": "q2",
+      "skill": "inference",
+      "prompt": "What was missing from some completed notebooks?",
+      "answer": 3,
+      "options": [
+        "The final numerical answer.",
+        "The student's name.",
+        "The date of every lesson.",
+        "Evidence of the reasoning process."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "答えに至る過程。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What caused one student's first error?",
+      "answer": 2,
+      "options": [
+        "Copying a diagram incorrectly.",
+        "Forgetting her notebook.",
+        "Using a formula without checking its conditions.",
+        "Refusing to calculate."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "適用条件を確認しなかった。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What did the teacher ask her to include?",
+      "answer": 0,
+      "options": [
+        "The original attempt and why she changed it.",
+        "Only the final answer.",
+        "Every calculation from the term.",
+        "The names of classmates."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "最初の試行と変更理由。"
+    },
+    {
+      "id": "q5",
+      "skill": "inference",
+      "prompt": "What did comparing errors reveal?",
+      "answer": 2,
+      "options": [
+        "Every mistake has the same explanation.",
+        "Symbols never cause confusion.",
+        "Similar-looking mistakes may have different causes.",
+        "Only one person made errors."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "類似する誤りでも原因は違う。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What examples of causes are given?",
+      "answer": 1,
+      "options": [
+        "Poor handwriting and missing pencils only.",
+        "Misunderstood symbols and overlooked conditions.",
+        "Different exam schedules.",
+        "Lack of notebooks."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "記号の誤解と条件の見落とし。"
+    },
+    {
+      "id": "q7",
+      "skill": "inference",
+      "prompt": "Why not document every attempt?",
+      "answer": 3,
+      "options": [
+        "Recording any error is useless.",
+        "Students already knew every solution.",
+        "The teacher prohibited reflection.",
+        "Excessive records could reduce practice time."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "練習時間との両立。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What did students select periodically?",
+      "answer": 0,
+      "options": [
+        "An example showing a change in understanding.",
+        "A classmate's final grade.",
+        "A new textbook cover.",
+        "Every unsuccessful calculation."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "理解の変化の一例。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does evolving mean?",
+      "answer": 1,
+      "options": [
+        "Remaining permanently fixed.",
+        "Developing or changing over time.",
+        "Being erased completely.",
+        "Becoming invisible."
+      ],
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "変化する。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the main message?",
+      "answer": 2,
+      "options": [
+        "Every error must be permanently recorded.",
+        "Only correct answers have educational value.",
+        "Selected mistakes can support reflection and future learning.",
+        "Learning records should replace practice."
+      ],
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "選んだ誤りを次の学びに活用。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "without showing how the student had arrived at it",
+      "explanation_ja": "without＋動名詞、how節は経路を示す。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 0,
+      "focus": "without checking its conditions",
+      "explanation_ja": "withoutは〜せずに。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "focus": "could consume time needed for",
+      "explanation_ja": "couldは可能性、過去分詞neededがtimeを修飾。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "focus": "nor does it need to preserve",
+      "explanation_ja": "否定のnorによる倒置。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Consequently, a completed notebook might contain an accurate answer without showing how the student had arrived at it.",
+      "rewrite": "A notebook could show a valid answer but omit how it was reached.",
+      "explanation_ja": "正答と過程の違い。"
+    },
+    {
+      "source": "One student chose an exercise that she had initially attempted by applying a familiar formula without checking its conditions.",
+      "rewrite": "She first used a known formula before verifying when it applied.",
+      "explanation_ja": "条件確認が不足。"
+    },
+    {
+      "source": "She recognized that excessive documentation could consume time needed for actually practicing the mathematical skills under consideration.",
+      "rewrite": "Recording too much might take time away from mathematical practice.",
+      "explanation_ja": "過剰記録は練習時間を消費。"
+    },
+    {
+      "source": "A useful learning record does not merely display the correct result, nor does it need to preserve every detail of an unsuccessful process.",
+      "rewrite": "A useful record neither shows only the final answer nor needs to keep every failed step.",
+      "explanation_ja": "正答だけでも全失敗の保存でもない。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "Consequently",
+      "role_ja": "消去による情報欠落。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "while",
+      "role_ja": "誤りの異なる原因。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Instead",
+      "role_ja": "すべての記録から選択的記録へ。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "rather than",
+      "role_ja": "ノートの目的の転換。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "assumption",
+      "options": [
+        "assumption",
+        "receipt",
+        "recipe",
+        "portrait"
+      ],
+      "explanation_ja": "不適切な前提。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "superficially",
+      "options": [
+        "deeply",
+        "superficially",
+        "secretly",
+        "briefly"
+      ],
+      "explanation_ja": "表面的に似た誤り。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "excessive",
+      "options": [
+        "limited",
+        "occasional",
+        "excessive",
+        "necessary"
+      ],
+      "explanation_ja": "過剰な記録。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 0,
+      "answer": "evolving",
+      "options": [
+        "frozen",
+        "identical",
+        "unchanged",
+        "evolving"
+      ],
+      "explanation_ja": "変化する理解。"
+    }
+  ]
+}
