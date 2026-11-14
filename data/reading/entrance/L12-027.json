@@ -1,0 +1,692 @@
+{
+  "id": "L12-027",
+  "category_id": "L12",
+  "title": "The Instructions After the Appointment",
+  "title_ja": "診察後の説明",
+  "level_id": "eiken-2",
+  "status": "draft",
+  "original": true,
+  "word_count": 379,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "オリジナル論説・架空事例。実在の制度・医療助言・調査・実証結果ではない。制作台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Information provided during a medical appointment may be intended to guide a person's decisions long after the conversation has ended.",
+          "ja": "診察中に提供された情報は会話終了後も長く人の判断を導く目的があるかもしれない。"
+        },
+        {
+          "en": "A person who understands an explanation while listening to it may nevertheless experience difficulty recalling its details later.",
+          "ja": "聞いている時に説明を理解した人でも後で細部を思い出すのに苦労することがある。"
+        },
+        {
+          "en": "The usefulness of a conversation consequently depends not only on what is said but also on whether the recipient can identify the relevant information when it is needed.",
+          "ja": "したがって会話の有用性は述べられたことだけでなく、必要時に受け手が関連情報を特定できるかにも依存する。"
+        },
+        {
+          "en": "This distinction is especially significant when the information concerns several different actions or conditions.",
+          "ja": "情報が複数の異なる行動や条件に関わるとき特に重要な区別だ。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Imagine a fictional clinic that provides patients with a written summary after an appointment.",
+          "ja": "診察後に患者へ書面要約を提供する架空診療所を想像しよう。"
+        },
+        {
+          "en": "A member of the staff prepares a document containing all the topics discussed during the conversation in the order in which they were originally mentioned.",
+          "ja": "職員は会話中の全話題を当初言及順で含む文書を準備する。"
+        },
+        {
+          "en": "One patient finds the document useful as a record of the discussion but has difficulty locating the part that explains how to arrange the next appointment.",
+          "ja": "ある患者は議論の記録として文書を有用に感じるが、次回予約方法の説明部分を見つけるのに苦労する。"
+        },
+        {
+          "en": "The staff recognize that recording the contents of a conversation and organizing information for later use are related but distinct tasks.",
+          "ja": "会話内容の記録と後の利用に向けた情報整理は関連するが別の作業だと職員は認識する。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "They consider dividing the written information into sections according to the purpose of each section.",
+          "ja": "各区分の目的に応じ書面情報を区分することを考える。"
+        },
+        {
+          "en": "Some details might explain the background of the discussion, while other details might identify actions that the person needs to consider afterward.",
+          "ja": "一部の詳細は議論の背景を説明し、他の詳細はその後本人が検討する必要のある行動を特定するかもしれない。"
+        },
+        {
+          "en": "The staff also discuss how to make clear which questions require further clarification from an appropriate healthcare professional.",
+          "ja": "どの問いが適切な医療専門家からの追加説明を必要とするか明確にする方法も議論する。"
+        },
+        {
+          "en": "They do not assume that a written document can replace every opportunity for a patient to ask questions.",
+          "ja": "書面文書が患者の全質問機会に代わり得るとは想定しない。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The imagined clinic considers asking people to explain which parts of the summary they would use in particular situations.",
+          "ja": "仮想診療所は特定状況で要約のどの部分を使うか人々に説明してもらうことを考える。"
+        },
+        {
+          "en": "This exercise might reveal whether the organization of the document supports the tasks for which it was intended.",
+          "ja": "活動は文書の構成が想定作業を支援するか明らかにできるかもしれない。"
+        },
+        {
+          "en": "It would not establish that any particular treatment or system of communication is effective in real clinical practice without appropriate evaluation.",
+          "ja": "適切な評価なしに特定治療や意思疎通制度が実臨床で有効と確立するわけではない。"
+        },
+        {
+          "en": "The example concerns the accessibility of information rather than individual medical advice.",
+          "ja": "例は個別医療助言でなく情報の利用しやすさに関するものだ。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "A detailed explanation is valuable only insofar as its recipient can understand and use the relevant parts appropriately.",
+          "ja": "詳細な説明は受け手が関連部分を適切に理解・利用できる範囲で価値がある。"
+        },
+        {
+          "en": "The organization of information may help people distinguish what has already been discussed from questions that remain unanswered.",
+          "ja": "情報構成は既に議論したことと未解決の問いの区別を助け得る。"
+        },
+        {
+          "en": "Clear communication therefore involves considering the circumstances in which information will be needed, not merely the circumstances in which it is delivered.",
+          "ja": "したがって明確な意思疎通は情報が伝達される状況だけでなく必要とされる状況の考慮を伴う。"
+        },
+        {
+          "en": "The conversation does not necessarily end when the patient leaves the room.",
+          "ja": "会話は患者が部屋を出るとき必ずしも終わらない。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "appointment",
+      "ja": "予約・診察",
+      "synonym": "scheduled visit",
+      "definition": "arranged meeting at a given time"
+    },
+    {
+      "term": "provided",
+      "ja": "提供された",
+      "synonym": "supplied",
+      "definition": "made available"
+    },
+    {
+      "term": "intended",
+      "ja": "意図された",
+      "synonym": "meant",
+      "definition": "planned for a purpose"
+    },
+    {
+      "term": "guide",
+      "ja": "導く",
+      "synonym": "direct",
+      "definition": "help someone decide"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "even so",
+      "definition": "despite that fact"
+    },
+    {
+      "term": "recalling",
+      "ja": "思い出すこと",
+      "synonym": "remembering",
+      "definition": "bringing to mind"
+    },
+    {
+      "term": "consequently",
+      "ja": "したがって",
+      "synonym": "therefore",
+      "definition": "as a result"
+    },
+    {
+      "term": "recipient",
+      "ja": "受け手",
+      "synonym": "receiver",
+      "definition": "person receiving something"
+    },
+    {
+      "term": "identify",
+      "ja": "特定する",
+      "synonym": "determine",
+      "definition": "find or name"
+    },
+    {
+      "term": "relevant",
+      "ja": "関連する",
+      "synonym": "pertinent",
+      "definition": "connected to a matter"
+    },
+    {
+      "term": "significant",
+      "ja": "重要な",
+      "synonym": "important",
+      "definition": "having important effects"
+    },
+    {
+      "term": "conditions",
+      "ja": "条件",
+      "synonym": "circumstances",
+      "definition": "factors affecting a situation"
+    },
+    {
+      "term": "fictional",
+      "ja": "架空の",
+      "synonym": "imaginary",
+      "definition": "existing in imagination"
+    },
+    {
+      "term": "clinic",
+      "ja": "診療所",
+      "synonym": "medical center",
+      "definition": "place providing medical care"
+    },
+    {
+      "term": "patients",
+      "ja": "患者",
+      "synonym": "people receiving care",
+      "definition": "people receiving medical care"
+    },
+    {
+      "term": "written",
+      "ja": "書面の",
+      "synonym": "recorded in writing",
+      "definition": "expressed in written words"
+    },
+    {
+      "term": "summary",
+      "ja": "要約",
+      "synonym": "outline",
+      "definition": "brief account of main points"
+    },
+    {
+      "term": "document",
+      "ja": "文書",
+      "synonym": "record",
+      "definition": "written source of information"
+    },
+    {
+      "term": "topics",
+      "ja": "話題",
+      "synonym": "subjects",
+      "definition": "matters under discussion"
+    },
+    {
+      "term": "originally",
+      "ja": "当初",
+      "synonym": "initially",
+      "definition": "at the beginning"
+    },
+    {
+      "term": "mentioned",
+      "ja": "言及された",
+      "synonym": "referred to",
+      "definition": "spoken about"
+    },
+    {
+      "term": "locating",
+      "ja": "見つけること",
+      "synonym": "finding",
+      "definition": "discovering a particular place"
+    },
+    {
+      "term": "arrange",
+      "ja": "手配する",
+      "synonym": "organize",
+      "definition": "plan activities"
+    },
+    {
+      "term": "contents",
+      "ja": "内容",
+      "synonym": "material",
+      "definition": "things contained within something"
+    },
+    {
+      "term": "distinct",
+      "ja": "別個の",
+      "synonym": "separate",
+      "definition": "clearly different"
+    },
+    {
+      "term": "dividing",
+      "ja": "分けること",
+      "synonym": "splitting",
+      "definition": "separating into parts"
+    },
+    {
+      "term": "sections",
+      "ja": "区分",
+      "synonym": "parts",
+      "definition": "pieces of a whole"
+    },
+    {
+      "term": "according to",
+      "ja": "に応じて",
+      "synonym": "in line with",
+      "definition": "in agreement with something"
+    },
+    {
+      "term": "background",
+      "ja": "背景",
+      "synonym": "context",
+      "definition": "information behind an event"
+    },
+    {
+      "term": "afterward",
+      "ja": "その後",
+      "synonym": "later",
+      "definition": "after an event"
+    },
+    {
+      "term": "clarification",
+      "ja": "説明",
+      "synonym": "explanation",
+      "definition": "act of making meaning clear"
+    },
+    {
+      "term": "appropriate",
+      "ja": "適切な",
+      "synonym": "suitable",
+      "definition": "right for a purpose"
+    },
+    {
+      "term": "healthcare",
+      "ja": "医療",
+      "synonym": "medical care",
+      "definition": "services supporting health"
+    },
+    {
+      "term": "professional",
+      "ja": "専門家",
+      "synonym": "specialist",
+      "definition": "person trained in a field"
+    },
+    {
+      "term": "replace",
+      "ja": "代わる",
+      "synonym": "substitute for",
+      "definition": "take the place of"
+    },
+    {
+      "term": "opportunity",
+      "ja": "機会",
+      "synonym": "chance",
+      "definition": "situation allowing action"
+    },
+    {
+      "term": "particular",
+      "ja": "特定の",
+      "synonym": "specific",
+      "definition": "relating to one thing"
+    },
+    {
+      "term": "reveal",
+      "ja": "明らかにする",
+      "synonym": "show",
+      "definition": "make known"
+    },
+    {
+      "term": "treatment",
+      "ja": "治療",
+      "synonym": "medical care",
+      "definition": "action intended to address a condition"
+    },
+    {
+      "term": "clinical",
+      "ja": "臨床の",
+      "synonym": "medical",
+      "definition": "relating to patient care"
+    },
+    {
+      "term": "evaluation",
+      "ja": "評価",
+      "synonym": "assessment",
+      "definition": "considered judgment"
+    },
+    {
+      "term": "accessibility",
+      "ja": "利用しやすさ",
+      "synonym": "ease of access",
+      "definition": "quality of being easy to obtain or use"
+    },
+    {
+      "term": "individual",
+      "ja": "個別の",
+      "synonym": "personal",
+      "definition": "relating to one person"
+    },
+    {
+      "term": "insofar as",
+      "ja": "〜の範囲で",
+      "synonym": "to the extent that",
+      "definition": "indicating the extent to which something applies"
+    },
+    {
+      "term": "appropriately",
+      "ja": "適切に",
+      "synonym": "suitably",
+      "definition": "in a manner fitting a purpose"
+    },
+    {
+      "term": "unanswered",
+      "ja": "未解決の",
+      "synonym": "unresolved",
+      "definition": "not answered"
+    },
+    {
+      "term": "delivered",
+      "ja": "伝達された",
+      "synonym": "conveyed",
+      "definition": "made known to someone"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "inference",
+      "prompt": "Why may understanding an explanation during an appointment be insufficient?",
+      "options": [
+        "Every explanation is necessarily incorrect.",
+        "Relevant details may be difficult to recall or locate later.",
+        "Information cannot be recorded in writing.",
+        "Patients always remember all details equally well."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "後で思い出せるとは限らない。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "When is the distinction especially significant?",
+      "options": [
+        "Only when no conversation occurs.",
+        "When every action is already completed.",
+        "When a document has no content.",
+        "When information involves multiple actions or conditions."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "複数の行動や条件がある時。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "How is the original summary organized?",
+      "options": [
+        "In the order topics were mentioned.",
+        "By alphabetical order of patient names.",
+        "By the price of each treatment.",
+        "By the length of the appointment alone."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "会話の順序。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "What difficulty reveals a limitation of the record?",
+      "options": [
+        "The patient cannot see any words.",
+        "The clinic has removed all appointment records.",
+        "The patient cannot easily find information for the next appointment.",
+        "The summary contains no information about the conversation."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "必要な情報の検索が難しい。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "How might the staff reorganize the information?",
+      "options": [
+        "Delete every background explanation.",
+        "Divide it into sections according to purpose.",
+        "Only write a list of dates.",
+        "Use identical headings for unrelated information."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "目的別区分。"
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why retain opportunities to ask questions?",
+      "options": [
+        "Documents are never useful.",
+        "Every patient has exactly the same question.",
+        "All professional explanations can be replaced by text.",
+        "A written summary may not resolve every uncertainty."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "書面だけで解決できない問い。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What might the clinic ask people to explain?",
+      "options": [
+        "Which treatment is universally best.",
+        "How to diagnose other patients.",
+        "Which parts of the summary they would use in different situations.",
+        "Which clinic is most expensive."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "状況別の情報利用。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "What is the scope of the imagined example?",
+      "options": [
+        "Information accessibility rather than proof of treatment effectiveness.",
+        "A universal guideline for clinical treatment.",
+        "A verified assessment of actual patients.",
+        "An individual medical recommendation."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "情報の利用しやすさ。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does insofar as mean?",
+      "options": [
+        "Regardless of whether.",
+        "Long before.",
+        "In sharp contrast to.",
+        "To the extent that."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "〜の範囲で。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "Which statement captures the argument?",
+      "options": [
+        "The chronological order of a conversation is always the best document structure.",
+        "Medical communication should consider how recipients can find and use information after a conversation.",
+        "Written summaries remove the need for patients to ask questions.",
+        "Only the amount of information matters."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "後で情報を使えるようにする。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 0,
+      "focus": "long after the conversation has ended",
+      "explanation_ja": "long afterはずっと後、現在完了。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "in the order in which they were originally mentioned",
+      "explanation_ja": "前置詞＋関係代名詞、受動態。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "which questions require further clarification",
+      "explanation_ja": "間接疑問。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "focus": "not merely the circumstances in which it is delivered",
+      "explanation_ja": "not merelyは単に〜だけではない。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Information provided during a medical appointment may be intended to guide a person's decisions long after the conversation has ended.",
+      "rewrite": "Information may guide decisions well beyond the appointment itself.",
+      "explanation_ja": "診察後の判断。"
+    },
+    {
+      "source": "A member of the staff prepares a document containing all the topics discussed during the conversation in the order in which they were originally mentioned.",
+      "rewrite": "The document follows the original order of the discussion.",
+      "explanation_ja": "会話順。"
+    },
+    {
+      "source": "The staff also discuss how to make clear which questions require further clarification from an appropriate healthcare professional.",
+      "rewrite": "Staff consider how to identify questions needing professional explanation.",
+      "explanation_ja": "追加説明が必要な問い。"
+    },
+    {
+      "source": "Clear communication therefore involves considering the circumstances in which information will be needed, not merely the circumstances in which it is delivered.",
+      "rewrite": "Communication should account for both delivery and later use.",
+      "explanation_ja": "伝達と利用。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "nevertheless",
+      "role_ja": "理解と想起の違い。"
+    },
+    {
+      "paragraph_id": "p1",
+      "expression": "consequently",
+      "role_ja": "情報の利用可能性へ。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "while",
+      "role_ja": "背景と行動の情報。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "therefore",
+      "role_ja": "伝達後の状況にも注意。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "locating",
+      "options": [
+        "locating",
+        "hiding",
+        "forgetting",
+        "removing"
+      ],
+      "explanation_ja": "予約情報を見つける。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "clarification",
+      "options": [
+        "celebration",
+        "clarification",
+        "transportation",
+        "decoration"
+      ],
+      "explanation_ja": "専門家の追加説明。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 3,
+      "answer": "accessibility",
+      "options": [
+        "expense",
+        "permission",
+        "accessibility",
+        "arrival"
+      ],
+      "explanation_ja": "情報の利用しやすさ。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "answer": "unanswered",
+      "options": [
+        "completed",
+        "confirmed",
+        "resolved",
+        "unanswered"
+      ],
+      "explanation_ja": "未解決の問題。"
+    }
+  ]
+}
