@@ -502,7 +502,113 @@
       "next_suggested_id": "L15-027"
     }
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "id": "L01-028",
+      "owner": "bulk-u",
+      "work_branch": "content/reading-20261114-bulk-u",
+      "reserved_at": "2026-11-14",
+      "status": "reserved"
+    },
+    {
+      "id": "L02-028",
+      "owner": "bulk-u",
+      "work_branch": "content/reading-20261114-bulk-u",
+      "reserved_at": "2026-11-14",
+      "status": "reserved"
+    },
+    {
+      "id": "L03-028",
+      "owner": "bulk-u",
+      "work_branch": "content/reading-20261114-bulk-u",
+      "reserved_at": "2026-11-14",
+      "status": "reserved"
+    },
+    {
+      "id": "L04-028",
+      "owner": "bulk-u",
+      "work_branch": "content/reading-20261114-bulk-u",
+      "reserved_at": "2026-11-14",
+      "status": "reserved"
+    },
+    {
+      "id": "L05-028",
+      "owner": "bulk-u",
+      "work_branch": "content/reading-20261114-bulk-u",
+      "reserved_at": "2026-11-14",
+      "status": "reserved"
+    },
+    {
+      "id": "L06-028",
+      "owner": "bulk-u",
+      "work_branch": "content/reading-20261114-bulk-u",
+      "reserved_at": "2026-11-14",
+      "status": "reserved"
+    },
+    {
+      "id": "L07-028",
+      "owner": "bulk-u",
+      "work_branch": "content/reading-20261114-bulk-u",
+      "reserved_at": "2026-11-14",
+      "status": "reserved"
+    },
+    {
+      "id": "L08-028",
+      "owner": "bulk-u",
+      "work_branch": "content/reading-20261114-bulk-u",
+      "reserved_at": "2026-11-14",
+      "status": "reserved"
+    },
+    {
+      "id": "L09-027",
+      "owner": "bulk-u",
+      "work_branch": "content/reading-20261114-bulk-u",
+      "reserved_at": "2026-11-14",
+      "status": "reserved"
+    },
+    {
+      "id": "L10-028",
+      "owner": "bulk-u",
+      "work_branch": "content/reading-20261114-bulk-u",
+      "reserved_at": "2026-11-14",
+      "status": "reserved"
+    },
+    {
+      "id": "L11-027",
+      "owner": "bulk-u",
+      "work_branch": "content/reading-20261114-bulk-u",
+      "reserved_at": "2026-11-14",
+      "status": "reserved"
+    },
+    {
+      "id": "L12-027",
+      "owner": "bulk-u",
+      "work_branch": "content/reading-20261114-bulk-u",
+      "reserved_at": "2026-11-14",
+      "status": "reserved"
+    },
+    {
+      "id": "L13-028",
+      "owner": "bulk-u",
+      "work_branch": "content/reading-20261114-bulk-u",
+      "reserved_at": "2026-11-14",
+      "status": "reserved"
+    },
+    {
+      "id": "L14-027",
+      "owner": "bulk-u",
+      "work_branch": "content/reading-20261114-bulk-u",
+      "reserved_at": "2026-11-14",
+      "status": "reserved"
+    },
+    {
+      "id": "L15-027",
+      "owner": "bulk-u",
+      "work_branch": "content/reading-20261114-bulk-u",
+      "reserved_at": "2026-11-14",
+      "status": "reserved"
+    }
+  ],
   "reservation_workflow": {
     "before_drafting": "Fetch THIS file from authoritative_branch and manifest from the same branch; check the requested ID is absent from accepted_ids and reservations.",
     "claim": "Update THIS file on authoritative_branch using its freshly fetched GitHub blob SHA. If update_file rejects because the SHA changed, refetch and choose again; do not write any lesson before the successful reservation commit.",
