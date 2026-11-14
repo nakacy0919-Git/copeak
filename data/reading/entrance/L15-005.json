@@ -1,0 +1,901 @@
+{
+  "id": "L15-005",
+  "category_id": "L15",
+  "title": "The Summary That Erased a Condition",
+  "title_ja": "大切な条件を消してしまったAIの要約",
+  "level_id": "university-advanced",
+  "word_count": 795,
+  "original": true,
+  "status": "draft",
+  "source_links": [
+    {
+      "title": "NIST: Artificial Intelligence Risk Management Framework — Generative AI Profile",
+      "url": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence"
+    },
+    {
+      "title": "NIST: AI Risk Management Framework",
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework"
+    }
+  ],
+  "fact_notes": [
+    "NISTの生成AIリスク管理指針を背景資料とした架空の学校と自治体の調査事例。AIによる条件の省略や誤った引用は具体的な架空例として構成。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A town asks high school students to collect opinions about a proposal to restrict vehicle access near the main railway station.",
+          "ja": "町は高校生に中央駅付近の車両通行を制限する案について意見を集めるよう頼みます。"
+        },
+        {
+          "en": "The students receive hundreds of short written comments, many of which contain qualifications, concerns, or suggested alternatives.",
+          "ja": "生徒には数百の短い意見が届き、その多くに条件、懸念、代替案が含まれています。"
+        },
+        {
+          "en": "They use a generative AI system to produce a brief summary that busy officials can read before a public meeting.",
+          "ja": "生徒は多忙な担当者が公開会議前に読める短い要約を生成AIで作ります。"
+        },
+        {
+          "en": "However, the first summary states that most respondents support restricting vehicles, without mentioning that many supporters attach important conditions.",
+          "ja": "しかし最初の要約は多くの賛成者が重要な条件を付けていることに触れず、大半が車両制限を支持すると述べます。"
+        },
+        {
+          "en": "Some comments favor the plan only if accessible buses remain available, while others support restrictions during certain hours rather than all day.",
+          "ja": "利用しやすいバスが残る場合のみ賛成する意見も、一日中でなく特定の時間だけの制限を支持する意見もあります。"
+        },
+        {
+          "en": "When those qualifications disappear, the summary can make a disputed policy look more settled than the original responses justify.",
+          "ja": "こうした条件が消えると、元の回答が正当化する以上に議論のある政策が確定的に見えてしまいます。"
+        },
+        {
+          "en": "The problem reveals that reducing a text's length is not the same as preserving the distinctions on which a decision depends.",
+          "ja": "この問題は文章を短くすることと判断に重要な区別を保つことが同じではないと示します。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Summarization requires decisions about which details are central and which can be omitted without changing the overall meaning.",
+          "ja": "要約にはどの細部が中心で、どれを省いても全体の意味を変えないかという判断が必要です。"
+        },
+        {
+          "en": "For example, removing repeated greetings may save space without altering a respondent's position on the proposed restrictions.",
+          "ja": "例えば繰り返される挨拶を省くことは提案への立場を変えずに文字数を節約できます。"
+        },
+        {
+          "en": "Removing a phrase such as only if the bus route is maintained is different because it changes the circumstances under which approval was given.",
+          "ja": "しかしバス路線が維持される場合のみという語句を消すのは、賛成の条件を変えるため別問題です。"
+        },
+        {
+          "en": "The distinction involves logical structure as well as the general topic of a sentence.",
+          "ja": "この違いには文章の話題だけでなく論理構造も関わっています。"
+        },
+        {
+          "en": "A system can reproduce many correct keywords while failing to communicate how those keywords are connected.",
+          "ja": "システムは正しいキーワードを多く再現しても、そのつながりを伝えられない場合があります。"
+        },
+        {
+          "en": "This matters especially when a summary becomes the basis for decisions that affect people whose comments have been compressed.",
+          "ja": "圧縮された意見の持ち主に影響する決定の根拠に要約がなる場合、これは特に重要です。"
+        },
+        {
+          "en": "The students realize that factual accuracy cannot be judged merely by checking whether several familiar words appear in the output.",
+          "ja": "生徒は既知の語がいくつか出力に現れるか確認するだけでは事実の正確さを判断できないと気づきます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The National Institute of Standards and Technology identifies several risks associated with generative AI, including confidently presented false or unsupported content.",
+          "ja": "米国標準技術研究所は自信ありげに示される誤りや裏づけのない内容を含め生成AIに関わる複数のリスクを示しています。"
+        },
+        {
+          "en": "In addition, an apparently convincing explanation can encourage readers to trust a result without checking the original sources.",
+          "ja": "さらに説得力があるように見える説明は読み手に元の資料を確かめず結果を信頼させるかもしれません。"
+        },
+        {
+          "en": "The students discover that their summary includes a quotation that nobody actually wrote in the survey responses.",
+          "ja": "生徒は要約に調査の回答で誰も書いていない引用が含まれていると気づきます。"
+        },
+        {
+          "en": "The quotation sounds plausible because it resembles several genuine comments, but similarity is not evidence that the sentence exists.",
+          "ja": "引用は複数の本物の意見に似ていてもっともらしく聞こえますが、似ていることはその文の存在の証拠ではありません。"
+        },
+        {
+          "en": "The club distinguishes paraphrasing an idea from attributing exact words to an identifiable speaker.",
+          "ja": "部員は考えの言い換えと特定の話者に正確な言葉を帰属させることを区別します。"
+        },
+        {
+          "en": "A fabricated quotation is not repaired merely by adding a general statement that AI can make mistakes.",
+          "ja": "作り物の引用はAIが間違うことがあるという一般的な注意書きを加えるだけでは直りません。"
+        },
+        {
+          "en": "The claim must be removed or replaced with words that can be verified in the source material.",
+          "ja": "その主張は削除するか元の資料で確認できる言葉に置き換える必要があります。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The students design a review process that connects each important statement in the summary to the comments supporting it.",
+          "ja": "生徒は要約の重要な文をそれを支える回答に結びつける確認過程を設計します。"
+        },
+        {
+          "en": "They create categories for full support, conditional support, opposition, uncertainty, and suggestions that do not fit neatly into one category.",
+          "ja": "全面支持、条件付き支持、反対、不確実、どれにも簡単に当てはまらない提案の分類を作ります。"
+        },
+        {
+          "en": "Nevertheless, classifying comments is not free from judgment, and two reviewers may disagree about a complicated response.",
+          "ja": "それでも意見の分類には判断が伴い、複雑な回答について二人の確認者が意見を異にすることがあります。"
+        },
+        {
+          "en": "They record difficult cases and discuss how changing a category could affect the reported balance of opinions.",
+          "ja": "難しい例を記録し、分類変更が意見の割合の報告にどう影響するか話し合います。"
+        },
+        {
+          "en": "The aim is not to eliminate all disagreement among reviewers but to make the basis of interpretation visible and revisable.",
+          "ja": "目的は確認者間の意見の違いをすべて消すことではなく、解釈の根拠を見える形にし修正可能にすることです。"
+        },
+        {
+          "en": "Before publishing the summary, the students also check how many people responded and whether the responses represent the wider community.",
+          "ja": "要約公開前に生徒は回答者数と回答が広い地域社会を代表するかも確かめます。"
+        },
+        {
+          "en": "A carefully checked summary of an unrepresentative survey can still support misleading claims about what the whole town believes.",
+          "ja": "代表性のない調査の要約は慎重に確認しても、町全体の考えについて誤った主張を支えてしまう場合があります。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The town's officials appreciate the shorter document but request clear links to the source comments and an explanation of the review procedure.",
+          "ja": "町の担当者は短い文書を評価する一方、元の回答への明確なリンクと確認方法の説明を求めます。"
+        },
+        {
+          "en": "Some residents argue that human reviewers should examine every word, while others worry that such a rule would make useful tools impractical.",
+          "ja": "すべての語を人が確認すべきだという住民もいれば、その規則は便利な道具を非実用的にすると心配する人もいます。"
+        },
+        {
+          "en": "The students suggest that checking effort should be related to the likely consequences of an error and the importance of the claim.",
+          "ja": "生徒は確認の手間を誤りの予想される影響と主張の重要性に応じて配分すべきと提案します。"
+        },
+        {
+          "en": "A casual summary prepared for private study may not require the same procedure as a public report influencing transport policy.",
+          "ja": "私的な学習用の簡単な要約には交通政策に影響する公開報告と同じ手順は必要ないかもしれません。"
+        },
+        {
+          "en": "Still, every use benefits from recognizing that fluent sentences are not automatically trustworthy and that reviewers need access to the sources.",
+          "ja": "それでも流暢な文章は自動的に信頼できないこと、確認者に元資料が必要なことを認識する利益はあらゆる利用にあります。"
+        },
+        {
+          "en": "Risk-based review does not mean that low-stakes errors are desirable; it means that safeguards should reflect the context in which information will be used.",
+          "ja": "リスクに応じた確認は小さな誤りを望ましいとすることではなく、情報の使用場面に保護策を合わせることです。"
+        },
+        {
+          "en": "A useful tool should reduce unnecessary work without concealing where responsibility for factual claims remains.",
+          "ja": "役立つ道具は事実の主張への責任の所在を隠さず、不要な作業を減らすべきです。"
+        }
+      ]
+    },
+    {
+      "id": "p6",
+      "sentences": [
+        {
+          "en": "At the final public meeting, officials receive a revised summary that separates unconditional support from approval dependent on particular improvements.",
+          "ja": "最終公開会議では、無条件の支持と特定の改善に依存する賛成を分けた改訂版の要約が担当者に渡されます。"
+        },
+        {
+          "en": "The document presents disagreement honestly and identifies the limits of the student survey rather than announcing a simple victory for one side.",
+          "ja": "文書はどちらかの単純な勝利を宣言せず、意見の相違を誠実に示し生徒調査の限界を特定します。"
+        },
+        {
+          "en": "Residents can inspect the underlying responses without being asked to accept the AI-generated wording on authority alone.",
+          "ja": "住民はAIが作った文言を権威だけで受け入れるよう求められず、元の回答を調べられます。"
+        },
+        {
+          "en": "The process takes longer than copying the first machine-generated text, but the additional work protects the distinctions that matter for policy.",
+          "ja": "最初の機械生成文をコピーするより時間はかかりますが、追加作業は政策に重要な区別を守ります。"
+        },
+        {
+          "en": "The essential question is therefore not whether AI can write concise sentences but whether people can trace important claims back to adequate evidence.",
+          "ja": "したがって重要なのはAIが簡潔な文を書けるかではなく、重要な主張を十分な証拠までたどれるかです。"
+        },
+        {
+          "en": "A summary deserves trust when it makes the original material easier to understand without silently changing who agreed to what and under which conditions.",
+          "ja": "要約が信頼に値するのは誰が何にどの条件で同意したかを黙って変えず、元の資料を理解しやすくするときです。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the author's central claim?",
+      "options": [
+        "AI summaries require traceable evidence and preservation of meaningful conditions, especially for public decisions.",
+        "All machine-generated summaries should be banned.",
+        "Short summaries always express more truth than long comments.",
+        "Every survey perfectly represents its community."
+      ],
+      "answer": 0,
+      "explanation_ja": "根拠への追跡と条件の保存が主題です。",
+      "paragraph_ids": [
+        "p1",
+        "p4",
+        "p6"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What important distinction disappears in the initial summary?",
+      "options": [
+        "No resident mentioned the station.",
+        "Some support depends on conditions such as maintaining accessible buses.",
+        "The survey included no suggestions.",
+        "The original proposal concerned a different town."
+      ],
+      "answer": 1,
+      "explanation_ja": "条件付きの賛成が省かれています。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why is omitting 'only if' more serious than omitting a repeated greeting?",
+      "options": [
+        "It reduces the number of sentences.",
+        "It always changes the author's name.",
+        "It changes the circumstances under which respondents approved a proposal.",
+        "It makes the document easier to read."
+      ],
+      "answer": 2,
+      "explanation_ja": "支持が成り立つ条件を変えてしまうためです。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What additional error does the club find?",
+      "options": [
+        "A missing school logo.",
+        "A mistake in the station's address.",
+        "A shorter introduction than expected.",
+        "A quotation not present in any original response."
+      ],
+      "answer": 3,
+      "explanation_ja": "元資料にない引用が含まれます。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "inference",
+      "prompt": "Why does the author distinguish paraphrasing from quoting?",
+      "options": [
+        "A direct quotation claims exact words were used and must be verifiable.",
+        "All paraphrases are forbidden.",
+        "Every similar sentence is a genuine quote.",
+        "Quotations never affect trust."
+      ],
+      "answer": 0,
+      "explanation_ja": "直接引用には正確な原文の裏づけが必要だからです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What categories do the students create?",
+      "options": [
+        "Only two groups called positive and negative.",
+        "Full support, conditional support, opposition, uncertainty, and unusual suggestions.",
+        "Categories based on students' ages.",
+        "Only responses that favor the plan."
+      ],
+      "answer": 1,
+      "explanation_ja": "複数の賛否・条件の分類です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'unrepresentative' mean in paragraph 4?",
+      "options": [
+        "Written entirely by a computer.",
+        "Too short to be translated.",
+        "Not accurately reflecting the wider group being discussed.",
+        "Approved by every survey participant."
+      ],
+      "answer": 2,
+      "explanation_ja": "unrepresentativeは全体を適切に代表していないという意味です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "Why does the proposed review depend on the consequences of error?",
+      "options": [
+        "All errors produce exactly the same harm.",
+        "Review is never needed for short texts.",
+        "Human judgment cannot identify any mistakes.",
+        "Public policy reports can require stronger safeguards than private study notes."
+      ],
+      "answer": 3,
+      "explanation_ja": "使用場面に応じて必要な確認水準が異なるためです。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "detail",
+      "prompt": "What changes in the revised public report?",
+      "options": [
+        "It separates unconditional support from support dependent on improvements.",
+        "It removes every respondent's opinion.",
+        "It treats every participant as opposed.",
+        "It conceals the source material."
+      ],
+      "answer": 0,
+      "explanation_ja": "条件付きと無条件の賛成を分けます。",
+      "paragraph_ids": [
+        "p6"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "What does the final sentence define as a trustworthy summary?",
+      "options": [
+        "One that uses confident language regardless of evidence.",
+        "One that aids understanding without silently altering who agreed to what under which conditions.",
+        "One that always supports officials' preferred plan.",
+        "One that is written without any source checks."
+      ],
+      "answer": 1,
+      "explanation_ja": "条件と根拠を保つことが結論です。",
+      "paragraph_ids": [
+        "p6"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "unconditional",
+      "ja": "無条件の",
+      "synonym": "without conditions",
+      "definition": "not dependent on requirements"
+    },
+    {
+      "term": "conditional",
+      "ja": "条件付きの",
+      "synonym": "subject to a condition",
+      "definition": "true or accepted only in certain circumstances"
+    },
+    {
+      "term": "unrepresentative",
+      "ja": "代表性のない",
+      "synonym": "not typical",
+      "definition": "not accurately reflecting the larger group"
+    },
+    {
+      "term": "fabricated",
+      "ja": "作り上げられた",
+      "synonym": "invented",
+      "definition": "not actually present in the source"
+    },
+    {
+      "term": "safeguards",
+      "ja": "保護策",
+      "synonym": "protections",
+      "definition": "measures reducing the chance of harm"
+    },
+    {
+      "term": "attributing",
+      "ja": "帰属させる",
+      "synonym": "crediting",
+      "definition": "saying someone produced words or ideas"
+    },
+    {
+      "term": "compressed",
+      "ja": "圧縮された",
+      "synonym": "shortened",
+      "definition": "made more concise while removing details"
+    },
+    {
+      "term": "interpretation",
+      "ja": "解釈",
+      "synonym": "understanding",
+      "definition": "the meaning assigned to evidence"
+    },
+    {
+      "term": "revisable",
+      "ja": "修正可能な",
+      "synonym": "changeable",
+      "definition": "able to be corrected"
+    },
+    {
+      "term": "people",
+      "ja": "人々",
+      "synonym": "persons",
+      "definition": "human beings in a group"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "learners",
+      "definition": "people receiving education at school"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "understand",
+      "ja": "理解する",
+      "synonym": "comprehend",
+      "definition": "to know what something means"
+    },
+    {
+      "term": "question",
+      "ja": "問い・質問",
+      "synonym": "inquiry",
+      "definition": "something asked to obtain information"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "because",
+      "ja": "なぜなら・〜なので",
+      "synonym": "since",
+      "definition": "introducing a reason or explanation"
+    },
+    {
+      "term": "useful",
+      "ja": "役立つ",
+      "synonym": "helpful",
+      "definition": "able to serve a practical purpose"
+    },
+    {
+      "term": "carefully",
+      "ja": "慎重に",
+      "synonym": "thoughtfully",
+      "definition": "with attention to accuracy and detail"
+    },
+    {
+      "term": "circumstances",
+      "ja": "事情",
+      "synonym": "conditions",
+      "definition": "facts surrounding an event"
+    },
+    {
+      "term": "context",
+      "ja": "文脈",
+      "synonym": "background",
+      "definition": "information needed to understand something"
+    },
+    {
+      "term": "residents",
+      "ja": "住民",
+      "synonym": "inhabitants",
+      "definition": "people living in a place"
+    },
+    {
+      "term": "sources",
+      "ja": "資料",
+      "synonym": "references",
+      "definition": "materials containing information"
+    },
+    {
+      "term": "student",
+      "ja": "生徒",
+      "synonym": "learner",
+      "definition": "a person learning at school"
+    },
+    {
+      "term": "evidence",
+      "ja": "証拠",
+      "synonym": "supporting facts",
+      "definition": "information used to test a claim"
+    },
+    {
+      "term": "therefore",
+      "ja": "したがって",
+      "synonym": "consequently",
+      "definition": "used to introduce a logical result"
+    },
+    {
+      "term": "uncertainty",
+      "ja": "不確実さ",
+      "synonym": "lack of certainty",
+      "definition": "limited confidence about an outcome"
+    },
+    {
+      "term": "risks",
+      "ja": "リスク",
+      "synonym": "dangers",
+      "definition": "possibilities of harm"
+    },
+    {
+      "term": "important",
+      "ja": "重要な",
+      "synonym": "significant",
+      "definition": "having a great effect or value"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "facts",
+      "definition": "facts or details provided about something"
+    },
+    {
+      "term": "underlying",
+      "ja": "基礎となる",
+      "synonym": "fundamental",
+      "definition": "lying beneath an idea"
+    },
+    {
+      "term": "produce",
+      "ja": "作る",
+      "synonym": "create",
+      "definition": "to make something"
+    },
+    {
+      "term": "familiar",
+      "ja": "見慣れた",
+      "synonym": "well-known",
+      "definition": "recognized from earlier experience"
+    },
+    {
+      "term": "involves",
+      "ja": "伴う",
+      "synonym": "includes",
+      "definition": "contains as part of a process"
+    },
+    {
+      "term": "trust",
+      "ja": "信じる",
+      "synonym": "rely on",
+      "definition": "to depend on something"
+    },
+    {
+      "term": "opinions",
+      "ja": "意見",
+      "synonym": "views",
+      "definition": "personal beliefs"
+    },
+    {
+      "term": "affect",
+      "ja": "影響する",
+      "synonym": "influence",
+      "definition": "to produce a change in something"
+    },
+    {
+      "term": "benefits",
+      "ja": "利益・利点",
+      "synonym": "advantages",
+      "definition": "positive results"
+    },
+    {
+      "term": "result",
+      "ja": "結果",
+      "synonym": "outcome",
+      "definition": "what happens because of an action or event"
+    },
+    {
+      "term": "automatically",
+      "ja": "自動的に",
+      "synonym": "without thought",
+      "definition": "without deliberate consideration"
+    },
+    {
+      "term": "problem",
+      "ja": "問題",
+      "synonym": "difficulty",
+      "definition": "something that needs attention or a solution"
+    },
+    {
+      "term": "decision",
+      "ja": "決定",
+      "synonym": "choice",
+      "definition": "an action of choosing between possibilities"
+    },
+    {
+      "term": "decisions",
+      "ja": "決定",
+      "synonym": "choices",
+      "definition": "choices made after considering options"
+    },
+    {
+      "term": "rather",
+      "ja": "むしろ",
+      "synonym": "instead",
+      "definition": "used to express a preferred alternative"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それにもかかわらず",
+      "synonym": "however",
+      "definition": "used to introduce an unexpected contrast"
+    },
+    {
+      "term": "also",
+      "ja": "さらに・また",
+      "synonym": "additionally",
+      "definition": "introducing another fact or action"
+    },
+    {
+      "term": "repeated",
+      "ja": "繰り返された",
+      "synonym": "said again",
+      "definition": "occurring more than once"
+    },
+    {
+      "term": "represent",
+      "ja": "代表する",
+      "synonym": "stand for",
+      "definition": "to show a wider group"
+    },
+    {
+      "term": "changes",
+      "ja": "変化",
+      "synonym": "differences",
+      "definition": "things that become different over time"
+    },
+    {
+      "term": "community",
+      "ja": "地域社会",
+      "synonym": "local society",
+      "definition": "people connected by a shared place or interest"
+    },
+    {
+      "term": "support",
+      "ja": "支援・支える",
+      "synonym": "help",
+      "definition": "assistance that makes something easier"
+    },
+    {
+      "term": "fluent",
+      "ja": "流暢な",
+      "synonym": "proficient",
+      "definition": "able to use a language smoothly"
+    },
+    {
+      "term": "original",
+      "ja": "元の",
+      "synonym": "source",
+      "definition": "existing before a change or translation"
+    },
+    {
+      "term": "remain",
+      "ja": "とどまる",
+      "synonym": "stay",
+      "definition": "to continue to be"
+    },
+    {
+      "term": "recognizing",
+      "ja": "認識すること",
+      "synonym": "noticing",
+      "definition": "realizing a distinction exists"
+    },
+    {
+      "term": "correct",
+      "ja": "正しい・直す",
+      "synonym": "right",
+      "definition": "free from error"
+    },
+    {
+      "term": "examine",
+      "ja": "調べる",
+      "synonym": "inspect",
+      "definition": "to study carefully"
+    },
+    {
+      "term": "consequences",
+      "ja": "結果・影響",
+      "synonym": "effects",
+      "definition": "outcomes of an action"
+    },
+    {
+      "term": "verified",
+      "ja": "確認された",
+      "synonym": "checked",
+      "definition": "supported by trustworthy evidence"
+    },
+    {
+      "term": "responsibility",
+      "ja": "責任",
+      "synonym": "duty",
+      "definition": "an obligation to deal with consequences"
+    },
+    {
+      "term": "review",
+      "ja": "再検討",
+      "synonym": "reconsideration",
+      "definition": "another examination of a decision"
+    },
+    {
+      "term": "publishing",
+      "ja": "公表すること",
+      "synonym": "releasing",
+      "definition": "making information publicly available"
+    },
+    {
+      "term": "public",
+      "ja": "公共の",
+      "synonym": "community",
+      "definition": "available to everyone"
+    },
+    {
+      "term": "design",
+      "ja": "設計",
+      "synonym": "plan",
+      "definition": "a plan for arranging things"
+    },
+    {
+      "term": "officials",
+      "ja": "担当者",
+      "synonym": "authorities",
+      "definition": "people with official responsibilities"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 5,
+      "focus": "more settled than the original responses justify",
+      "explanation_ja": "比較級more...thanで実際以上の確定性を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 5,
+      "focus": "whose comments have been compressed",
+      "explanation_ja": "whoseはpeopleを修飾し、have been compressedは現在完了受動態です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 4,
+      "focus": "not to eliminate all disagreement among reviewers but to make the basis of interpretation visible and revisable",
+      "explanation_ja": "not A but Bによる目的の対比です。"
+    },
+    {
+      "paragraph_id": "p6",
+      "sentence_index": 4,
+      "focus": "not whether AI can write concise sentences but whether people can trace important claims back to adequate evidence",
+      "explanation_ja": "not whether A but whether Bで評価基準を再定義します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "本文冒頭の考えと、その例外・注意を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "前の考えを具体例で説明します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "In addition",
+      "role_ja": "前の説明に新たな条件や視点を加えます。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "先に述べた利点と、残る限界や条件を対比します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "reducing a text's length is not the same as preserving the distinctions on which a decision depends",
+      "rewrite": "making text shorter does not guarantee that crucial conditions survive",
+      "explanation_ja": "not same→does not guaranteeです。"
+    },
+    {
+      "source": "A system can reproduce many correct keywords while failing to communicate how those keywords are connected",
+      "rewrite": "accurate vocabulary alone may fail to preserve logical relationships",
+      "explanation_ja": "keywords→vocabulary、connected→relationshipsです。"
+    },
+    {
+      "source": "A carefully checked summary of an unrepresentative survey can still support misleading claims",
+      "rewrite": "even accurate summarization cannot correct a biased sample",
+      "explanation_ja": "carefully checked→accurate summarizationです。"
+    },
+    {
+      "source": "A summary deserves trust when it makes the original material easier to understand without silently changing who agreed to what and under which conditions",
+      "rewrite": "reliable summaries improve comprehension while preserving the sources' commitments and limits",
+      "explanation_ja": "deserves trust→reliable、conditions→limitsです。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "In addition",
+        "Nevertheless"
+      ],
+      "explanation_ja": "本文冒頭の考えと、その例外・注意を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "In addition",
+        "Nevertheless"
+      ],
+      "explanation_ja": "前の考えを具体例で説明します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "In addition",
+      "options": [
+        "In addition",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "前の説明に新たな条件や視点を加えます。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "先に述べた利点と、残る限界や条件を対比します。"
+    }
+  ]
+}
