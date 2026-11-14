@@ -1,0 +1,779 @@
+{
+  "id": "L13-030",
+  "category_id": "L13",
+  "title": "A Library for an Unknown Century",
+  "title_ja": "未知の世紀のための図書館",
+  "level_id": "university-national",
+  "status": "draft",
+  "original": true,
+  "word_count": 653,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "オリジナル論説・架空事例。実在の人物、組織、技術の実証結果ではない。台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "The preservation of information for future generations is often described as a problem of protecting materials against physical deterioration or technological failure.",
+          "ja": "未来世代への情報保存は、物理的劣化や技術的故障から資料を守る問題として説明されることが多い。"
+        },
+        {
+          "en": "Yet a collection that remains physically intact may cease to be useful if its future readers cannot identify the circumstances in which the information was produced or the purposes that originally made it significant.",
+          "ja": "しかし物理的に無傷の資料集も、将来の読者が情報が生み出された事情や当初それを重要にした目的を特定できなければ、役に立たなくなるかもしれない。"
+        },
+        {
+          "en": "The ability to preserve a record is not necessarily equivalent to the ability to preserve the knowledge that people were once able to obtain from that record.",
+          "ja": "記録を保存する能力は、人々がかつてその記録から得られた知識を保存する能力と必ずしも同等ではない。"
+        },
+        {
+          "en": "Designing a library intended to remain useful for an unknown future audience therefore requires attention not only to the durability of its contents but also to the relationships between its contents and the questions that readers might wish to investigate.",
+          "ja": "したがって未知の未来の読者にとって役立ち続ける図書館の設計には、内容の耐久性だけでなく、内容と読者が調査したいかもしれない問いとの関係にも注意を払う必要がある。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Imagine a fictional team responsible for selecting materials for a collection that will be preserved for a period substantially longer than the expected working lives of the people making the selection.",
+          "ja": "選定者の予想職業人生よりかなり長い期間保存される資料集の資料を選ぶ責任を持つ架空のチームを想像しよう。"
+        },
+        {
+          "en": "One group of specialists proposes including a large collection of measurements describing the condition of several environments at the time when the library is established.",
+          "ja": "専門家の一団は図書館が設立された時点の複数環境の状態を記述する大量の測定値を含めることを提案する。"
+        },
+        {
+          "en": "The measurements have been organized according to categories that are familiar to the researchers who collected them, and the researchers can easily explain the significance of particular differences among the recorded values.",
+          "ja": "測定値は収集した研究者にとって身近な分類に従って整理されており、研究者は記録値間の特定の違いの意義を容易に説明できる。"
+        },
+        {
+          "en": "A member of the team asks whether the same differences would remain intelligible to a reader who had no prior knowledge of the methods through which the values were obtained.",
+          "ja": "あるメンバーは、値が得られた方法の事前知識を持たない読者にも同じ違いが理解できるか尋ねる。"
+        },
+        {
+          "en": "The collection could retain every numerical value while losing some of the information necessary for distinguishing an environmental change from a difference introduced by the observational procedure.",
+          "ja": "資料集は全数値を保持しながら、環境変化と観測手順によって導入された差を区別するのに必要な情報の一部を失い得る。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The team consequently considers documenting the circumstances under which the measurements were made, including the intended use of the categories that guided their selection.",
+          "ja": "そこでチームは選定を導いた分類の想定用途を含め、測定が行われた事情を記録することを検討する。"
+        },
+        {
+          "en": "This additional material could provide future investigators with grounds for evaluating the relevance of the recorded information to questions that might not occur to the people preparing the original collection.",
+          "ja": "追加資料は元の資料集を準備する人々には思いつかないかもしれない問いと記録情報の関連性を、未来の調査者が評価するための根拠を提供し得る。"
+        },
+        {
+          "en": "However, the team recognizes that every explanation of a method will itself contain concepts and expressions whose meanings depend on some degree of familiarity with the practices of the period in which the explanation was written.",
+          "ja": "しかし方法の説明自体にも、その説明が書かれた時代の慣行へのある程度の理解に意味が依存する概念や表現が含まれるとチームは認識する。"
+        },
+        {
+          "en": "It would be impossible to anticipate every question concerning the meaning of particular terms that might arise in the minds of readers living under radically different circumstances.",
+          "ja": "根本的に異なる事情のもとで暮らす読者に生じ得る特定用語の意味についての全問いを予想することは不可能だろう。"
+        },
+        {
+          "en": "The aim of documentation would therefore have to be distinguished from the more ambitious objective of providing a collection whose contents could be understood without reference to any knowledge outside the collection itself.",
+          "ja": "したがって文書化の目的は、資料集の外部のいかなる知識も参照せず内容を理解できる資料集を提供するという、より野心的な目標から区別する必要がある。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "A second group of specialists raises a different question about the consequences of organizing the preserved material according to the priorities of the people who originally selected it.",
+          "ja": "第二の専門家集団は、保存資料を当初選んだ人々の優先事項に従って整理する影響について異なる問いを提起する。"
+        },
+        {
+          "en": "A classification that makes a particular kind of investigation efficient may render relationships between other items less apparent, especially when future readers approach the collection with objectives that the original designers did not share.",
+          "ja": "特定種類の調査を効率化する分類は、特に未来の読者が当初設計者と共有しない目的で資料集に接するとき、他項目間の関係を目立たなくするかもしれない。"
+        },
+        {
+          "en": "The team considers creating alternative ways of identifying related records, while recognizing that such arrangements would inevitably reflect assumptions about the kinds of relationships that might be meaningful.",
+          "ja": "チームは関連記録を特定する別の方法の作成を検討するが、そうした仕組みは意味があるかもしれない関係の種類についての前提を必然的に反映すると認識する。"
+        },
+        {
+          "en": "The fictional project provides no verified method of preserving information for a particular length of time, and real decisions about storage, access and maintenance would require appropriate technical expertise and evidence.",
+          "ja": "架空事業は特定期間の情報保存の検証済み方法を提供せず、保存・アクセス・維持に関する実際の判断には適切な技術的専門知識と証拠が必要だ。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The library nevertheless illustrates a problem that arises whenever people attempt to make knowledge available beyond the circumstances in which it was originally acquired.",
+          "ja": "それでも図書館は、人々が知識を当初獲得した事情を超えて利用可能にしようとするたびに生じる問題を例示する。"
+        },
+        {
+          "en": "A considerable part of the information that makes a record intelligible may reside outside the record, in the practices and assumptions shared by the people who produced and used it.",
+          "ja": "記録を理解可能にする情報のかなりの部分は、記録の外部、つまりそれを生み出し利用した人々が共有する慣行や前提に存在するかもしれない。"
+        },
+        {
+          "en": "The preservation of knowledge thus involves identifying some of the relationships that enable records to provide meaningful evidence rather than merely preserving the objects in which information has been stored.",
+          "ja": "したがって知識保存には、情報が保存された物体の単なる保存でなく、記録が意味ある証拠を提供できる関係の一部を特定することが伴う。"
+        },
+        {
+          "en": "A library for an unknown century invites us to examine what we would need to explain to someone who does not already understand the world in the way we do.",
+          "ja": "未知の世紀のための図書館は、私たちと同じようには世界を理解していない人に何を説明する必要があるか考えるよう促す。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "preservation",
+      "ja": "保存",
+      "synonym": "conservation",
+      "definition": "act of keeping from loss"
+    },
+    {
+      "term": "generations",
+      "ja": "世代",
+      "synonym": "age groups",
+      "definition": "groups born around the same period"
+    },
+    {
+      "term": "deterioration",
+      "ja": "劣化",
+      "synonym": "decline",
+      "definition": "process of becoming worse"
+    },
+    {
+      "term": "technological",
+      "ja": "技術の",
+      "synonym": "technical",
+      "definition": "relating to technology"
+    },
+    {
+      "term": "physically",
+      "ja": "物理的に",
+      "synonym": "materially",
+      "definition": "in relation to physical things"
+    },
+    {
+      "term": "intact",
+      "ja": "無傷の",
+      "synonym": "undamaged",
+      "definition": "not harmed or broken"
+    },
+    {
+      "term": "cease",
+      "ja": "やめる",
+      "synonym": "stop",
+      "definition": "come to an end"
+    },
+    {
+      "term": "circumstances",
+      "ja": "事情",
+      "synonym": "conditions",
+      "definition": "factors affecting a situation"
+    },
+    {
+      "term": "significant",
+      "ja": "重要な",
+      "synonym": "important",
+      "definition": "having important effects"
+    },
+    {
+      "term": "equivalent",
+      "ja": "同等の",
+      "synonym": "equal",
+      "definition": "having the same value or meaning"
+    },
+    {
+      "term": "durability",
+      "ja": "耐久性",
+      "synonym": "longevity",
+      "definition": "ability to withstand use over time"
+    },
+    {
+      "term": "audience",
+      "ja": "読者・聴衆",
+      "synonym": "recipients",
+      "definition": "people receiving a message"
+    },
+    {
+      "term": "investigate",
+      "ja": "調査する",
+      "synonym": "examine",
+      "definition": "study carefully"
+    },
+    {
+      "term": "fictional",
+      "ja": "架空の",
+      "synonym": "imaginary",
+      "definition": "existing in imagination"
+    },
+    {
+      "term": "substantially",
+      "ja": "かなり",
+      "synonym": "considerably",
+      "definition": "to a large degree"
+    },
+    {
+      "term": "expected",
+      "ja": "予想された",
+      "synonym": "anticipated",
+      "definition": "thought likely to occur"
+    },
+    {
+      "term": "specialists",
+      "ja": "専門家",
+      "synonym": "experts",
+      "definition": "people trained in a field"
+    },
+    {
+      "term": "measurements",
+      "ja": "測定値",
+      "synonym": "readings",
+      "definition": "values obtained by measuring"
+    },
+    {
+      "term": "established",
+      "ja": "設立された",
+      "synonym": "founded",
+      "definition": "created and put in place"
+    },
+    {
+      "term": "categories",
+      "ja": "分類",
+      "synonym": "classes",
+      "definition": "groups of similar things"
+    },
+    {
+      "term": "familiar",
+      "ja": "身近な",
+      "synonym": "known",
+      "definition": "known through experience"
+    },
+    {
+      "term": "significance",
+      "ja": "意義",
+      "synonym": "importance",
+      "definition": "quality of being meaningful"
+    },
+    {
+      "term": "intelligible",
+      "ja": "理解可能な",
+      "synonym": "understandable",
+      "definition": "able to be understood"
+    },
+    {
+      "term": "prior",
+      "ja": "事前の",
+      "synonym": "previous",
+      "definition": "coming before"
+    },
+    {
+      "term": "obtained",
+      "ja": "得られた",
+      "synonym": "acquired",
+      "definition": "got something"
+    },
+    {
+      "term": "retain",
+      "ja": "保持する",
+      "synonym": "keep",
+      "definition": "continue to hold"
+    },
+    {
+      "term": "numerical",
+      "ja": "数値の",
+      "synonym": "quantitative",
+      "definition": "relating to numbers"
+    },
+    {
+      "term": "distinguishing",
+      "ja": "区別すること",
+      "synonym": "differentiating",
+      "definition": "recognizing differences"
+    },
+    {
+      "term": "observational",
+      "ja": "観測の",
+      "synonym": "observation-related",
+      "definition": "relating to observation"
+    },
+    {
+      "term": "procedure",
+      "ja": "手順",
+      "synonym": "process",
+      "definition": "established way of acting"
+    },
+    {
+      "term": "consequently",
+      "ja": "そこで",
+      "synonym": "therefore",
+      "definition": "as a result"
+    },
+    {
+      "term": "documenting",
+      "ja": "記録すること",
+      "synonym": "recording",
+      "definition": "preserving information in a record"
+    },
+    {
+      "term": "guided",
+      "ja": "導いた",
+      "synonym": "directed",
+      "definition": "helped determine a direction"
+    },
+    {
+      "term": "investigators",
+      "ja": "調査者",
+      "synonym": "researchers",
+      "definition": "people studying a question"
+    },
+    {
+      "term": "grounds",
+      "ja": "根拠",
+      "synonym": "reasons",
+      "definition": "basis for a judgment"
+    },
+    {
+      "term": "relevance",
+      "ja": "関連性",
+      "synonym": "applicability",
+      "definition": "quality of being relevant"
+    },
+    {
+      "term": "occur to",
+      "ja": "思いつく",
+      "synonym": "come to mind",
+      "definition": "enter someone's thoughts"
+    },
+    {
+      "term": "concepts",
+      "ja": "概念",
+      "synonym": "ideas",
+      "definition": "general ideas or principles"
+    },
+    {
+      "term": "familiarity",
+      "ja": "理解・精通",
+      "synonym": "acquaintance",
+      "definition": "knowledge gained through experience"
+    },
+    {
+      "term": "practices",
+      "ja": "慣行",
+      "synonym": "customs",
+      "definition": "regular ways of acting"
+    },
+    {
+      "term": "anticipate",
+      "ja": "予想する",
+      "synonym": "expect",
+      "definition": "think likely to occur"
+    },
+    {
+      "term": "radically",
+      "ja": "根本的に",
+      "synonym": "fundamentally",
+      "definition": "in a thorough or fundamental way"
+    },
+    {
+      "term": "documentation",
+      "ja": "文書化",
+      "synonym": "recording",
+      "definition": "act of creating documents"
+    },
+    {
+      "term": "ambitious",
+      "ja": "野心的な",
+      "synonym": "aspiring",
+      "definition": "aiming at a difficult goal"
+    },
+    {
+      "term": "objective",
+      "ja": "目標",
+      "synonym": "goal",
+      "definition": "intended result"
+    },
+    {
+      "term": "reference",
+      "ja": "参照",
+      "synonym": "consultation",
+      "definition": "act of looking to something for information"
+    },
+    {
+      "term": "consequences",
+      "ja": "影響",
+      "synonym": "effects",
+      "definition": "results of an action"
+    },
+    {
+      "term": "priorities",
+      "ja": "優先事項",
+      "synonym": "preferences",
+      "definition": "things considered more important"
+    },
+    {
+      "term": "classification",
+      "ja": "分類",
+      "synonym": "categorization",
+      "definition": "act of arranging into groups"
+    },
+    {
+      "term": "efficient",
+      "ja": "効率的な",
+      "synonym": "productive",
+      "definition": "achieving a purpose with little waste"
+    },
+    {
+      "term": "render",
+      "ja": "〜にする",
+      "synonym": "make",
+      "definition": "cause to become"
+    },
+    {
+      "term": "apparent",
+      "ja": "明らかな",
+      "synonym": "evident",
+      "definition": "easy to notice"
+    },
+    {
+      "term": "alternative",
+      "ja": "別の",
+      "synonym": "different",
+      "definition": "available instead of another"
+    },
+    {
+      "term": "inevitably",
+      "ja": "必然的に",
+      "synonym": "unavoidably",
+      "definition": "in a way that cannot be avoided"
+    },
+    {
+      "term": "assumptions",
+      "ja": "前提",
+      "synonym": "suppositions",
+      "definition": "beliefs taken for granted"
+    },
+    {
+      "term": "verified",
+      "ja": "検証済みの",
+      "synonym": "confirmed",
+      "definition": "checked as true"
+    },
+    {
+      "term": "expertise",
+      "ja": "専門知識",
+      "synonym": "specialized knowledge",
+      "definition": "knowledge or skill in a field"
+    },
+    {
+      "term": "acquired",
+      "ja": "獲得された",
+      "synonym": "obtained",
+      "definition": "got something"
+    },
+    {
+      "term": "reside",
+      "ja": "存在する",
+      "synonym": "exist",
+      "definition": "be located in"
+    },
+    {
+      "term": "meaningful",
+      "ja": "意味ある",
+      "synonym": "significant",
+      "definition": "having value"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "inference",
+      "prompt": "What distinction does the author introduce?",
+      "options": [
+        "Physical storage always preserves every possible meaning.",
+        "Knowledge can only be obtained from damaged materials.",
+        "Keeping a record intact differs from preserving the knowledge that can be drawn from it.",
+        "Technological failure is unrelated to preservation."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "記録と知識の保存。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What do the specialists propose collecting?",
+      "options": [
+        "Measurements describing environmental conditions when the library is founded.",
+        "Every future reader's personal questions.",
+        "A verified prediction of all future environmental changes.",
+        "Only fictional accounts written by future generations."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "設立時の環境測定値。"
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why might the numerical values become difficult to interpret?",
+      "options": [
+        "The values necessarily change when their records remain intact.",
+        "Readers may lack knowledge of measurement methods and classification.",
+        "Every numerical value has a different mathematical meaning in each century.",
+        "The researchers have intentionally destroyed all documentation."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "測定方法と分類の知識不足。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What supplementary information is proposed?",
+      "options": [
+        "Only the names of the people who built the library.",
+        "A prediction of every reader's future circumstances.",
+        "Descriptions of unrelated technologies.",
+        "The circumstances of the measurements and the purposes of their categories."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "測定条件と分類目的。"
+    },
+    {
+      "id": "q5",
+      "skill": "inference",
+      "prompt": "What limits the ability of documentation to resolve the problem completely?",
+      "options": [
+        "Documentation always makes every record unintelligible.",
+        "The meaning of words never depends on context.",
+        "Its explanations also depend on concepts and practices that may be unfamiliar.",
+        "Future readers will necessarily use identical methods."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "説明自体も文脈に依存。"
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why may an efficient classification become inadequate for a future investigation?",
+      "options": [
+        "It can make relationships outside its original purpose difficult to notice.",
+        "It necessarily prevents every record from being stored.",
+        "It always gives readers more information than alternative classifications.",
+        "Efficient systems cannot be used to investigate any question."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "目的外の関係が見えにくい。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What does the team consider in response?",
+      "options": [
+        "Eliminating all classifications and measurements.",
+        "Guaranteeing the same questions for all readers.",
+        "A verified method of preserving information forever.",
+        "Alternative ways of identifying related records."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "別の関連づけ。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "Why qualify the fictional project?",
+      "options": [
+        "The case demonstrates the effectiveness of a specific storage system.",
+        "Actual long-term preservation requires technical evidence and expertise.",
+        "The example establishes the best method for every collection.",
+        "Technical expertise cannot contribute to preservation."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "実際の方法の効果は未検証。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does reside mean in this context?",
+      "options": [
+        "Exist or be located.",
+        "Become physically damaged.",
+        "Be removed from a library.",
+        "Be classified numerically."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "存在する。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "Which statement best expresses the central argument?",
+      "options": [
+        "The durability of materials alone guarantees knowledge preservation.",
+        "Future readers must share the original researchers' questions.",
+        "Preserving knowledge requires attention to the contextual relationships that make stored records interpretable.",
+        "Classification always preserves every relevant relationship."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1",
+        "p5"
+      ],
+      "explanation_ja": "記録を理解可能にする文脈の保存。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "may cease to be useful if its future readers cannot identify",
+      "explanation_ja": "cease to doは〜しなくなる、ifは条件。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "through which the values were obtained",
+      "explanation_ja": "前置詞＋関係代名詞、受動態。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "whose meanings depend on some degree of familiarity",
+      "explanation_ja": "whoseは所有格関係代名詞。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "focus": "may render relationships between other items less apparent",
+      "explanation_ja": "render＋目的語＋補語で〜を…にする。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Yet a collection that remains physically intact may cease to be useful if its future readers cannot identify the circumstances in which the information was produced or the purposes that originally made it significant.",
+      "rewrite": "An intact collection may lose its usefulness when readers cannot understand its original context.",
+      "explanation_ja": "物理的保存と理解可能性。"
+    },
+    {
+      "source": "A member of the team asks whether the same differences would remain intelligible to a reader who had no prior knowledge of the methods through which the values were obtained.",
+      "rewrite": "Future readers might need to know how the measurements were acquired.",
+      "explanation_ja": "測定方法の知識。"
+    },
+    {
+      "source": "However, the team recognizes that every explanation of a method will itself contain concepts and expressions whose meanings depend on some degree of familiarity with the practices of the period in which the explanation was written.",
+      "rewrite": "Explanations use concepts that require knowledge of the practices of their time.",
+      "explanation_ja": "説明も文脈に依存。"
+    },
+    {
+      "source": "A classification that makes a particular kind of investigation efficient may render relationships between other items less apparent, especially when future readers approach the collection with objectives that the original designers did not share.",
+      "rewrite": "An efficient classification may obscure relationships important to different inquiries.",
+      "explanation_ja": "分類の意図と限界。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "Yet",
+      "role_ja": "物理的保存の問題から意味保存へ。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "However",
+      "role_ja": "追加文書の価値とその限界。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "A second group",
+      "role_ja": "分類という別の論点を導入。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "thus",
+      "role_ja": "知識保存についての結論。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "answer": "intelligible",
+      "options": [
+        "intelligible",
+        "irrelevant",
+        "disposable",
+        "temporary"
+      ],
+      "explanation_ja": "未来の読者に理解可能か。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "answer": "radically",
+      "options": [
+        "slightly",
+        "radically",
+        "identically",
+        "temporarily"
+      ],
+      "explanation_ja": "根本的に異なる事情。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "render",
+      "options": [
+        "ignore",
+        "measure",
+        "render",
+        "conceal"
+      ],
+      "explanation_ja": "関係を目立たなくする。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "answer": "reside",
+      "options": [
+        "disappear",
+        "deteriorate",
+        "expire",
+        "reside"
+      ],
+      "explanation_ja": "記録の外部にも情報がある。"
+    }
+  ]
+}
