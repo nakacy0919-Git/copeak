@@ -1,0 +1,584 @@
+{
+  "id": "L02-009",
+  "category_id": "L02",
+  "title": "The Postcard with an Old Address",
+  "title_ja": "古い住所が書かれた絵はがき",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 200,
+  "source_links": [
+    {
+      "title": "General background reference",
+      "url": "https://www.loc.gov/classroom-materials/"
+    }
+  ],
+  "fact_notes": [
+    "物語・家庭・参加者は架空。英文・日本語訳・設問・解説は独自作成。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Rina finds an old postcard in a box at her grandmother's house.",
+          "ja": "リナは祖母の家の箱の中で古い絵はがきを見つけます。"
+        },
+        {
+          "en": "The postcard shows a street with a small bookstore.",
+          "ja": "絵はがきには小さな書店のある通りが写っています。"
+        },
+        {
+          "en": "However, the street name is different from the one used today.",
+          "ja": "しかし通りの名前は現在使われるものと異なります。"
+        },
+        {
+          "en": "Rina wants to know where the bookstore once stood.",
+          "ja": "リナは昔その書店がどこにあったのか知りたくなります。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Her grandmother remembers visiting the bookstore after school.",
+          "ja": "祖母は放課後にその書店へ行ったことを覚えています。"
+        },
+        {
+          "en": "For example, she sometimes bought picture books there with her sister.",
+          "ja": "例えば妹と絵本を買うこともありました。"
+        },
+        {
+          "en": "She is not certain about the year when the shop closed.",
+          "ja": "店が閉まった年については確信がありません。"
+        },
+        {
+          "en": "Rina decides to check old maps at the local library.",
+          "ja": "リナは地域の図書館で古い地図を調べることにします。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The maps show that the street received a new name years ago.",
+          "ja": "地図から通りが何年も前に新しい名前になったとわかります。"
+        },
+        {
+          "en": "Rina compares the buildings near the bookstore in each map.",
+          "ja": "リナは各地図で書店の近くの建物を比べます。"
+        },
+        {
+          "en": "Instead of guessing the exact location, she looks for matching details.",
+          "ja": "正確な場所を推測せず一致する細部を探します。"
+        },
+        {
+          "en": "She finds an old bridge that appears in both maps.",
+          "ja": "両方の地図に描かれた古い橋を見つけます。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Rina visits the area with her grandmother on Saturday.",
+          "ja": "リナは土曜日に祖母とその地域を訪れます。"
+        },
+        {
+          "en": "Nevertheless, the bookstore building is no longer there.",
+          "ja": "それでも書店の建物はもうありません。"
+        },
+        {
+          "en": "They find a public garden near the old bridge.",
+          "ja": "二人は古い橋の近くに公共の庭園を見つけます。"
+        },
+        {
+          "en": "Her grandmother shares memories of reading under the trees.",
+          "ja": "祖母は木の下で読書した思い出を話します。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "Rina makes a small display with the postcard and maps.",
+          "ja": "リナは絵はがきと地図で小さな展示を作ります。"
+        },
+        {
+          "en": "She explains which facts are certain and which are not.",
+          "ja": "どの事実が確かでどれが不確かか説明します。"
+        },
+        {
+          "en": "As a result, her classmates become interested in local history.",
+          "ja": "その結果同級生たちは地域の歴史に関心を持ちます。"
+        },
+        {
+          "en": "An old address can be the beginning of a new discovery.",
+          "ja": "古い住所が新しい発見の始まりになることがあります。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "Where does Rina find the postcard?",
+      "options": [
+        "At her grandmother's house.",
+        "At her school.",
+        "In a new bookstore.",
+        "At the station."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「リナは祖母の家の箱の中で古い絵はがきを見つけます。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What is different on the postcard?",
+      "options": [
+        "The color of the sky.",
+        "The town's river.",
+        "The school building.",
+        "The street's name."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「しかし通りの名前は現在使われるものと異なります。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What does her grandmother remember?",
+      "options": [
+        "Making the postcard.",
+        "Working in a library.",
+        "Visiting the bookstore after school.",
+        "Building a bridge."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「祖母は放課後にその書店へ行ったことを覚えています。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "Where does Rina search for maps?",
+      "options": [
+        "At an airport.",
+        "At the local library.",
+        "At a sports center.",
+        "Inside a restaurant."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「リナは地域の図書館で古い地図を調べることにします。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What happened to the street name?",
+      "options": [
+        "It was changed years ago.",
+        "It was never used.",
+        "It disappeared yesterday.",
+        "It was named after Rina."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「リナは各地図で書店の近くの建物を比べます。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What helps Rina match the maps?",
+      "options": [
+        "A new train station.",
+        "A modern shopping mall.",
+        "A school bus.",
+        "An old bridge."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「両方の地図に描かれた古い橋を見つけます。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What is no longer there?",
+      "options": [
+        "Her grandmother's house.",
+        "The town itself.",
+        "The bookstore building.",
+        "The old bridge."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「それでも書店の建物はもうありません。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What do Rina and her grandmother find?",
+      "options": [
+        "An ancient castle.",
+        "A public garden.",
+        "A new bookstore.",
+        "An empty school."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「二人は古い橋の近くに公共の庭園を見つけます。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What interests Rina's classmates?",
+      "options": [
+        "Local history.",
+        "A football match.",
+        "Weather forecasts.",
+        "A new computer game."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「どの事実が確かでどれが不確かか説明します。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the story mainly about?",
+      "options": [
+        "Finding the cheapest picture books.",
+        "Building a bookstore from scratch.",
+        "Choosing a new street name.",
+        "Exploring history by comparing memories and records."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「古い住所が新しい発見の始まりになることがあります。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "buildings",
+      "ja": "建物",
+      "synonym": "structures",
+      "definition": "things built for people to use"
+    },
+    {
+      "term": "certain",
+      "ja": "確かな",
+      "synonym": "sure",
+      "definition": "known without much doubt"
+    },
+    {
+      "term": "classmates",
+      "ja": "同級生",
+      "synonym": "peers",
+      "definition": "students in the same class"
+    },
+    {
+      "term": "details",
+      "ja": "細部",
+      "synonym": "features",
+      "definition": "small parts of information"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "guessing",
+      "ja": "推測",
+      "synonym": "estimating",
+      "definition": "forming an opinion without full information"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "local",
+      "ja": "地域の",
+      "synonym": "nearby",
+      "definition": "related to an area"
+    },
+    {
+      "term": "map",
+      "ja": "地図",
+      "synonym": "chart",
+      "definition": "a drawing showing places"
+    },
+    {
+      "term": "memories",
+      "ja": "記憶",
+      "synonym": "recollections",
+      "definition": "past experiences recalled"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "public",
+      "ja": "公共の",
+      "synonym": "shared",
+      "definition": "open to everyone"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "street",
+      "ja": "通り",
+      "synonym": "road",
+      "definition": "a road in a town"
+    },
+    {
+      "term": "trees",
+      "ja": "木々",
+      "synonym": "woody plants",
+      "definition": "large plants with trunks and branches"
+    },
+    {
+      "term": "postcard",
+      "ja": "絵はがき",
+      "synonym": "picture card",
+      "definition": "a card showing a picture"
+    },
+    {
+      "term": "address",
+      "ja": "住所",
+      "synonym": "location",
+      "definition": "information identifying a place"
+    },
+    {
+      "term": "bookstore",
+      "ja": "書店",
+      "synonym": "bookshop",
+      "definition": "a shop selling books"
+    },
+    {
+      "term": "grandmother",
+      "ja": "祖母",
+      "synonym": "grandparent",
+      "definition": "the mother of a parent"
+    },
+    {
+      "term": "library",
+      "ja": "図書館",
+      "synonym": "book center",
+      "definition": "a place containing books"
+    },
+    {
+      "term": "history",
+      "ja": "歴史",
+      "synonym": "past",
+      "definition": "events in earlier times"
+    },
+    {
+      "term": "bridge",
+      "ja": "橋",
+      "synonym": "crossing",
+      "definition": "a structure crossing a river"
+    },
+    {
+      "term": "maps",
+      "ja": "地図",
+      "synonym": "charts",
+      "definition": "drawings of locations"
+    },
+    {
+      "term": "location",
+      "ja": "場所",
+      "synonym": "position",
+      "definition": "where something is"
+    },
+    {
+      "term": "matching",
+      "ja": "一致する",
+      "synonym": "corresponding",
+      "definition": "being the same"
+    },
+    {
+      "term": "garden",
+      "ja": "庭園",
+      "synonym": "park",
+      "definition": "a place where plants are grown"
+    },
+    {
+      "term": "discovery",
+      "ja": "発見",
+      "synonym": "finding",
+      "definition": "something newly learned"
+    },
+    {
+      "term": "display",
+      "ja": "展示",
+      "synonym": "exhibition",
+      "definition": "information shown to people"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "where the bookstore once stood",
+      "explanation_ja": "間接疑問文で昔の書店の場所を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "when the shop closed",
+      "explanation_ja": "when節は店が閉まった時期を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of guessing the exact location",
+      "explanation_ja": "instead of + 動名詞で方法を対比します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "focus": "which facts are certain and which are not",
+      "explanation_ja": "which節を並列して確実性を区別します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "昔と今の通り名を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "祖母の思い出を例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "店がなくなったことを示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "地域史への関心が生まれる結果を示します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Rina wants to know where the bookstore once stood.",
+      "rewrite": "Rina hopes to find the former location of the shop.",
+      "explanation_ja": "書店の昔の場所を知りたいのです。"
+    },
+    {
+      "source": "Rina decides to check old maps at the local library.",
+      "rewrite": "She checks maps instead of relying only on memory.",
+      "explanation_ja": "記憶だけでなく地図を確認します。"
+    },
+    {
+      "source": "Her grandmother shares memories of reading under the trees.",
+      "rewrite": "Her grandmother talks about the past at that place.",
+      "explanation_ja": "祖母が場所にまつわる思い出を話します。"
+    },
+    {
+      "source": "An old address can be the beginning of a new discovery.",
+      "rewrite": "A historical address can inspire new research.",
+      "explanation_ja": "古い住所が調査のきっかけになります。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "昔と今の通り名を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "祖母の思い出を例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "店がなくなったことを示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "地域史への関心が生まれる結果を示します。"
+    }
+  ]
+}
