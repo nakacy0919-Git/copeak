@@ -1,0 +1,674 @@
+{
+  "id": "L12-013",
+  "category_id": "L12",
+  "title": "The Question Beside the Clock",
+  "title_ja": "時計のそばに置かれた質問",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "word_count": 315,
+  "source_links": [
+    {
+      "title": "Original lesson authoring registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "登場人物・場所・具体的な出来事や結果は架空の事例。特定の実在の制度、診療上の助言、研究結果の説明ではない。参考リンクは制作台帳であり外部の実証資料ではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "At a fictional community clinic, a receptionist noticed that visitors frequently asked why their appointments were running late.",
+          "ja": "架空の地域診療所で受付係は、来院者が予約の遅れの理由を頻繁に尋ねることに気づいた。"
+        },
+        {
+          "en": "The waiting room had a large clock, but it displayed only the current time.",
+          "ja": "待合室には大きな時計があったが、現在時刻しか表示していなかった。"
+        },
+        {
+          "en": "Some visitors became frustrated because they could not decide whether to stay or arrange another appointment.",
+          "ja": "残るべきか別の予約を取るべきか判断できず、いら立つ来院者もいた。"
+        },
+        {
+          "en": "The staff wanted to make the waiting experience less uncertain without revealing anyone's private information.",
+          "ja": "職員は個人情報を明かさずに待ち時間の不確実さを減らしたかった。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "At first, they considered displaying a single exact waiting time on a screen beside the clock.",
+          "ja": "最初は時計の横の画面に単一の正確な待ち時間を表示することを検討した。"
+        },
+        {
+          "en": "However, appointments could vary in length, and unexpected situations sometimes changed the order in which people were seen.",
+          "ja": "しかし診察の長さには違いがあり、予期せぬ状況で診察順が変わることもあった。"
+        },
+        {
+          "en": "The receptionist worried that a precise number might be interpreted as a definite promise.",
+          "ja": "受付係は正確な数字が確実な約束として解釈されるおそれがあると心配した。"
+        },
+        {
+          "en": "She suggested offering an estimated range together with a message explaining that the estimate could change.",
+          "ja": "推定される時間の幅と、推定値は変わり得ることを説明するメッセージを併せて示すよう提案した。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The clinic tried this approach for several weeks and invited visitors to comment on the information.",
+          "ja": "診療所は数週間この方法を試し、来院者に情報について意見を求めた。"
+        },
+        {
+          "en": "One visitor explained that knowing the approximate delay helped her contact the person collecting her children from school.",
+          "ja": "ある来院者はおおよその遅れが分かると子どもの迎えをする人に連絡する助けになると説明した。"
+        },
+        {
+          "en": "Another visitor requested a simpler display because the written explanation was difficult to understand.",
+          "ja": "別の来院者は説明文が理解しにくいため、より簡潔な表示を求めた。"
+        },
+        {
+          "en": "The staff revised the message and added an invitation to speak privately with the receptionist.",
+          "ja": "職員はメッセージを修正し、受付係と個別に話せるという案内を加えた。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "During the trial, the staff also discussed situations in which the estimate might cause confusion.",
+          "ja": "試行中、職員は推定値が混乱を招き得る状況も話し合った。"
+        },
+        {
+          "en": "They agreed to avoid displaying patient names or reasons for individual delays on the public screen.",
+          "ja": "公開画面には患者名や個々の遅れの理由を表示しないことに合意した。"
+        },
+        {
+          "en": "When the waiting time was especially difficult to predict, the screen indicated that no reliable estimate was available.",
+          "ja": "待ち時間の予測が特に難しい場合は、信頼できる推定値が得られないことを画面で示した。"
+        },
+        {
+          "en": "This approach allowed the clinic to acknowledge uncertainty rather than invent a reassuring number.",
+          "ja": "この方法によって診療所は安心させる数字を作るのでなく、不確実さを認めることができた。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The receptionist learned that useful information does not always need to be exact to be helpful.",
+          "ja": "受付係は役立つ情報が必ずしも正確な値である必要はないと学んだ。"
+        },
+        {
+          "en": "In many situations, people benefit from knowing both what is known and what remains uncertain.",
+          "ja": "多くの状況では分かっていることと不確かなことの両方を知ることが人々の助けになる。"
+        },
+        {
+          "en": "The goal was not merely to display a number but to support the decisions visitors needed to make.",
+          "ja": "目的は単に数字を表示するのでなく、来院者が下す必要のある判断を支援することだった。"
+        },
+        {
+          "en": "For the clinic, better communication meant combining practical information with respect for privacy.",
+          "ja": "診療所にとってより良い伝達とは、実用的な情報とプライバシーへの配慮を組み合わせることだった。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "fictional",
+      "ja": "架空の",
+      "synonym": "imaginary",
+      "definition": "not representing an actual event"
+    },
+    {
+      "term": "community clinic",
+      "ja": "地域診療所",
+      "synonym": "local clinic",
+      "definition": "a local facility providing health care"
+    },
+    {
+      "term": "receptionist",
+      "ja": "受付係",
+      "synonym": "front desk worker",
+      "definition": "a person who welcomes and assists visitors"
+    },
+    {
+      "term": "frequently",
+      "ja": "頻繁に",
+      "synonym": "often",
+      "definition": "on many occasions"
+    },
+    {
+      "term": "appointments",
+      "ja": "予約",
+      "synonym": "scheduled visits",
+      "definition": "arranged times to meet someone"
+    },
+    {
+      "term": "displayed",
+      "ja": "表示した",
+      "synonym": "showed",
+      "definition": "made information visible"
+    },
+    {
+      "term": "current",
+      "ja": "現在の",
+      "synonym": "present",
+      "definition": "existing now"
+    },
+    {
+      "term": "frustrated",
+      "ja": "いら立った",
+      "synonym": "annoyed",
+      "definition": "upset because something is not going as hoped"
+    },
+    {
+      "term": "arrange",
+      "ja": "手配する",
+      "synonym": "organize",
+      "definition": "make plans for something"
+    },
+    {
+      "term": "uncertain",
+      "ja": "不確かな",
+      "synonym": "unpredictable",
+      "definition": "not known with confidence"
+    },
+    {
+      "term": "revealing",
+      "ja": "明かすこと",
+      "synonym": "disclosing",
+      "definition": "making information known"
+    },
+    {
+      "term": "private",
+      "ja": "個人的な",
+      "synonym": "confidential",
+      "definition": "not intended for public knowledge"
+    },
+    {
+      "term": "considered",
+      "ja": "検討した",
+      "synonym": "examined",
+      "definition": "thought carefully about an option"
+    },
+    {
+      "term": "exact",
+      "ja": "正確な",
+      "synonym": "precise",
+      "definition": "completely accurate in amount"
+    },
+    {
+      "term": "vary",
+      "ja": "異なる",
+      "synonym": "differ",
+      "definition": "change or be different among cases"
+    },
+    {
+      "term": "unexpected",
+      "ja": "予期せぬ",
+      "synonym": "unforeseen",
+      "definition": "not thought likely in advance"
+    },
+    {
+      "term": "precise",
+      "ja": "正確な",
+      "synonym": "exact",
+      "definition": "clearly specified and accurate"
+    },
+    {
+      "term": "interpreted",
+      "ja": "解釈された",
+      "synonym": "understood",
+      "definition": "given a particular meaning"
+    },
+    {
+      "term": "definite",
+      "ja": "確実な",
+      "synonym": "certain",
+      "definition": "clear and not doubtful"
+    },
+    {
+      "term": "promise",
+      "ja": "約束",
+      "synonym": "assurance",
+      "definition": "a statement that something will happen"
+    },
+    {
+      "term": "estimated",
+      "ja": "推定された",
+      "synonym": "approximate",
+      "definition": "roughly calculated"
+    },
+    {
+      "term": "range",
+      "ja": "範囲",
+      "synonym": "interval",
+      "definition": "a span between two values"
+    },
+    {
+      "term": "approach",
+      "ja": "方法",
+      "synonym": "method",
+      "definition": "a way of dealing with something"
+    },
+    {
+      "term": "comment",
+      "ja": "意見を述べる",
+      "synonym": "respond",
+      "definition": "express an opinion"
+    },
+    {
+      "term": "approximate",
+      "ja": "おおよその",
+      "synonym": "rough",
+      "definition": "close to a value but not exact"
+    },
+    {
+      "term": "delay",
+      "ja": "遅れ",
+      "synonym": "wait",
+      "definition": "extra time before something happens"
+    },
+    {
+      "term": "contact",
+      "ja": "連絡する",
+      "synonym": "get in touch with",
+      "definition": "communicate with a person"
+    },
+    {
+      "term": "requested",
+      "ja": "求めた",
+      "synonym": "asked for",
+      "definition": "expressed a desire for something"
+    },
+    {
+      "term": "explanation",
+      "ja": "説明",
+      "synonym": "clarification",
+      "definition": "information making something understandable"
+    },
+    {
+      "term": "revised",
+      "ja": "修正した",
+      "synonym": "modified",
+      "definition": "changed to improve something"
+    },
+    {
+      "term": "invitation",
+      "ja": "案内・招待",
+      "synonym": "offer",
+      "definition": "a request or offer to take part"
+    },
+    {
+      "term": "privately",
+      "ja": "個別に",
+      "synonym": "in private",
+      "definition": "away from the public"
+    },
+    {
+      "term": "confusion",
+      "ja": "混乱",
+      "synonym": "uncertainty",
+      "definition": "a state of not understanding clearly"
+    },
+    {
+      "term": "individual",
+      "ja": "個々の",
+      "synonym": "separate",
+      "definition": "considered one at a time"
+    },
+    {
+      "term": "predict",
+      "ja": "予測する",
+      "synonym": "forecast",
+      "definition": "state what is likely to happen"
+    },
+    {
+      "term": "indicated",
+      "ja": "示した",
+      "synonym": "signaled",
+      "definition": "made something known"
+    },
+    {
+      "term": "reliable",
+      "ja": "信頼できる",
+      "synonym": "dependable",
+      "definition": "able to be trusted"
+    },
+    {
+      "term": "acknowledge",
+      "ja": "認める",
+      "synonym": "admit",
+      "definition": "accept that something is true"
+    },
+    {
+      "term": "uncertainty",
+      "ja": "不確実さ",
+      "synonym": "doubt",
+      "definition": "the state of not knowing for sure"
+    },
+    {
+      "term": "reassuring",
+      "ja": "安心させる",
+      "synonym": "comforting",
+      "definition": "making someone feel less worried"
+    },
+    {
+      "term": "merely",
+      "ja": "単に",
+      "synonym": "simply",
+      "definition": "only and nothing more"
+    },
+    {
+      "term": "support",
+      "ja": "支援する",
+      "synonym": "assist",
+      "definition": "help someone do something"
+    },
+    {
+      "term": "practical",
+      "ja": "実用的な",
+      "synonym": "useful",
+      "definition": "suited to actual needs"
+    },
+    {
+      "term": "privacy",
+      "ja": "プライバシー",
+      "synonym": "confidentiality",
+      "definition": "the right to keep personal matters private"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What question did visitors frequently ask?",
+      "options": [
+        "Why their appointments were late.",
+        "Where the clinic's clock was made.",
+        "Why their names were printed on a map.",
+        "When the clinic would move permanently."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "予約の遅れの理由。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What did the clock show?",
+      "options": [
+        "The exact order of all patients.",
+        "The cause of each delay.",
+        "Only the current time.",
+        "The staff's private schedules."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "現在時刻だけを表示。"
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why might a precise waiting time mislead visitors?",
+      "options": [
+        "All appointments necessarily took the same time.",
+        "They might understand an estimate as a firm promise.",
+        "Every visitor had already left.",
+        "The screen could not show numbers."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "推定値を確実な約束と受け取る可能性。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What alternative did the receptionist suggest?",
+      "options": [
+        "A fixed number without explanation.",
+        "A list of patient names.",
+        "Removing the clock and all information.",
+        "An estimated range with an explanation."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "時間の幅と説明を表示。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "How did one visitor use the approximate delay?",
+      "options": [
+        "To contact someone collecting her children.",
+        "To calculate the doctor's salary.",
+        "To repair the screen.",
+        "To change the clock's time."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "迎えをする人へ連絡できた。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What did another visitor request?",
+      "options": [
+        "A more detailed list of names.",
+        "A larger waiting room.",
+        "A simpler display.",
+        "A different doctor for every visitor."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "より簡潔な表示。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What information did staff agree not to show publicly?",
+      "options": [
+        "Any message about uncertainty.",
+        "The existence of the clinic.",
+        "The current time on the clock.",
+        "Names and individual reasons for delays."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "患者名と個別の遅延理由は出さない。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "Why did they sometimes display no estimate?",
+      "options": [
+        "They had decided to hide every delay.",
+        "A reliable estimate could not always be made.",
+        "The clinic had no more visitors.",
+        "They wanted every visitor to leave."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "予測できない時は正直にそう示す。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does merely mean?",
+      "options": [
+        "Rarely.",
+        "Immediately.",
+        "Only.",
+        "Accidentally."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "単にという意味。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What does the example suggest about helpful communication?",
+      "options": [
+        "It should support people's decisions while respecting uncertainty and privacy.",
+        "Every helpful message must include an exact number.",
+        "Public screens should explain every patient's circumstances.",
+        "Useful communication requires hiding all changes."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "判断支援と不確実性、プライバシーへの配慮が大切。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "whether to stay or arrange another appointment",
+      "explanation_ja": "whether to A or Bは選択を表す。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "might be interpreted as a definite promise",
+      "explanation_ja": "might be＋過去分詞は可能性を表す受動態。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 3,
+      "focus": "rather than invent",
+      "explanation_ja": "rather thanは代わりに避けた行動を示す。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "focus": "not merely to display a number but to support",
+      "explanation_ja": "not merely A but BはAだけでなくBという強調。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p2",
+      "expression": "However",
+      "role_ja": "正確な数字を表示する案の問題点。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Another",
+      "role_ja": "別の来院者からの意見を追加。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "also",
+      "role_ja": "試行時の別の検討事項を示す。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "rather than",
+      "role_ja": "架空の数値でなく不確実さを認める対比。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Some visitors became frustrated because they could not decide whether to stay or arrange another appointment.",
+      "rewrite": "Some visitors were upset because they could not tell whether waiting or rescheduling was the better choice.",
+      "explanation_ja": "待つか予約を取り直すか判断できなかった。"
+    },
+    {
+      "source": "The receptionist worried that a precise number might be interpreted as a definite promise.",
+      "rewrite": "She feared that visitors could mistake an exact-looking number for a guarantee.",
+      "explanation_ja": "正確そうな数字が保証と誤解されるおそれ。"
+    },
+    {
+      "source": "This approach allowed the clinic to acknowledge uncertainty rather than invent a reassuring number.",
+      "rewrite": "The clinic could admit that it did not know instead of making up a comforting figure.",
+      "explanation_ja": "安心させる数字を作らず不確かさを認めた。"
+    },
+    {
+      "source": "The goal was not merely to display a number but to support the decisions visitors needed to make.",
+      "rewrite": "The purpose was to help visitors make choices, not simply to show a figure.",
+      "explanation_ja": "数字より来院者の判断支援が目的。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "vary",
+      "options": [
+        "disappear",
+        "vary",
+        "agree",
+        "stop"
+      ],
+      "explanation_ja": "予約の長さは異なる。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "simpler",
+      "options": [
+        "larger",
+        "noisier",
+        "simpler",
+        "earlier"
+      ],
+      "explanation_ja": "分かりやすい表示を求めた。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "reliable",
+      "options": [
+        "secret",
+        "empty",
+        "ancient",
+        "reliable"
+      ],
+      "explanation_ja": "信頼できる推定値がない場合。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "answer": "privacy",
+      "options": [
+        "privacy",
+        "traffic",
+        "music",
+        "competition"
+      ],
+      "explanation_ja": "個人情報への配慮。"
+    }
+  ]
+}
