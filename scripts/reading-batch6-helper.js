@@ -8,9 +8,9 @@ function makeBatch6(d, glossary, build) {
     "先に述べた利点と、残る限界や条件を対比します。"
   ];
   const dis=order.map((word,i)=>{
-    const p=d.p[i];
-    if (!p.some(s=>s[0].includes(word))) throw Error(d.id+": missing connector "+word+" in p"+(i+1));
-    return ["p"+(i+1),word,roles[i],[word,...order.filter(w=>w!==word)]];
+    const pIndex=d.p.findIndex(p=>p.some(s=>s[0].includes(word)));
+    if (pIndex<0) throw Error(d.id+": connector absent from passage: "+word);
+    return ["p"+(pIndex+1),word,roles[i],[word,...order.filter(w=>w!==word)]];
   });
   const q=d.q.map((item,i)=>{
     const [skill,prompt,correct,wrong1,wrong2,wrong3,why,evidence]=item;
