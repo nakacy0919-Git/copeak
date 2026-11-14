@@ -719,9 +719,9 @@
       "sentence_index": 2,
       "answer": "However",
       "options": [
+        "Furthermore",
         "However",
         "For example",
-        "Nevertheless",
         "As a result"
       ],
       "explanation_ja": "各国向けの説明に曖昧さが残る問題を示します。"
@@ -733,8 +733,8 @@
       "options": [
         "For example",
         "However",
-        "Nevertheless",
-        "As a result"
+        "As a result",
+        "Meanwhile"
       ],
       "explanation_ja": "分量の曖昧さを例示します。"
     },
@@ -743,10 +743,10 @@
       "sentence_index": 1,
       "answer": "Nevertheless",
       "options": [
-        "Nevertheless",
-        "However",
         "For example",
-        "As a result"
+        "As a result",
+        "In addition",
+        "Nevertheless"
       ],
       "explanation_ja": "一つの家庭料理では国全体を代表できないと示します。"
     },
@@ -755,10 +755,10 @@
       "sentence_index": 2,
       "answer": "As a result",
       "options": [
-        "As a result",
         "However",
-        "For example",
-        "Nevertheless"
+        "Meanwhile",
+        "As a result",
+        "For example"
       ],
       "explanation_ja": "将来の説明も点検する結果を示します。"
     }
