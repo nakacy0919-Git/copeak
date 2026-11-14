@@ -1,0 +1,668 @@
+{
+  "id": "L01-021",
+  "category_id": "L01",
+  "title": "A Map of Shade",
+  "title_ja": "木陰の地図",
+  "level_id": "eiken-2",
+  "status": "draft",
+  "original": true,
+  "word_count": 361,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "人物・出来事・制度は架空の教材例。実在の調査・統計・実証結果ではない。制作台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "In an imaginary city, students notice that two routes of equal length can feel very different on a hot afternoon.",
+          "ja": "架空の都市で生徒は同じ長さの二つの道でも暑い午後には体感が異なると気づく。"
+        },
+        {
+          "en": "One route follows a broad street with little protection from the sun, while the other passes beneath mature trees.",
+          "ja": "一方は日差しを遮るものが少ない広い通りで、もう一方は成長した木々の下を通る。"
+        },
+        {
+          "en": "They decide to examine how a map might communicate this difference to people choosing where to walk.",
+          "ja": "地図が歩く道を選ぶ人にこの違いをどう伝えられるか調べることにする。"
+        },
+        {
+          "en": "Their project begins with a discussion of what ordinary maps leave out when they emphasize distance and direction.",
+          "ja": "一般的な地図が距離と方向を重視するとき何を省くのかという議論から活動が始まる。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The students visit several locations at different times and record whether the pavement is exposed to direct sunlight.",
+          "ja": "複数の場所を異なる時刻に訪れ舗装面が直射日光にさらされているか記録する。"
+        },
+        {
+          "en": "They discover that shade shifts throughout the day and that a street shaded in the morning may become exposed later.",
+          "ja": "日陰は一日を通じ移動し朝は日陰の通りも後で日なたになることを知る。"
+        },
+        {
+          "en": "They also distinguish between shade from buildings and shade associated with vegetation, without assuming that the two provide identical conditions.",
+          "ja": "建物による日陰と植物による日陰も区別し、同じ条件を提供するとは想定しない。"
+        },
+        {
+          "en": "The group recognizes that a brief observation cannot establish the temperature of every location or the experience of every pedestrian.",
+          "ja": "短時間の観察では全地点の温度や全歩行者の体験は確定できないと認識する。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "To avoid presenting uncertain information as a permanent property of each street, they attach observation times to the map.",
+          "ja": "不確かな情報を道路の恒久的性質として示さないよう観察時刻を地図に添える。"
+        },
+        {
+          "en": "They include the availability of benches and indicate where a route requires crossing a busy road.",
+          "ja": "ベンチの有無を含め、交通量の多い道路の横断が必要な場所も示す。"
+        },
+        {
+          "en": "These additional details are relevant because the shortest or most shaded route may not be equally convenient for everyone.",
+          "ja": "最短または最も日陰の多い道が誰にも同様に便利とは限らないため、これらの詳細は関係がある。"
+        },
+        {
+          "en": "Rather than assigning one overall score, the students allow readers to compare several characteristics of a route.",
+          "ja": "総合点を一つ付けるのでなく、道の複数の特徴を比較できるようにする。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The students ask a small group of imaginary users to explain how they would choose a route based on the displayed information.",
+          "ja": "架空の少人数の利用者が表示情報に基づいてどう経路を選ぶかを考える。"
+        },
+        {
+          "en": "A person carrying heavy bags might prefer a shorter distance, whereas someone who needs frequent rests might value benches more highly.",
+          "ja": "重い荷物を運ぶ人は短距離を好み、頻繁な休憩が必要な人はベンチをより重視するかもしれない。"
+        },
+        {
+          "en": "The exercise reveals why a recommendation depends partly on the circumstances of its intended user.",
+          "ja": "推薦が利用者の事情にも依存する理由を示す。"
+        },
+        {
+          "en": "It does not establish that the proposed map can predict anyone's physical response to heat.",
+          "ja": "提案地図が誰かの暑さへの身体反応を予測できるとは確定しない。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The example illustrates that environmental information becomes useful when its limitations and intended purpose are clear.",
+          "ja": "環境情報は限界と目的が明確なとき有用になることを示す。"
+        },
+        {
+          "en": "A map may provide evidence for a decision without determining which choice every individual ought to make.",
+          "ja": "地図は全個人の選択を決めずとも判断の根拠になり得る。"
+        },
+        {
+          "en": "Its design reflects decisions about which features of the landscape deserve attention.",
+          "ja": "設計には景観のどの特徴に注意を払うべきかという判断が反映される。"
+        },
+        {
+          "en": "By making those decisions visible, the students create a tool for exploring possibilities rather than imposing a single preferred route.",
+          "ja": "判断を見えるようにすることで単一の推奨経路を押し付けず可能性を探る道具を作る。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "imaginary",
+      "ja": "架空の",
+      "synonym": "fictional",
+      "definition": "existing in imagination"
+    },
+    {
+      "term": "route",
+      "ja": "経路",
+      "synonym": "path",
+      "definition": "way between places"
+    },
+    {
+      "term": "equal",
+      "ja": "等しい",
+      "synonym": "equivalent",
+      "definition": "the same in amount"
+    },
+    {
+      "term": "broad",
+      "ja": "広い",
+      "synonym": "wide",
+      "definition": "having great width"
+    },
+    {
+      "term": "protection",
+      "ja": "保護",
+      "synonym": "shelter",
+      "definition": "something keeping harm away"
+    },
+    {
+      "term": "beneath",
+      "ja": "下に",
+      "synonym": "under",
+      "definition": "in a lower position"
+    },
+    {
+      "term": "mature",
+      "ja": "成長した",
+      "synonym": "fully grown",
+      "definition": "having reached full growth"
+    },
+    {
+      "term": "communicate",
+      "ja": "伝える",
+      "synonym": "convey",
+      "definition": "make information known"
+    },
+    {
+      "term": "emphasize",
+      "ja": "重視する",
+      "synonym": "stress",
+      "definition": "give special importance to"
+    },
+    {
+      "term": "direction",
+      "ja": "方向",
+      "synonym": "course",
+      "definition": "way toward a place"
+    },
+    {
+      "term": "locations",
+      "ja": "地点",
+      "synonym": "sites",
+      "definition": "particular places"
+    },
+    {
+      "term": "pavement",
+      "ja": "舗装面",
+      "synonym": "paved surface",
+      "definition": "hard surface of a road"
+    },
+    {
+      "term": "exposed",
+      "ja": "さらされた",
+      "synonym": "uncovered",
+      "definition": "not protected"
+    },
+    {
+      "term": "direct",
+      "ja": "直接の",
+      "synonym": "unfiltered",
+      "definition": "without an intervening barrier"
+    },
+    {
+      "term": "sunlight",
+      "ja": "日光",
+      "synonym": "sunshine",
+      "definition": "light from the sun"
+    },
+    {
+      "term": "shade",
+      "ja": "日陰",
+      "synonym": "shadow",
+      "definition": "area sheltered from sunlight"
+    },
+    {
+      "term": "shifts",
+      "ja": "移動する",
+      "synonym": "moves",
+      "definition": "changes position"
+    },
+    {
+      "term": "throughout",
+      "ja": "〜を通じ",
+      "synonym": "during all of",
+      "definition": "from beginning to end"
+    },
+    {
+      "term": "distinguish",
+      "ja": "区別する",
+      "synonym": "differentiate",
+      "definition": "recognize differences"
+    },
+    {
+      "term": "associated",
+      "ja": "関連した",
+      "synonym": "linked",
+      "definition": "connected with something"
+    },
+    {
+      "term": "vegetation",
+      "ja": "植物",
+      "synonym": "plant life",
+      "definition": "plants growing in an area"
+    },
+    {
+      "term": "identical",
+      "ja": "同一の",
+      "synonym": "the same",
+      "definition": "exactly alike"
+    },
+    {
+      "term": "conditions",
+      "ja": "条件",
+      "synonym": "circumstances",
+      "definition": "facts affecting a situation"
+    },
+    {
+      "term": "observation",
+      "ja": "観察",
+      "synonym": "inspection",
+      "definition": "act of examining something"
+    },
+    {
+      "term": "establish",
+      "ja": "確定する",
+      "synonym": "determine",
+      "definition": "show something to be true"
+    },
+    {
+      "term": "pedestrian",
+      "ja": "歩行者",
+      "synonym": "walker",
+      "definition": "person traveling on foot"
+    },
+    {
+      "term": "uncertain",
+      "ja": "不確かな",
+      "synonym": "doubtful",
+      "definition": "not known for sure"
+    },
+    {
+      "term": "permanent",
+      "ja": "恒久的な",
+      "synonym": "lasting",
+      "definition": "intended to remain"
+    },
+    {
+      "term": "property",
+      "ja": "性質",
+      "synonym": "feature",
+      "definition": "quality belonging to something"
+    },
+    {
+      "term": "attach",
+      "ja": "添える",
+      "synonym": "add",
+      "definition": "join to another thing"
+    },
+    {
+      "term": "availability",
+      "ja": "有無",
+      "synonym": "accessibility",
+      "definition": "state of being available"
+    },
+    {
+      "term": "indicate",
+      "ja": "示す",
+      "synonym": "show",
+      "definition": "make something known"
+    },
+    {
+      "term": "relevant",
+      "ja": "関係する",
+      "synonym": "pertinent",
+      "definition": "connected to an issue"
+    },
+    {
+      "term": "convenient",
+      "ja": "便利な",
+      "synonym": "practical",
+      "definition": "suitable for use"
+    },
+    {
+      "term": "assigning",
+      "ja": "割り当てること",
+      "synonym": "allocating",
+      "definition": "giving a value"
+    },
+    {
+      "term": "characteristics",
+      "ja": "特徴",
+      "synonym": "features",
+      "definition": "distinguishing qualities"
+    },
+    {
+      "term": "displayed",
+      "ja": "表示された",
+      "synonym": "shown",
+      "definition": "made visible"
+    },
+    {
+      "term": "whereas",
+      "ja": "一方",
+      "synonym": "while",
+      "definition": "introducing a contrast"
+    },
+    {
+      "term": "frequent",
+      "ja": "頻繁な",
+      "synonym": "regular",
+      "definition": "happening often"
+    },
+    {
+      "term": "circumstances",
+      "ja": "事情",
+      "synonym": "conditions",
+      "definition": "facts affecting a person"
+    },
+    {
+      "term": "limitations",
+      "ja": "限界",
+      "synonym": "constraints",
+      "definition": "bounds on what is possible"
+    },
+    {
+      "term": "landscape",
+      "ja": "景観",
+      "synonym": "scenery",
+      "definition": "visible features of an area"
+    },
+    {
+      "term": "imposing",
+      "ja": "押し付けること",
+      "synonym": "forcing",
+      "definition": "making others accept something"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "How do the two routes differ?",
+      "options": [
+        "Their length.",
+        "Their destination.",
+        "Their legal status.",
+        "Their exposure to sunlight."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "日差しの違い。"
+    },
+    {
+      "id": "q2",
+      "skill": "inference",
+      "prompt": "What limitation of ordinary maps is suggested?",
+      "options": [
+        "They cannot show directions.",
+        "They may omit walking conditions.",
+        "They always show false distances.",
+        "They only display trees."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "歩行条件が省かれる。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What changes during the day?",
+      "options": [
+        "The position of shade.",
+        "The existence of streets.",
+        "The length of every route.",
+        "The students' school."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "日陰の位置。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why avoid assuming all shade is identical?",
+      "options": [
+        "Trees never produce shade.",
+        "Buildings are always cooler.",
+        "Different sources may create different conditions.",
+        "All measurements are impossible."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "条件は同一とは限らない。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What is attached to observations?",
+      "options": [
+        "A permanent temperature ranking.",
+        "The time of observation.",
+        "A list of residents.",
+        "The cost of buildings."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "観察時刻。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What other facilities are shown?",
+      "options": [
+        "Hospitals in other cities.",
+        "All indoor rooms.",
+        "Underground shops.",
+        "Benches and road crossings."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "ベンチと横断箇所。"
+    },
+    {
+      "id": "q7",
+      "skill": "inference",
+      "prompt": "Why might people select different routes?",
+      "options": [
+        "Every person carries identical bags.",
+        "The map has only one road.",
+        "Their needs and circumstances differ.",
+        "All users must rest at the same time."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "必要の違い。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What does the exercise not establish?",
+      "options": [
+        "Individual physical reactions to heat.",
+        "That shade changes.",
+        "That benches exist.",
+        "That maps show distance."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "身体反応を予測できない。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does imposing mean?",
+      "options": [
+        "Comparing freely.",
+        "Recording precisely.",
+        "Removing completely.",
+        "Forcing others to accept."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "押し付ける。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the central point?",
+      "options": [
+        "The shortest route is always best.",
+        "A single score fits everyone.",
+        "Maps can support choices by showing relevant conditions and limitations.",
+        "All maps should omit distance."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "条件と限界を示し選択を支える。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "while the other passes beneath mature trees",
+      "explanation_ja": "whileは対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "that a street shaded in the morning",
+      "explanation_ja": "過去分詞shadedがstreetを修飾。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 0,
+      "focus": "To avoid presenting uncertain information",
+      "explanation_ja": "目的を表す不定詞。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "focus": "without determining which choice",
+      "explanation_ja": "without＋動名詞。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "One route follows a broad street with little protection from the sun, while the other passes beneath mature trees.",
+      "rewrite": "One street has little shelter, whereas the other runs under trees.",
+      "explanation_ja": "日差しの違い。"
+    },
+    {
+      "source": "They discover that shade shifts throughout the day and that a street shaded in the morning may become exposed later.",
+      "rewrite": "A street with morning shade may receive sunlight later.",
+      "explanation_ja": "時刻による変化。"
+    },
+    {
+      "source": "To avoid presenting uncertain information as a permanent property of each street, they attach observation times to the map.",
+      "rewrite": "They add times so that temporary observations are not mistaken for permanent facts.",
+      "explanation_ja": "観察時刻を明示。"
+    },
+    {
+      "source": "A map may provide evidence for a decision without determining which choice every individual ought to make.",
+      "rewrite": "Maps can inform decisions without choosing for everyone.",
+      "explanation_ja": "判断支援と決定を区別。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "while",
+      "role_ja": "道の対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "also",
+      "role_ja": "別の観察項目。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Rather than",
+      "role_ja": "単一指標を避ける。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "whereas",
+      "role_ja": "利用者の必要の違い。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 0,
+      "answer": "exposed",
+      "options": [
+        "exposed",
+        "protected",
+        "hidden",
+        "closed"
+      ],
+      "explanation_ja": "直射日光にさらされる。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "availability",
+      "options": [
+        "distance",
+        "availability",
+        "temperature",
+        "height"
+      ],
+      "explanation_ja": "ベンチの有無。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "frequent",
+      "options": [
+        "rare",
+        "frequent",
+        "annual",
+        "identical"
+      ],
+      "explanation_ja": "頻繁な休み。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "answer": "imposing",
+      "options": [
+        "recording",
+        "choosing",
+        "imposing",
+        "comparing"
+      ],
+      "explanation_ja": "経路の押し付けを避ける。"
+    }
+  ]
+}
