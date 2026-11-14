@@ -4,7 +4,7 @@
   "title": "Who Cleans Up After a Space Mission?",
   "title_ja": "宇宙での活動が終わった後の責任",
   "level_id": "eiken-pre1",
-  "word_count": 468,
+  "word_count": 520,
   "original": true,
   "status": "draft",
   "source_links": [
@@ -109,6 +109,10 @@
         {
           "en": "Preventing unnecessary debris may therefore be more practical than assuming every object can be recovered after launch.",
           "ja": "不要なごみを防ぐことは打ち上げ後すべてを回収できると考えるより実際的かもしれません。"
+        },
+        {
+          "en": "Engineers also need reliable information about the lifetime of their equipment, since a failed disposal system may leave an object in orbit far longer than its designers expected.",
+          "ja": "処分の仕組みが失敗すると設計者の予想より長く物体が軌道上に残るかもしれないため、技術者は機器の寿命に関する信頼できる情報も必要です。"
         }
       ]
     },
@@ -142,6 +146,10 @@
         {
           "en": "The central question is not simply how much a satellite can achieve, but what it leaves behind for everyone who follows.",
           "ja": "中心となる問いは衛星の成果だけでなく後に続く人々に何を残すかです。"
+        },
+        {
+          "en": "A fair discussion should distinguish what the scientific model can demonstrate from broader claims about international responsibility that require further legal and political consideration.",
+          "ja": "公正な議論では、科学模型で示せることと、さらなる法的・政治的検討を要する国際的責任についての広い主張を区別すべきです。"
         }
       ]
     }
@@ -590,7 +598,7 @@
     },
     {
       "paragraph_id": "p3",
-      "sentence_index": 2,
+      "sentence_index": 5,
       "focus": "that must themselves be evaluated carefully",
       "explanation_ja": "thatがrisksを修飾し受動態を含みます。"
     },
