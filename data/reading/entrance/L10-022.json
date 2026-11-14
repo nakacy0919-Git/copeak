@@ -1,0 +1,698 @@
+{
+  "id": "L10-022",
+  "category_id": "L10",
+  "title": "The Diagram That Made a Mistake Visible",
+  "title_ja": "誤りを見えるようにした図",
+  "level_id": "eiken-2",
+  "status": "draft",
+  "original": true,
+  "word_count": 367,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "人物・出来事・制度は架空の教材例。実在の調査・統計・実証結果・法令・医療基準ではない。制作台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A teacher in a fictional mathematics classroom asks students to explain a solution using both numbers and a simple diagram.",
+          "ja": "架空の数学教室で教師は数字と簡単な図で解法を説明するよう生徒に求める。"
+        },
+        {
+          "en": "One student completes the calculation quickly and obtains the expected answer, but her diagram represents a different relationship between the quantities.",
+          "ja": "一人は素早く計算して期待された答えを得るが図は数量間の別の関係を表す。"
+        },
+        {
+          "en": "The inconsistency surprises the teacher because the numerical result alone had appeared to indicate a satisfactory understanding of the problem.",
+          "ja": "数値結果だけでは十分な理解を示すように見えたため不一致に教師は驚く。"
+        },
+        {
+          "en": "Rather than immediately correcting the drawing, she asks the student to explain how each representation corresponds to the original situation.",
+          "ja": "すぐ図を直さず各表現が元の状況にどう対応するか説明するよう求める。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The student discovers that she has applied a familiar procedure without considering why it is appropriate for this particular problem.",
+          "ja": "なぜ特定問題に適するか考えず慣れた手順を適用したと気づく。"
+        },
+        {
+          "en": "Her diagram reveals an assumption that had remained invisible in the written calculation.",
+          "ja": "図は計算式に見えなかった前提を明らかにする。"
+        },
+        {
+          "en": "Another student encounters the opposite difficulty: his drawing represents the situation accurately, but he makes an error while performing the arithmetic.",
+          "ja": "別の生徒は逆の困難に遭い、図は正確だが計算時に誤る。"
+        },
+        {
+          "en": "The teacher recognizes that the two students need different kinds of feedback despite receiving different marks on the original task.",
+          "ja": "元の課題で別々の点を取っていても二人に必要なフィードバックの種類は異なると認識する。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "For the next activity, students compare several possible representations of a single problem.",
+          "ja": "次の活動で一つの問題の複数の表現を比較する。"
+        },
+        {
+          "en": "They identify the information that must remain consistent when a written description is converted into a diagram or an equation.",
+          "ja": "文章記述を図や方程式に変換するとき一致を保つべき情報を特定する。"
+        },
+        {
+          "en": "They also examine whether a representation can highlight a relevant feature while making another aspect less obvious.",
+          "ja": "表現が関連特徴を際立たせる一方で他の側面を見えにくくするかも検討する。"
+        },
+        {
+          "en": "The purpose is not to establish that every mathematical problem requires a picture, but to help students choose a useful method of reasoning.",
+          "ja": "全数学問題に図が必要だと確定するのでなく有用な推論方法を選ぶ支援が目的だ。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The teacher subsequently changes the way she discusses errors during lessons.",
+          "ja": "その後授業で誤りを議論する方法を変える。"
+        },
+        {
+          "en": "Instead of treating every incorrect answer as evidence of insufficient effort, she encourages students to locate the step at which their reasoning became inconsistent.",
+          "ja": "誤答をすべて努力不足と見なさず推論が不一致になった段階を見つけるよう促す。"
+        },
+        {
+          "en": "She acknowledges that a correct diagram does not automatically demonstrate a complete understanding of every relevant principle.",
+          "ja": "正しい図が全関連原理の完全な理解を自動的に示すわけではないと認める。"
+        },
+        {
+          "en": "Nevertheless, comparing different representations offers additional evidence that can inform the next stage of instruction.",
+          "ja": "それでも異なる表現の比較は次の指導段階に役立つ追加根拠を提供する。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "Learning becomes more visible when students are able to explain the relationships underlying their procedures.",
+          "ja": "手順の根底にある関係を説明できると学びがより見えるようになる。"
+        },
+        {
+          "en": "A correct result can be valuable evidence, but its significance depends on how the result was obtained.",
+          "ja": "正答は有用な証拠だがその意味は答えを得た方法にも依存する。"
+        },
+        {
+          "en": "An error may also provide information about a learner's understanding when its source can be identified rather than merely recorded.",
+          "ja": "誤りも単に記録するのでなく原因を特定できれば理解について情報を提供する。"
+        },
+        {
+          "en": "The diagram in this fictional lesson becomes useful precisely because it exposes a discrepancy that a final answer had concealed.",
+          "ja": "架空の授業の図は最終解答が隠した食い違いを明らかにするからこそ有用になる。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "fictional",
+      "ja": "架空の",
+      "synonym": "imaginary",
+      "definition": "existing in imagination"
+    },
+    {
+      "term": "mathematics",
+      "ja": "数学",
+      "synonym": "math",
+      "definition": "study of numbers and relationships"
+    },
+    {
+      "term": "solution",
+      "ja": "解法",
+      "synonym": "answer",
+      "definition": "way of solving a problem"
+    },
+    {
+      "term": "diagram",
+      "ja": "図",
+      "synonym": "illustration",
+      "definition": "visual representation"
+    },
+    {
+      "term": "calculation",
+      "ja": "計算",
+      "synonym": "computation",
+      "definition": "process of calculating"
+    },
+    {
+      "term": "obtains",
+      "ja": "得る",
+      "synonym": "acquires",
+      "definition": "gets something"
+    },
+    {
+      "term": "expected",
+      "ja": "期待された",
+      "synonym": "anticipated",
+      "definition": "thought likely to occur"
+    },
+    {
+      "term": "represents",
+      "ja": "表す",
+      "synonym": "depicts",
+      "definition": "shows or stands for"
+    },
+    {
+      "term": "quantities",
+      "ja": "数量",
+      "synonym": "amounts",
+      "definition": "measurable amounts"
+    },
+    {
+      "term": "inconsistency",
+      "ja": "不一致",
+      "synonym": "discrepancy",
+      "definition": "lack of agreement"
+    },
+    {
+      "term": "numerical",
+      "ja": "数値の",
+      "synonym": "numeric",
+      "definition": "relating to numbers"
+    },
+    {
+      "term": "indicate",
+      "ja": "示す",
+      "synonym": "show",
+      "definition": "make known"
+    },
+    {
+      "term": "satisfactory",
+      "ja": "十分な",
+      "synonym": "adequate",
+      "definition": "meeting a required standard"
+    },
+    {
+      "term": "immediately",
+      "ja": "直ちに",
+      "synonym": "at once",
+      "definition": "without delay"
+    },
+    {
+      "term": "representation",
+      "ja": "表現",
+      "synonym": "depiction",
+      "definition": "way of showing something"
+    },
+    {
+      "term": "corresponds",
+      "ja": "対応する",
+      "synonym": "matches",
+      "definition": "agrees with something"
+    },
+    {
+      "term": "applied",
+      "ja": "適用した",
+      "synonym": "used",
+      "definition": "put into practice"
+    },
+    {
+      "term": "familiar",
+      "ja": "なじみのある",
+      "synonym": "known",
+      "definition": "known from experience"
+    },
+    {
+      "term": "procedure",
+      "ja": "手順",
+      "synonym": "process",
+      "definition": "established way of acting"
+    },
+    {
+      "term": "appropriate",
+      "ja": "適切な",
+      "synonym": "suitable",
+      "definition": "right for a purpose"
+    },
+    {
+      "term": "particular",
+      "ja": "特定の",
+      "synonym": "specific",
+      "definition": "relating to one thing"
+    },
+    {
+      "term": "reveals",
+      "ja": "明らかにする",
+      "synonym": "shows",
+      "definition": "makes known"
+    },
+    {
+      "term": "assumption",
+      "ja": "前提",
+      "synonym": "supposition",
+      "definition": "belief taken for granted"
+    },
+    {
+      "term": "invisible",
+      "ja": "見えない",
+      "synonym": "unseen",
+      "definition": "not able to be seen"
+    },
+    {
+      "term": "encounters",
+      "ja": "遭遇する",
+      "synonym": "faces",
+      "definition": "comes across"
+    },
+    {
+      "term": "opposite",
+      "ja": "逆の",
+      "synonym": "contrary",
+      "definition": "completely different in direction"
+    },
+    {
+      "term": "accurately",
+      "ja": "正確に",
+      "synonym": "precisely",
+      "definition": "without errors"
+    },
+    {
+      "term": "arithmetic",
+      "ja": "算術",
+      "synonym": "computation",
+      "definition": "basic calculation with numbers"
+    },
+    {
+      "term": "feedback",
+      "ja": "助言・評価",
+      "synonym": "response",
+      "definition": "information about performance"
+    },
+    {
+      "term": "despite",
+      "ja": "にもかかわらず",
+      "synonym": "in spite of",
+      "definition": "without being prevented by"
+    },
+    {
+      "term": "consistent",
+      "ja": "一致した",
+      "synonym": "compatible",
+      "definition": "not conflicting"
+    },
+    {
+      "term": "converted",
+      "ja": "変換された",
+      "synonym": "transformed",
+      "definition": "changed into another form"
+    },
+    {
+      "term": "equation",
+      "ja": "方程式",
+      "synonym": "formula",
+      "definition": "mathematical statement of equality"
+    },
+    {
+      "term": "highlight",
+      "ja": "際立たせる",
+      "synonym": "emphasize",
+      "definition": "draw attention to"
+    },
+    {
+      "term": "relevant",
+      "ja": "関連する",
+      "synonym": "pertinent",
+      "definition": "connected to a matter"
+    },
+    {
+      "term": "aspect",
+      "ja": "側面",
+      "synonym": "feature",
+      "definition": "part of something"
+    },
+    {
+      "term": "reasoning",
+      "ja": "推論",
+      "synonym": "logic",
+      "definition": "thinking through reasons"
+    },
+    {
+      "term": "subsequently",
+      "ja": "その後",
+      "synonym": "later",
+      "definition": "afterward"
+    },
+    {
+      "term": "insufficient",
+      "ja": "不十分な",
+      "synonym": "inadequate",
+      "definition": "not enough"
+    },
+    {
+      "term": "locate",
+      "ja": "見つける",
+      "synonym": "identify",
+      "definition": "determine where something is"
+    },
+    {
+      "term": "acknowledges",
+      "ja": "認める",
+      "synonym": "admits",
+      "definition": "accepts as true"
+    },
+    {
+      "term": "demonstrate",
+      "ja": "示す",
+      "synonym": "show",
+      "definition": "make evident"
+    },
+    {
+      "term": "principle",
+      "ja": "原理",
+      "synonym": "rule",
+      "definition": "fundamental idea"
+    },
+    {
+      "term": "Nevertheless",
+      "ja": "それでも",
+      "synonym": "even so",
+      "definition": "despite that fact"
+    },
+    {
+      "term": "instruction",
+      "ja": "指導",
+      "synonym": "teaching",
+      "definition": "process of teaching"
+    },
+    {
+      "term": "underlying",
+      "ja": "根底にある",
+      "synonym": "fundamental",
+      "definition": "forming a basis"
+    },
+    {
+      "term": "discrepancy",
+      "ja": "食い違い",
+      "synonym": "difference",
+      "definition": "inconsistency between things"
+    },
+    {
+      "term": "concealed",
+      "ja": "隠した",
+      "synonym": "hidden",
+      "definition": "kept from view"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What inconsistency was observed?",
+      "options": [
+        "Both representations were identical and correct.",
+        "A correct calculation was paired with an inaccurate diagram.",
+        "The problem required no quantities.",
+        "The student submitted no answer."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "正答と誤った図。"
+    },
+    {
+      "id": "q2",
+      "skill": "inference",
+      "prompt": "Why ask for an explanation instead of correcting the diagram immediately?",
+      "options": [
+        "To prevent the student from learning.",
+        "To avoid looking at the numerical answer.",
+        "To guarantee the drawing is correct.",
+        "To uncover the student's reasoning."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "推論の把握。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What was the second student's difficulty?",
+      "options": [
+        "An inaccurate drawing with correct arithmetic.",
+        "Failure to attend the lesson.",
+        "An arithmetic error despite an accurate drawing.",
+        "Lack of any written description."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "計算の誤り。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why do the students need different feedback?",
+      "options": [
+        "Their difficulties concern different parts of the reasoning process.",
+        "Both students have exactly the same misunderstanding.",
+        "Their marks alone identify every cause.",
+        "Diagrams are always more important than numbers."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "困難の種類が違う。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What is examined when changing representations?",
+      "options": [
+        "The color of the picture only.",
+        "The total number of students.",
+        "Every possible textbook.",
+        "Information that must remain consistent."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "表現間の一貫性。"
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why not require a diagram for every problem?",
+      "options": [
+        "All diagrams are useless.",
+        "Different representations serve different purposes.",
+        "Only equations are permitted.",
+        "Mathematical reasoning has one form."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "問題に合う表現。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What does the teacher encourage students to locate?",
+      "options": [
+        "The step where reasoning became inconsistent.",
+        "The quickest student in the class.",
+        "The answer key's printing date.",
+        "A new classroom."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "不一致の段階。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "What value comes from comparing representations?",
+      "options": [
+        "Guaranteed perfect understanding.",
+        "An excuse to ignore every mistake.",
+        "Additional evidence for planning instruction.",
+        "A replacement for all teaching."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "指導の根拠。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does discrepancy mean?",
+      "options": [
+        "A successful celebration.",
+        "A fixed numerical rule.",
+        "A drawing instrument.",
+        "An inconsistency between things."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "食い違い。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the central idea?",
+      "options": [
+        "Correct answers always establish full understanding.",
+        "Different representations can reveal reasoning that final answers alone conceal.",
+        "Diagrams must replace all calculations.",
+        "Mistakes should only affect marks."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "解答以外で推論を捉える。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "because the numerical result alone had appeared",
+      "explanation_ja": "becauseは理由、過去完了。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 0,
+      "focus": "without considering why it is appropriate",
+      "explanation_ja": "without＋動名詞。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "focus": "when a written description is converted",
+      "explanation_ja": "when節と受動態。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "precisely because it exposes a discrepancy",
+      "explanation_ja": "precisely becauseで理由を強調。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The inconsistency surprises the teacher because the numerical result alone had appeared to indicate a satisfactory understanding of the problem.",
+      "rewrite": "The teacher is surprised because the number had seemed to show understanding.",
+      "explanation_ja": "数値結果の限界。"
+    },
+    {
+      "source": "The student discovers that she has applied a familiar procedure without considering why it is appropriate for this particular problem.",
+      "rewrite": "She used a known method without examining why it fit the problem.",
+      "explanation_ja": "手順適用の前提。"
+    },
+    {
+      "source": "They identify the information that must remain consistent when a written description is converted into a diagram or an equation.",
+      "rewrite": "The students check which facts must remain consistent across representations.",
+      "explanation_ja": "表現間の共通情報。"
+    },
+    {
+      "source": "The diagram in this fictional lesson becomes useful precisely because it exposes a discrepancy that a final answer had concealed.",
+      "rewrite": "The diagram is valuable because it reveals a mismatch hidden by the answer.",
+      "explanation_ja": "図の価値。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "but",
+      "role_ja": "数値と図の違い。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "opposite",
+      "role_ja": "対照的な誤り。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Instead of",
+      "role_ja": "誤答の扱いを変更。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "表現の限界と有用性。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "assumption",
+      "options": [
+        "assumption",
+        "decoration",
+        "celebration",
+        "transportation"
+      ],
+      "explanation_ja": "隠れた前提。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "equation",
+      "options": [
+        "invitation",
+        "equation",
+        "portrait",
+        "receipt"
+      ],
+      "explanation_ja": "方程式への変換。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "insufficient",
+      "options": [
+        "sufficient",
+        "identical",
+        "insufficient",
+        "annual"
+      ],
+      "explanation_ja": "努力不足と決めつけない。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "answer": "discrepancy",
+      "options": [
+        "agreement",
+        "solution",
+        "accuracy",
+        "discrepancy"
+      ],
+      "explanation_ja": "食い違い。"
+    }
+  ]
+}
