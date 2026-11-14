@@ -1,0 +1,696 @@
+{
+  "id": "L07-007",
+  "category_id": "L07",
+  "title": "The Hidden Meaning of Free Delivery",
+  "title_ja": "送料無料の裏側にある見えない費用",
+  "level_id": "university-mid",
+  "word_count": 517,
+  "original": true,
+  "status": "draft",
+  "source_links": [
+    {
+      "title": "UNEP: Sustainable Consumption and Production",
+      "url": "https://www.unep.org/explore-topics/resource-efficiency/what-we-do/sustainable-consumption-and-production"
+    }
+  ],
+  "fact_notes": [
+    "背景となる考え方は添付の資料で確認。本文と練習問題は新規制作。例示した人物・学校・活動は架空の説明用設定。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "An online store offers free delivery to customers who order several inexpensive items at the same time.",
+          "ja": "オンライン店は安価な商品をいくつか一度に注文した顧客に送料無料を提供します。"
+        },
+        {
+          "en": "A student planning to buy one notebook adds extra products to the basket because reaching the delivery threshold appears to save money.",
+          "ja": "ノート一冊を買う予定の生徒は配送料の条件を満たせば得だと思い余分な商品をかごに加えます。"
+        },
+        {
+          "en": "However, free delivery does not mean that moving goods from a warehouse to a home requires no resources or labor.",
+          "ja": "しかし送料無料は倉庫から家へ商品を運ぶのに資源や労働が不要という意味ではありません。"
+        },
+        {
+          "en": "The costs of transport and packaging may be included elsewhere in prices or absorbed by a business as part of its strategy.",
+          "ja": "輸送や包装の費用は別の価格に含まれるか、企業の戦略として負担される場合があります。"
+        },
+        {
+          "en": "The difference between the price a customer sees and the resources an activity uses raises questions about how purchasing decisions are made.",
+          "ja": "顧客が見る価格と活動に使われる資源の差は、購入判断のあり方について問いを生みます。"
+        },
+        {
+          "en": "A promotion that appears to lower one expense may encourage an additional purchase that the customer did not originally need.",
+          "ja": "一つの費用を減らすように見える販促が当初必要のなかった追加購入を促すかもしれません。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The student asks whether buying extra goods is worthwhile simply because delivery becomes free.",
+          "ja": "生徒は配送が無料になるというだけで余分な商品を買う価値があるか尋ねます。"
+        },
+        {
+          "en": "For example, a person might spend more money on unnecessary products than the delivery fee would otherwise have cost.",
+          "ja": "例えば必要ない商品に配送料より多くのお金を使うかもしれません。"
+        },
+        {
+          "en": "A lower delivery charge is therefore not identical to a lower total cost for the household.",
+          "ja": "そのため配送代が安いことは家庭全体の総費用が低いことと同じではありません。"
+        },
+        {
+          "en": "Businesses may nevertheless design promotions that make the shipping price especially noticeable while the total purchase receives less attention.",
+          "ja": "企業は配送代を特に目立たせ、購入総額にはあまり注意が向かない販促を設計するかもしれません。"
+        },
+        {
+          "en": "The customer benefits from comparing the complete basket price with the price of ordering only what was needed.",
+          "ja": "顧客は必要なものだけの注文額と買い物かご全体の価格を比べることが役立ちます。"
+        },
+        {
+          "en": "An informed choice starts by identifying the actual goal instead of trying to maximize every advertised discount.",
+          "ja": "情報に基づく選択はすべての割引を最大化するのでなく、実際の目的を特定することから始まります。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Environmental effects introduce another layer of complexity because the number of parcels alone does not determine their total impact.",
+          "ja": "環境への影響はさらに複雑で、荷物の数だけで総影響が決まるわけではありません。"
+        },
+        {
+          "en": "In addition, delivery routes, vehicle types, packaging, and the distance between facilities can influence how resources are used.",
+          "ja": "さらに配送経路、車両の種類、包装、施設間の距離が資源利用に影響します。"
+        },
+        {
+          "en": "A combined delivery could sometimes be more efficient than several separate journeys, yet the overall result depends on particular circumstances.",
+          "ja": "まとめ配送は複数の個別移動より効率的なこともありますが、全体の結果は特定の条件によります。"
+        },
+        {
+          "en": "Customers cannot accurately calculate every environmental consequence from a small delivery icon on a shopping website.",
+          "ja": "顧客は通販サイトの小さな配送アイコンからすべての環境影響を正確に計算できません。"
+        },
+        {
+          "en": "A responsible comparison should therefore avoid claiming that any one option is always the most sustainable.",
+          "ja": "責任ある比較では一つの選択が常に最も持続可能だと主張することを避けるべきです。"
+        },
+        {
+          "en": "The larger question is how purchasing habits and delivery systems interact to create costs that are not fully visible at checkout.",
+          "ja": "より大きな問いは購入習慣と配送システムがどのように作用して決済画面で見えない費用を生むかです。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The school's economics club prepares an activity comparing three baskets with different product prices and delivery conditions.",
+          "ja": "学校の経済部は価格と配送条件が異なる三つの買い物かごを比べる活動を準備します。"
+        },
+        {
+          "en": "Students calculate what the buyer actually pays and identify which products were needed before the promotion appeared.",
+          "ja": "生徒は購入者の実際の支払額を計算し、販促前に必要だった品を特定します。"
+        },
+        {
+          "en": "Nevertheless, they do not pretend that a simple classroom calculation can measure every impact of global transportation.",
+          "ja": "それでも教室の簡単な計算ですべての世界的輸送の影響を測れるとは装いません。"
+        },
+        {
+          "en": "Instead, they separate claims supported by the available prices from wider questions requiring additional information about supply chains.",
+          "ja": "代わりに見える価格で裏づけられる主張と、供給網の追加情報が必要な広い問いを区別します。"
+        },
+        {
+          "en": "The exercise demonstrates that the cheapest-looking choice is not necessarily the least costly in money or resources.",
+          "ja": "この活動は最も安く見える選択が金銭や資源の面で最も低費用とは限らないことを示します。"
+        },
+        {
+          "en": "Understanding that distinction allows consumers to evaluate promotions without confusing a marketing label with a complete economic explanation.",
+          "ja": "この違いを理解すると販促の言葉と完全な経済的説明を混同せず評価できます。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The student finally decides to order the notebook alone after considering what would actually be used.",
+          "ja": "生徒は実際に使うものを考え、最後にノートだけを注文することにします。"
+        },
+        {
+          "en": "This choice is not offered as a universal rule because other households may face different needs and travel arrangements.",
+          "ja": "他の家庭には異なる必要や移動条件があるため、この選択は普遍的な規則として示されません。"
+        },
+        {
+          "en": "The important principle is to examine the total decision rather than focus on the apparent disappearance of one fee.",
+          "ja": "重要なのは一つの料金が消えたように見えることだけに注目せず判断全体を調べることです。"
+        },
+        {
+          "en": "The meaning of free delivery becomes clearer when the buyer asks who pays, what resources are used, and which purchases were truly necessary.",
+          "ja": "誰が支払うか、どんな資源を使うか、どの購入が本当に必要だったかを問うと送料無料の意味は明確になります。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What is the passage's main argument?",
+      "options": [
+        "Free delivery should be evaluated through total spending and hidden resource costs rather than one advertised fee.",
+        "All online shopping must stop.",
+        "Delivery services use no resources when free.",
+        "The largest basket is always the most economical."
+      ],
+      "answer": 0,
+      "explanation_ja": "見える送料と総費用・資源の違いを考える主張です。",
+      "paragraph_ids": [
+        "p1",
+        "p3",
+        "p5"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Why does the student initially add products?",
+      "options": [
+        "To replace every school supply.",
+        "To qualify for the store's free-delivery threshold.",
+        "To send gifts to the warehouse.",
+        "To avoid paying for the notebook."
+      ],
+      "answer": 1,
+      "explanation_ja": "送料無料の条件を満たすためです。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why can free delivery lead to greater spending?",
+      "options": [
+        "Delivery workers are never paid.",
+        "All store prices are identical.",
+        "Extra goods may cost more than the original delivery charge.",
+        "Every customer needs more products."
+      ],
+      "answer": 2,
+      "explanation_ja": "追加購入費が送料を超え得るためです。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What does the passage recommend comparing?",
+      "options": [
+        "Only the color of the delivery icon.",
+        "Only the name of the store.",
+        "The number of online reviews.",
+        "The complete basket price and the cost of needed items alone."
+      ],
+      "answer": 3,
+      "explanation_ja": "総額と必要品だけの額を比べます。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "inference",
+      "prompt": "Why is parcel count alone a poor environmental measure?",
+      "options": [
+        "Routes, vehicles, packaging, and distances can also matter.",
+        "Every parcel uses the same route.",
+        "All packaging has zero impact.",
+        "Delivery vehicles never move."
+      ],
+      "answer": 0,
+      "explanation_ja": "他の輸送条件も影響するためです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What does the economics club calculate?",
+      "options": [
+        "The carbon impact of every shipment in the world.",
+        "The actual amount paid for different baskets.",
+        "The age of every customer.",
+        "The number of trucks in the country."
+      ],
+      "answer": 1,
+      "explanation_ja": "買い物かごごとの実支払額です。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'threshold' mean in paragraph 1?",
+      "options": [
+        "A label placed on a package.",
+        "A vehicle used for deliveries.",
+        "A minimum condition or amount that must be reached.",
+        "A list of customer addresses."
+      ],
+      "answer": 2,
+      "explanation_ja": "thresholdは条件を満たす境目の額です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "Why does the club separate price claims from supply-chain questions?",
+      "options": [
+        "Students must never examine shipping.",
+        "The price already shows every environmental effect.",
+        "Every delivery method is identical.",
+        "The latter require information that the classroom price comparison does not provide."
+      ],
+      "answer": 3,
+      "explanation_ja": "供給網の影響には別の証拠が必要なためです。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "detail",
+      "prompt": "What does the student finally choose?",
+      "options": [
+        "Buying the notebook alone.",
+        "Ordering a second notebook.",
+        "Canceling all schoolwork.",
+        "Purchasing every discounted item."
+      ],
+      "answer": 0,
+      "explanation_ja": "必要なノートだけを買います。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "What is the point of the final sentence?",
+      "options": [
+        "Marketing labels always reveal all costs.",
+        "A free-delivery offer should prompt questions about who bears costs and which purchases are needed.",
+        "Customers should buy only from one company.",
+        "Every delivery should be made separately."
+      ],
+      "answer": 1,
+      "explanation_ja": "誰が費用を負担するか問う大切さが結論です。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "threshold",
+      "ja": "最低基準額",
+      "synonym": "minimum required amount",
+      "definition": "a level that must be reached"
+    },
+    {
+      "term": "warehouse",
+      "ja": "倉庫",
+      "synonym": "storage building",
+      "definition": "a place for keeping goods before distribution"
+    },
+    {
+      "term": "packaging",
+      "ja": "包装",
+      "synonym": "wrapping",
+      "definition": "materials used to protect goods"
+    },
+    {
+      "term": "promotion",
+      "ja": "販売促進",
+      "synonym": "special offer",
+      "definition": "an arrangement designed to encourage buying"
+    },
+    {
+      "term": "supply chains",
+      "ja": "供給網",
+      "synonym": "production and delivery networks",
+      "definition": "systems moving goods to customers"
+    },
+    {
+      "term": "absorbed",
+      "ja": "負担された",
+      "synonym": "covered",
+      "definition": "paid as part of another cost"
+    },
+    {
+      "term": "sustainable",
+      "ja": "持続可能な",
+      "synonym": "able to continue responsibly",
+      "definition": "using resources without unacceptable long-term harm"
+    },
+    {
+      "term": "checkout",
+      "ja": "決済",
+      "synonym": "payment stage",
+      "definition": "the step when a customer pays"
+    },
+    {
+      "term": "consequence",
+      "ja": "結果",
+      "synonym": "effect",
+      "definition": "a result of an action"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "learners",
+      "definition": "people receiving education at school"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "question",
+      "ja": "問い・質問",
+      "synonym": "inquiry",
+      "definition": "something asked to obtain information"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "because",
+      "ja": "なぜなら・〜なので",
+      "synonym": "since",
+      "definition": "introducing a reason or explanation"
+    },
+    {
+      "term": "understanding",
+      "ja": "理解",
+      "synonym": "comprehension",
+      "definition": "knowledge of meaning and reasons"
+    },
+    {
+      "term": "might",
+      "ja": "〜かもしれない",
+      "synonym": "possibly",
+      "definition": "expressing a possibility rather than certainty"
+    },
+    {
+      "term": "circumstances",
+      "ja": "事情",
+      "synonym": "conditions",
+      "definition": "facts surrounding an event"
+    },
+    {
+      "term": "student",
+      "ja": "生徒",
+      "synonym": "learner",
+      "definition": "a person learning at school"
+    },
+    {
+      "term": "therefore",
+      "ja": "したがって",
+      "synonym": "consequently",
+      "definition": "used to introduce a logical result"
+    },
+    {
+      "term": "important",
+      "ja": "重要な",
+      "synonym": "significant",
+      "definition": "having a great effect or value"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "facts",
+      "definition": "facts or details provided about something"
+    },
+    {
+      "term": "universal",
+      "ja": "普遍的な",
+      "synonym": "applicable to all",
+      "definition": "true across all cases"
+    },
+    {
+      "term": "attention",
+      "ja": "注意",
+      "synonym": "focus",
+      "definition": "careful concentration"
+    },
+    {
+      "term": "influence",
+      "ja": "影響を与える",
+      "synonym": "affect",
+      "definition": "to change something"
+    },
+    {
+      "term": "benefits",
+      "ja": "利益・利点",
+      "synonym": "advantages",
+      "definition": "positive results"
+    },
+    {
+      "term": "informed",
+      "ja": "情報を与えられた",
+      "synonym": "aware",
+      "definition": "having the necessary information"
+    },
+    {
+      "term": "result",
+      "ja": "結果",
+      "synonym": "outcome",
+      "definition": "what happens because of an action or event"
+    },
+    {
+      "term": "environmental",
+      "ja": "環境の",
+      "synonym": "ecological",
+      "definition": "related to the natural world"
+    },
+    {
+      "term": "decision",
+      "ja": "決定",
+      "synonym": "choice",
+      "definition": "an action of choosing between possibilities"
+    },
+    {
+      "term": "decisions",
+      "ja": "決定",
+      "synonym": "choices",
+      "definition": "choices made after considering options"
+    },
+    {
+      "term": "choice",
+      "ja": "選択",
+      "synonym": "option",
+      "definition": "an act of selecting from alternatives"
+    },
+    {
+      "term": "rather",
+      "ja": "むしろ",
+      "synonym": "instead",
+      "definition": "used to express a preferred alternative"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それにもかかわらず",
+      "synonym": "however",
+      "definition": "used to introduce an unexpected contrast"
+    },
+    {
+      "term": "instead",
+      "ja": "代わりに",
+      "synonym": "alternatively",
+      "definition": "used to indicate a different choice"
+    },
+    {
+      "term": "strategy",
+      "ja": "方略",
+      "synonym": "planned method",
+      "definition": "a method chosen to reach a goal"
+    },
+    {
+      "term": "examine",
+      "ja": "調べる",
+      "synonym": "inspect",
+      "definition": "to study carefully"
+    },
+    {
+      "term": "decides",
+      "ja": "決める",
+      "synonym": "chooses",
+      "definition": "makes a decision"
+    },
+    {
+      "term": "design",
+      "ja": "設計",
+      "synonym": "plan",
+      "definition": "a plan for arranging things"
+    },
+    {
+      "term": "travel",
+      "ja": "移動する",
+      "synonym": "journey",
+      "definition": "to move between places"
+    },
+    {
+      "term": "global",
+      "ja": "世界的な",
+      "synonym": "worldwide",
+      "definition": "relating to the whole world"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "does not mean that moving goods from a warehouse to a home requires no resources",
+      "explanation_ja": "does not mean thatは誤解を否定します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "while the total purchase receives less attention",
+      "explanation_ja": "whileが注意の向き先を対比します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "yet the overall result depends on particular circumstances",
+      "explanation_ja": "yetで可能性と条件を対比します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 4,
+      "focus": "is not necessarily the least costly in money or resources",
+      "explanation_ja": "not necessarilyによる部分否定です。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "本文冒頭の考えと、その例外・注意を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "前の考えを具体例で説明します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "In addition",
+      "role_ja": "前の説明に新たな条件や視点を加えます。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "先に述べた利点と、残る限界や条件を対比します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "free delivery does not mean that moving goods from a warehouse to a home requires no resources",
+      "rewrite": "an advertised zero shipping fee does not eliminate the real resources needed for transport",
+      "explanation_ja": "free→zero shipping feeです。"
+    },
+    {
+      "source": "A lower delivery charge is therefore not identical to a lower total cost for the household",
+      "rewrite": "reduced shipping fees do not guarantee smaller household spending",
+      "explanation_ja": "not identical→do not guaranteeです。"
+    },
+    {
+      "source": "the number of parcels alone does not determine their total impact",
+      "rewrite": "parcel count is insufficient to measure the environmental effects of deliveries",
+      "explanation_ja": "alone does not determine→insufficientです。"
+    },
+    {
+      "source": "The important principle is to examine the total decision rather than focus on the apparent disappearance of one fee",
+      "rewrite": "buyers should assess the whole purchase instead of concentrating on one discounted charge",
+      "explanation_ja": "rather than→instead ofです。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "In addition",
+        "Nevertheless"
+      ],
+      "explanation_ja": "本文冒頭の考えと、その例外・注意を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "In addition",
+        "Nevertheless"
+      ],
+      "explanation_ja": "前の考えを具体例で説明します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "In addition",
+      "options": [
+        "In addition",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "前の説明に新たな条件や視点を加えます。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "先に述べた利点と、残る限界や条件を対比します。"
+    }
+  ]
+}
