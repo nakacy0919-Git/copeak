@@ -1,0 +1,710 @@
+{
+  "id": "L03-027",
+  "category_id": "L03",
+  "title": "What a Sensor Cannot Know",
+  "title_ja": "センサーには分からないこと",
+  "level_id": "eiken-pre1",
+  "status": "draft",
+  "original": true,
+  "word_count": 459,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "オリジナル教材。一般的原理と架空の例を用いた文章。架空例は実在の調査・実証結果ではない。制作台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Electronic sensors can make information about a physical environment available to people who are located far from the place where the measurements are taken.",
+          "ja": "電子センサーは測定場所から遠くにいる人々に物理環境の情報を利用可能にできる。"
+        },
+        {
+          "en": "A digital display may present that information so clearly that a reader assumes the instrument is directly reporting the condition that the reader wishes to understand.",
+          "ja": "デジタル表示は情報を明確に示すため、読者は機器が理解したい状態を直接報告していると想定するかもしれない。"
+        },
+        {
+          "en": "However, a measurement usually describes a particular property under particular circumstances rather than providing an unrestricted account of the surrounding environment.",
+          "ja": "しかし測定は通常、周辺環境の無制限な説明を提供するのでなく特定条件下の特定特性を記述する。"
+        },
+        {
+          "en": "The distinction becomes important when information collected for one purpose is subsequently used to make a decision involving a different question.",
+          "ja": "一目的で集めた情報を後に異なる問いを含む判断に使うとき、この区別は重要になる。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Imagine a library that installs a temperature sensor near the entrance in order to monitor the conditions experienced by visitors.",
+          "ja": "来訪者が経験する条件を監視するため入口近くに温度センサーを置く図書館を想像しよう。"
+        },
+        {
+          "en": "The readings provide useful information about the location of the instrument, but they do not necessarily describe the conditions experienced by someone sitting beside a window on a different floor.",
+          "ja": "測定値は機器の位置について有益な情報を提供するが、別階の窓際に座る人の経験する条件を必ずしも記述しない。"
+        },
+        {
+          "en": "Even if the sensor produces highly accurate measurements, the decision to treat those measurements as representative of the entire building would require additional justification.",
+          "ja": "センサーが非常に正確な測定値を生成してもそれを建物全体の代表値と扱う判断には追加の正当化が必要だ。"
+        },
+        {
+          "en": "The staff therefore distinguish a question about the technical performance of the instrument from a question about whether its location is appropriate for their investigation.",
+          "ja": "そこで職員は機器の技術性能に関する問いと調査に機器の位置が適切かという問いを区別する。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "A second difficulty could arise if the library decides to introduce an automatic system that sends a notification whenever a measurement crosses a predetermined threshold.",
+          "ja": "測定値が事前設定した閾値を超えるたび通知を送る自動仕組みを導入すると第二の困難が生じ得る。"
+        },
+        {
+          "en": "A threshold can provide a useful signal for further attention, but the meaning of that signal depends on what the system was designed to detect and what response is expected.",
+          "ja": "閾値はさらなる注意の有用な信号を提供できるが、その意味は何を検出するよう設計されどの対応が期待されるかに依存する。"
+        },
+        {
+          "en": "A temporary change near the entrance might have a different practical significance from a persistent change affecting several rooms, even if the instrument displays the same numerical value at one particular moment.",
+          "ja": "入口付近の一時変化は、ある瞬間に機器が同じ数値を表示しても複数室に影響する持続的変化とは異なる実務的意義を持ち得る。"
+        },
+        {
+          "en": "An appropriate response would therefore depend on information that may not be contained in the individual reading.",
+          "ja": "したがって適切な対応は個々の測定値に含まれないかもしれない情報に依存する。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The imaginary library considers supplementing the sensor records with observations from people using different areas of the building.",
+          "ja": "仮想図書館は建物の異なる場所を利用する人の観察でセンサー記録を補うことを検討する。"
+        },
+        {
+          "en": "It also considers recording the location and intended function of each instrument so that someone reviewing the information later can identify the circumstances under which it was collected.",
+          "ja": "後で情報を見直す人が収集された事情を特定できるよう各機器の位置と想定機能の記録も考える。"
+        },
+        {
+          "en": "These arrangements would not establish the accuracy of any particular device or the effectiveness of a real monitoring system without further technical evaluation.",
+          "ja": "こうした仕組みは追加技術評価なしには特定機器の正確性や実監視システムの有効性を確立しない。"
+        },
+        {
+          "en": "They would, however, encourage the staff to explain the assumptions connecting the measurements to the decisions they intend to make.",
+          "ja": "しかし測定値と予定する判断を結ぶ前提を説明するよう職員を促すだろう。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "A sensor provides information about a property to which it is designed to respond.",
+          "ja": "センサーは反応するよう設計された特性について情報を提供する。"
+        },
+        {
+          "en": "It cannot independently determine which questions the people using that information ought to ask about the environment.",
+          "ja": "その情報を使う人々が環境についてどの問いを問うべきかを独立して決めることはできない。"
+        },
+        {
+          "en": "The usefulness of a monitoring system consequently depends not only on the precision of its instruments but also on the appropriateness of the assumptions through which their outputs are interpreted.",
+          "ja": "監視システムの有用性は機器の精度だけでなく出力解釈の前提の適切さにも依存する。"
+        },
+        {
+          "en": "Accurate data become meaningful evidence when their relationship to a particular inquiry is understood.",
+          "ja": "正確なデータは特定の調査との関係が理解されると意味ある根拠になる。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "electronic",
+      "ja": "電子の",
+      "synonym": "digital",
+      "definition": "using electronic technology"
+    },
+    {
+      "term": "sensors",
+      "ja": "センサー",
+      "synonym": "detectors",
+      "definition": "devices responding to signals"
+    },
+    {
+      "term": "physical",
+      "ja": "物理的な",
+      "synonym": "material",
+      "definition": "relating to tangible things"
+    },
+    {
+      "term": "environment",
+      "ja": "環境",
+      "synonym": "surroundings",
+      "definition": "things surrounding a place"
+    },
+    {
+      "term": "located",
+      "ja": "位置する",
+      "synonym": "situated",
+      "definition": "placed in a particular position"
+    },
+    {
+      "term": "measurements",
+      "ja": "測定値",
+      "synonym": "readings",
+      "definition": "values obtained by measuring"
+    },
+    {
+      "term": "display",
+      "ja": "表示",
+      "synonym": "screen",
+      "definition": "device showing information"
+    },
+    {
+      "term": "assumes",
+      "ja": "想定する",
+      "synonym": "supposes",
+      "definition": "accepts without proof"
+    },
+    {
+      "term": "instrument",
+      "ja": "機器",
+      "synonym": "device",
+      "definition": "tool for measurement or investigation"
+    },
+    {
+      "term": "property",
+      "ja": "特性",
+      "synonym": "characteristic",
+      "definition": "quality of something"
+    },
+    {
+      "term": "circumstances",
+      "ja": "事情",
+      "synonym": "conditions",
+      "definition": "facts affecting a situation"
+    },
+    {
+      "term": "unrestricted",
+      "ja": "無制限の",
+      "synonym": "unlimited",
+      "definition": "not subject to limits"
+    },
+    {
+      "term": "distinction",
+      "ja": "区別",
+      "synonym": "difference",
+      "definition": "difference between things"
+    },
+    {
+      "term": "subsequently",
+      "ja": "後に",
+      "synonym": "later",
+      "definition": "after an event"
+    },
+    {
+      "term": "installs",
+      "ja": "設置する",
+      "synonym": "sets up",
+      "definition": "puts in place for use"
+    },
+    {
+      "term": "monitor",
+      "ja": "監視する",
+      "synonym": "observe",
+      "definition": "check over time"
+    },
+    {
+      "term": "readings",
+      "ja": "測定値",
+      "synonym": "measurements",
+      "definition": "values shown by instruments"
+    },
+    {
+      "term": "necessarily",
+      "ja": "必ずしも",
+      "synonym": "inevitably",
+      "definition": "in a way that must occur"
+    },
+    {
+      "term": "accurate",
+      "ja": "正確な",
+      "synonym": "correct",
+      "definition": "free from error"
+    },
+    {
+      "term": "representative",
+      "ja": "代表的な",
+      "synonym": "typical",
+      "definition": "standing for a wider group"
+    },
+    {
+      "term": "justification",
+      "ja": "正当化",
+      "synonym": "rationale",
+      "definition": "reasons supporting a judgment"
+    },
+    {
+      "term": "technical",
+      "ja": "技術的な",
+      "synonym": "technological",
+      "definition": "relating to specialized methods"
+    },
+    {
+      "term": "performance",
+      "ja": "性能",
+      "synonym": "operation",
+      "definition": "how well something works"
+    },
+    {
+      "term": "appropriate",
+      "ja": "適切な",
+      "synonym": "suitable",
+      "definition": "right for a purpose"
+    },
+    {
+      "term": "investigation",
+      "ja": "調査",
+      "synonym": "inquiry",
+      "definition": "careful search for information"
+    },
+    {
+      "term": "automatic",
+      "ja": "自動の",
+      "synonym": "automated",
+      "definition": "operating without further action"
+    },
+    {
+      "term": "notification",
+      "ja": "通知",
+      "synonym": "alert",
+      "definition": "message giving notice"
+    },
+    {
+      "term": "predetermined",
+      "ja": "事前に決められた",
+      "synonym": "prearranged",
+      "definition": "decided in advance"
+    },
+    {
+      "term": "threshold",
+      "ja": "閾値",
+      "synonym": "cutoff",
+      "definition": "value marking a boundary"
+    },
+    {
+      "term": "detect",
+      "ja": "検出する",
+      "synonym": "identify",
+      "definition": "discover the presence of"
+    },
+    {
+      "term": "response",
+      "ja": "対応",
+      "synonym": "reaction",
+      "definition": "action in reply"
+    },
+    {
+      "term": "temporary",
+      "ja": "一時的な",
+      "synonym": "short-lived",
+      "definition": "lasting for a limited time"
+    },
+    {
+      "term": "persistent",
+      "ja": "持続的な",
+      "synonym": "continuing",
+      "definition": "lasting over time"
+    },
+    {
+      "term": "significance",
+      "ja": "意義",
+      "synonym": "importance",
+      "definition": "quality of being meaningful"
+    },
+    {
+      "term": "numerical",
+      "ja": "数値の",
+      "synonym": "quantitative",
+      "definition": "relating to numbers"
+    },
+    {
+      "term": "individual",
+      "ja": "個々の",
+      "synonym": "separate",
+      "definition": "considered one at a time"
+    },
+    {
+      "term": "supplementing",
+      "ja": "補うこと",
+      "synonym": "adding to",
+      "definition": "providing additional information"
+    },
+    {
+      "term": "observations",
+      "ja": "観察",
+      "synonym": "findings",
+      "definition": "things noticed or measured"
+    },
+    {
+      "term": "intended",
+      "ja": "想定された",
+      "synonym": "meant",
+      "definition": "planned for a purpose"
+    },
+    {
+      "term": "reviewing",
+      "ja": "見直すこと",
+      "synonym": "examining",
+      "definition": "looking at again"
+    },
+    {
+      "term": "effectiveness",
+      "ja": "有効性",
+      "synonym": "efficacy",
+      "definition": "degree of achieving a purpose"
+    },
+    {
+      "term": "evaluation",
+      "ja": "評価",
+      "synonym": "assessment",
+      "definition": "considered judgment"
+    },
+    {
+      "term": "assumptions",
+      "ja": "前提",
+      "synonym": "suppositions",
+      "definition": "beliefs taken for granted"
+    },
+    {
+      "term": "independently",
+      "ja": "独立して",
+      "synonym": "separately",
+      "definition": "without relying on others"
+    },
+    {
+      "term": "consequently",
+      "ja": "その結果",
+      "synonym": "therefore",
+      "definition": "as a result"
+    },
+    {
+      "term": "precision",
+      "ja": "精度",
+      "synonym": "exactness",
+      "definition": "quality of being exact"
+    },
+    {
+      "term": "appropriateness",
+      "ja": "適切さ",
+      "synonym": "suitability",
+      "definition": "quality of being right for a purpose"
+    },
+    {
+      "term": "outputs",
+      "ja": "出力",
+      "synonym": "results",
+      "definition": "information produced by a system"
+    },
+    {
+      "term": "interpreted",
+      "ja": "解釈された",
+      "synonym": "understood",
+      "definition": "assigned meaning"
+    },
+    {
+      "term": "inquiry",
+      "ja": "調査",
+      "synonym": "investigation",
+      "definition": "search for information"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "inference",
+      "prompt": "What mistaken assumption might a clear display encourage?",
+      "options": [
+        "A sensor cannot transmit digital information.",
+        "The measurement directly answers the reader's broader question.",
+        "Physical properties cannot be measured.",
+        "All displays require the same instrument."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "測定値が問いへの直接回答だと思う。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "When does the distinction become important?",
+      "options": [
+        "Only before instruments are installed.",
+        "Once every question has been answered.",
+        "When measurements are never shared.",
+        "When data collected for one purpose are used for another decision."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "用途変更時。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "Where is the sensor located?",
+      "options": [
+        "Beside every window.",
+        "On the roof.",
+        "Near the library entrance.",
+        "Inside a visitor's bag."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "入口付近。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why might accurate data still be insufficient?",
+      "options": [
+        "The sensor's location may not represent other parts of the building.",
+        "Accurate readings necessarily contain errors.",
+        "Visitors never experience different conditions.",
+        "A building cannot have more than one floor."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "代表性の問題。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What triggers the proposed automatic notification?",
+      "options": [
+        "A visitor borrowing a book.",
+        "The replacement of every device.",
+        "A librarian entering a room.",
+        "A measurement crossing a predetermined threshold."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "閾値を超えると通知。"
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why compare temporary and persistent changes?",
+      "options": [
+        "Every reading contains complete information about duration.",
+        "Identical readings may require different responses depending on their context.",
+        "Notifications cannot be used in monitoring.",
+        "Only persistent changes have numerical values."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "同じ値でも意味が異なる。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What supplementary information is considered?",
+      "options": [
+        "Observations from users and descriptions of sensor locations and functions.",
+        "Only the price of each instrument.",
+        "Photographs of unrelated buildings.",
+        "Every visitor's private records."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "利用者観察と機器の情報。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "What does the example not demonstrate?",
+      "options": [
+        "The usefulness of clarifying assumptions.",
+        "A possible distinction between accuracy and representativeness.",
+        "Actual monitoring effectiveness without further evaluation.",
+        "The relevance of a sensor's location."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "実システムの有効性は未検証。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does appropriateness mean?",
+      "options": [
+        "Speed of transmission.",
+        "Suitability for a particular purpose.",
+        "Number of measurements.",
+        "Amount of electrical power."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "適切さ。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "Which statement best expresses the argument?",
+      "options": [
+        "Useful monitoring requires accurate measurements and valid reasoning about their relevance to decisions.",
+        "The most accurate sensor answers every possible question.",
+        "A notification always establishes the appropriate response.",
+        "Measurements collected at one location automatically represent an entire environment."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "精度と判断への関連性。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "rather than providing an unrestricted account",
+      "explanation_ja": "rather than＋動名詞。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "Even if the sensor produces highly accurate measurements",
+      "explanation_ja": "even ifは譲歩的条件。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "even if the instrument displays the same numerical value",
+      "explanation_ja": "even ifで同じ値でも状況が違うことを示す。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "focus": "not only on the precision of its instruments but also on",
+      "explanation_ja": "not only A but also Bで並列。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "However, a measurement usually describes a particular property under particular circumstances rather than providing an unrestricted account of the surrounding environment.",
+      "rewrite": "A measurement reports a specific property, not every aspect of its environment.",
+      "explanation_ja": "測定対象の限定。"
+    },
+    {
+      "source": "Even if the sensor produces highly accurate measurements, the decision to treat those measurements as representative of the entire building would require additional justification.",
+      "rewrite": "Accuracy alone does not justify treating the readings as representative of the whole building.",
+      "explanation_ja": "精度と代表性。"
+    },
+    {
+      "source": "A temporary change near the entrance might have a different practical significance from a persistent change affecting several rooms, even if the instrument displays the same numerical value at one particular moment.",
+      "rewrite": "A brief change and a lasting change can mean different things despite identical momentary readings.",
+      "explanation_ja": "測定値の文脈。"
+    },
+    {
+      "source": "The usefulness of a monitoring system consequently depends not only on the precision of its instruments but also on the appropriateness of the assumptions through which their outputs are interpreted.",
+      "rewrite": "Effective monitoring depends on precision and appropriate interpretation.",
+      "explanation_ja": "精度と解釈。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "表示から測定範囲の限界へ。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "therefore",
+      "role_ja": "精度と代表性を区別。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "A second difficulty",
+      "role_ja": "追加論点。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "however",
+      "role_ja": "実証せずとも前提を説明する価値。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "representative",
+      "options": [
+        "representative",
+        "irrelevant",
+        "isolated",
+        "accidental"
+      ],
+      "explanation_ja": "建物全体の代表。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 0,
+      "answer": "threshold",
+      "options": [
+        "portrait",
+        "threshold",
+        "receipt",
+        "advertisement"
+      ],
+      "explanation_ja": "通知の閾値。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "answer": "supplementing",
+      "options": [
+        "discarding",
+        "ignoring",
+        "supplementing",
+        "hiding"
+      ],
+      "explanation_ja": "観察で測定を補う。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "precision",
+      "options": [
+        "permission",
+        "expense",
+        "arrival",
+        "precision"
+      ],
+      "explanation_ja": "機器の精度。"
+    }
+  ]
+}
