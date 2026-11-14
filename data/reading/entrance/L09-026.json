@@ -1,0 +1,674 @@
+{
+  "id": "L09-026",
+  "category_id": "L09",
+  "title": "The Word Between Two Sentences",
+  "title_ja": "二つの文を結ぶ言葉",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "word_count": 262,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "オリジナル教材。架空の人物、事例、製品を使った文章であり、実在の制度・調査結果・個別の医療栄養助言ではない。制作台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A student named Rina writes a short English essay about school uniforms.",
+          "ja": "リナという生徒は制服についての短い英作文を書く。"
+        },
+        {
+          "en": "She lists several advantages and disadvantages and checks the spelling of her words.",
+          "ja": "利点と欠点をいくつか列挙し語の綴りを確認する。"
+        },
+        {
+          "en": "Although each sentence is understandable, her teacher finds the overall argument difficult to follow.",
+          "ja": "各文は理解できるが教師は全体の議論を追いにくいと感じる。"
+        },
+        {
+          "en": "The teacher asks Rina to examine the relationships between her sentences.",
+          "ja": "教師は文同士の関係を調べるようリナに頼む。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Rina notices that two neighboring sentences describe opposing ideas.",
+          "ja": "隣り合う二文が対立する考えを記述するとリナは気づく。"
+        },
+        {
+          "en": "One explains that uniforms may reduce differences in appearance, and the next describes a limitation of that idea.",
+          "ja": "一文は制服が外見の違いを減らし得ると説明し次はその考えの限界を述べる。"
+        },
+        {
+          "en": "She adds a connecting expression to make the contrast clearer.",
+          "ja": "対比をより明確にするため接続表現を加える。"
+        },
+        {
+          "en": "In another paragraph, she uses an expression indicating that an example supports the preceding statement.",
+          "ja": "別段落では例が前の記述を支持することを示す表現を使う。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "However, the teacher warns her that adding more connecting words will not automatically improve every essay.",
+          "ja": "しかし接続語を増やしても全作文が自動的に改善するわけではないと教師は注意する。"
+        },
+        {
+          "en": "A word suggesting a contrast cannot create a genuine contrast between unrelated sentences.",
+          "ja": "対比を示す語は無関係な文間に本物の対比を作れない。"
+        },
+        {
+          "en": "Rina therefore checks whether the relationships she wants to express are actually supported by the content.",
+          "ja": "そこで表したい関係が実際に内容で支えられるか確認する。"
+        },
+        {
+          "en": "Sometimes she changes a sentence rather than simply inserting another expression.",
+          "ja": "時に別表現を単に挿入せず文を変更する。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The revised essay is easier to understand because its organization has become clearer.",
+          "ja": "構成がより明確になったため修正作文は理解しやすい。"
+        },
+        {
+          "en": "Rina asks a classmate to identify the main claim and the reasons supporting it.",
+          "ja": "級友に主張とそれを支持する理由を特定するよう頼む。"
+        },
+        {
+          "en": "His response helps her discover a place where an additional explanation is needed.",
+          "ja": "返答は追加説明が必要な箇所を発見する助けになる。"
+        },
+        {
+          "en": "She learns to consider how a reader moves from one idea to the next.",
+          "ja": "読者が一つの考えから次へどう移るか考えることを学ぶ。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "Good writing involves more than producing correct individual sentences.",
+          "ja": "良い作文には正しい個々の文を作る以上のことが関わる。"
+        },
+        {
+          "en": "It also depends on arranging ideas so that their relationships are understandable.",
+          "ja": "関係が理解できるよう考えを配置することにも依存する。"
+        },
+        {
+          "en": "Connecting expressions help readers recognize these relationships, but they cannot replace careful reasoning.",
+          "ja": "接続表現は関係の認識を助けるが慎重な推論の代わりにはならない。"
+        },
+        {
+          "en": "For Rina, a small word becomes a useful reminder of the larger structure of her writing.",
+          "ja": "リナにとって小さな語が作文のより大きな構造を思い出させる。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "essay",
+      "ja": "作文",
+      "synonym": "composition",
+      "definition": "short piece of writing"
+    },
+    {
+      "term": "uniforms",
+      "ja": "制服",
+      "synonym": "standard clothing",
+      "definition": "clothes worn by members of a group"
+    },
+    {
+      "term": "lists",
+      "ja": "列挙する",
+      "synonym": "enumerates",
+      "definition": "names things one by one"
+    },
+    {
+      "term": "advantages",
+      "ja": "利点",
+      "synonym": "benefits",
+      "definition": "helpful effects"
+    },
+    {
+      "term": "disadvantages",
+      "ja": "欠点",
+      "synonym": "drawbacks",
+      "definition": "unhelpful features"
+    },
+    {
+      "term": "spelling",
+      "ja": "綴り",
+      "synonym": "orthography",
+      "definition": "arrangement of letters"
+    },
+    {
+      "term": "understandable",
+      "ja": "理解できる",
+      "synonym": "clear",
+      "definition": "able to be understood"
+    },
+    {
+      "term": "overall",
+      "ja": "全体の",
+      "synonym": "general",
+      "definition": "including the whole"
+    },
+    {
+      "term": "argument",
+      "ja": "議論",
+      "synonym": "reasoning",
+      "definition": "series of reasons supporting a claim"
+    },
+    {
+      "term": "examine",
+      "ja": "調べる",
+      "synonym": "inspect",
+      "definition": "look at carefully"
+    },
+    {
+      "term": "relationships",
+      "ja": "関係",
+      "synonym": "connections",
+      "definition": "ways things are connected"
+    },
+    {
+      "term": "notices",
+      "ja": "気づく",
+      "synonym": "observes",
+      "definition": "becomes aware"
+    },
+    {
+      "term": "neighboring",
+      "ja": "隣り合う",
+      "synonym": "adjacent",
+      "definition": "located beside another"
+    },
+    {
+      "term": "describe",
+      "ja": "記述する",
+      "synonym": "explain",
+      "definition": "give an account of"
+    },
+    {
+      "term": "opposing",
+      "ja": "対立する",
+      "synonym": "contrasting",
+      "definition": "being in disagreement"
+    },
+    {
+      "term": "reduce",
+      "ja": "減らす",
+      "synonym": "lessen",
+      "definition": "make smaller"
+    },
+    {
+      "term": "appearance",
+      "ja": "外見",
+      "synonym": "look",
+      "definition": "way something looks"
+    },
+    {
+      "term": "limitation",
+      "ja": "限界",
+      "synonym": "constraint",
+      "definition": "bound on possibilities"
+    },
+    {
+      "term": "connecting",
+      "ja": "接続する",
+      "synonym": "linking",
+      "definition": "joining things together"
+    },
+    {
+      "term": "expression",
+      "ja": "表現",
+      "synonym": "phrase",
+      "definition": "way of expressing an idea"
+    },
+    {
+      "term": "contrast",
+      "ja": "対比",
+      "synonym": "difference",
+      "definition": "noticeable opposition"
+    },
+    {
+      "term": "paragraph",
+      "ja": "段落",
+      "synonym": "section",
+      "definition": "group of related sentences"
+    },
+    {
+      "term": "indicating",
+      "ja": "示すこと",
+      "synonym": "showing",
+      "definition": "making known"
+    },
+    {
+      "term": "supports",
+      "ja": "支持する",
+      "synonym": "backs",
+      "definition": "provides reasons for"
+    },
+    {
+      "term": "preceding",
+      "ja": "前の",
+      "synonym": "previous",
+      "definition": "coming before"
+    },
+    {
+      "term": "statement",
+      "ja": "記述",
+      "synonym": "claim",
+      "definition": "something stated"
+    },
+    {
+      "term": "warns",
+      "ja": "注意する",
+      "synonym": "cautions",
+      "definition": "advises care"
+    },
+    {
+      "term": "automatically",
+      "ja": "自動的に",
+      "synonym": "by itself",
+      "definition": "without further action"
+    },
+    {
+      "term": "genuine",
+      "ja": "本物の",
+      "synonym": "real",
+      "definition": "actually what it claims to be"
+    },
+    {
+      "term": "unrelated",
+      "ja": "無関係な",
+      "synonym": "unconnected",
+      "definition": "having no connection"
+    },
+    {
+      "term": "therefore",
+      "ja": "したがって",
+      "synonym": "as a result",
+      "definition": "for that reason"
+    },
+    {
+      "term": "content",
+      "ja": "内容",
+      "synonym": "substance",
+      "definition": "information contained in something"
+    },
+    {
+      "term": "inserting",
+      "ja": "挿入すること",
+      "synonym": "adding",
+      "definition": "putting something inside"
+    },
+    {
+      "term": "revised",
+      "ja": "修正された",
+      "synonym": "modified",
+      "definition": "changed to improve"
+    },
+    {
+      "term": "organization",
+      "ja": "構成",
+      "synonym": "structure",
+      "definition": "way parts are arranged"
+    },
+    {
+      "term": "identify",
+      "ja": "特定する",
+      "synonym": "determine",
+      "definition": "find or name"
+    },
+    {
+      "term": "claim",
+      "ja": "主張",
+      "synonym": "assertion",
+      "definition": "statement presented as true"
+    },
+    {
+      "term": "response",
+      "ja": "返答",
+      "synonym": "reply",
+      "definition": "action in reply"
+    },
+    {
+      "term": "additional",
+      "ja": "追加の",
+      "synonym": "extra",
+      "definition": "more than what exists"
+    },
+    {
+      "term": "individual",
+      "ja": "個々の",
+      "synonym": "separate",
+      "definition": "considered one at a time"
+    },
+    {
+      "term": "arranging",
+      "ja": "配置すること",
+      "synonym": "organizing",
+      "definition": "putting things in order"
+    },
+    {
+      "term": "reasoning",
+      "ja": "推論",
+      "synonym": "thought",
+      "definition": "process of drawing conclusions"
+    },
+    {
+      "term": "reminder",
+      "ja": "思い出させるもの",
+      "synonym": "prompt",
+      "definition": "thing helping someone remember"
+    },
+    {
+      "term": "structure",
+      "ja": "構造",
+      "synonym": "organization",
+      "definition": "way parts are arranged"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What is Rina's essay about?",
+      "options": [
+        "A sports competition.",
+        "School uniforms.",
+        "A library.",
+        "A language exchange."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "制服。"
+    },
+    {
+      "id": "q2",
+      "skill": "inference",
+      "prompt": "Why is the essay hard to follow?",
+      "options": [
+        "The relationships between ideas are unclear.",
+        "Every word is misspelled.",
+        "It has no sentences.",
+        "The teacher dislikes uniforms."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "文の関係が不明確。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What relationship exists between the two sentences?",
+      "options": [
+        "A definition.",
+        "A repetition of identical words.",
+        "A contrast.",
+        "A chronological order only."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "対比。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What does a connecting expression help show in another paragraph?",
+      "options": [
+        "The spelling of a new word.",
+        "The writer's name.",
+        "An unrelated date.",
+        "An example supporting an earlier statement."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "例の支持関係。"
+    },
+    {
+      "id": "q5",
+      "skill": "inference",
+      "prompt": "Why cannot connectors fix every problem?",
+      "options": [
+        "Connecting words cannot be used in English.",
+        "Every essay requires only one sentence.",
+        "The content must actually express the indicated relationship.",
+        "Words have no meanings in context."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "内容との整合性。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What does Rina sometimes change?",
+      "options": [
+        "Her classroom.",
+        "A sentence itself.",
+        "Her teacher.",
+        "The essay's language entirely."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "文そのもの。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What does she ask a classmate to identify?",
+      "options": [
+        "The main claim and supporting reasons.",
+        "Every letter in the essay.",
+        "The cost of uniforms.",
+        "The number of students."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "主張と根拠。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "Why is the classmate's response helpful?",
+      "options": [
+        "It guarantees that no revision is necessary.",
+        "It determines the correct spelling of every word.",
+        "It replaces all reasoning.",
+        "It reveals where readers need more explanation."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "説明不足が分かる。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does reasoning mean?",
+      "options": [
+        "Writing words in alphabetical order.",
+        "Drawing conclusions from reasons.",
+        "Copying someone else's essay.",
+        "Choosing a school uniform."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "推論。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the main message?",
+      "options": [
+        "Adding connectors always improves writing.",
+        "Spelling is the only important part of an essay.",
+        "Clear writing requires logical relationships as well as correct sentences.",
+        "Ideas should never be arranged."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "文の正確さと論理関係。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "Although each sentence is understandable",
+      "explanation_ja": "althoughは譲歩。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "indicating that an example supports",
+      "explanation_ja": "現在分詞がexpressionを修飾。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "focus": "rather than simply inserting",
+      "explanation_ja": "rather than＋動名詞。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "focus": "so that their relationships are understandable",
+      "explanation_ja": "so thatは目的・結果。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Although each sentence is understandable, her teacher finds the overall argument difficult to follow.",
+      "rewrite": "The individual sentences are clear, but the argument is difficult to follow.",
+      "explanation_ja": "文と全体の差。"
+    },
+    {
+      "source": "In another paragraph, she uses an expression indicating that an example supports the preceding statement.",
+      "rewrite": "She marks an example as support for an earlier claim.",
+      "explanation_ja": "例示関係。"
+    },
+    {
+      "source": "Sometimes she changes a sentence rather than simply inserting another expression.",
+      "rewrite": "She sometimes revises a sentence instead of adding a connector.",
+      "explanation_ja": "文自体を修正する。"
+    },
+    {
+      "source": "It also depends on arranging ideas so that their relationships are understandable.",
+      "rewrite": "Writers arrange ideas to make their relationships clear.",
+      "explanation_ja": "構成の明確さ。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "Although",
+      "role_ja": "各文と全体の対比。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "However",
+      "role_ja": "接続語使用の限界。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "therefore",
+      "role_ja": "内容との関係を確認。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "but",
+      "role_ja": "接続表現の役割と限界。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "contrast",
+      "options": [
+        "contrast",
+        "repetition",
+        "arrival",
+        "expense"
+      ],
+      "explanation_ja": "対比を明確に。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "genuine",
+      "options": [
+        "false",
+        "genuine",
+        "unrelated",
+        "temporary"
+      ],
+      "explanation_ja": "本物の対比。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "additional",
+      "options": [
+        "unnecessary",
+        "identical",
+        "additional",
+        "irrelevant"
+      ],
+      "explanation_ja": "追加説明。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "answer": "structure",
+      "options": [
+        "receipt",
+        "portrait",
+        "price",
+        "structure"
+      ],
+      "explanation_ja": "作文の構造。"
+    }
+  ]
+}
