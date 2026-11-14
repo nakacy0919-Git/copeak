@@ -3,8 +3,8 @@
   "as_of": "2026-11-14",
   "goal": 450,
   "category_target": 30,
-  "registered_total": 153,
-  "remaining": 297,
+  "registered_total": 163,
+  "remaining": 287,
   "level_targets_per_category": {
     "eiken-3": 1,
     "eiken-pre2": 4,
@@ -28,8 +28,8 @@
       "category_id": "L02",
       "name": "歴史",
       "target": 30,
-      "registered": 10,
-      "remaining": 20
+      "registered": 11,
+      "remaining": 19
     },
     {
       "category_id": "L03",
@@ -42,8 +42,8 @@
       "category_id": "L04",
       "name": "人間関係",
       "target": 30,
-      "registered": 10,
-      "remaining": 20
+      "registered": 11,
+      "remaining": 19
     },
     {
       "category_id": "L05",
@@ -63,50 +63,50 @@
       "category_id": "L07",
       "name": "経済・ビジネス",
       "target": 30,
-      "registered": 10,
-      "remaining": 20
+      "registered": 11,
+      "remaining": 19
     },
     {
       "category_id": "L08",
       "name": "芸術・文化",
       "target": 30,
-      "registered": 10,
-      "remaining": 20
+      "registered": 11,
+      "remaining": 19
     },
     {
       "category_id": "L09",
       "name": "文学・言語",
       "target": 30,
-      "registered": 10,
-      "remaining": 20
+      "registered": 11,
+      "remaining": 19
     },
     {
       "category_id": "L10",
       "name": "教育・学習",
       "target": 30,
-      "registered": 10,
-      "remaining": 20
+      "registered": 11,
+      "remaining": 19
     },
     {
       "category_id": "L11",
       "name": "法律・政治",
       "target": 30,
-      "registered": 10,
-      "remaining": 20
+      "registered": 11,
+      "remaining": 19
     },
     {
       "category_id": "L12",
       "name": "医療・健康",
       "target": 30,
-      "registered": 10,
-      "remaining": 20
+      "registered": 11,
+      "remaining": 19
     },
     {
       "category_id": "L13",
       "name": "宇宙・未来",
       "target": 30,
-      "registered": 10,
-      "remaining": 20
+      "registered": 11,
+      "remaining": 19
     },
     {
       "category_id": "L14",
@@ -119,21 +119,21 @@
       "category_id": "L15",
       "name": "倫理・道徳",
       "target": 30,
-      "registered": 10,
-      "remaining": 20
+      "registered": 11,
+      "remaining": 19
     }
   ],
   "latest_unpublished_batch": [
-    "L01-011",
-    "L03-011",
-    "L05-011",
-    "L09-010",
-    "L10-010",
-    "L11-010",
-    "L12-010",
-    "L13-010",
-    "L14-010",
-    "L15-010"
+    "L02-011",
+    "L04-011",
+    "L07-011",
+    "L08-011",
+    "L09-011",
+    "L10-011",
+    "L11-011",
+    "L12-011",
+    "L13-011",
+    "L15-011"
   ],
   "release_policy": {
     "new_works_default_status": "draft",
@@ -148,11 +148,12 @@
     ]
   },
   "notes": [
-    "2026-11-14: development count 143→153 (+10 original unpublished), goal 450 and remaining 297.",
-    "Batch totals: English 4,461 words; fully translated sentence pairs 290; vocabulary entries 756; 100 four-choice comprehension questions; 160 review exercises.",
-    "Includes advanced university 683 words on voice transcription and national university 767 words on city future scenarios; Eiken pre-1 501 words on literary interpretation.",
-    "Ten lessons passed strict structural validation with 0 errors for IDs, word bands, bilingual coverage, vocabulary fields and passage occurrence, four-choice answer indexes and paragraph references, grammar/discourse/paraphrase/cloze source references, and draft state.",
-    "Semantic proofreading of English and Japanese, uniqueness of correct answers and question distractors, reference link reachability, and iPad UI preview remain for publication. No merge to main or Vercel deployment without explicit user permission."
+    "2026-11-14: reconciled 10 distinct original articles from alternate parallel PR #55 (L02-005 etc.) into fresh IDs L02-011 through L15-011 as specified in docs/reading-450-parallel-authoring.md.",
+    "Authoritative development total 153→163, remaining 287 of 450; main/production registered 28 unchanged; 135 development-only drafts.",
+    "Recovered content totals: 4,058 English words, 275 bilingual sentence pairs, 513 vocabulary entries, 100 comprehension MCQ and 160 review exercises.",
+    "PR #55 and #56 diverged from the same base with nine colliding IDs containing different lesson content. Do not merge PR #55 blindly; recovered copies are on coord/reading-450-registry.",
+    "Shared registry docs/reading-450-ledger.json uses SHA-based reservation writes to prevent two compliant chats from choosing the same ID. scripts/reading_450_guard.py checks local manifest/ledger and content integrity.",
+    "Human semantic editing and factual link verification are required before publication; no main merge or Vercel production deploy."
   ],
-  "all_unpublished_batches_note": "main has 28 registered lessons. Current development branch has 153 registered lessons, including 125 unpublished draft lessons. Latest batch only on content/reading-batch-20261114-m."
+  "all_unpublished_batches_note": "The authoritative non-production branch is coord/reading-450-registry, with 163 unique registered IDs. main remains 28. Ten previously divergent original drafts from PR #55 have been recovered with unique IDs; previous branch content/reading-batch-20261114-m has only 153."
 }
