@@ -585,10 +585,10 @@
       "sentence_index": 2,
       "answer": "However",
       "options": [
-        "However",
         "For example",
-        "Nevertheless",
-        "As a result"
+        "As a result",
+        "Furthermore",
+        "However"
       ],
       "explanation_ja": "一般的な町の絵と音の記憶を対比します。"
     },
@@ -597,10 +597,10 @@
       "sentence_index": 1,
       "answer": "For example",
       "options": [
+        "As a result",
+        "Meanwhile",
         "For example",
-        "However",
-        "Nevertheless",
-        "As a result"
+        "However"
       ],
       "explanation_ja": "ソラの雨の記憶を例示します。"
     },
@@ -609,8 +609,8 @@
       "sentence_index": 1,
       "answer": "Nevertheless",
       "options": [
+        "In addition",
         "Nevertheless",
-        "However",
         "For example",
         "As a result"
       ],
@@ -622,9 +622,9 @@
       "answer": "As a result",
       "options": [
         "As a result",
-        "However",
         "For example",
-        "Nevertheless"
+        "However",
+        "Meanwhile"
       ],
       "explanation_ja": "表現に挑戦する意欲が増す結果です。"
     }
