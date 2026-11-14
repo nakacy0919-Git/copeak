@@ -1,0 +1,722 @@
+{
+  "id": "L13-017",
+  "category_id": "L13",
+  "title": "The Robot That Could Wait",
+  "title_ja": "待つことができるロボット",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "word_count": 329,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "人物・具体的な出来事・制度・実験結果は架空の教材例。実在する統計、法制度、医療指示、実証研究を示すものではない。制作台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A team of students designed a model robot for an imaginary mission to inspect a distant planet.",
+          "ja": "生徒チームは遠い惑星を調査する架空の任務のため模型ロボットを設計した。"
+        },
+        {
+          "en": "Their assignment required the robot to collect photographs while moving through a simulated rocky landscape.",
+          "ja": "課題では模擬の岩だらけの地形を移動し写真を集めることが求められた。"
+        },
+        {
+          "en": "The students placed small obstacles on a classroom floor and wrote instructions for the robot to follow.",
+          "ja": "教室の床に小さな障害物を置きロボットの指示を書いた。"
+        },
+        {
+          "en": "Initially, they concentrated on completing the planned route as quickly as possible.",
+          "ja": "当初は予定経路をできる限り速く完了することに集中した。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "During the first test, the robot repeatedly approached an object that had been placed in an unexpected position.",
+          "ja": "最初の実験中ロボットは予想外の位置に置かれた物に繰り返し近づいた。"
+        },
+        {
+          "en": "The instructions did not specify what to do when the usual path became blocked.",
+          "ja": "通常の道が塞がれたとき何をするか指示に定められていなかった。"
+        },
+        {
+          "en": "A team member suggested increasing the robot's speed so that it could try more routes in the same period.",
+          "ja": "同じ時間内により多くの経路を試せるよう速度を上げる提案があった。"
+        },
+        {
+          "en": "Another member argued that a faster response would not solve the problem of choosing an appropriate action.",
+          "ja": "別の生徒は反応が速くても適切な行動を選ぶ問題は解決しないと主張した。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The team decided to introduce a waiting state for situations that its existing instructions could not handle.",
+          "ja": "既存の指示で扱えない状況のため待機状態を導入することにした。"
+        },
+        {
+          "en": "When the robot encountered an unknown obstacle, it would stop and record the surrounding conditions.",
+          "ja": "未知の障害物に遭遇すると停止し周辺の状況を記録する。"
+        },
+        {
+          "en": "It would then request guidance rather than continue moving according to an unsuitable instruction.",
+          "ja": "不適切な指示に従い動き続ける代わりに案内を求める。"
+        },
+        {
+          "en": "The students also designed a time limit for each attempt so the robot could not repeat a failed action indefinitely.",
+          "ja": "失敗した行動を無期限に繰り返さないよう試行の時間制限も設けた。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "During the second test, the revised robot took longer to complete the ordinary parts of the route.",
+          "ja": "第二の実験では改良ロボットは通常部分を完了するのに時間がかかった。"
+        },
+        {
+          "en": "However, its behavior became easier for the students to examine when an unexpected obstacle appeared.",
+          "ja": "しかし予期しない障害物が現れた際の動作を調べやすくなった。"
+        },
+        {
+          "en": "The team documented both improvements and disadvantages rather than reporting only its most successful demonstration.",
+          "ja": "最も成功した実演だけを報告せず改善点と欠点の両方を記録した。"
+        },
+        {
+          "en": "They acknowledged that their simple classroom model could not establish the reliability of a real planetary robot.",
+          "ja": "簡単な教室模型では実際の惑星探査ロボットの信頼性は確立できないと認めた。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The experience encouraged the students to reconsider how the performance of an intelligent system should be evaluated.",
+          "ja": "この経験から知的システムの性能をどう評価すべきか再考した。"
+        },
+        {
+          "en": "A system that pauses when its information is insufficient may be more useful than one that always produces an immediate action.",
+          "ja": "情報が不十分なとき停止するシステムは常に即座に行動するものより役立つことがある。"
+        },
+        {
+          "en": "In their model, waiting was not simply a failure to complete a task.",
+          "ja": "模型では待機は単に作業の未完了ではなかった。"
+        },
+        {
+          "en": "It was a deliberate response to a situation that required further information before a responsible decision could be made.",
+          "ja": "責任ある判断の前にさらなる情報が必要な状況への意図的な反応だった。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "designed",
+      "ja": "設計した",
+      "synonym": "planned",
+      "definition": "created a plan for something"
+    },
+    {
+      "term": "model",
+      "ja": "模型",
+      "synonym": "prototype",
+      "definition": "a representation of a system"
+    },
+    {
+      "term": "imaginary",
+      "ja": "架空の",
+      "synonym": "fictional",
+      "definition": "existing only in imagination"
+    },
+    {
+      "term": "mission",
+      "ja": "任務",
+      "synonym": "assignment",
+      "definition": "an important task with a goal"
+    },
+    {
+      "term": "inspect",
+      "ja": "調査する",
+      "synonym": "examine",
+      "definition": "look at carefully"
+    },
+    {
+      "term": "distant",
+      "ja": "遠い",
+      "synonym": "faraway",
+      "definition": "far away in space or distance"
+    },
+    {
+      "term": "planet",
+      "ja": "惑星",
+      "synonym": "world",
+      "definition": "a large body orbiting a star"
+    },
+    {
+      "term": "assignment",
+      "ja": "課題",
+      "synonym": "task",
+      "definition": "work given to someone"
+    },
+    {
+      "term": "required",
+      "ja": "求めた",
+      "synonym": "demanded",
+      "definition": "made something necessary"
+    },
+    {
+      "term": "collect",
+      "ja": "集める",
+      "synonym": "gather",
+      "definition": "bring things together"
+    },
+    {
+      "term": "simulated",
+      "ja": "模擬の",
+      "synonym": "imitated",
+      "definition": "representing a real situation"
+    },
+    {
+      "term": "rocky",
+      "ja": "岩だらけの",
+      "synonym": "stony",
+      "definition": "covered with rocks"
+    },
+    {
+      "term": "landscape",
+      "ja": "地形",
+      "synonym": "terrain",
+      "definition": "the appearance or features of an area"
+    },
+    {
+      "term": "obstacles",
+      "ja": "障害物",
+      "synonym": "barriers",
+      "definition": "things blocking movement"
+    },
+    {
+      "term": "instructions",
+      "ja": "指示",
+      "synonym": "directions",
+      "definition": "information telling someone what to do"
+    },
+    {
+      "term": "Initially",
+      "ja": "当初",
+      "synonym": "at first",
+      "definition": "at the beginning"
+    },
+    {
+      "term": "concentrated",
+      "ja": "集中した",
+      "synonym": "focused",
+      "definition": "directed attention to something"
+    },
+    {
+      "term": "completing",
+      "ja": "完了すること",
+      "synonym": "finishing",
+      "definition": "bringing a task to an end"
+    },
+    {
+      "term": "route",
+      "ja": "経路",
+      "synonym": "path",
+      "definition": "a way from one point to another"
+    },
+    {
+      "term": "repeatedly",
+      "ja": "繰り返し",
+      "synonym": "again and again",
+      "definition": "many times"
+    },
+    {
+      "term": "approached",
+      "ja": "近づいた",
+      "synonym": "came near",
+      "definition": "moved closer to something"
+    },
+    {
+      "term": "unexpected",
+      "ja": "予想外の",
+      "synonym": "unforeseen",
+      "definition": "not expected to happen"
+    },
+    {
+      "term": "position",
+      "ja": "位置",
+      "synonym": "location",
+      "definition": "a place where something is"
+    },
+    {
+      "term": "specify",
+      "ja": "定める",
+      "synonym": "define",
+      "definition": "state clearly"
+    },
+    {
+      "term": "blocked",
+      "ja": "塞がれた",
+      "synonym": "obstructed",
+      "definition": "prevented from passage"
+    },
+    {
+      "term": "increasing",
+      "ja": "増やすこと",
+      "synonym": "raising",
+      "definition": "making something greater"
+    },
+    {
+      "term": "response",
+      "ja": "反応",
+      "synonym": "reaction",
+      "definition": "an action in answer to something"
+    },
+    {
+      "term": "appropriate",
+      "ja": "適切な",
+      "synonym": "suitable",
+      "definition": "right for a situation"
+    },
+    {
+      "term": "introduce",
+      "ja": "導入する",
+      "synonym": "establish",
+      "definition": "bring something into use"
+    },
+    {
+      "term": "existing",
+      "ja": "既存の",
+      "synonym": "current",
+      "definition": "already present"
+    },
+    {
+      "term": "encountered",
+      "ja": "遭遇した",
+      "synonym": "met",
+      "definition": "came across something"
+    },
+    {
+      "term": "unknown",
+      "ja": "未知の",
+      "synonym": "unfamiliar",
+      "definition": "not known"
+    },
+    {
+      "term": "record",
+      "ja": "記録する",
+      "synonym": "document",
+      "definition": "store information for later"
+    },
+    {
+      "term": "surrounding",
+      "ja": "周囲の",
+      "synonym": "nearby",
+      "definition": "located around something"
+    },
+    {
+      "term": "conditions",
+      "ja": "状況",
+      "synonym": "circumstances",
+      "definition": "facts affecting a situation"
+    },
+    {
+      "term": "guidance",
+      "ja": "案内・指導",
+      "synonym": "direction",
+      "definition": "help in deciding what to do"
+    },
+    {
+      "term": "unsuitable",
+      "ja": "不適切な",
+      "synonym": "inappropriate",
+      "definition": "not right for a purpose"
+    },
+    {
+      "term": "indefinitely",
+      "ja": "無期限に",
+      "synonym": "without a fixed end",
+      "definition": "for an unlimited or unknown time"
+    },
+    {
+      "term": "revised",
+      "ja": "改良された",
+      "synonym": "modified",
+      "definition": "changed to improve something"
+    },
+    {
+      "term": "behavior",
+      "ja": "動作",
+      "synonym": "conduct",
+      "definition": "the way a system acts"
+    },
+    {
+      "term": "documented",
+      "ja": "記録した",
+      "synonym": "recorded",
+      "definition": "stored information about something"
+    },
+    {
+      "term": "disadvantages",
+      "ja": "欠点",
+      "synonym": "drawbacks",
+      "definition": "features reducing usefulness"
+    },
+    {
+      "term": "demonstration",
+      "ja": "実演",
+      "synonym": "display",
+      "definition": "an act showing how something works"
+    },
+    {
+      "term": "acknowledged",
+      "ja": "認めた",
+      "synonym": "admitted",
+      "definition": "accepted something as true"
+    },
+    {
+      "term": "establish",
+      "ja": "確立する",
+      "synonym": "demonstrate",
+      "definition": "show something to be true"
+    },
+    {
+      "term": "reliability",
+      "ja": "信頼性",
+      "synonym": "dependability",
+      "definition": "the quality of being trustworthy"
+    },
+    {
+      "term": "planetary",
+      "ja": "惑星の",
+      "synonym": "planet-related",
+      "definition": "relating to planets"
+    },
+    {
+      "term": "reconsider",
+      "ja": "再考する",
+      "synonym": "rethink",
+      "definition": "think about something again"
+    },
+    {
+      "term": "evaluated",
+      "ja": "評価された",
+      "synonym": "assessed",
+      "definition": "judged for quality"
+    },
+    {
+      "term": "insufficient",
+      "ja": "不十分な",
+      "synonym": "inadequate",
+      "definition": "not enough"
+    },
+    {
+      "term": "immediate",
+      "ja": "即時の",
+      "synonym": "instant",
+      "definition": "happening without delay"
+    },
+    {
+      "term": "deliberate",
+      "ja": "意図的な",
+      "synonym": "intentional",
+      "definition": "done on purpose"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What was the team's assignment?",
+      "answer": 3,
+      "options": [
+        "Build an actual spacecraft.",
+        "Write a novel about space.",
+        "Construct a model library.",
+        "Design a model robot for a planetary inspection mission."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "惑星調査の模型ロボット。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What did the students first focus on?",
+      "answer": 1,
+      "options": [
+        "Making the robot wait for every instruction.",
+        "Completing the route quickly.",
+        "Collecting no photographs.",
+        "Changing the classroom floor permanently."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "経路を速く完了すること。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What happened during the first test?",
+      "answer": 2,
+      "options": [
+        "It completed a real mission.",
+        "It stopped working completely before moving.",
+        "The robot repeatedly approached an unexpected object.",
+        "It photographed nothing because there was no route."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "想定外の物体に繰り返し接近。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why was greater speed insufficient?",
+      "answer": 0,
+      "options": [
+        "The robot still lacked a suitable action for the situation.",
+        "The robot already moved faster than light.",
+        "The assignment prohibited any movement.",
+        "The students wanted to remove every instruction."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "適切な行動選択の問題が残った。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What would the robot do when encountering an unknown obstacle?",
+      "answer": 2,
+      "options": [
+        "Increase its speed immediately.",
+        "Remove the obstacle with force.",
+        "Stop and record surrounding conditions.",
+        "Delete all its records."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "停止し周囲を記録。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "Why did the team set a time limit?",
+      "answer": 1,
+      "options": [
+        "To make the robot ignore every obstacle.",
+        "To prevent endless repetition of a failed action.",
+        "To finish all tests without recording results.",
+        "To ensure every route was identical."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "失敗の無限反復を防ぐ。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What disadvantage appeared in the second test?",
+      "answer": 0,
+      "options": [
+        "Ordinary sections of the route took longer.",
+        "The robot no longer stopped at unexpected obstacles.",
+        "The model proved every real space condition.",
+        "The team lost all data."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "通常の経路に時間がかかった。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "Why mention the limitations of the classroom model?",
+      "answer": 3,
+      "options": [
+        "The students had already tested it on another planet.",
+        "The assignment required actual space travel.",
+        "The team had proved the design perfect.",
+        "It could not prove the reliability of a real planetary robot."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "実際の探査での信頼性は確立できない。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does deliberate mean here?",
+      "answer": 1,
+      "options": [
+        "Accidental.",
+        "Intentional.",
+        "Rapid.",
+        "Unrelated."
+      ],
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "意図的な。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the central lesson?",
+      "answer": 3,
+      "options": [
+        "A fast action is always better than waiting.",
+        "Every unknown obstacle must be ignored.",
+        "Classroom tests guarantee real mission success.",
+        "A system can benefit from pausing when it lacks enough information."
+      ],
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "情報不足時に待つことにも価値がある。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "while moving through a simulated rocky landscape",
+      "explanation_ja": "while＋現在分詞は同時進行を示す。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "would not solve the problem of choosing",
+      "explanation_ja": "would notは予想される結果の否定。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "rather than continue moving",
+      "explanation_ja": "rather thanは選ばない行動との対比。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "focus": "that pauses when its information is insufficient",
+      "explanation_ja": "関係代名詞that以下がsystemを修飾。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Their assignment required the robot to collect photographs while moving through a simulated rocky landscape.",
+      "rewrite": "The task was to gather images as the robot traveled through a model rocky environment.",
+      "explanation_ja": "模擬地形を移動し撮影する。"
+    },
+    {
+      "source": "Another member argued that a faster response would not solve the problem of choosing an appropriate action.",
+      "rewrite": "Another student argued that faster movement would still leave the question of what to do unanswered.",
+      "explanation_ja": "速さだけでは行動選択の問題を解決しない。"
+    },
+    {
+      "source": "It would then request guidance rather than continue moving according to an unsuitable instruction.",
+      "rewrite": "It would ask for further direction instead of proceeding with an inappropriate command.",
+      "explanation_ja": "不適切な指示で進まず案内を求める。"
+    },
+    {
+      "source": "A system that pauses when its information is insufficient may be more useful than one that always produces an immediate action.",
+      "rewrite": "A system that stops when it lacks enough information can be more helpful than one that reacts at once in every case.",
+      "explanation_ja": "情報不足時の停止にも価値がある。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p2",
+      "expression": "Another member",
+      "role_ja": "別の提案を示す。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "rather than",
+      "role_ja": "継続動作と案内を求める行動を対比。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "However",
+      "role_ja": "動作時間の欠点と調査しやすさの利点を対比。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "not simply",
+      "role_ja": "待機の意味を単純な失敗に限定しない。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "blocked",
+      "options": [
+        "blocked",
+        "painted",
+        "printed",
+        "mailed"
+      ],
+      "explanation_ja": "通常の経路が塞がれた。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 0,
+      "answer": "waiting",
+      "options": [
+        "painting",
+        "waiting",
+        "shipping",
+        "swimming"
+      ],
+      "explanation_ja": "待機状態を導入。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 3,
+      "answer": "reliability",
+      "options": [
+        "distance",
+        "price",
+        "reliability",
+        "volume"
+      ],
+      "explanation_ja": "実際の機器の信頼性は確立できない。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "answer": "deliberate",
+      "options": [
+        "automatic",
+        "unrelated",
+        "annual",
+        "deliberate"
+      ],
+      "explanation_ja": "意図的な反応。"
+    }
+  ]
+}
