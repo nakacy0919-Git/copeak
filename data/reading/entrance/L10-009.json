@@ -1,0 +1,584 @@
+{
+  "id": "L10-009",
+  "category_id": "L10",
+  "title": "The Study Notes Nobody Opened",
+  "title_ja": "誰も開かなかった学習ノート",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 179,
+  "source_links": [
+    {
+      "title": "Educational background reference",
+      "url": "https://www.unesco.org/en/education"
+    }
+  ],
+  "fact_notes": [
+    "学校・人々・活動は架空の設定。本文、訳文、問題、解説は独自制作。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Tomo writes beautiful study notes for his English class.",
+          "ja": "トモは英語の授業で美しい学習ノートを作ります。"
+        },
+        {
+          "en": "He uses several colors and draws careful lines.",
+          "ja": "何色も使って丁寧に線を引きます。"
+        },
+        {
+          "en": "However, he cannot remember many words during the quiz.",
+          "ja": "しかし小テストでは多くの単語を思い出せません。"
+        },
+        {
+          "en": "He wonders why his colorful notes did not help enough.",
+          "ja": "色鮮やかなノートが十分役立たなかった理由を考えます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "His teacher asks how he studies after writing the notes.",
+          "ja": "教師はノートを書いた後どう勉強するか尋ねます。"
+        },
+        {
+          "en": "For example, Tomo says he usually closes his notebook immediately.",
+          "ja": "例えばトモはたいていすぐノートを閉じると言います。"
+        },
+        {
+          "en": "He rarely checks whether he can recall the new words.",
+          "ja": "新しい語を思い出せるかほとんど確認しません。"
+        },
+        {
+          "en": "The teacher suggests making a short practice quiz.",
+          "ja": "教師は短い練習クイズを作るよう提案します。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Tomo prepares five simple questions using his notes.",
+          "ja": "トモはノートを使って簡単な問題を五つ準備します。"
+        },
+        {
+          "en": "He tries answering them without looking at the page.",
+          "ja": "ページを見ずに答えようとします。"
+        },
+        {
+          "en": "Instead of hiding his mistakes, he marks the difficult words.",
+          "ja": "間違いを隠さず難しい語に印をつけます。"
+        },
+        {
+          "en": "He reviews those words again the next day.",
+          "ja": "翌日またその語を復習します。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "A week later, Tomo takes another practice quiz.",
+          "ja": "一週間後、トモはまた練習クイズを受けます。"
+        },
+        {
+          "en": "Nevertheless, he still forgets a few words.",
+          "ja": "それでもいくつかの単語を忘れます。"
+        },
+        {
+          "en": "His teacher reminds him that learning takes repeated practice.",
+          "ja": "教師は学習には繰り返しの練習が必要だと思い出させます。"
+        },
+        {
+          "en": "Tomo changes his plan to include short reviews.",
+          "ja": "トモは短い復習を含む計画に変えます。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "At the next class, Tomo shares his new method.",
+          "ja": "次の授業でトモは新しい方法を共有します。"
+        },
+        {
+          "en": "His friends try writing questions for one another.",
+          "ja": "友達は互いに問題を作ってみます。"
+        },
+        {
+          "en": "As a result, the group spends more time checking its understanding.",
+          "ja": "その結果グループは理解を確認する時間を増やします。"
+        },
+        {
+          "en": "Good notes become more useful when students practice using them.",
+          "ja": "よいノートは生徒が使って練習するとさらに役立ちます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What does Tomo make?",
+      "options": [
+        "Colorful study notes.",
+        "A classroom map.",
+        "A music video.",
+        "A science model."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「トモは英語の授業で美しい学習ノートを作ります。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What does he struggle to do?",
+      "options": [
+        "Draw straight lines.",
+        "Bring his notebook.",
+        "Read the school timetable.",
+        "Remember words on a quiz."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「しかし小テストでは多くの単語を思い出せません。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What does Tomo usually do after writing?",
+      "options": [
+        "Ask five questions.",
+        "Read every note twice.",
+        "Close the notebook.",
+        "Take a long practice test."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「例えばトモはたいていすぐノートを閉じると言います。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What does the teacher suggest?",
+      "options": [
+        "Removing every color.",
+        "A short practice quiz.",
+        "A new expensive notebook.",
+        "Studying only the night before."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「教師は短い練習クイズを作るよう提案します。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "How many questions does Tomo prepare?",
+      "options": [
+        "Five.",
+        "Ten.",
+        "Two.",
+        "Twenty."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「ページを見ずに答えようとします。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "How does he use his mistakes?",
+      "options": [
+        "Delete all his notes.",
+        "Stop studying.",
+        "Hide them from the teacher.",
+        "Mark difficult words for review."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「翌日またその語を復習します。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What happens one week later?",
+      "options": [
+        "He loses all notes.",
+        "He changes schools.",
+        "He still forgets some words.",
+        "He remembers every word perfectly."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「それでもいくつかの単語を忘れます。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "How does Tomo change his plan?",
+      "options": [
+        "Never check answers.",
+        "Add short reviews.",
+        "Stop practicing.",
+        "Only draw more lines."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「トモは短い復習を含む計画に変えます。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What do his friends try?",
+      "options": [
+        "Writing questions for each other.",
+        "Buying another notebook.",
+        "Drawing pictures instead of words.",
+        "Skipping English class."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「友達は互いに問題を作ってみます。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the main lesson?",
+      "options": [
+        "Beautiful colors guarantee good scores.",
+        "Mistakes should be hidden.",
+        "Studying ends when notes are written.",
+        "Notes help more when they are used for practice."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「よいノートは生徒が使って練習するとさらに役立ちます。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "beautiful",
+      "ja": "美しい",
+      "synonym": "attractive",
+      "definition": "pleasant to look at"
+    },
+    {
+      "term": "checking",
+      "ja": "確認すること",
+      "synonym": "verification",
+      "definition": "testing whether something is right"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "immediately",
+      "ja": "すぐに",
+      "synonym": "right away",
+      "definition": "without delay"
+    },
+    {
+      "term": "mistakes",
+      "ja": "間違い",
+      "synonym": "errors",
+      "definition": "incorrect responses"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "notes",
+      "ja": "ノート",
+      "synonym": "records",
+      "definition": "written information used for study"
+    },
+    {
+      "term": "practice",
+      "ja": "練習",
+      "synonym": "training",
+      "definition": "activities to improve a skill"
+    },
+    {
+      "term": "recall",
+      "ja": "思い出す",
+      "synonym": "remember",
+      "definition": "bring information back to mind"
+    },
+    {
+      "term": "repeated",
+      "ja": "繰り返した",
+      "synonym": "frequent",
+      "definition": "happening again"
+    },
+    {
+      "term": "reviews",
+      "ja": "復習",
+      "synonym": "revisions",
+      "definition": "repeated study of material"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "study",
+      "ja": "学習",
+      "synonym": "learning",
+      "definition": "work to gain knowledge"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "someone teaching"
+    },
+    {
+      "term": "understanding",
+      "ja": "理解",
+      "synonym": "comprehension",
+      "definition": "knowing what something means"
+    },
+    {
+      "term": "usually",
+      "ja": "普段",
+      "synonym": "normally",
+      "definition": "in most situations"
+    },
+    {
+      "term": "writing",
+      "ja": "作文・文章を書くこと",
+      "synonym": "composition",
+      "definition": "the activity of creating text"
+    },
+    {
+      "term": "quiz",
+      "ja": "小テスト",
+      "synonym": "test",
+      "definition": "a short set of questions"
+    },
+    {
+      "term": "words",
+      "ja": "語",
+      "synonym": "terms",
+      "definition": "units of language"
+    },
+    {
+      "term": "remember",
+      "ja": "思い出す",
+      "synonym": "recall",
+      "definition": "bring something to mind"
+    },
+    {
+      "term": "colorful",
+      "ja": "色鮮やかな",
+      "synonym": "bright",
+      "definition": "having many colors"
+    },
+    {
+      "term": "colors",
+      "ja": "色",
+      "synonym": "shades",
+      "definition": "different visual appearances"
+    },
+    {
+      "term": "notebook",
+      "ja": "ノート",
+      "synonym": "book",
+      "definition": "a book for writing"
+    },
+    {
+      "term": "questions",
+      "ja": "問題",
+      "synonym": "inquiries",
+      "definition": "things people try to answer"
+    },
+    {
+      "term": "difficult",
+      "ja": "難しい",
+      "synonym": "hard",
+      "definition": "not easy"
+    },
+    {
+      "term": "learning",
+      "ja": "学習",
+      "synonym": "study",
+      "definition": "gaining knowledge"
+    },
+    {
+      "term": "method",
+      "ja": "方法",
+      "synonym": "approach",
+      "definition": "a way of doing something"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "why his colorful notes did not help enough",
+      "explanation_ja": "why節で理由を表します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "whether he can recall the new words",
+      "explanation_ja": "whether節は思い出せるかどうかです。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of hiding his mistakes",
+      "explanation_ja": "instead of + 動名詞は学習行動を対比します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "when students practice using them",
+      "explanation_ja": "when節で有効になる条件を示します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "ノートの美しさと記憶の難しさを対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "普段の学習習慣を例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "一週間後も忘れる語があることを示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "理解を確認する習慣が広がります。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "He wonders why his colorful notes did not help enough.",
+      "rewrite": "Tomo questions why attractive notes have not improved his memory.",
+      "explanation_ja": "きれいなノートだけでは覚えられない理由を考えます。"
+    },
+    {
+      "source": "The teacher suggests making a short practice quiz.",
+      "rewrite": "The teacher recommends a brief test for practice.",
+      "explanation_ja": "短いテストを勧めます。"
+    },
+    {
+      "source": "Tomo changes his plan to include short reviews.",
+      "rewrite": "Tomo adds regular short reviews to his routine.",
+      "explanation_ja": "短い復習を取り入れます。"
+    },
+    {
+      "source": "Good notes become more useful when students practice using them.",
+      "rewrite": "Notes work best when learners actively use them.",
+      "explanation_ja": "ノートを活用した練習が大切です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "ノートの美しさと記憶の難しさを対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "普段の学習習慣を例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "一週間後も忘れる語があることを示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "理解を確認する習慣が広がります。"
+    }
+  ]
+}
