@@ -3,8 +3,8 @@
   "as_of": "2026-11-14",
   "goal": 450,
   "category_target": 30,
-  "registered_total": 171,
-  "remaining": 279,
+  "registered_total": 174,
+  "remaining": 276,
   "level_targets_per_category": {
     "eiken-3": 1,
     "eiken-pre2": 4,
@@ -42,22 +42,22 @@
       "category_id": "L04",
       "name": "人間関係",
       "target": 30,
-      "registered": 11,
-      "remaining": 19
+      "registered": 12,
+      "remaining": 18
     },
     {
       "category_id": "L05",
       "name": "国際社会",
       "target": 30,
-      "registered": 11,
-      "remaining": 19
+      "registered": 12,
+      "remaining": 18
     },
     {
       "category_id": "L06",
       "name": "心理・哲学",
       "target": 30,
-      "registered": 11,
-      "remaining": 19
+      "registered": 12,
+      "remaining": 18
     },
     {
       "category_id": "L07",
@@ -124,9 +124,9 @@
     }
   ],
   "latest_unpublished_batch": [
-    "L07-012",
-    "L08-012",
-    "L09-012"
+    "L04-012",
+    "L05-012",
+    "L06-012"
   ],
   "release_policy": {
     "new_works_default_status": "draft",
@@ -149,7 +149,8 @@
     "Human semantic editing and factual link verification are required before publication; no main merge or Vercel production deploy.",
     "2026-11-14: Added L06-011 and L14-011 (549 words, 50 bilingual sentences, 99 vocabulary entries, 20 comprehension questions and 32 review exercises); draft only. Individual structural checks performed; full repository guard and human review pending.",
     "2026-11-14: Added L01-012, L02-012, L03-012 (603 words, 60 bilingual sentences, 80 vocabulary entries, 30 comprehension questions and 48 review exercises); draft only. Individual structural checks passed; full repository guard and human review pending.",
-    "2026-11-14: Added L07-012, L08-012, L09-012 (650 words, 60 bilingual sentences, 86 vocabulary entries, 30 comprehension questions and 48 review exercises); draft only. Individual structural checks passed; full repository guard and human review pending."
+    "2026-11-14: Added L07-012, L08-012, L09-012 (650 words, 60 bilingual sentences, 86 vocabulary entries, 30 comprehension questions and 48 review exercises); draft only. Individual structural checks passed; full repository guard and human review pending.",
+    "2026-11-14: Added L04-012, L05-012, L06-012 (849 words, 60 bilingual sentences, 148 vocabulary entries, 30 comprehension questions, 48 review exercises); draft only. Individual structural checks passed; full repository guard and human review pending."
   ],
-  "all_unpublished_batches_note": "Authoritative non-production branch: coord/reading-450-registry; 171 unique registered IDs; main reference count 28."
+  "all_unpublished_batches_note": "Authoritative non-production branch: coord/reading-450-registry; 174 unique registered IDs; main reference count 28."
 }

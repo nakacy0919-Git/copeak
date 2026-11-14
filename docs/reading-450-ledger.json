@@ -5,9 +5,9 @@
   "as_of": "2026-11-14",
   "authoritative_branch": "coord/reading-450-registry",
   "manifest_path": "data/reading/entrance/manifest.json",
-  "registered_total": 171,
+  "registered_total": 174,
   "production_reference_count": 28,
-  "development_unpublished_total": 143,
+  "development_unpublished_total": 146,
   "accepted_ids": [
     "L01-001",
     "L01-002",
@@ -56,6 +56,7 @@
     "L04-009",
     "L04-010",
     "L04-011",
+    "L04-012",
     "L05-001",
     "L05-002",
     "L05-003",
@@ -67,6 +68,7 @@
     "L05-009",
     "L05-010",
     "L05-011",
+    "L05-012",
     "L06-001",
     "L06-002",
     "L06-003",
@@ -78,6 +80,7 @@
     "L06-009",
     "L06-010",
     "L06-011",
+    "L06-012",
     "L07-001",
     "L07-002",
     "L07-003",
@@ -203,19 +206,19 @@
     {
       "id": "L04",
       "label": "人間関係",
-      "registered": 11,
+      "registered": 12,
       "next_suggested_id": "L04-013"
     },
     {
       "id": "L05",
       "label": "国際社会",
-      "registered": 11,
+      "registered": 12,
       "next_suggested_id": "L05-013"
     },
     {
       "id": "L06",
       "label": "心理・哲学",
-      "registered": 11,
+      "registered": 12,
       "next_suggested_id": "L06-013"
     },
     {
@@ -274,27 +277,6 @@
     }
   ],
   "reservations": [
-    {
-      "id": "L04-012",
-      "owner": "noon-c",
-      "work_branch": "content/reading-20261114-noon-c",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L05-012",
-      "owner": "noon-c",
-      "work_branch": "content/reading-20261114-noon-c",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L06-012",
-      "owner": "noon-c",
-      "work_branch": "content/reading-20261114-noon-c",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
     {
       "id": "L10-012",
       "owner": "cobalt-forest",
