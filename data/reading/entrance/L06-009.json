@@ -1064,7 +1064,7 @@
         "However",
         "For example",
         "As a result",
-        "Moreover"
+        "Furthermore"
       ],
       "explanation_ja": "想像上の成功と見落とした困難を対比します。"
     },
@@ -1073,10 +1073,10 @@
       "sentence_index": 1,
       "answer": "For example",
       "options": [
-        "For example",
         "However",
         "As a result",
-        "In contrast"
+        "Meanwhile",
+        "For example"
       ],
       "explanation_ja": "反事実的な思考の具体例です。"
     },
@@ -1085,10 +1085,10 @@
       "sentence_index": 4,
       "answer": "Moreover",
       "options": [
+        "However",
+        "As a result",
         "Moreover",
-        "For example",
-        "Nevertheless",
-        "As a result"
+        "For example"
       ],
       "explanation_ja": "公の成果だけではわからないことを追加します。"
     },
@@ -1097,10 +1097,10 @@
       "sentence_index": 2,
       "answer": "As a result",
       "options": [
+        "Meanwhile",
         "As a result",
         "For example",
-        "However",
-        "Meanwhile"
+        "However"
       ],
       "explanation_ja": "質問によって判断の根拠が明確になる結果です。"
     }
