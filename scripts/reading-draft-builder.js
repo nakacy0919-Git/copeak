@@ -129,7 +129,7 @@ function build(d){
  const full=ps.flatMap(p=>p.sentences.map(s=>s.en)).join(' '),count=full.trim().split(/\s+/).filter(Boolean).length;
  let words=(d.v||[]).map(([term,ja,synonym,definition])=>({term,ja,synonym,definition}));
  const isWord=term=>new RegExp('(^|[^a-z])'+term.replace(/[.*+?^$\{\}()|[\]\\]/g,'\\$&')+'($|[^a-z])','i').test(full);
- words=words.filter(v=>isWord(v.term));
+ words=words.filter((v,i,arr)=>isWord(v.term)&&arr.findIndex(w=>w.term.toLowerCase()===v.term.toLowerCase())===i);
  const had=new Set(words.map(x=>x.term.toLowerCase()));
  for(const [term,ja,synonym,definition] of COMMON_GLOSSARY){if(words.length>=42)break;if(!had.has(term.toLowerCase())&&isWord(term)){words.push({term,ja,synonym,definition});had.add(term.toLowerCase());}}
  const questions=d.q.map(([skill,prompt,options,answer,explanation_ja,paragraph_ids],i)=>({id:'q'+(i+1),skill,prompt,options,answer,explanation_ja,paragraph_ids}));
