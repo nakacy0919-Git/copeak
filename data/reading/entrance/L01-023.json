@@ -539,7 +539,7 @@
     {
       "id": "q9",
       "skill": "vocabulary",
-      "prompt": "What does retrospective mean in the context of retrospectively?",
+      "prompt": "What does retrospectively mean in the third paragraph?",
       "options": [
         "Predicting every future event.",
         "Observing at regular intervals.",
@@ -548,7 +548,7 @@
       ],
       "answer": 3,
       "paragraph_ids": [
-        "p5"
+        "p3"
       ],
       "explanation_ja": "事後的に見る。"
     },
