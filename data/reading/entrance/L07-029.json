@@ -1,0 +1,711 @@
+{
+  "id": "L07-029",
+  "category_id": "L07",
+  "title": "The Hidden Cost of a Full Calendar",
+  "title_ja": "予定が埋まることの隠れた費用",
+  "level_id": "university-mid",
+  "status": "draft",
+  "original": true,
+  "word_count": 439,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "オリジナル教材。架空の事例・論説。実在の企業、作品、調査、実証結果ではない。台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A small business may interpret a fully booked schedule as evidence that its resources are being used effectively, since each available period appears to contribute directly to the production of a service.",
+          "ja": "小企業は空き時間がすべてサービスの生産に直接貢献するように見えるため、予約で埋まった日程を資源が効果的に活用されている証拠と解釈するかもしれない。"
+        },
+        {
+          "en": "However, the usefulness of such a measure depends on whether the duration of each planned activity can be predicted with sufficient precision.",
+          "ja": "しかしその尺度の有用性は予定活動の所要時間を十分な精度で予測できるかに依存する。"
+        },
+        {
+          "en": "When the time required to complete a task varies, the absence of any spare capacity may create difficulties that would not be apparent from the schedule itself.",
+          "ja": "作業完了時間が変動すると、余力が全くないため日程自体からは分からない困難が生じ得る。"
+        },
+        {
+          "en": "A fictional bicycle repair business provides a useful illustration of the difference between the utilization of time and the ability to provide a dependable service.",
+          "ja": "架空の自転車修理事業は時間活用と信頼できるサービス提供能力の違いの有用な例を提供する。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The owner initially assigns an identical period to each of several common kinds of repair, using estimates based on previous experience.",
+          "ja": "経営者は当初過去の経験に基づく見積もりを使い、よくある複数種の修理のそれぞれに同じ時間を割り当てる。"
+        },
+        {
+          "en": "Customers are given appointments that follow one another without any deliberate intervals between them.",
+          "ja": "顧客には意図的な間隔をあけず連続する予約枠が与えられる。"
+        },
+        {
+          "en": "One morning, a repair that appeared straightforward turns out to require additional examination before the appropriate work can be identified.",
+          "ja": "ある朝、簡単に見えた修理が適切な作業の特定前に追加検査を必要とすると判明する。"
+        },
+        {
+          "en": "The unexpected delay affects subsequent appointments, including those involving tasks that could themselves be completed within the period originally assigned to them.",
+          "ja": "予期しない遅延は、その作業自体は当初割り当てた時間内に終えられるものを含む後の予約に影響する。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The owner considers a revised schedule that contains periods during which no customer has been promised immediate service.",
+          "ja": "経営者はどの顧客にも即時サービスを約束していない時間帯を含む修正日程を考える。"
+        },
+        {
+          "en": "These intervals could be used to complete unexpectedly demanding repairs or to perform necessary maintenance when the earlier appointments finish on time.",
+          "ja": "間隔は予想外に大変な修理を完了したり、前の予約が定刻に終われば必要な維持作業を行ったりするため使える。"
+        },
+        {
+          "en": "A measure that counts only the number of appointments accepted each day might interpret the change as a reduction in productivity, even if fewer customers experience substantial delays.",
+          "ja": "毎日受け付けた予約数のみを数える尺度は大幅な遅延を経験する顧客が減っても変更を生産性低下と解釈するかもしれない。"
+        },
+        {
+          "en": "The owner consequently needs to consider which aspects of the service should be included when different scheduling arrangements are evaluated.",
+          "ja": "そこで異なる日程の仕組みを評価するときサービスのどの側面を含めるべきか考える必要がある。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The example does not establish that a particular amount of unallocated time would be economical for a real repair business.",
+          "ja": "この例は特定量の未割当時間が実際の修理事業に経済的であると確定しない。"
+        },
+        {
+          "en": "Excessive spare capacity could reduce the number of customers served without producing a corresponding improvement in reliability.",
+          "ja": "過剰な余力は信頼性の相応の改善を生まず顧客数を減らすかもしれない。"
+        },
+        {
+          "en": "An actual evaluation would need to examine the diversity of repairs performed, the practical consequences of delays, and the costs associated with providing additional capacity.",
+          "ja": "実際の評価には修理の多様性、遅延の実務的影響、追加余力の費用の検討が必要になる。"
+        },
+        {
+          "en": "The fictional schedule simply illustrates why a resource that is not allocated in advance may nevertheless serve an identifiable purpose.",
+          "ja": "架空日程は事前配分されない資源も特定可能な目的を果たし得る理由を例示する。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "Business decisions often involve selecting measures that represent the outcomes an organization is attempting to achieve.",
+          "ja": "事業判断には組織が達成しようとする結果を表す尺度選択が伴うことが多い。"
+        },
+        {
+          "en": "The number of occupied periods can be a useful indicator of activity without being a complete indicator of service quality or economic performance.",
+          "ja": "埋まった時間帯の数は活動の有用な指標になり得るがサービス品質・経済性能の完全な指標ではない。"
+        },
+        {
+          "en": "Recognizing the distinction makes it possible to examine the contribution of time that is available but not immediately committed to a particular task.",
+          "ja": "区別を認識すると利用可能だが特定作業に直ちに割り当てられていない時間の貢献を調べられる。"
+        },
+        {
+          "en": "The empty space in a calendar may represent an opportunity to respond to events that could not have been included in the original plan.",
+          "ja": "予定表の空白は当初計画に含められなかった出来事への対応機会を表すかもしれない。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "fully booked",
+      "ja": "予約で埋まった",
+      "synonym": "reserved",
+      "definition": "having no available appointments"
+    },
+    {
+      "term": "schedule",
+      "ja": "日程",
+      "synonym": "timetable",
+      "definition": "plan showing times"
+    },
+    {
+      "term": "resources",
+      "ja": "資源",
+      "synonym": "assets",
+      "definition": "things available for use"
+    },
+    {
+      "term": "effectively",
+      "ja": "効果的に",
+      "synonym": "efficiently",
+      "definition": "in a way achieving a purpose"
+    },
+    {
+      "term": "contribute",
+      "ja": "貢献する",
+      "synonym": "add",
+      "definition": "help produce a result"
+    },
+    {
+      "term": "duration",
+      "ja": "所要時間",
+      "synonym": "length",
+      "definition": "amount of time something lasts"
+    },
+    {
+      "term": "predicted",
+      "ja": "予測された",
+      "synonym": "forecast",
+      "definition": "expected before occurring"
+    },
+    {
+      "term": "precision",
+      "ja": "精度",
+      "synonym": "exactness",
+      "definition": "quality of being exact"
+    },
+    {
+      "term": "varies",
+      "ja": "変動する",
+      "synonym": "differs",
+      "definition": "changes in amount or form"
+    },
+    {
+      "term": "absence",
+      "ja": "欠如",
+      "synonym": "lack",
+      "definition": "state of not being present"
+    },
+    {
+      "term": "spare capacity",
+      "ja": "余力",
+      "synonym": "extra capacity",
+      "definition": "unused ability to perform work"
+    },
+    {
+      "term": "apparent",
+      "ja": "明らかな",
+      "synonym": "evident",
+      "definition": "easy to notice"
+    },
+    {
+      "term": "fictional",
+      "ja": "架空の",
+      "synonym": "imaginary",
+      "definition": "existing in imagination"
+    },
+    {
+      "term": "illustration",
+      "ja": "例示",
+      "synonym": "example",
+      "definition": "something used to explain"
+    },
+    {
+      "term": "utilization",
+      "ja": "活用",
+      "synonym": "use",
+      "definition": "act of making use of"
+    },
+    {
+      "term": "dependable",
+      "ja": "信頼できる",
+      "synonym": "reliable",
+      "definition": "able to be relied on"
+    },
+    {
+      "term": "initially",
+      "ja": "当初",
+      "synonym": "at first",
+      "definition": "at the beginning"
+    },
+    {
+      "term": "assigns",
+      "ja": "割り当てる",
+      "synonym": "allocates",
+      "definition": "gives for a purpose"
+    },
+    {
+      "term": "identical",
+      "ja": "同一の",
+      "synonym": "same",
+      "definition": "exactly alike"
+    },
+    {
+      "term": "estimates",
+      "ja": "見積もり",
+      "synonym": "approximations",
+      "definition": "rough judgments of amounts"
+    },
+    {
+      "term": "previous",
+      "ja": "以前の",
+      "synonym": "earlier",
+      "definition": "coming before"
+    },
+    {
+      "term": "appointments",
+      "ja": "予約",
+      "synonym": "arranged meetings",
+      "definition": "meetings fixed for particular times"
+    },
+    {
+      "term": "deliberate",
+      "ja": "意図的な",
+      "synonym": "intentional",
+      "definition": "done on purpose"
+    },
+    {
+      "term": "intervals",
+      "ja": "間隔",
+      "synonym": "gaps",
+      "definition": "spaces between events"
+    },
+    {
+      "term": "straightforward",
+      "ja": "簡単な",
+      "synonym": "simple",
+      "definition": "easy to understand"
+    },
+    {
+      "term": "additional",
+      "ja": "追加の",
+      "synonym": "extra",
+      "definition": "more than what exists"
+    },
+    {
+      "term": "examination",
+      "ja": "検査",
+      "synonym": "inspection",
+      "definition": "careful checking"
+    },
+    {
+      "term": "subsequent",
+      "ja": "後の",
+      "synonym": "following",
+      "definition": "coming afterward"
+    },
+    {
+      "term": "revised",
+      "ja": "修正された",
+      "synonym": "modified",
+      "definition": "changed to improve"
+    },
+    {
+      "term": "demanding",
+      "ja": "大変な",
+      "synonym": "challenging",
+      "definition": "requiring considerable effort"
+    },
+    {
+      "term": "maintenance",
+      "ja": "維持管理",
+      "synonym": "upkeep",
+      "definition": "work keeping something in condition"
+    },
+    {
+      "term": "reduction",
+      "ja": "低下",
+      "synonym": "decrease",
+      "definition": "act of making smaller"
+    },
+    {
+      "term": "productivity",
+      "ja": "生産性",
+      "synonym": "efficiency",
+      "definition": "rate of useful output"
+    },
+    {
+      "term": "substantial",
+      "ja": "大幅な",
+      "synonym": "considerable",
+      "definition": "large in degree"
+    },
+    {
+      "term": "consequently",
+      "ja": "そこで",
+      "synonym": "therefore",
+      "definition": "as a result"
+    },
+    {
+      "term": "arrangements",
+      "ja": "仕組み",
+      "synonym": "plans",
+      "definition": "organized ways of doing things"
+    },
+    {
+      "term": "evaluated",
+      "ja": "評価された",
+      "synonym": "assessed",
+      "definition": "judged for quality"
+    },
+    {
+      "term": "unallocated",
+      "ja": "未割当の",
+      "synonym": "unassigned",
+      "definition": "not assigned for a purpose"
+    },
+    {
+      "term": "economical",
+      "ja": "経済的な",
+      "synonym": "cost-effective",
+      "definition": "using money efficiently"
+    },
+    {
+      "term": "Excessive",
+      "ja": "過剰な",
+      "synonym": "too much",
+      "definition": "greater than necessary"
+    },
+    {
+      "term": "corresponding",
+      "ja": "相応の",
+      "synonym": "matching",
+      "definition": "related in a matching way"
+    },
+    {
+      "term": "reliability",
+      "ja": "信頼性",
+      "synonym": "dependability",
+      "definition": "quality of being dependable"
+    },
+    {
+      "term": "diversity",
+      "ja": "多様性",
+      "synonym": "variety",
+      "definition": "state of having different kinds"
+    },
+    {
+      "term": "consequences",
+      "ja": "影響",
+      "synonym": "effects",
+      "definition": "results of an action"
+    },
+    {
+      "term": "associated",
+      "ja": "関連する",
+      "synonym": "connected",
+      "definition": "linked with something"
+    },
+    {
+      "term": "identifiable",
+      "ja": "特定可能な",
+      "synonym": "recognizable",
+      "definition": "able to be identified"
+    },
+    {
+      "term": "outcomes",
+      "ja": "結果",
+      "synonym": "results",
+      "definition": "things produced by actions"
+    },
+    {
+      "term": "occupied",
+      "ja": "埋まった",
+      "synonym": "taken up",
+      "definition": "being used"
+    },
+    {
+      "term": "indicator",
+      "ja": "指標",
+      "synonym": "measure",
+      "definition": "sign showing a condition"
+    },
+    {
+      "term": "committed",
+      "ja": "割り当てられた",
+      "synonym": "assigned",
+      "definition": "given for a purpose"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "inference",
+      "prompt": "Why may a fully booked schedule be misleading?",
+      "options": [
+        "It necessarily proves that a business has no customers.",
+        "It does not reveal the effect of variation in task duration.",
+        "It always includes time for unexpected events.",
+        "It indicates that all services are completed immediately."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "所要時間の変動を反映しない。"
+    },
+    {
+      "id": "q2",
+      "skill": "vocabulary",
+      "prompt": "What does spare capacity mean?",
+      "options": [
+        "The number of customers already served.",
+        "The physical size of a repaired bicycle.",
+        "A requirement to increase prices.",
+        "Unused ability to perform additional work."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "余力。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "How are appointments initially arranged?",
+      "options": [
+        "Only after each repair has been completed.",
+        "With a free afternoon between each customer.",
+        "Consecutively without deliberate gaps.",
+        "According to customer preferences alone."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "間隔をあけず連続。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why does one unexpected repair affect later customers?",
+      "options": [
+        "The schedule has no planned time to absorb the delay.",
+        "All later repairs require identical additional work.",
+        "The owner has canceled every later appointment.",
+        "Each customer has asked for a longer repair."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "遅れを吸収する余裕がない。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "How might the reserved intervals be used?",
+      "options": [
+        "Guarantee every customer a shorter repair.",
+        "Replace all ordinary appointments.",
+        "Automatically eliminate all costs.",
+        "Finish difficult repairs or perform necessary upkeep."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "難しい修理や維持作業。"
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why could the appointment count decrease while service improves?",
+      "options": [
+        "Every customer necessarily receives inferior service.",
+        "Fewer bookings may allow more reliable completion times.",
+        "A lower count proves the business has closed.",
+        "The measure includes the quality of every repair."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "予約数と信頼性は別。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What might excessive spare capacity do?",
+      "options": [
+        "Reduce customers served without comparable reliability gains.",
+        "Guarantee maximum profits.",
+        "Eliminate the need to estimate task duration.",
+        "Increase the number of appointments without limit."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "余力過剰の問題。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "What does an actual evaluation require?",
+      "options": [
+        "Only the imagined example.",
+        "A fixed rule for every business.",
+        "Comparison of costs, task variation and delay consequences.",
+        "A count of unused hours alone."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "実際の費用・変動・影響。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What can an empty period represent?",
+      "options": [
+        "Proof of unnecessary expenditure in every case.",
+        "Capacity to respond to unforeseen needs.",
+        "A failure to make any plan.",
+        "A guarantee of future demand."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "例外への対応余地。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "Which statement best expresses the argument?",
+      "options": [
+        "A business should evaluate spare capacity in relation to reliability and other outcomes, not just apparent utilization.",
+        "Maximizing bookings is always the most economical strategy.",
+        "Unallocated time always improves service quality.",
+        "The number of appointments is irrelevant to every business decision."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1",
+        "p5"
+      ],
+      "explanation_ja": "稼働率だけでなく信頼性等を考慮。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 0,
+      "focus": "since each available period appears",
+      "explanation_ja": "sinceは理由。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "that could themselves be completed",
+      "explanation_ja": "関係節、could＋受動態。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "even if fewer customers experience substantial delays",
+      "explanation_ja": "even ifは譲歩条件。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "focus": "without being a complete indicator",
+      "explanation_ja": "without＋動名詞。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "A small business may interpret a fully booked schedule as evidence that its resources are being used effectively, since each available period appears to contribute directly to the production of a service.",
+      "rewrite": "A full calendar may appear efficient because all available slots seem productive.",
+      "explanation_ja": "予定表が埋まる意味。"
+    },
+    {
+      "source": "The unexpected delay affects subsequent appointments, including those involving tasks that could themselves be completed within the period originally assigned to them.",
+      "rewrite": "Even normally brief repairs can be delayed by an earlier unexpected task.",
+      "explanation_ja": "後続作業への影響。"
+    },
+    {
+      "source": "A measure that counts only the number of appointments accepted each day might interpret the change as a reduction in productivity, even if fewer customers experience substantial delays.",
+      "rewrite": "A booking count may fall despite a reduction in serious delays.",
+      "explanation_ja": "評価指標の違い。"
+    },
+    {
+      "source": "The number of occupied periods can be a useful indicator of activity without being a complete indicator of service quality or economic performance.",
+      "rewrite": "Occupied time indicates activity but not necessarily overall performance.",
+      "explanation_ja": "指標の範囲。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "稼働率の評価に条件を加える。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "consequently",
+      "role_ja": "評価する側面の再検討。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Excessive",
+      "role_ja": "余力過剰の反対側の問題。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "without",
+      "role_ja": "指標の利点と限界。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "intervals",
+      "options": [
+        "intervals",
+        "obstacles",
+        "expenses",
+        "receipts"
+      ],
+      "explanation_ja": "予約間の時間。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "productivity",
+      "options": [
+        "decoration",
+        "productivity",
+        "transportation",
+        "permission"
+      ],
+      "explanation_ja": "生産性の評価。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "Excessive",
+      "options": [
+        "Limited",
+        "Moderate",
+        "Excessive",
+        "Minimal"
+      ],
+      "explanation_ja": "過剰な余力。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "answer": "indicator",
+      "options": [
+        "substitute",
+        "destination",
+        "portrait",
+        "indicator"
+      ],
+      "explanation_ja": "活動の指標。"
+    }
+  ]
+}
