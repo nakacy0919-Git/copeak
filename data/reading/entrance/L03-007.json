@@ -1,0 +1,781 @@
+{
+  "id": "L03-007",
+  "category_id": "L03",
+  "title": "When Two Sensors Tell Different Stories",
+  "title_ja": "二つのセンサーが異なる数字を示すとき",
+  "level_id": "eiken-pre1",
+  "word_count": 492,
+  "original": true,
+  "status": "draft",
+  "source_links": [
+    {
+      "title": "US EPA: Air Sensor Guidebook",
+      "url": "https://www.epa.gov/air-sensor-toolbox/air-sensor-guidebook"
+    }
+  ],
+  "fact_notes": [
+    "背景となる考え方は添付の資料で確認。本文と練習問題は新規制作。例示した人物・学校・活動は架空の説明用設定。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Two students place inexpensive air-quality sensors near the entrance of their school and record the measurements during the afternoon.",
+          "ja": "二人の生徒は学校の入口近くに安価な空気質センサーを設置し午後の測定値を記録します。"
+        },
+        {
+          "en": "Although the devices are only a few steps apart, they sometimes report surprisingly different levels of tiny particles.",
+          "ja": "二つの装置は数歩の距離なのに小さな粒子の量を驚くほど違って表示することがあります。"
+        },
+        {
+          "en": "Some classmates suspect that one sensor is broken, while others think that the surrounding air changes very rapidly.",
+          "ja": "ある生徒は一方の故障を疑い、別の生徒は周囲の空気が急速に変化すると考えます。"
+        },
+        {
+          "en": "However, a disagreement between readings does not establish which of these competing explanations is the correct one.",
+          "ja": "しかし測定値の相違はどちらの説明が正しいかを確定しません。"
+        },
+        {
+          "en": "A sensor measures a physical property indirectly, using a mechanism that can be affected by external conditions.",
+          "ja": "センサーは外部条件の影響を受ける仕組みを使って物理的性質を間接的に測ります。"
+        },
+        {
+          "en": "Humidity, temperature, and the position of a device may influence what its display shows.",
+          "ja": "湿度、温度、機器の位置は表示に影響する可能性があります。"
+        },
+        {
+          "en": "The students realize that understanding the instrument is a necessary part of understanding the environmental information it produces.",
+          "ja": "生徒は機器の仕組みを理解することが生み出される環境情報の理解に必要だと気づきます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The United States Environmental Protection Agency offers guidance on the uses and limitations of air sensors.",
+          "ja": "米国環境保護庁は空気センサーの用途と限界について指針を提供しています。"
+        },
+        {
+          "en": "For example, a low-cost sensor may help a community notice changes over time without providing the precision required for regulatory monitoring.",
+          "ja": "例えば安価なセンサーは時間的変化への気づきには役立っても規制上の監視に必要な精度を持つとは限りません。"
+        },
+        {
+          "en": "Students ask whether their instruments were calibrated correctly and whether the manufacturer recommends a particular placement.",
+          "ja": "生徒は機器が正しく較正されメーカーが特定の設置方法を推奨するか尋ねます。"
+        },
+        {
+          "en": "They learn that different sensors may respond to particles differently, even if their displays use similar units.",
+          "ja": "似た単位を表示していても粒子に対する反応はセンサーによって異なり得ると学びます。"
+        },
+        {
+          "en": "The team therefore avoids treating a single number as a complete description of what every person at school has breathed.",
+          "ja": "そのため生徒は一つの数値を学校の全員が吸った空気の完全な説明として扱いません。"
+        },
+        {
+          "en": "Instead, they describe the measurements as observations made at particular locations and times.",
+          "ja": "代わりに測定値を特定の場所と時刻に得た観測として説明します。"
+        },
+        {
+          "en": "Such careful descriptions allow later readers to judge whether the results are relevant to their own questions.",
+          "ja": "このような慎重な説明により後の読み手は結果が自分の問いに関係するか判断できます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The club repeats its observations on different days, recording changes in traffic, nearby construction, and weather.",
+          "ja": "科学部は日を変えて観察を繰り返し、交通量、近くの工事、天気の変化を記録します。"
+        },
+        {
+          "en": "In addition, they compare measurements from similar conditions rather than simply selecting the highest number they recorded.",
+          "ja": "さらに記録した最高値だけを選ばず、似た条件下での測定値を比較します。"
+        },
+        {
+          "en": "A repeated pattern might suggest a connection between a nearby activity and the air, but the connection requires further investigation.",
+          "ja": "繰り返されるパターンは近くの活動と空気の関係を示唆しますが、さらに調査が必要です。"
+        },
+        {
+          "en": "For instance, a rise in readings when buses arrive could have several explanations besides the movement of the buses themselves.",
+          "ja": "例えばバス到着時の測定値上昇にはバス自体の動き以外にも複数の説明が考えられます。"
+        },
+        {
+          "en": "Other vehicles, changing winds, and the limitations of the sensors may also affect the measurements.",
+          "ja": "他の車両、風向きの変化、センサーの限界も測定値に影響し得ます。"
+        },
+        {
+          "en": "Recognizing a correlation is therefore different from establishing that one event caused another.",
+          "ja": "したがって相関の認識と一つの出来事が別の出来事を引き起こしたと証明することは異なります。"
+        },
+        {
+          "en": "The club notes alternative explanations alongside its preliminary findings instead of claiming that one source has definitely been identified.",
+          "ja": "科学部は一つの発生源を特定したと断言せず、予備的な結果とともに別の説明も記録します。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The student council proposes publishing the most alarming measurement with a headline demanding immediate changes to the school entrance.",
+          "ja": "生徒会は最も心配になる測定値を学校入口の即時改善を求める見出しとともに公開する案を出します。"
+        },
+        {
+          "en": "Nevertheless, the science club worries that an isolated extreme number may create an impression stronger than the evidence allows.",
+          "ja": "それでも科学部は孤立した極端な数値が証拠以上に強い印象を与えることを心配します。"
+        },
+        {
+          "en": "They choose to explain their methods, the locations of the instruments, and the uncertainty involved in interpreting the data.",
+          "ja": "生徒たちは方法、設置場所、データ解釈の不確実さを説明することにします。"
+        },
+        {
+          "en": "They also recommend professional advice before making any claim about health risks or changing the school's technical facilities.",
+          "ja": "健康リスクを主張したり設備を変更したりする前に専門家の助言を求めることも勧めます。"
+        },
+        {
+          "en": "The resulting report is less dramatic, but it gives families a more reliable basis for asking questions and making decisions.",
+          "ja": "報告は地味になりますが、家庭が質問し判断するためのより信頼できる根拠になります。"
+        },
+        {
+          "en": "Students learn that scientific responsibility involves more than collecting numbers: it includes explaining how those numbers were obtained and what they cannot prove.",
+          "ja": "生徒は科学的責任とは数値を集めること以上で、取得方法と証明できないことの説明も含むと学びます。"
+        },
+        {
+          "en": "Transparent communication can make an uncertain result valuable without presenting it as certain.",
+          "ja": "透明な説明により不確かな結果を確実なものと装わず価値あるものにできます。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "What does the writer mainly argue?",
+      "options": [
+        "Interpreting sensor data requires understanding instruments, uncertainty, and alternative explanations.",
+        "Any disagreement proves that one sensor is broken.",
+        "The highest reading should always become the headline.",
+        "An inexpensive sensor can replace every professional measurement."
+      ],
+      "answer": 0,
+      "explanation_ja": "測定値の解釈に機器と不確実さの理解が必要です。",
+      "paragraph_ids": [
+        "p1",
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What first surprises the students?",
+      "options": [
+        "The school entrance is closed.",
+        "Nearby sensors show different levels of particles.",
+        "The instruments display only temperatures.",
+        "The sensors have identical readings."
+      ],
+      "answer": 1,
+      "explanation_ja": "近くに置いた機器の測定値が違う点です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why might the difference not reflect a change in air quality?",
+      "options": [
+        "The school has no outside air.",
+        "All readings are imaginary.",
+        "Sensors can react differently to humidity and local conditions.",
+        "Temperature never affects instruments."
+      ],
+      "answer": 2,
+      "explanation_ja": "外部条件への反応差があり得るからです。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What may a low-cost sensor be useful for?",
+      "options": [
+        "Providing perfect legal monitoring in every setting.",
+        "Measuring students' knowledge.",
+        "Predicting the weather with certainty.",
+        "Noticing changes over time despite accuracy limitations."
+      ],
+      "answer": 3,
+      "explanation_ja": "変化の観察への活用が挙がります。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What does the club check about the devices?",
+      "options": [
+        "Whether they were calibrated and placed appropriately.",
+        "Only how colorful they look.",
+        "The students' examination grades.",
+        "The number of mobile phones nearby."
+      ],
+      "answer": 0,
+      "explanation_ja": "較正と設置条件を確認します。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why isn't the arrival of buses proof that buses caused the change?",
+      "options": [
+        "All buses always produce identical conditions.",
+        "Other conditions or activities could affect readings at the same time.",
+        "A pattern cannot be recorded twice.",
+        "The instruments measure only noise."
+      ],
+      "answer": 1,
+      "explanation_ja": "複数の要因が同時に起こり得るためです。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'correlation' mean in paragraph 3?",
+      "options": [
+        "Final proof of a specific cause.",
+        "A completely broken sensor.",
+        "A relationship between observations that change together.",
+        "A technical instruction printed on a device."
+      ],
+      "answer": 2,
+      "explanation_ja": "correlationは相関を意味します。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What does the student council initially want?",
+      "options": [
+        "To delete every observation.",
+        "To move all classes outdoors.",
+        "To end the science club.",
+        "To publish an alarming extreme reading."
+      ],
+      "answer": 3,
+      "explanation_ja": "極端な最高値を強調して公開したいと考えます。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Why does the club recommend professional advice?",
+      "options": [
+        "Health claims and technical changes require stronger evidence and expertise.",
+        "Students cannot read any numbers.",
+        "Only teachers can use websites.",
+        "Every instrument is dangerous."
+      ],
+      "answer": 0,
+      "explanation_ja": "健康影響と設備変更は専門的な判断が必要なためです。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "What is the point of the final sentence?",
+      "options": [
+        "Only perfectly certain results deserve publication.",
+        "Transparent reporting can make uncertain findings useful without overstating them.",
+        "Scientists should avoid sharing methods.",
+        "The most dramatic explanation is always correct."
+      ],
+      "answer": 1,
+      "explanation_ja": "不確実さを明示した報告の価値を結論とします。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "calibrated",
+      "ja": "較正された",
+      "synonym": "checked against a standard",
+      "definition": "adjusted or checked to improve measurement accuracy"
+    },
+    {
+      "term": "humidity",
+      "ja": "湿度",
+      "synonym": "water vapor in air",
+      "definition": "the amount of moisture in the air"
+    },
+    {
+      "term": "regulatory",
+      "ja": "規制上の",
+      "synonym": "related to official standards",
+      "definition": "associated with laws or standards"
+    },
+    {
+      "term": "instruments",
+      "ja": "機器",
+      "synonym": "measurement devices",
+      "definition": "tools used to gather readings"
+    },
+    {
+      "term": "correlation",
+      "ja": "相関",
+      "synonym": "association",
+      "definition": "a relation between changing observations"
+    },
+    {
+      "term": "precision",
+      "ja": "精度",
+      "synonym": "accuracy of detail",
+      "definition": "the quality of giving exact measurements"
+    },
+    {
+      "term": "preliminary",
+      "ja": "予備的な",
+      "synonym": "initial",
+      "definition": "not yet final"
+    },
+    {
+      "term": "alternative",
+      "ja": "代わりの",
+      "synonym": "other possible",
+      "definition": "available as another explanation"
+    },
+    {
+      "term": "uncertainty",
+      "ja": "不確実さ",
+      "synonym": "doubt",
+      "definition": "not knowing an answer with confidence"
+    },
+    {
+      "term": "transparent",
+      "ja": "透明な",
+      "synonym": "open",
+      "definition": "clear about procedures and limitations"
+    },
+    {
+      "term": "extreme",
+      "ja": "極端な",
+      "synonym": "unusually high",
+      "definition": "far from typical readings"
+    },
+    {
+      "term": "surrounding",
+      "ja": "周辺の",
+      "synonym": "nearby",
+      "definition": "located around something"
+    },
+    {
+      "term": "similar",
+      "ja": "似ている",
+      "synonym": "alike",
+      "definition": "having features in common"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "learners",
+      "definition": "people receiving education at school"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "help",
+      "ja": "助ける",
+      "synonym": "assist",
+      "definition": "to make a task easier for someone"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "understanding",
+      "ja": "理解",
+      "synonym": "comprehension",
+      "definition": "knowledge of meaning and reasons"
+    },
+    {
+      "term": "might",
+      "ja": "〜かもしれない",
+      "synonym": "possibly",
+      "definition": "expressing a possibility rather than certainty"
+    },
+    {
+      "term": "uncertain",
+      "ja": "不確かな",
+      "synonym": "not established",
+      "definition": "not known exactly"
+    },
+    {
+      "term": "student",
+      "ja": "生徒",
+      "synonym": "learner",
+      "definition": "a person learning at school"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "evidence",
+      "ja": "証拠",
+      "synonym": "supporting facts",
+      "definition": "information used to test a claim"
+    },
+    {
+      "term": "therefore",
+      "ja": "したがって",
+      "synonym": "consequently",
+      "definition": "used to introduce a logical result"
+    },
+    {
+      "term": "reliable",
+      "ja": "信頼できる",
+      "synonym": "dependable",
+      "definition": "good enough to trust"
+    },
+    {
+      "term": "guidance",
+      "ja": "指針・助言",
+      "synonym": "advice",
+      "definition": "information directing choices"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "examine together",
+      "definition": "to consider differences"
+    },
+    {
+      "term": "risks",
+      "ja": "リスク",
+      "synonym": "dangers",
+      "definition": "possibilities of harm"
+    },
+    {
+      "term": "communication",
+      "ja": "情報伝達",
+      "synonym": "exchange",
+      "definition": "sharing information"
+    },
+    {
+      "term": "notice",
+      "ja": "案内・通知",
+      "synonym": "announcement",
+      "definition": "a public message"
+    },
+    {
+      "term": "information",
+      "ja": "情報",
+      "synonym": "facts",
+      "definition": "facts or details provided about something"
+    },
+    {
+      "term": "involves",
+      "ja": "伴う",
+      "synonym": "includes",
+      "definition": "contains as part of a process"
+    },
+    {
+      "term": "isolated",
+      "ja": "隔離された",
+      "synonym": "separated",
+      "definition": "kept apart from other things"
+    },
+    {
+      "term": "influence",
+      "ja": "影響を与える",
+      "synonym": "affect",
+      "definition": "to change something"
+    },
+    {
+      "term": "affect",
+      "ja": "影響する",
+      "synonym": "influence",
+      "definition": "to produce a change in something"
+    },
+    {
+      "term": "result",
+      "ja": "結果",
+      "synonym": "outcome",
+      "definition": "what happens because of an action or event"
+    },
+    {
+      "term": "manufacturer",
+      "ja": "製造者",
+      "synonym": "producer",
+      "definition": "a maker of products"
+    },
+    {
+      "term": "environmental",
+      "ja": "環境の",
+      "synonym": "ecological",
+      "definition": "related to the natural world"
+    },
+    {
+      "term": "decisions",
+      "ja": "決定",
+      "synonym": "choices",
+      "definition": "choices made after considering options"
+    },
+    {
+      "term": "families",
+      "ja": "家族",
+      "synonym": "households",
+      "definition": "groups of related people living together"
+    },
+    {
+      "term": "rather",
+      "ja": "むしろ",
+      "synonym": "instead",
+      "definition": "used to express a preferred alternative"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それにもかかわらず",
+      "synonym": "however",
+      "definition": "used to introduce an unexpected contrast"
+    },
+    {
+      "term": "instead",
+      "ja": "代わりに",
+      "synonym": "alternatively",
+      "definition": "used to indicate a different choice"
+    },
+    {
+      "term": "also",
+      "ja": "さらに・また",
+      "synonym": "additionally",
+      "definition": "introducing another fact or action"
+    },
+    {
+      "term": "repeated",
+      "ja": "繰り返された",
+      "synonym": "said again",
+      "definition": "occurring more than once"
+    },
+    {
+      "term": "recording",
+      "ja": "録音・記録",
+      "synonym": "stored audio",
+      "definition": "audio or video saved for later"
+    },
+    {
+      "term": "changes",
+      "ja": "変化",
+      "synonym": "differences",
+      "definition": "things that become different over time"
+    },
+    {
+      "term": "community",
+      "ja": "地域社会",
+      "synonym": "local society",
+      "definition": "people connected by a shared place or interest"
+    },
+    {
+      "term": "recognizing",
+      "ja": "認識すること",
+      "synonym": "noticing",
+      "definition": "realizing a distinction exists"
+    },
+    {
+      "term": "correct",
+      "ja": "正しい・直す",
+      "synonym": "right",
+      "definition": "free from error"
+    },
+    {
+      "term": "explaining",
+      "ja": "説明すること",
+      "synonym": "clarifying",
+      "definition": "making something clear"
+    },
+    {
+      "term": "responsibility",
+      "ja": "責任",
+      "synonym": "duty",
+      "definition": "an obligation to deal with consequences"
+    },
+    {
+      "term": "publishing",
+      "ja": "公表すること",
+      "synonym": "releasing",
+      "definition": "making information publicly available"
+    },
+    {
+      "term": "technical",
+      "ja": "技術的な",
+      "synonym": "specialized",
+      "definition": "connected with particular practical skills"
+    },
+    {
+      "term": "affected",
+      "ja": "影響を受けた",
+      "synonym": "influenced",
+      "definition": "changed by the result of an action"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "does not establish which of these competing explanations is the correct one",
+      "explanation_ja": "does not establishで安易な断定を否定します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "without providing the precision required for regulatory monitoring",
+      "explanation_ja": "without＋動名詞と過去分詞requiredを用います。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 5,
+      "focus": "different from establishing that one event caused another",
+      "explanation_ja": "different fromで相関と因果を区別します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "focus": "may create an impression stronger than the evidence allows",
+      "explanation_ja": "比較級stronger thanが根拠以上の印象を表します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "本文冒頭の考えと、その例外・注意を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "前の考えを具体例で説明します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "In addition",
+      "role_ja": "前の説明に新たな条件や視点を加えます。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "先に述べた利点と、残る限界や条件を対比します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "a disagreement between readings does not establish which of these competing explanations is the correct one",
+      "rewrite": "different numbers alone cannot settle the question of their cause",
+      "explanation_ja": "does not establish→cannot settleです。"
+    },
+    {
+      "source": "a single number as a complete description of what every person at school has breathed",
+      "rewrite": "one reading cannot represent the exposure of an entire school",
+      "explanation_ja": "single→one、every→entireです。"
+    },
+    {
+      "source": "Recognizing a correlation is therefore different from establishing that one event caused another",
+      "rewrite": "finding an association does not prove cause and effect",
+      "explanation_ja": "correlation→associationです。"
+    },
+    {
+      "source": "Transparent communication can make an uncertain result valuable without presenting it as certain",
+      "rewrite": "open reporting can be useful even when the evidence remains incomplete",
+      "explanation_ja": "uncertain→incompleteです。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "In addition",
+        "Nevertheless"
+      ],
+      "explanation_ja": "本文冒頭の考えと、その例外・注意を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "In addition",
+        "Nevertheless"
+      ],
+      "explanation_ja": "前の考えを具体例で説明します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "In addition",
+      "options": [
+        "In addition",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "前の説明に新たな条件や視点を加えます。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "先に述べた利点と、残る限界や条件を対比します。"
+    }
+  ]
+}
