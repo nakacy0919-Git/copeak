@@ -3,8 +3,8 @@
   "as_of": "2026-11-14",
   "goal": 450,
   "category_target": 30,
-  "registered_total": 123,
-  "remaining": 327,
+  "registered_total": 133,
+  "remaining": 317,
   "level_targets_per_category": {
     "eiken-3": 1,
     "eiken-pre2": 4,
@@ -28,15 +28,15 @@
       "category_id": "L02",
       "name": "歴史",
       "target": 30,
-      "registered": 8,
-      "remaining": 22
+      "registered": 9,
+      "remaining": 21
     },
     {
       "category_id": "L03",
       "name": "科学技術",
       "target": 30,
-      "registered": 8,
-      "remaining": 22
+      "registered": 9,
+      "remaining": 21
     },
     {
       "category_id": "L04",
@@ -49,15 +49,15 @@
       "category_id": "L05",
       "name": "国際社会",
       "target": 30,
-      "registered": 8,
-      "remaining": 22
+      "registered": 9,
+      "remaining": 21
     },
     {
       "category_id": "L06",
       "name": "心理・哲学",
       "target": 30,
-      "registered": 8,
-      "remaining": 22
+      "registered": 9,
+      "remaining": 21
     },
     {
       "category_id": "L07",
@@ -70,43 +70,43 @@
       "category_id": "L08",
       "name": "芸術・文化",
       "target": 30,
-      "registered": 8,
-      "remaining": 22
+      "registered": 9,
+      "remaining": 21
     },
     {
       "category_id": "L09",
       "name": "文学・言語",
       "target": 30,
-      "registered": 8,
-      "remaining": 22
+      "registered": 9,
+      "remaining": 21
     },
     {
       "category_id": "L10",
       "name": "教育・学習",
       "target": 30,
-      "registered": 8,
-      "remaining": 22
+      "registered": 9,
+      "remaining": 21
     },
     {
       "category_id": "L11",
       "name": "法律・政治",
       "target": 30,
-      "registered": 8,
-      "remaining": 22
+      "registered": 9,
+      "remaining": 21
     },
     {
       "category_id": "L12",
       "name": "医療・健康",
       "target": 30,
-      "registered": 8,
-      "remaining": 22
+      "registered": 9,
+      "remaining": 21
     },
     {
       "category_id": "L13",
       "name": "宇宙・未来",
       "target": 30,
-      "registered": 8,
-      "remaining": 22
+      "registered": 9,
+      "remaining": 21
     },
     {
       "category_id": "L14",
@@ -124,16 +124,16 @@
     }
   ],
   "latest_unpublished_batch": [
-    "L01-009",
-    "L02-008",
-    "L03-008",
-    "L04-009",
-    "L05-008",
-    "L06-008",
-    "L07-009",
-    "L09-008",
-    "L11-008",
-    "L13-008"
+    "L02-009",
+    "L03-009",
+    "L05-009",
+    "L06-009",
+    "L08-009",
+    "L09-009",
+    "L10-009",
+    "L11-009",
+    "L12-009",
+    "L13-009"
   ],
   "release_policy": {
     "new_works_default_status": "draft",
@@ -148,11 +148,12 @@
     ]
   },
   "notes": [
-    "2026-11-14: dev 113→123, 10 original unpublished readings, remaining 327/450.",
-    "Batch contents: English 3736 words, 265 full bilingual sentence pairs, 598 vocabulary entries, 100 four-choice reading questions, 160 review exercises.",
-    "All ten structural validation checks passed with 0 errors (word bands, bilingual coverage, vocabulary term matches and fields, MC question schema and answer indexes, source sentence references).",
-    "Human editorial review of translated meaning, question uniqueness and distractor quality, source link reachability, and iPad UI validation are still required.",
-    "No merge to main or production deployment without explicit user instruction."
+    "2026-11-14: development total 123→133 with ten new unpublished original readings; remaining 317 of goal 450.",
+    "Batch totals: English 4,107 words; full bilingual sentence pairs 270; vocabulary entries 579; ten-question comprehension sets 10; review exercises 160.",
+    "Included high-level readings: Eiken 1 (878 words), university-national (820 words), Eiken pre-1 (565 words).",
+    "Structural validation passed with 0 errors for IDs, word bands, bilingual coverage, vocabulary fields/occurrence, four-choice answer indexes and references, review exercise references, draft state.",
+    "NASA and ESA public exoplanet explanations were consulted for the fictional scientific lesson. Human copyediting, semantically unique correct answers, all link checks and iPad preview remain pending.",
+    "No main merge or production deployment without explicit user instructions."
   ],
-  "all_unpublished_batches_note": "main contains 28 registered lessons; development branch contains 123, including 95 unpublished draft lessons. This batch is only on content/reading-batch-20261114-j."
+  "all_unpublished_batches_note": "main has 28 registered reading lessons. Current development branch has 133 registered lessons, including 105 unpublished drafts. This new batch exists on content/reading-batch-20261114-k only."
 }
