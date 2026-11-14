@@ -1,0 +1,692 @@
+{
+  "id": "L03-015",
+  "category_id": "L03",
+  "title": "The File That Survived a Broken Computer",
+  "title_ja": "壊れたパソコンから守られたファイル",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "word_count": 289,
+  "source_links": [
+    {
+      "title": "Original lesson authoring registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "登場人物、具体的な出来事・観察・記録は架空の教材例。実在の調査結果ではない。参考リンクは制作台帳であり外部の実証資料ではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A group of students spent several weeks preparing a digital magazine for their school festival.",
+          "ja": "生徒たちは学校祭のデジタル雑誌の準備に数週間を費やした。"
+        },
+        {
+          "en": "They wrote articles, designed the pages, and collected drawings from different clubs.",
+          "ja": "記事を書き、ページをデザインし、各部活動から絵を集めた。"
+        },
+        {
+          "en": "Their editor stored the latest version of the magazine on a single classroom computer.",
+          "ja": "編集担当者は雑誌の最新版を教室の一台のパソコンに保存した。"
+        },
+        {
+          "en": "Everyone believed that having the file in one familiar place would make the work easier.",
+          "ja": "全員が慣れた一か所にファイルがあれば作業が容易になると考えた。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "One morning, the computer refused to start, and the editor could not open the magazine.",
+          "ja": "ある朝、パソコンが起動せず編集担当者は雑誌を開けなかった。"
+        },
+        {
+          "en": "The students had saved copies of several early articles, but these did not include the final changes.",
+          "ja": "初期の記事のコピーはいくつか保存していたが、最終変更は含まれていなかった。"
+        },
+        {
+          "en": "A teacher helped them find a recent copy on another approved school device.",
+          "ja": "教師は別の学校公認端末にある最近のコピーを見つけるのを手伝った。"
+        },
+        {
+          "en": "Although some edits were missing, the group was able to rebuild the magazine before the festival.",
+          "ja": "一部の編集は失われていたが、学校祭前に雑誌を再構築できた。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Afterward, the students examined how they had managed their files during the project.",
+          "ja": "その後、生徒たちは活動中のファイル管理方法を調べた。"
+        },
+        {
+          "en": "They realized that a backup was useful only if it contained the information they actually needed.",
+          "ja": "バックアップは実際に必要な情報を含んでいる場合にのみ役立つと気づいた。"
+        },
+        {
+          "en": "They also needed to know which copy was current and who was allowed to update it.",
+          "ja": "どのコピーが最新で誰が更新を許可されているかも把握する必要があった。"
+        },
+        {
+          "en": "Simply creating many copies without a system could lead to additional confusion.",
+          "ja": "仕組みなく大量のコピーを作るだけでは混乱が増え得る。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The team agreed to save dated backups in a separate approved location after major changes.",
+          "ja": "チームは重要な変更後に日付付きバックアップを別の許可された場所に保存することにした。"
+        },
+        {
+          "en": "They tested whether a backup could be opened and used on another classroom device.",
+          "ja": "バックアップを別の教室端末で開いて使えるか試した。"
+        },
+        {
+          "en": "However, they avoided putting material containing private information in an unrestricted folder.",
+          "ja": "ただし個人情報を含む資料をアクセス制限のないフォルダに置くことは避けた。"
+        },
+        {
+          "en": "Their teacher checked that the new procedure followed school rules for handling files.",
+          "ja": "教師は新しい手順が学校のファイル取扱規則に従うことを確認した。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The students learned that saving a file and being able to recover it were different achievements.",
+          "ja": "生徒たちは保存することと復元できることが別の成果だと学んだ。"
+        },
+        {
+          "en": "A reliable process required both preparation and a practical test before a problem occurred.",
+          "ja": "信頼できる手順には問題発生前の準備と実際のテストの両方が必要だった。"
+        },
+        {
+          "en": "Their experience made them less dependent on any single device during future projects.",
+          "ja": "この経験により今後の活動で特定の一台の端末への依存が減った。"
+        },
+        {
+          "en": "They now considered recovery part of creating digital work, rather than an emergency task to think about later.",
+          "ja": "復元を後で考える緊急作業ではなく、デジタル作品制作の一部と考えるようになった。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "spent",
+      "ja": "費やした",
+      "synonym": "used",
+      "definition": "used time or money for a purpose"
+    },
+    {
+      "term": "digital",
+      "ja": "デジタルの",
+      "synonym": "electronic",
+      "definition": "using electronic information"
+    },
+    {
+      "term": "magazine",
+      "ja": "雑誌",
+      "synonym": "publication",
+      "definition": "regular collection of articles"
+    },
+    {
+      "term": "articles",
+      "ja": "記事",
+      "synonym": "pieces",
+      "definition": "written texts about topics"
+    },
+    {
+      "term": "designed",
+      "ja": "デザインした",
+      "synonym": "planned",
+      "definition": "created the form of something"
+    },
+    {
+      "term": "collected",
+      "ja": "集めた",
+      "synonym": "gathered",
+      "definition": "brought things together"
+    },
+    {
+      "term": "editor",
+      "ja": "編集担当者",
+      "synonym": "compiler",
+      "definition": "person organizing and revising a publication"
+    },
+    {
+      "term": "stored",
+      "ja": "保存した",
+      "synonym": "saved",
+      "definition": "kept for later use"
+    },
+    {
+      "term": "latest",
+      "ja": "最新の",
+      "synonym": "most recent",
+      "definition": "newest"
+    },
+    {
+      "term": "version",
+      "ja": "版",
+      "synonym": "edition",
+      "definition": "particular form of something"
+    },
+    {
+      "term": "single",
+      "ja": "一つの",
+      "synonym": "one",
+      "definition": "only one"
+    },
+    {
+      "term": "familiar",
+      "ja": "慣れた",
+      "synonym": "well-known",
+      "definition": "recognized from previous experience"
+    },
+    {
+      "term": "refused",
+      "ja": "拒んだ",
+      "synonym": "failed",
+      "definition": "would not do something"
+    },
+    {
+      "term": "copies",
+      "ja": "複製",
+      "synonym": "duplicates",
+      "definition": "reproductions of something"
+    },
+    {
+      "term": "final",
+      "ja": "最終の",
+      "synonym": "last",
+      "definition": "at the end of a process"
+    },
+    {
+      "term": "approved",
+      "ja": "許可された",
+      "synonym": "authorized",
+      "definition": "officially allowed"
+    },
+    {
+      "term": "device",
+      "ja": "端末",
+      "synonym": "equipment",
+      "definition": "tool designed for a particular purpose"
+    },
+    {
+      "term": "edits",
+      "ja": "編集箇所",
+      "synonym": "revisions",
+      "definition": "changes made to a text"
+    },
+    {
+      "term": "missing",
+      "ja": "失われた",
+      "synonym": "absent",
+      "definition": "not present"
+    },
+    {
+      "term": "rebuild",
+      "ja": "再構築する",
+      "synonym": "reconstruct",
+      "definition": "build again"
+    },
+    {
+      "term": "examined",
+      "ja": "調べた",
+      "synonym": "inspected",
+      "definition": "considered carefully"
+    },
+    {
+      "term": "managed",
+      "ja": "管理した",
+      "synonym": "handled",
+      "definition": "controlled or organized"
+    },
+    {
+      "term": "backup",
+      "ja": "バックアップ",
+      "synonym": "reserve copy",
+      "definition": "copy kept in case the original is lost"
+    },
+    {
+      "term": "actually",
+      "ja": "実際に",
+      "synonym": "really",
+      "definition": "in fact"
+    },
+    {
+      "term": "current",
+      "ja": "最新の",
+      "synonym": "up-to-date",
+      "definition": "existing or relevant now"
+    },
+    {
+      "term": "update",
+      "ja": "更新する",
+      "synonym": "revise",
+      "definition": "make something more recent"
+    },
+    {
+      "term": "additional",
+      "ja": "追加の",
+      "synonym": "extra",
+      "definition": "more than already present"
+    },
+    {
+      "term": "confusion",
+      "ja": "混乱",
+      "synonym": "disorder",
+      "definition": "state of uncertainty or lack of order"
+    },
+    {
+      "term": "dated",
+      "ja": "日付付きの",
+      "synonym": "date-marked",
+      "definition": "having a date recorded"
+    },
+    {
+      "term": "separate",
+      "ja": "別の",
+      "synonym": "distinct",
+      "definition": "not joined to another"
+    },
+    {
+      "term": "location",
+      "ja": "場所",
+      "synonym": "site",
+      "definition": "particular place"
+    },
+    {
+      "term": "major",
+      "ja": "重要な",
+      "synonym": "important",
+      "definition": "of considerable importance"
+    },
+    {
+      "term": "avoided",
+      "ja": "避けた",
+      "synonym": "kept away from",
+      "definition": "did not do something intentionally"
+    },
+    {
+      "term": "private",
+      "ja": "個人の",
+      "synonym": "personal",
+      "definition": "not intended for public access"
+    },
+    {
+      "term": "unrestricted",
+      "ja": "制限のない",
+      "synonym": "open",
+      "definition": "not limited by rules or access controls"
+    },
+    {
+      "term": "folder",
+      "ja": "フォルダ",
+      "synonym": "directory",
+      "definition": "place for organizing digital files"
+    },
+    {
+      "term": "procedure",
+      "ja": "手順",
+      "synonym": "process",
+      "definition": "series of steps"
+    },
+    {
+      "term": "handling",
+      "ja": "取り扱い",
+      "synonym": "managing",
+      "definition": "dealing with something"
+    },
+    {
+      "term": "recover",
+      "ja": "復元する",
+      "synonym": "restore",
+      "definition": "get something back"
+    },
+    {
+      "term": "achievements",
+      "ja": "成果",
+      "synonym": "accomplishments",
+      "definition": "things successfully accomplished"
+    },
+    {
+      "term": "reliable",
+      "ja": "信頼できる",
+      "synonym": "dependable",
+      "definition": "able to be trusted"
+    },
+    {
+      "term": "preparation",
+      "ja": "準備",
+      "synonym": "planning",
+      "definition": "making things ready in advance"
+    },
+    {
+      "term": "practical",
+      "ja": "実際的な",
+      "synonym": "hands-on",
+      "definition": "relating to actual use"
+    },
+    {
+      "term": "occurred",
+      "ja": "起こった",
+      "synonym": "happened",
+      "definition": "took place"
+    },
+    {
+      "term": "dependent",
+      "ja": "依存する",
+      "synonym": "reliant",
+      "definition": "needing another thing for support"
+    },
+    {
+      "term": "recovery",
+      "ja": "復元",
+      "synonym": "restoration",
+      "definition": "act of getting something back"
+    },
+    {
+      "term": "emergency",
+      "ja": "緊急事態",
+      "synonym": "crisis",
+      "definition": "sudden situation requiring action"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What were the students preparing?",
+      "options": [
+        "A computer game.",
+        "A digital school magazine.",
+        "A new classroom.",
+        "A printed dictionary."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "学校祭のデジタル雑誌。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Where was the latest version originally stored?",
+      "options": [
+        "On every student's phone.",
+        "In a public website.",
+        "On paper only.",
+        "On one classroom computer."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "教室の一台のパソコン。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What happened one morning?",
+      "options": [
+        "The school festival was canceled.",
+        "The teacher deleted every article.",
+        "The computer would not start.",
+        "The magazine was published early."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "起動しなくなった。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "How did the teacher help?",
+      "options": [
+        "By finding a recent copy on another approved device.",
+        "By writing every article again.",
+        "By opening a public account.",
+        "By buying a new school building."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "最近のコピーを発見した。"
+    },
+    {
+      "id": "q5",
+      "skill": "inference",
+      "prompt": "Why is a large number of copies not sufficient?",
+      "options": [
+        "Every copy must be shared publicly.",
+        "Only the oldest copy is useful.",
+        "Copies must be useful and their versions must be managed.",
+        "More copies always cause data loss."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "内容と版の管理が重要。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "When did the team plan to save dated backups?",
+      "options": [
+        "Only after a computer broke.",
+        "Every ten years.",
+        "Before writing any content at all.",
+        "After major changes."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "重要な変更の後。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What did they test?",
+      "options": [
+        "Whether school computers could play music.",
+        "Whether a backup worked on another device.",
+        "Whether the magazine could be sold.",
+        "Whether the teacher could write faster."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "他端末で復元できるか試した。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "Why did they avoid unrestricted folders for private material?",
+      "options": [
+        "To protect information from unauthorized access.",
+        "To make backups impossible to use.",
+        "To prevent teachers from checking rules.",
+        "To increase the number of copies."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "個人情報を保護するため。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does recover mean here?",
+      "options": [
+        "Design.",
+        "Send.",
+        "Rename.",
+        "Restore."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "復元するという意味。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What lesson did the students learn?",
+      "options": [
+        "A familiar computer can never fail.",
+        "Saving a file guarantees its recovery.",
+        "Plan and test recovery as part of digital work.",
+        "All school files should be public."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "復元の準備とテストを制作に組み込む。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "would make the work easier",
+      "explanation_ja": "wouldは過去から見た予想。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "Although some edits were missing",
+      "explanation_ja": "althoughは譲歩を表す。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "who was allowed to update it",
+      "explanation_ja": "間接疑問と受動態。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "rather than an emergency task",
+      "explanation_ja": "rather thanは対比する選択肢。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p2",
+      "expression": "Although",
+      "role_ja": "欠落と再構築の成功を対比。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Afterward",
+      "role_ja": "問題後の振り返り。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "However",
+      "role_ja": "バックアップと個人情報保護を両立。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "rather than",
+      "role_ja": "復元を考えるタイミングの対比。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Everyone believed that having the file in one familiar place would make the work easier.",
+      "rewrite": "They expected a single familiar file location to simplify their work.",
+      "explanation_ja": "一か所の保存が作業を簡単にすると期待。"
+    },
+    {
+      "source": "Although some edits were missing, the group was able to rebuild the magazine before the festival.",
+      "rewrite": "Despite losing a few revisions, they reconstructed the magazine in time.",
+      "explanation_ja": "一部失っても期限に間に合った。"
+    },
+    {
+      "source": "They also needed to know which copy was current and who was allowed to update it.",
+      "rewrite": "They had to identify the current copy and the people with editing permission.",
+      "explanation_ja": "最新版と編集権限を把握。"
+    },
+    {
+      "source": "They now considered recovery part of creating digital work, rather than an emergency task to think about later.",
+      "rewrite": "They began treating restoration as a normal part of producing digital work.",
+      "explanation_ja": "復元を制作の通常工程と考えた。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "recent",
+      "options": [
+        "ancient",
+        "recent",
+        "empty",
+        "false"
+      ],
+      "explanation_ja": "最近のコピー。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "backup",
+      "options": [
+        "backup",
+        "poster",
+        "desk",
+        "lesson"
+      ],
+      "explanation_ja": "必要情報を含む複製。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "unrestricted",
+      "options": [
+        "broken",
+        "unrestricted",
+        "quiet",
+        "expensive"
+      ],
+      "explanation_ja": "制限のないフォルダを避ける。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "answer": "practical",
+      "options": [
+        "practical",
+        "fictional",
+        "annual",
+        "colorful"
+      ],
+      "explanation_ja": "実際の復元テスト。"
+    }
+  ]
+}
