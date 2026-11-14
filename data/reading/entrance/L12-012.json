@@ -1,0 +1,580 @@
+{
+  "id": "L12-012",
+  "category_id": "L12",
+  "title": "The Question on the Way Home",
+  "title_ja": "帰り道で思い出した質問",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 217,
+  "source_links": [
+    {
+      "title": "Original lesson authoring registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "登場人物・場所・出来事は架空の教材例。特定の研究結果・制度・医学的助言を示すものではない。参考リンクは制作台帳であり実証資料ではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Emi went to a local clinic with her father on Tuesday.",
+          "ja": "火曜日、エミは父親と地元の診療所に行った。"
+        },
+        {
+          "en": "He had an appointment to discuss the results of a recent examination.",
+          "ja": "父は最近の検査結果について話す予約があった。"
+        },
+        {
+          "en": "Before leaving home, he planned to ask the doctor several questions.",
+          "ja": "家を出る前に医師にいくつか質問するつもりだった。"
+        },
+        {
+          "en": "However, he did not write any of them down.",
+          "ja": "しかし一つも書き留めなかった。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "During the appointment, the doctor explained the results in simple language.",
+          "ja": "診察中、医師は結果を分かりやすい言葉で説明した。"
+        },
+        {
+          "en": "Emi's father listened carefully and asked about his next visit.",
+          "ja": "エミの父は注意深く聞き、次の受診について質問した。"
+        },
+        {
+          "en": "He thought that he had remembered everything he wanted to ask.",
+          "ja": "聞きたいことをすべて思い出せたと思った。"
+        },
+        {
+          "en": "Only on the way home did he remember another important question.",
+          "ja": "帰り道になって初めて、別の大事な質問を思い出した。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Emi suggested preparing a short list before the next appointment.",
+          "ja": "エミは次の診察の前に短いリストを用意するよう提案した。"
+        },
+        {
+          "en": "Together, they wrote down his questions and left room for answers.",
+          "ja": "二人で質問を書き、答えを書くスペースを残した。"
+        },
+        {
+          "en": "Her father marked the question that was most important to him.",
+          "ja": "父は自分にとって最も重要な質問に印をつけた。"
+        },
+        {
+          "en": "He also decided to bring a pen to the clinic.",
+          "ja": "診療所にペンを持参することにもした。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "At his next visit, he showed the list to the doctor.",
+          "ja": "次の受診で、父は医師にリストを見せた。"
+        },
+        {
+          "en": "The doctor answered the questions and gave him time to take notes.",
+          "ja": "医師は質問に答え、メモを取る時間を与えた。"
+        },
+        {
+          "en": "When an explanation was unclear, he asked the doctor to explain again.",
+          "ja": "説明が分かりにくいとき、父は再説明を求めた。"
+        },
+        {
+          "en": "Emi waited outside because her father wanted to speak privately.",
+          "ja": "父が個人的に話したかったためエミは外で待った。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "Later, her father said that the list had made the conversation easier.",
+          "ja": "後で父はリストのおかげで会話が楽になったと言った。"
+        },
+        {
+          "en": "He still had to make decisions together with his doctor.",
+          "ja": "引き続き医師と一緒に決定する必要があった。"
+        },
+        {
+          "en": "The paper could not provide medical advice on its own.",
+          "ja": "紙自体が医学的な助言を与えることはできなかった。"
+        },
+        {
+          "en": "But it helped him take a more active part in the discussion.",
+          "ja": "しかし話し合いにより積極的に参加する助けになった。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "Why did Emi's father visit the clinic?",
+      "options": [
+        "To buy a pen.",
+        "To meet a school friend.",
+        "To discuss examination results.",
+        "To repair his phone."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "検査結果を話し合うため。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What did he fail to do before the first visit?",
+      "options": [
+        "Write down his questions.",
+        "Make an appointment.",
+        "Tell Emi about the visit.",
+        "Bring his examination results."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "質問を書き留めなかった。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "When did he remember another question?",
+      "options": [
+        "The previous week.",
+        "Before leaving home.",
+        "While taking the examination.",
+        "On the way home."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "帰り道で思い出した。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What did Emi suggest?",
+      "options": [
+        "Changing clinics.",
+        "Preparing a list of questions.",
+        "Canceling the next visit.",
+        "Memorizing a medical textbook."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "質問リストを事前に準備すること。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What did her father mark on the list?",
+      "options": [
+        "The date of Emi's birthday.",
+        "The question most important to him.",
+        "The doctor's name.",
+        "The price of a pen."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "最重要の質問に印をつけた。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What did he do when an explanation was unclear?",
+      "options": [
+        "Left the room immediately.",
+        "Pretended to understand.",
+        "Called Emi's teacher.",
+        "Asked for another explanation."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "医師に再説明を求めた。"
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary",
+      "prompt": "What does 'privately' mean here?",
+      "options": [
+        "Without other people present.",
+        "Very loudly.",
+        "In a hurry.",
+        "In a public meeting."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "ほかの人がいないところでという意味。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "Why did Emi stay outside during the second visit?",
+      "options": [
+        "She was late for school.",
+        "She had lost the list.",
+        "Her father wanted to speak in private.",
+        "The doctor had canceled the appointment."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "父が個人的に話したかった。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What could the paper not do on its own?",
+      "options": [
+        "Record questions.",
+        "Leave room for answers.",
+        "Remind him of his concerns.",
+        "Provide medical advice."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "紙自体は医学的助言を提供できない。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What does the story mainly illustrate?",
+      "options": [
+        "Patients should make medical decisions without doctors.",
+        "Preparing questions can support communication at a medical visit.",
+        "Family members must attend all appointments.",
+        "Doctors should avoid explaining examination results."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3",
+        "p4",
+        "p5"
+      ],
+      "explanation_ja": "質問の準備が受診時のコミュニケーションを助ける。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "local",
+      "ja": "地元の",
+      "synonym": "nearby",
+      "definition": "belonging to an area near someone"
+    },
+    {
+      "term": "clinic",
+      "ja": "診療所",
+      "synonym": "medical center",
+      "definition": "a place providing medical care"
+    },
+    {
+      "term": "appointment",
+      "ja": "予約・診察予約",
+      "synonym": "scheduled visit",
+      "definition": "an arranged time to meet someone"
+    },
+    {
+      "term": "discuss",
+      "ja": "話し合う",
+      "synonym": "talk about",
+      "definition": "exchange ideas or information about something"
+    },
+    {
+      "term": "results",
+      "ja": "結果",
+      "synonym": "findings",
+      "definition": "information produced by a test"
+    },
+    {
+      "term": "recent",
+      "ja": "最近の",
+      "synonym": "not long ago",
+      "definition": "having happened a short time ago"
+    },
+    {
+      "term": "examination",
+      "ja": "検査",
+      "synonym": "checkup",
+      "definition": "a medical check or test"
+    },
+    {
+      "term": "planned",
+      "ja": "計画した",
+      "synonym": "intended",
+      "definition": "decided in advance to do something"
+    },
+    {
+      "term": "During",
+      "ja": "〜の間に",
+      "synonym": "throughout",
+      "definition": "within the time of an event"
+    },
+    {
+      "term": "explained",
+      "ja": "説明した",
+      "synonym": "clarified",
+      "definition": "made information easier to understand"
+    },
+    {
+      "term": "carefully",
+      "ja": "注意深く",
+      "synonym": "attentively",
+      "definition": "with close attention"
+    },
+    {
+      "term": "remembered",
+      "ja": "思い出した",
+      "synonym": "recalled",
+      "definition": "brought information back to mind"
+    },
+    {
+      "term": "suggested",
+      "ja": "提案した",
+      "synonym": "proposed",
+      "definition": "offered an idea"
+    },
+    {
+      "term": "preparing",
+      "ja": "用意すること",
+      "synonym": "getting ready",
+      "definition": "making something ready for use"
+    },
+    {
+      "term": "room",
+      "ja": "余地・スペース",
+      "synonym": "space",
+      "definition": "an area available for something"
+    },
+    {
+      "term": "marked",
+      "ja": "印をつけた",
+      "synonym": "highlighted",
+      "definition": "put a sign on something to identify it"
+    },
+    {
+      "term": "important",
+      "ja": "重要な",
+      "synonym": "significant",
+      "definition": "having great value or meaning"
+    },
+    {
+      "term": "answered",
+      "ja": "答えた",
+      "synonym": "replied to",
+      "definition": "gave a response to a question"
+    },
+    {
+      "term": "take notes",
+      "ja": "メモを取る",
+      "synonym": "write notes",
+      "definition": "record useful information in writing"
+    },
+    {
+      "term": "explanation",
+      "ja": "説明",
+      "synonym": "clarification",
+      "definition": "information that makes something understandable"
+    },
+    {
+      "term": "unclear",
+      "ja": "分かりにくい",
+      "synonym": "confusing",
+      "definition": "not easy to understand"
+    },
+    {
+      "term": "privately",
+      "ja": "内密に・個人的に",
+      "synonym": "in private",
+      "definition": "without other people being present"
+    },
+    {
+      "term": "conversation",
+      "ja": "会話",
+      "synonym": "talk",
+      "definition": "an exchange of spoken information"
+    },
+    {
+      "term": "decisions",
+      "ja": "決定",
+      "synonym": "choices",
+      "definition": "conclusions about what to do"
+    },
+    {
+      "term": "medical",
+      "ja": "医学的な",
+      "synonym": "health-related",
+      "definition": "concerning medicine or health care"
+    },
+    {
+      "term": "advice",
+      "ja": "助言",
+      "synonym": "guidance",
+      "definition": "suggestions about what to do"
+    },
+    {
+      "term": "active",
+      "ja": "積極的な",
+      "synonym": "involved",
+      "definition": "taking part with effort or interest"
+    },
+    {
+      "term": "discussion",
+      "ja": "話し合い",
+      "synonym": "conversation",
+      "definition": "an exchange of ideas about a subject"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "Before leaving home",
+      "explanation_ja": "before＋動名詞で先行する行動を表す。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "Only on the way home did he remember",
+      "explanation_ja": "onlyで始まる副詞句の前置による倒置。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 0,
+      "focus": "suggested preparing",
+      "explanation_ja": "suggestは動名詞を目的語に取れる。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "helped him take",
+      "explanation_ja": "help＋人＋動詞原形の構造。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "質問する意図と準備しなかったことを対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "During",
+      "role_ja": "診察中という時間を示す。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "because",
+      "role_ja": "エミが外で待った理由を示す。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "But",
+      "role_ja": "紙自体の限界と会話への役立ちを対比。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "He thought that he had remembered everything he wanted to ask.",
+      "rewrite": "He believed he had asked all the questions he had planned.",
+      "explanation_ja": "予定していた質問を全部尋ねたと思った。"
+    },
+    {
+      "source": "Together, they wrote down his questions and left room for answers.",
+      "rewrite": "They recorded his questions and kept space for the replies.",
+      "explanation_ja": "質問を書き、回答欄を確保した。"
+    },
+    {
+      "source": "When an explanation was unclear, he asked the doctor to explain again.",
+      "rewrite": "If he did not understand an explanation, he requested another one.",
+      "explanation_ja": "理解できない説明は再度求めた。"
+    },
+    {
+      "source": "But it helped him take a more active part in the discussion.",
+      "rewrite": "However, it allowed him to participate more actively in the conversation.",
+      "explanation_ja": "会話により積極的に参加する助けになった。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "answer": "appointment",
+      "options": [
+        "appointment",
+        "holiday",
+        "concert",
+        "game"
+      ],
+      "explanation_ja": "診察の予約があった。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "room",
+      "options": [
+        "noise",
+        "room",
+        "weather",
+        "food"
+      ],
+      "explanation_ja": "回答を書く余白。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "unclear",
+      "options": [
+        "ancient",
+        "heavy",
+        "unclear",
+        "round"
+      ],
+      "explanation_ja": "説明が分かりにくかった。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "advice",
+      "options": [
+        "music",
+        "tickets",
+        "clothes",
+        "advice"
+      ],
+      "explanation_ja": "紙自体は医学的助言を与えられない。"
+    }
+  ]
+}

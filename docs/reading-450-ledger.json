@@ -5,9 +5,9 @@
   "as_of": "2026-11-14",
   "authoritative_branch": "coord/reading-450-registry",
   "manifest_path": "data/reading/entrance/manifest.json",
-  "registered_total": 174,
+  "registered_total": 177,
   "production_reference_count": 28,
-  "development_unpublished_total": 146,
+  "development_unpublished_total": 149,
   "accepted_ids": [
     "L01-001",
     "L01-002",
@@ -128,6 +128,7 @@
     "L10-009",
     "L10-010",
     "L10-011",
+    "L10-012",
     "L11-001",
     "L11-002",
     "L11-003",
@@ -139,6 +140,7 @@
     "L11-009",
     "L11-010",
     "L11-011",
+    "L11-012",
     "L12-001",
     "L12-002",
     "L12-003",
@@ -150,6 +152,7 @@
     "L12-009",
     "L12-010",
     "L12-011",
+    "L12-012",
     "L13-001",
     "L13-002",
     "L13-003",
@@ -242,19 +245,19 @@
     {
       "id": "L10",
       "label": "教育・学習",
-      "registered": 11,
+      "registered": 12,
       "next_suggested_id": "L10-013"
     },
     {
       "id": "L11",
       "label": "法律・政治",
-      "registered": 11,
+      "registered": 12,
       "next_suggested_id": "L11-013"
     },
     {
       "id": "L12",
       "label": "医療・健康",
-      "registered": 11,
+      "registered": 12,
       "next_suggested_id": "L12-013"
     },
     {
@@ -276,29 +279,7 @@
       "next_suggested_id": "L15-012"
     }
   ],
-  "reservations": [
-    {
-      "id": "L10-012",
-      "owner": "cobalt-forest",
-      "work_branch": "content/reading-20261114-cobalt-forest",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L11-012",
-      "owner": "cobalt-forest",
-      "work_branch": "content/reading-20261114-cobalt-forest",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    },
-    {
-      "id": "L12-012",
-      "owner": "cobalt-forest",
-      "work_branch": "content/reading-20261114-cobalt-forest",
-      "reserved_at": "2026-11-14",
-      "status": "reserved"
-    }
-  ],
+  "reservations": [],
   "reservation_workflow": {
     "before_drafting": "Fetch THIS file from authoritative_branch and manifest from the same branch; check the requested ID is absent from accepted_ids and reservations.",
     "claim": "Update THIS file on authoritative_branch using its freshly fetched GitHub blob SHA. If update_file rejects because the SHA changed, refetch and choose again; do not write any lesson before the successful reservation commit.",
