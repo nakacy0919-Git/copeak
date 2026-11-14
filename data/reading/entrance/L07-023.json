@@ -1,0 +1,692 @@
+{
+  "id": "L07-023",
+  "category_id": "L07",
+  "title": "The Cost of an Empty Bottle",
+  "title_ja": "空き瓶の費用",
+  "level_id": "eiken-2",
+  "status": "draft",
+  "original": true,
+  "word_count": 370,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "架空の教材例・思考実験。実在の調査、統計、制度、実証結果ではない。登録台帳は制作来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A fictional juice producer introduces glass bottles that customers can return to participating stores after drinking the juice.",
+          "ja": "架空のジュース会社は飲んだ後に参加店に返せるガラス瓶を導入する。"
+        },
+        {
+          "en": "At first, the company expects that buying fewer new bottles will immediately reduce its expenses.",
+          "ja": "当初会社は新品購入の減少が直ちに費用を削減すると予想する。"
+        },
+        {
+          "en": "However, the manager soon realizes that a bottle does not return to the factory simply because the customer has finished using it.",
+          "ja": "しかし客が使い終えただけでは瓶は工場に戻らないと管理者はすぐ気づく。"
+        },
+        {
+          "en": "Collecting, transporting, inspecting, and storing the empty containers require an additional network of activities.",
+          "ja": "空容器の回収、輸送、検査、保管には追加の業務網が必要だ。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The company examines the route followed by a bottle after it leaves the store.",
+          "ja": "会社は瓶が店を出た後の経路を調べる。"
+        },
+        {
+          "en": "A store that sells large quantities of juice may accumulate enough empty bottles to justify a regular collection service.",
+          "ja": "大量に売る店なら定期回収を正当化できるだけの空き瓶がたまるかもしれない。"
+        },
+        {
+          "en": "A distant shop with relatively few customers may require a separate arrangement, especially if vehicles would otherwise travel empty for part of the journey.",
+          "ja": "遠方で客が比較的少ない店は別の手配が必要かもしれず、特に車両が移動の一部を空で走る場合はそうだ。"
+        },
+        {
+          "en": "The manager recognizes that the financial value of reuse depends on the organization of the entire return process.",
+          "ja": "再利用の財務的価値は返却過程全体の仕組みに依存すると認識する。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Rather than promising immediate savings, the company designs a limited trial involving several hypothetical stores.",
+          "ja": "直ちに節約を約束せず複数の仮想店舗で限定試行を設計する。"
+        },
+        {
+          "en": "It records the number of bottles returned, the resources required to collect them, and the proportion that can be prepared for further use.",
+          "ja": "返却数、回収に必要な資源、再使用の準備ができる割合を記録する。"
+        },
+        {
+          "en": "The employees also consider how a deposit might encourage customers to return containers without creating an unreasonable barrier to purchasing the product.",
+          "ja": "預り金が購入の過度な障壁にならず返却を促す方法も検討する。"
+        },
+        {
+          "en": "Different arrangements are compared according to both their operational costs and their potential convenience for customers.",
+          "ja": "様々な仕組みを運用費と客への潜在的利便性の両方で比較する。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The company discovers that its original accounting method treated a sale as the final stage of a bottle's economic life.",
+          "ja": "元の会計方法は販売を瓶の経済的寿命の最終段階と扱っていたと気づく。"
+        },
+        {
+          "en": "Under the proposed model, a returned container becomes a resource that must be managed rather than merely a discarded object.",
+          "ja": "提案モデルでは返却容器は単なる廃棄物でなく管理すべき資源になる。"
+        },
+        {
+          "en": "The fictional trial cannot establish that every return system is profitable or environmentally superior to every alternative.",
+          "ja": "架空の試行は全返却制度が利益を上げる、または全代替案より環境的に優れると確定できない。"
+        },
+        {
+          "en": "Nevertheless, it reveals expenses and opportunities that were invisible when attention was limited to the initial sale.",
+          "ja": "それでも初回販売だけに注目すると見えなかった費用と機会を示す。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "A business model determines not only how a company earns money but also which activities it considers economically important.",
+          "ja": "事業モデルは収益方法だけでなく経済的に重要と考える活動も決める。"
+        },
+        {
+          "en": "Changing a product's expected life can consequently change the relationships among customers, retailers, and producers.",
+          "ja": "製品の予想寿命を変えると客、小売業者、生産者の関係も変わり得る。"
+        },
+        {
+          "en": "The value of reuse cannot be judged by counting new purchases avoided without considering the work necessary to make reuse possible.",
+          "ja": "再利用を可能にする仕事を考えず避けた新品購入だけを数えて再利用価値は判断できない。"
+        },
+        {
+          "en": "For the imaginary company, the empty bottle represents not the end of a transaction but the beginning of another economic process.",
+          "ja": "架空会社にとって空き瓶は取引の終わりでなく次の経済過程の始まりだ。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "producer",
+      "ja": "生産者",
+      "synonym": "manufacturer",
+      "definition": "business making goods"
+    },
+    {
+      "term": "introduces",
+      "ja": "導入する",
+      "synonym": "launches",
+      "definition": "brings into use"
+    },
+    {
+      "term": "participating",
+      "ja": "参加している",
+      "synonym": "involved",
+      "definition": "taking part"
+    },
+    {
+      "term": "immediately",
+      "ja": "すぐに",
+      "synonym": "at once",
+      "definition": "without delay"
+    },
+    {
+      "term": "expenses",
+      "ja": "費用",
+      "synonym": "costs",
+      "definition": "money spent"
+    },
+    {
+      "term": "manager",
+      "ja": "管理者",
+      "synonym": "supervisor",
+      "definition": "person directing operations"
+    },
+    {
+      "term": "collecting",
+      "ja": "回収すること",
+      "synonym": "gathering",
+      "definition": "bringing things together"
+    },
+    {
+      "term": "transporting",
+      "ja": "輸送すること",
+      "synonym": "moving",
+      "definition": "carrying from one place to another"
+    },
+    {
+      "term": "inspecting",
+      "ja": "検査すること",
+      "synonym": "checking",
+      "definition": "examining for problems"
+    },
+    {
+      "term": "storing",
+      "ja": "保管すること",
+      "synonym": "keeping",
+      "definition": "retaining for later use"
+    },
+    {
+      "term": "containers",
+      "ja": "容器",
+      "synonym": "vessels",
+      "definition": "objects holding substances"
+    },
+    {
+      "term": "additional",
+      "ja": "追加の",
+      "synonym": "extra",
+      "definition": "more than what exists"
+    },
+    {
+      "term": "network",
+      "ja": "網",
+      "synonym": "system",
+      "definition": "connected group of things"
+    },
+    {
+      "term": "route",
+      "ja": "経路",
+      "synonym": "path",
+      "definition": "way between places"
+    },
+    {
+      "term": "quantities",
+      "ja": "数量",
+      "synonym": "amounts",
+      "definition": "measurable amounts"
+    },
+    {
+      "term": "accumulate",
+      "ja": "蓄積する",
+      "synonym": "gather",
+      "definition": "increase over time"
+    },
+    {
+      "term": "justify",
+      "ja": "正当化する",
+      "synonym": "defend",
+      "definition": "provide good reasons for"
+    },
+    {
+      "term": "regular",
+      "ja": "定期的な",
+      "synonym": "routine",
+      "definition": "occurring at repeated times"
+    },
+    {
+      "term": "distant",
+      "ja": "遠い",
+      "synonym": "remote",
+      "definition": "far away"
+    },
+    {
+      "term": "relatively",
+      "ja": "比較的",
+      "synonym": "comparatively",
+      "definition": "to a comparative degree"
+    },
+    {
+      "term": "arrangement",
+      "ja": "手配",
+      "synonym": "plan",
+      "definition": "organized way of doing something"
+    },
+    {
+      "term": "vehicles",
+      "ja": "車両",
+      "synonym": "transport units",
+      "definition": "machines carrying people or goods"
+    },
+    {
+      "term": "otherwise",
+      "ja": "そうでなければ",
+      "synonym": "alternatively",
+      "definition": "in other circumstances"
+    },
+    {
+      "term": "financial",
+      "ja": "財務的な",
+      "synonym": "monetary",
+      "definition": "relating to money"
+    },
+    {
+      "term": "reuse",
+      "ja": "再利用",
+      "synonym": "repeated use",
+      "definition": "using something again"
+    },
+    {
+      "term": "organization",
+      "ja": "仕組み",
+      "synonym": "structure",
+      "definition": "way things are organized"
+    },
+    {
+      "term": "trial",
+      "ja": "試行",
+      "synonym": "test",
+      "definition": "limited attempt to examine something"
+    },
+    {
+      "term": "hypothetical",
+      "ja": "仮想の",
+      "synonym": "imagined",
+      "definition": "assumed for reasoning"
+    },
+    {
+      "term": "resources",
+      "ja": "資源",
+      "synonym": "assets",
+      "definition": "things available for use"
+    },
+    {
+      "term": "proportion",
+      "ja": "割合",
+      "synonym": "fraction",
+      "definition": "part of a whole"
+    },
+    {
+      "term": "deposit",
+      "ja": "預り金",
+      "synonym": "security payment",
+      "definition": "money held until a condition is met"
+    },
+    {
+      "term": "unreasonable",
+      "ja": "不合理な",
+      "synonym": "excessive",
+      "definition": "not reasonable"
+    },
+    {
+      "term": "barrier",
+      "ja": "障壁",
+      "synonym": "obstacle",
+      "definition": "thing preventing progress"
+    },
+    {
+      "term": "operational",
+      "ja": "運用上の",
+      "synonym": "functional",
+      "definition": "relating to running a system"
+    },
+    {
+      "term": "potential",
+      "ja": "潜在的な",
+      "synonym": "possible",
+      "definition": "capable of occurring"
+    },
+    {
+      "term": "convenience",
+      "ja": "利便性",
+      "synonym": "ease",
+      "definition": "quality of being easy to use"
+    },
+    {
+      "term": "accounting",
+      "ja": "会計",
+      "synonym": "bookkeeping",
+      "definition": "recording financial activities"
+    },
+    {
+      "term": "discarded",
+      "ja": "廃棄された",
+      "synonym": "thrown away",
+      "definition": "got rid of"
+    },
+    {
+      "term": "profitable",
+      "ja": "利益を生む",
+      "synonym": "lucrative",
+      "definition": "producing financial gain"
+    },
+    {
+      "term": "superior",
+      "ja": "優れた",
+      "synonym": "better",
+      "definition": "of higher quality"
+    },
+    {
+      "term": "alternative",
+      "ja": "代替案",
+      "synonym": "option",
+      "definition": "different possible choice"
+    },
+    {
+      "term": "Nevertheless",
+      "ja": "それでも",
+      "synonym": "even so",
+      "definition": "despite that fact"
+    },
+    {
+      "term": "invisible",
+      "ja": "見えない",
+      "synonym": "unseen",
+      "definition": "not able to be seen"
+    },
+    {
+      "term": "initial",
+      "ja": "最初の",
+      "synonym": "first",
+      "definition": "coming at the beginning"
+    },
+    {
+      "term": "consequently",
+      "ja": "その結果",
+      "synonym": "therefore",
+      "definition": "as a result"
+    },
+    {
+      "term": "retailers",
+      "ja": "小売業者",
+      "synonym": "sellers",
+      "definition": "businesses selling to consumers"
+    },
+    {
+      "term": "transaction",
+      "ja": "取引",
+      "synonym": "exchange",
+      "definition": "act of buying or selling"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What does the company introduce?",
+      "options": [
+        "Disposable paper bags only.",
+        "Returnable glass bottles.",
+        "A new factory location.",
+        "A system of home delivery only."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "返却可能な瓶。"
+    },
+    {
+      "id": "q2",
+      "skill": "inference",
+      "prompt": "Why are fewer new purchases not enough to establish savings?",
+      "options": [
+        "The company cannot sell juice.",
+        "All returned bottles disappear.",
+        "The initial purchase is always free.",
+        "Returning bottles involves additional work."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "返却の業務費。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "Which store might justify regular collection?",
+      "options": [
+        "One with no customers.",
+        "A store that never sells bottles.",
+        "One selling large quantities of juice.",
+        "A shop closed for years."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "大量販売店。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why consider transport routes?",
+      "options": [
+        "Collection costs depend on how returns are organized.",
+        "All transport is free.",
+        "Every store is equally distant.",
+        "Customers always return bottles to the factory."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "回収経路と費用。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What is recorded during the trial?",
+      "options": [
+        "Only the color of bottles.",
+        "The salaries of unrelated workers.",
+        "Exact environmental benefits for all systems.",
+        "Returns, collection resources and reusable proportion."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "返却と必要資源。"
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "What is the purpose of considering a deposit?",
+      "options": [
+        "Prevent customers from buying juice.",
+        "Encourage returns without excessive purchase barriers.",
+        "Replace every repair service.",
+        "Guarantee that all bottles return."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "返却促進と購入負担。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What did earlier accounting treat as the last stage?",
+      "options": [
+        "The initial sale.",
+        "The return journey.",
+        "Inspection of empty bottles.",
+        "The second sale."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "初回販売。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "Why does the trial not establish environmental superiority?",
+      "options": [
+        "Reuse can never benefit the environment.",
+        "All alternatives have identical costs.",
+        "A limited hypothetical exercise cannot prove universal outcomes.",
+        "No bottles can be reused."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "一般化の限界。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does transaction mean?",
+      "options": [
+        "A type of transport vehicle.",
+        "An exchange involving buying or selling.",
+        "An environmental measurement.",
+        "A written timetable."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "取引。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the central argument?",
+      "options": [
+        "Reuse requires considering the full system of activities and costs.",
+        "Buying fewer bottles always guarantees savings.",
+        "Return systems need no organization.",
+        "The initial sale is the only economic activity."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "再利用全体の費用と仕組み。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "simply because the customer has finished",
+      "explanation_ja": "simply becauseは単に〜だから。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "enough empty bottles to justify",
+      "explanation_ja": "enough＋名詞＋to。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 0,
+      "focus": "Rather than promising immediate savings",
+      "explanation_ja": "rather thanは対比。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "focus": "without considering the work necessary",
+      "explanation_ja": "without＋動名詞。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "However, the manager soon realizes that a bottle does not return to the factory simply because the customer has finished using it.",
+      "rewrite": "A customer's finishing the juice does not by itself return the bottle to the factory.",
+      "explanation_ja": "使用後の返却過程。"
+    },
+    {
+      "source": "A store that sells large quantities of juice may accumulate enough empty bottles to justify a regular collection service.",
+      "rewrite": "High sales may generate sufficient returns to make regular collection worthwhile.",
+      "explanation_ja": "回収の規模。"
+    },
+    {
+      "source": "Rather than promising immediate savings, the company designs a limited trial involving several hypothetical stores.",
+      "rewrite": "The company tests the model before promising savings.",
+      "explanation_ja": "試行の優先。"
+    },
+    {
+      "source": "The value of reuse cannot be judged by counting new purchases avoided without considering the work necessary to make reuse possible.",
+      "rewrite": "Avoided purchases alone cannot measure the value of reuse because collection and preparation also matter.",
+      "explanation_ja": "再利用の業務。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "節約予想と現実。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "especially",
+      "role_ja": "遠距離輸送の条件。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "also",
+      "role_ja": "預り金の検討。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "限界と学び。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "accumulate",
+      "options": [
+        "accumulate",
+        "discard",
+        "forget",
+        "avoid"
+      ],
+      "explanation_ja": "空き瓶が蓄積。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "deposit",
+      "options": [
+        "receipt",
+        "deposit",
+        "portrait",
+        "celebration"
+      ],
+      "explanation_ja": "返却を促す預り金。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "discarded",
+      "options": [
+        "preserved",
+        "valuable",
+        "discarded",
+        "reused"
+      ],
+      "explanation_ja": "単なる廃棄物ではない。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "answer": "transaction",
+      "options": [
+        "decoration",
+        "celebration",
+        "transportation",
+        "transaction"
+      ],
+      "explanation_ja": "取引の終わり。"
+    }
+  ]
+}

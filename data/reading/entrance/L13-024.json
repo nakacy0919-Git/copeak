@@ -1,0 +1,846 @@
+{
+  "id": "L13-024",
+  "category_id": "L13",
+  "title": "The Calendar of a World with Two Clocks",
+  "title_ja": "二つの時計を持つ世界の暦",
+  "level_id": "eiken-1",
+  "status": "draft",
+  "original": true,
+  "word_count": 860,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "架空の教材例・思考実験。実在の調査、統計、観測、制度、実証結果ではない。制作台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Imagine a fictional planet on which a permanent scientific settlement has been established, although the inhabitants continue to coordinate many of their activities with institutions located on Earth.",
+          "ja": "地球の機関と多くの活動を調整し続ける恒久的な科学居住地が確立された架空の惑星を想像しよう。"
+        },
+        {
+          "en": "The settlement's planners discover that the conventions used to describe time can influence not only the organization of everyday work but also the interpretation of records preserved for future generations.",
+          "ja": "計画者は時間を記述する慣行が日常業務の構成だけでなく将来世代に保存する記録の解釈にも影響し得ると知る。"
+        },
+        {
+          "en": "For the purposes of this thought experiment, the local cycle of daylight is assumed to differ substantially from the familiar cycle that the settlers experienced before leaving Earth, without assigning any specific astronomical measurements to the imagined world.",
+          "ja": "この思考実験では架空世界に特定の天文学的測定値を設定せず、現地の日照周期は移住者が地球出発前に経験したものと大幅に異なると仮定する。"
+        },
+        {
+          "en": "Some inhabitants advocate organizing their routines around the familiar calendar, arguing that doing so would facilitate communication with laboratories and other organizations whose schedules remain tied to established terrestrial conventions.",
+          "ja": "身近な暦を中心に日課を組むことを主張する住民もいる。そうすれば日程が地球上の既存慣行に結びついた研究所などの組織との意思疎通が容易になるという。"
+        },
+        {
+          "en": "Others suggest constructing a local calendar that reflects the conditions actually encountered by the inhabitants, questioning whether a system imported from another environment should continue to determine the structure of their daily experiences.",
+          "ja": "他の住民は実際に遭遇する条件を反映した現地暦の構築を提案し、別環境から持ち込んだ制度が日常経験の構造を決め続けるべきか疑問視する。"
+        },
+        {
+          "en": "The disagreement becomes more complicated when the planners realize that the same unit of time may serve several purposes that do not necessarily require the same boundaries or reference points.",
+          "ja": "同じ時間単位が同じ境界や基準点を必要としない複数目的に役立ち得ると気づくと対立はより複雑になる。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "A team responsible for maintaining experimental records proposes adopting a common system of measurement that allows researchers in different locations to compare the timing and duration of observed events.",
+          "ja": "実験記録を維持するチームは異なる地点の研究者が観測事象の時刻と継続時間を比較できる共通測定法の採用を提案する。"
+        },
+        {
+          "en": "This system need not correspond precisely to the schedule by which inhabitants organize their ordinary social activities.",
+          "ja": "この方法は住民の日常社会活動の日程と正確に一致する必要はない。"
+        },
+        {
+          "en": "The planners distinguish the scientific need to establish comparable intervals from the practical need to designate periods during which particular services or collective activities are available.",
+          "ja": "科学的に比較可能な間隔を確立する必要と特定サービスや集団活動が利用可能な期間を指定する実務的必要を区別する。"
+        },
+        {
+          "en": "They also identify a third purpose for a calendar: providing a set of names and occasions through which inhabitants can commemorate events that have become meaningful to their community.",
+          "ja": "暦の第三の目的として共同体に意味ある出来事を記念できる名称と機会の集まりを提供することも特定する。"
+        },
+        {
+          "en": "These different purposes suggest that an attempt to make a single convention satisfy every requirement may introduce unnecessary complications, especially if a decision intended to improve scientific coordination imposes costs on people whose principal concerns are unrelated to research.",
+          "ja": "これらの異なる目的は単一慣行で全要件を満たそうとすると不要な複雑さを持ち込むことを示唆する。特に科学的調整改善のための判断が主な関心を研究に持たない人に負担を課す場合だ。"
+        },
+        {
+          "en": "Nevertheless, allowing several conventions to coexist would require mechanisms through which people could translate between them accurately whenever their activities intersect.",
+          "ja": "それでも複数慣行の共存を認めるには活動が交差するたび正確に相互変換できる仕組みが必要になる。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The settlement's archivist raises a further question concerning the documents that will be produced during the transition between different calendar systems.",
+          "ja": "居住地の記録管理者は暦制度間の移行中に作られる文書についてさらに問う。"
+        },
+        {
+          "en": "A record describing an experimental observation or a scheduled event might be intelligible to its original author while remaining ambiguous to a reader who is unfamiliar with the convention used at the time.",
+          "ja": "実験観測や予定行事を記述した記録は元の作成者に理解できても当時の慣行を知らない読者には曖昧なままかもしれない。"
+        },
+        {
+          "en": "Simply replacing the dates in older documents with dates expressed according to a new convention could conceal information about the circumstances in which the original records acquired their significance.",
+          "ja": "旧文書の日付を新慣行の日付に単純に置き換えることは、元記録が意味を得た事情の情報を隠し得る。"
+        },
+        {
+          "en": "The archivist therefore recommends preserving explicit information about the reference system used in a record, together with any subsequent conversion relevant to its interpretation.",
+          "ja": "そこで記録の基準制度についての明示情報を解釈に関連するその後の変換とともに保存するよう勧める。"
+        },
+        {
+          "en": "The team acknowledges that a reliable conversion procedure would depend on a carefully specified relationship between the conventions and would require independent verification before being applied to consequential scientific or administrative records.",
+          "ja": "信頼できる変換手順は慣行間の慎重に特定された関係に依存し、重大な科学・行政記録への適用前に独立検証を必要とするとチームは認める。"
+        },
+        {
+          "en": "The fictional example does not prescribe how any real extraterrestrial mission should measure time; it is intended to explore the distinct functions that familiar conventions can perform within an institution.",
+          "ja": "架空例は実際の地球外任務がどう時間を測るべきか規定せず、身近な慣行が制度内で果たす異なる機能を探究する目的だ。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "As the discussion develops, the inhabitants begin to realize that preserving the ability to communicate with Earth does not necessarily require reproducing every social practice associated with the calendar they inherited.",
+          "ja": "議論が進むと地球との通信能力の維持には受け継いだ暦関連の全社会慣行の再現が必ずしも必要でないと悟る。"
+        },
+        {
+          "en": "Furthermore, creating a distinctive local calendar need not entail rejecting the common measurements that allow observations from different locations to be compared.",
+          "ja": "さらに独自の現地暦を作っても異なる地点の観測比較を可能にする共通測定の拒絶を伴う必要はない。"
+        },
+        {
+          "en": "They consider arrangements that preserve the interoperability of scientific records while allowing people to develop local conventions for activities whose meaning depends principally on their own circumstances.",
+          "ja": "科学記録の相互運用性を維持しつつ意味が主に自らの事情に依存する活動の現地慣行を発展させられる仕組みを検討する。"
+        },
+        {
+          "en": "An important consideration is how the participants will recognize which convention applies in a particular context without being forced to perform complicated conversions during every ordinary interaction.",
+          "ja": "重要な考慮事項は通常のやり取りのたびに複雑変換を強いられず特定文脈でどの慣行が適用されるか参加者が認識する方法だ。"
+        },
+        {
+          "en": "Consequently, the proposed arrangements include clear designations for different kinds of records and a procedure for addressing discrepancies when two apparently equivalent descriptions refer to different events or intervals.",
+          "ja": "そのため提案には異なる種類の記録の明確な表示と一見同等な二記述が異なる出来事や間隔を指すときの食い違い対応手順が含まれる。"
+        },
+        {
+          "en": "The designers recognize that the intelligibility of the entire system will depend not only on mathematical relationships between units but also on the language through which its conventions are communicated to the people using them.",
+          "ja": "システム全体の理解可能性は単位間の数学関係だけでなく利用者への慣行伝達に使う言語にも依存すると認識する。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "Conventions tend to become inconspicuous when the circumstances in which they were established remain familiar to the people who use them.",
+          "ja": "慣行は確立時の事情が利用者に身近なままだと目立たなくなりやすい。"
+        },
+        {
+          "en": "An unfamiliar environment can therefore provide an opportunity to examine distinctions between purposes that had previously appeared inseparable.",
+          "ja": "未知環境は以前切り離せないように見えた目的間の区別を調べる機会になり得る。"
+        },
+        {
+          "en": "The choice of a calendar can involve questions of coordination, practical convenience, collective memory, and cultural identity, even when its underlying measurements can be expressed with considerable mathematical precision.",
+          "ja": "暦の選択には基礎測定がかなり数学的に正確に表せる場合でも調整、実務的利便性、集合的記憶、文化的アイデンティティの問いが関わり得る。"
+        },
+        {
+          "en": "A defensible institutional arrangement must consider how different conventions will be coordinated, rather than presuming that uniformity in every aspect of life is the only means of maintaining a shared system of communication.",
+          "ja": "正当化可能な制度は生活の全側面での画一性が共有通信システム維持の唯一手段と推定せず異なる慣行をどう調整するか考慮しなければならない。"
+        },
+        {
+          "en": "For the imagined settlement, the challenge of constructing a calendar thus becomes a broader question about how people can preserve the advantages of common standards without assuming that every meaningful activity must be organized according to them.",
+          "ja": "架空居住地にとって暦構築の課題は全ての意味ある活動が共通基準に従うべきと想定せずその利点を保つ方法という広い問いになる。"
+        },
+        {
+          "en": "The two clocks represent not necessarily a failure to achieve unity but a possibility of coordinating distinct aspects of human experience without obscuring the reasons why those aspects deserve to be distinguished.",
+          "ja": "二つの時計は必ずしも統一失敗でなく人間経験の異なる側面を区別するに値する理由を曖昧にせず調整できる可能性を表す。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "permanent",
+      "ja": "恒久的な",
+      "synonym": "lasting",
+      "definition": "continuing for a long time"
+    },
+    {
+      "term": "settlement",
+      "ja": "居住地",
+      "synonym": "community",
+      "definition": "place where people establish homes"
+    },
+    {
+      "term": "inhabitants",
+      "ja": "住民",
+      "synonym": "residents",
+      "definition": "people living in a place"
+    },
+    {
+      "term": "coordinate",
+      "ja": "調整する",
+      "synonym": "organize",
+      "definition": "arrange activities to work together"
+    },
+    {
+      "term": "institutions",
+      "ja": "機関",
+      "synonym": "organizations",
+      "definition": "established organizations"
+    },
+    {
+      "term": "conventions",
+      "ja": "慣行",
+      "synonym": "customs",
+      "definition": "accepted ways of doing things"
+    },
+    {
+      "term": "interpretation",
+      "ja": "解釈",
+      "synonym": "reading",
+      "definition": "way of assigning meaning"
+    },
+    {
+      "term": "cycle",
+      "ja": "周期",
+      "synonym": "sequence",
+      "definition": "series of events that repeats"
+    },
+    {
+      "term": "substantially",
+      "ja": "大幅に",
+      "synonym": "considerably",
+      "definition": "to a large degree"
+    },
+    {
+      "term": "astronomical",
+      "ja": "天文学の",
+      "synonym": "space-science",
+      "definition": "relating to astronomy"
+    },
+    {
+      "term": "measurements",
+      "ja": "測定値",
+      "synonym": "readings",
+      "definition": "values obtained by measuring"
+    },
+    {
+      "term": "advocate",
+      "ja": "主張する",
+      "synonym": "support",
+      "definition": "argue in favor of"
+    },
+    {
+      "term": "facilitate",
+      "ja": "容易にする",
+      "synonym": "enable",
+      "definition": "make easier to do"
+    },
+    {
+      "term": "terrestrial",
+      "ja": "地球上の",
+      "synonym": "earthly",
+      "definition": "relating to Earth"
+    },
+    {
+      "term": "imported",
+      "ja": "持ち込まれた",
+      "synonym": "introduced",
+      "definition": "brought from another place"
+    },
+    {
+      "term": "determine",
+      "ja": "決める",
+      "synonym": "decide",
+      "definition": "establish what something will be"
+    },
+    {
+      "term": "boundaries",
+      "ja": "境界",
+      "synonym": "limits",
+      "definition": "edges of a range"
+    },
+    {
+      "term": "reference points",
+      "ja": "基準点",
+      "synonym": "benchmarks",
+      "definition": "points used as a basis for comparison"
+    },
+    {
+      "term": "adopting",
+      "ja": "採用すること",
+      "synonym": "accepting",
+      "definition": "taking up a method"
+    },
+    {
+      "term": "duration",
+      "ja": "継続時間",
+      "synonym": "length",
+      "definition": "time something lasts"
+    },
+    {
+      "term": "observed",
+      "ja": "観測された",
+      "synonym": "recorded",
+      "definition": "noticed or measured"
+    },
+    {
+      "term": "correspond",
+      "ja": "一致する",
+      "synonym": "match",
+      "definition": "agree with another thing"
+    },
+    {
+      "term": "precisely",
+      "ja": "正確に",
+      "synonym": "exactly",
+      "definition": "with exactness"
+    },
+    {
+      "term": "comparable",
+      "ja": "比較可能な",
+      "synonym": "similar",
+      "definition": "similar enough for comparison"
+    },
+    {
+      "term": "intervals",
+      "ja": "間隔",
+      "synonym": "gaps",
+      "definition": "periods between events"
+    },
+    {
+      "term": "designate",
+      "ja": "指定する",
+      "synonym": "specify",
+      "definition": "identify for a particular purpose"
+    },
+    {
+      "term": "collective",
+      "ja": "集団の",
+      "synonym": "shared",
+      "definition": "involving a group"
+    },
+    {
+      "term": "commemorate",
+      "ja": "記念する",
+      "synonym": "honor",
+      "definition": "mark an important event"
+    },
+    {
+      "term": "requirement",
+      "ja": "要件",
+      "synonym": "condition",
+      "definition": "something that must be met"
+    },
+    {
+      "term": "complications",
+      "ja": "複雑さ",
+      "synonym": "difficulties",
+      "definition": "problems making something harder"
+    },
+    {
+      "term": "imposes",
+      "ja": "課す",
+      "synonym": "forces",
+      "definition": "requires someone to bear something"
+    },
+    {
+      "term": "principal",
+      "ja": "主な",
+      "synonym": "main",
+      "definition": "of greatest importance"
+    },
+    {
+      "term": "Nevertheless",
+      "ja": "それでも",
+      "synonym": "even so",
+      "definition": "despite that fact"
+    },
+    {
+      "term": "coexist",
+      "ja": "共存する",
+      "synonym": "exist together",
+      "definition": "exist at the same time"
+    },
+    {
+      "term": "mechanisms",
+      "ja": "仕組み",
+      "synonym": "systems",
+      "definition": "processes that achieve a result"
+    },
+    {
+      "term": "intersect",
+      "ja": "交差する",
+      "synonym": "overlap",
+      "definition": "meet or cross one another"
+    },
+    {
+      "term": "archivist",
+      "ja": "記録管理者",
+      "synonym": "records specialist",
+      "definition": "person managing historical records"
+    },
+    {
+      "term": "transition",
+      "ja": "移行",
+      "synonym": "changeover",
+      "definition": "process of changing between states"
+    },
+    {
+      "term": "intelligible",
+      "ja": "理解可能な",
+      "synonym": "understandable",
+      "definition": "able to be understood"
+    },
+    {
+      "term": "ambiguous",
+      "ja": "曖昧な",
+      "synonym": "unclear",
+      "definition": "having more than one possible meaning"
+    },
+    {
+      "term": "conceal",
+      "ja": "隠す",
+      "synonym": "hide",
+      "definition": "keep from view"
+    },
+    {
+      "term": "significance",
+      "ja": "意味・意義",
+      "synonym": "importance",
+      "definition": "quality of being meaningful"
+    },
+    {
+      "term": "explicit",
+      "ja": "明示的な",
+      "synonym": "clear",
+      "definition": "stated directly"
+    },
+    {
+      "term": "subsequent",
+      "ja": "その後の",
+      "synonym": "following",
+      "definition": "coming afterward"
+    },
+    {
+      "term": "conversion",
+      "ja": "変換",
+      "synonym": "transformation",
+      "definition": "change from one form into another"
+    },
+    {
+      "term": "verification",
+      "ja": "検証",
+      "synonym": "confirmation",
+      "definition": "checking that something is correct"
+    },
+    {
+      "term": "consequential",
+      "ja": "重大な",
+      "synonym": "significant",
+      "definition": "having important effects"
+    },
+    {
+      "term": "administrative",
+      "ja": "行政・事務の",
+      "synonym": "managerial",
+      "definition": "relating to administration"
+    },
+    {
+      "term": "prescribe",
+      "ja": "規定する",
+      "synonym": "stipulate",
+      "definition": "state what must be done"
+    },
+    {
+      "term": "extraterrestrial",
+      "ja": "地球外の",
+      "synonym": "beyond Earth",
+      "definition": "existing outside Earth"
+    },
+    {
+      "term": "distinctive",
+      "ja": "独自の",
+      "synonym": "characteristic",
+      "definition": "having a recognizable quality"
+    },
+    {
+      "term": "entail",
+      "ja": "伴う",
+      "synonym": "involve",
+      "definition": "have as a necessary part"
+    },
+    {
+      "term": "interoperability",
+      "ja": "相互運用性",
+      "synonym": "compatibility",
+      "definition": "ability of systems to work together"
+    },
+    {
+      "term": "principally",
+      "ja": "主に",
+      "synonym": "mainly",
+      "definition": "chiefly or for the most part"
+    },
+    {
+      "term": "context",
+      "ja": "文脈・状況",
+      "synonym": "setting",
+      "definition": "conditions surrounding something"
+    },
+    {
+      "term": "designations",
+      "ja": "表示・名称",
+      "synonym": "labels",
+      "definition": "names or identifying marks"
+    },
+    {
+      "term": "discrepancies",
+      "ja": "食い違い",
+      "synonym": "inconsistencies",
+      "definition": "differences between things expected to match"
+    },
+    {
+      "term": "equivalent",
+      "ja": "同等の",
+      "synonym": "corresponding",
+      "definition": "having the same value or meaning"
+    },
+    {
+      "term": "intelligibility",
+      "ja": "理解可能性",
+      "synonym": "comprehensibility",
+      "definition": "quality of being understandable"
+    },
+    {
+      "term": "inconspicuous",
+      "ja": "目立たない",
+      "synonym": "unnoticeable",
+      "definition": "not attracting attention"
+    },
+    {
+      "term": "inseparable",
+      "ja": "分離できない",
+      "synonym": "indivisible",
+      "definition": "unable to be separated"
+    },
+    {
+      "term": "precision",
+      "ja": "正確さ",
+      "synonym": "exactness",
+      "definition": "quality of being exact"
+    },
+    {
+      "term": "defensible",
+      "ja": "正当化可能な",
+      "synonym": "justifiable",
+      "definition": "able to be supported by reasons"
+    },
+    {
+      "term": "presuming",
+      "ja": "推定すること",
+      "synonym": "assuming",
+      "definition": "accepting without sufficient proof"
+    },
+    {
+      "term": "uniformity",
+      "ja": "画一性",
+      "synonym": "consistency",
+      "definition": "state of being the same throughout"
+    },
+    {
+      "term": "obscuring",
+      "ja": "曖昧にすること",
+      "synonym": "concealing",
+      "definition": "making something difficult to see or understand"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What is assumed about the fictional planet?",
+      "options": [
+        "Its astronomical measurements have been verified by real researchers.",
+        "Its inhabitants no longer communicate with Earth.",
+        "Its calendar already serves every purpose equally well.",
+        "Its daylight cycle differs substantially from the one familiar to the settlers."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "異なる日照周期という仮定。"
+    },
+    {
+      "id": "q2",
+      "skill": "inference",
+      "prompt": "Why does the initial disagreement become more complicated?",
+      "options": [
+        "The inhabitants cannot measure time at all.",
+        "Time conventions serve multiple purposes with possibly different requirements.",
+        "The imported calendar is necessarily mathematically incorrect.",
+        "The settlement has no shared activities."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "時間慣行の複数目的。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What does the research team propose?",
+      "options": [
+        "A common measurement system for comparing observations across locations.",
+        "A requirement that every social activity use identical dates.",
+        "A complete rejection of terrestrial measurement.",
+        "A calendar based exclusively on celebrations."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "科学観測の共通測定。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "What difficulty follows from allowing several conventions?",
+      "options": [
+        "Scientific observations must become impossible to compare.",
+        "Every community event must be abandoned.",
+        "Translation between them becomes necessary when activities intersect.",
+        "All measurements become inherently inaccurate."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "複数制度間の変換。"
+    },
+    {
+      "id": "q5",
+      "skill": "inference",
+      "prompt": "Why might replacing dates in old records conceal useful information?",
+      "options": [
+        "Older dates are necessarily more accurate.",
+        "The original reference convention may explain the context of the record.",
+        "Every new convention uses identical labels.",
+        "The archivist wishes to prevent all future research."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "元の基準制度と文脈。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What would a reliable conversion require?",
+      "options": [
+        "A promise that all historical documents use identical language.",
+        "The abandonment of every original record.",
+        "An untested assumption of numerical equivalence.",
+        "A specified relationship between conventions and independent verification."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "関係の明確化と検証。"
+    },
+    {
+      "id": "q7",
+      "skill": "inference",
+      "prompt": "What does maintaining interoperability permit?",
+      "options": [
+        "The elimination of every local practice.",
+        "Separate records that cannot ever be compared.",
+        "Comparable scientific records alongside distinctive local social conventions.",
+        "The use of one compulsory calendar in all activities."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "科学的互換性と現地慣行の両立。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What do the arrangements include for cases of inconsistency?",
+      "options": [
+        "Clear record designations and a way to address discrepancies.",
+        "An assumption that similar labels always refer to the same event.",
+        "Automatic rejection of all converted records.",
+        "A prohibition on distinguishing different intervals."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "表示と食い違いへの手順。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does inconspicuous mean in the passage?",
+      "options": [
+        "Mathematically inaccurate.",
+        "Completely incompatible.",
+        "Deliberately controversial.",
+        "Not attracting attention."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "目立たない。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "Which statement best expresses the author's argument?",
+      "options": [
+        "Every meaningful social practice must follow one universal calendar.",
+        "Mathematical precision alone settles every question about time.",
+        "Shared standards should allow coordination while acknowledging the distinct purposes of conventions.",
+        "Maintaining local identity requires rejecting shared measurements."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "共通基準と異なる慣行の目的。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "arguing that doing so would facilitate communication",
+      "explanation_ja": "分詞構文で主張の理由を補足。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 4,
+      "focus": "especially if a decision intended to improve",
+      "explanation_ja": "especially ifで条件を強調、過去分詞intendedがdecisionを修飾。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "could conceal information about the circumstances",
+      "explanation_ja": "couldは可能性。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "rather than presuming that uniformity",
+      "explanation_ja": "rather thanは対比。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Some inhabitants advocate organizing their routines around the familiar calendar, arguing that doing so would facilitate communication with laboratories and other organizations whose schedules remain tied to established terrestrial conventions.",
+      "rewrite": "Some settlers support the familiar calendar because it makes coordination with Earth easier.",
+      "explanation_ja": "地球との調整の利点。"
+    },
+    {
+      "source": "These different purposes suggest that an attempt to make a single convention satisfy every requirement may introduce unnecessary complications, especially if a decision intended to improve scientific coordination imposes costs on people whose principal concerns are unrelated to research.",
+      "rewrite": "One system may impose unnecessary costs if a scientific choice affects unrelated social activities.",
+      "explanation_ja": "目的間の負担。"
+    },
+    {
+      "source": "Simply replacing the dates in older documents with dates expressed according to a new convention could conceal information about the circumstances in which the original records acquired their significance.",
+      "rewrite": "Replacing old dates could hide context that gave original records meaning.",
+      "explanation_ja": "旧記録の文脈保存。"
+    },
+    {
+      "source": "A defensible institutional arrangement must consider how different conventions will be coordinated, rather than presuming that uniformity in every aspect of life is the only means of maintaining a shared system of communication.",
+      "rewrite": "An institution must coordinate differing conventions instead of assuming total uniformity is necessary.",
+      "explanation_ja": "共通基準と多様性。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "Others",
+      "role_ja": "異なる暦の提案。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "Nevertheless",
+      "role_ja": "複数慣行の共存に伴う条件。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "therefore",
+      "role_ja": "記録の基準保存を提案。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "thus",
+      "role_ja": "個別問題を一般的な制度設計の問いに結ぶ。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "intervals",
+      "options": [
+        "intervals",
+        "institutions",
+        "identities",
+        "occasions"
+      ],
+      "explanation_ja": "比較可能な時間間隔。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "ambiguous",
+      "options": [
+        "precise",
+        "ambiguous",
+        "verified",
+        "uniform"
+      ],
+      "explanation_ja": "文書の意味が曖昧。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "interoperability",
+      "options": [
+        "isolation",
+        "separation",
+        "interoperability",
+        "disruption"
+      ],
+      "explanation_ja": "科学記録の相互運用性。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 5,
+      "answer": "obscuring",
+      "options": [
+        "clarifying",
+        "revealing",
+        "explaining",
+        "obscuring"
+      ],
+      "explanation_ja": "区別の理由を曖昧にしない。"
+    }
+  ]
+}

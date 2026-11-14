@@ -1,0 +1,784 @@
+{
+  "id": "L03-023",
+  "category_id": "L03",
+  "title": "A Machine That Could Explain Its Silence",
+  "title_ja": "沈黙を説明できる機械",
+  "level_id": "university-advanced",
+  "status": "draft",
+  "original": true,
+  "word_count": 771,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "架空の教材例・思考実験。実在の調査、統計、制度、実証結果ではない。登録台帳は制作来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Imagine an engineering team developing an automated inspection system for a fictional factory that produces a wide range of mechanical components, some of which are rarely manufactured and consequently poorly represented in the team's existing collection of examples.",
+          "ja": "多種の機械部品を製造する架空工場の自動検査を開発する技術者チームを想像しよう。一部はめったに製造されず既存例が少ない。"
+        },
+        {
+          "en": "The system is intended to examine images of finished products and identify visible irregularities, thereby assisting inspectors who currently perform the repetitive task of looking at large numbers of nearly identical objects.",
+          "ja": "完成品画像を調べ目に見える異常を特定し、ほぼ同じ物を大量に見る反復作業を担う検査員を支援する目的だ。"
+        },
+        {
+          "en": "During an early demonstration, the designers emphasize the proportion of examples that the system classifies correctly, hoping that an impressive overall result will persuade the factory's management to authorize a more extensive trial.",
+          "ja": "初期実演で設計者は正しく分類した例の割合を強調し高い総合結果がより広い試行を経営陣に認めさせると期待する。"
+        },
+        {
+          "en": "An experienced inspector questions whether the overall figure reveals what will happen when the system encounters an object that differs substantially from the examples on which its behavior has previously been evaluated.",
+          "ja": "経験豊かな検査員は検証済みの例と大きく異なる物にシステムが遭遇したとき何が起きるか総合数値が示すのか疑う。"
+        },
+        {
+          "en": "Her concern is not that automated assistance must necessarily be less reliable than human judgment, but that the presentation has not yet clarified the circumstances under which the system's judgment should be trusted.",
+          "ja": "自動支援が人間判断より必ず信頼できないという懸念でなく判断を信頼すべき事情が提示でまだ明らかでないという懸念だ。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The designers initially suggest adding a confidence value to each classification, allowing an inspector to distinguish results that appear uncertain from results for which the system expresses a high degree of confidence.",
+          "ja": "当初各分類に確信度を追加し不確かに見える結果と高確信の結果を検査員が区別できるよう提案する。"
+        },
+        {
+          "en": "However, an engineer points out that displaying a number does not establish that the number accurately represents the likelihood of a correct judgment under the conditions in which the machine is actually being used.",
+          "ja": "しかし数値表示が実際の使用条件における正しい判断の可能性を正確に表すことを確定しないと技術者が指摘する。"
+        },
+        {
+          "en": "A system might produce a confident classification for an unfamiliar object if the features it recognizes resemble those found in previously encountered examples, even though the resemblance does not justify the same conclusion.",
+          "ja": "見慣れない物でも認識特徴が過去例に似ていれば確信ある分類を出すかもしれず、その類似が同じ結論を正当化するわけではない。"
+        },
+        {
+          "en": "The team therefore distinguishes the numerical expression of confidence from the empirical question of whether results associated with similar confidence values have proved comparably reliable in relevant test conditions.",
+          "ja": "そこで確信度の数値表現と類似確信度の結果が関連試験条件で同等に信頼できたかという実証の問いを区別する。"
+        },
+        {
+          "en": "They recognize that reliable evaluation requires examples that represent the intended operating environment rather than merely additional images that closely resemble the material already used during development.",
+          "ja": "信頼できる評価には開発中の資料に酷似した画像を増やすだけでなく意図した運用環境を代表する例が必要と認識する。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Instead of requiring the machine to produce a definitive classification for every object, the team considers an interface that can identify cases requiring further examination by a qualified inspector.",
+          "ja": "全物体に決定的分類を出すよう求めず有資格検査員による追加検査が必要な場合を特定できる画面を検討する。"
+        },
+        {
+          "en": "In such cases, the system could display the relevant image and an indication of why the classification was withheld, while avoiding explanations that imply more knowledge of the underlying defect than the system possesses.",
+          "ja": "その場合分類を保留した理由の表示と関連画像を出せるが、実際以上の欠陥知識を示唆する説明を避ける。"
+        },
+        {
+          "en": "The inspectors also ask for a record of situations in which an automated decision was subsequently revised, because the circumstances surrounding such revisions may reveal limitations that a simple total of correct classifications would conceal.",
+          "ja": "自動判断が後で修正された状況の記録も検査員は求める。修正を取り巻く事情が正分類の単純合計では隠れる限界を示し得るからだ。"
+        },
+        {
+          "en": "The designers discuss whether frequently requesting human review might transfer an excessive workload to a small group of experienced inspectors, particularly during periods when the factory is producing unfamiliar components.",
+          "ja": "頻繁な人間確認要求が特に未知部品を製造中に少数の経験豊かな検査員へ過大な負担を移すか議論する。"
+        },
+        {
+          "en": "They conclude that the boundaries of automated assistance must be considered alongside the availability of the people and resources needed to respond when those boundaries are reached.",
+          "ja": "自動支援の限界はその限界に達したとき対応する人員と資源の利用可能性とともに考える必要があると結論づける。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The proposed evaluation consequently considers several different outcomes, including the reliability of accepted classifications, the handling of unfamiliar cases, and the practical consequences of transferring decisions to human inspectors.",
+          "ja": "評価案は採用分類の信頼性、未知事例の処理、人間検査員への判断移管の実務影響など異なる結果を考慮する。"
+        },
+        {
+          "en": "The team notes that increasing the proportion of cases referred for review might improve one measure of automated reliability while making the overall inspection process slower or otherwise more difficult to operate.",
+          "ja": "確認に回す割合を増やすと自動信頼性の一尺度を改善しつつ全検査を遅くしたり運用しにくくしたりする場合があると指摘する。"
+        },
+        {
+          "en": "A responsible assessment must therefore examine the relationship between these outcomes instead of treating improvement in one selected figure as sufficient evidence of improvement in the entire system.",
+          "ja": "責任ある評価は選択した一数値の改善を全体改善の十分な証拠と扱わず結果間の関係を検討しなければならない。"
+        },
+        {
+          "en": "The fictional factory does not provide evidence that a particular automated technology meets real industrial safety requirements, which would depend on specialist assessment within the actual operating context.",
+          "ja": "架空工場は特定自動技術が実際の産業安全要件を満たす証拠を与えず、それは実運用状況の専門評価による。"
+        },
+        {
+          "en": "Its imagined difficulties nevertheless illustrate the importance of specifying the conditions under which responsibility for a decision is transferred from a machine to a person.",
+          "ja": "それでも仮想困難は判断責任が機械から人へ移される条件を特定する重要性を示す。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "An automated system that occasionally declines to classify an object may initially appear less capable than one that always produces an answer, especially when success is measured through the number of completed decisions.",
+          "ja": "時折分類を断る自動システムは当初常に答えるものより能力が低く見え得る。特に成功を完了判断数で測る場合だ。"
+        },
+        {
+          "en": "Yet the ability to recognize the limits of a particular process and communicate those limits in a useful manner can be fundamental to the role that a technical system is expected to perform.",
+          "ja": "しかし過程の限界を認識し有益に伝える能力は技術システムに期待される役割の根本となり得る。"
+        },
+        {
+          "en": "Designing for uncertainty involves decisions about when additional evidence should be sought, which responsibilities human users retain, and whether the surrounding organization is prepared to support them.",
+          "ja": "不確実性を考慮した設計には追加証拠を求める時、人間が保持する責任、周囲の組織が支援できるかの判断が伴う。"
+        },
+        {
+          "en": "The success of automated assistance cannot be determined exclusively by examining the behavior of its technical components in isolation from the procedures through which its outputs influence actual decisions.",
+          "ja": "自動支援の成功は出力が実判断に影響する手順から技術部品を切り離して調べるだけでは確定できない。"
+        },
+        {
+          "en": "In this sense, an answer that a machine appropriately refuses to provide may reveal as much about the quality of a design as an answer that it successfully produces.",
+          "ja": "この意味で機械が適切に出すことを拒む答えは成功して出す答えと同じほど設計品質について明らかにし得る。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "automated",
+      "ja": "自動化された",
+      "synonym": "automatic",
+      "definition": "operating with limited human action"
+    },
+    {
+      "term": "inspection",
+      "ja": "検査",
+      "synonym": "examination",
+      "definition": "careful checking"
+    },
+    {
+      "term": "mechanical",
+      "ja": "機械の",
+      "synonym": "machine-related",
+      "definition": "relating to machines"
+    },
+    {
+      "term": "components",
+      "ja": "部品",
+      "synonym": "parts",
+      "definition": "pieces forming a whole"
+    },
+    {
+      "term": "manufactured",
+      "ja": "製造された",
+      "synonym": "produced",
+      "definition": "made as goods"
+    },
+    {
+      "term": "represented",
+      "ja": "含まれた",
+      "synonym": "included",
+      "definition": "present as examples"
+    },
+    {
+      "term": "irregularities",
+      "ja": "異常",
+      "synonym": "anomalies",
+      "definition": "departures from a usual pattern"
+    },
+    {
+      "term": "thereby",
+      "ja": "それによって",
+      "synonym": "thus",
+      "definition": "as a result of that"
+    },
+    {
+      "term": "inspectors",
+      "ja": "検査員",
+      "synonym": "examiners",
+      "definition": "people who check quality"
+    },
+    {
+      "term": "repetitive",
+      "ja": "反復的な",
+      "synonym": "recurring",
+      "definition": "involving repeated actions"
+    },
+    {
+      "term": "identical",
+      "ja": "同一の",
+      "synonym": "same",
+      "definition": "exactly alike"
+    },
+    {
+      "term": "demonstration",
+      "ja": "実演",
+      "synonym": "presentation",
+      "definition": "showing how something works"
+    },
+    {
+      "term": "proportion",
+      "ja": "割合",
+      "synonym": "fraction",
+      "definition": "part of a whole"
+    },
+    {
+      "term": "classifies",
+      "ja": "分類する",
+      "synonym": "categorizes",
+      "definition": "places into groups"
+    },
+    {
+      "term": "persuade",
+      "ja": "説得する",
+      "synonym": "convince",
+      "definition": "cause someone to agree"
+    },
+    {
+      "term": "authorize",
+      "ja": "許可する",
+      "synonym": "approve",
+      "definition": "give official permission"
+    },
+    {
+      "term": "extensive",
+      "ja": "広範な",
+      "synonym": "wide-ranging",
+      "definition": "covering a large scope"
+    },
+    {
+      "term": "encounters",
+      "ja": "遭遇する",
+      "synonym": "meets",
+      "definition": "comes across"
+    },
+    {
+      "term": "substantially",
+      "ja": "大幅に",
+      "synonym": "considerably",
+      "definition": "to a large degree"
+    },
+    {
+      "term": "evaluated",
+      "ja": "評価された",
+      "synonym": "assessed",
+      "definition": "judged for quality"
+    },
+    {
+      "term": "reliable",
+      "ja": "信頼できる",
+      "synonym": "dependable",
+      "definition": "able to be relied on"
+    },
+    {
+      "term": "trusted",
+      "ja": "信頼された",
+      "synonym": "relied on",
+      "definition": "regarded as dependable"
+    },
+    {
+      "term": "classification",
+      "ja": "分類",
+      "synonym": "categorization",
+      "definition": "assignment to a category"
+    },
+    {
+      "term": "confidence",
+      "ja": "確信度",
+      "synonym": "certainty",
+      "definition": "degree of belief in a result"
+    },
+    {
+      "term": "likelihood",
+      "ja": "可能性",
+      "synonym": "probability",
+      "definition": "chance of something occurring"
+    },
+    {
+      "term": "unfamiliar",
+      "ja": "未知の",
+      "synonym": "unknown",
+      "definition": "not known from experience"
+    },
+    {
+      "term": "resemble",
+      "ja": "似ている",
+      "synonym": "look like",
+      "definition": "have similar qualities"
+    },
+    {
+      "term": "justify",
+      "ja": "正当化する",
+      "synonym": "defend",
+      "definition": "provide good reasons for"
+    },
+    {
+      "term": "empirical",
+      "ja": "実証的な",
+      "synonym": "observational",
+      "definition": "based on observed evidence"
+    },
+    {
+      "term": "comparably",
+      "ja": "同程度に",
+      "synonym": "similarly",
+      "definition": "to a similar degree"
+    },
+    {
+      "term": "intended",
+      "ja": "意図した",
+      "synonym": "meant",
+      "definition": "planned for a purpose"
+    },
+    {
+      "term": "operating",
+      "ja": "運用の",
+      "synonym": "functional",
+      "definition": "relating to actual operation"
+    },
+    {
+      "term": "definitive",
+      "ja": "決定的な",
+      "synonym": "conclusive",
+      "definition": "settling a question"
+    },
+    {
+      "term": "interface",
+      "ja": "画面",
+      "synonym": "display",
+      "definition": "means of interacting with a system"
+    },
+    {
+      "term": "qualified",
+      "ja": "有資格の",
+      "synonym": "trained",
+      "definition": "having required competence"
+    },
+    {
+      "term": "withheld",
+      "ja": "保留された",
+      "synonym": "held back",
+      "definition": "not provided"
+    },
+    {
+      "term": "underlying",
+      "ja": "潜在的な",
+      "synonym": "fundamental",
+      "definition": "forming the basis"
+    },
+    {
+      "term": "defect",
+      "ja": "欠陥",
+      "synonym": "fault",
+      "definition": "imperfection or problem"
+    },
+    {
+      "term": "subsequently",
+      "ja": "その後",
+      "synonym": "later",
+      "definition": "after an event"
+    },
+    {
+      "term": "revised",
+      "ja": "修正された",
+      "synonym": "modified",
+      "definition": "changed to improve"
+    },
+    {
+      "term": "conceal",
+      "ja": "隠す",
+      "synonym": "hide",
+      "definition": "keep from view"
+    },
+    {
+      "term": "excessive",
+      "ja": "過大な",
+      "synonym": "undue",
+      "definition": "greater than necessary"
+    },
+    {
+      "term": "workload",
+      "ja": "作業負担",
+      "synonym": "work demands",
+      "definition": "amount of work assigned"
+    },
+    {
+      "term": "boundaries",
+      "ja": "限界",
+      "synonym": "limits",
+      "definition": "edges of a permitted range"
+    },
+    {
+      "term": "availability",
+      "ja": "利用可能性",
+      "synonym": "accessibility",
+      "definition": "state of being available"
+    },
+    {
+      "term": "consequently",
+      "ja": "したがって",
+      "synonym": "therefore",
+      "definition": "as a result"
+    },
+    {
+      "term": "outcomes",
+      "ja": "結果",
+      "synonym": "results",
+      "definition": "what happens in the end"
+    },
+    {
+      "term": "transferring",
+      "ja": "移すこと",
+      "synonym": "moving",
+      "definition": "passing from one to another"
+    },
+    {
+      "term": "referred",
+      "ja": "確認に回された",
+      "synonym": "directed",
+      "definition": "sent for consideration"
+    },
+    {
+      "term": "assessment",
+      "ja": "評価",
+      "synonym": "evaluation",
+      "definition": "considered judgment"
+    },
+    {
+      "term": "sufficient",
+      "ja": "十分な",
+      "synonym": "adequate",
+      "definition": "enough for a purpose"
+    },
+    {
+      "term": "specialist",
+      "ja": "専門家の",
+      "synonym": "expert",
+      "definition": "having specialized knowledge"
+    },
+    {
+      "term": "context",
+      "ja": "状況",
+      "synonym": "circumstances",
+      "definition": "conditions surrounding something"
+    },
+    {
+      "term": "declines",
+      "ja": "断る",
+      "synonym": "refuses",
+      "definition": "chooses not to do something"
+    },
+    {
+      "term": "retain",
+      "ja": "保持する",
+      "synonym": "keep",
+      "definition": "continue to have"
+    },
+    {
+      "term": "exclusively",
+      "ja": "専ら",
+      "synonym": "solely",
+      "definition": "only"
+    },
+    {
+      "term": "isolation",
+      "ja": "分離",
+      "synonym": "separation",
+      "definition": "state of being apart"
+    },
+    {
+      "term": "outputs",
+      "ja": "出力",
+      "synonym": "results",
+      "definition": "information produced by a system"
+    },
+    {
+      "term": "appropriately",
+      "ja": "適切に",
+      "synonym": "suitably",
+      "definition": "in a suitable manner"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What is the inspection system intended to do?",
+      "options": [
+        "Replace every factory process.",
+        "Identify visible irregularities in product images.",
+        "Design new mechanical products.",
+        "Determine employees' salaries."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "画像の異常を検出。"
+    },
+    {
+      "id": "q2",
+      "skill": "inference",
+      "prompt": "What does the inspector question about the demonstration?",
+      "options": [
+        "Whether images can ever be displayed.",
+        "Whether inspectors can examine components.",
+        "Whether management has a trial schedule.",
+        "Whether aggregate accuracy establishes reliability on unfamiliar objects."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "全体正答率の限界。"
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why might a high confidence value be misleading?",
+      "options": [
+        "The value is always a random number.",
+        "Every unfamiliar object is correctly classified.",
+        "A resemblance to familiar examples need not justify the same classification.",
+        "Confidence cannot be represented numerically."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "類似と正当な判断は別。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What kind of test evidence does the team need?",
+      "options": [
+        "Examples representing the intended operating environment.",
+        "Only additional copies of development images.",
+        "Only the most common components.",
+        "Unrelated images without inspection information."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "実環境を代表する例。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What alternative to mandatory classification is proposed?",
+      "options": [
+        "Discard every unusual component automatically.",
+        "Always give the most confident answer.",
+        "Prevent human review of decisions.",
+        "Refer some cases for qualified human inspection."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "追加検査への引き継ぎ。"
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why consider inspectors' workload?",
+      "options": [
+        "Every referral completes itself.",
+        "Referral depends on available human capacity.",
+        "Inspectors' availability never varies.",
+        "Human examination has no cost."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "人間側の資源が必要。"
+    },
+    {
+      "id": "q7",
+      "skill": "inference",
+      "prompt": "What trade-off might increased referrals produce?",
+      "options": [
+        "Improved automated reliability on accepted cases but a slower overall process.",
+        "Greater production speed without any resource cost.",
+        "Lower confidence in every automatically accepted answer.",
+        "Improved safety proven for every actual factory."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "複数指標の相互関係。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What does the fictional case not establish?",
+      "options": [
+        "The need to consider human review.",
+        "A possible difference between types of outcomes.",
+        "Compliance with actual industrial safety requirements.",
+        "The relevance of organizational procedures."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "実際の安全基準への適合は示さない。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does isolation mean in the passage?",
+      "options": [
+        "Repeated improvement.",
+        "Separation from surrounding procedures.",
+        "Joint responsibility.",
+        "A form of classification."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "分離。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "Which statement best captures the argument?",
+      "options": [
+        "Successful automation requires appropriate handling of uncertainty within the wider decision-making system.",
+        "An automated system should always provide a classification.",
+        "Human inspectors necessarily make better decisions than machines.",
+        "Overall accuracy alone determines the value of automated assistance."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "不確実性と運用全体。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 4,
+      "focus": "not that automated assistance must necessarily be less reliable",
+      "explanation_ja": "not that A but that Bで懸念の内容を対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "even though the resemblance does not justify",
+      "explanation_ja": "even thoughは譲歩。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "focus": "particularly during periods when",
+      "explanation_ja": "when節がperiodsを修飾。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "focus": "when additional evidence should be sought",
+      "explanation_ja": "間接疑問、should be＋過去分詞。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Her concern is not that automated assistance must necessarily be less reliable than human judgment, but that the presentation has not yet clarified the circumstances under which the system's judgment should be trusted.",
+      "rewrite": "The inspector questions the conditions of justified trust rather than assuming automation is inferior.",
+      "explanation_ja": "信頼条件が焦点。"
+    },
+    {
+      "source": "A system might produce a confident classification for an unfamiliar object if the features it recognizes resemble those found in previously encountered examples, even though the resemblance does not justify the same conclusion.",
+      "rewrite": "A machine may be confident because of similarity even when the same judgment is not warranted.",
+      "explanation_ja": "類似と正当性。"
+    },
+    {
+      "source": "The designers discuss whether frequently requesting human review might transfer an excessive workload to a small group of experienced inspectors, particularly during periods when the factory is producing unfamiliar components.",
+      "rewrite": "Frequent referrals may overload experienced inspectors when unfamiliar parts are being produced.",
+      "explanation_ja": "人員負担。"
+    },
+    {
+      "source": "Designing for uncertainty involves decisions about when additional evidence should be sought, which responsibilities human users retain, and whether the surrounding organization is prepared to support them.",
+      "rewrite": "Designing for uncertainty requires deciding when to seek more evidence and how to retain human responsibility.",
+      "explanation_ja": "追加証拠と責任。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p2",
+      "expression": "However",
+      "role_ja": "確信値と実証の違い。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Instead of",
+      "role_ja": "全件分類から保留可能な仕組みへ。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "consequently",
+      "role_ja": "運用全体の評価へ。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "Yet",
+      "role_ja": "見かけ上の能力と限界認識の価値。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "answer": "empirical",
+      "options": [
+        "empirical",
+        "ornamental",
+        "ceremonial",
+        "accidental"
+      ],
+      "explanation_ja": "実証的な問い。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "withheld",
+      "options": [
+        "displayed",
+        "withheld",
+        "confirmed",
+        "guaranteed"
+      ],
+      "explanation_ja": "分類の保留。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "answer": "transferring",
+      "options": [
+        "concealing",
+        "measuring",
+        "transferring",
+        "ignoring"
+      ],
+      "explanation_ja": "判断の移管。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "answer": "isolation",
+      "options": [
+        "participation",
+        "coordination",
+        "integration",
+        "isolation"
+      ],
+      "explanation_ja": "運用手順から切り離す。"
+    }
+  ]
+}
