@@ -1,0 +1,800 @@
+{
+  "id": "L15-004",
+  "category_id": "L15",
+  "title": "When Efficient Decisions Leave People Behind",
+  "title_ja": "効率的な判断が誰かを取り残すとき",
+  "level_id": "university-advanced",
+  "word_count": 790,
+  "original": true,
+  "status": "draft",
+  "source_links": [
+    {
+      "title": "NIST: AI Risk Management Framework",
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework"
+    },
+    {
+      "title": "NIST: AI Risks and Trustworthiness",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/3-sec-characteristics/"
+    }
+  ],
+  "fact_notes": [
+    "NIST AI RMFのリスク・公平性・説明責任・監督の考え方を基礎資料とした架空の都市の避難情報案内システム。実在する都市や導入事例を描写したものではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A coastal city prepares a new digital system intended to recommend evacuation routes when severe storms threaten its neighborhoods.",
+          "ja": "ある沿岸都市は激しい嵐が地域を脅かすときに避難経路を勧めるデジタルシステムを準備します。"
+        },
+        {
+          "en": "The software combines information about road conditions, estimated travel times, shelter locations, and the number of people expected to move.",
+          "ja": "ソフトウェアは道路状況、推定所要時間、避難所の位置、移動する人の予想人数を組み合わせます。"
+        },
+        {
+          "en": "Officials hope that faster recommendations will reduce congestion and allow emergency workers to focus on particularly dangerous situations.",
+          "ja": "担当者は速い推薦が渋滞を減らし救急関係者を特に危険な状況に集中させると期待します。"
+        },
+        {
+          "en": "At a demonstration, the system presents a map with routes highlighted in different colors, suggesting an orderly solution to a complicated problem.",
+          "ja": "実演ではシステムが色分けされた経路の地図を示し、複雑な問題への整然とした解決策のように見えます。"
+        },
+        {
+          "en": "However, several residents ask why every recommended route appears to assume that the person following it has access to a private car.",
+          "ja": "しかし住民は、なぜどの推奨経路も利用者が自家用車を使える前提のように見えるのか尋ねます。"
+        },
+        {
+          "en": "The example reveals that a system can perform its assigned calculation correctly while failing to represent the needs of everyone affected.",
+          "ja": "この例は、割り当てられた計算を正しく実行しても影響を受ける全員の必要を表せないことを示します。"
+        },
+        {
+          "en": "Before describing the system as successful, the city must ask what problem it has actually chosen to optimize.",
+          "ja": "システムを成功と呼ぶ前に、市は実際にどの問題の最適化を選んだか問わなければなりません。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Optimization requires a goal, and the choice of that goal is partly a social decision rather than a purely technical one.",
+          "ja": "最適化には目標が必要であり、その目標選択は純粋な技術問題ではなく部分的に社会的判断です。"
+        },
+        {
+          "en": "If the program minimizes average travel time for drivers, it may direct traffic efficiently without helping residents who cannot drive.",
+          "ja": "運転者の平均所要時間を最小化すれば、運転できない住民を助けずに交通を効率的に誘導するかもしれません。"
+        },
+        {
+          "en": "For example, an older person needing assistance or a family walking with small children may face obstacles absent from the data.",
+          "ja": "例えば支援が必要な高齢者や幼児と歩く家族は、データにない障害に直面するかもしれません。"
+        },
+        {
+          "en": "A route that appears short on a digital map might include steps, a closed crossing, or an area that becomes unsafe during heavy rain.",
+          "ja": "地図で短く見える経路にも階段、閉鎖された横断路、豪雨時に危険となる区域が含まれるかもしれません。"
+        },
+        {
+          "en": "The problem is therefore not necessarily that the computer has made a mathematical error, but that its description of reality is incomplete.",
+          "ja": "したがって問題は計算ミスとは限らず、現実の表現が不完全なことかもしれません。"
+        },
+        {
+          "en": "Measuring overall efficiency alone can conceal the experience of a small group whose needs differ from those of the majority.",
+          "ja": "全体の効率だけを測ると多数派と必要が異なる少数集団の経験が隠れる可能性があります。"
+        },
+        {
+          "en": "The city's responsibility includes deciding which outcomes matter and who should have a voice in defining them.",
+          "ja": "市の責任にはどんな結果が重要か、誰がその定義に参加すべきか決めることも含まれます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The National Institute of Standards and Technology describes trustworthy AI as involving several characteristics that must be considered together.",
+          "ja": "米国標準技術研究所は信頼できるAIには複数の性質を合わせて考える必要があると説明しています。"
+        },
+        {
+          "en": "These include validity, reliability, safety, transparency, accountability, and fairness, while recognizing that their importance depends on context.",
+          "ja": "それらには妥当性、信頼性、安全性、透明性、説明責任、公平性が含まれ、その重要性は状況によって異なります。"
+        },
+        {
+          "en": "In addition, collecting more detailed information about residents could improve some recommendations while increasing privacy risks.",
+          "ja": "さらに住民の詳細情報を集めると一部の推薦は改善してもプライバシーの危険が増すかもしれません。"
+        },
+        {
+          "en": "A system that requests health conditions or precise locations must have a justified purpose and safeguards appropriate to the information.",
+          "ja": "健康状態や正確な位置を求める仕組みには正当な目的と情報に適切な保護策が必要です。"
+        },
+        {
+          "en": "Simply gathering every available detail is not equivalent to designing a responsible public service.",
+          "ja": "入手できる細部をすべて集めることは責任ある公共サービスの設計と同じではありません。"
+        },
+        {
+          "en": "Likewise, publishing the software's technical code would not automatically make its decisions understandable to a frightened resident.",
+          "ja": "同様に技術的なコードを公開しても、恐れている住民に判断が自動的に理解できるわけではありません。"
+        },
+        {
+          "en": "Trustworthiness emerges from how the system is designed, tested, governed, and corrected, not from one impressive feature.",
+          "ja": "信頼できるかは一つの印象的な機能ではなく、設計、検査、管理、訂正の方法から生まれます。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "A public demonstration may also produce misleading confidence if its test cases resemble only the situations anticipated by the designers.",
+          "ja": "公開実演も、テスト事例が設計者の想定する状況だけなら誤った自信を生むかもしれません。"
+        },
+        {
+          "en": "Residents in different neighborhoods may experience unusual road conditions, limited mobility, or communications difficulties that are absent from the demonstration.",
+          "ja": "別の地域の住民は実演にない道路状況、移動の制約、通信の困難を経験するかもしれません。"
+        },
+        {
+          "en": "Nevertheless, including more examples in a test does not guarantee that every future failure has been anticipated.",
+          "ja": "それでもテスト例を増やしても将来のあらゆる失敗を予測できる保証はありません。"
+        },
+        {
+          "en": "The city should instead define realistic testing conditions, document known limits, and establish ways to learn from failures.",
+          "ja": "市は現実的なテスト条件を定め、既知の限界を記録し、失敗から学ぶ方法を設けるべきです。"
+        },
+        {
+          "en": "Independent reviewers can challenge assumptions that internal teams may overlook because they share the same goals and expectations.",
+          "ja": "独立した審査者は同じ目標と期待を持つ内部チームが見落とす前提を問い直せます。"
+        },
+        {
+          "en": "It is equally important to examine the consequences of a false sense of security as well as the consequences of unnecessary warnings.",
+          "ja": "誤った安心感の結果と不要な警告の結果の双方を調べることも同様に重要です。"
+        },
+        {
+          "en": "The relevant question is not whether the system never fails but how its risks are identified, communicated, and reduced.",
+          "ja": "問うべきは失敗しないかではなく、リスクがどう特定され、伝達され、減らされるかです。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "Human oversight is frequently proposed as a solution, but merely placing a person beside a computer may accomplish little.",
+          "ja": "人間の監督はよく解決策として提案されますが、コンピューターの横に人を置くだけではほとんど役立たないかもしれません。"
+        },
+        {
+          "en": "If an operator receives an unexplained recommendation under severe time pressure, there may be no meaningful opportunity to challenge it.",
+          "ja": "担当者が強い時間的圧力の中で説明のない提案を受け取れば、実質的に疑問を呈する機会がないかもしれません。"
+        },
+        {
+          "en": "For human review to be effective, officials need training, clear authority to override suggestions, and access to information about limitations.",
+          "ja": "人による見直しを有効にするには研修、提案を覆す明確な権限、限界についての情報が必要です。"
+        },
+        {
+          "en": "The public also needs to know whom to contact when a recommended route does not match conditions on the ground.",
+          "ja": "住民にも推奨経路が現場の条件と合わない場合の連絡先が必要です。"
+        },
+        {
+          "en": "Involving people with disabilities and residents without private vehicles in design discussions can reveal practical problems before deployment.",
+          "ja": "障害のある人や車を持たない住民を設計協議に加えると、導入前に実際の問題が見えるかもしれません。"
+        },
+        {
+          "en": "Such participation does not eliminate every disagreement, yet it helps prevent a narrow view of efficiency from becoming the only accepted objective.",
+          "ja": "こうした参加で意見の相違はすべて消えませんが、狭い効率観だけが唯一の目的になるのを防げます。"
+        },
+        {
+          "en": "Accountability therefore requires more than identifying the person who clicks a final approval button.",
+          "ja": "したがって説明責任には最終承認ボタンを押す人を特定する以上のことが必要です。"
+        }
+      ]
+    },
+    {
+      "id": "p6",
+      "sentences": [
+        {
+          "en": "The city eventually decides to treat the software as one source of advice within a broader emergency plan.",
+          "ja": "市は最終的にソフトをより広い緊急計画の中の一つの助言源として扱うことにします。"
+        },
+        {
+          "en": "It adds procedures for updating road information, assisting people with limited mobility, and communicating through several accessible channels.",
+          "ja": "道路情報の更新、移動に制約のある人への支援、複数の利用しやすい手段での伝達手続きを加えます。"
+        },
+        {
+          "en": "The revised plan includes occasions when officials must disregard the automated suggestion and follow verified local instructions.",
+          "ja": "改訂計画には担当者が自動提案を無視し、確認された地元の指示に従うべき場合も含まれます。"
+        },
+        {
+          "en": "This decision may reduce the simplicity that originally made the system attractive, but it better reflects the complexity of human needs.",
+          "ja": "この決定は当初魅力だった単純さを損なうかもしれませんが、人の必要の複雑さをよりよく反映します。"
+        },
+        {
+          "en": "A public technology should be judged not merely by how efficiently it processes information but by what happens to people when its assumptions prove wrong.",
+          "ja": "公共技術は情報処理の効率だけでなく、その前提が誤ったとき人に何が起こるかで評価すべきです。"
+        },
+        {
+          "en": "The central ethical challenge is to ensure that human responsibility grows with technical power rather than disappearing behind it.",
+          "ja": "中心となる倫理的課題は、技術力が高まるほど人間の責任が消えるのではなく増すようにすることです。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "main-idea",
+      "prompt": "Which statement best reflects the author's central claim?",
+      "options": [
+        "Automated recommendations should replace emergency officials.",
+        "Responsible public AI requires examining objectives, affected groups, failure modes, and human accountability.",
+        "Efficient calculations always produce equitable outcomes.",
+        "Human judgment should never be questioned."
+      ],
+      "answer": 1,
+      "explanation_ja": "公共AIの目的、影響、失敗時の責任を総合的に考える主張です。",
+      "paragraph_ids": [
+        "p1",
+        "p3",
+        "p5",
+        "p6"
+      ]
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What assumption do residents question in the demonstration?",
+      "options": [
+        "The system has never been tested.",
+        "The city has no emergency plan.",
+        "Suggested routes seem to assume everyone can use a private car.",
+        "The maps contain no shelter locations."
+      ],
+      "answer": 2,
+      "explanation_ja": "すべての利用者が自家用車を使える前提が問題です。",
+      "paragraph_ids": [
+        "p1"
+      ]
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why can a mathematically correct recommendation still be unfair?",
+      "options": [
+        "The optimization objective may omit some people's needs and constraints.",
+        "Every calculation is necessarily biased.",
+        "All residents must use the same vehicle.",
+        "Data can never include travel times."
+      ],
+      "answer": 0,
+      "explanation_ja": "計算が正しくても目標設定と入力が一部の人を除外するためです。",
+      "paragraph_ids": [
+        "p2"
+      ]
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "Which characteristics does the NIST framework highlight?",
+      "options": [
+        "Only speed and appearance.",
+        "Only the amount of stored information.",
+        "Only expensive equipment.",
+        "Reliability, safety, transparency, accountability, and fairness, among others."
+      ],
+      "answer": 3,
+      "explanation_ja": "複数の信頼性の要素が並べられます。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What new risk can arise from collecting detailed resident information?",
+      "options": [
+        "Every route becomes shorter.",
+        "Privacy may be weakened if sensitive details are collected unnecessarily.",
+        "Shelter capacity becomes unlimited.",
+        "The system cannot use maps anymore."
+      ],
+      "answer": 1,
+      "explanation_ja": "詳細データの収集はプライバシーの危険を増やし得ます。",
+      "paragraph_ids": [
+        "p3"
+      ]
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why can an impressive demonstration be misleading?",
+      "options": [
+        "Public demonstrations are illegal.",
+        "No one can understand a colored map.",
+        "It may fail to test unexpected conditions experienced by diverse residents.",
+        "Testing automatically prevents all problems."
+      ],
+      "answer": 2,
+      "explanation_ja": "設計者の想定外の状況がテストされていない場合があるためです。",
+      "paragraph_ids": [
+        "p4"
+      ]
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary-in-context",
+      "prompt": "What does 'override' mean in paragraph 5?",
+      "options": [
+        "Reject or replace an automated decision using human authority.",
+        "Record a recommendation permanently.",
+        "Reduce the size of a map.",
+        "Add more traffic to a road."
+      ],
+      "answer": 0,
+      "explanation_ja": "overrideは権限をもって自動提案を覆すことです。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What is needed for meaningful human review?",
+      "options": [
+        "Only a person watching the screen.",
+        "Only a faster computer.",
+        "Only a longer explanation in technical code.",
+        "Training, authority to challenge suggestions, and knowledge of limits."
+      ],
+      "answer": 3,
+      "explanation_ja": "研修、覆す権限、限界情報が必要と述べます。",
+      "paragraph_ids": [
+        "p5"
+      ]
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Why might the revised city plan look less simple?",
+      "options": [
+        "It no longer contains technology.",
+        "It acknowledges differing human needs and procedures beyond one algorithm.",
+        "It ignores all roads.",
+        "It removes every opportunity for public participation."
+      ],
+      "answer": 1,
+      "explanation_ja": "一つの計算では捉えきれない人々の条件を取り込むためです。",
+      "paragraph_ids": [
+        "p6"
+      ]
+    },
+    {
+      "id": "q10",
+      "skill": "purpose",
+      "prompt": "What does the final sentence imply about technical power?",
+      "options": [
+        "Greater automation makes responsibility unnecessary.",
+        "Only developers are responsible for outcomes.",
+        "Human accountability should increase as technology becomes more influential.",
+        "Ethical questions disappear when a system is efficient."
+      ],
+      "answer": 2,
+      "explanation_ja": "技術の力が増すほど人間の責任が重要になることを示します。",
+      "paragraph_ids": [
+        "p6"
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "optimization",
+      "ja": "最適化",
+      "synonym": "finding the best under a rule",
+      "definition": "choosing the best result according to a defined goal"
+    },
+    {
+      "term": "congestion",
+      "ja": "混雑",
+      "synonym": "crowding",
+      "definition": "too many people or vehicles in one place"
+    },
+    {
+      "term": "evacuation",
+      "ja": "避難",
+      "synonym": "moving to safety",
+      "definition": "leaving a dangerous area"
+    },
+    {
+      "term": "shelter",
+      "ja": "避難所",
+      "synonym": "safe place",
+      "definition": "a location offering protection"
+    },
+    {
+      "term": "assumptions",
+      "ja": "前提",
+      "synonym": "presumptions",
+      "definition": "ideas treated as true when planning"
+    },
+    {
+      "term": "override",
+      "ja": "覆す",
+      "synonym": "overrule",
+      "definition": "to reject a decision using authority"
+    },
+    {
+      "term": "transparency",
+      "ja": "透明性",
+      "synonym": "openness",
+      "definition": "clarity about how decisions are made"
+    },
+    {
+      "term": "accountability",
+      "ja": "説明責任",
+      "synonym": "answerability",
+      "definition": "responsibility for explaining and correcting decisions"
+    },
+    {
+      "term": "validity",
+      "ja": "妥当性",
+      "synonym": "soundness",
+      "definition": "whether a method measures what it intends"
+    },
+    {
+      "term": "reliability",
+      "ja": "信頼性",
+      "synonym": "consistency",
+      "definition": "how dependably something works"
+    },
+    {
+      "term": "privacy",
+      "ja": "プライバシー",
+      "synonym": "personal confidentiality",
+      "definition": "control over personal data"
+    },
+    {
+      "term": "safeguards",
+      "ja": "保護策",
+      "synonym": "protections",
+      "definition": "steps designed to prevent harm"
+    },
+    {
+      "term": "independent",
+      "ja": "独立した",
+      "synonym": "separate",
+      "definition": "not controlled by the same group"
+    },
+    {
+      "term": "mobility",
+      "ja": "移動能力",
+      "synonym": "ability to move",
+      "definition": "capacity to travel or move"
+    },
+    {
+      "term": "deployment",
+      "ja": "導入・運用開始",
+      "synonym": "putting into use",
+      "definition": "making a system available in real conditions"
+    },
+    {
+      "term": "consequences",
+      "ja": "結果・影響",
+      "synonym": "effects",
+      "definition": "outcomes of an action"
+    },
+    {
+      "term": "verified",
+      "ja": "確認された",
+      "synonym": "checked",
+      "definition": "supported by trustworthy evidence"
+    },
+    {
+      "term": "communicated",
+      "ja": "伝達された",
+      "synonym": "shared",
+      "definition": "made known to people"
+    },
+    {
+      "term": "ethical",
+      "ja": "倫理的な",
+      "synonym": "morally responsible",
+      "definition": "concerned with right action"
+    },
+    {
+      "term": "automated",
+      "ja": "自動化された",
+      "synonym": "machine-operated",
+      "definition": "performed by a computer without each action being done by a person"
+    },
+    {
+      "term": "requests",
+      "ja": "申請・依頼",
+      "synonym": "applications",
+      "definition": "formal or informal asks for help"
+    },
+    {
+      "term": "accepted",
+      "ja": "受け入れられた",
+      "synonym": "approved",
+      "definition": "received as correct or suitable"
+    },
+    {
+      "term": "software",
+      "ja": "ソフトウェア",
+      "synonym": "programs",
+      "definition": "computer instructions used to perform tasks"
+    },
+    {
+      "term": "responsibility",
+      "ja": "責任",
+      "synonym": "duty",
+      "definition": "an obligation to deal with consequences"
+    },
+    {
+      "term": "oversight",
+      "ja": "監督",
+      "synonym": "supervision",
+      "definition": "human checking and control of a system"
+    },
+    {
+      "term": "accountability",
+      "ja": "説明責任",
+      "synonym": "answerability",
+      "definition": "being responsible and able to explain decisions"
+    },
+    {
+      "term": "meaningful",
+      "ja": "意味のある",
+      "synonym": "significant",
+      "definition": "having practical value"
+    },
+    {
+      "term": "recommendation",
+      "ja": "提案・勧告",
+      "synonym": "advice",
+      "definition": "a suggested action or decision"
+    },
+    {
+      "term": "review",
+      "ja": "再検討",
+      "synonym": "reconsideration",
+      "definition": "another examination of a decision"
+    },
+    {
+      "term": "average",
+      "ja": "平均の",
+      "synonym": "typical",
+      "definition": "representing the mean value"
+    },
+    {
+      "term": "transparency",
+      "ja": "透明性",
+      "synonym": "openness",
+      "definition": "being open about how things work"
+    },
+    {
+      "term": "publishing",
+      "ja": "公表すること",
+      "synonym": "releasing",
+      "definition": "making information publicly available"
+    },
+    {
+      "term": "technical",
+      "ja": "技術的な",
+      "synonym": "specialized",
+      "definition": "connected with particular practical skills"
+    },
+    {
+      "term": "realistic",
+      "ja": "現実的な",
+      "synonym": "practical",
+      "definition": "suitable for actual conditions"
+    },
+    {
+      "term": "consequences",
+      "ja": "結果・影響",
+      "synonym": "effects",
+      "definition": "things that follow from an action"
+    },
+    {
+      "term": "affected",
+      "ja": "影響を受けた",
+      "synonym": "influenced",
+      "definition": "changed by the result of an action"
+    },
+    {
+      "term": "public",
+      "ja": "公共の",
+      "synonym": "community",
+      "definition": "available to everyone"
+    },
+    {
+      "term": "residents",
+      "ja": "住民",
+      "synonym": "inhabitants",
+      "definition": "people living in an area"
+    },
+    {
+      "term": "share",
+      "ja": "共有する",
+      "synonym": "express",
+      "definition": "to make ideas available to others"
+    },
+    {
+      "term": "design",
+      "ja": "設計",
+      "synonym": "plan",
+      "definition": "a plan for arranging things"
+    },
+    {
+      "term": "older",
+      "ja": "高齢の",
+      "synonym": "elderly",
+      "definition": "having greater age"
+    },
+    {
+      "term": "travel",
+      "ja": "移動する",
+      "synonym": "journey",
+      "definition": "to move between places"
+    },
+    {
+      "term": "participation",
+      "ja": "参加",
+      "synonym": "involvement",
+      "definition": "taking part in a process"
+    },
+    {
+      "term": "reveal",
+      "ja": "明らかにする",
+      "synonym": "show",
+      "definition": "to make something known"
+    },
+    {
+      "term": "officials",
+      "ja": "担当者",
+      "synonym": "authorities",
+      "definition": "people with official responsibilities"
+    },
+    {
+      "term": "limited",
+      "ja": "限られた",
+      "synonym": "restricted",
+      "definition": "small in amount"
+    },
+    {
+      "term": "requests",
+      "ja": "要望",
+      "synonym": "appeals",
+      "definition": "things people ask for"
+    },
+    {
+      "term": "accepted",
+      "ja": "採用された",
+      "synonym": "approved",
+      "definition": "agreed to as suitable"
+    },
+    {
+      "term": "decisions",
+      "ja": "決定",
+      "synonym": "choices",
+      "definition": "conclusions reached after thinking"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 5,
+      "focus": "while failing to represent the needs of everyone affected",
+      "explanation_ja": "while＋動名詞が計算上の正しさと他者の排除を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 4,
+      "focus": "not necessarily that the computer has made a mathematical error, but that its description of reality is incomplete",
+      "explanation_ja": "not A but Bの対比とthat節を使います。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 6,
+      "focus": "not whether the system never fails but how its risks are identified, communicated, and reduced",
+      "explanation_ja": "not A but Bと間接疑問節で評価の焦点を変えます。"
+    },
+    {
+      "paragraph_id": "p6",
+      "sentence_index": 4,
+      "focus": "not merely by how efficiently it processes information but by what happens to people when its assumptions prove wrong",
+      "explanation_ja": "not merely A but Bで評価基準を広げています。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "効率的な地図の印象と一部住民の除外を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "運転できない人の具体的な障害を挙げます。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "In addition",
+      "role_ja": "推薦精度とプライバシーの交換条件を追加します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "テスト例の拡充と未検証事象の限界を対比します。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "a system can perform its assigned calculation correctly while failing to represent the needs of everyone affected",
+      "rewrite": "mathematical accuracy does not ensure that all affected groups are adequately considered",
+      "explanation_ja": "perform correctly→mathematical accuracy、while failing→does not ensureです。"
+    },
+    {
+      "source": "the choice of that goal is partly a social decision rather than a purely technical one",
+      "rewrite": "selecting the objective involves public values, not just engineering",
+      "explanation_ja": "social decision→public valuesです。"
+    },
+    {
+      "source": "A public demonstration may also produce misleading confidence if its test cases resemble only the situations anticipated by the designers",
+      "rewrite": "tests limited to expected situations can create unjustified trust in a system",
+      "explanation_ja": "misleading confidence→unjustified trustです。"
+    },
+    {
+      "source": "human responsibility grows with technical power rather than disappearing behind it",
+      "rewrite": "greater technological influence should bring stronger human accountability",
+      "explanation_ja": "grows→stronger、rather than→instead ofです。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 4,
+      "answer": "However",
+      "options": [
+        "However",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "効率的な地図の印象と一部住民の除外を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Therefore",
+        "In addition"
+      ],
+      "explanation_ja": "運転できない人の具体的な障害を挙げます。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "In addition",
+      "options": [
+        "In addition",
+        "However",
+        "Therefore",
+        "For example"
+      ],
+      "explanation_ja": "推薦精度とプライバシーの交換条件を追加します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "Therefore",
+        "For example",
+        "In addition"
+      ],
+      "explanation_ja": "テスト例の拡充と未検証事象の限界を対比します。"
+    }
+  ]
+}
