@@ -1,0 +1,694 @@
+{
+  "id": "L02-008",
+  "category_id": "L02",
+  "title": "The Bridge with Two Names",
+  "title_ja": "二つの名前で呼ばれた橋",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "word_count": 283,
+  "source_links": [
+    {
+      "title": "General public educational reference",
+      "url": "https://www.loc.gov/classroom-materials/"
+    }
+  ],
+  "fact_notes": [
+    "個別事例は架空。英文・訳文・問題は独自に制作した教材です。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A history class studies an old bridge connecting two parts of its town.",
+          "ja": "歴史の授業でクラスは町の二つの地域を結ぶ古い橋を調べます。"
+        },
+        {
+          "en": "On a modern map, the bridge has a name honoring a local engineer.",
+          "ja": "新しい地図では橋に地域の技術者をたたえる名前が付いています。"
+        },
+        {
+          "en": "However, an old photograph identifies it by a different name.",
+          "ja": "しかし古い写真には違う名前が付いています。"
+        },
+        {
+          "en": "Some students think one of the names must be a mistake.",
+          "ja": "生徒の中には一方の名前が誤りに違いないと思う人もいます。"
+        },
+        {
+          "en": "Their teacher asks them to examine when each name was used.",
+          "ja": "教師はそれぞれの名前がいつ使われたか調べるよう求めます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The students find newspaper reports describing the bridge many years ago.",
+          "ja": "生徒たちは何年も前の橋を説明する新聞記事を見つけます。"
+        },
+        {
+          "en": "For example, an early report uses the name of the nearby market.",
+          "ja": "例えば初期の記事は近くの市場の名前を使っています。"
+        },
+        {
+          "en": "A later report describes a meeting about choosing a new name.",
+          "ja": "後の記事には新しい名前を選ぶ会議が書かれています。"
+        },
+        {
+          "en": "The class compares publication dates instead of guessing the answer.",
+          "ja": "クラスは答えを推測せず発行日を比較します。"
+        },
+        {
+          "en": "These documents suggest that the name changed over time.",
+          "ja": "こうした文書は時間の経過で名前が変わったことを示唆します。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "One student interviews a resident who remembers the older name.",
+          "ja": "一人の生徒は古い名前を覚える住民に聞き取りをします。"
+        },
+        {
+          "en": "The resident says that many families still use it in conversation.",
+          "ja": "住民は今も会話で古い名前を使う家族が多いと話します。"
+        },
+        {
+          "en": "Instead of correcting the resident, the student asks what the name means to her.",
+          "ja": "住民を訂正する代わりに、その名前が彼女にとって持つ意味を尋ねます。"
+        },
+        {
+          "en": "She remembers shopping at the market with her grandparents.",
+          "ja": "祖父母と市場へ買い物に行ったことを思い出します。"
+        },
+        {
+          "en": "The name is connected with memories as well as geography.",
+          "ja": "名前は地理だけでなく記憶にもつながっています。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The group discovers that different names can describe different periods of history.",
+          "ja": "グループは異なる名前が歴史の異なる時期を表し得ると気づきます。"
+        },
+        {
+          "en": "Nevertheless, they cannot explain every detail from the available records.",
+          "ja": "それでも手元の記録からすべての細部を説明することはできません。"
+        },
+        {
+          "en": "They decide to include both names and their dates in a small display.",
+          "ja": "二つの名前と使用された時期を小さな展示に入れると決めます。"
+        },
+        {
+          "en": "They also mark where some questions remain unanswered.",
+          "ja": "不明な問いがどこに残るかも記します。"
+        },
+        {
+          "en": "Visitors can then understand why the bridge has more than one familiar name.",
+          "ja": "そうすれば来訪者は橋に複数の親しまれた名前がある理由を理解できます。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "At a school exhibition, students present their maps and photographs.",
+          "ja": "学校の展示で生徒たちは地図と写真を発表します。"
+        },
+        {
+          "en": "Several visitors share stories about crossing the bridge when they were young.",
+          "ja": "何人かの来訪者は若いころ橋を渡った話を共有します。"
+        },
+        {
+          "en": "As a result, the class collects more memories without treating them as exact dates.",
+          "ja": "その結果クラスは記憶を正確な日付とみなさずさらに集めます。"
+        },
+        {
+          "en": "The students learn that a place name may change while older meanings remain important.",
+          "ja": "場所の名前が変わっても昔の意味は重要なままであり得ると学びます。"
+        },
+        {
+          "en": "Historical research often begins by asking why two sources appear to disagree.",
+          "ja": "歴史研究は二つの資料がなぜ食い違って見えるかという問いから始まることがあります。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What first puzzles the students?",
+      "options": [
+        "The bridge is absent from every map.",
+        "The engineer has never visited the town.",
+        "The market is shown in the river.",
+        "The bridge has different names in two sources."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「しかし古い写真には違う名前が付いています。」が根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What does the teacher suggest?",
+      "options": [
+        "Removing the old photograph.",
+        "Asking students to memorize all maps.",
+        "Investigating when each name was used.",
+        "Choosing a new name immediately."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「教師はそれぞれの名前がいつ使われたか調べるよう求めます。」が根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What name appears in an early report?",
+      "options": [
+        "The school's new name.",
+        "The nearby market's name.",
+        "The teacher's name.",
+        "The name of a mountain."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「例えば初期の記事は近くの市場の名前を使っています。」が根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "How do students test their ideas?",
+      "options": [
+        "By comparing publication dates.",
+        "By voting without evidence.",
+        "By drawing a new bridge.",
+        "By asking everyone to guess."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「クラスは答えを推測せず発行日を比較します。」が根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "Who still uses the older name?",
+      "options": [
+        "Only people from another country.",
+        "Only the engineer.",
+        "No one in the town.",
+        "Many local families."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「住民は今も会話で古い名前を使う家族が多いと話します。」が根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What memory does the older name bring back?",
+      "options": [
+        "A trip to the airport.",
+        "A sports competition.",
+        "Shopping with grandparents.",
+        "A school science project."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「祖父母と市場へ買い物に行ったことを思い出します。」が根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What do different names sometimes represent?",
+      "options": [
+        "Different bridge lengths.",
+        "Different historical periods.",
+        "Different kinds of metal.",
+        "Different water levels."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「グループは異なる名前が歴史の異なる時期を表し得ると気づきます。」が根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "How does the class handle missing facts?",
+      "options": [
+        "It identifies unanswered questions.",
+        "It invents certain dates.",
+        "It deletes the older name.",
+        "It ignores the records."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「不明な問いがどこに残るかも記します。」が根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What do visitors contribute?",
+      "options": [
+        "New railway tickets.",
+        "Exam questions.",
+        "Official construction plans.",
+        "Personal stories about the bridge."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「その結果クラスは記憶を正確な日付とみなさずさらに集めます。」が根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the main idea?",
+      "options": [
+        "A person's memory always proves a date.",
+        "A bridge can have no historical meaning.",
+        "Conflicting historical names can reveal change and memory.",
+        "Only the newest name can be correct."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「歴史研究は二つの資料がなぜ食い違って見えるかという問いから始まることがあります。」が根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "connected",
+      "ja": "関わりのある",
+      "synonym": "associated",
+      "definition": "having a meaningful relationship with something"
+    },
+    {
+      "term": "conversation",
+      "ja": "会話",
+      "synonym": "dialogue",
+      "definition": "an exchange of speech"
+    },
+    {
+      "term": "decide",
+      "ja": "決める",
+      "synonym": "choose",
+      "definition": "to make a choice"
+    },
+    {
+      "term": "describe",
+      "ja": "説明する",
+      "synonym": "explain",
+      "definition": "to give an account of something"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same"
+    },
+    {
+      "term": "documents",
+      "ja": "文書",
+      "synonym": "records",
+      "definition": "written materials"
+    },
+    {
+      "term": "examine",
+      "ja": "調べる",
+      "synonym": "inspect",
+      "definition": "to look carefully"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "exhibition",
+      "ja": "展示",
+      "synonym": "display",
+      "definition": "an organized public presentation"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "familiar",
+      "ja": "見覚えのある",
+      "synonym": "known",
+      "definition": "recognized from previous experience"
+    },
+    {
+      "term": "families",
+      "ja": "家族",
+      "synonym": "households",
+      "definition": "groups of related people"
+    },
+    {
+      "term": "guessing",
+      "ja": "推測",
+      "synonym": "estimating",
+      "definition": "forming an opinion without full information"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "important",
+      "ja": "重要な",
+      "synonym": "significant",
+      "definition": "having a great effect or value"
+    },
+    {
+      "term": "local",
+      "ja": "地域の",
+      "synonym": "nearby",
+      "definition": "relating to a particular place"
+    },
+    {
+      "term": "map",
+      "ja": "地図",
+      "synonym": "chart",
+      "definition": "a drawing showing features of an area"
+    },
+    {
+      "term": "meeting",
+      "ja": "集合",
+      "synonym": "gathering",
+      "definition": "coming together at a place"
+    },
+    {
+      "term": "memories",
+      "ja": "記憶",
+      "synonym": "recollections",
+      "definition": "things remembered"
+    },
+    {
+      "term": "nearby",
+      "ja": "近くの",
+      "synonym": "close",
+      "definition": "not far away"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "newspaper",
+      "ja": "新聞",
+      "synonym": "news publication",
+      "definition": "a publication reporting events and opinions"
+    },
+    {
+      "term": "photographs",
+      "ja": "写真",
+      "synonym": "pictures",
+      "definition": "images made with a camera"
+    },
+    {
+      "term": "records",
+      "ja": "記録",
+      "synonym": "documents",
+      "definition": "saved information"
+    },
+    {
+      "term": "resident",
+      "ja": "住民",
+      "synonym": "inhabitant",
+      "definition": "someone living in a place"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "share",
+      "ja": "共有する",
+      "synonym": "communicate",
+      "definition": "to let others know or use something"
+    },
+    {
+      "term": "student",
+      "ja": "生徒",
+      "synonym": "learner",
+      "definition": "a person learning at school"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who helps others learn"
+    },
+    {
+      "term": "unanswered",
+      "ja": "未回答の",
+      "synonym": "unresolved",
+      "definition": "not yet answered"
+    },
+    {
+      "term": "visitors",
+      "ja": "訪問者",
+      "synonym": "guests",
+      "definition": "people coming to a place"
+    },
+    {
+      "term": "bridge",
+      "ja": "橋",
+      "synonym": "crossing",
+      "definition": "a structure over water"
+    },
+    {
+      "term": "historical",
+      "ja": "歴史的な",
+      "synonym": "past-related",
+      "definition": "about the past"
+    },
+    {
+      "term": "history",
+      "ja": "歴史",
+      "synonym": "the past",
+      "definition": "events from previous periods"
+    },
+    {
+      "term": "engineer",
+      "ja": "技術者",
+      "synonym": "specialist",
+      "definition": "a person using technical knowledge"
+    },
+    {
+      "term": "geography",
+      "ja": "地理",
+      "synonym": "place study",
+      "definition": "the study of places"
+    },
+    {
+      "term": "market",
+      "ja": "市場",
+      "synonym": "marketplace",
+      "definition": "a place where goods are sold"
+    },
+    {
+      "term": "photograph",
+      "ja": "写真",
+      "synonym": "picture",
+      "definition": "an image made with a camera"
+    },
+    {
+      "term": "sources",
+      "ja": "資料",
+      "synonym": "references",
+      "definition": "materials giving information"
+    },
+    {
+      "term": "publication",
+      "ja": "発行",
+      "synonym": "release",
+      "definition": "making information available"
+    },
+    {
+      "term": "dates",
+      "ja": "日付",
+      "synonym": "days",
+      "definition": "calendar dates"
+    },
+    {
+      "term": "interviews",
+      "ja": "聞き取り",
+      "synonym": "questions",
+      "definition": "conversations gathering information"
+    },
+    {
+      "term": "periods",
+      "ja": "時期",
+      "synonym": "eras",
+      "definition": "sections of time"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "a different name",
+      "explanation_ja": "形容詞differentが名詞nameを修飾します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "instead of guessing the answer",
+      "explanation_ja": "instead of + 動名詞で別の方法を示します。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "what the name means to her",
+      "explanation_ja": "間接疑問文が質問内容を示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 4,
+      "focus": "why two sources appear to disagree",
+      "explanation_ja": "why節は食い違いの理由を表します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "現在と過去の名前の違いを示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "昔の記事の具体例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "資料にも限界があることを示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "追加の思い出が集まる結果です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Their teacher asks them to examine when each name was used.",
+      "rewrite": "The teacher wants the class to identify the periods when the names were used.",
+      "explanation_ja": "使用時期を調べるという意味です。"
+    },
+    {
+      "source": "These documents suggest that the name changed over time.",
+      "rewrite": "The documents indicate that the bridge's name changed.",
+      "explanation_ja": "文書は名前の変化を示唆しています。"
+    },
+    {
+      "source": "They also mark where some questions remain unanswered.",
+      "rewrite": "The display also states which questions remain unresolved.",
+      "explanation_ja": "不明点も明示するという意味です。"
+    },
+    {
+      "source": "Historical research often begins by asking why two sources appear to disagree.",
+      "rewrite": "Apparent disagreement between sources can inspire historical inquiry.",
+      "explanation_ja": "資料の食い違いが調査の出発点です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "However",
+        "For example",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "現在と過去の名前の違いを示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "For example",
+        "However",
+        "Nevertheless",
+        "As a result"
+      ],
+      "explanation_ja": "昔の記事の具体例です。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "However",
+        "For example",
+        "As a result"
+      ],
+      "explanation_ja": "資料にも限界があることを示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "As a result",
+        "However",
+        "For example",
+        "Nevertheless"
+      ],
+      "explanation_ja": "追加の思い出が集まる結果です。"
+    }
+  ]
+}
