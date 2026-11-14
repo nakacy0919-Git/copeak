@@ -3,8 +3,8 @@
   "as_of": "2026-11-14",
   "goal": 450,
   "category_target": 30,
-  "registered_total": 153,
-  "remaining": 297,
+  "registered_total": 450,
+  "remaining": 0,
   "level_targets_per_category": {
     "eiken-3": 1,
     "eiken-pre2": 4,
@@ -21,119 +21,124 @@
       "category_id": "L01",
       "name": "自然",
       "target": 30,
-      "registered": 11,
-      "remaining": 19
+      "registered": 30,
+      "remaining": 0
     },
     {
       "category_id": "L02",
       "name": "歴史",
       "target": 30,
-      "registered": 10,
-      "remaining": 20
+      "registered": 30,
+      "remaining": 0
     },
     {
       "category_id": "L03",
       "name": "科学技術",
       "target": 30,
-      "registered": 11,
-      "remaining": 19
+      "registered": 30,
+      "remaining": 0
     },
     {
       "category_id": "L04",
       "name": "人間関係",
       "target": 30,
-      "registered": 10,
-      "remaining": 20
+      "registered": 30,
+      "remaining": 0
     },
     {
       "category_id": "L05",
       "name": "国際社会",
       "target": 30,
-      "registered": 11,
-      "remaining": 19
+      "registered": 30,
+      "remaining": 0
     },
     {
       "category_id": "L06",
       "name": "心理・哲学",
       "target": 30,
-      "registered": 10,
-      "remaining": 20
+      "registered": 30,
+      "remaining": 0
     },
     {
       "category_id": "L07",
       "name": "経済・ビジネス",
       "target": 30,
-      "registered": 10,
-      "remaining": 20
+      "registered": 30,
+      "remaining": 0
     },
     {
       "category_id": "L08",
       "name": "芸術・文化",
       "target": 30,
-      "registered": 10,
-      "remaining": 20
+      "registered": 30,
+      "remaining": 0
     },
     {
       "category_id": "L09",
       "name": "文学・言語",
       "target": 30,
-      "registered": 10,
-      "remaining": 20
+      "registered": 30,
+      "remaining": 0
     },
     {
       "category_id": "L10",
       "name": "教育・学習",
       "target": 30,
-      "registered": 10,
-      "remaining": 20
+      "registered": 30,
+      "remaining": 0
     },
     {
       "category_id": "L11",
       "name": "法律・政治",
       "target": 30,
-      "registered": 10,
-      "remaining": 20
+      "registered": 30,
+      "remaining": 0
     },
     {
       "category_id": "L12",
       "name": "医療・健康",
       "target": 30,
-      "registered": 10,
-      "remaining": 20
+      "registered": 30,
+      "remaining": 0
     },
     {
       "category_id": "L13",
       "name": "宇宙・未来",
       "target": 30,
-      "registered": 10,
-      "remaining": 20
+      "registered": 30,
+      "remaining": 0
     },
     {
       "category_id": "L14",
       "name": "婚姻・交友",
       "target": 30,
-      "registered": 10,
-      "remaining": 20
+      "registered": 30,
+      "remaining": 0
     },
     {
       "category_id": "L15",
       "name": "倫理・道徳",
       "target": 30,
-      "registered": 10,
-      "remaining": 20
+      "registered": 30,
+      "remaining": 0
     }
   ],
   "latest_unpublished_batch": [
-    "L01-011",
-    "L03-011",
-    "L05-011",
-    "L09-010",
-    "L10-010",
-    "L11-010",
-    "L12-010",
-    "L13-010",
-    "L14-010",
-    "L15-010"
+    "L01-030",
+    "L02-030",
+    "L03-030",
+    "L04-030",
+    "L05-030",
+    "L06-030",
+    "L07-030",
+    "L08-030",
+    "L09-030",
+    "L10-030",
+    "L11-030",
+    "L12-030",
+    "L13-030",
+    "L14-030",
+    "L15-030"
   ],
   "release_policy": {
     "new_works_default_status": "draft",
@@ -148,11 +153,38 @@
     ]
   },
   "notes": [
-    "2026-11-14: development count 143→153 (+10 original unpublished), goal 450 and remaining 297.",
-    "Batch totals: English 4,461 words; fully translated sentence pairs 290; vocabulary entries 756; 100 four-choice comprehension questions; 160 review exercises.",
-    "Includes advanced university 683 words on voice transcription and national university 767 words on city future scenarios; Eiken pre-1 501 words on literary interpretation.",
-    "Ten lessons passed strict structural validation with 0 errors for IDs, word bands, bilingual coverage, vocabulary fields and passage occurrence, four-choice answer indexes and paragraph references, grammar/discourse/paraphrase/cloze source references, and draft state.",
-    "Semantic proofreading of English and Japanese, uniqueness of correct answers and question distractors, reference link reachability, and iPad UI preview remain for publication. No merge to main or Vercel deployment without explicit user permission."
+    "2026-11-14: reconciled 10 distinct original articles from alternate parallel PR #55 (L02-005 etc.) into fresh IDs L02-011 through L15-011 as specified in docs/reading-450-parallel-authoring.md.",
+    "Authoritative development total 153→163, remaining 287 of 450; main/production registered 28 unchanged; 135 development-only drafts.",
+    "Recovered content totals: 4,058 English words, 275 bilingual sentence pairs, 513 vocabulary entries, 100 comprehension MCQ and 160 review exercises.",
+    "PR #55 and #56 diverged from the same base with nine colliding IDs containing different lesson content. Do not merge PR #55 blindly; recovered copies are on coord/reading-450-registry.",
+    "Shared registry docs/reading-450-ledger.json uses SHA-based reservation writes to prevent two compliant chats from choosing the same ID. scripts/reading_450_guard.py checks local manifest/ledger and content integrity.",
+    "Human semantic editing and factual link verification are required before publication; no main merge or Vercel production deploy.",
+    "2026-11-14: Added L06-011 and L14-011 (549 words, 50 bilingual sentences, 99 vocabulary entries, 20 comprehension questions and 32 review exercises); draft only. Individual structural checks performed; full repository guard and human review pending.",
+    "2026-11-14: Added L01-012, L02-012, L03-012 (603 words, 60 bilingual sentences, 80 vocabulary entries, 30 comprehension questions and 48 review exercises); draft only. Individual structural checks passed; full repository guard and human review pending.",
+    "2026-11-14: Added L07-012, L08-012, L09-012 (650 words, 60 bilingual sentences, 86 vocabulary entries, 30 comprehension questions and 48 review exercises); draft only. Individual structural checks passed; full repository guard and human review pending.",
+    "2026-11-14: Added L04-012, L05-012, L06-012 (849 words, 60 bilingual sentences, 148 vocabulary entries, 30 comprehension questions, 48 review exercises); draft only. Individual structural checks passed; full repository guard and human review pending.",
+    "2026-11-14: Added L10-012, L11-012, L12-012 (644 words, 60 bilingual sentences, 81 vocabulary entries, 30 comprehension questions and 48 review exercises); draft only. Individual structural checks passed; full repository guard and human review pending.",
+    "2026-11-14: Added L13-012, L14-012, L15-012 (648 words, 60 bilingual sentences, 93 vocabulary entries, 30 comprehension questions and 48 review exercises); draft only. Individual structural checks passed; full repository guard and human review pending.",
+    "2026-11-14: Volume batch added L01-013, L02-013, L03-013, L04-013, L05-013, L06-013, L07-013, L08-013, L09-013, L10-013 (3826 words, 205 bilingual sentences, 482 vocabulary entries, 100 comprehension questions and 160 review exercises). Draft only; individual structural checks and registry reconciliation passed; full repository guard, semantic duplication check and human review pending.",
+    "2026-11-14: Volume batch added L11-013, L12-013, L13-013, L14-013, L15-013, L01-014, L02-014, L03-014, L04-014, L05-014 (3050 words, 200 bilingual sentences, 422 vocabulary entries, 100 comprehension questions and 160 review exercises). Draft only; individual structural checks and registry reconciliation passed; full repository guard, semantic duplication check and human review pending.",
+    "2026-11-14: Volume-h batch added L06-014, L07-014, L08-014, L09-014, L10-014, L11-014, L12-014, L13-014, L14-014, L15-014 (2366 words, 200 bilingual sentences, 316 vocabulary entries, 100 comprehension questions and 160 review exercises). Draft only; individual structural checks and registry reconciliation passed; full repository guard, semantic duplication check and human review pending.",
+    "2026-11-14: Volume batch added L01-015, L02-015, L03-015, L04-015, L05-015, L06-016, L07-016, L08-016, L09-016, L10-016 (2621 words, 200 bilingual sentences, 415 vocabulary entries, 100 comprehension questions and 160 review exercises). Draft only; individual structural checks and registry reconciliation passed; full repository guard, semantic duplication check and human review pending.",
+    "2026-11-14: amber-j added L01-016, L02-016, L03-016, L04-016, L05-016, L11-016, L12-016, L13-016, L14-016, L15-016 (3291 words, 200 bilingual sentences, 478 vocabulary entries, 100 comprehension questions and 160 review exercises). Draft only; individual structural checks and registry reconciliation passed; full repository guard, semantic duplication check and human review pending.",
+    "2026-11-14: Volume H2 added L06-015, L07-015, L08-015, L09-015, L10-015, L11-015, L12-015, L13-015, L14-015, L15-015 (3767 words, 200 bilingual sentences, 480 vocabulary entries, 100 comprehension questions and 160 review exercises). Draft only; individual structural checks and registry reconciliation passed; full repository guard, semantic duplication check and human review pending.",
+    "2026-11-14: Volume batch L01-018 to L10-018 (3103 words, 200 bilingual sentences, 403 vocabulary entries, 100 comprehension questions and 160 review exercises). Draft only; per-lesson structure and registry checks passed; full-repository guard, semantic duplicate screening and final human review pending.",
+    "2026-11-14: slate-k added L01-017, L02-017, L03-017, L04-017, L05-017, L11-017, L12-017, L13-017, L14-017, L15-017 (3678 words, 200 bilingual sentences, 527 vocabulary entries, 100 comprehension questions and 160 review exercises). Draft only; individual structural checks and registry reconciliation passed; full repository guard, semantic duplication check and human review pending.",
+    "2026-11-14: cedar-l added L06-017, L07-017, L08-017, L09-017, L10-017, L11-018, L12-018, L13-018, L14-018, L15-018 (3145 words, 200 bilingual sentences, 504 vocabulary entries, 100 comprehension questions and 160 review exercises). Draft only; individual structural checks and registry reconciliation passed; full repository guard, semantic duplication check and human review pending.",
+    "2026-11-14: bulk-m added L01-019 through L15-019 (6539 words, 305 bilingual sentences, 738 vocabulary entries, 150 comprehension questions and 240 review entries). Draft only; 15 saved blobs individually checked and registry reconciled; full repository guard, semantic duplication check and human review pending.",
+    "2026-11-14: bulk-n added L01-020 through L15-020 (6779 words, 305 bilingual sentences, 745 vocabulary entries, 150 comprehension questions and 240 review entries). Draft only; 15 saved blobs individually checked and registry reconciled; full repository guard, semantic duplication check and human review pending.",
+    "2026-11-14: bulk-o added L01-021 through L15-021 (5832 words, 305 bilingual sentences, 723 vocabulary entries, 150 comprehension questions and 240 review entries). Draft only; 15 saved blobs individually checked and registry reconciled; full repository guard, semantic duplication check and human review pending.",
+    "2026-11-14: bulk-p added L01-022 through L15-022 (6265 words, 305 bilingual sentences, 755 vocabulary entries, 150 comprehension questions and 240 review entries). Draft only; individual structural checks and registry reconciliation passed; full repository guard, semantic duplication check and human review pending. L11 topic replaced before integration to reduce overlap.",
+    "2026-11-14: bulk-q added L01-023, L02-023, L03-023, L04-023, L05-023, L06-023, L07-023, L08-023, L09-023, L10-023, L11-023, L12-023, L13-023, L14-023, L15-023, L01-024, L03-024, L06-024, L10-024, L13-024 (10221 words, 427 bilingual sentence entries, 1017 vocabulary entries, 200 comprehension questions and 320 review entries). Draft only; individual structural checks and registry reconciliation passed; full repository guard, semantic duplication check and human review pending.",
+    "2026-11-14: bulk-r added L01-025, L02-024, L03-025, L04-024, L05-024, L06-025, L07-024, L08-024, L09-024, L10-025, L11-024, L12-024, L13-025, L14-024, L15-024 (7118 words, 306 bilingual sentence entries, 743 vocabulary entries, 150 comprehension questions and 240 review entries). Draft only; individual structural checks and registry reconciliation passed; full repository guard, semantic duplication check and human review pending.",
+    "2026-11-14: bulk-s added L01-026, L02-025, L03-026, L04-025, L05-025, L06-026, L07-025, L08-025, L09-025, L10-026, L11-025, L12-025, L13-026, L14-025, L15-025 (5613 words, 310 bilingual sentence entries, 677 vocabulary entries, 150 comprehension questions and 240 review entries). Draft only; individual structural checks and registry reconciliation passed; full repository guard, semantic duplication check and human review pending.",
+    "2026-11-14: bulk-t added L01-027, L02-026, L03-027, L04-026, L05-026, L06-027, L07-026, L08-026, L09-026, L10-027, L11-026, L12-026, L13-027, L14-026, L15-026, L02-027, L04-027, L05-027, L07-027, L08-027 (6700 words, 408 bilingual sentence entries, 879 vocabulary entries, 200 comprehension questions and 320 review entries). Draft only; individual structural checks and registry reconciliation passed; full repository guard, semantic duplication check and human review pending.",
+    "2026-11-14: bulk-u added L01-028, L02-028, L03-028, L04-028, L05-028, L06-028, L07-028, L08-028, L09-027, L10-028, L11-027, L12-027, L13-028, L14-027, L15-027, L09-028, L11-028, L12-028, L14-028, L15-028 (8024 words, 417 bilingual sentence entries, 975 vocabulary entries, 200 comprehension questions and 320 review entries). Draft only; individual structural checks and registry reconciliation passed; full repository guard, semantic duplication check and human review pending.",
+    "2026-11-14: bulk-v added L01-029, L02-029, L03-029, L04-029, L05-029, L06-029, L07-029, L08-029, L09-029, L10-029, L11-029, L12-029, L13-029, L14-029, L15-029 (6646 words, 315 bilingual sentence entries, 736 vocabulary entries, 150 comprehension questions and 240 review entries). Draft only; individual structural checks and registry reconciliation passed; full repository guard, semantic duplication check and human review pending.",
+    "2026-11-14: bulk-w added L01-030, L02-030, L03-030, L04-030, L05-030, L06-030, L07-030, L08-030, L09-030, L10-030, L11-030, L12-030, L13-030, L14-030, L15-030 (6315 words, 312 bilingual sentence entries, 727 vocabulary entries, 150 comprehension questions and 240 review entries). Draft only; individual structural checks and registry reconciliation passed; full repository guard, semantic duplication check and human review pending."
   ],
-  "all_unpublished_batches_note": "main has 28 registered lessons. Current development branch has 153 registered lessons, including 125 unpublished draft lessons. Latest batch only on content/reading-batch-20261114-m."
+  "all_unpublished_batches_note": "Authoritative non-production branch: coord/reading-450-registry; 450 unique registered IDs; main reference count 28."
 }

@@ -1,0 +1,585 @@
+{
+  "id": "L13-012",
+  "category_id": "L13",
+  "title": "A Message for a Distant Crew",
+  "title_ja": "遠く離れた乗組員へのメッセージ",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 214,
+  "source_links": [
+    {
+      "title": "Original lesson authoring registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "人物・状況・会話・結果は架空の教材例。実在の統計や研究結果ではない。参考リンクは制作台帳であり外部の実証資料ではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "During a school science festival, a group of students imagined a mission to Mars.",
+          "ja": "学校の科学祭で、生徒のグループは火星への任務を想像した。"
+        },
+        {
+          "en": "Four students played the crew inside a model spacecraft.",
+          "ja": "4人の生徒が模型の宇宙船の中で乗組員役を演じた。"
+        },
+        {
+          "en": "The others worked at a control center in the next classroom.",
+          "ja": "ほかの生徒は隣の教室の管制センターで働いた。"
+        },
+        {
+          "en": "Their teacher introduced a rule to make communication more difficult.",
+          "ja": "先生は通信を難しくするためのルールを導入した。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Every message had to wait in a box for three minutes.",
+          "ja": "すべてのメッセージは箱の中で3分間待たなければならなかった。"
+        },
+        {
+          "en": "The delay represented the time needed for signals to travel across space.",
+          "ja": "その遅延は信号が宇宙空間を移動するのに必要な時間を表していた。"
+        },
+        {
+          "en": "It was not intended to reproduce the actual travel time to Mars.",
+          "ja": "火星までの実際の通信時間を再現することが目的ではなかった。"
+        },
+        {
+          "en": "At first, the students sent many short questions to each other.",
+          "ja": "最初、生徒たちは短い質問を互いにたくさん送った。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "However, waiting for every reply made even simple tasks difficult.",
+          "ja": "しかし、返事をいちいち待つと簡単な作業さえ難しくなった。"
+        },
+        {
+          "en": "One student asked where to find a spare tool.",
+          "ja": "ある生徒は予備の工具がどこにあるか尋ねた。"
+        },
+        {
+          "en": "By the time the answer arrived, the crew had already found it.",
+          "ja": "返事が届いた頃には、乗組員はすでにそれを見つけていた。"
+        },
+        {
+          "en": "They decided to change the way they wrote their messages.",
+          "ja": "彼らはメッセージの書き方を変えることにした。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Instead of asking one question at a time, they grouped related questions together.",
+          "ja": "一度に一つずつ質問する代わりに、関連する質問をまとめた。"
+        },
+        {
+          "en": "They also prepared instructions for common problems before starting a task.",
+          "ja": "作業を始める前に、よくある問題への手順も用意した。"
+        },
+        {
+          "en": "As a result, the crew could make more decisions without waiting.",
+          "ja": "その結果、乗組員は待つことなく、より多くの判断を下せるようになった。"
+        },
+        {
+          "en": "The simulated mission became easier to manage.",
+          "ja": "模擬任務は管理しやすくなった。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "After the activity, everyone discussed the importance of planning ahead.",
+          "ja": "活動後、皆で事前計画の重要性を話し合った。"
+        },
+        {
+          "en": "They understood that useful communication does not always mean immediate communication.",
+          "ja": "役立つ通信が必ずしも即時の通信を意味しないと理解した。"
+        },
+        {
+          "en": "A carefully prepared message could save time later.",
+          "ja": "丁寧に準備されたメッセージは後で時間を節約できる。"
+        },
+        {
+          "en": "For the students, the challenge was as much about teamwork as technology.",
+          "ja": "生徒たちにとって、その課題は技術だけでなくチームワークも同じように重要なものだった。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "mission",
+      "ja": "任務",
+      "synonym": "assignment",
+      "definition": "an important task with a particular goal"
+    },
+    {
+      "term": "crew",
+      "ja": "乗組員",
+      "synonym": "team",
+      "definition": "people working together on a vehicle"
+    },
+    {
+      "term": "spacecraft",
+      "ja": "宇宙船",
+      "synonym": "space vehicle",
+      "definition": "a vehicle designed to travel in space"
+    },
+    {
+      "term": "control center",
+      "ja": "管制センター",
+      "synonym": "operations room",
+      "definition": "a place from which an operation is directed"
+    },
+    {
+      "term": "introduced",
+      "ja": "導入した",
+      "synonym": "established",
+      "definition": "brought something into use"
+    },
+    {
+      "term": "communication",
+      "ja": "通信",
+      "synonym": "exchange of information",
+      "definition": "the sharing of information"
+    },
+    {
+      "term": "delay",
+      "ja": "遅延",
+      "synonym": "wait",
+      "definition": "a period before something happens"
+    },
+    {
+      "term": "represented",
+      "ja": "表していた",
+      "synonym": "stood for",
+      "definition": "acted as a sign or model of something"
+    },
+    {
+      "term": "signals",
+      "ja": "信号",
+      "synonym": "transmissions",
+      "definition": "messages sent using a physical means"
+    },
+    {
+      "term": "intended",
+      "ja": "意図された",
+      "synonym": "meant",
+      "definition": "planned for a purpose"
+    },
+    {
+      "term": "reproduce",
+      "ja": "再現する",
+      "synonym": "recreate",
+      "definition": "make something like the original again"
+    },
+    {
+      "term": "actual",
+      "ja": "実際の",
+      "synonym": "real",
+      "definition": "existing in reality"
+    },
+    {
+      "term": "reply",
+      "ja": "返事",
+      "synonym": "response",
+      "definition": "an answer to a message"
+    },
+    {
+      "term": "tasks",
+      "ja": "作業",
+      "synonym": "jobs",
+      "definition": "pieces of work to be done"
+    },
+    {
+      "term": "spare",
+      "ja": "予備の",
+      "synonym": "extra",
+      "definition": "available for use when needed"
+    },
+    {
+      "term": "tool",
+      "ja": "工具",
+      "synonym": "instrument",
+      "definition": "an object used to perform work"
+    },
+    {
+      "term": "arrived",
+      "ja": "届いた",
+      "synonym": "reached its destination",
+      "definition": "came to a place or recipient"
+    },
+    {
+      "term": "grouped",
+      "ja": "まとめた",
+      "synonym": "combined",
+      "definition": "put things together"
+    },
+    {
+      "term": "related",
+      "ja": "関連する",
+      "synonym": "connected",
+      "definition": "having a connection with something"
+    },
+    {
+      "term": "instructions",
+      "ja": "手順・指示",
+      "synonym": "directions",
+      "definition": "information about how to do something"
+    },
+    {
+      "term": "common",
+      "ja": "よくある",
+      "synonym": "frequent",
+      "definition": "happening often"
+    },
+    {
+      "term": "decisions",
+      "ja": "判断",
+      "synonym": "choices",
+      "definition": "conclusions about what to do"
+    },
+    {
+      "term": "simulated",
+      "ja": "模擬の",
+      "synonym": "imitated",
+      "definition": "created to represent a real situation"
+    },
+    {
+      "term": "manage",
+      "ja": "管理する",
+      "synonym": "handle",
+      "definition": "deal with or control something"
+    },
+    {
+      "term": "importance",
+      "ja": "重要性",
+      "synonym": "significance",
+      "definition": "the quality of being valuable or necessary"
+    },
+    {
+      "term": "immediate",
+      "ja": "即時の",
+      "synonym": "instant",
+      "definition": "happening without waiting"
+    },
+    {
+      "term": "carefully",
+      "ja": "丁寧に",
+      "synonym": "thoughtfully",
+      "definition": "with attention to detail"
+    },
+    {
+      "term": "teamwork",
+      "ja": "チームワーク",
+      "synonym": "cooperation",
+      "definition": "people working together effectively"
+    },
+    {
+      "term": "technology",
+      "ja": "技術",
+      "synonym": "technical methods",
+      "definition": "practical use of scientific knowledge"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What did the students imagine at the festival?",
+      "answer": 2,
+      "options": [
+        "A trip across an ocean.",
+        "A visit to the school library.",
+        "A mission to Mars.",
+        "A race between cars."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "火星への任務を想像した。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Where did the control center operate?",
+      "answer": 0,
+      "options": [
+        "In the next classroom.",
+        "Inside a real spacecraft.",
+        "On the school roof.",
+        "In another town."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "隣の教室に管制センターを設けた。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What rule did the teacher introduce?",
+      "answer": 3,
+      "options": [
+        "Messages had to be written in different colors.",
+        "Students could send only one message a day.",
+        "All messages had to be spoken.",
+        "Each message had to wait three minutes."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "メッセージを3分間待たせるルール。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "What was the purpose of the three-minute wait?",
+      "answer": 1,
+      "options": [
+        "To measure the true distance to Mars.",
+        "To model the difficulty of delayed signals.",
+        "To give students a break from school.",
+        "To test how quickly the students could run."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "実測値の再現ではなく信号の遅延を体験することが目的。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What happened before the reply about the tool arrived?",
+      "answer": 0,
+      "options": [
+        "The crew found the tool itself.",
+        "The mission was canceled.",
+        "The tool was sent to Earth.",
+        "The teacher removed the box."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "返事が届く前に乗組員が自分たちで工具を見つけた。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "How did the students change their messages?",
+      "answer": 3,
+      "options": [
+        "They stopped writing entirely.",
+        "They wrote only greetings.",
+        "They used longer waiting times.",
+        "They combined questions on related topics."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "関連のある質問をまとめた。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What else did the students prepare?",
+      "answer": 1,
+      "options": [
+        "A map of every classroom.",
+        "Instructions for common problems.",
+        "A new model of Earth.",
+        "A list of festival visitors."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "よくある問題に備えた手順を用意した。"
+    },
+    {
+      "id": "q8",
+      "skill": "vocabulary",
+      "prompt": "What does 'immediate' mean in paragraph five?",
+      "answer": 2,
+      "options": [
+        "Uncertain.",
+        "Expensive.",
+        "Without a delay.",
+        "Far away."
+      ],
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "時間を置かずにという意味。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Why did preparing instructions help the crew?",
+      "answer": 3,
+      "options": [
+        "It made the signals travel faster.",
+        "It removed the need for teamwork.",
+        "It changed the distance to Mars.",
+        "It reduced the need to wait for answers."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "返事を待たずに判断できる場面が増えた。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the central idea?",
+      "answer": 0,
+      "options": [
+        "Planning and teamwork can help people deal with communication delays.",
+        "Every message must arrive immediately to be useful.",
+        "Space missions should avoid written messages.",
+        "Technology eliminates the need for preparation."
+      ],
+      "paragraph_ids": [
+        "p4",
+        "p5"
+      ],
+      "explanation_ja": "通信遅延を乗り越えるには計画と協力が重要。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 0,
+      "focus": "had to wait",
+      "explanation_ja": "had toは過去の義務を表す。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "was not intended to reproduce",
+      "explanation_ja": "be intended toは〜することを目的とする。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "By the time the answer arrived",
+      "explanation_ja": "by the timeはある時点までの完了を導く。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "as much about teamwork as technology",
+      "explanation_ja": "as much A as Bは両者が同程度に重要であることを示す。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p2",
+      "expression": "At first",
+      "role_ja": "初期のやり取りを示す。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "However",
+      "role_ja": "最初の方法の問題を示す。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Instead of",
+      "role_ja": "従来とは異なる方法への転換。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "As a result",
+      "role_ja": "工夫によって生じた結果。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The delay represented the time needed for signals to travel across space.",
+      "rewrite": "The waiting period was a model of signals taking time to cross space.",
+      "explanation_ja": "宇宙空間を信号が移動する時間をモデル化した。"
+    },
+    {
+      "source": "By the time the answer arrived, the crew had already found it.",
+      "rewrite": "The crew located the tool before receiving the response.",
+      "explanation_ja": "返事を受け取る前に工具を見つけた。"
+    },
+    {
+      "source": "As a result, the crew could make more decisions without waiting.",
+      "rewrite": "Consequently, the crew was able to decide more things on its own without a delay.",
+      "explanation_ja": "待たずに判断できることが増えた。"
+    },
+    {
+      "source": "A carefully prepared message could save time later.",
+      "rewrite": "Taking care when preparing a message might reduce the time needed later.",
+      "explanation_ja": "丁寧な事前準備で後の時間を節約できる。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "delay",
+      "options": [
+        "festival",
+        "delay",
+        "tool",
+        "crew"
+      ],
+      "explanation_ja": "時間の遅れが信号の伝達時間を表した。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "arrived",
+      "options": [
+        "disappeared",
+        "failed",
+        "arrived",
+        "changed"
+      ],
+      "explanation_ja": "返事が届く頃には工具を発見していた。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "instructions",
+      "options": [
+        "windows",
+        "tickets",
+        "paintings",
+        "instructions"
+      ],
+      "explanation_ja": "事前に問題対応の手順を用意した。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "answer": "teamwork",
+      "options": [
+        "teamwork",
+        "weather",
+        "distance",
+        "furniture"
+      ],
+      "explanation_ja": "技術に加えて協力が重要だった。"
+    }
+  ]
+}

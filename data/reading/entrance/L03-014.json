@@ -1,0 +1,722 @@
+{
+  "id": "L03-014",
+  "category_id": "L03",
+  "title": "A Map That Avoided the Wrong Hill",
+  "title_ja": "見当違いの坂を避ける地図",
+  "level_id": "eiken-2",
+  "status": "draft",
+  "original": true,
+  "word_count": 399,
+  "source_links": [
+    {
+      "title": "Original lesson authoring registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "登場人物・活動・場所・観察結果は架空の教育事例。特定の実在の調査・製品・制度を報告するものではない。参考リンクは制作台帳であり外部の実証資料ではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A group of students developed a walking navigation tool for visitors attending events at a large university campus.",
+          "ja": "生徒のグループは大きな大学キャンパスで行事に参加する来訪者向けの徒歩案内ツールを開発した。"
+        },
+        {
+          "en": "The first version automatically selected the route with the shortest distance between the entrance and the building a visitor wanted to reach.",
+          "ja": "初版は入口から来訪者が行きたい建物まで最短距離の経路を自動的に選択した。"
+        },
+        {
+          "en": "The developers assumed that a shorter route would be more convenient for almost everyone, especially visitors who were unfamiliar with the campus.",
+          "ja": "開発者たちは短い経路がほぼ全員、特にキャンパスに不慣れな人にとって便利だろうと考えた。"
+        },
+        {
+          "en": "They tested the tool themselves and were pleased that it produced clear directions in a matter of seconds.",
+          "ja": "自分たちでツールを試し、数秒で明瞭な道順を出せることに満足した。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "During an open day, however, several visitors reported that the recommended route included a steep path near an outdoor theater.",
+          "ja": "オープンデー中、数人の来訪者は推奨経路に野外劇場近くの急な坂が含まれると報告した。"
+        },
+        {
+          "en": "A person carrying heavy equipment explained that a slightly longer route along a flatter path would have been much easier.",
+          "ja": "重い機材を運ぶ人は、やや長くても平坦な通路を使う方がずっと楽だっただろうと説明した。"
+        },
+        {
+          "en": "Another visitor pointed out that some wide doors were easier to use than the narrow entrance the tool had selected.",
+          "ja": "別の来訪者は、ツールが選んだ狭い入口より利用しやすい広い扉があると指摘した。"
+        },
+        {
+          "en": "The students realized that the algorithm had optimized one measurable feature while ignoring other features relevant to a visitor's needs.",
+          "ja": "生徒たちはアルゴリズムが測定可能な一つの特徴を最適化する一方、必要性に関わるほかの特徴を無視していたと気づいた。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "They initially considered adding several fixed penalties for stairs, steep slopes, and narrow passages to the calculation of each route.",
+          "ja": "当初は階段、急な坂、狭い通路に対する固定の不利な値を経路計算に加えることを検討した。"
+        },
+        {
+          "en": "However, they recognized that different users might give different levels of importance to these features depending on their circumstances.",
+          "ja": "しかし利用者によって事情に応じてこれらの特徴に与える重要性の度合いが異なると認識した。"
+        },
+        {
+          "en": "Instead of defining one universally ideal route, the team introduced alternatives that displayed estimated distance, known slopes, and available entrances.",
+          "ja": "普遍的に理想的な一つの経路を定義する代わりに、推定距離、既知の坂、利用可能な入口を示す選択肢を導入した。"
+        },
+        {
+          "en": "Visitors could then choose a route based on the information rather than being limited to the original recommendation.",
+          "ja": "来訪者は元の推奨に限定されず情報に基づいて経路を選べるようになった。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The developers also discovered that information about the campus could become outdated whenever construction temporarily closed an entrance or moved a pathway.",
+          "ja": "開発者は工事で一時的に入口が閉鎖されたり通路が移動したりするたびにキャンパス情報が古くなることにも気づいた。"
+        },
+        {
+          "en": "They added a date indicating when the relevant route information had last been checked and invited staff to report unexpected changes.",
+          "ja": "関連する経路情報を最後に確認した日付を追加し、予期しない変更を職員に報告してもらうことにした。"
+        },
+        {
+          "en": "The tool warned visitors when information about a particular route had not been recently confirmed, rather than presenting every route as equally reliable.",
+          "ja": "すべての経路を同等に信頼できるよう示さず、最近確認されていない経路情報について警告するようにした。"
+        },
+        {
+          "en": "These improvements made the tool less simple to display but potentially more useful to people whose needs differed from those of the developers.",
+          "ja": "これらの改善で表示は単純でなくなったが、開発者と異なる必要性を持つ人にはより有用になる可能性があった。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The project revealed that designing a useful algorithm involves more than making a computer produce an answer efficiently.",
+          "ja": "活動は有用なアルゴリズムを設計することが、コンピューターに効率よく答えを出させる以上のことを含むと明らかにした。"
+        },
+        {
+          "en": "The choice of what to measure influences what a system will recommend, even when the calculation itself is perfectly accurate.",
+          "ja": "計算そのものが完全に正しくても、何を測るかの選択が仕組みの推奨に影響する。"
+        },
+        {
+          "en": "A responsible designer should therefore examine whose needs the selected measurement represents and which needs remain unaccounted for.",
+          "ja": "責任ある設計者は選んだ測定が誰の必要性を代表し、どの必要性が考慮されていないか調べるべきだ。"
+        },
+        {
+          "en": "For the students, offering a meaningful choice proved more valuable than announcing a single apparently perfect answer.",
+          "ja": "生徒にとって一見完璧な一つの答えを示すより、有意義な選択肢を提供する方が価値があると分かった。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "developed",
+      "ja": "開発した",
+      "synonym": "created",
+      "definition": "made and improved something"
+    },
+    {
+      "term": "navigation",
+      "ja": "案内",
+      "synonym": "wayfinding",
+      "definition": "the activity of finding a route"
+    },
+    {
+      "term": "campus",
+      "ja": "キャンパス",
+      "synonym": "university grounds",
+      "definition": "the grounds and buildings of a school or university"
+    },
+    {
+      "term": "version",
+      "ja": "版",
+      "synonym": "edition",
+      "definition": "a particular form of something"
+    },
+    {
+      "term": "automatically",
+      "ja": "自動的に",
+      "synonym": "by itself",
+      "definition": "without direct human intervention"
+    },
+    {
+      "term": "selected",
+      "ja": "選択した",
+      "synonym": "chose",
+      "definition": "picked from alternatives"
+    },
+    {
+      "term": "distance",
+      "ja": "距離",
+      "synonym": "length",
+      "definition": "the space between two places"
+    },
+    {
+      "term": "entrance",
+      "ja": "入口",
+      "synonym": "entry",
+      "definition": "a point where people enter"
+    },
+    {
+      "term": "developers",
+      "ja": "開発者",
+      "synonym": "designers",
+      "definition": "people who create a product or system"
+    },
+    {
+      "term": "assumed",
+      "ja": "思い込んだ",
+      "synonym": "supposed",
+      "definition": "accepted something without proof"
+    },
+    {
+      "term": "convenient",
+      "ja": "便利な",
+      "synonym": "practical",
+      "definition": "suited to people's needs"
+    },
+    {
+      "term": "unfamiliar",
+      "ja": "不慣れな",
+      "synonym": "unknown",
+      "definition": "not previously known or experienced"
+    },
+    {
+      "term": "directions",
+      "ja": "道順",
+      "synonym": "guidance",
+      "definition": "instructions for reaching a place"
+    },
+    {
+      "term": "recommended",
+      "ja": "推奨された",
+      "synonym": "suggested",
+      "definition": "advised as a suitable choice"
+    },
+    {
+      "term": "steep",
+      "ja": "急な",
+      "synonym": "sharply sloped",
+      "definition": "rising or falling at a large angle"
+    },
+    {
+      "term": "equipment",
+      "ja": "機材",
+      "synonym": "gear",
+      "definition": "objects needed for an activity"
+    },
+    {
+      "term": "slightly",
+      "ja": "やや",
+      "synonym": "a little",
+      "definition": "to a small degree"
+    },
+    {
+      "term": "flatter",
+      "ja": "より平坦な",
+      "synonym": "more level",
+      "definition": "having a more even surface"
+    },
+    {
+      "term": "narrow",
+      "ja": "狭い",
+      "synonym": "not wide",
+      "definition": "having little width"
+    },
+    {
+      "term": "algorithm",
+      "ja": "アルゴリズム",
+      "synonym": "procedure",
+      "definition": "a set of steps for solving a problem"
+    },
+    {
+      "term": "optimized",
+      "ja": "最適化した",
+      "synonym": "maximized performance",
+      "definition": "adjusted something to achieve a chosen objective"
+    },
+    {
+      "term": "measurable",
+      "ja": "測定可能な",
+      "synonym": "quantifiable",
+      "definition": "able to be measured"
+    },
+    {
+      "term": "relevant",
+      "ja": "関連する",
+      "synonym": "pertinent",
+      "definition": "connected to the matter"
+    },
+    {
+      "term": "initially",
+      "ja": "当初",
+      "synonym": "at first",
+      "definition": "at the beginning"
+    },
+    {
+      "term": "penalties",
+      "ja": "不利な値",
+      "synonym": "cost adjustments",
+      "definition": "values added to make an option less favorable"
+    },
+    {
+      "term": "slopes",
+      "ja": "坂",
+      "synonym": "inclines",
+      "definition": "surfaces rising or falling at an angle"
+    },
+    {
+      "term": "passages",
+      "ja": "通路",
+      "synonym": "pathways",
+      "definition": "ways through or between places"
+    },
+    {
+      "term": "calculation",
+      "ja": "計算",
+      "synonym": "computation",
+      "definition": "the process of finding a result using numbers"
+    },
+    {
+      "term": "recognized",
+      "ja": "認識した",
+      "synonym": "realized",
+      "definition": "became aware of something"
+    },
+    {
+      "term": "circumstances",
+      "ja": "事情",
+      "synonym": "conditions",
+      "definition": "facts affecting a situation"
+    },
+    {
+      "term": "defining",
+      "ja": "定義すること",
+      "synonym": "specifying",
+      "definition": "making the meaning or requirements clear"
+    },
+    {
+      "term": "universally",
+      "ja": "普遍的に",
+      "synonym": "in every case",
+      "definition": "in a way applying to all people or cases"
+    },
+    {
+      "term": "ideal",
+      "ja": "理想的な",
+      "synonym": "optimal",
+      "definition": "regarded as best for a purpose"
+    },
+    {
+      "term": "introduced",
+      "ja": "導入した",
+      "synonym": "established",
+      "definition": "brought something into use"
+    },
+    {
+      "term": "alternatives",
+      "ja": "選択肢",
+      "synonym": "options",
+      "definition": "other possible choices"
+    },
+    {
+      "term": "estimated",
+      "ja": "推定された",
+      "synonym": "approximate",
+      "definition": "roughly calculated"
+    },
+    {
+      "term": "available",
+      "ja": "利用可能な",
+      "synonym": "accessible",
+      "definition": "able to be used"
+    },
+    {
+      "term": "outdated",
+      "ja": "古くなった",
+      "synonym": "no longer current",
+      "definition": "not reflecting the latest situation"
+    },
+    {
+      "term": "temporarily",
+      "ja": "一時的に",
+      "synonym": "for a time",
+      "definition": "for a limited period"
+    },
+    {
+      "term": "indicating",
+      "ja": "示す",
+      "synonym": "signaling",
+      "definition": "making information known"
+    },
+    {
+      "term": "unexpected",
+      "ja": "予期しない",
+      "synonym": "unforeseen",
+      "definition": "not thought likely beforehand"
+    },
+    {
+      "term": "confirmed",
+      "ja": "確認された",
+      "synonym": "verified",
+      "definition": "checked and established as true"
+    },
+    {
+      "term": "equally",
+      "ja": "同等に",
+      "synonym": "to the same degree",
+      "definition": "in the same amount or manner"
+    },
+    {
+      "term": "reliable",
+      "ja": "信頼できる",
+      "synonym": "dependable",
+      "definition": "able to be trusted"
+    },
+    {
+      "term": "potentially",
+      "ja": "潜在的に",
+      "synonym": "possibly",
+      "definition": "having the possibility of happening"
+    },
+    {
+      "term": "efficiently",
+      "ja": "効率よく",
+      "synonym": "effectively",
+      "definition": "without unnecessary waste of resources"
+    },
+    {
+      "term": "influences",
+      "ja": "影響する",
+      "synonym": "affects",
+      "definition": "changes how something develops"
+    },
+    {
+      "term": "accurate",
+      "ja": "正確な",
+      "synonym": "correct",
+      "definition": "free from error"
+    },
+    {
+      "term": "responsible",
+      "ja": "責任ある",
+      "synonym": "conscientious",
+      "definition": "showing care and good judgment"
+    },
+    {
+      "term": "measurement",
+      "ja": "測定",
+      "synonym": "measure",
+      "definition": "a value or process used to determine a quantity"
+    },
+    {
+      "term": "represents",
+      "ja": "代表する",
+      "synonym": "reflects",
+      "definition": "stands for or reflects something"
+    },
+    {
+      "term": "apparently",
+      "ja": "一見",
+      "synonym": "seemingly",
+      "definition": "as something seems to be"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What did the initial tool prioritize?",
+      "options": [
+        "The shortest walking distance.",
+        "The largest number of campus buildings.",
+        "The widest possible entrance in every case.",
+        "The number of visitors at the event."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "最短距離を優先した。"
+    },
+    {
+      "id": "q2",
+      "skill": "inference",
+      "prompt": "What did the developers initially assume?",
+      "options": [
+        "All visitors carried the same equipment.",
+        "A shorter route would be convenient for nearly everyone.",
+        "Every pathway had the same slope.",
+        "Visitors preferred to receive no directions."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "短い経路がほぼ全員に便利だと思った。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What difficulty did one visitor identify?",
+      "options": [
+        "A failure to display any campus map.",
+        "An entrance hidden by the theater staff.",
+        "A path outside the university grounds.",
+        "A steep path on the recommended route."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "急な坂が含まれていた。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "What had the algorithm overlooked?",
+      "options": [
+        "The exact location of the desired building.",
+        "The length of every route in the calculation.",
+        "Relevant route features other than distance.",
+        "The need to produce directions at all."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "距離以外の重要な特徴を無視していた。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What did the team consider adding to the calculation?",
+      "options": [
+        "The personal names of every visitor.",
+        "Fixed penalties for obstacles such as stairs and slopes.",
+        "The price of a university education.",
+        "An identical distance for all pathways."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "障害を反映する固定の不利な値。"
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why did the team eventually present alternatives?",
+      "options": [
+        "Different visitors might value different features.",
+        "All visitors had requested the same route.",
+        "The developers were unable to calculate distance.",
+        "The team wanted to remove all information about slopes."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "利用者によって重視する点が違うため。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What extra information did the revised tool show?",
+      "options": [
+        "The salaries of university staff.",
+        "The private schedules of all visitors.",
+        "When route information had last been checked.",
+        "The prices of outdoor theater tickets."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "経路情報の最終確認日。"
+    },
+    {
+      "id": "q8",
+      "skill": "vocabulary",
+      "prompt": "What does outdated mean in this passage?",
+      "options": [
+        "Too complex to display.",
+        "Available to everyone.",
+        "Correct to the nearest meter.",
+        "No longer reflecting current conditions."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "現状を反映しなくなったという意味。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What can happen even if a route calculation is accurate?",
+      "options": [
+        "The recommendation may fail to reflect some users' needs.",
+        "Every visitor will necessarily prefer it.",
+        "The relevant campus information must be current.",
+        "The tool cannot produce any result."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "正確な計算でも必要性を満たさない場合がある。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What does the passage argue?",
+      "options": [
+        "Shortest distances should determine all recommendations.",
+        "Useful algorithms require careful selection of measures and attention to different users.",
+        "Every user must prefer a single ideal route.",
+        "Accurate calculations remove the need for design decisions."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "指標の選択と利用者ごとの必要性を考慮する。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "the building a visitor wanted to reach",
+      "explanation_ja": "関係代名詞thatの省略によりbuildingが修飾される。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "would have been much easier",
+      "explanation_ja": "would have＋過去分詞は過去の仮定的な結果を表す。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "focus": "depending on their circumstances",
+      "explanation_ja": "現在分詞句が重要度の違いの条件を補足する。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "focus": "even when the calculation itself is perfectly accurate",
+      "explanation_ja": "even whenは〜の場合でさえと譲歩を示す。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p2",
+      "expression": "however",
+      "role_ja": "初版の成功感から来訪者の課題へ。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "However",
+      "role_ja": "固定ペナルティ案の限界。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Instead of",
+      "role_ja": "単一の理想経路から選択肢への転換。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "therefore",
+      "role_ja": "指標の選択の重要性から結論を導く。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The first version automatically selected the route with the shortest distance between the entrance and the building a visitor wanted to reach.",
+      "rewrite": "The tool chose the least distant route from the entrance to a visitor's intended building.",
+      "explanation_ja": "最短距離を選んだ。"
+    },
+    {
+      "source": "A person carrying heavy equipment explained that a slightly longer route along a flatter path would have been much easier.",
+      "rewrite": "The equipment carrier explained that taking a somewhat longer but more level path would have caused less difficulty.",
+      "explanation_ja": "平坦な別経路なら楽だったと説明した。"
+    },
+    {
+      "source": "However, they recognized that different users might give different levels of importance to these features depending on their circumstances.",
+      "rewrite": "They understood that the significance of each obstacle could vary according to the users' situations.",
+      "explanation_ja": "状況に応じ重要度が変わる。"
+    },
+    {
+      "source": "The choice of what to measure influences what a system will recommend, even when the calculation itself is perfectly accurate.",
+      "rewrite": "The measurement chosen affects a recommendation regardless of whether the calculation is completely correct.",
+      "explanation_ja": "計算の正確さだけでは推奨の妥当性を保証しない。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "answer": "measurable",
+      "options": [
+        "measurable",
+        "invisible",
+        "ancient",
+        "expensive"
+      ],
+      "explanation_ja": "測定できる一つの特徴を最適化。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "alternatives",
+      "options": [
+        "obstacles",
+        "alternatives",
+        "portraits",
+        "receipts"
+      ],
+      "explanation_ja": "異なる経路を提示。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "answer": "outdated",
+      "options": [
+        "valuable",
+        "suitable",
+        "outdated",
+        "accurate"
+      ],
+      "explanation_ja": "工事によって情報が古くなる。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "measurement",
+      "options": [
+        "furniture",
+        "exhibition",
+        "celebration",
+        "measurement"
+      ],
+      "explanation_ja": "どの指標が誰の必要性を反映するか。"
+    }
+  ]
+}

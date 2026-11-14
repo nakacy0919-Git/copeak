@@ -1,0 +1,776 @@
+{
+  "id": "L03-026",
+  "category_id": "L03",
+  "title": "The Image That Lost Its Details",
+  "title_ja": "細部を失った画像",
+  "level_id": "university-advanced",
+  "status": "draft",
+  "original": true,
+  "word_count": 708,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "オリジナル論説。一般的原理と架空の例を用いた教材であり、架空例は実在の調査結果・史料・実験結果ではない。制作台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Digital information can be copied without reproducing the physical conditions under which the original record was created, which allows people to distribute images with a degree of convenience that would be difficult to achieve through the transportation of physical objects.",
+          "ja": "デジタル情報は原記録作成時の物理的条件を再現せず複製できるため、物理的な物の輸送では達成しにくい利便性で画像を配布できる。"
+        },
+        {
+          "en": "Yet a digital copy is not necessarily an exact duplicate if its contents have been transformed in order to reduce the amount of data required to store or transmit it.",
+          "ja": "しかし保存・伝送に必要なデータ量を減らすため内容が変換されていれば、デジタルコピーは必ずしも完全な複製ではない。"
+        },
+        {
+          "en": "A person receiving a smaller version of an image might not notice any substantial difference when viewing it on an ordinary screen, although the version may no longer contain some information present in the original.",
+          "ja": "縮小版を受け取った人は通常の画面で大きな違いに気づかなくても、その版には原本にあった一部の情報がもう含まれていない場合がある。"
+        },
+        {
+          "en": "The significance of the missing information depends on the purpose for which the image is subsequently used rather than solely on the impression it creates during a brief act of viewing.",
+          "ja": "失われた情報の意義は短時間の閲覧で生じる印象だけでなく、その後の画像の用途に依存する。"
+        },
+        {
+          "en": "This distinction invites a broader examination of the assumptions underlying technical decisions about information preservation.",
+          "ja": "この区別は情報保存の技術的判断の根底にある前提をより広く吟味するよう促す。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Consider an imaginary architecture class that photographs a model of a complicated building and prepares a smaller version of the image for inclusion in an online presentation.",
+          "ja": "複雑な建物の模型を撮影しオンライン発表への掲載用に小さな画像版を用意する架空の建築授業を考えよう。"
+        },
+        {
+          "en": "The smaller version may adequately communicate the overall shape and the relationship between the principal sections of the building, particularly when an audience has only a short time to examine the slide.",
+          "ja": "小さな版は特に観客がスライドを見る時間が短い場合、全体形状と主要部分間の関係を十分伝え得る。"
+        },
+        {
+          "en": "Several weeks later, however, a student attempts to use the same version to examine the arrangement of tiny components near an entrance, only to discover that the relevant details can no longer be clearly distinguished.",
+          "ja": "しかし数週間後、生徒は同じ版を使って入口付近の小部品の配置を調べようとし、関連する詳細をもはや明確に区別できないと気づく。"
+        },
+        {
+          "en": "The original purpose of communicating the general appearance of the model did not require preserving every detail, whereas the later investigation depends on the availability of precisely the information that was lost.",
+          "ja": "模型の一般的外観を伝える当初目的には全細部の保存が不要だった一方、後の調査はまさに失われた情報の利用可能性に依存している。"
+        },
+        {
+          "en": "What initially constituted a satisfactory compromise between file size and visual quality has consequently become a limitation when the same copy is treated as a source of evidence for a different task.",
+          "ja": "当初ファイルサイズと視覚品質の満足な妥協だったものが、異なる作業の根拠として同じ複製を扱うと限界になった。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The students distinguish a process that removes information not considered essential for a particular use from a process that represents the same information more efficiently without losing any of its original contents.",
+          "ja": "生徒は特定用途に不可欠と考えられない情報を除く過程と、元の内容を失わず同じ情報をより効率的に表す過程を区別する。"
+        },
+        {
+          "en": "The second approach may preserve the possibility of reconstructing an exact original representation, although the extent to which file size can be reduced will depend on characteristics of the material being encoded.",
+          "ja": "第二の方法は原表現を正確に復元する可能性を保存し得るが、ファイルサイズ削減の程度は符号化対象の特性に依存する。"
+        },
+        {
+          "en": "The first approach may permit more substantial reductions under some conditions, but the information discarded in the transformation cannot necessarily be inferred reliably from the resulting file.",
+          "ja": "第一の方法は条件によって大幅削減を可能にし得るが、変換で捨てられた情報を結果ファイルから必ずしも信頼して推論できない。"
+        },
+        {
+          "en": "A program that produces a convincing reconstruction of missing details would not thereby demonstrate that the reconstructed details were actually present in the original image.",
+          "ja": "欠けた細部のもっともらしい復元を生成するプログラムは、それだけで復元細部が実際に元画像にあったと示すわけではない。"
+        },
+        {
+          "en": "The distinction matters whenever an apparently complete image is used to answer questions about the characteristics of an object that can no longer be examined directly.",
+          "ja": "一見完全な画像がもはや直接調べられない物体の特性に関する問いに使われるたびこの区別は重要になる。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "For their next project, the students propose keeping a carefully identified original record while preparing versions suited to the particular purposes of classroom presentation and online distribution.",
+          "ja": "次の活動で生徒は元記録を明確に識別して保管しつつ、教室発表とオンライン配布の特定目的に適した版を準備することを提案する。"
+        },
+        {
+          "en": "They consider whether the original and modified versions should be accompanied by information describing the transformations through which each copy was produced, so that a later reader need not rely entirely on visual appearance to determine its relationship to the source.",
+          "ja": "後の読者が出典との関係を決めるため完全に外観に頼らないよう、原版と変更版に各コピーの生成変換を記述した情報を添えるべきか考える。"
+        },
+        {
+          "en": "Such an arrangement creates additional responsibilities involving storage, identification, and the maintenance of records that link different versions, rather than simply requiring people to save every file that happens to be generated.",
+          "ja": "その仕組みは生成された全ファイルの保存だけを要求するのでなく、保管・識別・異なる版を結ぶ記録の維持に関する追加責任を生む。"
+        },
+        {
+          "en": "The imagined project does not establish an appropriate archival procedure for every type of digital information, since the costs and consequences of retaining data vary according to the circumstances in which an organization operates.",
+          "ja": "仮想活動は全デジタル情報に適切な保存手順を確立しない。データ保持の費用と影響は組織の運用事情によって異なるからだ。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "Efficiency in the transmission of information and completeness in its preservation can be complementary objectives, but they do not necessarily require the same version of a document to serve every purpose.",
+          "ja": "情報伝送の効率と保存の完全性は相補的目的になり得るが、全目的を同じ文書版で果たす必要があるとは限らない。"
+        },
+        {
+          "en": "A technically sophisticated method of transformation may be entirely appropriate for distributing a visual summary while being unsuitable for producing the sole surviving record of a complex object.",
+          "ja": "技術的に高度な変換方法は視覚的要約の配布には完全に適切でも、複雑な物体の唯一の残存記録を作るには不適切かもしれない。"
+        },
+        {
+          "en": "Responsible decisions about digital records therefore require an understanding of the distinction between making information accessible and preserving the evidence that could support an inquiry whose purpose has not yet been determined.",
+          "ja": "責任あるデジタル記録の判断には情報にアクセスしやすくすることと、目的がまだ決まっていない調査を支え得る根拠を保存することの区別の理解が必要だ。"
+        },
+        {
+          "en": "The image that lost its details illustrates why the success of a technical process cannot be established exclusively through its ability to satisfy the immediate expectations of the person who requested it.",
+          "ja": "細部を失った画像は技術過程の成功が依頼者の即時期待を満たす能力だけでは確定できない理由を示す。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "reproducing",
+      "ja": "再現すること",
+      "synonym": "replicating",
+      "definition": "producing again"
+    },
+    {
+      "term": "distribute",
+      "ja": "配布する",
+      "synonym": "circulate",
+      "definition": "give out to people"
+    },
+    {
+      "term": "convenience",
+      "ja": "利便性",
+      "synonym": "ease",
+      "definition": "quality of being easy"
+    },
+    {
+      "term": "transportation",
+      "ja": "輸送",
+      "synonym": "transport",
+      "definition": "movement of goods"
+    },
+    {
+      "term": "duplicate",
+      "ja": "複製",
+      "synonym": "copy",
+      "definition": "exactly matching copy"
+    },
+    {
+      "term": "transformed",
+      "ja": "変換された",
+      "synonym": "converted",
+      "definition": "changed in form"
+    },
+    {
+      "term": "transmit",
+      "ja": "伝送する",
+      "synonym": "send",
+      "definition": "pass from one location to another"
+    },
+    {
+      "term": "substantial",
+      "ja": "大幅な",
+      "synonym": "considerable",
+      "definition": "large in amount"
+    },
+    {
+      "term": "significance",
+      "ja": "意義",
+      "synonym": "importance",
+      "definition": "quality of being meaningful"
+    },
+    {
+      "term": "subsequently",
+      "ja": "その後",
+      "synonym": "later",
+      "definition": "after an event"
+    },
+    {
+      "term": "solely",
+      "ja": "専ら",
+      "synonym": "only",
+      "definition": "nothing more than"
+    },
+    {
+      "term": "underlying",
+      "ja": "根底にある",
+      "synonym": "fundamental",
+      "definition": "forming the basis"
+    },
+    {
+      "term": "preservation",
+      "ja": "保存",
+      "synonym": "conservation",
+      "definition": "act of keeping from loss"
+    },
+    {
+      "term": "architecture",
+      "ja": "建築",
+      "synonym": "building design",
+      "definition": "design of buildings"
+    },
+    {
+      "term": "complicated",
+      "ja": "複雑な",
+      "synonym": "complex",
+      "definition": "having many connected parts"
+    },
+    {
+      "term": "inclusion",
+      "ja": "掲載",
+      "synonym": "addition",
+      "definition": "act of including something"
+    },
+    {
+      "term": "adequately",
+      "ja": "十分に",
+      "synonym": "sufficiently",
+      "definition": "to a satisfactory degree"
+    },
+    {
+      "term": "principal",
+      "ja": "主要な",
+      "synonym": "main",
+      "definition": "of greatest importance"
+    },
+    {
+      "term": "components",
+      "ja": "部品",
+      "synonym": "parts",
+      "definition": "pieces forming a whole"
+    },
+    {
+      "term": "distinguished",
+      "ja": "区別された",
+      "synonym": "differentiated",
+      "definition": "recognized as different"
+    },
+    {
+      "term": "whereas",
+      "ja": "一方",
+      "synonym": "while",
+      "definition": "introducing a contrast"
+    },
+    {
+      "term": "availability",
+      "ja": "利用可能性",
+      "synonym": "accessibility",
+      "definition": "state of being available"
+    },
+    {
+      "term": "precisely",
+      "ja": "まさに・正確に",
+      "synonym": "exactly",
+      "definition": "with exactness"
+    },
+    {
+      "term": "constituted",
+      "ja": "構成した",
+      "synonym": "amounted to",
+      "definition": "formed or represented"
+    },
+    {
+      "term": "satisfactory",
+      "ja": "満足な",
+      "synonym": "acceptable",
+      "definition": "good enough for a purpose"
+    },
+    {
+      "term": "compromise",
+      "ja": "妥協",
+      "synonym": "trade-off",
+      "definition": "balance between conflicting needs"
+    },
+    {
+      "term": "consequently",
+      "ja": "その結果",
+      "synonym": "therefore",
+      "definition": "as a result"
+    },
+    {
+      "term": "evidence",
+      "ja": "根拠",
+      "synonym": "support",
+      "definition": "information backing a claim"
+    },
+    {
+      "term": "essential",
+      "ja": "不可欠な",
+      "synonym": "necessary",
+      "definition": "absolutely needed"
+    },
+    {
+      "term": "represents",
+      "ja": "表す",
+      "synonym": "encodes",
+      "definition": "expresses in a particular form"
+    },
+    {
+      "term": "efficiently",
+      "ja": "効率的に",
+      "synonym": "productively",
+      "definition": "with little wasted effort"
+    },
+    {
+      "term": "reconstructing",
+      "ja": "復元すること",
+      "synonym": "recreating",
+      "definition": "building a representation again"
+    },
+    {
+      "term": "representation",
+      "ja": "表現",
+      "synonym": "depiction",
+      "definition": "way of showing something"
+    },
+    {
+      "term": "extent",
+      "ja": "程度",
+      "synonym": "degree",
+      "definition": "amount or range"
+    },
+    {
+      "term": "encoded",
+      "ja": "符号化された",
+      "synonym": "represented",
+      "definition": "converted into a particular data form"
+    },
+    {
+      "term": "permit",
+      "ja": "可能にする",
+      "synonym": "allow",
+      "definition": "make possible"
+    },
+    {
+      "term": "reductions",
+      "ja": "削減",
+      "synonym": "decreases",
+      "definition": "acts of making smaller"
+    },
+    {
+      "term": "discarded",
+      "ja": "捨てられた",
+      "synonym": "removed",
+      "definition": "got rid of"
+    },
+    {
+      "term": "inferred",
+      "ja": "推論された",
+      "synonym": "deduced",
+      "definition": "concluded from evidence"
+    },
+    {
+      "term": "reliably",
+      "ja": "信頼して",
+      "synonym": "dependably",
+      "definition": "in a dependable way"
+    },
+    {
+      "term": "convincing",
+      "ja": "もっともらしい",
+      "synonym": "persuasive",
+      "definition": "likely to make someone believe"
+    },
+    {
+      "term": "reconstruction",
+      "ja": "復元",
+      "synonym": "recreation",
+      "definition": "rebuilding a representation"
+    },
+    {
+      "term": "thereby",
+      "ja": "それによって",
+      "synonym": "thus",
+      "definition": "as a result of that"
+    },
+    {
+      "term": "apparently",
+      "ja": "一見",
+      "synonym": "seemingly",
+      "definition": "as it appears"
+    },
+    {
+      "term": "modified",
+      "ja": "変更された",
+      "synonym": "altered",
+      "definition": "changed in form"
+    },
+    {
+      "term": "accompanied",
+      "ja": "伴った",
+      "synonym": "provided with",
+      "definition": "included together with"
+    },
+    {
+      "term": "transformations",
+      "ja": "変換",
+      "synonym": "changes",
+      "definition": "changes in form"
+    },
+    {
+      "term": "entirely",
+      "ja": "完全に",
+      "synonym": "completely",
+      "definition": "in every respect"
+    },
+    {
+      "term": "maintenance",
+      "ja": "維持",
+      "synonym": "upkeep",
+      "definition": "work keeping something in condition"
+    },
+    {
+      "term": "archival",
+      "ja": "保存の",
+      "synonym": "record-keeping",
+      "definition": "relating to the storage of records"
+    },
+    {
+      "term": "retaining",
+      "ja": "保持すること",
+      "synonym": "keeping",
+      "definition": "continuing to have"
+    },
+    {
+      "term": "transmission",
+      "ja": "伝送",
+      "synonym": "transfer",
+      "definition": "act of sending information"
+    },
+    {
+      "term": "completeness",
+      "ja": "完全性",
+      "synonym": "wholeness",
+      "definition": "state of being complete"
+    },
+    {
+      "term": "complementary",
+      "ja": "相補的な",
+      "synonym": "supplementary",
+      "definition": "adding value to another thing"
+    },
+    {
+      "term": "sophisticated",
+      "ja": "高度な",
+      "synonym": "advanced",
+      "definition": "complex or highly developed"
+    },
+    {
+      "term": "unsuitable",
+      "ja": "不適切な",
+      "synonym": "inappropriate",
+      "definition": "not right for a purpose"
+    },
+    {
+      "term": "sole",
+      "ja": "唯一の",
+      "synonym": "only",
+      "definition": "being the only one"
+    },
+    {
+      "term": "inquiry",
+      "ja": "調査",
+      "synonym": "investigation",
+      "definition": "search for information"
+    },
+    {
+      "term": "exclusively",
+      "ja": "専ら",
+      "synonym": "only",
+      "definition": "nothing more than"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "inference",
+      "prompt": "Why can a digital copy resemble its source while being different?",
+      "options": [
+        "Digital copying necessarily reproduces physical objects.",
+        "A transformation may remove data whose absence is not obvious in ordinary viewing.",
+        "Every viewer uses identical screen settings.",
+        "A small file always contains every original detail."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "見た目の類似と情報の同一性は別。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What determines the significance of missing information?",
+      "options": [
+        "Only the file's initial appearance.",
+        "The price of the original object.",
+        "The number of people viewing a screen.",
+        "The purpose of later use."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "用途によって異なる。"
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why was the smaller image initially satisfactory?",
+      "options": [
+        "It contained more information than the original photograph.",
+        "The students had already completed all later investigations.",
+        "The presentation required the general appearance rather than tiny details.",
+        "Its small components were clearer than in every other version."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "当初目的には十分。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What did the student later attempt to examine?",
+      "options": [
+        "The arrangement of small components near an entrance.",
+        "The overall color of the classroom.",
+        "The size of the audience.",
+        "The original file's transmission speed."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "入口付近の小部品。"
+    },
+    {
+      "id": "q5",
+      "skill": "inference",
+      "prompt": "What distinguishes the two reduction approaches discussed?",
+      "options": [
+        "One creates paper records while the other photographs real objects.",
+        "Both necessarily discard identical details.",
+        "One always produces bigger files regardless of data.",
+        "One may discard original information while the other preserves the possibility of exact recovery."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "可逆性と情報損失。"
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why is a convincing reconstruction not proof of an original detail?",
+      "options": [
+        "Every reconstructed detail is automatically exact.",
+        "Plausible generated information need not correspond to the lost source.",
+        "Missing details cannot be visually depicted at all.",
+        "A complete-looking image cannot be transmitted."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "もっともらしさは証拠ではない。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What arrangement do students propose?",
+      "options": [
+        "Keep an identified original and prepare versions suited to particular uses.",
+        "Save only the smallest version.",
+        "Delete all information about modifications.",
+        "Avoid using digital records entirely."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "原版と用途別版。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "What purpose does documenting transformations serve?",
+      "options": [
+        "It guarantees preservation regardless of storage conditions.",
+        "It removes the need to identify the original.",
+        "It helps later readers understand how a version relates to its source.",
+        "It establishes that every transformation is reversible."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "由来を理解する。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does sole mean here?",
+      "options": [
+        "Comparatively small.",
+        "Only one.",
+        "Highly detailed.",
+        "Unchanged over time."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "唯一の。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "Which statement best expresses the argument?",
+      "options": [
+        "Efficient distribution and reliable preservation require attention to the purposes of different versions and the information they retain.",
+        "Every technical transformation is inappropriate for digital images.",
+        "The smallest image is necessarily best for every use.",
+        "A plausible appearance establishes the accuracy of a record."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "用途と保持情報の区別。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "if its contents have been transformed",
+      "explanation_ja": "if節は条件、現在完了受動態。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "only to discover that the relevant details",
+      "explanation_ja": "only to doは予想外の結果。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "focus": "would not thereby demonstrate that",
+      "explanation_ja": "therebyはそれによって、that節が目的語。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "focus": "while being unsuitable for producing",
+      "explanation_ja": "while＋分詞で対比。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Yet a digital copy is not necessarily an exact duplicate if its contents have been transformed in order to reduce the amount of data required to store or transmit it.",
+      "rewrite": "A digital copy may be inexact when its content has been altered to reduce data size.",
+      "explanation_ja": "変換で完全複製ではなくなる。"
+    },
+    {
+      "source": "Several weeks later, however, a student attempts to use the same version to examine the arrangement of tiny components near an entrance, only to discover that the relevant details can no longer be clearly distinguished.",
+      "rewrite": "The student attempted to inspect small components but found their details were no longer clear.",
+      "explanation_ja": "試みと意外な結果。"
+    },
+    {
+      "source": "A program that produces a convincing reconstruction of missing details would not thereby demonstrate that the reconstructed details were actually present in the original image.",
+      "rewrite": "Generating plausible missing details would not prove that those details were in the original.",
+      "explanation_ja": "復元と証拠の差。"
+    },
+    {
+      "source": "A technically sophisticated method of transformation may be entirely appropriate for distributing a visual summary while being unsuitable for producing the sole surviving record of a complex object.",
+      "rewrite": "A technique appropriate for a summary can be unsuitable for the only preserved record.",
+      "explanation_ja": "用途による適否。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "Yet",
+      "role_ja": "デジタル複製の利点と注意点。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "whereas",
+      "role_ja": "当初目的と後の調査の対比。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "although",
+      "role_ja": "可逆的変換の利点と削減限界。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "therefore",
+      "role_ja": "保存とアクセスの結論。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 4,
+      "answer": "compromise",
+      "options": [
+        "compromise",
+        "guarantee",
+        "celebration",
+        "obligation"
+      ],
+      "explanation_ja": "ファイルサイズと品質の妥協。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "inferred",
+      "options": [
+        "confirmed",
+        "inferred",
+        "transported",
+        "celebrated"
+      ],
+      "explanation_ja": "結果ファイルから推論する。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "transformations",
+      "options": [
+        "invitations",
+        "transactions",
+        "transformations",
+        "obligations"
+      ],
+      "explanation_ja": "各版を生んだ変換。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 0,
+      "answer": "complementary",
+      "options": [
+        "identical",
+        "contradictory",
+        "unrelated",
+        "complementary"
+      ],
+      "explanation_ja": "相補的な目的。"
+    }
+  ]
+}

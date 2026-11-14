@@ -1,0 +1,580 @@
+{
+  "id": "L11-012",
+  "category_id": "L11",
+  "title": "A Notice Before the Vote",
+  "title_ja": "投票の前のお知らせ",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 211,
+  "source_links": [
+    {
+      "title": "Original lesson authoring registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "登場人物・場所・出来事は架空の教材例。特定の研究結果・制度・医学的助言を示すものではない。参考リンクは制作台帳であり実証資料ではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "The student council at West Hill School planned to change a rule.",
+          "ja": "ウェストヒル学校の生徒会は規則の変更を計画した。"
+        },
+        {
+          "en": "Students were allowed to use the gym during their lunch break.",
+          "ja": "生徒は昼休みに体育館を使用できた。"
+        },
+        {
+          "en": "The council wanted to divide the available time among different groups.",
+          "ja": "生徒会は利用可能な時間を異なるグループに配分したいと考えた。"
+        },
+        {
+          "en": "It decided to ask students to vote on a new schedule.",
+          "ja": "新しい日程について生徒に投票を求めることにした。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "A notice appeared on a board near the gym on Monday.",
+          "ja": "月曜日、体育館近くの掲示板にお知らせが出た。"
+        },
+        {
+          "en": "It explained two possible schedules and the date of the vote.",
+          "ja": "二つの日程案と投票日を説明していた。"
+        },
+        {
+          "en": "However, several students rarely walked past that particular board.",
+          "ja": "しかしその掲示板の前をめったに通らない生徒もいた。"
+        },
+        {
+          "en": "They learned about the vote only after it had already ended.",
+          "ja": "投票が終わってから初めて投票について知った。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The council counted the votes and announced the winning choice.",
+          "ja": "生徒会は票を集計し、勝った案を発表した。"
+        },
+        {
+          "en": "Maya asked whether everyone had received enough information to participate.",
+          "ja": "マヤは全員が参加に必要な情報を十分得ていたか尋ねた。"
+        },
+        {
+          "en": "She did not claim that the winning schedule itself was unfair.",
+          "ja": "勝った日程案自体が不公平だと主張したわけではない。"
+        },
+        {
+          "en": "Instead, she questioned the process used to reach the decision.",
+          "ja": "代わりに決定に至る手続きに疑問を呈した。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "After discussing the complaint, the council prepared another round of voting.",
+          "ja": "申し立てを話し合った後、生徒会は再投票を準備した。"
+        },
+        {
+          "en": "Both original choices remained available to all students.",
+          "ja": "当初の二つの案は引き続き全生徒が選べた。"
+        },
+        {
+          "en": "This time, every class received the same written explanation.",
+          "ja": "今回は全クラスに同じ文書による説明が届いた。"
+        },
+        {
+          "en": "Students also had two days to ask questions before voting.",
+          "ja": "投票前に質問できる日が2日間設けられた。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The same schedule won again, but more students took part.",
+          "ja": "同じ日程案が再び勝ったが、参加生徒は増えた。"
+        },
+        {
+          "en": "Maya accepted the result even though she preferred the other option.",
+          "ja": "マヤはもう一方の案を好んでいたが、結果を受け入れた。"
+        },
+        {
+          "en": "She felt that the second process had given students a better opportunity.",
+          "ja": "二度目の手続きは生徒により良い機会を与えたと感じた。"
+        },
+        {
+          "en": "The council learned that fair participation requires more than counting votes correctly.",
+          "ja": "生徒会は公正な参加には票を正しく数える以上のことが必要だと学んだ。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What did the council plan to change?",
+      "options": [
+        "The school name.",
+        "A school rule.",
+        "A textbook.",
+        "The lunch menu."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "規則の変更を計画した。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What did the council want to share among groups?",
+      "options": [
+        "Food.",
+        "New books.",
+        "Bus tickets.",
+        "Time in the gym."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "体育館の利用可能時間を配分したかった。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "Where was the first notice displayed?",
+      "options": [
+        "In every classroom.",
+        "At the library desk.",
+        "On a board near the gym.",
+        "On a bus."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "体育館近くの掲示板に出した。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why did some students miss the vote?",
+      "options": [
+        "They rarely passed the notice board.",
+        "They were not allowed to vote.",
+        "They chose not to read any news.",
+        "The winning choice was secret."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "掲示板の前を通らず情報を得られなかった。"
+    },
+    {
+      "id": "q5",
+      "skill": "inference",
+      "prompt": "What was Maya's concern?",
+      "options": [
+        "Whether students had enough information to participate.",
+        "Whether the gym had enough windows.",
+        "Whether the council could count to ten.",
+        "Whether her own class always won."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "参加に必要な情報が届いたかを問題にした。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What happened to the two original choices in the second vote?",
+      "options": [
+        "One was removed.",
+        "Both were replaced.",
+        "Both remained available.",
+        "Only teachers could choose them."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "当初の両方の案を選べた。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "How much time could students use to ask questions?",
+      "options": [
+        "One week.",
+        "One hour.",
+        "None.",
+        "Two days."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "質問期間が2日間あった。"
+    },
+    {
+      "id": "q8",
+      "skill": "vocabulary",
+      "prompt": "What does 'preferred' mean here?",
+      "options": [
+        "Forgot.",
+        "Liked better.",
+        "Rejected.",
+        "Created."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "もう一方の案をより好んでいた。"
+    },
+    {
+      "id": "q9",
+      "skill": "detail",
+      "prompt": "What happened in the second vote?",
+      "options": [
+        "A different choice won with fewer votes.",
+        "Voting was canceled.",
+        "The same choice won with more participation.",
+        "Only Maya voted."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "同じ案が勝ち、参加者は増えた。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the central message?",
+      "options": [
+        "Fair voting includes giving people a real chance to participate.",
+        "Fairness means that every person gets their favorite choice.",
+        "Notices should never be written.",
+        "Gym rules should not be discussed."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2",
+        "p3",
+        "p5"
+      ],
+      "explanation_ja": "適切な情報と参加機会が公正な投票には必要。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "student council",
+      "ja": "生徒会",
+      "synonym": "student government",
+      "definition": "a group representing students at a school"
+    },
+    {
+      "term": "rule",
+      "ja": "規則",
+      "synonym": "regulation",
+      "definition": "an instruction about what is allowed"
+    },
+    {
+      "term": "allowed",
+      "ja": "許可された",
+      "synonym": "permitted",
+      "definition": "given permission to do something"
+    },
+    {
+      "term": "divide",
+      "ja": "分ける",
+      "synonym": "split",
+      "definition": "separate into parts"
+    },
+    {
+      "term": "available",
+      "ja": "利用できる",
+      "synonym": "accessible",
+      "definition": "able to be used"
+    },
+    {
+      "term": "among",
+      "ja": "〜の間で",
+      "synonym": "between members of",
+      "definition": "shared within a group"
+    },
+    {
+      "term": "vote",
+      "ja": "投票する・投票",
+      "synonym": "cast a ballot",
+      "definition": "express a choice formally"
+    },
+    {
+      "term": "schedule",
+      "ja": "日程",
+      "synonym": "timetable",
+      "definition": "a plan showing times for activities"
+    },
+    {
+      "term": "notice",
+      "ja": "お知らせ",
+      "synonym": "announcement",
+      "definition": "written information displayed for people"
+    },
+    {
+      "term": "appeared",
+      "ja": "現れた",
+      "synonym": "showed up",
+      "definition": "became visible"
+    },
+    {
+      "term": "possible",
+      "ja": "可能な",
+      "synonym": "potential",
+      "definition": "able to exist or happen"
+    },
+    {
+      "term": "rarely",
+      "ja": "めったに〜ない",
+      "synonym": "seldom",
+      "definition": "not often"
+    },
+    {
+      "term": "particular",
+      "ja": "特定の",
+      "synonym": "specific",
+      "definition": "one specific member of a group"
+    },
+    {
+      "term": "counted",
+      "ja": "数えた",
+      "synonym": "totaled",
+      "definition": "found the number of things"
+    },
+    {
+      "term": "announced",
+      "ja": "発表した",
+      "synonym": "declared",
+      "definition": "made something publicly known"
+    },
+    {
+      "term": "participate",
+      "ja": "参加する",
+      "synonym": "take part",
+      "definition": "join an activity"
+    },
+    {
+      "term": "claim",
+      "ja": "主張する",
+      "synonym": "assert",
+      "definition": "say that something is true"
+    },
+    {
+      "term": "unfair",
+      "ja": "不公平な",
+      "synonym": "unjust",
+      "definition": "not treating people fairly"
+    },
+    {
+      "term": "questioned",
+      "ja": "疑問を呈した",
+      "synonym": "challenged",
+      "definition": "expressed doubts about something"
+    },
+    {
+      "term": "process",
+      "ja": "手続き",
+      "synonym": "procedure",
+      "definition": "a series of steps for reaching a result"
+    },
+    {
+      "term": "decision",
+      "ja": "決定",
+      "synonym": "choice",
+      "definition": "a conclusion about what to do"
+    },
+    {
+      "term": "complaint",
+      "ja": "申し立て",
+      "synonym": "objection",
+      "definition": "a statement expressing dissatisfaction"
+    },
+    {
+      "term": "original",
+      "ja": "当初の",
+      "synonym": "initial",
+      "definition": "existing at the beginning"
+    },
+    {
+      "term": "explanation",
+      "ja": "説明",
+      "synonym": "clarification",
+      "definition": "information making something understandable"
+    },
+    {
+      "term": "accepted",
+      "ja": "受け入れた",
+      "synonym": "agreed to recognize",
+      "definition": "recognized something as valid"
+    },
+    {
+      "term": "preferred",
+      "ja": "より好んだ",
+      "synonym": "favored",
+      "definition": "liked one thing more than another"
+    },
+    {
+      "term": "opportunity",
+      "ja": "機会",
+      "synonym": "chance",
+      "definition": "a situation allowing something to be done"
+    },
+    {
+      "term": "participation",
+      "ja": "参加",
+      "synonym": "involvement",
+      "definition": "the act of taking part"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "were allowed to use",
+      "explanation_ja": "be allowed to doは〜することを許される。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "after it had already ended",
+      "explanation_ja": "after節の過去完了は認識時点より前の終了を示す。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "focus": "whether everyone had received",
+      "explanation_ja": "whetherは〜かどうかという間接疑問を導く。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "focus": "even though she preferred",
+      "explanation_ja": "even thoughは事実に基づく譲歩。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p2",
+      "expression": "However",
+      "role_ja": "掲示の事実と情報を得られない生徒の対比。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Instead",
+      "role_ja": "案そのものではなく手続きに疑問を持った。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "This time",
+      "role_ja": "再投票の変更点を示す。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "but",
+      "role_ja": "結果が同じでも参加が増えたことを示す。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "They learned about the vote only after it had already ended.",
+      "rewrite": "They found out about the vote when it was too late to join.",
+      "explanation_ja": "参加するには遅すぎる時点で知った。"
+    },
+    {
+      "source": "Instead, she questioned the process used to reach the decision.",
+      "rewrite": "She raised doubts about how the decision had been made.",
+      "explanation_ja": "決定手続きに疑問を呈した。"
+    },
+    {
+      "source": "This time, every class received the same written explanation.",
+      "rewrite": "All classes were given identical written information this time.",
+      "explanation_ja": "全クラスが同じ文書情報を受け取った。"
+    },
+    {
+      "source": "She felt that the second process had given students a better opportunity.",
+      "rewrite": "She believed the second procedure offered students a greater chance to take part.",
+      "explanation_ja": "再投票でより参加しやすくなったと感じた。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "divide",
+      "options": [
+        "divide",
+        "forget",
+        "paint",
+        "close"
+      ],
+      "explanation_ja": "利用時間を分ける。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "participate",
+      "options": [
+        "sleep",
+        "participate",
+        "travel",
+        "cook"
+      ],
+      "explanation_ja": "投票に参加する。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "answer": "complaint",
+      "options": [
+        "ticket",
+        "song",
+        "complaint",
+        "gift"
+      ],
+      "explanation_ja": "申し立てを議論した。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "answer": "accepted",
+      "options": [
+        "hid",
+        "lost",
+        "sold",
+        "accepted"
+      ],
+      "explanation_ja": "結果を受け入れた。"
+    }
+  ]
+}

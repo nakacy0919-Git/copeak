@@ -1,0 +1,585 @@
+{
+  "id": "L11-014",
+  "category_id": "L11",
+  "title": "A Longer Opening Hour",
+  "title_ja": "開館時間を延ばすには",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 223,
+  "source_links": [
+    {
+      "title": "Original authoring registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "登場人物・出来事は架空の教材例。実在の調査結果ではない。リンクは制作台帳であり実証資料ではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "The town library usually closed at six on weekday evenings.",
+          "ja": "町の図書館は平日の夕方6時に閉まるのが通常だった。"
+        },
+        {
+          "en": "Several residents asked the town council to keep it open longer.",
+          "ja": "何人かの住民が町議会に開館時間の延長を求めた。"
+        },
+        {
+          "en": "They explained that their jobs often ended after the library closed.",
+          "ja": "仕事が図書館の閉館後に終わることが多いと説明した。"
+        },
+        {
+          "en": "The council agreed to discuss the request at its next meeting.",
+          "ja": "議会は次の会合で要望を議論することに同意した。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "At the meeting, a librarian explained the cost of additional opening hours.",
+          "ja": "会合で司書が開館時間を延長する費用について説明した。"
+        },
+        {
+          "en": "More staff would be needed, and the building would use extra electricity.",
+          "ja": "より多くの職員が必要で、建物はさらに電力を使うことになる。"
+        },
+        {
+          "en": "Some residents worried that other library services might receive less funding.",
+          "ja": "図書館の別のサービスの予算が減るかもしれないと心配する住民もいた。"
+        },
+        {
+          "en": "Others argued that longer opening hours would make the library more useful.",
+          "ja": "開館時間の延長で図書館がより便利になると主張する人もいた。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Instead of making a permanent change immediately, the council proposed a trial.",
+          "ja": "直ちに恒久的な変更を行う代わりに、議会は試行を提案した。"
+        },
+        {
+          "en": "The library would remain open later on two evenings each week.",
+          "ja": "図書館は週に2晩、より遅くまで開館することになった。"
+        },
+        {
+          "en": "Staff would record visitor numbers and the extra cost during the trial.",
+          "ja": "試行期間中、職員は来館者数と追加費用を記録することになった。"
+        },
+        {
+          "en": "Residents could also submit comments through a simple paper form.",
+          "ja": "住民は簡単な用紙で意見を提出することもできた。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "At the end of the trial, the council published a short report.",
+          "ja": "試行終了時、議会は短い報告書を公表した。"
+        },
+        {
+          "en": "It described both the benefits and the costs of the change.",
+          "ja": "変更の利点と費用の両方が記述されていた。"
+        },
+        {
+          "en": "The report also included suggestions from people who preferred the original schedule.",
+          "ja": "元の開館時間を好む人の提案も含まれていた。"
+        },
+        {
+          "en": "Another public meeting was arranged to discuss the results.",
+          "ja": "結果を議論する別の公開会合が設定された。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The residents did not all reach the same conclusion about the library.",
+          "ja": "住民すべてが図書館について同じ結論に達したわけではなかった。"
+        },
+        {
+          "en": "Nevertheless, they had more information for discussing the available choices.",
+          "ja": "それでも利用可能な選択肢を議論する情報が増えた。"
+        },
+        {
+          "en": "The process gave them an opportunity to question the council's proposal.",
+          "ja": "その過程は議会の提案について問いかける機会を与えた。"
+        },
+        {
+          "en": "A public decision could become clearer without becoming easy for everyone.",
+          "ja": "公共の決定は全員にとって簡単にはならなくてもより明確になり得た。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "weekday",
+      "ja": "平日",
+      "synonym": "working day",
+      "definition": "a day other than Saturday or Sunday"
+    },
+    {
+      "term": "residents",
+      "ja": "住民",
+      "synonym": "inhabitants",
+      "definition": "people living in a place"
+    },
+    {
+      "term": "council",
+      "ja": "議会",
+      "synonym": "governing body",
+      "definition": "a group making decisions for a community"
+    },
+    {
+      "term": "request",
+      "ja": "要望",
+      "synonym": "appeal",
+      "definition": "an act of asking for something"
+    },
+    {
+      "term": "librarian",
+      "ja": "司書",
+      "synonym": "library worker",
+      "definition": "a person who manages library services"
+    },
+    {
+      "term": "additional",
+      "ja": "追加の",
+      "synonym": "extra",
+      "definition": "more than what is already present"
+    },
+    {
+      "term": "staff",
+      "ja": "職員",
+      "synonym": "employees",
+      "definition": "people working for an organization"
+    },
+    {
+      "term": "electricity",
+      "ja": "電力",
+      "synonym": "electric power",
+      "definition": "energy carried by electric current"
+    },
+    {
+      "term": "services",
+      "ja": "サービス",
+      "synonym": "assistance",
+      "definition": "activities provided to meet needs"
+    },
+    {
+      "term": "funding",
+      "ja": "資金",
+      "synonym": "financial support",
+      "definition": "money supplied for a purpose"
+    },
+    {
+      "term": "argued",
+      "ja": "主張した",
+      "synonym": "maintained",
+      "definition": "gave reasons for an opinion"
+    },
+    {
+      "term": "permanent",
+      "ja": "恒久的な",
+      "synonym": "lasting",
+      "definition": "intended to continue indefinitely"
+    },
+    {
+      "term": "immediately",
+      "ja": "直ちに",
+      "synonym": "at once",
+      "definition": "without delay"
+    },
+    {
+      "term": "proposed",
+      "ja": "提案した",
+      "synonym": "suggested",
+      "definition": "offered an idea for consideration"
+    },
+    {
+      "term": "trial",
+      "ja": "試行",
+      "synonym": "test",
+      "definition": "a period spent testing a plan"
+    },
+    {
+      "term": "remain",
+      "ja": "〜のままである",
+      "synonym": "stay",
+      "definition": "continue in a state"
+    },
+    {
+      "term": "record",
+      "ja": "記録する",
+      "synonym": "write down",
+      "definition": "keep information for future use"
+    },
+    {
+      "term": "submit",
+      "ja": "提出する",
+      "synonym": "hand in",
+      "definition": "give something for consideration"
+    },
+    {
+      "term": "comments",
+      "ja": "意見",
+      "synonym": "feedback",
+      "definition": "statements expressing a view"
+    },
+    {
+      "term": "published",
+      "ja": "公表した",
+      "synonym": "released",
+      "definition": "made information publicly available"
+    },
+    {
+      "term": "benefits",
+      "ja": "利点",
+      "synonym": "advantages",
+      "definition": "useful or positive effects"
+    },
+    {
+      "term": "included",
+      "ja": "含んだ",
+      "synonym": "contained",
+      "definition": "had as a part"
+    },
+    {
+      "term": "preferred",
+      "ja": "好んだ",
+      "synonym": "favored",
+      "definition": "liked one choice more"
+    },
+    {
+      "term": "original",
+      "ja": "元の",
+      "synonym": "initial",
+      "definition": "existing at the beginning"
+    },
+    {
+      "term": "arranged",
+      "ja": "設定された",
+      "synonym": "organized",
+      "definition": "planned or prepared"
+    },
+    {
+      "term": "conclusion",
+      "ja": "結論",
+      "synonym": "judgment",
+      "definition": "an opinion reached after thinking"
+    },
+    {
+      "term": "available",
+      "ja": "利用可能な",
+      "synonym": "existing",
+      "definition": "able to be chosen or used"
+    },
+    {
+      "term": "opportunity",
+      "ja": "機会",
+      "synonym": "chance",
+      "definition": "a situation allowing an action"
+    },
+    {
+      "term": "proposal",
+      "ja": "提案",
+      "synonym": "suggestion",
+      "definition": "a plan put forward for consideration"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "When did the library usually close?",
+      "options": [
+        "At noon every day.",
+        "At six on weekdays.",
+        "At midnight on weekends.",
+        "At nine on weekdays."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "平日は夕方6時に閉館。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Why did some residents request longer hours?",
+      "options": [
+        "Their jobs often ended after closing time.",
+        "They wanted to become librarians.",
+        "They never used books.",
+        "The building was too large."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "仕事が閉館後に終わる。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What costs did the librarian mention?",
+      "options": [
+        "New train tickets.",
+        "School meals.",
+        "Additional staff and electricity.",
+        "Printing a newspaper."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "職員と電力の追加費用。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why were some residents concerned about other services?",
+      "options": [
+        "The library planned to stop lending all books.",
+        "They thought electricity was free.",
+        "They wanted to close the library permanently.",
+        "More money for opening hours might leave less for them."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "他のサービスの予算減を懸念。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What did the council propose?",
+      "options": [
+        "A temporary trial.",
+        "A permanent closure.",
+        "A new library building.",
+        "An increase in book prices."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "試行を提案。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "How many evenings each week were extended?",
+      "options": [
+        "One.",
+        "Four.",
+        "Seven.",
+        "Two."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "週2晩。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "How could residents provide comments?",
+      "options": [
+        "By buying electricity.",
+        "Through a paper form.",
+        "By applying for a job.",
+        "Only by visiting another town."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "紙の用紙。"
+    },
+    {
+      "id": "q8",
+      "skill": "vocabulary",
+      "prompt": "What does published mean here?",
+      "options": [
+        "Kept secret.",
+        "Destroyed.",
+        "Made available to the public.",
+        "Borrowed from someone."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "公表したという意味。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What did the report and meeting enable?",
+      "options": [
+        "Discussion informed by costs, benefits and different views.",
+        "Agreement without any discussion.",
+        "The removal of all opposing opinions.",
+        "Opening every evening without review."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4",
+        "p5"
+      ],
+      "explanation_ja": "複数の情報に基づく議論。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "Which idea is emphasized?",
+      "options": [
+        "Every public request must become permanent immediately.",
+        "Public decisions can improve through transparent information and discussion.",
+        "A council should consider only cost.",
+        "Public meetings always produce unanimous agreement."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "透明性と議論が公共の決定を明確にする。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "that their jobs often ended after the library closed",
+      "explanation_ja": "that節は説明した内容を示す。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "would be needed",
+      "explanation_ja": "would be＋過去分詞は将来想定の受動態。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 0,
+      "focus": "Instead of making a permanent change immediately",
+      "explanation_ja": "instead of＋動名詞は別の選択を表す。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 0,
+      "focus": "did not all reach the same conclusion",
+      "explanation_ja": "not allは部分否定。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p2",
+      "expression": "and",
+      "role_ja": "費用の要因を追加する。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "Others",
+      "role_ja": "別の住民の意見を導入。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Instead of",
+      "role_ja": "恒久的な採用ではなく試行を選ぶ。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "Nevertheless",
+      "role_ja": "意見が一致しなくても情報が増えたことを示す。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "They explained that their jobs often ended after the library closed.",
+      "rewrite": "They said that work often finished too late for them to use the library.",
+      "explanation_ja": "仕事終了時には閉館していた。"
+    },
+    {
+      "source": "More staff would be needed, and the building would use extra electricity.",
+      "rewrite": "Keeping the building open longer would require more employees and power.",
+      "explanation_ja": "追加の職員と電力が必要。"
+    },
+    {
+      "source": "Instead of making a permanent change immediately, the council proposed a trial.",
+      "rewrite": "The council suggested testing the idea rather than adopting it permanently at once.",
+      "explanation_ja": "恒久的変更でなく試行を提案。"
+    },
+    {
+      "source": "The residents did not all reach the same conclusion about the library.",
+      "rewrite": "Opinions about the library continued to differ among residents.",
+      "explanation_ja": "住民の考えは一致しなかった。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 0,
+      "answer": "additional",
+      "options": [
+        "additional",
+        "colorful",
+        "ancient",
+        "quiet"
+      ],
+      "explanation_ja": "開館時間を追加する。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 0,
+      "answer": "trial",
+      "options": [
+        "meal",
+        "trial",
+        "holiday",
+        "song"
+      ],
+      "explanation_ja": "試験的に実施する。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "benefits",
+      "options": [
+        "windows",
+        "tickets",
+        "benefits",
+        "baskets"
+      ],
+      "explanation_ja": "変更の利点と費用。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "opportunity",
+      "options": [
+        "journey",
+        "price",
+        "room",
+        "opportunity"
+      ],
+      "explanation_ja": "提案について問う機会。"
+    }
+  ]
+}

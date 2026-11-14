@@ -1,0 +1,692 @@
+{
+  "id": "L03-020",
+  "category_id": "L03",
+  "title": "When a Sensor Becomes a Decision",
+  "title_ja": "センサーが判断になるとき",
+  "level_id": "eiken-pre1",
+  "status": "draft",
+  "original": true,
+  "word_count": 507,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "人物・出来事・制度は架空の思考実験。実在の調査・統計・実証結果ではない。制作台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Suppose a school installs a prototype device that displays whether a classroom is suitable for a quiet study session by measuring the level of surrounding sound.",
+          "ja": "周囲の音量を測り教室が静かな自習に適するか表示する試作装置を学校が設置するとしよう。"
+        },
+        {
+          "en": "The team designing the device believes that a simple numerical reading could help students locate an appropriate place without visiting several rooms individually.",
+          "ja": "設計チームは単純な数値で複数教室を個別に訪れず適切な場所を探せると考える。"
+        },
+        {
+          "en": "A green symbol appears whenever the measured value falls below a threshold selected by the designers during a brief preliminary test.",
+          "ja": "短い予備試験で設計者が選んだ基準値未満になると緑の記号が表示される。"
+        },
+        {
+          "en": "The device seems to provide a convenient answer, but its usefulness depends on several assumptions that are initially absent from the display.",
+          "ja": "便利な答えを提供するように見えるが、有用性は当初表示されない複数の前提に依存する。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "One student points out that a room containing a series of sudden interruptions may receive the same average reading as a room with continuous but relatively quiet background noise.",
+          "ja": "突発的な中断音が続く部屋も、継続する比較的静かな背景音の部屋と同じ平均値になる可能性を生徒が指摘する。"
+        },
+        {
+          "en": "Another observes that a measurement taken near the entrance might not accurately represent conditions experienced by people sitting at the opposite end of the room.",
+          "ja": "入口近くの測定が部屋の反対側に座る人の経験する条件を正確に表さないかもしれないと別の生徒が指摘する。"
+        },
+        {
+          "en": "Furthermore, a space that is suitable for silent reading may not be appropriate for students who need to discuss a difficult assignment with a partner.",
+          "ja": "さらに黙読に適した場所は難しい課題を相手と議論する必要のある生徒には適さないかもしれない。"
+        },
+        {
+          "en": "These objections encourage the team to distinguish the physical quantity being measured from the judgment about suitability that the system makes on the basis of that quantity.",
+          "ja": "これらの反論は測定される物理量とその量を根拠にシステムが行う適性判断を区別するよう促す。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Instead of adding more sensors immediately, the designers reconsider what information a reader of the display actually needs in order to make a reasonable decision.",
+          "ja": "すぐセンサーを増やさず表示を見る人が合理的判断に実際必要な情報を再考する。"
+        },
+        {
+          "en": "They modify the interface to identify the location and time of the measurement, and they replace the general label of suitability with a description of the recorded sound conditions.",
+          "ja": "測定場所と時刻を示すよう画面を修正し、適性という一般的ラベルを記録した音の条件の説明に置き換える。"
+        },
+        {
+          "en": "They also consider a separate indication of substantial variation over time, although the classroom exercise does not establish which measurement procedure would be most reliable in a real deployment.",
+          "ja": "時間にわたる大きな変動の別表示も検討するが教室活動で実際の導入時に最も信頼できる測定手順を確定するわけではない。"
+        },
+        {
+          "en": "The revised design leaves more of the final judgment to the student rather than presenting the sensor reading as a complete recommendation for every possible study activity.",
+          "ja": "修正版はセンサー値をあらゆる自習活動への完全な推薦として示すのでなく最終判断をより生徒に委ねる。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "However, presenting additional information may create its own difficulties, particularly if users must interpret technical terminology before making a simple choice.",
+          "ja": "しかし追加情報の表示も、特に利用者が簡単な選択前に専門用語を理解する必要がある場合、独自の困難を生むかもしれない。"
+        },
+        {
+          "en": "The team therefore prepares several possible display designs and asks fictional test users to explain what each screen would lead them to believe about the room.",
+          "ja": "そこで複数の表示設計を準備し架空のテスト利用者が各画面から部屋についてどう理解するかを考える。"
+        },
+        {
+          "en": "They examine whether a clearly labeled summary can remain useful without concealing the distinction between a measured condition and an interpretation of its meaning.",
+          "ja": "明確にラベル付けした要約が測定条件と意味の解釈の区別を隠さず有用であり得るか検討する。"
+        },
+        {
+          "en": "They acknowledge that the task of communicating uncertainty cannot be solved merely by providing every available number, since information that users cannot interpret may offer little practical assistance.",
+          "ja": "利用者が解釈できない情報は実用的支援になりにくいため、すべての数値を示すだけで不確実性伝達を解決できないと認める。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The hypothetical device illustrates a broader issue in the design of systems that turn physical measurements into recommendations about human activities.",
+          "ja": "仮想装置は物理測定を人間の活動についての推薦に変えるシステム設計の広い問題を示す。"
+        },
+        {
+          "en": "A measurement can be technically accurate while the decision inferred from it remains inappropriate for some of the people affected by that decision.",
+          "ja": "測定は技術的に正確でもそこから推論した決定は影響を受ける人の一部には不適切であり得る。"
+        },
+        {
+          "en": "Responsible design requires an explicit account of which assumptions connect the original data to the final recommendation and under which circumstances that connection might need to be reconsidered.",
+          "ja": "責任ある設計はどの前提が元データと最終推薦を結び、どの条件でその関係を見直す必要があるかを明示する必要がある。"
+        },
+        {
+          "en": "The objective is not to eliminate every simplified display but to ensure that the simplification does not silently replace a judgment that should remain open to human interpretation.",
+          "ja": "目的は簡潔な表示をすべて排除するのでなく簡略化が人間の解釈に開かれるべき判断を黙って置き換えないようにすることだ。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "prototype",
+      "ja": "試作品",
+      "synonym": "model",
+      "definition": "early version built for testing"
+    },
+    {
+      "term": "device",
+      "ja": "装置",
+      "synonym": "instrument",
+      "definition": "a tool performing a function"
+    },
+    {
+      "term": "suitable",
+      "ja": "適した",
+      "synonym": "appropriate",
+      "definition": "right for a purpose"
+    },
+    {
+      "term": "surrounding",
+      "ja": "周囲の",
+      "synonym": "nearby",
+      "definition": "located around something"
+    },
+    {
+      "term": "numerical",
+      "ja": "数値の",
+      "synonym": "numeric",
+      "definition": "relating to numbers"
+    },
+    {
+      "term": "locate",
+      "ja": "見つける",
+      "synonym": "find",
+      "definition": "determine where something is"
+    },
+    {
+      "term": "individually",
+      "ja": "個別に",
+      "synonym": "separately",
+      "definition": "one at a time"
+    },
+    {
+      "term": "symbol",
+      "ja": "記号",
+      "synonym": "sign",
+      "definition": "something representing information"
+    },
+    {
+      "term": "threshold",
+      "ja": "基準値",
+      "synonym": "cutoff",
+      "definition": "level at which a change occurs"
+    },
+    {
+      "term": "preliminary",
+      "ja": "予備的な",
+      "synonym": "initial",
+      "definition": "coming before main work"
+    },
+    {
+      "term": "convenient",
+      "ja": "便利な",
+      "synonym": "practical",
+      "definition": "easy to use"
+    },
+    {
+      "term": "assumptions",
+      "ja": "前提",
+      "synonym": "suppositions",
+      "definition": "beliefs accepted without proof"
+    },
+    {
+      "term": "interruptions",
+      "ja": "中断",
+      "synonym": "disruptions",
+      "definition": "events causing breaks"
+    },
+    {
+      "term": "continuous",
+      "ja": "継続する",
+      "synonym": "uninterrupted",
+      "definition": "going on without stopping"
+    },
+    {
+      "term": "relatively",
+      "ja": "比較的",
+      "synonym": "comparatively",
+      "definition": "to a comparative degree"
+    },
+    {
+      "term": "background noise",
+      "ja": "背景音",
+      "synonym": "ambient sound",
+      "definition": "sound in the surroundings"
+    },
+    {
+      "term": "measurement",
+      "ja": "測定",
+      "synonym": "reading",
+      "definition": "determination of a quantity"
+    },
+    {
+      "term": "accurately",
+      "ja": "正確に",
+      "synonym": "precisely",
+      "definition": "without errors"
+    },
+    {
+      "term": "opposite",
+      "ja": "反対の",
+      "synonym": "facing",
+      "definition": "on the other side"
+    },
+    {
+      "term": "Furthermore",
+      "ja": "さらに",
+      "synonym": "moreover",
+      "definition": "introducing another point"
+    },
+    {
+      "term": "assignment",
+      "ja": "課題",
+      "synonym": "task",
+      "definition": "work given to someone"
+    },
+    {
+      "term": "objections",
+      "ja": "反論",
+      "synonym": "criticisms",
+      "definition": "expressions of disagreement"
+    },
+    {
+      "term": "distinguish",
+      "ja": "区別する",
+      "synonym": "differentiate",
+      "definition": "recognize differences"
+    },
+    {
+      "term": "quantity",
+      "ja": "量",
+      "synonym": "amount",
+      "definition": "measurable amount"
+    },
+    {
+      "term": "suitability",
+      "ja": "適性",
+      "synonym": "appropriateness",
+      "definition": "fitness for a purpose"
+    },
+    {
+      "term": "reconsider",
+      "ja": "再考する",
+      "synonym": "rethink",
+      "definition": "think about again"
+    },
+    {
+      "term": "interface",
+      "ja": "画面・操作面",
+      "synonym": "display",
+      "definition": "means through which users interact"
+    },
+    {
+      "term": "indication",
+      "ja": "表示",
+      "synonym": "sign",
+      "definition": "information pointing to something"
+    },
+    {
+      "term": "substantial",
+      "ja": "大きな",
+      "synonym": "considerable",
+      "definition": "large in degree"
+    },
+    {
+      "term": "variation",
+      "ja": "変動",
+      "synonym": "change",
+      "definition": "difference over time or cases"
+    },
+    {
+      "term": "procedure",
+      "ja": "手順",
+      "synonym": "process",
+      "definition": "established way of acting"
+    },
+    {
+      "term": "reliable",
+      "ja": "信頼できる",
+      "synonym": "dependable",
+      "definition": "able to be trusted"
+    },
+    {
+      "term": "deployment",
+      "ja": "導入",
+      "synonym": "implementation",
+      "definition": "putting a system into use"
+    },
+    {
+      "term": "recommendation",
+      "ja": "推薦",
+      "synonym": "suggestion",
+      "definition": "option proposed as suitable"
+    },
+    {
+      "term": "terminology",
+      "ja": "専門用語",
+      "synonym": "vocabulary",
+      "definition": "specialized words"
+    },
+    {
+      "term": "interpret",
+      "ja": "解釈する",
+      "synonym": "understand",
+      "definition": "assign meaning to information"
+    },
+    {
+      "term": "concealing",
+      "ja": "隠すこと",
+      "synonym": "hiding",
+      "definition": "keeping from being seen"
+    },
+    {
+      "term": "uncertainty",
+      "ja": "不確実性",
+      "synonym": "doubt",
+      "definition": "lack of certainty"
+    },
+    {
+      "term": "merely",
+      "ja": "単に",
+      "synonym": "only",
+      "definition": "nothing more than"
+    },
+    {
+      "term": "hypothetical",
+      "ja": "仮想の",
+      "synonym": "imagined",
+      "definition": "assumed for reasoning"
+    },
+    {
+      "term": "inferred",
+      "ja": "推論された",
+      "synonym": "deduced",
+      "definition": "concluded from evidence"
+    },
+    {
+      "term": "inappropriate",
+      "ja": "不適切な",
+      "synonym": "unsuitable",
+      "definition": "not right for a purpose"
+    },
+    {
+      "term": "explicit",
+      "ja": "明示的な",
+      "synonym": "clear",
+      "definition": "stated directly"
+    },
+    {
+      "term": "circumstances",
+      "ja": "状況",
+      "synonym": "conditions",
+      "definition": "facts affecting a situation"
+    },
+    {
+      "term": "eliminate",
+      "ja": "排除する",
+      "synonym": "remove",
+      "definition": "get rid of something"
+    },
+    {
+      "term": "simplification",
+      "ja": "簡略化",
+      "synonym": "reduction",
+      "definition": "making something less complex"
+    },
+    {
+      "term": "silently",
+      "ja": "黙って",
+      "synonym": "quietly",
+      "definition": "without making it known"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What does the device measure?",
+      "options": [
+        "Student grades.",
+        "Surrounding sound level.",
+        "The price of furniture.",
+        "The length of assignments."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "周囲の音量。"
+    },
+    {
+      "id": "q2",
+      "skill": "inference",
+      "prompt": "Why is its green symbol not a universal answer?",
+      "options": [
+        "It cannot be seen by students.",
+        "It measures no physical quantity.",
+        "All rooms are identical.",
+        "It depends on assumptions about suitability."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "適性判断には前提がある。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What problem with averages is raised?",
+      "options": [
+        "Averages never use numbers.",
+        "All noise is continuous.",
+        "Different patterns of noise may share an average.",
+        "Sudden sounds cannot occur indoors."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "異なる音のパターンが同じ平均値を取る。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why mention partner discussion?",
+      "options": [
+        "Suitability depends on the intended activity.",
+        "Every quiet room forbids reading.",
+        "Students must always study alone.",
+        "The device measures speech meaning."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "利用目的によって適性が違う。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What does the revised interface identify?",
+      "options": [
+        "Individual student identities.",
+        "Every student's favorite subject.",
+        "The names of all designers.",
+        "Measurement location and time."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "測定場所と時刻。"
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "What role does the revision give students?",
+      "options": [
+        "No ability to make choices.",
+        "More responsibility for interpreting conditions.",
+        "A duty to install every sensor.",
+        "Authority to change every measurement."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "判断を本人に委ねる。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What difficulty can extra information create?",
+      "options": [
+        "Users may struggle with technical terms.",
+        "Sensors become physically smaller.",
+        "All summaries become false.",
+        "Every user reads numbers identically."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "専門用語の理解負担。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "Why test what displays communicate?",
+      "options": [
+        "To prove the device is medically safe.",
+        "To collect real private data.",
+        "To check how users interpret the information.",
+        "To replace all human decisions."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "伝わる意味を確認する。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does inferred mean?",
+      "options": [
+        "Written by hand.",
+        "Concluded from evidence.",
+        "Measured directly.",
+        "Hidden permanently."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "根拠から推論。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the central claim?",
+      "options": [
+        "Accurate measurements and appropriate judgments are distinct; design should make their link clear.",
+        "Every measured value determines a universal recommendation.",
+        "All summaries should be eliminated.",
+        "More sensors solve every problem."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "測定と判断を区別し前提を明示。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "whenever the measured value falls below",
+      "explanation_ja": "wheneverは毎回の条件。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "that a measurement taken near the entrance",
+      "explanation_ja": "過去分詞takenがmeasurementを修飾。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "although the classroom exercise does not establish",
+      "explanation_ja": "althoughは譲歩。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "not to eliminate every simplified display but to ensure",
+      "explanation_ja": "not A but Bで目的を対比。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "A green symbol appears whenever the measured value falls below a threshold selected by the designers during a brief preliminary test.",
+      "rewrite": "The symbol becomes green each time the reading is below the chosen cutoff.",
+      "explanation_ja": "基準値未満で表示。"
+    },
+    {
+      "source": "Another observes that a measurement taken near the entrance might not accurately represent conditions experienced by people sitting at the opposite end of the room.",
+      "rewrite": "A reading near the doorway may not represent what students experience at the far end.",
+      "explanation_ja": "測定場所の限界。"
+    },
+    {
+      "source": "They also consider a separate indication of substantial variation over time, although the classroom exercise does not establish which measurement procedure would be most reliable in a real deployment.",
+      "rewrite": "They consider showing variation, but a classroom prototype cannot validate the best real-world method.",
+      "explanation_ja": "実機の信頼性は未実証。"
+    },
+    {
+      "source": "The objective is not to eliminate every simplified display but to ensure that the simplification does not silently replace a judgment that should remain open to human interpretation.",
+      "rewrite": "The aim is to retain useful summaries without allowing them to hide judgments that people should make.",
+      "explanation_ja": "簡略化と人間の判断を両立。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "but",
+      "role_ja": "便利さと前提の対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "Furthermore",
+      "role_ja": "利用目的の問題を追加。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Instead of",
+      "role_ja": "センサー追加ではなく情報設計。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "However",
+      "role_ja": "情報追加の限界。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "threshold",
+      "options": [
+        "threshold",
+        "assignment",
+        "portrait",
+        "receipt"
+      ],
+      "explanation_ja": "判定基準値。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 0,
+      "answer": "interruptions",
+      "options": [
+        "conclusions",
+        "interruptions",
+        "celebrations",
+        "invitations"
+      ],
+      "explanation_ja": "突発的中断音。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "interface",
+      "options": [
+        "entrance",
+        "quantity",
+        "interface",
+        "district"
+      ],
+      "explanation_ja": "表示画面を修正。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "explicit",
+      "options": [
+        "unrelated",
+        "hidden",
+        "temporary",
+        "explicit"
+      ],
+      "explanation_ja": "前提を明示する。"
+    }
+  ]
+}

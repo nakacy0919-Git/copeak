@@ -1,0 +1,731 @@
+{
+  "id": "L03-028",
+  "category_id": "L03",
+  "title": "A Machine That Asks for Help",
+  "title_ja": "助けを求める機械",
+  "level_id": "eiken-pre1",
+  "status": "draft",
+  "original": true,
+  "word_count": 509,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "オリジナル論説・架空事例。実在の調査結果・歴史資料・機器の実証結果ではない。制作台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "An automated system may be designed to perform a particular task without requiring continuous intervention from a human operator.",
+          "ja": "自動化システムは人間の運用者の継続介入を必要とせず特定作業を実行するよう設計され得る。"
+        },
+        {
+          "en": "Its usefulness, however, may depend on the way it responds when it encounters circumstances that differ from the ones anticipated by its designers.",
+          "ja": "しかし有用性は設計者が予想したものと異なる事情に遭遇したときの対応方法にも依存する。"
+        },
+        {
+          "en": "A system that performs well under familiar conditions may not necessarily be able to determine whether its own procedures remain appropriate under unfamiliar conditions.",
+          "ja": "慣れた条件で良好に動作する仕組みも未知の条件で自身の手順が適切なままか判断できるとは限らない。"
+        },
+        {
+          "en": "This distinction is particularly important when the consequences of an incorrect action would be difficult to reverse.",
+          "ja": "誤動作の影響を取り消すのが難しいとき区別は特に重要だ。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Imagine a fictional sorting device that directs packages toward different containers according to the information printed on their labels.",
+          "ja": "ラベルに印刷された情報に従い荷物を異なる容器へ向ける架空の仕分け装置を想像しよう。"
+        },
+        {
+          "en": "The device has been tested on labels that follow a standard format, and its operators are satisfied with the number of packages sorted during a typical working period.",
+          "ja": "装置は標準形式に従うラベルで試され運用者は通常期間に仕分けられた荷物数に満足している。"
+        },
+        {
+          "en": "One day, a package arrives bearing a label that is partially damaged, so that several of the symbols necessary for identifying the intended destination cannot be read clearly.",
+          "ja": "ある日一部破損ラベルの荷物が到着し、目的地特定に必要な記号のいくつかが明確には読めない。"
+        },
+        {
+          "en": "The designers consider whether the device should make its best available guess or direct the package to a separate location for examination by a worker.",
+          "ja": "装置が可能な最善の推測をすべきか、作業者の検査用に別位置へ向けるべきか設計者は考える。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "A decision to send an uncertain package for examination introduces a delay and requires additional work from someone who may already have other responsibilities.",
+          "ja": "不確実な荷物を検査に送る判断は遅延を生み、他の責任があるかもしれない人の追加作業を要する。"
+        },
+        {
+          "en": "Nevertheless, directing the package toward an incorrect destination may create a more substantial delay if the error is discovered only after further transportation has taken place.",
+          "ja": "それでも誤目的地に送ると追加輸送後に初めて誤りが発見された場合より大幅な遅延が生じ得る。"
+        },
+        {
+          "en": "The appropriate response cannot be determined simply by comparing the number of packages that the machine processes automatically with the number that require human attention.",
+          "ja": "適切な対応は機械が自動処理する荷物数と人間の注意が必要な数の比較だけでは決められない。"
+        },
+        {
+          "en": "It requires consideration of the consequences of different errors and the practical conditions under which those errors can be detected and corrected.",
+          "ja": "異なる誤りの影響と発見・訂正できる実務条件を考慮する必要がある。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The imaginary operators also consider how a worker would obtain the information necessary to evaluate a package that the system was unable to classify confidently.",
+          "ja": "仮想運用者は装置が自信を持って分類できなかった荷物の評価に必要な情報を作業者がどう得るかも考える。"
+        },
+        {
+          "en": "A notification that simply announced a failure might not enable the worker to identify the aspect of the label that caused the difficulty.",
+          "ja": "単に失敗を告げる通知では困難を生んだラベルの側面を特定できないかもしれない。"
+        },
+        {
+          "en": "The team therefore proposes providing an indication of the available information as well as a description of the uncertainty that prevented the device from proceeding.",
+          "ja": "そこで利用可能な情報の表示と装置の進行を妨げた不確実性の記述を提供する案を出す。"
+        },
+        {
+          "en": "The thought experiment does not establish the safety or reliability of an actual sorting device, which would require appropriate testing and technical evaluation.",
+          "ja": "思考実験は実際の仕分け装置の安全性・信頼性を確立せず、それには適切な試験と技術評価が必要だ。"
+        },
+        {
+          "en": "It would also be necessary to consider whether the people receiving such notifications possess enough time and authority to act on them.",
+          "ja": "さらに通知を受け取る人に対応する十分な時間と権限があるか考慮する必要がある。"
+        },
+        {
+          "en": "Transferring a difficult decision to a human operator is of little practical value if the operator cannot make a timely and informed response.",
+          "ja": "運用者が適時に情報に基づく対応をできなければ、困難な判断を人間に移す実用価値はほとんどない。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "Automation is not necessarily most useful when every individual action is completed without human involvement.",
+          "ja": "自動化は個々の全行動が人の関与なく完了するとき最も有用とは限らない。"
+        },
+        {
+          "en": "A productive arrangement may require a clear division of responsibilities between the system and the people who are expected to respond to difficult cases.",
+          "ja": "生産的な仕組みにはシステムと困難な事例への対応を期待される人々との責任の明確な分担が必要かもしれない。"
+        },
+        {
+          "en": "Determining how and when assistance should be requested can be an important component of designing an automated process rather than an admission that the process has failed.",
+          "ja": "いつどのように援助を求めるか決めることは過程の失敗を認めるのでなく自動化過程設計の重要な構成要素になり得る。"
+        },
+        {
+          "en": "A machine that knows when to ask for help may contribute to a more dependable relationship between automated operations and human judgment.",
+          "ja": "助けを求めるべき時を知る機械は自動運用と人間判断のより信頼できる関係に寄与し得る。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "automated",
+      "ja": "自動化された",
+      "synonym": "automatic",
+      "definition": "operating without continuous human action"
+    },
+    {
+      "term": "particular",
+      "ja": "特定の",
+      "synonym": "specific",
+      "definition": "relating to one thing"
+    },
+    {
+      "term": "continuous",
+      "ja": "継続的な",
+      "synonym": "constant",
+      "definition": "continuing without interruption"
+    },
+    {
+      "term": "intervention",
+      "ja": "介入",
+      "synonym": "involvement",
+      "definition": "action taken to change a situation"
+    },
+    {
+      "term": "operator",
+      "ja": "運用者",
+      "synonym": "user",
+      "definition": "person operating a system"
+    },
+    {
+      "term": "usefulness",
+      "ja": "有用性",
+      "synonym": "utility",
+      "definition": "quality of being useful"
+    },
+    {
+      "term": "responds",
+      "ja": "対応する",
+      "synonym": "reacts",
+      "definition": "acts in response"
+    },
+    {
+      "term": "encounters",
+      "ja": "遭遇する",
+      "synonym": "meets",
+      "definition": "comes across"
+    },
+    {
+      "term": "circumstances",
+      "ja": "事情",
+      "synonym": "conditions",
+      "definition": "factors affecting a situation"
+    },
+    {
+      "term": "anticipated",
+      "ja": "予想された",
+      "synonym": "expected",
+      "definition": "thought likely to occur"
+    },
+    {
+      "term": "procedures",
+      "ja": "手順",
+      "synonym": "processes",
+      "definition": "established ways of acting"
+    },
+    {
+      "term": "appropriate",
+      "ja": "適切な",
+      "synonym": "suitable",
+      "definition": "right for a purpose"
+    },
+    {
+      "term": "unfamiliar",
+      "ja": "未知の",
+      "synonym": "unknown",
+      "definition": "not known through experience"
+    },
+    {
+      "term": "consequences",
+      "ja": "影響",
+      "synonym": "effects",
+      "definition": "results of an action"
+    },
+    {
+      "term": "reverse",
+      "ja": "取り消す",
+      "synonym": "undo",
+      "definition": "return something to an earlier state"
+    },
+    {
+      "term": "sorting",
+      "ja": "仕分けする",
+      "synonym": "classifying",
+      "definition": "arranging things into groups"
+    },
+    {
+      "term": "device",
+      "ja": "装置",
+      "synonym": "instrument",
+      "definition": "tool designed for a task"
+    },
+    {
+      "term": "directs",
+      "ja": "向ける",
+      "synonym": "routes",
+      "definition": "sends toward a place"
+    },
+    {
+      "term": "containers",
+      "ja": "容器",
+      "synonym": "receptacles",
+      "definition": "objects holding things"
+    },
+    {
+      "term": "according to",
+      "ja": "に従い",
+      "synonym": "in line with",
+      "definition": "following a rule"
+    },
+    {
+      "term": "standard",
+      "ja": "標準の",
+      "synonym": "usual",
+      "definition": "following an accepted form"
+    },
+    {
+      "term": "format",
+      "ja": "形式",
+      "synonym": "layout",
+      "definition": "arrangement of information"
+    },
+    {
+      "term": "typical",
+      "ja": "通常の",
+      "synonym": "representative",
+      "definition": "showing usual qualities"
+    },
+    {
+      "term": "bearing",
+      "ja": "持つ",
+      "synonym": "carrying",
+      "definition": "having something attached"
+    },
+    {
+      "term": "partially",
+      "ja": "一部",
+      "synonym": "partly",
+      "definition": "not completely"
+    },
+    {
+      "term": "damaged",
+      "ja": "破損した",
+      "synonym": "broken",
+      "definition": "harmed or impaired"
+    },
+    {
+      "term": "symbols",
+      "ja": "記号",
+      "synonym": "signs",
+      "definition": "marks representing something"
+    },
+    {
+      "term": "destination",
+      "ja": "目的地",
+      "synonym": "endpoint",
+      "definition": "place toward which something moves"
+    },
+    {
+      "term": "examination",
+      "ja": "検査",
+      "synonym": "inspection",
+      "definition": "careful checking"
+    },
+    {
+      "term": "uncertain",
+      "ja": "不確実な",
+      "synonym": "unsure",
+      "definition": "not known for sure"
+    },
+    {
+      "term": "introduces",
+      "ja": "生む",
+      "synonym": "creates",
+      "definition": "brings into a situation"
+    },
+    {
+      "term": "responsibilities",
+      "ja": "責任",
+      "synonym": "duties",
+      "definition": "things one is expected to do"
+    },
+    {
+      "term": "substantial",
+      "ja": "大幅な",
+      "synonym": "considerable",
+      "definition": "large in degree"
+    },
+    {
+      "term": "transportation",
+      "ja": "輸送",
+      "synonym": "transport",
+      "definition": "movement of goods or people"
+    },
+    {
+      "term": "automatically",
+      "ja": "自動的に",
+      "synonym": "by itself",
+      "definition": "without further human action"
+    },
+    {
+      "term": "detected",
+      "ja": "発見された",
+      "synonym": "identified",
+      "definition": "discovered or noticed"
+    },
+    {
+      "term": "corrected",
+      "ja": "訂正された",
+      "synonym": "fixed",
+      "definition": "made accurate"
+    },
+    {
+      "term": "classify",
+      "ja": "分類する",
+      "synonym": "categorize",
+      "definition": "arrange into groups"
+    },
+    {
+      "term": "confidently",
+      "ja": "自信を持って",
+      "synonym": "with confidence",
+      "definition": "with a sense of certainty"
+    },
+    {
+      "term": "notification",
+      "ja": "通知",
+      "synonym": "alert",
+      "definition": "message giving notice"
+    },
+    {
+      "term": "announced",
+      "ja": "告げた",
+      "synonym": "reported",
+      "definition": "made known"
+    },
+    {
+      "term": "aspect",
+      "ja": "側面",
+      "synonym": "feature",
+      "definition": "particular part"
+    },
+    {
+      "term": "indication",
+      "ja": "表示",
+      "synonym": "sign",
+      "definition": "something showing a condition"
+    },
+    {
+      "term": "uncertainty",
+      "ja": "不確実性",
+      "synonym": "doubt",
+      "definition": "lack of certainty"
+    },
+    {
+      "term": "proceeding",
+      "ja": "進行すること",
+      "synonym": "continuing",
+      "definition": "moving forward"
+    },
+    {
+      "term": "reliability",
+      "ja": "信頼性",
+      "synonym": "dependability",
+      "definition": "quality of being dependable"
+    },
+    {
+      "term": "evaluation",
+      "ja": "評価",
+      "synonym": "assessment",
+      "definition": "considered judgment"
+    },
+    {
+      "term": "involvement",
+      "ja": "関与",
+      "synonym": "participation",
+      "definition": "act of taking part"
+    },
+    {
+      "term": "division",
+      "ja": "分担",
+      "synonym": "distribution",
+      "definition": "act of separating or allocating"
+    },
+    {
+      "term": "component",
+      "ja": "構成要素",
+      "synonym": "part",
+      "definition": "piece forming a whole"
+    },
+    {
+      "term": "admission",
+      "ja": "認めること",
+      "synonym": "acknowledgment",
+      "definition": "acceptance that something is true"
+    },
+    {
+      "term": "dependable",
+      "ja": "信頼できる",
+      "synonym": "reliable",
+      "definition": "able to be relied on"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "inference",
+      "prompt": "What limitation of familiar-condition testing does the author identify?",
+      "options": [
+        "It proves all future procedures are unsuitable.",
+        "It may not show whether a system responds appropriately to unfamiliar situations.",
+        "It eliminates the need for human operators in every case.",
+        "It measures only the physical size of devices."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "未知条件での対応は分からない。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "When is the distinction especially important?",
+      "options": [
+        "Only when all operations are costless.",
+        "When consequences are of no concern.",
+        "When every action is performed manually.",
+        "When incorrect actions are hard to reverse."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "取り消し困難な場合。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "Why is the particular package difficult to sort?",
+      "options": [
+        "Its destination has been removed from every record.",
+        "The device has no containers.",
+        "Its label is partly damaged.",
+        "The workers have stopped using labels."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "ラベルの破損。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "What trade-off does the decision involve?",
+      "options": [
+        "The delay of manual examination versus the possible cost of an incorrect routing.",
+        "The physical size of containers versus the color of labels.",
+        "The wages of every worker versus the value of all goods.",
+        "The speed of printing versus the number of labels sold."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2",
+        "p3"
+      ],
+      "explanation_ja": "確認の遅延と誤配送の影響。"
+    },
+    {
+      "id": "q5",
+      "skill": "inference",
+      "prompt": "Why might the automatic processing count be misleading?",
+      "options": [
+        "It always includes the exact cost of errors.",
+        "It proves that human checks are unnecessary.",
+        "It measures the number of damaged labels only.",
+        "It does not reflect the consequences of errors or the work needed to correct them."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "誤りの影響や訂正作業を反映しない。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What should be considered in selecting a response?",
+      "options": [
+        "Only the device's appearance.",
+        "Error consequences and conditions for detection and correction.",
+        "The personal preferences of every customer.",
+        "The speed of label creation alone."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "影響と検出・訂正条件。"
+    },
+    {
+      "id": "q7",
+      "skill": "inference",
+      "prompt": "Why might a simple failure alert be inadequate?",
+      "options": [
+        "It may not show which information caused the classification difficulty.",
+        "Every operator already knows the reason for failure.",
+        "All notifications are technically impossible.",
+        "The machine should never provide any information."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "原因箇所が分からない。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What additional information is proposed?",
+      "options": [
+        "The complete history of every package owner.",
+        "Only the label's color.",
+        "Available information and a description of uncertainty.",
+        "A guarantee that all future labels are readable."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "利用可能情報と不確実性。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does admission mean in context?",
+      "options": [
+        "Permission to enter a building.",
+        "Acknowledgment that something is true.",
+        "An additional parcel.",
+        "A technical specification."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "認めること。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "Which statement best captures the argument?",
+      "options": [
+        "Effective automation involves designing how human assistance is requested when uncertainty matters.",
+        "A system is successful only if it never asks for help.",
+        "Automation should replace every form of human judgment.",
+        "Manual review is always faster than automatic processing."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "不確実な場面での支援要請も設計の一部。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 0,
+      "focus": "without requiring continuous intervention",
+      "explanation_ja": "without＋動名詞。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "so that several of the symbols",
+      "explanation_ja": "so thatは結果を表す。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "focus": "if the error is discovered only after",
+      "explanation_ja": "if節は条件、受動態。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "focus": "rather than an admission that the process has failed",
+      "explanation_ja": "rather thanは対比。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "An automated system may be designed to perform a particular task without requiring continuous intervention from a human operator.",
+      "rewrite": "Automation can carry out a task without constant human intervention.",
+      "explanation_ja": "継続介入を不要にする。"
+    },
+    {
+      "source": "One day, a package arrives bearing a label that is partially damaged, so that several of the symbols necessary for identifying the intended destination cannot be read clearly.",
+      "rewrite": "Damage to the label makes some destination symbols unreadable.",
+      "explanation_ja": "ラベル破損の結果。"
+    },
+    {
+      "source": "Nevertheless, directing the package toward an incorrect destination may create a more substantial delay if the error is discovered only after further transportation has taken place.",
+      "rewrite": "A misrouted parcel can suffer a larger delay if the mistake is detected later.",
+      "explanation_ja": "発見の遅れ。"
+    },
+    {
+      "source": "Determining how and when assistance should be requested can be an important component of designing an automated process rather than an admission that the process has failed.",
+      "rewrite": "Planning when to request help is part of system design, not proof of failure.",
+      "explanation_ja": "支援要請は設計の一部。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "however",
+      "role_ja": "自動化の利点から例外対応へ。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Nevertheless",
+      "role_ja": "確認遅延と誤配送の影響。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "therefore",
+      "role_ja": "原因を示す通知へ。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "rather than",
+      "role_ja": "設計と失敗認定を対比。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "partially",
+      "options": [
+        "partially",
+        "completely",
+        "permanently",
+        "intentionally"
+      ],
+      "explanation_ja": "一部破損したラベル。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "answer": "consequences",
+      "options": [
+        "colors",
+        "consequences",
+        "labels",
+        "prices"
+      ],
+      "explanation_ja": "誤りの影響。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "notification",
+      "options": [
+        "portrait",
+        "receipt",
+        "notification",
+        "decoration"
+      ],
+      "explanation_ja": "失敗の通知。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "answer": "dependable",
+      "options": [
+        "uncertain",
+        "random",
+        "unreliable",
+        "dependable"
+      ],
+      "explanation_ja": "信頼できる関係。"
+    }
+  ]
+}

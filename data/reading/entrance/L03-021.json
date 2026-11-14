@@ -1,0 +1,692 @@
+{
+  "id": "L03-021",
+  "category_id": "L03",
+  "title": "The Button That Was Too Easy to Press",
+  "title_ja": "押しやすすぎたボタン",
+  "level_id": "eiken-2",
+  "status": "draft",
+  "original": true,
+  "word_count": 375,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "人物・出来事・制度は架空の教材例。実在の調査・統計・実証結果ではない。制作台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Suppose a group of students designs a digital notice board for an imaginary school, allowing teachers to send announcements to selected classes.",
+          "ja": "架空の学校で教師が選択したクラスに告知を送れるデジタル掲示板を生徒が設計するとしよう。"
+        },
+        {
+          "en": "The team places a large publication button at the bottom of the editing screen so that teachers can quickly complete their work.",
+          "ja": "教師がすぐ作業を終えられるよう編集画面下に大きな公開ボタンを置く。"
+        },
+        {
+          "en": "During a demonstration, a teacher accidentally publishes an unfinished announcement while trying to save a draft of the message.",
+          "ja": "実演中教師は下書きを保存しようとして未完成の告知を誤って公開する。"
+        },
+        {
+          "en": "The mistake prompts the designers to reconsider whether reducing the number of steps always makes a system easier to use.",
+          "ja": "手順を減らせば常に使いやすくなるかを設計者が再考するきっかけになる。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The students initially suggest adding a confirmation message before every operation performed through the notice board.",
+          "ja": "最初は掲示板での全操作前に確認メッセージを追加する案を出す。"
+        },
+        {
+          "en": "However, another student points out that repeated warnings might interrupt ordinary tasks and encourage users to dismiss messages without reading them.",
+          "ja": "しかし警告の反復で通常作業が中断され、利用者が読まずに閉じるようになるかもしれないと指摘する。"
+        },
+        {
+          "en": "The team therefore distinguishes between reversible editing actions and operations that immediately affect other people.",
+          "ja": "そこで取り消せる編集操作と直ちに他者へ影響する操作を区別する。"
+        },
+        {
+          "en": "They consider how the interface could draw particular attention to decisions whose consequences would be difficult to reverse.",
+          "ja": "取り消しにくい結果を持つ判断に画面が特に注意を向けさせる方法を考える。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The revised prototype separates saving and publishing into clearly labeled controls and displays the intended audience before publication.",
+          "ja": "修正版は保存と公開を明示した操作に分け、公開前に対象者を表示する。"
+        },
+        {
+          "en": "Users can also preview how an announcement will appear to its recipients instead of relying on the appearance of the editing screen.",
+          "ja": "編集画面の見え方だけでなく受信者への表示をプレビューできる。"
+        },
+        {
+          "en": "For an ordinary draft, the system avoids unnecessary interruptions and provides an indication that recent changes have been preserved.",
+          "ja": "通常の下書きでは不要な中断を避け最近の変更が保存されたことを示す。"
+        },
+        {
+          "en": "The students test several fictional tasks to examine whether each control communicates the intended action rather than simply appearing attractive.",
+          "ja": "各操作が見た目の魅力だけでなく意図した動作を伝えるか架空の課題で調べる。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "One remaining difficulty concerns announcements that have already reached their recipients before an error is discovered.",
+          "ja": "残る困難は誤りが判明する前に受信者に届いた告知に関係する。"
+        },
+        {
+          "en": "Removing a message from the notice board does not necessarily erase the information from people's memories or prevent them from acting on it.",
+          "ja": "掲示板から削除しても記憶から消したり行動を防いだりできるとは限らない。"
+        },
+        {
+          "en": "The team therefore designs a correction procedure that makes the revised information distinguishable from the earlier version.",
+          "ja": "そこで修正情報を以前の版と区別できる訂正手順を設計する。"
+        },
+        {
+          "en": "They acknowledge that a classroom prototype cannot prove the security or reliability of a real communication system.",
+          "ja": "試作では実際の通信システムの安全性や信頼性は証明できないと認める。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The example illustrates that convenient design requires more than minimizing the effort associated with every individual action.",
+          "ja": "便利な設計には個々の操作の労力を最小にするだけでは足りないことを示す。"
+        },
+        {
+          "en": "A carefully placed extra step may support users when it draws attention to a significant and potentially irreversible decision.",
+          "ja": "重要で取り消し不能かもしれない判断に注意を向ける追加手順は利用者を支援し得る。"
+        },
+        {
+          "en": "The value of that step depends on whether it communicates relevant information at the appropriate moment.",
+          "ja": "その手順の価値は適切な時点に関連情報を伝えるかによる。"
+        },
+        {
+          "en": "Responsible interface design balances efficiency with the user's ability to understand and control the consequences of an action.",
+          "ja": "責任ある画面設計は効率と操作結果を理解し制御する能力の均衡を取る。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "digital",
+      "ja": "デジタルの",
+      "synonym": "electronic",
+      "definition": "using electronic information"
+    },
+    {
+      "term": "notice board",
+      "ja": "掲示板",
+      "synonym": "bulletin board",
+      "definition": "place displaying announcements"
+    },
+    {
+      "term": "announcements",
+      "ja": "告知",
+      "synonym": "notices",
+      "definition": "public messages giving information"
+    },
+    {
+      "term": "selected",
+      "ja": "選択された",
+      "synonym": "chosen",
+      "definition": "picked from options"
+    },
+    {
+      "term": "publication",
+      "ja": "公開",
+      "synonym": "release",
+      "definition": "act of making material public"
+    },
+    {
+      "term": "editing",
+      "ja": "編集",
+      "synonym": "revising",
+      "definition": "changing material"
+    },
+    {
+      "term": "demonstration",
+      "ja": "実演",
+      "synonym": "presentation",
+      "definition": "showing how something works"
+    },
+    {
+      "term": "accidentally",
+      "ja": "誤って",
+      "synonym": "unintentionally",
+      "definition": "without intending to"
+    },
+    {
+      "term": "publishes",
+      "ja": "公開する",
+      "synonym": "releases",
+      "definition": "makes material available"
+    },
+    {
+      "term": "unfinished",
+      "ja": "未完成の",
+      "synonym": "incomplete",
+      "definition": "not fully completed"
+    },
+    {
+      "term": "draft",
+      "ja": "下書き",
+      "synonym": "preliminary version",
+      "definition": "early version of a text"
+    },
+    {
+      "term": "prompts",
+      "ja": "促す",
+      "synonym": "encourages",
+      "definition": "causes someone to act"
+    },
+    {
+      "term": "reconsider",
+      "ja": "再考する",
+      "synonym": "rethink",
+      "definition": "think about again"
+    },
+    {
+      "term": "reducing",
+      "ja": "減らすこと",
+      "synonym": "lessening",
+      "definition": "making smaller"
+    },
+    {
+      "term": "confirmation",
+      "ja": "確認",
+      "synonym": "verification",
+      "definition": "act of checking something"
+    },
+    {
+      "term": "operation",
+      "ja": "操作",
+      "synonym": "action",
+      "definition": "activity performed by a system"
+    },
+    {
+      "term": "repeated",
+      "ja": "繰り返された",
+      "synonym": "recurring",
+      "definition": "done again and again"
+    },
+    {
+      "term": "warnings",
+      "ja": "警告",
+      "synonym": "alerts",
+      "definition": "messages about possible danger"
+    },
+    {
+      "term": "interrupt",
+      "ja": "中断する",
+      "synonym": "disrupt",
+      "definition": "cause a break"
+    },
+    {
+      "term": "dismiss",
+      "ja": "閉じる",
+      "synonym": "close",
+      "definition": "remove a message from view"
+    },
+    {
+      "term": "distinguishes",
+      "ja": "区別する",
+      "synonym": "differentiates",
+      "definition": "recognizes differences"
+    },
+    {
+      "term": "reversible",
+      "ja": "取り消せる",
+      "synonym": "undoable",
+      "definition": "able to be undone"
+    },
+    {
+      "term": "immediately",
+      "ja": "直ちに",
+      "synonym": "at once",
+      "definition": "without delay"
+    },
+    {
+      "term": "affect",
+      "ja": "影響する",
+      "synonym": "influence",
+      "definition": "produce a change"
+    },
+    {
+      "term": "interface",
+      "ja": "操作画面",
+      "synonym": "display",
+      "definition": "means through which users interact"
+    },
+    {
+      "term": "consequences",
+      "ja": "結果",
+      "synonym": "effects",
+      "definition": "results of an action"
+    },
+    {
+      "term": "revised",
+      "ja": "修正された",
+      "synonym": "modified",
+      "definition": "changed to improve"
+    },
+    {
+      "term": "prototype",
+      "ja": "試作品",
+      "synonym": "model",
+      "definition": "early version for testing"
+    },
+    {
+      "term": "labeled",
+      "ja": "表示された",
+      "synonym": "marked",
+      "definition": "provided with identifying text"
+    },
+    {
+      "term": "controls",
+      "ja": "操作要素",
+      "synonym": "buttons",
+      "definition": "elements used to operate a system"
+    },
+    {
+      "term": "intended",
+      "ja": "意図された",
+      "synonym": "meant",
+      "definition": "planned for a purpose"
+    },
+    {
+      "term": "audience",
+      "ja": "対象者",
+      "synonym": "recipients",
+      "definition": "people receiving a message"
+    },
+    {
+      "term": "preview",
+      "ja": "プレビューする",
+      "synonym": "inspect beforehand",
+      "definition": "view before final release"
+    },
+    {
+      "term": "recipients",
+      "ja": "受信者",
+      "synonym": "receivers",
+      "definition": "people receiving something"
+    },
+    {
+      "term": "unnecessary",
+      "ja": "不要な",
+      "synonym": "needless",
+      "definition": "not required"
+    },
+    {
+      "term": "indication",
+      "ja": "表示",
+      "synonym": "sign",
+      "definition": "information pointing to something"
+    },
+    {
+      "term": "preserved",
+      "ja": "保存された",
+      "synonym": "retained",
+      "definition": "kept from loss"
+    },
+    {
+      "term": "fictional",
+      "ja": "架空の",
+      "synonym": "imaginary",
+      "definition": "existing in imagination"
+    },
+    {
+      "term": "procedure",
+      "ja": "手順",
+      "synonym": "process",
+      "definition": "established way of acting"
+    },
+    {
+      "term": "distinguishable",
+      "ja": "区別できる",
+      "synonym": "recognizable",
+      "definition": "able to be differentiated"
+    },
+    {
+      "term": "acknowledge",
+      "ja": "認める",
+      "synonym": "admit",
+      "definition": "accept as true"
+    },
+    {
+      "term": "security",
+      "ja": "安全性",
+      "synonym": "protection",
+      "definition": "state of being protected"
+    },
+    {
+      "term": "reliability",
+      "ja": "信頼性",
+      "synonym": "dependability",
+      "definition": "quality of being dependable"
+    },
+    {
+      "term": "minimizing",
+      "ja": "最小化すること",
+      "synonym": "reducing",
+      "definition": "making as small as possible"
+    },
+    {
+      "term": "significant",
+      "ja": "重要な",
+      "synonym": "important",
+      "definition": "having substantial meaning"
+    },
+    {
+      "term": "irreversible",
+      "ja": "取り消し不能な",
+      "synonym": "permanent",
+      "definition": "unable to be undone"
+    },
+    {
+      "term": "efficiency",
+      "ja": "効率",
+      "synonym": "effectiveness",
+      "definition": "useful output relative to effort"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What is the board designed for?",
+      "options": [
+        "Monitoring student locations.",
+        "Sending announcements to classes.",
+        "Replacing every textbook.",
+        "Grading examinations."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "クラスへの告知。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What mistake happened?",
+      "options": [
+        "The school closed.",
+        "A completed notice was saved correctly.",
+        "The board lost all users.",
+        "An unfinished message was published."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "下書きの誤公開。"
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why not confirm every action?",
+      "options": [
+        "All actions are irreversible.",
+        "Users always read warnings carefully.",
+        "Repeated warnings may be ignored.",
+        "Confirmation is legally prohibited."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "警告疲れの可能性。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What distinction did the team make?",
+      "options": [
+        "Reversible edits versus actions affecting others.",
+        "Large screens versus small screens.",
+        "Old computers versus new ones.",
+        "Teachers versus students."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "可逆性と影響。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What was separated?",
+      "options": [
+        "Teachers and classrooms.",
+        "Text and handwriting.",
+        "All notices and drafts permanently.",
+        "Saving and publishing."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "保存と公開。"
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why provide a preview?",
+      "options": [
+        "To guarantee all notices are accurate.",
+        "To see the recipients' view before release.",
+        "To publish without review.",
+        "To hide the audience."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "受信者の表示を確認。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What problem can remain after deletion?",
+      "options": [
+        "People may remember or act on the message.",
+        "The message is always forgotten.",
+        "The draft becomes a textbook.",
+        "All readers lose access to school."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "既読の影響。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "Why design a correction procedure?",
+      "options": [
+        "To conceal every error.",
+        "To prevent all editing.",
+        "To clarify which information replaces the earlier version.",
+        "To prove the system is secure."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "訂正を明確にする。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does irreversible mean?",
+      "options": [
+        "Easy to edit.",
+        "Unable to be undone.",
+        "Unnecessary.",
+        "Completely private."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "取り消し不能。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the central point?",
+      "options": [
+        "Design should balance ease of use with awareness of consequential actions.",
+        "Every task needs many warnings.",
+        "All actions should require one click.",
+        "Attractive screens guarantee safety."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "効率と結果の理解を両立。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "whether reducing the number of steps",
+      "explanation_ja": "whether節がreconsiderの内容。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "without reading them",
+      "explanation_ja": "without＋動名詞。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "focus": "instead of relying on the appearance",
+      "explanation_ja": "instead of＋動名詞。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "focus": "when it draws attention to",
+      "explanation_ja": "whenは条件。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The mistake prompts the designers to reconsider whether reducing the number of steps always makes a system easier to use.",
+      "rewrite": "The mistake led the team to question whether fewer steps always improve usability.",
+      "explanation_ja": "手順数と使いやすさ。"
+    },
+    {
+      "source": "However, another student points out that repeated warnings might interrupt ordinary tasks and encourage users to dismiss messages without reading them.",
+      "rewrite": "Frequent alerts might train people to close them unread.",
+      "explanation_ja": "警告を読まなくなる可能性。"
+    },
+    {
+      "source": "Users can also preview how an announcement will appear to its recipients instead of relying on the appearance of the editing screen.",
+      "rewrite": "A preview lets users see what recipients will see, not just the editing view.",
+      "explanation_ja": "公開前確認。"
+    },
+    {
+      "source": "A carefully placed extra step may support users when it draws attention to a significant and potentially irreversible decision.",
+      "rewrite": "An additional step can help if it highlights a consequential decision.",
+      "explanation_ja": "重要な判断への注意。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p2",
+      "expression": "However",
+      "role_ja": "確認追加案の限界。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "therefore",
+      "role_ja": "操作の区別へ。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "also",
+      "role_ja": "追加の機能。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "therefore",
+      "role_ja": "訂正手順へ。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "accidentally",
+      "options": [
+        "accidentally",
+        "deliberately",
+        "regularly",
+        "formally"
+      ],
+      "explanation_ja": "誤公開。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "reversible",
+      "options": [
+        "permanent",
+        "reversible",
+        "annual",
+        "financial"
+      ],
+      "explanation_ja": "取り消せる操作。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "preview",
+      "options": [
+        "delete",
+        "publish",
+        "preview",
+        "ignore"
+      ],
+      "explanation_ja": "公開前に確認。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "answer": "irreversible",
+      "options": [
+        "temporary",
+        "ordinary",
+        "identical",
+        "irreversible"
+      ],
+      "explanation_ja": "取り消しにくい判断。"
+    }
+  ]
+}

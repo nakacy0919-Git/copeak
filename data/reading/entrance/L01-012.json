@@ -1,0 +1,556 @@
+{
+  "id": "L01-012",
+  "category_id": "L01",
+  "title": "The Garden After the Rain",
+  "title_ja": "雨上がりの庭",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 195,
+  "source_links": [
+    {
+      "title": "Original lesson authoring registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "登場人物・場所・出来事・資料・数値は架空の教材例。実在の事実や研究結果を示すものではない。参考リンクは制作台帳であり外部の実証資料ではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "On Monday morning, Hana visited the garden behind her school.",
+          "ja": "月曜日の朝、ハナは学校の裏にある庭を訪れた。"
+        },
+        {
+          "en": "It had rained heavily during the night before.",
+          "ja": "前の晩に激しく雨が降っていた。"
+        },
+        {
+          "en": "A deep puddle covered part of the narrow path.",
+          "ja": "深い水たまりが細い道の一部を覆っていた。"
+        },
+        {
+          "en": "She noticed that the soil near the flowers looked different.",
+          "ja": "花の近くの土の様子が違うことに気づいた。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The class had planted grass beside one of the paths.",
+          "ja": "クラスは道の一つの脇に草を植えていた。"
+        },
+        {
+          "en": "The other path had only hard, bare ground beside it.",
+          "ja": "もう一方の道の脇には固いむき出しの地面しかなかった。"
+        },
+        {
+          "en": "After the rain, less water remained on the grassy side.",
+          "ja": "雨上がりには草のある側に残る水が少なかった。"
+        },
+        {
+          "en": "Hana wanted to understand the reason for this difference.",
+          "ja": "ハナはこの違いの理由を知りたいと思った。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "First, she took a picture of each wet area.",
+          "ja": "まず、ぬれた場所をそれぞれ撮影した。"
+        },
+        {
+          "en": "Then she placed a small stick beside each puddle.",
+          "ja": "次に水たまりのそばに小さな棒を置いた。"
+        },
+        {
+          "en": "She returned at lunchtime and checked the water again.",
+          "ja": "昼休みに戻って、再び水を確認した。"
+        },
+        {
+          "en": "The puddles had become smaller, but not at the same speed.",
+          "ja": "水たまりは小さくなっていたが、同じ速さではなかった。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Her teacher suggested checking the garden after another rainy day.",
+          "ja": "先生は次の雨の日の後にも庭を調べるよう提案した。"
+        },
+        {
+          "en": "Hana agreed because one visit was not enough to explain everything.",
+          "ja": "一度の観察ではすべてを説明できないため、ハナは同意した。"
+        },
+        {
+          "en": "She also decided to record the weather and the amount of rain.",
+          "ja": "天気と雨の量も記録することにした。"
+        },
+        {
+          "en": "Her friends offered to help with the next observation.",
+          "ja": "友達は次の観察を手伝うと申し出た。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "By Friday, they had made a simple chart for their classroom.",
+          "ja": "金曜日までに、教室用の簡単な表を作っていた。"
+        },
+        {
+          "en": "However, they left some spaces empty for future results.",
+          "ja": "しかし、今後の結果のために空欄を残した。"
+        },
+        {
+          "en": "They knew that their investigation was not finished yet.",
+          "ja": "調査がまだ終わっていないことを理解していた。"
+        },
+        {
+          "en": "For Hana, an ordinary puddle had become an interesting question.",
+          "ja": "ハナにとって、ありふれた水たまりが興味深い問いになった。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "heavily",
+      "ja": "激しく",
+      "synonym": "strongly",
+      "definition": "with great force or in a large amount"
+    },
+    {
+      "term": "deep",
+      "ja": "深い",
+      "synonym": "not shallow",
+      "definition": "extending far below the surface"
+    },
+    {
+      "term": "puddle",
+      "ja": "水たまり",
+      "synonym": "pool",
+      "definition": "a small area of water on the ground"
+    },
+    {
+      "term": "covered",
+      "ja": "覆った",
+      "synonym": "spread over",
+      "definition": "formed a layer over something"
+    },
+    {
+      "term": "narrow",
+      "ja": "狭い",
+      "synonym": "not wide",
+      "definition": "having little width"
+    },
+    {
+      "term": "noticed",
+      "ja": "気づいた",
+      "synonym": "observed",
+      "definition": "became aware of something"
+    },
+    {
+      "term": "soil",
+      "ja": "土",
+      "synonym": "earth",
+      "definition": "the material in which plants grow"
+    },
+    {
+      "term": "planted",
+      "ja": "植えた",
+      "synonym": "put in the ground",
+      "definition": "placed plants in soil to grow"
+    },
+    {
+      "term": "bare",
+      "ja": "むき出しの",
+      "synonym": "uncovered",
+      "definition": "having no covering"
+    },
+    {
+      "term": "remained",
+      "ja": "残った",
+      "synonym": "stayed",
+      "definition": "continued to be present"
+    },
+    {
+      "term": "grassy",
+      "ja": "草の生えた",
+      "synonym": "grass-covered",
+      "definition": "covered with grass"
+    },
+    {
+      "term": "difference",
+      "ja": "違い",
+      "synonym": "contrast",
+      "definition": "a way in which things are not alike"
+    },
+    {
+      "term": "area",
+      "ja": "場所",
+      "synonym": "region",
+      "definition": "a particular space or part of a place"
+    },
+    {
+      "term": "placed",
+      "ja": "置いた",
+      "synonym": "put",
+      "definition": "put something in a position"
+    },
+    {
+      "term": "returned",
+      "ja": "戻った",
+      "synonym": "came back",
+      "definition": "went back to a place"
+    },
+    {
+      "term": "suggested",
+      "ja": "提案した",
+      "synonym": "proposed",
+      "definition": "offered an idea"
+    },
+    {
+      "term": "record",
+      "ja": "記録する",
+      "synonym": "write down",
+      "definition": "keep information for later use"
+    },
+    {
+      "term": "amount",
+      "ja": "量",
+      "synonym": "quantity",
+      "definition": "how much of something there is"
+    },
+    {
+      "term": "observation",
+      "ja": "観察",
+      "synonym": "careful examination",
+      "definition": "the act of watching to learn"
+    },
+    {
+      "term": "chart",
+      "ja": "表",
+      "synonym": "table",
+      "definition": "an organized visual display of information"
+    },
+    {
+      "term": "future",
+      "ja": "将来の",
+      "synonym": "later",
+      "definition": "relating to time that has not come yet"
+    },
+    {
+      "term": "results",
+      "ja": "結果",
+      "synonym": "findings",
+      "definition": "information obtained from an activity"
+    },
+    {
+      "term": "investigation",
+      "ja": "調査",
+      "synonym": "inquiry",
+      "definition": "a careful attempt to find information"
+    },
+    {
+      "term": "ordinary",
+      "ja": "ありふれた",
+      "synonym": "usual",
+      "definition": "not special or unusual"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "When did Hana visit the garden?",
+      "answer": 2,
+      "options": [
+        "On Friday evening.",
+        "Before the rain began.",
+        "On Monday morning.",
+        "On Sunday afternoon."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "月曜日の朝に訪れた。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What covered part of the path?",
+      "answer": 0,
+      "options": [
+        "A deep puddle.",
+        "A wooden sign.",
+        "A pile of flowers.",
+        "A broken chair."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "深い水たまりが道の一部を覆っていた。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What was different about the two paths?",
+      "answer": 3,
+      "options": [
+        "One was inside the school.",
+        "One was much longer.",
+        "One was painted blue.",
+        "One had grass beside it, and the other did not."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "一方の脇に草、もう一方にはむき出しの土があった。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "Where did less water remain?",
+      "answer": 1,
+      "options": [
+        "Inside the classroom.",
+        "On the grassy side.",
+        "On the school roof.",
+        "Under a desk."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "草が生えた側の水が少なかった。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What did Hana do first to investigate?",
+      "answer": 0,
+      "options": [
+        "She photographed the wet areas.",
+        "She removed the grass.",
+        "She asked for a new garden.",
+        "She filled the puddles."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "最初にぬれた場所を撮影した。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What did Hana discover at lunchtime?",
+      "answer": 3,
+      "options": [
+        "The puddles had grown equally.",
+        "The sticks had disappeared.",
+        "It had started snowing.",
+        "The puddles had shrunk at different speeds."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "異なる速さで小さくなった。"
+    },
+    {
+      "id": "q7",
+      "skill": "inference",
+      "prompt": "Why did Hana agree to observe again?",
+      "answer": 1,
+      "options": [
+        "She had lost her photos.",
+        "One visit could not fully explain the difference.",
+        "She wanted to miss class.",
+        "Her teacher had finished the chart."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "一度の観察では十分でないと考えた。"
+    },
+    {
+      "id": "q8",
+      "skill": "vocabulary",
+      "prompt": "What does 'record' mean here?",
+      "answer": 2,
+      "options": [
+        "Forget.",
+        "Play music.",
+        "Keep information.",
+        "Break a rule."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "情報を記録する意味。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Why did the students leave empty spaces in the chart?",
+      "answer": 3,
+      "options": [
+        "They did not know how to write.",
+        "They had no pencils.",
+        "The teacher disliked charts.",
+        "They planned to add later results."
+      ],
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "今後の結果を書くために空欄を残した。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the passage mainly about?",
+      "answer": 0,
+      "options": [
+        "Using everyday observations to begin an investigation.",
+        "Avoiding school gardens after rain.",
+        "Learning how to draw flowers.",
+        "Finishing every experiment in one day."
+      ],
+      "paragraph_ids": [
+        "p1",
+        "p4",
+        "p5"
+      ],
+      "explanation_ja": "身近な水たまりから調査の問いが生まれた。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "had rained",
+      "explanation_ja": "過去の訪問より前に降った雨を過去完了で表す。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "the reason for this difference",
+      "explanation_ja": "forは理由の対象を示す。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "focus": "had become smaller",
+      "explanation_ja": "過去の確認時点までの変化を示す。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "focus": "because one visit was not enough",
+      "explanation_ja": "because節は同意した理由を示す。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p3",
+      "expression": "First",
+      "role_ja": "観察の最初の行動。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Then",
+      "role_ja": "次の行動を示す。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "because",
+      "role_ja": "理由を示す。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "However",
+      "role_ja": "表ができたことと未完成であることを対比する。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Hana wanted to understand the reason for this difference.",
+      "rewrite": "Hana hoped to find out why the two sides were different.",
+      "explanation_ja": "違いの理由を明らかにしたかった。"
+    },
+    {
+      "source": "She returned at lunchtime and checked the water again.",
+      "rewrite": "She came back at lunch to look at the water once more.",
+      "explanation_ja": "昼に戻り再確認した。"
+    },
+    {
+      "source": "Her friends offered to help with the next observation.",
+      "rewrite": "Her friends said they would help her observe the garden next time.",
+      "explanation_ja": "友達が次の観察への協力を申し出た。"
+    },
+    {
+      "source": "They knew that their investigation was not finished yet.",
+      "rewrite": "They understood that they still had work to do on the investigation.",
+      "explanation_ja": "調査がまだ終わっていなかった。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "puddle",
+      "options": [
+        "cloud",
+        "puddle",
+        "flower",
+        "window"
+      ],
+      "explanation_ja": "水たまりが道を覆う。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "answer": "difference",
+      "options": [
+        "holiday",
+        "picture",
+        "difference",
+        "price"
+      ],
+      "explanation_ja": "二つの場所の違いを知りたい。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "record",
+      "options": [
+        "throw",
+        "hide",
+        "borrow",
+        "record"
+      ],
+      "explanation_ja": "天気と降雨量を記録する。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "answer": "future",
+      "options": [
+        "future",
+        "broken",
+        "loud",
+        "ancient"
+      ],
+      "explanation_ja": "今後の結果のために空欄を残す。"
+    }
+  ]
+}

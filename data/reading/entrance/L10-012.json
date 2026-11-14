@@ -1,0 +1,562 @@
+{
+  "id": "L10-012",
+  "category_id": "L10",
+  "title": "The Blank Page at the End of Class",
+  "title_ja": "授業の終わりの白紙",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 216,
+  "source_links": [
+    {
+      "title": "Original lesson authoring registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "登場人物・場所・出来事は架空の教材例。特定の研究結果・制度・医学的助言を示すものではない。参考リンクは制作台帳であり実証資料ではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Every Thursday, Mr. Lee gave his students a short reading task.",
+          "ja": "毎週木曜日、リー先生は生徒に短い読解課題を出した。"
+        },
+        {
+          "en": "They read an article and answered questions in their notebooks.",
+          "ja": "生徒は記事を読み、ノートに質問の答えを書いた。"
+        },
+        {
+          "en": "Most students finished before the end of the lesson.",
+          "ja": "ほとんどの生徒は授業が終わる前に終えた。"
+        },
+        {
+          "en": "However, they often forgot what they had learned by Friday.",
+          "ja": "しかし金曜日までには学んだ内容をよく忘れていた。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "One day, the teacher introduced a different activity after reading.",
+          "ja": "ある日、先生は読解後に別の活動を導入した。"
+        },
+        {
+          "en": "He asked everyone to close their books and take a blank sheet.",
+          "ja": "全員に本を閉じ、白紙を一枚取るよう求めた。"
+        },
+        {
+          "en": "They had three minutes to write anything they could remember.",
+          "ja": "覚えていることを何でも書く時間が3分間あった。"
+        },
+        {
+          "en": "They did not need to write perfect sentences or use difficult words.",
+          "ja": "完璧な文や難しい単語を使う必要はなかった。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Sara remembered the main character but forgot an important event.",
+          "ja": "サラは主人公を覚えていたが、重要な出来事を忘れた。"
+        },
+        {
+          "en": "Her partner remembered the event but could not explain its meaning.",
+          "ja": "ペアの相手は出来事を覚えていたが、その意味を説明できなかった。"
+        },
+        {
+          "en": "Then they opened their books and checked their own notes.",
+          "ja": "それから本を開き、自分のメモを確認した。"
+        },
+        {
+          "en": "Each student found something that needed more attention.",
+          "ja": "生徒はそれぞれ、さらに注意を向ける必要のある内容を見つけた。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The next week, Sara changed how she reviewed her lessons.",
+          "ja": "翌週、サラは授業の復習方法を変えた。"
+        },
+        {
+          "en": "Instead of only looking at her notes, she tried to recall key ideas.",
+          "ja": "ノートを見るだけでなく、重要な考えを思い出そうとした。"
+        },
+        {
+          "en": "When she could not remember something, she checked that part again.",
+          "ja": "何かを思い出せないときは、その部分を再確認した。"
+        },
+        {
+          "en": "She started to notice which topics were still difficult for her.",
+          "ja": "どの話題がまだ難しいのか気づき始めた。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "At the end of the month, the teacher asked for feedback.",
+          "ja": "月末、先生は感想を求めた。"
+        },
+        {
+          "en": "Sara said the blank page had helped her find gaps in her understanding.",
+          "ja": "サラは白紙のおかげで理解の抜けに気づけたと言った。"
+        },
+        {
+          "en": "She did not expect every student to use the same method.",
+          "ja": "すべての生徒が同じ方法を使うことを期待したわけではない。"
+        },
+        {
+          "en": "For her, the simple activity was a useful way to plan further study.",
+          "ja": "彼女にとってその簡単な活動は今後の学習を計画する有益な方法だった。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "When did Mr. Lee usually give a reading task?",
+      "options": [
+        "On Thursdays.",
+        "On Mondays.",
+        "Every morning.",
+        "Only before exams."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "毎週木曜日に行った。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What problem did students often have?",
+      "options": [
+        "They could not find notebooks.",
+        "They never finished reading.",
+        "They forgot what they had learned.",
+        "They disliked all articles."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "翌日には学んだことを忘れがちだった。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What did students use for the new activity?",
+      "options": [
+        "A dictionary.",
+        "A blank sheet of paper.",
+        "A computer.",
+        "A printed answer key."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "白紙に覚えていることを書いた。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "How much time did they have?",
+      "options": [
+        "One hour.",
+        "Ten minutes.",
+        "Thirty seconds.",
+        "Three minutes."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "3分間と明記されている。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What did Sara forget?",
+      "options": [
+        "The main character.",
+        "Her partner's name.",
+        "The teacher's instruction.",
+        "An important event."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "重要な出来事を忘れた。"
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why did the students open their books again?",
+      "options": [
+        "To begin a different story.",
+        "To check what they remembered and missed.",
+        "To hide their notes.",
+        "To copy the whole article."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "メモと本文を照合し、注意すべき点を発見した。"
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary",
+      "prompt": "What does 'recall' mean here?",
+      "options": [
+        "Draw.",
+        "Remove.",
+        "Remember.",
+        "Explain aloud."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "記憶から思い出すという意味。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What did Sara do when she could not remember something?",
+      "options": [
+        "She reviewed that part again.",
+        "She stopped studying.",
+        "She bought new books.",
+        "She guessed without checking."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "思い出せない部分を再確認した。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "How did the activity help Sara?",
+      "options": [
+        "It made every subject easy.",
+        "It revealed what she did not understand well.",
+        "It replaced all reading tasks.",
+        "It gave her perfect scores."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "理解の抜けを見つけた。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the main idea of the passage?",
+      "options": [
+        "All students should study in exactly the same way.",
+        "Reading should always be avoided.",
+        "Teachers should remove all notebooks.",
+        "Trying to remember independently can reveal what to review."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3",
+        "p4",
+        "p5"
+      ],
+      "explanation_ja": "思い出す活動によって次の復習の重点を見つける。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "task",
+      "ja": "課題",
+      "synonym": "assignment",
+      "definition": "a piece of work to complete"
+    },
+    {
+      "term": "article",
+      "ja": "記事",
+      "synonym": "text",
+      "definition": "a written piece about a subject"
+    },
+    {
+      "term": "notebooks",
+      "ja": "ノート",
+      "synonym": "writing books",
+      "definition": "books with pages for writing"
+    },
+    {
+      "term": "finished",
+      "ja": "終えた",
+      "synonym": "completed",
+      "definition": "brought an activity to an end"
+    },
+    {
+      "term": "lesson",
+      "ja": "授業",
+      "synonym": "class",
+      "definition": "a period of teaching"
+    },
+    {
+      "term": "forgot",
+      "ja": "忘れた",
+      "synonym": "failed to remember",
+      "definition": "could no longer remember something"
+    },
+    {
+      "term": "introduced",
+      "ja": "導入した",
+      "synonym": "presented",
+      "definition": "brought something new into use"
+    },
+    {
+      "term": "activity",
+      "ja": "活動",
+      "synonym": "exercise",
+      "definition": "a task that people take part in"
+    },
+    {
+      "term": "blank",
+      "ja": "白紙の",
+      "synonym": "empty",
+      "definition": "having no writing or marks"
+    },
+    {
+      "term": "sheet",
+      "ja": "一枚",
+      "synonym": "piece of paper",
+      "definition": "a single flat piece of material"
+    },
+    {
+      "term": "remember",
+      "ja": "覚えている",
+      "synonym": "recall",
+      "definition": "bring information back to mind"
+    },
+    {
+      "term": "perfect",
+      "ja": "完璧な",
+      "synonym": "flawless",
+      "definition": "having no errors"
+    },
+    {
+      "term": "character",
+      "ja": "登場人物",
+      "synonym": "person in a story",
+      "definition": "a person represented in a story"
+    },
+    {
+      "term": "event",
+      "ja": "出来事",
+      "synonym": "occurrence",
+      "definition": "something that happens"
+    },
+    {
+      "term": "partner",
+      "ja": "ペアの相手",
+      "synonym": "teammate",
+      "definition": "someone who works with another person"
+    },
+    {
+      "term": "meaning",
+      "ja": "意味",
+      "synonym": "significance",
+      "definition": "the idea expressed by something"
+    },
+    {
+      "term": "attention",
+      "ja": "注意",
+      "synonym": "focus",
+      "definition": "careful thought directed at something"
+    },
+    {
+      "term": "reviewed",
+      "ja": "復習した",
+      "synonym": "revised",
+      "definition": "studied material again"
+    },
+    {
+      "term": "recall",
+      "ja": "思い出す",
+      "synonym": "remember",
+      "definition": "bring an idea back into the mind"
+    },
+    {
+      "term": "topics",
+      "ja": "話題",
+      "synonym": "subjects",
+      "definition": "things that are discussed or studied"
+    },
+    {
+      "term": "feedback",
+      "ja": "感想・意見",
+      "synonym": "comments",
+      "definition": "information about someone's experience or performance"
+    },
+    {
+      "term": "gaps",
+      "ja": "抜け・不足",
+      "synonym": "missing parts",
+      "definition": "places where something is missing"
+    },
+    {
+      "term": "understanding",
+      "ja": "理解",
+      "synonym": "comprehension",
+      "definition": "knowledge of what something means"
+    },
+    {
+      "term": "method",
+      "ja": "方法",
+      "synonym": "approach",
+      "definition": "a particular way of doing something"
+    },
+    {
+      "term": "further",
+      "ja": "さらなる",
+      "synonym": "additional",
+      "definition": "more than what is already present"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "what they had learned",
+      "explanation_ja": "what節は学んだ内容を表し過去完了は先行する学習を示す。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "asked everyone to close",
+      "explanation_ja": "ask 人 to doは人に行動を求める。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "focus": "Instead of only looking",
+      "explanation_ja": "instead of＋動名詞は代替される行動。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "focus": "had helped her find",
+      "explanation_ja": "help 人 動詞原形は行動を助ける。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "課題を終えることと忘れてしまうことを対比。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Then",
+      "role_ja": "次の行動を示す。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Instead of",
+      "role_ja": "受動的に見るだけの復習と想起を対比。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "For her",
+      "role_ja": "サラ個人の経験に限定する。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "They did not need to write perfect sentences or use difficult words.",
+      "rewrite": "Correct sentences and advanced vocabulary were not necessary.",
+      "explanation_ja": "正確な文や難しい語彙は必須ではない。"
+    },
+    {
+      "source": "Each student found something that needed more attention.",
+      "rewrite": "Every learner discovered an area to focus on more.",
+      "explanation_ja": "各生徒がより注意すべき点を見つけた。"
+    },
+    {
+      "source": "When she could not remember something, she checked that part again.",
+      "rewrite": "If she forgot a point, she looked at it again.",
+      "explanation_ja": "忘れた点を再確認した。"
+    },
+    {
+      "source": "Sara said the blank page had helped her find gaps in her understanding.",
+      "rewrite": "Sara said that writing without notes showed her what she had not fully understood.",
+      "explanation_ja": "白紙の活動が理解不足を示した。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "blank",
+      "options": [
+        "blank",
+        "crowded",
+        "broken",
+        "wet"
+      ],
+      "explanation_ja": "何も書かれていない紙。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "checked",
+      "options": [
+        "lost",
+        "checked",
+        "sold",
+        "painted"
+      ],
+      "explanation_ja": "自分のメモを確認した。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "recall",
+      "options": [
+        "repair",
+        "lend",
+        "recall",
+        "reduce"
+      ],
+      "explanation_ja": "重要な考えを思い出す。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "answer": "gaps",
+      "options": [
+        "names",
+        "colors",
+        "prices",
+        "gaps"
+      ],
+      "explanation_ja": "理解の抜けを発見した。"
+    }
+  ]
+}

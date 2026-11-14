@@ -1,0 +1,734 @@
+{
+  "id": "L01-017",
+  "category_id": "L01",
+  "title": "The Map Made from Morning Shadows",
+  "title_ja": "朝の影から作った地図",
+  "level_id": "university-mid",
+  "status": "draft",
+  "original": true,
+  "word_count": 467,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "人物、場所、出来事、観察・実験の内容は架空の教材例。実在の研究結果や具体的なシステムの安全性を示すものではない。制作台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "During a project about the school grounds, several students were asked to suggest a suitable place for an outdoor reading corner that could be used during lunch breaks.",
+          "ja": "校地についての活動で、生徒たちは昼休みに使える屋外読書スペースの適切な場所を提案するよう求められた。"
+        },
+        {
+          "en": "They selected a quiet area near the library because it looked comfortable when they visited it shortly after arriving at school in the morning.",
+          "ja": "朝登校直後に訪れたとき快適に見えたため、図書館の近くの静かな場所を選んだ。"
+        },
+        {
+          "en": "A teacher encouraged them to investigate whether the same location would remain comfortable at the time when students were actually expected to use it.",
+          "ja": "教師は実際の利用予定時刻にも快適かどうか調べるよう促した。"
+        },
+        {
+          "en": "When they returned around noon, they discovered that direct sunlight covered almost the entire area and that the nearby trees provided very little shade.",
+          "ja": "正午ごろ戻るとほぼ全体に直射日光が当たり、近くの木がほとんど日陰を作っていないことに気づいた。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The students decided to compare several possible locations instead of making their recommendation on the basis of a single visit to each place.",
+          "ja": "一度ずつの訪問だけで提案を決めず、複数の候補地を比較することにした。"
+        },
+        {
+          "en": "Over several days, they recorded the position of shadows at different times and drew the results on a map of the school grounds.",
+          "ja": "数日間にわたって異なる時刻の影の位置を記録し、結果を校地の地図に描いた。"
+        },
+        {
+          "en": "They noted whether the weather was cloudy or clear and avoided treating observations made under different conditions as if they were directly equivalent.",
+          "ja": "曇りか晴れかも記録し、異なる条件下の観察を直接同等なものとして扱わないようにした。"
+        },
+        {
+          "en": "Their map revealed that the locations offering the most shade in the morning were not always the locations offering the most shade at lunchtime.",
+          "ja": "地図から朝最も日陰が多い場所が昼休みにも最も多いとは限らないと分かった。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "One member suggested calculating an average amount of shade for every location, but another pointed out that the intended use had a specific time.",
+          "ja": "一人は各地点の日陰の平均量を計算することを提案したが、別の生徒は利用予定時刻が決まっていると指摘した。"
+        },
+        {
+          "en": "A daily average might therefore describe the overall conditions reasonably well while concealing the period that was most relevant to the reading corner.",
+          "ja": "一日の平均は全体の状況を適度に表せても読書スペースに最も関係する時間帯を隠してしまうかもしれなかった。"
+        },
+        {
+          "en": "The group agreed to give greater weight to lunchtime observations while retaining the remaining information for people who might use the area at other times.",
+          "ja": "昼休みの観察を重視しつつ別の時刻に使う人のため残りの情報も保持することにした。"
+        },
+        {
+          "en": "They also acknowledged that the seasonal movement of shadows meant that their short period of observation could not describe the entire year.",
+          "ja": "影の季節的な移動により短期間の観察では一年全体を説明できないことも認めた。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Rather than immediately installing permanent benches, the group proposed a trial using movable seating in one of the more promising locations near the library.",
+          "ja": "すぐに固定ベンチを設置するのではなく、図書館近くの有望な場所で移動式の座席を試す提案をした。"
+        },
+        {
+          "en": "They asked students using the temporary reading corner to report what they found comfortable or inconvenient during their ordinary lunch breaks.",
+          "ja": "仮の読書スペースを使う生徒に、普段の昼休みに何が快適または不便か報告するよう求めた。"
+        },
+        {
+          "en": "Several comments concerned noise and accessibility rather than sunlight, reminding the group that physical comfort involved more than a single measurable factor.",
+          "ja": "いくつかの意見は日光ではなく騒音や利用しやすさに関するもので、快適さには単一の測定要素以上のものが関係すると気づいた。"
+        },
+        {
+          "en": "The students added these observations to their report and recommended repeating the evaluation when conditions around the school changed in a later season.",
+          "ja": "これらの観察を報告書に加え、別の季節に周囲の条件が変わったとき評価を繰り返すよう勧めた。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The project showed them that a place cannot always be described accurately without considering the time and purpose of the observation being made.",
+          "ja": "場所を正確に記述するには観察の時刻と目的を考える必要があると学んだ。"
+        },
+        {
+          "en": "The most informative measurement is not necessarily the one that summarizes the greatest amount of information in a single convenient numerical value.",
+          "ja": "最も有益な測定は必ずしも最大量の情報を一つの便利な数値に要約するものではない。"
+        },
+        {
+          "en": "A useful environmental assessment must connect its measurements with the actual questions that people need to answer before making a decision.",
+          "ja": "有用な環境評価は測定値を決定前に人々が答えるべき実際の問いと結びつける必要がある。"
+        },
+        {
+          "en": "For the students, the changing shadows turned an apparently simple question about a comfortable location into a lesson about careful observation and appropriate evidence.",
+          "ja": "変化する影は快適な場所についての一見単純な問いを慎重な観察と適切な証拠についての学びに変えた。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "grounds",
+      "ja": "校地",
+      "synonym": "campus",
+      "definition": "land surrounding a building"
+    },
+    {
+      "term": "suitable",
+      "ja": "適切な",
+      "synonym": "appropriate",
+      "definition": "right for a particular purpose"
+    },
+    {
+      "term": "outdoor",
+      "ja": "屋外の",
+      "synonym": "outside",
+      "definition": "taking place outside"
+    },
+    {
+      "term": "selected",
+      "ja": "選んだ",
+      "synonym": "chose",
+      "definition": "picked from alternatives"
+    },
+    {
+      "term": "location",
+      "ja": "場所",
+      "synonym": "site",
+      "definition": "a particular place"
+    },
+    {
+      "term": "investigate",
+      "ja": "調べる",
+      "synonym": "examine",
+      "definition": "try to discover facts"
+    },
+    {
+      "term": "expected",
+      "ja": "予定される",
+      "synonym": "anticipated",
+      "definition": "thought likely to happen"
+    },
+    {
+      "term": "direct sunlight",
+      "ja": "直射日光",
+      "synonym": "unfiltered sunshine",
+      "definition": "sunlight reaching a place directly"
+    },
+    {
+      "term": "entire",
+      "ja": "全体の",
+      "synonym": "whole",
+      "definition": "including every part"
+    },
+    {
+      "term": "shade",
+      "ja": "日陰",
+      "synonym": "shadow",
+      "definition": "an area protected from direct sunlight"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "contrast",
+      "definition": "examine similarities and differences"
+    },
+    {
+      "term": "recommendation",
+      "ja": "提案",
+      "synonym": "advice",
+      "definition": "a suggested course of action"
+    },
+    {
+      "term": "basis",
+      "ja": "根拠",
+      "synonym": "foundation",
+      "definition": "something on which a decision rests"
+    },
+    {
+      "term": "recorded",
+      "ja": "記録した",
+      "synonym": "documented",
+      "definition": "stored information for later"
+    },
+    {
+      "term": "position",
+      "ja": "位置",
+      "synonym": "placement",
+      "definition": "the place where something is"
+    },
+    {
+      "term": "shadows",
+      "ja": "影",
+      "synonym": "shaded areas",
+      "definition": "dark areas caused by blocked light"
+    },
+    {
+      "term": "cloudy",
+      "ja": "曇りの",
+      "synonym": "overcast",
+      "definition": "covered by clouds"
+    },
+    {
+      "term": "observations",
+      "ja": "観察結果",
+      "synonym": "findings",
+      "definition": "things noticed by watching"
+    },
+    {
+      "term": "conditions",
+      "ja": "条件",
+      "synonym": "circumstances",
+      "definition": "facts affecting a situation"
+    },
+    {
+      "term": "equivalent",
+      "ja": "同等の",
+      "synonym": "comparable",
+      "definition": "having equal value or meaning"
+    },
+    {
+      "term": "revealed",
+      "ja": "明らかにした",
+      "synonym": "showed",
+      "definition": "made something known"
+    },
+    {
+      "term": "calculating",
+      "ja": "計算すること",
+      "synonym": "computing",
+      "definition": "working out using numbers"
+    },
+    {
+      "term": "average",
+      "ja": "平均",
+      "synonym": "mean",
+      "definition": "a value representing the arithmetic mean"
+    },
+    {
+      "term": "intended",
+      "ja": "意図された",
+      "synonym": "planned",
+      "definition": "designed for a purpose"
+    },
+    {
+      "term": "specific",
+      "ja": "特定の",
+      "synonym": "particular",
+      "definition": "clearly identified"
+    },
+    {
+      "term": "overall",
+      "ja": "全体の",
+      "synonym": "general",
+      "definition": "considering all parts together"
+    },
+    {
+      "term": "concealing",
+      "ja": "隠すこと",
+      "synonym": "hiding",
+      "definition": "preventing something from being seen"
+    },
+    {
+      "term": "relevant",
+      "ja": "関係する",
+      "synonym": "pertinent",
+      "definition": "connected to the matter under consideration"
+    },
+    {
+      "term": "weight",
+      "ja": "重み",
+      "synonym": "importance",
+      "definition": "the importance given to a factor"
+    },
+    {
+      "term": "retaining",
+      "ja": "保持すること",
+      "synonym": "keeping",
+      "definition": "continuing to hold something"
+    },
+    {
+      "term": "acknowledged",
+      "ja": "認めた",
+      "synonym": "admitted",
+      "definition": "accepted something as true"
+    },
+    {
+      "term": "seasonal",
+      "ja": "季節的な",
+      "synonym": "season-related",
+      "definition": "relating to a season"
+    },
+    {
+      "term": "movement",
+      "ja": "移動",
+      "synonym": "motion",
+      "definition": "change in position"
+    },
+    {
+      "term": "installing",
+      "ja": "設置すること",
+      "synonym": "setting up",
+      "definition": "putting something in place for use"
+    },
+    {
+      "term": "permanent",
+      "ja": "固定の・恒久的な",
+      "synonym": "lasting",
+      "definition": "intended to remain for a long time"
+    },
+    {
+      "term": "benches",
+      "ja": "ベンチ",
+      "synonym": "seats",
+      "definition": "long seats for several people"
+    },
+    {
+      "term": "trial",
+      "ja": "試行",
+      "synonym": "test",
+      "definition": "a period for evaluating something"
+    },
+    {
+      "term": "movable",
+      "ja": "移動可能な",
+      "synonym": "portable",
+      "definition": "able to be moved"
+    },
+    {
+      "term": "promising",
+      "ja": "有望な",
+      "synonym": "hopeful",
+      "definition": "likely to yield a good result"
+    },
+    {
+      "term": "temporary",
+      "ja": "一時的な",
+      "synonym": "short-term",
+      "definition": "lasting a limited time"
+    },
+    {
+      "term": "inconvenient",
+      "ja": "不便な",
+      "synonym": "impractical",
+      "definition": "causing difficulty"
+    },
+    {
+      "term": "accessibility",
+      "ja": "利用しやすさ",
+      "synonym": "ease of access",
+      "definition": "the quality of being easy to use or enter"
+    },
+    {
+      "term": "measurable",
+      "ja": "測定可能な",
+      "synonym": "quantifiable",
+      "definition": "able to be measured"
+    },
+    {
+      "term": "factor",
+      "ja": "要素",
+      "synonym": "element",
+      "definition": "something influencing a result"
+    },
+    {
+      "term": "evaluation",
+      "ja": "評価",
+      "synonym": "assessment",
+      "definition": "a judgment of quality or usefulness"
+    },
+    {
+      "term": "accurately",
+      "ja": "正確に",
+      "synonym": "precisely",
+      "definition": "without error"
+    },
+    {
+      "term": "informative",
+      "ja": "有益な",
+      "synonym": "instructive",
+      "definition": "providing useful information"
+    },
+    {
+      "term": "summarizes",
+      "ja": "要約する",
+      "synonym": "condenses",
+      "definition": "expresses the main information briefly"
+    },
+    {
+      "term": "numerical",
+      "ja": "数値の",
+      "synonym": "numeric",
+      "definition": "relating to numbers"
+    },
+    {
+      "term": "environmental",
+      "ja": "環境の",
+      "synonym": "ecological",
+      "definition": "relating to surroundings"
+    },
+    {
+      "term": "assessment",
+      "ja": "評価",
+      "synonym": "evaluation",
+      "definition": "a considered judgment"
+    },
+    {
+      "term": "measurements",
+      "ja": "測定値",
+      "synonym": "readings",
+      "definition": "values obtained by measuring"
+    },
+    {
+      "term": "apparently",
+      "ja": "一見",
+      "synonym": "seemingly",
+      "definition": "as something appears"
+    },
+    {
+      "term": "evidence",
+      "ja": "証拠",
+      "synonym": "support",
+      "definition": "information helping establish a conclusion"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "Why was the first location selected?",
+      "answer": 2,
+      "options": [
+        "It had been evaluated for an entire year.",
+        "It provided the largest daily average of shade.",
+        "It looked comfortable during a morning visit.",
+        "It was the only place accessible at lunchtime."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "朝の訪問で快適そうだった。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What did the students find at noon?",
+      "answer": 0,
+      "options": [
+        "Most of the location was in direct sunlight.",
+        "The entire area had become shaded.",
+        "The library had moved to another place.",
+        "The site was covered with permanent benches."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "ほぼ全体に直射日光が当たっていた。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What did the students record?",
+      "answer": 3,
+      "options": [
+        "The names of all library visitors.",
+        "The daily price of outdoor furniture.",
+        "The reading speed of every student.",
+        "The positions of shadows at different times."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "時刻による影の位置。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why note whether the weather was cloudy or clear?",
+      "answer": 1,
+      "options": [
+        "The school had prohibited mapping on sunny days.",
+        "Observation conditions could affect comparisons.",
+        "Cloudy days always provided identical shadows.",
+        "The group intended to forecast the entire year's weather."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "観察の条件の違いを考慮するため。"
+    },
+    {
+      "id": "q5",
+      "skill": "inference",
+      "prompt": "Why might a daily average be insufficient?",
+      "answer": 2,
+      "options": [
+        "It always measures the position of every shadow exactly.",
+        "It describes only the lunchtime period.",
+        "It could obscure conditions during the intended time of use.",
+        "It guarantees year-round comfort."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "必要な時間帯の状況を隠す可能性。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What limitation did the students recognize?",
+      "answer": 0,
+      "options": [
+        "Their observations did not cover seasonal changes throughout the year.",
+        "They had failed to visit any location in the morning.",
+        "Their readings were collected only in a library.",
+        "Their map included every possible weather condition."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "短期間では一年全体を表せない。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What did they propose before installing fixed benches?",
+      "answer": 1,
+      "options": [
+        "Closing the library permanently.",
+        "A trial with movable seating.",
+        "Removing every nearby tree.",
+        "Choosing a site without further feedback."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "移動式座席で試行。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What did comments from other students add?",
+      "answer": 3,
+      "options": [
+        "Proof that sunlight was the only important factor.",
+        "A demand to remove all observations.",
+        "Information about the library's book prices.",
+        "Concerns about noise and accessibility."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "騒音や利用しやすさも関係した。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does informative mean in context?",
+      "answer": 0,
+      "options": [
+        "Providing useful information.",
+        "Containing no numerical values.",
+        "Easy to move.",
+        "Extremely expensive."
+      ],
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "有益な情報を提供する。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the main argument?",
+      "answer": 2,
+      "options": [
+        "A single daily average always gives the best answer.",
+        "Environmental decisions should avoid considering observations.",
+        "Measurements should be chosen and interpreted in light of their purpose and context.",
+        "A comfortable place in the morning remains comfortable all day."
+      ],
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "目的・条件に照らして測定を解釈する。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "whether the same location would remain comfortable",
+      "explanation_ja": "whether節は調査内容を示す。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "as if they were directly equivalent",
+      "explanation_ja": "as ifは〜であるかのように。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "focus": "while concealing the period",
+      "explanation_ja": "while＋動名詞は同時性と対比。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "focus": "that people need to answer",
+      "explanation_ja": "that以下がquestionsを修飾。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "A teacher encouraged them to investigate whether the same location would remain comfortable at the time when students were actually expected to use it.",
+      "rewrite": "The teacher asked them to examine if the place would still be comfortable during the intended hours of use.",
+      "explanation_ja": "利用予定時刻にも快適か調べるよう求めた。"
+    },
+    {
+      "source": "They noted whether the weather was cloudy or clear and avoided treating observations made under different conditions as if they were directly equivalent.",
+      "rewrite": "They recorded weather conditions and did not assume observations from different conditions could simply be compared as equals.",
+      "explanation_ja": "条件が違う観察を同等と見なさなかった。"
+    },
+    {
+      "source": "A daily average might therefore describe the overall conditions reasonably well while concealing the period that was most relevant to the reading corner.",
+      "rewrite": "An average could represent the day as a whole yet hide conditions in the period most relevant to the project.",
+      "explanation_ja": "平均は重要な時間帯を隠す可能性。"
+    },
+    {
+      "source": "A useful environmental assessment must connect its measurements with the actual questions that people need to answer before making a decision.",
+      "rewrite": "Environmental evaluation should relate measured information to the practical questions that need to be resolved.",
+      "explanation_ja": "実際の問いと測定を結びつける。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p2",
+      "expression": "instead of",
+      "role_ja": "一度の訪問から複数回観察へ。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "but",
+      "role_ja": "平均を求める案への別の視点。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "therefore",
+      "role_ja": "利用時間が限定されることから導く帰結。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Rather than",
+      "role_ja": "恒久設置の前に試行する方法。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "answer": "shade",
+      "options": [
+        "shade",
+        "receipt",
+        "grammar",
+        "soil"
+      ],
+      "explanation_ja": "木の日陰が少なかった。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "equivalent",
+      "options": [
+        "annual",
+        "equivalent",
+        "seasonal",
+        "expensive"
+      ],
+      "explanation_ja": "異なる条件を同等に扱わない。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "answer": "movable",
+      "options": [
+        "frozen",
+        "secret",
+        "movable",
+        "ancient"
+      ],
+      "explanation_ja": "移動できる座席。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "measurements",
+      "options": [
+        "tickets",
+        "flowers",
+        "voices",
+        "measurements"
+      ],
+      "explanation_ja": "測定を目的に関連づける。"
+    }
+  ]
+}

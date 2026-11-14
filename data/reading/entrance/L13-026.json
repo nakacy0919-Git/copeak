@@ -1,0 +1,810 @@
+{
+  "id": "L13-026",
+  "category_id": "L13",
+  "title": "The Invisible Work of a Telescope",
+  "title_ja": "望遠鏡の見えない仕事",
+  "level_id": "university-national",
+  "status": "draft",
+  "original": true,
+  "word_count": 704,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "オリジナル教材。一般的な考え方と架空の例を用いた文章であり、実在の調査、実証結果、個別機器の運用・修理手順ではない。制作台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A spectacular image of a distant object can attract public attention to an astronomical observatory, whereas the less visible work that makes such an image scientifically interpretable is unlikely to receive the same degree of recognition.",
+          "ja": "遠方天体の壮観な画像は天文台に世間の注目を集め得る一方、その画像を科学的に解釈可能にする目立たない仕事は同程度の評価を受けにくい。"
+        },
+        {
+          "en": "The appearance of a picture may suggest that an instrument has simply recorded what was already visible in the sky, even though the production of a scientifically useful record involves decisions about the conditions under which the instrument operates.",
+          "ja": "画像の外観から機器が空にすでに見えていたものを単に記録したと思われるかもしれないが、科学的に有用な記録の生成には機器の運用条件についての判断が伴う。"
+        },
+        {
+          "en": "A detector can respond to incoming signals in ways that are influenced by its own characteristics, and an instrument may require additional measurements to help researchers distinguish features of an observed object from effects introduced by the recording process.",
+          "ja": "検出器は自らの特性に影響される形で入力信号に反応し得るため、観測対象の特徴と記録過程で生じる影響を区別する助けとなる追加測定を機器が必要とする場合がある。"
+        },
+        {
+          "en": "The distinction between an observation and the procedures that make its interpretation possible becomes especially important when the resources available for operating an instrument are limited.",
+          "ja": "観測とその解釈を可能にする手順の区別は機器運用に利用できる資源が限られるとき特に重要になる。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Imagine a fictional observatory where several research groups compete for access to a telescope, and the administrators propose evaluating its productivity by counting the number of astronomical objects observed during each operating period.",
+          "ja": "複数研究集団が望遠鏡の利用を競い、管理者が各運用期間に観測した天体数で生産性を評価することを提案する架空天文台を想像しよう。"
+        },
+        {
+          "en": "A researcher questions whether this measure would adequately recognize the value of time allocated to checking the behavior of the equipment rather than collecting observations of additional objects.",
+          "ja": "追加天体の観測収集ではなく機器の動作確認に割り当てた時間の価値をこの尺度が十分認めるか研究者は疑問に思う。"
+        },
+        {
+          "en": "If every operating period were evaluated exclusively according to the number of objects recorded, research groups might have an incentive to reduce activities whose principal purpose was to establish the conditions necessary for interpreting those records.",
+          "ja": "各運用期間が記録天体数だけで評価されるなら、研究集団は記録解釈に必要な条件を確立することが主目的の活動を減らす誘因を持ち得る。"
+        },
+        {
+          "en": "Such a response could make the numerical indicator appear more favorable while leaving later researchers with greater uncertainty about the significance of particular features in the resulting observations.",
+          "ja": "そうした対応は数値指標をより良好に見せつつ、結果観測中の特定特徴の意義について後の研究者により大きな不確実性を残し得る。"
+        },
+        {
+          "en": "The administrators consequently distinguish the amount of information collected from the extent to which that information can support the scientific inquiries for which access to the telescope was originally requested.",
+          "ja": "そこで管理者は収集情報量と、その情報が当初望遠鏡利用を求めた科学調査をどの程度支えられるかを区別する。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "A second concern arises when the observatory considers making its records available to researchers who were not involved in collecting them.",
+          "ja": "観測所が収集に関わらなかった研究者にも記録を利用可能にすることを検討すると第二の懸念が生じる。"
+        },
+        {
+          "en": "The original observers might easily recall why a particular measurement was excluded from an analysis or why a routine procedure was modified during a specific observation, but a researcher accessing the material several years later would not necessarily possess that contextual knowledge.",
+          "ja": "当初観測者は特定測定を分析から除外した理由や特定観測中に通常手順を変更した理由を容易に思い出せても、数年後に資料を利用する研究者は必ずしもその文脈知識を持たない。"
+        },
+        {
+          "en": "Simply providing numerical records and images would not guarantee that the circumstances relevant to evaluating their reliability remained understandable.",
+          "ja": "数値記録と画像を単に提供しても信頼性評価に関連する事情が理解可能なままであることは保証されない。"
+        },
+        {
+          "en": "The staff consider preserving descriptions of the equipment's configuration, the procedures applied to the recorded information, and any limitations that the observers identified while preparing the material for analysis.",
+          "ja": "職員は機器構成、記録情報に適用した手順、分析資料の準備中に観測者が特定した限界の記述を保存することを検討する。"
+        },
+        {
+          "en": "Their aim is to make the evidence more readily interpretable without assuming that every future investigator will pursue precisely the questions that motivated the original observations.",
+          "ja": "目的は将来の全調査者が最初の観測の動機となった問いとまさに同じものを追求すると想定せず根拠をより容易に解釈可能にすることだ。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The fictional observatory also confronts a practical difficulty concerning the amount of work that should be devoted to documenting the production of its records.",
+          "ja": "架空天文台は記録生成の文書化にどれほど作業を費やすべきかという実務的困難にも直面する。"
+        },
+        {
+          "en": "A requirement to preserve every detail of every activity might consume resources without necessarily providing information relevant to the assessment of an observation, whereas excessively brief documentation might omit precisely the circumstances that explain an unexpected result.",
+          "ja": "全活動の全詳細保存の要件は観測評価に関連する情報を必ずしも提供せず資源を消費し得る一方、過度に短い記録は予想外の結果を説明するまさにその事情を省くかもしれない。"
+        },
+        {
+          "en": "The administrators therefore discuss which categories of information should ordinarily accompany the records and how researchers could identify additional details that deserve preservation in exceptional circumstances.",
+          "ja": "そこで通常どの情報分類を記録に添えるべきか、例外状況で保存に値する追加詳細を研究者がどう特定できるか議論する。"
+        },
+        {
+          "en": "They recognize that judgments about what information is significant may themselves change as new methods of analysis become available.",
+          "ja": "どの情報が重要かの判断自体が新分析法を利用可能になるにつれて変わり得ると認識する。"
+        },
+        {
+          "en": "This thought experiment does not prescribe an operational procedure for any actual astronomical instrument, whose requirements would depend on its design and intended scientific use.",
+          "ja": "この思考実験は実際の天文機器の運用手順を規定しない。その要件は設計と想定科学用途に依存する。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "Scientific productivity cannot be assessed adequately by counting only the most visible results of an investigation if the usefulness of those results depends on activities that the chosen measure fails to recognize.",
+          "ja": "調査結果の有用性が選んだ尺度が認めない活動に依存するなら、最も目立つ成果だけを数えて科学的生産性を十分評価できない。"
+        },
+        {
+          "en": "An institution may need to distinguish the immediate production of information from the maintenance of conditions that make information trustworthy and accessible over time.",
+          "ja": "組織は情報の即時生成と情報を長期的に信頼でき利用可能にする条件の維持を区別する必要があるかもしれない。"
+        },
+        {
+          "en": "Neither the collection of additional observations nor the documentation of previous work is an objective that can sensibly be pursued without regard to the resources and questions involved.",
+          "ja": "追加観測収集も過去作業の文書化も関係する資源や問いを無視して合理的に追求できる目的ではない。"
+        },
+        {
+          "en": "The challenge is to establish a productive relationship between the visible achievements of scientific work and the less conspicuous activities on which their interpretation depends.",
+          "ja": "課題は科学活動の目立つ成果とその解釈が依存する目立たない活動との生産的関係を確立することだ。"
+        },
+        {
+          "en": "The telescope's invisible work reminds us that the creation of an impressive image and the creation of an enduring scientific record are related achievements, but they are not necessarily the same one.",
+          "ja": "望遠鏡の見えない仕事は印象的画像の生成と永続的科学記録の生成が関連する成果だが必ずしも同じではないことを思い出させる。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "spectacular",
+      "ja": "壮観な",
+      "synonym": "impressive",
+      "definition": "causing admiration or wonder"
+    },
+    {
+      "term": "distant",
+      "ja": "遠方の",
+      "synonym": "remote",
+      "definition": "far away"
+    },
+    {
+      "term": "astronomical",
+      "ja": "天文の",
+      "synonym": "space-related",
+      "definition": "relating to astronomy"
+    },
+    {
+      "term": "observatory",
+      "ja": "天文台",
+      "synonym": "observation station",
+      "definition": "place equipped for astronomical observation"
+    },
+    {
+      "term": "whereas",
+      "ja": "一方",
+      "synonym": "while",
+      "definition": "introducing a contrast"
+    },
+    {
+      "term": "recognition",
+      "ja": "評価",
+      "synonym": "acknowledgment",
+      "definition": "act of recognizing value"
+    },
+    {
+      "term": "interpretable",
+      "ja": "解釈可能な",
+      "synonym": "understandable",
+      "definition": "able to be interpreted"
+    },
+    {
+      "term": "instrument",
+      "ja": "機器",
+      "synonym": "device",
+      "definition": "tool for measurement or investigation"
+    },
+    {
+      "term": "recorded",
+      "ja": "記録した",
+      "synonym": "documented",
+      "definition": "preserved information"
+    },
+    {
+      "term": "scientifically",
+      "ja": "科学的に",
+      "synonym": "empirically",
+      "definition": "in a way relating to science"
+    },
+    {
+      "term": "detector",
+      "ja": "検出器",
+      "synonym": "sensor",
+      "definition": "device responding to a signal"
+    },
+    {
+      "term": "incoming",
+      "ja": "入力される",
+      "synonym": "arriving",
+      "definition": "moving toward a certain place"
+    },
+    {
+      "term": "characteristics",
+      "ja": "特性",
+      "synonym": "properties",
+      "definition": "distinguishing qualities"
+    },
+    {
+      "term": "measurements",
+      "ja": "測定",
+      "synonym": "observations",
+      "definition": "values obtained by measuring"
+    },
+    {
+      "term": "distinguish",
+      "ja": "区別する",
+      "synonym": "differentiate",
+      "definition": "recognize differences"
+    },
+    {
+      "term": "introduced",
+      "ja": "生じた",
+      "synonym": "brought in",
+      "definition": "caused to enter"
+    },
+    {
+      "term": "procedure",
+      "ja": "手順",
+      "synonym": "process",
+      "definition": "established way of acting"
+    },
+    {
+      "term": "resources",
+      "ja": "資源",
+      "synonym": "assets",
+      "definition": "things available for use"
+    },
+    {
+      "term": "fictional",
+      "ja": "架空の",
+      "synonym": "imaginary",
+      "definition": "existing in imagination"
+    },
+    {
+      "term": "access",
+      "ja": "利用機会",
+      "synonym": "entry",
+      "definition": "ability to use something"
+    },
+    {
+      "term": "telescope",
+      "ja": "望遠鏡",
+      "synonym": "optical instrument",
+      "definition": "instrument used to observe distant objects"
+    },
+    {
+      "term": "administrators",
+      "ja": "管理者",
+      "synonym": "managers",
+      "definition": "people directing operations"
+    },
+    {
+      "term": "productivity",
+      "ja": "生産性",
+      "synonym": "output rate",
+      "definition": "degree of useful output"
+    },
+    {
+      "term": "operating",
+      "ja": "運用の",
+      "synonym": "functional",
+      "definition": "relating to actual operation"
+    },
+    {
+      "term": "adequately",
+      "ja": "十分に",
+      "synonym": "sufficiently",
+      "definition": "to a satisfactory degree"
+    },
+    {
+      "term": "allocated",
+      "ja": "割り当てられた",
+      "synonym": "assigned",
+      "definition": "given for a purpose"
+    },
+    {
+      "term": "behavior",
+      "ja": "動作",
+      "synonym": "conduct",
+      "definition": "way something acts"
+    },
+    {
+      "term": "exclusively",
+      "ja": "専ら",
+      "synonym": "solely",
+      "definition": "only"
+    },
+    {
+      "term": "incentive",
+      "ja": "誘因",
+      "synonym": "motivator",
+      "definition": "thing encouraging an action"
+    },
+    {
+      "term": "principal",
+      "ja": "主な",
+      "synonym": "main",
+      "definition": "of greatest importance"
+    },
+    {
+      "term": "indicator",
+      "ja": "指標",
+      "synonym": "measure",
+      "definition": "sign used for evaluation"
+    },
+    {
+      "term": "favorable",
+      "ja": "好ましい",
+      "synonym": "positive",
+      "definition": "leading to a desirable result"
+    },
+    {
+      "term": "uncertainty",
+      "ja": "不確実性",
+      "synonym": "doubt",
+      "definition": "lack of certainty"
+    },
+    {
+      "term": "significance",
+      "ja": "意義",
+      "synonym": "importance",
+      "definition": "quality of being meaningful"
+    },
+    {
+      "term": "consequently",
+      "ja": "したがって",
+      "synonym": "therefore",
+      "definition": "as a result"
+    },
+    {
+      "term": "extent",
+      "ja": "程度",
+      "synonym": "degree",
+      "definition": "amount or range"
+    },
+    {
+      "term": "inquiries",
+      "ja": "調査",
+      "synonym": "investigations",
+      "definition": "searches for information"
+    },
+    {
+      "term": "excluded",
+      "ja": "除外された",
+      "synonym": "omitted",
+      "definition": "left out"
+    },
+    {
+      "term": "analysis",
+      "ja": "分析",
+      "synonym": "examination",
+      "definition": "detailed study of something"
+    },
+    {
+      "term": "modified",
+      "ja": "変更された",
+      "synonym": "altered",
+      "definition": "changed in form"
+    },
+    {
+      "term": "contextual",
+      "ja": "文脈上の",
+      "synonym": "situational",
+      "definition": "relating to surrounding circumstances"
+    },
+    {
+      "term": "numerical",
+      "ja": "数値の",
+      "synonym": "quantitative",
+      "definition": "relating to numbers"
+    },
+    {
+      "term": "reliability",
+      "ja": "信頼性",
+      "synonym": "dependability",
+      "definition": "quality of being dependable"
+    },
+    {
+      "term": "configuration",
+      "ja": "構成",
+      "synonym": "arrangement",
+      "definition": "way parts are organized"
+    },
+    {
+      "term": "identified",
+      "ja": "特定した",
+      "synonym": "recognized",
+      "definition": "found or named"
+    },
+    {
+      "term": "readily",
+      "ja": "容易に",
+      "synonym": "easily",
+      "definition": "without much difficulty"
+    },
+    {
+      "term": "investigator",
+      "ja": "調査者",
+      "synonym": "researcher",
+      "definition": "person conducting an inquiry"
+    },
+    {
+      "term": "precisely",
+      "ja": "正確に",
+      "synonym": "exactly",
+      "definition": "with exactness"
+    },
+    {
+      "term": "motivated",
+      "ja": "動機となった",
+      "synonym": "prompted",
+      "definition": "gave a reason to act"
+    },
+    {
+      "term": "confronts",
+      "ja": "直面する",
+      "synonym": "faces",
+      "definition": "deals with a difficulty"
+    },
+    {
+      "term": "devoted",
+      "ja": "費やされた",
+      "synonym": "dedicated",
+      "definition": "given to a purpose"
+    },
+    {
+      "term": "consume",
+      "ja": "消費する",
+      "synonym": "use up",
+      "definition": "use resources"
+    },
+    {
+      "term": "excessively",
+      "ja": "過度に",
+      "synonym": "unduly",
+      "definition": "to a greater degree than needed"
+    },
+    {
+      "term": "omit",
+      "ja": "省く",
+      "synonym": "exclude",
+      "definition": "leave out"
+    },
+    {
+      "term": "ordinarily",
+      "ja": "通常",
+      "synonym": "normally",
+      "definition": "in the usual way"
+    },
+    {
+      "term": "accompany",
+      "ja": "添えられる",
+      "synonym": "go with",
+      "definition": "be present together with"
+    },
+    {
+      "term": "exceptional",
+      "ja": "例外的な",
+      "synonym": "unusual",
+      "definition": "not typical"
+    },
+    {
+      "term": "prescribe",
+      "ja": "規定する",
+      "synonym": "stipulate",
+      "definition": "state what must be done"
+    },
+    {
+      "term": "operational",
+      "ja": "運用上の",
+      "synonym": "functional",
+      "definition": "relating to running a system"
+    },
+    {
+      "term": "trustworthy",
+      "ja": "信頼できる",
+      "synonym": "reliable",
+      "definition": "able to be relied on"
+    },
+    {
+      "term": "accessible",
+      "ja": "利用可能な",
+      "synonym": "available",
+      "definition": "easy to reach or use"
+    },
+    {
+      "term": "sensibly",
+      "ja": "合理的に",
+      "synonym": "reasonably",
+      "definition": "with sound judgment"
+    },
+    {
+      "term": "conspicuous",
+      "ja": "目立つ",
+      "synonym": "noticeable",
+      "definition": "attracting attention"
+    },
+    {
+      "term": "enduring",
+      "ja": "永続的な",
+      "synonym": "lasting",
+      "definition": "continuing for a long time"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "inference",
+      "prompt": "Why might an impressive image conceal part of an observatory's work?",
+      "options": [
+        "It necessarily depicts an object that has never been observed.",
+        "It proves that an instrument operates independently of its characteristics.",
+        "It shows that all astronomical observations require identical equipment.",
+        "Its presentation does not necessarily reveal the procedures required to interpret the underlying record."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "解釈を可能にする手順は見た目に現れない。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What may additional measurements help distinguish?",
+      "options": [
+        "A telescope's price from the salary of each researcher.",
+        "Features of the object from effects of the recording process.",
+        "Every visible image from all numerical records.",
+        "Different research groups from their administrators."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "対象の特徴と機器由来の影響。"
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "What incentive could the proposed productivity measure create?",
+      "options": [
+        "Reduce equipment checks in order to record more objects.",
+        "Increase time spent on activities not counted by the indicator.",
+        "Stop all observation of distant objects permanently.",
+        "Give every group identical access regardless of its work."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "観測数を増やすため点検を減らす。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What do administrators consequently distinguish?",
+      "options": [
+        "Instrument design and the public's appreciation of images.",
+        "The size of a telescope and the number of administrators.",
+        "Information quantity and its capacity to support intended inquiries.",
+        "Past research and all possible future projects."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "量と調査への有用性。"
+    },
+    {
+      "id": "q5",
+      "skill": "inference",
+      "prompt": "Why is sharing numerical results alone potentially inadequate?",
+      "options": [
+        "Original observers always remember every past action accurately.",
+        "Later researchers may lack context needed to evaluate reliability.",
+        "Numerical records cannot be used in scientific research.",
+        "Every future researcher must pursue identical questions."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "後の研究者には文脈がない。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What information might accompany the observations?",
+      "options": [
+        "Only the most visually striking final image.",
+        "The biographies of all observers instead of their methods.",
+        "A universal interpretation of every possible result.",
+        "Equipment configuration, procedures and identified limitations."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "構成・処理・限界。"
+    },
+    {
+      "id": "q7",
+      "skill": "inference",
+      "prompt": "What trade-off does the text identify in documenting records?",
+      "options": [
+        "Greater documentation invariably eliminates all uncertainty.",
+        "Any reduction in records necessarily improves productivity.",
+        "Exhaustive detail can consume resources, while excessive brevity can hide relevant context.",
+        "Documentation and observation cannot coexist."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "過剰記録の費用と不足の危険。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "Why may judgments about relevant information change?",
+      "options": [
+        "New analytical methods may become available.",
+        "The original instrument necessarily becomes useless.",
+        "All earlier observations become false after publication.",
+        "Future researchers must use the same methods forever."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "新分析法の登場。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does conspicuous mean in the phrase less conspicuous activities?",
+      "options": [
+        "Scientifically invalid.",
+        "Expensive to maintain.",
+        "Repeated at regular intervals.",
+        "Easily noticed."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "目立つ。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "Which statement best captures the central argument?",
+      "options": [
+        "The number of objects recorded is the only defensible measure of productivity.",
+        "All documentation should be preserved regardless of practical costs.",
+        "Scientific productivity includes the supporting work that makes observations interpretable and useful beyond the immediate result.",
+        "Astronomical images are useful only when they attract public attention."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "成果の背後にある記録の信頼性を支える作業。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "even though the production of a scientifically useful record involves",
+      "explanation_ja": "even thoughは譲歩。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "If every operating period were evaluated exclusively",
+      "explanation_ja": "仮定法過去、受動態。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "focus": "would not necessarily possess that contextual knowledge",
+      "explanation_ja": "not necessarilyは部分否定。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "focus": "Neither the collection of additional observations nor the documentation",
+      "explanation_ja": "neither A nor Bで両者を否定。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The appearance of a picture may suggest that an instrument has simply recorded what was already visible in the sky, even though the production of a scientifically useful record involves decisions about the conditions under which the instrument operates.",
+      "rewrite": "A picture can look like a direct record even when its scientific usefulness depends on operational decisions.",
+      "explanation_ja": "外観と記録手順。"
+    },
+    {
+      "source": "If every operating period were evaluated exclusively according to the number of objects recorded, research groups might have an incentive to reduce activities whose principal purpose was to establish the conditions necessary for interpreting those records.",
+      "rewrite": "Counting only recorded objects could encourage teams to reduce necessary checking activities.",
+      "explanation_ja": "指標と誘因。"
+    },
+    {
+      "source": "The original observers might easily recall why a particular measurement was excluded from an analysis or why a routine procedure was modified during a specific observation, but a researcher accessing the material several years later would not necessarily possess that contextual knowledge.",
+      "rewrite": "Researchers accessing old data may lack context remembered by the original observers.",
+      "explanation_ja": "文脈知識の継承。"
+    },
+    {
+      "source": "Neither the collection of additional observations nor the documentation of previous work is an objective that can sensibly be pursued without regard to the resources and questions involved.",
+      "rewrite": "Both observation and documentation need to be pursued with attention to their costs and goals.",
+      "explanation_ja": "両活動の目的と資源。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "whereas",
+      "role_ja": "画像の注目と目立たない作業の対比。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "consequently",
+      "role_ja": "指標の問題から情報量と有用性の区別へ。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "whereas",
+      "role_ja": "過剰と過少の記録。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "but",
+      "role_ja": "画像と永続的記録の違い。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "detector",
+      "options": [
+        "detector",
+        "portrait",
+        "receipt",
+        "advertisement"
+      ],
+      "explanation_ja": "信号に反応する検出器。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "incentive",
+      "options": [
+        "obstacle",
+        "incentive",
+        "penalty",
+        "receipt"
+      ],
+      "explanation_ja": "行動を促す誘因。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "answer": "configuration",
+      "options": [
+        "celebration",
+        "transportation",
+        "configuration",
+        "decoration"
+      ],
+      "explanation_ja": "機器の構成。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "answer": "conspicuous",
+      "options": [
+        "unseen",
+        "hidden",
+        "invisible",
+        "conspicuous"
+      ],
+      "explanation_ja": "目立たない活動。"
+    }
+  ]
+}

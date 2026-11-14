@@ -1,0 +1,722 @@
+{
+  "id": "L03-019",
+  "category_id": "L03",
+  "title": "The Model That Needed a Human Question",
+  "title_ja": "人間の問いを必要とするモデル",
+  "level_id": "eiken-pre1",
+  "status": "draft",
+  "original": true,
+  "word_count": 522,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "人物・制度・具体的な出来事は架空の教材例・思考実験。実在の調査・統計・実証結果を示すものではない。制作台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Suppose a school is considering an automated system that recommends library books based on information about the titles that students have borrowed during previous visits.",
+          "ja": "学校が、過去の来館時に生徒が借りた本の情報に基づく自動図書推薦システムを検討しているとしよう。"
+        },
+        {
+          "en": "The designers hope that personalized recommendations will help readers discover unfamiliar authors without requiring them to search through the entire collection every time they enter the library.",
+          "ja": "設計者は個別推薦によって、来館のたびに全蔵書を探さなくても未知の作家を見つけられることを期待する。"
+        },
+        {
+          "en": "They build a classroom prototype using invented borrowing records, deliberately avoiding the use of actual student information during the initial experiment.",
+          "ja": "初期実験では実際の生徒情報を意図的に使わず、架空の貸出記録で教室用試作品を作る。"
+        },
+        {
+          "en": "Their primary objective is to examine the assumptions behind the recommendations rather than to demonstrate that the prototype is ready for deployment in a real school.",
+          "ja": "主目的は実際の学校で導入できると示すのでなく推薦の背後の前提を検討することである。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The prototype assigns high scores to books that resemble those a fictional reader has frequently selected in the past, using the categories attached to each title.",
+          "ja": "試作品は各タイトルに付いた分類を使い架空の読者が過去によく選んだ本に似た本に高い点を付ける。"
+        },
+        {
+          "en": "During a demonstration, a student asks whether this approach might repeatedly favor a narrow range of material even when a reader is interested in exploring something completely different.",
+          "ja": "実演中、読者が全く異なるものを探りたい場合でもこの方法が狭い範囲の資料を繰り返し優先する可能性を生徒が尋ねる。"
+        },
+        {
+          "en": "Another student points out that borrowing a book is not necessarily evidence that the reader enjoyed it, since books may be chosen for assignments or other practical reasons.",
+          "ja": "別の生徒は課題などの実際的理由で本を選ぶ場合もあるため、借りたことが必ずしも楽しんだ証拠ではないと指摘する。"
+        },
+        {
+          "en": "The team recognizes that the available data can describe a previous action without fully explaining the intention or experience that may have motivated that action.",
+          "ja": "データは過去の行動を説明できても行動を動機づけた意図や経験を完全には説明しないと認識する。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The designers therefore introduce two separate ways of requesting recommendations, one based on familiar subjects and another intended to encourage the exploration of different kinds of books.",
+          "ja": "そこで慣れた主題に基づく方法と異なる種類の本の探索を促す方法を導入する。"
+        },
+        {
+          "en": "Rather than trying to infer every preference from historical records, the prototype allows a fictional user to state what kind of reading experience is currently desired.",
+          "ja": "過去の記録からすべての好みを推測するのでなく、架空の利用者が現在希望する読書体験を述べられるようにする。"
+        },
+        {
+          "en": "A short explanation accompanying each recommendation identifies the main factor behind the suggestion and makes clear that an alternative choice remains available to the reader.",
+          "ja": "推薦に添える説明が提案の主な要因を示し、別の選択が可能と明確にする。"
+        },
+        {
+          "en": "The team also considers whether useful suggestions could be provided without storing an individual history at all, by relying on the reader's present request alone.",
+          "ja": "読者の現在の要求だけに頼り個人履歴を保存せず有用な提案を提供できるかも検討する。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "When evaluating the revised prototype, the students imagine several readers with contrasting goals rather than treating the number of accepted recommendations as the sole measure of success.",
+          "ja": "修正版の評価では推薦を受け入れた数だけを成功尺度とせず対照的な目的を持つ読者を想像する。"
+        },
+        {
+          "en": "A suggestion that helps one reader complete an assignment might be disappointing to another who is deliberately looking for an unfamiliar or particularly challenging book.",
+          "ja": "課題を終える助けになる提案も、未知の本や特に難しい本を求める別の読者には失望をもたらすかもしれない。"
+        },
+        {
+          "en": "The evaluation examines whether the available choices communicate their purposes clearly and whether the user can reject recommendations without losing access to the ordinary library catalogue.",
+          "ja": "評価では選択肢の目的が明確に伝わるか、推薦を断っても通常の蔵書目録にアクセスできるかを調べる。"
+        },
+        {
+          "en": "The group acknowledges that a fictional demonstration cannot establish the effectiveness, security, or fairness of a system intended for actual students in an ordinary educational environment.",
+          "ja": "架空の実演では実際の教育環境で生徒向けシステムの有効性、安全性、公平性を確立できないと認める。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The example illustrates a distinction between predicting a user's future behavior and helping that person pursue a goal that may not be visible in past records.",
+          "ja": "この例は利用者の将来の行動を予測することと過去記録に現れない目標を追求するのを支援することの違いを示す。"
+        },
+        {
+          "en": "An automated recommendation may be technically successful according to a narrow performance measure while offering limited assistance to someone who wants to change established habits.",
+          "ja": "自動推薦は狭い性能尺度で成功しても、習慣を変えたい人には限られた助けしか提供しないことがある。"
+        },
+        {
+          "en": "Making space for users to express their intentions can therefore be an important design decision, not merely an additional feature considered after a predictive model has been completed.",
+          "ja": "利用者が意図を表現できる余地はモデル完成後の追加機能にとどまらず重要な設計判断になり得る。"
+        },
+        {
+          "en": "For the student designers, the essential question is not only whether the system can anticipate a choice, but also whether it supports the person's ability to make a different one.",
+          "ja": "本質的な問いは選択を予測できるかだけでなく、別の選択をする能力を支えるかである。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "automated",
+      "ja": "自動化された",
+      "synonym": "automatic",
+      "definition": "operating with little human intervention"
+    },
+    {
+      "term": "borrowed",
+      "ja": "借りた",
+      "synonym": "taken on loan",
+      "definition": "used temporarily with permission"
+    },
+    {
+      "term": "personalized",
+      "ja": "個別化された",
+      "synonym": "tailored",
+      "definition": "adapted to an individual"
+    },
+    {
+      "term": "recommendations",
+      "ja": "推薦",
+      "synonym": "suggestions",
+      "definition": "options proposed as suitable"
+    },
+    {
+      "term": "unfamiliar",
+      "ja": "未知の",
+      "synonym": "unknown",
+      "definition": "not known from experience"
+    },
+    {
+      "term": "authors",
+      "ja": "作家",
+      "synonym": "writers",
+      "definition": "people writing books"
+    },
+    {
+      "term": "collection",
+      "ja": "蔵書",
+      "synonym": "set",
+      "definition": "a group of related things"
+    },
+    {
+      "term": "prototype",
+      "ja": "試作品",
+      "synonym": "model",
+      "definition": "an early version for testing"
+    },
+    {
+      "term": "invented",
+      "ja": "架空の",
+      "synonym": "made-up",
+      "definition": "created rather than real"
+    },
+    {
+      "term": "deliberately",
+      "ja": "意図的に",
+      "synonym": "intentionally",
+      "definition": "done on purpose"
+    },
+    {
+      "term": "initial",
+      "ja": "最初の",
+      "synonym": "first",
+      "definition": "at the beginning"
+    },
+    {
+      "term": "objective",
+      "ja": "目的",
+      "synonym": "goal",
+      "definition": "an intended result"
+    },
+    {
+      "term": "assumptions",
+      "ja": "前提",
+      "synonym": "suppositions",
+      "definition": "beliefs accepted without proof"
+    },
+    {
+      "term": "demonstrate",
+      "ja": "示す",
+      "synonym": "show",
+      "definition": "make clear with evidence"
+    },
+    {
+      "term": "deployment",
+      "ja": "導入",
+      "synonym": "implementation",
+      "definition": "putting a system into use"
+    },
+    {
+      "term": "assigns",
+      "ja": "割り当てる",
+      "synonym": "allocates",
+      "definition": "gives a value or role"
+    },
+    {
+      "term": "resemble",
+      "ja": "似ている",
+      "synonym": "be similar to",
+      "definition": "have similar characteristics"
+    },
+    {
+      "term": "fictional",
+      "ja": "架空の",
+      "synonym": "imaginary",
+      "definition": "existing in imagination"
+    },
+    {
+      "term": "frequently",
+      "ja": "頻繁に",
+      "synonym": "often",
+      "definition": "on many occasions"
+    },
+    {
+      "term": "categories",
+      "ja": "分類",
+      "synonym": "classes",
+      "definition": "groups of similar things"
+    },
+    {
+      "term": "favor",
+      "ja": "優先する",
+      "synonym": "prefer",
+      "definition": "give preference to"
+    },
+    {
+      "term": "narrow",
+      "ja": "狭い",
+      "synonym": "limited",
+      "definition": "having a small range"
+    },
+    {
+      "term": "material",
+      "ja": "資料",
+      "synonym": "content",
+      "definition": "information or objects used"
+    },
+    {
+      "term": "necessarily",
+      "ja": "必ずしも",
+      "synonym": "inevitably",
+      "definition": "in a way that must be true"
+    },
+    {
+      "term": "evidence",
+      "ja": "証拠",
+      "synonym": "support",
+      "definition": "information supporting a conclusion"
+    },
+    {
+      "term": "intention",
+      "ja": "意図",
+      "synonym": "aim",
+      "definition": "what someone means to do"
+    },
+    {
+      "term": "introduce",
+      "ja": "導入する",
+      "synonym": "establish",
+      "definition": "bring into use"
+    },
+    {
+      "term": "exploration",
+      "ja": "探索",
+      "synonym": "investigation",
+      "definition": "the act of discovering something"
+    },
+    {
+      "term": "infer",
+      "ja": "推測する",
+      "synonym": "deduce",
+      "definition": "draw a conclusion from information"
+    },
+    {
+      "term": "preference",
+      "ja": "好み",
+      "synonym": "liking",
+      "definition": "a preference for one option"
+    },
+    {
+      "term": "historical",
+      "ja": "過去の",
+      "synonym": "past",
+      "definition": "relating to earlier events"
+    },
+    {
+      "term": "currently",
+      "ja": "現在",
+      "synonym": "at present",
+      "definition": "at the present time"
+    },
+    {
+      "term": "accompanying",
+      "ja": "伴う",
+      "synonym": "going with",
+      "definition": "provided together with"
+    },
+    {
+      "term": "identifies",
+      "ja": "特定する",
+      "synonym": "specifies",
+      "definition": "names or recognizes something"
+    },
+    {
+      "term": "alternative",
+      "ja": "代替の",
+      "synonym": "different",
+      "definition": "available in place of another"
+    },
+    {
+      "term": "storing",
+      "ja": "保存すること",
+      "synonym": "keeping",
+      "definition": "keeping for later use"
+    },
+    {
+      "term": "evaluating",
+      "ja": "評価すること",
+      "synonym": "assessing",
+      "definition": "judging value or quality"
+    },
+    {
+      "term": "revised",
+      "ja": "修正された",
+      "synonym": "modified",
+      "definition": "changed to improve"
+    },
+    {
+      "term": "contrasting",
+      "ja": "対照的な",
+      "synonym": "differing",
+      "definition": "showing differences"
+    },
+    {
+      "term": "sole",
+      "ja": "唯一の",
+      "synonym": "only",
+      "definition": "the only one"
+    },
+    {
+      "term": "disappointing",
+      "ja": "失望させる",
+      "synonym": "unsatisfying",
+      "definition": "failing to meet expectations"
+    },
+    {
+      "term": "catalogue",
+      "ja": "目録",
+      "synonym": "listing",
+      "definition": "an organized list of items"
+    },
+    {
+      "term": "acknowledges",
+      "ja": "認める",
+      "synonym": "admits",
+      "definition": "accepts something as true"
+    },
+    {
+      "term": "effectiveness",
+      "ja": "有効性",
+      "synonym": "efficacy",
+      "definition": "ability to produce intended results"
+    },
+    {
+      "term": "security",
+      "ja": "安全性",
+      "synonym": "protection",
+      "definition": "state of being protected"
+    },
+    {
+      "term": "fairness",
+      "ja": "公平性",
+      "synonym": "equity",
+      "definition": "quality of treating people fairly"
+    },
+    {
+      "term": "predicting",
+      "ja": "予測すること",
+      "synonym": "forecasting",
+      "definition": "estimating future events"
+    },
+    {
+      "term": "pursue",
+      "ja": "追求する",
+      "synonym": "seek",
+      "definition": "work toward something"
+    },
+    {
+      "term": "behavior",
+      "ja": "行動",
+      "synonym": "conduct",
+      "definition": "the way someone acts"
+    },
+    {
+      "term": "established",
+      "ja": "既存の",
+      "synonym": "existing",
+      "definition": "already in place"
+    },
+    {
+      "term": "predictive",
+      "ja": "予測の",
+      "synonym": "forecasting",
+      "definition": "relating to prediction"
+    },
+    {
+      "term": "anticipate",
+      "ja": "予測する",
+      "synonym": "expect",
+      "definition": "consider likely to happen"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What is the proposed system for?",
+      "answer": 1,
+      "options": [
+        "Grading exams.",
+        "Suggesting library books.",
+        "Replacing library workers.",
+        "Tracking student locations."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "図書推薦。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Why use invented records?",
+      "answer": 3,
+      "options": [
+        "To guarantee deployment.",
+        "To prove readers love every book.",
+        "To publish personal records.",
+        "To explore assumptions without using actual student data."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "実情報を使わず前提を検討。"
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "What risk does the first student identify?",
+      "answer": 0,
+      "options": [
+        "Recommendations may repeatedly favor familiar material.",
+        "Every suggested book will be unavailable.",
+        "The catalogue will expand beyond its capacity.",
+        "The category labels will be deleted."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "推薦が狭くなり得る。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why is borrowing imperfect evidence of enjoyment?",
+      "answer": 2,
+      "options": [
+        "Borrowed books are always read twice.",
+        "Categories directly reveal emotions.",
+        "A book may be needed for an assignment.",
+        "Readers never choose books voluntarily."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "課題などの理由がある。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What control does the new prototype offer?",
+      "answer": 0,
+      "options": [
+        "State the currently desired reading experience.",
+        "Require borrowing the highest-scoring title.",
+        "Prevent changing preferences.",
+        "Automatically select every book."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "現在の目的を示せる。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What approach to reducing stored data is considered?",
+      "answer": 3,
+      "options": [
+        "Publish all personal histories.",
+        "Collect more private data.",
+        "Eliminate every request.",
+        "Use the current request alone."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "履歴を保存しない方法。"
+    },
+    {
+      "id": "q7",
+      "skill": "inference",
+      "prompt": "Why consider readers with different goals?",
+      "answer": 2,
+      "options": [
+        "All readers want identical material.",
+        "Acceptance rates prove every benefit.",
+        "Success depends partly on user purpose.",
+        "Invented data guarantee real security."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "目的によって価値が違う。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What can a fictional demonstration not establish?",
+      "answer": 1,
+      "options": [
+        "The existence of the prototype.",
+        "Real-world effectiveness, security, or fairness.",
+        "The designers' proposed goals.",
+        "The number of imagined choices."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "実際の有効性などは未証明。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does anticipate mean?",
+      "answer": 3,
+      "options": [
+        "Prohibit entirely.",
+        "Repair.",
+        "Preserve.",
+        "Predict or expect."
+      ],
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "予測する。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the central claim?",
+      "answer": 1,
+      "options": [
+        "Past behavior always reveals current preferences.",
+        "Recommendation systems should help users pursue changing goals, not merely predict patterns.",
+        "Independent choice should be removed.",
+        "Every useful system requires permanent histories."
+      ],
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "予測だけでなく本人の意図を尊重。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 0,
+      "focus": "based on information about the titles",
+      "explanation_ja": "過去分詞句が推薦の根拠を説明。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "since books may be chosen for assignments",
+      "explanation_ja": "sinceは理由、may be chosenは受動態。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "focus": "Rather than trying to infer every preference",
+      "explanation_ja": "rather thanは対比。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "focus": "while offering limited assistance",
+      "explanation_ja": "while＋分詞で対比。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Suppose a school is considering an automated system that recommends library books based on information about the titles that students have borrowed during previous visits.",
+      "rewrite": "Consider a school system suggesting books using past loan records.",
+      "explanation_ja": "貸出履歴に基づく推薦。"
+    },
+    {
+      "source": "Another student points out that borrowing a book is not necessarily evidence that the reader enjoyed it, since books may be chosen for assignments or other practical reasons.",
+      "rewrite": "A loan does not prove enjoyment because readers may choose books for required tasks.",
+      "explanation_ja": "課題で借りることもある。"
+    },
+    {
+      "source": "Rather than trying to infer every preference from historical records, the prototype allows a fictional user to state what kind of reading experience is currently desired.",
+      "rewrite": "Instead of deriving all preferences from past behavior, the system lets users express a current goal.",
+      "explanation_ja": "現在の目的を示す。"
+    },
+    {
+      "source": "An automated recommendation may be technically successful according to a narrow performance measure while offering limited assistance to someone who wants to change established habits.",
+      "rewrite": "A model can perform well on a narrow metric yet offer little help to readers seeking to change habits.",
+      "explanation_ja": "性能と支援の違い。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p2",
+      "expression": "Another student",
+      "role_ja": "別の問題点。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "therefore",
+      "role_ja": "前提から設計変更。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "rather than",
+      "role_ja": "単一尺度ではなく多様な目的。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "not only",
+      "role_ja": "予測と選択支援の両方。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "answer": "intention",
+      "options": [
+        "intention",
+        "distance",
+        "temperature",
+        "appearance"
+      ],
+      "explanation_ja": "行動の背後の意図。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "answer": "storing",
+      "options": [
+        "publishing",
+        "storing",
+        "printing",
+        "deleting"
+      ],
+      "explanation_ja": "履歴保存の有無。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 3,
+      "answer": "effectiveness",
+      "options": [
+        "portrait",
+        "receipt",
+        "effectiveness",
+        "temperature"
+      ],
+      "explanation_ja": "実験で未確立。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "answer": "anticipate",
+      "options": [
+        "forget",
+        "borrow",
+        "erase",
+        "anticipate"
+      ],
+      "explanation_ja": "選択を予測する。"
+    }
+  ]
+}

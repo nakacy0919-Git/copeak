@@ -1,0 +1,713 @@
+{
+  "id": "L06-011",
+  "category_id": "L06",
+  "title": "The Puzzle That Had Already Taken an Hour",
+  "title_ja": "すでに1時間かけたパズル",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "word_count": 273,
+  "source_links": [
+    {
+      "title": "Original lesson authoring registry (provenance only, not a factual source)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "登場人物・場面・会話はすべて架空。特定の調査・統計・外部事実を主張するものではない。参考リンクは制作台帳であり、実証研究の出典ではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "On Friday afternoon, a school club held a puzzle contest.",
+          "ja": "金曜日の午後、学校の部活動でパズル大会が開かれた。"
+        },
+        {
+          "en": "Each team could choose one of three puzzles on a table.",
+          "ja": "各チームは机上の3つのパズルから1つを選べた。"
+        },
+        {
+          "en": "Mika's team selected the largest one because it looked exciting.",
+          "ja": "ミカのチームは面白そうだったので一番大きなものを選んだ。"
+        },
+        {
+          "en": "The members expected to complete it before the contest ended.",
+          "ja": "メンバーは大会が終わる前に完成させられると予想した。"
+        },
+        {
+          "en": "At first, they found several matching pieces without much difficulty.",
+          "ja": "最初はあまり苦労せず、合うピースをいくつか見つけた。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "However, after an hour, the picture was still far from complete.",
+          "ja": "しかし1時間後も、絵はまだ完成にはほど遠かった。"
+        },
+        {
+          "en": "Some pieces were almost identical in color and shape.",
+          "ja": "色や形がほとんど同じピースがいくつかあった。"
+        },
+        {
+          "en": "Ken suggested moving to a smaller puzzle while there was enough time.",
+          "ja": "ケンは時間が十分にあるうちに小さなパズルへ移ることを提案した。"
+        },
+        {
+          "en": "Mika immediately refused because the team had already worked so hard.",
+          "ja": "チームがすでに懸命に取り組んでいたため、ミカはすぐに断った。"
+        },
+        {
+          "en": "She felt that changing puzzles would make their earlier effort meaningless.",
+          "ja": "彼女はパズルを変えるとそれまでの努力が無意味になると感じた。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Instead of arguing, Ken drew two boxes on a sheet of paper.",
+          "ja": "言い争う代わりに、ケンは紙に2つの枠を描いた。"
+        },
+        {
+          "en": "In the first box, he wrote what the team had already spent.",
+          "ja": "最初の枠にはチームがすでに費やしたものを書いた。"
+        },
+        {
+          "en": "In the second, he listed the choices that remained available.",
+          "ja": "2つ目にはまだ選べる選択肢を列挙した。"
+        },
+        {
+          "en": "Their teacher asked whether the first hour could be recovered either way.",
+          "ja": "先生はどちらを選んでも最初の1時間が取り戻せるか尋ねた。"
+        },
+        {
+          "en": "The students realized that their next decision could not change the past.",
+          "ja": "生徒たちは次の決定で過去は変えられないと気づいた。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Nevertheless, they did not simply abandon the large puzzle at once.",
+          "ja": "それでも彼らは大きなパズルをすぐに放棄したわけではなかった。"
+        },
+        {
+          "en": "They examined the remaining pieces and estimated how long completion might take.",
+          "ja": "残りのピースを調べ、完成までどれほどかかりそうか見積もった。"
+        },
+        {
+          "en": "They also considered the pleasure of finishing something difficult together.",
+          "ja": "難しいことを皆でやり遂げる楽しさも考慮した。"
+        },
+        {
+          "en": "Finally, they agreed that completing a smaller puzzle was their main goal.",
+          "ja": "最後に、小さなパズルを完成させることが自分たちの主な目標だと合意した。"
+        },
+        {
+          "en": "They changed puzzles and finished just before the bell rang.",
+          "ja": "パズルを変え、ベルが鳴る直前に完成させた。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "Afterward, Mika thanked Ken for helping everyone discuss the problem calmly.",
+          "ja": "その後、ミカは皆が冷静に問題を話し合うのを助けてくれたケンに感謝した。"
+        },
+        {
+          "en": "She understood that previous effort was not a reason to continue automatically.",
+          "ja": "過去の努力は無条件に続ける理由にはならないと理解した。"
+        },
+        {
+          "en": "Of course, changing plans is not always the best choice.",
+          "ja": "もちろん計画を変えることが常に最良の選択ではない。"
+        },
+        {
+          "en": "Sometimes new information supports continuing with the original plan.",
+          "ja": "新しい情報が当初の計画の継続を支持する場合もある。"
+        },
+        {
+          "en": "The important thing is to compare future possibilities rather than protect past decisions.",
+          "ja": "重要なのは過去の決定を守るのではなく、今後の可能性を比較することだ。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "Why did Mika's team choose the largest puzzle?",
+      "options": [
+        "It had the fewest pieces.",
+        "The teacher required it.",
+        "It looked exciting.",
+        "It had already been completed."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "面白そうに見えたため、一番大きなパズルを選んだ。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What made the puzzle difficult after a while?",
+      "options": [
+        "Many pieces had nearly the same color and shape.",
+        "Some pieces were missing.",
+        "The table was too small.",
+        "The rules suddenly changed."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "色と形がほぼ同じピースがあった。"
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why did Mika initially resist switching puzzles?",
+      "options": [
+        "She wanted to leave the club.",
+        "She disliked Ken's company.",
+        "She had completed the puzzle before.",
+        "She feared wasting the work they had already done."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "それまでの努力が無意味になると感じた。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What did Ken put in the second box?",
+      "options": [
+        "The names of team members.",
+        "The options still open to them.",
+        "The rules of the contest.",
+        "The pieces they had lost."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "まだ選択できるものを書いた。"
+    },
+    {
+      "id": "q5",
+      "skill": "inference",
+      "prompt": "What did the teacher's question help the team recognize?",
+      "options": [
+        "A larger puzzle always takes exactly an hour.",
+        "Ken had wasted their time.",
+        "They could restart the contest.",
+        "Their previous hour could not be regained by either choice."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "どちらを選んでも過去の1時間は戻らない。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "Before switching, what did the team do?",
+      "options": [
+        "Estimated the time needed for the remaining work.",
+        "Asked another team to finish the puzzle.",
+        "Stopped discussing their goal.",
+        "Removed the hardest pieces."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "残りの作業にかかる時間を見積もった。"
+    },
+    {
+      "id": "q7",
+      "skill": "vocabulary",
+      "prompt": "What does 'abandon' most nearly mean here?",
+      "options": [
+        "Decorate.",
+        "Give up.",
+        "Measure.",
+        "Exchange secretly."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "abandonは途中で放棄するという意味。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "When did the team finish the smaller puzzle?",
+      "options": [
+        "An hour before the contest.",
+        "The next morning.",
+        "Just before the bell rang.",
+        "After everyone had gone home."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "ベルが鳴る直前と明記されている。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "When might continuing an original plan be reasonable?",
+      "options": [
+        "When new information gives a reason to continue.",
+        "Whenever time has already been spent.",
+        "Only when no one discusses alternatives.",
+        "When finishing is impossible."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "新たな情報が継続を支持する場合もある。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the central lesson of the passage?",
+      "options": [
+        "Always choose the easiest task.",
+        "Never change a plan during a contest.",
+        "Avoid group decisions.",
+        "Evaluate future options instead of defending past decisions."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3",
+        "p5"
+      ],
+      "explanation_ja": "過去の決定より今後の可能性に基づいて判断することが主題。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "contest",
+      "ja": "大会",
+      "synonym": "competition",
+      "definition": "an event in which people compete"
+    },
+    {
+      "term": "choose",
+      "ja": "選ぶ",
+      "synonym": "select",
+      "definition": "decide which thing to take"
+    },
+    {
+      "term": "selected",
+      "ja": "選んだ",
+      "synonym": "chose",
+      "definition": "picked from several possibilities"
+    },
+    {
+      "term": "largest",
+      "ja": "最も大きな",
+      "synonym": "biggest",
+      "definition": "greater in size than all others"
+    },
+    {
+      "term": "expected",
+      "ja": "予想した",
+      "synonym": "anticipated",
+      "definition": "believed something would happen"
+    },
+    {
+      "term": "complete",
+      "ja": "完成させる",
+      "synonym": "finish",
+      "definition": "bring something to an end"
+    },
+    {
+      "term": "matching",
+      "ja": "合う",
+      "synonym": "corresponding",
+      "definition": "fitting or looking right together"
+    },
+    {
+      "term": "pieces",
+      "ja": "部品・ピース",
+      "synonym": "parts",
+      "definition": "separate parts of something"
+    },
+    {
+      "term": "difficulty",
+      "ja": "困難",
+      "synonym": "trouble",
+      "definition": "something that makes a task hard"
+    },
+    {
+      "term": "almost",
+      "ja": "ほとんど",
+      "synonym": "nearly",
+      "definition": "very close to being"
+    },
+    {
+      "term": "identical",
+      "ja": "同一の",
+      "synonym": "the same",
+      "definition": "exactly alike"
+    },
+    {
+      "term": "shape",
+      "ja": "形",
+      "synonym": "form",
+      "definition": "the outline of something"
+    },
+    {
+      "term": "suggested",
+      "ja": "提案した",
+      "synonym": "proposed",
+      "definition": "offered an idea for consideration"
+    },
+    {
+      "term": "moving",
+      "ja": "移ること",
+      "synonym": "switching",
+      "definition": "changing from one thing to another"
+    },
+    {
+      "term": "enough",
+      "ja": "十分な",
+      "synonym": "sufficient",
+      "definition": "as much as needed"
+    },
+    {
+      "term": "immediately",
+      "ja": "すぐに",
+      "synonym": "at once",
+      "definition": "without any delay"
+    },
+    {
+      "term": "refused",
+      "ja": "断った",
+      "synonym": "declined",
+      "definition": "said no to an offer or request"
+    },
+    {
+      "term": "earlier",
+      "ja": "それまでの",
+      "synonym": "previous",
+      "definition": "happening before now"
+    },
+    {
+      "term": "effort",
+      "ja": "努力",
+      "synonym": "work",
+      "definition": "energy used to do something"
+    },
+    {
+      "term": "meaningless",
+      "ja": "無意味な",
+      "synonym": "pointless",
+      "definition": "having no useful purpose"
+    },
+    {
+      "term": "instead of",
+      "ja": "〜の代わりに",
+      "synonym": "rather than",
+      "definition": "in place of something else"
+    },
+    {
+      "term": "arguing",
+      "ja": "言い争うこと",
+      "synonym": "quarreling",
+      "definition": "disagreeing in an angry way"
+    },
+    {
+      "term": "sheet",
+      "ja": "一枚の紙",
+      "synonym": "page",
+      "definition": "a single flat piece of paper"
+    },
+    {
+      "term": "spent",
+      "ja": "費やした",
+      "synonym": "used",
+      "definition": "used time or resources"
+    },
+    {
+      "term": "listed",
+      "ja": "列挙した",
+      "synonym": "recorded",
+      "definition": "wrote things one after another"
+    },
+    {
+      "term": "choices",
+      "ja": "選択肢",
+      "synonym": "options",
+      "definition": "things that can be chosen"
+    },
+    {
+      "term": "remained",
+      "ja": "残った",
+      "synonym": "stayed",
+      "definition": "continued to exist"
+    },
+    {
+      "term": "available",
+      "ja": "利用可能な",
+      "synonym": "accessible",
+      "definition": "able to be used or chosen"
+    },
+    {
+      "term": "whether",
+      "ja": "〜かどうか",
+      "synonym": "if",
+      "definition": "introduces an indirect yes-or-no question"
+    },
+    {
+      "term": "recovered",
+      "ja": "取り戻された",
+      "synonym": "regained",
+      "definition": "got back after being lost"
+    },
+    {
+      "term": "realized",
+      "ja": "気づいた",
+      "synonym": "understood",
+      "definition": "became aware of something"
+    },
+    {
+      "term": "decision",
+      "ja": "決定",
+      "synonym": "choice",
+      "definition": "a conclusion about what to do"
+    },
+    {
+      "term": "Nevertheless",
+      "ja": "それでも",
+      "synonym": "even so",
+      "definition": "despite what came before"
+    },
+    {
+      "term": "abandon",
+      "ja": "放棄する",
+      "synonym": "give up",
+      "definition": "stop working on or keeping something"
+    },
+    {
+      "term": "examined",
+      "ja": "詳しく調べた",
+      "synonym": "inspected",
+      "definition": "looked at carefully"
+    },
+    {
+      "term": "remaining",
+      "ja": "残りの",
+      "synonym": "leftover",
+      "definition": "still left after others are gone"
+    },
+    {
+      "term": "estimated",
+      "ja": "見積もった",
+      "synonym": "approximated",
+      "definition": "made a rough judgment of an amount"
+    },
+    {
+      "term": "completion",
+      "ja": "完成",
+      "synonym": "finishing",
+      "definition": "the act of bringing something to an end"
+    },
+    {
+      "term": "considered",
+      "ja": "考慮した",
+      "synonym": "weighed",
+      "definition": "thought carefully about something"
+    },
+    {
+      "term": "pleasure",
+      "ja": "楽しさ",
+      "synonym": "enjoyment",
+      "definition": "a feeling of happiness or satisfaction"
+    },
+    {
+      "term": "agreed",
+      "ja": "合意した",
+      "synonym": "concurred",
+      "definition": "reached the same opinion"
+    },
+    {
+      "term": "goal",
+      "ja": "目標",
+      "synonym": "aim",
+      "definition": "something someone wants to achieve"
+    },
+    {
+      "term": "calmly",
+      "ja": "冷静に",
+      "synonym": "peacefully",
+      "definition": "without strong anger or excitement"
+    },
+    {
+      "term": "automatically",
+      "ja": "無条件に",
+      "synonym": "by default",
+      "definition": "without making a new decision"
+    },
+    {
+      "term": "supports",
+      "ja": "支持する",
+      "synonym": "favors",
+      "definition": "provides a reason in favor of something"
+    },
+    {
+      "term": "possibilities",
+      "ja": "可能性",
+      "synonym": "options",
+      "definition": "things that might happen or be done"
+    },
+    {
+      "term": "protect",
+      "ja": "守る",
+      "synonym": "defend",
+      "definition": "keep something from being harmed"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "because it looked exciting",
+      "explanation_ja": "becauseは選択した理由を示す従属接続詞。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "while there was enough time",
+      "explanation_ja": "while節は時間的条件を示す。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "focus": "whether the first hour could be recovered either way",
+      "explanation_ja": "whether以下は間接疑問文。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 4,
+      "focus": "rather than protect past decisions",
+      "explanation_ja": "rather thanは対比する選択肢を示す。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p2",
+      "expression": "However",
+      "role_ja": "順調だった状況から課題が生じたことを示す。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Instead of",
+      "role_ja": "言い争いではなく別の行動を選んだことを示す。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "過去にとらわれないことと即座に放棄することの違いを示す。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Finally",
+      "role_ja": "議論の最終的な結論を導く。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "She felt that changing puzzles would make their earlier effort meaningless.",
+      "rewrite": "She thought that switching would waste their previous work.",
+      "explanation_ja": "以前の努力が無駄になると感じた。"
+    },
+    {
+      "source": "The students realized that their next decision could not change the past.",
+      "rewrite": "They understood that their upcoming choice could not alter what had happened.",
+      "explanation_ja": "次の選択で過去は変えられない。"
+    },
+    {
+      "source": "They examined the remaining pieces and estimated how long completion might take.",
+      "rewrite": "They checked the pieces left and made a rough estimate of the time needed.",
+      "explanation_ja": "残りを確認し所要時間を概算した。"
+    },
+    {
+      "source": "The important thing is to compare future possibilities rather than protect past decisions.",
+      "rewrite": "What matters is weighing the options ahead instead of defending choices already made.",
+      "explanation_ja": "未来の選択肢を比較することが大切。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "identical",
+      "options": [
+        "opposite",
+        "identical",
+        "empty",
+        "silent"
+      ],
+      "explanation_ja": "色や形がほぼ同じという意味。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 4,
+      "answer": "past",
+      "options": [
+        "weather",
+        "prize",
+        "past",
+        "bell"
+      ],
+      "explanation_ja": "次の決定では過去を変えられない。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "estimated",
+      "options": [
+        "hid",
+        "ignored",
+        "borrowed",
+        "estimated"
+      ],
+      "explanation_ja": "所要時間を見積もるという文脈。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 4,
+      "answer": "compare",
+      "options": [
+        "compare",
+        "erase",
+        "forget",
+        "repeat"
+      ],
+      "explanation_ja": "未来の選択肢を比較すること。"
+    }
+  ]
+}

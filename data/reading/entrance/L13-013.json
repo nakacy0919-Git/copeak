@@ -1,0 +1,572 @@
+{
+  "id": "L13-013",
+  "category_id": "L13",
+  "title": "A Map for the Next Rover",
+  "title_ja": "次の探査車のための地図",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 218,
+  "source_links": [
+    {
+      "title": "Original lesson authoring registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "登場人物・場所・具体的な出来事や結果は架空の事例。特定の実在の制度、診療上の助言、研究結果の説明ではない。参考リンクは制作台帳であり外部の実証資料ではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A science club built a small model rover for a school exhibition.",
+          "ja": "科学部は学校の展示会のために小さな模型探査車を作った。"
+        },
+        {
+          "en": "Its wheels could carry it across a floor covered with sand.",
+          "ja": "車輪によって砂を敷いた床の上を移動できた。"
+        },
+        {
+          "en": "The students imagined that the floor was the surface of another planet.",
+          "ja": "生徒たちは床を別の惑星の表面に見立てた。"
+        },
+        {
+          "en": "They placed several rocks along the rover's planned route.",
+          "ja": "探査車の予定経路に岩をいくつか置いた。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "At first, the team tried to reach a flag as quickly as possible.",
+          "ja": "最初はできるだけ早く旗に到達しようとした。"
+        },
+        {
+          "en": "However, the rover became stuck between two large rocks.",
+          "ja": "しかし探査車は大きな岩二つの間で動けなくなった。"
+        },
+        {
+          "en": "The students moved it back to the starting point by hand.",
+          "ja": "生徒たちは手で出発地点に戻した。"
+        },
+        {
+          "en": "They wondered how another team could avoid the same problem.",
+          "ja": "別のチームがどうすれば同じ問題を避けられるか考えた。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Instead of removing the rocks, they drew a map of the floor.",
+          "ja": "岩を取り除く代わりに床の地図を描いた。"
+        },
+        {
+          "en": "They marked dangerous areas and places where the wheels had slipped.",
+          "ja": "危険な場所と車輪が滑った場所に印を付けた。"
+        },
+        {
+          "en": "Then they tested a longer route around the rocks.",
+          "ja": "次に岩を迂回するより長い経路を試した。"
+        },
+        {
+          "en": "This time, their rover reached the flag without becoming stuck.",
+          "ja": "今度は動けなくなることなく旗に到達した。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Another club received the map but used a slightly different model rover.",
+          "ja": "別の部は地図を受け取ったが、少し異なる模型探査車を使った。"
+        },
+        {
+          "en": "Its wider wheels could move through some areas more easily.",
+          "ja": "幅の広い車輪は一部の場所をより容易に通れた。"
+        },
+        {
+          "en": "The second team added its own observations to the shared map.",
+          "ja": "二つ目のチームは共有地図に自分たちの観察結果を加えた。"
+        },
+        {
+          "en": "Both clubs learned that the map was useful but not complete.",
+          "ja": "両部は地図が役立つが完全ではないと学んだ。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "Finally, the students displayed the map beside their two model vehicles.",
+          "ja": "最後に生徒たちは二台の模型車両の横に地図を展示した。"
+        },
+        {
+          "en": "Visitors could compare the paths and read the teams' notes.",
+          "ja": "来場者は経路を比較し、チームの記録を読めた。"
+        },
+        {
+          "en": "The students explained that a failed journey could still provide valuable information.",
+          "ja": "失敗した移動も貴重な情報を与え得ると説明した。"
+        },
+        {
+          "en": "Their goal was to help the next team make a better decision.",
+          "ja": "目標は次のチームがより良い判断をするのを助けることだった。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "rover",
+      "ja": "探査車",
+      "synonym": "exploration vehicle",
+      "definition": "a vehicle used to explore a surface"
+    },
+    {
+      "term": "exhibition",
+      "ja": "展示会",
+      "synonym": "display",
+      "definition": "an event where things are shown"
+    },
+    {
+      "term": "wheels",
+      "ja": "車輪",
+      "synonym": "rolling parts",
+      "definition": "round parts allowing a vehicle to move"
+    },
+    {
+      "term": "covered",
+      "ja": "覆われた",
+      "synonym": "layered",
+      "definition": "having something over its surface"
+    },
+    {
+      "term": "surface",
+      "ja": "表面",
+      "synonym": "outer layer",
+      "definition": "the outside part of something"
+    },
+    {
+      "term": "planet",
+      "ja": "惑星",
+      "synonym": "planetary body",
+      "definition": "a large natural object orbiting a star"
+    },
+    {
+      "term": "planned",
+      "ja": "予定された",
+      "synonym": "intended",
+      "definition": "arranged beforehand"
+    },
+    {
+      "term": "route",
+      "ja": "経路",
+      "synonym": "path",
+      "definition": "a way from one place to another"
+    },
+    {
+      "term": "flag",
+      "ja": "旗",
+      "synonym": "banner",
+      "definition": "a piece of cloth used as a sign"
+    },
+    {
+      "term": "stuck",
+      "ja": "動けなくなった",
+      "synonym": "trapped",
+      "definition": "unable to move from a place"
+    },
+    {
+      "term": "starting point",
+      "ja": "出発地点",
+      "synonym": "beginning",
+      "definition": "a place from which movement starts"
+    },
+    {
+      "term": "avoid",
+      "ja": "避ける",
+      "synonym": "prevent",
+      "definition": "keep away from something"
+    },
+    {
+      "term": "removing",
+      "ja": "取り除くこと",
+      "synonym": "taking away",
+      "definition": "moving something away"
+    },
+    {
+      "term": "marked",
+      "ja": "印をつけた",
+      "synonym": "indicated",
+      "definition": "made a sign to identify a place"
+    },
+    {
+      "term": "dangerous",
+      "ja": "危険な",
+      "synonym": "risky",
+      "definition": "likely to cause harm or problems"
+    },
+    {
+      "term": "slipped",
+      "ja": "滑った",
+      "synonym": "slid",
+      "definition": "moved without firm contact"
+    },
+    {
+      "term": "slightly",
+      "ja": "少し",
+      "synonym": "a little",
+      "definition": "to a small degree"
+    },
+    {
+      "term": "wider",
+      "ja": "より幅広い",
+      "synonym": "broader",
+      "definition": "having greater width"
+    },
+    {
+      "term": "observations",
+      "ja": "観察結果",
+      "synonym": "findings",
+      "definition": "information obtained by watching"
+    },
+    {
+      "term": "shared",
+      "ja": "共有の",
+      "synonym": "common",
+      "definition": "used by more than one person"
+    },
+    {
+      "term": "complete",
+      "ja": "完全な",
+      "synonym": "whole",
+      "definition": "having all necessary parts"
+    },
+    {
+      "term": "displayed",
+      "ja": "展示した",
+      "synonym": "exhibited",
+      "definition": "showed something to people"
+    },
+    {
+      "term": "vehicles",
+      "ja": "車両",
+      "synonym": "means of transport",
+      "definition": "machines used for travel"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "contrast",
+      "definition": "examine similarities and differences"
+    },
+    {
+      "term": "journey",
+      "ja": "移動・旅",
+      "synonym": "trip",
+      "definition": "an act of traveling"
+    },
+    {
+      "term": "valuable",
+      "ja": "貴重な",
+      "synonym": "useful",
+      "definition": "having worth or importance"
+    },
+    {
+      "term": "decision",
+      "ja": "判断",
+      "synonym": "choice",
+      "definition": "a conclusion about what to do"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What did the science club build?",
+      "options": [
+        "A real space station.",
+        "A large airplane.",
+        "A new school bus.",
+        "A model rover."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "模型探査車を作った。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What did the students put on the planned route?",
+      "options": [
+        "Several books.",
+        "Several rocks.",
+        "Two flags.",
+        "Three chairs."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "岩を置いた。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What happened during the first test?",
+      "options": [
+        "The flag disappeared.",
+        "The floor broke.",
+        "The rover became stuck.",
+        "The map fell into water."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "岩の間で動けなくなった。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why did the students think about another team?",
+      "options": [
+        "They wanted others to avoid the same problem.",
+        "They wanted to hide the rover.",
+        "They planned to stop the exhibition.",
+        "They believed nobody could use a map."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "同じ問題を避ける手助けを考えた。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What did they mark on the map?",
+      "options": [
+        "The names of school teachers.",
+        "Only the flag's color.",
+        "Every student's birthday.",
+        "Dangerous places and areas where wheels slipped."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "危険な場所と滑った場所。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "How did the rover reach the flag on the second attempt?",
+      "options": [
+        "By taking a longer route around the rocks.",
+        "By flying over the sand.",
+        "By moving the flag closer.",
+        "By removing all the rocks."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "岩を迂回した。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "How was the second team's rover different?",
+      "options": [
+        "It had no wheels.",
+        "It was a real spacecraft.",
+        "It had wider wheels.",
+        "It could only move backward."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "車輪の幅が広かった。"
+    },
+    {
+      "id": "q8",
+      "skill": "vocabulary",
+      "prompt": "What does complete mean here?",
+      "options": [
+        "Extremely heavy.",
+        "Having all necessary information.",
+        "Impossible to read.",
+        "Very expensive."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "必要な情報がすべてあるという意味。"
+    },
+    {
+      "id": "q9",
+      "skill": "detail",
+      "prompt": "What could visitors do at the exhibition?",
+      "options": [
+        "Compare paths and read the notes.",
+        "Drive a rover to another planet.",
+        "Buy all the rocks.",
+        "Erase every mark on the map."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "経路と記録を比較した。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the main lesson?",
+      "options": [
+        "The shortest route is always the best.",
+        "A model map never needs improvement.",
+        "Teams should hide failed experiments.",
+        "Sharing information from failures can help others make better choices."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "失敗の情報も次の判断に役立つ。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "that the floor was the surface of another planet",
+      "explanation_ja": "that節がimaginedの内容を示す。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 0,
+      "focus": "as quickly as possible",
+      "explanation_ja": "as ... as possibleはできるだけ〜に。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "focus": "without becoming stuck",
+      "explanation_ja": "without＋動名詞は〜せずに。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "to help the next team",
+      "explanation_ja": "to不定詞がgoalの内容を示す。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p2",
+      "expression": "At first",
+      "role_ja": "最初の目標を示す。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "However",
+      "role_ja": "目的と失敗の対比。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Instead of",
+      "role_ja": "岩を除かず別の方法を考えた。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "Finally",
+      "role_ja": "展示という最後の段階を示す。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The students imagined that the floor was the surface of another planet.",
+      "rewrite": "They pretended the floor was the ground of a different planet.",
+      "explanation_ja": "床を別の惑星の地表に見立てた。"
+    },
+    {
+      "source": "At first, the team tried to reach a flag as quickly as possible.",
+      "rewrite": "The team first aimed to get to the flag in the shortest time it could.",
+      "explanation_ja": "最短時間で到達しようとした。"
+    },
+    {
+      "source": "This time, their rover reached the flag without becoming stuck.",
+      "rewrite": "On the second attempt, the rover got to the flag and did not get trapped.",
+      "explanation_ja": "動けなくなることなく到達。"
+    },
+    {
+      "source": "Their goal was to help the next team make a better decision.",
+      "rewrite": "They wanted to enable the next group to choose a better plan.",
+      "explanation_ja": "次のチームの判断を助けたい。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "stuck",
+      "options": [
+        "empty",
+        "stuck",
+        "bright",
+        "quiet"
+      ],
+      "explanation_ja": "岩の間で動けなくなった。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "slipped",
+      "options": [
+        "stopped",
+        "arrived",
+        "slipped",
+        "appeared"
+      ],
+      "explanation_ja": "車輪が滑った場所を記録。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "observations",
+      "options": [
+        "flags",
+        "coins",
+        "books",
+        "observations"
+      ],
+      "explanation_ja": "第二チームの観察結果も追加。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "valuable",
+      "options": [
+        "valuable",
+        "empty",
+        "silent",
+        "ancient"
+      ],
+      "explanation_ja": "失敗から貴重な情報が得られる。"
+    }
+  ]
+}

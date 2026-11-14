@@ -1,0 +1,710 @@
+{
+  "id": "L12-022",
+  "category_id": "L12",
+  "title": "The Appointment That Was Never Booked",
+  "title_ja": "予約されなかった診察",
+  "level_id": "eiken-2",
+  "status": "draft",
+  "original": true,
+  "word_count": 397,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "人物・出来事・制度は架空の教材例。実在の調査・統計・実証結果・法令・医療基準ではない。制作台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A fictional health center introduces an online appointment system to reduce the amount of time that visitors spend waiting at its reception desk.",
+          "ja": "架空の保健施設は受付での待ち時間を減らすオンライン予約システムを導入する。"
+        },
+        {
+          "en": "Staff members initially evaluate the new arrangement by examining the waiting times of people who successfully book an appointment.",
+          "ja": "職員は当初予約できた人の待ち時間を調べて新しい仕組みを評価する。"
+        },
+        {
+          "en": "The recorded figures appear promising, and the manager considers removing the previous telephone booking option.",
+          "ja": "記録数値は有望に見え管理者は従来の電話予約の廃止を考える。"
+        },
+        {
+          "en": "However, an employee asks whether the records contain any information about people who attempted to use the system but were unable to complete a reservation.",
+          "ja": "しかし利用を試み予約を完了できなかった人の情報も記録にあるか尋ねる職員がいる。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The staff recognize that a record of successful appointments may exclude people who encountered difficulties at an earlier stage.",
+          "ja": "予約成功の記録には以前の段階で困難に遭った人が含まれない可能性があると認識する。"
+        },
+        {
+          "en": "A person might have trouble finding the relevant information or understanding which fields in a form must be completed.",
+          "ja": "関連情報の発見やフォームの必須欄の理解に苦労する人もいるかもしれない。"
+        },
+        {
+          "en": "Another visitor might lack reliable access to a suitable device, even though the online system itself functions as intended.",
+          "ja": "システム自体は意図通り動いていても適切な端末への安定したアクセスがない人もいるかもしれない。"
+        },
+        {
+          "en": "The employees therefore distinguish the efficiency of an established booking from the accessibility of the process through which a booking is obtained.",
+          "ja": "そこで成立した予約の効率と予約を取得する手続きの利用しやすさを区別する。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Rather than collecting sensitive medical details, the staff design a hypothetical exercise involving ordinary tasks on a sample version of the appointment website.",
+          "ja": "機微な医療情報を集めず予約サイトの見本版で普通の操作を行う仮想練習を設計する。"
+        },
+        {
+          "en": "They identify points at which users might become confused and examine whether the instructions provide an appropriate way to request assistance.",
+          "ja": "利用者が混乱する箇所を特定し説明が適切な支援依頼方法を提供するか調べる。"
+        },
+        {
+          "en": "The group also considers retaining an alternative booking channel for people whose circumstances make online registration difficult.",
+          "ja": "事情によりオンライン登録が難しい人に別の予約経路を維持することも考える。"
+        },
+        {
+          "en": "It does not claim that a small educational exercise can establish the needs of every actual patient.",
+          "ja": "小規模な教育練習で全実患者の必要を確定できるとは主張しない。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The manager subsequently proposes evaluating the service using several indicators rather than relying exclusively on average waiting time.",
+          "ja": "その後管理者は平均待ち時間だけに頼らず複数指標で評価する案を出す。"
+        },
+        {
+          "en": "One indicator would describe the experiences of people who successfully obtained appointments, while another would examine difficulties associated with attempting to obtain them.",
+          "ja": "一指標は予約できた人の体験を示し他は予約取得を試みる際の困難を調べる。"
+        },
+        {
+          "en": "The staff acknowledge that alternative channels may require additional resources and must therefore be considered in relation to the benefits they provide.",
+          "ja": "別経路には追加資源が必要な場合があり提供利益との関係で検討すべきだと認める。"
+        },
+        {
+          "en": "The fictional example does not constitute a recommendation about a particular healthcare facility or a claim about clinical outcomes.",
+          "ja": "架空例は特定医療施設への推奨や臨床結果についての主張ではない。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "An apparently improved numerical result may provide only a partial description of the experience that a public service is intended to offer.",
+          "ja": "一見改善した数値結果も公共サービスが提供を意図する体験の一部しか説明しないことがある。"
+        },
+        {
+          "en": "Measurements taken only after people enter a system cannot fully describe barriers that prevent others from entering it.",
+          "ja": "利用開始後だけの測定は他者の利用開始を妨げる障壁を完全に説明できない。"
+        },
+        {
+          "en": "Responsible evaluation therefore requires attention to the process by which people become included in the population being measured.",
+          "ja": "責任ある評価には測定対象集団に含まれるようになる過程への注意が必要だ。"
+        },
+        {
+          "en": "The appointment that was never booked may raise a question that records of completed appointments alone cannot answer.",
+          "ja": "予約されなかった診察は完了予約記録だけでは答えられない問いを提起し得る。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "appointment",
+      "ja": "予約・診察",
+      "synonym": "booking",
+      "definition": "arranged meeting time"
+    },
+    {
+      "term": "introduces",
+      "ja": "導入する",
+      "synonym": "establishes",
+      "definition": "brings into use"
+    },
+    {
+      "term": "reduce",
+      "ja": "減らす",
+      "synonym": "lessen",
+      "definition": "make smaller"
+    },
+    {
+      "term": "reception desk",
+      "ja": "受付",
+      "synonym": "front desk",
+      "definition": "place where visitors are received"
+    },
+    {
+      "term": "initially",
+      "ja": "当初",
+      "synonym": "at first",
+      "definition": "at the beginning"
+    },
+    {
+      "term": "evaluate",
+      "ja": "評価する",
+      "synonym": "assess",
+      "definition": "judge quality or value"
+    },
+    {
+      "term": "arrangement",
+      "ja": "仕組み",
+      "synonym": "system",
+      "definition": "organized way of doing something"
+    },
+    {
+      "term": "successfully",
+      "ja": "成功して",
+      "synonym": "effectively",
+      "definition": "in a way achieving a goal"
+    },
+    {
+      "term": "recorded",
+      "ja": "記録された",
+      "synonym": "documented",
+      "definition": "preserved as information"
+    },
+    {
+      "term": "figures",
+      "ja": "数値",
+      "synonym": "numbers",
+      "definition": "numerical values"
+    },
+    {
+      "term": "promising",
+      "ja": "有望な",
+      "synonym": "encouraging",
+      "definition": "suggesting good future results"
+    },
+    {
+      "term": "previous",
+      "ja": "従来の",
+      "synonym": "earlier",
+      "definition": "existing before"
+    },
+    {
+      "term": "attempted",
+      "ja": "試みた",
+      "synonym": "tried",
+      "definition": "made an effort"
+    },
+    {
+      "term": "reservation",
+      "ja": "予約",
+      "synonym": "booking",
+      "definition": "arrangement made in advance"
+    },
+    {
+      "term": "exclude",
+      "ja": "除外する",
+      "synonym": "omit",
+      "definition": "leave out"
+    },
+    {
+      "term": "encountered",
+      "ja": "遭遇した",
+      "synonym": "faced",
+      "definition": "came across"
+    },
+    {
+      "term": "relevant",
+      "ja": "関連する",
+      "synonym": "pertinent",
+      "definition": "connected to the matter"
+    },
+    {
+      "term": "fields",
+      "ja": "入力欄",
+      "synonym": "entries",
+      "definition": "spaces for entering information"
+    },
+    {
+      "term": "reliable",
+      "ja": "安定した",
+      "synonym": "dependable",
+      "definition": "able to be relied on"
+    },
+    {
+      "term": "access",
+      "ja": "アクセス",
+      "synonym": "availability",
+      "definition": "ability to reach or use something"
+    },
+    {
+      "term": "suitable",
+      "ja": "適切な",
+      "synonym": "appropriate",
+      "definition": "right for a purpose"
+    },
+    {
+      "term": "functions",
+      "ja": "機能する",
+      "synonym": "operates",
+      "definition": "works as intended"
+    },
+    {
+      "term": "distinguish",
+      "ja": "区別する",
+      "synonym": "differentiate",
+      "definition": "recognize differences"
+    },
+    {
+      "term": "efficiency",
+      "ja": "効率",
+      "synonym": "productivity",
+      "definition": "useful output relative to effort"
+    },
+    {
+      "term": "established",
+      "ja": "成立した",
+      "synonym": "confirmed",
+      "definition": "put in place"
+    },
+    {
+      "term": "accessibility",
+      "ja": "利用しやすさ",
+      "synonym": "ease of access",
+      "definition": "quality of being easy to use"
+    },
+    {
+      "term": "sensitive",
+      "ja": "機微な",
+      "synonym": "private",
+      "definition": "requiring careful treatment"
+    },
+    {
+      "term": "hypothetical",
+      "ja": "仮想の",
+      "synonym": "imagined",
+      "definition": "assumed for reasoning"
+    },
+    {
+      "term": "sample",
+      "ja": "見本",
+      "synonym": "example",
+      "definition": "representative example of something"
+    },
+    {
+      "term": "identify",
+      "ja": "特定する",
+      "synonym": "determine",
+      "definition": "find or name"
+    },
+    {
+      "term": "confused",
+      "ja": "混乱した",
+      "synonym": "puzzled",
+      "definition": "unable to understand clearly"
+    },
+    {
+      "term": "appropriate",
+      "ja": "適切な",
+      "synonym": "suitable",
+      "definition": "right for a purpose"
+    },
+    {
+      "term": "assistance",
+      "ja": "支援",
+      "synonym": "help",
+      "definition": "support given to others"
+    },
+    {
+      "term": "retaining",
+      "ja": "維持すること",
+      "synonym": "keeping",
+      "definition": "continuing to have"
+    },
+    {
+      "term": "alternative",
+      "ja": "別の",
+      "synonym": "different",
+      "definition": "available instead of another"
+    },
+    {
+      "term": "channel",
+      "ja": "経路",
+      "synonym": "means",
+      "definition": "way of communicating or acting"
+    },
+    {
+      "term": "circumstances",
+      "ja": "事情",
+      "synonym": "conditions",
+      "definition": "facts affecting a situation"
+    },
+    {
+      "term": "registration",
+      "ja": "登録",
+      "synonym": "enrollment",
+      "definition": "act of signing up"
+    },
+    {
+      "term": "subsequently",
+      "ja": "その後",
+      "synonym": "later",
+      "definition": "afterward"
+    },
+    {
+      "term": "indicators",
+      "ja": "指標",
+      "synonym": "measures",
+      "definition": "signs used for assessment"
+    },
+    {
+      "term": "exclusively",
+      "ja": "専ら",
+      "synonym": "solely",
+      "definition": "only"
+    },
+    {
+      "term": "acknowledge",
+      "ja": "認める",
+      "synonym": "admit",
+      "definition": "accept as true"
+    },
+    {
+      "term": "resources",
+      "ja": "資源",
+      "synonym": "assets",
+      "definition": "things available for use"
+    },
+    {
+      "term": "constitute",
+      "ja": "構成する",
+      "synonym": "amount to",
+      "definition": "form or represent"
+    },
+    {
+      "term": "recommendation",
+      "ja": "推奨",
+      "synonym": "suggestion",
+      "definition": "option proposed as suitable"
+    },
+    {
+      "term": "clinical",
+      "ja": "臨床の",
+      "synonym": "patient-care",
+      "definition": "relating to treatment of patients"
+    },
+    {
+      "term": "outcomes",
+      "ja": "結果",
+      "synonym": "results",
+      "definition": "what happens in the end"
+    },
+    {
+      "term": "partial",
+      "ja": "部分的な",
+      "synonym": "incomplete",
+      "definition": "not covering every part"
+    },
+    {
+      "term": "barriers",
+      "ja": "障壁",
+      "synonym": "obstacles",
+      "definition": "things preventing progress"
+    },
+    {
+      "term": "population",
+      "ja": "対象集団",
+      "synonym": "group",
+      "definition": "group of people being studied"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "Why introduce online booking?",
+      "options": [
+        "To provide treatment without staff.",
+        "To close the health center.",
+        "To eliminate every appointment.",
+        "To reduce time spent waiting at reception."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "待ち時間削減。"
+    },
+    {
+      "id": "q2",
+      "skill": "inference",
+      "prompt": "What missing information concerns an employee?",
+      "options": [
+        "The number of desks alone.",
+        "Experiences of people who could not complete booking.",
+        "Every staff member's salary.",
+        "The cost of past appointments."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "予約できない人の情報。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What difficulty could prevent online booking?",
+      "options": [
+        "Lack of reliable access to a device.",
+        "A shorter waiting time.",
+        "An already confirmed appointment.",
+        "A clear instruction."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "端末アクセス不足。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "What distinction do staff make?",
+      "options": [
+        "Online writing versus medical diagnosis only.",
+        "Visitors versus all employees.",
+        "Efficiency after booking versus accessibility of booking itself.",
+        "Old devices versus new devices only."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "予約後の効率と予約へのアクセス。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What does the educational exercise use?",
+      "options": [
+        "Real private medical histories.",
+        "A sample website and ordinary tasks.",
+        "Actual clinical trial results.",
+        "A mandatory medical examination."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "見本サイト。"
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why consider an alternative channel?",
+      "options": [
+        "Online systems always fail.",
+        "Every patient prefers telephone booking.",
+        "Alternative channels require no resources.",
+        "Some people may have difficulty registering online."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "オンライン利用困難への配慮。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What change does the manager propose?",
+      "options": [
+        "Remove every non-digital option immediately.",
+        "Measure only the reception desk size.",
+        "Evaluate several indicators.",
+        "Ignore unsuccessful attempts."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "複数指標。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "Why examine additional resource needs?",
+      "options": [
+        "Alternative access channels have costs as well as benefits.",
+        "All resources are free.",
+        "No alternative is useful.",
+        "Every service can be improved without cost."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "費用と利益の比較。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does partial mean?",
+      "options": [
+        "Completely accurate in all respects.",
+        "Not covering every part.",
+        "Impossible to observe.",
+        "Providing every answer."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "部分的な。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the main argument?",
+      "options": [
+        "Successful bookings describe every user's needs.",
+        "Waiting time is the only useful measure.",
+        "Online registration must always be abandoned.",
+        "Service evaluation should consider people excluded before successful entry."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "利用に至れない人も考慮。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "who attempted to use the system",
+      "explanation_ja": "関係節がpeopleを修飾。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "even though the online system itself functions",
+      "explanation_ja": "even thoughは譲歩。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 0,
+      "focus": "Rather than collecting sensitive medical details",
+      "explanation_ja": "rather than＋動名詞。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "focus": "that prevent others from entering it",
+      "explanation_ja": "prevent A from doing。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "However, an employee asks whether the records contain any information about people who attempted to use the system but were unable to complete a reservation.",
+      "rewrite": "An employee asks about people who tried but failed to book.",
+      "explanation_ja": "予約未完了者。"
+    },
+    {
+      "source": "Another visitor might lack reliable access to a suitable device, even though the online system itself functions as intended.",
+      "rewrite": "A person may lack suitable access even if the website works correctly.",
+      "explanation_ja": "機能とアクセスの違い。"
+    },
+    {
+      "source": "Rather than collecting sensitive medical details, the staff design a hypothetical exercise involving ordinary tasks on a sample version of the appointment website.",
+      "rewrite": "The activity uses a sample site instead of collecting personal health data.",
+      "explanation_ja": "機微情報を収集しない。"
+    },
+    {
+      "source": "Measurements taken only after people enter a system cannot fully describe barriers that prevent others from entering it.",
+      "rewrite": "Data collected after entry misses obstacles that keep others outside the system.",
+      "explanation_ja": "利用前の障壁。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "改善数値への疑問。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "therefore",
+      "role_ja": "効率とアクセスの区別。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Rather than",
+      "role_ja": "個人情報を使わない評価へ。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "while",
+      "role_ja": "異なる指標の対比。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 0,
+      "answer": "exclude",
+      "options": [
+        "exclude",
+        "include",
+        "collect",
+        "confirm"
+      ],
+      "explanation_ja": "困難を抱えた人が記録から除かれる。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "alternative",
+      "options": [
+        "identical",
+        "alternative",
+        "annual",
+        "temporary"
+      ],
+      "explanation_ja": "別経路。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "answer": "exclusively",
+      "options": [
+        "partly",
+        "jointly",
+        "exclusively",
+        "occasionally"
+      ],
+      "explanation_ja": "平均だけに頼らない。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "answer": "barriers",
+      "options": [
+        "advantages",
+        "appointments",
+        "figures",
+        "barriers"
+      ],
+      "explanation_ja": "アクセスの障壁。"
+    }
+  ]
+}

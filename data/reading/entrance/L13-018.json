@@ -1,0 +1,710 @@
+{
+  "id": "L13-018",
+  "category_id": "L13",
+  "title": "A Telescope with a Waiting List",
+  "title_ja": "順番待ちの望遠鏡",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "word_count": 286,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "人物・具体的な出来事は架空の教材例・思考実験。実在の研究結果や統計を示すものではない。制作台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Imagine a future research station equipped with a telescope that several scientific teams must share.",
+          "ja": "複数の科学チームが共有する望遠鏡を備えた未来の研究基地を想像しよう。"
+        },
+        {
+          "en": "Each team submits a proposal explaining the observations that it hopes to conduct during the next month.",
+          "ja": "各チームは翌月に行いたい観測を説明する提案書を提出する。"
+        },
+        {
+          "en": "The station initially distributes equal amounts of observation time to the participating groups.",
+          "ja": "基地は当初参加グループに等量の観測時間を配分する。"
+        },
+        {
+          "en": "However, the researchers soon discover that their projects have very different scheduling requirements.",
+          "ja": "しかし各研究の時間設定の要件が大きく異なるとすぐ気づく。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "One team wants to observe a fictional event expected to occur during a narrow window of time.",
+          "ja": "一つのチームは限られた時間帯に起こると予想される架空の現象を観測したい。"
+        },
+        {
+          "en": "Another team plans to collect repeated measurements over several weeks to examine a gradual change.",
+          "ja": "別のチームは緩やかな変化を調べるため数週間にわたり繰り返し測定する計画だ。"
+        },
+        {
+          "en": "An identical allocation cannot necessarily satisfy both types of investigation equally well.",
+          "ja": "同一の配分では両種類の調査を等しく満たせるとは限らない。"
+        },
+        {
+          "en": "The station therefore requests information about the flexibility and urgency of each proposed observation.",
+          "ja": "そこで基地は各観測案の柔軟性と緊急性について情報を求める。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The scheduling committee separates requests that depend on particular times from those that can be moved easily.",
+          "ja": "日程委員会は特定の時刻に依存する要望と容易に移動できる要望を分ける。"
+        },
+        {
+          "en": "It reserves some observation periods for unexpected opportunities or interruptions.",
+          "ja": "予期しない機会や中断に備えて観測期間の一部を確保する。"
+        },
+        {
+          "en": "The committee also publishes the principles used to decide between competing requests.",
+          "ja": "競合する要望の判断に使う原則も公開する。"
+        },
+        {
+          "en": "These principles include scientific relevance, scheduling constraints, and the availability of alternative methods.",
+          "ja": "原則には科学的意義、日程上の制約、代替方法の有無が含まれる。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Nevertheless, a published procedure does not remove every disagreement about research priorities.",
+          "ja": "それでも公開された手順は研究の優先順位についての全意見相違をなくさない。"
+        },
+        {
+          "en": "A team whose request is postponed may still question the committee's interpretation of its importance.",
+          "ja": "要望が延期されたチームは重要性についての委員会の解釈に疑問を持つこともある。"
+        },
+        {
+          "en": "The station establishes a short review process through which researchers can provide additional relevant evidence.",
+          "ja": "基地は研究者が追加の関連証拠を提出できる短い見直し手続きを設ける。"
+        },
+        {
+          "en": "The final schedule is periodically reconsidered when new information becomes available.",
+          "ja": "新情報が得られたら最終日程を定期的に見直す。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "This thought experiment illustrates the distinction between equal distribution and meaningful access to a limited resource.",
+          "ja": "この思考実験は限られた資源の平等な配分と意味ある利用機会の違いを示す。"
+        },
+        {
+          "en": "Fairness may require considering the conditions under which each recipient can benefit from an allocation.",
+          "ja": "公平性には各受け手が配分から恩恵を受ける条件の考慮が必要な場合がある。"
+        },
+        {
+          "en": "At the same time, flexibility must be accompanied by transparent reasons and opportunities for review.",
+          "ja": "同時に柔軟性には透明な理由と見直し機会が伴わなければならない。"
+        },
+        {
+          "en": "The hypothetical telescope is valuable not merely because it is powerful, but because researchers can use it responsibly together.",
+          "ja": "仮想の望遠鏡は高性能なだけでなく研究者が責任を持って共同利用できるため価値がある。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "telescope",
+      "ja": "望遠鏡",
+      "synonym": "observing instrument",
+      "definition": "an instrument for viewing distant objects"
+    },
+    {
+      "term": "equipped",
+      "ja": "備えられた",
+      "synonym": "fitted",
+      "definition": "provided with necessary equipment"
+    },
+    {
+      "term": "research station",
+      "ja": "研究基地",
+      "synonym": "research base",
+      "definition": "a facility for research"
+    },
+    {
+      "term": "scientific",
+      "ja": "科学的な",
+      "synonym": "science-related",
+      "definition": "relating to science"
+    },
+    {
+      "term": "submits",
+      "ja": "提出する",
+      "synonym": "hands in",
+      "definition": "gives something for consideration"
+    },
+    {
+      "term": "proposal",
+      "ja": "提案書",
+      "synonym": "plan",
+      "definition": "a plan offered for consideration"
+    },
+    {
+      "term": "observations",
+      "ja": "観測",
+      "synonym": "measurements",
+      "definition": "acts of examining something"
+    },
+    {
+      "term": "conduct",
+      "ja": "行う",
+      "synonym": "carry out",
+      "definition": "perform a planned activity"
+    },
+    {
+      "term": "initially",
+      "ja": "当初",
+      "synonym": "at first",
+      "definition": "at the beginning"
+    },
+    {
+      "term": "distributes",
+      "ja": "配分する",
+      "synonym": "allocates",
+      "definition": "gives shares to different parties"
+    },
+    {
+      "term": "equal",
+      "ja": "等しい",
+      "synonym": "identical in amount",
+      "definition": "having the same amount"
+    },
+    {
+      "term": "participating",
+      "ja": "参加する",
+      "synonym": "taking part",
+      "definition": "involved in an activity"
+    },
+    {
+      "term": "requirements",
+      "ja": "要件",
+      "synonym": "conditions",
+      "definition": "things that must be met"
+    },
+    {
+      "term": "fictional",
+      "ja": "架空の",
+      "synonym": "imaginary",
+      "definition": "existing in imagination"
+    },
+    {
+      "term": "expected",
+      "ja": "予想される",
+      "synonym": "anticipated",
+      "definition": "thought likely to happen"
+    },
+    {
+      "term": "occur",
+      "ja": "起こる",
+      "synonym": "happen",
+      "definition": "take place"
+    },
+    {
+      "term": "narrow",
+      "ja": "狭い",
+      "synonym": "limited",
+      "definition": "having a small range"
+    },
+    {
+      "term": "repeated",
+      "ja": "繰り返される",
+      "synonym": "recurring",
+      "definition": "done more than once"
+    },
+    {
+      "term": "measurements",
+      "ja": "測定",
+      "synonym": "readings",
+      "definition": "values obtained by measuring"
+    },
+    {
+      "term": "gradual",
+      "ja": "緩やかな",
+      "synonym": "slow",
+      "definition": "taking place little by little"
+    },
+    {
+      "term": "allocation",
+      "ja": "配分",
+      "synonym": "assignment",
+      "definition": "a share assigned for a purpose"
+    },
+    {
+      "term": "necessarily",
+      "ja": "必ずしも",
+      "synonym": "inevitably",
+      "definition": "in a way that must be true"
+    },
+    {
+      "term": "satisfy",
+      "ja": "満たす",
+      "synonym": "meet",
+      "definition": "fulfill a requirement"
+    },
+    {
+      "term": "investigation",
+      "ja": "調査",
+      "synonym": "inquiry",
+      "definition": "careful study to discover information"
+    },
+    {
+      "term": "flexibility",
+      "ja": "柔軟性",
+      "synonym": "adaptability",
+      "definition": "ability to adjust to change"
+    },
+    {
+      "term": "urgency",
+      "ja": "緊急性",
+      "synonym": "immediacy",
+      "definition": "the need for prompt action"
+    },
+    {
+      "term": "proposed",
+      "ja": "提案された",
+      "synonym": "suggested",
+      "definition": "put forward for consideration"
+    },
+    {
+      "term": "committee",
+      "ja": "委員会",
+      "synonym": "panel",
+      "definition": "a group chosen to decide things"
+    },
+    {
+      "term": "separates",
+      "ja": "分ける",
+      "synonym": "divides",
+      "definition": "puts things into distinct groups"
+    },
+    {
+      "term": "reserves",
+      "ja": "確保する",
+      "synonym": "sets aside",
+      "definition": "keeps for a particular purpose"
+    },
+    {
+      "term": "interruptions",
+      "ja": "中断",
+      "synonym": "disruptions",
+      "definition": "events causing a temporary stop"
+    },
+    {
+      "term": "principles",
+      "ja": "原則",
+      "synonym": "rules",
+      "definition": "fundamental rules or ideas"
+    },
+    {
+      "term": "competing",
+      "ja": "競合する",
+      "synonym": "rival",
+      "definition": "in competition with others"
+    },
+    {
+      "term": "relevance",
+      "ja": "意義・関連性",
+      "synonym": "pertinence",
+      "definition": "the quality of being relevant"
+    },
+    {
+      "term": "constraints",
+      "ja": "制約",
+      "synonym": "limitations",
+      "definition": "things restricting what is possible"
+    },
+    {
+      "term": "availability",
+      "ja": "利用可能性",
+      "synonym": "accessibility",
+      "definition": "the state of being available"
+    },
+    {
+      "term": "alternative",
+      "ja": "代替の",
+      "synonym": "different",
+      "definition": "available in place of another"
+    },
+    {
+      "term": "procedure",
+      "ja": "手順",
+      "synonym": "process",
+      "definition": "an established way of acting"
+    },
+    {
+      "term": "disagreement",
+      "ja": "意見の相違",
+      "synonym": "difference of opinion",
+      "definition": "a lack of agreement"
+    },
+    {
+      "term": "priorities",
+      "ja": "優先順位",
+      "synonym": "main concerns",
+      "definition": "things considered especially important"
+    },
+    {
+      "term": "postponed",
+      "ja": "延期された",
+      "synonym": "delayed",
+      "definition": "moved to a later time"
+    },
+    {
+      "term": "interpretation",
+      "ja": "解釈",
+      "synonym": "understanding",
+      "definition": "the meaning assigned to something"
+    },
+    {
+      "term": "establishes",
+      "ja": "設ける",
+      "synonym": "sets up",
+      "definition": "puts something into effect"
+    },
+    {
+      "term": "evidence",
+      "ja": "証拠",
+      "synonym": "support",
+      "definition": "information supporting a conclusion"
+    },
+    {
+      "term": "periodically",
+      "ja": "定期的に",
+      "synonym": "regularly",
+      "definition": "at intervals"
+    },
+    {
+      "term": "reconsidered",
+      "ja": "見直された",
+      "synonym": "reviewed",
+      "definition": "thought about again"
+    },
+    {
+      "term": "recipient",
+      "ja": "受け手",
+      "synonym": "receiver",
+      "definition": "someone receiving something"
+    },
+    {
+      "term": "transparent",
+      "ja": "透明な",
+      "synonym": "open",
+      "definition": "easy to understand and examine"
+    },
+    {
+      "term": "hypothetical",
+      "ja": "仮想の",
+      "synonym": "imagined",
+      "definition": "assumed for the sake of reasoning"
+    },
+    {
+      "term": "responsibly",
+      "ja": "責任を持って",
+      "synonym": "carefully",
+      "definition": "with appropriate care and judgment"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What do teams share?",
+      "answer": 0,
+      "options": [
+        "A telescope.",
+        "A private restaurant.",
+        "An unlimited energy supply.",
+        "A school library."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "望遠鏡を共有。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "How was time initially distributed?",
+      "answer": 1,
+      "options": [
+        "Only to the largest team.",
+        "In equal amounts.",
+        "According to personal wealth.",
+        "Without any proposals."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "等量を配分。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What differs between the projects?",
+      "answer": 3,
+      "options": [
+        "The planet they live on.",
+        "The ownership of the telescope.",
+        "The language of every proposal.",
+        "Timing requirements."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "日程の要件が異なる。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why might equal time be insufficient?",
+      "answer": 2,
+      "options": [
+        "Every team needs exactly the same schedule.",
+        "All studies are already completed.",
+        "Some observations depend on specific timing.",
+        "No team can use a telescope."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "特定時刻が重要な観測もある。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "Why reserve some time?",
+      "answer": 1,
+      "options": [
+        "For deleting earlier observations.",
+        "For unexpected opportunities or interruptions.",
+        "To prevent all future requests.",
+        "To guarantee no schedule changes."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "不測の機会や中断に備える。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What does the committee publish?",
+      "answer": 0,
+      "options": [
+        "Principles for deciding among requests.",
+        "Private addresses of researchers.",
+        "Every possible scientific result.",
+        "A promise that all requests will be accepted."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "判断原則。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What can researchers do through review?",
+      "answer": 2,
+      "options": [
+        "Automatically obtain all requested time.",
+        "Remove other teams permanently.",
+        "Provide additional relevant evidence.",
+        "Ignore every allocation rule."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "追加の根拠を提出。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "Why reconsider the schedule periodically?",
+      "answer": 3,
+      "options": [
+        "All published principles have no value.",
+        "Every observation is fictional in the station's plan.",
+        "The telescope is never used.",
+        "New information may affect the allocation."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "新情報で配分を調整できる。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does hypothetical mean?",
+      "answer": 0,
+      "options": [
+        "Assumed for the sake of reasoning.",
+        "Already proven in real life.",
+        "Physically damaged.",
+        "Impossible to imagine."
+      ],
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "仮想の。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What principle does the example illustrate?",
+      "answer": 1,
+      "options": [
+        "Identical time always guarantees equal benefit.",
+        "Fair access to shared resources can require flexibility and transparent reasons.",
+        "The best telescope needs no scheduling.",
+        "All competing requests should be ignored."
+      ],
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "資源配分には柔軟性と透明性が必要。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 0,
+      "focus": "equipped with a telescope",
+      "explanation_ja": "過去分詞句がstationを修飾。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "cannot necessarily satisfy",
+      "explanation_ja": "not necessarilyは必ずしも〜とは限らない。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "focus": "through which researchers can provide",
+      "explanation_ja": "前置詞＋関係代名詞whichがprocessを説明。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "focus": "must be accompanied by",
+      "explanation_ja": "must be＋過去分詞は義務の受動態。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Imagine a future research station equipped with a telescope that several scientific teams must share.",
+      "rewrite": "Consider an imagined station that has a telescope shared by several research teams.",
+      "explanation_ja": "望遠鏡を共有する架空の基地。"
+    },
+    {
+      "source": "An identical allocation cannot necessarily satisfy both types of investigation equally well.",
+      "rewrite": "Giving both projects identical amounts of time may not meet their needs equally well.",
+      "explanation_ja": "等量では必要を満たせない場合。"
+    },
+    {
+      "source": "The station establishes a short review process through which researchers can provide additional relevant evidence.",
+      "rewrite": "The station creates a review procedure allowing researchers to add relevant evidence.",
+      "explanation_ja": "追加の根拠を提出できる見直し手続き。"
+    },
+    {
+      "source": "At the same time, flexibility must be accompanied by transparent reasons and opportunities for review.",
+      "rewrite": "Flexibility needs to go together with clear explanations and chances to request review.",
+      "explanation_ja": "理由と見直しの機会が必要。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "等量配分と実際の要件の差。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "therefore",
+      "role_ja": "必要情報を追加で求める。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "手順公開後も意見の違いが残る。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "At the same time",
+      "role_ja": "柔軟性と透明性の両立。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "answer": "urgency",
+      "options": [
+        "urgency",
+        "portrait",
+        "recipe",
+        "receipt"
+      ],
+      "explanation_ja": "観測の緊急性。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "interruptions",
+      "options": [
+        "celebrations",
+        "interruptions",
+        "invitations",
+        "measurements"
+      ],
+      "explanation_ja": "予期しない中断への備え。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 3,
+      "answer": "periodically",
+      "options": [
+        "secretly",
+        "accidentally",
+        "periodically",
+        "visually"
+      ],
+      "explanation_ja": "定期的に見直す。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "transparent",
+      "options": [
+        "wooden",
+        "frozen",
+        "annual",
+        "transparent"
+      ],
+      "explanation_ja": "透明な理由。"
+    }
+  ]
+}

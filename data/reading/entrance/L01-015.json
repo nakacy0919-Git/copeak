@@ -1,0 +1,680 @@
+{
+  "id": "L01-015",
+  "category_id": "L01",
+  "title": "A River Seen from Two Heights",
+  "title_ja": "二つの高さから見た川",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "word_count": 253,
+  "source_links": [
+    {
+      "title": "Original lesson authoring registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "登場人物、具体的な出来事・観察・記録は架空の教材例。実在の調査結果ではない。参考リンクは制作台帳であり外部の実証資料ではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A group of students visited a river that passed through the edge of their town.",
+          "ja": "生徒の一団は町の外れを流れる川を訪れた。"
+        },
+        {
+          "en": "They had been asked to identify places where rubbish tended to collect.",
+          "ja": "ごみがたまりやすい場所を特定するよう求められていた。"
+        },
+        {
+          "en": "From a bridge, they could see several bright objects floating near the bank.",
+          "ja": "橋からは岸近くに浮かぶ明るい色の物がいくつか見えた。"
+        },
+        {
+          "en": "The students marked those locations on a simple map of the river.",
+          "ja": "生徒たちは川の簡単な地図にその場所を記した。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Their guide then led them down a public path beside the water.",
+          "ja": "次に案内人は水辺の公共の小道へ彼らを導いた。"
+        },
+        {
+          "en": "At this lower level, they noticed rubbish hidden among the tall plants.",
+          "ja": "低い位置では背の高い植物の間に隠れたごみに気づいた。"
+        },
+        {
+          "en": "Most of these objects had been invisible from the bridge above.",
+          "ja": "これらの物の大半は上の橋からは見えなかった。"
+        },
+        {
+          "en": "They realized that their first map described only what they could easily observe.",
+          "ja": "最初の地図は容易に観察できたものだけを示していたと気づいた。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Instead of deleting the first map, they prepared a second map with the new information.",
+          "ja": "最初の地図を消去する代わりに、新しい情報を載せた二枚目の地図を用意した。"
+        },
+        {
+          "en": "They recorded the position from which each observation had been made.",
+          "ja": "どの位置から各観察を行ったか記録した。"
+        },
+        {
+          "en": "They also noted places that they could not safely reach during the visit.",
+          "ja": "訪問中に安全に近づけなかった場所も記録した。"
+        },
+        {
+          "en": "Their guide reminded them that an empty mark did not necessarily indicate a clean area.",
+          "ja": "案内人は、印がないことが必ずしもきれいな区域を意味しないと思い出させた。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Back at school, the students combined their maps to plan a volunteer cleanup.",
+          "ja": "学校に戻り、生徒たちは地図を組み合わせてボランティア清掃を計画した。"
+        },
+        {
+          "en": "They selected accessible locations and contacted the local group responsible for the riverbank.",
+          "ja": "近づける場所を選び、川岸の管理を担当する地域団体に連絡した。"
+        },
+        {
+          "en": "However, they did not claim that their final map covered the entire river.",
+          "ja": "しかし、最終地図が川全体を網羅しているとは主張しなかった。"
+        },
+        {
+          "en": "They included a short explanation of the limits of their survey.",
+          "ja": "調査の限界について短い説明を添えた。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The activity changed the way the students understood environmental information.",
+          "ja": "この活動は生徒たちの環境情報への理解を変えた。"
+        },
+        {
+          "en": "A map may appear complete even when certain locations have not been examined.",
+          "ja": "ある場所が調べられていなくても地図は完全に見える場合がある。"
+        },
+        {
+          "en": "Combining different viewpoints can reveal information that a single observer might miss.",
+          "ja": "異なる視点を組み合わせると、一人の観察者が見落とす情報が明らかになり得る。"
+        },
+        {
+          "en": "The students learned to ask how information was collected before deciding what it meant.",
+          "ja": "生徒たちは情報の意味を判断する前に、収集方法を尋ねることを学んだ。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "visited",
+      "ja": "訪れた",
+      "synonym": "went to",
+      "definition": "went to a particular place"
+    },
+    {
+      "term": "edge",
+      "ja": "外れ",
+      "synonym": "boundary",
+      "definition": "outer part of an area"
+    },
+    {
+      "term": "identify",
+      "ja": "特定する",
+      "synonym": "recognize",
+      "definition": "find out which thing is involved"
+    },
+    {
+      "term": "rubbish",
+      "ja": "ごみ",
+      "synonym": "waste",
+      "definition": "unwanted material"
+    },
+    {
+      "term": "tended",
+      "ja": "〜しがちだった",
+      "synonym": "was likely",
+      "definition": "usually behaved in a particular way"
+    },
+    {
+      "term": "collect",
+      "ja": "たまる",
+      "synonym": "accumulate",
+      "definition": "gather in one place"
+    },
+    {
+      "term": "bridge",
+      "ja": "橋",
+      "synonym": "crossing",
+      "definition": "structure over an obstacle"
+    },
+    {
+      "term": "floating",
+      "ja": "浮かぶ",
+      "synonym": "drifting",
+      "definition": "remaining on the surface of water"
+    },
+    {
+      "term": "bank",
+      "ja": "岸",
+      "synonym": "shore",
+      "definition": "land beside a river"
+    },
+    {
+      "term": "marked",
+      "ja": "印を付けた",
+      "synonym": "indicated",
+      "definition": "put a sign on something"
+    },
+    {
+      "term": "locations",
+      "ja": "場所",
+      "synonym": "sites",
+      "definition": "particular places"
+    },
+    {
+      "term": "guide",
+      "ja": "案内人",
+      "synonym": "leader",
+      "definition": "person showing others the way"
+    },
+    {
+      "term": "public",
+      "ja": "公共の",
+      "synonym": "open to all",
+      "definition": "available to people generally"
+    },
+    {
+      "term": "path",
+      "ja": "小道",
+      "synonym": "trail",
+      "definition": "way for walking"
+    },
+    {
+      "term": "level",
+      "ja": "高さ",
+      "synonym": "height",
+      "definition": "position above or below another"
+    },
+    {
+      "term": "noticed",
+      "ja": "気づいた",
+      "synonym": "observed",
+      "definition": "became aware of"
+    },
+    {
+      "term": "hidden",
+      "ja": "隠れた",
+      "synonym": "concealed",
+      "definition": "kept out of sight"
+    },
+    {
+      "term": "invisible",
+      "ja": "見えない",
+      "synonym": "unseen",
+      "definition": "unable to be seen"
+    },
+    {
+      "term": "described",
+      "ja": "記述した",
+      "synonym": "represented",
+      "definition": "gave information about something"
+    },
+    {
+      "term": "observe",
+      "ja": "観察する",
+      "synonym": "watch",
+      "definition": "look at carefully"
+    },
+    {
+      "term": "deleting",
+      "ja": "消去すること",
+      "synonym": "removing",
+      "definition": "taking something away"
+    },
+    {
+      "term": "prepared",
+      "ja": "用意した",
+      "synonym": "made ready",
+      "definition": "created or arranged beforehand"
+    },
+    {
+      "term": "recorded",
+      "ja": "記録した",
+      "synonym": "noted",
+      "definition": "kept information"
+    },
+    {
+      "term": "position",
+      "ja": "位置",
+      "synonym": "location",
+      "definition": "place where something is"
+    },
+    {
+      "term": "observation",
+      "ja": "観察",
+      "synonym": "inspection",
+      "definition": "act of looking to learn"
+    },
+    {
+      "term": "safely",
+      "ja": "安全に",
+      "synonym": "securely",
+      "definition": "without danger"
+    },
+    {
+      "term": "reach",
+      "ja": "近づく",
+      "synonym": "get to",
+      "definition": "arrive at a place"
+    },
+    {
+      "term": "reminded",
+      "ja": "思い出させた",
+      "synonym": "prompted",
+      "definition": "caused someone to remember"
+    },
+    {
+      "term": "necessarily",
+      "ja": "必ずしも",
+      "synonym": "inevitably",
+      "definition": "in a way that must be true"
+    },
+    {
+      "term": "indicate",
+      "ja": "示す",
+      "synonym": "show",
+      "definition": "give a sign of something"
+    },
+    {
+      "term": "combined",
+      "ja": "組み合わせた",
+      "synonym": "joined",
+      "definition": "put things together"
+    },
+    {
+      "term": "volunteer",
+      "ja": "ボランティアの",
+      "synonym": "unpaid",
+      "definition": "done freely to help"
+    },
+    {
+      "term": "cleanup",
+      "ja": "清掃",
+      "synonym": "cleaning",
+      "definition": "activity of removing waste"
+    },
+    {
+      "term": "selected",
+      "ja": "選んだ",
+      "synonym": "chose",
+      "definition": "picked from options"
+    },
+    {
+      "term": "accessible",
+      "ja": "近づける",
+      "synonym": "reachable",
+      "definition": "able to be reached"
+    },
+    {
+      "term": "contacted",
+      "ja": "連絡した",
+      "synonym": "communicated with",
+      "definition": "got in touch with"
+    },
+    {
+      "term": "responsible",
+      "ja": "担当する",
+      "synonym": "in charge",
+      "definition": "having a duty to do something"
+    },
+    {
+      "term": "riverbank",
+      "ja": "川岸",
+      "synonym": "river edge",
+      "definition": "land alongside a river"
+    },
+    {
+      "term": "claim",
+      "ja": "主張する",
+      "synonym": "assert",
+      "definition": "say something is true"
+    },
+    {
+      "term": "entire",
+      "ja": "全体の",
+      "synonym": "whole",
+      "definition": "including every part"
+    },
+    {
+      "term": "limits",
+      "ja": "限界",
+      "synonym": "boundaries",
+      "definition": "points beyond which something does not apply"
+    },
+    {
+      "term": "survey",
+      "ja": "調査",
+      "synonym": "inspection",
+      "definition": "organized collection of information"
+    },
+    {
+      "term": "viewpoints",
+      "ja": "視点",
+      "synonym": "perspectives",
+      "definition": "positions from which things are seen"
+    },
+    {
+      "term": "reveal",
+      "ja": "明らかにする",
+      "synonym": "show",
+      "definition": "make something known"
+    },
+    {
+      "term": "observer",
+      "ja": "観察者",
+      "synonym": "viewer",
+      "definition": "person who watches or examines"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What was the students' original task?",
+      "options": [
+        "Measure the river's temperature.",
+        "Choose a new bridge design.",
+        "Count fish in the river.",
+        "Identify places where rubbish collected."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "ごみがたまる場所を特定する課題だった。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "Where did they make their first observations?",
+      "options": [
+        "From a boat.",
+        "From a bridge.",
+        "From a classroom.",
+        "From inside a tunnel."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "橋から観察した。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What did they find at a lower level?",
+      "options": [
+        "Rubbish hidden among plants.",
+        "A different river.",
+        "A new bridge.",
+        "An empty waste truck."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "植物の間に隠れたごみがあった。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why was their first map incomplete?",
+      "options": [
+        "They had lost the map before visiting.",
+        "They deliberately marked false locations.",
+        "Some objects could not be seen from above.",
+        "The river had stopped flowing."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "上から見えない物があった。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What did they add to their records?",
+      "options": [
+        "The position of each observation.",
+        "The names of every resident.",
+        "The prices of cleaning tools.",
+        "The age of each plant."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "観察位置を記録した。"
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "What might an unmarked area mean?",
+      "options": [
+        "It must be free of rubbish.",
+        "It may not have been examined.",
+        "It was definitely cleaned yesterday.",
+        "It cannot exist on a map."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "未観察の場合もある。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "Who did they contact?",
+      "options": [
+        "A company selling boats.",
+        "The school's music club.",
+        "A television actor.",
+        "The local group responsible for the riverbank."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "川岸を管理する団体に連絡した。"
+    },
+    {
+      "id": "q8",
+      "skill": "vocabulary",
+      "prompt": "What does accessible mean here?",
+      "options": [
+        "Extremely dirty.",
+        "Very expensive.",
+        "Able to be reached.",
+        "Hidden from sight."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "近づくことができるという意味。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Why did they describe the survey's limits?",
+      "options": [
+        "To prevent anyone using the map.",
+        "To avoid claiming more than they had observed.",
+        "To hide their volunteer plans.",
+        "To prove every area was clean."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "観察した範囲を超えた主張を避けるため。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the key lesson?",
+      "options": [
+        "Consider how information is gathered and combine viewpoints.",
+        "Maps always contain every relevant fact.",
+        "River cleaning requires no planning.",
+        "Only observations from bridges are reliable."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "収集方法と異なる視点が重要。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "where rubbish tended to collect",
+      "explanation_ja": "関係副詞whereがplacesを修飾する。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "had been invisible",
+      "explanation_ja": "過去完了は低い位置に移る前の状態を表す。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "focus": "did not necessarily indicate",
+      "explanation_ja": "not necessarilyは必ずしも〜ではない。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "focus": "that a single observer might miss",
+      "explanation_ja": "関係代名詞thatがinformationを修飾する。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p2",
+      "expression": "then",
+      "role_ja": "次の観察位置への移動。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Instead of",
+      "role_ja": "前の地図を残す対案。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "However",
+      "role_ja": "統合した地図の限界。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "even when",
+      "role_ja": "完全に見えることと未調査の対比。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "They had been asked to identify places where rubbish tended to collect.",
+      "rewrite": "Their task was to find sites where waste often gathered.",
+      "explanation_ja": "ごみがたまりやすい場所を探す課題。"
+    },
+    {
+      "source": "Most of these objects had been invisible from the bridge above.",
+      "rewrite": "They had been unable to see most of the objects from the bridge.",
+      "explanation_ja": "橋からは大半が見えなかった。"
+    },
+    {
+      "source": "Their guide reminded them that an empty mark did not necessarily indicate a clean area.",
+      "rewrite": "A place with no mark was not automatically a clean place.",
+      "explanation_ja": "印のない場所がきれいとは限らない。"
+    },
+    {
+      "source": "Combining different viewpoints can reveal information that a single observer might miss.",
+      "rewrite": "Different perspectives can uncover things that one person might overlook.",
+      "explanation_ja": "複数の視点から見落としを補える。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "hidden",
+      "options": [
+        "printed",
+        "sold",
+        "hidden",
+        "borrowed"
+      ],
+      "explanation_ja": "植物に隠れたごみ。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "safely",
+      "options": [
+        "cheaply",
+        "secretly",
+        "loudly",
+        "safely"
+      ],
+      "explanation_ja": "安全に近づけない場所。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "accessible",
+      "options": [
+        "ancient",
+        "identical",
+        "accessible",
+        "frozen"
+      ],
+      "explanation_ja": "近づける場所を選択。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "viewpoints",
+      "options": [
+        "tickets",
+        "prizes",
+        "recipes",
+        "viewpoints"
+      ],
+      "explanation_ja": "異なる視点を合わせる。"
+    }
+  ]
+}

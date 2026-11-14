@@ -1,0 +1,708 @@
+{
+  "id": "L10-024",
+  "category_id": "L10",
+  "title": "An Example That Broke the Rule",
+  "title_ja": "規則を破った例",
+  "level_id": "eiken-pre1",
+  "status": "draft",
+  "original": true,
+  "word_count": 556,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "架空の教材例・思考実験。実在の調査、統計、観測、制度、実証結果ではない。制作台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "In a fictional language class, students are asked to formulate a rule explaining when a particular grammatical construction can be used.",
+          "ja": "架空の語学授業で生徒は特定文法構文をいつ使用できるか説明する規則を作るよう求められる。"
+        },
+        {
+          "en": "They examine several sentences from a textbook and notice that all of the examples contain a similar arrangement of words.",
+          "ja": "教科書の複数文を調べ、全例に似た語配置があると気づく。"
+        },
+        {
+          "en": "One group produces a general rule and demonstrates that it correctly accounts for each of the sentences that the teacher has provided.",
+          "ja": "一班は一般規則を作り教師が提供した全例を正しく説明できることを示す。"
+        },
+        {
+          "en": "The group consequently assumes that it has established a complete explanation of the construction, although the teacher has not yet confirmed the scope of its proposed rule.",
+          "ja": "そこで教師が規則の適用範囲を確認していないのに構文の完全説明を確立したと想定する。"
+        },
+        {
+          "en": "Instead of giving the group an additional sentence immediately, the teacher asks the students to construct a possible example that would reveal a limitation of their own explanation.",
+          "ja": "直ちに追加文を与えず自分たちの説明の限界を示し得る例を自分で作るよう教師は求める。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "At first the students find this task difficult, because they have become accustomed to searching for evidence that confirms an answer rather than exploring the conditions under which the proposed answer might fail.",
+          "ja": "当初は答えを裏付ける証拠を探すことに慣れ、答えが成り立たない条件を探ることに慣れていないため難しく感じる。"
+        },
+        {
+          "en": "They attempt to modify one of the original sentences by changing a relevant feature while preserving as much of its structure as possible.",
+          "ja": "原文の一つで構造を可能な限り維持しつつ関連特徴を変えて修正しようとする。"
+        },
+        {
+          "en": "Some of the revised examples appear to remain acceptable according to the group's rule but create a meaning different from the one that the students expected.",
+          "ja": "修正例の一部は班の規則上許容されるように見えるが予想と異なる意味を生む。"
+        },
+        {
+          "en": "The teacher encourages the students to distinguish problems with the form of a sentence from problems with the conditions under which its intended meaning is communicated.",
+          "ja": "文の形式の問題と意図した意味が伝わる条件の問題を区別するよう促す。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The students gradually recognize that an example consistent with a proposed rule does not necessarily establish that the rule is the only possible explanation of the example.",
+          "ja": "提案規則と一致する例がその規則が唯一の説明であると必ずしも確定しないと徐々に認識する。"
+        },
+        {
+          "en": "Several explanations could account for the same collection of sentences while making different predictions about sentences that have not yet been examined.",
+          "ja": "複数説明が同じ文群を説明しつつ未検討の文について異なる予測を出し得る。"
+        },
+        {
+          "en": "The group therefore begins comparing the implications of several possible rules, rather than merely collecting additional sentences that are consistent with its original proposal.",
+          "ja": "そこで当初案と一致する文を追加収集するだけでなく複数規則の含意を比較し始める。"
+        },
+        {
+          "en": "When they identify a sentence that appears to challenge one of the explanations, they examine whether it is a genuine counterexample or whether the original rule was intended to apply only under more specific conditions.",
+          "ja": "一説明に反するような文を見つけると真の反例か元規則がより限定条件で適用する意図だったかを調べる。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "For a subsequent lesson, the teacher prepares a worksheet that asks each group to present a rule, an example supporting it, and a possible limitation that another group can investigate.",
+          "ja": "次の授業で教師は各班に規則、支持例、他班が調べられる潜在的限界を提示させるワークシートを作る。"
+        },
+        {
+          "en": "The students are encouraged to revise their explanations when a counterexample reveals that an important distinction has been overlooked, rather than treating revision as evidence of failure.",
+          "ja": "反例が重要な区別の見落としを示すとき修正を失敗の証拠と扱わず説明を修正するよう促す。"
+        },
+        {
+          "en": "The fictional exercise is designed to illustrate a way of reasoning about examples and does not establish which teaching method would produce superior learning outcomes in an actual classroom.",
+          "ja": "架空練習は例についての推論方法を示すもので実教室でどの教授法が優れた結果を出すか確定しない。"
+        },
+        {
+          "en": "Its intended value lies in helping students become aware of the difference between recognizing a pattern and explaining why that pattern holds under particular circumstances.",
+          "ja": "意図した価値はパターン認識と特定事情で成り立つ理由の説明の違いを意識させることにある。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "Examples can make an abstract explanation easier to understand, but they can also create a misleading impression of completeness if every example has been selected to illustrate the same principle.",
+          "ja": "例は抽象説明を理解しやすくするが全例が同じ原則を示すため選ばれると完全性について誤解を生み得る。"
+        },
+        {
+          "en": "A thoughtful learner considers not only the cases that support an explanation but also the differences between that explanation and alternative accounts of the same evidence.",
+          "ja": "思慮深い学習者は説明を支持する事例だけでなく同じ証拠の代替説明との差異も考える。"
+        },
+        {
+          "en": "The ability to construct and examine a possible counterexample can make the boundaries of a rule more visible without requiring the learner to reject every useful generalization.",
+          "ja": "反例候補を作り検討する能力は有用な一般化をすべて否定する必要なく規則の境界を可視化し得る。"
+        },
+        {
+          "en": "In the fictional language class, the sentence that initially seemed to break a rule becomes a particularly valuable opportunity to clarify what the rule was capable of explaining.",
+          "ja": "架空語学授業で最初規則を破るように見えた文は規則が何を説明できたか明確にする特に有益な機会となる。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "formulate",
+      "ja": "作り上げる",
+      "synonym": "develop",
+      "definition": "express in a systematic form"
+    },
+    {
+      "term": "grammatical",
+      "ja": "文法の",
+      "synonym": "grammar-related",
+      "definition": "relating to grammar"
+    },
+    {
+      "term": "construction",
+      "ja": "構文",
+      "synonym": "structure",
+      "definition": "pattern of language"
+    },
+    {
+      "term": "arrangement",
+      "ja": "配置",
+      "synonym": "order",
+      "definition": "way things are organized"
+    },
+    {
+      "term": "demonstrates",
+      "ja": "示す",
+      "synonym": "shows",
+      "definition": "makes evident"
+    },
+    {
+      "term": "accounts for",
+      "ja": "説明する",
+      "synonym": "explains",
+      "definition": "provides a reason for"
+    },
+    {
+      "term": "consequently",
+      "ja": "したがって",
+      "synonym": "therefore",
+      "definition": "as a result"
+    },
+    {
+      "term": "assumes",
+      "ja": "想定する",
+      "synonym": "supposes",
+      "definition": "accepts without proof"
+    },
+    {
+      "term": "established",
+      "ja": "確立した",
+      "synonym": "confirmed",
+      "definition": "shown to be true"
+    },
+    {
+      "term": "scope",
+      "ja": "範囲",
+      "synonym": "range",
+      "definition": "extent of something"
+    },
+    {
+      "term": "proposed",
+      "ja": "提案した",
+      "synonym": "suggested",
+      "definition": "put forward for consideration"
+    },
+    {
+      "term": "construct",
+      "ja": "作る",
+      "synonym": "build",
+      "definition": "put together"
+    },
+    {
+      "term": "limitation",
+      "ja": "限界",
+      "synonym": "constraint",
+      "definition": "bound on possibilities"
+    },
+    {
+      "term": "accustomed",
+      "ja": "慣れた",
+      "synonym": "used",
+      "definition": "familiar through experience"
+    },
+    {
+      "term": "confirms",
+      "ja": "裏付ける",
+      "synonym": "supports",
+      "definition": "shows to be correct"
+    },
+    {
+      "term": "exploring",
+      "ja": "探ること",
+      "synonym": "investigating",
+      "definition": "examining possibilities"
+    },
+    {
+      "term": "conditions",
+      "ja": "条件",
+      "synonym": "circumstances",
+      "definition": "facts affecting a situation"
+    },
+    {
+      "term": "modify",
+      "ja": "修正する",
+      "synonym": "alter",
+      "definition": "make a change"
+    },
+    {
+      "term": "relevant",
+      "ja": "関連する",
+      "synonym": "pertinent",
+      "definition": "connected to a matter"
+    },
+    {
+      "term": "preserving",
+      "ja": "維持すること",
+      "synonym": "maintaining",
+      "definition": "keeping from loss"
+    },
+    {
+      "term": "structure",
+      "ja": "構造",
+      "synonym": "organization",
+      "definition": "way parts are arranged"
+    },
+    {
+      "term": "revised",
+      "ja": "修正された",
+      "synonym": "modified",
+      "definition": "changed to improve"
+    },
+    {
+      "term": "acceptable",
+      "ja": "許容される",
+      "synonym": "valid",
+      "definition": "able to be accepted"
+    },
+    {
+      "term": "intended",
+      "ja": "意図した",
+      "synonym": "meant",
+      "definition": "planned for a purpose"
+    },
+    {
+      "term": "communicated",
+      "ja": "伝えられた",
+      "synonym": "conveyed",
+      "definition": "made known to others"
+    },
+    {
+      "term": "gradually",
+      "ja": "徐々に",
+      "synonym": "slowly",
+      "definition": "little by little"
+    },
+    {
+      "term": "consistent",
+      "ja": "一致する",
+      "synonym": "compatible",
+      "definition": "not conflicting"
+    },
+    {
+      "term": "necessarily",
+      "ja": "必ずしも",
+      "synonym": "inevitably",
+      "definition": "in a way that must occur"
+    },
+    {
+      "term": "predictions",
+      "ja": "予測",
+      "synonym": "forecasts",
+      "definition": "statements about expected results"
+    },
+    {
+      "term": "implications",
+      "ja": "含意",
+      "synonym": "consequences",
+      "definition": "things that follow from an idea"
+    },
+    {
+      "term": "merely",
+      "ja": "単に",
+      "synonym": "only",
+      "definition": "nothing more than"
+    },
+    {
+      "term": "challenge",
+      "ja": "反する",
+      "synonym": "question",
+      "definition": "call into question"
+    },
+    {
+      "term": "genuine",
+      "ja": "真の",
+      "synonym": "authentic",
+      "definition": "actually what it claims to be"
+    },
+    {
+      "term": "counterexample",
+      "ja": "反例",
+      "synonym": "contrary example",
+      "definition": "example that disproves a general claim"
+    },
+    {
+      "term": "subsequent",
+      "ja": "その後の",
+      "synonym": "following",
+      "definition": "coming afterward"
+    },
+    {
+      "term": "worksheet",
+      "ja": "ワークシート",
+      "synonym": "activity sheet",
+      "definition": "sheet containing tasks"
+    },
+    {
+      "term": "distinction",
+      "ja": "区別",
+      "synonym": "difference",
+      "definition": "difference between things"
+    },
+    {
+      "term": "overlooked",
+      "ja": "見落とされた",
+      "synonym": "missed",
+      "definition": "not noticed"
+    },
+    {
+      "term": "revision",
+      "ja": "修正",
+      "synonym": "modification",
+      "definition": "change made to improve"
+    },
+    {
+      "term": "illustrate",
+      "ja": "例示する",
+      "synonym": "demonstrate",
+      "definition": "explain by an example"
+    },
+    {
+      "term": "superior",
+      "ja": "優れた",
+      "synonym": "better",
+      "definition": "of higher quality"
+    },
+    {
+      "term": "outcomes",
+      "ja": "結果",
+      "synonym": "results",
+      "definition": "what happens in the end"
+    },
+    {
+      "term": "abstract",
+      "ja": "抽象的な",
+      "synonym": "conceptual",
+      "definition": "relating to general ideas"
+    },
+    {
+      "term": "misleading",
+      "ja": "誤解を招く",
+      "synonym": "deceptive",
+      "definition": "causing a wrong impression"
+    },
+    {
+      "term": "completeness",
+      "ja": "完全性",
+      "synonym": "wholeness",
+      "definition": "state of being complete"
+    },
+    {
+      "term": "alternative",
+      "ja": "代替の",
+      "synonym": "different",
+      "definition": "available instead of another"
+    },
+    {
+      "term": "boundaries",
+      "ja": "境界",
+      "synonym": "limits",
+      "definition": "edges of a range"
+    },
+    {
+      "term": "generalization",
+      "ja": "一般化",
+      "synonym": "general rule",
+      "definition": "broad statement based on examples"
+    },
+    {
+      "term": "clarify",
+      "ja": "明確にする",
+      "synonym": "explain",
+      "definition": "make easier to understand"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What are the students asked to formulate?",
+      "options": [
+        "A rule for a grammatical construction.",
+        "A list of every textbook word.",
+        "A translation of the entire textbook.",
+        "A timetable for the next lesson."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "文法規則。"
+    },
+    {
+      "id": "q2",
+      "skill": "inference",
+      "prompt": "Why does the teacher ask for a possible limiting example?",
+      "options": [
+        "The group has already disproved every rule.",
+        "All textbook sentences are necessarily incorrect.",
+        "Matching given sentences may not establish the rule's full scope.",
+        "Rules cannot explain any example."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "与えられた例だけでは範囲不明。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "How do students produce additional examples?",
+      "options": [
+        "Choose completely unrelated sentences at random.",
+        "Modify a relevant feature while retaining much of the original structure.",
+        "Copy every sentence without change.",
+        "Remove all grammatical features."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "関連特徴を変える。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "What distinction guides examination of the examples?",
+      "options": [
+        "Written language versus all speech.",
+        "All acceptable sentences versus all textbooks.",
+        "Short sentences versus every longer sentence.",
+        "Sentence form versus conditions communicating intended meaning."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "形式と意味の成立条件。"
+    },
+    {
+      "id": "q5",
+      "skill": "inference",
+      "prompt": "Why may several rules account for the same original examples?",
+      "options": [
+        "They must produce identical predictions in every context.",
+        "They have all been established as universally valid.",
+        "They can make different predictions only in unexamined cases.",
+        "No explanation can account for a pattern."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "未検討事例で違いが出る。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "How do students examine a possible counterexample?",
+      "options": [
+        "Check whether it genuinely conflicts with the intended scope of the rule.",
+        "Automatically discard every original rule.",
+        "Assume every revised example is incorrect.",
+        "Avoid considering specific conditions."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "真の反例か範囲外か。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What should each group present in the worksheet?",
+      "options": [
+        "A guarantee of a perfect examination score.",
+        "A final explanation without evidence.",
+        "Only an example that confirms the teacher's opinion.",
+        "A rule, supporting example and possible limitation."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "規則・支持例・限界。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "Why is revision not necessarily a failure?",
+      "options": [
+        "Revision makes every rule automatically correct.",
+        "A counterexample can reveal a distinction needing clarification.",
+        "All failures should be ignored.",
+        "Rules must never have boundaries."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "見落としの発見。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does counterexample mean?",
+      "options": [
+        "An example that conflicts with a general claim.",
+        "An example that repeats the original rule.",
+        "A complete list of every sentence.",
+        "A definition of a grammatical term."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "反例。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the author's central argument?",
+      "options": [
+        "Collecting confirming examples always proves a rule complete.",
+        "Every generalization should be rejected.",
+        "A rule is valuable only if it has no possible exceptions.",
+        "Examining possible counterexamples helps clarify the scope and explanatory power of rules."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "反例の検討と説明の範囲。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 4,
+      "focus": "that would reveal a limitation",
+      "explanation_ja": "関係節がexampleを修飾。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 0,
+      "focus": "because they have become accustomed to searching",
+      "explanation_ja": "become accustomed to＋動名詞。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "focus": "while making different predictions",
+      "explanation_ja": "while＋分詞で同時性と対比。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "focus": "without requiring the learner to reject",
+      "explanation_ja": "without＋動名詞。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "Instead of giving the group an additional sentence immediately, the teacher asks the students to construct a possible example that would reveal a limitation of their own explanation.",
+      "rewrite": "The teacher requests an example that might expose the limits of the group's own rule.",
+      "explanation_ja": "限界を示す例。"
+    },
+    {
+      "source": "At first the students find this task difficult, because they have become accustomed to searching for evidence that confirms an answer rather than exploring the conditions under which the proposed answer might fail.",
+      "rewrite": "The students struggle because they are used to looking for confirmation.",
+      "explanation_ja": "確認を探す習慣。"
+    },
+    {
+      "source": "Several explanations could account for the same collection of sentences while making different predictions about sentences that have not yet been examined.",
+      "rewrite": "Several rules may fit existing examples but predict different results in new cases.",
+      "explanation_ja": "例と予測の違い。"
+    },
+    {
+      "source": "The ability to construct and examine a possible counterexample can make the boundaries of a rule more visible without requiring the learner to reject every useful generalization.",
+      "rewrite": "Counterexamples can clarify a rule without making every generalization useless.",
+      "explanation_ja": "一般化と限界の認識。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "Instead of",
+      "role_ja": "教師の対応。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "therefore",
+      "role_ja": "複数説明を比較する。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "rather than",
+      "role_ja": "修正の意味を捉え直す。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "but",
+      "role_ja": "例の有用性と限界。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "modify",
+      "options": [
+        "modify",
+        "ignore",
+        "discard",
+        "forget"
+      ],
+      "explanation_ja": "例の特徴を修正する。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "answer": "counterexample",
+      "options": [
+        "definition",
+        "counterexample",
+        "translation",
+        "prediction"
+      ],
+      "explanation_ja": "真の反例。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "overlooked",
+      "options": [
+        "confirmed",
+        "established",
+        "overlooked",
+        "announced"
+      ],
+      "explanation_ja": "見落とした区別。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "generalization",
+      "options": [
+        "decoration",
+        "transportation",
+        "celebration",
+        "generalization"
+      ],
+      "explanation_ja": "有用な一般化。"
+    }
+  ]
+}

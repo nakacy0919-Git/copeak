@@ -1,0 +1,746 @@
+{
+  "id": "L03-017",
+  "category_id": "L03",
+  "title": "A Password That Was Not a Secret",
+  "title_ja": "秘密ではなかったパスワード",
+  "level_id": "university-mid",
+  "status": "draft",
+  "original": true,
+  "word_count": 466,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "人物、場所、出来事、観察・実験の内容は架空の教材例。実在の研究結果や具体的なシステムの安全性を示すものではない。制作台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A student team was developing a fictional online platform for sharing classroom announcements and wanted to make the registration process simple enough for new users.",
+          "ja": "生徒チームは教室の連絡事項を共有する架空のオンラインサービスを開発し、新規利用者に十分簡単な登録手続きにしたかった。"
+        },
+        {
+          "en": "In the first prototype, a teacher could create a class and give every student the same short code to enter the shared classroom page.",
+          "ja": "最初の試作品では教師がクラスを作り共有ページに入る同じ短いコードを生徒全員に渡せた。"
+        },
+        {
+          "en": "The developers had assumed that anyone who entered the correct code could be treated as an authorized member of that particular class.",
+          "ja": "開発者は正しいコードを入力する人は誰でもそのクラスの許可されたメンバーとして扱えると考えていた。"
+        },
+        {
+          "en": "During a classroom demonstration, however, another student asked what would happen if the code were copied onto a publicly visible notice board.",
+          "ja": "教室での実演中、別の生徒はコードが公開掲示板に写されたら何が起こるか尋ねた。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The question encouraged the developers to distinguish the purpose of a classroom invitation from the purpose of verifying an individual's identity or permissions.",
+          "ja": "その問いからクラスへの招待と個人の身元や権限の確認の目的を区別するようになった。"
+        },
+        {
+          "en": "A shared code could help students identify which classroom they wanted to join, but it did not establish that every person who knew it had permission.",
+          "ja": "共有コードは参加したいクラスを特定する助けになっても、知っている全員に権限があるとは証明しなかった。"
+        },
+        {
+          "en": "The team therefore reviewed which kinds of information would appear on the platform and which actions should be available only to particular users.",
+          "ja": "そこでサービスにどのような情報が表示され、どの操作が特定の利用者だけに可能であるべきか見直した。"
+        },
+        {
+          "en": "They recognized that the consequences of a mistaken decision about access would depend partly on what information and functions the system made available.",
+          "ja": "アクセスの誤判断の結果はシステムが提供する情報や機能にも左右されると認識した。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Instead of attempting to make the shared classroom code impossible to copy, they redesigned the prototype so that a code would initiate a request to join.",
+          "ja": "共有コードをコピー不可能にしようとする代わりに、コードが参加申請のきっかけとなるよう試作を再設計した。"
+        },
+        {
+          "en": "The teacher would then be able to review the request, and the system would distinguish ordinary classroom members from people responsible for managing the page.",
+          "ja": "教師が申請を確認でき、システムは一般のクラスメンバーと管理担当者を区別するようにした。"
+        },
+        {
+          "en": "The developers also removed information from the demonstration that was unnecessary for the limited purpose of sharing announcements among the imaginary class members.",
+          "ja": "架空のクラスメンバー間で連絡を共有する限定目的に不要な情報を実演から削除した。"
+        },
+        {
+          "en": "They prepared a separate checklist of questions about privacy and authorization that would need further attention before development of an actual service.",
+          "ja": "実際のサービス開発前にさらに注意が必要なプライバシーと認可についての質問を別の一覧にまとめた。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "During a second demonstration, the students tested how the prototype responded when someone entered a valid invitation code without obtaining approval from the teacher.",
+          "ja": "第二の実演では教師の承認を得ず有効な招待コードを入力した場合の試作の応答を試した。"
+        },
+        {
+          "en": "They also examined whether the responsibilities of ordinary users and administrators were clearly communicated through the instructions on the demonstration page.",
+          "ja": "通常利用者と管理者の責任が実演ページの指示で明確に伝わるかも調べた。"
+        },
+        {
+          "en": "Although the revised design addressed the original misunderstanding, they did not claim that the platform had become secure enough for use with real student information.",
+          "ja": "改良設計は当初の誤解を解消したが実際の生徒情報を扱えるほど安全になったとは主張しなかった。"
+        },
+        {
+          "en": "They explained that a more comprehensive security review would be necessary before a working platform could be introduced into an ordinary school environment.",
+          "ja": "実用サービスを通常の学校環境に導入する前により包括的な安全性確認が必要だと説明した。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The project illustrated how a convenient mechanism for identifying a shared activity can be mistaken for a mechanism for controlling access to private information.",
+          "ja": "活動は共有活動を特定する便利な仕組みが私的情報へのアクセスを管理する仕組みと混同され得ることを示した。"
+        },
+        {
+          "en": "A useful design therefore needs to specify not only what a user can easily do but also what that user should be permitted to do.",
+          "ja": "有用な設計では利用者が簡単に何をできるかだけでなく何を許可されるべきか明確にする必要がある。"
+        },
+        {
+          "en": "The students learned that reducing unnecessary data could be an important design decision, alongside measures intended to prevent unauthorized access.",
+          "ja": "不要な情報を減らすことも無許可アクセスを防ぐ対策と並ぶ重要な設計判断になり得ると学んだ。"
+        },
+        {
+          "en": "For them, responsible software design began with clear questions about the purpose, limits, and ownership of the information being handled.",
+          "ja": "責任あるソフトウェア設計は扱う情報の目的、限界、所有について明確に問うことから始まった。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "developing",
+      "ja": "開発している",
+      "synonym": "creating",
+      "definition": "making or improving a product"
+    },
+    {
+      "term": "fictional",
+      "ja": "架空の",
+      "synonym": "imaginary",
+      "definition": "existing in imagination"
+    },
+    {
+      "term": "platform",
+      "ja": "サービス基盤",
+      "synonym": "system",
+      "definition": "a system supporting activities"
+    },
+    {
+      "term": "announcements",
+      "ja": "連絡事項",
+      "synonym": "notices",
+      "definition": "public statements giving information"
+    },
+    {
+      "term": "registration",
+      "ja": "登録",
+      "synonym": "enrollment",
+      "definition": "the act of recording a new member"
+    },
+    {
+      "term": "process",
+      "ja": "手続き",
+      "synonym": "procedure",
+      "definition": "a series of steps"
+    },
+    {
+      "term": "prototype",
+      "ja": "試作品",
+      "synonym": "model",
+      "definition": "an early version made for testing"
+    },
+    {
+      "term": "shared",
+      "ja": "共有の",
+      "synonym": "joint",
+      "definition": "used by more than one person"
+    },
+    {
+      "term": "developers",
+      "ja": "開発者",
+      "synonym": "creators",
+      "definition": "people making a product"
+    },
+    {
+      "term": "assumed",
+      "ja": "思い込んだ",
+      "synonym": "supposed",
+      "definition": "accepted something without proof"
+    },
+    {
+      "term": "authorized",
+      "ja": "許可された",
+      "synonym": "permitted",
+      "definition": "officially allowed"
+    },
+    {
+      "term": "particular",
+      "ja": "特定の",
+      "synonym": "specific",
+      "definition": "relating to one thing"
+    },
+    {
+      "term": "demonstration",
+      "ja": "実演",
+      "synonym": "display",
+      "definition": "an act showing how something works"
+    },
+    {
+      "term": "publicly",
+      "ja": "公開で",
+      "synonym": "openly",
+      "definition": "in a way accessible to the public"
+    },
+    {
+      "term": "visible",
+      "ja": "見える",
+      "synonym": "noticeable",
+      "definition": "able to be seen"
+    },
+    {
+      "term": "notice board",
+      "ja": "掲示板",
+      "synonym": "bulletin board",
+      "definition": "a board displaying messages"
+    },
+    {
+      "term": "encouraged",
+      "ja": "促した",
+      "synonym": "urged",
+      "definition": "gave support or reason to act"
+    },
+    {
+      "term": "distinguish",
+      "ja": "区別する",
+      "synonym": "differentiate",
+      "definition": "recognize the difference between things"
+    },
+    {
+      "term": "purpose",
+      "ja": "目的",
+      "synonym": "aim",
+      "definition": "the reason for an action"
+    },
+    {
+      "term": "invitation",
+      "ja": "招待",
+      "synonym": "request to join",
+      "definition": "an offer to participate"
+    },
+    {
+      "term": "verifying",
+      "ja": "確認すること",
+      "synonym": "checking",
+      "definition": "establishing that something is true"
+    },
+    {
+      "term": "identity",
+      "ja": "身元",
+      "synonym": "identification",
+      "definition": "who a person is"
+    },
+    {
+      "term": "permissions",
+      "ja": "権限",
+      "synonym": "authorizations",
+      "definition": "rights to perform actions"
+    },
+    {
+      "term": "identify",
+      "ja": "特定する",
+      "synonym": "recognize",
+      "definition": "determine what something is"
+    },
+    {
+      "term": "establish",
+      "ja": "確定する",
+      "synonym": "demonstrate",
+      "definition": "show something to be true"
+    },
+    {
+      "term": "reviewed",
+      "ja": "見直した",
+      "synonym": "reexamined",
+      "definition": "considered something again"
+    },
+    {
+      "term": "recognized",
+      "ja": "認識した",
+      "synonym": "realized",
+      "definition": "became aware"
+    },
+    {
+      "term": "consequences",
+      "ja": "結果",
+      "synonym": "effects",
+      "definition": "results of an action"
+    },
+    {
+      "term": "mistaken",
+      "ja": "誤った",
+      "synonym": "incorrect",
+      "definition": "not correct"
+    },
+    {
+      "term": "access",
+      "ja": "アクセス",
+      "synonym": "entry",
+      "definition": "the ability to enter or use something"
+    },
+    {
+      "term": "functions",
+      "ja": "機能",
+      "synonym": "features",
+      "definition": "actions a system can perform"
+    },
+    {
+      "term": "available",
+      "ja": "利用可能な",
+      "synonym": "accessible",
+      "definition": "able to be used"
+    },
+    {
+      "term": "attempting",
+      "ja": "試みること",
+      "synonym": "trying",
+      "definition": "making an effort"
+    },
+    {
+      "term": "redesigned",
+      "ja": "再設計した",
+      "synonym": "reworked",
+      "definition": "designed again to change something"
+    },
+    {
+      "term": "initiate",
+      "ja": "開始する",
+      "synonym": "start",
+      "definition": "cause something to begin"
+    },
+    {
+      "term": "request",
+      "ja": "申請",
+      "synonym": "application",
+      "definition": "an act of asking for something"
+    },
+    {
+      "term": "responsible",
+      "ja": "責任がある",
+      "synonym": "accountable",
+      "definition": "expected to carry out a duty"
+    },
+    {
+      "term": "managing",
+      "ja": "管理すること",
+      "synonym": "administering",
+      "definition": "directing the operation of something"
+    },
+    {
+      "term": "unnecessary",
+      "ja": "不要な",
+      "synonym": "unneeded",
+      "definition": "not required"
+    },
+    {
+      "term": "limited",
+      "ja": "限定された",
+      "synonym": "restricted",
+      "definition": "having boundaries"
+    },
+    {
+      "term": "privacy",
+      "ja": "プライバシー",
+      "synonym": "confidentiality",
+      "definition": "control over personal information"
+    },
+    {
+      "term": "authorization",
+      "ja": "認可",
+      "synonym": "permission",
+      "definition": "official agreement allowing an action"
+    },
+    {
+      "term": "obtaining",
+      "ja": "得ること",
+      "synonym": "acquiring",
+      "definition": "getting something"
+    },
+    {
+      "term": "approval",
+      "ja": "承認",
+      "synonym": "acceptance",
+      "definition": "formal agreement"
+    },
+    {
+      "term": "administrators",
+      "ja": "管理者",
+      "synonym": "managers",
+      "definition": "people responsible for a system"
+    },
+    {
+      "term": "communicated",
+      "ja": "伝えられた",
+      "synonym": "conveyed",
+      "definition": "made information known"
+    },
+    {
+      "term": "revised",
+      "ja": "修正された",
+      "synonym": "modified",
+      "definition": "changed to improve something"
+    },
+    {
+      "term": "addressed",
+      "ja": "対処した",
+      "synonym": "dealt with",
+      "definition": "took action concerning a problem"
+    },
+    {
+      "term": "secure",
+      "ja": "安全な",
+      "synonym": "protected",
+      "definition": "protected against unauthorized use"
+    },
+    {
+      "term": "comprehensive",
+      "ja": "包括的な",
+      "synonym": "thorough",
+      "definition": "including all relevant parts"
+    },
+    {
+      "term": "security",
+      "ja": "安全性",
+      "synonym": "protection",
+      "definition": "the state of being protected"
+    },
+    {
+      "term": "mechanism",
+      "ja": "仕組み",
+      "synonym": "method",
+      "definition": "a system that produces a result"
+    },
+    {
+      "term": "specify",
+      "ja": "明示する",
+      "synonym": "define",
+      "definition": "state something clearly"
+    },
+    {
+      "term": "permitted",
+      "ja": "許可された",
+      "synonym": "allowed",
+      "definition": "given permission"
+    },
+    {
+      "term": "unauthorized",
+      "ja": "無許可の",
+      "synonym": "unapproved",
+      "definition": "not given permission"
+    },
+    {
+      "term": "ownership",
+      "ja": "所有",
+      "synonym": "possession",
+      "definition": "the state of owning something"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What was the purpose of the prototype?",
+      "answer": 3,
+      "options": [
+        "Provide medical diagnoses.",
+        "Sell tickets to a public concert.",
+        "Track every student's location.",
+        "Share classroom announcements online."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "クラスの連絡事項の共有。"
+    },
+    {
+      "id": "q2",
+      "skill": "inference",
+      "prompt": "What did the question about a public notice board expose?",
+      "answer": 1,
+      "options": [
+        "Students were unable to enter any code.",
+        "Knowledge of a shared code might not prove authorization.",
+        "The board was too small to display information.",
+        "The developers had already verified every person's identity."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "共有コードだけで権限を確認できない。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What distinction did the developers make?",
+      "answer": 2,
+      "options": [
+        "An online platform differs from all forms of communication.",
+        "A teacher must never issue a classroom code.",
+        "Inviting someone to a class differs from verifying permissions.",
+        "Every code is automatically a private password."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "招待と認可の区別。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "What affects the consequences of incorrect access decisions?",
+      "answer": 0,
+      "options": [
+        "The information and functions made available.",
+        "The color of the invitation code alone.",
+        "The number of letters in every announcement.",
+        "The size of the computer screen."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "アクセスできる情報・機能に左右される。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What did the redesigned code initiate?",
+      "answer": 3,
+      "options": [
+        "Automatic administrative privileges.",
+        "A publicly visible student record.",
+        "A system-wide deletion.",
+        "A request to join."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "参加申請を開始する。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What did the developers remove?",
+      "answer": 0,
+      "options": [
+        "Information unnecessary for the demonstration's purpose.",
+        "Every classroom announcement.",
+        "All teacher responsibilities.",
+        "All questions about privacy."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "目的に不要な情報。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What was tested during the second demonstration?",
+      "answer": 2,
+      "options": [
+        "The system's ability to predict final grades.",
+        "The safety of a fully deployed real service.",
+        "The response to a valid code without teacher approval.",
+        "Every possible software vulnerability."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "有効コードと承認のない場合を確認。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "Why did they avoid calling the platform secure?",
+      "answer": 1,
+      "options": [
+        "They had found no possible improvements.",
+        "A fuller security review was still required before real use.",
+        "The platform had already been used by all schools.",
+        "Real student information was needed for every initial test."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "本番利用前に包括的な確認が必要。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does mechanism mean in context?",
+      "answer": 0,
+      "options": [
+        "A system or method producing a result.",
+        "A personal opinion about a class.",
+        "A numerical exam score.",
+        "A school building."
+      ],
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "仕組み。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the central argument?",
+      "answer": 3,
+      "options": [
+        "A shared code alone is sufficient for all permissions.",
+        "Collecting more private data always improves security.",
+        "A successful demonstration proves a platform is safe for real use.",
+        "Convenient identification should be distinguished from authorized access and responsible data handling."
+      ],
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "識別と認可を区別し責任ある情報管理をする。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "focus": "what would happen if the code were copied",
+      "explanation_ja": "仮定法のif節が想定状況を示す。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "but it did not establish",
+      "explanation_ja": "butは利便性と権限確認の限界を対比する。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 0,
+      "focus": "so that a code would initiate a request to join",
+      "explanation_ja": "so thatは目的・意図した結果。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "focus": "not only what a user can easily do but also what that user should be permitted to do",
+      "explanation_ja": "not only A but also Bで両方を示す。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "During a classroom demonstration, however, another student asked what would happen if the code were copied onto a publicly visible notice board.",
+      "rewrite": "A student asked what could occur if someone displayed the shared code openly.",
+      "explanation_ja": "公開された場合の影響を尋ねた。"
+    },
+    {
+      "source": "A shared code could help students identify which classroom they wanted to join, but it did not establish that every person who knew it had permission.",
+      "rewrite": "Knowing a code can identify a class without proving that the person is entitled to join it.",
+      "explanation_ja": "コードはクラスを識別できても権限を証明しない。"
+    },
+    {
+      "source": "Instead of attempting to make the shared classroom code impossible to copy, they redesigned the prototype so that a code would initiate a request to join.",
+      "rewrite": "They changed the prototype so entering a code would begin a membership request rather than striving to prevent copying altogether.",
+      "explanation_ja": "コードで申請が始まる設計に変更。"
+    },
+    {
+      "source": "A useful design therefore needs to specify not only what a user can easily do but also what that user should be permitted to do.",
+      "rewrite": "Good design must consider ease of use as well as the actions users are entitled to perform.",
+      "explanation_ja": "利便性と許可される操作の両方を考える。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "however",
+      "role_ja": "想定に対する疑問。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "therefore",
+      "role_ja": "疑問から情報と権限を見直す。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Instead of",
+      "role_ja": "コード自体を守る発想から申請手続きへ。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Although",
+      "role_ja": "改善点と安全性確認の限界。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 0,
+      "answer": "verifying",
+      "options": [
+        "verifying",
+        "painting",
+        "shipping",
+        "borrowing"
+      ],
+      "explanation_ja": "個人や権限を確認すること。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 0,
+      "answer": "initiate",
+      "options": [
+        "erase",
+        "initiate",
+        "ignore",
+        "finish"
+      ],
+      "explanation_ja": "参加申請を開始する。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 2,
+      "answer": "secure",
+      "options": [
+        "wooden",
+        "seasonal",
+        "secure",
+        "annual"
+      ],
+      "explanation_ja": "実際の情報を扱える安全性は未確認。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "unauthorized",
+      "options": [
+        "ordinary",
+        "visible",
+        "familiar",
+        "unauthorized"
+      ],
+      "explanation_ja": "無許可アクセス。"
+    }
+  ]
+}

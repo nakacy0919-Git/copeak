@@ -1,0 +1,698 @@
+{
+  "id": "L09-017",
+  "category_id": "L09",
+  "title": "When a Translation Needs a Footnote",
+  "title_ja": "注釈が必要な翻訳",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "word_count": 325,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "人物・具体的な出来事は架空の教材例。実在の調査・統計・法制度・医療指示を示すものではない。制作台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A translator was preparing an English version of a fictional collection of letters written by residents of a coastal town.",
+          "ja": "翻訳者は海辺の町の住民が書いた架空の手紙集の英語版を準備していた。"
+        },
+        {
+          "en": "One letter described a special gathering using a local expression unfamiliar to most international readers.",
+          "ja": "ある手紙は多くの海外読者にとってなじみのない地域表現で特別な集まりを説明していた。"
+        },
+        {
+          "en": "The expression referred not merely to a meal but also to a customary exchange of food between neighboring households.",
+          "ja": "その表現は単なる食事でなく近隣家庭間での習慣的な食品の交換も指した。"
+        },
+        {
+          "en": "Replacing it with an ordinary English word would make the sentence easier to read but might conceal this important distinction.",
+          "ja": "一般的な英単語に置き換えると読みやすくなるが重要な違いを隠す可能性があった。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The translator considered preserving the original expression and adding a lengthy explanation inside the sentence.",
+          "ja": "翻訳者は元の表現を残して文中に長い説明を加えることを考えた。"
+        },
+        {
+          "en": "However, this approach interrupted the flow of a letter that was intended to sound personal and spontaneous.",
+          "ja": "しかしこの方法では個人的で自然な調子の手紙の流れが途切れた。"
+        },
+        {
+          "en": "She therefore experimented with a short translation accompanied by a separate note at the bottom of the page.",
+          "ja": "そこでページの下部に別の注を添えた短い翻訳を試した。"
+        },
+        {
+          "en": "The note explained the additional meaning without requiring every reader to pause immediately.",
+          "ja": "注はすべての読者にその場で読むのを中断させず追加の意味を説明した。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Before completing the translation, she asked two readers to describe their understanding of the passage.",
+          "ja": "翻訳を仕上げる前、読者二人に該当箇所の理解を説明してもらった。"
+        },
+        {
+          "en": "One reader appreciated the note because it clarified why the writer mentioned several different families.",
+          "ja": "一人は筆者が複数の家庭に触れた理由が明確になったので注を評価した。"
+        },
+        {
+          "en": "The other reader initially skipped the note and interpreted the event as an ordinary private dinner.",
+          "ja": "もう一人は当初注を飛ばし、行事を普通の私的な夕食と解釈した。"
+        },
+        {
+          "en": "Their responses revealed that placing information outside the main text could influence whether it received attention.",
+          "ja": "反応から本文の外に情報を置くと注目されるかどうかに影響し得ると分かった。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The translator revised the sentence once more so that it suggested a shared neighborhood event even without the note.",
+          "ja": "そこで注がなくても地域の共有行事を示唆するよう文を再修正した。"
+        },
+        {
+          "en": "She retained the footnote to provide cultural detail that could not be included naturally in a brief phrase.",
+          "ja": "短い表現には自然に含められない文化的な詳細を示すため脚注を残した。"
+        },
+        {
+          "en": "She did not attempt to claim that every household in the town followed exactly the same custom.",
+          "ja": "町のすべての家庭がまったく同じ習慣に従うと主張しようとはしなかった。"
+        },
+        {
+          "en": "The explanation referred specifically to the practice described by the writer of the letter.",
+          "ja": "説明は手紙の筆者が述べた慣行を具体的に指した。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "This example illustrates a common challenge of translating culturally significant language.",
+          "ja": "この例は文化的に重要な言葉を翻訳する際の一般的な課題を示す。"
+        },
+        {
+          "en": "Literal accuracy, readability, and cultural context may sometimes require different decisions.",
+          "ja": "字義上の正確さ、読みやすさ、文化的文脈が異なる判断を必要とする場合がある。"
+        },
+        {
+          "en": "A translator must consider which distinctions are essential to understanding the passage and where to explain them.",
+          "ja": "翻訳者は本文理解にどの区別が不可欠で、どこで説明すべきか考える必要がある。"
+        },
+        {
+          "en": "The goal is not to eliminate every unfamiliar idea but to give readers a reasonable way to encounter it.",
+          "ja": "目的は見慣れない考えをすべて消すのでなく読者がそれに出会う合理的な方法を提供することである。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "translator",
+      "ja": "翻訳者",
+      "synonym": "interpreter of text",
+      "definition": "a person translating written language"
+    },
+    {
+      "term": "fictional",
+      "ja": "架空の",
+      "synonym": "imaginary",
+      "definition": "existing in imagination"
+    },
+    {
+      "term": "collection",
+      "ja": "集まり",
+      "synonym": "set",
+      "definition": "a group of related things"
+    },
+    {
+      "term": "residents",
+      "ja": "住民",
+      "synonym": "inhabitants",
+      "definition": "people living in an area"
+    },
+    {
+      "term": "coastal",
+      "ja": "海辺の",
+      "synonym": "seaside",
+      "definition": "located near the sea"
+    },
+    {
+      "term": "gathering",
+      "ja": "集まり",
+      "synonym": "meeting",
+      "definition": "an event bringing people together"
+    },
+    {
+      "term": "expression",
+      "ja": "表現",
+      "synonym": "phrase",
+      "definition": "a way of expressing an idea"
+    },
+    {
+      "term": "unfamiliar",
+      "ja": "なじみのない",
+      "synonym": "unknown",
+      "definition": "not known from experience"
+    },
+    {
+      "term": "international",
+      "ja": "国際的な",
+      "synonym": "global",
+      "definition": "involving different countries"
+    },
+    {
+      "term": "merely",
+      "ja": "単に",
+      "synonym": "only",
+      "definition": "nothing more than"
+    },
+    {
+      "term": "customary",
+      "ja": "習慣的な",
+      "synonym": "traditional",
+      "definition": "done according to custom"
+    },
+    {
+      "term": "exchange",
+      "ja": "交換",
+      "synonym": "sharing",
+      "definition": "giving and receiving things"
+    },
+    {
+      "term": "neighboring",
+      "ja": "近隣の",
+      "synonym": "nearby",
+      "definition": "located close to something"
+    },
+    {
+      "term": "households",
+      "ja": "家庭",
+      "synonym": "families",
+      "definition": "people living together in a home"
+    },
+    {
+      "term": "replacing",
+      "ja": "置き換えること",
+      "synonym": "substituting",
+      "definition": "putting one thing in place of another"
+    },
+    {
+      "term": "conceal",
+      "ja": "隠す",
+      "synonym": "hide",
+      "definition": "prevent something from being known"
+    },
+    {
+      "term": "distinction",
+      "ja": "違い",
+      "synonym": "difference",
+      "definition": "a difference between things"
+    },
+    {
+      "term": "preserving",
+      "ja": "残すこと",
+      "synonym": "retaining",
+      "definition": "keeping something in existence"
+    },
+    {
+      "term": "lengthy",
+      "ja": "長い",
+      "synonym": "extended",
+      "definition": "continuing for a long time or space"
+    },
+    {
+      "term": "approach",
+      "ja": "方法",
+      "synonym": "method",
+      "definition": "a way of doing something"
+    },
+    {
+      "term": "interrupted",
+      "ja": "途切れさせた",
+      "synonym": "disrupted",
+      "definition": "caused something to stop briefly"
+    },
+    {
+      "term": "flow",
+      "ja": "流れ",
+      "synonym": "continuity",
+      "definition": "smooth movement or progression"
+    },
+    {
+      "term": "spontaneous",
+      "ja": "自然な",
+      "synonym": "unforced",
+      "definition": "occurring without deliberate planning"
+    },
+    {
+      "term": "experimented",
+      "ja": "試した",
+      "synonym": "tested",
+      "definition": "tried an approach"
+    },
+    {
+      "term": "accompanied",
+      "ja": "添えられた",
+      "synonym": "provided with",
+      "definition": "included together with something"
+    },
+    {
+      "term": "separate",
+      "ja": "別の",
+      "synonym": "distinct",
+      "definition": "not joined to another thing"
+    },
+    {
+      "term": "additional",
+      "ja": "追加の",
+      "synonym": "extra",
+      "definition": "more than what exists"
+    },
+    {
+      "term": "pause",
+      "ja": "中断する",
+      "synonym": "stop briefly",
+      "definition": "stop for a short time"
+    },
+    {
+      "term": "passage",
+      "ja": "本文の一節",
+      "synonym": "extract",
+      "definition": "a section of a written text"
+    },
+    {
+      "term": "appreciated",
+      "ja": "評価した",
+      "synonym": "valued",
+      "definition": "recognized the value of something"
+    },
+    {
+      "term": "clarified",
+      "ja": "明確にした",
+      "synonym": "explained",
+      "definition": "made something easier to understand"
+    },
+    {
+      "term": "initially",
+      "ja": "当初",
+      "synonym": "at first",
+      "definition": "at the beginning"
+    },
+    {
+      "term": "skipped",
+      "ja": "飛ばした",
+      "synonym": "passed over",
+      "definition": "did not read or do something"
+    },
+    {
+      "term": "interpreted",
+      "ja": "解釈した",
+      "synonym": "understood",
+      "definition": "assigned meaning to something"
+    },
+    {
+      "term": "responses",
+      "ja": "反応",
+      "synonym": "reactions",
+      "definition": "actions in answer to something"
+    },
+    {
+      "term": "revealed",
+      "ja": "明らかにした",
+      "synonym": "showed",
+      "definition": "made something known"
+    },
+    {
+      "term": "influence",
+      "ja": "影響する",
+      "synonym": "affect",
+      "definition": "produce a change in something"
+    },
+    {
+      "term": "revised",
+      "ja": "修正した",
+      "synonym": "modified",
+      "definition": "changed to improve something"
+    },
+    {
+      "term": "retained",
+      "ja": "残した",
+      "synonym": "kept",
+      "definition": "continued to keep something"
+    },
+    {
+      "term": "footnote",
+      "ja": "脚注",
+      "synonym": "note",
+      "definition": "an explanatory note at the bottom of a page"
+    },
+    {
+      "term": "specifically",
+      "ja": "具体的に",
+      "synonym": "particularly",
+      "definition": "in a clear and particular way"
+    },
+    {
+      "term": "literal",
+      "ja": "字義通りの",
+      "synonym": "word-for-word",
+      "definition": "following the direct meaning of words"
+    },
+    {
+      "term": "accuracy",
+      "ja": "正確さ",
+      "synonym": "correctness",
+      "definition": "the quality of being correct"
+    },
+    {
+      "term": "readability",
+      "ja": "読みやすさ",
+      "synonym": "clarity",
+      "definition": "the quality of being easy to read"
+    },
+    {
+      "term": "context",
+      "ja": "文脈",
+      "synonym": "surrounding information",
+      "definition": "information helping explain meaning"
+    },
+    {
+      "term": "essential",
+      "ja": "不可欠な",
+      "synonym": "necessary",
+      "definition": "absolutely important"
+    },
+    {
+      "term": "eliminate",
+      "ja": "なくす",
+      "synonym": "remove",
+      "definition": "get rid of something"
+    },
+    {
+      "term": "encounter",
+      "ja": "出会う",
+      "synonym": "meet",
+      "definition": "come across something"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What was being translated?",
+      "answer": 0,
+      "options": [
+        "A fictional collection of letters.",
+        "A railway timetable.",
+        "A scientific formula.",
+        "A museum ticket."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "架空の手紙集。"
+    },
+    {
+      "id": "q2",
+      "skill": "inference",
+      "prompt": "Why was an ordinary English word insufficient?",
+      "answer": 2,
+      "options": [
+        "It could never describe a meal.",
+        "It was longer than the local expression.",
+        "It could hide a cultural distinction.",
+        "It was unknown to the translator."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "文化的な違いを隠す可能性。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What problem arose with a long explanation inside the sentence?",
+      "answer": 1,
+      "options": [
+        "It made the letter too short.",
+        "It interrupted the natural flow.",
+        "It changed the page number.",
+        "It eliminated the original meaning entirely."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "自然な流れが途切れた。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "Where did she place the separate note?",
+      "answer": 3,
+      "options": [
+        "On the front cover only.",
+        "Inside every sentence.",
+        "In another book.",
+        "At the bottom of the page."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "ページ下部。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "How did the second reader interpret the event?",
+      "answer": 0,
+      "options": [
+        "As an ordinary private dinner.",
+        "As a public competition.",
+        "As an international festival.",
+        "As a business transaction."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "私的な夕食と解釈。"
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "What did the readers' responses reveal?",
+      "answer": 2,
+      "options": [
+        "All readers always read footnotes.",
+        "The translation contained no useful words.",
+        "Information placement can affect whether details are noticed.",
+        "A longer note guarantees understanding."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "配置が注意に影響する。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What did the revised sentence suggest without the note?",
+      "answer": 3,
+      "options": [
+        "A universal national practice.",
+        "A private journey.",
+        "A formal legal rule.",
+        "A shared neighborhood event."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "地域の共有行事。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "Why limit the explanation to the writer's described practice?",
+      "answer": 1,
+      "options": [
+        "To suggest that no other family existed.",
+        "To avoid generalizing beyond the available account.",
+        "To remove every cultural detail.",
+        "To make the footnote a fictional invention."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "根拠を超える一般化を避ける。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does readability mean?",
+      "answer": 2,
+      "options": [
+        "Length of a letter.",
+        "Accuracy of a date.",
+        "Ease of reading.",
+        "Ability to speak loudly."
+      ],
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "読みやすさ。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the main lesson?",
+      "answer": 0,
+      "options": [
+        "Translation balances clarity with culturally important distinctions.",
+        "Every unfamiliar concept should be omitted.",
+        "Footnotes always solve every problem.",
+        "Literal translation is the only valid method."
+      ],
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "読みやすさと文化的意味を両立する。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "not merely to a meal but also to",
+      "explanation_ja": "not merely A but also BはAだけでなくBも。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "accompanied by a separate note",
+      "explanation_ja": "過去分詞句がtranslationを修飾。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "focus": "whether it received attention",
+      "explanation_ja": "whether節は注目されたかどうかを示す。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "focus": "which distinctions are essential",
+      "explanation_ja": "which節はconsiderの目的語。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The expression referred not merely to a meal but also to a customary exchange of food between neighboring households.",
+      "rewrite": "The expression covered both a meal and the local practice of exchanging food.",
+      "explanation_ja": "食事と地域の交換習慣を指した。"
+    },
+    {
+      "source": "She therefore experimented with a short translation accompanied by a separate note at the bottom of the page.",
+      "rewrite": "She tried a brief translation with a separate footnote.",
+      "explanation_ja": "短い訳に別の注を添えた。"
+    },
+    {
+      "source": "Their responses revealed that placing information outside the main text could influence whether it received attention.",
+      "rewrite": "The responses showed that readers' attention to information could depend on its placement.",
+      "explanation_ja": "情報配置で注意が変わり得る。"
+    },
+    {
+      "source": "A translator must consider which distinctions are essential to understanding the passage and where to explain them.",
+      "rewrite": "Translators must decide which differences matter to understanding and how to explain them.",
+      "explanation_ja": "重要な区別と説明方法を考える。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p2",
+      "expression": "However",
+      "role_ja": "長い説明の欠点。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "therefore",
+      "role_ja": "別の注を試す帰結。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "initially",
+      "role_ja": "読者の最初の理解。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "not to eliminate",
+      "role_ja": "目的の否定と再定義。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 3,
+      "answer": "conceal",
+      "options": [
+        "conceal",
+        "reveal",
+        "measure",
+        "print"
+      ],
+      "explanation_ja": "重要な違いを隠す。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "separate",
+      "options": [
+        "identical",
+        "separate",
+        "annual",
+        "wooden"
+      ],
+      "explanation_ja": "別の注。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "footnote",
+      "options": [
+        "ticket",
+        "portrait",
+        "footnote",
+        "calendar"
+      ],
+      "explanation_ja": "文化的詳細を補う。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "answer": "readability",
+      "options": [
+        "distance",
+        "temperature",
+        "transport",
+        "readability"
+      ],
+      "explanation_ja": "読みやすさも重要。"
+    }
+  ]
+}

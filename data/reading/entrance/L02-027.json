@@ -1,0 +1,560 @@
+{
+  "id": "L02-027",
+  "category_id": "L02",
+  "title": "The Recipe in the Old Notebook",
+  "title_ja": "古いノートの料理法",
+  "level_id": "eiken-3",
+  "status": "draft",
+  "original": true,
+  "word_count": 195,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "オリジナル教材。一般的な考え方と架空例を用いた文章であり、実在の人物、調査、実験、法令、技術運用手順ではない。制作台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A girl named Anna found an old notebook in her grandmother's kitchen.",
+          "ja": "アンナという少女は祖母の台所で古いノートを見つけた。"
+        },
+        {
+          "en": "Its pages contained recipes written by different people.",
+          "ja": "ページには異なる人が書いた料理法があった。"
+        },
+        {
+          "en": "Some of the recipes used words she did not understand.",
+          "ja": "一部は理解できない語を使っていた。"
+        },
+        {
+          "en": "She asked her grandmother about the notebook.",
+          "ja": "祖母にノートについて尋ねた。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "Her grandmother explained that neighbors often exchanged recipes many years ago.",
+          "ja": "何年も前に近所の人がよく料理法を交換したと祖母は説明した。"
+        },
+        {
+          "en": "They sometimes wrote a friend's name beside a recipe.",
+          "ja": "時に料理法の横に友人の名前を書いた。"
+        },
+        {
+          "en": "Anna noticed that one recipe had two different names.",
+          "ja": "一つの料理法に二つの異なる名前があると気づいた。"
+        },
+        {
+          "en": "Her grandmother could not remember why both names were there.",
+          "ja": "祖母はなぜ両名があるか思い出せなかった。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "Anna decided to make a small record of the notebook for her school project.",
+          "ja": "学校活動のためノートの小さな記録を作ると決めた。"
+        },
+        {
+          "en": "She copied the recipes and asked about the names.",
+          "ja": "料理法を写し名前について質問した。"
+        },
+        {
+          "en": "She wrote down what her grandmother could remember.",
+          "ja": "祖母が思い出せることを書き留めた。"
+        },
+        {
+          "en": "She also marked the questions that had no clear answer.",
+          "ja": "明確な答えのない問いにも印を付けた。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "At school, Anna shared her work with the class.",
+          "ja": "学校で作品をクラスに共有した。"
+        },
+        {
+          "en": "Several students had similar notebooks at home.",
+          "ja": "何人かの生徒にも家に似たノートがあった。"
+        },
+        {
+          "en": "They began comparing the ways their families had recorded recipes.",
+          "ja": "家族が料理法を記録した方法を比較し始めた。"
+        },
+        {
+          "en": "Their teacher reminded them to ask permission before sharing family records.",
+          "ja": "教師は家族の記録を共有前に許可を尋ねるよう注意した。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "Anna learned that everyday objects can contain stories about the past.",
+          "ja": "日常の物にも過去の物語が含まれ得るとアンナは学んだ。"
+        },
+        {
+          "en": "A recipe can tell us more than how to prepare a meal.",
+          "ja": "料理法は食事の準備法以上を伝え得る。"
+        },
+        {
+          "en": "It may show how people helped one another.",
+          "ja": "人々がどう助け合ったか示すかもしれない。"
+        },
+        {
+          "en": "Even an unanswered question can make an old object interesting.",
+          "ja": "未解決の問いでさえ古い物を面白くできる。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "found",
+      "ja": "見つけた",
+      "synonym": "discovered",
+      "definition": "became aware of something"
+    },
+    {
+      "term": "notebook",
+      "ja": "ノート",
+      "synonym": "writing book",
+      "definition": "book for writing"
+    },
+    {
+      "term": "kitchen",
+      "ja": "台所",
+      "synonym": "cooking room",
+      "definition": "room for preparing food"
+    },
+    {
+      "term": "contained",
+      "ja": "含んだ",
+      "synonym": "included",
+      "definition": "had something inside"
+    },
+    {
+      "term": "recipes",
+      "ja": "料理法",
+      "synonym": "cooking instructions",
+      "definition": "directions for preparing food"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "distinct",
+      "definition": "not the same"
+    },
+    {
+      "term": "explained",
+      "ja": "説明した",
+      "synonym": "clarified",
+      "definition": "made something clear"
+    },
+    {
+      "term": "neighbors",
+      "ja": "近所の人々",
+      "synonym": "nearby residents",
+      "definition": "people living nearby"
+    },
+    {
+      "term": "exchanged",
+      "ja": "交換した",
+      "synonym": "shared",
+      "definition": "gave and received"
+    },
+    {
+      "term": "beside",
+      "ja": "横に",
+      "synonym": "next to",
+      "definition": "at the side of"
+    },
+    {
+      "term": "noticed",
+      "ja": "気づいた",
+      "synonym": "observed",
+      "definition": "became aware"
+    },
+    {
+      "term": "remember",
+      "ja": "思い出す",
+      "synonym": "recall",
+      "definition": "bring to mind"
+    },
+    {
+      "term": "decided",
+      "ja": "決めた",
+      "synonym": "chose",
+      "definition": "made a choice"
+    },
+    {
+      "term": "record",
+      "ja": "記録",
+      "synonym": "document",
+      "definition": "information kept for future use"
+    },
+    {
+      "term": "project",
+      "ja": "活動",
+      "synonym": "task",
+      "definition": "planned piece of work"
+    },
+    {
+      "term": "copied",
+      "ja": "写した",
+      "synonym": "reproduced",
+      "definition": "made a copy"
+    },
+    {
+      "term": "marked",
+      "ja": "印を付けた",
+      "synonym": "labeled",
+      "definition": "gave a mark to"
+    },
+    {
+      "term": "shared",
+      "ja": "共有した",
+      "synonym": "presented",
+      "definition": "made available to others"
+    },
+    {
+      "term": "similar",
+      "ja": "似た",
+      "synonym": "alike",
+      "definition": "having shared qualities"
+    },
+    {
+      "term": "comparing",
+      "ja": "比較すること",
+      "synonym": "examining side by side",
+      "definition": "looking at differences"
+    },
+    {
+      "term": "recorded",
+      "ja": "記録した",
+      "synonym": "documented",
+      "definition": "preserved information"
+    },
+    {
+      "term": "reminded",
+      "ja": "思い出させた",
+      "synonym": "prompted",
+      "definition": "helped someone remember"
+    },
+    {
+      "term": "permission",
+      "ja": "許可",
+      "synonym": "approval",
+      "definition": "agreement allowing an action"
+    },
+    {
+      "term": "everyday",
+      "ja": "日常の",
+      "synonym": "ordinary",
+      "definition": "happening normally"
+    },
+    {
+      "term": "unanswered",
+      "ja": "未解決の",
+      "synonym": "unresolved",
+      "definition": "not answered"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "Where did Anna find the notebook?",
+      "options": [
+        "In her grandmother's kitchen.",
+        "At her school library.",
+        "In a park.",
+        "Inside a shop."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "祖母の台所。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What did the notebook contain?",
+      "options": [
+        "Maps.",
+        "Sports scores.",
+        "Recipes.",
+        "Bus tickets."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "料理法。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What did neighbors often exchange?",
+      "options": [
+        "School uniforms.",
+        "Recipes.",
+        "Furniture.",
+        "Newspapers."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "料理法。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What did Anna notice about one recipe?",
+      "options": [
+        "It had no words.",
+        "It was written yesterday.",
+        "It contained a photograph.",
+        "It had two different names."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "二つの名前。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What did Anna write down?",
+      "options": [
+        "Every answer from the internet.",
+        "A new school timetable.",
+        "What her grandmother remembered.",
+        "The price of the notebook."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "祖母の記憶。"
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why mark unanswered questions?",
+      "options": [
+        "To show what she did not yet know.",
+        "To pretend she knew every answer.",
+        "To stop anyone reading the records.",
+        "To remove the recipes."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "未解決点を示す。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What did some classmates have at home?",
+      "options": [
+        "Every recipe in Anna's notebook.",
+        "Her grandmother's kitchen.",
+        "A list of all neighbors.",
+        "Similar notebooks."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "似たノート。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What did the teacher remind them to do?",
+      "options": [
+        "Sell all family records.",
+        "Ask permission before sharing family records.",
+        "Change every name.",
+        "Stop the project."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "共有前に許可。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does unanswered mean?",
+      "options": [
+        "Not yet answered.",
+        "Already finished.",
+        "Very expensive.",
+        "Written in large letters."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "未解決の。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the main lesson?",
+      "options": [
+        "Old recipes are never useful.",
+        "Every historical question has a simple answer.",
+        "Family records should always be shared without asking.",
+        "Ordinary objects can help us learn about the past."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "日常の物から歴史を学ぶ。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 0,
+      "focus": "found an old notebook",
+      "explanation_ja": "findの過去形found。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "could not remember why",
+      "explanation_ja": "why節はrememberの内容。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "what her grandmother could remember",
+      "explanation_ja": "what節がwrote downの目的語。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "focus": "more than how to prepare a meal",
+      "explanation_ja": "more thanは〜以上。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "A girl named Anna found an old notebook in her grandmother's kitchen.",
+      "rewrite": "Anna discovered an old notebook in the kitchen.",
+      "explanation_ja": "古いノートを発見。"
+    },
+    {
+      "source": "Her grandmother could not remember why both names were there.",
+      "rewrite": "Her grandmother did not recall the reason for the two names.",
+      "explanation_ja": "理由を思い出せない。"
+    },
+    {
+      "source": "She wrote down what her grandmother could remember.",
+      "rewrite": "She recorded the things her grandmother remembered.",
+      "explanation_ja": "記憶の記録。"
+    },
+    {
+      "source": "A recipe can tell us more than how to prepare a meal.",
+      "rewrite": "A recipe may give information beyond cooking instructions.",
+      "explanation_ja": "料理法以上の情報。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "Some of the recipes",
+      "role_ja": "一部の具体的な特徴。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "also",
+      "role_ja": "未解決の問いも記録。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "At school",
+      "role_ja": "場面の移動。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "Even",
+      "role_ja": "未解決でも価値があることを強調。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 0,
+      "answer": "exchanged",
+      "options": [
+        "exchanged",
+        "forgot",
+        "lost",
+        "closed"
+      ],
+      "explanation_ja": "料理法を交換。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "answer": "marked",
+      "options": [
+        "erased",
+        "marked",
+        "hid",
+        "removed"
+      ],
+      "explanation_ja": "未解決の問いに印を付ける。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 3,
+      "answer": "permission",
+      "options": [
+        "competition",
+        "celebration",
+        "permission",
+        "transportation"
+      ],
+      "explanation_ja": "共有前に許可。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "answer": "unanswered",
+      "options": [
+        "finished",
+        "settled",
+        "confirmed",
+        "unanswered"
+      ],
+      "explanation_ja": "未解決の問い。"
+    }
+  ]
+}

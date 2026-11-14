@@ -1,0 +1,699 @@
+{
+  "id": "L01-013",
+  "category_id": "L01",
+  "title": "A Forest Plot with a Missing Layer",
+  "title_ja": "落ち葉の層が消えた森",
+  "level_id": "eiken-2",
+  "status": "draft",
+  "original": true,
+  "word_count": 379,
+  "source_links": [
+    {
+      "title": "Original lesson authoring registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "人物、具体的な出来事・実験・記録は架空の教材例。実在の調査や統計の結果ではない。参考リンクは制作台帳であり外部の実証資料ではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A group of high school students volunteered to help maintain a walking trail in a small forest near their town.",
+          "ja": "高校生のグループが町の近くの小さな森で散策路の整備を手伝うことになった。"
+        },
+        {
+          "en": "Before the work began, the organizer showed them two sections of the forest that looked almost identical from a distance.",
+          "ja": "作業前、主催者は遠くから見るとほぼ同じに見える森の2区画を示した。"
+        },
+        {
+          "en": "One section was covered with fallen leaves, while the other had recently been cleared for a local event.",
+          "ja": "片方は落ち葉に覆われ、もう片方は最近地元の行事のために片付けられていた。"
+        },
+        {
+          "en": "The students initially believed that the cleaner section was the healthier one because it looked more carefully managed.",
+          "ja": "生徒たちは当初、きれいな区画の方が丁寧に管理されているように見えるため健康な森だと考えた。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The organizer asked the students to examine the ground rather than judge the sections by their appearance alone.",
+          "ja": "主催者は見た目だけで区画を判断せず地面を調べるよう求めた。"
+        },
+        {
+          "en": "They found small insects and tiny seedlings under the leaves but saw fewer of them on the exposed ground.",
+          "ja": "落ち葉の下には小さな昆虫や苗があり、むき出しの地面ではそれらが少なかった。"
+        },
+        {
+          "en": "They also noticed that the soil beneath the leaves felt damp, although the surface of the cleared area was dry.",
+          "ja": "落ち葉の下の土が湿っている一方で、片付けられた区画の表面は乾いていることにも気づいた。"
+        },
+        {
+          "en": "These observations raised an interesting question, but they did not establish what had caused the differences between the sites.",
+          "ja": "観察によって興味深い疑問が生まれたが、区画間の違いの原因までは明らかにならなかった。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "To investigate further, the students designed a small comparison using several containers filled with soil from the same bag.",
+          "ja": "さらに調べるため、生徒たちは同じ袋の土を入れたいくつかの容器を使った小規模な比較を計画した。"
+        },
+        {
+          "en": "They covered half of the containers with leaves and left the rest uncovered, keeping them in the same sheltered location.",
+          "ja": "半分を落ち葉で覆い、残りは覆わず、同じ風雨を避けられる場所に置いた。"
+        },
+        {
+          "en": "Each container received an equal amount of water, and the students recorded its weight at regular intervals.",
+          "ja": "各容器に同量の水を与え、一定間隔で重さを記録した。"
+        },
+        {
+          "en": "They expected the measurements to provide a clearer indication of how the leaf covering affected water loss.",
+          "ja": "測定によって落ち葉の覆いが水分の減少にどう影響するか、より明確な手がかりを得られると期待した。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The results of their classroom activity suggested that the covered containers lost less water over the observation period.",
+          "ja": "教室での活動結果は、観察期間中に覆った容器の水分減少が少なかったことを示唆した。"
+        },
+        {
+          "en": "However, the group recognized that a collection of small containers could not represent every condition in a real forest.",
+          "ja": "しかしグループは、小容器を集めた実験では実際の森のあらゆる条件を再現できないと認識した。"
+        },
+        {
+          "en": "Instead of making a universal claim, they described exactly what they had measured and listed several remaining uncertainties.",
+          "ja": "普遍的な主張をする代わりに、測定した内容を正確に記述し、残る不確実な点をいくつか挙げた。"
+        },
+        {
+          "en": "Their report recommended leaving some forest areas undisturbed while keeping the walking trail accessible and safe for visitors.",
+          "ja": "報告書は来訪者にとって散策路を利用しやすく安全に保ちつつ、一部の森を手つかずにしておくことを提案した。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The students had begun their project with the assumption that visible order was a reliable sign of good environmental management.",
+          "ja": "生徒たちは見た目の整然さが良い環境管理の信頼できる指標だという前提で活動を始めた。"
+        },
+        {
+          "en": "By the end of the project, they understood that the needs of living things might not match human preferences for neatness.",
+          "ja": "活動の終わりには、生物の必要とするものが人間の好む整然さと一致しない場合があると理解した。"
+        },
+        {
+          "en": "They also learned that responsible recommendations require evidence as well as an honest recognition of the limits of that evidence.",
+          "ja": "責任ある提案には証拠だけでなく、その限界を正直に認めることも必要だと学んだ。"
+        },
+        {
+          "en": "For them, the forest had become a place to ask better questions rather than simply a place to make tidy.",
+          "ja": "彼らにとって森は単に整える場所ではなく、より良い問いを立てる場所となった。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "volunteered",
+      "ja": "自発的に申し出た",
+      "synonym": "offered",
+      "definition": "agreed freely to help"
+    },
+    {
+      "term": "maintain",
+      "ja": "維持する",
+      "synonym": "look after",
+      "definition": "keep in good condition"
+    },
+    {
+      "term": "walking trail",
+      "ja": "散策路",
+      "synonym": "footpath",
+      "definition": "a path used for walking"
+    },
+    {
+      "term": "organizer",
+      "ja": "主催者",
+      "synonym": "coordinator",
+      "definition": "a person who arranges an activity"
+    },
+    {
+      "term": "sections",
+      "ja": "区画",
+      "synonym": "parts",
+      "definition": "separate parts of a larger area"
+    },
+    {
+      "term": "identical",
+      "ja": "同一の",
+      "synonym": "the same",
+      "definition": "exactly alike"
+    },
+    {
+      "term": "distance",
+      "ja": "距離",
+      "synonym": "space",
+      "definition": "the length between two places"
+    },
+    {
+      "term": "fallen leaves",
+      "ja": "落ち葉",
+      "synonym": "leaf litter",
+      "definition": "leaves that have dropped from plants"
+    },
+    {
+      "term": "cleared",
+      "ja": "片付けられた",
+      "synonym": "cleaned up",
+      "definition": "had unwanted material removed"
+    },
+    {
+      "term": "initially",
+      "ja": "当初",
+      "synonym": "at first",
+      "definition": "at the beginning"
+    },
+    {
+      "term": "managed",
+      "ja": "管理された",
+      "synonym": "maintained",
+      "definition": "looked after or controlled"
+    },
+    {
+      "term": "examine",
+      "ja": "調べる",
+      "synonym": "inspect",
+      "definition": "look at carefully"
+    },
+    {
+      "term": "judge",
+      "ja": "判断する",
+      "synonym": "assess",
+      "definition": "form an opinion about"
+    },
+    {
+      "term": "appearance",
+      "ja": "外見",
+      "synonym": "look",
+      "definition": "the way something looks"
+    },
+    {
+      "term": "insects",
+      "ja": "昆虫",
+      "synonym": "bugs",
+      "definition": "small animals with six legs"
+    },
+    {
+      "term": "seedlings",
+      "ja": "苗",
+      "synonym": "young plants",
+      "definition": "plants that have recently started growing"
+    },
+    {
+      "term": "exposed",
+      "ja": "むき出しの",
+      "synonym": "uncovered",
+      "definition": "not protected or covered"
+    },
+    {
+      "term": "beneath",
+      "ja": "〜の下に",
+      "synonym": "under",
+      "definition": "in a lower position than"
+    },
+    {
+      "term": "damp",
+      "ja": "湿った",
+      "synonym": "moist",
+      "definition": "slightly wet"
+    },
+    {
+      "term": "surface",
+      "ja": "表面",
+      "synonym": "outer layer",
+      "definition": "the outside part of something"
+    },
+    {
+      "term": "observations",
+      "ja": "観察結果",
+      "synonym": "findings",
+      "definition": "things noticed through watching"
+    },
+    {
+      "term": "establish",
+      "ja": "確定する",
+      "synonym": "demonstrate",
+      "definition": "show something to be true"
+    },
+    {
+      "term": "investigate",
+      "ja": "調査する",
+      "synonym": "examine",
+      "definition": "try to discover facts"
+    },
+    {
+      "term": "comparison",
+      "ja": "比較",
+      "synonym": "contrast",
+      "definition": "an examination of differences or similarities"
+    },
+    {
+      "term": "containers",
+      "ja": "容器",
+      "synonym": "vessels",
+      "definition": "objects used to hold something"
+    },
+    {
+      "term": "uncovered",
+      "ja": "覆われていない",
+      "synonym": "exposed",
+      "definition": "having no cover"
+    },
+    {
+      "term": "sheltered",
+      "ja": "守られた",
+      "synonym": "protected",
+      "definition": "protected from weather or danger"
+    },
+    {
+      "term": "equal",
+      "ja": "等しい",
+      "synonym": "the same",
+      "definition": "having the same amount"
+    },
+    {
+      "term": "intervals",
+      "ja": "間隔",
+      "synonym": "gaps",
+      "definition": "periods between events"
+    },
+    {
+      "term": "measurements",
+      "ja": "測定値",
+      "synonym": "readings",
+      "definition": "amounts found through measuring"
+    },
+    {
+      "term": "indication",
+      "ja": "手がかり",
+      "synonym": "sign",
+      "definition": "something suggesting a fact"
+    },
+    {
+      "term": "affected",
+      "ja": "影響した",
+      "synonym": "influenced",
+      "definition": "produced a change in"
+    },
+    {
+      "term": "observation period",
+      "ja": "観察期間",
+      "synonym": "monitoring period",
+      "definition": "the time during which something is observed"
+    },
+    {
+      "term": "recognized",
+      "ja": "認識した",
+      "synonym": "realized",
+      "definition": "became aware of"
+    },
+    {
+      "term": "represent",
+      "ja": "表す",
+      "synonym": "model",
+      "definition": "stand for or reproduce features of something"
+    },
+    {
+      "term": "universal",
+      "ja": "普遍的な",
+      "synonym": "general",
+      "definition": "applying to all cases"
+    },
+    {
+      "term": "claim",
+      "ja": "主張",
+      "synonym": "assertion",
+      "definition": "a statement presented as true"
+    },
+    {
+      "term": "uncertainties",
+      "ja": "不確実な点",
+      "synonym": "unknowns",
+      "definition": "things not known with certainty"
+    },
+    {
+      "term": "recommended",
+      "ja": "提案した",
+      "synonym": "advised",
+      "definition": "suggested a course of action"
+    },
+    {
+      "term": "undisturbed",
+      "ja": "手つかずの",
+      "synonym": "untouched",
+      "definition": "not interfered with"
+    },
+    {
+      "term": "accessible",
+      "ja": "利用しやすい",
+      "synonym": "reachable",
+      "definition": "able to be reached or used"
+    },
+    {
+      "term": "assumption",
+      "ja": "前提",
+      "synonym": "belief",
+      "definition": "something accepted without proof"
+    },
+    {
+      "term": "reliable",
+      "ja": "信頼できる",
+      "synonym": "dependable",
+      "definition": "able to be trusted"
+    },
+    {
+      "term": "preferences",
+      "ja": "好み",
+      "synonym": "likes",
+      "definition": "things favored over alternatives"
+    },
+    {
+      "term": "neatness",
+      "ja": "整然さ",
+      "synonym": "tidiness",
+      "definition": "the quality of being orderly"
+    },
+    {
+      "term": "responsible",
+      "ja": "責任ある",
+      "synonym": "careful",
+      "definition": "showing appropriate care and judgment"
+    },
+    {
+      "term": "evidence",
+      "ja": "証拠",
+      "synonym": "support",
+      "definition": "information helping establish a conclusion"
+    },
+    {
+      "term": "limits",
+      "ja": "限界",
+      "synonym": "boundaries",
+      "definition": "points beyond which something does not apply"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "Why did the students initially prefer the cleared section?",
+      "options": [
+        "It contained more seedlings.",
+        "It had been closed to visitors.",
+        "It looked better managed.",
+        "It was farther from town."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "見た目から管理が良いと判断した。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What did the students find beneath the leaves?",
+      "options": [
+        "Small insects and seedlings.",
+        "Broken containers.",
+        "Dry stones only.",
+        "A walking map."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "落ち葉の下に昆虫と苗があった。"
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why were the initial observations insufficient?",
+      "options": [
+        "They proved the sites were identical.",
+        "The students did not visit both areas.",
+        "The soil had been weighed already.",
+        "They did not establish the cause of the differences."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "違いの原因までは明らかにならなかった。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What did the students keep the same in the container comparison?",
+      "options": [
+        "The presence of a leaf covering.",
+        "The amount of water given to each container.",
+        "The weight after every measurement.",
+        "The water lost from each container."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "各容器への水の量を統一した。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What did they measure regularly?",
+      "options": [
+        "The length of the walking trail.",
+        "The color of each leaf.",
+        "The weight of each container.",
+        "The number of visitors."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "一定間隔で容器の重さを測った。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What did the classroom results suggest?",
+      "options": [
+        "Covered containers lost less water.",
+        "Uncovered containers gained weight.",
+        "Both conditions produced no change.",
+        "Leaves prevented all water loss."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "覆いのある容器の水分減少が少なかった。"
+    },
+    {
+      "id": "q7",
+      "skill": "inference",
+      "prompt": "Why did they avoid a universal claim?",
+      "options": [
+        "They had lost every measurement.",
+        "The setup could not represent all forest conditions.",
+        "They believed forests never change.",
+        "They had tested every possible environment."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "小規模な実験が実際の森の条件すべてを代表しないため。"
+    },
+    {
+      "id": "q8",
+      "skill": "vocabulary",
+      "prompt": "What does undisturbed most nearly mean?",
+      "options": [
+        "Completely dry.",
+        "Open to all traffic.",
+        "Regularly cleaned.",
+        "Left untouched."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "手を加えないという意味。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "Which recommendation reflects the students' revised view?",
+      "options": [
+        "Preserve some areas while keeping trails safe.",
+        "Clear all leaves from the entire forest.",
+        "Close every forest path permanently.",
+        "Judge forest health only by neatness."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4",
+        "p5"
+      ],
+      "explanation_ja": "自然の保全と散策路の安全を両立する提案。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the main message?",
+      "options": [
+        "A neat appearance always indicates a healthy forest.",
+        "Experiments should replace every field observation.",
+        "Evidence and its limitations should guide environmental judgments.",
+        "Students should never help manage trails."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "証拠と限界を考慮した判断が大切。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "while the other had recently been cleared",
+      "explanation_ja": "whileはここでは対比を示す。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 0,
+      "focus": "rather than judge",
+      "explanation_ja": "rather thanは代わりに選ぶ行動を示す。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "at regular intervals",
+      "explanation_ja": "一定の間隔でという副詞句。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "focus": "might not match",
+      "explanation_ja": "mightは可能性を示し、notで否定する。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "while",
+      "role_ja": "二つの区画の状態を対比する。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "although",
+      "role_ja": "土の湿り方の違いを示す。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "However",
+      "role_ja": "実験結果の限界を示す。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Instead of",
+      "role_ja": "過度な一般化を避けた行動を示す。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "One section was covered with fallen leaves, while the other had recently been cleared for a local event.",
+      "rewrite": "One area had fallen leaves on it, whereas the other had been cleaned up for an event.",
+      "explanation_ja": "落ち葉のある区画と片付けられた区画を対比。"
+    },
+    {
+      "source": "The organizer asked the students to examine the ground rather than judge the sections by their appearance alone.",
+      "rewrite": "The organizer encouraged a close inspection of the ground instead of a judgment based purely on looks.",
+      "explanation_ja": "見た目より地面を調べるよう促した。"
+    },
+    {
+      "source": "Each container received an equal amount of water, and the students recorded its weight at regular intervals.",
+      "rewrite": "The students gave every container the same amount of water and weighed each one periodically.",
+      "explanation_ja": "水量を統一して定期的に計量した。"
+    },
+    {
+      "source": "By the end of the project, they understood that the needs of living things might not match human preferences for neatness.",
+      "rewrite": "They came to see that organisms may need conditions different from those humans consider tidy.",
+      "explanation_ja": "生物の必要とする環境と人間の好みは異なり得る。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "exposed",
+      "options": [
+        "exposed",
+        "stored",
+        "frozen",
+        "purchased"
+      ],
+      "explanation_ja": "覆われていない地面。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "uncovered",
+      "options": [
+        "uncovered",
+        "locked",
+        "painted",
+        "broken"
+      ],
+      "explanation_ja": "半分は覆わなかった。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "represent",
+      "options": [
+        "represent",
+        "destroy",
+        "repair",
+        "collect"
+      ],
+      "explanation_ja": "すべての条件を再現できない。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "evidence",
+      "options": [
+        "evidence",
+        "furniture",
+        "tickets",
+        "advertising"
+      ],
+      "explanation_ja": "責任ある提案には証拠が必要。"
+    }
+  ]
+}
