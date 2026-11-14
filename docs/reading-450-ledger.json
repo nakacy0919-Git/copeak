@@ -282,7 +282,78 @@
       "next_suggested_id": "L12-013"
     }
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "id": "L01-013",
+      "owner": "volume-f",
+      "work_branch": "content/reading-20261114-volume-f",
+      "reserved_at": "2026-11-14",
+      "status": "reserved"
+    },
+    {
+      "id": "L02-013",
+      "owner": "volume-f",
+      "work_branch": "content/reading-20261114-volume-f",
+      "reserved_at": "2026-11-14",
+      "status": "reserved"
+    },
+    {
+      "id": "L03-013",
+      "owner": "volume-f",
+      "work_branch": "content/reading-20261114-volume-f",
+      "reserved_at": "2026-11-14",
+      "status": "reserved"
+    },
+    {
+      "id": "L04-013",
+      "owner": "volume-f",
+      "work_branch": "content/reading-20261114-volume-f",
+      "reserved_at": "2026-11-14",
+      "status": "reserved"
+    },
+    {
+      "id": "L05-013",
+      "owner": "volume-f",
+      "work_branch": "content/reading-20261114-volume-f",
+      "reserved_at": "2026-11-14",
+      "status": "reserved"
+    },
+    {
+      "id": "L06-013",
+      "owner": "volume-f",
+      "work_branch": "content/reading-20261114-volume-f",
+      "reserved_at": "2026-11-14",
+      "status": "reserved"
+    },
+    {
+      "id": "L07-013",
+      "owner": "volume-f",
+      "work_branch": "content/reading-20261114-volume-f",
+      "reserved_at": "2026-11-14",
+      "status": "reserved"
+    },
+    {
+      "id": "L08-013",
+      "owner": "volume-f",
+      "work_branch": "content/reading-20261114-volume-f",
+      "reserved_at": "2026-11-14",
+      "status": "reserved"
+    },
+    {
+      "id": "L09-013",
+      "owner": "volume-f",
+      "work_branch": "content/reading-20261114-volume-f",
+      "reserved_at": "2026-11-14",
+      "status": "reserved"
+    },
+    {
+      "id": "L10-013",
+      "owner": "volume-f",
+      "work_branch": "content/reading-20261114-volume-f",
+      "reserved_at": "2026-11-14",
+      "status": "reserved"
+    }
+  ],
   "reservation_workflow": {
     "before_drafting": "Fetch THIS file from authoritative_branch and manifest from the same branch; check the requested ID is absent from accepted_ids and reservations.",
     "claim": "Update THIS file on authoritative_branch using its freshly fetched GitHub blob SHA. If update_file rejects because the SHA changed, refetch and choose again; do not write any lesson before the successful reservation commit.",
