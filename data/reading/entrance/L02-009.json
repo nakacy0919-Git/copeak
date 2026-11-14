@@ -537,10 +537,10 @@
       "sentence_index": 2,
       "answer": "However",
       "options": [
-        "However",
         "For example",
-        "Nevertheless",
-        "As a result"
+        "As a result",
+        "Furthermore",
+        "However"
       ],
       "explanation_ja": "昔と今の通り名を対比します。"
     },
@@ -549,10 +549,10 @@
       "sentence_index": 1,
       "answer": "For example",
       "options": [
+        "As a result",
+        "Meanwhile",
         "For example",
-        "However",
-        "Nevertheless",
-        "As a result"
+        "However"
       ],
       "explanation_ja": "祖母の思い出を例示します。"
     },
@@ -561,8 +561,8 @@
       "sentence_index": 1,
       "answer": "Nevertheless",
       "options": [
+        "In addition",
         "Nevertheless",
-        "However",
         "For example",
         "As a result"
       ],
@@ -574,9 +574,9 @@
       "answer": "As a result",
       "options": [
         "As a result",
-        "However",
         "For example",
-        "Nevertheless"
+        "However",
+        "Meanwhile"
       ],
       "explanation_ja": "地域史への関心が生まれる結果を示します。"
     }
