@@ -1,0 +1,674 @@
+{
+  "id": "L03-016",
+  "category_id": "L03",
+  "title": "The App That Forgot the Bus Stop",
+  "title_ja": "バス停を忘れたアプリ",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "word_count": 307,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "登場人物・具体的な出来事は架空の教材例。実在の調査・統計を示すものではない。制作台帳は来歴確認用であり外部の実証資料ではない。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A group of students designed a simple route planning application for new members of their school.",
+          "ja": "新入生のため簡単な経路計画アプリを設計した生徒のグループがいた。"
+        },
+        {
+          "en": "The first version displayed the shortest walking route between the school entrance and several nearby destinations.",
+          "ja": "最初の版は校門と近隣のいくつかの目的地を結ぶ最短徒歩経路を表示した。"
+        },
+        {
+          "en": "The students were proud that the application could suggest routes within a few seconds.",
+          "ja": "数秒以内に経路を提案できることを誇りに思った。"
+        },
+        {
+          "en": "However, during a trial, some users reported that the recommended routes were not convenient for them.",
+          "ja": "しかし試行中、推奨経路が自分にとって便利ではないという利用者がいた。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "One user explained that she wanted to meet her younger brother at a particular bus stop.",
+          "ja": "ある利用者は特定のバス停で弟と待ち合わせたいと説明した。"
+        },
+        {
+          "en": "The application had sent her directly to the shop where she needed to buy something.",
+          "ja": "アプリは買い物が必要な店へ直接案内していた。"
+        },
+        {
+          "en": "Although its route was short, it did not include the intermediate stop that mattered to her.",
+          "ja": "経路は短かったが彼女にとって重要な途中の立ち寄り場所がなかった。"
+        },
+        {
+          "en": "The developers realized that they had defined efficiency without asking users about their actual goals.",
+          "ja": "開発者は利用者の実際の目的を尋ねずに効率性を定義していたと気づいた。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "They decided to interview a small group of students about their journeys after school.",
+          "ja": "放課後の移動について少人数の生徒に聞き取りをすることにした。"
+        },
+        {
+          "en": "Some students preferred routes near familiar buildings, while others wanted to avoid busy crossings.",
+          "ja": "慣れた建物の近くを通る経路を好む生徒もいれば、混雑した交差点を避けたい生徒もいた。"
+        },
+        {
+          "en": "The developers did not have enough information to guarantee that every suggested route would be suitable.",
+          "ja": "すべての推奨経路が適切だと保証するだけの情報はなかった。"
+        },
+        {
+          "en": "Instead, they added options allowing users to choose an intermediate destination and compare different routes.",
+          "ja": "そこで、途中の目的地を選んで経路を比較できる選択肢を加えた。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The revised application clearly displayed which factors had been included in each route calculation.",
+          "ja": "修正版アプリは各経路計算に含まれる要素を明確に表示した。"
+        },
+        {
+          "en": "It also reminded users to check local conditions and make their own decisions before following a suggestion.",
+          "ja": "提案に従う前に現地の状況を確認して自分で判断するよう促した。"
+        },
+        {
+          "en": "During another trial, the developers collected comments about both useful features and remaining limitations.",
+          "ja": "再試行では有用な機能と残る限界の双方について意見を集めた。"
+        },
+        {
+          "en": "They used these comments to plan improvements rather than claim that the new version was perfect.",
+          "ja": "新しい版が完璧だと主張せず意見を改善計画に使った。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The project demonstrated the difference between solving a mathematical problem and meeting a person's practical needs.",
+          "ja": "活動は数学的問題を解くことと人の実際的な必要を満たすことの違いを示した。"
+        },
+        {
+          "en": "A calculation can produce an excellent answer to the question that a programmer has specified.",
+          "ja": "計算はプログラマーが設定した問いに優れた答えを出せる。"
+        },
+        {
+          "en": "Nevertheless, a useful application must also address the questions that people actually need answered.",
+          "ja": "それでも役立つアプリは人が実際に答えを必要とする問いにも対応しなければならない。"
+        },
+        {
+          "en": "The students learned that understanding the user can be as important as improving the speed of a program.",
+          "ja": "利用者の理解はプログラムの速度改善と同じほど重要になり得ると学んだ。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "designed",
+      "ja": "設計した",
+      "synonym": "planned",
+      "definition": "created a plan for something"
+    },
+    {
+      "term": "route",
+      "ja": "経路",
+      "synonym": "path",
+      "definition": "a way from one place to another"
+    },
+    {
+      "term": "application",
+      "ja": "アプリ",
+      "synonym": "program",
+      "definition": "software for a particular task"
+    },
+    {
+      "term": "version",
+      "ja": "版",
+      "synonym": "edition",
+      "definition": "a particular form of something"
+    },
+    {
+      "term": "displayed",
+      "ja": "表示した",
+      "synonym": "showed",
+      "definition": "made visible"
+    },
+    {
+      "term": "entrance",
+      "ja": "入口",
+      "synonym": "entry",
+      "definition": "a place to enter"
+    },
+    {
+      "term": "nearby",
+      "ja": "近隣の",
+      "synonym": "close",
+      "definition": "not far away"
+    },
+    {
+      "term": "destinations",
+      "ja": "目的地",
+      "synonym": "endpoints",
+      "definition": "places people travel to"
+    },
+    {
+      "term": "suggest",
+      "ja": "提案する",
+      "synonym": "recommend",
+      "definition": "offer an option"
+    },
+    {
+      "term": "trial",
+      "ja": "試行",
+      "synonym": "test",
+      "definition": "an attempt to evaluate something"
+    },
+    {
+      "term": "reported",
+      "ja": "報告した",
+      "synonym": "stated",
+      "definition": "gave information about something"
+    },
+    {
+      "term": "recommended",
+      "ja": "推奨された",
+      "synonym": "suggested",
+      "definition": "put forward as suitable"
+    },
+    {
+      "term": "convenient",
+      "ja": "便利な",
+      "synonym": "practical",
+      "definition": "easy or suitable to use"
+    },
+    {
+      "term": "particular",
+      "ja": "特定の",
+      "synonym": "specific",
+      "definition": "relating to one thing"
+    },
+    {
+      "term": "directly",
+      "ja": "直接",
+      "synonym": "straight",
+      "definition": "without an intermediate stop"
+    },
+    {
+      "term": "intermediate",
+      "ja": "途中の",
+      "synonym": "in-between",
+      "definition": "occurring between two points"
+    },
+    {
+      "term": "developers",
+      "ja": "開発者",
+      "synonym": "creators",
+      "definition": "people who create a product"
+    },
+    {
+      "term": "realized",
+      "ja": "気づいた",
+      "synonym": "recognized",
+      "definition": "became aware of"
+    },
+    {
+      "term": "defined",
+      "ja": "定義した",
+      "synonym": "specified",
+      "definition": "stated a meaning or condition"
+    },
+    {
+      "term": "efficiency",
+      "ja": "効率性",
+      "synonym": "effectiveness",
+      "definition": "use of resources with little waste"
+    },
+    {
+      "term": "actual",
+      "ja": "実際の",
+      "synonym": "real",
+      "definition": "existing in reality"
+    },
+    {
+      "term": "goals",
+      "ja": "目的",
+      "synonym": "objectives",
+      "definition": "results people aim to achieve"
+    },
+    {
+      "term": "interview",
+      "ja": "聞き取りする",
+      "synonym": "question",
+      "definition": "ask someone questions for information"
+    },
+    {
+      "term": "journeys",
+      "ja": "移動",
+      "synonym": "trips",
+      "definition": "acts of traveling"
+    },
+    {
+      "term": "preferred",
+      "ja": "好んだ",
+      "synonym": "favored",
+      "definition": "liked one option more"
+    },
+    {
+      "term": "familiar",
+      "ja": "慣れた",
+      "synonym": "well-known",
+      "definition": "recognized from experience"
+    },
+    {
+      "term": "avoid",
+      "ja": "避ける",
+      "synonym": "stay away from",
+      "definition": "keep away from something"
+    },
+    {
+      "term": "crossings",
+      "ja": "交差点・横断箇所",
+      "synonym": "intersections",
+      "definition": "places where paths cross"
+    },
+    {
+      "term": "guarantee",
+      "ja": "保証する",
+      "synonym": "ensure",
+      "definition": "make a result certain"
+    },
+    {
+      "term": "suitable",
+      "ja": "適切な",
+      "synonym": "appropriate",
+      "definition": "right for a purpose"
+    },
+    {
+      "term": "options",
+      "ja": "選択肢",
+      "synonym": "choices",
+      "definition": "available alternatives"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "contrast",
+      "definition": "examine similarities and differences"
+    },
+    {
+      "term": "revised",
+      "ja": "修正された",
+      "synonym": "modified",
+      "definition": "changed to improve something"
+    },
+    {
+      "term": "factors",
+      "ja": "要素",
+      "synonym": "elements",
+      "definition": "things influencing a result"
+    },
+    {
+      "term": "calculation",
+      "ja": "計算",
+      "synonym": "computation",
+      "definition": "the process of working out a result"
+    },
+    {
+      "term": "reminded",
+      "ja": "促した",
+      "synonym": "prompted",
+      "definition": "caused someone to remember"
+    },
+    {
+      "term": "conditions",
+      "ja": "状況",
+      "synonym": "circumstances",
+      "definition": "facts affecting a situation"
+    },
+    {
+      "term": "limitations",
+      "ja": "限界",
+      "synonym": "restrictions",
+      "definition": "things that restrict what is possible"
+    },
+    {
+      "term": "improvements",
+      "ja": "改善",
+      "synonym": "enhancements",
+      "definition": "changes making something better"
+    },
+    {
+      "term": "demonstrated",
+      "ja": "示した",
+      "synonym": "showed",
+      "definition": "made something clear"
+    },
+    {
+      "term": "mathematical",
+      "ja": "数学的な",
+      "synonym": "numerical",
+      "definition": "relating to mathematics"
+    },
+    {
+      "term": "practical",
+      "ja": "実際的な",
+      "synonym": "real-world",
+      "definition": "relating to actual use"
+    },
+    {
+      "term": "specified",
+      "ja": "設定した",
+      "synonym": "defined",
+      "definition": "stated clearly"
+    },
+    {
+      "term": "address",
+      "ja": "対応する",
+      "synonym": "deal with",
+      "definition": "take action concerning an issue"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What did the first application display?",
+      "answer": 3,
+      "options": [
+        "Bus fares only.",
+        "School test results.",
+        "Weather forecasts.",
+        "Shortest walking routes."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "最短徒歩経路を表示した。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What did some users report?",
+      "answer": 2,
+      "options": [
+        "The application could not display any text.",
+        "The school had no nearby shops.",
+        "The recommended routes were inconvenient for them.",
+        "Every route was identical."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "推奨経路が便利ではなかった。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "Where did one user need to meet her brother?",
+      "answer": 1,
+      "options": [
+        "Inside the school library.",
+        "At a particular bus stop.",
+        "At the final shop.",
+        "At a railway museum."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "特定のバス停で待ち合わせる必要があった。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "What was wrong with the developers' original definition of efficiency?",
+      "answer": 0,
+      "options": [
+        "It ignored important user goals.",
+        "It required all users to take buses.",
+        "It calculated routes without maps.",
+        "It guaranteed everyone's safety."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "利用者の目的を考えていなかった。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "How did they gather more information?",
+      "answer": 0,
+      "options": [
+        "Interviewed students about journeys.",
+        "Measured every road in the city.",
+        "Asked stores to change their hours.",
+        "Collected students' exam scores."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "放課後の移動を聞き取った。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "What new option did they add?",
+      "answer": 3,
+      "options": [
+        "Removing all destinations.",
+        "Sharing personal messages publicly.",
+        "Automatically buying bus tickets.",
+        "Choosing an intermediate destination."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "途中の目的地を選ぶ機能。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What did the revised app display clearly?",
+      "answer": 2,
+      "options": [
+        "Every student's home address.",
+        "The programmer's grades.",
+        "Factors included in each route calculation.",
+        "The exact number of pedestrians."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "計算に含まれる要素を示した。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "Why did the app remind users to check conditions?",
+      "answer": 1,
+      "options": [
+        "Users were forbidden to choose routes.",
+        "A suggested route could have limitations.",
+        "The app had stopped calculating routes.",
+        "All routes were guaranteed safe."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "提案には限界があるため。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does address mean in paragraph five?",
+      "answer": 1,
+      "options": [
+        "Write an address on.",
+        "Deal with.",
+        "Hide.",
+        "Copy."
+      ],
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "問いに対応するという意味。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What does the project teach?",
+      "answer": 0,
+      "options": [
+        "Useful technology must account for actual user needs.",
+        "The fastest calculation always produces the best choice.",
+        "Programmers should never ask users questions.",
+        "Every route should avoid shops."
+      ],
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "実際の利用者の必要性を考える。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 1,
+      "focus": "between the school entrance and several nearby destinations",
+      "explanation_ja": "between A and Bは二つの地点を示す。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "focus": "Although its route was short",
+      "explanation_ja": "althoughは譲歩。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "focus": "allowing users to choose an intermediate destination",
+      "explanation_ja": "現在分詞句がoptionsを説明する。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "as important as improving the speed",
+      "explanation_ja": "as A as Bは同程度の比較。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The first version displayed the shortest walking route between the school entrance and several nearby destinations.",
+      "rewrite": "The initial app showed the shortest paths from the school entrance to nearby places.",
+      "explanation_ja": "学校から近隣の場所への最短経路を示した。"
+    },
+    {
+      "source": "Although its route was short, it did not include the intermediate stop that mattered to her.",
+      "rewrite": "Despite being short, the route omitted an important stop for the user.",
+      "explanation_ja": "短くても重要な立ち寄り先を含まなかった。"
+    },
+    {
+      "source": "Instead, they added options allowing users to choose an intermediate destination and compare different routes.",
+      "rewrite": "They added choices so people could select a stop along the way and compare routes.",
+      "explanation_ja": "途中の目的地を選び経路を比較できるようにした。"
+    },
+    {
+      "source": "The students learned that understanding the user can be as important as improving the speed of a program.",
+      "rewrite": "They learned that knowing what users need may matter just as much as making software faster.",
+      "explanation_ja": "利用者理解と速度向上は同じくらい重要になり得る。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "速度への自信から利用者の課題へ転換。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "Although",
+      "role_ja": "短さと不便さの対比。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Instead",
+      "role_ja": "保証ではなく選択肢追加に移る。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "Nevertheless",
+      "role_ja": "数学的成功だけでは不足することを示す。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "intermediate",
+      "options": [
+        "intermediate",
+        "annual",
+        "secret",
+        "ordinary"
+      ],
+      "explanation_ja": "途中の立ち寄り先。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "avoid",
+      "options": [
+        "measure",
+        "avoid",
+        "publish",
+        "repair"
+      ],
+      "explanation_ja": "混雑した横断箇所を避けたい。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "answer": "factors",
+      "options": [
+        "tickets",
+        "phones",
+        "factors",
+        "letters"
+      ],
+      "explanation_ja": "経路計算の要素。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "address",
+      "options": [
+        "forget",
+        "borrow",
+        "hide",
+        "address"
+      ],
+      "explanation_ja": "実際の問いに対応する。"
+    }
+  ]
+}
