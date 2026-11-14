@@ -865,10 +865,10 @@
       "sentence_index": 3,
       "answer": "However",
       "options": [
-        "However",
-        "For example",
         "As a result",
-        "Moreover"
+        "Furthermore",
+        "However",
+        "For example"
       ],
       "explanation_ja": "翻訳したい意欲と難しい表現を対比します。"
     },
@@ -877,10 +877,10 @@
       "sentence_index": 1,
       "answer": "For example",
       "options": [
+        "Meanwhile",
         "For example",
         "However",
-        "Therefore",
-        "In contrast"
+        "As a result"
       ],
       "explanation_ja": "文化的な意味を含む料理の記憶を例示します。"
     },
@@ -892,7 +892,7 @@
         "Nevertheless",
         "For example",
         "As a result",
-        "Moreover"
+        "In addition"
       ],
       "explanation_ja": "公にできない個人の経験があると示します。"
     },
@@ -901,10 +901,10 @@
       "sentence_index": 2,
       "answer": "As a result",
       "options": [
-        "As a result",
         "For example",
         "However",
-        "Meanwhile"
+        "Meanwhile",
+        "As a result"
       ],
       "explanation_ja": "翻訳の役割への理解が変わる結果です。"
     }
