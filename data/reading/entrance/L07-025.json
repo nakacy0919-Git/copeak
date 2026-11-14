@@ -1,0 +1,692 @@
+{
+  "id": "L07-025",
+  "category_id": "L07",
+  "title": "The Bread at Closing Time",
+  "title_ja": "閉店時のパン",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "word_count": 300,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "オリジナル教材。人物、出来事は架空の例であり、実在の調査や実証結果ではない。制作台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A small bakery in an imaginary town sells fresh bread throughout the day.",
+          "ja": "架空の町の小さなパン屋は一日中新鮮なパンを売る。"
+        },
+        {
+          "en": "The owner often has several unsold loaves when the shop closes.",
+          "ja": "閉店時に店主は売れ残ったパンを何個も抱えることが多い。"
+        },
+        {
+          "en": "She wants to reduce waste without making customers disappointed by empty shelves.",
+          "ja": "空の棚で客を失望させず廃棄を減らしたいと思う。"
+        },
+        {
+          "en": "At first, she decides to record the changing demand during different hours.",
+          "ja": "当初、時間帯ごとの需要変化を記録することにする。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The records show that some customers visit the bakery shortly before closing because they cannot arrive earlier.",
+          "ja": "記録は早く来られないため閉店直前に訪れる客がいることを示す。"
+        },
+        {
+          "en": "If the bakery prepares exactly enough bread for its average number of customers, some visitors may find nothing to buy on busy days.",
+          "ja": "平均客数にちょうど十分なパンを用意すると忙しい日には買うものがない客が出るかもしれない。"
+        },
+        {
+          "en": "However, preparing extra bread for every possible increase in demand could result in unnecessary waste.",
+          "ja": "しかし需要増加のあらゆる可能性に備えて余分に作ると不要な廃棄が生じ得る。"
+        },
+        {
+          "en": "The owner realizes that neither solution completely addresses the problem.",
+          "ja": "どちらの解決策も完全に問題に対処していないと気づく。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "She considers a system allowing customers to reserve certain products before visiting the shop.",
+          "ja": "来店前に特定商品を予約できる仕組みを考える。"
+        },
+        {
+          "en": "This could provide better information about future purchases, although not every customer would be able to plan ahead.",
+          "ja": "将来の購入に関するより良い情報を得られるかもしれないが、全員が事前計画できるわけではない。"
+        },
+        {
+          "en": "She also discusses a possible arrangement with a local organization that can safely receive suitable surplus food.",
+          "ja": "適切な余剰食品を安全に受け取れる地元組織との仕組みも議論する。"
+        },
+        {
+          "en": "The arrangements would need to satisfy relevant food safety requirements in an actual business.",
+          "ja": "実事業では関連食品安全要件を満たす必要がある。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "The owner compares the amount of waste with the number of customers who could not obtain the products they wanted.",
+          "ja": "廃棄量と希望商品を得られなかった客数を比較する。"
+        },
+        {
+          "en": "She avoids judging the success of the shop through either figure alone.",
+          "ja": "どちらか一方の数値だけで店の成功を判断するのを避ける。"
+        },
+        {
+          "en": "The new records help her recognize how changes in production affect different groups of customers.",
+          "ja": "新記録は生産変更が異なる顧客集団にどう影響するか認識する助けとなる。"
+        },
+        {
+          "en": "They also suggest questions that should be investigated before making a permanent change.",
+          "ja": "恒久変更前に調べるべき問いも示唆する。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "A business must consider not only the products it sells but also the opportunities it provides for people to purchase them.",
+          "ja": "事業は販売製品だけでなく購入機会も考慮しなければならない。"
+        },
+        {
+          "en": "Reducing waste is valuable, but the way it is achieved may have other consequences.",
+          "ja": "廃棄削減は有益だが達成方法に別の影響があり得る。"
+        },
+        {
+          "en": "Better information can help businesses balance these different concerns.",
+          "ja": "より良い情報は企業が異なる懸念を調整する助けになる。"
+        },
+        {
+          "en": "The fictional bakery illustrates why an improvement in one measure does not always mean an improvement in the entire service.",
+          "ja": "架空パン屋は一尺度の改善が必ずしもサービス全体の改善でない理由を示す。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "bakery",
+      "ja": "パン屋",
+      "synonym": "bread shop",
+      "definition": "shop selling baked goods"
+    },
+    {
+      "term": "imaginary",
+      "ja": "架空の",
+      "synonym": "fictional",
+      "definition": "existing in imagination"
+    },
+    {
+      "term": "fresh",
+      "ja": "新鮮な",
+      "synonym": "newly made",
+      "definition": "recently made"
+    },
+    {
+      "term": "throughout",
+      "ja": "全体に",
+      "synonym": "during all of",
+      "definition": "in every part or period"
+    },
+    {
+      "term": "owner",
+      "ja": "店主",
+      "synonym": "proprietor",
+      "definition": "person who owns something"
+    },
+    {
+      "term": "unsold",
+      "ja": "売れ残った",
+      "synonym": "remaining",
+      "definition": "not sold"
+    },
+    {
+      "term": "loaves",
+      "ja": "パンの塊",
+      "synonym": "bread units",
+      "definition": "whole units of bread"
+    },
+    {
+      "term": "reduce",
+      "ja": "減らす",
+      "synonym": "lessen",
+      "definition": "make smaller"
+    },
+    {
+      "term": "waste",
+      "ja": "廃棄",
+      "synonym": "discarded material",
+      "definition": "material thrown away"
+    },
+    {
+      "term": "disappointed",
+      "ja": "失望した",
+      "synonym": "let down",
+      "definition": "unhappy because hopes were not met"
+    },
+    {
+      "term": "shelves",
+      "ja": "棚",
+      "synonym": "racks",
+      "definition": "flat surfaces used for storage"
+    },
+    {
+      "term": "record",
+      "ja": "記録する",
+      "synonym": "document",
+      "definition": "preserve information"
+    },
+    {
+      "term": "demand",
+      "ja": "需要",
+      "synonym": "need",
+      "definition": "amount customers wish to buy"
+    },
+    {
+      "term": "shortly",
+      "ja": "少し前に",
+      "synonym": "soon",
+      "definition": "within a short time"
+    },
+    {
+      "term": "exactly",
+      "ja": "ちょうど",
+      "synonym": "precisely",
+      "definition": "with exactness"
+    },
+    {
+      "term": "average",
+      "ja": "平均の",
+      "synonym": "typical",
+      "definition": "representing a central value"
+    },
+    {
+      "term": "visitors",
+      "ja": "来訪者",
+      "synonym": "guests",
+      "definition": "people visiting a place"
+    },
+    {
+      "term": "extra",
+      "ja": "余分な",
+      "synonym": "additional",
+      "definition": "more than what is needed"
+    },
+    {
+      "term": "increase",
+      "ja": "増加",
+      "synonym": "rise",
+      "definition": "growth in amount"
+    },
+    {
+      "term": "unnecessary",
+      "ja": "不要な",
+      "synonym": "needless",
+      "definition": "not required"
+    },
+    {
+      "term": "realizes",
+      "ja": "気づく",
+      "synonym": "recognizes",
+      "definition": "becomes aware"
+    },
+    {
+      "term": "neither",
+      "ja": "どちらも〜ない",
+      "synonym": "not either",
+      "definition": "not one or the other"
+    },
+    {
+      "term": "solution",
+      "ja": "解決策",
+      "synonym": "remedy",
+      "definition": "way of solving a problem"
+    },
+    {
+      "term": "completely",
+      "ja": "完全に",
+      "synonym": "fully",
+      "definition": "in every respect"
+    },
+    {
+      "term": "addresses",
+      "ja": "対処する",
+      "synonym": "deals with",
+      "definition": "takes action on a problem"
+    },
+    {
+      "term": "considers",
+      "ja": "考える",
+      "synonym": "examines",
+      "definition": "thinks about"
+    },
+    {
+      "term": "reserve",
+      "ja": "予約する",
+      "synonym": "book",
+      "definition": "arrange access in advance"
+    },
+    {
+      "term": "certain",
+      "ja": "特定の",
+      "synonym": "particular",
+      "definition": "clearly specified"
+    },
+    {
+      "term": "purchase",
+      "ja": "購入する",
+      "synonym": "buy",
+      "definition": "obtain goods for money"
+    },
+    {
+      "term": "although",
+      "ja": "〜にもかかわらず",
+      "synonym": "even though",
+      "definition": "introducing a contrast"
+    },
+    {
+      "term": "arrangement",
+      "ja": "仕組み",
+      "synonym": "plan",
+      "definition": "organized way of doing something"
+    },
+    {
+      "term": "organization",
+      "ja": "組織",
+      "synonym": "group",
+      "definition": "group formed for a purpose"
+    },
+    {
+      "term": "safely",
+      "ja": "安全に",
+      "synonym": "securely",
+      "definition": "without unnecessary danger"
+    },
+    {
+      "term": "suitable",
+      "ja": "適切な",
+      "synonym": "appropriate",
+      "definition": "right for a purpose"
+    },
+    {
+      "term": "surplus",
+      "ja": "余剰の",
+      "synonym": "extra",
+      "definition": "more than needed"
+    },
+    {
+      "term": "satisfy",
+      "ja": "満たす",
+      "synonym": "meet",
+      "definition": "fulfill a requirement"
+    },
+    {
+      "term": "relevant",
+      "ja": "関連する",
+      "synonym": "pertinent",
+      "definition": "connected to a matter"
+    },
+    {
+      "term": "requirements",
+      "ja": "要件",
+      "synonym": "conditions",
+      "definition": "things that must be met"
+    },
+    {
+      "term": "obtain",
+      "ja": "得る",
+      "synonym": "acquire",
+      "definition": "get something"
+    },
+    {
+      "term": "figure",
+      "ja": "数値",
+      "synonym": "number",
+      "definition": "numerical value"
+    },
+    {
+      "term": "production",
+      "ja": "生産",
+      "synonym": "manufacturing",
+      "definition": "process of making goods"
+    },
+    {
+      "term": "affect",
+      "ja": "影響する",
+      "synonym": "influence",
+      "definition": "produce a change"
+    },
+    {
+      "term": "investigated",
+      "ja": "調べられた",
+      "synonym": "examined",
+      "definition": "studied carefully"
+    },
+    {
+      "term": "permanent",
+      "ja": "恒久的な",
+      "synonym": "lasting",
+      "definition": "continuing indefinitely"
+    },
+    {
+      "term": "consequences",
+      "ja": "影響",
+      "synonym": "effects",
+      "definition": "results of an action"
+    },
+    {
+      "term": "balance",
+      "ja": "調整する",
+      "synonym": "reconcile",
+      "definition": "manage competing needs"
+    },
+    {
+      "term": "entire",
+      "ja": "全体の",
+      "synonym": "whole",
+      "definition": "including every part"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What problem does the bakery have at closing time?",
+      "options": [
+        "Unsold bread remains.",
+        "All shelves are broken.",
+        "Customers cannot find the entrance.",
+        "The shop has no bread all day."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "売れ残り。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "What does the owner decide to record?",
+      "options": [
+        "The price of other shops' buildings.",
+        "The names of every visitor.",
+        "Demand during different hours.",
+        "The weather in another town."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "時間帯別の需要。"
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why might producing the average amount cause a problem?",
+      "options": [
+        "Average demand always exceeds all possible demand.",
+        "The shop cannot sell bread in the morning.",
+        "Customers never arrive at closing time.",
+        "Some visitors may find no bread on unusually busy days."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "平均を超える需要。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "What is the disadvantage of preparing too much?",
+      "options": [
+        "It makes bread impossible to sell.",
+        "It may increase unnecessary waste.",
+        "It guarantees that demand will disappear.",
+        "It prevents the owner from recording sales."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "廃棄増加。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What system does the owner consider?",
+      "options": [
+        "Allowing customers to reserve products.",
+        "Closing the shop permanently.",
+        "Refusing every late customer.",
+        "Selling only one type of bread."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "予約制度。"
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "Why might reservations not solve everything?",
+      "options": [
+        "Reservations never provide information.",
+        "The bakery will stop producing bread.",
+        "Not all customers can plan their visits in advance.",
+        "Every customer wants the same product."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "事前計画できない客もいる。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What two measures does the owner compare?",
+      "options": [
+        "Prices and the owner's age.",
+        "Waste and customers unable to obtain wanted products.",
+        "The size of shelves and the weather.",
+        "Number of workers and number of schools."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "廃棄量と購入できなかった客。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "Why avoid relying on only one figure?",
+      "options": [
+        "Neither figure can ever be counted.",
+        "Every measure gives identical information.",
+        "She has no production records.",
+        "It could hide another important aspect of the service."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "別の側面を見落とす。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does consequences mean?",
+      "options": [
+        "Places to visit.",
+        "Types of bread.",
+        "Results or effects.",
+        "People who work in shops."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "影響。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the main idea?",
+      "options": [
+        "A business should assess waste reduction together with other effects on customers.",
+        "A bakery should always produce exactly the average amount.",
+        "All surplus food can be distributed without conditions.",
+        "Only waste matters when assessing a shop."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "廃棄削減とサービス全体。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "without making customers disappointed",
+      "explanation_ja": "without＋動名詞。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "If the bakery prepares exactly enough bread",
+      "explanation_ja": "if節は条件。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "focus": "although not every customer would be able",
+      "explanation_ja": "althoughは譲歩。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 0,
+      "focus": "not only the products it sells but also",
+      "explanation_ja": "not only A but also Bで追加。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "She wants to reduce waste without making customers disappointed by empty shelves.",
+      "rewrite": "She wants less waste while keeping customers satisfied.",
+      "explanation_ja": "廃棄削減と顧客満足。"
+    },
+    {
+      "source": "If the bakery prepares exactly enough bread for its average number of customers, some visitors may find nothing to buy on busy days.",
+      "rewrite": "Average production may be insufficient when demand is unusually high.",
+      "explanation_ja": "需要の変動。"
+    },
+    {
+      "source": "This could provide better information about future purchases, although not every customer would be able to plan ahead.",
+      "rewrite": "Reservations can offer information, but some customers cannot plan ahead.",
+      "explanation_ja": "予約の限界。"
+    },
+    {
+      "source": "A business must consider not only the products it sells but also the opportunities it provides for people to purchase them.",
+      "rewrite": "A business must consider both its products and customers' opportunities to buy them.",
+      "explanation_ja": "商品と購入機会。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "At first",
+      "role_ja": "最初の対応。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "However",
+      "role_ja": "平均量と余分な生産の課題。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "although",
+      "role_ja": "予約の利点と限界。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "but",
+      "role_ja": "廃棄削減と他の影響。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "average",
+      "options": [
+        "average",
+        "empty",
+        "unknown",
+        "ordinary"
+      ],
+      "explanation_ja": "平均客数。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "answer": "surplus",
+      "options": [
+        "missing",
+        "surplus",
+        "required",
+        "expensive"
+      ],
+      "explanation_ja": "余剰食品。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "answer": "obtain",
+      "options": [
+        "reject",
+        "discard",
+        "obtain",
+        "forget"
+      ],
+      "explanation_ja": "希望の商品を得る。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 0,
+      "answer": "opportunities",
+      "options": [
+        "expenses",
+        "receipts",
+        "arguments",
+        "opportunities"
+      ],
+      "explanation_ja": "購入機会。"
+    }
+  ]
+}
