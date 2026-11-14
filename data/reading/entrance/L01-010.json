@@ -1,0 +1,808 @@
+{
+  "id": "L01-010",
+  "category_id": "L01",
+  "title": "The Pond That Looked Clear",
+  "title_ja": "透明に見えた池の水",
+  "level_id": "eiken-pre2",
+  "status": "draft",
+  "original": true,
+  "word_count": 315,
+  "source_links": [
+    {
+      "title": "General public background reference",
+      "url": "https://www.epa.gov/ponds"
+    }
+  ],
+  "fact_notes": [
+    "登場人物・学校の活動は架空。英文、和訳、設問、解説は独自制作。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A school environmental club visits a small pond near a public park to study its surroundings.",
+          "ja": "学校の環境クラブは周囲を調べるため公共公園近くの小さな池を訪れます。"
+        },
+        {
+          "en": "The surface looks clear, and students can see stones at the bottom.",
+          "ja": "水面は透明に見え生徒たちは底の石を見ることができます。"
+        },
+        {
+          "en": "However, their teacher warns that appearance alone does not show everything about water quality.",
+          "ja": "しかし教師は見た目だけでは水質のすべてはわからないと注意します。"
+        },
+        {
+          "en": "The students decide to record what they observe without touching the water.",
+          "ja": "生徒たちは水に触れず観察したことを記録することにします。"
+        },
+        {
+          "en": "They note sunlight, weather, nearby plants, and the number of visitors.",
+          "ja": "日光、天候、周囲の植物、来訪者の数を書き留めます。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The class compares photographs taken on different days of the week.",
+          "ja": "クラスは週の異なる日に撮影した写真を比べます。"
+        },
+        {
+          "en": "For example, the surface appears darker after rain, even though the pond has not moved.",
+          "ja": "例えば雨の後は池が移動していなくても水面が暗く見えます。"
+        },
+        {
+          "en": "Some students assume the darker color means the water is less healthy.",
+          "ja": "一部の生徒は暗い色が水の状態の悪さを意味すると考えます。"
+        },
+        {
+          "en": "The teacher asks whether clouds, reflections, or soil could affect the appearance.",
+          "ja": "教師は雲、反射、土などが見た目に影響し得るか尋ねます。"
+        },
+        {
+          "en": "The group realizes that several factors can change how the pond looks.",
+          "ja": "グループはいくつもの要因が池の見た目を変える可能性に気づきます。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The club reads a public guide about water observations and chooses questions suitable for students.",
+          "ja": "クラブは水の観察についての公共の案内を読み生徒に適した問いを選びます。"
+        },
+        {
+          "en": "They consider whether records from the same location can be compared fairly.",
+          "ja": "同じ場所の記録を公平に比較できるか考えます。"
+        },
+        {
+          "en": "Instead of claiming to measure every possible pollutant, they describe the visible features they can reliably record.",
+          "ja": "あらゆる汚染物質を測ると主張せず確実に記録できる目に見える特徴を説明します。"
+        },
+        {
+          "en": "The teacher reminds everyone that collecting water samples may require special guidance.",
+          "ja": "教師は採水には特別な指導が必要な場合があると注意します。"
+        },
+        {
+          "en": "The students decide to keep the project focused on safe observation.",
+          "ja": "生徒たちは安全な観察に活動を絞ることにします。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "During another visit, the group finds several new leaves floating near the edge.",
+          "ja": "次の訪問ではグループは岸辺の近くに浮く新しい葉をいくつか見つけます。"
+        },
+        {
+          "en": "Nevertheless, a single observation does not establish a long-term change.",
+          "ja": "それでも一回の観察は長期的な変化を確定しません。"
+        },
+        {
+          "en": "The students record the date and compare their earlier photographs.",
+          "ja": "生徒たちは日付を記録し以前の写真と比較します。"
+        },
+        {
+          "en": "They also avoid disturbing animals and plants while observing the pond.",
+          "ja": "観察中は動物や植物を邪魔しないようにします。"
+        },
+        {
+          "en": "The project teaches them to separate visible differences from explanations that need more evidence.",
+          "ja": "活動は目に見える違いと追加の証拠を要する説明を区別することを教えます。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "At the final meeting, the students present their photographs and a chart of observations.",
+          "ja": "最終の会議で生徒たちは写真と観察表を発表します。"
+        },
+        {
+          "en": "They explain which changes might depend on weather and which remain uncertain.",
+          "ja": "天候に左右され得る変化とまだ不確かな点を説明します。"
+        },
+        {
+          "en": "As a result, classmates begin asking more careful questions about familiar natural places.",
+          "ja": "その結果同級生は身近な自然の場所についてより慎重な問いを立て始めます。"
+        },
+        {
+          "en": "The club does not declare the pond safe or unsafe from appearance alone.",
+          "ja": "クラブは見た目だけで池が安全か危険かを宣言しません。"
+        },
+        {
+          "en": "Clear water can invite curiosity, but reliable conclusions require appropriate evidence.",
+          "ja": "透明な水は好奇心を促しますが信頼できる結論には適切な証拠が必要です。"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What does the teacher warn students about?",
+      "options": [
+        "The pond is certainly polluted.",
+        "The park is closed every day.",
+        "Photographs cannot be taken outdoors.",
+        "Clear-looking water does not reveal every aspect of its quality."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「しかし教師は見た目だけでは水質のすべてはわからないと注意します。」が正答の根拠です。"
+    },
+    {
+      "id": "q2",
+      "skill": "detail",
+      "prompt": "How do students study the pond initially?",
+      "options": [
+        "By taking animals home.",
+        "By changing its water.",
+        "By recording observations without touching the water.",
+        "By swimming in it."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "第1段落「生徒たちは水に触れず観察したことを記録することにします。」が正答の根拠です。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "When does the surface look darker?",
+      "options": [
+        "When there are no clouds.",
+        "After rain.",
+        "Only during summer.",
+        "Only at noon."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「例えば雨の後は池が移動していなくても水面が暗く見えます。」が正答の根拠です。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What could influence appearance besides water quality?",
+      "options": [
+        "Weather, reflections, and soil.",
+        "Only the pond's name.",
+        "Only the number of schools.",
+        "Only students' grades."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "第2段落「グループはいくつもの要因が池の見た目を変える可能性に気づきます。」が正答の根拠です。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What does the club avoid claiming?",
+      "options": [
+        "That observations can be recorded.",
+        "That the pond has plants.",
+        "That photographs may be compared.",
+        "That it can measure every pollutant."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「あらゆる汚染物質を測ると主張せず確実に記録できる目に見える特徴を説明します。」が正答の根拠です。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "Why does the group limit its work?",
+      "options": [
+        "To avoid writing notes.",
+        "To prove the pond is healthy.",
+        "To focus on safe observations.",
+        "To eliminate every source of uncertainty."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "第3段落「生徒たちは安全な観察に活動を絞ることにします。」が正答の根拠です。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What does one observation not establish?",
+      "options": [
+        "The location of the pond.",
+        "A long-term trend.",
+        "A date on a calendar.",
+        "The presence of a leaf."
+      ],
+      "answer": 1,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「それでも一回の観察は長期的な変化を確定しません。」が正答の根拠です。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "What should students distinguish?",
+      "options": [
+        "Visible differences and unsupported explanations.",
+        "The length and width of a classroom.",
+        "Only one photograph and another.",
+        "The school's grades and attendance."
+      ],
+      "answer": 0,
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "第4段落「活動は目に見える違いと追加の証拠を要する説明を区別することを教えます。」が正答の根拠です。"
+    },
+    {
+      "id": "q9",
+      "skill": "inference",
+      "prompt": "What do students present?",
+      "options": [
+        "A complete water safety certificate.",
+        "Medical advice for visitors.",
+        "A new plan to drain the pond.",
+        "Photographs and an observation chart."
+      ],
+      "answer": 3,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「その結果同級生は身近な自然の場所についてより慎重な問いを立て始めます。」が正答の根拠です。"
+    },
+    {
+      "id": "q10",
+      "skill": "main-idea",
+      "prompt": "What is the passage's main claim?",
+      "options": [
+        "Dark water is always dangerous.",
+        "A single photograph explains every natural change.",
+        "Good environmental conclusions require evidence beyond appearance.",
+        "Clear water is always safe."
+      ],
+      "answer": 2,
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "第5段落「透明な水は好奇心を促しますが信頼できる結論には適切な証拠が必要です。」が正答の根拠です。"
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "affect",
+      "ja": "影響を与える",
+      "synonym": "influence",
+      "definition": "to change how something happens"
+    },
+    {
+      "term": "appropriate",
+      "ja": "適切な",
+      "synonym": "suitable",
+      "definition": "right for a situation"
+    },
+    {
+      "term": "assume",
+      "ja": "決めつける",
+      "synonym": "suppose",
+      "definition": "to accept an idea without checking"
+    },
+    {
+      "term": "classmates",
+      "ja": "同級生",
+      "synonym": "school peers",
+      "definition": "students in the same class"
+    },
+    {
+      "term": "compare",
+      "ja": "比較する",
+      "synonym": "contrast",
+      "definition": "look for similarities and differences"
+    },
+    {
+      "term": "consider",
+      "ja": "考慮する",
+      "synonym": "think about",
+      "definition": "to examine an idea before deciding"
+    },
+    {
+      "term": "curiosity",
+      "ja": "好奇心",
+      "synonym": "interest",
+      "definition": "a desire to learn and understand"
+    },
+    {
+      "term": "decide",
+      "ja": "決める",
+      "synonym": "choose",
+      "definition": "to make a choice"
+    },
+    {
+      "term": "describe",
+      "ja": "説明する",
+      "synonym": "explain",
+      "definition": "to give an account of something"
+    },
+    {
+      "term": "different",
+      "ja": "異なる",
+      "synonym": "unlike",
+      "definition": "not the same as something else"
+    },
+    {
+      "term": "environmental",
+      "ja": "環境の",
+      "synonym": "ecological",
+      "definition": "connected with surroundings"
+    },
+    {
+      "term": "evidence",
+      "ja": "証拠",
+      "synonym": "support",
+      "definition": "information supporting a claim"
+    },
+    {
+      "term": "example",
+      "ja": "例",
+      "synonym": "illustration",
+      "definition": "one case used to make an idea clear"
+    },
+    {
+      "term": "explain",
+      "ja": "説明する",
+      "synonym": "clarify",
+      "definition": "to make something understandable through words"
+    },
+    {
+      "term": "familiar",
+      "ja": "見覚えのある",
+      "synonym": "known",
+      "definition": "recognized from previous experience"
+    },
+    {
+      "term": "features",
+      "ja": "機能・特徴",
+      "synonym": "functions",
+      "definition": "parts or qualities of a product"
+    },
+    {
+      "term": "guidance",
+      "ja": "指導",
+      "synonym": "advice",
+      "definition": "information telling people what to do"
+    },
+    {
+      "term": "guide",
+      "ja": "案内",
+      "synonym": "instructions",
+      "definition": "information helping someone find a way"
+    },
+    {
+      "term": "healthy",
+      "ja": "健康な",
+      "synonym": "well",
+      "definition": "living or growing well"
+    },
+    {
+      "term": "however",
+      "ja": "しかし",
+      "synonym": "nevertheless",
+      "definition": "used to introduce an opposing idea"
+    },
+    {
+      "term": "invite",
+      "ja": "招く・勧める",
+      "synonym": "ask",
+      "definition": "to ask someone to join an activity"
+    },
+    {
+      "term": "leaves",
+      "ja": "葉",
+      "synonym": "foliage",
+      "definition": "flat green parts of a plant"
+    },
+    {
+      "term": "long-term",
+      "ja": "長期的な",
+      "synonym": "lasting",
+      "definition": "continuing over much time"
+    },
+    {
+      "term": "meeting",
+      "ja": "集合",
+      "synonym": "gathering",
+      "definition": "coming together at a place"
+    },
+    {
+      "term": "nearby",
+      "ja": "近くの",
+      "synonym": "close",
+      "definition": "not far away"
+    },
+    {
+      "term": "nevertheless",
+      "ja": "それでも",
+      "synonym": "however",
+      "definition": "introducing an opposing point"
+    },
+    {
+      "term": "observations",
+      "ja": "観察",
+      "synonym": "records",
+      "definition": "information gathered by looking"
+    },
+    {
+      "term": "observing",
+      "ja": "観察すること",
+      "synonym": "watching",
+      "definition": "looking carefully to notice details"
+    },
+    {
+      "term": "photographs",
+      "ja": "写真",
+      "synonym": "pictures",
+      "definition": "images made using a camera"
+    },
+    {
+      "term": "public",
+      "ja": "公衆の",
+      "synonym": "community",
+      "definition": "connected with people generally"
+    },
+    {
+      "term": "quality",
+      "ja": "質",
+      "synonym": "condition",
+      "definition": "how good something is"
+    },
+    {
+      "term": "record",
+      "ja": "記録する",
+      "synonym": "note",
+      "definition": "to write information down for later use"
+    },
+    {
+      "term": "records",
+      "ja": "記録",
+      "synonym": "documents",
+      "definition": "written accounts kept for later use"
+    },
+    {
+      "term": "reliable",
+      "ja": "安定した",
+      "synonym": "dependable",
+      "definition": "working consistently"
+    },
+    {
+      "term": "school",
+      "ja": "学校",
+      "synonym": "educational institution",
+      "definition": "a place where children or young adults learn"
+    },
+    {
+      "term": "soil",
+      "ja": "土",
+      "synonym": "earth",
+      "definition": "ground material"
+    },
+    {
+      "term": "students",
+      "ja": "生徒たち",
+      "synonym": "pupils",
+      "definition": "people who study at school"
+    },
+    {
+      "term": "study",
+      "ja": "調べる・学習する",
+      "synonym": "examine",
+      "definition": "to learn or investigate something carefully"
+    },
+    {
+      "term": "suitable",
+      "ja": "適切な",
+      "synonym": "appropriate",
+      "definition": "right for the situation"
+    },
+    {
+      "term": "teacher",
+      "ja": "教師",
+      "synonym": "educator",
+      "definition": "a person who helps others learn"
+    },
+    {
+      "term": "uncertain",
+      "ja": "不確かな",
+      "synonym": "unknown",
+      "definition": "not established"
+    },
+    {
+      "term": "visitors",
+      "ja": "訪問者",
+      "synonym": "guests",
+      "definition": "people coming to a place"
+    },
+    {
+      "term": "water",
+      "ja": "水",
+      "synonym": "liquid",
+      "definition": "a substance needed by living things"
+    },
+    {
+      "term": "weather",
+      "ja": "天候",
+      "synonym": "conditions",
+      "definition": "the state of the atmosphere"
+    },
+    {
+      "term": "pond",
+      "ja": "池",
+      "synonym": "small lake",
+      "definition": "a small body of still water"
+    },
+    {
+      "term": "water quality",
+      "ja": "水質",
+      "synonym": "water condition",
+      "definition": "the state of water"
+    },
+    {
+      "term": "park",
+      "ja": "公園",
+      "synonym": "public garden",
+      "definition": "a place for outdoor activities"
+    },
+    {
+      "term": "surface",
+      "ja": "水面",
+      "synonym": "top layer",
+      "definition": "the outside layer of something"
+    },
+    {
+      "term": "clear",
+      "ja": "透明な",
+      "synonym": "transparent",
+      "definition": "easy to see through"
+    },
+    {
+      "term": "appearance",
+      "ja": "見た目",
+      "synonym": "look",
+      "definition": "how something appears"
+    },
+    {
+      "term": "observation",
+      "ja": "観察",
+      "synonym": "inspection",
+      "definition": "looking carefully at something"
+    },
+    {
+      "term": "sunlight",
+      "ja": "日光",
+      "synonym": "sunshine",
+      "definition": "light from the Sun"
+    },
+    {
+      "term": "plants",
+      "ja": "植物",
+      "synonym": "vegetation",
+      "definition": "living things that grow in soil"
+    },
+    {
+      "term": "animals",
+      "ja": "動物",
+      "synonym": "creatures",
+      "definition": "living nonplant organisms"
+    },
+    {
+      "term": "clouds",
+      "ja": "雲",
+      "synonym": "cloud formations",
+      "definition": "groups of water droplets in the sky"
+    },
+    {
+      "term": "reflections",
+      "ja": "反射",
+      "synonym": "mirror images",
+      "definition": "images shown on a surface"
+    },
+    {
+      "term": "factors",
+      "ja": "要因",
+      "synonym": "conditions",
+      "definition": "things influencing a result"
+    },
+    {
+      "term": "pollutant",
+      "ja": "汚染物質",
+      "synonym": "contaminant",
+      "definition": "an unwanted substance"
+    },
+    {
+      "term": "samples",
+      "ja": "試料",
+      "synonym": "specimens",
+      "definition": "small amounts taken for study"
+    },
+    {
+      "term": "reliably",
+      "ja": "確実に",
+      "synonym": "dependably",
+      "definition": "with reasonable consistency"
+    },
+    {
+      "term": "conclusions",
+      "ja": "結論",
+      "synonym": "findings",
+      "definition": "judgments based on evidence"
+    },
+    {
+      "term": "natural",
+      "ja": "自然の",
+      "synonym": "environmental",
+      "definition": "found in nature"
+    },
+    {
+      "term": "chart",
+      "ja": "表",
+      "synonym": "table",
+      "definition": "information arranged for comparison"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "that appearance alone does not show everything about water quality",
+      "explanation_ja": "that節は警告の内容を示します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 3,
+      "focus": "whether clouds, reflections, or soil could affect the appearance",
+      "explanation_ja": "whether節は可能性を問います。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Instead of claiming to measure every possible pollutant",
+      "explanation_ja": "instead of + 動名詞で慎重な姿勢を表します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 4,
+      "focus": "but reliable conclusions require appropriate evidence",
+      "explanation_ja": "butは見た目と根拠を対比します。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p1",
+      "expression": "However",
+      "role_ja": "透明な見た目と測定の限界を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "For example",
+      "role_ja": "雨後の水面の変化を例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Nevertheless",
+      "role_ja": "一回の観察では断定できないと示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "As a result",
+      "role_ja": "慎重な質問が広がる結果です。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "They note sunlight, weather, nearby plants, and the number of visitors.",
+      "rewrite": "Students record the surroundings as well as the pond's appearance.",
+      "explanation_ja": "周囲の条件も記録します。"
+    },
+    {
+      "source": "The group realizes that several factors can change how the pond looks.",
+      "rewrite": "Several different conditions may influence how the water looks.",
+      "explanation_ja": "見た目には複数の要因が関わります。"
+    },
+    {
+      "source": "The project teaches them to separate visible differences from explanations that need more evidence.",
+      "rewrite": "Observations should be separated from explanations that still lack evidence.",
+      "explanation_ja": "観察と未検証の説明を区別します。"
+    },
+    {
+      "source": "Clear water can invite curiosity, but reliable conclusions require appropriate evidence.",
+      "rewrite": "The appearance of clear water cannot replace proper evidence.",
+      "explanation_ja": "透明な見た目だけでは不十分です。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "answer": "However",
+      "options": [
+        "As a result",
+        "In addition",
+        "However",
+        "For example"
+      ],
+      "explanation_ja": "透明な見た目と測定の限界を対比します。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "For example",
+      "options": [
+        "In contrast",
+        "For example",
+        "However",
+        "As a result"
+      ],
+      "explanation_ja": "雨後の水面の変化を例示します。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 1,
+      "answer": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "For example",
+        "As a result",
+        "Moreover"
+      ],
+      "explanation_ja": "一回の観察では断定できないと示します。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "As a result",
+      "options": [
+        "For example",
+        "However",
+        "Meanwhile",
+        "As a result"
+      ],
+      "explanation_ja": "慎重な質問が広がる結果です。"
+    }
+  ]
+}
