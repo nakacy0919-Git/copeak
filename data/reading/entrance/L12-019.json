@@ -1,0 +1,698 @@
+{
+  "id": "L12-019",
+  "category_id": "L12",
+  "title": "The Chart That Needed a Denominator",
+  "title_ja": "分母が必要なグラフ",
+  "level_id": "eiken-2",
+  "status": "draft",
+  "original": true,
+  "word_count": 392,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "人物・制度・具体的な出来事・データは架空の教材例・思考実験。実在の調査・統計・法令・技術基準・実証結果を示すものではない。制作台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "A health education teacher prepared a fictional dataset showing the number of students who visited two school health rooms during a particular month.",
+          "ja": "保健教育の教師はある月に二つの学校保健室を利用した生徒の数を示す架空のデータを用意した。"
+        },
+        {
+          "en": "The first school recorded more visits than the second, and several students immediately concluded that the first school had a greater health problem.",
+          "ja": "第一の学校は第二より利用回数が多く、何人かはすぐ第一の学校の健康問題が大きいと結論づけた。"
+        },
+        {
+          "en": "The teacher asked what additional information would be necessary before drawing such a conclusion from the displayed totals.",
+          "ja": "教師は表示された合計からその結論を導く前にどんな追加情報が必要か尋ねた。"
+        },
+        {
+          "en": "She explained that the example was designed to develop data literacy rather than make a statement about any actual school.",
+          "ja": "この例は実在校について述べるのでなくデータ読解力の育成を目的とすると説明した。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "One student suggested finding out how many students attended each school because their populations might be very different.",
+          "ja": "ある生徒は学校規模が大きく違うかもしれないので各校の在籍数を調べることを提案した。"
+        },
+        {
+          "en": "Another asked whether the records counted individual visitors or every separate visit, since one person might return several times.",
+          "ja": "一人が数回利用することもあるため、記録は個々の利用者を数えるのか毎回の利用を数えるのかと別の生徒が尋ねた。"
+        },
+        {
+          "en": "A third pointed out that the two health rooms might offer different services or have different opening hours.",
+          "ja": "三人目は二つの保健室でサービスや開室時間が異なる可能性を指摘した。"
+        },
+        {
+          "en": "The teacher encouraged the class to distinguish the recorded events from the conclusions they wished to reach.",
+          "ja": "記録された事象と導きたい結論を区別するよう促した。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The class received an expanded version of the fictional dataset containing enrollment figures and definitions of the recorded categories.",
+          "ja": "在籍数と記録区分の定義を含む架空データの拡張版を受け取った。"
+        },
+        {
+          "en": "Students calculated the number of visits in relation to enrollment, rather than comparing the totals alone.",
+          "ja": "合計だけを比較せず在籍数に対する利用回数を計算した。"
+        },
+        {
+          "en": "They found that the relative picture could change when the size of each student population was taken into account.",
+          "ja": "各校の生徒数を考慮すると相対的な状況が変わり得ると分かった。"
+        },
+        {
+          "en": "Nevertheless, even the revised comparison could not identify why students had visited or whether their health had improved.",
+          "ja": "それでも修正比較から利用理由や健康状態の改善は分からなかった。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "For their final report, the students designed a chart that clearly described both the numerator and the denominator of each calculated rate.",
+          "ja": "最終報告で各算出率の分子と分母を明確に示すグラフを設計した。"
+        },
+        {
+          "en": "They included a note explaining that visits were not necessarily equivalent to the number of different people using the facility.",
+          "ja": "利用回数は必ずしも施設を利用した異なる人数と同等でないという注を加えた。"
+        },
+        {
+          "en": "They also replaced a dramatic headline with a more limited description of what the chart actually measured.",
+          "ja": "劇的な見出しを実際にグラフが測定したものについての限定的記述に置き換えた。"
+        },
+        {
+          "en": "The teacher praised their willingness to leave questions unanswered when the available information did not support definite conclusions.",
+          "ja": "入手情報が明確な結論を支えない場合に問いを未解決のまま残す姿勢を評価した。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "The exercise illustrates that numerical accuracy alone is not sufficient for responsible interpretation of health information.",
+          "ja": "この練習は数値の正確さだけでは健康情報の責任ある解釈に十分でないと示す。"
+        },
+        {
+          "en": "A calculation may correctly describe a particular rate while failing to answer a broader question about the circumstances behind it.",
+          "ja": "計算は特定の率を正しく表しても背後の状況についてのより広い問いに答えられないことがある。"
+        },
+        {
+          "en": "Readers should examine what was counted, what was used as a basis for comparison, and which questions remain outside the scope of the data.",
+          "ja": "何が数えられ、何が比較の基準で、どの問いがデータの範囲外か検討すべきだ。"
+        },
+        {
+          "en": "The goal of the activity was not to discover which fictional school was healthier, but to recognize what evidence would be needed to investigate that question responsibly.",
+          "ja": "目的はどちらの架空校がより健康か見つけることでなく、その問いを責任を持って調査するために必要な証拠を認識することだった。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "dataset",
+      "ja": "データセット",
+      "synonym": "collection of data",
+      "definition": "organized information for analysis"
+    },
+    {
+      "term": "fictional",
+      "ja": "架空の",
+      "synonym": "imaginary",
+      "definition": "existing in imagination"
+    },
+    {
+      "term": "particular",
+      "ja": "特定の",
+      "synonym": "specific",
+      "definition": "relating to one thing"
+    },
+    {
+      "term": "recorded",
+      "ja": "記録した",
+      "synonym": "documented",
+      "definition": "stored information"
+    },
+    {
+      "term": "concluded",
+      "ja": "結論づけた",
+      "synonym": "decided",
+      "definition": "reached a conclusion"
+    },
+    {
+      "term": "additional",
+      "ja": "追加の",
+      "synonym": "extra",
+      "definition": "more than what already exists"
+    },
+    {
+      "term": "necessary",
+      "ja": "必要な",
+      "synonym": "required",
+      "definition": "needed for a purpose"
+    },
+    {
+      "term": "drawing",
+      "ja": "導くこと",
+      "synonym": "reaching",
+      "definition": "arriving at a conclusion"
+    },
+    {
+      "term": "displayed",
+      "ja": "表示された",
+      "synonym": "shown",
+      "definition": "made visible"
+    },
+    {
+      "term": "totals",
+      "ja": "合計",
+      "synonym": "sums",
+      "definition": "amounts obtained by addition"
+    },
+    {
+      "term": "literacy",
+      "ja": "読解力",
+      "synonym": "competence",
+      "definition": "ability to understand and use information"
+    },
+    {
+      "term": "actual",
+      "ja": "実際の",
+      "synonym": "real",
+      "definition": "existing in reality"
+    },
+    {
+      "term": "populations",
+      "ja": "集団の人数",
+      "synonym": "groups",
+      "definition": "numbers of people in defined groups"
+    },
+    {
+      "term": "individual",
+      "ja": "個々の",
+      "synonym": "separate",
+      "definition": "considered one at a time"
+    },
+    {
+      "term": "visitors",
+      "ja": "利用者",
+      "synonym": "users",
+      "definition": "people visiting a place"
+    },
+    {
+      "term": "separate",
+      "ja": "個別の",
+      "synonym": "distinct",
+      "definition": "not joined to another"
+    },
+    {
+      "term": "services",
+      "ja": "サービス",
+      "synonym": "assistance",
+      "definition": "activities offered to users"
+    },
+    {
+      "term": "distinguish",
+      "ja": "区別する",
+      "synonym": "differentiate",
+      "definition": "recognize differences"
+    },
+    {
+      "term": "events",
+      "ja": "事象",
+      "synonym": "occurrences",
+      "definition": "things that happen"
+    },
+    {
+      "term": "expanded",
+      "ja": "拡張された",
+      "synonym": "enlarged",
+      "definition": "increased in scope"
+    },
+    {
+      "term": "enrollment",
+      "ja": "在籍数",
+      "synonym": "registration",
+      "definition": "number registered at a school"
+    },
+    {
+      "term": "figures",
+      "ja": "数値",
+      "synonym": "numbers",
+      "definition": "numerical amounts"
+    },
+    {
+      "term": "definitions",
+      "ja": "定義",
+      "synonym": "explanations",
+      "definition": "statements explaining meanings"
+    },
+    {
+      "term": "categories",
+      "ja": "区分",
+      "synonym": "classes",
+      "definition": "groups of similar things"
+    },
+    {
+      "term": "calculated",
+      "ja": "計算した",
+      "synonym": "computed",
+      "definition": "worked out numerically"
+    },
+    {
+      "term": "in relation to",
+      "ja": "〜との関係で",
+      "synonym": "relative to",
+      "definition": "compared with something"
+    },
+    {
+      "term": "relative",
+      "ja": "相対的な",
+      "synonym": "comparative",
+      "definition": "considered in comparison"
+    },
+    {
+      "term": "taken into account",
+      "ja": "考慮された",
+      "synonym": "considered",
+      "definition": "included in reasoning"
+    },
+    {
+      "term": "revised",
+      "ja": "修正された",
+      "synonym": "modified",
+      "definition": "changed to improve"
+    },
+    {
+      "term": "comparison",
+      "ja": "比較",
+      "synonym": "contrast",
+      "definition": "examination of similarities and differences"
+    },
+    {
+      "term": "identify",
+      "ja": "特定する",
+      "synonym": "determine",
+      "definition": "find or name"
+    },
+    {
+      "term": "numerator",
+      "ja": "分子",
+      "synonym": "top number",
+      "definition": "number above the division line"
+    },
+    {
+      "term": "denominator",
+      "ja": "分母",
+      "synonym": "bottom number",
+      "definition": "number below the division line"
+    },
+    {
+      "term": "rate",
+      "ja": "率",
+      "synonym": "ratio",
+      "definition": "quantity measured relative to another"
+    },
+    {
+      "term": "equivalent",
+      "ja": "同等な",
+      "synonym": "equal",
+      "definition": "having the same value"
+    },
+    {
+      "term": "facility",
+      "ja": "施設",
+      "synonym": "amenity",
+      "definition": "place provided for a purpose"
+    },
+    {
+      "term": "dramatic",
+      "ja": "劇的な",
+      "synonym": "striking",
+      "definition": "very noticeable or exciting"
+    },
+    {
+      "term": "headline",
+      "ja": "見出し",
+      "synonym": "title",
+      "definition": "title of a news item"
+    },
+    {
+      "term": "limited",
+      "ja": "限定された",
+      "synonym": "restricted",
+      "definition": "having a narrow scope"
+    },
+    {
+      "term": "available",
+      "ja": "入手可能な",
+      "synonym": "accessible",
+      "definition": "able to be obtained"
+    },
+    {
+      "term": "definite",
+      "ja": "明確な",
+      "synonym": "certain",
+      "definition": "clearly decided"
+    },
+    {
+      "term": "numerical",
+      "ja": "数値の",
+      "synonym": "numeric",
+      "definition": "relating to numbers"
+    },
+    {
+      "term": "accuracy",
+      "ja": "正確さ",
+      "synonym": "precision",
+      "definition": "quality of being correct"
+    },
+    {
+      "term": "interpretation",
+      "ja": "解釈",
+      "synonym": "understanding",
+      "definition": "way of assigning meaning"
+    },
+    {
+      "term": "circumstances",
+      "ja": "状況",
+      "synonym": "conditions",
+      "definition": "facts surrounding an event"
+    },
+    {
+      "term": "basis",
+      "ja": "基準",
+      "synonym": "foundation",
+      "definition": "something on which comparison rests"
+    },
+    {
+      "term": "scope",
+      "ja": "範囲",
+      "synonym": "range",
+      "definition": "extent of something"
+    },
+    {
+      "term": "responsibly",
+      "ja": "責任を持って",
+      "synonym": "carefully",
+      "definition": "with appropriate judgment"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What did the fictional dataset show?",
+      "answer": 2,
+      "options": [
+        "Diagnoses for named students.",
+        "The teachers' salaries.",
+        "Health room visits at two schools.",
+        "A survey of national hospitals."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "保健室利用回数。"
+    },
+    {
+      "id": "q2",
+      "skill": "inference",
+      "prompt": "What was premature about the students' conclusion?",
+      "answer": 0,
+      "options": [
+        "It treated a larger total as proof of a larger health problem.",
+        "It used actual medical records.",
+        "It compared equal visit rates.",
+        "It considered too many factors."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "合計だけで健康問題を判断。"
+    },
+    {
+      "id": "q3",
+      "skill": "detail",
+      "prompt": "What population information was requested?",
+      "answer": 3,
+      "options": [
+        "The number of teachers in the country.",
+        "The age of every visitor.",
+        "The distance between schools.",
+        "The number of students at each school."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "在籍数。"
+    },
+    {
+      "id": "q4",
+      "skill": "inference",
+      "prompt": "Why distinguish visitors from visits?",
+      "answer": 1,
+      "options": [
+        "All visitors must attend once.",
+        "One person may be counted on multiple visits.",
+        "The two terms always mean exactly the same count.",
+        "Visits cannot be measured."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "同一人の複数利用。"
+    },
+    {
+      "id": "q5",
+      "skill": "detail",
+      "prompt": "What did students calculate?",
+      "answer": 2,
+      "options": [
+        "Individual health improvement.",
+        "Medical costs per diagnosis.",
+        "Visits relative to enrollment.",
+        "The percentage of students absent nationally."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "在籍数に対する利用回数。"
+    },
+    {
+      "id": "q6",
+      "skill": "inference",
+      "prompt": "What did the adjusted comparison still not establish?",
+      "answer": 0,
+      "options": [
+        "Reasons for visits or health outcomes.",
+        "The enrollment figures.",
+        "Whether totals were different.",
+        "The names of the fictional schools."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "理由や健康改善までは不明。"
+    },
+    {
+      "id": "q7",
+      "skill": "detail",
+      "prompt": "What did the new chart specify?",
+      "answer": 1,
+      "options": [
+        "Personal medical histories.",
+        "Its numerator and denominator.",
+        "A single dramatic headline only.",
+        "The exact cause of every visit."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "分子・分母を明確化。"
+    },
+    {
+      "id": "q8",
+      "skill": "detail",
+      "prompt": "Why change the headline?",
+      "answer": 3,
+      "options": [
+        "To guarantee greater attention at all costs.",
+        "To conceal the denominator.",
+        "To claim that one school was healthier.",
+        "To describe what was actually measured."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "実際の測定内容に合わせる。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does scope mean?",
+      "answer": 0,
+      "options": [
+        "Range or extent.",
+        "Exact numerical answer.",
+        "A kind of chart.",
+        "A school facility."
+      ],
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "範囲。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the main lesson?",
+      "answer": 2,
+      "options": [
+        "A bigger count always indicates worse health.",
+        "Every numerical result answers all relevant questions.",
+        "Responsible data interpretation requires knowing what is counted and what conclusions the data support.",
+        "Health room visits measure identical people."
+      ],
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "測定対象と結論の限界を理解。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 2,
+      "focus": "before drawing such a conclusion",
+      "explanation_ja": "before＋動名詞は時の前後。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "since one person might return several times",
+      "explanation_ja": "sinceは理由、mightは可能性。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 3,
+      "focus": "even the revised comparison could not identify",
+      "explanation_ja": "evenで修正後も限界があると強調。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 1,
+      "focus": "while failing to answer a broader question",
+      "explanation_ja": "while＋分詞の対比。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The teacher asked what additional information would be necessary before drawing such a conclusion from the displayed totals.",
+      "rewrite": "She asked what information was needed before reaching a conclusion based on totals.",
+      "explanation_ja": "結論前の追加情報。"
+    },
+    {
+      "source": "Another asked whether the records counted individual visitors or every separate visit, since one person might return several times.",
+      "rewrite": "One student asked whether repeated visits by the same person were counted separately.",
+      "explanation_ja": "同一人の反復利用を区別。"
+    },
+    {
+      "source": "Nevertheless, even the revised comparison could not identify why students had visited or whether their health had improved.",
+      "rewrite": "The adjusted figures still revealed neither reasons for visits nor health improvement.",
+      "explanation_ja": "補正後も理由・改善は不明。"
+    },
+    {
+      "source": "A calculation may correctly describe a particular rate while failing to answer a broader question about the circumstances behind it.",
+      "rewrite": "A rate can be calculated accurately yet leave broader questions unanswered.",
+      "explanation_ja": "率の正確さと解釈の限界。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p2",
+      "expression": "Another",
+      "role_ja": "別の情報要求。"
+    },
+    {
+      "paragraph_id": "p2",
+      "expression": "since",
+      "role_ja": "複数利用の可能性が理由。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Nevertheless",
+      "role_ja": "補正後も残る限界。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "but",
+      "role_ja": "実際の目的を明確化。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "answer": "individual",
+      "options": [
+        "individual",
+        "numerical",
+        "fictional",
+        "temporary"
+      ],
+      "explanation_ja": "利用人数か回数か。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 1,
+      "answer": "enrollment",
+      "options": [
+        "attendance",
+        "enrollment",
+        "improvement",
+        "decoration"
+      ],
+      "explanation_ja": "在籍数に対する率。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 0,
+      "answer": "denominator",
+      "options": [
+        "headline",
+        "visitor",
+        "denominator",
+        "facility"
+      ],
+      "explanation_ja": "分母を明示。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "scope",
+      "options": [
+        "rate",
+        "visit",
+        "chart",
+        "scope"
+      ],
+      "explanation_ja": "データの範囲。"
+    }
+  ]
+}

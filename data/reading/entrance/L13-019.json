@@ -1,0 +1,796 @@
+{
+  "id": "L13-019",
+  "category_id": "L13",
+  "title": "The Spare Part That Never Flew",
+  "title_ja": "宇宙へ運ばれなかった予備部品",
+  "level_id": "university-national",
+  "status": "draft",
+  "original": true,
+  "word_count": 736,
+  "source_links": [
+    {
+      "title": "Original lesson registry (provenance only)",
+      "url": "https://github.com/nakacy0919-Git/copeak/issues/65"
+    }
+  ],
+  "fact_notes": [
+    "人物・制度・具体的な出来事・データは架空の教材例・思考実験。実在の調査・統計・法令・技術基準・実証結果を示すものではない。制作台帳は来歴確認用。"
+  ],
+  "paragraphs": [
+    {
+      "id": "p1",
+      "sentences": [
+        {
+          "en": "Imagine an international team preparing equipment for a hypothetical research station on a distant planet, where replacement supplies cannot be delivered whenever a machine stops working.",
+          "ja": "機械が停止したときいつでも交換用品を届けられるわけではない遠い惑星の仮想研究基地の機材を準備する国際チームを想像しよう。"
+        },
+        {
+          "en": "The engineers have been given a limited allowance for the weight of the equipment, and several scientific groups are competing to use the remaining space for instruments that would expand their research programs.",
+          "ja": "技術者には機材重量の限られた割当が与えられ、複数の科学グループが研究計画を拡大できる機器を載せるため残りの空間を争っている。"
+        },
+        {
+          "en": "One proposal is to reduce the number of spare parts carried by the station on the grounds that many of the components are expected to remain operational throughout the planned mission.",
+          "ja": "一つの案は多くの部品が予定された任務期間中ずっと動作する見込みだという理由で、基地が運ぶ予備部品を減らすことだ。"
+        },
+        {
+          "en": "Supporters of the proposal argue that carrying unused replacements could prevent valuable experiments from being performed, while opponents point out that a breakdown might make much of the remaining equipment useless.",
+          "ja": "賛成者は未使用の交換品を運ぶことで価値ある実験ができなくなる可能性を主張し、反対者は故障で残りの機材の多くが使えなくなるかもしれないと指摘する。"
+        },
+        {
+          "en": "The disagreement cannot be resolved simply by deciding whether spare parts are valuable, because their value depends partly on the consequences of failures that may or may not occur.",
+          "ja": "予備部品の価値は起きるかもしれない故障の結果にも左右されるため、予備部品に価値があるかだけでこの意見の違いは解決できない。"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "sentences": [
+        {
+          "en": "The team begins by examining the functions of the equipment and identifying which scientific activities would depend on particular components remaining available.",
+          "ja": "チームは機材の機能を調べ、どの科学活動が特定の部品を利用できる状態に依存するか特定するところから始める。"
+        },
+        {
+          "en": "A relatively inexpensive part may be more important to the mission than an elaborate instrument if the operation of several independent experiments depends on the continued functioning of that part.",
+          "ja": "複数の独立した実験の実施がある部品の継続動作に依存するなら、比較的安価な部品でも精巧な機器より任務に重要な場合がある。"
+        },
+        {
+          "en": "Conversely, the failure of a highly specialized instrument might interrupt only one investigation if alternative methods are available or if the planned observations can be carried out at a later time.",
+          "ja": "反対に代替手法があるか予定観測を後で実施できるなら、高度に専門化された機器の故障も一つの調査だけを中断するかもしれない。"
+        },
+        {
+          "en": "The engineers therefore prepare a diagram showing relationships among the various systems instead of evaluating each object solely according to its weight or individual purchase price.",
+          "ja": "そこで各品を重量や個別購入価格だけで評価せず、さまざまなシステム間の関係を示す図を作る。"
+        },
+        {
+          "en": "The diagram reveals that the apparent importance of an item can change considerably when it is considered within the network of activities that it supports.",
+          "ja": "その品が支える活動のネットワーク内で考えると見かけの重要性が大きく変わり得ることが図から分かる。"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "sentences": [
+        {
+          "en": "The next difficulty concerns how to compare a potential scientific achievement with the prevention of a failure whose likelihood is uncertain and whose consequences may be difficult to estimate in advance.",
+          "ja": "次の困難は見込まれる科学的成果と、発生可能性が不確実で結果の事前推定が難しい故障の予防をどう比較するかだ。"
+        },
+        {
+          "en": "Some participants suggest calculating the expected loss associated with each possible breakdown, using an estimated probability together with an assessment of the damage that would follow.",
+          "ja": "一部の参加者は推定確率とそれに続く損害の評価を用いて、考えられる各故障に伴う期待損失を計算することを提案する。"
+        },
+        {
+          "en": "Although such a calculation could make assumptions more explicit, the team acknowledges that assigning a numerical probability would not by itself eliminate uncertainty about conditions that have not been adequately investigated.",
+          "ja": "その計算は前提を明確にできるが、数値的確率を割り当てるだけでは十分に調べられていない条件についての不確実性がなくならないと認める。"
+        },
+        {
+          "en": "Moreover, an average estimate might conceal the fact that certain combinations of individually unlikely failures could have extremely serious consequences for the mission as a whole.",
+          "ja": "さらに平均的な推定は、個別には起きにくい故障の特定の組み合わせが任務全体に極めて重大な結果を生み得るという事実を隠すかもしれない。"
+        },
+        {
+          "en": "The engineers decide to use several hypothetical scenarios to examine how vulnerable different research plans would be, while clearly distinguishing those scenarios from predictions about what will actually happen.",
+          "ja": "そこで様々な研究計画がどの程度脆弱か検討するため複数の仮想シナリオを使い、実際に起きることの予測とは明確に区別する。"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "sentences": [
+        {
+          "en": "Rather than assuming that every critical function must have an identical replacement component, the group considers alternative ways of preserving the station's ability to operate when particular equipment becomes unavailable.",
+          "ja": "あらゆる重要機能に同一の交換部品が必要だと仮定せず、特定機材が使えなくなったとき基地の動作能力を保つ代替手段を検討する。"
+        },
+        {
+          "en": "Certain research tasks might be redesigned so that the same general purpose could be achieved with a different instrument, although the resulting observations might not be directly comparable with those originally planned.",
+          "ja": "当初計画の観測と直接比較できなくなる可能性はあるが、別の機器で同じ一般目的を達成できるよう研究課題を再設計できる場合もある。"
+        },
+        {
+          "en": "Other activities could be postponed without losing all of their scientific value, especially if the team had agreed beforehand which measurements would receive priority during periods of limited capacity.",
+          "ja": "特に能力が限られた期間にどの測定を優先するか事前合意があれば、科学的価値を全て失わず延期できる活動もある。"
+        },
+        {
+          "en": "The station's designers also examine whether a common component could serve multiple functions, provided that sharing it would not create a new dependency that made several systems vulnerable to the same failure.",
+          "ja": "共用によって複数システムが同じ故障に脆弱になる新たな依存関係を生まないという条件で、一つの共通部品が複数機能を果たせるかを設計者は調べる。"
+        },
+        {
+          "en": "These proposals show that the decision about spare equipment cannot be separated from the way the station's scientific objectives and technical systems have been organized in the first place.",
+          "ja": "これらの案は予備機材の判断がそもそもの基地の科学目的と技術システムの構成方法から切り離せないことを示す。"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "sentences": [
+        {
+          "en": "For their final report, the planners describe which functions they consider essential, which activities could be modified, and which uncertainties require additional research before any actual mission could be approved.",
+          "ja": "最終報告で計画者は必須と考える機能、変更できる活動、実際の任務の承認前に追加研究を要する不確実性を述べる。"
+        },
+        {
+          "en": "They do not claim that a hypothetical classroom exercise can establish an appropriate engineering standard for a real planetary station, or that their selected arrangement would guarantee the success of such a mission.",
+          "ja": "仮想の教室活動で本物の惑星基地の適切な工学基準を確立できるとも、選んだ構成が任務成功を保証するとも主張しない。"
+        },
+        {
+          "en": "Instead, the example is intended to illustrate why a resource that produces no visible output during ordinary operation may nevertheless be an essential part of a system's resilience.",
+          "ja": "むしろ通常運転中に目に見える成果を生まない資源が、それでもシステムの回復力の不可欠な一部になり得る理由を示すことを目的とする。"
+        },
+        {
+          "en": "If no breakdown occurs, a spare component may appear to have been wasted, but that judgment would confuse the actual outcome of a particular mission with the uncertainty that existed when the decision was made.",
+          "ja": "故障が起きなければ予備部品は無駄だったように見えるかもしれないが、その判断は個別任務の実際の結果と決定時に存在した不確実性を混同する。"
+        },
+        {
+          "en": "A defensible plan must therefore explain not only what it intends to accomplish under favorable circumstances, but also what it will be capable of preserving when those circumstances turn out differently.",
+          "ja": "したがって正当化できる計画は好条件のもとで何を達成するかだけでなく、状況が異なる結果になったとき何を維持できるかも説明しなければならない。"
+        }
+      ]
+    }
+  ],
+  "vocabulary": [
+    {
+      "term": "hypothetical",
+      "ja": "仮想の",
+      "synonym": "imagined",
+      "definition": "assumed for the sake of reasoning"
+    },
+    {
+      "term": "replacement",
+      "ja": "交換品",
+      "synonym": "substitute",
+      "definition": "something used in place of another"
+    },
+    {
+      "term": "allowance",
+      "ja": "割当",
+      "synonym": "allocation",
+      "definition": "an amount permitted for use"
+    },
+    {
+      "term": "competing",
+      "ja": "競合する",
+      "synonym": "rival",
+      "definition": "seeking the same resources"
+    },
+    {
+      "term": "instruments",
+      "ja": "機器",
+      "synonym": "devices",
+      "definition": "tools used for measurement or work"
+    },
+    {
+      "term": "expand",
+      "ja": "拡大する",
+      "synonym": "enlarge",
+      "definition": "make greater in scope"
+    },
+    {
+      "term": "spare parts",
+      "ja": "予備部品",
+      "synonym": "replacement components",
+      "definition": "extra parts kept available"
+    },
+    {
+      "term": "on the grounds that",
+      "ja": "〜という理由で",
+      "synonym": "because",
+      "definition": "for the stated reason"
+    },
+    {
+      "term": "components",
+      "ja": "部品",
+      "synonym": "parts",
+      "definition": "pieces forming a system"
+    },
+    {
+      "term": "operational",
+      "ja": "動作する",
+      "synonym": "functioning",
+      "definition": "able to work"
+    },
+    {
+      "term": "throughout",
+      "ja": "〜を通じて",
+      "synonym": "during all of",
+      "definition": "from beginning to end"
+    },
+    {
+      "term": "mission",
+      "ja": "任務",
+      "synonym": "assignment",
+      "definition": "an important task"
+    },
+    {
+      "term": "opponents",
+      "ja": "反対者",
+      "synonym": "critics",
+      "definition": "people opposing a proposal"
+    },
+    {
+      "term": "breakdown",
+      "ja": "故障",
+      "synonym": "failure",
+      "definition": "a failure of equipment"
+    },
+    {
+      "term": "consequences",
+      "ja": "結果",
+      "synonym": "effects",
+      "definition": "results of an event"
+    },
+    {
+      "term": "identifying",
+      "ja": "特定すること",
+      "synonym": "determining",
+      "definition": "finding or naming something"
+    },
+    {
+      "term": "inexpensive",
+      "ja": "安価な",
+      "synonym": "low-cost",
+      "definition": "not costing much money"
+    },
+    {
+      "term": "elaborate",
+      "ja": "精巧な",
+      "synonym": "sophisticated",
+      "definition": "developed with many details"
+    },
+    {
+      "term": "independent",
+      "ja": "独立した",
+      "synonym": "separate",
+      "definition": "not dependent on another"
+    },
+    {
+      "term": "Conversely",
+      "ja": "反対に",
+      "synonym": "on the other hand",
+      "definition": "introducing an opposite case"
+    },
+    {
+      "term": "specialized",
+      "ja": "専門化された",
+      "synonym": "specific",
+      "definition": "designed for a limited purpose"
+    },
+    {
+      "term": "interrupt",
+      "ja": "中断する",
+      "synonym": "disrupt",
+      "definition": "cause something to stop"
+    },
+    {
+      "term": "alternative",
+      "ja": "代替の",
+      "synonym": "different",
+      "definition": "available in place of another"
+    },
+    {
+      "term": "investigation",
+      "ja": "調査",
+      "synonym": "inquiry",
+      "definition": "careful examination"
+    },
+    {
+      "term": "diagram",
+      "ja": "図",
+      "synonym": "illustration",
+      "definition": "a visual representation"
+    },
+    {
+      "term": "solely",
+      "ja": "専ら",
+      "synonym": "exclusively",
+      "definition": "only"
+    },
+    {
+      "term": "apparent",
+      "ja": "見かけの",
+      "synonym": "seeming",
+      "definition": "appearing to be true"
+    },
+    {
+      "term": "considerably",
+      "ja": "大きく",
+      "synonym": "substantially",
+      "definition": "to a large degree"
+    },
+    {
+      "term": "network",
+      "ja": "ネットワーク",
+      "synonym": "web",
+      "definition": "a set of connected things"
+    },
+    {
+      "term": "achievement",
+      "ja": "成果",
+      "synonym": "accomplishment",
+      "definition": "something successfully done"
+    },
+    {
+      "term": "prevention",
+      "ja": "予防",
+      "synonym": "avoidance",
+      "definition": "action keeping something from happening"
+    },
+    {
+      "term": "likelihood",
+      "ja": "可能性",
+      "synonym": "probability",
+      "definition": "chance that something will occur"
+    },
+    {
+      "term": "estimate",
+      "ja": "推定する",
+      "synonym": "approximate",
+      "definition": "make a rough calculation"
+    },
+    {
+      "term": "probability",
+      "ja": "確率",
+      "synonym": "chance",
+      "definition": "likelihood of an event"
+    },
+    {
+      "term": "assessment",
+      "ja": "評価",
+      "synonym": "evaluation",
+      "definition": "a considered judgment"
+    },
+    {
+      "term": "explicit",
+      "ja": "明確な",
+      "synonym": "clear",
+      "definition": "stated directly"
+    },
+    {
+      "term": "adequately",
+      "ja": "十分に",
+      "synonym": "sufficiently",
+      "definition": "to a satisfactory degree"
+    },
+    {
+      "term": "conceal",
+      "ja": "隠す",
+      "synonym": "hide",
+      "definition": "prevent something from being seen"
+    },
+    {
+      "term": "combinations",
+      "ja": "組み合わせ",
+      "synonym": "mixtures",
+      "definition": "things brought together"
+    },
+    {
+      "term": "individually",
+      "ja": "個別に",
+      "synonym": "separately",
+      "definition": "considered one at a time"
+    },
+    {
+      "term": "scenarios",
+      "ja": "シナリオ",
+      "synonym": "situations",
+      "definition": "imagined sequences of events"
+    },
+    {
+      "term": "vulnerable",
+      "ja": "脆弱な",
+      "synonym": "susceptible",
+      "definition": "open to possible harm"
+    },
+    {
+      "term": "predictions",
+      "ja": "予測",
+      "synonym": "forecasts",
+      "definition": "statements about future events"
+    },
+    {
+      "term": "critical",
+      "ja": "重要な",
+      "synonym": "essential",
+      "definition": "of vital importance"
+    },
+    {
+      "term": "preserving",
+      "ja": "維持すること",
+      "synonym": "maintaining",
+      "definition": "keeping in existence"
+    },
+    {
+      "term": "unavailable",
+      "ja": "利用できない",
+      "synonym": "inaccessible",
+      "definition": "not able to be used"
+    },
+    {
+      "term": "redesigned",
+      "ja": "再設計された",
+      "synonym": "reworked",
+      "definition": "designed again"
+    },
+    {
+      "term": "comparable",
+      "ja": "比較可能な",
+      "synonym": "similar enough",
+      "definition": "able to be compared"
+    },
+    {
+      "term": "postponed",
+      "ja": "延期された",
+      "synonym": "delayed",
+      "definition": "moved to a later time"
+    },
+    {
+      "term": "beforehand",
+      "ja": "事前に",
+      "synonym": "in advance",
+      "definition": "before an event"
+    },
+    {
+      "term": "priority",
+      "ja": "優先",
+      "synonym": "precedence",
+      "definition": "greater importance"
+    },
+    {
+      "term": "capacity",
+      "ja": "能力",
+      "synonym": "capability",
+      "definition": "ability to do something"
+    },
+    {
+      "term": "provided that",
+      "ja": "〜という条件で",
+      "synonym": "on condition that",
+      "definition": "introducing a condition"
+    },
+    {
+      "term": "dependency",
+      "ja": "依存関係",
+      "synonym": "reliance",
+      "definition": "state of relying on something"
+    },
+    {
+      "term": "objectives",
+      "ja": "目的",
+      "synonym": "goals",
+      "definition": "intended results"
+    },
+    {
+      "term": "uncertainties",
+      "ja": "不確実性",
+      "synonym": "doubts",
+      "definition": "things that are not certain"
+    },
+    {
+      "term": "approved",
+      "ja": "承認された",
+      "synonym": "authorized",
+      "definition": "officially accepted"
+    },
+    {
+      "term": "standard",
+      "ja": "基準",
+      "synonym": "criterion",
+      "definition": "a level or rule for judgment"
+    },
+    {
+      "term": "resilience",
+      "ja": "回復力",
+      "synonym": "robustness",
+      "definition": "ability to recover or withstand disruption"
+    },
+    {
+      "term": "defensible",
+      "ja": "正当化できる",
+      "synonym": "justifiable",
+      "definition": "able to be supported by reasons"
+    },
+    {
+      "term": "favorable",
+      "ja": "好条件の",
+      "synonym": "advantageous",
+      "definition": "helpful to a desired result"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "skill": "detail",
+      "prompt": "What resource constraint motivates the debate?",
+      "answer": 3,
+      "options": [
+        "A ban on scientific instruments.",
+        "An unlimited supply of replacements.",
+        "A fixed prohibition on all repairs.",
+        "A limited weight allowance for equipment."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "機材重量の割当。"
+    },
+    {
+      "id": "q2",
+      "skill": "inference",
+      "prompt": "Why is the value of a spare part difficult to assess?",
+      "answer": 1,
+      "options": [
+        "It is determined entirely by purchase price.",
+        "It depends partly on uncertain failures and their effects.",
+        "It has no value unless it is used on every mission.",
+        "Its weight cannot be measured."
+      ],
+      "paragraph_ids": [
+        "p1"
+      ],
+      "explanation_ja": "不確実な故障と影響に依存。"
+    },
+    {
+      "id": "q3",
+      "skill": "inference",
+      "prompt": "Why might a cheap part be more important than an expensive instrument?",
+      "answer": 0,
+      "options": [
+        "Several experiments may depend on its continued operation.",
+        "Cheap components are always more reliable.",
+        "The team refuses all specialized research.",
+        "Purchase price directly determines scientific value."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "複数実験の依存関係。"
+    },
+    {
+      "id": "q4",
+      "skill": "detail",
+      "prompt": "What does the diagram show?",
+      "answer": 2,
+      "options": [
+        "Exact dates of future failures.",
+        "The complete cost of every mission.",
+        "Relationships among systems and activities.",
+        "A guaranteed optimal replacement schedule."
+      ],
+      "paragraph_ids": [
+        "p2"
+      ],
+      "explanation_ja": "システム間の関係。"
+    },
+    {
+      "id": "q5",
+      "skill": "inference",
+      "prompt": "What limitation of expected-loss calculations is emphasized?",
+      "answer": 3,
+      "options": [
+        "Numerical estimates are always meaningless.",
+        "All breakdowns are equally probable.",
+        "Every failure can be predicted exactly.",
+        "Estimated probabilities may not remove uncertainty or capture interacting failures adequately."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "確率推定と故障の組み合わせの限界。"
+    },
+    {
+      "id": "q6",
+      "skill": "detail",
+      "prompt": "How are scenarios used?",
+      "answer": 1,
+      "options": [
+        "To guarantee which breakdown will occur.",
+        "To examine vulnerability without presenting them as definite predictions.",
+        "To replace every engineering test.",
+        "To calculate an actual mission launch date."
+      ],
+      "paragraph_ids": [
+        "p3"
+      ],
+      "explanation_ja": "脆弱性の検討。"
+    },
+    {
+      "id": "q7",
+      "skill": "inference",
+      "prompt": "Why consider redesigning research tasks?",
+      "answer": 2,
+      "options": [
+        "Every replacement component must be identical.",
+        "All observations will remain exactly comparable.",
+        "Essential purposes may sometimes be preserved with different instruments.",
+        "Scientific objectives are irrelevant to equipment choices."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "異なる機材で目的維持。"
+    },
+    {
+      "id": "q8",
+      "skill": "inference",
+      "prompt": "What risk could sharing a component introduce?",
+      "answer": 0,
+      "options": [
+        "A single failure affecting multiple systems.",
+        "A guarantee of higher capacity.",
+        "Complete independence of every function.",
+        "Removal of all uncertainty."
+      ],
+      "paragraph_ids": [
+        "p4"
+      ],
+      "explanation_ja": "共通故障への脆弱性。"
+    },
+    {
+      "id": "q9",
+      "skill": "vocabulary",
+      "prompt": "What does resilience mean here?",
+      "answer": 1,
+      "options": [
+        "The total weight of scientific devices.",
+        "Ability to withstand or recover from disruption.",
+        "The absence of all unused resources.",
+        "The probability of a particular launch."
+      ],
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "障害に耐え回復する能力。"
+    },
+    {
+      "id": "q10",
+      "skill": "main_idea",
+      "prompt": "What is the central argument?",
+      "answer": 3,
+      "options": [
+        "Unused equipment necessarily indicates poor planning.",
+        "The most expensive device should always receive priority.",
+        "A hypothetical exercise establishes real engineering standards.",
+        "Planning under uncertainty must consider system dependencies, alternatives, and the value of preserving functions."
+      ],
+      "paragraph_ids": [
+        "p5"
+      ],
+      "explanation_ja": "不確実性と依存関係・機能維持を考える。"
+    }
+  ],
+  "grammar": [
+    {
+      "paragraph_id": "p1",
+      "sentence_index": 4,
+      "focus": "because their value depends partly on the consequences",
+      "explanation_ja": "because節が判断困難の理由、that may or may not occurはfailuresを修飾。"
+    },
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 1,
+      "focus": "if the operation of several independent experiments depends on",
+      "explanation_ja": "if節は条件を表す。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 2,
+      "focus": "Although such a calculation could make assumptions more explicit",
+      "explanation_ja": "althoughは譲歩、couldは可能性。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 3,
+      "focus": "would confuse the actual outcome of a particular mission with the uncertainty",
+      "explanation_ja": "confuse A with BでAとBを混同。仮定法の帰結を表すwould。"
+    }
+  ],
+  "paraphrases": [
+    {
+      "source": "The disagreement cannot be resolved simply by deciding whether spare parts are valuable, because their value depends partly on the consequences of failures that may or may not occur.",
+      "rewrite": "Spare parts cannot be judged in isolation because their usefulness partly depends on the effects of possible breakdowns.",
+      "explanation_ja": "故障の可能性と結果を考える。"
+    },
+    {
+      "source": "A relatively inexpensive part may be more important to the mission than an elaborate instrument if the operation of several independent experiments depends on the continued functioning of that part.",
+      "rewrite": "A low-cost component may matter more than a complex device when many experiments rely on it.",
+      "explanation_ja": "依存関係によって価値が変わる。"
+    },
+    {
+      "source": "Although such a calculation could make assumptions more explicit, the team acknowledges that assigning a numerical probability would not by itself eliminate uncertainty about conditions that have not been adequately investigated.",
+      "rewrite": "Expected-loss calculations may clarify assumptions without removing uncertainty about poorly studied conditions.",
+      "explanation_ja": "前提明示と不確実性の限界。"
+    },
+    {
+      "source": "If no breakdown occurs, a spare component may appear to have been wasted, but that judgment would confuse the actual outcome of a particular mission with the uncertainty that existed when the decision was made.",
+      "rewrite": "Calling an unused spare pointless would mistake a favorable realized outcome for the uncertainty present at the planning stage.",
+      "explanation_ja": "結果と事前不確実性を混同する。"
+    }
+  ],
+  "discourse": [
+    {
+      "paragraph_id": "p2",
+      "expression": "Conversely",
+      "role_ja": "重要部品と単独機器の対比。"
+    },
+    {
+      "paragraph_id": "p3",
+      "expression": "Moreover",
+      "role_ja": "平均推定の追加の限界。"
+    },
+    {
+      "paragraph_id": "p4",
+      "expression": "Rather than",
+      "role_ja": "同一予備部品から代替設計へ。"
+    },
+    {
+      "paragraph_id": "p5",
+      "expression": "Instead",
+      "role_ja": "実証の主張ではなく思考実験の目的。"
+    }
+  ],
+  "cloze": [
+    {
+      "paragraph_id": "p2",
+      "sentence_index": 2,
+      "answer": "specialized",
+      "options": [
+        "specialized",
+        "general",
+        "ordinary",
+        "unrelated"
+      ],
+      "explanation_ja": "専門機器の故障。"
+    },
+    {
+      "paragraph_id": "p3",
+      "sentence_index": 4,
+      "answer": "vulnerable",
+      "options": [
+        "independent",
+        "vulnerable",
+        "identical",
+        "complete"
+      ],
+      "explanation_ja": "計画の脆弱性を検討。"
+    },
+    {
+      "paragraph_id": "p4",
+      "sentence_index": 3,
+      "answer": "dependency",
+      "options": [
+        "decoration",
+        "celebration",
+        "dependency",
+        "achievement"
+      ],
+      "explanation_ja": "共用による依存関係。"
+    },
+    {
+      "paragraph_id": "p5",
+      "sentence_index": 2,
+      "answer": "resilience",
+      "options": [
+        "appearance",
+        "quantity",
+        "duration",
+        "resilience"
+      ],
+      "explanation_ja": "システムの回復力。"
+    }
+  ]
+}
