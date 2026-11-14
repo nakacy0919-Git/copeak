@@ -787,10 +787,10 @@
       "sentence_index": 3,
       "answer": "However",
       "options": [
-        "However",
-        "For example",
         "As a result",
-        "Moreover"
+        "Furthermore",
+        "However",
+        "For example"
       ],
       "explanation_ja": "好結果と条件の問題を対比します。"
     },
@@ -799,10 +799,10 @@
       "sentence_index": 1,
       "answer": "For example",
       "options": [
+        "Meanwhile",
         "For example",
         "However",
-        "Therefore",
-        "In contrast"
+        "As a result"
       ],
       "explanation_ja": "複数の要因を例示します。"
     },
@@ -814,7 +814,7 @@
         "Nevertheless",
         "For example",
         "As a result",
-        "Moreover"
+        "In addition"
       ],
       "explanation_ja": "数回の試験の限界を示します。"
     },
@@ -823,10 +823,10 @@
       "sentence_index": 2,
       "answer": "As a result",
       "options": [
-        "As a result",
         "For example",
         "However",
-        "Meanwhile"
+        "Meanwhile",
+        "As a result"
       ],
       "explanation_ja": "聞き手が方法を質問する結果です。"
     }
