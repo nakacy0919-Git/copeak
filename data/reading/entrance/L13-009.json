@@ -1078,10 +1078,10 @@
       "sentence_index": 4,
       "answer": "However",
       "options": [
-        "However",
-        "For example",
         "As a result",
-        "Moreover"
+        "Furthermore",
+        "However",
+        "For example"
       ],
       "explanation_ja": "発見したい気持ちと模擬データの限界を対比します。"
     },
@@ -1090,10 +1090,10 @@
       "sentence_index": 2,
       "answer": "For example",
       "options": [
+        "Meanwhile",
         "For example",
         "However",
-        "As a result",
-        "In contrast"
+        "As a result"
       ],
       "explanation_ja": "複数の波長の比較を例示します。"
     },
@@ -1114,10 +1114,10 @@
       "sentence_index": 2,
       "answer": "As a result",
       "options": [
-        "As a result",
         "For example",
         "However",
-        "Meanwhile"
+        "Meanwhile",
+        "As a result"
       ],
       "explanation_ja": "聞き手の質問が変わる結果を示します。"
     }
