@@ -4,7 +4,7 @@
   "title": "Why Antibiotics Are a Shared Resource",
   "title_ja": "抗菌薬が社会全体の資源といえる理由",
   "level_id": "eiken-pre1",
-  "word_count": 481,
+  "word_count": 504,
   "original": true,
   "status": "draft",
   "source_links": [
@@ -47,6 +47,10 @@
         {
           "en": "Understanding that shared responsibility begins with distinguishing the appropriate use of a medicine from its unnecessary use.",
           "ja": "その共有責任を理解するには薬の適切な使用と不必要な使用を区別することから始まります。"
+        },
+        {
+          "en": "The student's question becomes a starting point for examining why medical effectiveness depends on decisions made by clinicians, institutions, and communities over time.",
+          "ja": "生徒の疑問は医療の有効性が医師、制度、地域社会による長期的な判断にどう依存するかを考える出発点になります。"
         }
       ]
     },
@@ -194,6 +198,7 @@
       "answer": 2,
       "explanation_ja": "適切な治療の有効性を無視するからです。",
       "paragraph_ids": [
+        "p1",
         "p2",
         "p4"
       ]
