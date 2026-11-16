@@ -138,6 +138,8 @@
     if (Array.isArray(lesson.scoreExclusions) && lesson.scoreExclusions.length) {
       params.set('score_exclusions', JSON.stringify(lesson.scoreExclusions));
     }
+    const focus = window.CopeakFocus.clean(lesson.focusRanges, lesson.eng);
+    if (focus.length) params.set('focus', JSON.stringify(focus));
     const url = window.location.origin + window.location.pathname + '?' + params.toString();
     // Long request targets can be rejected by browsers, proxies or hosting.
     return url.length <= 7000 ? url : null;
@@ -169,7 +171,7 @@
     try {
       const result = await createLessonShare(lesson);
       const shortUrl = window.location.origin + window.location.pathname +
-        '?l=' + encodeURIComponent(result.id);
+        '?l=' + encodeURIComponent(result.id) + (() => { const focus = window.CopeakFocus.clean(lesson.focusRanges, lesson.eng); return focus.length ? '&focus=' + encodeURIComponent(JSON.stringify(focus)) : ''; })();
       const copied = await copyLink(shortUrl);
       if (copied) {
         status('🔗 短縮リンクをコピーしました！（24時間有効）');

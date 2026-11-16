@@ -249,6 +249,7 @@ function editLesson(event, id) {
         } else {
             if (typeof toggleMaterialType === 'function') toggleMaterialType('standard');
             document.getElementById('customEng').value = lesson.eng || "";
+            window.CopeakFocus.restore('customEng', lesson.focusRanges);
         }
 
         // 🌟 追加：メモ画像を読み込んでプレビュー表示する
@@ -316,6 +317,7 @@ if (typeof showMsg === 'function') {
 
 function cancelEdit(isSilent = false) {
     document.getElementById("customMaterialForm").reset();
+    window.CopeakFocus.restore("customEng", []);
     document.getElementById('customAudio').value = "";
 
     // 🌟 追加：画像プレビューと保存データのクリア
@@ -431,6 +433,7 @@ async function saveCustomLesson() {
             lesson.jpn = jpnText;
             lesson.formUrl = formUrl || null;
             lesson.scoreExclusions = scoreExclusions;
+            lesson.focusRanges = lessonType === "standard" ? window.CopeakFocus.get("customEng", engText) : [];
             lesson.lang = selectedLang;
             lesson.langName = selectedLangName;
 
@@ -451,6 +454,7 @@ async function saveCustomLesson() {
             jpn: jpnText,
             formUrl: formUrl || null,
             scoreExclusions,
+            focusRanges: lessonType === "standard" ? window.CopeakFocus.get("customEng", engText) : [],
             folderId: null,
             audioBlob: audioFile || null,
             lang: selectedLang,
@@ -1342,6 +1346,10 @@ async function checkUrlParameters() {
 
             // すでに保存済みならAppwriteへアクセスしない
             if (existingLesson) {
+                if (urlParams.has("focus")) {
+                    existingLesson.focusRanges = window.CopeakFocus.clean(urlParams.get("focus"), existingLesson.eng || "");
+                    await new Promise((resolve,reject) => { const tx = db.transaction([storeName],"readwrite"); tx.objectStore(storeName).put(existingLesson); tx.oncomplete=resolve; tx.onerror=()=>reject(tx.error); tx.onabort=()=>reject(tx.error); });
+                }
                 window.history.replaceState({}, document.title, window.location.pathname);
                 if (typeof showMsg === 'function') showMsg("このQuick Share教材はすでにLibraryにあります");
                 startCustomLesson(existingLesson);
@@ -1388,6 +1396,7 @@ async function checkUrlParameters() {
                 type: cloudLesson.type || "standard",
                 dialogue: dialogueData,
                 memoImage: null,
+                focusRanges: window.CopeakFocus.clean(urlParams.get("focus"), cloudLesson.eng || ""),
                 sourceShareId: shareId,
                 history: [],
                 createdAt: Date.now()
@@ -1686,6 +1695,7 @@ const youtubeLoop =
 
             existingLesson.type =
                 lessonType;
+            if (classroomSource || urlParams.has("focus")) existingLesson.focusRanges = window.CopeakFocus.clean(urlParams.get("focus"), engText);
             if (classroomSource || urlParams.has('score_exclusions')) {
                 existingLesson.scoreExclusions = incomingScoreExclusions;
             }
@@ -1972,6 +1982,7 @@ const youtubeLoop =
                 lessonType,
 
             scoreExclusions: incomingScoreExclusions,
+            focusRanges: window.CopeakFocus.clean(urlParams.get("focus"), engText),
 
             dialogue:
                 dialogueData,
@@ -4930,6 +4941,7 @@ function renderTargetText() {
     }
 
     engContainer.innerHTML = finalHtml;
+    window.CopeakFocus.apply(engContainer, currentCustomLesson);
 
 
     // ==========================================
@@ -6225,6 +6237,8 @@ async function generateShareLink() {
         paramsConfig.dialogue = JSON.stringify(currentCustomLesson.dialogue);
     }
 
+    const focus = window.CopeakFocus.clean(currentCustomLesson.focusRanges, currentCustomLesson.eng);
+    if (focus.length) paramsConfig.focus = JSON.stringify(focus);
     const params = new URLSearchParams(paramsConfig);
     const longUrl = `${baseUrl}?${params.toString()}`;
 
