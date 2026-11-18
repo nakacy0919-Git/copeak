@@ -18,6 +18,9 @@ function initCopeakDedicatedPages() {
   };
   const reader=page('cpReaderPage','READ • PRACTICE','音読教材をよむ','教材を選んで音読・シャドーイングを始めよう',
     `<div class="cp-panel" id="cpReaderLibrary"><div class="cp-panel-title"><h3>📚 教材ライブラリ</h3><button class="cp-link-pill" data-page-go="create" type="button">＋ 教材を作る</button></div><div id="cpReadFolders"></div></div>
+    <div class="cp-panel" id="cpStoryTheaterEntry"><div class="cp-panel-title"><h3>📖 シアター絵本 / Story Theater</h3><small>画像 × 英文 × 音読</small></div>
+      <p style="font-size:13px;color:#617a91;line-height:1.8;margin:6px 0 14px">5段階のオリジナル物語を、ナレーション・和訳・語彙・文法・内容理解と一緒に学べます。</p>
+      <div class="cp-page-actions"><a class="cp-link-pill" href="./story-theater.html">🎬 シアター絵本を開く</a></div></div>
     <div class="cp-panel"><div class="cp-panel-title"><h3>🗺️ Copeak Quest</h3><small>連続ミッション</small></div><div id="cpReadQuest"></div></div>
     <div class="cp-panel"><div class="cp-panel-title"><h3>学習サポート・イベント</h3></div>
       <div class="cp-page-actions"><button type="button" data-page-go="target">🎯 Target Scores</button>
