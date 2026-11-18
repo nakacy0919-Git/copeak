@@ -6,8 +6,8 @@
   <meta name="theme-color" content="#10243b">
   <meta name="description" content="Copeak Story Theater — 絵本で聞く、読む、理解する。">
   <title>Story Theater | Copeak</title>
-  <link rel="stylesheet" href="story-theater.css?v=1">
-  <script src="story-theater.js?v=1" defer></script>
+  <link rel="stylesheet" href="story-theater.css?v=2">
+  <script src="story-theater.js?v=2" defer></script>
 </head>
 <body>
 <div id="storyApp" class="st-app">
@@ -26,37 +26,58 @@
       <p id="loadError" class="st-error" role="alert" hidden></p>
     </section>
     <section id="readerView" class="st-reader" hidden aria-labelledby="storyTitle">
-      <div class="st-reader-top"><div><div class="st-overline" id="storyLevel"></div>
-        <h1 id="storyTitle"></h1><p id="storySubtitle"></p></div>
-        <div class="st-progress-wrap"><span id="sceneProgressText"></span><div class="st-progress"><span id="sceneProgressBar"></span></div></div>
-      </div>
-      <div class="st-stage">
-        <figure class="st-stage-image">
-          <img id="sceneImage" alt="" loading="eager">
-          <div id="imageFallback" class="st-image-fallback" hidden><span aria-hidden="true">🎬</span>
-            <strong>SCENE PREVIEW</strong><p id="sceneDescription"></p><small>指定のWebP画像を入れると自動表示されます。</small></div>
-          <figcaption id="sceneCaption" class="st-scene-caption"></figcaption>
-        </figure>
-        <div class="st-script-panel">
-          <div class="st-script-label"><span>READ THE STORY</span><span id="narrationStatus" role="status" aria-live="polite">準備完了</span></div>
-          <p id="sceneEnglish" class="st-english" lang="en"></p>
-          <p id="sceneJapanese" class="st-japanese" lang="ja" hidden></p>
-          <div class="st-hint">下線の語句を押すと意味・品詞・練習を表示します。</div>
+      <div class="st-theater-room">
+        <div class="st-reader-top">
+          <div class="st-reader-heading"><div class="st-overline" id="storyLevel"></div><h1 id="storyTitle"></h1><p id="storySubtitle"></p></div>
+          <div class="st-progress-wrap"><span id="sceneProgressText"></span><div class="st-progress"><span id="sceneProgressBar"></span></div></div>
         </div>
-      </div>
-      <div class="st-controls" aria-label="シアター操作">
-        <div class="st-control-row">
+        <div class="st-theater-grid">
+          <div class="st-stage" aria-label="絵本のシアター画面">
+            <figure class="st-stage-image">
+              <img id="sceneImage" alt="" loading="eager">
+              <div id="imageFallback" class="st-image-fallback" hidden><span aria-hidden="true">🎬</span><strong>SCENE PREVIEW</strong><p id="sceneDescription"></p><small>画像を読み込めませんでした。</small></div>
+              <figcaption id="sceneCaption" class="st-scene-caption"></figcaption>
+            </figure>
+            <div class="st-script-panel">
+              <div class="st-script-label"><span>📖 READ THE STORY</span><span id="narrationStatus" role="status" aria-live="polite">準備完了</span></div>
+              <p id="sceneEnglish" class="st-english" lang="en"></p>
+              <p id="sceneJapanese" class="st-japanese" lang="ja" hidden></p>
+              <div class="st-hint">下線の英単語をタップすると、意味・品詞・発音を確認できます。</div>
+            </div>
+          </div>
+          <aside class="st-side-panel" aria-label="Story Theater学習パネル">
+            <div id="studyDefault" class="st-study-default">
+              <div class="st-side-heading"><span>✦ STUDY CORNER</span><button id="startReading" type="button" class="st-reading-launch">🎙️ 音読スタート</button></div>
+              <div class="st-side-tabs" role="group" aria-label="学習メニュー">
+                <button type="button" data-study-tab="words" aria-pressed="true">📚 語句</button>
+                <button type="button" data-study-tab="phrases" aria-pressed="false">💬 表現</button>
+                <button type="button" data-study-tab="check" aria-pressed="false">✅ 理解チェック</button>
+              </div>
+              <div id="sideContent" class="st-side-content" aria-live="polite"></div>
+              <div class="st-pos-legend" aria-hidden="true"><span>🟩 名詞</span><span>🟥 動詞</span><span>🟦 形容詞</span><span>🟪 副詞・表現</span></div>
+            </div>
+            <section id="readingPanel" class="st-reading-panel" aria-label="音読と判定" hidden>
+              <div class="st-reading-head"><strong>🎙️ READING CHALLENGE</strong><button type="button" id="returnToStudy">学習に戻る ✕</button></div>
+              <div class="st-mic-indicator" id="micIndicator"><span class="st-mic-ring" aria-hidden="true">🎙️</span><span id="readingLiveStatus" role="status" aria-live="polite">音読の準備中</span></div>
+              <div class="st-transcript-card"><div class="st-transcript-heading">LIVE TRANSCRIPT <small>認識した英文</small></div><p id="readingTranscript" lang="en" aria-live="polite">英文を読み上げると、ここに文字起こしが表示されます。</p></div>
+              <div id="readingScore" class="st-score-card" hidden>
+                <div class="st-score-title">📊 音読結果 <span id="readingRank">RESULT</span></div>
+                <div class="st-score-grid"><div><span>Accuracy</span><strong id="readingAccuracy">—</strong></div><div><span>WPM</span><strong id="readingWpm">—</strong></div></div>
+                <small>Accuracyは音声認識の文字起こしとお手本の語単位一致率です。音素の発音精度ではありません。</small>
+              </div>
+              <div class="st-reading-actions"><button type="button" id="finishReading" class="st-finish-reading">■ 音読終了・採点</button><button type="button" id="retryReading" hidden>↻ もう一度音読</button></div>
+              <p class="st-microcopy">マイクの許可が必要です。iPad・Safariなどでは音声認識の対応状況により利用できない場合があります。</p>
+            </section>
+          </aside>
+        </div>
+        <nav class="st-controls" aria-label="シアター操作">
           <button type="button" id="previousScene" class="st-secondary">‹ 前の場面</button>
-          <button type="button" id="playNarration" class="st-primary">▶ 物語を聞く</button>
-          <button type="button" id="pauseNarration" class="st-secondary">■ 停止</button>
+          <button type="button" id="toggleJapanese" aria-pressed="false">🇯🇵 和訳</button>
+          <button type="button" id="openGrammar">🧩 文法</button>
+          <button type="button" id="playNarration" class="st-primary" aria-pressed="false">▶ 物語を聞く</button>
+          <button type="button" id="pauseNarration" class="st-secondary" hidden>■ 停止</button>
           <button type="button" id="nextScene" class="st-secondary">次の場面 ›</button>
-        </div>
-        <div class="st-control-row st-study-row">
-          <button type="button" id="toggleJapanese" aria-pressed="false">🇯🇵 和訳を表示</button>
-          <button type="button" id="openGrammar">🧩 Grammar Visualizer</button>
-          <button type="button" id="startReading">🎙️ この場面を音読</button>
-          <button type="button" id="openVocabulary">📖 語彙・熟語</button>
-        </div>
+        </nav>
         <div id="practiceFeedback" class="st-practice-feedback" role="status" aria-live="polite" hidden></div>
       </div>
     </section>
