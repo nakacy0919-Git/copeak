@@ -4266,8 +4266,54 @@ function applyLessonSupportImage(
 }
 
 
+function clearActivePrivateIntroText() {
+    if (!isPrivateStudentIntroduction(currentCustomLesson)) return;
+    currentCustomLesson.eng = '';
+    currentCustomLesson.jpn = '';
+    currentCustomLesson.dialogue = [];
+    currentCustomLesson.focusRanges = [];
+    for (const id of ['engContainer', 'jpnContainer', 'fsEngContainer', 'fsJpnContainer', 'recognizedTextDisplay']) {
+        const element = document.getElementById(id);
+        if (element) element.replaceChildren();
+    }
+}
+function updatePrivateIntroPrivacyBanner(lesson) {
+    const existing = document.getElementById('privateIntroPrivacyBanner');
+    existing?.remove();
+    if (!isPrivateStudentIntroduction(lesson)) return;
+    const title = document.getElementById('learningTitle');
+    if (!title || !title.parentElement) return;
+    const banner = document.createElement('div');
+    banner.id = 'privateIntroPrivacyBanner';
+    banner.style.cssText = 'display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;padding:8px 10px;margin-top:8px;background:#f0fdf4;border:1px solid #86efac;border-radius:8px;font-size:12px;color:#166534';
+    const message = document.createElement('span');
+    message.textContent = '🔒 自己紹介の英文は端末の教材ライブラリーに保存されません。共用端末では練習後に終了してください。';
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.textContent = '練習を終了';
+    button.style.cssText = 'padding:6px 10px;border:1px solid #16a34a;border-radius:7px;background:white;color:#166534;font-weight:bold;cursor:pointer';
+    button.addEventListener('click', async () => {
+        if (!window.confirm('個別の自己紹介を閉じますか？未送信の音読結果は次回の同期で再送されます。')) return;
+        clearActivePrivateIntroText();
+        button.disabled = true;
+        message.textContent = '🔒 自己紹介を閉じています…';
+        try {
+            // Best effort: Direct Sync keeps its own retry queue if offline.
+            await Promise.race([
+                Promise.resolve(window.CopeakDirectSync?.flush(true)),
+                new Promise(resolve => setTimeout(resolve, 4000))
+            ]);
+        } catch (_error) {}
+        window.location.replace(window.location.origin + window.location.pathname);
+    });
+    banner.append(message, button);
+    title.parentElement.appendChild(banner);
+}
+window.addEventListener('pagehide', clearActivePrivateIntroText);
+
 function openLearningScreen(lesson) {
     toggleMobileLibrary(true);
+    updatePrivateIntroPrivacyBanner(lesson);
 
     applyYoutubeLessonLayout(
     lesson
@@ -19397,7 +19443,7 @@ spokenComparisonUnits.forEach(
                 lessonId: currentCustomLesson.id,
                 accuracy: currentAccuracy,
                 wpm: currentWpm,
-                transcript: spokenText
+                transcript: isPrivateStudentIntroduction(currentCustomLesson) ? '' : spokenText
             });
         }
         // ==========================================
