@@ -100,3 +100,32 @@ test('does not send ready when classroom launch is untrusted', async () => {
   }));
   assert.equal(h.sent.length, 0);
 });
+
+
+test('private receiver strips HTML tag delimiters from student text', async () => {
+  const h = harness();
+  let imported = '';
+  const receiving = receive({ params: context(), opener: h.opener, events: h.events,
+    onPayload: text => { imported = text; }, schedule: h.schedule, unschedule: h.unschedule });
+  h.events.dispatch({ data: h.validPayload("I <img src=x onerror=alert(1)> like art.") });
+  await receiving;
+  assert.equal(imported.includes('<'), false);
+  assert.equal(imported.includes('>'), false);
+  assert.equal(h.sent[1].data.ok, true);
+});
+
+test('private lesson share/export and multiplayer paths are guarded', () => {
+  const { readFileSync } = require('node:fs');
+  const { resolve } = require('node:path');
+  const app = readFileSync(resolve(__dirname, '../app-bundle.js'), 'utf8');
+  const share = readFileSync(resolve(__dirname, '../quickshare-repair.js'), 'utf8');
+  const legacy = readFileSync(resolve(__dirname, '../quickshare.js'), 'utf8');
+  assert.match(app, /existingLesson\.privateIntro = lessonTypeForPrivateIntro\(urlParams\)/);
+  assert.match(app, /privateIntro: lessonTypeForPrivateIntro\(urlParams\)/);
+  assert.match(app, /if \(isPrivateStudentIntroduction\(currentCustomLesson\)\)/);
+  assert.match(app, /if \(isPrivateStudentIntroduction\(lesson\)\) throw new Error\('private_lesson'\)/);
+  assert.match(app, /isPrivateStudentIntroduction\(currentCustomLesson\)\s*\?\s*'\[Personalized Classroom introduction: private\]'/);
+  assert.match(share, /if \(lesson\.privateIntro === true\) throw new Error\('private_lesson'\)/);
+  assert.match(share, /if \(lesson\?\.privateIntro === true\) return null/);
+  assert.match(legacy, /if \(lesson\?\.privateIntro === true\) throw new Error\('private_lesson'\)/);
+});
