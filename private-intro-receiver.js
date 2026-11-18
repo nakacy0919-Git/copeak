@@ -100,7 +100,33 @@
     });
   }
 
-  const api = { receive, parseContext, TRUSTED_CLASSROOM_ORIGINS, MAX_TEXT_LENGTH };
+  function listenForEnd({ params, opener, events, onEnd }) {
+    const { origin, assignmentId, studentId, nonce } = parseContext(params);
+    if (!opener || !events || typeof onEnd !== 'function') {
+      throw new Error('Invalid private session cleanup listener');
+    }
+    let active = true;
+    function stop() {
+      if (!active) return;
+      active = false;
+      events.removeEventListener('message', onEndMessage);
+      events.removeEventListener('pagehide', stop);
+    }
+    function onEndMessage(event) {
+      if (!active || event.source !== opener || event.origin !== origin) return;
+      const payload = event.data;
+      if (!payload || payload.type !== 'copeak-classroom-intro-end' ||
+          payload.nonce !== nonce || payload.assignmentId !== assignmentId ||
+          payload.studentId !== studentId) return;
+      stop();
+      onEnd();
+    }
+    events.addEventListener('message', onEndMessage);
+    events.addEventListener('pagehide', stop);
+    return stop;
+  }
+
+  const api = { receive, parseContext, listenForEnd, TRUSTED_CLASSROOM_ORIGINS, MAX_TEXT_LENGTH };
   root.CopeakPrivateIntro = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);
