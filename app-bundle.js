@@ -200,10 +200,19 @@ const initDB = () => {
                 db.createObjectStore(storeName, { keyPath: "id", autoIncrement: true });
             }
         };
-        request.onsuccess = (e) => {
+        request.onsuccess = async (e) => {
             db = e.target.result;
-            resolve();
-            window.dispatchEvent(new Event("copeak-storage-ready"));
+            try {
+                if (!window.CopeakPrivateIntroStorage) {
+                    throw new Error('Privacy protection module is unavailable');
+                }
+                // Scrub any private text left by an earlier build before rendering.
+                await window.CopeakPrivateIntroStorage.scrubExisting(db, storeName);
+                resolve();
+                window.dispatchEvent(new Event("copeak-storage-ready"));
+            } catch (error) {
+                reject(error);
+            }
         };
         request.onerror = (e) => reject(e);
     });
@@ -491,8 +500,12 @@ function savePracticeLog(lessonId, logData, onComplete) {
         if (!lesson.history) lesson.history = [];
         lesson.history.push(logData);
         lesson.lastPracticed = Date.now();
-        store.put(lesson);
-        if (currentCustomLesson?.id === lessonId) currentCustomLesson = lesson;
+        store.put(window.CopeakPrivateIntroStorage.storedLesson(lesson));
+        if (currentCustomLesson?.id === lessonId) {
+            currentCustomLesson = window.CopeakPrivateIntroStorage.restoreRuntimeLesson(
+                lesson, currentCustomLesson
+            );
+        }
         saved = true;
     };
 
@@ -537,7 +550,9 @@ function loadSavedLessons() {
     const request = store.getAll();
 
     request.onsuccess = () => {
-        const lessons = request.result;
+        // The private lesson's persisted shell exists only for score syncing.
+        // It must never be displayed as an editable or reusable Library lesson.
+        const lessons = window.CopeakPrivateIntroStorage.publicLibraryLessons(request.result);
         lessons.sort((a, b) => b.createdAt - a.createdAt);
 
         const homeList = document.getElementById("savedLessonsList");
@@ -1184,6 +1199,12 @@ function deleteLesson(event, id) {
 }
 
 function startCustomLesson(lesson) {
+    if (window.CopeakPrivateIntroStorage.mustReopenFromClassroom(lesson)) {
+        if (typeof showMsg === 'function') {
+            showMsg('🔒 個別の自己紹介はClassroomから開いてください。');
+        }
+        return;
+    }
 
     const previousLessonId =
         currentCustomLesson?.id ?? null;
@@ -1670,36 +1691,35 @@ const youtubeLoop =
         // 通常Shareの場合はタイトル＋英文
         // ==========================================
 
-        const existingLesson =
-            (
-                classroomSource &&
-                classroomAssignmentId
-            )
-
-                ? lessons.find(
-                    lesson =>
-                        lesson.classroomSource === true &&
-                        lesson.classroomAssignmentId === classroomAssignmentId &&
-                        (!classroomStudentId || !lesson.classroomStudentId ||
-                         lesson.classroomStudentId === classroomStudentId)
-                ) || (() => {
-                    // Upgrade only one exact matching old material.
-                    const candidates = lessons.filter(
-                        lesson => !lesson.classroomAssignmentId &&
-                            lesson.title === sharedTitle &&
-                            lesson.eng === engText
-                    );
-                    return candidates.length === 1 ? candidates[0] : null;
-                })()
-
-                : lessons.find(
-                    lesson =>
-                        lesson.title ===
-                            sharedTitle &&
-                        lesson.eng ===
-                            engText
-                );
-
+        const existingLesson = lessonTypeForPrivateIntro(urlParams)
+            ? lessons.find(lesson =>
+                lesson.privateIntro === true &&
+                lesson.classroomSource === true &&
+                lesson.classroomAssignmentId === classroomAssignmentId &&
+                lesson.classroomStudentId === classroomStudentId)
+            : (
+                (
+                    classroomSource &&
+                    classroomAssignmentId
+                )
+                    ? lessons.find(
+                        lesson =>
+                            lesson.classroomSource === true &&
+                            lesson.classroomAssignmentId === classroomAssignmentId &&
+                            (!classroomStudentId || !lesson.classroomStudentId ||
+                             lesson.classroomStudentId === classroomStudentId)
+                    ) || (() => {
+                        const candidates = lessons.filter(
+                            lesson => !lesson.classroomAssignmentId &&
+                                lesson.title === sharedTitle &&
+                                lesson.eng === engText
+                        );
+                        return candidates.length === 1 ? candidates[0] : null;
+                    })()
+                    : lessons.find(lesson =>
+                        lesson.title === sharedTitle && lesson.eng === engText
+                    )
+            );
 
         // ==========================================
         // 既存教材がある場合
@@ -1906,7 +1926,7 @@ const youtubeLoop =
                             existingLesson.history = latest.result.history || [];
                             existingLesson.lastPracticed = latest.result.lastPracticed;
                         }
-                        store.put(existingLesson);
+                        store.put(window.CopeakPrivateIntroStorage.storedLesson(existingLesson));
                     };
 
 
@@ -2101,7 +2121,7 @@ const youtubeLoop =
 
                     const request =
                         store.add(
-                            newLessonData
+                            window.CopeakPrivateIntroStorage.storedLesson(newLessonData)
                         );
 
 
