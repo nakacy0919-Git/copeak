@@ -62,11 +62,16 @@
             data.nonce !== nonce || data.assignmentId !== assignmentId ||
             data.studentId !== studentId || typeof data.text !== 'string' ||
             !data.text.trim() || data.text.length > MAX_TEXT_LENGTH) return;
+        // Defense in depth: student text is later rendered by the legacy HTML
+        // reading view. Remove tag delimiters even if the Classroom client
+        // failed to sanitize input.
+        const safeText = data.text.replace(/[<>]/g, '').replace(/[\u0000-\u001f\u007f]/g, ' ');
+        if (!safeText.trim()) return;
         state = 'importing';
         cleanup();
         // This promise also controls the acknowledgement:
         // ack only after Copeak's IndexedDB import resolves successfully.
-        Promise.resolve().then(() => onPayload(data.text)).then(() => {
+        Promise.resolve().then(() => onPayload(safeText)).then(() => {
           state = 'done';
           opener.postMessage({ type: 'copeak-classroom-intro-ack', nonce, assignmentId, ok: true }, origin);
           resolve();
