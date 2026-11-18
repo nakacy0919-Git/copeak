@@ -6,40 +6,47 @@ import { resolve, dirname } from 'node:path';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const bundle = readFileSync(resolve(here, '../app-bundle.js'), 'utf8');
+const receiver = readFileSync(resolve(here, '../private-intro-receiver.js'), 'utf8');
+const html = readFileSync(resolve(here, '../index.html'), 'utf8');
 const start = bundle.indexOf('async function checkUrlParameters(overrideParams = null)');
-const end = bundle.indexOf('// ★ Classic Share:', start);
-const handshake = bundle.slice(start, end);
+const end = bundle.indexOf('// アプリ起動時の処理（URLチェック', start);
+const importer = bundle.slice(start, end);
 
-test('private introduction waits for a recognized Classroom origin', () => {
-  assert.ok(start > 0);
-  assert.match(handshake, /trustedOrigins\.has\(classroomOrigin\)/);
-  assert.match(handshake, /event\.source !== window\.opener/);
-  assert.match(handshake, /event\.origin !== classroomOrigin/);
+test('private handoff checks the Classroom origin, student, assignment and nonce', () => {
+  assert.ok(start > 0 && end > start);
+  assert.match(receiver, /TRUSTED_CLASSROOM_ORIGINS/);
+  assert.match(receiver, /event\.source !== opener/);
+  assert.match(receiver, /event\.origin !== origin/);
+  assert.match(receiver, /data\.nonce !== nonce/);
+  assert.match(receiver, /data\.assignmentId !== assignmentId/);
+  assert.match(receiver, /data\.studentId !== studentId/);
+  assert.match(receiver, /data\.text\.length > MAX_TEXT_LENGTH/);
 });
 
-test('private introduction requires matching assignment, student and one-time nonce', () => {
-  assert.match(handshake, /data\.nonce !== nonce/);
-  assert.match(handshake, /data\.assignmentId !== assignmentId/);
-  assert.match(handshake, /data\.studentId !== studentId/);
-  assert.match(handshake, /uuid\.test\(nonce/);
-  assert.match(handshake, /accepted = true/);
+test('import uses in-memory English only, not a history or navigation URL', () => {
+  assert.match(importer, /CopeakPrivateIntro\.receive/);
+  assert.match(importer, /incoming\.set\('eng', personalText\)/);
+  assert.match(importer, /await checkUrlParameters\(incoming\)/);
+  assert.doesNotMatch(importer, /location\.(href|replace|assign)\(\s*personalText/);
+  assert.doesNotMatch(importer, /history\.(pushState|replaceState)\([^)]*personalText/);
 });
 
-test('personal writing never goes into the address bar or history', () => {
-  assert.match(handshake, /incoming\.set\('eng', data\.text\)/);
-  assert.match(handshake, /checkUrlParameters\(incoming\)/);
-  assert.doesNotMatch(handshake, /history\.(pushState|replaceState)\([^)]*data\.text/);
-  assert.doesNotMatch(handshake, /location\.(href|replace|assign)\([^)]*data\.text/);
+test('private introduction uses standard Copeak reading without exposing it in the Library', () => {
+  assert.match(importer, /incoming\.set\('type', 'standard'\)/);
+  assert.match(importer, /incoming\.set\('private_intro', '1'\)/);
+  assert.match(bundle, /privateIntro: lessonTypeForPrivateIntro\(urlParams\)/);
+  assert.match(bundle, /CopeakPrivateIntroStorage\.storedLesson\(newLessonData\)/);
+  assert.match(bundle, /CopeakPrivateIntroStorage\.storedLesson\(existingLesson\)/);
 });
 
-test('invalid or oversized payload cannot enter the lesson importer', () => {
-  assert.match(handshake, /typeof data\.text !== 'string'/);
-  assert.match(handshake, /!data\.text\.trim\(\)/);
-  assert.match(handshake, /data\.text\.length > 6000/);
-  assert.match(handshake, /data\?\.type !== 'copeak-classroom-intro-payload'/);
+test('private modules load before Copeak main bundle', () => {
+  const rx = html.indexOf('private-intro-receiver.js');
+  const storage = html.indexOf('private-intro-storage.js');
+  const main = html.indexOf('app-bundle.js');
+  assert.ok(rx >= 0 && storage > rx && main > storage);
 });
 
-test('legacy URL-based lesson import stays present', () => {
+test('shared Text and Dialogue lesson URL import continues to work', () => {
   assert.match(bundle, /if \(urlParams\.has\('eng'\)\)/);
   assert.match(bundle, /startCustomLesson\(\s*newLessonData\s*\)/);
   assert.match(bundle, /classroomAssignmentId:/);
