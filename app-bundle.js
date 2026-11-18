@@ -1326,7 +1326,7 @@ async function fetchClassroomAudioBlob(
 }
 
 function lessonTypeForPrivateIntro(params) {
-    return params.get('type') === 'self-intro';
+    return params.get('private_intro') === '1';
 }
 
 async function checkUrlParameters(overrideParams = null) {
@@ -1346,7 +1346,10 @@ async function checkUrlParameters(overrideParams = null) {
                     const incoming = new URLSearchParams(urlParams);
                     incoming.delete('self_intro_handoff');
                     incoming.delete('jpn');
-                    incoming.set('type', 'self-intro');
+                    // The standard Copeak reader accepts personalized text unchanged.
+                    // A separate in-memory flag controls private-lesson cleanup.
+                    incoming.set('type', 'standard');
+                    incoming.set('private_intro', '1');
                     // In-memory only: never place personal text in location.href.
                     incoming.set('eng', personalText);
                     await checkUrlParameters(incoming);
