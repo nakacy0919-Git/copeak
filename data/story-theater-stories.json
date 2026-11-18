@@ -148,7 +148,7 @@
           "ja": "次の日曜日、ハナは庭にもう一脚椅子を置きました。友達を必要としている別の人がいるかもしれないと分かっていたからです。",
           "alt": "Two welcoming empty chairs at the sunny garden table, full of hope.",
           "grammar": {
-            "focus": "There might be another person who needed a friend.",
+            "focus": "there might be another person who needed a friend.",
             "parts": [
               {
                 "role": "V",
@@ -360,7 +360,7 @@
           "ja": "ある午後、ソラはバス停の近くで泣いている小さな女の子に気づきました。靴は濡れ、母親が見つからず困っていました。",
           "alt": "A young girl cries by a rainy bus stop as Sora approaches.",
           "grammar": {
-            "focus": "He noticed a little girl crying near a bus stop.",
+            "focus": "he noticed a little girl crying near a bus stop.",
             "parts": [
               {
                 "role": "S",
@@ -389,7 +389,7 @@
           "ja": "ソラは傘に入れてあげ、駅の事務室を探すのを手伝いました。まもなく母親が到着し、娘の無事を見て安心しました。",
           "alt": "Sora shelters the girl under the red umbrella outside the station office.",
           "grammar": {
-            "focus": "Her mother arrived, relieved to see her daughter safe.",
+            "focus": "her mother arrived, relieved to see her daughter safe.",
             "parts": [
               {
                 "role": "S",
@@ -414,7 +414,7 @@
           "ja": "ソラが女の子に赤い傘を渡すと、彼女は「また会えるかな」と尋ねました。ソラは微笑みました。「会えないかもしれない。でも、優しさは次の人につなげられるよ」。",
           "alt": "The girl holds the red umbrella; Sora waves goodbye under clearing skies.",
           "grammar": {
-            "focus": "You can keep the kindness going.",
+            "focus": "you can keep the kindness going.",
             "parts": [
               {
                 "role": "S",
@@ -568,7 +568,7 @@
           "ja": "手紙は祖父の幼なじみで親友だったケンに宛てられていました。少年だった二人は、家族が別々の町へ引っ越した後、再会を約束していました。",
           "alt": "Close-up of an old letter addressed to Ken alongside a faded childhood photo.",
           "grammar": {
-            "focus": "The two boys had promised to meet again.",
+            "focus": "The two boys had promised to meet again after their families moved to different cities.",
             "parts": [
               {
                 "role": "S",
@@ -581,6 +581,10 @@
               {
                 "role": "O",
                 "value": "to meet again"
+              },
+              {
+                "role": "M",
+                "value": "after their families moved to different cities"
               }
             ],
             "note": "had promised は過去完了。引っ越し後の出来事より前の約束を表します。"
@@ -593,7 +597,7 @@
           "ja": "しかし祖父は、自分の苦労の多い人生を知らせる勇気を持てずにいたのです。手紙には小さな成功やつらい喪失、再会への希望が綴られていました。",
           "alt": "Mei reads the handwritten letters beside a window with gentle afternoon light.",
           "grammar": {
-            "focus": "Her grandfather had never found the courage to write about his difficult life.",
+            "focus": "her grandfather had never found the courage to write about his difficult life.",
             "parts": [
               {
                 "role": "S",
@@ -651,19 +655,19 @@
           "ja": "地域の交流センターの協力で、メイはついにケンの家族に連絡しました。二人は静かな公園で再会し、離れ離れだったことなどなかったかのように何時間も話しました。",
           "alt": "Two elderly childhood friends embrace in a quiet park, Mei watching happily.",
           "grammar": {
-            "focus": "They spoke for hours, as though they had never been apart.",
+            "focus": "The old friends met in a quiet park and spoke for hours, as though they had never been apart.",
             "parts": [
               {
                 "role": "S",
-                "value": "They"
+                "value": "The old friends"
               },
               {
                 "role": "V",
-                "value": "spoke"
+                "value": "met / spoke"
               },
               {
                 "role": "M",
-                "value": "for hours"
+                "value": "in a quiet park / for hours"
               },
               {
                 "role": "M",
@@ -680,7 +684,7 @@
           "ja": "帰り道、祖父は空になった木箱を抱いて微笑みました。「怖くて手紙を全部取っておいたんだ」と言いました。「でも君のおかげで一番大事な気持ちを伝えられた。ずっと忘れていなかったよ、と」。",
           "alt": "Grandfather carries the empty letter box beside Mei at sunset.",
           "grammar": {
-            "focus": "I kept every letter because I was afraid.",
+            "focus": "“I kept every letter because I was afraid,”",
             "parts": [
               {
                 "role": "S",
@@ -805,7 +809,7 @@
           "ja": "小さな病院の玄関ホールには、何年もほこりをかぶったピアノが置かれていました。最後に演奏された時を知る人もおらず、職員たちは場所を空けるため撤去を検討していました。",
           "alt": "An old dusty upright piano stands alone in a quiet hospital lobby.",
           "grammar": {
-            "focus": "The staff considered removing it to create more space.",
+            "focus": "the staff considered removing it to create more space.",
             "parts": [
               {
                 "role": "S",
@@ -921,7 +925,7 @@
           "ja": "最初の演奏の日、患者や来訪者がホールに集まりました。普段はほとんど部屋を出ない高齢の男性が、亡き妻を思い出す曲だと言ってピアノの近くに座りたがりました。",
           "alt": "Patients and staff gather around the restored piano as Rina performs.",
           "grammar": {
-            "focus": "An elderly man who rarely left his room asked to sit near the piano.",
+            "focus": "An elderly man who rarely left his room asked to sit near the piano, saying the song reminded him of his late wife.",
             "parts": [
               {
                 "role": "S",
@@ -934,6 +938,10 @@
               {
                 "role": "O",
                 "value": "to sit near the piano"
+              },
+              {
+                "role": "M",
+                "value": "saying the song reminded him of his late wife"
               }
             ],
             "note": "who rarely left his room は an elderly man を修飾する関係詞節です。"
@@ -946,7 +954,7 @@
           "ja": "最後の音が消えると、男性は静かにリナに感謝しました。リナは、ピアノは単に修理されただけでなく、言葉では足りない時にも思い出を分かち合える場所になったのだと悟りました。",
           "alt": "The elderly man thanks Rina at the piano; people share a moving moment.",
           "grammar": {
-            "focus": "It had become a place where memories could be shared.",
+            "focus": "it had become a place where memories could be shared, even when words were no longer enough.",
             "parts": [
               {
                 "role": "S",
@@ -963,6 +971,10 @@
               {
                 "role": "M",
                 "value": "where memories could be shared"
+              },
+              {
+                "role": "M",
+                "value": "even when words were no longer enough"
               }
             ],
             "note": "where は先行詞 a place を説明する関係副詞。could be shared は受動態です。"
@@ -1078,8 +1090,12 @@
           "ja": "壊滅的な嵐の後、海辺の青葉町は地図から突然消し去られた場所のようでした。家々の屋根は失われ、漁船は陸地に散乱し、古い灯台は機能を停止していました。",
           "alt": "Storm-damaged coastal village with an unlit lighthouse above scattered fishing boats.",
           "grammar": {
-            "focus": "The coastal town of Aoba resembled a place abruptly erased from the map.",
+            "focus": "After the devastating storm, the coastal town of Aoba resembled a place abruptly erased from the map.",
             "parts": [
+              {
+                "role": "M",
+                "value": "After the devastating storm"
+              },
               {
                 "role": "S",
                 "value": "The coastal town of Aoba"
@@ -1103,7 +1119,7 @@
           "ja": "行政担当者は、灯台の修復は緊急に必要な住宅への資源を奪うとして、取り壊しを提案しました。しかし多くの住民にとって、その建造物には金銭的な見積もりでは到底捉えきれない意味がありました。",
           "alt": "Town meeting where residents debate whether to preserve the damaged lighthouse.",
           "grammar": {
-            "focus": "Officials proposed demolishing the lighthouse, arguing that its restoration would divert resources.",
+            "focus": "Officials proposed demolishing the lighthouse, arguing that its restoration would divert resources from urgently needed housing.",
             "parts": [
               {
                 "role": "S",
@@ -1119,7 +1135,7 @@
               },
               {
                 "role": "M",
-                "value": "arguing that its restoration would divert resources"
+                "value": "arguing that its restoration would divert resources from urgently needed housing"
               }
             ],
             "note": "propose の目的語は動名詞。arguing ... は同時に行う発言内容を補足する分詞構文です。"
@@ -1132,7 +1148,7 @@
           "ja": "反対した人々の中には、祖父が40年間灯台を守ってきた16歳のナオがいました。祖父はかつて、灯台の役割は船に危険を知らせるだけでなく、海にいる人々に「待っている人がいる」と安心させることだと話していました。",
           "alt": "Nao holds her grandfather's weathered notebook at the damaged lighthouse.",
           "grammar": {
-            "focus": "Among those who objected was sixteen-year-old Nao.",
+            "focus": "Among those who objected was sixteen-year-old Nao, whose grandfather had maintained the light for four decades.",
             "parts": [
               {
                 "role": "M",
@@ -1145,6 +1161,10 @@
               {
                 "role": "S",
                 "value": "sixteen-year-old Nao"
+              },
+              {
+                "role": "M",
+                "value": "whose grandfather had maintained the light for four decades"
               }
             ],
             "note": "場所・範囲を表す語句が文頭に来た倒置文。通常の語順は Sixteen-year-old Nao was among ... です。"
@@ -1157,7 +1177,7 @@
           "ja": "感情的な訴えだけに頼るのではなく、ナオは生還した漁師に取材し、救助や帰港、幾夜も見守り続けた家族の物語を記録しました。証言をデジタル資料にまとめ、地域の集合的な記憶を見える形にしたのです。",
           "alt": "Nao records elderly fishermen telling personal stories in a temporary community center.",
           "grammar": {
-            "focus": "Rather than launch an emotional appeal alone, Nao interviewed surviving fishermen.",
+            "focus": "Rather than launch an emotional appeal alone, Nao interviewed surviving fishermen and recorded stories of rescues, homecomings, and relatives who had kept vigil through countless nights.",
             "parts": [
               {
                 "role": "M",
@@ -1169,11 +1189,15 @@
               },
               {
                 "role": "V",
-                "value": "interviewed"
+                "value": "interviewed / recorded"
               },
               {
                 "role": "O",
-                "value": "surviving fishermen"
+                "value": "surviving fishermen / stories of rescues, homecomings, and relatives"
+              },
+              {
+                "role": "M",
+                "value": "who had kept vigil through countless nights"
               }
             ],
             "note": "rather than + 動詞原形 は「～するよりむしろ」。interview は他動詞です。"
@@ -1186,7 +1210,7 @@
           "ja": "彼女の活動で議論は次第に変わりました。灯台が費用に見合うかではなく、責任ある復興と地域の遺産保護をどう両立するかが問われるようになったのです。ボランティアと技術者は塔を残し、灯りを復旧する現実的な計画を考案しました。",
           "alt": "Engineers and volunteers carefully repair the old coastal lighthouse together.",
           "grammar": {
-            "focus": "The question was no longer whether the lighthouse justified its expense, but how the town could safeguard its heritage.",
+            "focus": "the question was no longer whether the lighthouse justified its expense, but how the town could safeguard its heritage while rebuilding responsibly.",
             "parts": [
               {
                 "role": "S",
@@ -1198,7 +1222,7 @@
               },
               {
                 "role": "C",
-                "value": "no longer whether ... but how ..."
+                "value": "no longer whether the lighthouse justified its expense, but how the town could safeguard its heritage while rebuilding responsibly"
               }
             ],
             "note": "not ... but ... と対比構造。whether と how に導かれる名詞節が補語として並列されています。"
@@ -1211,7 +1235,7 @@
           "ja": "やがて灯台の光が港を照らした時、ナオは涙をこらえきれない祖父の隣に立っていました。その光は災害をなかったことにはできません。しかし嵐でも壊せなかったもの――地域が自分たちの存在を確かめ合う人と人の絆――を確かに示していたのでした。",
           "alt": "Restored lighthouse illuminates the harbor as Nao and grandfather embrace at dusk.",
           "grammar": {
-            "focus": "The light could not undo the catastrophe, yet it affirmed something the storm had failed to destroy.",
+            "focus": "The light could not undo the catastrophe, yet it affirmed something the storm had failed to destroy: the bonds through which a community recognizes itself.",
             "parts": [
               {
                 "role": "S",
@@ -1223,7 +1247,7 @@
               },
               {
                 "role": "O",
-                "value": "the catastrophe / something"
+                "value": "the catastrophe / something the storm had failed to destroy: the bonds through which a community recognizes itself"
               },
               {
                 "role": "M",
