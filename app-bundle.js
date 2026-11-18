@@ -1336,73 +1336,29 @@ async function checkUrlParameters(overrideParams = null) {
     // MessageChannel-style postMessage handshake, never a query parameter.
     // Do not alter the legacy Text / Dialogue URL import path below.
     if (!overrideParams && urlParams.get('self_intro_handoff') === '1') {
-        const classroomOrigin = urlParams.get('classroom_origin');
-        const assignmentId = urlParams.get('classroom_assignment');
-        const studentId = urlParams.get('classroom_student');
-        const nonce = urlParams.get('classroom_launch');
-        const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
-        const trustedOrigins = new Set([
-            'https://cc.pic-speak-story.com',
-            'https://copeak-classroom.vercel.app'
-        ]);
-        if (!window.opener || !trustedOrigins.has(classroomOrigin) ||
-            !uuid.test(assignmentId || '') || !uuid.test(studentId || '') ||
-            !uuid.test(nonce || '') || urlParams.has('eng')) {
-            if (typeof showMsg === 'function') {
-                showMsg('自己紹介の安全な受け渡しを確認できませんでした。Classroomからもう一度開いてください。');
-            }
-            return;
-        }
-        let accepted = false;
-        const expiry = setTimeout(() => {
-            window.removeEventListener('message', onPrivateIntroMessage);
-            if (!accepted && typeof showMsg === 'function') {
-                showMsg('自己紹介の受信がタイムアウトしました。Classroomから開き直してください。');
-            }
-        }, 60000);
-        async function onPrivateIntroMessage(event) {
-            if (accepted || event.source !== window.opener ||
-                event.origin !== classroomOrigin) return;
-            const data = event.data;
-            if (data?.type !== 'copeak-classroom-intro-payload' ||
-                data.nonce !== nonce || data.assignmentId !== assignmentId ||
-                data.studentId !== studentId || typeof data.text !== 'string' ||
-                !data.text.trim() || data.text.length > 6000) return;
-            accepted = true;
-            clearTimeout(expiry);
-            window.removeEventListener('message', onPrivateIntroMessage);
-            try {
-                const incoming = new URLSearchParams(urlParams);
-                incoming.delete('self_intro_handoff');
-                incoming.delete('jpn');
-                incoming.set('type', 'self-intro');
-                // In-memory parameter object only. Never write the personal
-                // text to location.href, history, console or network URL.
-                incoming.set('eng', data.text);
-                await checkUrlParameters(incoming);
-                window.opener?.postMessage({
-                    type: 'copeak-classroom-intro-ack', nonce, assignmentId,
-                    ok: true
-                }, classroomOrigin);
-            } catch (error) {
-                console.warn('[Copeak] Private lesson import failed');
-                window.opener?.postMessage({
-                    type: 'copeak-classroom-intro-ack', nonce, assignmentId,
-                    ok: false
-                }, classroomOrigin);
-                if (typeof showMsg === 'function') {
-                    showMsg('自己紹介を開けませんでした。Classroomからもう一度お試しください。');
+        try {
+            if (!window.CopeakPrivateIntro) throw new Error('Private receiver unavailable');
+            await window.CopeakPrivateIntro.receive({
+                params: urlParams,
+                opener: window.opener,
+                events: window,
+                onPayload: async personalText => {
+                    const incoming = new URLSearchParams(urlParams);
+                    incoming.delete('self_intro_handoff');
+                    incoming.delete('jpn');
+                    incoming.set('type', 'self-intro');
+                    // In-memory only: never place personal text in location.href.
+                    incoming.set('eng', personalText);
+                    await checkUrlParameters(incoming);
                 }
+            });
+        } catch (_error) {
+            if (typeof showMsg === 'function') {
+                showMsg('自己紹介の安全な受信に失敗しました。Classroomから開き直してください。');
             }
         }
-        window.addEventListener('message', onPrivateIntroMessage);
-        window.opener.postMessage({
-            type: 'copeak-classroom-intro-ready', nonce, assignmentId,
-            studentId
-        }, classroomOrigin);
         return;
     }
-
 
     // ★ Quick Share: ?l=XXXXXXXXXX
     if (urlParams.has('l')) {
