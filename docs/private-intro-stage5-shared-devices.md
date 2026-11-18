@@ -9,6 +9,7 @@ Copeak now keeps personalized Classroom self-introduction English **in memory wh
 To preserve the existing practice history and Direct Sync architecture, a **metadata-only shell** is stored under the assignment and authenticated student identifiers. It keeps scores, timestamps, Direct Sync credentials/queued result status and class assignment metadata; it does not contain the lesson English, translation, model audio or attached picture. The sender always sends individualized text through the verified cross-origin browser-message handshake created in Stage 4.
 
 - `private-intro-storage.js`: `storedLesson`, `restoreRuntimeLesson`, `scrubExisting`, `publicLibraryLessons` and reopening guard.
+- `private-intro-receiver.js`: verifies a matching Classroom account/assignment/nonce before accepting the `copeak-classroom-intro-end` logout message. Copeak then clears its in-memory lesson content and returns to a clean page. Unrelated Copeak tabs are not affected.
 - `app-bundle.js`: save private shells instead of English, refuse opening empty shells from Library, keep active text in memory during score saves, scrub old private text before Library loads, show an End Practice button and clear memory on `pagehide`. Personal speech transcripts are also omitted from Copeak Rewards data for these lessons.
 - `classroom-sync.js`: preserve the active in-memory paragraph when a Direct Sync credential updates the database shell; retain score queue/history.
 - `copeak-library.js`: hide private shells from the separate Library importer.
