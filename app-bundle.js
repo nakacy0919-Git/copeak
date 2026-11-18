@@ -1379,6 +1379,17 @@ async function checkUrlParameters(overrideParams = null) {
                     await checkUrlParameters(incoming);
                 }
             });
+            // The opener can request an authenticated session close on
+            // explicit student logout; no unrelated Copeak tab is affected.
+            window.CopeakPrivateIntro.listenForEnd({
+                params: urlParams,
+                opener: window.opener,
+                events: window,
+                onEnd: () => {
+                    clearActivePrivateIntroText();
+                    window.location.replace(window.location.origin + window.location.pathname);
+                }
+            });
         } catch (_error) {
             if (typeof showMsg === 'function') {
                 showMsg('自己紹介の安全な受信に失敗しました。Classroomから開き直してください。');
