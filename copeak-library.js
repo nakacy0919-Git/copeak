@@ -858,7 +858,9 @@
                     () => {
 
                         resolve(
-                            request.result || []
+                            window.CopeakPrivateIntroStorage
+                                ? window.CopeakPrivateIntroStorage.publicLibraryLessons(request.result || [])
+                                : (request.result || []).filter(lesson => !lesson.privateIntro)
                         );
 
                     };

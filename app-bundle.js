@@ -200,10 +200,19 @@ const initDB = () => {
                 db.createObjectStore(storeName, { keyPath: "id", autoIncrement: true });
             }
         };
-        request.onsuccess = (e) => {
+        request.onsuccess = async (e) => {
             db = e.target.result;
-            resolve();
-            window.dispatchEvent(new Event("copeak-storage-ready"));
+            try {
+                if (!window.CopeakPrivateIntroStorage) {
+                    throw new Error('Privacy protection module is unavailable');
+                }
+                // Scrub any private text left by an earlier build before rendering.
+                await window.CopeakPrivateIntroStorage.scrubExisting(db, storeName);
+                resolve();
+                window.dispatchEvent(new Event("copeak-storage-ready"));
+            } catch (error) {
+                reject(error);
+            }
         };
         request.onerror = (e) => reject(e);
     });
@@ -428,6 +437,17 @@ async function saveCustomLesson() {
         const getReq = store.get(editingLessonId);
         getReq.onsuccess = () => {
             const lesson = getReq.result;
+            if (!lesson) {
+                if (typeof showMsg === 'function') showMsg('教材を確認できませんでした。');
+                return;
+            }
+            if (window.CopeakPrivateIntroStorage.isPrivate(lesson)) {
+                // A private Classroom shell must never become a locally editable
+                // reusable lesson. Editing happens in the authenticated
+                // Classroom student input form instead.
+                if (typeof showMsg === 'function') showMsg('🔒 自己紹介はClassroomから編集してください。');
+                return;
+            }
             lesson.title = title;
             lesson.eng = engText; // リスト表示用
             lesson.jpn = jpnText;
@@ -491,8 +511,12 @@ function savePracticeLog(lessonId, logData, onComplete) {
         if (!lesson.history) lesson.history = [];
         lesson.history.push(logData);
         lesson.lastPracticed = Date.now();
-        store.put(lesson);
-        if (currentCustomLesson?.id === lessonId) currentCustomLesson = lesson;
+        store.put(window.CopeakPrivateIntroStorage.storedLesson(lesson));
+        if (currentCustomLesson?.id === lessonId) {
+            currentCustomLesson = window.CopeakPrivateIntroStorage.restoreRuntimeLesson(
+                lesson, currentCustomLesson
+            );
+        }
         saved = true;
     };
 
@@ -537,7 +561,9 @@ function loadSavedLessons() {
     const request = store.getAll();
 
     request.onsuccess = () => {
-        const lessons = request.result;
+        // The private lesson's persisted shell exists only for score syncing.
+        // It must never be displayed as an editable or reusable Library lesson.
+        const lessons = window.CopeakPrivateIntroStorage.publicLibraryLessons(request.result);
         lessons.sort((a, b) => b.createdAt - a.createdAt);
 
         const homeList = document.getElementById("savedLessonsList");
@@ -1184,6 +1210,12 @@ function deleteLesson(event, id) {
 }
 
 function startCustomLesson(lesson) {
+    if (window.CopeakPrivateIntroStorage.mustReopenFromClassroom(lesson)) {
+        if (typeof showMsg === 'function') {
+            showMsg('🔒 個別の自己紹介はClassroomから開いてください。');
+        }
+        return;
+    }
 
     const previousLessonId =
         currentCustomLesson?.id ?? null;
@@ -1325,8 +1357,57 @@ async function fetchClassroomAudioBlob(
     }
 }
 
-async function checkUrlParameters() {
-    const urlParams = new URLSearchParams(window.location.search);
+function lessonTypeForPrivateIntro(params) {
+    return params.get('private_intro') === '1';
+}
+function isPrivateStudentIntroduction(lesson) {
+    return lesson?.privateIntro === true;
+}
+
+async function checkUrlParameters(overrideParams = null) {
+    const urlParams = overrideParams || new URLSearchParams(window.location.search);
+
+    // Personal introduction text is delivered over a source- and origin-checked
+    // MessageChannel-style postMessage handshake, never a query parameter.
+    // Do not alter the legacy Text / Dialogue URL import path below.
+    if (!overrideParams && urlParams.get('self_intro_handoff') === '1') {
+        try {
+            if (!window.CopeakPrivateIntro) throw new Error('Private receiver unavailable');
+            await window.CopeakPrivateIntro.receive({
+                params: urlParams,
+                opener: window.opener,
+                events: window,
+                onPayload: async personalText => {
+                    const incoming = new URLSearchParams(urlParams);
+                    incoming.delete('self_intro_handoff');
+                    incoming.delete('jpn');
+                    // The standard Copeak reader accepts personalized text unchanged.
+                    // A separate in-memory flag controls private-lesson cleanup.
+                    incoming.set('type', 'standard');
+                    incoming.set('private_intro', '1');
+                    // In-memory only: never place personal text in location.href.
+                    incoming.set('eng', personalText);
+                    await checkUrlParameters(incoming);
+                }
+            });
+            // The opener can request an authenticated session close on
+            // explicit student logout; no unrelated Copeak tab is affected.
+            window.CopeakPrivateIntro.listenForEnd({
+                params: urlParams,
+                opener: window.opener,
+                events: window,
+                onEnd: () => {
+                    clearActivePrivateIntroText();
+                    window.location.replace(window.location.origin + window.location.pathname);
+                }
+            });
+        } catch (_error) {
+            if (typeof showMsg === 'function') {
+                showMsg('自己紹介の安全な受信に失敗しました。Classroomから開き直してください。');
+            }
+        }
+        return;
+    }
 
     // ★ Quick Share: ?l=XXXXXXXXXX
     if (urlParams.has('l')) {
@@ -1451,7 +1532,7 @@ async function checkUrlParameters() {
         const lang = urlParams.get('lang') || 'en-US';
         const formUrl = urlParams.get('form') || null;
         const audioUrl = urlParams.get('audioUrl') || null;
-        const jpnText = urlParams.get('jpn') || "先生からの共有教材です。";
+        const jpnText = lessonTypeForPrivateIntro(urlParams) ? '' : (urlParams.get('jpn') || "先生からの共有教材です。");
         // ==========================================
 // YouTube Clip
 // Copeak Classroom
@@ -1632,36 +1713,35 @@ const youtubeLoop =
         // 通常Shareの場合はタイトル＋英文
         // ==========================================
 
-        const existingLesson =
-            (
-                classroomSource &&
-                classroomAssignmentId
-            )
-
-                ? lessons.find(
-                    lesson =>
-                        lesson.classroomSource === true &&
-                        lesson.classroomAssignmentId === classroomAssignmentId &&
-                        (!classroomStudentId || !lesson.classroomStudentId ||
-                         lesson.classroomStudentId === classroomStudentId)
-                ) || (() => {
-                    // Upgrade only one exact matching old material.
-                    const candidates = lessons.filter(
-                        lesson => !lesson.classroomAssignmentId &&
-                            lesson.title === sharedTitle &&
-                            lesson.eng === engText
-                    );
-                    return candidates.length === 1 ? candidates[0] : null;
-                })()
-
-                : lessons.find(
-                    lesson =>
-                        lesson.title ===
-                            sharedTitle &&
-                        lesson.eng ===
-                            engText
-                );
-
+        const existingLesson = lessonTypeForPrivateIntro(urlParams)
+            ? lessons.find(lesson =>
+                lesson.privateIntro === true &&
+                lesson.classroomSource === true &&
+                lesson.classroomAssignmentId === classroomAssignmentId &&
+                lesson.classroomStudentId === classroomStudentId)
+            : (
+                (
+                    classroomSource &&
+                    classroomAssignmentId
+                )
+                    ? lessons.find(
+                        lesson =>
+                            lesson.classroomSource === true &&
+                            lesson.classroomAssignmentId === classroomAssignmentId &&
+                            (!classroomStudentId || !lesson.classroomStudentId ||
+                             lesson.classroomStudentId === classroomStudentId)
+                    ) || (() => {
+                        const candidates = lessons.filter(
+                            lesson => !lesson.classroomAssignmentId &&
+                                lesson.title === sharedTitle &&
+                                lesson.eng === engText
+                        );
+                        return candidates.length === 1 ? candidates[0] : null;
+                    })()
+                    : lessons.find(lesson =>
+                        lesson.title === sharedTitle && lesson.eng === engText
+                    )
+            );
 
         // ==========================================
         // 既存教材がある場合
@@ -1683,9 +1763,7 @@ const youtubeLoop =
 
 
             if (
-                urlParams.has(
-                    'jpn'
-                )
+                urlParams.has('jpn') || lessonTypeForPrivateIntro(urlParams)
             ) {
 
                 existingLesson.jpn =
@@ -1695,6 +1773,13 @@ const youtubeLoop =
 
             existingLesson.type =
                 lessonType;
+            existingLesson.privateIntro = lessonTypeForPrivateIntro(urlParams);
+
+            if (lessonTypeForPrivateIntro(urlParams)) {
+                // Stale teacher audio does not belong to the current student's text.
+                existingLesson.audioBlob = null;
+                existingLesson.audioUrl = null;
+            }
             if (classroomSource || urlParams.has("focus")) existingLesson.focusRanges = window.CopeakFocus.clean(urlParams.get("focus"), engText);
             if (classroomSource || urlParams.has('score_exclusions')) {
                 existingLesson.scoreExclusions = incomingScoreExclusions;
@@ -1863,7 +1948,7 @@ const youtubeLoop =
                             existingLesson.history = latest.result.history || [];
                             existingLesson.lastPracticed = latest.result.lastPracticed;
                         }
-                        store.put(existingLesson);
+                        store.put(window.CopeakPrivateIntroStorage.storedLesson(existingLesson));
                     };
 
 
@@ -1980,6 +2065,7 @@ const youtubeLoop =
 
             type:
                 lessonType,
+            privateIntro: lessonTypeForPrivateIntro(urlParams),
 
             scoreExclusions: incomingScoreExclusions,
             focusRanges: window.CopeakFocus.clean(urlParams.get("focus"), engText),
@@ -2057,7 +2143,7 @@ const youtubeLoop =
 
                     const request =
                         store.add(
-                            newLessonData
+                            window.CopeakPrivateIntroStorage.storedLesson(newLessonData)
                         );
 
 
@@ -4202,8 +4288,54 @@ function applyLessonSupportImage(
 }
 
 
+function clearActivePrivateIntroText() {
+    if (!isPrivateStudentIntroduction(currentCustomLesson)) return;
+    currentCustomLesson.eng = '';
+    currentCustomLesson.jpn = '';
+    currentCustomLesson.dialogue = [];
+    currentCustomLesson.focusRanges = [];
+    for (const id of ['engContainer', 'jpnContainer', 'fsEngContainer', 'fsJpnContainer', 'recognizedTextDisplay']) {
+        const element = document.getElementById(id);
+        if (element) element.replaceChildren();
+    }
+}
+function updatePrivateIntroPrivacyBanner(lesson) {
+    const existing = document.getElementById('privateIntroPrivacyBanner');
+    existing?.remove();
+    if (!isPrivateStudentIntroduction(lesson)) return;
+    const title = document.getElementById('learningTitle');
+    if (!title || !title.parentElement) return;
+    const banner = document.createElement('div');
+    banner.id = 'privateIntroPrivacyBanner';
+    banner.style.cssText = 'display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;padding:8px 10px;margin-top:8px;background:#f0fdf4;border:1px solid #86efac;border-radius:8px;font-size:12px;color:#166534';
+    const message = document.createElement('span');
+    message.textContent = '🔒 自己紹介の英文は端末の教材ライブラリーに保存されません。共用端末では練習後に終了してください。';
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.textContent = '練習を終了';
+    button.style.cssText = 'padding:6px 10px;border:1px solid #16a34a;border-radius:7px;background:white;color:#166534;font-weight:bold;cursor:pointer';
+    button.addEventListener('click', async () => {
+        if (!window.confirm('個別の自己紹介を閉じますか？未送信の音読結果は次回の同期で再送されます。')) return;
+        clearActivePrivateIntroText();
+        button.disabled = true;
+        message.textContent = '🔒 自己紹介を閉じています…';
+        try {
+            // Best effort: Direct Sync keeps its own retry queue if offline.
+            await Promise.race([
+                Promise.resolve(window.CopeakDirectSync?.flush(true)),
+                new Promise(resolve => setTimeout(resolve, 4000))
+            ]);
+        } catch (_error) {}
+        window.location.replace(window.location.origin + window.location.pathname);
+    });
+    banner.append(message, button);
+    title.parentElement.appendChild(banner);
+}
+window.addEventListener('pagehide', clearActivePrivateIntroText);
+
 function openLearningScreen(lesson) {
     toggleMobileLibrary(true);
+    updatePrivateIntroPrivacyBanner(lesson);
 
     applyYoutubeLessonLayout(
     lesson
@@ -6208,6 +6340,12 @@ function closeModeGuide() {
 async function generateShareLink() {
 
     if (!currentCustomLesson) return;
+    if (isPrivateStudentIntroduction(currentCustomLesson)) {
+        if (typeof showMsg === 'function') {
+            showMsg('🔒 個人の自己紹介教材は共有リンクを発行できません。');
+        }
+        return;
+    }
 
     const baseUrl = window.location.origin + window.location.pathname;
 
@@ -6687,7 +6825,10 @@ async function submitScoreToForm() {
     formData.append('entry.70481568', profile.number);
     formData.append('entry.1056156063', profile.name);
     formData.append('entry.1259267878', lessonTitle);
-    formData.append('entry.222722906', currentCustomLesson.eng || '');
+    formData.append('entry.222722906',
+        isPrivateStudentIntroduction(currentCustomLesson)
+            ? '[Personalized Classroom introduction: private]'
+            : (currentCustomLesson.eng || ''));
     formData.append('entry.145428349', accuracy);
     formData.append('entry.928123739', wpm);
     formData.append('entry.1611039041', comp);
@@ -8434,6 +8575,7 @@ function buildQuickSharePayload(lesson) {
 }
 
 async function createQuickShare(lesson) {
+    if (isPrivateStudentIntroduction(lesson)) throw new Error('private_lesson');
     const response = await fetch(`${COPEAK_QUICK_SHARE_API}/api/share`, {
         method: 'POST',
         headers: {
@@ -8715,6 +8857,10 @@ function showQuickShareLinkFallback(url) {
 
 async function generateQuickShareLink() {
     if (!currentCustomLesson) {
+        return;
+    }
+    if (isPrivateStudentIntroduction(currentCustomLesson)) {
+        if (typeof showMsg === 'function') showMsg('🔒 個人の自己紹介教材は共有できません。');
         return;
     }
 
@@ -19319,7 +19465,7 @@ spokenComparisonUnits.forEach(
                 lessonId: currentCustomLesson.id,
                 accuracy: currentAccuracy,
                 wpm: currentWpm,
-                transcript: spokenText
+                transcript: isPrivateStudentIntroduction(currentCustomLesson) ? '' : spokenText
             });
         }
         // ==========================================
@@ -22264,7 +22410,9 @@ function markMultiplayMicReady() {
 }
 
 function getMultiplayLessonPayload() {
-
+    if (isPrivateStudentIntroduction(currentCustomLesson)) {
+        throw new Error('Private student introductions cannot be shared in multiplayer.');
+    }
     return {
         title: currentCustomLesson.title || '',
         eng: currentCustomLesson.eng || '',
@@ -22282,6 +22430,12 @@ function getMultiplayLessonPayload() {
 // 2. ホスト（部屋を作る側）の処理
 // ------------------------------------------
 function createMultiplayRoom() {
+    if (isPrivateStudentIntroduction(currentCustomLesson)) {
+        if (typeof showMsg === 'function') {
+            showMsg('🔒 自己紹介教材はマルチプレイ共有できません。');
+        }
+        return;
+    }
     const btn = document.getElementById('btn-create-room');
     btn.disabled = true;
     btn.innerText = "⏳ 作成中...";
@@ -22392,7 +22546,11 @@ function setupConnectionEvents(conn) {
     conn.on('open', () => {
 
         if (isHost) {
-
+            if (isPrivateStudentIntroduction(currentCustomLesson)) {
+                conn.close();
+                if (typeof showMsg === 'function') showMsg('🔒 この自己紹介教材は共有できません。');
+                return;
+            }
             conn.send({
                 type: 'INIT_ROOM',
                 slot: conn._playerSlot,

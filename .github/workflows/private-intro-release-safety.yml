@@ -1,0 +1,46 @@
+name: Private introduction release safety tests
+
+on:
+  pull_request:
+    paths:
+      - "private-intro-receiver.js"
+      - "private-intro-storage.js"
+      - "app-bundle.js"
+      - "classroom-sync.js"
+      - "copeak-library.js"
+      - "quickshare.js"
+      - "quickshare-repair.js"
+      - "index.html"
+      - "tests/private-intro-receiver.test.cjs"
+      - "tests/private-intro-storage.test.cjs"
+      - "tests/private_intro_handoff.test.mjs"
+      - ".github/workflows/private-intro-release-safety.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: private-intro-release-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: JavaScript syntax
+        run: |
+          node --check private-intro-receiver.js
+          node --check private-intro-storage.js
+          node --check app-bundle.js
+          node --check classroom-sync.js
+          node --check copeak-library.js
+          node --check quickshare.js
+          node --check quickshare-repair.js
+      - name: Verify receiver, privacy, storage and existing textbook regression
+        run: |
+          node --test tests/private-intro-receiver.test.cjs tests/private-intro-storage.test.cjs tests/private_intro_handoff.test.mjs

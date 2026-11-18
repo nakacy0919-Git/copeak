@@ -53,6 +53,7 @@
 
   async function createLessonShare(lesson) {
     if (!lesson || typeof lesson !== 'object') throw new Error('invalid_lesson');
+    if (lesson.privateIntro === true) throw new Error('private_lesson');
     const options = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -114,6 +115,7 @@
   // The original app already imports Classic Share URLs via checkUrlParameters.
   // Keep fallback local: no third-party redirect or URL-shortening service.
   function classicShareUrl(lesson) {
+    if (lesson?.privateIntro === true) return null;
     const data = payload(lesson);
     if (!data.eng && !data.dialogue.length) return null;
     const params = new URLSearchParams({
@@ -163,6 +165,10 @@
     const lesson = (typeof currentCustomLesson !== 'undefined') ? currentCustomLesson : null;
     if (!lesson) {
       status('共有する教材を選んでください。');
+      return null;
+    }
+    if (lesson.privateIntro === true) {
+      status('🔒 この自己紹介教材は個人用のため共有できません。');
       return null;
     }
     if (sharing) return null;
