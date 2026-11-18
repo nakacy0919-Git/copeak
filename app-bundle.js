@@ -437,6 +437,19 @@ async function saveCustomLesson() {
         const getReq = store.get(editingLessonId);
         getReq.onsuccess = () => {
             const lesson = getReq.result;
+            if (!lesson) {
+                transaction.abort();
+                if (typeof showMsg === 'function') showMsg('教材を確認できませんでした。');
+                return;
+            }
+            if (window.CopeakPrivateIntroStorage.isPrivate(lesson)) {
+                // A private Classroom shell must never become a locally editable
+                // reusable lesson. Editing happens in the authenticated
+                // Classroom student input form instead.
+                transaction.abort();
+                if (typeof showMsg === 'function') showMsg('🔒 自己紹介はClassroomから編集してください。');
+                return;
+            }
             lesson.title = title;
             lesson.eng = engText; // リスト表示用
             lesson.jpn = jpnText;
