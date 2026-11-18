@@ -118,3 +118,16 @@ test('source-level regression guards prevent re-persisting personal passages', (
   assert.match(library, /publicLibraryLessons\(request\.result \|\| \[\]\)/);
   assert.ok(html.indexOf('private-intro-storage.js') < html.indexOf('app-bundle.js'));
 });
+
+
+test('local custom lesson editor rejects private Classroom shells before rewriting', () => {
+  const { readFileSync } = require('node:fs');
+  const { resolve } = require('node:path');
+  const source = readFileSync(resolve(__dirname, '../app-bundle.js'), 'utf8');
+  const start = source.indexOf('async function saveCustomLesson()');
+  const end = source.indexOf('function finishSaveProcess(', start);
+  assert.ok(start >= 0 && end > start);
+  const editor = source.slice(start, end);
+  assert.match(editor, /if \(window\.CopeakPrivateIntroStorage\.isPrivate\(lesson\)\)/);
+  assert.match(editor, /自己紹介はClassroomから編集してください/);
+});
