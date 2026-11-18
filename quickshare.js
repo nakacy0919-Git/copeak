@@ -26,6 +26,7 @@ function buildQuickSharePayload(lesson) {
 }
 
 async function createQuickShare(lesson) {
+    if (lesson?.privateIntro === true) throw new Error('private_lesson');
     const response = await fetch(`${COPEAK_QUICK_SHARE_API}/api/share`, {
         method: 'POST',
         headers: {
@@ -307,6 +308,10 @@ function showQuickShareLinkFallback(url) {
 
 async function generateQuickShareLink() {
     if (!currentCustomLesson) {
+        return;
+    }
+    if (currentCustomLesson.privateIntro === true) {
+        if (typeof showMsg === 'function') showMsg('🔒 この自己紹介教材は個人用のため共有できません。');
         return;
     }
 

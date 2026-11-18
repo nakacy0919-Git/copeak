@@ -80,10 +80,18 @@
         const lesson = request.result;
         if (!lesson) return;
         change(lesson);
-        store.put(lesson);
-        if (activeLesson?.id === lessonId) Object.assign(activeLesson, lesson);
+        store.put(window.CopeakPrivateIntroStorage.storedLesson(lesson));
+        if (activeLesson?.id === lessonId) {
+          Object.assign(
+            activeLesson,
+            window.CopeakPrivateIntroStorage.restoreRuntimeLesson(lesson, activeLesson)
+          );
+        }
         if (typeof currentCustomLesson !== 'undefined' && currentCustomLesson?.id === lessonId) {
-          Object.assign(currentCustomLesson, lesson);
+          Object.assign(
+            currentCustomLesson,
+            window.CopeakPrivateIntroStorage.restoreRuntimeLesson(lesson, currentCustomLesson)
+          );
         }
       };
       tx.oncomplete = resolve;
