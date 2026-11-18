@@ -210,7 +210,10 @@
           "pos": "動詞",
           "ja": "覚えている、思い出す",
           "detail": "remember doing（～したことを覚えている）にも注意。",
-          "example": "Thank you for remembering me."
+          "example": "Thank you for remembering me.",
+          "forms": [
+            "remembering"
+          ]
         },
         {
           "term": "might",
@@ -218,6 +221,41 @@
           "ja": "～かもしれない",
           "detail": "may より控えめな可能性を表すことがあります。",
           "example": "Another person might need a friend."
+        },
+        {
+          "term": "beside",
+          "pos": "前置詞",
+          "ja": "～のそばに",
+          "detail": "場所を表す前置詞。beside the table（テーブルのそばに）。",
+          "example": "The chair was beside the table."
+        },
+        {
+          "term": "had died",
+          "pos": "動詞句",
+          "ja": "亡くなっていた",
+          "detail": "die の過去完了形。本文では昨年の出来事を表します。",
+          "example": "His wife had died last winter."
+        },
+        {
+          "term": "would you like to",
+          "pos": "定型表現",
+          "ja": "～しませんか、～なさいますか",
+          "detail": "Would you like to + 動詞の原形 は丁寧な誘い方です。",
+          "example": "Would you like to join us?"
+        },
+        {
+          "term": "younger days",
+          "pos": "名詞句",
+          "ja": "若い頃",
+          "detail": "one's younger days で「若かった頃」を表します。",
+          "example": "He talked about his younger days."
+        },
+        {
+          "term": "held his hand",
+          "pos": "動詞句",
+          "ja": "彼の手を握った",
+          "detail": "hold someone's hand は、励ましたり安心させたりするときにも用います。",
+          "example": "She held his hand gently."
         }
       ],
       "questions": [
@@ -445,14 +483,20 @@
           "pos": "動詞",
           "ja": "乗り遅れる、逃す",
           "detail": "miss the bus で「バスに乗り遅れる」。",
-          "example": "I missed the last train."
+          "example": "I missed the last train.",
+          "forms": [
+            "missed"
+          ]
         },
         {
           "term": "hold out",
           "pos": "句動詞",
           "ja": "差し出す",
           "detail": "hold something out（物を差し出す）。",
-          "example": "She held out an umbrella."
+          "example": "She held out an umbrella.",
+          "forms": [
+            "held out"
+          ]
         },
         {
           "term": "return",
@@ -466,7 +510,10 @@
           "pos": "動詞",
           "ja": "気づく",
           "detail": "notice + 人 + ～ing は人の動作への気づき。",
-          "example": "He noticed a girl crying."
+          "example": "He noticed a girl crying.",
+          "forms": [
+            "noticed"
+          ]
         },
         {
           "term": "relieved",
@@ -480,14 +527,55 @@
           "pos": "動詞",
           "ja": "申し出る、差し出す",
           "detail": "offer A B / offer B to A の形があります。",
-          "example": "He offered her the umbrella."
+          "example": "He offered her the umbrella.",
+          "forms": [
+            "offered"
+          ]
         },
         {
           "term": "keep ... going",
           "pos": "表現",
           "ja": "～を続ける",
           "detail": "keep + 目的語 + going で「途切れないようにする」。",
-          "example": "Keep the kindness going."
+          "example": "Keep the kindness going.",
+          "forms": [
+            "keep the kindness going"
+          ]
+        },
+        {
+          "term": "afraid of",
+          "pos": "形容詞句",
+          "ja": "～を恐れて",
+          "detail": "be afraid of ～ing で「～することを心配する」。",
+          "example": "He was afraid of being late."
+        },
+        {
+          "term": "bright red",
+          "pos": "形容詞句",
+          "ja": "鮮やかな赤色の",
+          "detail": "bright は色にも使われ「鮮やかな」を表します。",
+          "example": "She carried a bright red umbrella."
+        },
+        {
+          "term": "school bag",
+          "pos": "名詞句",
+          "ja": "通学かばん",
+          "detail": "schoolbag と一語で表記することもあります。",
+          "example": "He carried it in his school bag."
+        },
+        {
+          "term": "could not find",
+          "pos": "動詞句",
+          "ja": "見つけられなかった",
+          "detail": "could not は過去の不可能を示すことがあります。",
+          "example": "She could not find her mother."
+        },
+        {
+          "term": "shared",
+          "pos": "動詞",
+          "ja": "共有した、一緒に使った",
+          "detail": "share A with B「AをBと共有する」。本文では傘に入れてあげることです。",
+          "example": "He shared the umbrella."
         }
       ],
       "questions": [
@@ -736,21 +824,30 @@
           "pos": "動詞",
           "ja": "再びつながる",
           "detail": "connect に re- が付き「再びつながる」。",
-          "example": "They hoped to reconnect."
+          "example": "They hoped to reconnect.",
+          "forms": [
+            "reconnecting"
+          ]
         },
         {
           "term": "hesitate",
           "pos": "動詞",
           "ja": "ためらう",
           "detail": "hesitate to do で「～するのをためらう」。",
-          "example": "He hesitated before answering."
+          "example": "He hesitated before answering.",
+          "forms": [
+            "hesitated"
+          ]
         },
         {
           "term": "contact",
           "pos": "動詞・名詞",
           "ja": "連絡する、連絡",
           "detail": "contact someone は前置詞なしで目的語を取ります。",
-          "example": "Mei contacted the family."
+          "example": "Mei contacted the family.",
+          "forms": [
+            "contacted"
+          ]
         },
         {
           "term": "as though",
@@ -758,6 +855,48 @@
           "ja": "まるで～のように",
           "detail": "事実と異なることにも使われる表現。",
           "example": "They talked as though nothing had changed."
+        },
+        {
+          "term": "had been sent",
+          "pos": "受動態・過去完了",
+          "ja": "送られていた",
+          "detail": "had been + 過去分詞 は過去完了の受動態。本文では none of them had been sent（どれも送られていなかった）。",
+          "example": "None of them had been sent."
+        },
+        {
+          "term": "promised to",
+          "pos": "動詞句",
+          "ja": "～する約束をした",
+          "detail": "promise to + 動詞の原形 は「～する約束をする」。",
+          "example": "They promised to meet again."
+        },
+        {
+          "term": "painful losses",
+          "pos": "名詞句",
+          "ja": "つらい喪失",
+          "detail": "loss は「失うこと」、painful は心の痛みも表します。",
+          "example": "The letters described painful losses."
+        },
+        {
+          "term": "community center",
+          "pos": "名詞句",
+          "ja": "地域の交流センター",
+          "detail": "地域住民の交流や支援活動を行う施設です。",
+          "example": "She contacted a community center."
+        },
+        {
+          "term": "never forgot",
+          "pos": "動詞句",
+          "ja": "決して忘れなかった",
+          "detail": "never は「一度も～ない／決して～ない」を強調します。",
+          "example": "I never forgot you."
+        },
+        {
+          "term": "important message",
+          "pos": "名詞句",
+          "ja": "大切な伝言、思い",
+          "detail": "message は文字の連絡だけでなく、伝えたい気持ちにも使えます。",
+          "example": "It was an important message."
         }
       ],
       "questions": [
@@ -1010,7 +1149,10 @@
           "pos": "動詞",
           "ja": "説得する",
           "detail": "persuade A to do の構文。",
-          "example": "Rina persuaded the staff to help."
+          "example": "Rina persuaded the staff to help.",
+          "forms": [
+            "persuaded"
+          ]
         },
         {
           "term": "restoration",
@@ -1031,7 +1173,10 @@
           "pos": "動詞",
           "ja": "次第に薄れる、消える",
           "detail": "fade away で「次第に消える」。",
-          "example": "The final notes faded."
+          "example": "The final notes faded.",
+          "forms": [
+            "faded"
+          ]
         },
         {
           "term": "no longer",
@@ -1039,6 +1184,48 @@
           "ja": "もはや～ない",
           "detail": "状態の変化を強調します。",
           "example": "Words were no longer enough."
+        },
+        {
+          "term": "dusty",
+          "pos": "形容詞",
+          "ja": "ほこりをかぶった",
+          "detail": "dust（ほこり）から派生した形容詞です。",
+          "example": "A dusty piano stood in the hall."
+        },
+        {
+          "term": "considered removing",
+          "pos": "動詞句",
+          "ja": "撤去することを検討した",
+          "detail": "consider は後ろに動名詞を取ります（consider doing）。",
+          "example": "They considered removing the piano."
+        },
+        {
+          "term": "grandmother's fingers",
+          "pos": "名詞句",
+          "ja": "祖母の指",
+          "detail": "所有格 's と複数名詞の組み合わせを確認。",
+          "example": "Her grandmother's fingers moved."
+        },
+        {
+          "term": "rarely",
+          "pos": "副詞",
+          "ja": "めったに～ない",
+          "detail": "頻度の低さを表す副詞です。",
+          "example": "He rarely left his room."
+        },
+        {
+          "term": "late wife",
+          "pos": "名詞句",
+          "ja": "亡くなった妻",
+          "detail": "late は人の前に置かれると「故～、亡くなった～」を意味します。",
+          "example": "The song reminded him of his late wife."
+        },
+        {
+          "term": "memories could be shared",
+          "pos": "受動態表現",
+          "ja": "思い出を分かち合えた",
+          "detail": "could be + 過去分詞 で「～され得る」を示します。",
+          "example": "Memories could be shared."
         }
       ],
       "questions": [
@@ -1273,7 +1460,10 @@
           "pos": "動詞",
           "ja": "取り壊す",
           "detail": "建物を意図的に解体すること。",
-          "example": "Officials proposed demolishing it."
+          "example": "Officials proposed demolishing it.",
+          "forms": [
+            "demolishing"
+          ]
         },
         {
           "term": "divert",
@@ -1301,7 +1491,10 @@
           "pos": "名詞",
           "ja": "証言",
           "detail": "複数形 testimonies。",
-          "example": "She collected testimonies."
+          "example": "She collected testimonies.",
+          "forms": [
+            "testimonies"
+          ]
         },
         {
           "term": "safeguard",
@@ -1322,7 +1515,10 @@
           "pos": "動詞",
           "ja": "断言する、確かめる",
           "detail": "存在や価値を強く確認すること。",
-          "example": "The light affirmed their bonds."
+          "example": "The light affirmed their bonds.",
+          "forms": [
+            "affirmed"
+          ]
         },
         {
           "term": "undo",
@@ -1330,6 +1526,55 @@
           "ja": "元に戻す、なかったことにする",
           "detail": "過去の出来事を取り消す意味にも用います。",
           "example": "Nothing could undo the damage."
+        },
+        {
+          "term": "abruptly",
+          "pos": "副詞",
+          "ja": "突然、不意に",
+          "detail": "abrupt（突然の）に -ly が付いた副詞です。",
+          "example": "The town was abruptly changed."
+        },
+        {
+          "term": "financial estimate",
+          "pos": "名詞句",
+          "ja": "金銭的な見積もり",
+          "detail": "financial（財政的な）と estimate（見積もり）の組み合わせ。",
+          "example": "No financial estimate captured its value."
+        },
+        {
+          "term": "maintained",
+          "pos": "動詞",
+          "ja": "維持管理していた",
+          "detail": "maintain は設備の手入れや状態維持を表します。",
+          "example": "He maintained the lighthouse."
+        },
+        {
+          "term": "kept vigil",
+          "pos": "動詞句",
+          "ja": "徹夜で見守り続けた",
+          "detail": "keep vigil は何かを心配しながら見守り続けることです。",
+          "example": "Families kept vigil through the night."
+        },
+        {
+          "term": "collective memory",
+          "pos": "名詞句",
+          "ja": "集合的な記憶",
+          "detail": "社会・集団で共有される記憶を表す表現です。",
+          "example": "The archive preserved collective memory."
+        },
+        {
+          "term": "devised",
+          "pos": "動詞",
+          "ja": "考案した",
+          "detail": "devise は計画や方法を工夫して作り出すこと。",
+          "example": "They devised a careful plan."
+        },
+        {
+          "term": "contain his tears",
+          "pos": "動詞句",
+          "ja": "涙をこらえる",
+          "detail": "contain は感情を抑える意味でも使えます。",
+          "example": "He could barely contain his tears."
         }
       ],
       "questions": [
