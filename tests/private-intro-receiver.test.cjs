@@ -1,6 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { receive, parseContext } = require('../private-intro-receiver.js');
+const { receive, parseContext, listenForEnd } = require('../private-intro-receiver.js');
 
 const assignmentId = '11111111-1111-4111-8111-111111111111';
 const studentId = '22222222-2222-4222-8222-222222222222';
@@ -128,4 +128,37 @@ test('private lesson share/export and multiplayer paths are guarded', () => {
   assert.match(share, /if \(lesson\.privateIntro === true\) throw new Error\('private_lesson'\)/);
   assert.match(share, /if \(lesson\?\.privateIntro === true\) return null/);
   assert.match(legacy, /if \(lesson\?\.privateIntro === true\) throw new Error\('private_lesson'\)/);
+});
+
+
+test('authenticated Classroom logout ends only the matching private lesson', () => {
+  const handlers = new Map();
+  const events = {
+    addEventListener(type, fn) {
+      if (!handlers.has(type)) handlers.set(type, new Set());
+      handlers.get(type).add(fn);
+    },
+    removeEventListener(type, fn) { handlers.get(type)?.delete(fn); },
+    dispatch(type, event) {
+      for (const fn of [...(handlers.get(type) || [])]) fn(event);
+    }
+  };
+  const opener = {};
+  let ended = 0;
+  listenForEnd({
+    params: context(), opener, events,
+    onEnd() { ended++; }
+  });
+  const base = {
+    type: 'copeak-classroom-intro-end', nonce, assignmentId, studentId
+  };
+  events.dispatch('message', { source: {}, origin, data: base });
+  events.dispatch('message', { source: opener, origin: 'https://evil.example', data: base });
+  events.dispatch('message', { source: opener, origin, data: { ...base, studentId: assignmentId } });
+  assert.equal(ended, 0);
+  events.dispatch('message', { source: opener, origin, data: base });
+  assert.equal(ended, 1);
+  events.dispatch('message', { source: opener, origin, data: base });
+  assert.equal(ended, 1);
+  assert.equal(handlers.get('message')?.size || 0, 0);
 });
