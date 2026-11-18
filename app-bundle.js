@@ -1328,6 +1328,9 @@ async function fetchClassroomAudioBlob(
 function lessonTypeForPrivateIntro(params) {
     return params.get('private_intro') === '1';
 }
+function isPrivateStudentIntroduction(lesson) {
+    return lesson?.privateIntro === true;
+}
 
 async function checkUrlParameters(overrideParams = null) {
     const urlParams = overrideParams || new URLSearchParams(window.location.search);
@@ -1728,6 +1731,7 @@ const youtubeLoop =
 
             existingLesson.type =
                 lessonType;
+            existingLesson.privateIntro = lessonTypeForPrivateIntro(urlParams);
 
             if (lessonTypeForPrivateIntro(urlParams)) {
                 // Stale teacher audio does not belong to the current student's text.
@@ -2019,6 +2023,7 @@ const youtubeLoop =
 
             type:
                 lessonType,
+            privateIntro: lessonTypeForPrivateIntro(urlParams),
 
             scoreExclusions: incomingScoreExclusions,
             focusRanges: window.CopeakFocus.clean(urlParams.get("focus"), engText),
@@ -6247,6 +6252,12 @@ function closeModeGuide() {
 async function generateShareLink() {
 
     if (!currentCustomLesson) return;
+    if (isPrivateStudentIntroduction(currentCustomLesson)) {
+        if (typeof showMsg === 'function') {
+            showMsg('🔒 個人の自己紹介教材は共有リンクを発行できません。');
+        }
+        return;
+    }
 
     const baseUrl = window.location.origin + window.location.pathname;
 
@@ -6726,7 +6737,10 @@ async function submitScoreToForm() {
     formData.append('entry.70481568', profile.number);
     formData.append('entry.1056156063', profile.name);
     formData.append('entry.1259267878', lessonTitle);
-    formData.append('entry.222722906', currentCustomLesson.eng || '');
+    formData.append('entry.222722906',
+        isPrivateStudentIntroduction(currentCustomLesson)
+            ? '[Personalized Classroom introduction: private]'
+            : (currentCustomLesson.eng || ''));
     formData.append('entry.145428349', accuracy);
     formData.append('entry.928123739', wpm);
     formData.append('entry.1611039041', comp);
@@ -8473,6 +8487,7 @@ function buildQuickSharePayload(lesson) {
 }
 
 async function createQuickShare(lesson) {
+    if (isPrivateStudentIntroduction(lesson)) throw new Error('private_lesson');
     const response = await fetch(`${COPEAK_QUICK_SHARE_API}/api/share`, {
         method: 'POST',
         headers: {
@@ -8754,6 +8769,10 @@ function showQuickShareLinkFallback(url) {
 
 async function generateQuickShareLink() {
     if (!currentCustomLesson) {
+        return;
+    }
+    if (isPrivateStudentIntroduction(currentCustomLesson)) {
+        if (typeof showMsg === 'function') showMsg('🔒 個人の自己紹介教材は共有できません。');
         return;
     }
 
@@ -22303,7 +22322,9 @@ function markMultiplayMicReady() {
 }
 
 function getMultiplayLessonPayload() {
-
+    if (isPrivateStudentIntroduction(currentCustomLesson)) {
+        throw new Error('Private student introductions cannot be shared in multiplayer.');
+    }
     return {
         title: currentCustomLesson.title || '',
         eng: currentCustomLesson.eng || '',
@@ -22321,6 +22342,12 @@ function getMultiplayLessonPayload() {
 // 2. ホスト（部屋を作る側）の処理
 // ------------------------------------------
 function createMultiplayRoom() {
+    if (isPrivateStudentIntroduction(currentCustomLesson)) {
+        if (typeof showMsg === 'function') {
+            showMsg('🔒 自己紹介教材はマルチプレイ共有できません。');
+        }
+        return;
+    }
     const btn = document.getElementById('btn-create-room');
     btn.disabled = true;
     btn.innerText = "⏳ 作成中...";
@@ -22431,7 +22458,11 @@ function setupConnectionEvents(conn) {
     conn.on('open', () => {
 
         if (isHost) {
-
+            if (isPrivateStudentIntroduction(currentCustomLesson)) {
+                conn.close();
+                if (typeof showMsg === 'function') showMsg('🔒 この自己紹介教材は共有できません。');
+                return;
+            }
             conn.send({
                 type: 'INIT_ROOM',
                 slot: conn._playerSlot,
