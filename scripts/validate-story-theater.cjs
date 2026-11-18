@@ -33,6 +33,11 @@ for (const story of data.stories || []) {
     if (!scene.grammar || !scene.text.includes(scene.grammar.focus) ||
         !Array.isArray(scene.grammar.parts) || !scene.grammar.parts.length ||
         !scene.grammar.note) fail.push('Grammar is not aligned to narration: ' + story.id + ' ' + number);
+    const slash = String.fromCharCode(92);
+    const clickable = (story.vocab || []).flatMap(item => [item.term].concat(item.forms || []))
+      .filter(term => /^[a-z ]+$/i.test(term))
+      .some(term => new RegExp(slash + 'b' + term.split(' ').join(slash + 's+') + slash + 'b', 'i').test(scene.text));
+    if (!clickable) fail.push('No clickable vocabulary in scene: ' + story.id + ' ' + number);
     for (const file of [scene.image, scene.audio]) {
       if (media.has(file)) fail.push('Duplicate asset path ' + file);
       media.add(file);
