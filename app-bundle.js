@@ -1325,8 +1325,84 @@ async function fetchClassroomAudioBlob(
     }
 }
 
-async function checkUrlParameters() {
-    const urlParams = new URLSearchParams(window.location.search);
+function lessonTypeForPrivateIntro(params) {
+    return params.get('type') === 'self-intro';
+}
+
+async function checkUrlParameters(overrideParams = null) {
+    const urlParams = overrideParams || new URLSearchParams(window.location.search);
+
+    // Personal introduction text is delivered over a source- and origin-checked
+    // MessageChannel-style postMessage handshake, never a query parameter.
+    // Do not alter the legacy Text / Dialogue URL import path below.
+    if (!overrideParams && urlParams.get('self_intro_handoff') === '1') {
+        const classroomOrigin = urlParams.get('classroom_origin');
+        const assignmentId = urlParams.get('classroom_assignment');
+        const studentId = urlParams.get('classroom_student');
+        const nonce = urlParams.get('classroom_launch');
+        const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+        const trustedOrigins = new Set([
+            'https://cc.pic-speak-story.com',
+            'https://copeak-classroom.vercel.app'
+        ]);
+        if (!window.opener || !trustedOrigins.has(classroomOrigin) ||
+            !uuid.test(assignmentId || '') || !uuid.test(studentId || '') ||
+            !uuid.test(nonce || '') || urlParams.has('eng')) {
+            if (typeof showMsg === 'function') {
+                showMsg('自己紹介の安全な受け渡しを確認できませんでした。Classroomからもう一度開いてください。');
+            }
+            return;
+        }
+        let accepted = false;
+        const expiry = setTimeout(() => {
+            window.removeEventListener('message', onPrivateIntroMessage);
+            if (!accepted && typeof showMsg === 'function') {
+                showMsg('自己紹介の受信がタイムアウトしました。Classroomから開き直してください。');
+            }
+        }, 60000);
+        async function onPrivateIntroMessage(event) {
+            if (accepted || event.source !== window.opener ||
+                event.origin !== classroomOrigin) return;
+            const data = event.data;
+            if (data?.type !== 'copeak-classroom-intro-payload' ||
+                data.nonce !== nonce || data.assignmentId !== assignmentId ||
+                data.studentId !== studentId || typeof data.text !== 'string' ||
+                !data.text.trim() || data.text.length > 6000) return;
+            accepted = true;
+            clearTimeout(expiry);
+            window.removeEventListener('message', onPrivateIntroMessage);
+            try {
+                const incoming = new URLSearchParams(urlParams);
+                incoming.delete('self_intro_handoff');
+                incoming.delete('jpn');
+                incoming.set('type', 'self-intro');
+                // In-memory parameter object only. Never write the personal
+                // text to location.href, history, console or network URL.
+                incoming.set('eng', data.text);
+                await checkUrlParameters(incoming);
+                window.opener?.postMessage({
+                    type: 'copeak-classroom-intro-ack', nonce, assignmentId,
+                    ok: true
+                }, classroomOrigin);
+            } catch (error) {
+                console.warn('[Copeak] Private lesson import failed');
+                window.opener?.postMessage({
+                    type: 'copeak-classroom-intro-ack', nonce, assignmentId,
+                    ok: false
+                }, classroomOrigin);
+                if (typeof showMsg === 'function') {
+                    showMsg('自己紹介を開けませんでした。Classroomからもう一度お試しください。');
+                }
+            }
+        }
+        window.addEventListener('message', onPrivateIntroMessage);
+        window.opener.postMessage({
+            type: 'copeak-classroom-intro-ready', nonce, assignmentId,
+            studentId
+        }, classroomOrigin);
+        return;
+    }
+
 
     // ★ Quick Share: ?l=XXXXXXXXXX
     if (urlParams.has('l')) {
@@ -1451,7 +1527,7 @@ async function checkUrlParameters() {
         const lang = urlParams.get('lang') || 'en-US';
         const formUrl = urlParams.get('form') || null;
         const audioUrl = urlParams.get('audioUrl') || null;
-        const jpnText = urlParams.get('jpn') || "先生からの共有教材です。";
+        const jpnText = lessonTypeForPrivateIntro(urlParams) ? '' : (urlParams.get('jpn') || "先生からの共有教材です。");
         // ==========================================
 // YouTube Clip
 // Copeak Classroom
@@ -1683,9 +1759,7 @@ const youtubeLoop =
 
 
             if (
-                urlParams.has(
-                    'jpn'
-                )
+                urlParams.has('jpn') || lessonTypeForPrivateIntro(urlParams)
             ) {
 
                 existingLesson.jpn =
@@ -1695,6 +1769,12 @@ const youtubeLoop =
 
             existingLesson.type =
                 lessonType;
+
+            if (lessonTypeForPrivateIntro(urlParams)) {
+                // Stale teacher audio does not belong to the current student's text.
+                existingLesson.audioBlob = null;
+                existingLesson.audioUrl = null;
+            }
             if (classroomSource || urlParams.has("focus")) existingLesson.focusRanges = window.CopeakFocus.clean(urlParams.get("focus"), engText);
             if (classroomSource || urlParams.has('score_exclusions')) {
                 existingLesson.scoreExclusions = incomingScoreExclusions;
