@@ -1,6 +1,6 @@
 /* Copeak Voice Horizon 2026 — isolated visual skin.
    Keeps all existing IDs, navigation, lessons, saved data and score logic intact. */
-:root { --cp-voice-bg: url("/assets/copeak-home-voice-bg.webp"); }
+:root { --cp-voice-bg: url("/assets/copeak-home-voice-bg.avif"); }
 
 body.copeak-home-mode {
   background:#06254a !important;
