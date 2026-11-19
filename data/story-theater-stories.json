@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "note": "Two original graded stories: The Empty Chair (complete illustrated/audio edition) and The Box of Letters (text edition; original scene media pending upload, with accessible fallback).",
+  "note": "Three original graded stories: The Empty Chair (A1–A2), The Red Umbrella (A2–B1; illustrated and narrated edition), and The Box of Letters (B1–B2; text-first with accessible audio fallback).",
   "stories": [
     {
       "id": "the-empty-chair",
@@ -293,6 +293,327 @@
           "explanation": "他にも友達を必要とする人がいると考えたためです。"
         }
       ]
+    },
+    {
+      "id": "the-red-umbrella",
+      "level": "準2級相当",
+      "cefr": "A2–B1",
+      "title": "The Red Umbrella",
+      "subtitle": "赤い傘",
+      "description": "An act of kindness travels farther than its owner expects.",
+      "scenes": [
+        {
+          "text": "On a rainy morning, Sora missed his bus and stood outside the station. He had left his umbrella at home and was afraid of being late for school.",
+          "ja": "雨の朝、ソラはバスに乗り遅れ、駅の外に立っていました。傘を家に忘れ、学校に遅れることを心配していました。",
+          "alt": "A student waits in heavy rain at a station without an umbrella.",
+          "grammar": {
+            "focus": "Sora missed his bus and stood outside the station.",
+            "parts": [
+              {
+                "role": "S",
+                "value": "Sora"
+              },
+              {
+                "role": "V",
+                "value": "missed / stood"
+              },
+              {
+                "role": "O",
+                "value": "his bus"
+              },
+              {
+                "role": "M",
+                "value": "outside the station"
+              }
+            ],
+            "note": "and は2つの動作 missed と stood を結びます。"
+          },
+          "image": "assets/story-theater/the-red-umbrella/scene-01.webp",
+          "audio": "assets/story-theater/the-red-umbrella/scene-01.mp3"
+        },
+        {
+          "text": "A woman he did not know held out a bright red umbrella. “Take this,” she said. “You can give it to someone else when they need it.”",
+          "ja": "見知らぬ女性が鮮やかな赤い傘を差し出しました。「これを使って」と彼女は言いました。「必要としている別の人に渡してくれればいいのよ」。",
+          "alt": "Kind stranger hands Sora a bright red umbrella.",
+          "grammar": {
+            "focus": "You can give it to someone else when they need it.",
+            "parts": [
+              {
+                "role": "S",
+                "value": "You"
+              },
+              {
+                "role": "V",
+                "value": "can give"
+              },
+              {
+                "role": "O",
+                "value": "it"
+              },
+              {
+                "role": "M",
+                "value": "to someone else"
+              },
+              {
+                "role": "M",
+                "value": "when they need it"
+              }
+            ],
+            "note": "when は「～するとき」の時を表す接続詞です。give A to B の形も確認しましょう。"
+          },
+          "image": "assets/story-theater/the-red-umbrella/scene-02.webp",
+          "audio": "assets/story-theater/the-red-umbrella/scene-02.mp3"
+        },
+        {
+          "text": "For several weeks, Sora carried the umbrella in his school bag. He wanted to return it, but he never met the woman again.",
+          "ja": "それから何週間か、ソラは傘を通学かばんに入れて持ち歩きました。返したかったのですが、その女性には二度と会えませんでした。",
+          "alt": "Sora keeps the folded red umbrella carefully in his school bag.",
+          "grammar": {
+            "focus": "He wanted to return it, but he never met the woman again.",
+            "parts": [
+              {
+                "role": "S",
+                "value": "He"
+              },
+              {
+                "role": "V",
+                "value": "wanted"
+              },
+              {
+                "role": "O",
+                "value": "to return it"
+              },
+              {
+                "role": "M",
+                "value": "but he never met the woman again"
+              }
+            ],
+            "note": "want to + 動詞の原形 は「～したい」。but は逆接です。"
+          },
+          "image": "assets/story-theater/the-red-umbrella/scene-03.webp",
+          "audio": "assets/story-theater/the-red-umbrella/scene-03.mp3"
+        },
+        {
+          "text": "One afternoon, he noticed a little girl crying near a bus stop. Her shoes were wet, and she could not find her mother.",
+          "ja": "ある午後、ソラはバス停の近くで泣いている小さな女の子に気づきました。靴は濡れ、母親が見つからず困っていました。",
+          "alt": "A young girl cries by a rainy bus stop as Sora approaches.",
+          "grammar": {
+            "focus": "he noticed a little girl crying near a bus stop.",
+            "parts": [
+              {
+                "role": "S",
+                "value": "He"
+              },
+              {
+                "role": "V",
+                "value": "noticed"
+              },
+              {
+                "role": "O",
+                "value": "a little girl"
+              },
+              {
+                "role": "C",
+                "value": "crying near a bus stop"
+              }
+            ],
+            "note": "notice + 人 + ～ing は「人が～していることに気づく」です。"
+          },
+          "image": "assets/story-theater/the-red-umbrella/scene-04.webp",
+          "audio": "assets/story-theater/the-red-umbrella/scene-04.mp3"
+        },
+        {
+          "text": "Sora shared the umbrella and helped her find the station office. Soon her mother arrived, relieved to see her daughter safe.",
+          "ja": "ソラは傘に入れてあげ、駅の事務室を探すのを手伝いました。まもなく母親が到着し、娘の無事を見て安心しました。",
+          "alt": "Sora shelters the girl under the red umbrella outside the station office.",
+          "grammar": {
+            "focus": "her mother arrived, relieved to see her daughter safe.",
+            "parts": [
+              {
+                "role": "S",
+                "value": "Her mother"
+              },
+              {
+                "role": "V",
+                "value": "arrived"
+              },
+              {
+                "role": "M",
+                "value": "relieved to see her daughter safe"
+              }
+            ],
+            "note": "relieved は母親の気持ちを後ろから補足しています。to see は感情の原因を表します。"
+          },
+          "image": "assets/story-theater/the-red-umbrella/scene-05.webp",
+          "audio": "assets/story-theater/the-red-umbrella/scene-05.mp3"
+        },
+        {
+          "text": "When Sora offered the girl the red umbrella, she asked, “Will I ever see you again?” He smiled. “Maybe not. But you can keep the kindness going.”",
+          "ja": "ソラが女の子に赤い傘を渡すと、彼女は「また会えるかな」と尋ねました。ソラは微笑みました。「会えないかもしれない。でも、優しさは次の人につなげられるよ」。",
+          "alt": "The girl holds the red umbrella; Sora waves goodbye under clearing skies.",
+          "grammar": {
+            "focus": "you can keep the kindness going.",
+            "parts": [
+              {
+                "role": "S",
+                "value": "You"
+              },
+              {
+                "role": "V",
+                "value": "can keep"
+              },
+              {
+                "role": "O",
+                "value": "the kindness"
+              },
+              {
+                "role": "C",
+                "value": "going"
+              }
+            ],
+            "note": "keep + 目的語 + ～ing は「～を続けさせる」という意味を作ります。"
+          },
+          "image": "assets/story-theater/the-red-umbrella/scene-06.webp",
+          "audio": "assets/story-theater/the-red-umbrella/scene-06.mp3"
+        }
+      ],
+      "vocab": [
+        {
+          "term": "miss",
+          "pos": "動詞",
+          "ja": "乗り遅れる、逃す",
+          "detail": "miss the bus で「バスに乗り遅れる」。",
+          "example": "I missed the last train.",
+          "forms": [
+            "missed"
+          ]
+        },
+        {
+          "term": "hold out",
+          "pos": "句動詞",
+          "ja": "差し出す",
+          "detail": "hold something out（物を差し出す）。",
+          "example": "She held out an umbrella.",
+          "forms": [
+            "held out"
+          ]
+        },
+        {
+          "term": "return",
+          "pos": "動詞",
+          "ja": "返す、戻る",
+          "detail": "return something to someone と表せます。",
+          "example": "He wanted to return it."
+        },
+        {
+          "term": "notice",
+          "pos": "動詞",
+          "ja": "気づく",
+          "detail": "notice + 人 + ～ing は人の動作への気づき。",
+          "example": "He noticed a girl crying.",
+          "forms": [
+            "noticed"
+          ]
+        },
+        {
+          "term": "relieved",
+          "pos": "形容詞",
+          "ja": "ほっとした、安心した",
+          "detail": "be relieved to ...「～して安心する」。",
+          "example": "She was relieved to see her."
+        },
+        {
+          "term": "offer",
+          "pos": "動詞",
+          "ja": "申し出る、差し出す",
+          "detail": "offer A B / offer B to A の形があります。",
+          "example": "He offered her the umbrella.",
+          "forms": [
+            "offered"
+          ]
+        },
+        {
+          "term": "keep ... going",
+          "pos": "表現",
+          "ja": "～を続ける",
+          "detail": "keep + 目的語 + going で「途切れないようにする」。",
+          "example": "Keep the kindness going.",
+          "forms": [
+            "keep the kindness going"
+          ]
+        },
+        {
+          "term": "afraid of",
+          "pos": "形容詞句",
+          "ja": "～を恐れて",
+          "detail": "be afraid of ～ing で「～することを心配する」。",
+          "example": "He was afraid of being late."
+        },
+        {
+          "term": "bright red",
+          "pos": "形容詞句",
+          "ja": "鮮やかな赤色の",
+          "detail": "bright は色にも使われ「鮮やかな」を表します。",
+          "example": "She carried a bright red umbrella."
+        },
+        {
+          "term": "school bag",
+          "pos": "名詞句",
+          "ja": "通学かばん",
+          "detail": "schoolbag と一語で表記することもあります。",
+          "example": "He carried it in his school bag."
+        },
+        {
+          "term": "could not find",
+          "pos": "動詞句",
+          "ja": "見つけられなかった",
+          "detail": "could not は過去の不可能を示すことがあります。",
+          "example": "She could not find her mother."
+        },
+        {
+          "term": "shared",
+          "pos": "動詞",
+          "ja": "共有した、一緒に使った",
+          "detail": "share A with B「AをBと共有する」。本文では傘に入れてあげることです。",
+          "example": "He shared the umbrella."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Why could Sora not stay dry at the station?",
+          "options": [
+            "He had lost his bag.",
+            "He had forgotten his umbrella.",
+            "He did not like buses.",
+            "He missed his teacher."
+          ],
+          "answer": 1,
+          "explanation": "傘を家に置いてきたためです。"
+        },
+        {
+          "question": "What did the woman tell Sora?",
+          "options": [
+            "To buy a new umbrella.",
+            "To wait at home.",
+            "To pass the umbrella to someone in need.",
+            "To take it to the police."
+          ],
+          "answer": 2,
+          "explanation": "困っている別の人に渡すように言いました。"
+        },
+        {
+          "question": "What is the main message?",
+          "options": [
+            "Always keep borrowed things.",
+            "Kindness can be passed on.",
+            "Rain is dangerous.",
+            "Never talk to strangers."
+          ],
+          "answer": 1,
+          "explanation": "優しさの連鎖が主題です。"
+        }
+      ],
+      "mediaReady": true
     },
     {
       "id": "the-box-of-letters",

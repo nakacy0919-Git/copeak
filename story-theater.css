@@ -425,3 +425,104 @@ button:focus-visible,a:focus-visible{outline:3px solid #2d7bdd;outline-offset:3p
   .st-ambient-shot:first-child {opacity:.25}
   .st-catalog .st-card,.st-card-art img {transition:none!important}
 }
+
+
+/* Palace background and compact editorial entrance | 2026-11-19
+   Only catalog styles are changed; Reader/Theater/CopPeak Classroom are not affected. */
+.st-catalog-world { background:#101621; }
+.st-library-backdrop {
+  inset:-2%;
+  background-image:linear-gradient(180deg,rgba(8,12,20,.06) 0%,rgba(8,12,20,.02) 52%,rgba(6,9,15,.35) 100%),url("assets/story-theater/library-palace.webp");
+  background-position:center 47%;background-size:cover;
+  filter:saturate(1.08) contrast(1.02) brightness(1.035);
+  animation:st-palace-breathe 42s ease-in-out infinite alternate;
+  will-change:transform;
+}
+@keyframes st-palace-breathe {
+  from{transform:scale(1.035) translate3d(-.5%,0,0)}
+  to{transform:scale(1.09) translate3d(.5%,-.7%,0)}
+}
+.st-library-shadows {
+  background:linear-gradient(90deg,rgba(6,10,19,.27),transparent 19%,transparent 85%,rgba(6,10,19,.16)),
+    linear-gradient(180deg,rgba(6,9,17,.18),transparent 36%,rgba(5,8,15,.51) 100%);
+}
+.st-library-light {opacity:.22}
+.st-ambient-reel {opacity:.21;mix-blend-mode:soft-light;
+  -webkit-mask-image:radial-gradient(ellipse 38% 44% at 52% 75%,#000 3%,transparent 95%);
+  mask-image:radial-gradient(ellipse 38% 44% at 52% 75%,#000 3%,transparent 95%);
+}
+.st-ambient-shot {filter:blur(9px) saturate(1.08) brightness(1.15)}
+.st-catalog .st-hero {
+  width:min(710px,100%);min-height:0;
+  padding:clamp(18px,2.5vw,29px) clamp(22px,3vw,38px) clamp(17px,2.2vw,26px);
+  border-radius:19px;border-color:rgba(246,208,147,.62);
+  background:linear-gradient(100deg,rgba(11,18,29,.88),rgba(11,17,29,.71) 76%,rgba(13,18,30,.45));
+  box-shadow:0 12px 48px rgba(4,9,18,.34),inset 0 1px 0 rgba(255,248,220,.12);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+}
+.st-catalog .st-hero::before {inset:7px;border-color:rgba(235,193,130,.2)}
+.st-catalog .st-hero::after {opacity:.32}
+.st-catalog .st-hero .st-overline {font-size:.59rem;letter-spacing:.18em}
+.st-hero-volume {font-size:.54rem}
+.st-hero-kicker {margin-top:10px;font-size:clamp(.82rem,1vw,.94rem)}
+.st-catalog .st-hero h1 {
+  font-size:clamp(1.52rem,2.55vw,2.26rem);line-height:1.36;
+  margin:7px 0 8px;letter-spacing:0;white-space:normal;
+}
+.st-catalog .st-hero h1 span {display:inline;color:#f5d19b}
+.st-catalog .st-hero p {font-size:clamp(.76rem,.88vw,.87rem);line-height:1.66;max-width:610px}
+.st-hero-bottom {margin-top:13px;font-size:.52rem;gap:10px}
+.st-catalog-heading {
+  margin:clamp(58px,8vh,95px) 0 13px;padding:12px 15px;
+  border:1px solid rgba(244,211,156,.21);border-radius:14px;
+  background:linear-gradient(95deg,rgba(9,15,24,.80),rgba(13,20,31,.51));
+  backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);
+  align-items:center;
+}
+.st-catalog-heading h2 {margin:0}
+.st-catalog .st-cards {grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.7vw,22px)}
+.st-catalog .st-card {
+  grid-template-columns:minmax(0,1fr);min-height:0;
+  background:linear-gradient(145deg,rgba(10,16,26,.96),rgba(25,22,29,.96));
+  border-color:rgba(240,203,144,.58);
+  box-shadow:0 15px 34px rgba(3,8,16,.56);
+}
+.st-card-art {height:175px;min-height:175px}
+.st-card-art img {filter:brightness(.95) saturate(1.03);object-position:center 45%}
+.st-card-copy {min-height:210px;padding:17px 20px 18px;gap:5px}
+.st-catalog .st-card-title {font-size:clamp(1.22rem,1.65vw,1.63rem);line-height:1.22}
+.st-catalog .st-card-ja {font-size:.79rem}
+.st-catalog .st-card-description {font-size:.77rem;margin-top:3px}
+.st-card-meta {font-size:.6rem}
+.st-card-cta {margin-top:7px}
+.st-card-number {font-size:2rem}
+@media(max-width:1080px) {
+ .st-catalog .st-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .st-card-art{height:190px;min-height:190px}
+ .st-card-copy{min-height:180px}
+}
+@media(max-width:740px) {
+ .st-library-backdrop {background-position:60% 36%;filter:saturate(1.03) brightness(.91)}
+ .st-library-shadows {background:linear-gradient(180deg,rgba(5,10,19,.23),rgba(6,9,17,.43) 70%,rgba(5,8,15,.66))}
+ .st-catalog .st-hero {width:100%;padding:20px 17px 19px;border-radius:16px;background:rgba(9,15,26,.78)}
+ .st-catalog .st-hero h1{font-size:clamp(1.45rem,5.6vw,2rem);margin:8px 0}
+ .st-hero-kicker{margin-top:10px}
+ .st-hero-bottom{display:none}
+ .st-catalog-heading{margin:clamp(23px,5vh,42px) 0 13px;align-items:flex-start}
+ .st-catalog .st-cards{grid-template-columns:minmax(0,1fr);gap:14px}
+ .st-catalog .st-card {grid-template-columns:39% minmax(0,61%);min-height:205px}
+ .st-card-art {height:auto;min-height:205px}
+ .st-card-copy {min-height:0;padding:14px 12px;gap:5px}
+ .st-catalog .st-card-title {font-size:clamp(1.06rem,3.7vw,1.36rem)}
+ .st-catalog .st-card-description {font-size:.69rem}
+ .st-card-meta{font-size:.55rem}
+ .st-card-cta{font-size:.65rem;padding:7px 10px}
+}
+@media(max-width:390px) {
+ .st-catalog .st-card{grid-template-columns:36% minmax(0,64%)}
+ .st-catalog .st-card-description{line-height:1.38}
+ .st-card-copy{padding:12px 9px}
+}
+@media(prefers-reduced-motion:reduce) {
+ .st-library-backdrop{animation:none;transform:none;will-change:auto}
+}
