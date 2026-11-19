@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#10243b">
+  <meta name="theme-color" content="#141117">
   <meta name="description" content="Copeak Story Theater — 絵本で聞く、読む、理解する。">
   <title>Story Theater | Copeak</title>
-  <link rel="stylesheet" href="story-theater.css?v=2">
-  <script src="story-theater.js?v=2" defer></script>
+  <link rel="stylesheet" href="story-theater.css?v=3">
+  <script src="story-theater.js?v=3" defer></script>
 </head>
 <body>
 <div id="storyApp" class="st-app">
@@ -18,10 +18,20 @@
   </header>
   <main>
     <section id="catalogView" class="st-catalog" aria-labelledby="catalogTitle">
-      <div class="st-hero"><div class="st-overline">LISTEN · READ · DISCOVER · RETELL</div>
-      <h1 id="catalogTitle">絵本を読む。<br><span>心が動く英語を読む。</span></h1>
-      <p>まずは英語レベル3級相当のオリジナル絵本『The Empty Chair』から。絵を見ながら聞き、音読し、語彙・文法・内容理解を学べます。</p></div>
-      <div class="st-catalog-heading"><h2>Stories / 作品を選ぶ</h2><p>級別は学習目安です。検定団体の公式教材ではありません。</p></div>
+      <div class="st-catalog-world" aria-hidden="true">
+        <div class="st-library-backdrop"></div>
+        <div id="ambientReel" class="st-ambient-reel"></div>
+        <div class="st-library-shadows"></div>
+        <div class="st-library-light"></div>
+      </div>
+      <div class="st-hero">
+        <div class="st-hero-topline"><div class="st-overline">THE COPEAK READING COLLECTION</div><div class="st-hero-volume"><span class="st-volume-dot" aria-hidden="true"></span> IMMERSIVE STORIES</div></div>
+        <div class="st-hero-kicker">Where every page opens a new world.</div>
+      <h1 id="catalogTitle">絵本の世界へ、<br><span>一歩踏み出そう。</span></h1>
+      <p>物語を<span class="st-hero-accent">見て、聞いて、声に出す。</span> イラストと英語で物語の世界に入りながら、語彙・文法・内容理解を深めるリーディングシアターです。</p>
+        <div class="st-hero-bottom"><span>LISTEN</span><i></i><span>READ</span><i></i><span>DISCOVER</span><i></i><span>RETELL</span></div>
+      </div>
+      <div class="st-catalog-heading"><div><span class="st-catalog-eyebrow">SELECT YOUR NEXT JOURNEY</span><h2>Story Collection <span>／ 作品を選ぶ</span></h2></div><p>英語レベルは学習の目安です。検定団体の公式教材ではありません。</p></div>
       <div id="storyCards" class="st-cards" aria-live="polite"></div>
       <p id="loadError" class="st-error" role="alert" hidden></p>
     </section>
@@ -35,7 +45,7 @@
           <div class="st-stage" aria-label="絵本のシアター画面">
             <figure class="st-stage-image">
               <img id="sceneImage" alt="" loading="eager">
-              <div id="imageFallback" class="st-image-fallback" hidden><span aria-hidden="true">🎬</span><strong>SCENE PREVIEW</strong><p id="sceneDescription"></p><small>画像を読み込めませんでした。</small></div>
+              <div id="imageFallback" class="st-image-fallback" hidden><span aria-hidden="true">🎬</span><strong>SCENE PREVIEW</strong><p id="sceneDescription"></p><small>この場面のイラストは準備中です。英文と学習機能は利用できます。</small></div>
               <figcaption id="sceneCaption" class="st-scene-caption"></figcaption>
             </figure>
             <div class="st-script-panel">
