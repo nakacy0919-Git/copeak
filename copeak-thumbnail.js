@@ -24,7 +24,7 @@ function compression(file){
 function attach(){
  var form=document.getElementById("customMaterialForm");if(!form||document.getElementById("cptThumbnail"))return;
  var box=document.createElement("div");box.id="cptThumbnail";box.className="cpt-box";
- box.innerHTML='<img id="cptThumbPreview" src="./assets/copeak-default-thumbnail.svg" alt="教材一覧の表紙プレビュー"><div class="cpt-info"><strong>教材一覧のサムネイル</strong><small>補助画像とは別。PNG / JPEG / WebP（15MBまで）</small><input id="cptThumbInput" type="file" accept="image/png,image/jpeg,image/webp"><button id="cptRemoveThumb" type="button">サムネを解除</button><label class="cpt-folder-label">保存先フォルダ <select id="cptFolderSelect"><option value="">未整理</option></select></label><span id="cptStatus" role="status"></span></div>';
+ box.innerHTML='<img id="cptThumbPreview" src="./assets/copeak-default-thumbnail.svg" alt="教材一覧の表紙プレビュー"><div class="cpt-info"><strong>教材一覧のサムネイル</strong><small>補助画像とは別。PNG / JPEG / WebP（15MBまで）</small><input id="cptThumbInput" type="file" accept="image/png,image/jpeg,image/webp"><button id="cptRemoveThumb" type="button">サムネを解除</button><label class="cpt-folder-label">保存先フォルダ <select id="cptFolderSelect"><option value="">フォルダ未設定</option></select></label><span id="cptStatus" role="status"></span></div>';
  var mainColumn=form.querySelector(":scope > .flex-1") || form.firstElementChild || form;
  mainColumn.prepend(box);
  updateFolders(null);
@@ -37,7 +37,7 @@ function attach(){
  });
  document.getElementById("cptRemoveThumb").onclick=()=>{revision++;pending=Promise.resolve();current="";preview(null);document.getElementById("cptStatus").textContent="サムネイルを解除します"};
 }
-function updateFolders(value){var el=document.getElementById("cptFolderSelect");if(!el)return;var options=[{id:"",name:"未整理"},...(typeof getLibraryFolders==="function"?getLibraryFolders():[])];el.replaceChildren();options.forEach(f=>{var option=document.createElement("option");option.value=f.id;option.textContent=f.name;el.append(option)});el.value=value||""}
+function updateFolders(value){var el=document.getElementById("cptFolderSelect");if(!el)return;var options=[{id:"",name:"フォルダ未設定"},...(typeof getLibraryFolders==="function"?getLibraryFolders():[])];el.replaceChildren();options.forEach(f=>{var option=document.createElement("option");option.value=f.id;option.textContent=f.name;el.append(option)});el.value=value||""}
 window.CopeakThumbnail={attach,clear,get(){return current},folder(){return document.getElementById("cptFolderSelect")?.value||null},ready(){return pending},set(src,folderId){revision++;pending=Promise.resolve();current=src||null;preview(current);updateFolders(folderId)},updateFolders,isReady(){return !!document.getElementById("cptThumbnail")}};
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",()=>setTimeout(attach,160));else setTimeout(attach,160);
 })();
