@@ -25,6 +25,7 @@
         <div class="cp-brand"><img src="logo.png" alt="" class="cp-brand-logo">
           <div><div class="cp-brand-word">Co<span>peak</span></div><div class="cp-brand-sub">Read · Create · Practice</div></div>
         </div>
+        <div class="cp-voice-hero"><div class="cp-voice-hero-title">Speak. Echo. <em>Grow.</em></div><div class="cp-voice-hero-caption">声に出す。響き合う。成長する。</div></div>
         <img src="copeak-home-students-reading.png" alt="" class="cp-home-students-banner" aria-hidden="true" width="420" height="140" decoding="async">
         <div class="cp-header-actions">
           <button class="cp-profile-pill" type="button" data-cp-action="profile" aria-label="Profile"><span class="cp-profile-avatar">👤</span><span id="cpProfileLabel" data-cp-t="profile">プロフィール</span></button>
