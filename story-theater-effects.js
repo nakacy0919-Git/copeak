@@ -82,14 +82,67 @@
     toggle.textContent = manuallyPaused ? '▶ 自動回転を再開' : 'Ⅱ 自動回転を停止';
     syncRotation();
   });
-  shell.addEventListener('pointerenter', () => { hovered = true; syncRotation(); });
-  shell.addEventListener('pointerleave', () => { hovered = false; syncRotation(); });
+  shell.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') { hovered = true; syncRotation(); } });
+  shell.addEventListener('pointerleave', event => { if (event.pointerType === 'mouse') { hovered = false; syncRotation(); } });
   shell.addEventListener('focusin', () => { focusWithin = true; syncRotation(); });
   shell.addEventListener('focusout', () => {
     requestAnimationFrame(() => { focusWithin = shell.contains(document.activeElement); syncRotation(); });
   });
   document.addEventListener('visibilitychange', syncRotation);
   if (reducedMotion.addEventListener) reducedMotion.addEventListener('change', syncRotation);
+
+  // A swipe rotates the library instead of accidentally opening a story.
+  // touch-action:pan-y in CSS preserves vertical page scrolling on iOS/iPadOS.
+  let gesture = null, suppressClickUntil = 0;
+  shell.addEventListener('pointerdown', event => {
+    if (!enabled() || (event.pointerType === 'mouse' && event.button !== 0)) return;
+    if (event.target.closest('.st-carousel-arrow, .st-carousel-toggle, .st-carousel-dot')) return;
+    gesture = { id: event.pointerId, x: event.clientX, y: event.clientY, time: performance.now() };
+  });
+  document.addEventListener('pointerup', event => {
+    if (!gesture || event.pointerId !== gesture.id) return;
+    const dx = event.clientX - gesture.x;
+    const dy = event.clientY - gesture.y;
+    const elapsed = Math.max(1, performance.now() - gesture.time);
+    gesture = null;
+    // Reject vertical scrolling and tiny finger movement; accept deliberate swipes/flicks.
+    const horizontal = Math.abs(dx) >= 34 &&
+      Math.abs(dx) > Math.abs(dy) * 1.25 &&
+      (Math.abs(dx) >= 56 || Math.abs(dx) / elapsed >= .24);
+    if (horizontal && enabled() && !$('catalogView').hidden) {
+      suppressClickUntil = performance.now() + 700;
+      rotateTo(current + (dx < 0 ? 1 : -1));
+      syncRotation();
+    }
+  });
+  document.addEventListener('pointercancel', event => {
+    if (gesture && event.pointerId === gesture.id) gesture = null;
+  });
+  // In the side positions, a tap brings the book into focus. A second tap opens it.
+  shell.addEventListener('click', event => {
+    const card = event.target.closest('.st-card');
+    if (!card || !enabled()) return;
+    if (performance.now() < suppressClickUntil) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      return;
+    }
+    const selected = cards.indexOf(card);
+    if (selected >= 0 && selected !== current) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      rotateTo(selected);
+      syncRotation();
+    }
+  }, true);
+  shell.addEventListener('keydown', event => {
+    if (!enabled() || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+    event.preventDefault();
+    rotateTo(current + (event.key === 'ArrowRight' ? 1 : -1));
+    syncRotation();
+    cards[current]?.focus({ preventScroll: true });
+  });
+
   const stars = $('storyStarfield');
   if (stars) {
     const fragment = document.createDocumentFragment();
@@ -98,16 +151,23 @@
       seed = (1664525 * seed + 1013904223) >>> 0;
       return seed / 4294967296;
     }
-    for (let i = 0; i < 44; i++) {
+    const compact = window.matchMedia('(max-width: 590px)').matches;
+    const starCount = reducedMotion.matches ? 34 : compact ? 74 : 116;
+    for (let i = 0; i < starCount; i++) {
       const star = document.createElement('i');
-      star.className = 'st-story-star' + (i % 9 === 0 ? ' st-story-star-cross' : '');
+      star.className = 'st-story-star' + (i % 8 === 0 ? ' st-story-star-cross' : '') + (i % 5 === 0 ? ' st-story-mote' : '');
       star.style.setProperty('--st-x', (5 + rand() * 90).toFixed(2) + '%');
       star.style.setProperty('--st-y', (7 + rand() * 87).toFixed(2) + '%');
-      star.style.setProperty('--st-size', (1 + rand() * 1.9).toFixed(2) + 'px');
-      star.style.setProperty('--st-duration', (3.8 + rand() * 8).toFixed(2) + 's');
-      star.style.setProperty('--st-delay', (-rand() * 13).toFixed(2) + 's');
+      star.style.setProperty('--st-size', ((i % 5 === 0 ? 2.3 : 1.2) + rand() * (i % 5 === 0 ? 3.1 : 2.3)).toFixed(2) + 'px');
+      star.style.setProperty('--st-duration', (3.6 + rand() * 6.4).toFixed(2) + 's');
+      star.style.setProperty('--st-delay', (-rand() * 16).toFixed(2) + 's');
       fragment.append(star);
     }
     stars.append(fragment);
+  }
+  const meteorSky = document.querySelector('.st-meteor-sky');
+  if (meteorSky) {
+    // Six differently timed trails, including the three existing decorative trails.
+    while (meteorSky.children.length < 7) meteorSky.append(document.createElement('i'));
   }
 })();
