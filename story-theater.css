@@ -832,3 +832,11 @@ button:focus-visible,a:focus-visible{outline:3px solid #2d7bdd;outline-offset:3p
   .st-story-star,.st-meteor-sky i {animation:none!important;opacity:0}
   .st-story-star:nth-child(7n) {opacity:.22}
 }
+
+/* Swipe affordance for touch screens and mouse-drag capable desktops. */
+.st-carousel-hint {font-size:.67rem;font-weight:700;letter-spacing:.035em;color:#f3d7aa;white-space:nowrap}
+@media (max-width:590px) {
+  .st-carousel-footer {gap:9px;flex-wrap:wrap;padding:0 10px}
+  .st-carousel-hint {font-size:.59rem}
+  .st-carousel-toggle {font-size:.61rem;padding:5px 8px}
+}
