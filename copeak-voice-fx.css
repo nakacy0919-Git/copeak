@@ -1,0 +1,219 @@
+/* VOICE HORIZON MOTION — Site-only visual effects; no app functionality changes. */
+#homeScreen.cp-dashboard-mode.active > #cpVoiceAtmosphere {
+  position:absolute;inset:0;z-index:0;overflow:hidden;
+  pointer-events:none;user-select:none;contain:paint;
+}
+#homeScreen.cp-section-mode #cpVoiceAtmosphere,
+#homeScreen:not(.cp-dashboard-mode) #cpVoiceAtmosphere {display:none!important}
+#cpVoiceAtmosphere .cp-fx-aura {
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 36% 25% at 20% 34%,rgba(22,179,255,.11),transparent 78%),
+    radial-gradient(ellipse 43% 30% at 70% 31%,rgba(255,207,112,.10),transparent 80%);
+  animation:cpFxAuraBreathe 16s ease-in-out infinite alternate;
+}
+#cpVoiceAtmosphere .cp-fx-waves {
+  position:absolute;left:-3%;top:17%;width:106%;height:29%;
+  opacity:.88;
+  mix-blend-mode:screen;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 6%,#000 94%,transparent 100%);
+  mask-image:linear-gradient(90deg,transparent 0%,#000 6%,#000 94%,transparent 100%);
+}
+#cpVoiceAtmosphere .cp-fx-wave-canvas {display:block;width:100%;height:100%;filter:drop-shadow(0 0 5px rgba(55,208,255,.30))}
+#cpVoiceAtmosphere .cp-fx-stars,
+#cpVoiceAtmosphere .cp-fx-shooting-stars {position:absolute;inset:0;overflow:hidden}
+#cpVoiceAtmosphere .cp-fx-star {
+  position:absolute;left:var(--x);top:var(--y);
+  width:var(--size);height:var(--size);
+  border-radius:50%;
+  background:rgba(167,243,255,.96);
+  box-shadow:0 0 5px 1px rgba(120,233,255,.55),0 0 14px 3px rgba(40,181,255,.22);
+  opacity:0;
+  animation:cpFxStarGlimmer var(--duration) ease-in-out var(--delay) infinite;
+}
+#cpVoiceAtmosphere .cp-fx-star-gold {
+  background:rgba(255,235,166,.95);
+  box-shadow:0 0 7px 2px rgba(255,216,119,.55),0 0 20px 4px rgba(255,176,83,.20);
+}
+#cpVoiceAtmosphere .cp-fx-meteor {
+  position:absolute;left:var(--x);top:var(--y);
+  width:105px;height:2px;border-radius:2px;
+  background:linear-gradient(90deg,transparent,rgba(114,235,255,.17) 25%,rgba(218,249,255,.72) 75%,#fff);
+  filter:drop-shadow(0 0 5px rgba(117,220,255,.8));
+  transform:rotate(-25deg) translate3d(0,0,0);
+  transform-origin:100% 50%;
+  opacity:0;
+  animation:cpFxMeteor var(--duration) linear var(--delay) infinite;
+}
+#cpVoiceAtmosphere .cp-fx-meteor::after {
+  content:"";position:absolute;right:-2px;top:-2px;
+  width:6px;height:6px;border-radius:50%;background:#fff;
+  box-shadow:0 0 7px 3px rgba(155,230,255,.80);
+}
+#cpVoiceAtmosphere.cp-fx-paused .cp-fx-star,
+#cpVoiceAtmosphere.cp-fx-paused .cp-fx-meteor,
+#cpVoiceAtmosphere.cp-fx-paused .cp-fx-aura {animation-play-state:paused}
+@keyframes cpFxAuraBreathe {
+  from{opacity:.36;transform:scale(1)}
+  to{opacity:.78;transform:scale(1.07)}
+}
+@keyframes cpFxStarGlimmer {
+  0%,100%{opacity:.06;transform:translate3d(0,0,0) scale(.65)}
+  42%{opacity:.82;transform:translate3d(4px,-6px,0) scale(1.25)}
+  65%{opacity:.24;transform:translate3d(7px,-8px,0) scale(.90)}
+}
+@keyframes cpFxMeteor {
+  0%,70%,100%{opacity:0;transform:rotate(-25deg) translate3d(0,0,0)}
+  73%{opacity:0}
+  75%{opacity:.95}
+  82%{opacity:.68;transform:rotate(-25deg) translate3d(-180px,0,0)}
+  85%{opacity:0;transform:rotate(-25deg) translate3d(-260px,0,0)}
+}
+/* The four independent native <button>s use landscape art, not a flat color.
+   Each scene is cropped from the same Copeak world and tinted separately. */
+#copeakHomeHub .cp-home-cards > .cp-action {
+  --cp-card-glow:35,181,255;
+  --cp-card-scene:12% 30%;
+  position:relative;
+  isolation:isolate;
+  border:1.7px solid rgba(var(--cp-card-glow),.95)!important;
+  border-bottom-width:2px!important;
+  border-radius:clamp(17px,1.45vw,23px)!important;
+  overflow:hidden;
+  background-color:rgba(4,38,83,.58)!important;
+  background-image:
+    linear-gradient(180deg,rgba(var(--cp-card-glow),.14) 0%,rgba(16,104,169,.09) 29%,rgba(5,44,87,.30) 51%,rgba(1,23,58,.88) 100%),
+    radial-gradient(ellipse at 38% 15%,rgba(255,255,255,.22),transparent 58%),
+    var(--cp-voice-bg)!important;
+  background-size:100% 100%,100% 100%,240% auto!important;
+  background-repeat:no-repeat!important;
+  background-position:center,center,var(--cp-card-scene)!important;
+  color:#fff!important;
+  backdrop-filter:blur(5px) saturate(150%)!important;
+  -webkit-backdrop-filter:blur(5px) saturate(150%)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.66),
+    inset 0 0 28px rgba(var(--cp-card-glow),.13),
+    0 10px 25px rgba(0,14,45,.40),
+    0 0 12px rgba(var(--cp-card-glow),.36)!important;
+  transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease;
+}
+#copeakHomeHub .cp-home-cards > .cp-action-read{
+  --cp-card-glow:29,190,255;
+  --cp-card-scene:4% 24%;
+}
+#copeakHomeHub .cp-home-cards > .cp-action-create{
+  --cp-card-glow:48,240,224;
+  --cp-card-scene:2% 78%;
+  background-color:rgba(2,75,101,.48)!important;
+}
+#copeakHomeHub .cp-home-cards > .cp-action-sound{
+  --cp-card-glow:255,206,115;
+  --cp-card-scene:62% 42%;
+  background-color:rgba(75,54,48,.50)!important;
+}
+#copeakHomeHub .cp-home-cards > .cp-action-vocabulary{
+  --cp-card-glow:188,134,255;
+  --cp-card-scene:97% 28%;
+  background-color:rgba(59,43,113,.48)!important;
+}
+#copeakHomeHub .cp-home-cards > .cp-action::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 42% 42% at 50% -7%,rgba(255,255,255,.28),transparent 88%),
+    linear-gradient(118deg,rgba(255,255,255,.09) 0%,transparent 28%,transparent 74%,rgba(255,255,255,.06) 100%);
+  z-index:0;
+}
+#copeakHomeHub .cp-home-cards > .cp-action::after{
+  content:"";position:absolute;inset:1px;pointer-events:none;z-index:0;
+  border-radius:inherit;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.14) 0,transparent 3px),
+    linear-gradient(130deg,rgba(255,255,255,.14),transparent 23%,transparent 76%,rgba(var(--cp-card-glow),.08));
+}
+#copeakHomeHub .cp-home-cards > .cp-action > *{z-index:1;position:relative}
+#copeakHomeHub .cp-home-cards > .cp-action .cp-action-icon {
+  display:grid;place-items:center;
+  flex:0 0 auto;
+  width:clamp(62px,5.25vw,86px);
+  height:clamp(62px,5.25vw,86px);
+  margin:0 0 auto!important;
+  border:1px solid rgba(var(--cp-card-glow),.66)!important;
+  border-radius:50%!important;
+  background:
+    radial-gradient(circle at 35% 26%,rgba(255,255,255,.40),transparent 44%),
+    radial-gradient(circle at 55% 65%,rgba(var(--cp-card-glow),.65),rgba(var(--cp-card-glow),.17) 53%,rgba(2,24,66,.58) 100%)!important;
+  box-shadow:
+    0 0 0 2px rgba(var(--cp-card-glow),.10),
+    0 0 18px rgba(var(--cp-card-glow),.56),
+    inset 0 1px 2px rgba(255,255,255,.69)!important;
+}
+#copeakHomeHub .cp-home-cards > .cp-action .cp-action-icon img {
+  width:75%!important;height:75%!important;
+  object-fit:contain!important;
+  filter:drop-shadow(0 0 8px rgba(var(--cp-card-glow),.8))!important;
+}
+#copeakHomeHub .cp-home-cards > .cp-action .cp-action-copy {
+  margin-top:12px;
+  padding-right:30px;
+  flex:none;
+  align-items:flex-start;
+  gap:4px;
+}
+#copeakHomeHub .cp-home-cards > .cp-action .cp-action-title{
+  color:#fff!important;
+  font-weight:900!important;
+  font-size:clamp(16px,1.36vw,23px)!important;
+  text-shadow:0 2px 8px rgba(0,14,48,.80);
+}
+#copeakHomeHub .cp-home-cards > .cp-action .cp-action-sub{
+  color:#dff5ff!important;
+  font-weight:750!important;
+  font-size:clamp(11px,.78vw,14px)!important;
+  text-shadow:0 1px 7px rgba(1,27,56,.85);
+}
+#copeakHomeHub .cp-home-cards > .cp-action .cp-action-arrow{
+  position:absolute;right:clamp(12px,1.15vw,20px);bottom:clamp(15px,1.25vw,22px);
+  width:clamp(31px,2.55vw,41px);height:clamp(31px,2.55vw,41px);
+  background:linear-gradient(130deg,rgba(var(--cp-card-glow),.94),rgba(29,91,151,.78))!important;
+  border:1px solid rgba(255,255,255,.42)!important;
+  border-radius:50%!important;
+  box-shadow:0 4px 12px rgba(0,20,51,.30),0 0 14px rgba(var(--cp-card-glow),.50)!important;
+  color:#fff!important;
+}
+#copeakHomeHub .cp-home-cards > .cp-action:hover{
+  transform:translateY(-4px);
+  box-shadow:inset 0 1px rgba(255,255,255,.8),0 17px 38px rgba(0,10,43,.50),0 0 27px rgba(var(--cp-card-glow),.65)!important;
+}
+#copeakHomeHub .cp-home-cards > .cp-action:focus-visible{
+  outline:3px solid #fff4a0!important;outline-offset:3px!important;
+}
+@media (min-width:1191px){
+  #copeakHomeHub .cp-home-cards > .cp-action{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:clamp(16px,1.5vw,25px)}
+}
+@media (max-width:1190px) and (min-width:701px){
+  #copeakHomeHub .cp-home-cards > .cp-action {background-size:100% 100%,100% 100%,180% auto!important}
+  #copeakHomeHub .cp-home-cards > .cp-action .cp-action-icon {width:58px;height:58px;margin:0!important}
+  #copeakHomeHub .cp-home-cards > .cp-action .cp-action-copy {margin:0;align-items:flex-start}
+}
+@media (max-width:700px){
+  #cpVoiceAtmosphere .cp-fx-waves{top:18%;height:30%;opacity:.5}
+  #copeakHomeHub .cp-home-cards > .cp-action {
+    padding:7px 5px!important;
+    background-size:100% 100%,100% 100%,230% auto!important;
+  }
+  #copeakHomeHub .cp-home-cards > .cp-action .cp-action-icon {
+    width:clamp(40px,10vw,55px);height:clamp(40px,10vw,55px);margin:0!important;
+  }
+  #copeakHomeHub .cp-home-cards > .cp-action .cp-action-copy{margin:0;padding:0;align-items:center;gap:2px;}
+  #copeakHomeHub .cp-home-cards > .cp-action .cp-action-title{font-size:clamp(12px,3vw,16px)!important}
+  #copeakHomeHub .cp-home-cards > .cp-action .cp-action-sub{font-size:clamp(9px,2.2vw,11px)!important}
+  #copeakHomeHub .cp-home-cards > .cp-action .cp-action-arrow{display:none!important}
+}
+@media(prefers-reduced-motion:reduce){
+  #cpVoiceAtmosphere .cp-fx-aura,#cpVoiceAtmosphere .cp-fx-star,
+  #cpVoiceAtmosphere .cp-fx-meteor{animation:none!important}
+  #cpVoiceAtmosphere .cp-fx-star{opacity:.28!important}
+  #cpVoiceAtmosphere .cp-fx-meteor{opacity:0!important}
+  #copeakHomeHub .cp-home-cards > .cp-action{transition:none!important}
+}
