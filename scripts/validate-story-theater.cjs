@@ -14,7 +14,7 @@ try { data = JSON.parse(read('data/story-theater-stories.json')); }
 catch (e) { console.error('Invalid story JSON:', e.message); process.exit(1); }
 const ids = new Set(), media = new Set();
 let count = 0, vocabCount = 0, quizCount = 0, missingMedia = 0;
-if (!Array.isArray(data.stories) || data.stories.length !== 2) fail.push('Expected exactly two stories for this release.');
+if (!Array.isArray(data.stories) || data.stories.length !== 3) fail.push('Expected exactly three stories for this release.');
 for (const story of data.stories || []) {
   if (ids.has(story.id)) fail.push('Duplicate story ID ' + story.id);
   ids.add(story.id);
