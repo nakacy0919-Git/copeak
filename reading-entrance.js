@@ -5,6 +5,92 @@ const practiceEngine=window.CopeakReadingPractice;
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const escapeXml=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&apos;'}[c])).replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/g,'');
 const state={manifest:null,sets:[],lesson:null,category:'all',level:'all',showAll:false,support:false,lookupEnabled:true,answers:{},clozeAnswers:{},vocabIndex:0,vocabChoice:null,vocabOrder:[],panel:'questions',exercise:null,graded:false,gradingMode:'immediate',gradingChosen:false,activeQuestionId:null,practice:{},quizCursor:{}};
+// Cache generated quizzes for the selected lesson. Keep the same deterministic
+// option order, including for previously saved answer indices.
+const practiceCache=new Map();
+let practiceCorpus=null,practiceCorpusRequest=null,lessonLoadSequence=0;
+const lessonCache=new Map();
+const questionCount=s=>Number(s?.question_count??s?.questions?.length??0);
+const manifestSignature=m=>{
+ const source=JSON.stringify([m.sets.map(s=>[s.id,s.file]),m.release?.published||null]);
+ let hash=2166136261;
+ for(let i=0;i<source.length;i++)hash=Math.imul(hash^source.charCodeAt(i),16777619);
+ return source.length+'-'+(hash>>>0);
+};
+function verifyLesson(obj,item){
+ const actual=words(obj),expected=state.manifest.levels.find(l=>l.id===obj.level_id)?.words;
+ const compatible=(obj.level_ids||[obj.level_id]).every(id=>{
+  const band=state.manifest.levels.find(l=>l.id===id)?.words;
+  return band&&actual>=band[0]&&actual<=band[1];
+ });
+ if(obj.id!==item.id||obj.category_id!==item.category_id||obj.level_id!==item.level_id||
+    obj.title!==item.title||obj.word_count!==item.word_count||questionCount(obj)!==questionCount(item)||
+    !expected||!compatible||actual!==obj.word_count||actual<expected[0]||actual>expected[1]||
+    !obj.original||!obj.source_links?.length||!obj.questions?.length||
+    !['reviewed','published'].includes(obj.status)){
+  throw Error(item.id+' の内容・公開状態を確認できません');
+ }
+ return obj;
+}
+async function loadPracticeCorpus(){
+ if(practiceCorpus)return practiceCorpus;
+ if(!practiceCorpusRequest){
+  practiceCorpusRequest=(async()=>{
+   const response=await fetch(state.catalogIndex.practice_corpus_file);
+   if(!response.ok)throw Error('練習用データ HTTP '+response.status);
+   const data=await response.json();
+   if(data.version!==1||!Array.isArray(data.lessons)||data.lessons.length!==state.sets.length||
+      data.lessons.some((lesson,i)=>lesson.id!==state.sets[i].id||
+       !Array.isArray(lesson.vocabulary)||!Array.isArray(lesson.grammar)||
+       !Array.isArray(lesson.paraphrases))){
+    throw Error('練習用データが教材一覧と一致しません');
+   }
+   practiceCorpus=data.lessons;
+   return practiceCorpus;
+  })().catch(e=>{practiceCorpusRequest=null;throw e;});
+ }
+ return practiceCorpusRequest;
+}
+async function loadLesson(item){
+ if(lessonCache.has(item.id))return lessonCache.get(item.id);
+ const response=await fetch(item.file);
+ if(!response.ok)throw Error('本文 HTTP '+response.status);
+ const lesson=verifyLesson(await response.json(),item);
+ lessonCache.set(item.id,lesson);
+ if(lessonCache.size>4)lessonCache.delete(lessonCache.keys().next().value);
+ return lesson;
+}
+async function openSelectedLesson(id,startFocus=true){
+ const item=state.sets.find(s=>s.id===id);
+ if(!item)return;
+ const sequence=++lessonLoadSequence;
+ if(!$('readingBrowse').hidden)$('browseNotice').textContent='長文を読み込んでいます…';
+ else status('長文を読み込んでいます…');
+ const button=Array.from(document.querySelectorAll('[data-browse-pick],[data-set]'))
+  .find(b=>b.dataset.browsePick===id||b.dataset.set===id);
+ if(button)button.setAttribute('aria-busy','true');
+ try{
+  const [lesson]=await Promise.all([
+   loadLesson(item),loadPracticeCorpus(),
+   window.CopeakReadingEnsureAssets?.()||Promise.resolve()
+  ]);
+  if(sequence!==lessonLoadSequence)return;
+  $('readingWorkspace').hidden=false;
+  document.body.classList.remove('reading-browsing');
+  selectLesson(lesson,startFocus);
+  $('readingBrowse').hidden=true;
+  status('現在の収録教材 '+state.sets.length+'セット');
+ }catch(error){
+  if(sequence!==lessonLoadSequence)return;
+  console.error('Could not open reading lesson:',error);
+  $('readingBrowse').hidden=false;$('readingWorkspace').hidden=true;
+  document.body.classList.remove('reading-focus','catalog-open');
+  document.body.classList.add('reading-browsing');
+  $('browseNotice').textContent='この長文を開けませんでした。通信を確認してもう一度選択してください。';
+ }finally{
+  if(button)button.removeAttribute('aria-busy');
+ }
+}
 const label=(id,collection)=>collection.find(x=>x.id===id)?.label||id;
 const status=s=>{$('loadStatus').textContent=s;};
 const words=lesson=>lesson.paragraphs.flatMap(p=>p.sentences).map(s=>s.en).join(' ').trim().split(/\s+/).filter(Boolean).length;
@@ -69,9 +155,9 @@ function renderSetList(){
  $('setList').innerHTML=list.length?list.map(s=>{
  const cat=label(s.category_id,state.manifest.categories),lvl=(s.level_ids||[s.level_id]).map(id=>label(id,state.manifest.levels)).join(' / ');
  const score=readProgress(s.id).answers||{};const done=Object.keys(score).length;
- return '<button type="button" role="listitem" data-set="'+esc(s.id)+'" class="'+(state.lesson?.id===s.id?'active':'')+'"><strong>'+esc(s.title)+'</strong><small>'+esc(cat)+' · '+esc(lvl)+' · '+s.word_count+'語 · 回答 '+done+'/'+s.questions.length+'</small></button>';
+ return '<button type="button" role="listitem" data-set="'+esc(s.id)+'" class="'+(state.lesson?.id===s.id?'active':'')+'"><strong>'+esc(s.title)+'</strong><small>'+esc(cat)+' · '+esc(lvl)+' · '+s.word_count+'語 · 回答 '+done+'/'+questionCount(s)+'</small></button>';
  }).join(''):'<p class="empty">この条件の長文はまだ準備中です。他のレベル・分野をご覧ください。</p>';
- $('setList').querySelectorAll('[data-set]').forEach(b=>b.addEventListener('click',()=>selectLesson(b.dataset.set)));
+ $('setList').querySelectorAll('[data-set]').forEach(b=>b.addEventListener('click',()=>openSelectedLesson(b.dataset.set)));
 }
 /* Full-page browsing: category → level → original passage. */
 const browseState={step:'category',category:null,level:null};
@@ -119,8 +205,8 @@ function renderBrowse(){
   html=browseAvailable(category,level).map((item,i)=>{
    const done=Object.keys(readProgress(item.id).answers||{}).length;
    return browseCard(item.id,item.title_ja||item.title,
-    item.title+' · '+item.word_count+' words · '+item.questions.length+' 問',
-    '回答 '+done+'/'+item.questions.length,String(i+1).padStart(2,'0'),false,'📖');
+    item.title+' · '+item.word_count+' words · '+questionCount(item)+' 問',
+    '回答 '+done+'/'+questionCount(item),String(i+1).padStart(2,'0'),false,'📖');
   }).join('')||'<p class="browse-empty">この条件にはまだ教材がありません。戻って別のレベルを選択してください。</p>';
  }
  $('browseCards').innerHTML=html;
@@ -130,17 +216,13 @@ function renderBrowse(){
   const value=b.dataset.browsePick;
   if(step==='category'){browseState.category=value;browseState.level=null;browseState.step='level';renderBrowse();}
   else if(step==='level'){browseState.level=value;browseState.step='article';renderBrowse();}
-  else{
-   $('readingBrowse').hidden=true;
-   $('readingWorkspace').hidden=false;
-   document.body.classList.remove('reading-browsing');
-   selectLesson(value,true);
-  }
+  else openSelectedLesson(value,true);
   window.scrollTo?.({top:0,behavior:'auto'});
  }));
  $('browseBreadcrumbs').querySelectorAll('[data-browse-step]').forEach(b=>b.addEventListener('click',()=>openBrowse(b.dataset.browseStep)));
 }
 function openBrowse(step='category'){
+ lessonLoadSequence++;
  window.CopeakReadingInk?.pauseStudy();
  closeCatalog(false);
  document.body.classList.remove('reading-focus','catalog-open');
@@ -166,7 +248,8 @@ function safeSourceUrl(raw){
  }catch{return null;}
 }
 function selectLesson(id,startFocus=true){
- const s=state.sets.find(x=>x.id===id);if(!s)return;
+ const s=id;if(!s)return;
+ practiceCache.clear();
  state.lesson=s;const progress=readProgress(s.id);state.answers=progress.answers||{};state.clozeAnswers=progress.clozeAnswers||{};state.graded=progress.graded===true;state.gradingChosen=false;state.activeQuestionId=null;state.practice=progress.practice&&typeof progress.practice==='object'?progress.practice:{};state.quizCursor={};
  state.showAll=false;state.support=false;state.vocabIndex=0;state.vocabChoice=null;state.panel='questions';state.exercise=null;
  $('supportToggle').disabled=false;$('printOpen').disabled=false;$('focusStart').disabled=false;$('examModeStart').disabled=false;
@@ -243,7 +326,12 @@ function activePracticeItem(){
 }
 function practiceBank(mode){
  if(!state.lesson||!practiceEngine)return [];
- return practiceEngine.build(state.lesson,mode,state.sets,$('vocabQuizMode').value);
+ const direction=$('vocabQuizMode').value;
+ const key=mode==='vocab'?'vocab:'+direction:mode;
+ if(!practiceCache.has(key)){
+  practiceCache.set(key,practiceEngine.build(state.lesson,mode,practiceCorpus||[state.lesson],direction));
+ }
+ return practiceCache.get(key);
 }
 function annotatedWords(text,marks){
  const ranges=[];
@@ -617,18 +705,28 @@ function practiceRecord(mode){
 }
 function modeSummary(mode){
  if(!state.lesson)return {total:0,answered:0,correct:0,percent:0,accuracy:0,runs:0,best:0};
- const items=mode==='questions'?state.lesson.questions:practiceBank(mode);
  const record=practiceRecord(mode);
  const answers=mode==='questions'?state.answers:record.answers;
+ // Unattempted exercises need only their authored count. Generating every
+ // full quiz during lesson selection can block the main thread unnecessarily.
+ const authored={
+  vocab:state.lesson.vocabulary,
+  grammar:state.lesson.grammar,
+  discourse:state.lesson.discourse,
+  paraphrase:state.lesson.paraphrases,
+  cloze:state.lesson.cloze
+ };
+ const hasAnswers=Object.values(answers).some(Number.isInteger);
+ const items=mode==='questions'?state.lesson.questions:(hasAnswers?practiceBank(mode):null);
+ const total=items?items.length:(authored[mode]?.length||0);
  let answered=0,correct=0;
- for(const item of items){
+ for(const item of items||[]){
   const picked=answers[item.id];
   if(Number.isInteger(picked)&&picked>=0&&picked<item.options.length){
    answered++;
    if(picked===item.answer)correct++;
   }
  }
- const total=items.length;
  return {total,answered,correct,percent:total?Math.round(answered/total*100):0,
   accuracy:answered?Math.round(correct/answered*100):0,
   runs:Number(record.runs)||0,best:Number(record.best)||0};
@@ -644,8 +742,13 @@ function renderPracticeProgress(){
   cloze:'<path d="M4 4h16v16H4zM8 9h8M8 14h5"/>'
  };
  let percentages=[];
+ const summaries=new Map();
+ const summary=mode=>{
+  if(!summaries.has(mode))summaries.set(mode,modeSummary(mode));
+  return summaries.get(mode);
+ };
  $('practiceProgress').innerHTML=practiceEngine.modes.map(mode=>{
-  const x=modeSummary(mode),name=practiceEngine.labels[mode],p=x.percent;
+  const x=summary(mode),name=practiceEngine.labels[mode],p=x.percent;
   percentages.push(p);
   const detail=x.answered+'/'+x.total+'問 · 正答率'+x.accuracy+'% · 完走'+x.runs+'回'+(x.runs?' · 最高'+x.best+'%':'');
   return '<div class="progress-mini" data-progress-mode="'+esc(mode)+'" style="--progress:'+p+'%" title="'+esc(name+'：'+detail)+'" aria-label="'+esc(name+' '+p+'パーセント達成、'+detail)+'">'+
@@ -653,7 +756,7 @@ function renderPracticeProgress(){
    '<span class="progress-copy"><strong>'+esc(name)+'</strong><small>'+p+'%</small></span></div>';
  }).join('');
  for(const b of $('exerciseChoices').querySelectorAll('[data-exercise]')){
-  const x=modeSummary(b.dataset.exercise);
+  const x=summary(b.dataset.exercise);
   const tag=b.querySelector('[data-choice-progress]');
   if(tag)tag.textContent=x.answered+'/'+x.total+' · '+x.percent+'%';
  }
@@ -1039,54 +1142,52 @@ async function init(){
  $('browseStepLabel').textContent='LOADING';
  $('browseHeading').textContent='教材を読み込んでいます';
  $('browseDescription').textContent='15分野の長文教材を準備しています。';
- $('browseCards').innerHTML='<p class="browse-empty" role="status">収録済みの教材を確認しています…</p>';
+ $('browseCards').innerHTML='<p class="browse-empty" role="status">教材の一覧を読み込んでいます…</p>';
  $('browseNotice').textContent='';
  status('教材一覧を読み込んでいます…');
  try{
-  const response=await fetch('data/reading/entrance/manifest.json',{cache:'no-store'});if(!response.ok)throw Error('一覧 HTTP '+response.status);
-  const manifest=await response.json();if(!Array.isArray(manifest.sets))throw Error('一覧形式が不正です');
+  // Only two small metadata files are needed for the three browse screens.
+  // Never fetch hundreds of full lesson files on page load.
+  const [manifestResponse,indexResponse]=await Promise.all([
+   fetch('data/reading/entrance/manifest.json',{cache:'no-cache'}),
+   fetch('data/reading/entrance/catalog-index.json',{cache:'no-cache'})
+  ]);
+  if(!manifestResponse.ok||!indexResponse.ok)throw Error('教材索引の取得に失敗しました');
+  const [manifest,index]=await Promise.all([manifestResponse.json(),indexResponse.json()]);
+  if(!Array.isArray(manifest.sets)||!Array.isArray(manifest.categories)||!Array.isArray(manifest.levels)||
+     index.version!==1||!Array.isArray(index.sets)||
+     index.manifest_signature!==manifestSignature(manifest)||
+     index.practice_corpus_file!=='data/reading/entrance/practice-corpus.json'){
+   throw Error('教材索引が古くなっています。公開データの再生成が必要です');
+  }
+  const files=new Map(manifest.sets.map(item=>[item.id,item.file]));
+  const categories=new Set(manifest.categories.map(item=>item.id));
+  const levels=new Set(manifest.levels.map(item=>item.id));
+  const seen=new Set();
+  if(index.sets.some(item=>{
+   if(!item||seen.has(item.id)||files.get(item.id)!==item.file||
+      !['reviewed','published'].includes(item.status)||
+      item.category_id!==item.id.slice(0,3)||!categories.has(item.category_id)||
+      !levels.has(item.level_id)||!Array.isArray(item.level_ids)||
+      !item.level_ids.every(level=>levels.has(level))||
+      !Number.isInteger(item.word_count)||item.word_count<=0||
+      !Number.isInteger(item.question_count)||item.question_count<1||
+      typeof item.title!=='string'||typeof item.title_ja!=='string')return true;
+   seen.add(item.id);
+   return false;
+  }))throw Error('公開対象の教材索引が不正です');
   state.manifest=manifest;
-  // Checked category snapshots reduce request count. Older manifests still work.
-  const check=(obj,item)=>{
-   const actual=words(obj),expected=manifest.levels.find(l=>l.id===obj.level_id)?.words;
-   const compatible=(obj.level_ids||[obj.level_id]).every(id=>{const band=manifest.levels.find(l=>l.id===id)?.words;return band&&actual>=band[0]&&actual<=band[1];});
-   if(obj.id!==item.id||!expected||!compatible||actual!==obj.word_count||actual<expected[0]||actual>expected[1]||!obj.original||!obj.source_links?.length||!obj.questions?.length)throw Error(item.id+' の内容・語数を確認してください');
-   return obj.status==='reviewed'||obj.status==='published'?obj:null;
-  };
-  let loaded=null;
-  if(Array.isArray(manifest.release_bundles)&&manifest.release_bundles.length){
-   try{
-    const indexed=new Map(manifest.sets.map(s=>[s.id,s])),seen=new Set();
-    const groups=await Promise.all(manifest.release_bundles.map(async file=>{
-     const r=await fetch(file,{cache:'no-store'});if(!r.ok)throw Error('bundle HTTP '+r.status);
-     const data=await r.json();if(!Array.isArray(data))throw Error('invalid bundle');
-     return data.map(obj=>{const item=indexed.get(obj.id);if(!item||seen.has(obj.id))throw Error('unexpected bundle ID '+obj.id);seen.add(obj.id);const checked=check(obj,item);if(!checked)throw Error('unpublished bundle item');return checked;});
-    }));
-    if(seen.size!==indexed.size)throw Error('bundle count mismatch');
-    const byId=new Map(groups.flat().map(obj=>[obj.id,obj]));loaded=manifest.sets.map(item=>byId.get(item.id));
-   }catch(e){console.warn('Reading bundle fallback:',e.message);}
-  }
-  if(loaded){
-   state.sets=loaded;status('現在の収録教材 '+loaded.length+'セット');
-  }else{
-   const results=[],batchSize=8;
-   for(let offset=0;offset<manifest.sets.length;offset+=batchSize){
-    const batch=manifest.sets.slice(offset,offset+batchSize);
-    results.push(...await Promise.allSettled(batch.map(async item=>{
-     const r=await fetch(item.file,{cache:'no-store'});if(!r.ok)throw Error(item.id+' HTTP '+r.status);
-     return check(await r.json(),item);
-    })));
-    status('教材を読み込み中… '+Math.min(offset+batchSize,manifest.sets.length)+' / '+manifest.sets.length);
-   }
-   state.sets=results.filter(r=>r.status==='fulfilled'&&r.value).map(r=>r.value);
-   const errors=results.filter(r=>r.status==='rejected');status(errors.length?errors.length+'件の教材を検証できませんでした。編集データを確認してください。':'現在の収録教材 '+state.sets.length+'セット');
-  }
-  renderCatalog();openBrowse('category');
+  state.catalogIndex=index;
+  state.sets=index.sets;
+  renderCatalog();
+  openBrowse('category');
+  status('現在の収録教材 '+state.sets.length+'セット');
  }catch(e){
+  console.error('Reading catalog load error:',e);
   status('教材一覧を読み込めませんでした：'+e.message);
   $('browseStepLabel').textContent='LOAD ERROR';
   $('browseHeading').textContent='教材を読み込めませんでした';
-  $('browseDescription').textContent='インターネット接続を確認し、ページを再読み込みしてください。';
+  $('browseDescription').textContent='通信または公開用教材索引を確認してください。';
   $('browseCards').innerHTML='<p class="browse-empty" role="alert">教材の取得に失敗しました。再読み込みしてお試しください。</p>';
  }
 }
@@ -1136,7 +1237,7 @@ try{state.gradingMode=localStorage.getItem('copeak-reading-grading-mode')==='bat
 
 $('printOpen').addEventListener('click',()=>$('printDialog').showModal());
 $('printPdf').addEventListener('click',printPDF);$('printDocx').addEventListener('click',downloadDocx);
-window.CopeakReadingExamContext=()=>({lesson:state.lesson,mode:state.exercise||'questions',sets:state.sets,direction:$('vocabQuizMode').value});
+window.CopeakReadingExamContext=()=>({lesson:state.lesson,mode:state.exercise||'questions',sets:practiceCorpus||[state.lesson],direction:$('vocabQuizMode').value});
 try{state.lookupEnabled=localStorage.getItem('copeak-reading-lookup-enabled')!=='false';}catch(_){}
 function updateLookupUI(){
  const button=$('wordLookupToggle');

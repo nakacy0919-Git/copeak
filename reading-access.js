@@ -12,13 +12,42 @@
   if (!gate || !app || !form || !pin || !message || !submit) return;
 
   let loading = false;
-  const loadScript = src => new Promise((resolve, reject) => {
-    const el = document.createElement('script');
-    el.src = src;
-    el.onload = resolve;
-    el.onerror = () => reject(new Error('教材の読み込みに失敗しました。'));
-    document.body.appendChild(el);
-  });
+  const scriptRequests = new Map();
+  const loadScript = src => {
+    if (scriptRequests.has(src)) return scriptRequests.get(src);
+    const request = new Promise((resolve, reject) => {
+      const el = document.createElement('script');
+      el.src = src;
+      el.onload = resolve;
+      el.onerror = () => {
+        el.remove();
+        reject(new Error('教材の読み込みに失敗しました。'));
+      };
+      document.body.appendChild(el);
+    }).catch(error => {
+      scriptRequests.delete(src); // Failed resources may be retried.
+      throw error;
+    });
+    scriptRequests.set(src, request);
+    return request;
+  };
+
+  let assetsPromise=null;
+  window.CopeakReadingEnsureAssets=()=>{
+    if(!assetsPromise){
+      assetsPromise=(async()=>{
+        await Promise.all([
+          loadScript('grammar-print-core.js?v=20261112-1'),
+          loadScript('reading-lexicon-core.js?v=20261112-words2'),
+          loadScript('reading-correct-effect.js?v=20261112-words2'),
+          loadScript('reading-exam-mode.js?v=20261112-full4'),
+          loadScript('reading-ink.js?v=20261112-toolbar4')
+        ]);
+        await loadScript('reading-dictionary-lookup.js?v=20261112-words2');
+      })().catch(e=>{assetsPromise=null;throw e;});
+    }
+    return assetsPromise;
+  };
 
   async function revealStudio() {
     if (loading) return;
@@ -36,15 +65,10 @@
       if (notice) notice.textContent = '長文読解の教材を準備しています…';
     }
     try {
-      // The reading data and learning interface are requested only after PIN entry.
-      await loadScript('grammar-print-core.js?v=20261112-1');
-      await loadScript('reading-practice-engine.js?v=20261112-quiz2');
-      await loadScript('reading-lexicon-core.js?v=20261112-words2');
-      await loadScript('reading-dictionary-lookup.js?v=20261112-words2');
-      await loadScript('reading-correct-effect.js?v=20261112-words2');
-      await loadScript('reading-entrance.js?v=20261113-gradingcards1');
-      await loadScript('reading-exam-mode.js?v=20261112-full4');
-      await loadScript('reading-ink.js?v=20261112-toolbar4');
+      // Render the lightweight catalog first. Heavy tools load only when
+      // an actual passage is chosen, not when opening the 15-category menu.
+      await loadScript('reading-practice-engine.js?v=20261119-selectionfix1');
+      await loadScript('reading-entrance.js?v=20261119-lazycatalog1');
       const view=window.CopeakReadingExamContext?.();
       if(view?.lesson)window.CopeakReadingInk?.syncStudy(view.lesson.id,view.mode||'questions');
     } catch (error) {

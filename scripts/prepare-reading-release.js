@@ -48,4 +48,6 @@ const report={requested:approved.size,published:passed.length,previous:oldCount,
 write(path.join(dir,'release-report.json'),report);
 m.release={...m.release,report:'data/reading/entrance/release-report.json',published:passed.length,held:held.length};
 write(mfPath,m);
+// Keep the fast catalog in sync with approved lesson files at release time.
+require('./build-reading-index.js');
 console.log('COPEAK_READING_RELEASE '+JSON.stringify(report));

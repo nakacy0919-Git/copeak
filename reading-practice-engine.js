@@ -20,7 +20,18 @@
    return hit?{paragraphId:hit.paragraphId,sentenceIndex:hit.sentenceIndex,phrase:term}:null;
  }
  function options(correct,pool,key){
-   let distract=mix(uniq(pool).filter(x=>x.toLowerCase()!==correct.toLowerCase()),key+':pool').filter((x,i,a)=>a.findIndex(y=>y.toLowerCase()===x.toLowerCase())===i).slice(0,3);
+   const shuffled=mix(uniq(pool).filter(x=>x.toLowerCase()!==correct.toLowerCase()),key+':pool');
+   const used=new Set();
+   let distract=[];
+   // Case-insensitive uniqueness in O(n): the old findIndex() on every
+   // candidate was quadratic in the 455-lesson vocabulary corpus.
+   for(const value of shuffled){
+    const normalized=value.toLowerCase();
+    if(used.has(normalized))continue;
+    used.add(normalized);
+    distract.push(value);
+    if(distract.length===3)break;
+   }
    // The authored bank normally supplies 3+ distractors; this guards very small sets.
    const fallback=['本文の主張と反対のことを述べている','別の話題についての説明である','ここでは原因を示さず結論だけを述べる'];
    for(const v of fallback)if(distract.length<3&&v!==correct&&!distract.includes(v))distract.push(v);
