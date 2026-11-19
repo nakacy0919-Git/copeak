@@ -18,25 +18,25 @@
     const stars = scene.querySelector('.cp-fx-stars');
     const meteors = scene.querySelector('.cp-fx-shooting-stars');
     const fragment = document.createDocumentFragment();
-    for (let i = 0; i < 39; i++) {
+    for (let i = 0; i < 60; i++) {
       const sparkle = document.createElement('span');
       sparkle.className = 'cp-fx-star' + (i % 5 === 0 ? ' cp-fx-star-gold' : '');
       sparkle.style.setProperty('--x', ((i * 67 + 7) % 97 + 1) + '%');
       sparkle.style.setProperty('--y', ((i * 37 + 13) % 70 + 2) + '%');
       sparkle.style.setProperty('--size', (i % 7 === 0 ? 4 : i % 3 === 0 ? 3 : 2) + 'px');
       sparkle.style.setProperty('--delay', (-((i * 13) % 97) / 9).toFixed(2) + 's');
-      sparkle.style.setProperty('--duration', (5.5 + ((i * 11) % 29) / 10).toFixed(1) + 's');
+      sparkle.style.setProperty('--duration', (5.2 + ((i * 11) % 29) / 10).toFixed(1) + 's');
       fragment.appendChild(sparkle);
     }
     stars.appendChild(fragment);
 
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 8; i++) {
       const star = document.createElement('span');
       star.className = 'cp-fx-meteor';
-      star.style.setProperty('--x', (64 + (i * 11) % 28) + '%');
-      star.style.setProperty('--y', (7 + i * 7) + '%');
-      star.style.setProperty('--delay', (-i * 6.2 - 2) + 's');
-      star.style.setProperty('--duration', (22 + i * 3) + 's');
+      star.style.setProperty('--x', (44 + (i * 9) % 52) + '%');
+      star.style.setProperty('--y', (5 + i * 8) + '%');
+      star.style.setProperty('--delay', (-i * 3.7 - 2) + 's');
+      star.style.setProperty('--duration', (19 + (i % 4) * 2.5) + 's');
       meteors.appendChild(star);
     }
 
@@ -65,12 +65,12 @@
       ctx.clearRect(0,0,width,height);
       if (width < 1 || height < 1) return;
 
-      const flow = seconds * 0.21;
-      const step = Math.max(5,Math.floor(width / 230));
+      const flow = seconds * 0.18;
+      const step = Math.max(6,Math.floor(width / 230));
       const bands = [
-        {color:'cyan',base:0.47,phase:0.15,travel:0.78,lines:29},
-        {color:'gold',base:0.55,phase:1.2,travel:0.65,lines:26},
-        {color:'ice',base:0.58,phase:2.15,travel:0.83,lines:16}
+        {color:'cyan',base:0.45,phase:0.15,travel:0.78,lines:34},
+        {color:'gold',base:0.54,phase:1.2,travel:0.65,lines:32},
+        {color:'ice',base:0.57,phase:2.15,travel:0.83,lines:19}
       ];
 
       for (const band of bands) {
@@ -97,18 +97,18 @@
             const envelope = Math.pow(Math.sin(Math.PI * Math.min(1,Math.max(0,u))),0.6);
             const primary = Math.sin(u * TAU * 2.1 - flow * band.travel + band.phase);
             const secondary = Math.sin(u * TAU * 3.9 + flow * .5 + band.phase * .5);
-            const amplitude = height * (0.17 + 0.035 * secondary);
+            const amplitude = height * (0.24 + 0.044 * secondary);
             const curvature = primary * amplitude;
-            const strand = n * height * (0.35 + .23 * Math.cos(u*TAU*1.65 + flow*0.46 + band.phase));
+            const strand = n * height * (0.43 + .23 * Math.cos(u*TAU*1.65 + flow*0.46 + band.phase));
             const narrow = Math.sin(u*TAU*7.3 - flow*.9 + band.phase + n*3) * height * 0.009;
             const y = height*band.base + curvature + strand*envelope + narrow;
             if (x === 0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
           }
-          ctx.lineWidth = highlight ? 1.4 : 0.6;
-          ctx.globalAlpha = (highlight ? 0.76 : 0.36) * (1 - Math.abs(n)*.60);
+          ctx.lineWidth = highlight ? 1.7 : 0.68;
+          ctx.globalAlpha = (highlight ? 0.86 : 0.42) * (1 - Math.abs(n)*.60);
           ctx.strokeStyle = gradient;
           if (highlight) {
-            ctx.shadowBlur = 9;
+            ctx.shadowBlur = 13;
             ctx.shadowColor = band.color === 'gold' ? 'rgba(255,203,91,.88)' : 'rgba(31,207,255,.95)';
           }
           ctx.stroke();

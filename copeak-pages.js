@@ -176,6 +176,10 @@ function initCopeakDedicatedPages() {
             <span class="cp-record-stat-label">累計音読</span>
             <strong id="cpLearningTotal">0回</strong>
           </div>
+          <div class="cp-record-stat cp-record-last">
+            <span class="cp-record-stat-label">最後の音読</span>
+            <strong id="cpLastPractice">—</strong>
+          </div>
         </div>
       </div>`;
   }
@@ -236,6 +240,21 @@ function initCopeakDedicatedPages() {
     }
     const streakText=document.getElementById('cpStreakText');if(streakText)streakText.textContent=streak+'日';
     const total=document.getElementById('cpLearningTotal');if(total)total.textContent=times.length+'回';
+    // Last completed read: a different, actionable measure from streak,
+    // 7-day active days, cumulative reads and average Accuracy.
+    const lastRead=document.getElementById('cpLastPractice');
+    if(lastRead){
+      const latest=times.reduce((max,t)=>Number.isFinite(t)&&t>max?t:max,0);
+      const lastDate=latest>0?new Date(latest):null;
+      if(lastDate && Number.isFinite(lastDate.getTime())){
+        const md=(lastDate.getMonth()+1)+'/'+lastDate.getDate();
+        lastRead.textContent=(lastDate.getFullYear()===now.getFullYear()?'':lastDate.getFullYear()+'/')+md;
+        lastRead.setAttribute('aria-label','最後の音読 '+lastDate.getFullYear()+'年'+(lastDate.getMonth()+1)+'月'+lastDate.getDate()+'日');
+      }else {
+        lastRead.textContent='—';
+        lastRead.setAttribute('aria-label','音読履歴なし');
+      }
+    }
     // A local, read-only calculation. Copeak stores Accuracy as history[].score (0-100).
     // Exclude entries with no numeric score, rather than reporting a misleading 0%.
     const scored=lessons.flatMap(l=>Array.isArray(l.history)?l.history.map(log=>({
