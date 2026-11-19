@@ -19186,7 +19186,7 @@ spokenComparisonUnits.forEach(
 
 
             if (transcriptLineBreaks.has(spokenWordIndex)) {
-                htmlOutput.push('\n');
+                htmlOutput.push('<br>');
             }
 
             const isMatched =
@@ -19222,7 +19222,6 @@ spokenComparisonUnits.forEach(
     );
     // 日本語・中国語なども
     // 元の空白・句読点配置を維持して表示
-    recDisplay.style.whiteSpace = 'pre-line';
     recDisplay.innerHTML =
         htmlOutput.join('');
 
