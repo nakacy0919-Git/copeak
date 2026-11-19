@@ -394,3 +394,122 @@
     opacity:.56;
   }
 }
+
+
+/*
+ * iPad / full-size tablet: preserve the desktop four-across learning menu.
+ * Loaded after both old 2x2 tablet media rules. Do not affect smartphones,
+ * including landscape phones with a very short content viewport.
+ */
+@media (min-width:740px) and (max-width:1190px) and (min-height:540px) {
+  body.copeak-home-mode #homeScreen.cp-dashboard-mode.active {
+    overflow-x:hidden!important;
+    overflow-y:auto!important;
+  }
+  #copeakHomeHub {
+    grid-template-rows:
+      clamp(152px,30dvh,315px)
+      clamp(158px,25dvh,255px)
+      clamp(160px,27dvh,280px)
+      clamp(52px,7dvh,70px)!important;
+    gap:clamp(7px,1.1dvh,13px)!important;
+    height:auto!important;
+    min-height:100%!important;
+    width:min(1560px,100%)!important;
+  }
+  #copeakHomeHub .cp-home-cards {
+    display:grid!important;
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    grid-template-rows:minmax(0,1fr)!important;
+    gap:clamp(7px,1.15vw,14px)!important;
+    align-items:stretch!important;
+    min-height:0!important;
+  }
+  #copeakHomeHub .cp-home-cards > .cp-action {
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    justify-content:flex-end!important;
+    text-align:left!important;
+    gap:0!important;
+    height:100%!important;
+    min-width:0!important;
+    min-height:0!important;
+    padding:clamp(10px,1.25vw,18px)!important;
+  }
+  #copeakHomeHub .cp-home-cards > .cp-action .cp-action-icon {
+    flex:0 0 auto!important;
+    width:clamp(45px,5.9vw,66px)!important;
+    height:clamp(45px,5.9vw,66px)!important;
+    margin:0 0 auto!important;
+  }
+  #copeakHomeHub .cp-home-cards > .cp-action .cp-action-copy {
+    flex:0 0 auto!important;
+    width:100%!important;
+    align-items:flex-start!important;
+    justify-content:flex-end!important;
+    text-align:left!important;
+    gap:3px!important;
+    margin:5px 0 0!important;
+    padding:0 clamp(21px,2.45vw,32px) 0 0!important;
+  }
+  #copeakHomeHub .cp-home-cards > .cp-action .cp-action-title {
+    font-size:clamp(12px,1.56vw,18px)!important;
+    line-height:1.29!important;
+    white-space:normal!important;
+    overflow-wrap:anywhere!important;
+  }
+  #copeakHomeHub .cp-home-cards > .cp-action .cp-action-sub {
+    font-size:clamp(9px,.98vw,12px)!important;
+    line-height:1.26!important;
+    white-space:normal!important;
+  }
+  #copeakHomeHub .cp-home-cards > .cp-action .cp-action-arrow {
+    display:grid!important;
+    width:clamp(27px,3vw,36px)!important;
+    height:clamp(27px,3vw,36px)!important;
+    right:clamp(7px,.9vw,13px)!important;
+    bottom:clamp(9px,1.05vw,15px)!important;
+  }
+  #copeakHomeHub .cp-home-cards > .cp-action::before {
+    background-size:410% auto!important;
+  }
+  #copeakHomeHub .cp-home-extras {
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+  }
+  #copeakHomeHub .cp-home-bottom {
+    width:min(800px,94%)!important;
+    min-height:50px!important;
+  }
+}
+/* On narrow iPads the cards still remain four across, with smaller text
+ * instead of forcing a second card row. */
+@media (min-width:740px) and (max-width:850px) and (min-height:540px) {
+  #copeakHomeHub {
+    grid-template-rows:
+      clamp(140px,27dvh,265px)
+      clamp(150px,21dvh,196px)
+      clamp(170px,27dvh,260px)
+      clamp(50px,7dvh,62px)!important;
+  }
+  #copeakHomeHub .cp-home-cards > .cp-action {
+    padding:9px!important;
+    border-radius:15px!important;
+  }
+  #copeakHomeHub .cp-home-cards > .cp-action .cp-action-icon {
+    width:clamp(39px,5.6vw,49px)!important;
+    height:clamp(39px,5.6vw,49px)!important;
+  }
+  #copeakHomeHub .cp-home-cards > .cp-action .cp-action-title {
+    font-size:clamp(11px,1.55vw,13px)!important;
+  }
+  #copeakHomeHub .cp-home-cards > .cp-action .cp-action-sub {
+    font-size:9px!important;
+  }
+  #copeakHomeHub .cp-home-cards > .cp-action .cp-action-copy {
+    padding-right:18px!important;
+  }
+  #copeakHomeHub .cp-home-cards > .cp-action .cp-action-arrow {
+    width:25px!important;height:25px!important;right:6px!important;bottom:8px!important;
+  }
+}
