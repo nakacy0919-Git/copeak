@@ -6,8 +6,9 @@
   <meta name="theme-color" content="#141117">
   <meta name="description" content="Copeak Story Theater — 絵本で聞く、読む、理解する。">
   <title>Story Theater | Copeak</title>
-  <link rel="stylesheet" href="story-theater.css?v=4">
-  <script src="story-theater.js?v=4" defer></script>
+  <link rel="stylesheet" href="story-theater.css?v=5">
+  <script src="story-theater.js?v=5" defer></script>
+  <script src="story-theater-effects.js?v=5" defer></script>
 </head>
 <body>
 <div id="storyApp" class="st-app">
@@ -23,6 +24,8 @@
         <div id="ambientReel" class="st-ambient-reel"></div>
         <div class="st-library-shadows"></div>
         <div class="st-library-light"></div>
+        <div id="storyStarfield" class="st-story-starfield" aria-hidden="true"></div>
+        <div class="st-meteor-sky" aria-hidden="true"><i></i><i></i><i></i></div>
       </div>
       <div class="st-hero">
         <div class="st-hero-topline"><div class="st-overline">THE COPEAK READING COLLECTION</div><div class="st-hero-volume"><span class="st-volume-dot" aria-hidden="true"></span> IMMERSIVE STORIES</div></div>
@@ -31,8 +34,16 @@
       <p>物語を<span class="st-hero-accent">見て、聞いて、声に出す。</span> ここから、あなたの読書の旅が始まります。</p>
         <div class="st-hero-bottom"><span>LISTEN</span><i></i><span>READ</span><i></i><span>DISCOVER</span><i></i><span>RETELL</span></div>
       </div>
-      <div class="st-catalog-heading"><div><span class="st-catalog-eyebrow">SELECT YOUR NEXT JOURNEY</span><h2>Story Collection <span>／ 作品を選ぶ</span></h2></div><p>英語レベルは学習の目安です。検定団体の公式教材ではありません。</p></div>
-      <div id="storyCards" class="st-cards" aria-live="polite"></div>
+      <div class="st-catalog-heading"><div class="st-collection-heading-line"><span class="st-catalog-eyebrow">SELECT YOUR NEXT JOURNEY</span><h2>Story Collection <span>／ 作品を選ぶ</span></h2></div><p>英語レベルは学習の目安です。検定団体の公式教材ではありません。</p></div>
+      <div class="st-collection-shell" id="storyCarousel" aria-roledescription="作品カルーセル">
+        <button type="button" class="st-carousel-arrow st-carousel-prev" id="storyCarouselPrev" aria-label="前の作品を見る" hidden>‹</button>
+        <div id="storyCards" class="st-cards" aria-label="Copeak Story 作品一覧" aria-live="off"></div>
+        <button type="button" class="st-carousel-arrow st-carousel-next" id="storyCarouselNext" aria-label="次の作品を見る" hidden>›</button>
+      </div>
+      <div class="st-carousel-footer" id="storyCarouselFooter" hidden>
+        <div class="st-carousel-dots" id="storyCarouselDots" role="group" aria-label="表示する作品を選ぶ"></div>
+        <button type="button" class="st-carousel-toggle" id="storyCarouselToggle" aria-pressed="false">Ⅱ 自動回転を停止</button>
+      </div>
       <p id="loadError" class="st-error" role="alert" hidden></p>
     </section>
     <section id="readerView" class="st-reader" hidden aria-labelledby="storyTitle">
