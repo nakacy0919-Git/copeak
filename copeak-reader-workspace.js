@@ -55,14 +55,14 @@ function init(){if(!panel())return;
  $("#cprClose").onclick=()=>$("#cprGuide").close();
  $("#cprLibrary").addEventListener("click",e=>{
  var cat=e.target.closest("[data-cat]")?.dataset.cat;if(cat==="normal")$("#cprSearch").focus();
- if(cat==="quest"){var quest=$("#cprQuestPanel");if(quest){quest.hidden=false;quest.scrollIntoView({block:"nearest"})}else location.href="./challenge.html"}
+ if(cat==="quest"){var quest=$("#cprQuestPanel");if(quest){var r=$("#cpReaderPage");r.classList.add("cpr-quest-open");$("#cprLibrary").hidden=true;quest.hidden=false;if(!$("#cprQuestBack")){var back=make("button","cpr-quest-back","← 教材ライブラリに戻る");back.id="cprQuestBack";back.type="button";back.onclick=()=>{quest.hidden=true;$("#cprLibrary").hidden=false;r.classList.remove("cpr-quest-open");refresh()};quest.prepend(back)}quest.scrollIntoView({block:"start"})}else location.href="./challenge.html"}
  var action=e.target.closest("[data-shortcut]")?.dataset.shortcut;
  if(action==="search"){selected="all";foldersDraw();lessonsDraw();$("#cprSearch").focus()}
  if(action==="popular"||action==="new"){selected="all";sort=action==="popular"?"popular":"new";$("#cprSort").value=sort;foldersDraw();lessonsDraw()}
  if(action==="guide")$("#cprGuide").showModal();
  });
  var reader=$("#cpReaderPage");new MutationObserver(()=>{if(!reader.hidden)refresh()}).observe(reader,{attributes:true,attributeFilter:["hidden"]});
- window.addEventListener("copeak-storage-ready",refresh);window.CopeakReaderV2={refresh};
+ window.addEventListener("copeak-storage-ready",refresh);var oldList=$("#savedLessonsList");if(oldList)new MutationObserver(()=>{if(!reader.hidden)refresh()}).observe(oldList,{childList:true});window.CopeakReaderV2={refresh};
  refresh();
 }
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",()=>setTimeout(init,150));else setTimeout(init,150);
