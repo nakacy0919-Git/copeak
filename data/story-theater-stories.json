@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "note": "Three original graded stories with full artwork and narration: The Empty Chair, The Red Umbrella, The Box of Letters.",
+  "note": "Four original graded stories with full illustrations and narration: The Empty Chair (A1–A2), The Red Umbrella (A2–B1), The Box of Letters (B1–B2), and The Piano in the Hall (B2–C1).",
   "stories": [
     {
       "id": "the-empty-chair",
@@ -948,6 +948,508 @@
           ],
           "answer": 1,
           "explanation": "伝えるのをためらう言葉が、誰かにとって必要な言葉かもしれないという結末です。"
+        }
+      ],
+      "mediaReady": true
+    },
+    {
+      "id": "the-piano-in-the-hall",
+      "level": "準1級相当",
+      "cefr": "B2–C1",
+      "title": "The Piano in the Hall",
+      "subtitle": "ホールのピアノ",
+      "description": "A forgotten piano restores memories that words alone cannot express.",
+      "scenes": [
+        {
+          "text": "For decades, an old upright piano had stood in the entrance hall of a small hospital. Covered in dust and rarely noticed, it had gradually become little more than an obstacle. When the hospital announced plans to remove it, few people objected. After all, nobody could remember when the instrument had last filled the hall with music.",
+          "ja": "何十年もの間、小さな病院の玄関ホールには古いアップライトピアノが置かれていました。ほこりをかぶり、ほとんど誰にも気に留められないまま、いつしかただの邪魔なものになっていました。病院が撤去する計画を発表しても、反対する人はほとんどいませんでした。最後にそのピアノの音がホールに響いたのはいつなのか、誰も覚えていなかったのです。",
+          "alt": "A dusty and neglected upright piano stands in the corner of a warm hospital entrance hall as staff and visitors pass by.",
+          "grammar": {
+            "focus": "Covered in dust and rarely noticed, it had gradually become little more than an obstacle.",
+            "parts": [
+              {
+                "role": "M",
+                "value": "Covered in dust and rarely noticed"
+              },
+              {
+                "role": "S",
+                "value": "it"
+              },
+              {
+                "role": "V",
+                "value": "had gradually become"
+              },
+              {
+                "role": "C",
+                "value": "little more than an obstacle"
+              }
+            ],
+            "note": "Covered in dust は過去分詞から始まる分詞構文でピアノの状態を説明します。had become は過去完了です。"
+          },
+          "image": "assets/story-theater/the-piano-in-the-hall/scene-01.webp",
+          "audio": "assets/story-theater/the-piano-in-the-hall/scene-01.mp3"
+        },
+        {
+          "text": "During a volunteer visit, seventeen-year-old Rina noticed the neglected instrument. Curious, she gently pressed one of its yellowed keys. The uneven sound immediately brought back memories of her childhood, when her grandmother had patiently taught her to play. Although the piano was badly out of tune, Rina felt an unexpected sense of connection to the past.",
+          "ja": "ボランティアで訪れた17歳のリナは、放置されていた楽器に気づきました。興味を持った彼女は、黄ばんだ鍵盤を一つそっと押しました。不揃いな音色を聞くと、祖母が辛抱強くピアノを教えてくれた幼い頃の記憶が一気によみがえりました。ピアノの音程はひどく狂っていましたが、リナは思いがけず過去とのつながりを感じました。",
+          "alt": "Rina, a seventeen-year-old volunteer with a dark ponytail, gently presses a yellowed key on the dusty piano; a translucent memory of her grandmother appears in the sunlight.",
+          "grammar": {
+            "focus": "Although the piano was badly out of tune, Rina felt an unexpected sense of connection to the past.",
+            "parts": [
+              {
+                "role": "M",
+                "value": "Although the piano was badly out of tune"
+              },
+              {
+                "role": "S",
+                "value": "Rina"
+              },
+              {
+                "role": "V",
+                "value": "felt"
+              },
+              {
+                "role": "O",
+                "value": "an unexpected sense of connection to the past"
+              }
+            ],
+            "note": "Although は譲歩を表す接続詞で「～だけれども」。out of tune は「音程が合っていない」です。"
+          },
+          "image": "assets/story-theater/the-piano-in-the-hall/scene-02.webp",
+          "audio": "assets/story-theater/the-piano-in-the-hall/scene-02.mp3"
+        },
+        {
+          "text": "Several years earlier, Rina's grandmother had suffered a stroke that gradually deprived her of the ability to speak. Yet familiar melodies continued to bring a gentle smile to her face. Whenever Rina played the piano, her grandmother would move her fingers in rhythm, as though the music allowed her to express feelings that words could no longer convey.",
+          "ja": "数年前、リナの祖母は脳卒中を患い、次第に話す能力を失っていきました。それでも聞き慣れた旋律は、祖母の顔に穏やかな笑顔をもたらし続けました。リナがピアノを弾くたびに祖母はリズムに合わせて指を動かしました。まるで、言葉ではもう伝えられない気持ちを、音楽によって表現できるかのようでした。",
+          "alt": "A tender memory: young Rina plays a piano at home while her grandmother smiles and moves her fingers gently in time with the music.",
+          "grammar": {
+            "focus": "Rina's grandmother had suffered a stroke that gradually deprived her of the ability to speak.",
+            "parts": [
+              {
+                "role": "S",
+                "value": "Rina's grandmother"
+              },
+              {
+                "role": "V",
+                "value": "had suffered"
+              },
+              {
+                "role": "O",
+                "value": "a stroke"
+              },
+              {
+                "role": "M",
+                "value": "that gradually deprived her of the ability to speak"
+              }
+            ],
+            "note": "関係代名詞 that 以下が a stroke を修飾します。deprive A of B は「AからBを奪う」。"
+          },
+          "image": "assets/story-theater/the-piano-in-the-hall/scene-03.webp",
+          "audio": "assets/story-theater/the-piano-in-the-hall/scene-03.mp3"
+        },
+        {
+          "text": "Determined to give the instrument a second chance, Rina proposed restoring it rather than disposing of it. At first, hospital administrators were reluctant, citing limited space and financial concerns. However, her enthusiasm gradually inspired others. Local musicians offered their support, a technician volunteered to repair the piano, and hospital staff helped transform the neglected corner into a welcoming space.",
+          "ja": "ピアノにもう一度活躍の機会を与えたいと決意したリナは、処分するのではなく修復することを提案しました。初めは病院の管理者たちは、場所の制約や費用面の懸念を挙げて消極的でした。しかし、リナの熱意は少しずつ周囲の人々を動かしました。地元の音楽家たちが協力を申し出て、技術者がピアノの修理を引き受け、病院職員たちも放置されていた一角を温かな場所へと変える手伝いをしました。",
+          "alt": "In the hospital hall, an elderly piano technician carefully tunes exposed upright-piano strings, while Rina cleans the keys and volunteers polish the case.",
+          "grammar": {
+            "focus": "Determined to give the instrument a second chance, Rina proposed restoring it rather than disposing of it.",
+            "parts": [
+              {
+                "role": "M",
+                "value": "Determined to give the instrument a second chance"
+              },
+              {
+                "role": "S",
+                "value": "Rina"
+              },
+              {
+                "role": "V",
+                "value": "proposed"
+              },
+              {
+                "role": "O",
+                "value": "restoring it rather than disposing of it"
+              }
+            ],
+            "note": "Determined to ... は主語の状態を示す分詞構文。propose の後には動名詞 restoring が続き、rather than は対比を表します。"
+          },
+          "image": "assets/story-theater/the-piano-in-the-hall/scene-04.webp",
+          "audio": "assets/story-theater/the-piano-in-the-hall/scene-04.mp3"
+        },
+        {
+          "text": "On the day of the first performance, patients, visitors, and medical staff gathered around the restored piano. As Rina began to play, conversations gradually fell silent. Among the listeners was an elderly patient who had rarely left his room since losing his wife. Recognizing the melody they had once enjoyed together, he closed his eyes, overwhelmed by memories.",
+          "ja": "初めての演奏の日、患者や面会者、医療スタッフが修復されたピアノの周りに集まりました。リナが演奏を始めると、話し声は次第に静まりました。聴衆の中には、妻を亡くして以来ほとんど病室から出なかった高齢の患者もいました。かつて妻と一緒に楽しんだ旋律だと気づくと、思い出に胸がいっぱいになり、目を閉じました。",
+          "alt": "Rina plays the restored upright piano in the hospital lobby; an elderly man in a brown cardigan sits close by with closed eyes, visibly moved, as patients and staff listen.",
+          "grammar": {
+            "focus": "Recognizing the melody they had once enjoyed together, he closed his eyes, overwhelmed by memories.",
+            "parts": [
+              {
+                "role": "M",
+                "value": "Recognizing the melody they had once enjoyed together"
+              },
+              {
+                "role": "S",
+                "value": "he"
+              },
+              {
+                "role": "V",
+                "value": "closed"
+              },
+              {
+                "role": "O",
+                "value": "his eyes"
+              },
+              {
+                "role": "M",
+                "value": "overwhelmed by memories"
+              }
+            ],
+            "note": "Recognizing と overwhelmed は分詞を使って状況・心情を表しています。the melody (that) they had once enjoyed では関係代名詞が省略されています。"
+          },
+          "image": "assets/story-theater/the-piano-in-the-hall/scene-05.webp",
+          "audio": "assets/story-theater/the-piano-in-the-hall/scene-05.mp3"
+        },
+        {
+          "text": "When the final notes faded, the elderly man approached Rina and quietly thanked her. “For a moment, I felt as though my wife were sitting beside me again,” he said. Rina realized that restoring the piano had accomplished far more than preserving an old instrument. It had created a place where memories could be shared and emotions understood, even when words were not enough.",
+          "ja": "最後の音が消えると、その高齢の男性はリナに近づき、静かに感謝を伝えました。「ほんの一瞬、妻がまた隣に座っているように感じたんです」と彼は言いました。リナは、ピアノの修復が古い楽器を保存する以上のことを成し遂げたと気づきました。そこは、言葉だけでは足りないときにも、思い出を分かち合い、感情を理解し合える場所になったのです。",
+          "alt": "After the performance, a grateful elderly man warmly holds Rina's hands beside the restored upright piano while patients and hospital staff smile and applaud in golden sunlight.",
+          "grammar": {
+            "focus": "Rina realized that restoring the piano had accomplished far more than preserving an old instrument.",
+            "parts": [
+              {
+                "role": "S",
+                "value": "Rina"
+              },
+              {
+                "role": "V",
+                "value": "realized"
+              },
+              {
+                "role": "O",
+                "value": "that restoring the piano had accomplished far more than preserving an old instrument"
+              }
+            ],
+            "note": "that は realized の内容を導く接続詞。restoring / preserving は動名詞で、had accomplished は過去完了です。"
+          },
+          "image": "assets/story-theater/the-piano-in-the-hall/scene-06.webp",
+          "audio": "assets/story-theater/the-piano-in-the-hall/scene-06.mp3"
+        }
+      ],
+      "vocab": [
+        {
+          "term": "upright piano",
+          "pos": "名詞句",
+          "ja": "アップライトピアノ",
+          "detail": "弦を縦方向に張ったピアノ。",
+          "example": "An upright piano stood in the hall."
+        },
+        {
+          "term": "entrance hall",
+          "pos": "名詞句",
+          "ja": "玄関ホール",
+          "detail": "entrance は入口、hall は広い室内空間。",
+          "example": "Visitors passed through the entrance hall."
+        },
+        {
+          "term": "obstacle",
+          "pos": "名詞",
+          "ja": "障害物、邪魔なもの",
+          "detail": "比喩的にも使う名詞。",
+          "example": "It had become little more than an obstacle."
+        },
+        {
+          "term": "objected",
+          "pos": "動詞",
+          "ja": "反対した",
+          "detail": "object to + 名詞・動名詞 で「～に反対する」。",
+          "example": "Few people objected.",
+          "forms": [
+            "object"
+          ]
+        },
+        {
+          "term": "neglected",
+          "pos": "形容詞",
+          "ja": "放置された、顧みられない",
+          "detail": "neglect は「世話・注意を怠る」。",
+          "example": "Rina noticed the neglected instrument."
+        },
+        {
+          "term": "uneven",
+          "pos": "形容詞",
+          "ja": "不揃いな、均一でない",
+          "detail": "un- は否定を表す接頭辞。",
+          "example": "The piano made an uneven sound."
+        },
+        {
+          "term": "out of tune",
+          "pos": "熟語",
+          "ja": "音程が狂っている",
+          "detail": "tune は調子・音程。",
+          "example": "The piano was badly out of tune."
+        },
+        {
+          "term": "connection",
+          "pos": "名詞",
+          "ja": "つながり",
+          "detail": "connect（つなぐ）から派生。",
+          "example": "She felt a connection to the past."
+        },
+        {
+          "term": "stroke",
+          "pos": "名詞",
+          "ja": "脳卒中",
+          "detail": "医療文脈で脳卒中を表す語。",
+          "example": "Her grandmother had suffered a stroke."
+        },
+        {
+          "term": "deprived",
+          "pos": "動詞",
+          "ja": "奪った",
+          "detail": "deprive A of B は「AからBを奪う」。",
+          "example": "The stroke deprived her of speech.",
+          "forms": [
+            "deprive"
+          ]
+        },
+        {
+          "term": "melodies",
+          "pos": "名詞",
+          "ja": "旋律",
+          "detail": "melody の複数形。",
+          "example": "Familiar melodies made her smile.",
+          "forms": [
+            "melody"
+          ]
+        },
+        {
+          "term": "in rhythm",
+          "pos": "熟語",
+          "ja": "リズムに合わせて",
+          "detail": "rhythm は「リズム、拍子」。",
+          "example": "Her fingers moved in rhythm."
+        },
+        {
+          "term": "convey",
+          "pos": "動詞",
+          "ja": "伝える",
+          "detail": "感情・考え・情報を表現する。",
+          "example": "Words could no longer convey her feelings."
+        },
+        {
+          "term": "determined",
+          "pos": "形容詞",
+          "ja": "決意した",
+          "detail": "be determined to do は「～しようと決意している」。",
+          "example": "Rina was determined to help."
+        },
+        {
+          "term": "restoring",
+          "pos": "動詞",
+          "ja": "修復すること",
+          "detail": "restore は「元の状態に戻す」。",
+          "example": "She proposed restoring the piano.",
+          "forms": [
+            "restore",
+            "restored"
+          ]
+        },
+        {
+          "term": "disposing of",
+          "pos": "動詞句",
+          "ja": "処分すること",
+          "detail": "dispose of は「～を処分する」。",
+          "example": "She opposed disposing of it.",
+          "forms": [
+            "dispose of"
+          ]
+        },
+        {
+          "term": "reluctant",
+          "pos": "形容詞",
+          "ja": "消極的な、気が進まない",
+          "detail": "be reluctant to do で「～したがらない」。",
+          "example": "The administrators were reluctant."
+        },
+        {
+          "term": "citing",
+          "pos": "動詞",
+          "ja": "理由に挙げて",
+          "detail": "cite は証拠・理由を示すこと。",
+          "example": "They were citing financial concerns.",
+          "forms": [
+            "cite"
+          ]
+        },
+        {
+          "term": "enthusiasm",
+          "pos": "名詞",
+          "ja": "熱意",
+          "detail": "熱心な気持ち。",
+          "example": "Her enthusiasm inspired others."
+        },
+        {
+          "term": "transform",
+          "pos": "動詞",
+          "ja": "変える",
+          "detail": "transform A into B は「AをBに変える」。",
+          "example": "They helped transform the corner."
+        },
+        {
+          "term": "performance",
+          "pos": "名詞",
+          "ja": "演奏、公演",
+          "detail": "ここではピアノの演奏会。",
+          "example": "The performance began in the hospital hall."
+        },
+        {
+          "term": "fell silent",
+          "pos": "動詞句",
+          "ja": "静かになった",
+          "detail": "fall silent は「沈黙する」。",
+          "example": "The conversations fell silent."
+        },
+        {
+          "term": "rarely",
+          "pos": "副詞",
+          "ja": "めったに～ない",
+          "detail": "頻度の低さを表す。",
+          "example": "The man rarely left his room."
+        },
+        {
+          "term": "recognizing",
+          "pos": "動詞",
+          "ja": "気づいて、認識して",
+          "detail": "recognize は「見覚えがある、認識する」。",
+          "example": "Recognizing the melody, he closed his eyes.",
+          "forms": [
+            "recognize"
+          ]
+        },
+        {
+          "term": "overwhelmed",
+          "pos": "形容詞",
+          "ja": "胸がいっぱいになった",
+          "detail": "overwhelmed by memories で「思い出に圧倒されて」。",
+          "example": "He was overwhelmed by memories."
+        },
+        {
+          "term": "faded",
+          "pos": "動詞",
+          "ja": "次第に消えた",
+          "detail": "音や光が薄れていくこと。",
+          "example": "The final notes faded.",
+          "forms": [
+            "fade"
+          ]
+        },
+        {
+          "term": "approached",
+          "pos": "動詞",
+          "ja": "近づいた",
+          "detail": "approach は前置詞なしで目的語を取る。",
+          "example": "The man approached Rina.",
+          "forms": [
+            "approach"
+          ]
+        },
+        {
+          "term": "accomplished",
+          "pos": "動詞",
+          "ja": "成し遂げた",
+          "detail": "目的や成果を達成する。",
+          "example": "The restoration accomplished a lot.",
+          "forms": [
+            "accomplish"
+          ]
+        },
+        {
+          "term": "preserving",
+          "pos": "動詞",
+          "ja": "保存すること",
+          "detail": "preserve は「守る、保存する」。",
+          "example": "Preserving the piano was important.",
+          "forms": [
+            "preserve"
+          ]
+        },
+        {
+          "term": "emotions",
+          "pos": "名詞",
+          "ja": "感情",
+          "detail": "emotion の複数形。",
+          "example": "Emotions can be understood without words.",
+          "forms": [
+            "emotion"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "question": "Why did the hospital consider removing the piano?",
+          "options": [
+            "The piano was causing noise complaints.",
+            "It had become an unused obstacle in the entrance hall.",
+            "Rina wanted a new instrument.",
+            "It was blocking the hospital entrance completely."
+          ],
+          "answer": 1,
+          "explanation": "長い間演奏されず、ホールの邪魔なものとみなされていたからです。"
+        },
+        {
+          "question": "What made Rina remember her grandmother?",
+          "options": [
+            "The old piano's uneven sound.",
+            "A photograph in the hospital.",
+            "A nurse's explanation.",
+            "A song played on the radio."
+          ],
+          "answer": 0,
+          "explanation": "黄ばんだ鍵盤から出た不揃いな音が、祖母とのピアノの思い出を呼び起こしました。"
+        },
+        {
+          "question": "What could Rina's grandmother still respond to after the stroke?",
+          "options": [
+            "Written letters.",
+            "Long conversations.",
+            "Familiar melodies.",
+            "The sound of the hospital bell."
+          ],
+          "answer": 2,
+          "explanation": "言葉で話せなくなっても、親しんだ旋律に微笑み、指を動かしていました。"
+        },
+        {
+          "question": "How did Rina persuade others to restore the piano?",
+          "options": [
+            "She purchased it secretly.",
+            "She insisted the hospital close a room.",
+            "She used her enthusiasm to gain help from musicians, a technician, and staff.",
+            "She asked the elderly patient to pay the whole cost."
+          ],
+          "answer": 2,
+          "explanation": "リナの熱意が周囲を動かし、音楽家・技術者・病院職員たちの協力につながりました。"
+        },
+        {
+          "question": "Why was the elderly patient deeply moved by the performance?",
+          "options": [
+            "He recognized a melody he had once shared with his wife.",
+            "He had never heard a piano before.",
+            "He wanted to become a musician.",
+            "He knew the piano technician."
+          ],
+          "answer": 0,
+          "explanation": "亡き妻と一緒に楽しんだ曲だったため、思い出がよみがえりました。"
+        },
+        {
+          "question": "What is the main message of the story?",
+          "options": [
+            "Hospitals should never accept donated instruments.",
+            "Expensive instruments are always valuable.",
+            "The past should be forgotten.",
+            "Music can connect people and express feelings beyond words."
+          ],
+          "answer": 3,
+          "explanation": "ピアノは単なる楽器を超え、思い出を分かち合い、言葉にできない感情を伝える場所となりました。"
         }
       ],
       "mediaReady": true

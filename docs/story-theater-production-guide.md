@@ -274,92 +274,90 @@ On the way home, her grandfather held the empty wooden box and smiled. “I kept
 
 内容確認用和訳: 帰り道、祖父は空になった木箱を抱いて微笑みました。「怖くて手紙を全部取っておいたんだ」と言いました。「でも君のおかげで一番大事な気持ちを伝えられた。ずっと忘れていなかったよ、と」。
 
-### The Piano in the Hall — ホールのピアノ（英語レベル 準1級相当 / B2–C1）
+### The Piano in the Hall — ホールのピアノ（英語レベル準1級相当 / B2–C1）
 
-画像・音声用の共通フォルダ: `assets/story-theater/the-piano-in-the-hall/`
+**2026-11-19 公開原稿** — 各Sceneは今回提供された音声と対応します。画像・音声は `assets/story-theater/the-piano-in-the-hall/` に配置します。
 
-| No. | WebP画像 | MP3音声 |
-|---:|---|---|
-| 01 | `assets/story-theater/the-piano-in-the-hall/scene-01.webp` | `assets/story-theater/the-piano-in-the-hall/scene-01.mp3` |
-| 02 | `assets/story-theater/the-piano-in-the-hall/scene-02.webp` | `assets/story-theater/the-piano-in-the-hall/scene-02.mp3` |
-| 03 | `assets/story-theater/the-piano-in-the-hall/scene-03.webp` | `assets/story-theater/the-piano-in-the-hall/scene-03.mp3` |
-| 04 | `assets/story-theater/the-piano-in-the-hall/scene-04.webp` | `assets/story-theater/the-piano-in-the-hall/scene-04.mp3` |
-| 05 | `assets/story-theater/the-piano-in-the-hall/scene-05.webp` | `assets/story-theater/the-piano-in-the-hall/scene-05.mp3` |
-| 06 | `assets/story-theater/the-piano-in-the-hall/scene-06.webp` | `assets/story-theater/the-piano-in-the-hall/scene-06.mp3` |
+| Scene | 画像 | 音声 |
+|---|---|---|
+| 01 | `scene-01.webp` | `scene-01.mp3` |
+| 02 | `scene-02.webp` | `scene-02.mp3` |
+| 03 | `scene-03.webp` | `scene-03.mp3` |
+| 04 | `scene-04.webp` | `scene-04.mp3` |
+| 05 | `scene-05.webp` | `scene-05.mp3` |
+| 06 | `scene-06.webp` | `scene-06.mp3` |
 
-#### 各場面の画像プロンプトと音声原稿
+#### Scene 01
 
-**Scene 01**
+画像: A dusty and neglected upright piano stands in the corner of a warm hospital entrance hall as staff and visitors pass by.
 
-画像シーン: An old dusty upright piano stands alone in a quiet hospital lobby.
-
-音声原稿 (en-US):
+音声原稿:
 
 ```text
-For years, a dusty piano stood in the entrance hall of a small hospital. Nobody remembered when it had last been played, and the staff considered removing it to create more space.
+For decades, an old upright piano had stood in the entrance hall of a small hospital. Covered in dust and rarely noticed, it had gradually become little more than an obstacle. When the hospital announced plans to remove it, few people objected. After all, nobody could remember when the instrument had last filled the hall with music.
 ```
 
-内容確認用和訳: 小さな病院の玄関ホールには、何年もほこりをかぶったピアノが置かれていました。最後に演奏された時を知る人もおらず、職員たちは場所を空けるため撤去を検討していました。
+内容確認用和訳: 何十年もの間、小さな病院の玄関ホールには古いアップライトピアノが置かれていました。ほこりをかぶり、ほとんど誰にも気に留められないまま、いつしかただの邪魔なものになっていました。病院が撤去する計画を発表しても、反対する人はほとんどいませんでした。最後にそのピアノの音がホールに響いたのはいつなのか、誰も覚えていなかったのです。
 
-**Scene 02**
+#### Scene 02
 
-画像シーン: Rina presses an old piano key and remembers her grandmother teaching music.
+画像: Rina, a seventeen-year-old volunteer with a dark ponytail, gently presses a yellowed key on the dusty piano; a translucent memory of her grandmother appears in the sunlight.
 
-音声原稿 (en-US):
+音声原稿:
 
 ```text
-During a volunteer visit, seventeen-year-old Rina noticed the instrument and gently pressed a key. Its uneven sound reminded her of the evenings she had spent practicing beside her grandmother.
+During a volunteer visit, seventeen-year-old Rina noticed the neglected instrument. Curious, she gently pressed one of its yellowed keys. The uneven sound immediately brought back memories of her childhood, when her grandmother had patiently taught her to play. Although the piano was badly out of tune, Rina felt an unexpected sense of connection to the past.
 ```
 
-内容確認用和訳: ボランティアで訪れた17歳のリナはピアノに気づき、そっと鍵盤を押しました。不揃いな音を聞き、祖母のそばで練習した夜を思い出しました。
+内容確認用和訳: ボランティアで訪れた17歳のリナは、放置されていた楽器に気づきました。興味を持った彼女は、黄ばんだ鍵盤を一つそっと押しました。不揃いな音色を聞くと、祖母が辛抱強くピアノを教えてくれた幼い頃の記憶が一気によみがえりました。ピアノの音程はひどく狂っていましたが、リナは思いがけず過去とのつながりを感じました。
 
-**Scene 03**
+#### Scene 03
 
-画像シーン: Tender memory of an elderly grandmother moving her fingers to Rina's piano.
+画像: A tender memory: young Rina plays a piano at home while her grandmother smiles and moves her fingers gently in time with the music.
 
-音声原稿 (en-US):
+音声原稿:
 
 ```text
-Her grandmother had gradually lost the ability to speak after a stroke, yet she could still recognize familiar melodies. Whenever Rina played, her grandmother's fingers would move softly along with the music.
+Several years earlier, Rina's grandmother had suffered a stroke that gradually deprived her of the ability to speak. Yet familiar melodies continued to bring a gentle smile to her face. Whenever Rina played the piano, her grandmother would move her fingers in rhythm, as though the music allowed her to express feelings that words could no longer convey.
 ```
 
-内容確認用和訳: 祖母は脳卒中の後、徐々に話す力を失いましたが、聞き慣れた旋律を認識することはできました。リナが弾くたび、祖母の指は音楽に合わせて優しく動いたのでした。
+内容確認用和訳: 数年前、リナの祖母は脳卒中を患い、次第に話す能力を失っていきました。それでも聞き慣れた旋律は、祖母の顔に穏やかな笑顔をもたらし続けました。リナがピアノを弾くたびに祖母はリズムに合わせて指を動かしました。まるで、言葉ではもう伝えられない気持ちを、音楽によって表現できるかのようでした。
 
-**Scene 04**
+#### Scene 04
 
-画像シーン: Rina and a piano technician restore the instrument with volunteer helpers.
+画像: In the hospital hall, an elderly piano technician carefully tunes exposed upright-piano strings, while Rina cleans the keys and volunteers polish the case.
 
-音声原稿 (en-US):
+音声原稿:
 
 ```text
-Rina persuaded the hospital to let her organize a small restoration project. Local musicians donated their time, and a technician volunteered to repair the neglected instrument.
+Determined to give the instrument a second chance, Rina proposed restoring it rather than disposing of it. At first, hospital administrators were reluctant, citing limited space and financial concerns. However, her enthusiasm gradually inspired others. Local musicians offered their support, a technician volunteered to repair the piano, and hospital staff helped transform the neglected corner into a welcoming space.
 ```
 
-内容確認用和訳: リナは病院を説得して、小さな修復活動を企画する許可を得ました。地元の音楽家たちが時間を提供し、調律師が放置されていた楽器の修理を申し出ました。
+内容確認用和訳: ピアノにもう一度活躍の機会を与えたいと決意したリナは、処分するのではなく修復することを提案しました。初めは病院の管理者たちは、場所の制約や費用面の懸念を挙げて消極的でした。しかし、リナの熱意は少しずつ周囲の人々を動かしました。地元の音楽家たちが協力を申し出て、技術者がピアノの修理を引き受け、病院職員たちも放置されていた一角を温かな場所へと変える手伝いをしました。
 
-**Scene 05**
+#### Scene 05
 
-画像シーン: Patients and staff gather around the restored piano as Rina performs.
+画像: Rina plays the restored upright piano in the hospital lobby; an elderly man in a brown cardigan sits close by with closed eyes, visibly moved, as patients and staff listen.
 
-音声原稿 (en-US):
+音声原稿:
 
 ```text
-On the day of the first performance, patients and visitors gathered in the hall. An elderly man who rarely left his room asked to sit near the piano, saying the song reminded him of his late wife.
+On the day of the first performance, patients, visitors, and medical staff gathered around the restored piano. As Rina began to play, conversations gradually fell silent. Among the listeners was an elderly patient who had rarely left his room since losing his wife. Recognizing the melody they had once enjoyed together, he closed his eyes, overwhelmed by memories.
 ```
 
-内容確認用和訳: 最初の演奏の日、患者や来訪者がホールに集まりました。普段はほとんど部屋を出ない高齢の男性が、亡き妻を思い出す曲だと言ってピアノの近くに座りたがりました。
+内容確認用和訳: 初めての演奏の日、患者や面会者、医療スタッフが修復されたピアノの周りに集まりました。リナが演奏を始めると、話し声は次第に静まりました。聴衆の中には、妻を亡くして以来ほとんど病室から出なかった高齢の患者もいました。かつて妻と一緒に楽しんだ旋律だと気づくと、思い出に胸がいっぱいになり、目を閉じました。
 
-**Scene 06**
+#### Scene 06
 
-画像シーン: The elderly man thanks Rina at the piano; people share a moving moment.
+画像: After the performance, a grateful elderly man warmly holds Rina's hands beside the restored upright piano while patients and hospital staff smile and applaud in golden sunlight.
 
-音声原稿 (en-US):
+音声原稿:
 
 ```text
-As the final notes faded, the man quietly thanked Rina. She realized that the piano had not simply been repaired; it had become a place where memories could be shared, even when words were no longer enough.
+When the final notes faded, the elderly man approached Rina and quietly thanked her. “For a moment, I felt as though my wife were sitting beside me again,” he said. Rina realized that restoring the piano had accomplished far more than preserving an old instrument. It had created a place where memories could be shared and emotions understood, even when words were not enough.
 ```
 
-内容確認用和訳: 最後の音が消えると、男性は静かにリナに感謝しました。リナは、ピアノは単に修理されただけでなく、言葉では足りない時にも思い出を分かち合える場所になったのだと悟りました。
+内容確認用和訳: 最後の音が消えると、その高齢の男性はリナに近づき、静かに感謝を伝えました。「ほんの一瞬、妻がまた隣に座っているように感じたんです」と彼は言いました。リナは、ピアノの修復が古い楽器を保存する以上のことを成し遂げたと気づきました。そこは、言葉だけでは足りないときにも、思い出を分かち合い、感情を理解し合える場所になったのです。
 
 ### The Lighthouse We Kept — 私たちが守った灯台（英語レベル 1級相当 / C1–C2）
 
