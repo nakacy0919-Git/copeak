@@ -37,7 +37,7 @@ function cards(){
 }
 async function populateAmbientReel(){
   const host=$('ambientReel');if(!host)return;
-  const images=state.stories.flatMap(story=>story.scenes.map(scene=>scene.image)).filter(path=>typeof path==='string'&&/^assets\\/story-theater\\/[a-z0-9-]+\\/scene-\\d+\\.(webp|png|jpg|svg)$/i.test(path));
+  const images=state.stories.flatMap(story=>story.scenes.map(scene=>scene.image)).filter(path=>typeof path==='string'&&path.startsWith('assets/story-theater/')&&['.webp','.png','.jpg','.svg'].some(ext=>path.toLowerCase().endsWith(ext)));
   const verified=await Promise.all(images.slice(0,24).map(src=>new Promise(resolve=>{
     const test=new Image();test.onload=()=>resolve(src);test.onerror=()=>resolve(null);test.src=src;
   })));
