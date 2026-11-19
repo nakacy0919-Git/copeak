@@ -218,6 +218,7 @@ function editLesson(event, id) {
     request.onsuccess = () => {
         const lesson = request.result;
         if (!lesson) return;
+        window.CopeakThumbnail?.loadForEdit(lesson.thumbnailDataUrl);
 
         document.getElementById('customTitle').value = lesson.title;
         document.getElementById('customLang').value = lesson.lang;
@@ -316,6 +317,7 @@ if (typeof showMsg === 'function') {
 }
 
 function cancelEdit(isSilent = false) {
+    window.CopeakThumbnail?.reset();
     document.getElementById("customMaterialForm").reset();
     window.CopeakFocus.restore("customEng", []);
     document.getElementById('customAudio').value = "";
@@ -375,6 +377,7 @@ document.getElementById('suggestCustomScoreExclusions')?.addEventListener('click
 });
 
 async function saveCustomLesson() {
+    if(window.CopeakThumbnail?.isBusy()) {if(typeof showMsg==='function')showMsg('サムネイル圧縮の完了後に保存してください');return;}
     const title = document.getElementById("customTitle").value.trim();
     const jpnText = document.getElementById("customJpn").value.trim();
     const formUrl = document.getElementById("customFormUrl")?.value.trim() || "";
@@ -441,6 +444,7 @@ async function saveCustomLesson() {
             lesson.type = lessonType;
             lesson.dialogue = dialogueData;
             lesson.memoImage = window.currentMemoImageBase64 || null;
+            lesson.thumbnailDataUrl = window.CopeakThumbnail?.getForSave() || null;
 
             if (audioFile) lesson.audioBlob = audioFile;
 
@@ -462,6 +466,7 @@ async function saveCustomLesson() {
             type: lessonType, // 教材の種類
             dialogue: dialogueData, // 会話データ
             memoImage: window.currentMemoImageBase64 || null, // 🌟 追加：メモ画像
+            thumbnailDataUrl: window.CopeakThumbnail?.getForSave() || null,
             history: [],
             createdAt: new Date().getTime()
         };
