@@ -16063,6 +16063,17 @@ function getEnglishAsrYearComparisonUnit(
 // can't = can not / cannot
 // he's = he is / he has など
 // ==========================================
+// ASR may use a yen symbol for the spoken phrase "980 yen".
+// Normalize for display/comparison, not for the saved raw transcript.
+function normalizeEnglishCurrencyText(text, lang = 'en-US') {
+    const source = String(text || '');
+    if (!/^en(?:-|$)/i.test(lang)) return source;
+    return source.replace(
+        /[¥￥]\s*([0-9０-９][0-9０-９,，]*(?:[.．][0-9０-９]+)?)(?:\s*yen\b)?(?![\p{L}\p{N}])/giu,
+        (_, amount) => amount.normalize('NFKC').replace(/，/g, ',') + ' yen'
+    );
+}
+
 function buildSpeechComparisonUnits(
     text,
     lang = 'en-US'
@@ -16070,7 +16081,7 @@ function buildSpeechComparisonUnits(
 
     const segments =
         segmentSpeechText(
-            text,
+            normalizeEnglishCurrencyText(text, lang),
             lang
         );
 
@@ -16756,6 +16767,49 @@ function refreshRecognitionTargetTextArray() {
     // 採点専用内部トークンでは上書きしない。
     // ==========================================
     return getLessonTargetTokens();
+}
+
+// Use lesson sentence/dialogue boundaries for display only.
+// Never infer missing speech or add punctuation to the raw transcript.
+function getLessonTranscriptChunks() {
+    if (typeof currentCustomLesson === 'undefined' || !currentCustomLesson) return [];
+    const parts = currentCustomLesson.type === 'dialogue' &&
+        Array.isArray(currentCustomLesson.dialogue)
+        ? currentCustomLesson.dialogue.map(line => String(line?.text || ''))
+        : [String(currentCustomLesson.eng || '')];
+
+    return parts.flatMap(part => part
+        .replace(/([.!?。！？])\s+(?=\S)/gu, '$1\n').split(/\r?\n+/u)
+        .map(chunk => chunk.trim()).filter(Boolean));
+}
+
+function getTranscriptDisplayBreaks(targetTokens, spokenUnits, alignment, lang) {
+    const chunks = getLessonTranscriptChunks();
+    const breaks = new Set();
+    if (chunks.length < 2) return breaks;
+    const lengths = chunks.map(chunk => buildSpeechComparisonUnits(chunk, lang).length);
+    if (lengths.reduce((sum, length) => sum + length, 0) !== targetTokens.length) {
+        return breaks; // Do not guess when tokenization differs.
+    }
+
+    const pairs = alignment.matchedPairs || [];
+    let boundary = 0;
+    for (let i = 0; i < lengths.length - 1; i++) {
+        boundary += lengths[i];
+        let before = null;
+        for (const pair of pairs) {
+            if (pair.targetIndex < boundary) {
+                before = pair;
+                continue;
+            }
+            if (before && pair.spokenIndex > before.spokenIndex) {
+                const wordIndex = spokenUnits[pair.spokenIndex]?.sourceWordIndexes?.[0];
+                if (Number.isInteger(wordIndex) && wordIndex > 0) breaks.add(wordIndex);
+            }
+            break;
+        }
+    }
+    return breaks;
 }
 
 function escapeSpeechHtml(text) {
@@ -18875,7 +18929,8 @@ function alignSpeechTokens(spokenWords, targetWords) {
         return {
             matchCount: 0,
             matchedSpokenIndexes: new Set(),
-            matchedTargetIndexes: new Set()
+            matchedTargetIndexes: new Set(),
+            matchedPairs: []
         };
     }
 
@@ -18920,6 +18975,7 @@ function alignSpeechTokens(spokenWords, targetWords) {
     const matchedSpokenIndexes =
         new Set();
     const matchedTargetIndexes = new Set();
+    const matchedPairs = [];
 
     let spokenIndex = 0;
     let targetIndex = 0;
@@ -18938,6 +18994,7 @@ function alignSpeechTokens(spokenWords, targetWords) {
                 spokenIndex
             );
             matchedTargetIndexes.add(targetIndex);
+            matchedPairs.push({ spokenIndex, targetIndex });
 
             spokenIndex++;
             targetIndex++;
@@ -18960,7 +19017,8 @@ function alignSpeechTokens(spokenWords, targetWords) {
             matchedSpokenIndexes.size,
 
         matchedSpokenIndexes,
-        matchedTargetIndexes
+        matchedTargetIndexes,
+        matchedPairs
     };
 }
 
@@ -19015,9 +19073,10 @@ function processSpeechMatch(spokenText, isFinalResult = false) {
     // ==========================================
     // ★ 多言語対応：認識結果を分割
     // ==========================================
+    const displaySpokenText = normalizeEnglishCurrencyText(spokenText, lang);
     const spokenSegments =
         segmentSpeechText(
-            spokenText,
+            displaySpokenText,
             lang
         );
 
@@ -19035,7 +19094,7 @@ function processSpeechMatch(spokenText, isFinalResult = false) {
 
     const spokenComparisonUnits =
     buildSpeechComparisonUnits(
-        spokenText,
+        displaySpokenText,
         lang
     );
 
@@ -19065,6 +19124,10 @@ const spokenWords =
     const matchCount = [...alignment.matchedTargetIndexes]
         .filter(index => !excludedTargetIndexes.has(index)).length;
 
+
+    const transcriptLineBreaks = getTranscriptDisplayBreaks(
+        scoringTargetArray, spokenComparisonUnits, alignment, lang
+    );
 
     const matchedComparisonIndexes =
     alignment.matchedSpokenIndexes;
@@ -19123,6 +19186,10 @@ spokenComparisonUnits.forEach(
                 return;
             }
 
+
+            if (transcriptLineBreaks.has(spokenWordIndex)) {
+                htmlOutput.push('<br>');
+            }
 
             const isMatched =
                 matchedSpokenIndexes.has(
