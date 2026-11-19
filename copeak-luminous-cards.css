@@ -214,9 +214,9 @@
 @media (min-width:1191px) and (min-height:641px) {
   #copeakHomeHub {
     grid-template-rows:
-      minmax(184px,1fr)
-      clamp(145px,22dvh,202px)
-      clamp(155px,22dvh,210px)
+      clamp(230px,33dvh,300px)
+      clamp(156px,24dvh,212px)
+      minmax(160px,1fr)
       clamp(54px,7dvh,68px)!important;
   }
   #copeakHomeHub .cp-home-cards {
@@ -283,4 +283,14 @@
   #copeakHomeHub .cp-home-cards > .cp-action:hover:not(:disabled) {
     transform:none!important;
   }
+}
+
+/* Compact desktop windows must keep all four rows within the viewport. */
+@media (min-width:1191px) and (min-height:641px) and (max-height:735px) {
+  #copeakHomeHub {
+    grid-template-rows:clamp(175px,30dvh,225px) clamp(138px,23dvh,170px) minmax(130px,1fr) clamp(48px,7dvh,57px)!important;
+    gap:clamp(7px,1.2dvh,11px);
+  }
+  #copeakHomeHub .cp-home-cards > .cp-action .cp-action-icon {width:56px!important;height:56px!important}
+  #copeakHomeHub .cp-home-cards > .cp-action .cp-action-title {font-size:clamp(14px,1.3vw,19px)!important}
 }
