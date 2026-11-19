@@ -14,7 +14,7 @@ try { data = JSON.parse(read('data/story-theater-stories.json')); }
 catch (e) { console.error('Invalid story JSON:', e.message); process.exit(1); }
 const ids = new Set(), media = new Set();
 let count = 0, vocabCount = 0, quizCount = 0, missingMedia = 0;
-if (!Array.isArray(data.stories) || data.stories.length !== 5) fail.push('Expected exactly five stories.');
+if (!Array.isArray(data.stories) || data.stories.length !== 2) fail.push('Expected exactly two stories for this release.');
 for (const story of data.stories || []) {
   if (ids.has(story.id)) fail.push('Duplicate story ID ' + story.id);
   ids.add(story.id);
@@ -62,7 +62,9 @@ try {
 } catch (e) { fail.push('JavaScript syntax: ' + e.message); }
 if (!read('copeak-pages.js').includes('cpStoryTheaterEntry')) fail.push('Copeak reader entry is missing.');
 if (!read('story-theater.html').includes('story-theater.js')) fail.push('Story Theater script not loaded.');
-if (missingMedia) warns.push(missingMedia + ' image/audio files not yet supplied: fallback mode will be used.');
+if (!fs.existsSync(path.join(root,'assets/story-theater/library-hall.svg'))) fail.push('Cinematic library backdrop missing.');
+if (!fs.existsSync(path.join(root,'assets/story-theater/the-box-of-letters/cover.svg'))) fail.push('Second story fallback cover missing.');
+if (missingMedia) warns.push(missingMedia + ' scene images or audio files not supplied: illustration placeholder and browser TTS will be used.');
 console.log(JSON.stringify({ stories: ids.size, scenes: count, vocabulary: vocabCount,
   comprehensionQuestions: quizCount, assetPaths: media.size, warnings: warns, errors: fail }, null, 2));
 if (fail.length) process.exit(1);
