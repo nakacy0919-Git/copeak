@@ -1,0 +1,297 @@
+/* Copeak Reading Studio: cinematic front, bounded 3-column library, iPad fit.
+   The actual home design is intentionally untouched. */
+#cpReaderPage.cp-studio-enabled {width:min(1600px,100%);gap:6px;color:#f5fbff}
+#cpReaderPage.cp-studio-enabled .cp-page-head {
+  min-height:45px;height:45px;max-height:45px;flex:none;padding:2px 12px;
+  border:1px solid rgba(127,218,255,.4);border-radius:15px;
+  background:rgba(2,32,71,.85);backdrop-filter:blur(12px);box-shadow:0 6px 18px #031b3d40;
+}
+#cpReaderPage.cp-studio-enabled .cp-page-head-main>div {display:none}
+#cpReaderPage.cp-studio-enabled .cp-page-home {
+  width:36px;height:34px;border-radius:12px;color:#fff;
+  background:rgba(17,119,201,.8);border-color:#64d4ff;
+}
+#cpReaderPage.cp-studio-enabled .cp-page-brand {color:#fff;font-size:13px}
+#cpReaderPage.cp-studio-enabled .cp-page-brand img {width:32px;height:32px}
+#cpReaderPage.cp-studio-enabled .cp-page-scroll {
+  display:block;overflow:hidden;min-height:0;height:100%;padding:0 2px;
+  scrollbar-width:thin;scrollbar-color:#2ed3ff transparent;
+}
+#cpReaderPage.cp-studio-enabled .cp-page-scroll>.cp-studio-legacy{display:none!important}
+#cpReadingStudio{
+  box-sizing:border-box;height:100%;width:100%;min-height:0;margin:0;
+  display:grid;grid-template-rows:clamp(73px,13dvh,112px) clamp(105px,17dvh,148px) minmax(0,1fr);
+  gap:clamp(7px,1.05dvh,12px);
+  font-family:"Noto Sans JP",system-ui,sans-serif;
+  color:#effaff;
+}
+#cpReadingStudio button,#cpReadingStudio a {touch-action:manipulation;cursor:pointer}
+#cpReadingStudio .cp-studio-hero {
+  min-height:0;overflow:hidden;position:relative;padding:clamp(9px,1.3vw,18px) clamp(16px,2.25vw,36px);
+  border:1px solid rgba(111,221,255,.60);border-radius:20px;
+  background:
+    linear-gradient(92deg,rgba(2,44,99,.93) 0%,rgba(3,57,107,.81) 36%,rgba(5,51,111,.12) 85%),
+    var(--cp-voice-bg) center 29%/cover no-repeat;
+  box-shadow:inset 0 1px #ffffff75,0 8px 30px #07172d5a;
+}
+#cpReadingStudio .cp-studio-hero::after{
+  content:"";position:absolute;inset:auto 0 0;height:3px;
+  background:linear-gradient(90deg,#43e7fc,#ffdc80,#42d7ff);
+  box-shadow:0 0 15px #65d4ffe0;pointer-events:none;
+}
+#cpReadingStudio .cp-studio-eyebrow {font:800 9px/1.1 system-ui;letter-spacing:.26em;color:#8ce8ff}
+#cpReadingStudio .cp-studio-hero h1 {
+  margin:3px 0 2px;color:#fff;
+  font-family:Georgia,"Noto Serif JP",serif;
+  font-size:clamp(23px,2.7vw,38px);font-weight:900;
+  line-height:1.17;text-shadow:0 3px 12px #02203e;
+}
+#cpReadingStudio .cp-studio-hero p{margin:0;font-size:clamp(10px,.9vw,14px);font-weight:800;color:#e4faff}
+#cpReadingStudio .cp-studio-categories {
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(7px,1vw,15px);min-height:0;
+}
+#cpReadingStudio .cp-studio-category{
+  --glow:54,210,255;
+  display:flex;align-items:center;gap:clamp(7px,.85vw,15px);
+  min-width:0;min-height:0;padding:clamp(10px,1.4vw,24px);
+  text-decoration:none;text-align:left;border-radius:20px;
+  border:1px solid rgba(var(--glow),.92);border-bottom-width:2px;
+  background:linear-gradient(155deg,rgba(var(--glow),.27),rgba(2,32,79,.82)),rgba(4,41,93,.7);
+  color:#fff;
+  box-shadow:inset 0 1px #ffffff7d,0 0 17px rgba(var(--glow),.3),0 10px 18px #021b3866;
+  backdrop-filter:blur(12px);transition:transform .18s ease,box-shadow .18s ease;
+}
+#cpReadingStudio .cp-studio-category.teal{--glow:30,242,213}
+#cpReadingStudio .cp-studio-category.gold{--glow:255,204,91}
+#cpReadingStudio .cp-studio-category:hover,
+#cpReadingStudio .cp-studio-category[aria-pressed=true] {
+  box-shadow:inset 0 1px #ffffffe3,0 0 24px rgba(var(--glow),.72),0 8px 22px #001c4277;
+  transform:translateY(-1px);
+}
+#cpReadingStudio .cp-studio-category i {
+  font-size:clamp(29px,3.7vw,53px);font-style:normal;flex:none;line-height:1;
+  filter:drop-shadow(0 0 9px rgba(var(--glow),.7));
+}
+#cpReadingStudio .cp-studio-category span{display:flex;flex-direction:column;gap:5px;min-width:0;flex:1}
+#cpReadingStudio .cp-studio-category strong{
+  font-family:Georgia,"Noto Sans JP",serif;font-size:clamp(13px,1.6vw,23px);
+  font-weight:900;line-height:1.12;color:#fff;
+}
+#cpReadingStudio .cp-studio-category small{
+  font-size:clamp(9px,.86vw,12px);line-height:1.25;font-weight:750;color:#d3f2ff;
+}
+#cpReadingStudio .cp-studio-category b{
+  flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;
+  font-size:24px;font-weight:600;background:rgba(var(--glow),.43);
+  border:1px solid #ffffff94;box-shadow:0 0 14px rgba(var(--glow),.56);
+}
+#cpReadingStudio .cp-studio-grid {
+  display:grid;grid-template-columns:minmax(170px,.80fr) minmax(0,1.65fr) minmax(170px,.83fr);
+  gap:clamp(7px,.95vw,15px);min-height:0;
+}
+#cpReadingStudio .cp-studio-panel {
+  min-height:0;min-width:0;display:flex;flex-direction:column;overflow:hidden;
+  padding:clamp(11px,1.2vw,18px);
+  border-radius:clamp(15px,1.6vw,22px);
+  border:1px solid rgba(91,213,255,.73);
+  background:linear-gradient(145deg,rgba(4,59,117,.88),rgba(2,38,87,.92));
+  box-shadow:inset 0 1px #ffffff5b,0 10px 27px #051b4169;
+  backdrop-filter:blur(13px);
+}
+#cpReadingStudio .cp-studio-panel-head {
+  display:flex;align-items:center;justify-content:space-between;gap:6px;
+  flex:none;min-height:32px;padding:0 0 10px;
+  border-bottom:1px solid #b9edff3b;
+}
+#cpReadingStudio .cp-studio-panel-head h2{
+  color:#fff;font-family:"Noto Sans JP",sans-serif;
+  font-size:clamp(12px,1.05vw,17px);font-weight:900;line-height:1.25;
+  margin:0;min-width:0;
+}
+#cpReadingStudio .cp-studio-panel-head h2 small{
+  margin-left:3px;color:#99defb;font-size:10px;
+}
+#cpReadingStudio #cpStudioAddFolder {
+  flex:none;border-radius:999px;color:#fff;background:rgba(12,117,185,.43);
+  border:1px solid #8ce9ff95;padding:6px 9px;
+  font-size:clamp(9px,.68vw,11px);font-weight:850;white-space:nowrap;
+}
+#cpReadingStudio .cp-studio-scroll{
+  min-height:0;overflow-y:auto;overscroll-behavior:contain;
+  padding:7px 2px 6px 0;scrollbar-width:thin;scrollbar-color:#80ddff70 transparent;
+}
+#cpReadingStudio .cp-studio-folder{
+  display:flex;align-items:stretch;gap:4px;margin:4px 0;
+  border:1px solid rgba(150,218,255,.29);border-radius:12px;
+  background:rgba(30,103,161,.30);
+}
+#cpReadingStudio .cp-studio-folder.selected,
+#cpReadingStudio .cp-studio-folder.drop-target{
+  background:linear-gradient(105deg,rgba(26,202,224,.38),rgba(21,133,197,.52));
+  border-color:#4cefff;box-shadow:0 0 13px #2fe5ff78;
+}
+#cpReadingStudio .cp-studio-folder.child {margin-left:12px;background:rgba(31,91,144,.31)}
+#cpReadingStudio .cp-studio-folder-main {
+  display:flex;align-items:center;gap:clamp(4px,.6vw,9px);flex:1;min-width:0;
+  border:none;padding:9px 7px;background:transparent;color:#fff;text-align:left;
+}
+#cpReadingStudio .cp-studio-folder-ico {font-size:clamp(17px,1.5vw,24px);flex:none}
+#cpReadingStudio .cp-studio-folder-name{
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;
+  font-size:clamp(10px,.81vw,13px);font-weight:800;flex:1;
+}
+#cpReadingStudio .cp-studio-folder-num{font:800 10px/1 system-ui;color:#c4eaff}
+#cpReadingStudio .cp-studio-folder-more{
+  flex:none;border:0;background:transparent;color:#caeeff;
+  min-width:27px;min-height:32px;font-weight:900;font-size:18px;
+}
+#cpReadingStudio .cp-studio-folder-hint {color:#b5deee;font-size:10px;line-height:1.4;margin:5px 0 0}
+#cpReadingStudio .cp-studio-list-toolbar{
+  align-items:flex-start;gap:8px;flex-wrap:wrap;
+}
+#cpReadingStudio .cp-studio-filter-controls{display:flex;gap:5px;min-width:0;flex:1;justify-content:flex-end}
+#cpReadingStudio .cp-studio-filter-controls input,
+#cpReadingStudio .cp-studio-filter-controls select {
+  min-width:0;border:1px solid #73c9fb7c;border-radius:9px;padding:5px 7px;
+  color:#e8f9ff;background:rgba(2,39,82,.74);
+  font-size:clamp(9px,.66vw,11px);font-weight:700;
+}
+#cpReadingStudio .cp-studio-filter-controls input{width:45%;min-width:95px}
+#cpReadingStudio .cp-studio-filter-controls select{width:110px}
+#cpReadingStudio .cp-studio-filter-controls input::placeholder{color:#bce1f5}
+#cpReadingStudio .cp-studio-filter-controls option{background:#073565;color:white}
+#cpReadingStudio .cp-studio-item {
+  display:flex;align-items:center;gap:clamp(7px,.85vw,14px);
+  min-height:clamp(66px,8dvh,88px);
+  padding:6px 8px;margin:4px 0;
+  border-radius:12px;border:1px solid rgba(117,202,251,.28);
+  background:linear-gradient(105deg,rgba(38,105,166,.45),rgba(8,62,119,.28));
+  box-shadow:inset 0 1px #ffffff17;
+}
+#cpReadingStudio .cp-studio-item:hover{border-color:#62e2ff;background:rgba(30,114,174,.55)}
+#cpReadingStudio .cp-studio-thumbnail{
+  flex:none;width:clamp(62px,6vw,94px);height:clamp(42px,4.3vw,63px);
+  border-radius:10px;object-fit:cover;border:1px solid #89d9ff81;
+  background:#08548b;box-shadow:0 1px 7px #001d3f79;
+}
+#cpReadingStudio .cp-studio-thumbnail.is-fallback{object-fit:contain;padding:4px;background:linear-gradient(140deg,#087ab9,#09356a)}
+#cpReadingStudio .cp-studio-item-info{display:flex;flex:1;min-width:0;flex-direction:column;gap:6px}
+#cpReadingStudio .cp-studio-item-name{
+  display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  font-size:clamp(11px,.90vw,15px);font-weight:850;color:#fff;
+}
+#cpReadingStudio .cp-studio-badges{display:flex;gap:5px;overflow:hidden}
+#cpReadingStudio .cp-studio-badges span{
+  flex:none;border-radius:99px;border:1px solid #b9e8fc4b;background:#3e92c339;
+  padding:2px 6px;font-size:clamp(9px,.65vw,11px);font-weight:800;color:#c9eafa;white-space:nowrap;
+}
+#cpReadingStudio .cp-studio-item-fav,#cpReadingStudio .cp-studio-item-more{
+  padding:2px;flex:none;border:0;color:#d1f8ff;background:transparent;font-size:19px;
+}
+#cpReadingStudio .cp-studio-item-play{
+  width:clamp(28px,2.5vw,38px);height:clamp(28px,2.5vw,38px);
+  display:grid;place-items:center;flex:none;
+  border-radius:50%;color:white;background:linear-gradient(140deg,#21b2df,#078eab);
+  box-shadow:0 0 12px #38e0ff8a;border:1px solid #9df6ffb3;
+}
+#cpReadingStudio .cp-studio-empty{display:flex;align-items:center;flex-direction:column;gap:9px;padding:35px 10px;color:#b7e1fa}
+#cpReadingStudio .cp-studio-empty>span{font-size:36px}
+#cpReadingStudio .cp-studio-empty strong{color:#fff;font-size:14px}
+#cpReadingStudio .cp-studio-side-panel{gap:7px}
+#cpReadingStudio .cp-studio-side-card{
+  display:flex;align-items:center;gap:clamp(7px,.75vw,12px);
+  width:100%;min-height:clamp(51px,8dvh,83px);
+  text-align:left;color:#fff;border-radius:13px;padding:9px;
+  border:1px solid rgba(133,223,255,.5);
+  background:linear-gradient(112deg,rgba(23,110,176,.55),rgba(17,76,137,.47));
+}
+#cpReadingStudio .cp-studio-side-card.featured {
+  min-height:clamp(62px,9dvh,105px);
+  background:linear-gradient(110deg,rgba(18,149,187,.49),rgba(19,92,166,.53));
+  border-color:rgba(63,240,255,.8);
+}
+#cpReadingStudio .cp-studio-side-card>i{
+  width:clamp(29px,3.2vw,48px);height:clamp(29px,3.2vw,48px);
+  flex:none;display:grid;place-items:center;font-style:normal;font-size:clamp(22px,2.3vw,30px);
+  border-radius:50%;background:#19abed3a;border:1px solid #a2edff85;
+  box-shadow:0 0 12px #18d3f85a;
+}
+#cpReadingStudio .cp-studio-side-card span {display:flex;flex:1;min-width:0;flex-direction:column;gap:4px}
+#cpReadingStudio .cp-studio-side-card strong{font-size:clamp(11px,.95vw,15px);font-weight:850;line-height:1.3}
+#cpReadingStudio .cp-studio-side-card small{font-size:clamp(9px,.66vw,11px);color:#b3e4ff;font-weight:650}
+#cpReadingStudio .cp-studio-side-card b{font-size:24px;color:#8ce5ff}
+#cpReadingStudio .cp-studio-side-card:hover{filter:brightness(1.18);border-color:#90efff}
+#cpReadingStudio .cp-studio-quest {
+  position:absolute;inset:0;z-index:2;overflow:auto;padding:22px;border:1px solid #5fddff;border-radius:20px;
+  background:linear-gradient(125deg,#063e7ceb,#092c60f2);backdrop-filter:blur(20px);
+}
+#cpReadingStudio .cp-studio-quest[hidden]{display:none!important}
+#cpReadingStudio[data-studio-mode="quest"] .cp-studio-grid{visibility:hidden}
+#cpReadingStudio[data-studio-mode="quest"] .cp-studio-quest{top:calc(clamp(73px,13dvh,112px) + clamp(105px,17dvh,148px) + 16px)}
+#cpReadingStudio {position:relative}
+#cpReadingStudio .cp-studio-quest h2{font-size:22px;font-weight:900;color:white}
+#cpReadingStudio .cp-studio-quest p{font-size:12px;color:#cbf1ff;margin:5px 0}
+#cpReadingStudio .cp-studio-quest #cpReadQuest{display:block!important}
+#cpReadingStudio .cp-studio-quest #questLibraryList{display:grid!important}
+/* The separate thumbnail selector belongs to the creator form only. */
+#cpCreatorPage .cp-thumb-editor{padding:14px;border:1px solid #95d7eb;border-radius:17px;background:linear-gradient(120deg,#eaf8ff,#f6fdff);margin:14px 0;color:#16466d}
+#cpCreatorPage .cp-thumb-editor-title{font-weight:900;font-size:15px;color:#165385}
+#cpCreatorPage .cp-thumb-editor-title span{font-size:11px;color:#64849d;font-weight:650}
+#cpCreatorPage .cp-thumb-editor-body{display:flex;align-items:center;gap:14px;margin-top:9px}
+#cpCreatorPage .cp-thumb-editor img{width:118px;height:67px;object-fit:cover;border-radius:12px;border:1px solid #a6cbdf;background:#0c487f}
+#cpCreatorPage .cp-thumb-editor-info{min-width:0;flex:1}
+#cpCreatorPage .cp-thumb-editor input{display:block;max-width:100%;font-size:12px;color:#23516f}
+#cpCreatorPage .cp-thumb-editor p{font-size:11px;margin:5px 0;color:#6385a3}
+#cpCreatorPage .cp-thumb-editor button{border:1px solid #82c5e3;border-radius:9px;padding:5px 9px;font-size:11px;color:#175082;background:#fff}
+/* iPad: header, hero, 3 buttons, library, bottom nav all fit within dvh.
+   Only the folder pane and material pane scroll independently. */
+@media(min-width:701px) and (max-width:1150px) {
+  #cpReadingStudio{grid-template-rows:clamp(65px,12dvh,90px) clamp(88px,17dvh,120px) minmax(0,1fr)}
+  #cpReadingStudio .cp-studio-grid{grid-template-columns:minmax(145px,.8fr) minmax(0,1.7fr) minmax(148px,.80fr)}
+  #cpReadingStudio .cp-studio-category{padding:8px}
+  #cpReadingStudio .cp-studio-category i{font-size:29px}
+  #cpReadingStudio .cp-studio-category b{width:22px;height:22px;font-size:18px}
+  #cpReadingStudio .cp-studio-side-card{padding:7px;min-height:49px}
+  #cpReadingStudio .cp-studio-side-card>i{width:28px;height:28px;font-size:19px}
+  #cpReadingStudio .cp-studio-panel{padding:9px}
+  #cpReadingStudio .cp-studio-item {padding:5px;gap:5px}
+  #cpReadingStudio .cp-studio-item-more,#cpReadingStudio .cp-studio-item-fav {font-size:15px}
+}
+@media(max-height:700px) and (min-width:701px) {
+  #cpReaderPage.cp-studio-enabled{gap:4px}
+  #cpReaderPage.cp-studio-enabled .cp-page-head{min-height:34px;height:34px;max-height:34px}
+  #cpReadingStudio{grid-template-rows:clamp(60px,11dvh,76px) clamp(78px,16dvh,98px) minmax(0,1fr)}
+  #cpReadingStudio .cp-studio-item{min-height:55px}
+  #cpReadingStudio .cp-studio-side-card{min-height:43px}
+  #cpReadingStudio .cp-studio-side-card.featured{min-height:55px}
+  #cpReaderPage.cp-studio-enabled .cp-page-bottom{padding:3px}
+}
+/* Handsets: category cards 1 column; filters remain accessible and scroll is local. */
+@media(max-width:700px) {
+  #cpReaderPage.cp-studio-enabled .cp-page-scroll{overflow-y:auto;overscroll-behavior:contain}
+  #cpReadingStudio{height:auto;min-height:100%;grid-template-rows:auto auto auto;gap:9px}
+  #cpReadingStudio .cp-studio-hero{height:76px;padding:10px 15px}
+  #cpReadingStudio .cp-studio-categories{grid-template-columns:1fr;grid-auto-rows:72px;gap:7px}
+  #cpReadingStudio .cp-studio-category{border-radius:15px;padding:10px 13px}
+  #cpReadingStudio .cp-studio-category i{font-size:32px}
+  #cpReadingStudio .cp-studio-category strong{font-size:17px}
+  #cpReadingStudio .cp-studio-category small{font-size:10px}
+  #cpReadingStudio .cp-studio-grid{grid-template-columns:1fr;grid-template-rows:200px minmax(300px,50dvh) auto;gap:8px}
+  #cpReadingStudio .cp-studio-panel{border-radius:16px;padding:10px}
+  #cpReadingStudio .cp-studio-side-panel{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+  #cpReadingStudio .cp-studio-side-panel>.cp-studio-panel-head{grid-column:1/-1}
+  #cpReadingStudio .cp-studio-side-card{min-height:57px;padding:7px}
+  #cpReadingStudio .cp-studio-side-card.featured{min-height:65px}
+  #cpReadingStudio .cp-studio-side-card strong{font-size:10px}
+  #cpReadingStudio .cp-studio-side-card small{font-size:9px}
+  #cpReadingStudio .cp-studio-item{min-height:66px}
+  #cpReadingStudio .cp-studio-thumbnail{width:68px;height:48px}
+  #cpReadingStudio .cp-studio-filter-controls{flex:1}
+  #cpReadingStudio .cp-studio-filter-controls select{width:94px}
+  #cpReadingStudio[data-studio-mode="quest"] .cp-studio-quest{top:290px}
+  #cpCreatorPage .cp-thumb-editor-body{flex-direction:column;align-items:flex-start}
+}
+/* Accessibility, visible keyboard focus and reduced motion. */
+#cpReadingStudio button:focus-visible,#cpReadingStudio a:focus-visible,
+#cpCreatorPage .cp-thumb-editor :focus-visible {outline:3px solid #ffe38f!important;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){#cpReadingStudio .cp-studio-category{transition:none}}
