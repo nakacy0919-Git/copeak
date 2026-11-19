@@ -1,0 +1,393 @@
+/* Copeak Voice Horizon 2026 — isolated visual skin.
+   Keeps all existing IDs, navigation, lessons, saved data and score logic intact. */
+:root { --cp-voice-bg: url("/assets/copeak-home-voice-bg.avif"); }
+
+body.copeak-home-mode {
+  background:#06254a !important;
+  background-image:none !important;
+}
+body.copeak-home-mode #homeScreen.cp-dashboard-mode.active {
+  position:relative;
+  isolation:isolate;
+  background-color:#06366c !important;
+  background-image:
+    linear-gradient(180deg,rgba(0,24,58,.36) 0%,rgba(0,31,70,.04) 30%,rgba(0,25,61,.20) 58%,rgba(0,19,48,.57) 100%),
+    var(--cp-voice-bg) !important;
+  background-size:cover !important;
+  background-position:center center !important;
+  background-repeat:no-repeat !important;
+  padding:clamp(10px,1.8vh,19px) clamp(15px,4.8vw,100px) clamp(7px,1.2vh,15px) !important;
+}
+#homeScreen.cp-dashboard-mode.active::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse 42% 32% at 40% 34%,rgba(50,222,255,.14),transparent 72%),
+    radial-gradient(ellipse 42% 28% at 81% 43%,rgba(255,206,99,.12),transparent 70%);
+  animation:cp-voice-ambient 15s ease-in-out infinite alternate;
+}
+#copeakHomeHub {
+  position:relative;
+  z-index:1;
+  width:min(1560px,100%);
+  grid-template-rows:clamp(180px,30dvh,290px) minmax(0,1fr) clamp(150px,23dvh,210px) clamp(54px,7dvh,68px);
+  gap:clamp(10px,1.65vh,18px);
+  color:#f7fcff;
+}
+#copeakHomeHub .cp-home-header {
+  position:relative;
+  align-items:flex-start;
+  height:100%;
+  min-height:0;
+  padding:clamp(4px,.8vh,8px) clamp(0px,.3vw,8px);
+}
+#copeakHomeHub .cp-brand {
+  position:relative;
+  align-self:flex-start;
+  gap:clamp(9px,1.3vw,16px);
+  text-shadow:0 2px 10px rgba(0,19,48,.22);
+}
+#copeakHomeHub .cp-brand-logo {
+  width:clamp(58px,5.5vw,80px);
+  height:clamp(58px,5.5vw,80px);
+  filter:drop-shadow(0 0 17px rgba(57,211,255,.52));
+}
+#copeakHomeHub .cp-brand-word {
+  color:#fff;
+  font-size:clamp(39px,4vw,61px);
+  letter-spacing:-.035em;
+  line-height:1.05;
+  text-shadow:0 2px 22px rgba(0,15,45,.38);
+}
+#copeakHomeHub .cp-brand-word span { color:#61cafa; }
+#copeakHomeHub .cp-brand-sub {
+  color:#dcf4ff;
+  font-weight:850;
+  font-size:clamp(9px,.82vw,13px);
+  letter-spacing:.16em;
+  text-shadow:0 2px 9px #032447;
+}
+#copeakHomeHub .cp-home-students-banner,
+#copeakHomeHub .cp-home-illustration { display:none !important; }
+#copeakHomeHub .cp-voice-hero {
+  position:absolute;
+  bottom:clamp(9px,2.1vh,23px);
+  left:clamp(2px,.35vw,8px);
+  z-index:1;
+  pointer-events:none;
+  text-shadow:0 4px 23px rgba(0,22,53,.72);
+}
+#copeakHomeHub .cp-voice-hero-title {
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(28px,3.6vw,54px);
+  font-weight:700;
+  font-style:italic;
+  letter-spacing:-.038em;
+  line-height:1.15;
+  color:#fff;
+}
+#copeakHomeHub .cp-voice-hero-title em {font-style:inherit;color:#ffdb8f}
+#copeakHomeHub .cp-voice-hero-caption {
+  margin-top:clamp(3px,.8vh,8px);
+  color:#f3faff;
+  font-size:clamp(12px,1.1vw,18px);
+  font-weight:800;
+  letter-spacing:.12em;
+}
+#copeakHomeHub .cp-header-actions {
+  align-self:flex-start;
+  gap:clamp(6px,.65vw,12px);
+  padding-top:clamp(0px,.65vh,7px);
+  filter:drop-shadow(0 5px 15px rgba(1,18,40,.16));
+}
+#copeakHomeHub .cp-world-home {
+  border:1px solid rgba(255,201,71,.92);
+  color:#fbfcff;
+  padding:8px 15px;
+  border-radius:999px;
+  background:linear-gradient(145deg,rgba(2,30,68,.92),rgba(3,25,57,.82));
+  box-shadow:0 0 0 1px rgba(255,220,130,.14),0 6px 16px rgba(0,11,40,.4),inset 0 1px rgba(255,255,255,.2);
+  transition:filter .2s ease,transform .2s ease;
+}
+#copeakHomeHub .cp-world-home .cp-sp-count {
+  color:#1c2947;background:linear-gradient(140deg,#ffe48d,#ffbd2b);
+  box-shadow:0 0 14px rgba(255,213,81,.30);
+}
+#copeakHomeHub .cp-profile-pill,
+#copeakHomeHub .cp-settings,
+#copeakHomeHub .cp-header-actions > .cp-home-qr-button {
+  height:44px;min-width:44px;
+  border:1px solid rgba(155,229,255,.50);
+  border-radius:99px;
+  color:#f4faff;
+  background:linear-gradient(155deg,rgba(15,55,104,.83),rgba(3,31,76,.80));
+  box-shadow:0 6px 19px rgba(0,14,45,.27),inset 0 1px rgba(255,255,255,.16);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+#copeakHomeHub .cp-profile-avatar {background:rgba(120,208,255,.17)}
+#copeakHomeHub .cp-header-actions > .cp-home-qr-button svg { color:#effcff; }
+#copeakHomeHub .cp-world-home:hover,
+#copeakHomeHub .cp-profile-pill:hover,
+#copeakHomeHub .cp-settings:hover,
+#copeakHomeHub .cp-header-actions > .cp-home-qr-button:hover {filter:brightness(1.18);transform:translateY(-2px)}
+#copeakHomeHub .cp-home-cards {
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  grid-template-rows:minmax(0,1fr);
+  gap:clamp(10px,1.2vw,20px);
+  min-height:0;
+}
+#copeakHomeHub .cp-action {
+  --cp-tint:64,199,255;
+  position:relative;
+  isolation:isolate;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:flex-end;
+  gap:0;
+  padding:clamp(14px,1.55vw,27px);
+  border:1px solid rgba(var(--cp-tint),.87);
+  border-bottom:2px solid rgba(var(--cp-tint),1);
+  border-radius:clamp(18px,1.8vw,27px);
+  color:#fff;
+  text-align:left;
+  background:
+    linear-gradient(180deg,rgba(var(--cp-tint),.10) 0%,rgba(3,37,83,.48) 36%,rgba(3,34,78,.76) 100%),
+    rgba(10,49,102,.30);
+  backdrop-filter:blur(13px) saturate(150%);
+  -webkit-backdrop-filter:blur(13px) saturate(150%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.45),
+    inset 0 0 27px rgba(var(--cp-tint),.10),
+    0 9px 27px rgba(0,11,43,.28),
+    0 0 14px rgba(var(--cp-tint),.23);
+  transition:transform .25s ease,box-shadow .25s ease,background .25s ease;
+}
+#copeakHomeHub .cp-action::after {
+  content:"";position:absolute;inset:1px;z-index:-1;pointer-events:none;border-radius:inherit;
+  background:linear-gradient(135deg,rgba(255,255,255,.17),transparent 40%,rgba(var(--cp-tint),.11));
+}
+#copeakHomeHub .cp-action:hover {
+  transform:translateY(-5px);
+  box-shadow:inset 0 1px rgba(255,255,255,.55),0 17px 35px rgba(0,11,45,.40),0 0 28px rgba(var(--cp-tint),.58);
+}
+#copeakHomeHub .cp-action:active {transform:translateY(-1px) scale(.99)}
+#copeakHomeHub .cp-action-create {--cp-tint:56,239,220}
+#copeakHomeHub .cp-action-sound {--cp-tint:255,206,112}
+#copeakHomeHub .cp-action-vocabulary {--cp-tint:173,128,255}
+#copeakHomeHub .cp-action-icon {
+  width:clamp(62px,6vw,95px);
+  height:clamp(62px,6vw,95px);
+  margin:0 0 auto;
+  flex:none;
+  background:radial-gradient(circle at 37% 26%,rgba(255,255,255,.24),rgba(var(--cp-tint),.15) 60%,rgba(0,28,66,.19));
+  border:1px solid rgba(var(--cp-tint),.47);
+  border-radius:50%;
+  box-shadow:0 0 15px rgba(var(--cp-tint),.34),inset 0 1px rgba(255,255,255,.18);
+}
+#copeakHomeHub .cp-action-icon img {width:80%;height:80%;filter:drop-shadow(0 3px 9px rgba(var(--cp-tint),.4))}
+#copeakHomeHub .cp-action-copy {flex:none;width:100%;padding-right:25px;gap:4px;margin-top:10px}
+#copeakHomeHub .cp-action-title {
+  color:#fff;
+  font-size:clamp(15px,1.33vw,24px);
+  font-weight:900;
+  letter-spacing:-.025em;
+  line-height:1.35;
+  text-shadow:0 2px 8px rgba(0,20,48,.52);
+}
+#copeakHomeHub .cp-action-sub {
+  color:#dbf1ff;
+  font-weight:700;
+  font-size:clamp(10px,.81vw,14px);
+  line-height:1.4;
+}
+#copeakHomeHub .cp-action-arrow {
+  position:absolute;
+  right:clamp(11px,1.15vw,20px);
+  bottom:clamp(13px,1.4vw,24px);
+  width:clamp(28px,2.5vw,39px);
+  height:clamp(28px,2.5vw,39px);
+  color:#fff;
+  background:linear-gradient(130deg,rgba(var(--cp-tint),.85),rgba(5,70,126,.54));
+  border:1px solid rgba(255,255,255,.55);
+  box-shadow:0 0 14px rgba(var(--cp-tint),.39);
+}
+#copeakHomeHub .cp-home-extras {grid-template-columns:1fr 1fr;gap:clamp(10px,1.2vw,20px)}
+#copeakHomeHub .cp-extra,
+#copeakHomeHub .cp-extra.cp-activity-premium {
+  position:relative;
+  min-width:0;
+  height:100%;
+  padding:clamp(12px,1.25vw,20px);
+  border:1px solid rgba(126,203,250,.68);
+  border-radius:clamp(17px,1.7vw,24px);
+  background:linear-gradient(125deg,rgba(8,49,97,.84),rgba(1,35,81,.70) 58%,rgba(12,42,87,.79));
+  backdrop-filter:blur(17px) saturate(130%);
+  -webkit-backdrop-filter:blur(17px) saturate(130%);
+  box-shadow:inset 0 1px rgba(255,255,255,.25),0 9px 27px rgba(0,12,43,.34);
+  color:#f7fcff;
+}
+#copeakHomeHub .cp-extra h3,
+#copeakHomeHub .cp-extra.cp-activity-premium .cp-record-header h3 {color:#f8fdff;font-size:clamp(12px,1.15vw,18px)}
+#copeakHomeHub .cp-extra p,
+#copeakHomeHub .cp-extra .cp-recent-row small {color:#a9c8e2}
+#copeakHomeHub .cp-recent-list {gap:2px;margin-top:8px}
+#copeakHomeHub .cp-recent-row {
+  color:#f0f8ff;
+  border-top-color:rgba(184,231,255,.16);
+  padding:clamp(4px,.63vh,8px) 0;
+  font-size:clamp(10px,.84vw,13px);
+}
+#copeakHomeHub .cp-recent-row:hover {color:#8eeaff}
+#copeakHomeHub .cp-extra.cp-activity-premium::before {
+  width:3px;
+  background:linear-gradient(180deg,#3bf9e6,#58c0ff,#9d78ff);
+}
+#copeakHomeHub .cp-activity-premium .cp-record-overline,
+#copeakHomeHub .cp-activity-premium .cp-record-stat-label {color:#b6d4e9}
+#copeakHomeHub .cp-activity-premium .cp-record-stat strong,
+#copeakHomeHub .cp-activity-premium .cp-progress-core strong {color:#ecf8ff}
+#copeakHomeHub .cp-activity-premium .cp-record-stat-total strong {color:#eaf8ff}
+#copeakHomeHub .cp-activity-premium .cp-progress-core small {color:#aac7e1}
+#copeakHomeHub .cp-activity-premium .cp-progress-ring {background:radial-gradient(circle,rgba(6,56,109,.8),rgba(15,103,144,.14) 73%,transparent 74%)}
+#copeakHomeHub .cp-activity-premium .cp-ring-track {stroke:rgba(189,226,250,.20)}
+#copeakHomeHub .cp-activity-premium .cp-record-heading-mark {background:rgba(43,209,234,.20);color:#78eaff}
+#copeakHomeHub .cp-activity-premium .cp-average-meter {background:rgba(143,195,231,.20)}
+#copeakHomeHub .cp-home-bottom {
+  width:min(800px,92%);
+  min-height:0;
+  margin:0 auto;
+  justify-content:space-around;
+  gap:clamp(8px,2vw,28px);
+  padding:6px 18px;
+  border:1px solid rgba(135,213,255,.63);
+  border-radius:999px;
+  background:linear-gradient(130deg,rgba(3,36,80,.90),rgba(7,46,100,.86));
+  box-shadow:0 8px 25px rgba(0,15,46,.45),inset 0 1px rgba(255,255,255,.22);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+}
+#copeakHomeHub .cp-nav {
+  min-width:73px;
+  color:#e4f4ff;
+  border:1px solid transparent;
+  border-radius:18px;
+  padding:5px 10px;
+  font-size:11px;
+  transition:transform .18s ease,background .18s ease;
+}
+#copeakHomeHub .cp-nav .cp-nav-icon {font-size:clamp(19px,1.5vw,25px)}
+#copeakHomeHub .cp-nav:hover {transform:translateY(-2px);background:rgba(56,174,236,.18)}
+#copeakHomeHub .cp-nav[aria-current="page"] {
+  color:#fff;
+  border-color:rgba(88,218,255,.78);
+  background:linear-gradient(135deg,rgba(2,153,248,.72),rgba(5,91,196,.48));
+  box-shadow:0 0 18px rgba(30,178,255,.46),inset 0 1px rgba(255,255,255,.25);
+}
+#copeakHomeHub .cp-home-bottom .cp-nav-ncc {
+  color:#ffe7ad;
+  border:1px solid rgba(245,194,80,.35);
+  background:rgba(245,168,38,.08);
+  box-shadow:none;
+}
+#copeakHomeHub .cp-home-menu {
+  color:#14355b;
+  background:rgba(248,253,255,.98);
+  backdrop-filter:blur(16px);
+}
+#copeakHomeHub button:focus-visible,#copeakHomeHub a:focus-visible {
+  outline:3px solid #ffe08a !important;outline-offset:3px;
+}
+/* The same original art is present behind the dedicated reader and creator,
+   but intentionally subdued for comfortable reading. */
+body.copeak-home-mode #homeScreen.cp-section-mode.active {
+  background:
+    linear-gradient(135deg,rgba(240,248,255,.91),rgba(245,252,255,.94) 50%,rgba(239,248,255,.95)),
+    var(--cp-voice-bg) center center / cover no-repeat !important;
+}
+#homeScreen.cp-section-mode .cp-page-head {
+  border-bottom:1px solid rgba(93,177,217,.33);
+}
+#homeScreen.cp-section-mode .cp-panel {
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(163,212,236,.72);
+  box-shadow:0 9px 24px rgba(21,86,139,.10),inset 0 1px rgba(255,255,255,.80);
+}
+#homeScreen.cp-section-mode .cp-page-bottom {
+  background:rgba(247,252,255,.92);
+  border-color:rgba(130,195,232,.58);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+}
+#homeScreen.cp-section-mode .cp-page-home,
+#homeScreen.cp-section-mode .cp-link-pill {
+  box-shadow:0 4px 17px rgba(44,118,171,.10);
+}
+@keyframes cp-voice-ambient {
+  from{opacity:.44;transform:translateX(-1.2%) scale(1)}
+  to{opacity:.92;transform:translateX(1.2%) scale(1.03)}
+}
+@media (max-width:1190px) {
+  #copeakHomeHub{grid-template-rows:clamp(130px,19dvh,190px) minmax(0,1fr) clamp(130px,22dvh,200px) 58px}
+  #copeakHomeHub .cp-home-cards {grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr))}
+  #copeakHomeHub .cp-action{flex-direction:row;align-items:center;justify-content:flex-start;gap:12px}
+  #copeakHomeHub .cp-action-icon{width:clamp(55px,7vw,84px);height:clamp(55px,7vw,84px);margin:0}
+  #copeakHomeHub .cp-action-copy{width:auto;margin:0;padding-right:25px}
+  #copeakHomeHub .cp-voice-hero-title{font-size:clamp(25px,3vw,38px)}
+  #copeakHomeHub .cp-voice-hero-caption{font-size:12px}
+}
+@media (max-width:700px) {
+  body.copeak-home-mode #homeScreen.cp-dashboard-mode.active {
+    background-position:46% center !important;
+    padding:max(9px,env(safe-area-inset-top)) 10px max(7px,env(safe-area-inset-bottom)) !important;
+  }
+  #copeakHomeHub{grid-template-rows:clamp(104px,17dvh,155px) minmax(0,1fr) clamp(125px,23dvh,165px) clamp(47px,7dvh,54px);gap:7px}
+  #copeakHomeHub .cp-home-header{padding:2px}
+  #copeakHomeHub .cp-brand{gap:5px}
+  #copeakHomeHub .cp-brand-logo{width:39px;height:39px}
+  #copeakHomeHub .cp-brand-word{font-size:clamp(28px,6.5vw,36px)}
+  #copeakHomeHub .cp-brand-sub{font-size:7px;letter-spacing:.04em}
+  #copeakHomeHub .cp-header-actions{gap:4px;padding:0}
+  #copeakHomeHub .cp-world-home{padding:5px 6px;min-height:34px}
+  #copeakHomeHub .cp-world-home .cp-sp-count{font-size:8px;padding:3px}
+  #copeakHomeHub .cp-profile-pill,#copeakHomeHub .cp-settings,
+  #copeakHomeHub .cp-header-actions>.cp-home-qr-button{width:34px;height:34px;min-width:34px;flex-basis:34px}
+  #copeakHomeHub .cp-voice-hero{bottom:6px}
+  #copeakHomeHub .cp-voice-hero-title{font-size:clamp(23px,5.3vw,32px)}
+  #copeakHomeHub .cp-voice-hero-caption{font-size:10px;letter-spacing:.04em}
+  #copeakHomeHub .cp-home-cards{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:7px}
+  #copeakHomeHub .cp-action{flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:8px 5px;gap:4px;border-radius:17px}
+  #copeakHomeHub .cp-action-icon{width:clamp(42px,11vw,58px);height:clamp(42px,11vw,58px);margin:0}
+  #copeakHomeHub .cp-action-copy{width:100%;padding:0;margin:0;align-items:center;gap:2px}
+  #copeakHomeHub .cp-action-title{font-size:clamp(12px,3.1vw,16px)}
+  #copeakHomeHub .cp-action-sub{font-size:clamp(9px,2.3vw,11px)}
+  #copeakHomeHub .cp-action-arrow{display:none}
+  #copeakHomeHub .cp-home-extras{grid-template-columns:1.2fr 1fr;gap:7px}
+  #copeakHomeHub .cp-extra,#copeakHomeHub .cp-extra.cp-activity-premium{padding:8px;border-radius:15px}
+  #copeakHomeHub .cp-extra h3,#copeakHomeHub .cp-extra.cp-activity-premium .cp-record-header h3{font-size:10px}
+  #copeakHomeHub .cp-recent-list{margin-top:3px;gap:0}
+  #copeakHomeHub .cp-recent-row{padding:4px 0;font-size:9px}
+  #copeakHomeHub .cp-home-bottom{width:100%;padding:3px 4px;gap:1px;border-radius:17px}
+  #copeakHomeHub .cp-nav{width:20%;min-width:0;padding:2px 0;font-size:9px}
+  #copeakHomeHub .cp-nav .cp-nav-icon{font-size:17px}
+}
+@media(max-height:640px){
+  #copeakHomeHub{grid-template-rows:clamp(69px,15dvh,100px) minmax(0,1fr) clamp(101px,22dvh,139px) 43px;gap:6px}
+  #copeakHomeHub .cp-voice-hero-title{font-size:clamp(21px,3vw,30px)}
+  #copeakHomeHub .cp-voice-hero-caption{font-size:10px}
+  #copeakHomeHub .cp-action-icon{width:clamp(36px,5vw,50px);height:clamp(36px,5vw,50px)}
+  #copeakHomeHub .cp-action{padding:7px}
+  #copeakHomeHub .cp-action-title{font-size:clamp(12px,1.4vw,17px)}
+  #copeakHomeHub .cp-action-sub{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){
+  #homeScreen.cp-dashboard-mode.active::before{animation:none}
+  #copeakHomeHub .cp-action,#copeakHomeHub .cp-nav{transition:none}
+  #copeakHomeHub .cp-action:hover,#copeakHomeHub .cp-nav:hover{transform:none}
+}
