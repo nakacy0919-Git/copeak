@@ -1,0 +1,56 @@
+/* Reader workspace. Existing original page / folder / learning screens retained. */
+#cpReaderPage.cpr-active{--cpr-cyan:#37d8ff;--cpr-glass:rgba(5,43,87,.84);color:#fff}
+#cpReaderPage.cpr-active .cp-page-head{height:clamp(72px,13dvh,115px);min-height:0;padding:9px clamp(12px,2.8vw,34px);color:white;border-bottom:1px solid rgba(119,217,255,.35);background:linear-gradient(90deg,rgba(1,29,69,.93),rgba(0,52,101,.42))}
+#cpReaderPage.cpr-active .cp-page-head h2{font-size:clamp(22px,2.2vw,35px);color:#fff;text-shadow:0 3px 16px rgba(0,23,56,.9)}
+#cpReaderPage.cpr-active .cp-page-head .cp-page-subtitle,#cpReaderPage.cpr-active .cp-page-eyebrow{color:#d7f5ff}
+#cpReaderPage.cpr-active .cp-page-brand{color:#fff}
+#cpReaderPage.cpr-active .cp-page-scroll{display:flex;flex-direction:column;min-height:0;overflow:hidden;padding:clamp(8px,1.2vh,13px) clamp(10px,2.4vw,29px) clamp(5px,.8vh,9px)}
+#cpReaderPage.cpr-active .cp-page-scroll>.cp-panel[hidden],#cpReaderPage.cpr-active #cpReaderLibrary,#cpReaderPage.cpr-active #cpStoryTheaterEntry{display:none!important}
+#cpReaderPage.cpr-active .cp-page-scroll>.cp-panel:not([hidden]){flex:0 0 auto}
+#cpReaderPage.cpr-active .cp-page-bottom{height:clamp(50px,7dvh,65px)}
+#cprLibrary{display:grid;grid-template-rows:clamp(109px,19dvh,176px) minmax(0,1fr);gap:clamp(8px,1.3vh,16px);width:100%;flex:1;min-height:0}
+.cpr-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(8px,1vw,17px);min-height:0}
+.cpr-tile{color:white;min-width:0;display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-rows:1fr auto;align-items:center;gap:2px 11px;text-decoration:none;text-align:left;padding:clamp(9px,1.35vw,21px);background:linear-gradient(135deg,rgba(17,137,198,.7),rgba(2,35,75,.88)),url("./assets/copeak-home-voice-bg.avif") center/cover;border:1.5px solid var(--tile);border-radius:22px;box-shadow:inset 0 1px rgba(255,255,255,.45),0 0 16px var(--glow),0 9px 25px rgba(0,12,45,.3);cursor:pointer;transition:filter .2s,transform .2s}
+.cpr-tile:hover{filter:brightness(1.16);transform:translateY(-2px)}
+.cpr-blue{--tile:#32d9ff;--glow:rgba(42,193,255,.35)}
+.cpr-teal{--tile:#37f9d6;--glow:rgba(0,246,204,.30);background-position:90% 60%}
+.cpr-gold{--tile:#ffe187;--glow:rgba(255,206,85,.34);background-position:100% 20%}
+.cpr-tile>span:first-child{grid-row:1 / 3;display:grid;place-items:center;width:clamp(45px,5vw,79px);height:clamp(45px,5vw,79px);border-radius:50%;background:radial-gradient(circle,rgba(68,224,255,.47),rgba(4,44,108,.9));box-shadow:0 0 19px var(--tile);font-size:clamp(21px,2.8vw,40px)}
+.cpr-tile strong{align-self:end;font-size:clamp(15px,1.5vw,26px);text-shadow:0 2px 7px #001f47;white-space:nowrap}
+.cpr-tile small{grid-column:2;align-self:start;font-size:clamp(9px,.85vw,13px);color:#e6f8ff}
+.cpr-main{display:grid;grid-template-columns:minmax(170px,24%) minmax(0,1fr) minmax(155px,23%);gap:clamp(8px,1vw,16px);min-height:0}
+.cpr-box{min-height:0;min-width:0;display:flex;flex-direction:column;padding:clamp(10px,1.1vw,18px);border-radius:23px;border:1px solid rgba(90,210,246,.78);background:linear-gradient(160deg,rgba(7,71,125,.91),rgba(1,33,76,.89));backdrop-filter:blur(16px);box-shadow:inset 0 1px rgba(255,255,255,.22),0 0 16px rgba(32,189,245,.18);color:white}
+.cpr-box>header{display:flex;align-items:center;gap:8px;flex:0 0 auto;min-height:39px;padding-bottom:9px;border-bottom:1px solid rgba(188,233,252,.22)}
+.cpr-box h3{margin:0;flex:1;white-space:nowrap;font-size:clamp(13px,1.1vw,18px);font-weight:800;color:white}
+.cpr-box h3 small{font-size:.77em;color:#a4daeb}
+.cpr-box button,.cpr-box select{color:white;background:rgba(20,111,166,.33);border:1px solid rgba(139,225,255,.45);border-radius:11px;cursor:pointer}
+.cpr-folders>header button{padding:6px 9px;font-size:12px;white-space:nowrap}
+.cpr-scroll{overflow-y:auto;overscroll-behavior:contain;min-height:0;scrollbar-width:thin;scrollbar-color:#59bbdf transparent;padding:5px 1px}
+.cpr-folder{display:flex;align-items:stretch;gap:3px;margin:5px 0;border-radius:13px;border:1px solid rgba(142,211,252,.3);background:rgba(27,104,163,.25);min-width:0}
+.cpr-folder.chosen{border-color:#43f4ee;background:linear-gradient(110deg,rgba(33,179,205,.55),rgba(12,90,152,.62));box-shadow:0 0 12px rgba(18,230,240,.22)}
+.cpr-folder .cpr-folder-open{border:0;background:none;display:flex;align-items:center;gap:8px;width:100%;min-width:0;padding:11px 9px;text-align:left}
+.cpr-folder-label{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700;font-size:clamp(11px,1vw,14px)}
+.cpr-folder small{white-space:nowrap;font-size:10px;color:#c5eeff}
+.cpr-folder-more{flex:none;width:29px;border:0!important;background:transparent!important;font-size:19px}
+.cpr-material-head{flex-wrap:wrap}
+.cpr-material-head input{min-width:70px;flex:1 1 110px;width:5em;background:rgba(12,62,114,.6);color:white;border:1px solid rgba(126,219,255,.36);border-radius:12px;padding:8px 9px;font-size:12px}
+.cpr-material-head input::placeholder{color:#a8d9f2}
+.cpr-material-head select{padding:8px;font-size:11px;max-width:125px}
+.cpr-lesson{display:flex;align-items:center;gap:8px;margin:5px 0;padding:6px;border:1px solid rgba(89,185,237,.30);border-radius:12px;background:rgba(24,101,164,.29);min-width:0}
+.cpr-thumb{flex:0 0 auto;width:clamp(58px,6vw,94px);height:clamp(40px,4.1vw,59px);object-fit:cover;border-radius:9px;border:1px solid rgba(146,217,252,.38)}
+.cpr-desc{min-width:0;flex:1;display:flex;flex-direction:column;gap:3px}
+.cpr-desc .cpr-title{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:left;max-width:100%;border:0;background:transparent;font-size:clamp(11px,.9vw,14px);font-weight:800;padding:2px 0}
+.cpr-desc small{color:#afd8f0;font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cpr-lesson .cpr-open{flex:0 0 auto;border-radius:50%;width:34px;height:34px;background:linear-gradient(135deg,#09bfd3,#1362ac);box-shadow:0 0 11px rgba(40,222,242,.48)}
+.cpr-lesson .cpr-move,.cpr-lesson .cpr-fav{flex:0 0 auto;border:0;background:none;font-size:17px;padding:5px}
+.cpr-fav{color:#ffe6a3!important}
+.cpr-tools{gap:8px}
+.cpr-tools>button{display:flex;align-items:center;min-height:65px;text-align:left;padding:12px;font-weight:800;font-size:clamp(11px,1vw,15px);background:linear-gradient(120deg,rgba(23,134,196,.44),rgba(24,71,137,.48));box-shadow:inset 0 1px rgba(255,255,255,.11)}
+.cpr-empty{color:#c2e1f5;text-align:center;padding:26px 9px;font-size:13px}
+#cprGuide{max-width:min(440px,90vw);color:#15385b;background:#eaf7ff;border:1px solid #6bceec;border-radius:20px;padding:26px;box-shadow:0 20px 80px #001f4d99}
+#cprGuide::backdrop{background:#001e44a8}
+#cprClose{float:right;border:0;background:#ddf3ff;border-radius:50%;font-size:22px}
+#cpReaderPage.cpr-active #cpReaderLegacyQuest:not([hidden]){margin-top:12px}
+@media(max-width:1190px){#cprLibrary{grid-template-rows:clamp(92px,17dvh,138px) minmax(0,1fr)}.cpr-tile{grid-template-columns:auto minmax(0,1fr);padding:9px;gap:3px 8px}.cpr-tile strong{font-size:clamp(11px,1.5vw,17px)}.cpr-tile small{font-size:10px}.cpr-main{grid-template-columns:minmax(135px,24%) minmax(0,1fr) minmax(125px,22%)}.cpr-thumb{width:55px;height:40px}.cpr-lesson .cpr-fav{display:none}}
+@media(max-width:700px){#cpReaderPage.cpr-active .cp-page-scroll{overflow-y:auto}.cpr-root{display:block!important;overflow:visible!important;flex:none!important}.cpr-tiles{grid-template-columns:1fr;gap:8px}.cpr-tile{min-height:70px}.cpr-tile>span:first-child{width:45px;height:45px}.cpr-tile strong{font-size:17px}.cpr-main{grid-template-columns:1fr;gap:10px;margin-top:12px}.cpr-box{min-height:190px;max-height:285px}.cpr-lessons{min-height:300px;max-height:450px}.cpr-tools{min-height:0;max-height:none;display:grid;grid-template-columns:1fr 1fr}.cpr-tools header{grid-column:1 / 3}.cpr-tools>button{min-height:52px;padding:8px}.cpr-thumb{width:66px;height:46px}.cpr-lesson .cpr-fav{display:block}}
+@media(prefers-reduced-motion:reduce){.cpr-tile{transition:none}.cpr-tile:hover{transform:none}}
