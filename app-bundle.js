@@ -485,6 +485,9 @@ function finishSaveProcess(transaction, msg) {
         if (typeof showMsg === 'function') showMsg(msg);
         cancelEdit(true);
         loadSavedLessons();
+        // Refresh the new reading-library cards after the IndexedDB commit.
+        // This includes the newly saved compressed cover, not the memo image.
+        window.CopeakReaderV2?.refresh();
     };
 }
 
