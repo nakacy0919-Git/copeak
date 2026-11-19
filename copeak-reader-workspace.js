@@ -1,11 +1,14 @@
 (function(){
 "use strict";
 var fallback="./assets/copeak-default-thumbnail.svg",selected="all",sort="new",term="",all=[],folders=[],starred=new Set();
+var CLASSROOM_FOLDER_ID="__copeak_classroom__";
 try{starred=new Set(JSON.parse(localStorage.getItem("copeak_reader_starred")||"[]"));}catch(_){}
 var $=s=>document.querySelector(s);
 function dbRead(){return new Promise(done=>{try{if(typeof db==="undefined"||!db)return done([]);var r=db.transaction("CustomLessons","readonly").objectStore("CustomLessons").getAll();r.onsuccess=()=>done(r.result||[]);r.onerror=()=>done([]);}catch(_){done([])}});}
-function folderData(){try{return typeof getLibraryFolders==="function"?getLibraryFolders():[]}catch(_){return []}}
-function count(id){return id==="all"?all.length:all.filter(l=>id==="__unfiled__"?!l.folderId:id==="__copeak_original__"?String(l.folderId||"").startsWith("__copeak_"):l.folderId===id).length}
+function folderData(){try{return (typeof getLibraryFolders==="function"?getLibraryFolders():[]).filter(f=>String(f.id)!==CLASSROOM_FOLDER_ID)}catch(_){return []}}
+function isClassroomLesson(l){return Boolean(l&&(l.classroomSource===true||l.classroomAssignmentId||l.folderId===CLASSROOM_FOLDER_ID))}
+function matchesFolder(l,id){if(id==="all")return true;if(id===CLASSROOM_FOLDER_ID)return isClassroomLesson(l);if(isClassroomLesson(l))return false;if(id==="__unfiled__")return !l.folderId;if(id==="__copeak_original__")return String(l.folderId||"").startsWith("__copeak_");return String(l.folderId)===id}
+function count(id){return all.filter(l=>matchesFolder(l,id)).length}
 function image(l){var s=l.thumbnail||l.thumbnailUrl||"";return typeof s==="string"&&(/^(data:image\/(webp|png|jpeg);base64,|https:\/\/|\.?\/?assets\/)/i).test(s)&&s.length<180000?s:fallback}
 function make(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
 function panel(){
@@ -19,10 +22,10 @@ function panel(){
  var guides=$("#cpReadGuides");if(guides&&guides.closest(".cp-panel"))guides.closest(".cp-panel").hidden=true;
  return true;
 }
-function foldersDraw(){var holder=$("#cprFolderRows");if(!holder)return;holder.replaceChildren();$("#cprFolderCount").textContent="("+folders.length+")";
- [{id:"all",name:"すべての教材",system:true},...folders,{id:"__unfiled__",name:"未整理",system:true}].forEach(f=>{
+function foldersDraw(){var holder=$("#cprFolderRows");if(!holder)return;holder.replaceChildren();$("#cprFolderCount").textContent="("+(folders.length+2)+")";
+ [{id:"__unfiled__",name:"フォルダ未設定",system:true},{id:CLASSROOM_FOLDER_ID,name:"Copeak Classroom",system:true},{id:"all",name:"すべての教材",system:true},...folders].forEach(f=>{
  var row=make("div","cpr-folder"+(selected===String(f.id)?" chosen":""));
- var b=make("button","cpr-folder-open");b.type="button";b.append(make("span","", "📁"),make("span","cpr-folder-label",f.name),make("small","",count(f.id)+"件"));b.onclick=()=>{selected=String(f.id);foldersDraw();lessonsDraw()};row.append(b);
+ var b=make("button","cpr-folder-open");b.type="button";b.append(make("span","",f.id===CLASSROOM_FOLDER_ID?"🎓":f.id==="__unfiled__"?"📂":f.id==="all"?"📚":"📁"),make("span","cpr-folder-label",f.name),make("small","",count(f.id)+"件"));if(f.id==="__unfiled__")b.title="まだフォルダに分類していない教材";if(f.id===CLASSROOM_FOLDER_ID)b.title="Copeak Classroomから届いた教材を自動表示";b.onclick=()=>{selected=String(f.id);foldersDraw();lessonsDraw()};row.append(b);
  if(!f.system){var more=make("button","cpr-folder-more","⋮");more.title="名前変更・削除";more.onclick=()=>{
  var choice=prompt("1：名前変更　2：削除（中の教材は未整理へ）","1");
  if(choice==="1"&&typeof renameLibraryFolder==="function")renameLibraryFolder({stopPropagation(){}},f.id);
@@ -31,7 +34,7 @@ function foldersDraw(){var holder=$("#cprFolderRows");if(!holder)return;holder.r
  };row.append(more)}holder.append(row);
  });
 }
-function lessonSet(){var result=all.filter(l=>selected==="all"||selected==="__unfiled__"?!l.folderId:selected==="__copeak_original__"?String(l.folderId||"").startsWith("__copeak_"):String(l.folderId)===selected);
+function lessonSet(){var result=all.filter(l=>matchesFolder(l,selected));
  if(term.trim())result=result.filter(l=>String(l.title||"").toLocaleLowerCase().includes(term.toLocaleLowerCase()));
  return result.sort(sort==="popular"?(a,b)=>(b.history||[]).length-(a.history||[]).length:sort==="name"?(a,b)=>String(a.title||"").localeCompare(String(b.title||""),"ja"):(a,b)=>(b.createdAt||0)-(a.createdAt||0));
 }
@@ -42,12 +45,12 @@ function lessonsDraw(){var holder=$("#cprLessonRows");if(!holder)return;holder.r
  var details=make("div","cpr-desc"),title=make("button","cpr-title",l.title||"無題の教材");title.type="button";title.onclick=()=>{if(typeof startCustomLesson==="function")startCustomLesson(l)};
  details.append(title,make("small","",(l.langName||"English")+" · "+(l.history?.length||0)+"回音読"));
  var fav=make("button","cpr-fav",starred.has(String(l.id))?"★":"☆");fav.type="button";fav.title="お気に入り";fav.onclick=()=>{var id=String(l.id);starred.has(id)?starred.delete(id):starred.add(id);localStorage.setItem("copeak_reader_starred",JSON.stringify([...starred]));fav.textContent=starred.has(id)?"★":"☆"};
- var move=make("button","cpr-move","⋯");move.type="button";move.title="フォルダを移動";move.onclick=e=>{if(typeof openMoveLessonModal==="function")openMoveLessonModal(e,l.id)};
+ var move=make("button","cpr-move","⋯");move.type="button";move.title=isClassroomLesson(l)?"Classroom配信教材は自動分類されます":"フォルダを移動";move.disabled=isClassroomLesson(l);move.onclick=e=>{if(!isClassroomLesson(l)&&typeof openMoveLessonModal==="function")openMoveLessonModal(e,l.id)};
  var open=make("button","cpr-open","▶");open.type="button";open.title="音読を開始";open.onclick=title.onclick;
  item.append(img,details,fav,move,open);holder.append(item);
  });
 }
-async function refresh(){if(!$("#cprLibrary"))return;all=await dbRead();folders=folderData();if(selected!=="all"&&selected!=="__unfiled__"&&!folders.some(f=>String(f.id)===selected))selected="all";foldersDraw();lessonsDraw()}
+async function refresh(){if(!$("#cprLibrary"))return;all=await dbRead();folders=folderData();if(selected!=="all"&&selected!=="__unfiled__"&&selected!==CLASSROOM_FOLDER_ID&&!folders.some(f=>String(f.id)===selected))selected="all";foldersDraw();lessonsDraw()}
 function init(){if(!panel())return;
  $("#cprAddFolder").onclick=()=>{if(typeof createLibraryFolder==="function")createLibraryFolder();setTimeout(refresh,250)};
  $("#cprSearch").oninput=e=>{term=e.target.value;lessonsDraw()};

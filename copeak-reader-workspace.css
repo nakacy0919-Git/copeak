@@ -64,3 +64,6 @@
 #cpReaderPage.cpr-active .cp-page-bottom button[aria-current="page"]{color:white;background:linear-gradient(130deg,#0b91e5,#04bceb);box-shadow:0 0 14px #09b7ff88}
 #cpReaderPage.cpr-active .cp-page-home{color:#fff;background:rgba(5,69,127,.75);border-color:#62cef2}
 @media(max-width:700px){#cpReaderPage.cpr-active{padding:0 2px;border-radius:0}#cpReaderPage.cpr-active .cp-page-head{height:88px!important;min-height:0}#cpReaderPage.cpr-active .cp-page-head .cp-page-subtitle{font-size:10px}#cpReaderPage.cpr-active .cp-page-brand{display:none}}
+
+/* Classroom delivery is managed automatically, not through a manual move button. */
+#cprLibrary .cpr-material-move:disabled,#cprLibrary .cpr-move:disabled{opacity:.35;cursor:not-allowed;box-shadow:none}

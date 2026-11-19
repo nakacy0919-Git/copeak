@@ -10,6 +10,7 @@ let editingLessonId = null;
 
 const LIBRARY_FOLDERS_KEY = 'copeak_library_folders';
 const UNFILED_FOLDER_ID = '__unfiled__';
+const CLASSROOM_FOLDER_ID = '__copeak_classroom__';
 const SAMPLE_FOLDER_ID = '__samples__';
 
 let currentLibraryFolderId = null;
@@ -106,7 +107,7 @@ function deleteLibraryFolder(event, folderId) {
     const folder = folders.find(f => f.id === folderId);
     if (!folder) return;
 
-    if (!confirm(`「${folder.name}」を削除しますか？\n中の教材は「未整理」へ移動します。`)) return;
+    if (!confirm(`「${folder.name}」を削除しますか？\n中の教材は「フォルダ未設定」へ移動します。`)) return;
 
     const tx = db.transaction([storeName], 'readwrite');
     const store = tx.objectStore(storeName);
@@ -144,7 +145,7 @@ function openMoveLessonModal(event, lessonId) {
     const folders = getLibraryFolders();
 
     select.innerHTML =
-        `<option value="">📂 未整理</option>` +
+        `<option value="">📂 フォルダ未設定</option>` +
         folders.map(folder =>
             `<option value="${folder.id}">📁 ${escapeLibraryHtml(folder.name)}</option>`
         ).join('');
@@ -691,7 +692,7 @@ function renderHomeLibrary(lessons, homeList) {
                 <div class="text-4xl">📂</div>
                 <div>
                     <h3 class="font-extrabold text-base md:text-lg text-stone-700">
-                        未整理
+                        フォルダ未設定
                     </h3>
                     <p class="text-xs text-stone-400 mt-1">
                         ${unfiledCount} 教材
@@ -708,7 +709,7 @@ function renderHomeLibrary(lessons, homeList) {
     }
 
     let selectedLessons = [];
-    let folderName = '未整理';
+    let folderName = 'フォルダ未設定';
 
     if (currentLibraryFolderId === UNFILED_FOLDER_ID) {
         selectedLessons = lessons.filter(lesson => !lesson.folderId);
@@ -1783,6 +1784,8 @@ const youtubeLoop =
 
                 existingLesson.classroomSource =
                     true;
+                // Copeak Classroom materials always use the reserved system folder.
+                existingLesson.folderId = CLASSROOM_FOLDER_ID;
                 existingLesson.classroomStudentId =
                     classroomStudentId || existingLesson.classroomStudentId || null;
                 existingLesson.classroomPracticePolicy = classroomPracticePolicy;
@@ -2013,6 +2016,7 @@ const youtubeLoop =
 
             classroomSource:
                 classroomSource,
+            folderId: classroomSource ? CLASSROOM_FOLDER_ID : null,
             classroomStudentId: classroomSource ? classroomStudentId : null,
             classroomPracticePolicy: classroomSource ? classroomPracticePolicy : null,
 
