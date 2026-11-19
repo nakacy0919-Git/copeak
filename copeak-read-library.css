@@ -295,3 +295,13 @@
 #cpReadingStudio button:focus-visible,#cpReadingStudio a:focus-visible,
 #cpCreatorPage .cp-thumb-editor :focus-visible {outline:3px solid #ffe38f!important;outline-offset:3px}
 @media(prefers-reduced-motion:reduce){#cpReadingStudio .cp-studio-category{transition:none}}
+
+/* Reader-only dark cinema atmosphere. The creator retains its light editor. */
+body.copeak-home-mode #homeScreen.cp-section-mode.cp-reader-active.active {
+  background-color:#032d66!important;
+  background-image:
+    linear-gradient(115deg,rgba(0,29,73,.56),rgba(0,34,78,.23)),
+    var(--cp-voice-bg)!important;
+  background-size:cover!important;
+  background-position:center center!important;
+}
