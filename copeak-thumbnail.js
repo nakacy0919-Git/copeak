@@ -1,8 +1,8 @@
 /* Thumbnail is separate from the explanatory memo image. */
 (function(){
 "use strict";
-var current=null;
-function clear(){current=null;var f=document.getElementById("cptThumbInput");if(f)f.value="";preview(null)}
+var current=null,pending=Promise.resolve();
+function clear(){current=null;pending=Promise.resolve();var f=document.getElementById("cptThumbInput");if(f)f.value="";var folder=document.getElementById("cptFolderSelect");if(folder)folder.value="";preview(null)}
 function preview(src){var img=document.getElementById("cptThumbPreview");if(img)img.src=src||"./assets/copeak-default-thumbnail.svg"}
 function compression(file){
  return new Promise((resolve,reject)=>{
@@ -24,15 +24,18 @@ function compression(file){
 function attach(){
  var form=document.getElementById("customMaterialForm");if(!form||document.getElementById("cptThumbnail"))return;
  var box=document.createElement("div");box.id="cptThumbnail";box.className="cpt-box";
- box.innerHTML='<img id="cptThumbPreview" src="./assets/copeak-default-thumbnail.svg" alt="教材一覧の表紙プレビュー"><div class="cpt-info"><strong>教材一覧のサムネイル</strong><small>補助画像とは別。PNG / JPEG / WebP（15MBまで）</small><input id="cptThumbInput" type="file" accept="image/png,image/jpeg,image/webp"><button id="cptRemoveThumb" type="button">サムネを解除</button><span id="cptStatus" role="status"></span></div>';
+ box.innerHTML='<img id="cptThumbPreview" src="./assets/copeak-default-thumbnail.svg" alt="教材一覧の表紙プレビュー"><div class="cpt-info"><strong>教材一覧のサムネイル</strong><small>補助画像とは別。PNG / JPEG / WebP（15MBまで）</small><input id="cptThumbInput" type="file" accept="image/png,image/jpeg,image/webp"><button id="cptRemoveThumb" type="button">サムネを解除</button><label class="cpt-folder-label">保存先フォルダ <select id="cptFolderSelect"><option value="">未整理</option></select></label><span id="cptStatus" role="status"></span></div>';
  form.prepend(box);
+ updateFolders(null);
  document.getElementById("cptThumbInput").addEventListener("change",async function(){
   var f=this.files&&this.files[0];if(!f)return;
   var status=document.getElementById("cptStatus");status.textContent="圧縮中…";
-  try{current=await compression(f);preview(current);status.textContent="登録準備完了（"+Math.round(current.length*0.75/1024)+"KB）"}catch(e){this.value="";status.textContent=e.message}
+  pending=compression(f).then(data=>{current=data;preview(current);status.textContent="登録準備完了（"+Math.round(current.length*0.75/1024)+"KB）"}).catch(e=>{this.value="";status.textContent=e.message;throw e});
+  try{await pending}catch(_){}
  });
  document.getElementById("cptRemoveThumb").onclick=()=>{current="";preview(null);document.getElementById("cptStatus").textContent="サムネイルを解除します"};
 }
-window.CopeakThumbnail={attach,clear,get(){return current},set(src){current=src||null;preview(current)},isReady(){return !!document.getElementById("cptThumbnail")}};
+function updateFolders(value){var el=document.getElementById("cptFolderSelect");if(!el)return;var options=[{id:"",name:"未整理"},...(typeof getLibraryFolders==="function"?getLibraryFolders():[])];el.replaceChildren();options.forEach(f=>{var option=document.createElement("option");option.value=f.id;option.textContent=f.name;el.append(option)});el.value=value||""}
+window.CopeakThumbnail={attach,clear,get(){return current},folder(){return document.getElementById("cptFolderSelect")?.value||null},ready(){return pending},set(src,folderId){current=src||null;preview(current);updateFolders(folderId)},updateFolders,isReady(){return !!document.getElementById("cptThumbnail")}};
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",()=>setTimeout(attach,160));else setTimeout(attach,160);
 })();
