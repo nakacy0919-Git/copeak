@@ -22,16 +22,14 @@
   }
   function readAll(){
     return new Promise((resolve,reject)=>{
-      const request=indexedDB.open(DB,1);
-      request.onerror=()=>reject(request.error);
-      request.onsuccess=()=>{
-        const database=request.result;
-        if(!database.objectStoreNames.contains(STORE)){database.close();resolve([]);return}
-        const tx=database.transaction(STORE,'readonly'),get=tx.objectStore(STORE).getAll();
+      // Reuse the authenticated app's existing connection. Never open or create
+      // CopeakDB from a presentation layer while the core schema initializes.
+      if(typeof db==='undefined'||!db||!db.objectStoreNames.contains(STORE)){resolve([]);return}
+      try {
+        const tx=db.transaction(STORE,'readonly'),get=tx.objectStore(STORE).getAll();
         get.onsuccess=()=>resolve(get.result||[]);
         get.onerror=()=>reject(get.error);
-        tx.oncomplete=()=>database.close();
-      };
+      } catch(error) {reject(error)}
     });
   }
   function notify(message){if(typeof window.showMsg==='function')window.showMsg(message);else console.info(message)}
@@ -108,15 +106,10 @@
     const id=Number(value);if(!Number.isSafeInteger(id))return;
     try{
       await new Promise((resolve,reject)=>{
-        const req=indexedDB.open(DB,1);
-        req.onerror=()=>reject(req.error);
-        req.onsuccess=()=>{
-          const database=req.result,tx=database.transaction(STORE,'readwrite');
-          const store=tx.objectStore(STORE),get=store.get(id);
-          get.onsuccess=()=>{if(get.result){get.result.folderId=target;store.put(get.result)}};
-          tx.oncomplete=()=>{database.close();resolve()};
-          tx.onerror=()=>{database.close();reject(tx.error)};
-        };
+        if(typeof db==='undefined'||!db){reject(new Error('IndexedDB not ready'));return}
+        const tx=db.transaction(STORE,'readwrite'),store=tx.objectStore(STORE),get=store.get(id);
+        get.onsuccess=()=>{if(get.result){get.result.folderId=target;store.put(get.result)}};
+        tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);
       });
       notify('📁 教材を移動しました');schedule();
       if(typeof window.loadSavedLessons==='function')window.loadSavedLessons();
@@ -236,7 +229,11 @@
     }));
     try{favorites=new Set(JSON.parse(localStorage.getItem(FAVKEY)||'[]').map(String))}catch(_){}
     new MutationObserver(schedule).observe(legacyList,{childList:true});
-    new MutationObserver(()=>{if(!page.hidden)schedule()}).observe(page,{attributes:true,attributeFilter:['hidden']});
+    new MutationObserver(()=>{
+      document.getElementById('homeScreen')?.classList.toggle('cp-reader-active',!page.hidden);
+      if(!page.hidden)schedule();
+    }).observe(page,{attributes:true,attributeFilter:['hidden']});
+    document.getElementById('homeScreen')?.classList.toggle('cp-reader-active',!page.hidden);
     window.addEventListener('copeak-storage-ready',schedule);
     window.addEventListener('focus',()=>{if(!page.hidden)schedule()});
     refresh();
