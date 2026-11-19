@@ -155,9 +155,9 @@ function renderSetList(){
  $('setList').innerHTML=list.length?list.map(s=>{
  const cat=label(s.category_id,state.manifest.categories),lvl=(s.level_ids||[s.level_id]).map(id=>label(id,state.manifest.levels)).join(' / ');
  const score=readProgress(s.id).answers||{};const done=Object.keys(score).length;
- return '<button type="button" role="listitem" data-set="'+esc(s.id)+'" class="'+(state.lesson?.id===s.id?'active':'')+'"><strong>'+esc(s.title)+'</strong><small>'+esc(cat)+' · '+esc(lvl)+' · '+s.word_count+'語 · 回答 '+done+'/'+s.questions.length+'</small></button>';
+ return '<button type="button" role="listitem" data-set="'+esc(s.id)+'" class="'+(state.lesson?.id===s.id?'active':'')+'"><strong>'+esc(s.title)+'</strong><small>'+esc(cat)+' · '+esc(lvl)+' · '+s.word_count+'語 · 回答 '+done+'/'+questionCount(s)+'</small></button>';
  }).join(''):'<p class="empty">この条件の長文はまだ準備中です。他のレベル・分野をご覧ください。</p>';
- $('setList').querySelectorAll('[data-set]').forEach(b=>b.addEventListener('click',()=>selectLesson(b.dataset.set)));
+ $('setList').querySelectorAll('[data-set]').forEach(b=>b.addEventListener('click',()=>openSelectedLesson(b.dataset.set)));
 }
 /* Full-page browsing: category → level → original passage. */
 const browseState={step:'category',category:null,level:null};
@@ -205,8 +205,8 @@ function renderBrowse(){
   html=browseAvailable(category,level).map((item,i)=>{
    const done=Object.keys(readProgress(item.id).answers||{}).length;
    return browseCard(item.id,item.title_ja||item.title,
-    item.title+' · '+item.word_count+' words · '+item.questions.length+' 問',
-    '回答 '+done+'/'+item.questions.length,String(i+1).padStart(2,'0'),false,'📖');
+    item.title+' · '+item.word_count+' words · '+questionCount(item)+' 問',
+    '回答 '+done+'/'+questionCount(item),String(i+1).padStart(2,'0'),false,'📖');
   }).join('')||'<p class="browse-empty">この条件にはまだ教材がありません。戻って別のレベルを選択してください。</p>';
  }
  $('browseCards').innerHTML=html;
@@ -216,26 +216,13 @@ function renderBrowse(){
   const value=b.dataset.browsePick;
   if(step==='category'){browseState.category=value;browseState.level=null;browseState.step='level';renderBrowse();}
   else if(step==='level'){browseState.level=value;browseState.step='article';renderBrowse();}
-  else{
-   $('readingBrowse').hidden=true;
-   $('readingWorkspace').hidden=false;
-   document.body.classList.remove('reading-browsing');
-   try{
-    selectLesson(value,true);
-   }catch(error){
-    console.error('Could not open reading lesson:',error);
-    document.body.classList.remove('reading-focus','catalog-open');
-    document.body.classList.add('reading-browsing');
-    $('readingWorkspace').hidden=true;
-    $('readingBrowse').hidden=false;
-    $('browseNotice').textContent='この長文を開けませんでした。もう一度選ぶか、再読み込みしてください。';
-   }
-  }
+  else openSelectedLesson(value,true);
   window.scrollTo?.({top:0,behavior:'auto'});
  }));
  $('browseBreadcrumbs').querySelectorAll('[data-browse-step]').forEach(b=>b.addEventListener('click',()=>openBrowse(b.dataset.browseStep)));
 }
 function openBrowse(step='category'){
+ lessonLoadSequence++;
  window.CopeakReadingInk?.pauseStudy();
  closeCatalog(false);
  document.body.classList.remove('reading-focus','catalog-open');
@@ -261,7 +248,7 @@ function safeSourceUrl(raw){
  }catch{return null;}
 }
 function selectLesson(id,startFocus=true){
- const s=state.sets.find(x=>x.id===id);if(!s)return;
+ const s=id;if(!s)return;
  practiceCache.clear();
  state.lesson=s;const progress=readProgress(s.id);state.answers=progress.answers||{};state.clozeAnswers=progress.clozeAnswers||{};state.graded=progress.graded===true;state.gradingChosen=false;state.activeQuestionId=null;state.practice=progress.practice&&typeof progress.practice==='object'?progress.practice:{};state.quizCursor={};
  state.showAll=false;state.support=false;state.vocabIndex=0;state.vocabChoice=null;state.panel='questions';state.exercise=null;
@@ -342,7 +329,7 @@ function practiceBank(mode){
  const direction=$('vocabQuizMode').value;
  const key=mode==='vocab'?'vocab:'+direction:mode;
  if(!practiceCache.has(key)){
-  practiceCache.set(key,practiceEngine.build(state.lesson,mode,state.sets,direction));
+  practiceCache.set(key,practiceEngine.build(state.lesson,mode,practiceCorpus||[state.lesson],direction));
  }
  return practiceCache.get(key);
 }
@@ -1252,7 +1239,7 @@ try{state.gradingMode=localStorage.getItem('copeak-reading-grading-mode')==='bat
 
 $('printOpen').addEventListener('click',()=>$('printDialog').showModal());
 $('printPdf').addEventListener('click',printPDF);$('printDocx').addEventListener('click',downloadDocx);
-window.CopeakReadingExamContext=()=>({lesson:state.lesson,mode:state.exercise||'questions',sets:state.sets,direction:$('vocabQuizMode').value});
+window.CopeakReadingExamContext=()=>({lesson:state.lesson,mode:state.exercise||'questions',sets:practiceCorpus||[state.lesson],direction:$('vocabQuizMode').value});
 try{state.lookupEnabled=localStorage.getItem('copeak-reading-lookup-enabled')!=='false';}catch(_){}
 function updateLookupUI(){
  const button=$('wordLookupToggle');
