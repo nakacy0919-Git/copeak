@@ -12,13 +12,25 @@
   if (!gate || !app || !form || !pin || !message || !submit) return;
 
   let loading = false;
-  const loadScript = src => new Promise((resolve, reject) => {
-    const el = document.createElement('script');
-    el.src = src;
-    el.onload = resolve;
-    el.onerror = () => reject(new Error('教材の読み込みに失敗しました。'));
-    document.body.appendChild(el);
-  });
+  const scriptRequests = new Map();
+  const loadScript = src => {
+    if (scriptRequests.has(src)) return scriptRequests.get(src);
+    const request = new Promise((resolve, reject) => {
+      const el = document.createElement('script');
+      el.src = src;
+      el.onload = resolve;
+      el.onerror = () => {
+        el.remove();
+        reject(new Error('教材の読み込みに失敗しました。'));
+      };
+      document.body.appendChild(el);
+    }).catch(error => {
+      scriptRequests.delete(src); // Failed resources may be retried.
+      throw error;
+    });
+    scriptRequests.set(src, request);
+    return request;
+  };
 
   let assetsPromise=null;
   window.CopeakReadingEnsureAssets=()=>{
