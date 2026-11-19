@@ -17,8 +17,38 @@ function readProgress(){try{const p=JSON.parse(localStorage.getItem(key)||'{}');
 function cancelMic(){const r=state.recognition;state.recognition=null;state.readingRun++;if(r)try{r.abort();}catch(_){}$('micIndicator').classList.remove('is-listening');$('finishReading').hidden=true;$('startReading').disabled=false;}
 function stop(reset=true){state.token++;if(state.audio){try{state.audio.pause();state.audio.removeAttribute('src');state.audio.load();}catch(_){}state.audio=null;}if('speechSynthesis'in window)window.speechSynthesis.cancel();if(reset)state.sequence=false;$('playNarration').classList.remove('st-active');$('playNarration').textContent='▶ 物語を聞く';$('playNarration').setAttribute('aria-pressed','false');}
 function view(name){['catalog','reader','review'].forEach(k=>$(k+'View').hidden=k!==name);$('showCatalog').hidden=name==='catalog';window.scrollTo(0,0);}
-function cards(){const host=$('storyCards');host.replaceChildren();state.stories.forEach(s=>{const b=document.createElement('button');b.type='button';b.className='st-card';b.innerHTML='<span class="st-card-icon">📖</span><span class="st-card-level">英語レベル '+esc(s.level)+' · '+esc(s.cefr)+'</span><strong class="st-card-title" lang="en">'+esc(s.title)+'</strong><span class="st-card-ja">'+esc(s.subtitle)+'</span><span class="st-card-description">'+esc(s.description)+'</span><span class="st-card-arrow">'+(state.progress[s.id]?.completed?'✓ 読了済み · もう一度読む':'▶ 絵本を開く')+'</span>';b.addEventListener('click',()=>open(s));host.append(b);});}
-function open(story){stop();cancelMic();state.story=story;const previous=Number(state.progress[story.id]?.scene);state.index=Number.isInteger(previous)?Math.max(0,Math.min(previous,story.scenes.length-1)):0;state.japanese=false;
+function cards(){
+  const host=$('storyCards');host.replaceChildren();
+  state.stories.forEach((s,i)=>{
+    const b=document.createElement('button');b.type='button';b.className='st-card';b.dataset.storyId=s.id;
+    const cover=s.scenes?.[0]?.image||'',fallback=s.id==='the-box-of-letters'?'assets/story-theater/the-box-of-letters/cover.svg':'';
+    const completed=Boolean(state.progress[s.id]?.completed),number=String(i+1).padStart(2,'0');
+    b.setAttribute('aria-label',s.title+'、英語レベル'+s.level+'。物語を開く');
+    b.innerHTML='<span class="st-card-art"><img src="'+esc(cover)+'" alt="'+esc(s.title+' の物語の場面')+'" loading="lazy" decoding="async"><span class="st-card-number">'+number+'</span></span>'+
+      '<span class="st-card-copy"><span class="st-card-eyebrow">ENGLISH LEVEL '+esc(s.level)+' · '+esc(s.cefr)+'</span>'+
+      '<strong class="st-card-title" lang="en">'+esc(s.title)+'</strong><span class="st-card-ja">'+esc(s.subtitle)+'</span>'+
+      '<span class="st-card-description" lang="en">'+esc(s.description)+'</span>'+
+      '<span class="st-card-meta">'+s.scenes.length+' SCENES · ORIGINAL STORY</span>'+
+      '<span class="st-card-cta">'+(completed?'✓ 読了済み・もう一度読む':'物語を開く')+'<span class="st-card-cta-arrow" aria-hidden="true">↗</span></span></span>';
+    const img=b.querySelector('img');
+    img.addEventListener('error',()=>{if(fallback&&!img.dataset.usedFallback){img.dataset.usedFallback='true';img.src=fallback;}else{img.hidden=true;}});
+    b.addEventListener('click',()=>open(s));host.append(b);
+  });
+}
+async function populateAmbientReel(){
+  const host=$('ambientReel');if(!host)return;
+  const images=state.stories.flatMap(story=>story.scenes.map(scene=>scene.image)).filter(path=>typeof path==='string'&&/^assets\\/story-theater\\/[a-z0-9-]+\\/scene-\\d+\\.(webp|png|jpg|svg)$/i.test(path));
+  const verified=await Promise.all(images.slice(0,24).map(src=>new Promise(resolve=>{
+    const test=new Image();test.onload=()=>resolve(src);test.onerror=()=>resolve(null);test.src=src;
+  })));
+  const available=[...new Set(verified.filter(Boolean))].slice(0,12);
+  host.replaceChildren();
+  available.forEach((src,i)=>{
+    const img=document.createElement('img');img.className='st-ambient-shot';img.src=src;img.alt='';img.decoding='async';
+    img.style.animationDuration=(available.length*9)+'s';img.style.animationDelay=(-i*9)+'s';host.append(img);
+  });
+}
+function open(story){stop();cancelMic();state.story=story;$('readerView').dataset.storyId=story.id;const previous=Number(state.progress[story.id]?.scene);state.index=Number.isInteger(previous)?Math.max(0,Math.min(previous,story.scenes.length-1)):0;state.japanese=false;
 $('toggleJapanese').textContent='🇯🇵 和訳';$('toggleJapanese').setAttribute('aria-pressed','false');$('storyTitle').textContent=story.title;$('storySubtitle').textContent=story.subtitle;$('storyLevel').textContent='ENGLISH LEVEL '+story.level+' · '+story.cefr;view('reader');scene();save();}
 function underline(text){const holder=$('sceneEnglish');holder.replaceChildren();const candidates=state.story.vocab.flatMap((w,i)=>[w.term,...(Array.isArray(w.forms)?w.forms:[])].map(term=>({term,index:i}))).filter(x=>/^[a-z ]+$/i.test(x.term)).sort((a,b)=>b.term.length-a.term.length);
 if(!candidates.length){holder.textContent=text;return;}const lookup=new Map(candidates.map(x=>[x.term.toLowerCase(),x.index]));const pattern=new RegExp('\\b(?:'+candidates.map(x=>x.term.replace(/ /g,'\\s+')).join('|')+')\\b','gi');
@@ -113,5 +143,5 @@ document.querySelectorAll('[data-review-tab]').forEach(b=>b.addEventListener('cl
 $('reviewContent').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.hasAttribute('data-review-word'))word(Number(b.dataset.reviewWord));else if(b.hasAttribute('data-choice'))answer(Number(b.dataset.choice));else if(b.hasAttribute('data-next')){state.qIndex++;state.answered=false;quiz();}else if(b.hasAttribute('data-restart'))tabChange(state.tab);});
 document.addEventListener('keydown',e=>{if($('readerView').hidden||$('studyDialog').open||e.altKey||e.ctrlKey||e.metaKey)return;if(e.target&&/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;if(e.key==='ArrowRight'){e.preventDefault();changeScene(state.index+1);}else if(e.key==='ArrowLeft'){e.preventDefault();changeScene(state.index-1);}});
 window.addEventListener('pagehide',()=>{stop();cancelMic();});
-(async()=>{readProgress();try{const res=await fetch('./data/story-theater-stories.json',{cache:'no-store'});if(!res.ok)throw Error('HTTP '+res.status);const d=await res.json();if(!Array.isArray(d.stories)||!d.stories.length)throw Error('教材形式が不正です');state.stories=d.stories.filter(s=>s&&s.id&&Array.isArray(s.scenes)&&s.scenes.length&&Array.isArray(s.vocab)&&Array.isArray(s.questions));cards();const wanted=new URLSearchParams(location.search).get('story');const selected=state.stories.find(s=>s.id===wanted);if(selected)open(selected);}catch(err){$('loadError').hidden=false;$('loadError').textContent='ストーリーを読み込めませんでした: '+err.message;}})();
+(async()=>{readProgress();try{const res=await fetch('./data/story-theater-stories.json',{cache:'no-store'});if(!res.ok)throw Error('HTTP '+res.status);const d=await res.json();if(!Array.isArray(d.stories)||!d.stories.length)throw Error('教材形式が不正です');state.stories=d.stories.filter(s=>s&&s.id&&Array.isArray(s.scenes)&&s.scenes.length&&Array.isArray(s.vocab)&&Array.isArray(s.questions));cards();populateAmbientReel();const wanted=new URLSearchParams(location.search).get('story');const selected=state.stories.find(s=>s.id===wanted);if(selected)open(selected);}catch(err){$('loadError').hidden=false;$('loadError').textContent='ストーリーを読み込めませんでした: '+err.message;}})();
 })();
