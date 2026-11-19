@@ -5,6 +5,9 @@ const practiceEngine=window.CopeakReadingPractice;
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const escapeXml=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&apos;'}[c])).replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/g,'');
 const state={manifest:null,sets:[],lesson:null,category:'all',level:'all',showAll:false,support:false,lookupEnabled:true,answers:{},clozeAnswers:{},vocabIndex:0,vocabChoice:null,vocabOrder:[],panel:'questions',exercise:null,graded:false,gradingMode:'immediate',gradingChosen:false,activeQuestionId:null,practice:{},quizCursor:{}};
+// Cache generated quizzes for the selected lesson. Keep the same deterministic
+// option order, including for previously saved answer indices.
+const practiceCache=new Map();
 const label=(id,collection)=>collection.find(x=>x.id===id)?.label||id;
 const status=s=>{$('loadStatus').textContent=s;};
 const words=lesson=>lesson.paragraphs.flatMap(p=>p.sentences).map(s=>s.en).join(' ').trim().split(/\s+/).filter(Boolean).length;
@@ -134,7 +137,16 @@ function renderBrowse(){
    $('readingBrowse').hidden=true;
    $('readingWorkspace').hidden=false;
    document.body.classList.remove('reading-browsing');
-   selectLesson(value,true);
+   try{
+    selectLesson(value,true);
+   }catch(error){
+    console.error('Could not open reading lesson:',error);
+    document.body.classList.remove('reading-focus','catalog-open');
+    document.body.classList.add('reading-browsing');
+    $('readingWorkspace').hidden=true;
+    $('readingBrowse').hidden=false;
+    $('browseNotice').textContent='この長文を開けませんでした。もう一度選ぶか、再読み込みしてください。';
+   }
   }
   window.scrollTo?.({top:0,behavior:'auto'});
  }));
@@ -167,6 +179,7 @@ function safeSourceUrl(raw){
 }
 function selectLesson(id,startFocus=true){
  const s=state.sets.find(x=>x.id===id);if(!s)return;
+ practiceCache.clear();
  state.lesson=s;const progress=readProgress(s.id);state.answers=progress.answers||{};state.clozeAnswers=progress.clozeAnswers||{};state.graded=progress.graded===true;state.gradingChosen=false;state.activeQuestionId=null;state.practice=progress.practice&&typeof progress.practice==='object'?progress.practice:{};state.quizCursor={};
  state.showAll=false;state.support=false;state.vocabIndex=0;state.vocabChoice=null;state.panel='questions';state.exercise=null;
  $('supportToggle').disabled=false;$('printOpen').disabled=false;$('focusStart').disabled=false;$('examModeStart').disabled=false;
@@ -243,7 +256,12 @@ function activePracticeItem(){
 }
 function practiceBank(mode){
  if(!state.lesson||!practiceEngine)return [];
- return practiceEngine.build(state.lesson,mode,state.sets,$('vocabQuizMode').value);
+ const direction=$('vocabQuizMode').value;
+ const key=mode==='vocab'?'vocab:'+direction:mode;
+ if(!practiceCache.has(key)){
+  practiceCache.set(key,practiceEngine.build(state.lesson,mode,state.sets,direction));
+ }
+ return practiceCache.get(key);
 }
 function annotatedWords(text,marks){
  const ranges=[];
@@ -617,18 +635,28 @@ function practiceRecord(mode){
 }
 function modeSummary(mode){
  if(!state.lesson)return {total:0,answered:0,correct:0,percent:0,accuracy:0,runs:0,best:0};
- const items=mode==='questions'?state.lesson.questions:practiceBank(mode);
  const record=practiceRecord(mode);
  const answers=mode==='questions'?state.answers:record.answers;
+ // Unattempted exercises need only their authored count. Generating every
+ // full quiz during lesson selection can block the main thread unnecessarily.
+ const authored={
+  vocab:state.lesson.vocabulary,
+  grammar:state.lesson.grammar,
+  discourse:state.lesson.discourse,
+  paraphrase:state.lesson.paraphrases,
+  cloze:state.lesson.cloze
+ };
+ const hasAnswers=Object.values(answers).some(Number.isInteger);
+ const items=mode==='questions'?state.lesson.questions:(hasAnswers?practiceBank(mode):null);
+ const total=items?items.length:(authored[mode]?.length||0);
  let answered=0,correct=0;
- for(const item of items){
+ for(const item of items||[]){
   const picked=answers[item.id];
   if(Number.isInteger(picked)&&picked>=0&&picked<item.options.length){
    answered++;
    if(picked===item.answer)correct++;
   }
  }
- const total=items.length;
  return {total,answered,correct,percent:total?Math.round(answered/total*100):0,
   accuracy:answered?Math.round(correct/answered*100):0,
   runs:Number(record.runs)||0,best:Number(record.best)||0};
@@ -644,8 +672,13 @@ function renderPracticeProgress(){
   cloze:'<path d="M4 4h16v16H4zM8 9h8M8 14h5"/>'
  };
  let percentages=[];
+ const summaries=new Map();
+ const summary=mode=>{
+  if(!summaries.has(mode))summaries.set(mode,modeSummary(mode));
+  return summaries.get(mode);
+ };
  $('practiceProgress').innerHTML=practiceEngine.modes.map(mode=>{
-  const x=modeSummary(mode),name=practiceEngine.labels[mode],p=x.percent;
+  const x=summary(mode),name=practiceEngine.labels[mode],p=x.percent;
   percentages.push(p);
   const detail=x.answered+'/'+x.total+'問 · 正答率'+x.accuracy+'% · 完走'+x.runs+'回'+(x.runs?' · 最高'+x.best+'%':'');
   return '<div class="progress-mini" data-progress-mode="'+esc(mode)+'" style="--progress:'+p+'%" title="'+esc(name+'：'+detail)+'" aria-label="'+esc(name+' '+p+'パーセント達成、'+detail)+'">'+
@@ -653,7 +686,7 @@ function renderPracticeProgress(){
    '<span class="progress-copy"><strong>'+esc(name)+'</strong><small>'+p+'%</small></span></div>';
  }).join('');
  for(const b of $('exerciseChoices').querySelectorAll('[data-exercise]')){
-  const x=modeSummary(b.dataset.exercise);
+  const x=summary(b.dataset.exercise);
   const tag=b.querySelector('[data-choice-progress]');
   if(tag)tag.textContent=x.answered+'/'+x.total+' · '+x.percent+'%';
  }
