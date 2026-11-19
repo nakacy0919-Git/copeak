@@ -1,0 +1,296 @@
+/*
+ * Copeak Luminescent Cards · Nov 19, 2026
+ *
+ * Match the blue / aqua / gold / violet illustrated cards without
+ * rasterizing buttons, duplicating a student's face, or changing click actions.
+ * Decorative scenery is independently cropped from the far-left / far-right
+ * of the existing world image; the human subject occupies the center and is
+ * deliberately outside these scenic selections.
+ */
+#copeakHomeHub .cp-home-cards {
+  align-items:stretch;
+  min-height:0;
+  gap:clamp(11px,1.25vw,19px);
+}
+#copeakHomeHub .cp-home-cards > .cp-action {
+  --luma:27,185,255;
+  --card-base:3,49,116;
+  --scene-x:0%;
+  --scene-y:4%;
+  position:relative;
+  isolation:isolate;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  align-items:flex-start;
+  gap:0;
+  overflow:hidden;
+  min-width:0;
+  min-height:0;
+  padding:clamp(13px,1.5vw,24px)!important;
+  color:#fff!important;
+  text-align:left;
+  background:linear-gradient(152deg,rgba(var(--luma),.28),rgba(var(--card-base),.76) 52%,rgba(var(--card-base),.95))!important;
+  background-color:rgba(var(--card-base),.88)!important;
+  background-image:linear-gradient(152deg,rgba(var(--luma),.28),rgba(var(--card-base),.75) 55%,rgba(var(--card-base),.96))!important;
+  background-size:auto!important;
+  background-position:center!important;
+  border:1.7px solid rgba(var(--luma),.95)!important;
+  border-bottom-width:2px!important;
+  border-radius:clamp(17px,1.5vw,24px)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.72),
+    inset 0 -8px 21px rgba(var(--luma),.14),
+    0 9px 22px rgba(0,13,47,.38),
+    0 0 13px rgba(var(--luma),.48),
+    0 0 2px rgba(255,255,255,.65)!important;
+  backdrop-filter:blur(13px) saturate(165%)!important;
+  -webkit-backdrop-filter:blur(13px) saturate(165%)!important;
+  transition:transform .28s ease,box-shadow .28s ease,filter .28s ease;
+}
+
+/* Four distinct cinematic landscapes: the background person is NEVER recropped
+ * into a second or third button. 410% zoom yields a scenic source window of
+ * roughly 425px out of the original 1740px source. */
+#copeakHomeHub .cp-home-cards > .cp-action-read {
+  --luma:35,185,255;
+  --card-base:1,50,117;
+  --scene-x:0%;
+  --scene-y:7%;
+}
+#copeakHomeHub .cp-home-cards > .cp-action-create {
+  --luma:32,244,225;
+  --card-base:0,72,88;
+  --scene-x:0%;
+  --scene-y:55%;
+}
+#copeakHomeHub .cp-home-cards > .cp-action-sound {
+  --luma:255,207,99;
+  --card-base:41,46,64;
+  --scene-x:83%;
+  --scene-y:31%;
+}
+#copeakHomeHub .cp-home-cards > .cp-action-vocabulary {
+  --luma:191,134,255;
+  --card-base:43,35,113;
+  --scene-x:100%;
+  --scene-y:12%;
+}
+
+/* Scenic art floats beneath tinted frosted glass. */
+#copeakHomeHub .cp-home-cards > .cp-action::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  border-radius:inherit;
+  background-image:var(--cp-voice-bg)!important;
+  background-size:410% auto!important;
+  background-position:var(--scene-x) var(--scene-y)!important;
+  background-repeat:no-repeat!important;
+  opacity:.58!important;
+  filter:saturate(1.28) brightness(1.09);
+  transform:none;
+}
+
+/* Top gloss, rich legible footer, luminous rim. */
+#copeakHomeHub .cp-home-cards > .cp-action::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  border-radius:inherit;
+  background:
+    linear-gradient(180deg,
+      rgba(var(--luma),.22) 0%,
+      rgba(255,255,255,.05) 20%,
+      rgba(var(--card-base),.18) 45%,
+      rgba(var(--card-base),.57) 65%,
+      rgba(var(--card-base),.96) 100%),
+    linear-gradient(125deg,rgba(255,255,255,.24) 0%,transparent 26%,transparent 77%,rgba(var(--luma),.11) 100%)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.35);
+}
+#copeakHomeHub .cp-home-cards > .cp-action > * {
+  position:relative;
+  z-index:2;
+}
+#copeakHomeHub .cp-home-cards > .cp-action .cp-action-icon {
+  display:grid!important;
+  place-items:center!important;
+  flex:0 0 auto;
+  width:clamp(54px,5.25vw,81px)!important;
+  height:clamp(54px,5.25vw,81px)!important;
+  margin:0 0 auto!important;
+  padding:0!important;
+  border:1.6px solid rgba(var(--luma),.96)!important;
+  border-radius:50%!important;
+  background:
+    radial-gradient(circle at 28% 23%,rgba(255,255,255,.55),transparent 39%),
+    radial-gradient(circle at 50% 55%,rgba(var(--luma),.72),rgba(var(--luma),.28) 57%,rgba(2,19,59,.84) 100%)!important;
+  box-shadow:
+    0 0 0 3px rgba(var(--luma),.08),
+    0 0 12px rgba(var(--luma),.92),
+    0 0 25px rgba(var(--luma),.38),
+    inset 0 1px 4px rgba(255,255,255,.72)!important;
+  filter:none!important;
+}
+#copeakHomeHub .cp-home-cards > .cp-action .cp-action-icon img {
+  width:78%!important;
+  height:78%!important;
+  object-fit:contain!important;
+  filter:drop-shadow(0 0 8px rgba(var(--luma),.68))!important;
+  border:0!important;
+}
+#copeakHomeHub .cp-home-cards > .cp-action .cp-action-copy {
+  display:flex;
+  flex:none!important;
+  width:100%;
+  min-width:0;
+  align-items:flex-start;
+  flex-direction:column;
+  justify-content:flex-end;
+  gap:2px!important;
+  margin-top:clamp(6px,.85vh,12px)!important;
+  padding:0 32px 0 0!important;
+  text-align:left;
+}
+#copeakHomeHub .cp-home-cards > .cp-action .cp-action-title {
+  display:block;
+  color:#ffffff!important;
+  font-size:clamp(15px,1.25vw,22px)!important;
+  line-height:1.33!important;
+  font-weight:900!important;
+  letter-spacing:-.025em!important;
+  text-shadow:0 2px 7px rgba(0,16,53,.95)!important;
+  overflow-wrap:anywhere;
+}
+#copeakHomeHub .cp-home-cards > .cp-action .cp-action-sub {
+  display:block;
+  color:#f1faff!important;
+  font-size:clamp(10px,.77vw,13px)!important;
+  line-height:1.36!important;
+  font-weight:700!important;
+  letter-spacing:0!important;
+  text-shadow:0 1px 6px rgba(0,16,53,.95)!important;
+}
+#copeakHomeHub .cp-home-cards > .cp-action .cp-action-arrow {
+  position:absolute!important;
+  right:clamp(12px,1.15vw,19px)!important;
+  bottom:clamp(13px,1.2vw,20px)!important;
+  z-index:3!important;
+  display:grid;
+  place-items:center;
+  width:clamp(29px,2.45vw,40px)!important;
+  height:clamp(29px,2.45vw,40px)!important;
+  margin:0!important;
+  padding:0!important;
+  border-radius:50%!important;
+  border:1px solid rgba(255,255,255,.54)!important;
+  background:
+    radial-gradient(circle at 30% 25%,rgba(255,255,255,.31),transparent 48%),
+    linear-gradient(135deg,rgba(var(--luma),.91),rgba(var(--luma),.54))!important;
+  box-shadow:0 0 14px rgba(var(--luma),.57),0 3px 11px rgba(1,18,51,.36)!important;
+  color:white!important;
+  font-size:clamp(22px,2.2vw,30px)!important;
+  line-height:1;
+  text-shadow:0 2px 3px rgba(0,10,50,.35);
+}
+#copeakHomeHub .cp-home-cards > .cp-action:hover:not(:disabled) {
+  transform:translateY(-3px);
+  filter:brightness(1.08);
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.85),
+    0 15px 31px rgba(0,12,42,.46),
+    0 0 26px rgba(var(--luma),.64),
+    0 0 3px rgba(255,255,255,.68)!important;
+}
+#copeakHomeHub .cp-home-cards > .cp-action:focus-visible {
+  outline:3px solid #fff4bd!important;
+  outline-offset:3px!important;
+}
+/* Desktop: keep four wide, landscape-format cards like the reference. */
+@media (min-width:1191px) and (min-height:641px) {
+  #copeakHomeHub {
+    grid-template-rows:
+      clamp(230px,33dvh,300px)
+      clamp(156px,24dvh,212px)
+      minmax(160px,1fr)
+      clamp(54px,7dvh,68px)!important;
+  }
+  #copeakHomeHub .cp-home-cards {
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    grid-template-rows:minmax(0,1fr)!important;
+  }
+}
+@media (min-width:701px) and (max-width:1190px) {
+  #copeakHomeHub .cp-home-cards {
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    grid-template-rows:repeat(2,minmax(0,1fr))!important;
+  }
+  #copeakHomeHub .cp-home-cards > .cp-action {
+    flex-direction:row!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    padding:clamp(9px,1.2vw,16px)!important;
+    gap:clamp(10px,1.2vw,16px);
+  }
+  #copeakHomeHub .cp-home-cards > .cp-action .cp-action-icon {
+    width:clamp(52px,6.5vw,68px)!important;
+    height:clamp(52px,6.5vw,68px)!important;
+    margin:0!important;
+  }
+  #copeakHomeHub .cp-home-cards > .cp-action .cp-action-copy {
+    margin:0!important;
+    padding-right:25px!important;
+  }
+  #copeakHomeHub .cp-home-cards > .cp-action::before {background-size:330% auto!important}
+}
+@media (max-width:700px) {
+  #copeakHomeHub .cp-home-cards > .cp-action {
+    flex-direction:column!important;
+    align-items:center!important;
+    justify-content:center!important;
+    text-align:center!important;
+    padding:7px 5px!important;
+    gap:4px!important;
+  }
+  #copeakHomeHub .cp-home-cards > .cp-action::before {background-size:480% auto!important;opacity:.48!important}
+  #copeakHomeHub .cp-home-cards > .cp-action .cp-action-icon {
+    width:clamp(42px,10.5vw,56px)!important;
+    height:clamp(42px,10.5vw,56px)!important;
+    margin:0!important;
+  }
+  #copeakHomeHub .cp-home-cards > .cp-action .cp-action-copy {
+    margin:0!important;
+    align-items:center!important;
+    text-align:center!important;
+    padding:0!important;
+  }
+  #copeakHomeHub .cp-home-cards > .cp-action .cp-action-title {
+    font-size:clamp(12px,3.0vw,16px)!important;
+  }
+  #copeakHomeHub .cp-home-cards > .cp-action .cp-action-sub {
+    font-size:clamp(9px,2.2vw,11px)!important;
+  }
+  #copeakHomeHub .cp-home-cards > .cp-action .cp-action-arrow {display:none!important}
+}
+@media (prefers-reduced-motion:reduce) {
+  #copeakHomeHub .cp-home-cards > .cp-action {
+    transition:none!important;
+  }
+  #copeakHomeHub .cp-home-cards > .cp-action:hover:not(:disabled) {
+    transform:none!important;
+  }
+}
+
+/* Compact desktop windows must keep all four rows within the viewport. */
+@media (min-width:1191px) and (min-height:641px) and (max-height:735px) {
+  #copeakHomeHub {
+    grid-template-rows:clamp(175px,30dvh,225px) clamp(138px,23dvh,170px) minmax(130px,1fr) clamp(48px,7dvh,57px)!important;
+    gap:clamp(7px,1.2dvh,11px);
+  }
+  #copeakHomeHub .cp-home-cards > .cp-action .cp-action-icon {width:56px!important;height:56px!important}
+  #copeakHomeHub .cp-home-cards > .cp-action .cp-action-title {font-size:clamp(14px,1.3vw,19px)!important}
+}
