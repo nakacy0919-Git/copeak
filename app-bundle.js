@@ -271,6 +271,7 @@ function editLesson(event, id) {
             if (imageMark) imageMark.classList.add('hidden');
         }
 
+        window.CopeakThumbnail?.set(lesson.thumbnail || null);
         editingLessonId = id;
 
         // ボタンとマークの表示を更新
@@ -316,6 +317,7 @@ if (typeof showMsg === 'function') {
 }
 
 function cancelEdit(isSilent = false) {
+    window.CopeakThumbnail?.clear();
     document.getElementById("customMaterialForm").reset();
     window.CopeakFocus.restore("customEng", []);
     document.getElementById('customAudio').value = "";
@@ -379,6 +381,7 @@ async function saveCustomLesson() {
     const jpnText = document.getElementById("customJpn").value.trim();
     const formUrl = document.getElementById("customFormUrl")?.value.trim() || "";
     const audioFile = document.getElementById("customAudio").files[0];
+    const lessonThumbnail = window.CopeakThumbnail?.get() ?? null;
     let scoreExclusions;
     try {
         scoreExclusions = globalThis.CopeakScoreExclusions.validateList(document.getElementById('customScoreExclusions')?.value || '');
@@ -441,6 +444,7 @@ async function saveCustomLesson() {
             lesson.type = lessonType;
             lesson.dialogue = dialogueData;
             lesson.memoImage = window.currentMemoImageBase64 || null;
+            if (lessonThumbnail !== null) lesson.thumbnail = lessonThumbnail || null;
 
             if (audioFile) lesson.audioBlob = audioFile;
 
@@ -461,6 +465,7 @@ async function saveCustomLesson() {
             langName: selectedLangName,
             type: lessonType, // 教材の種類
             dialogue: dialogueData, // 会話データ
+            thumbnail: lessonThumbnail || null,
             memoImage: window.currentMemoImageBase64 || null, // 🌟 追加：メモ画像
             history: [],
             createdAt: new Date().getTime()
