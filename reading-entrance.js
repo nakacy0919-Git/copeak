@@ -8,6 +8,89 @@ const state={manifest:null,sets:[],lesson:null,category:'all',level:'all',showAl
 // Cache generated quizzes for the selected lesson. Keep the same deterministic
 // option order, including for previously saved answer indices.
 const practiceCache=new Map();
+let practiceCorpus=null,practiceCorpusRequest=null,lessonLoadSequence=0;
+const lessonCache=new Map();
+const questionCount=s=>Number(s?.question_count??s?.questions?.length??0);
+const manifestSignature=m=>{
+ const source=JSON.stringify([m.sets.map(s=>[s.id,s.file]),m.release?.published||null]);
+ let hash=2166136261;
+ for(let i=0;i<source.length;i++)hash=Math.imul(hash^source.charCodeAt(i),16777619);
+ return source.length+'-'+(hash>>>0);
+};
+function verifyLesson(obj,item){
+ const actual=words(obj),expected=state.manifest.levels.find(l=>l.id===obj.level_id)?.words;
+ const compatible=(obj.level_ids||[obj.level_id]).every(id=>{
+  const band=state.manifest.levels.find(l=>l.id===id)?.words;
+  return band&&actual>=band[0]&&actual<=band[1];
+ });
+ if(obj.id!==item.id||obj.category_id!==item.category_id||obj.level_id!==item.level_id||
+    obj.title!==item.title||obj.word_count!==item.word_count||questionCount(obj)!==questionCount(item)||
+    !expected||!compatible||actual!==obj.word_count||actual<expected[0]||actual>expected[1]||
+    !obj.original||!obj.source_links?.length||!obj.questions?.length||
+    !['reviewed','published'].includes(obj.status)){
+  throw Error(item.id+' の内容・公開状態を確認できません');
+ }
+ return obj;
+}
+async function loadPracticeCorpus(){
+ if(practiceCorpus)return practiceCorpus;
+ if(!practiceCorpusRequest){
+  practiceCorpusRequest=(async()=>{
+   const response=await fetch(state.catalogIndex.practice_corpus_file);
+   if(!response.ok)throw Error('練習用データ HTTP '+response.status);
+   const data=await response.json();
+   if(data.version!==1||!Array.isArray(data.lessons)||data.lessons.length!==state.sets.length||
+      data.lessons.some((lesson,i)=>lesson.id!==state.sets[i].id||
+       !Array.isArray(lesson.vocabulary)||!Array.isArray(lesson.grammar)||
+       !Array.isArray(lesson.paraphrases))){
+    throw Error('練習用データが教材一覧と一致しません');
+   }
+   practiceCorpus=data.lessons;
+   return practiceCorpus;
+  })().catch(e=>{practiceCorpusRequest=null;throw e;});
+ }
+ return practiceCorpusRequest;
+}
+async function loadLesson(item){
+ if(lessonCache.has(item.id))return lessonCache.get(item.id);
+ const response=await fetch(item.file);
+ if(!response.ok)throw Error('本文 HTTP '+response.status);
+ const lesson=verifyLesson(await response.json(),item);
+ lessonCache.set(item.id,lesson);
+ if(lessonCache.size>4)lessonCache.delete(lessonCache.keys().next().value);
+ return lesson;
+}
+async function openSelectedLesson(id,startFocus=true){
+ const item=state.sets.find(s=>s.id===id);
+ if(!item)return;
+ const sequence=++lessonLoadSequence;
+ if(!$('readingBrowse').hidden)$('browseNotice').textContent='長文を読み込んでいます…';
+ else status('長文を読み込んでいます…');
+ const button=Array.from(document.querySelectorAll('[data-browse-pick],[data-set]'))
+  .find(b=>b.dataset.browsePick===id||b.dataset.set===id);
+ if(button)button.setAttribute('aria-busy','true');
+ try{
+  const [lesson]=await Promise.all([
+   loadLesson(item),loadPracticeCorpus(),
+   window.CopeakReadingEnsureAssets?.()||Promise.resolve()
+  ]);
+  if(sequence!==lessonLoadSequence)return;
+  $('readingWorkspace').hidden=false;
+  document.body.classList.remove('reading-browsing');
+  selectLesson(lesson,startFocus);
+  $('readingBrowse').hidden=true;
+  status('現在の収録教材 '+state.sets.length+'セット');
+ }catch(error){
+  if(sequence!==lessonLoadSequence)return;
+  console.error('Could not open reading lesson:',error);
+  $('readingBrowse').hidden=false;$('readingWorkspace').hidden=true;
+  document.body.classList.remove('reading-focus','catalog-open');
+  document.body.classList.add('reading-browsing');
+  $('browseNotice').textContent='この長文を開けませんでした。通信を確認してもう一度選択してください。';
+ }finally{
+  if(button)button.removeAttribute('aria-busy');
+ }
+}
 const label=(id,collection)=>collection.find(x=>x.id===id)?.label||id;
 const status=s=>{$('loadStatus').textContent=s;};
 const words=lesson=>lesson.paragraphs.flatMap(p=>p.sentences).map(s=>s.en).join(' ').trim().split(/\s+/).filter(Boolean).length;
