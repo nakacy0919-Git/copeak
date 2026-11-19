@@ -56,3 +56,11 @@
 @media(prefers-reduced-motion:reduce){.cpr-tile{transition:none}.cpr-tile:hover{transform:none}}
 
 #cpReaderPage.cpr-active.cpr-quest-open .cp-page-scroll{overflow-y:auto!important}#cpReaderPage.cpr-active #cprLibrary[hidden]{display:none!important}#cpReaderPage.cpr-active #cprQuestPanel:not([hidden]){display:block!important;background:rgba(4,43,85,.94);color:white;border:1px solid #38c9f3;border-radius:17px;padding:16px}#cprQuestBack{border:1px solid #73c9f3;background:#0f659e;color:white;padding:9px 16px;border-radius:12px;margin-bottom:13px;cursor:pointer}
+
+/* Keep the original cinematic identity rather than a pale legacy page. */
+#cpReaderPage.cpr-active{width:min(1560px,100%);background:linear-gradient(180deg,rgba(0,28,69,.25),rgba(1,24,65,.42)),var(--cp-voice-bg) center center/cover no-repeat;border-radius:19px;padding:0 clamp(4px,.7vw,12px)}
+#cpReaderPage.cpr-active .cp-page-bottom{color:#e7faff;background:rgba(2,33,76,.91);border-color:rgba(73,199,252,.6);border-radius:99px;max-width:800px;width:95%;margin:auto;backdrop-filter:blur(16px)}
+#cpReaderPage.cpr-active .cp-page-bottom button{color:#ebfaff}
+#cpReaderPage.cpr-active .cp-page-bottom button[aria-current="page"]{color:white;background:linear-gradient(130deg,#0b91e5,#04bceb);box-shadow:0 0 14px #09b7ff88}
+#cpReaderPage.cpr-active .cp-page-home{color:#fff;background:rgba(5,69,127,.75);border-color:#62cef2}
+@media(max-width:700px){#cpReaderPage.cpr-active{padding:0 2px;border-radius:0}#cpReaderPage.cpr-active .cp-page-head{height:88px!important;min-height:0}#cpReaderPage.cpr-active .cp-page-head .cp-page-subtitle{font-size:10px}#cpReaderPage.cpr-active .cp-page-brand{display:none}}
