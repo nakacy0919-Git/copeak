@@ -197,7 +197,8 @@
 #cpReadingStudio .cp-studio-empty{display:flex;align-items:center;flex-direction:column;gap:9px;padding:35px 10px;color:#b7e1fa}
 #cpReadingStudio .cp-studio-empty>span{font-size:36px}
 #cpReadingStudio .cp-studio-empty strong{color:#fff;font-size:14px}
-#cpReadingStudio .cp-studio-side-panel{gap:7px}
+#cpReadingStudio .cp-studio-side-panel{gap:7px;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#65d2fa70 transparent}
+#cpReadingStudio .cp-studio-side-card{flex-shrink:0}
 #cpReadingStudio .cp-studio-side-card{
   display:flex;align-items:center;gap:clamp(7px,.75vw,12px);
   width:100%;min-height:clamp(51px,8dvh,83px);
