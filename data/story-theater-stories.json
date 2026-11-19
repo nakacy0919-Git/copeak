@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "note": "Three original graded stories: The Empty Chair (A1–A2), The Red Umbrella (A2–B1; illustrated and narrated edition), and The Box of Letters (B1–B2; text-first with accessible audio fallback).",
+  "note": "Three original graded stories with full artwork and narration: The Empty Chair, The Red Umbrella, The Box of Letters.",
   "stories": [
     {
       "id": "the-empty-chair",
@@ -621,47 +621,47 @@
       "cefr": "B1–B2",
       "title": "The Box of Letters",
       "subtitle": "手紙の箱",
-      "description": "A teenager discovers a friendship that time could not erase.",
+      "description": "A box of unsent letters reunites two childhood friends.",
       "scenes": [
         {
-          "text": "While cleaning her grandfather's room, Mei discovered a wooden box full of letters. Each envelope carried the same address, but none of them had been sent.",
-          "ja": "祖父の部屋を掃除していたメイは、手紙でいっぱいの木箱を見つけました。封筒にはすべて同じ住所が書かれていましたが、一通も投函されていませんでした。",
-          "alt": "Mei discovers an old wooden box of unsent handwritten letters.",
+          "text": "During a visit to her grandfather's house, Mei discovered a small wooden box at the back of a bookshelf. Inside were dozens of letters, carefully tied with a blue ribbon. Most were addressed to someone named Ken, but none had a stamp. She wondered why they had never been sent.",
+          "ja": "祖父の家を訪ねたとき、メイは本棚の奥に小さな木箱を見つけました。中には青いリボンで丁寧に結ばれた何十通もの手紙が入っていました。ほとんどがケンという人物宛てでしたが、どれにも切手は貼られていませんでした。メイはなぜ送られなかったのだろうと不思議に思いました。",
+          "alt": "Mei discovers unsent letters tied with a blue ribbon in her grandfather's sunlit study.",
           "grammar": {
-            "focus": "While cleaning her grandfather's room, Mei discovered a wooden box full of letters.",
+            "focus": "Most were addressed to someone named Ken, but none had a stamp.",
             "parts": [
               {
-                "role": "M",
-                "value": "While cleaning her grandfather's room"
-              },
-              {
                 "role": "S",
-                "value": "Mei"
+                "value": "Most"
               },
               {
                 "role": "V",
-                "value": "discovered"
+                "value": "were addressed"
               },
               {
-                "role": "O",
-                "value": "a wooden box full of letters"
+                "role": "M",
+                "value": "to someone named Ken"
+              },
+              {
+                "role": "M",
+                "value": "but none had a stamp"
               }
             ],
-            "note": "While cleaning は While she was cleaning の省略形で、主語が共通のときに使います。"
+            "note": "be addressed to は「～に宛てられている」。none は前に出た手紙を受けて「どれも～ない」を表します。"
           },
           "image": "assets/story-theater/the-box-of-letters/scene-01.webp",
           "audio": "assets/story-theater/the-box-of-letters/scene-01.mp3"
         },
         {
-          "text": "The letters were addressed to Ken, her grandfather's closest childhood friend. The two boys had promised to meet again after their families moved to different cities.",
-          "ja": "手紙は祖父の幼なじみで親友だったケンに宛てられていました。少年だった二人は、家族が別々の町へ引っ越した後、再会を約束していました。",
-          "alt": "Close-up of an old letter addressed to Ken alongside a faded childhood photo.",
+          "text": "An old photograph slipped out of the box. It showed two young boys smiling with their arms around each other's shoulders. Her grandfather explained that Ken had been his closest childhood friend. Before they went their separate ways, they had promised to stay in touch, no matter where life took them.",
+          "ja": "古い写真が箱から滑り落ちました。そこには肩を組んで笑う二人の少年が写っていました。祖父はケンが少年時代の一番の親友だったと説明しました。二人は別々の道を歩む前に、人生でどこへ行こうとも連絡を取り合おうと約束していたのです。",
+          "alt": "Mei looks at a faded photograph of two smiling childhood friends beside the open letter box.",
           "grammar": {
-            "focus": "The two boys had promised to meet again after their families moved to different cities.",
+            "focus": "they had promised to stay in touch",
             "parts": [
               {
                 "role": "S",
-                "value": "The two boys"
+                "value": "they"
               },
               {
                 "role": "V",
@@ -669,28 +669,24 @@
               },
               {
                 "role": "O",
-                "value": "to meet again"
-              },
-              {
-                "role": "M",
-                "value": "after their families moved to different cities"
+                "value": "to stay in touch"
               }
             ],
-            "note": "had promised は過去完了。引っ越し後の出来事より前の約束を表します。"
+            "note": "had promised は過去完了。離れ離れになるより前に交わした約束を表します。"
           },
           "image": "assets/story-theater/the-box-of-letters/scene-02.webp",
           "audio": "assets/story-theater/the-box-of-letters/scene-02.mp3"
         },
         {
-          "text": "However, her grandfather had never found the courage to write about his difficult life. The letters described small victories, painful losses, and the hope of reconnecting.",
-          "ja": "しかし祖父は、自分の苦労の多い人生を知らせる勇気を持てずにいたのです。手紙には小さな成功やつらい喪失、再会への希望が綴られていました。",
-          "alt": "Mei reads the handwritten letters beside a window with gentle afternoon light.",
+          "text": "Mei sat beside the window and carefully read the letters. However, her grandfather had never found the courage to share the story of his difficult life with Ken. The letters described small victories, painful losses, and the hope of reconnecting. He had written them over many years but had kept them all.",
+          "ja": "メイは窓際に座り、手紙を丁寧に読みました。しかし祖父は、苦労の多かった自分の人生をケンに伝える勇気をずっと持てずにいたのです。手紙には小さな成功やつらい喪失、再びつながりたいという希望がつづられていました。祖父は長い年月をかけて書きながら、一通も送らずに保管していました。",
+          "alt": "Mei reads letters beside the window while memories depict Grandfather's victories, losses, and hopes.",
           "grammar": {
-            "focus": "her grandfather had never found the courage to write about his difficult life.",
+            "focus": "her grandfather had never found the courage to share the story of his difficult life with Ken.",
             "parts": [
               {
                 "role": "S",
-                "value": "Her grandfather"
+                "value": "her grandfather"
               },
               {
                 "role": "V",
@@ -702,97 +698,89 @@
               },
               {
                 "role": "M",
-                "value": "to write about his difficult life"
+                "value": "to share the story of his difficult life with Ken"
               }
             ],
-            "note": "the courage to do は「～する勇気」。to不定詞が名詞 courage を説明します。"
+            "note": "the courage to share は「伝える勇気」。to不定詞は courage の内容を説明します。"
           },
           "image": "assets/story-theater/the-box-of-letters/scene-03.webp",
           "audio": "assets/story-theater/the-box-of-letters/scene-03.mp3"
         },
         {
-          "text": "Mei asked her grandfather whether he still wanted to see Ken. He hesitated, then whispered, “I thought it was too late.” She decided to search for the address.",
-          "ja": "メイが今でもケンに会いたいか尋ねると、祖父はためらい、「もう遅いと思っていた」とささやきました。メイは住所を探すことに決めました。",
-          "alt": "Grandfather looks uncertain while Mei gently offers to help him reconnect.",
+          "text": "“Why didn't you send them?” Mei asked gently. Her grandfather looked down. “I thought Ken had forgotten me. As the years passed, I became afraid it was too late.” Mei held his hand and replied, “Perhaps it is never too late to tell someone how important they are to you.”",
+          "ja": "「どうして送らなかったの？」とメイが優しく尋ねると、祖父はうつむきました。「ケンはもう私のことを忘れていると思ったんだ。年月がたつにつれ、もう遅いのではと怖くなった」。メイは祖父の手を握り、「大切に思っている気持ちを伝えるのに、遅すぎることはないんじゃないかな」と答えました。",
+          "alt": "Mei gently holds her grandfather's hand while he looks down and remembers his old friend.",
           "grammar": {
-            "focus": "Mei asked her grandfather whether he still wanted to see Ken.",
+            "focus": "As the years passed, I became afraid it was too late.",
             "parts": [
-              {
-                "role": "S",
-                "value": "Mei"
-              },
-              {
-                "role": "V",
-                "value": "asked"
-              },
-              {
-                "role": "O",
-                "value": "her grandfather"
-              },
-              {
-                "role": "O",
-                "value": "whether he still wanted to see Ken"
-              }
-            ],
-            "note": "whether 節は「～かどうか」。asked の内容を表す間接疑問です。"
-          },
-          "image": "assets/story-theater/the-box-of-letters/scene-04.webp",
-          "audio": "assets/story-theater/the-box-of-letters/scene-04.mp3"
-        },
-        {
-          "text": "With help from a local community center, she finally contacted Ken's family. The old friends met in a quiet park and spoke for hours, as though they had never been apart.",
-          "ja": "地域の交流センターの協力で、メイはついにケンの家族に連絡しました。二人は静かな公園で再会し、離れ離れだったことなどなかったかのように何時間も話しました。",
-          "alt": "Two elderly childhood friends embrace in a quiet park, Mei watching happily.",
-          "grammar": {
-            "focus": "The old friends met in a quiet park and spoke for hours, as though they had never been apart.",
-            "parts": [
-              {
-                "role": "S",
-                "value": "The old friends"
-              },
-              {
-                "role": "V",
-                "value": "met / spoke"
-              },
               {
                 "role": "M",
-                "value": "in a quiet park / for hours"
+                "value": "As the years passed"
               },
-              {
-                "role": "M",
-                "value": "as though they had never been apart"
-              }
-            ],
-            "note": "as though + 過去完了は「まるで過去に～でなかったかのように」という仮定表現です。"
-          },
-          "image": "assets/story-theater/the-box-of-letters/scene-05.webp",
-          "audio": "assets/story-theater/the-box-of-letters/scene-05.mp3"
-        },
-        {
-          "text": "On the way home, her grandfather held the empty wooden box and smiled. “I kept every letter because I was afraid,” he said. “You helped me finally send the most important message: I never forgot you.”",
-          "ja": "帰り道、祖父は空になった木箱を抱いて微笑みました。「怖くて手紙を全部取っておいたんだ」と言いました。「でも君のおかげで一番大事な気持ちを伝えられた。ずっと忘れていなかったよ、と」。",
-          "alt": "Grandfather carries the empty letter box beside Mei at sunset.",
-          "grammar": {
-            "focus": "“I kept every letter because I was afraid,”",
-            "parts": [
               {
                 "role": "S",
                 "value": "I"
               },
               {
                 "role": "V",
-                "value": "kept"
+                "value": "became"
               },
               {
-                "role": "O",
-                "value": "every letter"
-              },
-              {
-                "role": "M",
-                "value": "because I was afraid"
+                "role": "C",
+                "value": "afraid it was too late"
               }
             ],
-            "note": "because 以下が「なぜ手紙を保管したか」という理由を示します。"
+            "note": "As the years passed は「年月がたつにつれて」。became afraid は感情の変化です。"
+          },
+          "image": "assets/story-theater/the-box-of-letters/scene-04.webp",
+          "audio": "assets/story-theater/the-box-of-letters/scene-04.mp3"
+        },
+        {
+          "text": "With her grandfather's permission, Mei searched for Ken through a community group in their hometown. A few days later, Ken's daughter replied. Soon, the two old friends finally met again. For a moment, neither could speak. Then they laughed and embraced, as if all the years between them had disappeared.",
+          "ja": "祖父の許可を得て、メイは故郷の地域団体を通じてケンを探しました。数日後、ケンの娘から返事がありました。やがて二人の旧友はついに再会しました。しばらく二人とも言葉が出ませんでしたが、やがて笑い合い、抱き合いました。まるで離れていた長い年月が消えてしまったかのようでした。",
+          "alt": "Two old friends laugh and embrace in front of a cottage while Mei watches happily.",
+          "grammar": {
+            "focus": "as if all the years between them had disappeared",
+            "parts": [
+              {
+                "role": "M",
+                "value": "as if"
+              },
+              {
+                "role": "S",
+                "value": "all the years between them"
+              },
+              {
+                "role": "V",
+                "value": "had disappeared"
+              }
+            ],
+            "note": "as if + 過去完了は「まるで過去に～だったかのように」。長い年月との対比です。"
+          },
+          "image": "assets/story-theater/the-box-of-letters/scene-05.webp",
+          "audio": "assets/story-theater/the-box-of-letters/scene-05.mp3"
+        },
+        {
+          "text": "Her grandfather finally handed Ken one of the letters. “I should have given you this years ago,” he said. Ken smiled and answered, “What matters is that we are together now.” Watching them, Mei realized something important: the words we are afraid to share may be exactly the words someone needs to hear.",
+          "ja": "祖父はついにケンに一通の手紙を手渡しました。「何年も前に渡すべきだった」と言うと、ケンは微笑んで答えました。「大切なのは、今こうして一緒にいられることだよ」。二人を見つめながら、メイは気づきました。伝えるのが怖い言葉こそ、誰かが必要としている言葉なのかもしれないのです。",
+          "alt": "Grandfather and Ken read a treasured handwritten letter at a wooden table as Mei smiles.",
+          "grammar": {
+            "focus": "the words we are afraid to share may be exactly the words someone needs to hear.",
+            "parts": [
+              {
+                "role": "S",
+                "value": "the words we are afraid to share"
+              },
+              {
+                "role": "V",
+                "value": "may be"
+              },
+              {
+                "role": "C",
+                "value": "exactly the words someone needs to hear"
+              }
+            ],
+            "note": "the words (that) we are afraid to share は関係代名詞 that が省略された名詞句。may be は「～かもしれない」。"
           },
           "image": "assets/story-theater/the-box-of-letters/scene-06.webp",
           "audio": "assets/story-theater/the-box-of-letters/scene-06.mp3"
@@ -800,76 +788,39 @@
       ],
       "vocab": [
         {
-          "term": "envelope",
-          "pos": "名詞",
-          "ja": "封筒",
-          "detail": "letter（手紙）を入れる外側の紙袋。",
-          "example": "Each envelope had an address."
+          "term": "wooden box",
+          "pos": "名詞句",
+          "ja": "木箱",
+          "detail": "wooden は木製のという形容詞。",
+          "example": "She found a small wooden box."
         },
         {
           "term": "addressed to",
-          "pos": "表現",
-          "ja": "～宛ての",
-          "detail": "be addressed to 人 で「人に宛てられている」。",
-          "example": "The letter was addressed to Ken."
+          "pos": "動詞句",
+          "ja": "～に宛てられた",
+          "detail": "be addressed to + 人 で「～に宛てられている」。",
+          "example": "The letters were addressed to Ken."
+        },
+        {
+          "term": "childhood friend",
+          "pos": "名詞句",
+          "ja": "幼なじみ",
+          "detail": "childhood は子どもの頃。",
+          "example": "Ken was his childhood friend."
+        },
+        {
+          "term": "stay in touch",
+          "pos": "定型表現",
+          "ja": "連絡を取り合う",
+          "detail": "stay in touch with + 人 で「連絡を保つ」。",
+          "example": "They promised to stay in touch."
         },
         {
           "term": "courage",
           "pos": "名詞",
           "ja": "勇気",
-          "detail": "find the courage to do で「～する勇気を出す」。",
+          "detail": "find the courage to do は「～する勇気を出す」。",
           "example": "He found the courage to speak."
-        },
-        {
-          "term": "reconnect",
-          "pos": "動詞",
-          "ja": "再びつながる",
-          "detail": "connect に re- が付き「再びつながる」。",
-          "example": "They hoped to reconnect.",
-          "forms": [
-            "reconnecting"
-          ]
-        },
-        {
-          "term": "hesitate",
-          "pos": "動詞",
-          "ja": "ためらう",
-          "detail": "hesitate to do で「～するのをためらう」。",
-          "example": "He hesitated before answering.",
-          "forms": [
-            "hesitated"
-          ]
-        },
-        {
-          "term": "contact",
-          "pos": "動詞・名詞",
-          "ja": "連絡する、連絡",
-          "detail": "contact someone は前置詞なしで目的語を取ります。",
-          "example": "Mei contacted the family.",
-          "forms": [
-            "contacted"
-          ]
-        },
-        {
-          "term": "as though",
-          "pos": "接続詞句",
-          "ja": "まるで～のように",
-          "detail": "事実と異なることにも使われる表現。",
-          "example": "They talked as though nothing had changed."
-        },
-        {
-          "term": "had been sent",
-          "pos": "受動態・過去完了",
-          "ja": "送られていた",
-          "detail": "had been + 過去分詞 は過去完了の受動態。本文では none of them had been sent（どれも送られていなかった）。",
-          "example": "None of them had been sent."
-        },
-        {
-          "term": "promised to",
-          "pos": "動詞句",
-          "ja": "～する約束をした",
-          "detail": "promise to + 動詞の原形 は「～する約束をする」。",
-          "example": "They promised to meet again."
         },
         {
           "term": "painful losses",
@@ -879,63 +830,127 @@
           "example": "The letters described painful losses."
         },
         {
-          "term": "community center",
-          "pos": "名詞句",
-          "ja": "地域の交流センター",
-          "detail": "地域住民の交流や支援活動を行う施設です。",
-          "example": "She contacted a community center."
+          "term": "reconnecting",
+          "pos": "動詞",
+          "ja": "再びつながること",
+          "detail": "reconnect の動名詞。",
+          "example": "He hoped for reconnecting."
         },
         {
-          "term": "never forgot",
-          "pos": "動詞句",
-          "ja": "決して忘れなかった",
-          "detail": "never は「一度も～ない／決して～ない」を強調します。",
-          "example": "I never forgot you."
+          "term": "forgotten",
+          "pos": "動詞",
+          "ja": "忘れた（過去分詞）",
+          "detail": "had forgotten は過去完了。",
+          "example": "He thought Ken had forgotten him."
         },
         {
-          "term": "important message",
+          "term": "too late",
+          "pos": "形容詞句",
+          "ja": "遅すぎる",
+          "detail": "never too late は「決して遅すぎない」。",
+          "example": "Perhaps it is never too late."
+        },
+        {
+          "term": "permission",
+          "pos": "名詞",
+          "ja": "許可",
+          "detail": "with someone's permission は「人の許可を得て」。",
+          "example": "She had her grandfather's permission."
+        },
+        {
+          "term": "community group",
           "pos": "名詞句",
-          "ja": "大切な伝言、思い",
-          "detail": "message は文字の連絡だけでなく、伝えたい気持ちにも使えます。",
-          "example": "It was an important message."
+          "ja": "地域団体",
+          "detail": "地域の人々が集まり活動する組織。",
+          "example": "She searched through a community group."
+        },
+        {
+          "term": "embraced",
+          "pos": "動詞",
+          "ja": "抱き合った",
+          "detail": "embrace は「抱きしめる」。",
+          "example": "The friends laughed and embraced."
+        },
+        {
+          "term": "handed",
+          "pos": "動詞",
+          "ja": "手渡した",
+          "detail": "hand + 人 + 物 で「人に物を渡す」。",
+          "example": "Grandfather handed Ken a letter."
+        },
+        {
+          "term": "what matters",
+          "pos": "名詞節",
+          "ja": "大切なこと",
+          "detail": "what + 動詞 で名詞節。",
+          "example": "What matters is that we are together."
+        },
+        {
+          "term": "afraid to share",
+          "pos": "形容詞句",
+          "ja": "伝えるのが怖い",
+          "detail": "be afraid to + 動詞で「～するのをためらう」。",
+          "example": "Words we are afraid to share may matter."
         }
       ],
       "questions": [
         {
-          "question": "Why were the letters not sent?",
+          "question": "What did Mei discover in the box?",
           "options": [
-            "Ken had moved abroad.",
-            "Grandfather felt unable to share his struggles.",
-            "Mei had hidden them.",
-            "The stamps were missing."
+            "Books from Ken.",
+            "Letters tied with a blue ribbon.",
+            "A gold watch.",
+            "A train ticket."
           ],
           "answer": 1,
-          "explanation": "祖父は難しい人生を語る勇気を持てなかったからです。"
+          "explanation": "青いリボンで結ばれた手紙が入っていました。"
         },
         {
-          "question": "How did Mei locate Ken?",
+          "question": "What had Grandfather and Ken promised?",
           "options": [
-            "Through a community center.",
-            "By traveling abroad.",
-            "Through a television show.",
-            "By using the old stamps."
+            "To stay in touch.",
+            "To live in the same town.",
+            "To write a book.",
+            "To travel together."
           ],
           "answer": 0,
-          "explanation": "地域の交流センターが協力しました。"
+          "explanation": "別れても連絡を取り合おうと約束しました。"
         },
         {
-          "question": "What does the empty box symbolize?",
+          "question": "Why had Grandfather kept the letters?",
           "options": [
-            "A lost fortune.",
-            "A broken friendship.",
-            "Feelings finally shared.",
-            "An old family secret."
+            "He had forgotten Ken's name.",
+            "Mei had hidden the stamps.",
+            "He was afraid it was too late to contact Ken.",
+            "He wanted to sell them."
           ],
           "answer": 2,
-          "explanation": "伝えられなかった気持ちが届いたことを象徴しています。"
+          "explanation": "年月がたつにつれて、連絡するには遅すぎるのではと怖くなっていました。"
+        },
+        {
+          "question": "How did Mei find Ken?",
+          "options": [
+            "At a train station.",
+            "Through a community group.",
+            "In a newspaper.",
+            "Through her school teacher."
+          ],
+          "answer": 1,
+          "explanation": "地域団体を通じてケンを探しました。"
+        },
+        {
+          "question": "What does the final scene suggest?",
+          "options": [
+            "Old friends should keep secrets.",
+            "Feelings should be shared even when it seems difficult.",
+            "All letters should be destroyed.",
+            "Time always ends friendships."
+          ],
+          "answer": 1,
+          "explanation": "伝えるのをためらう言葉が、誰かにとって必要な言葉かもしれないという結末です。"
         }
       ],
-      "mediaReady": false
+      "mediaReady": true
     }
   ]
 }
