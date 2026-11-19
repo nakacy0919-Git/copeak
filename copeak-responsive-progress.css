@@ -241,6 +241,33 @@
     padding:10px 12px!important;
     border-radius:16px!important;
   }
+  #copeakHomeHub .cp-home-extras > .cp-extra:first-child {
+    flex-direction:column!important;
+    align-items:stretch!important;
+    justify-content:flex-start!important;
+    gap:3px!important;
+    min-height:125px!important;
+  }
+  #copeakHomeHub .cp-home-extras > .cp-extra:first-child h3 {
+    font-size:12px!important;
+  }
+  #copeakHomeHub .cp-home-extras > .cp-extra:first-child p {
+    font-size:10px!important;
+  }
+  #copeakHomeHub .cp-home-extras > .cp-extra:first-child .cp-recent-list {
+    margin-top:2px!important;
+    width:100%;
+    gap:1px!important;
+  }
+  #copeakHomeHub .cp-home-extras > .cp-extra:first-child .cp-recent-row {
+    display:flex!important;
+    font-size:clamp(10px,2.65vw,12px)!important;
+    padding:4px 0!important;
+    color:#e7f6ff;
+  }
+  #copeakHomeHub .cp-home-extras > .cp-extra:first-child .cp-recent-row small {
+    color:#aaccf1;
+  }
   #copeakHomeHub .cp-home-extras > .cp-extra.cp-activity-premium {
     flex-direction:column;
     justify-content:space-between;
