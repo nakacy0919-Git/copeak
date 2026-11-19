@@ -1234,6 +1234,12 @@
                                 existing?.memoImage ||
                                 null,
 
+                            // Preserve custom list cover when packaged
+                            // originals refresh on app startup.
+                            thumbnailDataUrl:
+                                existing?.thumbnailDataUrl ||
+                                null,
+
 
                             // ----------------------
                             // 学習履歴
