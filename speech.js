@@ -922,8 +922,10 @@ function getEnglishNumberComparisonUnit(
 function normalizeEnglishCurrencyText(text, lang = 'en-US') {
     const source = String(text || '');
     if (!/^en(?:-|$)/i.test(lang)) return source;
-    return source.replace(/[¥￥]\s*(\d[\d,]*(?:\.\d+)?)(?![\p{L}\p{N}])/gu,
-        (_, amount) => amount + ' yen');
+    return source.replace(
+        /[¥￥]\s*([0-9０-９][0-9０-９,，]*(?:[.．][0-9０-９]+)?)(?:\s*yen\b)?(?![\p{L}\p{N}])/giu,
+        (_, amount) => amount.normalize('NFKC').replace(/，/g, ',') + ' yen'
+    );
 }
 
 function buildSpeechComparisonUnits(
@@ -1474,7 +1476,7 @@ function getLessonTranscriptChunks() {
         : [String(currentCustomLesson.eng || '')];
 
     return parts.flatMap(part => part
-        .split(/\r?\n+|(?<=[.!?。！？])\s+(?=\S)/u)
+        .replace(/([.!?。！？])\s+(?=\S)/gu, '$1\n').split(/\r?\n+/u)
         .map(chunk => chunk.trim()).filter(Boolean));
 }
 
