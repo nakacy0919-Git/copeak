@@ -5,7 +5,7 @@ try{starred=new Set(JSON.parse(localStorage.getItem("copeak_reader_starred")||"[
 var $=s=>document.querySelector(s);
 function dbRead(){return new Promise(done=>{try{if(typeof db==="undefined"||!db)return done([]);var r=db.transaction("CustomLessons","readonly").objectStore("CustomLessons").getAll();r.onsuccess=()=>done(r.result||[]);r.onerror=()=>done([]);}catch(_){done([])}});}
 function folderData(){try{return typeof getLibraryFolders==="function"?getLibraryFolders():[]}catch(_){return []}}
-function count(id){return id==="all"?all.length:all.filter(l=>id==="__unfiled__"?!l.folderId:l.folderId===id).length}
+function count(id){return id==="all"?all.length:all.filter(l=>id==="__unfiled__"?!l.folderId:id==="__copeak_original__"?String(l.folderId||"").startsWith("__copeak_"):l.folderId===id).length}
 function image(l){var s=l.thumbnail||l.thumbnailUrl||"";return typeof s==="string"&&(/^(data:image\/(webp|png|jpeg);base64,|https:\/\/|\.?\/?assets\/)/i).test(s)&&s.length<180000?s:fallback}
 function make(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
 function panel(){
@@ -31,7 +31,7 @@ function foldersDraw(){var holder=$("#cprFolderRows");if(!holder)return;holder.r
  };row.append(more)}holder.append(row);
  });
 }
-function lessonSet(){var result=all.filter(l=>selected==="all"||selected==="__unfiled__"?!l.folderId:String(l.folderId)===selected);
+function lessonSet(){var result=all.filter(l=>selected==="all"||selected==="__unfiled__"?!l.folderId:selected==="__copeak_original__"?String(l.folderId||"").startsWith("__copeak_"):String(l.folderId)===selected);
  if(term.trim())result=result.filter(l=>String(l.title||"").toLocaleLowerCase().includes(term.toLocaleLowerCase()));
  return result.sort(sort==="popular"?(a,b)=>(b.history||[]).length-(a.history||[]).length:sort==="name"?(a,b)=>String(a.title||"").localeCompare(String(b.title||""),"ja"):(a,b)=>(b.createdAt||0)-(a.createdAt||0));
 }
