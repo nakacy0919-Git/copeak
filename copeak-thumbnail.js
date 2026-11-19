@@ -1,8 +1,8 @@
 /* Thumbnail is separate from the explanatory memo image. */
 (function(){
 "use strict";
-var current=null,pending=Promise.resolve();
-function clear(){current=null;pending=Promise.resolve();var f=document.getElementById("cptThumbInput");if(f)f.value="";var folder=document.getElementById("cptFolderSelect");if(folder)folder.value="";preview(null)}
+var current=null,pending=Promise.resolve(),revision=0;
+function clear(){revision++;current=null;pending=Promise.resolve();var f=document.getElementById("cptThumbInput");if(f)f.value="";var folder=document.getElementById("cptFolderSelect");if(folder)folder.value="";preview(null)}
 function preview(src){var img=document.getElementById("cptThumbPreview");if(img)img.src=src||"./assets/copeak-default-thumbnail.svg"}
 function compression(file){
  return new Promise((resolve,reject)=>{
@@ -31,12 +31,13 @@ function attach(){
  document.getElementById("cptThumbInput").addEventListener("change",async function(){
   var f=this.files&&this.files[0];if(!f)return;
   var status=document.getElementById("cptStatus");status.textContent="圧縮中…";
-  pending=compression(f).then(data=>{current=data;preview(current);status.textContent="登録準備完了（"+Math.round(current.length*0.75/1024)+"KB）"}).catch(e=>{this.value="";status.textContent=e.message;throw e});
+  var rev=++revision;
+  pending=compression(f).then(data=>{if(rev!==revision)return;current=data;preview(current);status.textContent="登録準備完了（"+Math.round(current.length*0.75/1024)+"KB）"}).catch(e=>{this.value="";status.textContent=e.message;throw e});
   try{await pending}catch(_){}
  });
- document.getElementById("cptRemoveThumb").onclick=()=>{pending=Promise.resolve();current="";preview(null);document.getElementById("cptStatus").textContent="サムネイルを解除します"};
+ document.getElementById("cptRemoveThumb").onclick=()=>{revision++;pending=Promise.resolve();current="";preview(null);document.getElementById("cptStatus").textContent="サムネイルを解除します"};
 }
 function updateFolders(value){var el=document.getElementById("cptFolderSelect");if(!el)return;var options=[{id:"",name:"未整理"},...(typeof getLibraryFolders==="function"?getLibraryFolders():[])];el.replaceChildren();options.forEach(f=>{var option=document.createElement("option");option.value=f.id;option.textContent=f.name;el.append(option)});el.value=value||""}
-window.CopeakThumbnail={attach,clear,get(){return current},folder(){return document.getElementById("cptFolderSelect")?.value||null},ready(){return pending},set(src,folderId){pending=Promise.resolve();current=src||null;preview(current);updateFolders(folderId)},updateFolders,isReady(){return !!document.getElementById("cptThumbnail")}};
+window.CopeakThumbnail={attach,clear,get(){return current},folder(){return document.getElementById("cptFolderSelect")?.value||null},ready(){return pending},set(src,folderId){revision++;pending=Promise.resolve();current=src||null;preview(current);updateFolders(folderId)},updateFolders,isReady(){return !!document.getElementById("cptThumbnail")}};
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",()=>setTimeout(attach,160));else setTimeout(attach,160);
 })();
