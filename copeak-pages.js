@@ -153,8 +153,8 @@ function initCopeakDedicatedPages() {
                 </linearGradient>
               </defs>
               <circle class="cp-ring-track" cx="60" cy="60" r="47" pathLength="100"/>
-              <circle class="cp-ring-halo" cx="60" cy="60" r="47" pathLength="100" stroke="url(#cp-activity-ring-gradient)" stroke-dasharray="0 100"/>
-              <circle class="cp-ring-progress" cx="60" cy="60" r="47" pathLength="100" stroke="url(#cp-activity-ring-gradient)" stroke-dasharray="0 100"/>
+              <circle class="cp-ring-halo" cx="60" cy="60" r="47" pathLength="100" stroke="url(#cp-activity-ring-gradient)" stroke-dasharray="0 100" style="visibility:hidden"/>
+              <circle class="cp-ring-progress" cx="60" cy="60" r="47" pathLength="100" stroke="url(#cp-activity-ring-gradient)" stroke-dasharray="0 100" style="visibility:hidden"/>
             </svg>
             <div class="cp-progress-core">
               <strong id="cpProgressNum">0/7日</strong>
@@ -236,6 +236,8 @@ function initCopeakDedicatedPages() {
       circle.setAttribute('aria-label','直近7日の学習日数: '+week+'日');
       circle.querySelectorAll('.cp-ring-progress,.cp-ring-halo').forEach(arc=>{
         arc.style.strokeDasharray=progress+' 100';
+        // A zero-length SVG dash can still render its round line cap as a stray dot.
+        arc.style.visibility=progress>0?'visible':'hidden';
       });
     }
     const streakText=document.getElementById('cpStreakText');if(streakText)streakText.textContent=streak+'日';
