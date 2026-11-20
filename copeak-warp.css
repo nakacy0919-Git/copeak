@@ -1,0 +1,107 @@
+/* Copeak home route warp — short-lived, GPU-friendly and noninteractive.
+   Scoped to dashboard navigation; recording, microphone and scoring are untouched. */
+.cp-warp-layer {
+  --cp-warp-x: 50vw;
+  --cp-warp-y: 50vh;
+  --cp-warp-hue: #3cd4ff;
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  pointer-events: none;
+  overflow: hidden;
+  isolation: isolate;
+  contain: layout style paint;
+  opacity: 0;
+  background:
+    radial-gradient(ellipse at var(--cp-warp-x) var(--cp-warp-y),
+      rgba(255,255,255,.16) 0%, rgba(22,156,240,.18) 18%,
+      rgba(4,40,100,.64) 55%, rgba(1,13,39,.96) 100%);
+  animation: cp-warp-curtain 690ms cubic-bezier(.2,.75,.2,1) both;
+}
+.cp-warp-layer::before {
+  content:"";
+  position:absolute;
+  left:var(--cp-warp-x);
+  top:var(--cp-warp-y);
+  width:max(160vw,160vh);
+  height:max(160vw,160vh);
+  border-radius:50%;
+  background:repeating-conic-gradient(
+    from 5deg,
+    transparent 0deg 8deg,
+    rgba(194,239,255,.06) 8.3deg 9deg,
+    rgba(87,212,255,.75) 9.2deg 9.6deg,
+    transparent 10deg 17deg);
+  -webkit-mask-image:radial-gradient(circle,transparent 0%,#000 25%,#000 60%,transparent 78%);
+  mask-image:radial-gradient(circle,transparent 0%,#000 25%,#000 60%,transparent 78%);
+  transform:translate(-50%,-50%) scale(.04) rotate(-8deg);
+  opacity:0;
+  animation:cp-warp-tunnel 690ms cubic-bezier(.17,.67,.22,1) both;
+}
+.cp-warp-layer::after {
+  content:"";
+  position:absolute;
+  left:var(--cp-warp-x);
+  top:var(--cp-warp-y);
+  width:min(82vw,82vh);
+  height:min(82vw,82vh);
+  border:2px solid var(--cp-warp-hue);
+  border-radius:50%;
+  box-shadow:0 0 32px 15px rgba(80,209,255,.48),
+    inset 0 0 65px 8px rgba(206,243,255,.46);
+  background:radial-gradient(circle,rgba(255,255,255,.9) 0%,
+    rgba(139,226,255,.48) 19%,rgba(40,142,232,.09) 46%,transparent 67%);
+  transform:translate(-50%,-50%) scale(.05);
+  opacity:0;
+  animation:cp-warp-flash 690ms ease-out both;
+}
+@keyframes cp-warp-curtain {
+  0% {opacity:0}
+  25% {opacity:.45}
+  44% {opacity:1}
+  63% {opacity:.93}
+  100% {opacity:0}
+}
+@keyframes cp-warp-tunnel {
+  0% {transform:translate(-50%,-50%) scale(.04) rotate(-8deg);opacity:0}
+  25% {opacity:.78}
+  57% {opacity:1}
+  100% {transform:translate(-50%,-50%) scale(1.7) rotate(14deg);opacity:0}
+}
+@keyframes cp-warp-flash {
+  0% {transform:translate(-50%,-50%) scale(.05);opacity:0}
+  27% {opacity:1}
+  55% {opacity:.88}
+  100% {transform:translate(-50%,-50%) scale(2.6);opacity:0}
+}
+#copeakHomeHub .cp-action.cp-warp-origin,
+#copeakHomeHub .cp-nav.cp-warp-origin,
+#homeScreen .cp-page .cp-warp-origin {
+  filter:brightness(1.17);
+  box-shadow:0 0 28px rgba(91,217,255,.65);
+  transform:scale(1.025);
+}
+#copeakHomeHub.cp-warp-exit,
+#homeScreen .cp-page.cp-warp-exit {
+  animation:cp-warp-page-out 340ms ease-in both;
+  transform-origin:var(--cp-warp-origin-x,50%) var(--cp-warp-origin-y,50%);
+}
+#copeakHomeHub.cp-warp-enter,
+#homeScreen .cp-page.cp-warp-enter {
+  animation:cp-warp-page-in 400ms cubic-bezier(.18,.8,.25,1) both;
+}
+@keyframes cp-warp-page-out {
+  from {opacity:1;transform:scale(1);filter:blur(0)}
+  to {opacity:.12;transform:scale(1.15);filter:blur(5px)}
+}
+@keyframes cp-warp-page-in {
+  from {opacity:.15;transform:scale(.94);filter:blur(4px)}
+  to {opacity:1;transform:scale(1);filter:blur(0)}
+}
+@media(prefers-reduced-motion:reduce){
+  .cp-warp-layer {display:none!important;animation:none!important}
+  #copeakHomeHub.cp-warp-exit,
+  #homeScreen .cp-page.cp-warp-exit,
+  #copeakHomeHub.cp-warp-enter,
+  #homeScreen .cp-page.cp-warp-enter {animation:none!important;transform:none!important;filter:none!important;opacity:1!important}
+}
