@@ -67,3 +67,23 @@
 
 /* Classroom delivery is managed automatically, not through a manual move button. */
 #cprLibrary .cpr-material-move:disabled,#cprLibrary .cpr-move:disabled{opacity:.35;cursor:not-allowed;box-shadow:none}
+
+/* Source, school grade and proficiency filters in the Copeak reader only. */
+#cprLibrary .cpr-filter-panel{flex:0 0 auto;display:grid;gap:6px;padding:8px 0;border-bottom:1px solid rgba(166,222,251,.24)}
+#cprLibrary .cpr-source-tabs{display:flex;flex-wrap:wrap;gap:5px}
+#cprLibrary .cpr-source-tabs button{border-radius:99px;padding:5px 9px;font-size:10px;font-weight:750;white-space:nowrap}
+#cprLibrary .cpr-source-tabs button[aria-pressed="true"]{color:white;background:rgba(24,216,187,.34);border-color:#43ecd7}
+#cprLibrary .cpr-level-selects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) auto;align-items:end;gap:6px}
+#cprLibrary .cpr-level-selects label{font-size:10px;font-weight:750;color:#cbecfc;min-width:0}
+#cprLibrary .cpr-level-selects select{display:block;width:100%;max-width:none;min-width:0;margin-top:3px;font-size:11px;padding:6px;border-radius:8px;background:#164c7c}
+#cprLibrary #cprClearFilters{padding:7px 9px;font-size:10px;white-space:nowrap}
+#cprLibrary .cpr-filter-note{margin:0;color:#b4def1;font-size:10px;line-height:1.45}
+#cprLibrary .cpr-nh-links{display:flex;gap:7px;flex-wrap:wrap;align-items:center;font-size:10px;color:#ceefff}
+#cprLibrary .cpr-nh-links a{color:#bbf7ff;text-decoration:none;border:1px solid #448db9;border-radius:9px;padding:4px 8px;background:rgba(21,103,157,.38)}
+#cprLibrary .cpr-nh-links a:hover{background:rgba(36,173,212,.46)}
+#cprLibrary .cpr-level-badges{display:flex;gap:4px;flex-wrap:wrap}
+#cprLibrary .cpr-level-badges span{color:#d8f6ff;border-radius:6px;border:1px solid rgba(92,201,230,.4);padding:2px 5px;font-size:9px;white-space:nowrap}
+#cprLibrary .cpr-level-badges span.cpr-origin-badge{color:#b2ffeb;border-color:rgba(66,241,207,.55)}
+#cprLibrary .cpr-level-badges span.cpr-unknown-level{color:#b2c9d8}
+@media(max-width:1190px){#cprLibrary .cpr-level-selects{grid-template-columns:repeat(3,minmax(0,1fr))}#cprLibrary #cprClearFilters{grid-column:1/-1;justify-self:start}}
+@media(max-width:700px){#cprLibrary .cpr-level-selects{grid-template-columns:repeat(2,minmax(0,1fr))}#cprLibrary #cprClearFilters{grid-column:auto}#cprLibrary .cpr-filter-panel{gap:8px;padding:10px 0}#cprLibrary .cpr-source-tabs button{min-height:34px}}
