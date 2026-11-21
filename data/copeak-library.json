@@ -122,7 +122,8 @@
         "daily habits"
       ],
       "isPreset": true,
-      "copeakLibrary": true
+      "copeakLibrary": true,
+      "audioReady": true
     },
     {
       "sourceId": "cert-pre2-02",
@@ -216,7 +217,8 @@
         "society"
       ],
       "isPreset": true,
-      "copeakLibrary": true
+      "copeakLibrary": true,
+      "audioReady": true
     },
     {
       "sourceId": "cert-pre1-02",
@@ -380,7 +382,8 @@
         "reading"
       ],
       "isPreset": true,
-      "copeakLibrary": true
+      "copeakLibrary": true,
+      "audioReady": true
     },
     {
       "sourceId": "exam-07",
@@ -660,7 +663,8 @@
         "confidence"
       ],
       "isPreset": true,
-      "copeakLibrary": true
+      "copeakLibrary": true,
+      "audioReady": true
     },
     {
       "sourceId": "school-05",
@@ -729,7 +733,8 @@
         "science"
       ],
       "isPreset": true,
-      "copeakLibrary": true
+      "copeakLibrary": true,
+      "audioReady": true
     },
     {
       "sourceId": "science-02",
@@ -823,7 +828,8 @@
         "technology"
       ],
       "isPreset": true,
-      "copeakLibrary": true
+      "copeakLibrary": true,
+      "audioReady": true
     },
     {
       "sourceId": "science-06",
@@ -846,7 +852,8 @@
         "society"
       ],
       "isPreset": true,
-      "copeakLibrary": true
+      "copeakLibrary": true,
+      "audioReady": true
     },
     {
       "sourceId": "real-01",
@@ -1374,7 +1381,9 @@
       "copeakLibrary": true,
       "original": true,
       "sourceNote": "Original factual biography; not a speech transcript or authorized endorsement.",
-      "thumbnail": "./assets/famous-people/yuzuru-hanyu.webp"
+      "thumbnail": "./assets/famous-people/yuzuru-hanyu.webp",
+      "audioReady": true,
+      "audioPath": "./audio/library/bio-006.mp3"
     },
     {
       "sourceId": "bio-007",
