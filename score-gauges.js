@@ -83,13 +83,14 @@
     }
     function celebrate(values,achievements) {
       if (clearingCelebration) clearTimeout(clearingCelebration);
-      const qualified = [values[0]>=80,achievements[1]>=80,values[2]>=80];
+      const accuracyOnly = surface.dataset.scoreMetrics === 'accuracy-only';
+      const qualified = [values[0]>=80,!accuracyOnly && achievements[1]>=80,!accuracyOnly && values[2]>=80];
       groups.forEach((g,i)=>{
         g.card.classList.remove('is-celebrating');
         void g.card.offsetWidth;
         if(qualified[i] && !(reduceMotion && reduceMotion.matches))g.card.classList.add('is-celebrating');
       });
-      if(values[2]>=80) confetti();
+      if(!accuracyOnly && values[2]>=80) confetti();
       clearingCelebration = window.setTimeout(() => {
         groups.forEach(g=>g.card.classList.remove('is-celebrating'));
         clearingCelebration = 0;
@@ -108,14 +109,31 @@
         groups.forEach(g=>{if(g.animation)cancelAnimationFrame(g.animation);g.animation=0;g.current=0;g.arc.setAttribute('stroke-dasharray','0 100');g.halo.setAttribute('stroke-dasharray','0 100');});
         return;
       }
+      // Fall back to the score mode set by the main bundle if its
+      // language getter is not visible in this script scope.
+      let accuracyOnly = surface.dataset.scoreMetrics === 'accuracy-only';
+      try {
+        if (typeof getCurrentLessonLang === 'function') {
+          accuracyOnly = !/^en(?:-|$)/i.test(getCurrentLessonLang());
+        }
+      } catch (_) {}
+      surface.dataset.scoreMetrics = accuracyOnly ? 'accuracy-only' : 'full';
       const values=groups.map(g=>parse(g.element));
       const target=goal();
       const achievement=[clamp(values[0]),clamp(values[1]/target*100),clamp(values[2])];
       updateCaptions(target);
-      const signature=values.join('|')+'|'+target;
+      const signature=values.join('|')+'|'+target+'|'+(accuracyOnly?'accuracy-only':'full');
       if(signature===lastSignature)return;
       lastSignature=signature;
       groups.forEach((g,i)=>{
+        if (accuracyOnly && i > 0) {
+          if (g.animation) cancelAnimationFrame(g.animation);
+          g.animation = 0;
+          g.current = 0;
+          g.arc.setAttribute('stroke-dasharray', '0 100');
+          g.halo.setAttribute('stroke-dasharray', '0 100');
+          return;
+        }
         g.card.setAttribute('aria-label',
           g.key==='wpm'?'WPM '+values[i]+' (goal '+target+')':
           (g.key==='accuracy'?'Accuracy '+values[i]+'%':'Reading Performance '+values[i]+'/100'));
