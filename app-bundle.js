@@ -6106,9 +6106,16 @@ function renderChart() {
     });
 
     const accData = currentCustomLesson.history.map(log => log.score);
-    const wpmData = currentCustomLesson.history.map(log => log.wpm);
-    // Only WCPM-v1 results can be compared; keep older logs intact.
-    const compData = currentCustomLesson.history.map(log => log.readingPerformanceVersion === 'wcpm-v1' ? log.comp : null);
+    const chartHasEnglishMetrics = /^en(?:-|$)/i.test(currentCustomLesson.lang || 'en-US');
+    const wpmData = currentCustomLesson.history.map(log => (
+        chartHasEnglishMetrics && log.readingPerformanceVersion !== 'accuracy-only-v1'
+            ? log.wpm : null
+    ));
+    // Only English WCPM-v1 results can be compared; keep older logs intact.
+    const compData = currentCustomLesson.history.map(log => (
+        chartHasEnglishMetrics && log.readingPerformanceVersion === 'wcpm-v1'
+            ? log.comp : null
+    ));
 
     progressChartInstance = new Chart(ctx, {
         type: 'line',
@@ -6152,7 +6159,7 @@ function renderChart() {
                     pointRadius: 6,
                     pointHoverRadius: 8
                 }
-            ]
+            ].filter(dataset => chartHasEnglishMetrics || dataset.label.startsWith('Accuracy'))
         },
 
         options: {
@@ -6588,7 +6595,10 @@ function openHistorySelectModal() {
                 <div onclick="selectHistoryLog(${originalIndex})" class="p-3 mb-2 bg-stone-50 hover:bg-emerald-50 border border-stone-200 hover:border-emerald-500 rounded-sm cursor-pointer transition flex justify-between items-center group text-left">
                     <div>
                         <div class="font-bold text-stone-800 text-xs md:text-sm group-hover:text-emerald-900">${originalIndex + 1}回目: ${modeStr} <span class="text-stone-400 font-normal text-[10px] ml-1">${log.date || ''}</span></div>
-                        <div class="text-[11px] text-stone-500 mt-1">Accuracy: <span class="font-bold text-stone-700">${log.score}%</span> / Speed: <span class="font-bold text-stone-700">${log.wpm} WPM</span> / Comp: <span class="font-bold text-stone-700">${log.comp}%</span></div>
+                        <div class="text-[11px] text-stone-500 mt-1">Accuracy: <span class="font-bold text-stone-700">${log.score}%</span>${(
+                            log.readingPerformanceVersion === 'accuracy-only-v1' ||
+                            !/^en(?:-|$)/i.test(currentCustomLesson.lang || 'en-US')
+                        ) ? '' : ` / Speed: <span class="font-bold text-stone-700">${log.wpm} WPM</span> / Comp: <span class="font-bold text-stone-700">${log.comp}%</span>`}</div>
                     </div>
                     <span class="text-stone-400 group-hover:text-emerald-600 font-bold text-xs shrink-0 pl-2">選択 ➔</span>
                 </div>
@@ -6658,8 +6668,12 @@ function openReflectionModal() {
         modeStr = '⚡️ Paced';
     }
 
+    const accuracyOnlySubmission =
+        selectedLogToSubmit.readingPerformanceVersion === 'accuracy-only-v1' ||
+        !/^en(?:-|$)/i.test(currentCustomLesson?.lang || 'en-US');
     document.getElementById('submitScorePreview').innerText =
-        `【選択中: 第 ${selectedLogToSubmit.displayIndex} 回目の記録】 Accuracy: ${scoreText} / Speed: ${wpmText} WPM`;
+        `【選択中: 第 ${selectedLogToSubmit.displayIndex} 回目の記録】 Accuracy: ${scoreText}` +
+        (accuracyOnlySubmission ? '' : ` / Speed: ${wpmText} WPM`);
 
     document.getElementById('submitModePreview').innerText = modeStr;
 
@@ -6702,8 +6716,12 @@ async function submitScoreToForm() {
     finalSubmitBtn.innerHTML = "⏳ 送信中...";
 
     const accuracy = String(selectedLogToSubmit.score);
-    const wpm = String(selectedLogToSubmit.wpm);
-    const comp = String(selectedLogToSubmit.comp || 0);
+    const accuracyOnlySubmission =
+        selectedLogToSubmit.readingPerformanceVersion === 'accuracy-only-v1' ||
+        !/^en(?:-|$)/i.test(currentCustomLesson?.lang || 'en-US');
+    // Empty form fields mean not measured; never submit artificial zeros.
+    const wpm = accuracyOnlySubmission ? '' : String(selectedLogToSubmit.wpm);
+    const comp = accuracyOnlySubmission ? '' : String(selectedLogToSubmit.comp || 0);
     const targetPlayCount = String(selectedLogToSubmit.displayIndex);
 
     let modeStr = 'Read';
@@ -9619,7 +9637,13 @@ async function importPastPracticeBonus(
         }
 
 
+        const accuracyOnlyReading =
+            result?.scoreVersion === 'accuracy-only-v1' ||
+            (typeof result?.language === 'string' &&
+                !/^en(?:-|$)/i.test(result.language));
+
         if (
+            !accuracyOnlyReading &&
             wpm <
             (config.minWpm ?? 1)
         ) {
@@ -9823,6 +9847,10 @@ async function importPastPracticeBonus(
 
         const wpm =
             toNumber(result.wpm);
+        const accuracyOnlyReading =
+            result?.scoreVersion === 'accuracy-only-v1' ||
+            (typeof result?.language === 'string' &&
+                !/^en(?:-|$)/i.test(result.language));
 
 
         const spConfig =
@@ -10016,6 +10044,7 @@ async function importPastPracticeBonus(
 
                 // 初回はPBボーナス対象外
                 if (
+                    !accuracyOnlyReading &&
                     previousBestWpm > 0
                 ) {
 
@@ -10047,6 +10076,7 @@ async function importPastPracticeBonus(
 
 
                 if (
+                    !accuracyOnlyReading &&
                     wpm >
                     previousBestWpm
                 ) {
@@ -16122,6 +16152,12 @@ function buildSpeechComparisonUnits(
     text,
     lang = 'en-US'
 ) {
+    // Keep the proven English/space-delimited word scorer unchanged.
+    // Only no-space languages use grapheme comparison for ASR spacing variance.
+    const multilingualScoring = window.CopeakMultilingualScoring;
+    if (multilingualScoring?.usesGraphemeAlignment(lang)) {
+        return multilingualScoring.buildComparisonUnits(text, lang);
+    }
 
     const segments =
         segmentSpeechText(
@@ -18217,6 +18253,11 @@ if (
     const targetWordCount =
         getLessonTargetTokens()
             .length;
+    const recognitionLang = getCurrentLessonLang();
+    const recognizedUnitCount = window.CopeakMultilingualScoring
+        ?.usesGraphemeAlignment(recognitionLang)
+            ? buildSpeechComparisonUnits(accumulatedTranscript, recognitionLang).length
+            : recognizedWords.length;
 
     const elapsedSeconds =
         recordStartTime > 0
@@ -18237,7 +18278,7 @@ if (
 
     const tooManyRecognizedWords =
         targetWordCount > 0 &&
-        recognizedWords.length >
+        recognizedUnitCount >
             Math.max(
                 Math.ceil(
                     targetWordCount *
@@ -18265,7 +18306,7 @@ if (
             '[Copeak] Abnormal speech result rejected',
             {
                 recognizedWords:
-                    recognizedWords.length,
+                    recognizedUnitCount,
 
                 targetWordCount,
 
@@ -18907,7 +18948,11 @@ function toggleRecording() {
     // ★ 毎回、本番前に実際の音声認識を確認する
     // ==========================================
     if (
-        speechVerifiedForPage
+        speechVerifiedForPage &&
+        (
+            /^en(?:-|$)/i.test(getCurrentLessonLang()) ||
+            micCheckPassedLang === getCurrentLessonLang()
+        )
     ) {
 
         // ==========================================
@@ -19118,11 +19163,13 @@ function processSpeechMatch(spokenText, isFinalResult = false) {
     // ★ 多言語対応：認識結果を分割
     // ==========================================
     const displaySpokenText = normalizeEnglishCurrencyText(spokenText, lang);
-    const spokenSegments =
-        segmentSpeechText(
-            displaySpokenText,
-            lang
-        );
+    const multilingualScoring = window.CopeakMultilingualScoring;
+    const usesGraphemeAlignment = Boolean(
+        multilingualScoring?.usesGraphemeAlignment(lang)
+    );
+    const spokenSegments = usesGraphemeAlignment
+        ? multilingualScoring.segmentForDisplay(displaySpokenText, lang)
+        : segmentSpeechText(displaySpokenText, lang);
 
 
     const spokenWordSegments =
@@ -19307,6 +19354,9 @@ spokenComparisonUnits.forEach(
             ? 100
             : percentage;
 
+    // English keeps all three metrics. Other languages currently report
+    // only transcript-matching Accuracy, not an English-targeted speed grade.
+    const hasEnglishMetrics = /^en(?:-|$)/i.test(lang);
 
     // ==========================================
     // WPM
@@ -19314,14 +19364,21 @@ spokenComparisonUnits.forEach(
     // 英語では従来どおり word/minute。
     // 空白区切りでない言語では Intl.Segmenter の
     // word-like unit/minute として内部計算する。
+    // Existing WPM / Classroom payload remains compatible. For non-English
+    // languages the displayed rate is only a reference, not the Accuracy basis.
+    const rateWordCount = usesGraphemeAlignment
+        ? segmentSpeechText(displaySpokenText, lang)
+            .filter(segment => segment.isWord && segment.normalized).length
+        : spokenWordSegments.length;
     let currentWpm =
         0;
 
 
     if (
+        hasEnglishMetrics &&
         recordStartTime >
             0 &&
-        spokenWordSegments.length >
+        rateWordCount >
             0
     ) {
 
@@ -19345,7 +19402,7 @@ spokenComparisonUnits.forEach(
 
         currentWpm =
             Math.round(
-                spokenWordSegments.length /
+                rateWordCount /
                 elapsedMinutes
             );
     }
@@ -19358,11 +19415,18 @@ spokenComparisonUnits.forEach(
         ? rawTargetWcpm : 130;
     const elapsedReadingMinutes = recordStartTime > 0
         ? Math.max((Date.now() - recordStartTime) / 60000, 0.01) : 0;
+    // Character-based Accuracy must not be mistaken for correct *words*
+    // per minute. Keep the historic English WCPM formula untouched.
+    const estimatedCorrectWordCount = usesGraphemeAlignment
+        ? rateWordCount * currentAccuracy / 100
+        : matchCount;
     const correctWordsPerMinute = elapsedReadingMinutes > 0
-        ? matchCount / elapsedReadingMinutes : 0;
-    const readingPerformanceScore = Math.round(Math.max(0,
-        Math.min(currentAccuracy, 100 * correctWordsPerMinute / targetWcpm)
-    ));
+        ? estimatedCorrectWordCount / elapsedReadingMinutes : 0;
+    const readingPerformanceScore = hasEnglishMetrics
+        ? Math.round(Math.max(0,
+            Math.min(currentAccuracy, 100 * correctWordsPerMinute / targetWcpm)
+        ))
+        : 0;
 
     // ==========================================
     // Final Result
@@ -19370,6 +19434,12 @@ spokenComparisonUnits.forEach(
     if (
         isFinalResult
     ) {
+        const scoreSurface = document.getElementById('scoreSummaryRow');
+        if (scoreSurface) {
+            scoreSurface.dataset.scoreMetrics = hasEnglishMetrics
+                ? 'full'
+                : 'accuracy-only';
+        }
 
         document
             .getElementById(
@@ -19384,7 +19454,7 @@ spokenComparisonUnits.forEach(
                 'bigWpmValue'
             )
             .innerText =
-                currentWpm;
+                hasEnglishMetrics ? currentWpm : '—';
 
 
         const compEl =
@@ -19393,8 +19463,9 @@ spokenComparisonUnits.forEach(
             );
 
 
-        compEl.innerText =
-            `${readingPerformanceScore}`;
+        compEl.innerText = hasEnglishMetrics
+            ? `${readingPerformanceScore}`
+            : '—';
 
 
         if (
@@ -19430,7 +19501,9 @@ spokenComparisonUnits.forEach(
                 lessonId: currentCustomLesson.id,
                 accuracy: currentAccuracy,
                 wpm: currentWpm,
-                transcript: spokenText
+                transcript: spokenText,
+                language: lang,
+                scoreVersion: hasEnglishMetrics ? 'wcpm-v1' : 'accuracy-only-v1'
             });
         }
         // ==========================================
@@ -19465,7 +19538,10 @@ spokenComparisonUnits.forEach(
                 comp:
                     readingPerformanceScore,
 
-                readingPerformanceVersion: 'wcpm-v1',
+                readingPerformanceVersion: hasEnglishMetrics
+                    ? 'wcpm-v1'
+                    : 'accuracy-only-v1',
+                scoredLanguage: lang,
 
                 timestamp:
                     new Date()
@@ -20681,12 +20757,15 @@ rec.onaudiostart =
 
 
             // ======================================
-            // Final結果が返り、60%以上一致したら成功
+            // English retains 60%. For other languages this is ASR
+            // readiness, not a pronunciation grade.
             // ======================================
+            const requiredRatio = window.CopeakMultilingualScoring
+                ?.micCheckPassRatio(getCurrentLessonLang(), MIC_CHECK_PASS_RATIO)
+                ?? MIC_CHECK_PASS_RATIO;
             if (
                 !hasFinalResult ||
-                ratio <
-                    MIC_CHECK_PASS_RATIO
+                ratio < requiredRatio
             ) {
 
                 return;
@@ -20855,6 +20934,12 @@ retryBtn?.classList.add(
                 return;
             }
 
+            if (error === 'language-not-supported') {
+                showMicCheckFailure(
+                    'この言語は現在のブラウザの音声認識に対応していません。'
+                );
+                return;
+            }
 
             if (
                 error ===
