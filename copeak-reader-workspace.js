@@ -1,6 +1,6 @@
 (function(){
 "use strict";
-var fallback="./assets/copeak-default-thumbnail.svg",selected="all",sort="new",term="",all=[],folders=[],starred=new Set();
+var fallback="./assets/copeak-default-thumbnail.svg",selected="all",sort="new",term="",folderTerm="",all=[],folders=[],starred=new Set();
 var CLASSROOM_FOLDER_ID="__copeak_classroom__";
 var taxonomy=window.CopeakLessonTaxonomy;
 var categoryFilters={source:"all",grade:"all",cert:"all",cefr:"all"};
@@ -64,6 +64,14 @@ function panel(){
    </div>
    <div class="cpr-dialog-footer"><button id="cprClearModal" type="button">すべて解除</button><button id="cprApplyFilters" type="button">教材一覧を見る</button></div>
  </dialog>
+ <dialog id="cprFolderDialog" class="cpr-folder-dialog" aria-labelledby="cprFolderDialogTitle">
+   <div class="cpr-folder-modal-head"><div><small>FOLDER LIBRARY</small><h3 id="cprFolderDialogTitle">フォルダの教材</h3><p id="cprFolderDialogCount" aria-live="polite"></p></div><button id="cprFolderClose" type="button" aria-label="フォルダを閉じる">×</button></div>
+   <div class="cpr-folder-modal-controls">
+     <label class="cpr-folder-modal-search"><span aria-hidden="true">⌕</span><input id="cprFolderSearch" type="search" placeholder="このフォルダ内を検索" aria-label="このフォルダ内を検索" autocomplete="off"></label>
+     <select id="cprFolderSort" aria-label="フォルダ内の教材の並び順"><option value="new">新しい順</option><option value="popular">よく読んだ順</option><option value="name">タイトル順</option><option value="grade">学年順</option><option value="cert">英語レベル順</option></select>
+   </div>
+   <div id="cprFolderLessonRows" class="cpr-folder-modal-list" role="region" aria-label="選択したフォルダの教材一覧" tabindex="0"></div>
+ </dialog>
  <dialog id="cprGuide"><button id="cprClose" type="button" aria-label="閉じる">×</button><h3>音読の始め方</h3><p>教材を選んだらREADから始めましょう。</p><ol><li>READ：英文を見て読む</li><li>PACED：ペースに合わせる</li><li>VANISH：消える英文を覚える</li><li>SHADOW：音声を追って読む</li></ol></dialog>`;
  scroll.prepend(p);r.classList.add("cpr-active");
  var legacy=$("#cpReaderLibrary");if(legacy)legacy.hidden=true;
@@ -71,6 +79,18 @@ function panel(){
  var quest=$("#cpReadQuest");if(quest){var qp=quest.closest(".cp-panel");if(qp){qp.id="cprQuestPanel";qp.hidden=true}}
  var guides=$("#cpReadGuides");if(guides&&guides.closest(".cp-panel"))guides.closest(".cp-panel").hidden=true;
  return true;
+}
+function isPhoneLayout(){return window.matchMedia("(max-width:700px)").matches}
+function closeFolderDialog(){var d=$("#cprFolderDialog");if(d&&d.open)d.close()}
+function openFolderDialog(folder){
+ if(!isPhoneLayout())return;
+ var d=$("#cprFolderDialog");if(!d)return;
+ folderTerm="";$("#cprFolderSearch").value="";
+ $("#cprFolderDialogTitle").textContent=String(folder.name||"フォルダの教材");
+ $("#cprFolderSort").value=sort;
+ lessonsDraw();
+ if(!d.open)d.showModal();
+ $("#cprFolderSearch").focus({preventScroll:true});
 }
 function foldersDraw(){
  var holder=$("#cprFolderRows");if(!holder)return;holder.replaceChildren();
@@ -84,7 +104,17 @@ function foldersDraw(){
   b.append(make("span","",f.id===CLASSROOM_FOLDER_ID?"🎓":f.id==="__copeak_famous_people__"?"🌟":f.id==="__unfiled__"?"📂":f.id==="all"?"📚":"📁"),make("span","cpr-folder-label",f.name),make("small","",count(f.id)+"件"));
   if(f.id==="__unfiled__")b.title="まだフォルダに分類していない教材";
   if(f.id===CLASSROOM_FOLDER_ID)b.title="Copeak Classroomから届いた教材を自動表示";
-  b.onclick=()=>{selected=String(f.id);foldersDraw();lessonsDraw()};row.append(b);
+  b.onclick=()=>{
+    selected=String(f.id);
+    if(isPhoneLayout()){
+      term="";$("#cprSearch").value="";
+      categoryFilters={source:"all",grade:"all",cert:"all",cefr:"all"};
+      ["cprSource","cprGrade","cprCert","cprCefr"].forEach(id=>{var el=$("#"+id);if(el)el.value="all"});
+      $("#cprFilterSummary").textContent="すべての教材を表示中";
+    }
+    foldersDraw();lessonsDraw();
+    if(isPhoneLayout())openFolderDialog(f);
+   };row.append(b);
   if(!f.system){var more=make("button","cpr-folder-more","⋮");more.type="button";more.title="名前変更・削除";more.onclick=()=>{
    var choice=prompt("1：名前変更　2：削除（中の教材は未整理へ）","1");
    if(choice==="1"&&typeof renameLibraryFolder==="function")renameLibraryFolder({stopPropagation(){}},f.id);
@@ -103,30 +133,51 @@ function lessonSet(){var result=all.filter(l=>matchesFolder(l,selected)&&(!taxon
   return sort==="popular"?(b.history||[]).length-(a.history||[]).length:sort==="name"?String(a.title||"").localeCompare(String(b.title||""),"ja"):(b.createdAt||0)-(a.createdAt||0);
  });
 }
-function lessonsDraw(){var holder=$("#cprLessonRows");if(!holder)return;holder.replaceChildren();var rows=lessonSet();$("#cprLessonCount").textContent="("+rows.length+"件)";$("#cprVisibleTotal").textContent=rows.length+"件";
+function renderLessonRows(holder,rows){
+ if(!holder)return;
+ holder.replaceChildren();
  if(!rows.length){holder.append(make("p","cpr-empty","この条件の教材はありません。"));return}
  rows.forEach(l=>{
- var item=make("div","cpr-lesson"),img=make("img","cpr-thumb");img.src=image(l);img.alt="";img.loading="lazy";img.onerror=()=>{img.onerror=null;img.src=fallback};
- var details=make("div","cpr-desc"),title=make("button","cpr-title",l.title||"無題の教材");title.type="button";title.onclick=()=>{if(typeof startCustomLesson==="function")startCustomLesson(l)};
- details.append(title,make("small","",(l.langName||"English")+" · "+(l.history?.length||0)+"回音読"));
- if(taxonomy){
-   const badges=make("div","cpr-level-badges");
-   badges.append(make("span","cpr-origin-badge",taxonomy.LABELS[taxonomy.source(l)]||"その他"));
-   [l.schoolLevel,l.levelLabel,l.cefr].filter(Boolean).forEach(label=>badges.append(make("span","",String(label))));
-   if(!l.schoolLevel&&!l.levelLabel&&!l.cefr)badges.append(make("span","cpr-unknown-level","レベル未設定"));
-   details.append(badges);
- }
- var fav=make("button","cpr-fav",starred.has(String(l.id))?"★":"☆");fav.type="button";fav.title="お気に入り";fav.onclick=()=>{var id=String(l.id);starred.has(id)?starred.delete(id):starred.add(id);localStorage.setItem("copeak_reader_starred",JSON.stringify([...starred]));fav.textContent=starred.has(id)?"★":"☆"};
- var move=make("button","cpr-move","⋯");move.type="button";move.title=isClassroomLesson(l)?"Classroom配信教材は自動分類されます":"フォルダを移動";move.disabled=isClassroomLesson(l);move.onclick=e=>{if(!isClassroomLesson(l)&&typeof openMoveLessonModal==="function")openMoveLessonModal(e,l.id)};
- var open=make("button","cpr-open","▶");open.type="button";open.title="音読を開始";open.onclick=title.onclick;
- item.append(img,details,fav,move,open);holder.append(item);
+  var item=make("div","cpr-lesson"),img=make("img","cpr-thumb");img.src=image(l);img.alt="";img.loading="lazy";img.onerror=()=>{img.onerror=null;img.src=fallback};
+  var details=make("div","cpr-desc"),title=make("button","cpr-title",l.title||"無題の教材");title.type="button";
+  title.onclick=()=>{closeFolderDialog();if(typeof startCustomLesson==="function")startCustomLesson(l)};
+  details.append(title,make("small","",(l.langName||"English")+" · "+(l.history?.length||0)+"回音読"));
+  if(taxonomy){
+    const badges=make("div","cpr-level-badges");
+    badges.append(make("span","cpr-origin-badge",taxonomy.LABELS[taxonomy.source(l)]||"その他"));
+    [l.schoolLevel,l.levelLabel,l.cefr].filter(Boolean).forEach(label=>badges.append(make("span","",String(label))));
+    if(!l.schoolLevel&&!l.levelLabel&&!l.cefr)badges.append(make("span","cpr-unknown-level","レベル未設定"));
+    details.append(badges);
+  }
+  var fav=make("button","cpr-fav",starred.has(String(l.id))?"★":"☆");fav.type="button";fav.title="お気に入り";fav.onclick=()=>{var id=String(l.id);starred.has(id)?starred.delete(id):starred.add(id);localStorage.setItem("copeak_reader_starred",JSON.stringify([...starred]));fav.textContent=starred.has(id)?"★":"☆"};
+  var move=make("button","cpr-move","⋯");move.type="button";move.title=isClassroomLesson(l)?"Classroom配信教材は自動分類されます":"フォルダを移動";move.disabled=isClassroomLesson(l);move.onclick=e=>{if(!isClassroomLesson(l)&&typeof openMoveLessonModal==="function"){closeFolderDialog();openMoveLessonModal(e,l.id)}};
+  var open=make("button","cpr-open","▶");open.type="button";open.title="音読を開始";open.setAttribute("aria-label",String(l.title||"教材")+"の音読を開始");open.onclick=title.onclick;
+  item.append(img,details,fav,move,open);holder.append(item);
  });
+}
+function lessonsDraw(){
+ var holder=$("#cprLessonRows");if(!holder)return;
+ var rows=lessonSet();
+ $("#cprLessonCount").textContent="("+rows.length+"件)";
+ $("#cprVisibleTotal").textContent=rows.length+"件";
+ renderLessonRows(holder,rows);
+ var dialogRows=$("#cprFolderLessonRows");
+ if(dialogRows){
+   var query=folderTerm.trim().toLocaleLowerCase();
+   var matched=query?rows.filter(l=>String(l.title||"").toLocaleLowerCase().includes(query)):rows;
+   $("#cprFolderDialogCount").textContent=matched.length===rows.length?rows.length+"件の教材":matched.length+" / "+rows.length+"件";
+   renderLessonRows(dialogRows,matched);
+ }
 }
 async function refresh(){if(!$("#cprLibrary"))return;all=await dbRead();folders=folderData();if(selected!=="all"&&selected!=="__unfiled__"&&selected!==CLASSROOM_FOLDER_ID&&!folders.some(f=>String(f.id)===selected))selected="all";foldersDraw();lessonsDraw()}
 function init(){if(!panel())return;
  $("#cprAddFolder").onclick=()=>{if(typeof createLibraryFolder==="function")createLibraryFolder();setTimeout(refresh,250)};
  $("#cprSearch").oninput=e=>{term=e.target.value;lessonsDraw()};
- $("#cprSort").onchange=e=>{sort=e.target.value;lessonsDraw()};
+ $("#cprSort").onchange=e=>{sort=e.target.value;$("#cprFolderSort").value=sort;lessonsDraw()};
+ $("#cprFolderClose").onclick=closeFolderDialog;
+ $("#cprFolderSearch").oninput=e=>{folderTerm=e.target.value;lessonsDraw()};
+ $("#cprFolderSort").onchange=e=>{sort=e.target.value;$("#cprSort").value=sort;lessonsDraw()};
+ $("#cprFolderDialog").addEventListener("click",e=>{if(e.target===$("#cprFolderDialog"))closeFolderDialog()});
  function syncFilters(){
    const pairs=[["source","cprSource"],["grade","cprGrade"],["cert","cprCert"],["cefr","cprCefr"]];
    pairs.forEach(([key,id])=>{const a=$("#"+id),b=$("#"+id+"Modal");if(a)a.value=categoryFilters[key];if(b)b.value=categoryFilters[key]});
@@ -155,7 +206,7 @@ function init(){if(!panel())return;
  syncFilters();
  $("#cprClose").onclick=()=>$("#cprGuide").close();
  $("#cprLibrary").addEventListener("click",e=>{
- var cat=e.target.closest("[data-cat]")?.dataset.cat;if(cat==="normal")$("#cprSearch").focus();
+ var cat=e.target.closest("[data-cat]")?.dataset.cat;if(cat==="normal"){if(isPhoneLayout()){var f=$("#cprFolderRows");f.scrollIntoView({block:"start",behavior:"smooth"});var first=f.querySelector(".cpr-folder-open");if(first)first.focus({preventScroll:true})}else $("#cprSearch").focus()}
  if(cat==="quest"){var quest=$("#cprQuestPanel");if(quest){var r=$("#cpReaderPage");r.classList.add("cpr-quest-open");$("#cprLibrary").hidden=true;quest.hidden=false;if(!$("#cprQuestBack")){var back=make("button","cpr-quest-back","← 教材ライブラリに戻る");back.id="cprQuestBack";back.type="button";back.onclick=()=>{quest.hidden=true;$("#cprLibrary").hidden=false;r.classList.remove("cpr-quest-open");refresh()};quest.prepend(back)}quest.scrollIntoView({block:"start"})}else location.href="./challenge.html"}
  });
  var reader=$("#cpReaderPage");new MutationObserver(()=>{if(!reader.hidden)refresh()}).observe(reader,{attributes:true,attributeFilter:["hidden"]});

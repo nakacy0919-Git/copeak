@@ -2385,6 +2385,24 @@ async function injectPresetLessons() {
         });
     }
 
+    // Existing students already have sample records. Make an unavailable
+    // bundled narration available via URL without replacing any user recording,
+    // note, scores or past lesson progress. Do not re-fetch on every visit.
+    const presetUrlByTitle = new Map(presetDataList.map(p => [p.title, p.audioPath]));
+    const sampleAudioRepairs = existingLessons
+      .filter(l => presetUrlByTitle.has(l.title) && !l.audioBlob && !l.audioUrl)
+      .map(l => ({ ...l, audioUrl: presetUrlByTitle.get(l.title) }));
+    if (sampleAudioRepairs.length) {
+      await new Promise((resolve,reject)=>{
+        const tx=db.transaction([storeName],'readwrite');
+        const store=tx.objectStore(storeName);
+        sampleAudioRepairs.forEach(l=>store.put(l));
+        tx.oncomplete=resolve;
+        tx.onerror=()=>reject(tx.error);
+        tx.onabort=()=>reject(tx.error);
+      });
+    }
+
     // 3. 現在のLibraryに「無い」サンプルだけを絞り込む（タイトルで判定）
     const presetsToAdd = presetDataList.filter(preset => 
         !existingLessons.some(lesson => lesson.title === preset.title)

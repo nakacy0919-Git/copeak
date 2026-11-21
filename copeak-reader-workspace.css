@@ -175,3 +175,48 @@
  #cprFilterDialog .cpr-dialog-body{padding:14px 16px}
  #cprFilterDialog .cpr-dialog-footer{padding:12px 16px 17px}
 }
+
+/* Smartphone folder-to-lesson popup (desktop workspace remains unchanged). */
+#cprFolderDialog{box-sizing:border-box;width:min(650px,calc(100vw - 16px));max-width:none;max-height:min(90dvh,830px);padding:0;border:1px solid rgba(110,225,247,.85);border-radius:21px;color:#f3fbff;background:linear-gradient(150deg,#0b3b69,#051f44);box-shadow:0 25px 90px rgba(0,10,33,.8);overflow:hidden}
+#cprFolderDialog[open]{display:flex;flex-direction:column}
+#cprFolderDialog::backdrop{background:rgba(0,12,35,.77);backdrop-filter:blur(5px)}
+#cprFolderDialog .cpr-folder-modal-head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:15px 16px 12px;border-bottom:1px solid rgba(135,218,246,.26);flex:none}
+#cprFolderDialog .cpr-folder-modal-head>div{min-width:0}
+#cprFolderDialog .cpr-folder-modal-head small{font-size:10px;letter-spacing:.12em;color:#78e7ed;font-weight:800}
+#cprFolderDialog .cpr-folder-modal-head h3{font-size:clamp(17px,4.5vw,22px);line-height:1.35;margin:4px 0;overflow-wrap:anywhere}
+#cprFolderDialog .cpr-folder-modal-head p{margin:0;color:#bde5f6;font-size:12px}
+#cprFolderDialog #cprFolderClose{flex:none;cursor:pointer;width:40px;height:40px;border-radius:50%;border:1px solid #64b9df;background:#164f80;color:white;font-size:28px;line-height:1}
+#cprFolderDialog .cpr-folder-modal-controls{display:flex;gap:9px;padding:10px 14px;flex:none;border-bottom:1px solid rgba(135,218,246,.18)}
+#cprFolderDialog .cpr-folder-modal-search{display:flex;align-items:center;gap:6px;flex:1;min-width:0;border:1px solid #5abfe5;border-radius:11px;background:#103e6b;padding:0 10px}
+#cprFolderDialog .cpr-folder-modal-search>span{font-size:21px;color:#7cf1f6}
+#cprFolderDialog .cpr-folder-modal-search input{box-sizing:border-box;width:100%;min-width:0;min-height:42px;color:#fff;background:transparent;border:0;outline:0;font-size:14px}
+#cprFolderDialog .cpr-folder-modal-search input::placeholder{color:#b5d9ee}
+#cprFolderDialog #cprFolderSort{flex:none;max-width:135px;min-width:99px;border:1px solid #4b9ccd;border-radius:11px;background:#12446f;color:#fff;padding:5px;font-size:12px}
+#cprFolderDialog .cpr-folder-modal-list{min-height:0;flex:1 1 auto;overflow-y:auto;overscroll-behavior:contain;padding:8px 12px calc(12px + env(safe-area-inset-bottom,0px));scrollbar-width:thin}
+#cprFolderDialog .cpr-lesson{display:flex;align-items:center;gap:8px;min-width:0;min-height:65px;padding:8px;margin:5px 0;border:1px solid rgba(101,202,250,.42);border-radius:13px;background:rgba(18,105,169,.4)}
+#cprFolderDialog .cpr-thumb{flex:none;width:72px;height:51px;object-fit:cover}
+#cprFolderDialog .cpr-desc{flex:1;min-width:0}
+#cprFolderDialog .cpr-title{color:white!important;font-size:13px!important;font-weight:800;white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-align:left;border:0;background:transparent}
+#cprFolderDialog .cpr-level-badges{display:flex;flex-wrap:wrap;gap:3px;overflow:hidden}
+#cprFolderDialog .cpr-level-badges span{font-size:9px;max-width:100%;color:#def9ff}
+#cprFolderDialog .cpr-desc small{font-size:10px}
+#cprFolderDialog .cpr-fav,#cprFolderDialog .cpr-move{display:block;color:#f8e5a7;border:0;background:none;padding:3px;cursor:pointer}
+#cprFolderDialog .cpr-open{flex:none;width:39px;height:39px;color:white;border:1px solid #6ae8f3;border-radius:50%;background:linear-gradient(125deg,#06b7cb,#125c9c);cursor:pointer}
+#cprFolderDialog .cpr-empty{color:#d0eeff}
+@media(max-width:700px){
+ #cprLibrary #cprFolderRows{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;align-content:start}
+ #cprLibrary .cpr-folder{margin:0}
+ #cprLibrary .cpr-folder .cpr-folder-open{min-height:49px;padding:8px 5px;gap:4px}
+ #cprLibrary .cpr-folder-label{font-size:11px}
+ #cprLibrary .cpr-folder-more{width:24px;font-size:17px}
+ #cprLibrary .cpr-folders{min-height:168px;max-height:min(34dvh,255px)}
+ #cprFolderDialog{max-height:92dvh;border-radius:15px}
+ #cprFolderDialog .cpr-folder-modal-head{padding:12px 13px 10px}
+ #cprFolderDialog .cpr-folder-modal-controls{padding:9px 11px}
+ #cprFolderDialog .cpr-folder-modal-list{padding:7px 9px calc(9px + env(safe-area-inset-bottom,0px))}
+ #cprFolderDialog .cpr-lesson{gap:6px;padding:6px}
+ #cprFolderDialog .cpr-thumb{width:59px;height:43px}
+ #cprFolderDialog .cpr-lesson .cpr-move{display:none}
+ #cprFolderDialog .cpr-title{font-size:12px!important}
+ #cprFolderDialog .cpr-open{width:36px;height:36px}
+}

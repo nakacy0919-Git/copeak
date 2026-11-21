@@ -1218,8 +1218,12 @@
 
                             audioUrl:
                                 (
-                                    library.audioEnabled ===
-                                        true &&
+                                    (
+                                        library.audioEnabled ===
+                                            true ||
+                                        item.audioReady ===
+                                            true
+                                    ) &&
                                     item.audioPath
                                 )
                                     ? item.audioPath
@@ -1232,6 +1236,14 @@
 
                             memoImage:
                                 existing?.memoImage ||
+                                null,
+
+                            // User-supplied famous-person reading thumbnail.
+                            // New bundled image supersedes the placeholder, but
+                            // keeps any existing local thumbnail for other lessons.
+                            thumbnail:
+                                item.thumbnail ||
+                                existing?.thumbnail ||
                                 null,
 
 
