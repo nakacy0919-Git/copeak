@@ -137,11 +137,6 @@ function init(){if(!panel())return;
  function redrawFilter(){syncFilters();lessonsDraw()}
  const selectPairs=[["cprSource","source"],["cprGrade","grade"],["cprCert","cert"],["cprCefr","cefr"],["cprGradeModal","grade"],["cprCertModal","cert"],["cprCefrModal","cefr"]];
  selectPairs.forEach(([id,key])=>{$("#"+id).onchange=e=>{categoryFilters[key]=e.target.value;redrawFilter()}});
- $("#cprLibrary").addEventListener("click",e=>{
-   const button=e.target.closest("[data-cpr-source]");
-   if(!button)return;
-   categoryFilters.source=button.dataset.cprSource;redrawFilter();
- });
  function clearFilters(){
    categoryFilters={source:"all",grade:"all",cert:"all",cefr:"all"};
    selected="all";term="";$("#cprSearch").value="";foldersDraw();redrawFilter();
@@ -152,7 +147,11 @@ function init(){if(!panel())return;
  $("#cprOpenFilter").onclick=()=>{syncFilters();filterDialog.showModal()};
  $("#cprFilterClose").onclick=()=>filterDialog.close();
  $("#cprApplyFilters").onclick=()=>{filterDialog.close();$("#cprSearch").focus({preventScroll:true})};
- filterDialog.addEventListener("click",e=>{if(e.target===filterDialog)filterDialog.close()});
+ filterDialog.addEventListener("click",e=>{
+   const button=e.target.closest("[data-cpr-source]");
+   if(button){categoryFilters.source=button.dataset.cprSource;redrawFilter();return}
+   if(e.target===filterDialog)filterDialog.close();
+ });
  syncFilters();
  $("#cprClose").onclick=()=>$("#cprGuide").close();
  $("#cprLibrary").addEventListener("click",e=>{
