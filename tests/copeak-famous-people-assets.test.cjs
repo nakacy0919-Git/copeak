@@ -26,12 +26,15 @@ test('all ten thumbnails map to exact original script IDs',()=>{
    assert.ok(fs.statSync(path.join(root,thumbnail)).size>3000);
  }
 });
-test('remaining biography thumbnails await upload; existing scripts and learning audio remain unchanged',()=>{
+test('all biographies have thumbnails; unprovided narrations remain disabled',()=>{
  assert.equal(manifest.totalScripts,32);
- assert.equal(manifest.entries.filter(x=>x.thumbnailStatus==='registered').length,10);
- assert.equal(manifest.entries.filter(x=>x.audioStatus==='awaiting_upload').length,32);
+ assert.equal(manifest.entries.filter(x=>x.thumbnailStatus==='registered').length,32);
+ assert.equal(manifest.entries.filter(x=>x.audioStatus==='awaiting_upload').length,16);
  assert.ok(!library.audioEnabled);
- for(const item of manifest.entries)assert.equal(item.audioPath,null);
+ for(const item of manifest.entries){
+   if(item.audioStatus==='registered')assert.ok(item.audioPath?.endsWith(item.sourceId+'.mp3'));
+   else assert.equal(item.audioPath,null);
+ }
  assert.equal(library.items.filter(x=>x.folderId==='__copeak_famous_people__').length,32);
 });
 test('bundled thumbnail is synced into existing IndexedDB record without discarding history or custom image',()=>{
