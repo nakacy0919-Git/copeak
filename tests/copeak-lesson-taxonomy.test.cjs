@@ -32,5 +32,13 @@ test('reader retains original start, folders and search alongside filters',()=>{
  for(const id of ['cprGrade','cprCert','cprCefr','cprClearFilters'])assert.ok(js.includes(id));
  assert.ok(js.includes('startCustomLesson'));
  assert.ok(js.includes('matchesFolder(l,selected)'));
- assert.ok(js.includes('New Horizon'));
+ assert.ok(!js.includes('New Horizon（別ページ）'), 'Remove extra textbook links from reader');
+ assert.ok(!js.includes('クイックアクセス'), 'Replace old quick access controls');
+ assert.ok(js.includes('id="cprFilterDialog"'), 'Advanced filter dialog is present');
+ assert.ok(js.includes('id="cprOpenFilter"'), 'Dialog entry is in the reader sidebar');
+ assert.ok(js.includes('...(famous?[famous]:[])'), 'Famous People appears immediately after Classroom');
+ assert.ok(js.indexOf('id="cprLessonRows"')<js.indexOf('id="cprOpenFilter"'), 'Lesson list precedes sidebar controls');
+ const css=fs.readFileSync(path.join(base,'copeak-reader-workspace.css'),'utf8');
+ assert.ok(css.includes('#cprLibrary .cpr-search-field:focus-within'), 'Search box has a focus treatment');
+ assert.ok(css.includes('grid-template-rows:clamp(76px,11.5dvh,108px)'), 'Top tiles leave more space for lessons');
 });
