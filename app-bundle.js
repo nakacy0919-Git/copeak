@@ -16094,6 +16094,12 @@ function buildSpeechComparisonUnits(
     text,
     lang = 'en-US'
 ) {
+    // Keep the proven English/space-delimited word scorer unchanged.
+    // Only no-space languages use grapheme comparison for ASR spacing variance.
+    const multilingualScoring = window.CopeakMultilingualScoring;
+    if (multilingualScoring?.usesGraphemeAlignment(lang)) {
+        return multilingualScoring.buildComparisonUnits(text, lang);
+    }
 
     const segments =
         segmentSpeechText(
@@ -18189,6 +18195,11 @@ if (
     const targetWordCount =
         getLessonTargetTokens()
             .length;
+    const recognitionLang = getCurrentLessonLang();
+    const recognizedUnitCount = window.CopeakMultilingualScoring
+        ?.usesGraphemeAlignment(recognitionLang)
+            ? buildSpeechComparisonUnits(accumulatedTranscript, recognitionLang).length
+            : recognizedWords.length;
 
     const elapsedSeconds =
         recordStartTime > 0
@@ -18209,7 +18220,7 @@ if (
 
     const tooManyRecognizedWords =
         targetWordCount > 0 &&
-        recognizedWords.length >
+        recognizedUnitCount >
             Math.max(
                 Math.ceil(
                     targetWordCount *
@@ -18237,7 +18248,7 @@ if (
             '[Copeak] Abnormal speech result rejected',
             {
                 recognizedWords:
-                    recognizedWords.length,
+                    recognizedUnitCount,
 
                 targetWordCount,
 
@@ -18879,7 +18890,11 @@ function toggleRecording() {
     // ★ 毎回、本番前に実際の音声認識を確認する
     // ==========================================
     if (
-        speechVerifiedForPage
+        speechVerifiedForPage &&
+        (
+            /^en(?:-|$)/i.test(getCurrentLessonLang()) ||
+            micCheckPassedLang === getCurrentLessonLang()
+        )
     ) {
 
         // ==========================================
@@ -19090,11 +19105,13 @@ function processSpeechMatch(spokenText, isFinalResult = false) {
     // ★ 多言語対応：認識結果を分割
     // ==========================================
     const displaySpokenText = normalizeEnglishCurrencyText(spokenText, lang);
-    const spokenSegments =
-        segmentSpeechText(
-            displaySpokenText,
-            lang
-        );
+    const multilingualScoring = window.CopeakMultilingualScoring;
+    const usesGraphemeAlignment = Boolean(
+        multilingualScoring?.usesGraphemeAlignment(lang)
+    );
+    const spokenSegments = usesGraphemeAlignment
+        ? multilingualScoring.segmentForDisplay(displaySpokenText, lang)
+        : segmentSpeechText(displaySpokenText, lang);
 
 
     const spokenWordSegments =
@@ -19286,6 +19303,12 @@ spokenComparisonUnits.forEach(
     // 英語では従来どおり word/minute。
     // 空白区切りでない言語では Intl.Segmenter の
     // word-like unit/minute として内部計算する。
+    // Existing WPM / Classroom payload remains compatible. For non-English
+    // languages the displayed rate is only a reference, not the Accuracy basis.
+    const rateWordCount = usesGraphemeAlignment
+        ? segmentSpeechText(displaySpokenText, lang)
+            .filter(segment => segment.isWord && segment.normalized).length
+        : spokenWordSegments.length;
     let currentWpm =
         0;
 
@@ -19293,7 +19316,7 @@ spokenComparisonUnits.forEach(
     if (
         recordStartTime >
             0 &&
-        spokenWordSegments.length >
+        rateWordCount >
             0
     ) {
 
@@ -19317,7 +19340,7 @@ spokenComparisonUnits.forEach(
 
         currentWpm =
             Math.round(
-                spokenWordSegments.length /
+                rateWordCount /
                 elapsedMinutes
             );
     }
@@ -20653,12 +20676,15 @@ rec.onaudiostart =
 
 
             // ======================================
-            // Final結果が返り、60%以上一致したら成功
+            // English retains 60%. For other languages this is ASR
+            // readiness, not a pronunciation grade.
             // ======================================
+            const requiredRatio = window.CopeakMultilingualScoring
+                ?.micCheckPassRatio(getCurrentLessonLang(), MIC_CHECK_PASS_RATIO)
+                ?? MIC_CHECK_PASS_RATIO;
             if (
                 !hasFinalResult ||
-                ratio <
-                    MIC_CHECK_PASS_RATIO
+                ratio < requiredRatio
             ) {
 
                 return;
@@ -20827,6 +20853,12 @@ retryBtn?.classList.add(
                 return;
             }
 
+            if (error === 'language-not-supported') {
+                showMicCheckFailure(
+                    'この言語は現在のブラウザの音声認識に対応していません。'
+                );
+                return;
+            }
 
             if (
                 error ===
