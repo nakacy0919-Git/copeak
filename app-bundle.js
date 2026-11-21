@@ -6078,9 +6078,16 @@ function renderChart() {
     });
 
     const accData = currentCustomLesson.history.map(log => log.score);
-    const wpmData = currentCustomLesson.history.map(log => log.wpm);
-    // Only WCPM-v1 results can be compared; keep older logs intact.
-    const compData = currentCustomLesson.history.map(log => log.readingPerformanceVersion === 'wcpm-v1' ? log.comp : null);
+    const chartHasEnglishMetrics = /^en(?:-|$)/i.test(currentCustomLesson.lang || 'en-US');
+    const wpmData = currentCustomLesson.history.map(log => (
+        chartHasEnglishMetrics && log.readingPerformanceVersion !== 'accuracy-only-v1'
+            ? log.wpm : null
+    ));
+    // Only English WCPM-v1 results can be compared; keep older logs intact.
+    const compData = currentCustomLesson.history.map(log => (
+        chartHasEnglishMetrics && log.readingPerformanceVersion === 'wcpm-v1'
+            ? log.comp : null
+    ));
 
     progressChartInstance = new Chart(ctx, {
         type: 'line',
@@ -6124,7 +6131,7 @@ function renderChart() {
                     pointRadius: 6,
                     pointHoverRadius: 8
                 }
-            ]
+            ].filter(dataset => chartHasEnglishMetrics || dataset.label.startsWith('Accuracy'))
         },
 
         options: {
@@ -6560,7 +6567,10 @@ function openHistorySelectModal() {
                 <div onclick="selectHistoryLog(${originalIndex})" class="p-3 mb-2 bg-stone-50 hover:bg-emerald-50 border border-stone-200 hover:border-emerald-500 rounded-sm cursor-pointer transition flex justify-between items-center group text-left">
                     <div>
                         <div class="font-bold text-stone-800 text-xs md:text-sm group-hover:text-emerald-900">${originalIndex + 1}回目: ${modeStr} <span class="text-stone-400 font-normal text-[10px] ml-1">${log.date || ''}</span></div>
-                        <div class="text-[11px] text-stone-500 mt-1">Accuracy: <span class="font-bold text-stone-700">${log.score}%</span> / Speed: <span class="font-bold text-stone-700">${log.wpm} WPM</span> / Comp: <span class="font-bold text-stone-700">${log.comp}%</span></div>
+                        <div class="text-[11px] text-stone-500 mt-1">Accuracy: <span class="font-bold text-stone-700">${log.score}%</span>${(
+                            log.readingPerformanceVersion === 'accuracy-only-v1' ||
+                            !/^en(?:-|$)/i.test(currentCustomLesson.lang || 'en-US')
+                        ) ? '' : ` / Speed: <span class="font-bold text-stone-700">${log.wpm} WPM</span> / Comp: <span class="font-bold text-stone-700">${log.comp}%</span>`}</div>
                     </div>
                     <span class="text-stone-400 group-hover:text-emerald-600 font-bold text-xs shrink-0 pl-2">選択 ➔</span>
                 </div>
@@ -6630,8 +6640,12 @@ function openReflectionModal() {
         modeStr = '⚡️ Paced';
     }
 
+    const accuracyOnlySubmission =
+        selectedLogToSubmit.readingPerformanceVersion === 'accuracy-only-v1' ||
+        !/^en(?:-|$)/i.test(currentCustomLesson?.lang || 'en-US');
     document.getElementById('submitScorePreview').innerText =
-        `【選択中: 第 ${selectedLogToSubmit.displayIndex} 回目の記録】 Accuracy: ${scoreText} / Speed: ${wpmText} WPM`;
+        `【選択中: 第 ${selectedLogToSubmit.displayIndex} 回目の記録】 Accuracy: ${scoreText}` +
+        (accuracyOnlySubmission ? '' : ` / Speed: ${wpmText} WPM`);
 
     document.getElementById('submitModePreview').innerText = modeStr;
 
@@ -6674,8 +6688,12 @@ async function submitScoreToForm() {
     finalSubmitBtn.innerHTML = "⏳ 送信中...";
 
     const accuracy = String(selectedLogToSubmit.score);
-    const wpm = String(selectedLogToSubmit.wpm);
-    const comp = String(selectedLogToSubmit.comp || 0);
+    const accuracyOnlySubmission =
+        selectedLogToSubmit.readingPerformanceVersion === 'accuracy-only-v1' ||
+        !/^en(?:-|$)/i.test(currentCustomLesson?.lang || 'en-US');
+    // Empty form fields mean not measured; never submit artificial zeros.
+    const wpm = accuracyOnlySubmission ? '' : String(selectedLogToSubmit.wpm);
+    const comp = accuracyOnlySubmission ? '' : String(selectedLogToSubmit.comp || 0);
     const targetPlayCount = String(selectedLogToSubmit.displayIndex);
 
     let modeStr = 'Read';
@@ -9591,7 +9609,13 @@ async function importPastPracticeBonus(
         }
 
 
+        const accuracyOnlyReading =
+            result?.scoreVersion === 'accuracy-only-v1' ||
+            (typeof result?.language === 'string' &&
+                !/^en(?:-|$)/i.test(result.language));
+
         if (
+            !accuracyOnlyReading &&
             wpm <
             (config.minWpm ?? 1)
         ) {
@@ -9795,6 +9819,10 @@ async function importPastPracticeBonus(
 
         const wpm =
             toNumber(result.wpm);
+        const accuracyOnlyReading =
+            result?.scoreVersion === 'accuracy-only-v1' ||
+            (typeof result?.language === 'string' &&
+                !/^en(?:-|$)/i.test(result.language));
 
 
         const spConfig =
@@ -9988,6 +10016,7 @@ async function importPastPracticeBonus(
 
                 // 初回はPBボーナス対象外
                 if (
+                    !accuracyOnlyReading &&
                     previousBestWpm > 0
                 ) {
 
@@ -10019,6 +10048,7 @@ async function importPastPracticeBonus(
 
 
                 if (
+                    !accuracyOnlyReading &&
                     wpm >
                     previousBestWpm
                 ) {
@@ -19296,6 +19326,9 @@ spokenComparisonUnits.forEach(
             ? 100
             : percentage;
 
+    // English keeps all three metrics. Other languages currently report
+    // only transcript-matching Accuracy, not an English-targeted speed grade.
+    const hasEnglishMetrics = /^en(?:-|$)/i.test(lang);
 
     // ==========================================
     // WPM
@@ -19314,6 +19347,7 @@ spokenComparisonUnits.forEach(
 
 
     if (
+        hasEnglishMetrics &&
         recordStartTime >
             0 &&
         rateWordCount >
@@ -19360,9 +19394,11 @@ spokenComparisonUnits.forEach(
         : matchCount;
     const correctWordsPerMinute = elapsedReadingMinutes > 0
         ? estimatedCorrectWordCount / elapsedReadingMinutes : 0;
-    const readingPerformanceScore = Math.round(Math.max(0,
-        Math.min(currentAccuracy, 100 * correctWordsPerMinute / targetWcpm)
-    ));
+    const readingPerformanceScore = hasEnglishMetrics
+        ? Math.round(Math.max(0,
+            Math.min(currentAccuracy, 100 * correctWordsPerMinute / targetWcpm)
+        ))
+        : 0;
 
     // ==========================================
     // Final Result
@@ -19370,6 +19406,12 @@ spokenComparisonUnits.forEach(
     if (
         isFinalResult
     ) {
+        const scoreSurface = document.getElementById('scoreSummaryRow');
+        if (scoreSurface) {
+            scoreSurface.dataset.scoreMetrics = hasEnglishMetrics
+                ? 'full'
+                : 'accuracy-only';
+        }
 
         document
             .getElementById(
@@ -19384,7 +19426,7 @@ spokenComparisonUnits.forEach(
                 'bigWpmValue'
             )
             .innerText =
-                currentWpm;
+                hasEnglishMetrics ? currentWpm : '—';
 
 
         const compEl =
@@ -19393,8 +19435,9 @@ spokenComparisonUnits.forEach(
             );
 
 
-        compEl.innerText =
-            `${readingPerformanceScore}`;
+        compEl.innerText = hasEnglishMetrics
+            ? `${readingPerformanceScore}`
+            : '—';
 
 
         if (
@@ -19430,7 +19473,9 @@ spokenComparisonUnits.forEach(
                 lessonId: currentCustomLesson.id,
                 accuracy: currentAccuracy,
                 wpm: currentWpm,
-                transcript: spokenText
+                transcript: spokenText,
+                language: lang,
+                scoreVersion: hasEnglishMetrics ? 'wcpm-v1' : 'accuracy-only-v1'
             });
         }
         // ==========================================
@@ -19465,7 +19510,10 @@ spokenComparisonUnits.forEach(
                 comp:
                     readingPerformanceScore,
 
-                readingPerformanceVersion: 'wcpm-v1',
+                readingPerformanceVersion: hasEnglishMetrics
+                    ? 'wcpm-v1'
+                    : 'accuracy-only-v1',
+                scoredLanguage: lang,
 
                 timestamp:
                     new Date()
