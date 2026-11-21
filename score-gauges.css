@@ -246,3 +246,16 @@ body.result-layout-active #scoreSummaryRow.cp-score-surface #bigCompValue {
   animation:none !important;transition:none !important;
  }
 }
+/* Non-English results: only the meaningful Accuracy metric is displayed. */
+#scoreSummaryRow.cp-score-surface[data-score-metrics="accuracy-only"],
+body.result-layout-active #scoreSummaryRow.cp-score-surface[data-score-metrics="accuracy-only"] {
+  grid-template-columns: minmax(0, 1fr) !important;
+}
+#scoreSummaryRow.cp-score-surface[data-score-metrics="accuracy-only"] > .cp-gauge-wpm,
+#scoreSummaryRow.cp-score-surface[data-score-metrics="accuracy-only"] > .cp-gauge-performance {
+  display: none !important;
+}
+#scoreSummaryRow.cp-score-surface[data-score-metrics="accuracy-only"] > .cp-gauge-accuracy {
+  justify-self: center !important;
+  width: min(100%, 300px) !important;
+}

@@ -848,16 +848,17 @@
       );
 
 
-    const wpm =
-      readNumber(
-        'bigWpmValue'
-      );
-
-
-    const comprehension =
-      readNumber(
-        'bigCompValue'
-      );
+    const accuracyOnly = (
+      document.getElementById('scoreSummaryRow')?.dataset.scoreMetrics === 'accuracy-only'
+    ) || (
+      typeof currentCustomLesson !== 'undefined' &&
+      currentCustomLesson &&
+      !/^en(?:-|$)/i.test(currentCustomLesson.lang || 'en-US')
+    );
+    // Legacy Classroom transport requires numbers; placeholders are
+    // explicitly flagged as unmeasured by scoreVersion/metricsAvailable.
+    const wpm = accuracyOnly ? 0 : readNumber('bigWpmValue');
+    const comprehension = accuracyOnly ? 0 : readNumber('bigCompValue');
 
 
     // ======================================
@@ -1035,7 +1036,10 @@
 
       comprehension,
 
-      scoreVersion: 'wcpm-v1',
+      scoreVersion: accuracyOnly ? 'accuracy-only-v1' : 'wcpm-v1',
+      metricsAvailable: accuracyOnly
+        ? { accuracy: true, wpm: false, performance: false }
+        : { accuracy: true, wpm: true, performance: true },
 
       practiceMode:
         actualPracticeMode,
