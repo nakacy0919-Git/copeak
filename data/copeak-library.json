@@ -75,7 +75,8 @@
         "daily life"
       ],
       "isPreset": true,
-      "copeakLibrary": true
+      "copeakLibrary": true,
+      "audioReady": true
     },
     {
       "sourceId": "cert-3-02",
@@ -144,7 +145,8 @@
         "leadership"
       ],
       "isPreset": true,
-      "copeakLibrary": true
+      "copeakLibrary": true,
+      "audioReady": true
     },
     {
       "sourceId": "cert-2-01",
@@ -167,7 +169,8 @@
         "growth mindset"
       ],
       "isPreset": true,
-      "copeakLibrary": true
+      "copeakLibrary": true,
+      "audioReady": true
     },
     {
       "sourceId": "cert-2-02",
@@ -259,7 +262,8 @@
         "information"
       ],
       "isPreset": true,
-      "copeakLibrary": true
+      "copeakLibrary": true,
+      "audioReady": true
     },
     {
       "sourceId": "exam-02",
@@ -328,7 +332,8 @@
         "study"
       ],
       "isPreset": true,
-      "copeakLibrary": true
+      "copeakLibrary": true,
+      "audioReady": true
     },
     {
       "sourceId": "exam-05",
@@ -351,7 +356,8 @@
         "comparison"
       ],
       "isPreset": true,
-      "copeakLibrary": true
+      "copeakLibrary": true,
+      "audioReady": true
     },
     {
       "sourceId": "exam-06",
@@ -443,7 +449,8 @@
         "environment"
       ],
       "isPreset": true,
-      "copeakLibrary": true
+      "copeakLibrary": true,
+      "audioReady": true
     },
     {
       "sourceId": "news-02",
@@ -512,7 +519,8 @@
         "sharing economy"
       ],
       "isPreset": true,
-      "copeakLibrary": true
+      "copeakLibrary": true,
+      "audioReady": true
     },
     {
       "sourceId": "news-05",
@@ -535,7 +543,8 @@
         "community"
       ],
       "isPreset": true,
-      "copeakLibrary": true
+      "copeakLibrary": true,
+      "audioReady": true
     },
     {
       "sourceId": "news-06",
@@ -604,7 +613,8 @@
         "school life"
       ],
       "isPreset": true,
-      "copeakLibrary": true
+      "copeakLibrary": true,
+      "audioReady": true
     },
     {
       "sourceId": "school-03",
@@ -742,7 +752,8 @@
         "temperature"
       ],
       "isPreset": true,
-      "copeakLibrary": true
+      "copeakLibrary": true,
+      "audioReady": true
     },
     {
       "sourceId": "science-03",
@@ -765,7 +776,8 @@
         "brain"
       ],
       "isPreset": true,
-      "copeakLibrary": true
+      "copeakLibrary": true,
+      "audioReady": true
     },
     {
       "sourceId": "science-04",
@@ -857,7 +869,8 @@
         "travel"
       ],
       "isPreset": true,
-      "copeakLibrary": true
+      "copeakLibrary": true,
+      "audioReady": true
     },
     {
       "sourceId": "real-02",
@@ -880,7 +893,8 @@
         "conversation"
       ],
       "isPreset": true,
-      "copeakLibrary": true
+      "copeakLibrary": true,
+      "audioReady": true
     },
     {
       "sourceId": "real-03",
@@ -903,7 +917,8 @@
         "delay"
       ],
       "isPreset": true,
-      "copeakLibrary": true
+      "copeakLibrary": true,
+      "audioReady": true
     },
     {
       "sourceId": "real-04",
@@ -926,7 +941,8 @@
         "appointment"
       ],
       "isPreset": true,
-      "copeakLibrary": true
+      "copeakLibrary": true,
+      "audioReady": true
     },
     {
       "sourceId": "real-05",
@@ -949,7 +965,8 @@
         "conversation"
       ],
       "isPreset": true,
-      "copeakLibrary": true
+      "copeakLibrary": true,
+      "audioReady": true
     },
     {
       "sourceId": "speech-01",
@@ -1041,7 +1058,8 @@
         "culture"
       ],
       "isPreset": true,
-      "copeakLibrary": true
+      "copeakLibrary": true,
+      "audioReady": true
     },
     {
       "sourceId": "fun-01",
@@ -1302,7 +1320,9 @@
       "copeakLibrary": true,
       "original": true,
       "sourceNote": "Original factual biography; not a speech transcript or authorized endorsement.",
-      "thumbnail": "./assets/famous-people/lionel-messi.webp"
+      "thumbnail": "./assets/famous-people/lionel-messi.webp",
+      "audioPath": "./audio/library/bio-004.mp3",
+      "audioReady": true
     },
     {
       "sourceId": "bio-005",
@@ -1327,7 +1347,9 @@
       "copeakLibrary": true,
       "original": true,
       "sourceNote": "Original factual biography; not a speech transcript or authorized endorsement.",
-      "thumbnail": "./assets/famous-people/jackie-chan.webp"
+      "thumbnail": "./assets/famous-people/jackie-chan.webp",
+      "audioPath": "./audio/library/bio-005.mp3",
+      "audioReady": true
     },
     {
       "sourceId": "bio-006",
@@ -1402,7 +1424,9 @@
       "copeakLibrary": true,
       "original": true,
       "sourceNote": "Original factual biography; not a speech transcript or authorized endorsement.",
-      "thumbnail": "./assets/famous-people/emma-watson.webp"
+      "thumbnail": "./assets/famous-people/emma-watson.webp",
+      "audioPath": "./audio/library/bio-008.mp3",
+      "audioReady": true
     },
     {
       "sourceId": "bio-009",
@@ -1452,7 +1476,9 @@
       "copeakLibrary": true,
       "original": true,
       "sourceNote": "Original factual biography; not a speech transcript or authorized endorsement.",
-      "thumbnail": "./assets/famous-people/malala-yousafzai.webp"
+      "thumbnail": "./assets/famous-people/malala-yousafzai.webp",
+      "audioPath": "./audio/library/bio-010.mp3",
+      "audioReady": true
     },
     {
       "sourceId": "bio-011",
@@ -1476,7 +1502,9 @@
       "isPreset": true,
       "copeakLibrary": true,
       "original": true,
-      "sourceNote": "Original factual biography; not a speech transcript or authorized endorsement."
+      "sourceNote": "Original factual biography; not a speech transcript or authorized endorsement.",
+      "audioPath": "./audio/library/bio-011.mp3",
+      "audioReady": true
     },
     {
       "sourceId": "bio-012",
@@ -1500,7 +1528,9 @@
       "isPreset": true,
       "copeakLibrary": true,
       "original": true,
-      "sourceNote": "Original factual biography; not a speech transcript or authorized endorsement."
+      "sourceNote": "Original factual biography; not a speech transcript or authorized endorsement.",
+      "audioPath": "./audio/library/bio-012.mp3",
+      "audioReady": true
     },
     {
       "sourceId": "bio-013",
@@ -1524,7 +1554,9 @@
       "isPreset": true,
       "copeakLibrary": true,
       "original": true,
-      "sourceNote": "Original factual biography; not a speech transcript or authorized endorsement."
+      "sourceNote": "Original factual biography; not a speech transcript or authorized endorsement.",
+      "audioPath": "./audio/library/bio-013.mp3",
+      "audioReady": true
     },
     {
       "sourceId": "bio-014",
@@ -1572,7 +1604,9 @@
       "isPreset": true,
       "copeakLibrary": true,
       "original": true,
-      "sourceNote": "Original factual biography; not a speech transcript or authorized endorsement."
+      "sourceNote": "Original factual biography; not a speech transcript or authorized endorsement.",
+      "audioPath": "./audio/library/bio-015.mp3",
+      "audioReady": true
     },
     {
       "sourceId": "bio-016",
@@ -1596,7 +1630,9 @@
       "isPreset": true,
       "copeakLibrary": true,
       "original": true,
-      "sourceNote": "Original factual biography; not a speech transcript or authorized endorsement."
+      "sourceNote": "Original factual biography; not a speech transcript or authorized endorsement.",
+      "audioPath": "./audio/library/bio-016.mp3",
+      "audioReady": true
     },
     {
       "sourceId": "bio-017",
@@ -1620,7 +1656,9 @@
       "isPreset": true,
       "copeakLibrary": true,
       "original": true,
-      "sourceNote": "Original factual biography; not a speech transcript or authorized endorsement."
+      "sourceNote": "Original factual biography; not a speech transcript or authorized endorsement.",
+      "audioPath": "./audio/library/bio-017.mp3",
+      "audioReady": true
     },
     {
       "sourceId": "bio-018",
@@ -1692,7 +1730,9 @@
       "isPreset": true,
       "copeakLibrary": true,
       "original": true,
-      "sourceNote": "Original factual biography; not a speech transcript or authorized endorsement."
+      "sourceNote": "Original factual biography; not a speech transcript or authorized endorsement.",
+      "audioPath": "./audio/library/bio-020.mp3",
+      "audioReady": true
     },
     {
       "sourceId": "bio-021",
@@ -1716,7 +1756,9 @@
       "isPreset": true,
       "copeakLibrary": true,
       "original": true,
-      "sourceNote": "Original factual biography; not a speech transcript or authorized endorsement."
+      "sourceNote": "Original factual biography; not a speech transcript or authorized endorsement.",
+      "audioPath": "./audio/library/bio-021.mp3",
+      "audioReady": true
     },
     {
       "sourceId": "bio-022",
@@ -1764,7 +1806,9 @@
       "isPreset": true,
       "copeakLibrary": true,
       "original": true,
-      "sourceNote": "Original factual biography; not a speech transcript or authorized endorsement."
+      "sourceNote": "Original factual biography; not a speech transcript or authorized endorsement.",
+      "audioPath": "./audio/library/bio-023.mp3",
+      "audioReady": true
     },
     {
       "sourceId": "bio-024",
@@ -1788,7 +1832,9 @@
       "isPreset": true,
       "copeakLibrary": true,
       "original": true,
-      "sourceNote": "Original factual biography; not a speech transcript or authorized endorsement."
+      "sourceNote": "Original factual biography; not a speech transcript or authorized endorsement.",
+      "audioPath": "./audio/library/bio-024.mp3",
+      "audioReady": true
     },
     {
       "sourceId": "bio-025",
@@ -1908,7 +1954,9 @@
       "isPreset": true,
       "copeakLibrary": true,
       "original": true,
-      "sourceNote": "Original factual biography; not a speech transcript or authorized endorsement."
+      "sourceNote": "Original factual biography; not a speech transcript or authorized endorsement.",
+      "audioPath": "./audio/library/bio-029.mp3",
+      "audioReady": true
     },
     {
       "sourceId": "bio-030",
@@ -1980,7 +2028,9 @@
       "isPreset": true,
       "copeakLibrary": true,
       "original": true,
-      "sourceNote": "Original factual biography; not a speech transcript or authorized endorsement."
+      "sourceNote": "Original factual biography; not a speech transcript or authorized endorsement.",
+      "audioPath": "./audio/library/bio-032.mp3",
+      "audioReady": true
     }
   ],
   "note": "All passages are original Copeak materials. audioPath values are reserved for future MP3 files; missing audio files should be handled gracefully by the loader.",

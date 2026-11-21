@@ -2220,7 +2220,7 @@ async function injectPresetLessons() {
             jpn: "本日は、世界最高峰の大学の一つである皆さんの卒業式に同席でき、大変光栄に思います。私は大学を卒業したことがありません。実を言うと、これが私にとって最も大学の卒業式に近づいた瞬間です。今日は、私の人生から3つの物語をお話ししたいと思います。それだけです。大したことではありません。ただの3つの物語です。",
             lang: "en-US",
             langName: "🇺🇸 English (US)",
-            audioPath: './audio/jobs.mp3', // 後でダウンロードするファイルの場所
+            audioPath: './audio/sample/sample-steve-jobs-stanford.mp3', // 後でダウンロードするファイルの場所
             history: [],
             createdAt: Date.now()
         },
@@ -2230,7 +2230,7 @@ async function injectPresetLessons() {
             jpn: "2012年10月9日、タリバンは私の額の左側を撃ちました。私の友人たちも撃たれました。彼らは銃弾で私たちを沈黙させられると考えたのです。しかし、彼らは失敗しました。",
             lang: "en-US",
             langName: "🇺🇸 English (US)",
-            audioPath: './audio/malala.mp3',
+            audioPath: './audio/sample/sample-malala-un-speech.mp3',
             history: [],
             createdAt: Date.now() - 1000
         },
@@ -2240,7 +2240,7 @@ async function injectPresetLessons() {
             jpn: "持続可能な開発目標（SDGs）は、地球を保護しながら繁栄を促進するための、すべての国による行動への呼びかけです。貧困を終わらせるには、気候変動や環境保護に取り組みながら、教育、健康、社会的保護、雇用の機会など、さまざまな社会的ニーズに対処し、経済成長を構築する戦略と連携しなければならないことを認識しています。",
             lang: "en-US",
             langName: "🇺🇸 English (US)",
-            audioPath: './audio/sdgs.mp3',
+            audioPath: './audio/sample/sample-introduction-to-sdgs.mp3',
             history: [],
             createdAt: Date.now() - 2000
         },
@@ -2250,7 +2250,7 @@ async function injectPresetLessons() {
             jpn: "北風と太陽が、どちらが強いかで言い争いをしていました。彼らが熱く激しく議論していると、マントに包まった旅人が道を通りかかりました。",
             lang: "en-US",
             langName: "🇺🇸 English (US)",
-            audioPath: './audio/northwind.mp3',
+            audioPath: './audio/sample/sample-north-wind-sun.mp3',
             history: [],
             createdAt: Date.now() - 3000
         },
@@ -2261,7 +2261,7 @@ async function injectPresetLessons() {
             jpn: `私の経験上、間違いが人生の最高の物事につながりました。失敗して恥ずかしい思いをすることは、人間の経験の一部です。立ち上がり、土埃を払い落とし、その後でも誰が自分と一緒にいて笑い合ってくれるかを確認すること、それは神様からの贈り物です。私が「ノー」と言われたとき、仲間に入れてもらえなかったとき、選ばれなかったとき、勝てなかったとき、合格しなかったとき…振り返ってみると、そうした瞬間は、「イエス」と言われた瞬間と同じくらい、あるいはそれ以上に重要だったと心から感じます。私が伝えたいのは、失うことは単に失うことだけを意味しないということです。多くの場合、私たちは何かを失うとき、同時に何かを得ているのです。\n\n進歩と改革の名の下に、古い考え方を捨てるのが正しいこともあります。また、先人たちの知恵に腰を下ろして耳を傾けるのが正しいこともあります。このような重要な瞬間に、どうやって正しい選択が分かるのでしょうか？ 分かりません。こんなに多くの人たちの人生の選択について、どうやってアドバイスをすればいいのでしょうか？ しません。怖いお知らせは、皆さんはもう自分一人だということです。でも、素晴らしいお知らせは、皆さんはもう自分一人だということです。\n\n最後にこの言葉を残します。私たちは、直感や直観、欲望や恐れ、傷跡や夢に導かれています。そして、皆さんも時に失敗するでしょう。私も失敗します。そして私が失敗したときは、どうせ皆さんはインターネットでそれを読むことになるでしょう。私たちにはつらいことも起こります。しかし、私たちは立ち直ります。そこから学びます。そこからさらに強い回復力を身につけます。そして、息をする幸運に恵まれている限り、私たちは息を吸い、息を通し、深く息をし、そして息を吐きます。`,
             lang: "en-US",
             langName: "🇺🇸 English (US)",
-            audioPath: "taylor.mp3",
+            audioPath: "./audio/library/arena-task-taylor-01.mp3",
             history: [],
             createdAt: Date.now()
         },
@@ -2272,7 +2272,7 @@ async function injectPresetLessons() {
             jpn: "ニック: 新しい仕事の調子はどう、マッケンジー？\nマッケンジー: 実は、結構大変なんだよね。\nニック: あちこちバタバタして忙しい感じ？\nマッケンジー: いや、そうでもないかな。仕事量はたぶん前の仕事より少ないくらい。問題なのは、全体の雰囲気なんだ。\nニック: 雰囲気の何が悪いの？\nマッケンジー: みんなものすごく競争心が強くて、チーム間に常に緊張感があるんだよ。特にマネージャーたちの間でね。\nニック: それはきつそうだね。",
             lang: "en-US",
             langName: "🇺🇸 English (US)",
-            audioPath: './audio/conversation.mp3',
+            audioPath: './audio/sample/sample-conversation-new-job.mp3',
             dialogue: [
                 { speaker: "Nick", text: "How's the new job going, Mackenzie?" },
                 { speaker: "Mackenzie", text: "I'm finding it hard, actually." },
@@ -2312,6 +2312,34 @@ async function injectPresetLessons() {
                 store.put(lesson);
             });
 
+            tx.oncomplete = resolve;
+            tx.onerror = () => reject(tx.error);
+            tx.onabort = () => reject(tx.error);
+        });
+    }
+
+    // This explicit set of six built-in lessons was supplied with synthesized
+    // audio. Replace only the built-in audio reference when the original text
+    // still matches: preserve user modifications and all reading history.
+    const voiceVersion = 'user-provided-20261121';
+    const audioRefreshes = existingLessons.filter(lesson => {
+        const preset = presetDataList.find(p => p.title === lesson.title);
+        return preset && lesson.eng === preset.eng &&
+               lesson.audioVersion !== voiceVersion;
+    }).map(lesson => {
+        const preset = presetDataList.find(p => p.title === lesson.title);
+        return {
+            ...lesson,
+            audioBlob: null,
+            audioUrl: preset.audioPath,
+            audioVersion: voiceVersion
+        };
+    });
+    if (audioRefreshes.length) {
+        await new Promise((resolve, reject) => {
+            const tx = db.transaction([storeName], 'readwrite');
+            const store = tx.objectStore(storeName);
+            audioRefreshes.forEach(lesson => store.put(lesson));
             tx.oncomplete = resolve;
             tx.onerror = () => reject(tx.error);
             tx.onabort = () => reject(tx.error);

@@ -1218,8 +1218,12 @@
 
                             audioUrl:
                                 (
-                                    library.audioEnabled ===
-                                        true &&
+                                    (
+                                        library.audioEnabled ===
+                                            true ||
+                                        item.audioReady ===
+                                            true
+                                    ) &&
                                     item.audioPath
                                 )
                                     ? item.audioPath
