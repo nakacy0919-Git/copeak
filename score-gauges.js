@@ -109,11 +109,14 @@
         groups.forEach(g=>{if(g.animation)cancelAnimationFrame(g.animation);g.animation=0;g.current=0;g.arc.setAttribute('stroke-dasharray','0 100');g.halo.setAttribute('stroke-dasharray','0 100');});
         return;
       }
-      let lang = 'en-US';
+      // Fall back to the score mode set by the main bundle if its
+      // language getter is not visible in this script scope.
+      let accuracyOnly = surface.dataset.scoreMetrics === 'accuracy-only';
       try {
-        if (typeof getCurrentLessonLang === 'function') lang = getCurrentLessonLang();
+        if (typeof getCurrentLessonLang === 'function') {
+          accuracyOnly = !/^en(?:-|$)/i.test(getCurrentLessonLang());
+        }
       } catch (_) {}
-      const accuracyOnly = !/^en(?:-|$)/i.test(lang);
       surface.dataset.scoreMetrics = accuracyOnly ? 'accuracy-only' : 'full';
       const values=groups.map(g=>parse(g.element));
       const target=goal();
