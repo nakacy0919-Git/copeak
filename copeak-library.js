@@ -1234,6 +1234,14 @@
                                 existing?.memoImage ||
                                 null,
 
+                            // User-supplied famous-person reading thumbnail.
+                            // New bundled image supersedes the placeholder, but
+                            // keeps any existing local thumbnail for other lessons.
+                            thumbnail:
+                                item.thumbnail ||
+                                existing?.thumbnail ||
+                                null,
+
 
                             // ----------------------
                             // 学習履歴
