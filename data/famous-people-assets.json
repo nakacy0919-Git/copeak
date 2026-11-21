@@ -1,31 +1,31 @@
 {
   "version": 1,
-  "purpose": "Map original Copeak biography scripts to user-provided thumbnails and future synthesized audio. No audio uploaded yet.",
+  "purpose": "Maps user-supplied biography thumbnails and narration to the 32 original scripts.",
   "totalScripts": 32,
   "entries": [
     {
       "sourceId": "bio-001",
       "title": "Shohei Ohtani: Baseball Across Two Countries",
       "thumbnail": "./assets/famous-people/shohei-ohtani.webp",
-      "audioPath": null,
+      "audioPath": "./audio/library/bio-001.mp3",
       "thumbnailStatus": "registered",
-      "audioStatus": "awaiting_upload"
+      "audioStatus": "registered"
     },
     {
       "sourceId": "bio-002",
       "title": "Naomi Osaka: A Tennis Star",
       "thumbnail": "./assets/famous-people/naomi-osaka.webp",
-      "audioPath": null,
+      "audioPath": "./audio/library/bio-002.mp3",
       "thumbnailStatus": "registered",
-      "audioStatus": "awaiting_upload"
+      "audioStatus": "registered"
     },
     {
       "sourceId": "bio-003",
       "title": "Taylor Swift: Music and Stories",
       "thumbnail": "./assets/famous-people/taylor-swift.webp",
-      "audioPath": null,
+      "audioPath": "./audio/library/bio-003.mp3",
       "thumbnailStatus": "registered",
-      "audioStatus": "awaiting_upload"
+      "audioStatus": "registered"
     },
     {
       "sourceId": "bio-004",
@@ -55,9 +55,9 @@
       "sourceId": "bio-007",
       "title": "Simone Biles: Strength and Balance",
       "thumbnail": "./assets/famous-people/simone-biles.webp",
-      "audioPath": null,
+      "audioPath": "./audio/library/bio-007.mp3",
       "thumbnailStatus": "registered",
-      "audioStatus": "awaiting_upload"
+      "audioStatus": "registered"
     },
     {
       "sourceId": "bio-008",
@@ -71,9 +71,9 @@
       "sourceId": "bio-009",
       "title": "Steve Jobs: A Creative Thinker",
       "thumbnail": "./assets/famous-people/steve-jobs.webp",
-      "audioPath": null,
+      "audioPath": "./audio/library/bio-009.mp3",
       "thumbnailStatus": "registered",
-      "audioStatus": "awaiting_upload"
+      "audioStatus": "registered"
     },
     {
       "sourceId": "bio-010",
@@ -111,9 +111,9 @@
       "sourceId": "bio-014",
       "title": "MrBeast: A New Kind of Video Creator",
       "thumbnail": "./assets/famous-people/mrbeast.webp",
-      "audioPath": null,
+      "audioPath": "./audio/library/bio-014.mp3",
       "thumbnailStatus": "registered",
-      "audioStatus": "awaiting_upload"
+      "audioStatus": "registered"
     },
     {
       "sourceId": "bio-015",
@@ -143,17 +143,17 @@
       "sourceId": "bio-018",
       "title": "Michelle Obama: Education and Opportunity",
       "thumbnail": "./assets/famous-people/michelle-obama.webp",
-      "audioPath": null,
+      "audioPath": "./audio/library/bio-018.mp3",
       "thumbnailStatus": "registered",
-      "audioStatus": "awaiting_upload"
+      "audioStatus": "registered"
     },
     {
       "sourceId": "bio-019",
       "title": "Tom Hanks: Stories on Screen",
       "thumbnail": "./assets/famous-people/tom-hanks.webp",
-      "audioPath": null,
+      "audioPath": "./audio/library/bio-019.mp3",
       "thumbnailStatus": "registered",
-      "audioStatus": "awaiting_upload"
+      "audioStatus": "registered"
     },
     {
       "sourceId": "bio-020",
@@ -175,9 +175,9 @@
       "sourceId": "bio-022",
       "title": "Marques Brownlee: Explaining Technology Clearly",
       "thumbnail": "./assets/famous-people/mkbhd.webp",
-      "audioPath": null,
+      "audioPath": "./audio/library/bio-022.mp3",
       "thumbnailStatus": "registered",
-      "audioStatus": "awaiting_upload"
+      "audioStatus": "registered"
     },
     {
       "sourceId": "bio-023",
@@ -199,33 +199,33 @@
       "sourceId": "bio-025",
       "title": "Nelson Mandela: Reconciliation and Leadership",
       "thumbnail": "./assets/famous-people/nelson-mandela.webp",
-      "audioPath": null,
+      "audioPath": "./audio/library/bio-025.mp3",
       "thumbnailStatus": "registered",
-      "audioStatus": "awaiting_upload"
+      "audioStatus": "registered"
     },
     {
       "sourceId": "bio-026",
       "title": "Wangari Maathai: Trees and Civic Action",
       "thumbnail": "./assets/famous-people/wangari-maathai.webp",
-      "audioPath": null,
+      "audioPath": "./audio/library/bio-026.mp3",
       "thumbnailStatus": "registered",
-      "audioStatus": "awaiting_upload"
+      "audioStatus": "registered"
     },
     {
       "sourceId": "bio-027",
       "title": "Shinya Yamanaka: Rethinking What Cells Can Become",
       "thumbnail": "./assets/famous-people/shinya-yamanaka.webp",
-      "audioPath": null,
+      "audioPath": "./audio/library/bio-027.mp3",
       "thumbnailStatus": "registered",
-      "audioStatus": "awaiting_upload"
+      "audioStatus": "registered"
     },
     {
       "sourceId": "bio-028",
       "title": "Satya Nadella: Leadership Through Technology",
       "thumbnail": "./assets/famous-people/satya-nadella.webp",
-      "audioPath": null,
+      "audioPath": "./audio/library/bio-028.mp3",
       "thumbnailStatus": "registered",
-      "audioStatus": "awaiting_upload"
+      "audioStatus": "registered"
     },
     {
       "sourceId": "bio-029",
@@ -239,17 +239,17 @@
       "sourceId": "bio-030",
       "title": "Tim Berners-Lee: Building the World Wide Web",
       "thumbnail": "./assets/famous-people/tim-berners-lee.webp",
-      "audioPath": null,
+      "audioPath": "./audio/library/bio-030.mp3",
       "thumbnailStatus": "registered",
-      "audioStatus": "awaiting_upload"
+      "audioStatus": "registered"
     },
     {
       "sourceId": "bio-031",
       "title": "Meryl Streep: Learning Through Different Roles",
       "thumbnail": "./assets/famous-people/meryl-streep.webp",
-      "audioPath": null,
+      "audioPath": "./audio/library/bio-031.mp3",
       "thumbnailStatus": "registered",
-      "audioStatus": "awaiting_upload"
+      "audioStatus": "registered"
     },
     {
       "sourceId": "bio-032",
