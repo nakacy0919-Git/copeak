@@ -19353,8 +19353,13 @@ spokenComparisonUnits.forEach(
         ? rawTargetWcpm : 130;
     const elapsedReadingMinutes = recordStartTime > 0
         ? Math.max((Date.now() - recordStartTime) / 60000, 0.01) : 0;
+    // Character-based Accuracy must not be mistaken for correct *words*
+    // per minute. Keep the historic English WCPM formula untouched.
+    const estimatedCorrectWordCount = usesGraphemeAlignment
+        ? rateWordCount * currentAccuracy / 100
+        : matchCount;
     const correctWordsPerMinute = elapsedReadingMinutes > 0
-        ? matchCount / elapsedReadingMinutes : 0;
+        ? estimatedCorrectWordCount / elapsedReadingMinutes : 0;
     const readingPerformanceScore = Math.round(Math.max(0,
         Math.min(currentAccuracy, 100 * correctWordsPerMinute / targetWcpm)
     ));
