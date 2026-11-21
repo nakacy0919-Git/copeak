@@ -848,9 +848,13 @@
       );
 
 
-    const accuracyOnly = typeof currentCustomLesson !== 'undefined' &&
+    const accuracyOnly = (
+      document.getElementById('scoreSummaryRow')?.dataset.scoreMetrics === 'accuracy-only'
+    ) || (
+      typeof currentCustomLesson !== 'undefined' &&
       currentCustomLesson &&
-      !/^en(?:-|$)/i.test(currentCustomLesson.lang || 'en-US');
+      !/^en(?:-|$)/i.test(currentCustomLesson.lang || 'en-US')
+    );
     // Legacy Classroom transport requires numbers; placeholders are
     // explicitly flagged as unmeasured by scoreVersion/metricsAvailable.
     const wpm = accuracyOnly ? 0 : readNumber('bigWpmValue');
