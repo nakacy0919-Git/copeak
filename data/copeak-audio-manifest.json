@@ -1,0 +1,714 @@
+{
+  "version": 1,
+  "stage": "production",
+  "importedWaveFiles": 88,
+  "format": "MP3 mono 24 kHz CBR 64 kbps",
+  "note": "Production release with 82 Copeak original reading narrations, one NCC narration and five built-in sample narrations.",
+  "entries": [
+    {
+      "sourceId": "arena-task-taylor-01",
+      "sourceFile": "(NCC課題) Taylor Swift NYU Speech 2022",
+      "assetPath": "./audio/library/arena-task-taylor-01.mp3",
+      "encodedAssetSha": "aee79fda805edcae375fe57aa0eac3866586ec6c",
+      "kind": "ncc_sample",
+      "status": "registered"
+    },
+    {
+      "sourceId": "bio-001",
+      "sourceFile": "Shohei Ohtani: Baseball Across Two Countries",
+      "assetPath": "./audio/library/bio-001.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "3ab0f2f70e4df51e34b7e009f6afeb5e5dafb01a"
+    },
+    {
+      "sourceId": "bio-002",
+      "sourceFile": "Naomi Osaka: A Tennis Star",
+      "assetPath": "./audio/library/bio-002.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "18214e11bf20ab2a08e29d33f0fe3cbdeee3c4a7"
+    },
+    {
+      "sourceId": "bio-003",
+      "sourceFile": "Taylor Swift: Music and Stories",
+      "assetPath": "./audio/library/bio-003.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "25209495d3ca6ba8a5502b06488c92c15b1c68dc"
+    },
+    {
+      "sourceId": "bio-004",
+      "sourceFile": "Lionel Messi",
+      "assetPath": "./audio/library/bio-004.mp3",
+      "encodedAssetSha": "a12c16e68388b2d76f93c867cc5de6c801b0a5ad",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "bio-005",
+      "sourceFile": "Jackie Chan",
+      "assetPath": "./audio/library/bio-005.mp3",
+      "encodedAssetSha": "fbecd88652de0233eddf3dc001038a066907250f",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "bio-006",
+      "sourceFile": "Yuzuru Hanyu: Skating on Ice",
+      "assetPath": "./audio/library/bio-006.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "17285c35c8102663ab9a44e8086df0ff108c30ae"
+    },
+    {
+      "sourceId": "bio-007",
+      "sourceFile": "Simone Biles: Strength and Balance",
+      "assetPath": "./audio/library/bio-007.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "c4c277f01f5f36e578f804f8f332caa93a462771"
+    },
+    {
+      "sourceId": "bio-008",
+      "sourceFile": "Emma Watson",
+      "assetPath": "./audio/library/bio-008.mp3",
+      "encodedAssetSha": "63aa0691229cd2a7b758a7b271be21abab6c8346",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "bio-009",
+      "sourceFile": "Steve Jobs: A Creative Thinker",
+      "assetPath": "./audio/library/bio-009.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "9496ddeb5c4e9c3b633577df88444c1b3c9c27a5"
+    },
+    {
+      "sourceId": "bio-010",
+      "sourceFile": "Malala Yousafzai",
+      "assetPath": "./audio/library/bio-010.mp3",
+      "encodedAssetSha": "843823422f8fc5c9b9d8c5d2ef1ef6cc7b1af19e",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "bio-011",
+      "sourceFile": "Hayao Miyazaki",
+      "assetPath": "./audio/library/bio-011.mp3",
+      "encodedAssetSha": "94eab86a4c22e2a1008ab40eea646de2b5e62071",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "bio-012",
+      "sourceFile": "Jane Goodall",
+      "assetPath": "./audio/library/bio-012.mp3",
+      "encodedAssetSha": "6a8b1d03f9d2fe1b5a91364c8b0bf7e521c89638",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "bio-013",
+      "sourceFile": "Mark Rober",
+      "assetPath": "./audio/library/bio-013.mp3",
+      "encodedAssetSha": "d61189a9576f35208c13a3173ea3d0b9fcd13902",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "bio-014",
+      "sourceFile": "MrBeast: A New Kind of Video Creator",
+      "assetPath": "./audio/library/bio-014.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "2027f1fa9864e29fc194fcd663d54a97c3973206"
+    },
+    {
+      "sourceId": "bio-015",
+      "sourceFile": "Keanu Reeves",
+      "assetPath": "./audio/library/bio-015.mp3",
+      "encodedAssetSha": "16b69e021d50706fbbcd7673758eae8e653fc635",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "bio-016",
+      "sourceFile": "Marie Curie",
+      "assetPath": "./audio/library/bio-016.mp3",
+      "encodedAssetSha": "8a2df6a86ac2570f56e2230877fe5515694283e9",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "bio-017",
+      "sourceFile": "Brack Obama",
+      "assetPath": "./audio/library/bio-017.mp3",
+      "encodedAssetSha": "6b190caf9685f6aba9ae476d589c00fb0c8efa5b",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "bio-018",
+      "sourceFile": "Michelle Obama: Education and Opportunity",
+      "assetPath": "./audio/library/bio-018.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "f5d5414b1b31132db0325e33145f7b11b484c725"
+    },
+    {
+      "sourceId": "bio-019",
+      "sourceFile": "Tom Hanks: Stories on Screen",
+      "assetPath": "./audio/library/bio-019.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "5493a7b2fac9d6459ca0f7a2d09307adff77454f"
+    },
+    {
+      "sourceId": "bio-020",
+      "sourceFile": "Ken Watanabe",
+      "assetPath": "./audio/library/bio-020.mp3",
+      "encodedAssetSha": "9d68d96ac0e90b40adfd8e77fed3ea2693a06dfb",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "bio-021",
+      "sourceFile": "Greta Thunberg",
+      "assetPath": "./audio/library/bio-021.mp3",
+      "encodedAssetSha": "965d1ce81d668fca430216dd44aa83c758082b81",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "bio-022",
+      "sourceFile": "Marques Brownlee: Explaining Technology Clearly",
+      "assetPath": "./audio/library/bio-022.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "5788c65a9895bad64c3714c626394a782f295f0b"
+    },
+    {
+      "sourceId": "bio-023",
+      "sourceFile": "Katalin Kariko",
+      "assetPath": "./audio/library/bio-023.mp3",
+      "encodedAssetSha": "39233c5bfeece1533fd6a7ae87c66d0cb9b1131c",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "bio-024",
+      "sourceFile": "Akira Yoshino",
+      "assetPath": "./audio/library/bio-024.mp3",
+      "encodedAssetSha": "826574201cd8c676f665664242da6252c2470dda",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "bio-025",
+      "sourceFile": "Nelson Mandela: Reconciliation and Leadership",
+      "assetPath": "./audio/library/bio-025.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "4608e0cf53fb4c3cfe01e4784940bbd193750dea"
+    },
+    {
+      "sourceId": "bio-026",
+      "sourceFile": "Wangari Maathai: Trees and Civic Action",
+      "assetPath": "./audio/library/bio-026.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "b52ceae5aa65c9391f2bc56ce7df35a3aaf554f6"
+    },
+    {
+      "sourceId": "bio-027",
+      "sourceFile": "Shinya Yamanaka: Rethinking What Cells Can Become",
+      "assetPath": "./audio/library/bio-027.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "f5bc51de0b5e218930f9920ebc522a565b1cf7f4"
+    },
+    {
+      "sourceId": "bio-028",
+      "sourceFile": "Satya Nadella: Leadership Through Technology",
+      "assetPath": "./audio/library/bio-028.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "c0243097be849a3fdb4e6b00757945db8bbcde7f"
+    },
+    {
+      "sourceId": "bio-029",
+      "sourceFile": "Katherine Johnson",
+      "assetPath": "./audio/library/bio-029.mp3",
+      "encodedAssetSha": "1e843791394a6762323acd3e0576e9578d5b0c0e",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "bio-030",
+      "sourceFile": "Tim Berners-Lee: Building the World Wide Web",
+      "assetPath": "./audio/library/bio-030.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "f566d29e3e841a4ee02f31ceac2c674130d238d4"
+    },
+    {
+      "sourceId": "bio-031",
+      "sourceFile": "Meryl Streep: Learning Through Different Roles",
+      "assetPath": "./audio/library/bio-031.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "fbb20423bc3e030406f3ed2a3a439c3b511c4549"
+    },
+    {
+      "sourceId": "bio-032",
+      "sourceFile": "Hideki Yukawa",
+      "assetPath": "./audio/library/bio-032.mp3",
+      "encodedAssetSha": "490943afe5a882665edeb1ad4ddb07f95782c332",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "cert-2-01",
+      "sourceFile": "Learning Through Mistakes",
+      "assetPath": "./audio/library/cert-2-01.mp3",
+      "encodedAssetSha": "6732d62d901d56fac46db146d93705940db9214c",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "cert-2-02",
+      "sourceFile": "The Value of Quiet Spaces",
+      "assetPath": "./audio/library/cert-2-02.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "af7631ec2cbc8dec344f5b77fa67dfbad2af823e"
+    },
+    {
+      "sourceId": "cert-3-01",
+      "sourceFile": "A small Kindness",
+      "assetPath": "./audio/library/cert-3-01.mp3",
+      "encodedAssetSha": "14cde33bcde9d505d732fc6b7d592a7b2a154e46",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "cert-3-02",
+      "sourceFile": "The Library Challenge",
+      "assetPath": "./audio/library/cert-3-02.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "ae5757d33cfbbcbd81ecd7d1c6bce6d35f7d26df"
+    },
+    {
+      "sourceId": "cert-pre1-01",
+      "sourceFile": "When Convenience Changes Choice",
+      "assetPath": "./audio/library/cert-pre1-01.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "b785f1cb9950e0e8846f1e6bb8683d3f538e4060"
+    },
+    {
+      "sourceId": "cert-pre1-02",
+      "sourceFile": "Should Cities Be Designed for Heat?",
+      "assetPath": "./audio/library/cert-pre1-02.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "e7eb64e8c9c6b3bad6222270286b661c16c4184c"
+    },
+    {
+      "sourceId": "cert-pre2-01",
+      "sourceFile": "Why Morning Light Matters",
+      "assetPath": "./audio/library/cert-pre2-01.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "5b1116518f955892e8b681b7fbddb466f842838c"
+    },
+    {
+      "sourceId": "cert-pre2-02",
+      "sourceFile": "A club Without a Leader",
+      "assetPath": "./audio/library/cert-pre2-02.mp3",
+      "encodedAssetSha": "caf9da3fddf3431e82566e4c1eef7d1e6014f503",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "exam-01",
+      "sourceFile": "Choosing the Best Volunteer Plan",
+      "assetPath": "./audio/library/exam-01.mp3",
+      "encodedAssetSha": "86c48301bfb7c8cca287aa223dd83dcd1894c283",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "exam-02",
+      "sourceFile": "The School Festival Schedule",
+      "assetPath": "./audio/library/exam-02.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "664e98d48b465cf74c7024db60a50a7e39c86392"
+    },
+    {
+      "sourceId": "exam-03",
+      "sourceFile": "Two Reviews, One Decision",
+      "assetPath": "./audio/library/exam-03.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "81dc066427c531bf12ed078a14607b839621b239"
+    },
+    {
+      "sourceId": "exam-04",
+      "sourceFile": "Finding the Main Point",
+      "assetPath": "./audio/library/exam-04.mp3",
+      "encodedAssetSha": "7cf0cdebcb25ba99e2669c11e7a4fc93cab8ffc9",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "exam-05",
+      "sourceFile": "A Campus Tour Decision",
+      "assetPath": "./audio/library/exam-05.mp3",
+      "encodedAssetSha": "db71b0d8b7f8e4d38b99e51dcf4286ea9037f287",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "exam-06",
+      "sourceFile": "Why Charts Need Words",
+      "assetPath": "./audio/library/exam-06.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "41330a380528fd94a898935f02270985965f867b"
+    },
+    {
+      "sourceId": "exam-07",
+      "sourceFile": "The Hidden Condition",
+      "assetPath": "./audio/library/exam-07.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "f20f7ab71306970ee3f0d2f363434641170b4a67"
+    },
+    {
+      "sourceId": "exam-08",
+      "sourceFile": "Reading Under Time Pressure",
+      "assetPath": "./audio/library/exam-08.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "d86ebabc93e2ca61c3fa273cdc9b9663e3682fd9"
+    },
+    {
+      "sourceId": "fun-01",
+      "sourceFile": "The Alarm Clock That Won",
+      "assetPath": "./audio/library/fun-01.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "3c63a36513b29226f857fd9a9dc716752929b380"
+    },
+    {
+      "sourceId": "fun-02",
+      "sourceFile": "My Smart Fridge Judged Me",
+      "assetPath": "./audio/library/fun-02.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "f3a2b3c45bf4921bd5cfd8635accec108c3b153b"
+    },
+    {
+      "sourceId": "fun-03",
+      "sourceFile": "The Wrong Presentation",
+      "assetPath": "./audio/library/fun-03.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "ad01fec785b1c394888853b10dc4f9142a46c05f"
+    },
+    {
+      "sourceId": "fun-04",
+      "sourceFile": "The English Word I Used Everywhere",
+      "assetPath": "./audio/library/fun-04.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "f62e3f2c1c1509e3cbdd5ab8f440c178b1631606"
+    },
+    {
+      "sourceId": "news-01",
+      "sourceFile": "A City Tests Car-Free Sundays",
+      "assetPath": "./audio/library/news-01.mp3",
+      "encodedAssetSha": "a88a319e1775af85eb77aa8194fa8bff5727aac5",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "news-02",
+      "sourceFile": "Schools Experiment With Phone-Free Lunch",
+      "assetPath": "./audio/library/news-02.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "5e74b90a172d04bec161b62396efe8ffb29af44f"
+    },
+    {
+      "sourceId": "news-03",
+      "sourceFile": "Small Farms Use Drones to Check Crops",
+      "assetPath": "./audio/library/news-03.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "80251259317cd73469104ac15fd0916363d8bed4"
+    },
+    {
+      "sourceId": "news-04",
+      "sourceFile": "Libraries Add Tool-Sharing Services",
+      "assetPath": "./audio/library/news-04.mp3",
+      "encodedAssetSha": "1ee5f838f6f9ca0d631e0fe9d70dd984da58cfb3",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "news-05",
+      "sourceFile": "A New Kind of Night Market",
+      "assetPath": "./audio/library/news-05.mp3",
+      "encodedAssetSha": "21b4ccb68069bf94c5ad5a585182a78159028545",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "news-06",
+      "sourceFile": "Museums Offer Quiet Visiting Hours",
+      "assetPath": "./audio/library/news-06.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "21b4ccb68069bf94c5ad5a585182a78159028545"
+    },
+    {
+      "sourceId": "real-01",
+      "sourceFile": "At the Airport Gate",
+      "assetPath": "./audio/library/real-01.mp3",
+      "encodedAssetSha": "3b8a77c800ce2e926394c1d9f5e102fc268009aa",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "real-02",
+      "sourceFile": "Checking Into a Hotel",
+      "assetPath": "./audio/library/real-02.mp3",
+      "encodedAssetSha": "9133a2cf647c2325c6b76c48ca81c699780d8d7a",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "real-03",
+      "sourceFile": "A Train Delay Announcement",
+      "assetPath": "./audio/library/real-03.mp3",
+      "encodedAssetSha": "7addb24985f2bc66aa4eeadb76061961263185a4",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "real-04",
+      "sourceFile": "Calling a Clinic",
+      "assetPath": "./audio/library/real-04.mp3",
+      "encodedAssetSha": "aaeca8ad4a6358bc268eb3fc9822407fb9430984",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "real-05",
+      "sourceFile": "Asking for Help at a Store",
+      "assetPath": "./audio/library/real-05.mp3",
+      "encodedAssetSha": "a9ef153bc10865a167e95272c7f9b0805c2737a9",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "sample-conversation-new-job",
+      "sourceFile": "(sample) Conversation New Job",
+      "assetPath": "./audio/sample/sample-conversation-new-job.mp3",
+      "encodedAssetSha": "4d789443237c7f48ced23899abadc08d3d81edac",
+      "kind": "built_in_sample",
+      "status": "registered"
+    },
+    {
+      "sourceId": "sample-introduction-to-sdgs",
+      "sourceFile": "(sample) Introduction to SDGs",
+      "assetPath": "./audio/sample/sample-introduction-to-sdgs.mp3",
+      "encodedAssetSha": "b89827a1fd6649b596c3c4fbb37ed4f4e9a274c7",
+      "kind": "built_in_sample",
+      "status": "registered"
+    },
+    {
+      "sourceId": "sample-malala-un-speech",
+      "sourceFile": "(sample) Malala Yousafzai - UN Speech",
+      "assetPath": "./audio/sample/sample-malala-un-speech.mp3",
+      "encodedAssetSha": "b88d2936df697b963b524effb40cea453e33182b",
+      "kind": "built_in_sample",
+      "status": "registered"
+    },
+    {
+      "sourceId": "sample-north-wind-sun",
+      "sourceFile": "(sample) The North Wind and the Sun",
+      "assetPath": "./audio/sample/sample-north-wind-sun.mp3",
+      "encodedAssetSha": "961486d765f493f6273fb0e136210486a7076406",
+      "kind": "built_in_sample",
+      "status": "registered"
+    },
+    {
+      "sourceId": "sample-steve-jobs-stanford",
+      "sourceFile": "(sample) Steve Jobs - Stanford Speech",
+      "assetPath": "./audio/sample/sample-steve-jobs-stanford.mp3",
+      "encodedAssetSha": "863c0493aee9989965668a2f9ee48cc3a99c2ed2",
+      "kind": "built_in_sample",
+      "status": "registered"
+    },
+    {
+      "sourceId": "school-01",
+      "sourceFile": "My New Morning Routine",
+      "assetPath": "./audio/library/school-01.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "abb3289ad02e313e7a4c22ab8458070bc953c8fb"
+    },
+    {
+      "sourceId": "school-02",
+      "sourceFile": "A Message From Australia",
+      "assetPath": "./audio/library/school-02.mp3",
+      "encodedAssetSha": "0f31560d40a51a6d14e6d203e3bc38c535fdfe0d",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "school-03",
+      "sourceFile": "The Class Garden",
+      "assetPath": "./audio/library/school-03.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "3bcd6c488ebc2b3fa06a5a0f6611d0f1432a03ab"
+    },
+    {
+      "sourceId": "school-04",
+      "sourceFile": "Why I Joined the Speech Contest",
+      "assetPath": "./audio/library/school-04.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "9f1828ad4251acf6cf548ee1afaf754f94ce1b15"
+    },
+    {
+      "sourceId": "school-05",
+      "sourceFile": "One Day Without Plastic Bottles",
+      "assetPath": "./audio/library/school-05.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "c334b202eaf9edbeff99480797b61bfc45deb1b4"
+    },
+    {
+      "sourceId": "school-06",
+      "sourceFile": "The Exchange Student’s Question",
+      "assetPath": "./audio/library/school-06.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "da7f37dd6e40a818605e66dd200b7e2040d68a73"
+    },
+    {
+      "sourceId": "science-01",
+      "sourceFile": "Why We Forget",
+      "assetPath": "./audio/library/science-01.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "0083910a18e94880539a6fd8009c9f8d74b83554"
+    },
+    {
+      "sourceId": "science-02",
+      "sourceFile": "Can Trees Cool a Street",
+      "assetPath": "./audio/library/science-02.mp3",
+      "encodedAssetSha": "8b7c27576225531a0852ecd036ded3da1602fa3a",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "science-03",
+      "sourceFile": "How Noise Affects Attention",
+      "assetPath": "./audio/library/science-03.mp3",
+      "encodedAssetSha": "0056be32bb24191d3948e5159bacb71f77345da2",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "science-04",
+      "sourceFile": "The Problem With Fast Fashion",
+      "assetPath": "./audio/library/science-04.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "5bdc9383f23deb2a5d45f46ea504f69171a23598"
+    },
+    {
+      "sourceId": "science-05",
+      "sourceFile": "Why AI Answers Can Sound Certain",
+      "assetPath": "./audio/library/science-05.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "411a73438da9d4646a93711cb5e1bf3d497b9247"
+    },
+    {
+      "sourceId": "science-06",
+      "sourceFile": "What Makes a Language Endangered?",
+      "assetPath": "./audio/library/science-06.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "34cd0d79230109a7e21c2d103bd5539c4e7a5013"
+    },
+    {
+      "sourceId": "speech-01",
+      "sourceFile": "Start Before You Feel Ready",
+      "assetPath": "./audio/library/speech-01.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "20987fdb00fb4da5f059765cf80c667f35287339"
+    },
+    {
+      "sourceId": "speech-02",
+      "sourceFile": "The Power of One Question",
+      "assetPath": "./audio/library/speech-02.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "575fe405e191d8b832e04ce515a086d637d5d9ba"
+    },
+    {
+      "sourceId": "speech-03",
+      "sourceFile": "Read More Than You Think You Can",
+      "assetPath": "./audio/library/speech-03.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "4c86e9bca0dfa8b7c752cd62b4935a7dc8722089"
+    },
+    {
+      "sourceId": "speech-04",
+      "sourceFile": "Language Is a Door",
+      "assetPath": "./audio/library/speech-04.mp3",
+      "encodedAssetSha": "2771403e9035f41938fa09aea2a7050d5dd59491",
+      "kind": "copeak_original",
+      "status": "registered"
+    },
+    {
+      "sourceId": "story-01",
+      "sourceFile": "The Blue Umbrella",
+      "assetPath": "./audio/library/story-01.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "e169f6babcc4dd2a826fd8846deb389e90c11b7d"
+    },
+    {
+      "sourceId": "story-02",
+      "sourceFile": "The Last Train Home",
+      "assetPath": "./audio/library/story-02.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "ba72387ce5955fff5eccf15ea15e03c9b0c973d0"
+    },
+    {
+      "sourceId": "story-03",
+      "sourceFile": "The Message in the Book",
+      "assetPath": "./audio/library/story-03.mp3",
+      "kind": "copeak_original",
+      "status": "registered",
+      "encodedAssetSha": "78ca516ec41350885f7ae001fb0fce641b66c90a"
+    }
+  ],
+  "releaseDate": "2026-11-21"
+}
