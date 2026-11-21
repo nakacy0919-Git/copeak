@@ -130,7 +130,7 @@ function init(){if(!panel())return;
  function syncFilters(){
    const pairs=[["source","cprSource"],["grade","cprGrade"],["cert","cprCert"],["cefr","cprCefr"]];
    pairs.forEach(([key,id])=>{const a=$("#"+id),b=$("#"+id+"Modal");if(a)a.value=categoryFilters[key];if(b)b.value=categoryFilters[key]});
-   document.querySelectorAll("#cprLibrary [data-cpr-source]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.cprSource===categoryFilters.source)));
+   document.querySelectorAll("#cprFilterDialog [data-cpr-source]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.cprSource===categoryFilters.source)));
    const values=[categoryFilters.source!=="all"?(taxonomy?.LABELS?.[categoryFilters.source]||categoryFilters.source):"",categoryFilters.grade!=="all"?categoryFilters.grade:"",categoryFilters.cert!=="all"?categoryFilters.cert:"",categoryFilters.cefr!=="all"?categoryFilters.cefr:""].filter(Boolean);
    $("#cprFilterSummary").textContent=values.length?values.join(" · "):"すべての教材を表示中";
  }
