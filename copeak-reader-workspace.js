@@ -206,7 +206,7 @@ function init(){if(!panel())return;
  syncFilters();
  $("#cprClose").onclick=()=>$("#cprGuide").close();
  $("#cprLibrary").addEventListener("click",e=>{
- var cat=e.target.closest("[data-cat]")?.dataset.cat;if(cat==="normal")$("#cprSearch").focus();
+ var cat=e.target.closest("[data-cat]")?.dataset.cat;if(cat==="normal"){if(isPhoneLayout()){var f=$("#cprFolderRows");f.scrollIntoView({block:"start",behavior:"smooth"});var first=f.querySelector(".cpr-folder-open");if(first)first.focus({preventScroll:true})}else $("#cprSearch").focus()}
  if(cat==="quest"){var quest=$("#cprQuestPanel");if(quest){var r=$("#cpReaderPage");r.classList.add("cpr-quest-open");$("#cprLibrary").hidden=true;quest.hidden=false;if(!$("#cprQuestBack")){var back=make("button","cpr-quest-back","← 教材ライブラリに戻る");back.id="cprQuestBack";back.type="button";back.onclick=()=>{quest.hidden=true;$("#cprLibrary").hidden=false;r.classList.remove("cpr-quest-open");refresh()};quest.prepend(back)}quest.scrollIntoView({block:"start"})}else location.href="./challenge.html"}
  });
  var reader=$("#cpReaderPage");new MutationObserver(()=>{if(!reader.hidden)refresh()}).observe(reader,{attributes:true,attributeFilter:["hidden"]});
