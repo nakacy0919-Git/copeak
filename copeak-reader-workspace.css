@@ -87,3 +87,91 @@
 #cprLibrary .cpr-level-badges span.cpr-unknown-level{color:#b2c9d8}
 @media(max-width:1190px){#cprLibrary .cpr-level-selects{grid-template-columns:repeat(3,minmax(0,1fr))}#cprLibrary #cprClearFilters{grid-column:1/-1;justify-self:start}}
 @media(max-width:700px){#cprLibrary .cpr-level-selects{grid-template-columns:repeat(2,minmax(0,1fr))}#cprLibrary #cprClearFilters{grid-column:auto}#cprLibrary .cpr-filter-panel{gap:8px;padding:10px 0}#cprLibrary .cpr-source-tabs button{min-height:34px}}
+
+
+/* Reader compact discovery layout — keep lesson list and folder browsing prominent. */
+#cprLibrary{grid-template-rows:clamp(76px,11.5dvh,108px) minmax(0,1fr);gap:clamp(7px,1vh,12px)}
+#cprLibrary .cpr-tiles{gap:clamp(7px,.85vw,13px)}
+#cprLibrary .cpr-tile{border-radius:17px;padding:clamp(8px,1vw,14px);gap:2px 10px}
+#cprLibrary .cpr-tile>span:first-child{width:clamp(39px,4.1vw,58px);height:clamp(39px,4.1vw,58px);font-size:clamp(20px,2.2vw,29px)}
+#cprLibrary .cpr-tile strong{font-size:clamp(13px,1.35vw,21px)}
+#cprLibrary .cpr-tile small{font-size:clamp(9px,.8vw,12px)}
+#cprLibrary .cpr-main{grid-template-columns:minmax(175px,23%) minmax(0,1fr) minmax(195px,22%);gap:clamp(8px,.9vw,14px)}
+#cprLibrary .cpr-box{padding:clamp(9px,.95vw,15px);border-radius:19px}
+#cprLibrary .cpr-material-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(125px,41%) minmax(94px,23%);align-items:center;gap:7px;padding-bottom:9px}
+#cprLibrary .cpr-material-head h3{font-size:clamp(13px,1.05vw,17px)}
+#cprLibrary .cpr-search-field{display:flex;align-items:center;gap:6px;min-width:0;min-height:37px;padding:0 11px;border:1px solid rgba(110,217,252,.64);border-radius:12px;background:linear-gradient(115deg,rgba(8,42,85,.88),rgba(18,91,143,.68));box-shadow:inset 0 1px 3px rgba(0,11,34,.32),0 0 0 1px rgba(255,255,255,.02);transition:border-color .15s,box-shadow .15s}
+#cprLibrary .cpr-search-field:focus-within{border-color:#5af4e9;box-shadow:0 0 0 3px rgba(51,222,235,.17),inset 0 1px 3px rgba(0,11,34,.32)}
+#cprLibrary .cpr-search-field>span{font-size:23px;color:#85e5ff;line-height:1;flex:none}
+#cprLibrary .cpr-search-field input{flex:1 1 auto;min-width:0;width:100%;margin:0;padding:7px 0;border:0!important;outline:0!important;box-shadow:none!important;border-radius:0;background:transparent!important;color:#fff!important;font-size:12px;font-weight:600}
+#cprLibrary .cpr-search-field input::placeholder{color:#a9d8eb;opacity:1}
+#cprLibrary .cpr-search-field input::-webkit-search-cancel-button{cursor:pointer;filter:grayscale(1) brightness(2)}
+#cprLibrary .cpr-material-head select{width:100%;max-width:none;min-width:0;min-height:37px;margin:0;padding:7px 24px 7px 9px;border-radius:11px;border:1px solid rgba(107,208,241,.47);background-color:#114a79;color:#eefaff;font-weight:650;font-size:11px}
+#cprLibrary .cpr-material-head select:focus-visible,#cprLibrary .cpr-filter-fields select:focus-visible{outline:2px solid #5bf1e9;outline-offset:2px}
+#cprLibrary .cpr-tools{display:flex;gap:10px}
+#cprLibrary .cpr-tools>header{justify-content:space-between}
+#cprLibrary .cpr-tools>header h3{font-size:clamp(13px,1vw,16px)}
+#cprLibrary #cprVisibleTotal{color:#9de9ed;font-size:11px;white-space:nowrap}
+#cprLibrary #cprOpenFilter{display:flex;align-items:center;justify-content:space-between;min-height:42px;padding:9px 12px;border:1px solid #54cdea;border-radius:12px;background:linear-gradient(115deg,rgba(14,154,195,.75),rgba(0,96,156,.74));box-shadow:0 4px 17px rgba(6,176,218,.2);color:white;font-size:13px;font-weight:850}
+#cprLibrary #cprOpenFilter:hover{filter:brightness(1.14)}
+#cprLibrary .cpr-filter-fields{display:grid;gap:8px;min-height:0;overflow:auto}
+#cprLibrary .cpr-filter-fields label{display:grid;gap:4px;min-width:0;font-size:11px;font-weight:800;color:#bceafa}
+#cprLibrary .cpr-filter-fields select{width:100%;min-width:0;min-height:37px;padding:6px 10px;border-radius:10px;border:1px solid rgba(101,191,234,.45);background:#113e70;color:white;font-size:12px;font-weight:750}
+#cprLibrary .cpr-filter-summary{margin:0;min-height:27px;font-size:10px;line-height:1.45;color:#b9e7f7;overflow-wrap:anywhere}
+#cprLibrary #cprClearFilters{min-height:35px;padding:7px 10px;text-align:center;font-size:11px;font-weight:750;border:1px solid rgba(110,204,241,.35);border-radius:10px;background:rgba(14,86,137,.35);color:#c4eeff}
+#cprLibrary .cpr-lesson{margin:4px 0;padding:5px 6px}
+#cprLibrary .cpr-level-badges{flex-wrap:nowrap;overflow:hidden}
+#cprLibrary .cpr-level-badges span{font-size:9px;text-overflow:ellipsis;overflow:hidden;max-width:48%;min-width:0}
+#cprLibrary .cpr-level-badges span.cpr-origin-badge{flex:0 0 auto;max-width:55%}
+#cprLibrary .cpr-folder-open{min-height:43px}
+#cprFilterDialog{box-sizing:border-box;width:min(540px,calc(100vw - 24px));max-height:min(88dvh,720px);padding:0;color:#eafaff;border:1px solid #5ddbf4;border-radius:23px;background:linear-gradient(145deg,#07365f,#08244e);box-shadow:0 25px 90px #00112ecf;overflow:auto}
+#cprFilterDialog::backdrop{background:rgba(0,15,38,.74);backdrop-filter:blur(6px)}
+#cprFilterDialog .cpr-dialog-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding:22px 23px 14px;border-bottom:1px solid rgba(122,215,241,.22)}
+#cprFilterDialog .cpr-dialog-heading small{font-size:10px;letter-spacing:.16em;color:#75f0e1;font-weight:800}
+#cprFilterDialog .cpr-dialog-heading h3{margin:5px 0 5px;font-size:23px;font-weight:900}
+#cprFilterDialog .cpr-dialog-heading p{margin:0;font-size:12px;color:#b8e3f4;line-height:1.5}
+#cprFilterDialog #cprFilterClose{flex:none;width:35px;height:35px;color:#e8faff;border:1px solid #427ea5;border-radius:50%;background:rgba(19,96,148,.48);font-size:23px;cursor:pointer}
+#cprFilterDialog .cpr-dialog-body{display:grid;gap:13px;padding:18px 23px 17px}
+#cprFilterDialog .cpr-dialog-label{font-size:12px;font-weight:800;color:#d4f5ff}
+#cprFilterDialog .cpr-source-tabs{display:flex;flex-wrap:wrap;gap:7px}
+#cprFilterDialog .cpr-source-tabs button{color:#e0f7ff;padding:8px 11px;border-radius:999px;border:1px solid #4d88b6;background:rgba(22,94,148,.6);font-size:11px;font-weight:750;cursor:pointer}
+#cprFilterDialog .cpr-source-tabs button[aria-pressed="true"]{background:rgba(13,189,177,.39);border-color:#6ef0de;color:#fff}
+#cprFilterDialog .cpr-dialog-selects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+#cprFilterDialog .cpr-dialog-selects label{display:grid;gap:6px;min-width:0;color:#cfedfa;font-size:12px;font-weight:800}
+#cprFilterDialog .cpr-dialog-selects select{min-width:0;width:100%;min-height:41px;padding:8px;border-radius:11px;border:1px solid rgba(118,211,244,.57);color:#fff;background:#134773;font-size:12px}
+#cprFilterDialog .cpr-filter-note{margin:0;font-size:11px;line-height:1.6;color:#afd3e3}
+#cprFilterDialog .cpr-dialog-footer{display:flex;justify-content:space-between;gap:9px;padding:12px 23px 21px}
+#cprFilterDialog .cpr-dialog-footer button{cursor:pointer;padding:10px 16px;border-radius:11px;font-size:12px;font-weight:800;border:1px solid #548cae;background:#154d7b;color:white}
+#cprFilterDialog #cprApplyFilters{background:linear-gradient(110deg,#0799bb,#00ae9b);border-color:#50e7da}
+@media(max-width:1190px){
+ #cprLibrary{grid-template-rows:clamp(70px,10dvh,92px) minmax(0,1fr)}
+ #cprLibrary .cpr-main{grid-template-columns:minmax(138px,22%) minmax(0,1fr) minmax(165px,25%)}
+ #cprLibrary .cpr-material-head{grid-template-columns:1fr minmax(90px,37%);gap:6px}
+ #cprLibrary .cpr-material-head h3{grid-column:1 / -1}
+ #cprLibrary .cpr-tile>span:first-child{width:39px;height:39px}
+ #cprLibrary .cpr-tile strong{font-size:clamp(11px,1.4vw,16px)}
+ #cprLibrary .cpr-filter-fields{gap:6px}
+ #cprLibrary .cpr-filter-fields select{min-height:32px;font-size:11px}
+}
+@media(max-width:700px){
+ #cpReaderPage.cpr-active .cp-page-scroll{overflow-y:auto}
+ #cprLibrary.cpr-root{display:block!important;overflow:visible!important}
+ #cprLibrary .cpr-tiles{display:flex;gap:8px;overflow-x:auto;scrollbar-width:thin;padding:2px 1px 6px}
+ #cprLibrary .cpr-tile{flex:0 0 190px;min-height:69px;grid-template-columns:42px minmax(0,1fr);border-radius:13px;padding:7px}
+ #cprLibrary .cpr-tile>span:first-child{grid-row:1/3;width:37px;height:37px;font-size:19px}
+ #cprLibrary .cpr-tile strong{font-size:12px;white-space:normal;line-height:1.25}
+ #cprLibrary .cpr-tile small{font-size:9px;line-height:1.25}
+ #cprLibrary .cpr-main{display:flex;flex-direction:column;gap:9px;margin-top:7px}
+ #cprLibrary .cpr-folders{order:1;min-height:155px;max-height:230px}
+ #cprLibrary .cpr-tools{order:2;display:flex;min-height:0;max-height:none;gap:8px}
+ #cprLibrary .cpr-lessons{order:3;min-height:340px;max-height:58dvh}
+ #cprLibrary .cpr-filter-fields{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ #cprLibrary .cpr-filter-fields label{font-size:10px}
+ #cprLibrary .cpr-filter-summary{min-height:0}
+ #cprLibrary .cpr-material-head{grid-template-columns:1fr minmax(108px,37%);gap:7px}
+ #cprLibrary .cpr-material-head h3{grid-column:1/-1}
+ #cprFilterDialog .cpr-dialog-selects{grid-template-columns:1fr}
+ #cprFilterDialog .cpr-dialog-heading{padding:16px 16px 12px}
+ #cprFilterDialog .cpr-dialog-body{padding:14px 16px}
+ #cprFilterDialog .cpr-dialog-footer{padding:12px 16px 17px}
+}
