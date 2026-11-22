@@ -9,13 +9,16 @@
     for(const item of langs){
       const option=document.createElement('option');
       option.value=item.code;
-      option.textContent=item.name+(window.JapeakV4Taxonomy.extraLanguages.some(x=>x.code===item.code)?' / English fallback':'');
+      option.textContent=item.name;
       select.appendChild(option);
     }
     try{select.value=localStorage.getItem('japeakLang')||'ja'}catch(e){select.value='ja'}
     if(!select.value)select.value='ja';
+    // Change the headings, every entry button, and the helper copy immediately.
+    window.JapeakTopI18n?.apply(select.value);
     select.addEventListener('change',()=>{
       try{localStorage.setItem('japeakLang',select.value)}catch(e){}
+      window.JapeakTopI18n?.apply(select.value);
     });
   }
   const photograph=home.querySelector('.jpk-v4-photo img');
