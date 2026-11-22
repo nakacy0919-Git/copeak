@@ -853,7 +853,7 @@ function setupSpeechRecognition() {
     recognition.continuous = !sentenceMode && !mobileBrowser;
     setRecognitionStatus('認識する言語：' + recognition.lang + '（対応状況は端末によって異なります）');
 
-    let finalTranscriptText = '', latestTranscriptText = '', recognitionFailed = false;
+    let finalTranscriptText = '', latestTranscriptText = '', recognitionFailed = false, finalized = false;
 
     recognition.onstart = () => {
         setRecognitionStatus('認識中：' + recognition.lang);
@@ -862,6 +862,12 @@ function setupSpeechRecognition() {
         finalTranscriptText = '';
         latestTranscriptText = '';
         recognitionFailed = false;
+        manualStopRequested = false;
+        awaitingFinish = false;
+        recordingStartPending = false;
+        finalized = false;
+        recentSpeechText = '';
+        window.JapeakPracticeView?.onStart();
 
         // 🌟 修正：録音中ボタンにスマホ用サイズと「改行禁止(whitespace-nowrap)」を追加
         micBtn.innerHTML = '<span class="text-lg md:text-2xl">⏹</span> 停止 (Stop)';
@@ -884,11 +890,13 @@ function setupSpeechRecognition() {
             else interimText += fragment;
         }
         latestTranscriptText = finalTranscriptText + interimText;
+        recentSpeechText = latestTranscriptText;
         // Recognition transcripts are untrusted text; do not parse them as HTML.
         if (voiceOutput) voiceOutput.textContent = latestTranscriptText || '聞いています...';
         if (latestTranscriptText && accOutput) {
             const accuracy = calculateCurrentLessonAccuracy(latestTranscriptText);
             accOutput.innerText = accuracy + '%';
+            window.JapeakPracticeView?.onInterim(accuracy);
             accOutput.className = 'text-4xl font-black text-[#1e3a5f] opacity-70 mincho-font mt-1 transition-all duration-75';
         }
     };
@@ -909,42 +917,88 @@ function setupSpeechRecognition() {
         if (voiceOutput) voiceOutput.textContent = messages[event.error] || '音声認識でエラーが発生しました。もう一度お試しください。';
         isRecording = false;
         resetMicButton(micBtn);
+        awaitingFinish = false;
+        recordingStartPending = false;
+        window.JapeakPracticeView?.onError();
     };
 
+    function finishAttempt() {
+        if(finalized || recognitionFailed)return;
+        finalized = true;
+        manualStopRequested = false;
+        awaitingFinish = false;
+        recordingStartPending = false;
+        const speech = (finalTranscriptText.trim() || recentSpeechText.trim());
+        const accuracy = speech ? calculateCurrentLessonAccuracy(speech) : null;
+        if(accOutput) {
+            accOutput.innerText=accuracy===null?'—':accuracy+'%';
+            accOutput.className='text-4xl font-black mincho-font mt-1 transition-all duration-300 '+
+                (accuracy!==null&&accuracy>=90?'text-green-600':accuracy!==null&&accuracy>=50?'text-yellow-600':'text-[#1e3a5f]');
+        }
+        if(accuracy!==null && accuracy>=90 && !hasCelebrated){
+            hasCelebrated=true;
+            try{playSuccessSound();}catch(error){console.warn('Success audio unavailable:',error);}
+            try{fireConfetti();}catch(error){console.warn('Confetti unavailable:',error);}
+        }
+        if(accuracy===null)setRecognitionStatus('音声を認識できませんでした。もう一度お試しください。');
+        window.JapeakPracticeView?.onStop(accuracy,currentLesson?.id,sentenceMode?'sentence':'full');
+    }
+
     recognition.onend = () => {
-        if (!recognitionFailed) setRecognitionStatus('認識終了：' + recognition.lang);
+        if(!recognitionFailed)setRecognitionStatus('認識終了：' + recognition.lang);
         isRecording = false;
+        recordingStartPending = false;
         resetMicButton(micBtn);
+        if(recognitionFailed){
+            awaitingFinish=false;
+            window.JapeakPracticeView?.onError();
+            return;
+        }
+        if(manualStopRequested){finishAttempt();return;}
+        // On iPad/iPhone Web Speech may end automatically after a pause.
+        // Keep the transcript and wait for the learner's large "Finish" button.
+        awaitingFinish=true;
+        window.JapeakPracticeView?.onWaiting();
+        setRecognitionStatus('音声を受け取りました。「音読終了」で採点します。');
+    };
 
-        const finalText = finalTranscriptText.trim() || latestTranscriptText.trim();
-        if (recognitionFailed || !accOutput || !finalText) return;
-
-        const accuracy = calculateCurrentLessonAccuracy(finalText);
-        accOutput.innerText = `${accuracy}%`;
-
-        if (accuracy >= 80) {
-            accOutput.className = 'text-4xl font-black text-green-600 mincho-font mt-1 transition-all duration-300';
-            if (!hasCelebrated) {
-                hasCelebrated = true;
-                playSuccessSound();
-                fireConfetti();
+    window.JapeakPracticeControls = {
+        finish() {
+            if(finalized || recognitionFailed)return;
+            manualStopRequested=true;
+            if(isRecording || recordingStartPending){
+                try{recognition.stop();}
+                catch(error){
+                    console.warn('Microphone stop failed:',error);
+                    isRecording=false;
+                    finishAttempt();
+                }
+            }else if(awaitingFinish || recentSpeechText.trim()){
+                finishAttempt();
+            }else{
+                manualStopRequested=false;
+                setRecognitionStatus('まず「音読開始」を押してください。');
             }
-        } else if (accuracy >= 50) {
-            accOutput.className = 'text-4xl font-black text-yellow-600 mincho-font mt-1 transition-all duration-300';
-        } else {
-            accOutput.className = 'text-4xl font-black text-[#1e3a5f] mincho-font mt-1 transition-all duration-300';
         }
     };
 
     micBtn.onclick = () => {
+        if(isRecording || awaitingFinish || recordingStartPending)return;
         try {
-            if (isRecording) recognition.stop();
-            else recognition.start();
-        } catch (error) {
-            console.warn('Could not start/stop speech recognition:', error);
-            if (voiceOutput) voiceOutput.textContent = '音声認識を開始できませんでした。少し待ってからもう一度お試しください。';
-            isRecording = false;
+            manualStopRequested=false;
+            finalized=false;
+            recognitionFailed=false;
+            recentSpeechText='';
+            recordingStartPending=true;
+            micBtn.disabled=true;
+            recognition.start();
+        } catch(error) {
+            console.warn('Could not start recognition:',error);
+            if(voiceOutput)voiceOutput.textContent='音声認識を開始できませんでした。マイクの設定を確認してください。';
+            isRecording=false;
+            recordingStartPending=false;
             resetMicButton(micBtn);
+            window.JapeakPracticeView?.onError();
         }
     };
 }
