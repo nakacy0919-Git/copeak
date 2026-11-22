@@ -151,6 +151,14 @@
                     </button>
                 </div>
 
+                <!-- Sentence/turn practice: available when a lesson has multiple units. -->
+                <div id="sentence-practice-tools" role="group" aria-label="1文ずつ練習する" class="hidden w-full max-w-3xl bg-amber-50 border border-amber-200 rounded-xl px-3 py-2 mb-3 flex-wrap items-center justify-center gap-2">
+                    <button id="btn-sentence-mode" type="button" aria-pressed="false" class="rounded-full bg-[#1e3a5f] hover:bg-[#2b517e] text-white font-bold text-xs md:text-sm px-4 py-2">1文ずつ練習</button>
+                    <button id="btn-sentence-prev" type="button" disabled class="disabled:opacity-40 disabled:cursor-not-allowed rounded-lg border border-stone-300 bg-white text-stone-700 px-3 py-2 font-bold text-xs">◀ 前の文</button>
+                    <span id="sentence-progress" aria-live="polite" class="text-xs md:text-sm text-stone-700 font-black tabular-nums min-w-[60px] text-center"></span>
+                    <button id="btn-sentence-next" type="button" disabled class="disabled:opacity-40 disabled:cursor-not-allowed rounded-lg border border-stone-300 bg-white text-stone-700 px-3 py-2 font-bold text-xs">次の文 ▶</button>
+                </div>
+
                 <div class="w-full overflow-y-auto max-h-[45vh] md:max-h-[55vh] px-2 py-4" style="scrollbar-width: thin; scrollbar-color: #cbd5e1 transparent;">
                     <div id="sentence-container" class="flex flex-col gap-4 md:gap-8 mx-auto w-fit transition-all duration-300">
                     </div>
@@ -162,15 +170,15 @@
                 
                 <div class="p-3 md:p-6 bg-stone-100 border-b border-stone-200">
                     <div class="text-[10px] md:text-[11px] text-stone-500 font-bold tracking-widest mb-1 md:mb-2">あなたの声 (Your Voice)</div>
-                    <div id="voice-output" class="text-base md:text-2xl text-stone-400 font-medium mincho-font text-left truncate">
+                    <div id="voice-output" role="status" aria-live="polite" class="text-base md:text-2xl text-stone-600 font-medium mincho-font text-left break-words whitespace-pre-wrap max-h-24 overflow-y-auto">
                         ※「話す」ボタンを押してください
                     </div>
                 </div>
 
                 <div class="p-3 md:p-6 bg-[#f4f0e6] flex flex-row items-center justify-between gap-3 md:gap-6">
                     <div class="flex flex-col items-center bg-white px-4 py-1.5 md:px-6 md:py-3 rounded-sm wa-border-sm shrink-0 min-w-[70px] md:min-w-[120px]">
-                        <span class="text-[9px] md:text-[11px] text-[#1e3a5f] font-bold tracking-widest">正確さ</span>
-                        <span id="acc-output" class="text-2xl md:text-4xl font-black text-[#1e3a5f] mincho-font mt-0 md:mt-1">0%</span>
+                        <span class="text-[9px] md:text-[11px] text-[#1e3a5f] font-bold tracking-widest" title="音声認識した文字とお手本の一致度です。発音そのものを判定するものではありません。">認識一致率</span>
+                        <span id="acc-output" aria-live="polite" class="text-2xl md:text-4xl font-black text-[#1e3a5f] mincho-font mt-0 md:mt-1">—</span>
                     </div>
                     <button id="mic-btn" class="flex-1 w-full flex items-center justify-center gap-1.5 md:gap-3 py-2.5 md:py-4 bg-[#b91c1c] hover:bg-[#991b1b] text-white rounded-sm font-black text-base md:text-xl shadow-md border-b-[3px] md:border-b-4 border-[#7f1d1d] active:border-b-0 active:translate-y-1 transition-all tracking-widest whitespace-nowrap">
                         <span class="text-lg md:text-2xl">🎙</span> 話す (Start)
@@ -274,6 +282,7 @@
 <script src="data/japeak-b1-school-trouble.js"></script>
 <script src="data/japeak-b1-career-consultation.js"></script>
 
+<script src="js/japeak-speech-utils.js"></script>
 <script src="js/japeak-app.js"></script>
 
     <script>
