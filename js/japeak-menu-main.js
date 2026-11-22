@@ -135,8 +135,12 @@ async function setLanguage(code) {
     menuLang = safeCode;
     window.menuLang = menuLang;
     window.japeakCurrentLang = menuLang;
-    localStorage.setItem('japeakLang', menuLang);
-    localStorage.setItem('menuLang', menuLang);
+    try {
+        localStorage.setItem('japeakLang', menuLang);
+        localStorage.setItem('menuLang', menuLang);
+    } catch (error) {
+        // Still let learners choose a language when persistent storage is disabled.
+    }
 
     const select = $('menu-lang-select');
     if (select) select.value = menuLang;
