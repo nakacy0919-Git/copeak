@@ -50,24 +50,25 @@
     <link rel="stylesheet" href="css/japeak-stage3.css?v=20261122-3">
     <link rel="stylesheet" href="css/japeak-v5.css?v=20261122-5">
     <link rel="stylesheet" href="css/japeak-practice-v6.css?v=20261122-8">
+    <link rel="stylesheet" href="css/japeak-practice-v9.css?v=20261122-9">
 </head>
 <body class="japeak-stage3-practice jpk-v5-native-lang text-stone-800 pb-12">
 
-    <div class="max-w-[1400px] w-[95%] mx-auto mt-4 md:mt-10 p-4 md:p-8 bg-[#fdfcf8] rounded-sm wa-border flex flex-col md:flex-row justify-between items-center gap-4">
+    <div id="jpk-v9-header" class="max-w-[1400px] w-[95%] mx-auto mt-4 md:mt-10 p-4 md:p-8 bg-[#fdfcf8] rounded-sm wa-border flex flex-col md:flex-row justify-between items-center gap-4">
         
-        <div class="flex items-center gap-3 md:gap-4 w-full md:w-auto justify-center md:justify-start">
+        <div id="jpk-v9-brand" class="flex items-center gap-3 md:gap-4 w-full md:w-auto justify-center md:justify-start">
             <img src="japeaklog.png" alt="Japeak Logo" class="w-10 h-10 md:w-14 md:h-14 object-contain drop-shadow-sm">
-            <div class="flex flex-col">
+            <div class="jpk-v9-brand-text flex flex-col">
                 <h1 class="text-2xl md:text-4xl font-black text-[#1e3a5f] mincho-font tracking-widest">Japeak</h1>
-                <p class="text-[9px] md:text-xs text-[#b91c1c] font-bold tracking-widest">にほんご スピーキング れんしゅう</p>
+                <p id="jpk-v9-subtitle" class="text-[9px] md:text-xs text-[#b91c1c] font-bold tracking-widest">にほんご スピーキング れんしゅう</p>
             </div>
         </div>
         
         <div class="w-full md:w-auto mt-3 md:mt-0">
-            <div class="grid grid-cols-2 md:flex md:flex-row gap-2 md:gap-3 items-end w-full">
+            <div id="jpk-v9-actions" class="grid grid-cols-2 md:flex md:flex-row gap-2 md:gap-3 items-end w-full">
                 
                 <div class="relative w-full md:w-48 z-50" id="custom-lang-wrapper">
-                    <div class="hidden md:block text-center text-[10px] text-[#0086d9] font-bold mb-1 tracking-widest uppercase">LANGUAGE</div>
+                    <div id="jpk-v9-language-label" class="hidden md:block text-center text-[10px] text-[#0086d9] font-bold mb-1 tracking-widest uppercase">LANGUAGE</div>
                     <button type="button" id="custom-lang-btn" aria-haspopup="true" aria-expanded="false" aria-controls="custom-lang-menu" class="h-10 md:h-11 inline-flex justify-between items-center w-full rounded-sm shadow-sm px-2 md:px-3 bg-[#0086d9] text-sm md:text-base font-bold text-white hover:bg-[#0074bd] transition-colors focus:outline-none">
                         <span id="custom-lang-display" class="flex items-center gap-1.5 md:gap-2 truncate">
                             <span>English</span> <span class="text-[9px] md:text-[10px] font-normal opacity-90 mt-1 hidden sm:inline">英語</span>
@@ -116,12 +117,12 @@
                 </div>
 
 
-                <button onclick="goBackToMenu()" class="h-10 md:h-11 bg-[#b91c1c] hover:bg-[#991b1b] text-white text-[11px] md:text-xs font-bold px-2 md:px-4 rounded-sm transition shadow-md flex items-center justify-center whitespace-nowrap w-full md:w-auto">
+                <button id="jpk-v9-menu" onclick="goBackToMenu()" class="jpk-v9-nav h-10 md:h-11 bg-[#b91c1c] hover:bg-[#991b1b] text-white text-[11px] md:text-xs font-bold px-2 md:px-4 rounded-sm transition shadow-md flex items-center justify-center whitespace-nowrap w-full md:w-auto">
                     ◀ メニュー
                 </button>
 
                 <div class="flex items-center gap-2 w-full md:w-auto">
-                    <button onclick="window.location.href='index.html'" class="h-10 md:h-11 bg-[#1e3a5f] hover:bg-[#172a45] text-white text-[11px] md:text-xs font-bold px-2 md:px-4 rounded-sm transition shadow-md flex items-center justify-center whitespace-nowrap flex-1 md:flex-none">
+                    <button id="jpk-v9-copeak" onclick="window.location.href='index.html'" class="jpk-v9-nav h-10 md:h-11 bg-[#1e3a5f] hover:bg-[#172a45] text-white text-[11px] md:text-xs font-bold px-2 md:px-4 rounded-sm transition shadow-md flex items-center justify-center whitespace-nowrap flex-1 md:flex-none">
                         Copeakへ
                     </button>
                     <button type="button" class="site-qr-trigger japeak-qr-button" data-share-qr aria-label="JapeakのページをQRコードで共有" title="QRコードで共有"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM21 14v3M17 21h4M14 21v-2M21 21v-2"/></svg></button>
@@ -151,12 +152,12 @@
                 <div class="flex items-center gap-3 md:gap-4 mb-4 shrink-0">
                     <button id="btn-play-audio" class="flex items-center justify-center gap-1 md:gap-2 bg-gradient-to-r from-rose-400 to-red-500 hover:from-rose-500 hover:to-red-600 text-white px-4 py-2 md:px-5 md:py-2.5 rounded-full shadow-lg shadow-red-500/30 transition-all transform hover:scale-105 active:scale-95" title="お手本を聞く">
                         <span class="text-lg md:text-xl drop-shadow-md">🔈</span>
-                        <span class="text-xs md:text-sm font-bold tracking-widest drop-shadow-md">お手本をきく</span>
+                        <span id="jpk-v9-model-label" class="text-xs md:text-sm font-bold tracking-widest drop-shadow-md">お手本をきく</span>
                     </button>
                     
                     <button id="btn-play-slow" class="flex items-center justify-center gap-1 md:gap-2 bg-gradient-to-r from-emerald-400 to-teal-500 hover:from-emerald-500 hover:to-teal-600 text-white px-4 py-2 md:px-5 md:py-2.5 rounded-full shadow-lg shadow-teal-500/30 transition-all transform hover:scale-105 active:scale-95" title="ゆっくり聞く">
                         <span class="text-lg md:text-xl drop-shadow-md">🐢</span>
-                        <span class="text-xs md:text-sm font-bold tracking-widest drop-shadow-md">ゆっくり</span>
+                        <span id="jpk-v9-slow-label" class="text-xs md:text-sm font-bold tracking-widest drop-shadow-md">ゆっくり</span>
                     </button>
                 </div>
 
@@ -178,7 +179,7 @@
             <div class="sticky bottom-0 z-40 bg-white shadow-[0_-10px_20px_-5px_rgba(0,0,0,0.1)] w-full border-t-2 border-stone-200">
                 
                 <div class="p-3 md:p-6 bg-stone-100 border-b border-stone-200">
-                    <div class="text-[10px] md:text-[11px] text-stone-500 font-bold tracking-widest mb-1 md:mb-2">あなたの声 (Your Voice)</div>
+                    <div id="jpk-v9-voice-label" class="text-[10px] md:text-[11px] text-stone-500 font-bold tracking-widest mb-1 md:mb-2">文字起こし</div>
                     <div id="voice-output" role="status" aria-live="polite" class="text-base md:text-2xl text-stone-600 font-medium mincho-font text-left break-words whitespace-pre-wrap max-h-24 overflow-y-auto">
                         ※「話す」ボタンを押してください
                     </div>
@@ -203,7 +204,7 @@
             <div class="bg-white rounded-sm wa-border-sm p-6 shadow-sm relative overflow-hidden flex-1">
                 <div class="absolute top-0 left-0 w-1 h-full bg-[#eab308]"></div>
                 <h3 class="text-[#854d0e] font-bold text-sm flex items-center gap-2 mb-3 tracking-wide">
-                    <span class="text-xl">💡</span> いつ使うの？ (Context)
+                    <span class="text-xl" aria-hidden="true">💡</span> <span id="jpk-v9-context-label">いつ使うの？</span>
                 </h3>
                 <div class="p-4 bg-stone-50 border border-stone-200 rounded-sm h-[calc(100%-2rem)] overflow-y-auto">
                     <p id="context-text" class="text-sm text-stone-600 font-medium leading-relaxed"></p>
@@ -213,7 +214,7 @@
             <div class="bg-white rounded-sm wa-border-sm p-6 shadow-sm relative overflow-hidden flex-1">
                 <div class="absolute top-0 left-0 w-1 h-full bg-[#1e3a5f]"></div>
                 <h3 class="text-[#1e3a5f] font-bold text-sm flex items-center gap-2 mb-3 tracking-wide">
-                    <span class="text-xl">🌐</span> どんな意味？ (Translation)
+                    <span class="text-xl" aria-hidden="true">🌐</span> <span id="jpk-v9-translation-label">どんな意味？</span>
                 </h3>
                 <div class="p-4 bg-stone-50 border border-stone-200 rounded-sm h-[calc(100%-2rem)] flex items-center overflow-y-auto">
                     <p id="translation-text" class="text-[17px] text-stone-800 font-bold mincho-font leading-relaxed"></p>
@@ -297,8 +298,9 @@
 <script src="js/japeak-v4-taxonomy.js?v=20261122-4"></script>
 <script src="js/japeak-my-i18n.js?v=20261122-1"></script>
 <script src="js/japeak-my-storage.js?v=20261122-1"></script>
-<script src="js/japeak-app.js?v=20261122-9"></script>
-<script src="js/japeak-practice-v6.js?v=20261122-9"></script>
+<script src="js/japeak-practice-ui-v9.js?v=20261122-9"></script>
+<script src="js/japeak-app.js?v=20261122-10"></script>
+<script src="js/japeak-practice-v6.js?v=20261122-10"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
