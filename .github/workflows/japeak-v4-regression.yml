@@ -1,0 +1,17 @@
+name: Japeak v4 regression (development only)
+on:
+  push:
+    branches:
+      - feat/japeak-v4-responsive-categories-20261122
+  workflow_dispatch:
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run Stage 1–4 Japeak regression suites
+        run: node --test tests/japeak-stage1.test.cjs tests/japeak-stage2.test.cjs tests/japeak-stage3.test.cjs tests/japeak-v4.test.cjs
