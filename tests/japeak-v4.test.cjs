@@ -17,15 +17,18 @@ test('responsive picture uses exact portrait and landscape assets',()=>{
   assert.match(css,/@media\(max-width:600px\)/);
   assert.match(css,/@media\(prefers-reduced-motion:reduce\)/);
 });
-test('V4 filter UI is loaded after Stage 3 data and can navigate to original lessons',()=>{
-  for(const file of ['js/japeak-v4-taxonomy.js','js/japeak-v4-i18n.js','js/japeak-menu-main.js','js/japeak-v4-ui.js'])assert.ok(menu.includes('src="'+file));
-  assert.ok(menu.indexOf('japeak-menu-main.js')<menu.indexOf('japeak-v4-ui.js'));
-  assert.match(ui,/window\.loadJapeakCategory\(item\.key,item\.name\)/);
-  assert.match(ui,/renderPhraseList\(item\.key\)/);
-  assert.match(ui,/encodeURIComponent\(cat\)/);
-  assert.match(ui,/aria-modal/);
-  assert.match(ui,/initialDeepLinkSkip/);
+test('V5 button-only modal replaces retired V4 picker without removing taxonomy',()=>{
+  for(const file of ['js/japeak-v4-taxonomy.js','js/japeak-v4-i18n.js','js/japeak-menu-main.js','js/japeak-v5-dialog.js'])
+    assert.ok(menu.includes('src="'+file),'Missing '+file);
+  assert.ok(menu.indexOf('japeak-menu-main.js')<menu.indexOf('japeak-v5-dialog.js'));
+  assert.doesNotMatch(menu,/src="js\/japeak-v4-ui\.js/);
+  const dialog=read('js/japeak-v5-dialog.js');
+  assert.match(dialog,/function renderScenes\(\)/);
+  assert.match(dialog,/function renderPhrases\(\)/);
+  assert.match(dialog,/function practiceHref\(lesson\)/);
+  assert.match(dialog,/aria-modal/);
 });
+
 test('taxonomy deduplicates and assigns embedded B2 keys to B2 level',()=>{
   const fake={};vm.runInNewContext(taxonomy,{window:fake});
   const T=fake.JapeakV4Taxonomy;
