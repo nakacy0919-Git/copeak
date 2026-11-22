@@ -19,6 +19,8 @@ jobs:
           node-version: '22'
       - name: Check Japeak script syntax
         run: |
+          node --check js/japeak-top-i18n.js
+          node --check js/japeak-v4-home.js
           node --check js/japeak-app.js
           node --check js/japeak-my-storage.js
           node --check js/japeak-my.js
@@ -26,4 +28,4 @@ jobs:
           node --check js/japeak-practice-v6.js
       - name: Run stage 1–6 Japeak regression suites
         run: |
-          node --test tests/japeak-stage1.test.cjs tests/japeak-stage2.test.cjs tests/japeak-stage3.test.cjs tests/japeak-v4.test.cjs tests/japeak-v5-navigation.test.cjs tests/japeak-v6.test.cjs
+          node --test tests/japeak-stage1.test.cjs tests/japeak-stage2.test.cjs tests/japeak-stage3.test.cjs tests/japeak-v4.test.cjs tests/japeak-v5-navigation.test.cjs tests/japeak-v6.test.cjs tests/japeak-v7.test.cjs
