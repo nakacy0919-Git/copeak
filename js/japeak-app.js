@@ -769,10 +769,7 @@ function createNormalLineBlock(index, innerHtml, total) {
     const block = document.createElement('div');
     block.id = `reading-block-${index}`;
     block.className = 'flex flex-col gap-1 md:gap-2 items-start w-full cursor-pointer hover:bg-stone-100 p-3 md:p-4 rounded-md transition-all duration-300 border-2 border-transparent relative group';
-    block.innerHTML = `
-        <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity text-[10px] text-emerald-600 font-bold bg-emerald-50 px-2 py-1 rounded-full border border-emerald-200 flex items-center gap-1"><span>👆</span> 意味を確認</div>
-        ${innerHtml}
-    `;
+    block.innerHTML = innerHtml;
     block.onclick = () => sentenceMode ? chooseSentence(index) : highlightNormalLine(index, total, block);
     return block;
 }
@@ -877,12 +874,7 @@ function setupSpeechRecognition() {
         recentSpeechText = latestTranscriptText;
         // Recognition transcripts are untrusted text; do not parse them as HTML.
         if (voiceOutput) voiceOutput.textContent = latestTranscriptText || '聞いています...';
-        if (latestTranscriptText && accOutput) {
-            const accuracy = calculateCurrentLessonAccuracy(latestTranscriptText);
-            accOutput.innerText = accuracy + '%';
-            window.JapeakPracticeView?.onInterim(accuracy);
-            accOutput.className = 'text-4xl font-black text-[#1e3a5f] opacity-70 mincho-font mt-1 transition-all duration-75';
-        }
+        // Live transcript is shown here; accuracy is calculated only after finishing.
     };
 
     recognition.onerror = event => {
@@ -967,7 +959,12 @@ function setupSpeechRecognition() {
     };
 
     micBtn.onclick = () => {
-        if(isRecording || awaitingFinish || recordingStartPending)return;
+        // One accessible button toggles Start -> Finish, including iPad's automatic speech-end waiting state.
+        if(isRecording || awaitingFinish){
+            window.JapeakPracticeControls?.finish();
+            return;
+        }
+        if(recordingStartPending)return;
         try {
             manualStopRequested=false;
             finalized=false;
