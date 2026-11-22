@@ -176,6 +176,12 @@
         if(!overlay.hidden)render();
       });
     }
+    const photograph=document.querySelector('.jpk-v4-photo img');
+    if(photograph){
+      const failed=()=>document.querySelector('.jpk-v4-home')?.classList.add('jpk-v4-photo-error');
+      photograph.addEventListener('error',failed);
+      if(photograph.complete && photograph.naturalWidth===0)failed();
+    }
     // Use a fixed small particle set rather than re-rendering or animation in JS.
     const atmosphere=document.createElement('div');atmosphere.className='jpk-v4-atmosphere';atmosphere.setAttribute('aria-hidden','true');
     document.querySelector('.jpk-v4-home').appendChild(atmosphere);
