@@ -14,7 +14,8 @@ const code={
   top:fromRoot('japeak-top.html'),
   my:fromRoot('japeak-my.html'),
   practice:fromRoot('japeak.html'),
-  css:fromRoot('css/japeak-practice-v6.css')
+  css:fromRoot('css/japeak-practice-v6.css'),
+  photoCss:fromRoot('css/japeak-v5.css')
 };
 function fakeWindow(){
   const storage=new Map();
@@ -99,7 +100,7 @@ test('tablet split / mobile anchored buttons / score modal / backdrop are define
   assert.match(code.responsive,/jpk-v6-stop/);
   assert.match(code.responsive,/jpk-v6-result/);
   assert.match(code.responsive,/jpk-v6-main-arc/);
-  assert.match(code.css,/japeak-bg-portrait/);
+  assert.match(code.photoCss,/japeak-bg-portrait/);
 });
 test('90 percent celebration, manual completion and lesson results are wired',()=>{
   assert.match(code.app,/accuracy!==null && accuracy>=90/);
