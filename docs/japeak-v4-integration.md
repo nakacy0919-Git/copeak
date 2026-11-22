@@ -1,25 +1,26 @@
-# Japeak V4 integration notes (development branch only)
+# Japeak V4 release and integration notes
 
-Base: `feat/japeak-stage3-experience-20261122` (PR #86–#88). Draft review: PR #89.
+Source: `feat/japeak-v4-responsive-categories-20261122`, based on `feat/japeak-stage3-experience-20261122` (PR #86–#88).
+Review PR: #89.
 
-## Integration
-- `japeak-top.html`: keeps the Stage 3 welcome copy/links/QR/share features and adds a responsive `picture` and category dialog.
-- `japeak-menu.html`: keeps existing Stage 3 lesson search, favorite IDs, recent lessons, learning flow, guide and info modals. V4 only overlays grouped navigation.
-- `js/japeak-v4-taxonomy.js`: non-destructive display grouping; B2 items nested in B1 are correctly reclassified.
-- `js/japeak-v4-i18n.js`: adds nine language options beyond the original twenty. **These are English fallback options, not completed translations of all lessons.**
-- `js/japeak-v4-ui.js`: dialog controls, focus handling, reduced-motion atmosphere. Delegates lesson selection to the Stage 3 functions.
-- `css/japeak-v4.css`: viewport-safe desktop/tablet/phone layouts and internal dialog scrolling.
+## Included
+- Stage 1–3 security, audio recognition and sentence-level practice, lesson search, favorites and recent history (unchanged).
+- Responsive photo-based home screen: PC/tablet landscape and smartphone/tablet portrait, CSS cherry blossom petals and drifting light.
+- School/life entry cards directly link to the selected menu mode; **no duplicate category popups**.
+- Menu category dialog selects scene/level/domain; existing oversized category grids are visually hidden and only the chosen lesson area is shown.
+- Language menu shows 29 choices. The nine new choices deliberately state **English fallback** until reviewed translations are available.
+- Reduced-motion preference, Escape and focus management for category modal.
 
-## Missing binary assets
-The following image files are present in the standalone review ZIP supplied with the chat, but **cannot be uploaded to this branch via the available GitHub text-file connector**:
+## Real background assets committed
+- `assets/japeak-bg-landscape.webp` 1672×941, 281864 bytes, original photo provided in this conversation.
+- `assets/japeak-bg-portrait.webp` 1024×1536, 153718 bytes, original photo provided in this conversation.
 
-- `assets/japeak-bg-landscape.webp` (1672×941; SHA-256: df5f5caf574ae7e549185932d03e90f03ec1733ee66587c9b5110039c7197b4f)
-- `assets/japeak-bg-portrait.webp` (1024×1536; SHA-256: 3aeb74dfc6151f16e797a72558f4575b0e654835e3ad00103162fa78724e5dcc)
-
-Do not merge or deploy until both exact files are added and the live pages are visually tested. In their absence, the original Stage 3 illustration is shown as a safe visual fallback.
+Both WebP files exist in the GitHub source and have an automated format/presence test.
 
 ## Validation
-1. Local standalone preview: 1440×900, 1024×768, 768×1024, 390×844, 375×667; no outer page overflow; dialog works; 29 language choices visible; B2 yields 2 situations.
-2. Source-preservation: Stage1–3 app/speech/search/history and their three original test files are unchanged by blob SHA.
-3. 33 pre-existing and V4 test callbacks passed in a V8 harness with Node-compatible shims. This is **not a native Node CI run**.
-4. `node --test tests/japeak-stage{1,2,3}.test.cjs tests/japeak-v4.test.cjs` is configured in a GitHub Actions workflow; obtain a completed run before merge.
+- Stage1–4 regression suites: GitHub Actions workflow `Japeak v4 regression (development only)` completed successfully (36 tests).
+- Vercel preview build of integrated source: checked separately before production.
+- Standalone graphic preview tested at PC/tablet/phone resolutions; production deployment verification is a separate step.
+
+## Language completeness
+Selection options are 29, but **complete 29-language lesson translation has not been implemented**. The nine added languages use English interface/lesson fallback. Do not advertise 29 complete translated curricula until translations are checked.
