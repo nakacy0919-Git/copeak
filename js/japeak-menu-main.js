@@ -297,9 +297,10 @@ function getLessonHref(item) {
 }
 
 function refreshFavoriteButtons() {
+    const favorites = new Set(learningHistory?.getFavorites() || []);
     document.querySelectorAll('[data-favorite-id]').forEach(button => {
         const id = button.getAttribute('data-favorite-id');
-        const selected = learningHistory?.isFavorite(id) || false;
+        const selected = favorites.has(id);
         button.textContent = selected ? '★' : '☆';
         button.setAttribute('aria-pressed', String(selected));
         button.setAttribute('aria-label', selected ? getQuickText().unsave : getQuickText().save);
@@ -472,6 +473,7 @@ function initStage3Navigation() {
     const favorites = $('btn-search-favorites');
     if (favorites) favorites.addEventListener('click', () => {
         workspaceFavoritesOpen = !workspaceFavoritesOpen;
+        if (workspaceFavoritesOpen && $('japeak-search-input')) $('japeak-search-input').value = '';
         renderSearchResults();
         if (workspaceFavoritesOpen) $('search-results-heading')?.focus?.();
     });
