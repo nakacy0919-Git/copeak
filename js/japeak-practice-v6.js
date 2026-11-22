@@ -48,30 +48,59 @@ for(const [code,values] of Object.entries(extraCore)){
 function label(key){const lang=root.JapeakPracticeLanguage?.()||'ja';return (supplemental[lang]||supplemental.en)[key]||supplemental.en[key]||key;}
 function arcSvg(value,labelText,compact=false){
   const percent=Number.isFinite(value)?Math.min(100,Math.max(0,Math.round(value))):null;
+  const prefix=compact?'jpk-v6-popup':'jpk-v6-main';
+  const hue=percent===null?'emerald':percent>=90?'emerald':percent>=60?'gold':'coral';
   const dash=percent===null?0:percent;
-  const fill=percent===null?'#9aafb3':percent>=90?'#11866e':percent>=60?'#cf9950':'#a95b4f';
-  const w=compact?'232':'260';
-  return '<svg viewBox="0 0 260 156" role="img" aria-label="'+labelText+'" width="'+w+'" height="156">'+
-    '<path d="M25 125 A105 105 0 0 1 235 125" fill="none" stroke="#dfe8e6" stroke-width="17" stroke-linecap="round" pathLength="100"/>'+
-    '<path id="'+(compact?'jpk-v6-popup-arc':'jpk-v6-main-arc')+'" d="M25 125 A105 105 0 0 1 235 125" fill="none" stroke="'+fill+'" stroke-width="17" stroke-linecap="round" pathLength="100" stroke-dasharray="'+dash+' 100"/>'+
-    '<text id="'+(compact?'jpk-v6-popup-number':'jpk-v6-main-number')+'" x="130" y="112" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-weight="900" font-size="44" fill="#173958">'+
-    (percent===null?'—':percent+'%')+'</text>'+
-    '<text x="130" y="145" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="12" font-weight="800" fill="#536f76">'+labelText+'</text></svg>';
+  const gradients={
+    emerald:['#66e9c8','#17ae91','#087665'],
+    gold:['#ffe0a4','#e8af54','#a97031'],
+    coral:['#ffc2a1','#e7836a','#ac4e52']
+  };
+  const defs=Object.keys(gradients).map(key=>{
+    const stops=gradients[key];
+    return '<linearGradient id="'+prefix+'-'+key+'" x1="0%" y1="0%" x2="100%" y2="15%">'+
+      '<stop offset="0%" stop-color="'+stops[0]+'"/>'+
+      '<stop offset="52%" stop-color="'+stops[1]+'"/>'+
+      '<stop offset="100%" stop-color="'+stops[2]+'"/></linearGradient>';
+  }).join('');
+  const path='M27 145 A123 123 0 0 1 273 145';
+  const scoreText=percent===null?'—':String(percent);
+  const labelSafe=String(labelText).replace(/[&<>"]/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[char]));
+  return '<svg class="jpk-v8-gauge" viewBox="0 0 300 198" role="img" aria-label="'+labelSafe+'" width="340" height="225">'+
+    '<defs>'+defs+'<linearGradient id="'+prefix+'-track" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ebf3ef"/><stop offset="100%" stop-color="#d8e5e1"/></linearGradient></defs>'+
+    '<path d="'+path+'" fill="none" stroke="url(#'+prefix+'-track)" stroke-width="23" stroke-linecap="round"/>'+
+    '<path id="'+prefix+'-arc" d="'+path+'" fill="none" stroke="url(#'+prefix+'-'+hue+')" stroke-width="23" stroke-linecap="round" pathLength="100" stroke-dasharray="'+dash+' 100" class="jpk-v8-progress"/>'+
+    '<path id="'+prefix+'-shine" d="'+path+'" fill="none" stroke="#fff" stroke-opacity=".32" stroke-width="4" stroke-linecap="round" pathLength="100" stroke-dasharray="'+dash+' 100" transform="translate(0,-5)"/>'+
+    '<text x="150" y="130" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-weight="900" fill="#163b50">'+
+      '<tspan id="'+prefix+'-number" font-size="65">'+scoreText+'</tspan>'+
+      '<tspan id="'+prefix+'-percent" font-size="25" dy="-21" visibility="'+(percent===null?'hidden':'visible')+'">%</tspan>'+
+    '</text><text class="jpk-v8-gauge-caption" x="150" y="187" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="12" font-weight="800" fill="#55747b">'+labelSafe+'</text></svg>';
 }
 function updateGauge(accuracy){
-  const number=$('jpk-v6-main-number'),arc=$('jpk-v6-main-arc');
-  if(!number||!arc)return;
+  const number=$('jpk-v6-main-number'),percent=$('jpk-v6-main-percent');
+  const arc=$('jpk-v6-main-arc'),shine=$('jpk-v6-main-shine');
+  if(!number||!arc||!percent||!shine)return;
   const score=Number.isFinite(accuracy)?Math.max(0,Math.min(100,Math.round(accuracy))):null;
-  number.textContent=score===null?'—':score+'%';
+  number.textContent=score===null?'—':String(score);
+  percent.setAttribute('visibility',score===null?'hidden':'visible');
   arc.setAttribute('stroke-dasharray',(score??0)+' 100');
-  arc.setAttribute('stroke',score===null?'#9aafb3':score>=90?'#11866e':score>=60?'#cf9950':'#a95b4f');
+  shine.setAttribute('stroke-dasharray',(score??0)+' 100');
+  arc.setAttribute('stroke',score===null?'url(#jpk-v6-main-emerald)':score>=90?'url(#jpk-v6-main-emerald)':score>=60?'url(#jpk-v6-main-gold)':'url(#jpk-v6-main-coral)');
+  const svg=arc.closest('svg');
+  if(svg)svg.setAttribute('aria-label',label('score')+(score===null?'':': '+score+'%'));
 }
 function buttons(recording,awaiting=false){
-  const start=$('mic-btn'),stop=$('jpk-v6-stop');
-  if(start){start.disabled=recording||awaiting;start.setAttribute('aria-label',label('start'));start.textContent='● '+label('start');}
-  if(stop){stop.disabled=!recording&&!awaiting;stop.setAttribute('aria-label',label('stop'));stop.textContent='■ '+label('stop');}
-  const consolePanel=$('jpk-v6-score-column');
-  if(consolePanel)consolePanel.dataset.recording=recording?'true':awaiting?'waiting':'false';
+  const button=$('mic-btn');
+  const finishing=recording||awaiting;
+  if(button){
+    button.disabled=!(root.SpeechRecognition||root.webkitSpeechRecognition);
+    button.dataset.action=finishing?'stop':'start';
+    button.setAttribute('aria-pressed',finishing?'true':'false');
+    button.setAttribute('aria-label',label(finishing?'stop':'start'));
+    button.textContent=(finishing?'■ ':'● ')+label(finishing?'stop':'start');
+  }
+  const panel=$('jpk-v6-score-column');
+  if(panel)panel.dataset.recording=recording?'true':awaiting?'waiting':'false';
 }
 function openResult(score,successSaved){
   if(!modal)return;
@@ -123,9 +152,6 @@ function init(){
   const chart=document.createElement('div');chart.id='jpk-v6-score-chart';chart.className='jpk-v6-score-chart';
   chart.innerHTML='<span class="jpk-v6-mark">認識一致率 · RECOGNITION</span>'+arcSvg(null,label('score'));
   right.prepend(chart);
-  const stop=document.createElement('button');stop.type='button';stop.id='jpk-v6-stop';stop.className='jpk-v6-stop';
-  stop.textContent='■ '+label('stop');stop.disabled=true;
-  controls.append(stop);
   const mainButton=$('mic-btn');
   if(mainButton)mainButton.textContent='● '+label('start');
   const voice=$('voice-output');
@@ -152,7 +178,6 @@ function init(){
       else if(!e.shiftKey && document.activeElement===b2){e.preventDefault();b1.focus();}
     }
   });
-  stop.addEventListener('click',()=>root.JapeakPracticeControls?.finish?.());
   buttons(false);
   initialized=true;
 }
@@ -161,27 +186,32 @@ root.JapeakPracticeView={
   reset(){
     if(!initialized)return;
     buttons(false);
-    updateGauge(null);closeResult();
-    const end=$('jpk-v6-stop');if(end)end.textContent='■ '+label('stop');
-    const start=$('mic-btn');if(start)start.textContent='● '+label('start');
+    updateGauge(null);
+    closeResult();
   },
   onStart(){buttons(true);updateGauge(null);},
-  onInterim(score){if(initialized)updateGauge(score);},
+  // Transcription remains live; the gauge is updated only after the learner ends the reading.
+  onInterim(){},
   onWaiting(){buttons(false,true);},
-  onError(){buttons(false);},
+  onError(){buttons(false);updateGauge(null);},
   onStop(score,lessonId,mode){
-    buttons(false);updateGauge(score);
-    if(Number.isFinite(score)) void recorded(score,lessonId,mode);
+    buttons(false);
+    updateGauge(score);
+    if(Number.isFinite(score))void recorded(score,lessonId,mode);
     else openResult(null,false);
   },
   refreshLabels(){
     if(!initialized)return;
-    const stop=$('jpk-v6-stop'),start=$('mic-btn');
-    if(stop)stop.textContent='■ '+label('stop');
-    if(start)start.textContent='● '+label('start');
-    const notes=document.querySelector('#jpk-v6-notes summary');if(notes)notes.textContent=label('notes');
-    const transcript=document.querySelector('#jpk-v6-transcript-box > div:first-child');if(transcript)transcript.textContent=label('transcript');
-    const chart=$('jpk-v6-score-chart');if(chart)chart.innerHTML='<span class="jpk-v6-mark">JAPEAK · RECOGNITION</span>'+arcSvg(null,label('score'));
+    const panel=$('jpk-v6-score-column');
+    buttons(panel?.dataset.recording==='true',panel?.dataset.recording==='waiting');
+    const notes=document.querySelector('#jpk-v6-notes summary');
+    if(notes)notes.textContent=label('notes');
+    const transcript=document.querySelector('#jpk-v6-transcript-box > div:first-child');
+    if(transcript)transcript.textContent=label('transcript');
+    const mark=document.querySelector('#jpk-v6-score-chart .jpk-v6-mark');
+    if(mark)mark.textContent='JAPEAK · RECOGNITION';
+    const caption=document.querySelector('#jpk-v6-score-chart .jpk-v8-gauge-caption');
+    if(caption)caption.textContent=label('score');
   }
 };
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
