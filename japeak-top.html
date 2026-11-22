@@ -2,80 +2,142 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Japeak</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700;900&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b1932">
+    <meta name="description" content="Japeak — 学校や日本での暮らしに役立つ、日本語スピーキング練習アプリ。">
+    <title>Japeak | 日本語を話そう、毎日を楽しもう</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&family=Noto+Serif+JP:wght@700;900&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
-        .serif-font { font-family: 'Noto Serif JP', serif; }
-        .title-font { font-family: 'Poppins', sans-serif; }
-        .japeak-orange { color: #f05a28; }
-        .bg-japeak-orange { background-color: #f05a28; }
-        .bg-dark-navy { background-color: #0d1627; }
-
-        /* 🌟 Copeak風の美しい時間差・浮き上がりアニメーション */
-        .fade-in-up {
-            opacity: 0;
-            animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-        }
-        @keyframes fadeInUp {
-            0% {
-                transform: translateY(40px) scale(0.95);
-                opacity: 0;
-                filter: blur(4px);
-            }
-            100% {
-                transform: translateY(0) scale(1);
-                opacity: 1;
-                filter: blur(0);
-            }
-        }
-    
-
-        /* QR sharing: reuse Copeak's local QR modal and keep the Japeak orange accent. */
-        .site-qr-trigger.japeak-qr-button {
-            flex:0 0 44px; width:44px; height:44px; min-width:44px;
-            box-sizing:border-box; border:2px solid #f6b098; border-radius:13px;
-            color:#d94f20; background:#fffaf6;
-            box-shadow:0 3px 12px rgba(13,22,39,.13);
-        }
-        .site-qr-trigger.japeak-qr-button:hover { border-color:#f05a28; background:#fff2e9; }
-        .site-qr-trigger.japeak-qr-button:focus-visible { outline:3px solid #f05a28; outline-offset:3px; }
-        .japeak-qr-floating {
-            position:fixed; top:calc(12px + env(safe-area-inset-top,0px));
-            right:calc(12px + env(safe-area-inset-right,0px)); z-index:100;
-        }
-
+        :root { color-scheme: dark; --navy:#0b1932; --navy-light:#152f55; --sun:#ff8755; --sky:#76d7ea; --white:#f5f9ff; }
+        *,*::before,*::after { box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { margin:0; min-height:100vh; min-height:100svh; overflow-x:hidden; color:var(--white); font-family:"Noto Sans JP",sans-serif;
+            background:radial-gradient(ellipse 70% 65% at 78% 20%,#244c70 0%,transparent 75%),
+                       radial-gradient(ellipse 50% 55% at 5% 92%,#263c67 0%,transparent 76%), var(--navy); }
+        a { color:inherit; }
+        a:focus-visible,button:focus-visible { outline:3px solid #94f2ff; outline-offset:5px; }
+        .skip-link { position:absolute; left:16px; top:-90px; z-index:200; padding:12px 20px; background:#fff; color:#16233a; border-radius:12px; font-weight:900; }
+        .skip-link:focus { top:14px; }
+        .stage { position:relative; isolation:isolate; min-height:100vh; min-height:100svh; overflow:hidden; }
+        .stage::before { content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+            background-image:radial-gradient(#fff9 0.7px,transparent 0.7px); background-size:32px 32px; opacity:.10; }
+        .glow { position:absolute; border-radius:50%; z-index:-1; pointer-events:none; filter:blur(14px); }
+        .glow-one { width:min(53vw,690px); aspect-ratio:1; top:13%; right:-15%; background:radial-gradient(circle,#ff9b6352,transparent 70%); animation:drift 13s ease-in-out infinite alternate; }
+        .glow-two { width:min(42vw,520px); aspect-ratio:1; bottom:-20%; left:-15%; background:radial-gradient(circle,#2cccd151,transparent 70%); animation:drift 16s ease-in-out infinite alternate-reverse; }
+        .orb { pointer-events:none; position:absolute; border:1px solid #ffffff16; border-radius:50%; z-index:-1; }
+        .orb.a { width:490px; height:490px; top:-310px; left:-90px; }
+        .orb.b { width:780px; height:780px; right:-270px; bottom:-520px; }
+        .topbar { max-width:1200px; width:calc(100% - 44px); margin:auto; padding:24px 0; display:flex; justify-content:space-between; align-items:center; gap:18px; }
+        .brand { display:flex; align-items:center; gap:11px; text-decoration:none; font:800 1.24rem "Poppins",sans-serif; letter-spacing:.015em; }
+        .brand img { width:45px; height:45px; object-fit:cover; border-radius:15px; border:1px solid #fff4; box-shadow:0 4px 20px #0003; }
+        .brand strong { color:#ff936b; }
+        .top-actions { display:flex; align-items:center; gap:16px; }
+        .top-menu-link { color:#e7f1ff; font-size:.85rem; font-weight:700; text-decoration:none; border-bottom:1px solid #9fc3e4; padding-bottom:3px; }
+        .site-qr-trigger.japeak-qr-button { flex:0 0 44px; width:44px; height:44px; display:flex; align-items:center; justify-content:center; box-sizing:border-box; border:1px solid #ffffff55; border-radius:14px; color:#fff; background:#fff2; cursor:pointer; }
+        .site-qr-trigger.japeak-qr-button svg { width:22px; height:22px; stroke:currentColor; stroke-width:1.8; fill:none; }
+        .site-qr-trigger.japeak-qr-button:hover { background:#ffffff32; }
+        .hero { max-width:1200px; width:calc(100% - 44px); margin:0 auto; min-height:calc(100svh - 170px);
+            padding:38px 0 55px; display:grid; grid-template-columns:1.02fr .98fr; gap:34px; align-items:center; }
+        .hero-copy { position:relative; z-index:2; max-width:610px; animation:reveal 850ms cubic-bezier(.2,.75,.2,1) both; }
+        .eyebrow { display:inline-flex; align-items:center; gap:9px; padding:8px 15px; border:1px solid #7fcbdc75; border-radius:99px; background:#ffffff0d;
+            color:#b9f2ff; font:700 .68rem "Poppins",sans-serif; letter-spacing:.16em; }
+        .eyebrow::before { content:""; width:8px; height:8px; border-radius:50%; background:#77e4d2; box-shadow:0 0 12px #77e4d2; }
+        h1 { font-family:"Poppins",sans-serif; font-size:clamp(4.5rem,9vw,8.8rem); line-height:1.02; margin:24px 0 15px; letter-spacing:-.065em; text-shadow:0 20px 65px #0003; }
+        h1 .accent { color:#ff966a; }
+        .headline { font-family:"Noto Serif JP",serif; font-size:clamp(1.35rem,2.45vw,2rem); line-height:1.5; font-weight:900; margin:0 0 16px; letter-spacing:.035em; }
+        .description { max-width:520px; color:#cad7e9; line-height:1.95; font-size:.96rem; margin:0 0 31px; }
+        .start-label { font-size:.73rem; font-weight:900; letter-spacing:.15em; color:#b1ccdf; margin:0 0 12px; }
+        .start-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+        .start-btn { min-height:89px; display:flex; align-items:center; gap:12px; padding:15px; text-decoration:none; border-radius:20px; border:1px solid #fff3; transition:transform .2s ease,box-shadow .2s ease,background .2s ease; }
+        .start-btn:hover { transform:translateY(-4px); box-shadow:0 16px 30px #0004; }
+        .start-btn .symbol { display:grid; place-items:center; width:50px; height:50px; flex-shrink:0; font-size:1.65rem; border-radius:16px; background:#ffffff28; }
+        .start-btn .text { min-width:0; display:flex; flex-direction:column; }
+        .start-btn strong { font-size:1.04rem; font-weight:900; }
+        .start-btn small { font-size:.67rem; color:#ffffffd9; font-weight:600; margin-top:3px; }
+        .start-btn .arrow { margin-left:auto; opacity:.9; font-size:1.25rem; }
+        .start-school { background:linear-gradient(130deg,#285b98,#173b6a); }
+        .start-life { background:linear-gradient(130deg,#128d84,#0b625d); }
+        .secondary-link { display:inline-flex; align-items:center; gap:9px; margin-top:21px; text-decoration:none; color:#ccdeed; font-weight:800; font-size:.83rem; border-bottom:1px solid #ffffff55; padding-bottom:5px; }
+        .illustration { height:min(590px,52vw); min-height:475px; position:relative; animation:reveal 1.1s 100ms cubic-bezier(.2,.75,.2,1) both; }
+        .halo { position:absolute; inset:6% 3%; border-radius:50%; background:radial-gradient(circle at center,#2f8db65c,#ffb57b21 55%,transparent 72%); filter:blur(2px); }
+        .ring { position:absolute; width:83%; aspect-ratio:1; left:8%; top:6%; border:1px solid #ffffff2c; border-radius:50%; }
+        .ring.small { width:65%; left:17%; top:15%; border-color:#ffffff29; }
+        .speech-card { position:absolute; z-index:3; display:flex; align-items:center; gap:13px; padding:17px 20px; background:#f9f6ef; color:#142941;
+            border:1px solid #ffffffbb; border-radius:23px; box-shadow:0 17px 38px #030e274d; animation:float 6s ease-in-out infinite; }
+        .speech-card .emoji { display:grid; place-items:center; width:49px; height:49px; border-radius:17px; background:#ffe1d2; font-size:1.65rem; }
+        .speech-card strong { display:block; font-size:1rem; font-weight:900; }
+        .speech-card small { display:block; font-size:.64rem; color:#53677b; margin-top:4px; font-weight:700; }
+        .speech-card.first { left:-3%; top:19%; transform:rotate(-6deg); }
+        .speech-card.second { right:-1%; top:43%; background:#e5fff9; animation-delay:-1.9s; }
+        .speech-card.third { left:9%; bottom:10%; background:#f4efff; animation-delay:-3.7s; }
+        .scene { position:absolute; width:69%; height:66%; left:16%; top:19%; border-radius:46% 46% 31% 31%;
+            background:linear-gradient(155deg,#91d3e6 0%,#d9eaf0 46%,#ffe6c2 100%);
+            box-shadow:0 35px 90px #0006; overflow:hidden; border:7px solid #ffffff26; }
+        .sun { position:absolute; width:124px; height:124px; right:13%; top:11%; border-radius:50%; background:linear-gradient(#fff4c1,#ffd29f); box-shadow:0 0 55px #fff6b1; }
+        .mountain { position:absolute; width:105%; height:60%; left:8%; bottom:-11%; clip-path:polygon(12% 100%,60% 2%,100% 100%); background:linear-gradient(#4d7ca5,#254b76); opacity:.94; }
+        .mountain::before { content:""; position:absolute; top:0; left:0; width:100%; height:57%; background:#f6f9ff; clip-path:polygon(60% 2%,76% 51%,63% 38%,51% 56%,40% 38%); }
+        .buildings { position:absolute; inset:auto 0 0; height:22%; display:flex; align-items:flex-end; gap:7px; padding:0 11%; background:linear-gradient(transparent,#173758b0); }
+        .buildings i { display:block; flex:1; height:70%; background:#163c58; border-radius:5px 5px 0 0; box-shadow:inset 5px 0 #285778; }
+        .buildings i:nth-child(2) { height:100%; } .buildings i:nth-child(3) { height:55%; }
+        .buildings i:nth-child(4) { height:85%; } .buildings i:nth-child(5) { height:63%; }
+        .blossom { position:absolute; z-index:3; color:#ffd7e4; font-size:2.4rem; text-shadow:0 3px 12px #eb72926b; animation:float 5s ease-in-out infinite; }
+        .blossom.b1 { top:7%; right:9%; } .blossom.b2 { bottom:14%; right:16%; font-size:1.5rem; animation-delay:-2.2s; }
+        .footer { max-width:1200px; width:calc(100% - 44px); margin:0 auto; padding:20px 0 28px; display:flex; align-items:center; justify-content:space-between; gap:14px; border-top:1px solid #ffffff24; color:#afc1d9; font-size:.7rem; }
+        .footer a { text-decoration:none; border-bottom:1px solid #afc1d966; padding-bottom:3px; }
+        @keyframes reveal { from { opacity:0; translate:0 23px; filter:blur(5px); } to { opacity:1; translate:0 0; filter:blur(0); } }
+        @keyframes float { 0%,100% { translate:0 0; } 50% { translate:0 -12px; } }
+        @keyframes drift { from { translate:-20px 0; } to { translate:20px 14px; } }
+        @media (max-width:890px) { .hero { grid-template-columns:1fr; padding:35px 0 30px; gap:18px; } .hero-copy { max-width:700px; } .illustration { width:min(100%,620px); height:450px; min-height:0; margin:0 auto; } .speech-card.first { left:4%; } .speech-card.second { right:4%; } .scene { width:57%; left:22%; } }
+        @media (max-width:560px) { .topbar { padding:17px 0; } .top-menu-link { font-size:.72rem; } .hero { padding:20px 0 30px; } h1 { margin:17px 0 10px; font-size:clamp(3.9rem,18vw,5.9rem); } .eyebrow { font-size:.58rem; } .description { font-size:.82rem; margin-bottom:21px; } .start-grid { gap:9px; } .start-btn { flex-direction:column; align-items:flex-start; min-height:119px; padding:13px; gap:9px; border-radius:17px; } .start-btn .symbol { width:38px; height:38px; font-size:1.3rem; border-radius:11px; } .start-btn strong { font-size:.95rem; } .start-btn .arrow { position:absolute; align-self:flex-end; } .illustration { height:305px; min-height:0; margin-top:12px; } .speech-card { padding:9px 10px; gap:7px; border-radius:14px; } .speech-card .emoji { width:33px; height:33px; font-size:1rem; border-radius:10px; } .speech-card strong { font-size:.72rem; } .speech-card small { font-size:.51rem; } .speech-card.first { left:0; top:11%; } .speech-card.second { right:0; top:41%; } .speech-card.third { left:2%; bottom:4%; } .scene { top:10%; height:83%; width:66%; left:18%; } .sun { width:65px; height:65px; } .blossom { font-size:1.5rem; } .footer { flex-direction:column; align-items:flex-start; } }
+        @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; } }
     </style>
 </head>
-<body class="bg-dark-navy h-screen flex flex-col items-center justify-center relative overflow-hidden selection:bg-[#f05a28] selection:text-white">
-
-    <div class="japeak-qr-floating"><button type="button" class="site-qr-trigger japeak-qr-button" data-share-qr aria-label="JapeakのページをQRコードで共有" title="QRコードで共有"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM21 14v3M17 21h4M14 21v-2M21 21v-2"/></svg></button></div>
-    
-    <div class="z-10 flex flex-col items-center">
-        
-        <div class="fade-in-up w-48 h-48 md:w-60 md:h-60 rounded-full bg-white flex items-center justify-center shadow-2xl mb-8 overflow-hidden border-4 border-white" style="animation-delay: 0.1s;">
-            <img src="japeaklog.png" alt="Japeak Logo" class="w-full h-full object-cover">
-        </div>
-
-        <p class="fade-in-up japeak-orange text-xs md:text-sm font-bold tracking-[0.3em] md:tracking-[0.4em] mb-10 uppercase text-center title-font" style="animation-delay: 0.4s;">
-            Japanese Speaking Platform
-        </p>
-
-        <h1 class="fade-in-up text-4xl md:text-6xl font-bold serif-font mb-14 flex items-center gap-3 md:gap-5 drop-shadow-lg" style="animation-delay: 0.7s;">
-            <span class="text-white">Welcome to</span>
-            <span class="japeak-orange">Japeak!</span>
-        </h1>
-
-        <a href="japeak-menu.html" class="fade-in-up group relative px-8 py-4 border-2 border-slate-500 rounded-full text-white font-bold tracking-widest text-sm md:text-base hover:border-[#f05a28] hover:bg-[#f05a28]/10 transition-all duration-300 flex items-center gap-3 title-font shadow-lg" style="animation-delay: 1.0s;">
-            ENTER JAPEAK 
-            <span class="group-hover:translate-x-2 transition-transform duration-300 font-black">➔</span>
-        </a>
-
+<body>
+    <a class="skip-link" href="#main">メインコンテンツへ移動</a>
+    <div class="stage">
+        <div class="glow glow-one" aria-hidden="true"></div>
+        <div class="glow glow-two" aria-hidden="true"></div>
+        <div class="orb a" aria-hidden="true"></div>
+        <div class="orb b" aria-hidden="true"></div>
+        <header class="topbar">
+            <a class="brand" href="japeak-top.html" aria-label="Japeak トップへ"><img src="japeaklog.png" alt="" width="45" height="45"><span>Ja<strong>peak</strong></span></a>
+            <nav class="top-actions" aria-label="トップナビゲーション">
+                <a class="top-menu-link" href="japeak-menu.html">教材を探す</a>
+                <button type="button" class="site-qr-trigger japeak-qr-button" data-share-qr aria-label="JapeakをQRコードで共有" title="QRコードで共有">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM21 14v3M17 21h4M14 21v-2M21 21v-2"/></svg>
+                </button>
+            </nav>
+        </header>
+        <main class="hero" id="main">
+            <div class="hero-copy">
+                <div class="eyebrow">JAPANESE SPEAKING STUDIO</div>
+                <h1>Ja<span class="accent">peak.</span></h1>
+                <p class="headline">話せる楽しさを、<br>日本での毎日に。</p>
+                <p class="description">「こんにちは」から、学校やお店、病院での会話まで。<br>日本語を声に出して練習し、あなたらしく人とつながろう。</p>
+                <p class="start-label">どこから はじめますか？ / CHOOSE YOUR PATH</p>
+                <div class="start-grid">
+                    <a class="start-btn start-school" href="japeak-menu.html?mode=school" aria-label="学校で使う日本語を練習する">
+                        <span class="symbol" aria-hidden="true">🏫</span><span class="text"><strong>学校で話そう</strong><small>School Japanese</small></span><span class="arrow" aria-hidden="true">↗</span>
+                    </a>
+                    <a class="start-btn start-life" href="japeak-menu.html?mode=life" aria-label="生活で使う日本語を練習する">
+                        <span class="symbol" aria-hidden="true">🏘️</span><span class="text"><strong>暮らしで話そう</strong><small>Daily Life Japanese</small></span><span class="arrow" aria-hidden="true">↗</span>
+                    </a>
+                </div>
+                <a class="secondary-link" href="japeak-menu.html">すべての教材から選ぶ <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="illustration" role="img" aria-label="日本の街と富士山、会話の言葉が浮かぶ明るいイラスト">
+                <div class="halo" aria-hidden="true"></div><div class="ring" aria-hidden="true"></div><div class="ring small" aria-hidden="true"></div>
+                <div class="scene" aria-hidden="true"><div class="sun"></div><div class="mountain"></div><div class="buildings"><i></i><i></i><i></i><i></i><i></i></div></div>
+                <span class="blossom b1" aria-hidden="true">✿</span><span class="blossom b2" aria-hidden="true">✿</span>
+                <div class="speech-card first" aria-hidden="true"><span class="emoji">😊</span><span><strong>こんにちは！</strong><small>Hello! Nice to meet you.</small></span></div>
+                <div class="speech-card second" aria-hidden="true"><span class="emoji">🛍️</span><span><strong>これをください</strong><small>At a shop</small></span></div>
+                <div class="speech-card third" aria-hidden="true"><span class="emoji">🤝</span><span><strong>いっしょに話そう</strong><small>Speak, learn, connect.</small></span></div>
+            </div>
+        </main>
+        <footer class="footer"><span>Japeak — Japanese speaking practice for everyone.</span><a href="index.html">Copeak に戻る</a></footer>
     </div>
-
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#f05a28] opacity-5 rounded-full blur-[100px] pointer-events-none"></div>
-
     <script src="share-qr.js?v=20261111-japeak"></script>
 </body>
 </html>
