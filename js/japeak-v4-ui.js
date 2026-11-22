@@ -67,6 +67,16 @@
     return T.makeScenes(lifeMasterData).filter(s=>(level==='all'||s.level===level)&&(domain==='all'||s.domain===domain)&&
       (!query||(s.name+' '+s.key+' '+localText(T.domains.find(d=>d.id===s.domain)||T.domains[0])).toLocaleLowerCase().includes(query)));
   }
+  function updateSelectionSummary(){
+    const phrasePanel=$('phrase-panel');
+    const summary=$('jpk-v4-selected-summary');
+    if(phrasePanel)phrasePanel.hidden=!activeSelection;
+    if(summary){
+      summary.hidden=!activeSelection;
+      summary.textContent=activeSelection ? '✓ '+activeSelection.name : '';
+    }
+  }
+
   function render(){
     const w=tx();
     $('jpk-v4-title').textContent=w.title;
@@ -147,15 +157,6 @@
     // Wrap only public navigation; do not touch stage-3 renderers, scores, or lesson IDs.
     const oldEnter=window.enterWorkspace;
     let initialDeepLinkSkip=params.has('cat');
-    function updateSelectionSummary(){
-      const phrasePanel=$('phrase-panel');
-      const summary=$('jpk-v4-selected-summary');
-      if(phrasePanel)phrasePanel.hidden=!activeSelection;
-      if(summary){
-        summary.hidden=!activeSelection;
-        summary.textContent=activeSelection ? '✓ '+activeSelection.name : '';
-      }
-    }
     window.enterWorkspace=function(course){
       mode=course==='school'?'school':'life';
       const direct=initialDeepLinkSkip;
