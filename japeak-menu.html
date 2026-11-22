@@ -110,8 +110,9 @@
         }
 
     </style>
+    <link rel="stylesheet" href="css/japeak-stage3.css?v=20261122-3">
 </head>
-<body class="text-stone-800 pb-12">
+<body class="japeak-stage3-menu text-stone-800 pb-12">
 
     <!-- ナビゲーション -->
     <div class="max-w-[1000px] w-[95%] mx-auto mt-6 md:mt-10 p-6 md:p-8 bg-[#fdfcf8] rounded-sm wa-border flex flex-col md:flex-row justify-between items-center gap-4">
@@ -127,7 +128,7 @@
             <!-- カスタム言語選択ドロップダウン -->
             <div class="relative inline-block text-left w-36 sm:w-48 md:w-56 z-50" id="custom-lang-wrapper">
                 <div class="text-center text-[10px] text-[#0086d9] font-bold mb-0.5 tracking-widest uppercase">LANGUAGE</div>
-                <button type="button" id="custom-lang-btn" class="inline-flex justify-between items-center w-full rounded-sm shadow-sm px-3 py-2 md:py-2.5 bg-[#0086d9] text-sm md:text-base font-bold text-white hover:bg-[#0074bd] transition-colors focus:outline-none">
+                <button type="button" id="custom-lang-btn" aria-haspopup="true" aria-expanded="false" aria-controls="custom-lang-menu" class="inline-flex justify-between items-center w-full rounded-sm shadow-sm px-3 py-2 md:py-2.5 bg-[#0086d9] text-sm md:text-base font-bold text-white hover:bg-[#0074bd] transition-colors focus:outline-none">
                     <span id="custom-lang-display" class="flex items-end gap-2">
                         <span>English</span> <span class="text-[10px] font-normal opacity-90 mb-0.5">英語</span>
                     </span>
@@ -209,6 +210,20 @@
         </button>
     </div>
 
+    <!-- Favorites and recent lessons are stored only as local lesson IDs. -->
+    <section id="quick-access-section" class="japeak-quick-panel hidden" aria-label="お気に入りと最近の教材">
+        <div class="japeak-quick-head">
+            <h2 id="quick-access-heading">✨ つづきから学ぶ</h2>
+            <div class="japeak-quick-tabs" role="tablist" aria-label="教材ショートカット">
+                <button type="button" id="quick-tab-favorites" role="tab" aria-selected="true">☆ お気に入り</button>
+                <button type="button" id="quick-tab-recent" role="tab" aria-selected="false">◷ 最近の教材</button>
+            </div>
+            <button id="quick-clear-recent" type="button" class="hidden text-xs font-bold text-blue-100 hover:text-white underline underline-offset-4">履歴を消去</button>
+        </div>
+        <div id="quick-access-list" class="japeak-quick-list" role="tabpanel" aria-live="polite"></div>
+        <p id="quick-device-note" class="text-[10px] text-blue-100 opacity-80 mt-3">お気に入り・履歴は、このブラウザだけに保存されます。</p>
+    </section>
+
     <!-- ==============================
          🛠️ ワークスペース (ダッシュボード)
     ============================== -->
@@ -217,6 +232,19 @@
         <button onclick="backToGate()" id="btn-back-to-course" class="self-start text-stone-500 hover:text-stone-800 font-bold text-sm md:text-base flex items-center gap-2 transition-colors border-b-2 border-transparent hover:border-stone-400 pb-1">
             ◀ コース選択にもどる
         </button>
+
+        <div id="japeak-search-bar" class="flex flex-col gap-2">
+            <label id="japeak-search-label" for="japeak-search-input" class="text-sm font-black text-[#1e3a5f]">🔎 教材を検索</label>
+            <div class="flex flex-wrap gap-2 items-center">
+                <div class="japeak-search-input-wrap"><input id="japeak-search-input" type="search" autocomplete="off" placeholder="日本語や場面で探す" aria-controls="search-results-panel"></div>
+                <button id="btn-search-favorites" type="button" aria-pressed="false" class="rounded-xl px-4 py-3 border border-amber-200 bg-amber-50 text-amber-800 text-xs md:text-sm font-black hover:bg-amber-100 min-h-[46px]">☆ お気に入り</button>
+            </div>
+        </div>
+        <section id="search-results-panel" aria-label="教材の検索結果" class="hidden">
+            <h2 id="search-results-heading" class="font-black text-lg text-[#1e3a5f] mb-2">検索結果</h2>
+            <p id="search-results-summary" class="japeak-search-result-summary" aria-live="polite"></p>
+            <div id="search-results-list" class="flex flex-col gap-3"></div>
+        </section>
 
         <!-- 🏫 学校編ダッシュボード -->
         <div id="area-school" class="hidden flex-col gap-6">
@@ -246,7 +274,7 @@
         </div>
 
         <!-- 共通フレーズ一覧エリア -->
-        <div class="bg-white p-6 rounded-sm border-2 border-stone-300 shadow-sm min-h-[300px]">
+        <div id="phrase-panel" class="bg-white p-6 rounded-sm border-2 border-stone-300 shadow-sm min-h-[300px]">
             <h2 class="text-stone-700 font-bold text-lg mb-4 flex items-center gap-2 border-b border-stone-200 pb-2">
                 <span class="text-2xl">📝</span> <span id="label-phrase">れんしゅうする フレーズ</span>
             </h2>
@@ -383,6 +411,7 @@
 
 
 <script src="js/japeak-menu-data.js"></script>
+<script src="js/japeak-learning-history.js"></script>
 <script src="js/japeak-menu-main.js"></script>
 
     <script>
@@ -395,7 +424,7 @@
                 const initMode = urlParams.get('mode');
                 const initCat = urlParams.get('cat');
 
-                if (initMode === 'school' || initMode === 'life' || initMode === 'travel' || initMode === 'work') {
+                if (initMode === 'school' || initMode === 'life') {
                     if (typeof enterWorkspace === 'function') enterWorkspace(initMode);
                     
                     setTimeout(() => {
@@ -404,7 +433,7 @@
                             window.selectedLifeSceneName = null;
                             if (typeof renderCategories === 'function') renderCategories();
                             if (typeof renderPhraseList === 'function') renderPhraseList(initCat);
-                            if (typeof scrollToPhraseSection === 'function') scrollToPhraseSection();
+                            if (typeof scrollToPhraseArea === 'function') scrollToPhraseArea();
                         } else if (initMode === 'life' && initCat) {
                             let foundSceneName = null;
                             if (typeof lifeMasterData !== 'undefined') {

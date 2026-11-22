@@ -47,8 +47,9 @@
         }
 
     </style>
+    <link rel="stylesheet" href="css/japeak-stage3.css?v=20261122-3">
 </head>
-<body class="text-stone-800 pb-12">
+<body class="japeak-stage3-practice text-stone-800 pb-12">
 
     <div class="max-w-[1400px] w-[95%] mx-auto mt-4 md:mt-10 p-4 md:p-8 bg-[#fdfcf8] rounded-sm wa-border flex flex-col md:flex-row justify-between items-center gap-4">
         
@@ -65,7 +66,7 @@
                 
                 <div class="relative w-full md:w-48 z-50" id="custom-lang-wrapper">
                     <div class="hidden md:block text-center text-[10px] text-[#0086d9] font-bold mb-1 tracking-widest uppercase">LANGUAGE</div>
-                    <button type="button" id="custom-lang-btn" class="h-10 md:h-11 inline-flex justify-between items-center w-full rounded-sm shadow-sm px-2 md:px-3 bg-[#0086d9] text-sm md:text-base font-bold text-white hover:bg-[#0074bd] transition-colors focus:outline-none">
+                    <button type="button" id="custom-lang-btn" aria-haspopup="true" aria-expanded="false" aria-controls="custom-lang-menu" class="h-10 md:h-11 inline-flex justify-between items-center w-full rounded-sm shadow-sm px-2 md:px-3 bg-[#0086d9] text-sm md:text-base font-bold text-white hover:bg-[#0074bd] transition-colors focus:outline-none">
                         <span id="custom-lang-display" class="flex items-center gap-1.5 md:gap-2 truncate">
                             <span>English</span> <span class="text-[9px] md:text-[10px] font-normal opacity-90 mt-1 hidden sm:inline">英語</span>
                         </span>
@@ -127,14 +128,15 @@
         
         <div id="main-pane" class="w-full lg:w-[65%] flex flex-col bg-[#fdfcf8] rounded-sm wa-border overflow-hidden transition-all duration-500">
             
-            <div class="bg-[#1e3a5f] p-4 flex justify-between items-center">
-                <div class="flex items-center gap-4">
+            <div class="bg-[#1e3a5f] p-3 md:p-4 flex flex-wrap justify-between items-center gap-2">
+                <div class="flex items-center gap-2 md:gap-4 min-w-0 flex-1">
                     <button id="btn-prev" class="text-white hover:text-stone-300 text-xl font-bold px-2">◀</button>
-                    <h2 id="lesson-title" class="text-white font-bold text-lg mincho-font flex items-center gap-2">
+                    <h2 id="lesson-title" class="text-white font-bold text-sm md:text-lg mincho-font flex items-center gap-2 min-w-0 break-words">
                         <span>🗣️</span> タイトル
                     </h2>
-                    <button id="btn-next" class="text-white hover:text-stone-300 text-xl font-bold px-2">▶</button>
+                    <button id="btn-next" class="text-white hover:text-stone-300 text-xl font-bold px-2" aria-label="次の教材">▶</button>
                 </div>
+                <button id="btn-lesson-favorite" type="button" aria-pressed="false" class="japeak-bookmark-btn border border-[#ffffff7a] bg-white text-[#15395b] px-3 py-2 shadow-sm">☆ お気に入り</button>
             </div>
 
             <div class="p-4 md:p-8 flex-1 flex flex-col justify-start min-h-[250px] relative items-center">
@@ -284,6 +286,7 @@
 <script src="data/japeak-b1-career-consultation.js"></script>
 
 <script src="js/japeak-speech-utils.js"></script>
+<script src="js/japeak-learning-history.js"></script>
 <script src="js/japeak-app.js"></script>
 
     <script>
@@ -318,20 +321,22 @@
             const chevron = document.getElementById('custom-lang-chevron');
             const hiddenSelect = document.getElementById('lang-select');
 
-            // リスト項目の生成
+            // Keyboard-accessible language list: a native button for each option.
             langData.forEach(lang => {
                 const li = document.createElement('li');
-                li.className = "px-4 py-3 hover:bg-[#eef8ff] cursor-pointer border-b border-stone-100 last:border-0 transition-colors flex items-baseline gap-2 text-left";
-                li.innerHTML = `<span class="text-base font-medium">${lang.native}</span> <span class="text-[10px] text-stone-500 font-bold mb-0.5">${lang.jp}</span>`;
-                
-                li.addEventListener('click', () => {
+                li.className = 'border-b border-stone-100 last:border-0';
+                const option = document.createElement('button');
+                option.type = 'button';
+                option.className = 'w-full px-4 py-3 hover:bg-[#eef8ff] focus:bg-[#eef8ff] transition-colors flex items-baseline gap-2 text-left';
+                option.innerHTML = `<span class="text-base font-medium">${lang.native}</span> <span class="text-[10px] text-stone-500 font-bold mb-0.5">${lang.jp}</span>`;
+                option.addEventListener('click', () => {
                     display.innerHTML = `<span>${lang.native}</span> <span class="text-[10px] font-normal opacity-90 mt-1">${lang.jp}</span>`;
-                    
                     hiddenSelect.value = lang.code;
                     hiddenSelect.dispatchEvent(new Event('change'));
-                    
                     closeMenu();
+                    btn.focus();
                 });
+                li.appendChild(option);
                 list.appendChild(li);
             });
 
@@ -346,6 +351,7 @@
                 const isHidden = menu.classList.contains('hidden');
                 if (isHidden) {
                     menu.classList.remove('hidden');
+                    btn.setAttribute('aria-expanded', 'true');
                     chevron.classList.add('rotate-180');
                 } else {
                     closeMenu();
@@ -354,6 +360,7 @@
 
             function closeMenu() {
                 menu.classList.add('hidden');
+                btn.setAttribute('aria-expanded', 'false');
                 chevron.classList.remove('rotate-180');
             }
 
@@ -363,9 +370,10 @@
             });
 
             document.addEventListener('click', (e) => {
-                if (!menu.contains(e.target) && !btn.contains(e.target)) {
-                    closeMenu();
-                }
+                if (!menu.contains(e.target) && !btn.contains(e.target)) closeMenu();
+            });
+            document.addEventListener('keydown', e => {
+                if (e.key === 'Escape') closeMenu();
             });
         });
     </script>

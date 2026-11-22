@@ -74,7 +74,11 @@ if (typeof japeakB1SchoolTroubleData !== 'undefined') allJapeakData = allJapeakD
 if (typeof japeakB1CareerConsultationData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1CareerConsultationData);
 
 
-let menuLang = localStorage.getItem('japeakLang') || 'en';
+function readJapeakMenuLanguage() {
+    try { return localStorage.getItem('japeakLang') || 'en'; }
+    catch (error) { return 'en'; }
+}
+let menuLang = readJapeakMenuLanguage();
 let selectedCategory = null;
 window.menuLang = menuLang;
 window.japeakCurrentLang = menuLang;
