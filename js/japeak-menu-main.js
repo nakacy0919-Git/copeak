@@ -257,6 +257,8 @@ function getCardJapanese(item) {
 }
 
 function getCardTranslation(item) {
+    // Japanese UI is supported; do not silently show English as its description.
+    if (menuLang === 'ja') return item.context?.ja || item.translations?.ja || '';
     if (!item.translations) return '';
     return item.translations[menuLang] || item.translations.en || '';
 }
