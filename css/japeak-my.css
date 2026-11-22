@@ -1,0 +1,93 @@
+/* A calm, premium Japanese reading library. */
+:root {font-family:"Noto Sans JP",sans-serif;color:#142e43;background:#edf3f3;--indigo:#143452;--sumi:#213b4a;--ink:#12304b;--vermillion:#b74a3f;--gold:#d5a65c;--gold-dark:#725125;--line:#dae5e5}
+*{box-sizing:border-box}
+html{min-height:100%;scroll-behavior:smooth}
+body{margin:0;min-height:100svh;isolation:isolate;position:relative}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(rgba(242,248,248,.89),rgba(246,249,249,.94)),url('../assets/japeak-bg-landscape.webp') center/cover no-repeat}
+button,input,textarea,select{font:inherit}
+button,a,select{touch-action:manipulation}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #d79e4e;outline-offset:3px}
+button{cursor:pointer}
+[hidden]{display:none!important}
+.jp-skip{position:absolute;top:-80px;left:10px;background:white;padding:12px;border-radius:10px;z-index:500}.jp-skip:focus{top:10px}
+.jp-top{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:14px clamp(16px,4vw,55px);background:linear-gradient(111deg,#133955eb,#0e4655e8);color:white;box-shadow:0 10px 25px #1939522a}
+.jp-brand{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none;font-weight:900;font-size:1.5rem;letter-spacing:.02em}
+.jp-brand img{width:50px;height:50px;border-radius:50%;object-fit:contain;background:white;border:2px solid #d7b06f}
+.jp-brand b{color:#f2bc7e}.jp-brand small{display:block;font-size:.55rem;letter-spacing:.18em;font-weight:800;color:#d2e6e9}
+.jp-top-actions{display:flex;align-items:center;gap:13px;min-width:0}
+.jp-lang{display:flex;flex-direction:column;gap:3px;font-size:.69rem;font-weight:800;color:#d9e7e8}
+.jp-lang select{max-width:min(35vw,196px);min-width:128px;height:40px;border:1px solid #ffffff65;border-radius:10px;background:#ffffff22;color:white;padding:5px 8px}
+.jp-lang select option{background:#fff;color:#17324d}
+.jp-back{white-space:nowrap;text-decoration:none;color:#fff;font-weight:900;font-size:.81rem;border:1px solid #ffffff55;padding:10px 14px;border-radius:10px;background:#ffffff13}
+.jp-shell{width:min(1190px,94%);margin:clamp(20px,4vw,48px) auto 55px}
+.jp-intro{display:flex;align-items:end;justify-content:space-between;gap:22px;margin-bottom:20px}
+.jp-kicker{margin:0 0 10px;font-size:.8rem;font-weight:800;color:#526c72}
+.jp-kicker span{margin-left:12px;color:#ae7540;letter-spacing:.15em;font-size:.68rem}
+.jp-intro h1{font-family:"Noto Serif JP",serif;font-size:clamp(2.3rem,5vw,3.5rem);font-weight:900;margin:0 0 8px;letter-spacing:.08em}
+.jp-description{margin:0;color:#526d77;line-height:1.9;font-size:.88rem}
+.jp-storage-note{border-left:3px solid #b79058;color:#627680;margin:0 0 21px;padding:6px 13px;background:#ffffff9e;font-size:.73rem;line-height:1.65}
+.jp-warning{color:#ab402c;border-color:#bd5f3b}
+.jp-gold-button{min-height:52px;flex-shrink:0;border:1px solid #d5b77e;border-radius:12px;color:#2d3540;background:linear-gradient(135deg,#fff1cf,#e8bd73 62%,#c78f46);font-weight:900;font-size:.87rem;letter-spacing:.02em;padding:12px 22px;box-shadow:0 4px 0 #a77c4270,0 14px 24px #4239181c;transition:transform .15s,box-shadow .15s}
+.jp-gold-button:hover{transform:translateY(-2px);box-shadow:0 6px 0 #a77c4270,0 17px 24px #42391825}
+.jp-gold-button:active{transform:translateY(2px);box-shadow:0 2px 0 #a77c4270}
+.jp-gold-button:disabled{opacity:.5;cursor:wait}
+.jp-workspace{display:grid;grid-template-columns:minmax(205px,265px) minmax(0,1fr);align-items:start;gap:22px}
+.jp-folders,.jp-library{min-width:0;background:#fffffff0;border:1px solid #d6e2e6;border-radius:21px;box-shadow:0 14px 34px #163b4c12;overflow:hidden}
+.jp-folders{padding:17px 12px}
+.jp-library{padding:23px}
+.jp-section-head{display:flex;justify-content:space-between;align-items:center;gap:9px;margin-bottom:16px}
+.jp-section-head h2{font-family:"Noto Serif JP",serif;font-size:1.23rem;margin:0;font-weight:900;color:#204159}
+.jp-overline{font-size:.66rem;letter-spacing:.12em;color:#b07b3f;font-weight:900;margin:0 0 5px}
+.jp-mini-action{border:1px solid #bdd6ce;color:#0b7368;background:#e9f5f0;padding:7px 10px;border-radius:10px;font-size:.75rem;font-weight:900;white-space:nowrap}
+.jp-folder-items{display:flex;flex-direction:column;gap:7px}
+.jp-folder-row{display:flex;align-items:center;gap:3px;min-width:0}
+.jp-folder-select{width:100%;flex:1;min-width:0;display:flex;align-items:center;gap:8px;justify-content:space-between;text-align:left;padding:12px 10px;border:1px solid transparent;border-radius:12px;background:transparent;font-weight:800;font-size:.78rem;color:#436072}
+.jp-folder-select:hover{background:#f0f6f7}
+.jp-folder-select[aria-pressed=true]{color:#154d6c;background:#e9f3f8;border-color:#bbd8e5}
+.jp-folder-name{display:block;min-width:0;overflow-wrap:anywhere}
+.jp-folder-count{flex-shrink:0;border-radius:999px;padding:2px 7px;background:#dce8e9;color:#3c5962;font-size:.68rem;font-weight:900}
+.jp-folder-icon{flex:0 0 29px;height:32px;background:transparent;border:0;color:#657985;font-size:1.2rem;border-radius:9px}
+.jp-folder-icon:hover{background:#e7f2f3}.jp-folder-icon.danger:hover{color:#b44737;background:#fff0ef}
+.jp-count{border-radius:30px;background:#eaf1f4;padding:7px 11px;color:#36586b;font-weight:900;font-size:.74rem}
+.jp-lesson-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.jp-lesson-card{border:1px solid #dae5e5;border-radius:17px;background:#fffdfa;min-width:0;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 4px 11px #173b4b08}
+.jp-lesson-content{padding:18px 19px 10px;min-height:175px;flex:1;position:relative}
+.jp-deco{position:absolute;right:14px;top:7px;font-size:2rem;color:#eec1b7;opacity:.7}
+.jp-lesson-meta{font-size:.65rem;letter-spacing:.02em;color:#6d8a90;font-weight:800;margin:0 0 9px}
+.jp-lesson-card h3{font-size:1.1rem;font-family:"Noto Serif JP",serif;font-weight:900;line-height:1.55;margin:0 23px 10px 0;overflow-wrap:anywhere}
+.jp-excerpt{font-size:.81rem;line-height:1.7;color:#5c7077;margin:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;white-space:pre-wrap;overflow-wrap:anywhere}
+.jp-lesson-actions{border-top:1px solid #e4eae8;background:#f7faf8;display:flex;flex-wrap:wrap;align-items:center;gap:5px;padding:9px}
+.jp-read-action{padding:11px 12px;flex:1;min-width:105px;white-space:nowrap;text-align:center;border-radius:10px;text-decoration:none;background:#155b72;color:white;font-size:.77rem;font-weight:900}
+.jp-read-action:hover{background:#0d7785}
+.jp-text-action{background:white;border:1px solid #d1dddd;color:#4e6874;border-radius:9px;min-height:37px;padding:7px 9px;font-size:.74rem;font-weight:900}
+.jp-danger-action{color:#a4483e}
+.jp-move-select{max-width:110px;min-width:80px;min-height:37px;font-size:.72rem;font-weight:800;color:#42646b;border-radius:9px;border:1px solid #d1dddd;background:white}
+.jp-empty{padding:50px 25px;border:1px dashed #abc9c2;border-radius:17px;color:#526e78;background:#f9fcfa;line-height:1.8;grid-column:1/-1;font-weight:800;text-align:center}
+.jp-disclaimer{padding:14px 5px;color:#5c747c;text-align:center;font-size:.76rem}
+.jp-dialog{width:min(760px,calc(100% - 20px));max-height:min(91svh,850px);padding:0;border:1px solid #e2dfd1;border-radius:22px;background:#fffdf8;color:#193b51;box-shadow:0 30px 90px #001a2a77;overflow:hidden}
+.jp-dialog::backdrop{background:#041d32ba;backdrop-filter:blur(8px)}
+.jp-dialog form{display:flex;flex-direction:column;max-height:min(91svh,850px);min-height:0}
+.jp-dialog-header{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:20px 24px;background:linear-gradient(128deg,#163c62,#0c6967);color:white;flex-shrink:0}
+.jp-dialog-header h2{font-family:"Noto Serif JP",serif;font-size:1.45rem;margin:0}
+.jp-close{font-size:1.5rem;font-weight:500;color:white;background:#ffffff1c;border:1px solid #fff7;border-radius:11px;width:42px;height:42px}
+.jp-dialog-content{padding:22px 24px;display:flex;flex-direction:column;gap:17px;overflow-y:auto;min-height:0}
+.jp-dialog-content label{display:flex;flex-direction:column;gap:8px;font-size:.83rem;font-weight:900}
+.jp-dialog-content input,.jp-dialog-content textarea,.jp-dialog-content select{width:100%;border:1px solid #c9d9d7;border-radius:11px;padding:11px 12px;background:white;color:#173b50;min-height:45px;font-weight:600}
+.jp-dialog-content textarea{resize:vertical;line-height:1.8}
+.jp-dialog-content textarea#jp-field-body{font-size:1rem}
+.jp-form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.jp-help{font-size:.75rem;line-height:1.65;color:#647981;margin:0}
+.jp-editor-message{min-height:20px;font-size:.81rem;color:#ad2c24;font-weight:800}
+.jp-dialog-actions{padding:14px 24px 21px;display:flex;justify-content:flex-end;gap:11px;border-top:1px solid #e6ebeb;background:#f9fcfb;flex-shrink:0}
+.jp-button-outline{background:white;border:1px solid #b8cccf;color:#28566a;border-radius:11px;padding:11px 20px;min-height:49px;font-weight:900}
+.jp-toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);z-index:80;max-width:min(90vw,540px);border-radius:14px;padding:14px 22px;background:#155c52;color:white;box-shadow:0 12px 26px #072c2799;font-size:.9rem;font-weight:800}
+.jp-toast.jp-error{background:#b54736}
+@media(max-width:850px){.jp-workspace{grid-template-columns:1fr}.jp-folders{padding:12px 15px}.jp-folder-items{flex-direction:row;overflow-x:auto;gap:8px;padding:4px 0 7px}.jp-folder-select{white-space:nowrap;flex:0 0 auto;width:auto;gap:8px}.jp-folder-row{flex:0 0 auto}.jp-folder-icon{flex-basis:27px}.jp-lesson-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:610px){
+ .jp-top{padding:12px;gap:9px}.jp-brand{font-size:1.15rem;gap:7px}.jp-brand img{width:37px;height:37px}.jp-brand small{font-size:.43rem}.jp-top-actions{gap:6px}.jp-lang select{min-width:108px;max-width:37vw;height:35px;font-size:.76rem}.jp-back{font-size:.7rem;padding:8px}
+ .jp-intro{align-items:start;flex-direction:column;gap:12px}.jp-shell{width:94%;margin:21px auto 36px}.jp-intro h1{font-size:2.25rem}.jp-intro>.jp-gold-button{width:100%}
+ .jp-library{padding:15px}.jp-lesson-grid{grid-template-columns:1fr}.jp-lesson-content{min-height:0;padding:16px}.jp-folder-select{font-size:.74rem;padding:9px}
+ .jp-dialog{width:calc(100% - 12px);border-radius:17px}.jp-dialog-header{padding:15px}.jp-dialog-content{padding:16px}.jp-form-row{grid-template-columns:1fr}.jp-dialog-actions{padding:12px 15px 16px}.jp-dialog-actions button{flex:1;padding:9px}
+}
+@media(orientation:portrait){body::before{background-image:linear-gradient(rgba(242,248,248,.89),rgba(246,249,249,.94)),url('../assets/japeak-bg-portrait.webp')}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
