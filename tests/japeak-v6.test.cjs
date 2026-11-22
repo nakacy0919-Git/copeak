@@ -97,7 +97,11 @@ test('tablet split / mobile anchored buttons / score modal / backdrop are define
   assert.match(code.css,/#jpk-v6-score-column/);
   assert.match(code.css,/@media\(max-width:699px\)/);
   assert.match(code.css,/position:fixed/);
-  assert.match(code.responsive,/jpk-v6-stop/);
+  assert.doesNotMatch(code.responsive,/getElementById\('jpk-v6-stop'\)|createElement\('button'\);stop/);
+  assert.match(code.responsive,/button\.dataset\.action=finishing\?'stop':'start'/);
+  assert.doesNotMatch(code.app,/意味を確認/);
+  assert.doesNotMatch(code.app,/JapeakPracticeView\?\.onInterim\(accuracy\)/);
+  assert.match(code.css,/grid-template-columns:minmax\(0,1\.45fr\) minmax\(285px,\.7fr\)/);
   assert.match(code.responsive,/jpk-v6-result/);
   assert.match(code.responsive,/jpk-v6-main-arc/);
   assert.match(code.photoCss,/japeak-bg-portrait/);
@@ -113,7 +117,7 @@ test('local personal materials and 29-language scripts load before practice app'
   const script=x=>code.practice.indexOf('src="'+x+'"');
   assert.ok(script('js/japeak-my-storage.js?v=20261122-1')>0);
   assert.ok(script('js/japeak-my-storage.js?v=20261122-1')<script('js/japeak-app.js'));
-  assert.ok(script('js/japeak-practice-v6.js?v=20261122-6')>script('js/japeak-app.js'));
+  assert.ok(script('js/japeak-practice-v6.js?v=20261122-8')>script('js/japeak-app.js'));
   assert.match(code.practice,/css\/japeak-practice-v6.css/);
   assert.match(code.my,/id="jp-editor"/);
   assert.match(code.my,/id="jp-add-folder"/);
