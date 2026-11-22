@@ -123,3 +123,96 @@ test('local personal materials and 29-language scripts load before practice app'
   assert.match(code.my,/id="jp-add-folder"/);
   assert.match(code.my,/id="jp-lesson-list"/);
 });
+
+
+test('iPad microphone remains reusable when learner finishes lesson one and switches to lesson two',()=>{
+  const app=code.app;
+  const lifecycle=app.slice(app.indexOf('function clearSpeechStartWatchdog()'),app.indexOf('function getPracticeUnits('));
+  const setup=app.slice(app.indexOf('function setupSpeechRecognition()'),app.indexOf('function calculateCurrentLessonAccuracy('));
+  assert.ok(lifecycle.startsWith('function clearSpeechStartWatchdog()'));
+  assert.ok(setup.startsWith('function setupSpeechRecognition()'));
+  const nodes=new Map([
+    ['mic-btn',{disabled:false,onclick:null,innerHTML:'',textContent:''}],
+    ['voice-output',{textContent:''}],
+    ['acc-output',{innerText:'',className:''}],
+    ['japeak-recognition-status',{textContent:''}]
+  ]);
+  const records=[];
+  let silentStart=false;
+  const instances=[];
+  class SpeechRecognition{
+    constructor(){this.lang='';this.interimResults=false;this.continuous=false;instances.push(this);}
+    start(){
+      if(silentStart){silentStart=false;return;}
+      this.onstart?.();
+    }
+    stop(){this.onend?.();}
+    abort(){this.onend?.();}
+    say(sentence){this.onresult?.({results:[{0:{transcript:sentence},isFinal:true}]});}
+  }
+  const window={
+    SpeechRecognition,webkitSpeechRecognition:SpeechRecognition,
+    JapeakPracticeView:{
+      onStarting(){nodes.get('mic-btn').disabled=false;},
+      onStart(){nodes.get('mic-btn').disabled=false;},
+      onStop(score,id){records.push({score,id});},
+      onWaiting(){nodes.get('mic-btn').disabled=false;},
+      onError(){nodes.get('mic-btn').disabled=false;},
+      refreshLabels(){nodes.get('mic-btn').disabled=false;},
+      reset(){nodes.get('mic-btn').disabled=false;}
+    },speechSynthesis:{speaking:false}
+  };
+  const context={
+    window,SpeechRecognition,document:{getElementById:id=>nodes.get(id)},
+    navigator:{userAgent:'iPad',platform:'iPad',maxTouchPoints:5},
+    console,setTimeout,clearTimeout,URL,
+    japeakSpeech:{},currentAudio:null,pendingAudioUrl:null,currentLesson:{id:'one'},
+    currentLang:'ja',sentenceMode:false,isRecording:false,hasCelebrated:false,
+    recordingStartPending:false,awaitingFinish:false,manualStopRequested:false,
+    speechSessionId:0,speechStartWatchdog:null,recognition:null,recognitionFailed:false,
+    recentSpeechText:'',isSwapped:false,
+    calculateCurrentLessonAccuracy:()=>78,resetMicButton:()=>{},
+    setRecognitionStatus:message=>{nodes.get('japeak-recognition-status').textContent=message},
+    playSuccessSound:()=>{},fireConfetti:()=>{}
+  };
+  vm.createContext(context);
+  vm.runInContext(lifecycle+'\n'+setup,context);
+  const mic=nodes.get('mic-btn');
+  context.setupSpeechRecognition();
+  mic.onclick();
+  const first=instances.at(-1);
+  first.say('こんにちは');
+  assert.equal(nodes.get('voice-output').textContent,'こんにちは');
+  mic.onclick();
+  assert.equal(records.length,1);
+  assert.equal(records[0].id,'one');
+
+  context.stopCurrentPractice();
+  context.currentLesson={id:'two'};
+  context.setupSpeechRecognition();
+  assert.equal(first.onend,null,'old lesson events must be detached');
+  assert.equal(mic.disabled,false,'mic must be reusable after switching');
+  mic.onclick();
+  const second=instances.at(-1);
+  second.say('ありがとうございます');
+  assert.equal(nodes.get('voice-output').textContent,'ありがとうございます');
+  mic.onclick();
+  assert.equal(records.length,2);
+  assert.equal(records[1].id,'two');
+
+  // A missing iPad onstart must not permanently disable the only recording button.
+  context.stopCurrentPractice();
+  context.currentLesson={id:'three'};
+  context.setupSpeechRecognition();
+  silentStart=true;
+  mic.onclick();
+  assert.equal(mic.disabled,false);
+  mic.onclick(); // cancel stuck startup and re-arm without reloading the page
+  assert.equal(mic.disabled,false);
+  mic.onclick();
+  instances.at(-1).say('おはようございます');
+  assert.equal(nodes.get('voice-output').textContent,'おはようございます');
+  mic.onclick();
+  assert.equal(records.at(-1).id,'three');
+  context.stopCurrentPractice();
+});
