@@ -9,7 +9,7 @@
     for(const item of langs){
       const option=document.createElement('option');
       option.value=item.code;
-      option.textContent=item.name+(window.JapeakV4Taxonomy.extraLanguages.some(x=>x.code===item.code)?' / English fallback':'');
+      option.textContent=item.name;
       select.appendChild(option);
     }
     try{select.value=localStorage.getItem('japeakLang')||'ja'}catch(e){select.value='ja'}
