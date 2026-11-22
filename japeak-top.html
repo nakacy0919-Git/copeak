@@ -93,17 +93,19 @@
         @media (max-width:560px) { .topbar { padding:17px 0; } .top-menu-link { font-size:.72rem; } .hero { padding:20px 0 30px; } h1 { margin:17px 0 10px; font-size:clamp(3.9rem,18vw,5.9rem); } .eyebrow { font-size:.58rem; } .description { font-size:.82rem; margin-bottom:21px; } .start-grid { gap:9px; } .start-btn { flex-direction:column; align-items:flex-start; min-height:119px; padding:13px; gap:9px; border-radius:17px; } .start-btn .symbol { width:38px; height:38px; font-size:1.3rem; border-radius:11px; } .start-btn strong { font-size:.95rem; } .start-btn .arrow { position:absolute; align-self:flex-end; } .illustration { height:305px; min-height:0; margin-top:12px; } .speech-card { padding:9px 10px; gap:7px; border-radius:14px; } .speech-card .emoji { width:33px; height:33px; font-size:1rem; border-radius:10px; } .speech-card strong { font-size:.72rem; } .speech-card small { font-size:.51rem; } .speech-card.first { left:0; top:11%; } .speech-card.second { right:0; top:41%; } .speech-card.third { left:2%; bottom:4%; } .scene { top:10%; height:83%; width:66%; left:18%; } .sun { width:65px; height:65px; } .blossom { font-size:1.5rem; } .footer { flex-direction:column; align-items:flex-start; } }
         @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; } }
     </style>
+    <link rel="stylesheet" href="css/japeak-v4.css?v=20261122-4">
 </head>
 <body>
     <a class="skip-link" href="#main">メインコンテンツへ移動</a>
-    <div class="stage">
+    <div class="stage jpk-v4-home">
+        <picture class="jpk-v4-photo" aria-hidden="true"><source media="(orientation: portrait)" srcset="assets/japeak-bg-portrait.webp" type="image/webp"><img src="assets/japeak-bg-landscape.webp" alt="" fetchpriority="high" decoding="async"></picture>
         <div class="glow glow-one" aria-hidden="true"></div>
         <div class="glow glow-two" aria-hidden="true"></div>
         <div class="orb a" aria-hidden="true"></div>
         <div class="orb b" aria-hidden="true"></div>
         <header class="topbar">
             <a class="brand" href="japeak-top.html" aria-label="Japeak トップへ"><img src="japeaklog.png" alt="" width="45" height="45"><span>Ja<strong>peak</strong></span></a>
-            <nav class="top-actions" aria-label="トップナビゲーション">
+            <nav class="top-actions" aria-label="トップナビゲーション"><select id="jpk-v4-lang" aria-label="表示言語を選択" class="jpk-v4-language"></select>
                 <a class="top-menu-link" href="japeak-menu.html">教材を探す</a>
                 <button type="button" class="site-qr-trigger japeak-qr-button" data-share-qr aria-label="JapeakをQRコードで共有" title="QRコードで共有">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM21 14v3M17 21h4M14 21v-2M21 21v-2"/></svg>
@@ -138,6 +140,8 @@
         </main>
         <footer class="footer"><span>Japeak — Japanese speaking practice for everyone.</span><a href="index.html">Copeak に戻る</a></footer>
     </div>
+    <script src="js/japeak-v4-taxonomy.js?v=20261122-4"></script>
+    <script src="js/japeak-v4-home.js?v=20261122-5"></script>
     <script src="share-qr.js?v=20261111-japeak"></script>
 </body>
 </html>
