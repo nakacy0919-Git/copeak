@@ -17,8 +17,8 @@ test('Japeak application and menu scripts parse as JavaScript', () => {
 });
 
 test('recognized speech is rendered as plain text, never as HTML', () => {
-  assert.match(app, /voiceOutput\.textContent = currentText/);
-  assert.doesNotMatch(app, /voiceOutput\.innerHTML\s*=\s*currentText/);
+  assert.match(app, /voiceOutput\.textContent = (?:currentText|latestTranscriptText)/);
+  assert.doesNotMatch(app, /voiceOutput\.innerHTML\s*=\s*(?:currentText|latestTranscriptText)/);
 });
 
 test('spoken text and URL language selection use safe code paths', () => {
