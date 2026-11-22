@@ -95,6 +95,8 @@
 
     function normalizeJapaneseText(text, rubyHint = '') {
         let normalized = normalizeKana(stripRubyMarkup(text));
+        // Resolve thousands separators before parsing digits (e.g. 10,000).
+        normalized = normalized.replace(/\d{1,3}(?:,\d{3})+\b/g, number => number.replace(/,/g, ''));
         // Handle common counters before general number conversion.
         normalized = normalized.replace(/\d+(?:人|つ)/g, token => COUNTERS[token] || token);
         normalized = normalized.replace(/\d+/g, token => readJapaneseNumber(token));
