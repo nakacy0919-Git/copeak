@@ -576,27 +576,8 @@ function moveLesson(direction) {
     history.replaceState(null, '', `?id=${encodeURIComponent(currentLesson.id)}&lang=${encodeURIComponent(currentLang)}`);
 }
 
-window.toggleLanguageSwap = function() {
-    if (currentLang === 'ja' || uiOnlyLanguages.has(currentLang) || currentLesson?.myLesson) return; // Always read authored text in Japanese.
-    stopCurrentPractice();
-    isSwapped = !isSwapped;
-    sentenceMode = false;
-    selectedSentenceIndex = 0;
-
-    const swapBtn = $('btn-swap-lang');
-    if (swapBtn) {
-        if (isSwapped) {
-            swapBtn.classList.replace('bg-[#eab308]', 'bg-[#1e3a5f]');
-            swapBtn.classList.replace('hover:bg-[#ca8a04]', 'hover:bg-[#172a45]');
-        } else {
-            swapBtn.classList.replace('bg-[#1e3a5f]', 'bg-[#eab308]');
-            swapBtn.classList.replace('hover:bg-[#172a45]', 'hover:bg-[#ca8a04]');
-        }
-    }
-
-    renderLesson();
-    setupSpeechRecognition();
-};
+// Japeak is dedicated to Japanese reading. Display language only changes UI/help.
+window.toggleLanguageSwap = function() { return false; };
 
 function renderLesson() {
     if (!currentLesson) return;
@@ -615,8 +596,9 @@ function renderLesson() {
     });
     const swapButton = $('btn-swap-lang');
     if (swapButton) {
-        swapButton.disabled = currentLang === 'ja' || uiOnlyLanguages.has(currentLang) || !!currentLesson.myLesson;
-        swapButton.title = swapButton.disabled ? 'Japeakの音読練習は日本語です。切替は対応教材でのみ利用できます。' : '練習する言語を入れ替える';
+        swapButton.disabled = true;
+        swapButton.hidden = true;
+        swapButton.title = '日本語の音読練習専用です。言語の選択は操作案内と翻訳表示用です。';
         swapButton.classList.toggle('opacity-40', swapButton.disabled);
         swapButton.classList.toggle('cursor-not-allowed', swapButton.disabled);
     }
@@ -844,7 +826,7 @@ function setupSpeechRecognition() {
         if (voiceOutput) voiceOutput.textContent = '音声認識を初期化できませんでした。端末設定を確認してください。';
         return;
     }
-    recognition.lang = !isSwapped ? 'ja-JP' : (langCodeMap[currentLang] || 'en-US');
+    recognition.lang = 'ja-JP'; // 29 UI languages; speech recognition remains Japanese.
     recognition.interimResults = true;
     const mobileBrowser = typeof navigator !== 'undefined' && (
         /iPhone|iPad|iPod|Android/i.test(navigator.userAgent || '') ||
