@@ -40,8 +40,8 @@ function updateGauge(accuracy){
 }
 function buttons(recording,awaiting=false){
   const start=$('mic-btn'),stop=$('jpk-v6-stop');
-  if(start){start.disabled=recording||awaiting;start.setAttribute('aria-label',label('start'));}
-  if(stop){stop.disabled=!recording&&!awaiting;stop.setAttribute('aria-label',label('stop'));}
+  if(start){start.disabled=recording||awaiting;start.setAttribute('aria-label',label('start'));start.textContent='● '+label('start');}
+  if(stop){stop.disabled=!recording&&!awaiting;stop.setAttribute('aria-label',label('stop'));stop.textContent='■ '+label('stop');}
   const consolePanel=$('jpk-v6-score-column');
   if(consolePanel)consolePanel.dataset.recording=recording?'true':awaiting?'waiting':'false';
 }
@@ -49,7 +49,7 @@ function openResult(score,successSaved){
   if(!modal)return;
   previousFocus=document.activeElement;
   $('jpk-v6-popup-visual').innerHTML=arcSvg(score,label('score'),true);
-  $('jpk-v6-result-message').textContent=successSaved?label('recorded'):label('savedTemporary');
+  $('jpk-v6-result-message').textContent=score===null?label('empty'):(successSaved?label('recorded'):label('savedTemporary'));
   $('jpk-v6-retry').textContent='↻ '+label('retry');
   $('jpk-v6-finish').textContent=label('finish');
   modal.hidden=false;
@@ -69,7 +69,12 @@ async function recorded(score,id,mode){
       persisted=root.JapeakMyLibrary.getStorageMode()!=='temporary';
     }
   }catch(err){console.warn('Could not store Japeak practice result:',err);}
-  openResult(score,persisted);
+  if(root.matchMedia?.('(max-width:699px)').matches){
+    openResult(score,persisted);
+  }else{
+    const status=$('japeak-recognition-status');
+    if(status)status.textContent=(score===null?label('empty'):(score+'% — '+(persisted?label('recorded'):label('savedTemporary'))));
+  }
 }
 function init(){
   const pane=$('main-pane'),side=$('side-pane');
@@ -146,8 +151,8 @@ root.JapeakPracticeView={
     const stop=$('jpk-v6-stop'),start=$('mic-btn');
     if(stop)stop.textContent='■ '+label('stop');
     if(start)start.textContent='● '+label('start');
-    const notes=$('jpk-v6-notes summary');if(notes)notes.textContent=label('notes');
-    const transcript=$('jpk-v6-transcript-box > div:first-child');if(transcript)transcript.textContent=label('transcript');
+    const notes=document.querySelector('#jpk-v6-notes summary');if(notes)notes.textContent=label('notes');
+    const transcript=document.querySelector('#jpk-v6-transcript-box > div:first-child');if(transcript)transcript.textContent=label('transcript');
     const chart=$('jpk-v6-score-chart');if(chart)chart.innerHTML='<span class="jpk-v6-mark">JAPEAK · RECOGNITION</span>'+arcSvg(null,label('score'));
   }
 };
