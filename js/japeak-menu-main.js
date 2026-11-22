@@ -287,8 +287,8 @@ function getCardTranslation(item) {
 
 
 const QUICK_TEXT = {
-    ja:{heading:'✨ つづきから学ぶ',favorites:'☆ お気に入り',recent:'◷ 最近の教材',search:'🔎 教材を検索',placeholder:'日本語・英語・場面から探す',results:'検索結果',empty:'見つかりませんでした。別の言葉でも検索してみてください。',count:'件見つかりました',showing:'件表示',start:'▶ 練習する',save:'お気に入りに追加',unsave:'お気に入りから削除',all:'すべて'},
-    en:{heading:'✨ Pick up where you left off',favorites:'☆ Favorites',recent:'◷ Recent lessons',search:'🔎 Find lessons',placeholder:'Search Japanese, translations or topics',results:'Search results',empty:'No matching lessons. Try another keyword.',count:'lessons found',showing:'shown',start:'▶ Practice',save:'Add to favorites',unsave:'Remove favorite',all:'All'}
+    ja:{heading:'✨ つづきから学ぶ',favorites:'☆ お気に入り',recent:'◷ 最近の教材',search:'🔎 教材を検索',placeholder:'日本語・英語・場面から探す',results:'検索結果',empty:'見つかりませんでした。別の言葉でも検索してみてください。',count:'件見つかりました',showing:'件表示',start:'▶ 練習する',save:'お気に入りに追加',unsave:'お気に入りから削除',clear:'履歴を消去',note:'お気に入り・履歴は、このブラウザだけに保存されます。',all:'すべて'},
+    en:{heading:'✨ Pick up where you left off',favorites:'☆ Favorites',recent:'◷ Recent lessons',search:'🔎 Find lessons',placeholder:'Search Japanese, translations or topics',results:'Search results',empty:'No matching lessons. Try another keyword.',count:'lessons found',showing:'shown',start:'▶ Practice',save:'Add to favorites',unsave:'Remove favorite',clear:'Clear history',note:'Favorites and history are saved only in this browser.',all:'All'}
 };
 function getQuickText() { return QUICK_TEXT[menuLang] || QUICK_TEXT.en; }
 
@@ -381,6 +381,8 @@ function renderQuickAccess() {
     const tabRecent = $('quick-tab-recent');
     if (tabFav) tabFav.setAttribute('aria-selected', String(activeQuickTab === 'favorites'));
     if (tabRecent) tabRecent.setAttribute('aria-selected', String(activeQuickTab === 'recent'));
+    const clearRecent = $('quick-clear-recent');
+    if (clearRecent) clearRecent.classList.toggle('hidden', activeQuickTab !== 'recent');
     container.replaceChildren();
     const lessons = activeQuickTab === 'favorites' ? favorites : recent;
     lessons.slice(0, 6).forEach(item => {
@@ -403,6 +405,8 @@ function updateStage3Labels() {
         ['quick-access-heading',t.heading],
         ['quick-tab-favorites',t.favorites],
         ['quick-tab-recent',t.recent],
+        ['quick-clear-recent',t.clear],
+        ['quick-device-note',t.note],
         ['japeak-search-label',t.search],
         ['btn-search-favorites',t.favorites],
         ['search-results-heading',workspaceFavoritesOpen ? t.favorites : t.results]
@@ -476,6 +480,11 @@ function initStage3Navigation() {
             activeQuickTab = tab;
             renderQuickAccess();
         });
+    });
+    const clearRecent = $('quick-clear-recent');
+    if (clearRecent) clearRecent.addEventListener('click', () => {
+        learningHistory?.clearRecent();
+        renderQuickAccess();
     });
     renderQuickAccess();
     updateStage3Labels();
