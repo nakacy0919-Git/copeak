@@ -43,3 +43,29 @@ test('language options preserve 20 existing languages and append nine fallbacks'
  assert.match(i18n,/extraLanguages/);assert.match(i18n,/Object\.assign\(\{\},uiDict\.en\)/);
  assert.match(css,/jpk-v4-reopen/);
 });
+
+test('production background images are real WebP files in the repository',()=>{
+  const landscape=path.join(root,'assets/japeak-bg-landscape.webp');
+  const portrait=path.join(root,'assets/japeak-bg-portrait.webp');
+  for(const file of [landscape,portrait]){
+    assert.ok(fs.existsSync(file),'Missing production image '+file);
+    assert.ok(fs.statSync(file).size>30000,'Image looks like a placeholder: '+file);
+    assert.equal(fs.readFileSync(file).toString('ascii',0,4),'RIFF');
+  }
+});
+test('home navigation is single-step and does not attach the menu category modal twice',()=>{
+  const homeJs=read('js/japeak-v4-home.js');
+  assert.ok(top.includes('japeak-v4-home.js'));
+  assert.ok(!top.includes('src="js/japeak-v4-ui.js'));
+  assert.ok(!homeJs.includes("preventDefault()"));
+  assert.match(top,/japeak-menu\.html\?mode=life/);
+  assert.match(top,/japeak-menu\.html\?mode=school/);
+});
+test('only one selected category is visible and legacy lists stay hidden',()=>{
+  assert.match(css,/jpk-v4-enhanced #area-school > div/);
+  assert.match(css,/jpk-v4-enhanced #area-life > div/);
+  assert.match(ui,/phrasePanel\.hidden=!activeSelection/);
+  assert.match(ui,/summary\.textContent=activeSelection/);
+  assert.match(ui,/jpk-v4-selected-summary/);
+  assert.match(ui,/stopImmediatePropagation/);
+});
