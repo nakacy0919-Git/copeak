@@ -164,6 +164,7 @@ test('iPad microphone remains reusable when learner finishes lesson one and swit
   };
   const context={
     window,SpeechRecognition,document:{getElementById:id=>nodes.get(id)},
+    $:id=>nodes.get(id),
     navigator:{userAgent:'iPad',platform:'iPad',maxTouchPoints:5},
     console,setTimeout,clearTimeout,URL,
     japeakSpeech:{},currentAudio:null,pendingAudioUrl:null,currentLesson:{id:'one'},
