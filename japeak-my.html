@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#122e48">
+<meta name="description" content="Japeakで自分だけの日本語音読教材を作成・保存・整理して練習しましょう。">
+<title>マイ教材 | Japeak</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=Noto+Serif+JP:wght@600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/japeak-my.css?v=20261122-1">
+<script defer src="js/japeak-v4-taxonomy.js?v=20261122-4"></script>
+<script defer src="js/japeak-my-i18n.js?v=20261122-1"></script>
+<script defer src="js/japeak-my-storage.js?v=20261122-1"></script>
+<script defer src="js/japeak-my.js?v=20261122-1"></script>
+</head>
+<body>
+<a class="jp-skip" href="#jp-content">本文へ移動</a>
+<header class="jp-top">
+  <a class="jp-brand" href="japeak-top.html" aria-label="Japeak トップ">
+    <img src="japeaklog.png" width="50" height="50" alt="">
+    <span>Ja<b>peak</b><small>MY JAPANESE LIBRARY</small></span>
+  </a>
+  <div class="jp-top-actions">
+    <label class="jp-lang" for="jp-ui-language"><span data-t="language">言語</span>
+      <select id="jp-ui-language" aria-label="操作画面の表示言語"></select>
+    </label>
+    <a href="japeak-top.html" class="jp-back" data-t="home">← ホーム</a>
+  </div>
+</header>
+<main id="jp-content" class="jp-shell">
+  <section class="jp-intro">
+    <div>
+      <p class="jp-kicker">自分の日本語を、自分のペースで。 <span>JAPEAK ORIGINAL</span></p>
+      <h1 data-t="my">マイ教材</h1>
+      <p class="jp-description" data-t="subtitle">日本語の教材を作って、フォルダに整理して、いつでも音読練習。</p>
+    </div>
+    <button id="jp-create-open" type="button" class="jp-gold-button"><span aria-hidden="true">＋</span> <span data-t="create">音読教材を作る</span></button>
+  </section>
+  <p class="jp-storage-note" role="note" data-t="storage">教材と練習記録はこの端末に保存されます。別の端末には自動同期されません。</p>
+  <div class="jp-workspace">
+    <aside class="jp-folders" aria-labelledby="jp-folders-title">
+      <div class="jp-section-head"><h2 id="jp-folders-title" data-t="folders">フォルダ</h2>
+        <button id="jp-add-folder" type="button" class="jp-mini-action" data-t="newFolder">＋ 新規</button>
+      </div>
+      <nav aria-label="マイ教材フォルダ" id="jp-folder-list" class="jp-folder-items"></nav>
+    </aside>
+    <section class="jp-library" aria-labelledby="jp-lesson-list-title">
+      <div class="jp-section-head">
+        <div>
+          <p class="jp-overline">MY READING COLLECTION</p>
+          <h2 id="jp-lesson-list-title" data-t="read">音読教材を読む</h2>
+        </div>
+        <span id="jp-count" class="jp-count" aria-live="polite">0</span>
+      </div>
+      <div id="jp-lesson-list" class="jp-lesson-grid" aria-live="polite"></div>
+    </section>
+  </div>
+  <p class="jp-disclaimer" data-t="jpOnly">音読は日本語を対象に採点します。表示言語は操作案内用です。</p>
+</main>
+<dialog id="jp-editor" class="jp-dialog" aria-labelledby="jp-editor-title">
+  <form id="jp-editor-form">
+    <div class="jp-dialog-header"><div><p class="jp-overline">YOUR OWN JAPANESE TEXT</p>
+      <h2 id="jp-editor-title" data-t="create">音読教材を作る</h2></div>
+      <button type="button" id="jp-editor-close" class="jp-close" aria-label="閉じる">×</button>
+    </div>
+    <div class="jp-dialog-content">
+      <label><span data-t="title">教材名</span><input id="jp-field-title" type="text" maxlength="110" autocomplete="off" required placeholder="例：私の自己紹介"></label>
+      <label><span data-t="body">日本語の本文</span><textarea id="jp-field-body" maxlength="12000" rows="8" required lang="ja" dir="auto" placeholder="ここに練習する日本語を入力してください。"></textarea></label>
+      <div class="jp-form-row">
+        <label><span data-t="folder">保存先フォルダ</span><select id="jp-field-folder"></select></label>
+        <label><span data-t="audio">お手本音声（任意・15MBまで）</span><input id="jp-field-audio" type="file" accept="audio/*"></label>
+      </div>
+      <label><span data-t="note">場面の説明（任意）</span><textarea id="jp-field-note" maxlength="600" rows="2" placeholder="例：学校で初めて会った人に自己紹介する"></textarea></label>
+      <p class="jp-help" data-t="tts">音声を登録しない場合は、端末の日本語読み上げを利用します。</p>
+      <div id="jp-editor-message" class="jp-editor-message" role="alert" aria-live="polite"></div>
+    </div>
+    <div class="jp-dialog-actions"><button id="jp-editor-cancel" type="button" class="jp-button-outline" data-t="cancel">キャンセル</button>
+    <button id="jp-editor-save" type="submit" class="jp-gold-button" data-t="save">教材を保存</button></div>
+  </form>
+</dialog>
+<div id="jp-toast" class="jp-toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
