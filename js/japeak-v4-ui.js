@@ -182,7 +182,7 @@
       for(const course of ['school','life']){
         const host=$('area-'+course);if(!host)continue;
         const b=document.createElement('button');b.type='button';
-        b.textContent=course==='school'?'🏫 カテゴリーを選び直す':'🏘️ レベル・生活場面を選ぶ';
+        b.textContent=course==='school' ? '🏫 '+tx().choose : '🏘️ '+tx().choose;
         b.className='jpk-v4-reopen';b.addEventListener('click',()=>open(course));
         host.prepend(b);
       }
@@ -192,6 +192,16 @@
       summary.hidden=true;
       const panel=$('phrase-panel');
       if(panel){panel.parentNode?.insertBefore(summary,panel);if(!params.has('cat'))panel.hidden=true;}
+      if(params.has('mode')){
+        const back=$('btn-back-to-course');
+        if(back){
+          back.textContent=lang()==='ja' ? '← ホームに戻る' : '← Back to home';
+          back.addEventListener('click',event=>{
+            event.preventDefault();event.stopImmediatePropagation();
+            window.location.href='japeak-top.html';
+          },true);
+        }
+      }
       // Existing category lists remain in DOM for compatibility, but the new modal owns navigation.
       document.body.classList.add('jpk-v4-enhanced');
     });
