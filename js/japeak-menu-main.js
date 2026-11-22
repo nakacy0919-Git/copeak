@@ -63,6 +63,10 @@ const DEFAULT_INFO_PACK = {
 };
 
 const $ = id => document.getElementById(id);
+const learningHistory = window.JapeakLearningHistory || null;
+let currentWorkspace = null;
+let workspaceFavoritesOpen = false;
+let activeQuickTab = 'favorites';
 
 function esc(text) {
     return String(text ?? '')
@@ -141,6 +145,8 @@ async function setLanguage(code) {
     updateUiLanguage();
     renderCategories();
     if (selectedCategory) renderPhraseList(selectedCategory);
+    renderQuickAccess();
+    renderSearchResults();
 
     currentInfoPack = await loadInfoPack(menuLang);
     if (token !== infoLoadToken) return;
@@ -173,9 +179,13 @@ function updateUiLanguage() {
     if ($('label-select-prompt')) $('label-select-prompt').innerText = d.prompt;
 
     renderLifeDashboard();
+    updateStage3Labels();
 }
 
 function enterWorkspace(mode) {
+    currentWorkspace = mode === 'school' ? 'school' : 'life';
+    const quick = $('quick-access-section');
+    if (quick) quick.classList.add('hidden');
     const gateContainer = $('gate-container');
     const workspaceContainer = $('workspace-container');
     const areaSchool = $('area-school');
@@ -187,7 +197,7 @@ function enterWorkspace(mode) {
         setTimeout(() => workspaceContainer.classList.remove('opacity-0'), 50);
     }
 
-    if (mode === 'school') {
+    if (currentWorkspace === 'school') {
         areaSchool?.classList.remove('hidden');
         areaSchool?.classList.add('flex');
         areaLife?.classList.remove('flex');
@@ -198,10 +208,17 @@ function enterWorkspace(mode) {
         areaLife?.classList.remove('hidden');
         areaLife?.classList.add('flex');
     }
+    renderSearchResults();
 }
 window.enterWorkspace = enterWorkspace;
 
 function backToGate() {
+    currentWorkspace = null;
+    workspaceFavoritesOpen = false;
+    const input = $('japeak-search-input');
+    if (input) input.value = '';
+    $('workspace-container')?.classList.remove('search-active');
+    updateStage3Labels();
     const gateContainer = $('gate-container');
     const workspaceContainer = $('workspace-container');
 
@@ -210,8 +227,9 @@ function backToGate() {
     workspaceContainer.classList.add('opacity-0');
     setTimeout(() => {
         workspaceContainer.classList.add('hidden');
-        gateContainer.style.display = 'flex';
-    }, 300);
+        gateContainer.style.display = 'grid';
+        renderQuickAccess();
+    }, window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ? 0 : 300);
 }
 window.backToGate = backToGate;
 
@@ -233,7 +251,7 @@ function renderCategories() {
         const subtitle = trans ? (trans[menuLang] || trans.en) : cat;
 
         btn.innerHTML = `
-            <div class="text-3xl md:text-4xl mb-2 drop-shadow-sm group-hover:scale-110 transition-transform">${icon}</div>
+            <div class="text-3xl md:text-4xl mb-2 drop-shadow-sm group-hover:scale-110 transition-transform">${esc(icon)}</div>
             <div class="text-sm font-bold leading-snug">${trans ? esc(trans.ja_ruby) : esc(cat)}</div>
             <div class="text-[10px] opacity-80 mt-1">${esc(subtitle)}</div>
         `;
@@ -263,42 +281,208 @@ function getCardTranslation(item) {
     return item.translations[menuLang] || item.translations.en || '';
 }
 
-function renderPhraseList(category) {
-    const container = $('phrase-list-container');
-    if (!container) return;
 
-    container.innerHTML = '';
-    const filteredData = allJapeakData.filter(item => item.category === category);
+const QUICK_TEXT = {
+    ja:{heading:'✨ つづきから学ぶ',favorites:'☆ お気に入り',recent:'◷ 最近の教材',search:'🔎 教材を検索',placeholder:'日本語・英語・場面から探す',results:'検索結果',empty:'見つかりませんでした。別の言葉でも検索してみてください。',count:'件見つかりました',showing:'件表示',start:'▶ 練習する',save:'お気に入りに追加',unsave:'お気に入りから削除',all:'すべて'},
+    en:{heading:'✨ Pick up where you left off',favorites:'☆ Favorites',recent:'◷ Recent lessons',search:'🔎 Find lessons',placeholder:'Search Japanese, translations or topics',results:'Search results',empty:'No matching lessons. Try another keyword.',count:'lessons found',showing:'shown',start:'▶ Practice',save:'Add to favorites',unsave:'Remove favorite',all:'All'}
+};
+function getQuickText() { return QUICK_TEXT[menuLang] || QUICK_TEXT.en; }
 
-    if (filteredData.length === 0) {
-        container.innerHTML = `<div class="text-stone-400 text-center py-10 font-bold">${esc(getUi().empty)}</div>`;
-        return;
-    }
+function getLessonHref(item) {
+    return 'japeak.html?id=' + encodeURIComponent(item.id) + '&lang=' + encodeURIComponent(menuLang);
+}
 
-    filteredData.forEach(item => {
-        const card = document.createElement('div');
-        card.onclick = () => {
-            window.location.href = `japeak.html?id=${encodeURIComponent(item.id)}&lang=${encodeURIComponent(menuLang)}`;
-        };
-        card.className = 'group cursor-pointer flex flex-col md:flex-row justify-between items-start md:items-center p-4 bg-stone-50 hover:bg-[#e0e7ff] border border-stone-200 rounded-sm transition gap-4 shadow-sm';
-        card.innerHTML = `
-            <div class="flex-1">
-                <div class="text-[10px] font-black text-[#b91c1c] tracking-widest mb-1">${esc(item.title || '')}</div>
-                <h3 class="text-lg font-bold text-stone-800 mincho-font line-clamp-2">${esc(getCardJapanese(item))}</h3>
-                <p class="text-sm text-stone-500 font-medium mt-1 whitespace-pre-line">${esc(getCardTranslation(item))}</p>
-            </div>
-            <div class="bg-[#1e3a5f] text-white text-xs font-bold px-4 py-2 rounded-sm group-hover:bg-[#b91c1c] transition whitespace-nowrap">${esc(getUi().practice)}</div>
-        `;
-        container.appendChild(card);
+function refreshFavoriteButtons() {
+    document.querySelectorAll('[data-favorite-id]').forEach(button => {
+        const id = button.getAttribute('data-favorite-id');
+        const selected = learningHistory?.isFavorite(id) || false;
+        button.textContent = selected ? '★' : '☆';
+        button.setAttribute('aria-pressed', String(selected));
+        button.setAttribute('aria-label', selected ? getQuickText().unsave : getQuickText().save);
+        button.title = selected ? getQuickText().unsave : getQuickText().save;
     });
 }
 
+function createFavoriteButton(item) {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'japeak-bookmark-btn';
+    btn.setAttribute('data-favorite-id', item.id);
+    btn.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (!learningHistory) return;
+        learningHistory.toggleFavorite(item.id);
+        refreshFavoriteButtons();
+        renderQuickAccess();
+        if (workspaceFavoritesOpen) renderSearchResults();
+    });
+    return btn;
+}
+
+function createPhraseCard(item) {
+    const card = document.createElement('article');
+    card.className = 'japeak-phrase-card';
+    const link = document.createElement('a');
+    link.href = getLessonHref(item);
+    link.className = 'japeak-phrase-link';
+    link.innerHTML = '<small>' + esc(item.title || '') + '</small>' +
+        '<strong>' + esc(getCardJapanese(item)) + '</strong>' +
+        '<p>' + esc(getCardTranslation(item)) + '</p>' +
+        '<span class="japeak-practice-hint">' + esc(getQuickText().start) + ' →</span>';
+    card.appendChild(link);
+    card.appendChild(createFavoriteButton(item));
+    return card;
+}
+
+function renderPhraseList(category) {
+    const container = $('phrase-list-container');
+    if (!container) return;
+    container.replaceChildren();
+    const filteredData = allJapeakData.filter(item => item.category === category);
+    if (!filteredData.length) {
+        const empty = document.createElement('p');
+        empty.className = 'text-stone-400 text-center py-10 font-bold';
+        empty.textContent = getUi().empty;
+        container.appendChild(empty);
+        return;
+    }
+    const fragment = document.createDocumentFragment();
+    filteredData.forEach(item => fragment.appendChild(createPhraseCard(item)));
+    container.appendChild(fragment);
+    refreshFavoriteButtons();
+}
+
+function getSavedLessons(type) {
+    if (!learningHistory) return [];
+    const ids = type === 'recent' ? learningHistory.getRecent() : learningHistory.getFavorites();
+    const byId = new Map(allJapeakData.map(item => [item.id, item]));
+    return ids.map(id => byId.get(id)).filter(Boolean);
+}
+
+function renderQuickAccess() {
+    const section = $('quick-access-section');
+    const container = $('quick-access-list');
+    if (!section || !container) return;
+    const favorites = getSavedLessons('favorites');
+    const recent = getSavedLessons('recent');
+    if (currentWorkspace || (!favorites.length && !recent.length)) {
+        section.classList.add('hidden');
+        return;
+    }
+    section.classList.remove('hidden');
+    if (activeQuickTab === 'favorites' && !favorites.length) activeQuickTab = 'recent';
+    if (activeQuickTab === 'recent' && !recent.length) activeQuickTab = 'favorites';
+    const tabFav = $('quick-tab-favorites');
+    const tabRecent = $('quick-tab-recent');
+    if (tabFav) tabFav.setAttribute('aria-selected', String(activeQuickTab === 'favorites'));
+    if (tabRecent) tabRecent.setAttribute('aria-selected', String(activeQuickTab === 'recent'));
+    container.replaceChildren();
+    const lessons = activeQuickTab === 'favorites' ? favorites : recent;
+    lessons.slice(0, 6).forEach(item => {
+        const row = document.createElement('div');
+        row.className = 'japeak-quick-item';
+        const link = document.createElement('a');
+        link.href = getLessonHref(item);
+        link.innerHTML = '<strong>' + esc(item.title || getCardJapanese(item)) + '</strong>' +
+            '<span>' + esc(getCardJapanese(item)) + '</span>';
+        row.appendChild(link);
+        row.appendChild(createFavoriteButton(item));
+        container.appendChild(row);
+    });
+    refreshFavoriteButtons();
+}
+
+function updateStage3Labels() {
+    const t = getQuickText();
+    const elements = [
+        ['quick-access-heading',t.heading],
+        ['quick-tab-favorites',t.favorites],
+        ['quick-tab-recent',t.recent],
+        ['japeak-search-label',t.search],
+        ['btn-search-favorites',t.favorites],
+        ['search-results-heading',workspaceFavoritesOpen ? t.favorites : t.results]
+    ];
+    for (const [id,label] of elements) {
+        const element = $(id);
+        if (element) element.textContent = label;
+    }
+    const input = $('japeak-search-input');
+    if (input) input.placeholder = t.placeholder;
+    const fav = $('btn-search-favorites');
+    if (fav) fav.setAttribute('aria-pressed', String(workspaceFavoritesOpen));
+}
+
+function searchLessonText(item) {
+    const cat = categoryTranslations[item.category];
+    return [item.title, getCardJapanese(item), getCardTranslation(item), cat?.ja_ruby, cat?.[menuLang], item.context?.ja, item.context?.[menuLang]]
+        .filter(Boolean).join(' ').normalize('NFKC').toLowerCase();
+}
+
+function renderSearchResults() {
+    const workspace = $('workspace-container');
+    const panel = $('search-results-panel');
+    const container = $('search-results-list');
+    const summary = $('search-results-summary');
+    if (!workspace || !panel || !container) return;
+    const query = $('japeak-search-input')?.value.trim().normalize('NFKC').toLowerCase() || '';
+    const isActive = !!currentWorkspace && (query.length > 0 || workspaceFavoritesOpen);
+    workspace.classList.toggle('search-active', isActive);
+    panel.classList.toggle('hidden', !isActive);
+    updateStage3Labels();
+    if (!isActive) return;
+    const lifeKeys = getLifeCategoryKeys();
+    let lessons;
+    if (workspaceFavoritesOpen) lessons = getSavedLessons('favorites');
+    else lessons = allJapeakData.filter(item =>
+        currentWorkspace === 'life' ? lifeKeys.has(item.category) : !lifeKeys.has(item.category)
+    );
+    if (query) lessons = lessons.filter(item => searchLessonText(item).includes(query));
+    const limit = 48;
+    const total = lessons.length;
+    if (summary) summary.textContent = total + ' ' + getQuickText().count + ' / ' + Math.min(total, limit) + ' ' + getQuickText().showing;
+    container.replaceChildren();
+    if (!total) {
+        const empty = document.createElement('p');
+        empty.className = 'text-center py-8 text-stone-500 font-bold';
+        empty.textContent = getQuickText().empty;
+        container.appendChild(empty);
+        return;
+    }
+    const fragment = document.createDocumentFragment();
+    lessons.slice(0, limit).forEach(item => fragment.appendChild(createPhraseCard(item)));
+    container.appendChild(fragment);
+    refreshFavoriteButtons();
+}
+
+function initStage3Navigation() {
+    const input = $('japeak-search-input');
+    if (input) input.addEventListener('input', () => {
+        workspaceFavoritesOpen = false;
+        renderSearchResults();
+    });
+    const favorites = $('btn-search-favorites');
+    if (favorites) favorites.addEventListener('click', () => {
+        workspaceFavoritesOpen = !workspaceFavoritesOpen;
+        renderSearchResults();
+        if (workspaceFavoritesOpen) $('search-results-heading')?.focus?.();
+    });
+    [['quick-tab-favorites','favorites'],['quick-tab-recent','recent']].forEach(([id,tab]) => {
+        $(id)?.addEventListener('click', () => {
+            activeQuickTab = tab;
+            renderQuickAccess();
+        });
+    });
+    renderQuickAccess();
+    updateStage3Labels();
+}
 function scrollToPhraseArea() {
     const phraseArea = $('phrase-list-container');
     if (!phraseArea?.parentElement) return;
 
     const y = phraseArea.parentElement.getBoundingClientRect().top + window.pageYOffset - 20;
-    window.scrollTo({ top: y, behavior: 'smooth' });
+    const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: y, behavior: reduceMotion ? 'auto' : 'smooth' });
 }
 
 function renderLifeDashboard() {
@@ -584,6 +768,7 @@ function initLanguageMenu() {
 
 document.addEventListener('DOMContentLoaded', () => {
     initLanguageMenu();
+    initStage3Navigation();
     setLanguage(menuLang);
     renderCategories();
     updateUiLanguage();
