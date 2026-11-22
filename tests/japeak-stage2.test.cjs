@@ -58,7 +58,7 @@ test('focused practice and speech results use explicit mode and safe rendering',
     assert.match(app, /const unit = sentenceMode \? practiceUnits\[selectedSentenceIndex\] : null/);
     assert.match(app, /voiceOutput\.textContent = latestTranscriptText/);
     assert.doesNotMatch(app, /voiceOutput\.innerHTML\s*=\s*latestTranscriptText/);
-    assert.match(app, /finalTranscriptText\.trim\(\) \|\| latestTranscriptText\.trim\(\)/);
+    assert.match(app, /finalTranscriptText\.trim\(\) \|\| recentSpeechText\.trim\(\)/);
 });
 
 test('mobile recognition uses short sessions and reports recognition failures', () => {
