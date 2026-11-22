@@ -1,0 +1,221 @@
+/* Japeak menu: restore the immersive photo-led visual language from the earlier V4 home.
+   Scoped ONLY to the school/daily-life menu. Keep modal, data and learning behavior intact. */
+body.japeak-stage3-menu {
+  background-color:#11263b !important;
+  color:#f4f9fb;
+  background-image:none!important;
+  min-height:100svh;
+  isolation:isolate;
+}
+body.japeak-stage3-menu::before {
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background-image:
+    linear-gradient(105deg,rgba(7,26,44,.30) 0%,rgba(7,28,48,.42) 45%,rgba(8,24,44,.56) 100%),
+    url("../assets/japeak-bg-landscape.webp")!important;
+  background-size:cover!important;
+  background-repeat:no-repeat!important;
+  background-position:center center!important;
+  filter:saturate(115%);
+}
+/* The older pale veil made the background photo almost invisible. */
+@media(orientation:portrait){
+  body.japeak-stage3-menu::before{
+    background-image:
+      linear-gradient(180deg,rgba(7,24,44,.37),rgba(9,30,49,.34) 42%,rgba(6,20,40,.64)),
+      url("../assets/japeak-bg-portrait.webp")!important;
+    background-position:center center!important;
+  }
+}
+body.japeak-stage3-menu #jpk-menu-header {
+  background:linear-gradient(114deg,rgba(19,43,68,.76),rgba(19,44,65,.68))!important;
+  -webkit-backdrop-filter:blur(15px) saturate(135%);
+  backdrop-filter:blur(15px) saturate(135%);
+  border:1px solid rgba(230,242,245,.48)!important;
+  border-radius:23px!important;
+  box-shadow:0 18px 48px rgba(3,19,33,.32),inset 0 1px 0 rgba(255,255,255,.15)!important;
+  padding:clamp(12px,1.7vw,20px)!important;
+}
+body.japeak-stage3-menu #jpk-menu-header h1{
+  color:#f6fcff!important;
+  font-size:clamp(1.8rem,2.5vw,2.7rem)!important;
+  line-height:1.1!important;
+  letter-spacing:.06em!important;
+  text-shadow:0 4px 14px rgba(1,12,29,.42);
+}
+body.japeak-stage3-menu #jpk-menu-header p{
+  color:#ffdbbf!important;
+  font-size:clamp(.6rem,.75vw,.76rem)!important;
+  line-height:1.5!important;
+  letter-spacing:.075em;
+}
+body.japeak-stage3-menu #jpk-menu-header img{
+  border-color:rgba(255,255,255,.85)!important;
+  box-shadow:0 5px 16px rgba(2,17,29,.35)!important;
+  background:#fffbf5;
+}
+body.japeak-stage3-menu #jpk-menu-header #custom-lang-wrapper>div:first-child{
+  color:#d5eaf1!important;
+}
+body.japeak-stage3-menu #jpk-menu-header #menu-lang-select{
+  background:linear-gradient(135deg,rgba(28,77,103,.93),rgba(11,43,72,.94))!important;
+  border:1px solid rgba(219,244,247,.65)!important;
+  border-radius:12px!important;
+  color:#fff!important;
+  box-shadow:0 6px 18px rgba(4,22,38,.21),inset 0 1px 0 rgba(255,255,255,.16)!important;
+}
+body.japeak-stage3-menu #jpk-menu-header #btn-top-back{
+  color:#f7fbfc!important;
+  background:linear-gradient(140deg,rgba(36,86,111,.93),rgba(19,52,78,.93))!important;
+  border:1px solid rgba(218,237,242,.55)!important;
+  border-radius:12px!important;
+  min-height:43px;
+  box-shadow:0 5px 13px rgba(3,22,37,.23)!important;
+}
+body.japeak-stage3-menu #jpk-menu-header .japeak-qr-button{
+  background:rgba(246,252,252,.18)!important;
+  border-color:rgba(229,249,247,.65)!important;
+  color:#f9fbff!important;
+  box-shadow:0 4px 15px rgba(3,17,27,.20)!important;
+}
+body.japeak-stage3-menu #jpk-menu-header :is(button,select):focus-visible{
+  outline:3px solid #9ee5dd!important;outline-offset:3px!important;
+}
+/* Floating photograph-tinted entrances, not opaque white tiles. */
+body.japeak-stage3-menu #gate-container{
+  max-width:980px!important;
+  gap:clamp(13px,1.6vw,22px)!important;
+  margin-top:clamp(24px,4.3vh,50px)!important;
+  margin-bottom:clamp(21px,3.1vh,36px)!important;
+}
+body.japeak-stage3-menu #gate-container > button{
+  min-height:clamp(210px,27vh,296px);
+  color:#f6fafd!important;
+  border:1px solid rgba(255,255,255,.68)!important;
+  border-bottom:2px solid rgba(236,202,158,.72)!important;
+  box-shadow:0 18px 42px rgba(3,17,35,.39),inset 0 1px 0 rgba(255,255,255,.26)!important;
+  -webkit-backdrop-filter:blur(12px) saturate(132%);
+  backdrop-filter:blur(12px) saturate(132%);
+  border-radius:24px!important;
+  isolation:isolate;
+  transition:transform .24s ease,box-shadow .24s ease,border-color .24s ease!important;
+}
+body.japeak-stage3-menu #jpk-menu-school{
+  background:linear-gradient(132deg,rgba(27,87,141,.85),rgba(18,48,88,.90))!important;
+}
+body.japeak-stage3-menu #jpk-menu-life{
+  background:linear-gradient(130deg,rgba(15,134,111,.86),rgba(9,72,82,.91))!important;
+}
+body.japeak-stage3-menu #gate-container > button:hover{
+  border-color:#f5e4c5!important;
+  box-shadow:0 24px 56px rgba(2,17,35,.48),inset 0 1px 0 rgba(255,255,255,.3)!important;
+  transform:translateY(-4px);
+}
+body.japeak-stage3-menu #gate-container > button > div:first-child{
+  height:5px!important;
+  opacity:.9;
+  background:linear-gradient(90deg,rgba(252,231,194,.8),rgba(255,255,255,.4))!important;
+}
+body.japeak-stage3-menu #gate-container > button > div:nth-child(2){
+  padding:clamp(23px,3.4vw,39px) 20px!important;
+  gap:clamp(12px,2vw,19px)!important;
+}
+body.japeak-stage3-menu #gate-container > button > div:nth-child(2) > div:first-child{
+  width:clamp(67px,7vw,94px)!important;
+  height:clamp(67px,7vw,94px)!important;
+  background:rgba(255,255,255,.18)!important;
+  border:1px solid rgba(251,249,235,.46)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.27),0 5px 17px rgba(3,30,44,.22)!important;
+  border-radius:22px!important;
+}
+body.japeak-stage3-menu #gate-container h2{
+  color:#f7fcff!important;
+  font-size:clamp(1.5rem,2.2vw,2.15rem)!important;
+  text-shadow:0 3px 15px rgba(5,25,42,.46);
+  letter-spacing:.07em;
+}
+body.japeak-stage3-menu #gate-container :is(#sub-text-school,#sub-text-life){
+  color:#e7f3f5!important;
+  font-weight:800!important;
+  letter-spacing:.13em!important;
+  text-shadow:0 2px 8px rgba(3,21,39,.32);
+}
+body.japeak-stage3-menu #gate-container > button > div:last-child{
+  color:#fff4d5!important;
+}
+/* Existing favorites/recent lessons should read as a light glass rail over the photo. */
+body.japeak-stage3-menu #quick-access-section{
+  background:linear-gradient(125deg,rgba(16,42,65,.78),rgba(18,67,79,.73))!important;
+  -webkit-backdrop-filter:blur(12px) saturate(125%);
+  backdrop-filter:blur(12px) saturate(125%);
+  border:1px solid rgba(228,247,245,.40);
+  box-shadow:0 16px 35px rgba(2,21,35,.28),inset 0 1px 0 rgba(255,255,255,.12)!important;
+}
+body.japeak-stage3-menu #quick-access-section .japeak-quick-item{
+  background:rgba(249,253,254,.12)!important;
+  border-color:rgba(244,251,253,.25)!important;
+}
+body.japeak-stage3-menu #quick-access-section .japeak-quick-item:hover{
+  background:rgba(250,255,253,.21)!important;
+}
+body.japeak-stage3-menu #quick-access-section .japeak-quick-tabs{
+  background:rgba(6,23,40,.40)!important;
+}
+body.japeak-stage3-menu #quick-access-section .japeak-quick-tabs [aria-selected="true"]{
+  background:rgba(255,255,255,.95)!important;
+  color:#153954!important;
+}
+@media(max-width:720px){
+  body.japeak-stage3-menu #jpk-menu-header{
+    padding:12px 13px!important;
+    gap:11px!important;
+  }
+  body.japeak-stage3-menu #gate-container{
+    gap:11px!important;
+    margin-top:20px!important;
+    margin-bottom:22px!important;
+  }
+  body.japeak-stage3-menu #gate-container > button{
+    min-height:170px!important;
+    border-radius:18px!important;
+  }
+  body.japeak-stage3-menu #gate-container > button > div:nth-child(2){
+    padding:19px 8px!important;gap:10px!important;
+  }
+  body.japeak-stage3-menu #gate-container > button > div:nth-child(2) > div:first-child{
+    width:60px!important;height:60px!important;border-radius:18px!important;
+  }
+  body.japeak-stage3-menu #gate-container h2{
+    font-size:clamp(1.12rem,4.1vw,1.55rem)!important;
+  }
+  body.japeak-stage3-menu #jpk-menu-header #btn-top-back{
+    padding:7px 10px!important;
+  }
+}
+@media(max-width:470px){
+  body.japeak-stage3-menu #jpk-menu-header{
+    flex-direction:column!important;
+  }
+  body.japeak-stage3-menu #jpk-menu-header >div:last-child{
+    width:100%;justify-content:center;flex-wrap:nowrap;
+  }
+  body.japeak-stage3-menu #jpk-menu-header h1{font-size:1.65rem!important;}
+  body.japeak-stage3-menu #gate-container{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  body.japeak-stage3-menu #gate-container > button{min-height:151px!important;}
+  body.japeak-stage3-menu #gate-container > button > div:nth-child(2) > div:first-child{
+    width:51px!important;height:51px!important;
+  }
+  body.japeak-stage3-menu #gate-container > button > div:nth-child(2) > div:first-child > span{
+    font-size:2.1rem!important;
+  }
+  body.japeak-stage3-menu #quick-access-section{padding:13px!important;}
+}
+/* Keep all existing no-motion accessibility settings. */
+@media(prefers-reduced-motion:reduce){
+  body.japeak-stage3-menu #gate-container > button{transition:none!important;}
+}
