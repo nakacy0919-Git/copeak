@@ -173,6 +173,7 @@ test('iPad microphone remains reusable when learner finishes lesson one and swit
     speechSessionId:0,speechStartWatchdog:null,recognition:null,recognitionFailed:false,
     recentSpeechText:'',isSwapped:false,
     calculateCurrentLessonAccuracy:()=>78,resetMicButton:()=>{},
+    jpkText:(key,fallback)=>fallback,
     setRecognitionStatus:message=>{nodes.get('japeak-recognition-status').textContent=message},
     playSuccessSound:()=>{},fireConfetti:()=>{}
   };
