@@ -467,6 +467,7 @@ function updateSentenceModeControls() {
     if (!toolbar) return;
     if (!canUseSentenceMode()) sentenceMode = false;
     toolbar.classList.toggle('hidden', !canUseSentenceMode());
+    toolbar.classList.toggle('flex', canUseSentenceMode());
     const toggle = $('btn-sentence-mode');
     if (toggle) {
         toggle.textContent = sentenceMode ? '全文を練習' : '1文ずつ練習';
