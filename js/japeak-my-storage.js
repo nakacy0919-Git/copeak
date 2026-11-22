@@ -34,6 +34,7 @@
     try{const obj=JSON.parse(raw||'[]');return Array.isArray(obj)?obj:[];}catch(_){return []}
   }
   function fallbackRead(name){
+    if(mode==='temporary')return memory[name].slice();
     try {
       if(root.localStorage)return safeDecode(root.localStorage.getItem(STORAGE_PREFIX+name));
     } catch(_){}
@@ -128,6 +129,7 @@
     if(folderId && !await get('folders',folderId))throw Error('保存先フォルダが見つかりません');
     const audioBlob = data?.audioBlob === undefined ? (old?.audioBlob||null) : (data.audioBlob||null);
     if(audioBlob && (typeof audioBlob.size!=='number'||audioBlob.size>15*1024*1024))throw Error('音声は15MB以下にしてください');
+    if(audioBlob && !(await openDb()))throw Error('この端末では音声ファイルを保存できません。音声なしで教材を保存してください。');
     const time=Date.now();
     const lesson={
       id:old?.id||uniqueId('my_'),title,japanese,note,folderId,
