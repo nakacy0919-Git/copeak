@@ -82,6 +82,7 @@ let currentIndex = 0, currentLesson = null, currentLang = 'en', recognition = nu
 let isRecording = false, hasCelebrated = false, isSwapped = false;
 let sentenceMode = false, selectedSentenceIndex = 0, practiceUnits = [];
 const japeakSpeech = window.JapeakSpeechUtils;
+const stage3History = window.JapeakLearningHistory || null;
 
 const langCodeMap = {
     ja:'ja-JP',en:'en-US','zh-CN':'zh-CN','zh-TW':'zh-TW',ko:'ko-KR',vi:'vi-VN',tl:'fil-PH',id:'id-ID',
@@ -350,14 +351,31 @@ if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !=
     speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
 }
 
+function updateLessonBookmark() {
+    const button = $('btn-lesson-favorite');
+    if (!button || !currentLesson) return;
+    const active = stage3History?.isFavorite(currentLesson.id) || false;
+    button.setAttribute('aria-pressed', String(active));
+    button.setAttribute('aria-label', active ? 'お気に入りから削除' : 'お気に入りに追加');
+    button.title = active ? 'お気に入りから削除' : 'お気に入りに追加';
+    button.textContent = active ? '★ お気に入り' : '☆ お気に入り';
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     if (!currentLesson) {
         alert('エラー：教材データが見つかりません。');
         return;
     }
 
+    stage3History?.addRecent(currentLesson.id);
     renderLesson();
     setupSpeechRecognition();
+    const favorite = $('btn-lesson-favorite');
+    if (favorite) favorite.addEventListener('click', () => {
+        if (!currentLesson || !stage3History) return;
+        stage3History.toggleFavorite(currentLesson.id);
+        updateLessonBookmark();
+    });
 
     const langSelect = $('lang-select');
     if (langSelect) {
@@ -510,6 +528,7 @@ function moveLesson(direction) {
 
     stopCurrentPractice();
     currentLesson = nextLesson;
+    stage3History?.addRecent(currentLesson.id);
     sentenceMode = false;
     selectedSentenceIndex = 0;
     currentIndex = allJapeakData.indexOf(currentLesson);
@@ -542,6 +561,7 @@ window.toggleLanguageSwap = function() {
 
 function renderLesson() {
     if (!currentLesson) return;
+    updateLessonBookmark();
 
     practiceUnits = getPracticeUnits();
     selectedSentenceIndex = Math.min(selectedSentenceIndex, Math.max(0, practiceUnits.length - 1));
@@ -1016,5 +1036,5 @@ window.goBackToMenu = function() {
     const mode = isLifeMode ? 'life' : 'school';
     
     // パラメータを付けてメニュー画面へ遷移（例: japeak-menu.html?mode=school&cat=school_life）
-    window.location.href = `japeak-menu.html?mode=${mode}&cat=${cat}`;
+    window.location.href = `japeak-menu.html?mode=${mode}&cat=${encodeURIComponent(cat)}`;
 };
