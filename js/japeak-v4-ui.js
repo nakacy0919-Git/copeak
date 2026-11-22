@@ -31,6 +31,7 @@
   function localText(item){return lang()==='ja' ? item.ja : (item[lang()]||item.en||item.ja)}
   function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
   let mode='life',level='all',domain='all',query='',focusReturn=null;
+  let activeSelection=null;
   const overlay=document.createElement('div');
   overlay.className='jpk-v4-overlay';overlay.hidden=true;overlay.id='jpk-v4-overlay';
   overlay.innerHTML='<section class="jpk-v4-dialog" role="dialog" aria-modal="true" aria-labelledby="jpk-v4-title" tabindex="-1">'+
@@ -96,6 +97,10 @@
         a.type='button';
         a.addEventListener('click',()=>{
           close();
+          activeSelection=item;
+          const phrasePanel=$('phrase-panel');
+          if(phrasePanel)phrasePanel.hidden=false;
+          updateSelectionSummary();
           if(mode==='school'){
             selectedCategory=item.key;
             if(typeof renderCategories==='function')renderCategories();
@@ -142,9 +147,30 @@
     // Wrap only public navigation; do not touch stage-3 renderers, scores, or lesson IDs.
     const oldEnter=window.enterWorkspace;
     let initialDeepLinkSkip=params.has('cat');
+    function updateSelectionSummary(){
+      const phrasePanel=$('phrase-panel');
+      const summary=$('jpk-v4-selected-summary');
+      if(phrasePanel)phrasePanel.hidden=!activeSelection;
+      if(summary){
+        summary.hidden=!activeSelection;
+        summary.textContent=activeSelection ? '✓ '+activeSelection.name : '';
+      }
+    }
     window.enterWorkspace=function(course){
+      mode=course==='school'?'school':'life';
+      const direct=initialDeepLinkSkip;
+      initialDeepLinkSkip=false;
+      activeSelection=null;
       oldEnter(course);
-      if(initialDeepLinkSkip){initialDeepLinkSkip=false;return;} // Deep link directly to an existing lesson/category.
+      if(direct){
+        const key=params.get('cat');
+        const matched=mode==='school' ? schoolCategories.find(x=>x[0]===key) :
+           T.makeScenes(lifeMasterData).find(x=>x.key===key);
+        if(matched)activeSelection={key,name:matched.name||matched[2]||key};
+        updateSelectionSummary();
+        return;
+      }
+      updateSelectionSummary();
       open(course,{level:params.get('level'),domain:params.get('domain')});
     };
     const oldSetLang=window.setJapeakMenuLanguage;
@@ -159,6 +185,12 @@
         b.className='jpk-v4-reopen';b.addEventListener('click',()=>open(course));
         host.prepend(b);
       }
+      const summary=document.createElement('p');
+      summary.id='jpk-v4-selected-summary';
+      summary.className='jpk-v4-selected-summary';
+      summary.hidden=true;
+      const panel=$('phrase-panel');
+      if(panel){panel.parentNode?.insertBefore(summary,panel);if(!params.has('cat'))panel.hidden=true;}
       // Existing category lists remain in DOM for compatibility, but the new modal owns navigation.
       document.body.classList.add('jpk-v4-enhanced');
     });
