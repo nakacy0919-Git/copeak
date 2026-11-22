@@ -142,16 +142,18 @@ function init(){
   const left=document.createElement('section');left.id='jpk-v6-script-column';left.setAttribute('aria-label','日本語の音読本文');
   const right=document.createElement('section');right.id='jpk-v6-score-column';right.setAttribute('aria-label','音声認識と操作');
   left.append(old[0],old[1]);right.append(old[2]);
-  const notes=document.createElement('details');notes.id='jpk-v6-notes';
-  const summary=document.createElement('summary');summary.textContent=label('notes');
-  notes.append(summary,side);left.append(notes);
+  // Context and translation are always visible; no disclosure click is required.
+  const notes=document.createElement('section');notes.id='jpk-v6-notes';notes.className='jpk-v9-notes';
+  notes.setAttribute('aria-label',label('notes'));
+  const heading=document.createElement('h3');heading.className='jpk-v9-notes-heading';heading.textContent=label('notes');
+  notes.append(heading,side);left.append(notes);
   pane.replaceChildren(left,right);
   const controls=$('mic-btn')?.parentElement;
   if(!controls)return;
   const card=$('acc-output')?.parentElement;
   if(card)card.id='jpk-v6-original-score';
   const chart=document.createElement('div');chart.id='jpk-v6-score-chart';chart.className='jpk-v6-score-chart';
-  chart.innerHTML='<span class="jpk-v6-mark">認識一致率 · RECOGNITION</span>'+arcSvg(null,label('score'));
+  chart.innerHTML='<span class="jpk-v6-mark">JAPEAK · RECOGNITION</span>'+arcSvg(null,label('score'));
   right.prepend(chart);
   const mainButton=$('mic-btn');
   if(mainButton)mainButton.textContent='● '+label('start');
@@ -181,6 +183,7 @@ function init(){
   });
   buttons(false);
   initialized=true;
+  root.JapeakPracticeUI?.apply();
 }
 root.JapeakPracticeView={
   buttons,
@@ -223,14 +226,17 @@ root.JapeakPracticeView={
     const panel=$('jpk-v6-score-column');
     if(panel?.dataset.recording==='starting')this.onStarting();
     else buttons(panel?.dataset.recording==='true',panel?.dataset.recording==='waiting');
-    const notes=document.querySelector('#jpk-v6-notes summary');
+    const notes=document.querySelector('#jpk-v6-notes .jpk-v9-notes-heading');
     if(notes)notes.textContent=label('notes');
+    const notesPanel=$('jpk-v6-notes');
+    if(notesPanel)notesPanel.setAttribute('aria-label',label('notes'));
     const transcript=document.querySelector('#jpk-v6-transcript-box > div:first-child');
     if(transcript)transcript.textContent=label('transcript');
     const mark=document.querySelector('#jpk-v6-score-chart .jpk-v6-mark');
     if(mark)mark.textContent='JAPEAK · RECOGNITION';
     const caption=document.querySelector('#jpk-v6-score-chart .jpk-v8-gauge-caption');
     if(caption)caption.textContent=label('score');
+    root.JapeakPracticeUI?.apply();
   }
 };
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
