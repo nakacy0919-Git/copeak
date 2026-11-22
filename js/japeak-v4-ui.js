@@ -141,9 +141,10 @@
   if(inMenu){
     // Wrap only public navigation; do not touch stage-3 renderers, scores, or lesson IDs.
     const oldEnter=window.enterWorkspace;
+    let initialDeepLinkSkip=params.has('cat');
     window.enterWorkspace=function(course){
       oldEnter(course);
-      if(params.has('cat'))return; // Deep link directly to an existing lesson/category.
+      if(initialDeepLinkSkip){initialDeepLinkSkip=false;return;} // Deep link directly to an existing lesson/category.
       open(course,{level:params.get('level'),domain:params.get('domain')});
     };
     const oldSetLang=window.setJapeakMenuLanguage;
