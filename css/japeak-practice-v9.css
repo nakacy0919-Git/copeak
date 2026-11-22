@@ -99,6 +99,9 @@ body.jpk-v6-study #jpk-v9-actions #lang-select{
   color:#214b5c!important;border:1px solid #a9c8c6!important;
   box-shadow:0 4px 10px #23485212!important;
 }
+#jpk-v9-actions #jpk-v9-menu,
+#jpk-v9-actions #jpk-v9-copeak{width:auto!important;flex:0 0 auto}
+#jpk-v9-actions >div:last-child{min-width:0;width:auto!important;flex:0 0 auto}
 #jpk-v9-actions .jpk-v9-nav:hover{filter:brightness(1.05)}
 #jpk-v9-actions .jpk-v9-nav:active{transform:translateY(1px)}
 #jpk-v9-actions .japeak-qr-button{
