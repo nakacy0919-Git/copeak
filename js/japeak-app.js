@@ -678,8 +678,13 @@ function renderNormalLesson(sentenceContainer, transContainer, isLongText) {
     sentenceContainer.className = 'flex flex-col gap-6 md:gap-8 mx-auto w-fit transition-all duration-300';
 
     const jpLines = japeakSpeech.splitJapaneseSentencesFromHtml(getRubyDisplayText(currentLesson));
-    const romajiParts = getRomajiDisplayText(currentLesson).split('<br>');
-    const roLines = romajiParts.length === jpLines.length ? romajiParts : [];
+    const romajiHtml = getRomajiDisplayText(currentLesson);
+    const romajiParts = romajiHtml.split(/<br\s*\/?>/i);
+    const romajiSentences = japeakSpeech.splitTranslatedSentences(romajiHtml);
+    // Keep existing romaji visible even when punctuation-based Japanese splitting differs.
+    const roLines = romajiParts.length === jpLines.length ? romajiParts
+        : romajiSentences.length === jpLines.length ? romajiSentences
+        : [romajiHtml.replace(/<br\s*\/?>/gi, ' ')];
     const rawTrans = getTranslationText(currentLesson, currentLang);
     const transSentences = rawTrans.match(/.*?[.?!。？！]+(?:\s+|$)|.+$/g) || [rawTrans];
 
