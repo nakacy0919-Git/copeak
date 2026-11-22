@@ -6,7 +6,7 @@
  const known=new Set(langData.map(x=>x.code));
  window.JapeakV4Taxonomy.extraLanguages.forEach(x=>{
    if(known.has(x.code))return;
-   langData.push({code:x.code,native:x.name,jp:x.name});
+   langData.push({code:x.code,native:x.name,jp:'English fallback'});
    const fallback=Object.assign({},uiDict.en);
    uiDict[x.code]=fallback;
    known.add(x.code);
