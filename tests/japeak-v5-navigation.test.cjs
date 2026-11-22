@@ -156,3 +156,25 @@ test('the modal never injects lesson title or Japanese text as HTML',()=>{
     assert.match(dialogCode,/strong\.textContent=titleFor\(group\)/);
     assert.doesNotMatch(dialogCode,/eval\(/);
 });
+
+
+test('menu home restores immersive photo and translucent course cards without altering learning navigation',()=>{
+    const immersive=read('css/japeak-menu-immersive.css');
+    const bg=immersive.slice(immersive.indexOf('body.japeak-stage3-menu::before'),immersive.indexOf('/* The older pale veil'));
+    assert.match(bg,/url\("\.\.\/assets\/japeak-bg-landscape\.webp"\)!important/);
+    assert.match(immersive,/url\("\.\.\/assets\/japeak-bg-portrait\.webp"\)!important/);
+    assert.doesNotMatch(bg,/rgba\(246,250,250,\.8/);
+    assert.match(immersive,/body\.japeak-stage3-menu #jpk-menu-header/);
+    assert.match(immersive,/#jpk-menu-school/);
+    assert.match(immersive,/#jpk-menu-life/);
+    assert.match(immersive,/#quick-access-section/);
+    assert.match(immersive,/backdrop-filter:blur\(12px\)/);
+    assert.ok(menu.indexOf('css/japeak-menu-immersive.css?v=20261122-10')>menu.indexOf('css/japeak-v5.css'));
+    assert.match(menu,/id="jpk-menu-header"/);
+    assert.match(menu,/id="jpk-menu-school" onclick="enterWorkspace\('school'\)"/);
+    assert.match(menu,/id="jpk-menu-life" onclick="enterWorkspace\('life'\)"/);
+    assert.match(menu,/id="quick-tab-favorites"/);
+    assert.match(menu,/id="quick-tab-recent"/);
+    assert.match(menu,/id="menu-lang-select"/);
+    assert.match(menu,/id="btn-top-back"/);
+});
