@@ -116,8 +116,8 @@ test('90 percent celebration, manual completion and lesson results are wired',()
 test('local personal materials and 29-language scripts load before practice app',()=>{
   const script=x=>code.practice.indexOf('src="'+x+'"');
   assert.ok(script('js/japeak-my-storage.js?v=20261122-1')>0);
-  assert.ok(script('js/japeak-my-storage.js?v=20261122-1')<script('js/japeak-app.js'));
-  assert.ok(script('js/japeak-practice-v6.js?v=20261122-8')>script('js/japeak-app.js'));
+  assert.ok(script('js/japeak-my-storage.js?v=20261122-1')<script('js/japeak-app.js?v=20261122-9'));
+  assert.ok(script('js/japeak-practice-v6.js?v=20261122-9')>script('js/japeak-app.js'));
   assert.match(code.practice,/css\/japeak-practice-v6.css/);
   assert.match(code.my,/id="jp-editor"/);
   assert.match(code.my,/id="jp-add-folder"/);
