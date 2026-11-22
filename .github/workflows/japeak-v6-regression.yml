@@ -1,0 +1,29 @@
+name: Japeak V6 regression
+on:
+  push:
+    branches:
+      - feat/japeak-my-library-responsive-practice-20261122
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check Japeak script syntax
+        run: |
+          node --check js/japeak-app.js
+          node --check js/japeak-my-storage.js
+          node --check js/japeak-my.js
+          node --check js/japeak-my-i18n.js
+          node --check js/japeak-practice-v6.js
+      - name: Run stage 1–6 Japeak regression suites
+        run: |
+          node --test tests/japeak-stage1.test.cjs tests/japeak-stage2.test.cjs tests/japeak-stage3.test.cjs tests/japeak-v4.test.cjs tests/japeak-v5-navigation.test.cjs tests/japeak-v6.test.cjs

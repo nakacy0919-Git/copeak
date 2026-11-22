@@ -47,12 +47,13 @@ test('animated welcome is navigable with direct school/life routes and respects 
     assert.match(topHtml, /data-share-qr/);
 });
 
-test('responsive menu exposes search, favorites, recent lessons, and clear control', () => {
-    for (const id of ['quick-access-section', 'quick-access-list', 'quick-tab-favorites',
-        'quick-tab-recent', 'quick-clear-recent', 'japeak-search-input', 'search-results-panel',
-        'search-results-list', 'btn-search-favorites']) {
+test('responsive menu retains favorites and recent lessons but removes visible search', () => {
+    for (const id of ['quick-access-section','quick-access-list','quick-tab-favorites',
+        'quick-tab-recent','quick-clear-recent']) {
         assert.ok(menuHtml.includes('id="' + id + '"'), 'Missing: ' + id);
     }
+    assert.doesNotMatch(menuHtml, /id="japeak-search-input"/);
+    assert.doesNotMatch(menuHtml, /id="search-results-panel"/);
     assert.match(stage3Css, /@media \(max-width:720px\)/);
     assert.match(stage3Css, /prefers-reduced-motion:reduce/);
     assert.match(menuHtml, /このブラウザだけに保存されます/);
@@ -190,22 +191,11 @@ test('favorites are reachable from both quick access and the lesson list', () =>
     assert.equal(nodes.get('quick-access-section').classes.has('hidden'), false);
 });
 
-test('search isolates school and daily-life lessons and preserves category views', () => {
-    const { context, nodes } = createMenuHarness();
-    context.enterWorkspace('school');
-    assert.equal(nodes.get('gate-container').style.display, 'none');
-    nodes.get('japeak-search-input').value = 'あいさつ';
-    context.renderSearchResults();
-    assert.equal(nodes.get('workspace-container').classes.has('search-active'), true);
-    assert.match(nodes.get('search-results-summary').textContent, /^1 /);
-    nodes.get('japeak-search-input').value = '注文';
-    context.renderSearchResults();
-    assert.match(nodes.get('search-results-summary').textContent, /^0 /);
-    context.enterWorkspace('life');
-    context.renderSearchResults();
-    assert.match(nodes.get('search-results-summary').textContent, /^1 /);
-    context.backToGate();
-    assert.equal(nodes.get('gate-container').style.display, 'grid');
+test('the menu uses a scene-first popup rather than a visible search interface', () => {
+    assert.match(menuHtml, /src="js\/japeak-v5-dialog.js/);
+    assert.match(menuHtml, /src="js\/japeak-v5-catalog.js/);
+    assert.doesNotMatch(menuHtml, /id="japeak-search-input"/);
+    assert.doesNotMatch(menuHtml, /src="js\/japeak-v4-ui.js/);
 });
 
 test('clearing recent history removes the shortcut without deleting favorites', () => {

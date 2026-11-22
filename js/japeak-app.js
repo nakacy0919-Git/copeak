@@ -81,6 +81,10 @@ if (typeof japeakB1CareerConsultationData !== 'undefined') allJapeakData = allJa
 let currentIndex = 0, currentLesson = null, currentLang = 'en', recognition = null, currentAudio = null;
 let isRecording = false, hasCelebrated = false, isSwapped = false;
 let sentenceMode = false, selectedSentenceIndex = 0, practiceUnits = [];
+let manualStopRequested = false, awaitingFinish = false, recordingStartPending = false;
+let recentSpeechText = '', pendingAudioUrl = null;
+const uiOnlyLanguages = new Set(['hi','ur','ar','de','it','tr','ms','uz','fa']);
+window.JapeakPracticeLanguage = () => currentLang;
 const japeakSpeech = window.JapeakSpeechUtils;
 const stage3History = window.JapeakLearningHistory || null;
 
@@ -92,7 +96,7 @@ const langCodeMap = {
 
 const urlParams = new URLSearchParams(window.location.search);
 const targetId = urlParams.get('id'), urlLang = urlParams.get('lang');
-if (urlLang && Object.prototype.hasOwnProperty.call(langCodeMap, urlLang)) currentLang = urlLang;
+if (urlLang && (Object.prototype.hasOwnProperty.call(langCodeMap, urlLang) || uiOnlyLanguages.has(urlLang))) currentLang = urlLang;
 if (targetId) {
     const foundIndex = allJapeakData.findIndex(item => item.id === targetId);
     if (foundIndex !== -1) currentIndex = foundIndex;
@@ -129,6 +133,8 @@ function getJapanesePracticeTarget(lesson) {
 function getRubyDisplayText(lesson) {
     if (!lesson) return '';
     if (isDialogueLesson(lesson)) return lesson.dialogue.map(t => t.ruby || t.line || '').join('<br>');
+    // User-authored lessons must never turn text into HTML on the reading screen.
+    if (lesson.myLesson) return escapeHtml(lesson.japanese || '');
     return lesson.ruby?.hiragana || lesson.japanese || '';
 }
 
@@ -335,7 +341,14 @@ function playExampleAudio(speed = 1.0) {
         return;
     }
 
-    const audioPath = currentLesson.audio || `audio/${currentLesson.id}.mp3`;
+    if (currentLesson.myLesson && !currentLesson.audioBlob) {
+        speakWithBrowserVoice(getJapanesePracticeTarget(currentLesson), 'ja-JP', 0.95 * speed);
+        return;
+    }
+    if (pendingAudioUrl) { URL.revokeObjectURL(pendingAudioUrl); pendingAudioUrl = null; }
+    const audioPath = currentLesson.audioBlob
+        ? (pendingAudioUrl = URL.createObjectURL(currentLesson.audioBlob))
+        : (currentLesson.audio || `audio/${currentLesson.id}.mp3`);
     currentAudio = new Audio(audioPath);
     currentAudio.playbackRate = speed; 
 
@@ -361,7 +374,26 @@ function updateLessonBookmark() {
     button.textContent = active ? '★ お気に入り' : '☆ お気に入り';
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    if (targetId?.startsWith('my_')) {
+        try {
+            const store=window.JapeakMyLibrary;
+            if(!store)throw Error('マイ教材を読み込めませんでした');
+            const saved=await store.listLessons();
+            const converted=saved.map(x=>store.asPracticeLesson(x)).filter(Boolean);
+            allJapeakData.push(...converted);
+            const chosen=converted.find(x=>x.id===targetId);
+            if(!chosen)throw Error('教材が見つかりませんでした。マイ教材から開き直してください');
+            currentLesson=chosen;
+            currentIndex=allJapeakData.indexOf(chosen);
+        }catch(error){
+            console.error('Could not load personal lesson:',error);
+            const output=$('voice-output');
+            if(output)output.textContent=error.message||'マイ教材を読み込めませんでした';
+            window.location.href='japeak-my.html';
+            return;
+        }
+    }
     if (!currentLesson) {
         alert('エラー：教材データが見つかりません。');
         return;
@@ -381,7 +413,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (langSelect) {
         langSelect.value = currentLang;
         langSelect.addEventListener('change', e => {
-            if (!Object.prototype.hasOwnProperty.call(langCodeMap, e.target.value)) return;
+            if (!Object.prototype.hasOwnProperty.call(langCodeMap, e.target.value) && !uiOnlyLanguages.has(e.target.value)) return;
             stopCurrentPractice();
             currentLang = e.target.value;
             isSwapped = false;
@@ -394,6 +426,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             renderLesson();
             setupSpeechRecognition();
+            window.JapeakPracticeView?.refreshLabels();
         });
     }
 
@@ -438,6 +471,12 @@ function stopCurrentPractice() {
         currentAudio.currentTime = 0;
     }
     if (window.speechSynthesis?.speaking) window.speechSynthesis.cancel();
+    if (pendingAudioUrl) { URL.revokeObjectURL(pendingAudioUrl); pendingAudioUrl = null; }
+    manualStopRequested = false;
+    awaitingFinish = false;
+    recordingStartPending = false;
+    recentSpeechText = '';
+    window.JapeakPracticeView?.reset();
 }
 
 function getPracticeUnits(lesson = currentLesson) {
@@ -537,27 +576,8 @@ function moveLesson(direction) {
     history.replaceState(null, '', `?id=${encodeURIComponent(currentLesson.id)}&lang=${encodeURIComponent(currentLang)}`);
 }
 
-window.toggleLanguageSwap = function() {
-    if (currentLang === 'ja') return; // Japanese is the learning target, not a foreign-language swap.
-    stopCurrentPractice();
-    isSwapped = !isSwapped;
-    sentenceMode = false;
-    selectedSentenceIndex = 0;
-
-    const swapBtn = $('btn-swap-lang');
-    if (swapBtn) {
-        if (isSwapped) {
-            swapBtn.classList.replace('bg-[#eab308]', 'bg-[#1e3a5f]');
-            swapBtn.classList.replace('hover:bg-[#ca8a04]', 'hover:bg-[#172a45]');
-        } else {
-            swapBtn.classList.replace('bg-[#1e3a5f]', 'bg-[#eab308]');
-            swapBtn.classList.replace('hover:bg-[#172a45]', 'hover:bg-[#ca8a04]');
-        }
-    }
-
-    renderLesson();
-    setupSpeechRecognition();
-};
+// Japeak is dedicated to Japanese reading. Display language only changes UI/help.
+window.toggleLanguageSwap = function() { return false; };
 
 function renderLesson() {
     if (!currentLesson) return;
@@ -576,8 +596,9 @@ function renderLesson() {
     });
     const swapButton = $('btn-swap-lang');
     if (swapButton) {
-        swapButton.disabled = currentLang === 'ja';
-        swapButton.title = currentLang === 'ja' ? '日本語を選択中は言語の入れ替えはできません' : '練習する言語を入れ替える';
+        swapButton.disabled = true;
+        swapButton.hidden = true;
+        swapButton.title = '日本語の音読練習専用です。言語の選択は操作案内と翻訳表示用です。';
         swapButton.classList.toggle('opacity-40', swapButton.disabled);
         swapButton.classList.toggle('cursor-not-allowed', swapButton.disabled);
     }
@@ -613,11 +634,12 @@ function renderLesson() {
     }
     updateSentenceModeControls();
 
-    if (voiceOutput) voiceOutput.textContent = '※「話す」ボタンを押してください';
+    if (voiceOutput) voiceOutput.textContent = '音読開始を押してください';
     if (accOutput) {
         accOutput.innerText = '—';
         accOutput.className = 'text-4xl font-black text-[#1e3a5f] mincho-font mt-1';
     }
+    window.JapeakPracticeView?.reset();
 }
 
 function renderDialogueLesson(sentenceContainer, transContainer) {
@@ -804,7 +826,7 @@ function setupSpeechRecognition() {
         if (voiceOutput) voiceOutput.textContent = '音声認識を初期化できませんでした。端末設定を確認してください。';
         return;
     }
-    recognition.lang = !isSwapped ? 'ja-JP' : (langCodeMap[currentLang] || 'en-US');
+    recognition.lang = 'ja-JP'; // 29 UI languages; speech recognition remains Japanese.
     recognition.interimResults = true;
     const mobileBrowser = typeof navigator !== 'undefined' && (
         /iPhone|iPad|iPod|Android/i.test(navigator.userAgent || '') ||
@@ -813,7 +835,7 @@ function setupSpeechRecognition() {
     recognition.continuous = !sentenceMode && !mobileBrowser;
     setRecognitionStatus('認識する言語：' + recognition.lang + '（対応状況は端末によって異なります）');
 
-    let finalTranscriptText = '', latestTranscriptText = '', recognitionFailed = false;
+    let finalTranscriptText = '', latestTranscriptText = '', recognitionFailed = false, finalized = false;
 
     recognition.onstart = () => {
         setRecognitionStatus('認識中：' + recognition.lang);
@@ -822,10 +844,18 @@ function setupSpeechRecognition() {
         finalTranscriptText = '';
         latestTranscriptText = '';
         recognitionFailed = false;
+        manualStopRequested = false;
+        awaitingFinish = false;
+        recordingStartPending = false;
+        finalized = false;
+        recentSpeechText = '';
+        window.JapeakPracticeView?.onStart();
 
         // 🌟 修正：録音中ボタンにスマホ用サイズと「改行禁止(whitespace-nowrap)」を追加
-        micBtn.innerHTML = '<span class="text-lg md:text-2xl">⏹</span> 停止 (Stop)';
-        micBtn.className = 'flex-1 w-full flex items-center justify-center gap-1.5 md:gap-3 py-2.5 md:py-4 bg-stone-700 hover:bg-stone-800 text-white rounded-sm font-black text-base md:text-xl shadow-inner tracking-widest whitespace-nowrap';
+        if(!window.JapeakPracticeView){
+            micBtn.innerHTML = '<span class="text-lg md:text-2xl">⏹</span> 停止 (Stop)';
+            micBtn.className = 'flex-1 w-full flex items-center justify-center gap-1.5 md:gap-3 py-2.5 md:py-4 bg-stone-700 hover:bg-stone-800 text-white rounded-sm font-black text-base md:text-xl shadow-inner tracking-widest whitespace-nowrap';
+        }
 
         if (voiceOutput) voiceOutput.textContent = '聞いています...';
         if (accOutput) {
@@ -844,11 +874,13 @@ function setupSpeechRecognition() {
             else interimText += fragment;
         }
         latestTranscriptText = finalTranscriptText + interimText;
+        recentSpeechText = latestTranscriptText;
         // Recognition transcripts are untrusted text; do not parse them as HTML.
         if (voiceOutput) voiceOutput.textContent = latestTranscriptText || '聞いています...';
         if (latestTranscriptText && accOutput) {
             const accuracy = calculateCurrentLessonAccuracy(latestTranscriptText);
             accOutput.innerText = accuracy + '%';
+            window.JapeakPracticeView?.onInterim(accuracy);
             accOutput.className = 'text-4xl font-black text-[#1e3a5f] opacity-70 mincho-font mt-1 transition-all duration-75';
         }
     };
@@ -869,42 +901,88 @@ function setupSpeechRecognition() {
         if (voiceOutput) voiceOutput.textContent = messages[event.error] || '音声認識でエラーが発生しました。もう一度お試しください。';
         isRecording = false;
         resetMicButton(micBtn);
+        awaitingFinish = false;
+        recordingStartPending = false;
+        window.JapeakPracticeView?.onError();
     };
 
+    function finishAttempt() {
+        if(finalized || recognitionFailed)return;
+        finalized = true;
+        manualStopRequested = false;
+        awaitingFinish = false;
+        recordingStartPending = false;
+        const speech = (finalTranscriptText.trim() || recentSpeechText.trim());
+        const accuracy = speech ? calculateCurrentLessonAccuracy(speech) : null;
+        if(accOutput) {
+            accOutput.innerText=accuracy===null?'—':accuracy+'%';
+            accOutput.className='text-4xl font-black mincho-font mt-1 transition-all duration-300 '+
+                (accuracy!==null&&accuracy>=90?'text-green-600':accuracy!==null&&accuracy>=50?'text-yellow-600':'text-[#1e3a5f]');
+        }
+        if(accuracy!==null && accuracy>=90 && !hasCelebrated){
+            hasCelebrated=true;
+            try{playSuccessSound();}catch(error){console.warn('Success audio unavailable:',error);}
+            try{fireConfetti();}catch(error){console.warn('Confetti unavailable:',error);}
+        }
+        if(accuracy===null)setRecognitionStatus('音声を認識できませんでした。もう一度お試しください。');
+        window.JapeakPracticeView?.onStop(accuracy,currentLesson?.id,sentenceMode?'sentence':'full');
+    }
+
     recognition.onend = () => {
-        if (!recognitionFailed) setRecognitionStatus('認識終了：' + recognition.lang);
+        if(!recognitionFailed)setRecognitionStatus('認識終了：' + recognition.lang);
         isRecording = false;
+        recordingStartPending = false;
         resetMicButton(micBtn);
+        if(recognitionFailed){
+            awaitingFinish=false;
+            window.JapeakPracticeView?.onError();
+            return;
+        }
+        if(manualStopRequested){finishAttempt();return;}
+        // On iPad/iPhone Web Speech may end automatically after a pause.
+        // Keep the transcript and wait for the learner's large "Finish" button.
+        awaitingFinish=true;
+        window.JapeakPracticeView?.onWaiting();
+        setRecognitionStatus('音声を受け取りました。「音読終了」で採点します。');
+    };
 
-        const finalText = finalTranscriptText.trim() || latestTranscriptText.trim();
-        if (recognitionFailed || !accOutput || !finalText) return;
-
-        const accuracy = calculateCurrentLessonAccuracy(finalText);
-        accOutput.innerText = `${accuracy}%`;
-
-        if (accuracy >= 80) {
-            accOutput.className = 'text-4xl font-black text-green-600 mincho-font mt-1 transition-all duration-300';
-            if (!hasCelebrated) {
-                hasCelebrated = true;
-                playSuccessSound();
-                fireConfetti();
+    window.JapeakPracticeControls = {
+        finish() {
+            if(finalized || recognitionFailed)return;
+            manualStopRequested=true;
+            if(isRecording || recordingStartPending){
+                try{recognition.stop();}
+                catch(error){
+                    console.warn('Microphone stop failed:',error);
+                    isRecording=false;
+                    finishAttempt();
+                }
+            }else if(awaitingFinish || recentSpeechText.trim()){
+                finishAttempt();
+            }else{
+                manualStopRequested=false;
+                setRecognitionStatus('まず「音読開始」を押してください。');
             }
-        } else if (accuracy >= 50) {
-            accOutput.className = 'text-4xl font-black text-yellow-600 mincho-font mt-1 transition-all duration-300';
-        } else {
-            accOutput.className = 'text-4xl font-black text-[#1e3a5f] mincho-font mt-1 transition-all duration-300';
         }
     };
 
     micBtn.onclick = () => {
+        if(isRecording || awaitingFinish || recordingStartPending)return;
         try {
-            if (isRecording) recognition.stop();
-            else recognition.start();
-        } catch (error) {
-            console.warn('Could not start/stop speech recognition:', error);
-            if (voiceOutput) voiceOutput.textContent = '音声認識を開始できませんでした。少し待ってからもう一度お試しください。';
-            isRecording = false;
+            manualStopRequested=false;
+            finalized=false;
+            recognitionFailed=false;
+            recentSpeechText='';
+            recordingStartPending=true;
+            micBtn.disabled=true;
+            recognition.start();
+        } catch(error) {
+            console.warn('Could not start recognition:',error);
+            if(voiceOutput)voiceOutput.textContent='音声認識を開始できませんでした。マイクの設定を確認してください。';
+            isRecording=false;
+            recordingStartPending=false;
             resetMicButton(micBtn);
+            window.JapeakPracticeView?.onError();
         }
     };
 }
@@ -929,6 +1007,10 @@ function calculateCurrentLessonAccuracy(spokenText) {
 
 function resetMicButton(btn) {
     if (!btn) return;
+    if(window.JapeakPracticeView){
+        window.JapeakPracticeView.refreshLabels();
+        return;
+    }
     // 🌟 修正：元に戻る時もスマホ用サイズと「改行禁止(whitespace-nowrap)」を適用
     btn.innerHTML = '<span class="text-lg md:text-2xl">🎙</span> 話す (Start)';
     btn.className = 'flex-1 w-full flex items-center justify-center gap-1.5 md:gap-3 py-2.5 md:py-4 bg-[#b91c1c] hover:bg-[#991b1b] text-white rounded-sm font-black text-base md:text-xl shadow-md border-b-[3px] md:border-b-4 border-[#7f1d1d] active:border-b-0 active:translate-y-1 transition-all tracking-widest whitespace-nowrap';
@@ -1022,6 +1104,10 @@ const speakerNameDictionary = {
 // メニューに戻る際、現在のカテゴリー状態をURLパラメータで渡す
 // ==========================================
 window.goBackToMenu = function() {
+    if (currentLesson?.myLesson || targetId?.startsWith('my_')) {
+        window.location.href = 'japeak-my.html?lang=' + encodeURIComponent(currentLang);
+        return;
+    }
     if (!currentLesson) {
         window.location.href = 'japeak-menu.html';
         return;

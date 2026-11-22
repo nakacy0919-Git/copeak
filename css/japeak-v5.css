@@ -1,0 +1,102 @@
+/* Japeak V5: modal-first navigation, robust native language selector and quiet shared photo. */
+.jpk-v5-overlay[hidden],.jpk-v5-dialog [hidden]{display:none!important}
+.jpk-v5-overlay{position:fixed;inset:0;z-index:9000;display:grid;place-items:center;padding:max(12px,env(safe-area-inset-top,0px)) max(12px,env(safe-area-inset-right,0px)) max(12px,env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px));background:rgba(3,20,42,.76);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.jpk-v5-dialog{width:min(910px,100%);max-height:min(780px,94dvh);max-height:min(780px,94svh);display:flex;flex-direction:column;min-height:0;overflow:hidden;background:#f7faf9;color:#1a3447;border:1px solid #edf9fb;border-radius:24px;box-shadow:0 28px 100px rgba(2,20,37,.55);font-family:'Noto Sans JP',system-ui,sans-serif}
+.jpk-v5-dialog:focus{outline:none}
+.jpk-v5-heading{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 23px;background:linear-gradient(125deg,#173c67,#117d76);color:white;flex-shrink:0}
+.jpk-v5-heading h2{font-size:clamp(1.16rem,2.5vw,1.45rem);line-height:1.48;font-weight:900;letter-spacing:.02em;margin:0}
+.jpk-v5-eyebrow{margin:0 0 4px;font-size:.68rem;letter-spacing:.12em;color:#d3f8ee;font-weight:800}
+.jpk-v5-close{width:43px;height:43px;flex-shrink:0;border-radius:13px;background:#ffffff21;color:white;border:1px solid #ffffff7c;font-size:1.6rem;font-weight:500;cursor:pointer;line-height:1}
+.jpk-v5-close:hover{background:#ffffff40}
+.jpk-v5-controls{padding:15px 20px 8px;flex-shrink:0;background:#f6fcfa;border-bottom:1px solid #deebe8}
+.jpk-v5-controls p{font-size:.76rem;font-weight:900;color:#2c5264;margin:0 0 7px}
+.jpk-v5-chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:13px}
+.jpk-v5-chip{min-height:38px;border:1px solid #c7dcd9;background:white;color:#245666;border-radius:999px;padding:7px 13px;font-size:.77rem;font-weight:800;line-height:1.4;white-space:nowrap;cursor:pointer}
+.jpk-v5-chip[aria-pressed="true"]{background:#146b7e;border-color:#146b7e;color:white}
+#jpk-v5-domains .jpk-v5-chip[aria-pressed="true"]{background:#137c69;border-color:#137c69}
+.jpk-v5-phrase-nav{flex-shrink:0;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 20px;background:#f0f8f6;border-bottom:1px solid #d9e8e4}
+#jpk-v5-back{border:1px solid #bdddd4;background:white;color:#105f5a;border-radius:11px;padding:10px 13px;font-size:.83rem;font-weight:900;cursor:pointer}
+#jpk-v5-counter{font-size:.75rem;font-weight:800;color:#53716d}
+.jpk-v5-scroll{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:18px 20px 24px}
+.jpk-v5-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.jpk-v5-scene{display:flex;align-items:center;gap:13px;min-width:0;min-height:79px;padding:14px;text-align:left;border:1px solid #cee1e4;border-radius:16px;background:white;color:#1c4d66;box-shadow:0 3px 8px #1a53620b;cursor:pointer;transition:background .18s,border .18s,transform .18s}
+.jpk-v5-scene:hover{background:#edf9f8;border-color:#8cc9c6;transform:translateY(-1px)}
+.jpk-v5-scene-icon{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;background:#e8f5f5;border-radius:13px;font-size:1.45rem}
+.jpk-v5-scene-label{display:flex;flex-direction:column;gap:4px;min-width:0;overflow-wrap:anywhere}
+.jpk-v5-scene-label strong{font-size:.9rem;line-height:1.45;font-weight:900}
+.jpk-v5-scene-label small{font-size:.69rem;font-weight:800;color:#6c8690}
+.jpk-v5-phrase{display:flex;justify-content:space-between;align-items:center;gap:12px;min-width:0;padding:16px;text-decoration:none;border:1px solid #d5e5e7;background:white;border-radius:16px;color:#213d52;transition:background .18s,border .18s}
+.jpk-v5-phrase:hover{background:#f0faf6;border-color:#7fc5b7}
+.jpk-v5-phrase > span:first-child{min-width:0;overflow-wrap:anywhere}
+.jpk-v5-phrase strong{display:block;font-size:.93rem;font-weight:900;line-height:1.55}
+.jpk-v5-phrase small{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:6px;font-size:.78rem;color:#61717e;line-height:1.55;white-space:pre-line}
+.jpk-v5-next{font-size:1.25rem;color:#127c71;font-weight:900;flex:0 0 auto}
+.jpk-v5-footer{flex-shrink:0;background:white;border-top:1px solid #d8e6e6;color:#5b7a85;font-size:.74rem;font-weight:800;padding:12px 20px}
+.jpk-v5-empty{grid-column:1/-1;text-align:center;padding:30px 6px;font-weight:800;color:#607d89}
+.jpk-v5-dialog button:focus-visible,.jpk-v5-dialog a:focus-visible{outline:3px solid #ed884c;outline-offset:2px}
+@media(max-width:640px){
+ .jpk-v5-overlay{padding:9px}
+ .jpk-v5-dialog{height:min(89svh,800px);max-height:89svh;border-radius:19px}
+ .jpk-v5-heading{padding:15px 16px}
+ .jpk-v5-close{width:40px;height:40px}
+ .jpk-v5-controls{padding:12px 12px 4px}
+ .jpk-v5-chips{gap:5px;margin-bottom:10px}
+ .jpk-v5-chip{font-size:.71rem;min-height:36px;padding:6px 10px}
+ .jpk-v5-scroll{padding:12px}
+ .jpk-v5-grid{grid-template-columns:1fr;gap:9px}
+ .jpk-v5-scene{min-height:69px;padding:10px 12px;border-radius:13px}
+ .jpk-v5-scene-icon{flex-basis:39px;width:39px;height:39px;font-size:1.3rem}
+ .jpk-v5-phrase{padding:13px}
+ .jpk-v5-phrase-nav{padding:9px 12px}
+ .jpk-v5-footer{padding:10px 12px}
+}
+/* Use the same photographic assets as the welcome page, but only as a soft backdrop. */
+body.japeak-stage3-menu,body.japeak-stage3-practice{
+ position:relative;isolation:isolate;min-height:100svh;background:#f3f6f4!important;
+}
+body.japeak-stage3-menu::before,body.japeak-stage3-practice::before{
+ content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+ background-image:linear-gradient(rgba(246,250,250,.87),rgba(246,250,250,.90)),url('../assets/japeak-bg-landscape.webp');
+ background-position:center;background-size:cover;background-repeat:no-repeat;
+}
+@media(orientation:portrait){
+ body.japeak-stage3-menu::before,body.japeak-stage3-practice::before{
+  background-image:linear-gradient(rgba(246,250,250,.88),rgba(246,250,250,.90)),url('../assets/japeak-bg-portrait.webp');
+  background-position:center center;
+ }
+}
+body.japeak-stage3-practice #main-pane,body.japeak-stage3-practice #side-pane>div{
+ background-color:rgba(255,255,255,.88)!important;backdrop-filter:blur(4px);
+}
+/* Native selects avoid letter-by-letter wrapping of long language names. */
+.jpk-v5-native-lang #custom-lang-wrapper{
+ width:clamp(144px,24vw,224px)!important;min-width:0;flex:0 1 auto;z-index:60;
+}
+.jpk-v5-native-lang #custom-lang-btn,.jpk-v5-native-lang #custom-lang-menu{display:none!important}
+.jpk-v5-native-lang #menu-lang-select,.jpk-v5-native-lang #lang-select{
+ display:block!important;box-sizing:border-box;width:100%;max-width:100%;min-width:0;
+ height:44px;padding:9px 28px 9px 12px;border:1px solid #75b4d5;border-radius:12px;
+ color:#fff;background:#087fbb;font-family:'Noto Sans JP',system-ui,sans-serif;
+ font-size:clamp(.8rem,1.8vw,.96rem);font-weight:800;line-height:1.4;
+ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+ -webkit-appearance:menulist;appearance:auto;cursor:pointer;
+}
+.jpk-v5-native-lang #menu-lang-select option,.jpk-v5-native-lang #lang-select option{background:#fff;color:#153c52}
+.jpk-v5-native-lang #custom-lang-wrapper>div:first-child{margin-bottom:4px}
+@media(max-width:600px){
+ .jpk-v5-native-lang #custom-lang-wrapper{width:clamp(140px,44vw,192px)!important}
+ .jpk-v5-native-lang #menu-lang-select,.jpk-v5-native-lang #lang-select{height:43px;font-size:.83rem;padding-left:9px}
+ .japeak-stage3-practice #layout-container{margin-top:13px;gap:13px}
+}
+/* Top header keeps the language chooser readable without pushing out QR/share. */
+.jpk-v4-home .jpk-v4-language{
+ width:clamp(124px,30vw,210px);min-width:0;max-width:210px;
+ text-overflow:ellipsis;white-space:nowrap;overflow:hidden;padding-right:13px;
+}
+.jpk-v4-home .top-actions{min-width:0}
+@media(max-width:600px){
+ .jpk-v4-home .jpk-v4-language{width:clamp(116px,31vw,164px);max-width:164px;font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){
+ .jpk-v5-dialog *, .jpk-v5-dialog{animation:none!important;transition:none!important}
+}

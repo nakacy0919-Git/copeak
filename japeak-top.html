@@ -94,6 +94,8 @@
         @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; } }
     </style>
     <link rel="stylesheet" href="css/japeak-v4.css?v=20261122-4">
+    <link rel="stylesheet" href="css/japeak-v5.css?v=20261122-5">
+    <link rel="stylesheet" href="css/japeak-practice-v6.css?v=20261122-6">
 </head>
 <body>
     <a class="skip-link" href="#main">メインコンテンツへ移動</a>
@@ -106,7 +108,6 @@
         <header class="topbar">
             <a class="brand" href="japeak-top.html" aria-label="Japeak トップへ"><img src="japeaklog.png" alt="" width="45" height="45"><span>Ja<strong>peak</strong></span></a>
             <nav class="top-actions" aria-label="トップナビゲーション"><select id="jpk-v4-lang" aria-label="表示言語を選択" class="jpk-v4-language"></select>
-                <a class="top-menu-link" href="japeak-menu.html">教材を探す</a>
                 <button type="button" class="site-qr-trigger japeak-qr-button" data-share-qr aria-label="JapeakをQRコードで共有" title="QRコードで共有">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM21 14v3M17 21h4M14 21v-2M21 21v-2"/></svg>
                 </button>
@@ -126,8 +127,10 @@
                     <a class="start-btn start-life" href="japeak-menu.html?mode=life" aria-label="生活で使う日本語を練習する">
                         <span class="symbol" aria-hidden="true">🏘️</span><span class="text"><strong>暮らしで話そう</strong><small>Daily Life Japanese</small></span><span class="arrow" aria-hidden="true">↗</span>
                     </a>
+                    <a class="start-btn start-my" href="japeak-my.html" aria-label="自分の日本語音読教材を読む・作る・整理する">
+                        <span class="symbol" aria-hidden="true">📚</span><span class="text"><strong>マイ教材</strong><small>Read · Create · Organize</small></span><span class="arrow" aria-hidden="true">↗</span>
+                    </a>
                 </div>
-                <a class="secondary-link" href="japeak-menu.html">すべての教材から選ぶ <span aria-hidden="true">→</span></a>
             </div>
             <div class="illustration" role="img" aria-label="日本の街と富士山、会話の言葉が浮かぶ明るいイラスト">
                 <div class="halo" aria-hidden="true"></div><div class="ring" aria-hidden="true"></div><div class="ring small" aria-hidden="true"></div>
@@ -142,6 +145,8 @@
     </div>
     <script src="js/japeak-v4-taxonomy.js?v=20261122-4"></script>
     <script src="js/japeak-v4-home.js?v=20261122-5"></script>
+    <script src="js/japeak-v5-catalog.js?v=20261122-5"></script>
+    <script src="js/japeak-v5-dialog.js?v=20261122-5"></script>
     <script src="share-qr.js?v=20261111-japeak"></script>
 </body>
 </html>
