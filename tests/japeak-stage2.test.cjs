@@ -30,6 +30,7 @@ test('NFKC input, katakana, spelling and ruby normalize consistently', () => {
 
 test('number readings, leading zeroes and common counters are correct', () => {
     assert.equal(utils.normalizeJapaneseText('10000'), 'いちまん');
+    assert.equal(utils.normalizeJapaneseText('10,000'), 'いちまん');
     assert.equal(utils.normalizeJapaneseText('１２３４５'), 'いちまんにせんさんびゃくよんじゅうご');
     assert.equal(utils.normalizeJapaneseText('090'), 'ぜろきゅうぜろ');
     assert.equal(utils.normalizeJapaneseText('1人と2人'), 'ひとりとふたり');
@@ -64,6 +65,8 @@ test('mobile recognition uses short sessions and reports recognition failures', 
     assert.match(app, /recognition\.continuous = !sentenceMode && !mobileBrowser/);
     assert.match(app, /recognitionFailed = true/);
     assert.match(app, /'language-not-supported'/);
+    assert.match(app, /function setRecognitionStatus/);
+    assert.match(html, /id="japeak-recognition-status"/);
 });
 
 test('accuracy display describes what is actually measured', () => {
