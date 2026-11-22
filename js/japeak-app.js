@@ -870,8 +870,10 @@ function setupSpeechRecognition() {
         window.JapeakPracticeView?.onStart();
 
         // 🌟 修正：録音中ボタンにスマホ用サイズと「改行禁止(whitespace-nowrap)」を追加
-        micBtn.innerHTML = '<span class="text-lg md:text-2xl">⏹</span> 停止 (Stop)';
-        micBtn.className = 'flex-1 w-full flex items-center justify-center gap-1.5 md:gap-3 py-2.5 md:py-4 bg-stone-700 hover:bg-stone-800 text-white rounded-sm font-black text-base md:text-xl shadow-inner tracking-widest whitespace-nowrap';
+        if(!window.JapeakPracticeView){
+            micBtn.innerHTML = '<span class="text-lg md:text-2xl">⏹</span> 停止 (Stop)';
+            micBtn.className = 'flex-1 w-full flex items-center justify-center gap-1.5 md:gap-3 py-2.5 md:py-4 bg-stone-700 hover:bg-stone-800 text-white rounded-sm font-black text-base md:text-xl shadow-inner tracking-widest whitespace-nowrap';
+        }
 
         if (voiceOutput) voiceOutput.textContent = '聞いています...';
         if (accOutput) {
@@ -1023,6 +1025,10 @@ function calculateCurrentLessonAccuracy(spokenText) {
 
 function resetMicButton(btn) {
     if (!btn) return;
+    if(window.JapeakPracticeView){
+        window.JapeakPracticeView.refreshLabels();
+        return;
+    }
     // 🌟 修正：元に戻る時もスマホ用サイズと「改行禁止(whitespace-nowrap)」を適用
     btn.innerHTML = '<span class="text-lg md:text-2xl">🎙</span> 話す (Start)';
     btn.className = 'flex-1 w-full flex items-center justify-center gap-1.5 md:gap-3 py-2.5 md:py-4 bg-[#b91c1c] hover:bg-[#991b1b] text-white rounded-sm font-black text-base md:text-xl shadow-md border-b-[3px] md:border-b-4 border-[#7f1d1d] active:border-b-0 active:translate-y-1 transition-all tracking-widest whitespace-nowrap';
