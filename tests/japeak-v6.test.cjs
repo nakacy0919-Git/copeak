@@ -217,3 +217,65 @@ test('iPad microphone remains reusable when learner finishes lesson one and swit
   assert.equal(records.at(-1).id,'three');
   context.stopCurrentPractice();
 });
+
+
+test('V9 English practice translations cover prompts, context headings and microphone states',()=>{
+  const source=fromRoot('js/japeak-practice-ui-v9.js');
+  assert.doesNotThrow(()=>new vm.Script(source));
+  const nodes=new Map([
+    ['jpk-v9-subtitle',{textContent:''}],
+    ['jpk-v9-menu',{textContent:''}],
+    ['jpk-v9-copeak',{textContent:''}],
+    ['jpk-v9-model-label',{textContent:''}],
+    ['jpk-v9-slow-label',{textContent:''}],
+    ['jpk-v9-context-label',{textContent:''}],
+    ['jpk-v9-translation-label',{textContent:''}],
+    ['jpk-v9-voice-label',{textContent:''}],
+    ['jpk-v9-language-label',{textContent:''}]
+  ]);
+  const document={
+    getElementById:id=>nodes.get(id)||null,
+    querySelector:()=>null,
+    documentElement:{lang:'ja'}
+  };
+  let lang='en';
+  const window={JapeakPracticeLanguage:()=>lang};
+  vm.runInNewContext(source,{window,document});
+  const ui=window.JapeakPracticeUI;
+  assert.equal(ui.t('voicePrompt'),'Press Start reading to begin.');
+  assert.equal(ui.t('statusReady',{language:'ja-JP'}),'Recognition language: ja-JP (availability depends on your device).');
+  assert.match(ui.t('statusStartTimeout'),/timed out/i);
+  assert.match(ui.t('errorNoSpeech'),/speech/i);
+  assert.equal(ui.t('context'),'When to use it');
+  assert.equal(ui.t('translation'),'Meaning');
+  ui.apply();
+  assert.equal(nodes.get('jpk-v9-subtitle').textContent,'Japanese Speaking Practice');
+  assert.equal(nodes.get('jpk-v9-context-label').textContent,'When to use it');
+  assert.equal(nodes.get('jpk-v9-translation-label').textContent,'Meaning');
+  assert.equal(nodes.get('jpk-v9-voice-label').textContent,'Your transcript');
+  assert.equal(nodes.get('jpk-v9-menu').textContent,'◀ Menu');
+  assert.equal(document.documentElement.lang,'en');
+  lang='ja';ui.apply();
+  assert.equal(nodes.get('jpk-v9-context-label').textContent,'いつ使うの？');
+  assert.equal(ui.t('voicePrompt'),'音読開始を押してください');
+});
+
+test('V9 context stays expanded, empty ornaments are removed and new assets load in order',()=>{
+  const view=fromRoot('js/japeak-practice-v6.js');
+  const css=fromRoot('css/japeak-practice-v9.css');
+  assert.match(view,/notes=document\.createElement\('section'\)/);
+  assert.match(view,/notes\.append\(heading,side\)/);
+  assert.doesNotMatch(view,/createElement\('details'\)/);
+  assert.match(css,/#jpk-v6-script-column::before/);
+  assert.match(css,/#jpk-v6-score-column::after/);
+  assert.match(css,/content:none!important;display:none!important/);
+  assert.match(css,/#jpk-v9-brand h1/);
+  const cssIndex=code.practice.indexOf('css/japeak-practice-v9.css');
+  assert.ok(cssIndex>code.practice.indexOf('css/japeak-practice-v6.css'));
+  const i18n=code.practice.indexOf('js/japeak-practice-ui-v9.js');
+  const app=code.practice.indexOf('js/japeak-app.js?v=20261122-10');
+  assert.ok(i18n>0 && i18n<app);
+  assert.match(code.app,/jpkText\('voicePrompt'/);
+  assert.match(code.app,/jpkText\('statusReady'/);
+  assert.match(code.app,/JapeakPracticeUI\?\.apply\(\)/);
+});
