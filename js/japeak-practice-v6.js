@@ -17,6 +17,34 @@ const supplemental={
   pt:{start:'Começar leitura',stop:'Terminar leitura',retry:'Tentar novamente',finish:'Concluir',score:'Correspondência de voz',transcript:'Transcrição',notes:'Contexto e significado',recorded:'Resultado salvo',savedTemporary:'Salvo neste dispositivo',empty:'Fala não reconhecida.'},
   es:{start:'Empezar lectura',stop:'Terminar lectura',retry:'Intentar de nuevo',finish:'Finalizar',score:'Coincidencia de voz',transcript:'Transcripción',notes:'Contexto y significado',recorded:'Resultado guardado',savedTemporary:'Guardado en este dispositivo',empty:'No se reconoció la voz.'}
 };
+/* Essential reading controls translated for all 29 instruction languages. */
+const extraCore={
+  tl:['Simulan ang pagbabasa','Tapusin ang pagbabasa','Subukan muli','Tapusin ang aralin','Pagkakatugma ng pagkilala'],
+  th:['เริ่มอ่านออกเสียง','จบการอ่าน','ลองอีกครั้ง','จบบทเรียน','ความตรงของการรู้จำ'],
+  my:['စတင်ဖတ်ရန်','ဖတ်ခြင်းပြီးဆုံး','ထပ်စမ်းရန်','သင်ခန်းစာပြီးဆုံး','အသံမှတ်မိမှုတူညီမှု'],
+  km:['ចាប់ផ្តើមអាន','បញ្ចប់ការអាន','សាកល្បងម្ដងទៀត','បញ្ចប់មេរៀន','ការផ្គូផ្គងសំឡេង'],
+  ne:['पढ्न सुरु गर्नुहोस्','पढाइ सक्नुहोस्','फेरि प्रयास गर्नुहोस्','पाठ समाप्त गर्नुहोस्','पहिचान मिलान'],
+  mn:['Уншиж эхлэх','Уншиж дуусгах','Дахин оролдох','Хичээл дуусгах','Танилтын тохирол'],
+  si:['කියවීම අරඹන්න','කියවීම අවසන්','නැවත උත්සාහ කරන්න','පාඩම අවසන්','හඳුනාගැනීමේ ගැලපීම'],
+  bn:['পড়া শুরু করুন','পড়া শেষ করুন','আবার চেষ্টা করুন','পাঠ শেষ করুন','শনাক্তকরণের মিল'],
+  fr:['Commencer la lecture','Terminer la lecture','Réessayer','Terminer la leçon','Correspondance vocale'],
+  ru:['Начать чтение','Закончить чтение','Попробовать снова','Завершить урок','Совпадение распознавания'],
+  uk:['Почати читати','Закінчити читання','Спробувати знову','Завершити урок','Збіг розпізнавання'],
+  hi:['पढ़ना शुरू करें','पढ़ना समाप्त करें','फिर से कोशिश करें','पाठ समाप्त करें','पहचान मिलान'],
+  ur:['پڑھنا شروع کریں','پڑھنا ختم کریں','دوبارہ کوشش کریں','سبق ختم کریں','آواز کی شناخت کی مطابقت'],
+  ar:['ابدأ القراءة','إنهاء القراءة','حاول مرة أخرى','إنهاء الدرس','تطابق التعرف على الصوت'],
+  de:['Lesen starten','Lesen beenden','Erneut versuchen','Lektion beenden','Erkennungsübereinstimmung'],
+  it:['Inizia a leggere','Termina lettura','Riprova','Termina lezione','Corrispondenza vocale'],
+  tr:['Okumaya başla','Okumayı bitir','Tekrar dene','Dersi bitir','Tanıma eşleşmesi'],
+  ms:['Mula membaca','Tamat membaca','Cuba lagi','Tamat pelajaran','Padanan pengecaman'],
+  uz:['O‘qishni boshlash','O‘qishni tugatish','Qayta urinish','Darsni tugatish','Tanib olish mosligi'],
+  fa:['شروع خواندن','پایان خواندن','تلاش دوباره','پایان درس','تطابق تشخیص گفتار']
+};
+for(const [code,values] of Object.entries(extraCore)){
+  const [start,stop,retry,finish,score]=values;
+  supplemental[code]={...supplemental.en,start,stop,retry,finish,score};
+}
+
 function label(key){const lang=root.JapeakPracticeLanguage?.()||'ja';return (supplemental[lang]||supplemental.en)[key]||supplemental.en[key]||key;}
 function arcSvg(value,labelText,compact=false){
   const percent=Number.isFinite(value)?Math.min(100,Math.max(0,Math.round(value))):null;
