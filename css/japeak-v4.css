@@ -58,3 +58,9 @@ html:has(.jpk-v4-home),body:has(.jpk-v4-home){height:100%;overflow:hidden;oversc
 .jpk-v4-reopen{width:100%;min-height:56px;text-align:center;border-radius:15px;border:1px solid #b6d0d1;background:#e9f8f5;color:#136957;padding:12px 20px;font-weight:900;box-shadow:0 4px 12px #0c334b18}
 .jpk-v4-reopen:hover{background:#d5f4ec}
 @media(max-width:600px){.jpk-v4-home .jpk-v4-language{min-width:85px;max-width:125px;height:33px;padding:5px 6px;font-size:12px}}
+
+/* Missing image assets never leave an empty/broken hero. */
+.jpk-v4-home.jpk-v4-photo-error{background:radial-gradient(circle at 23% 40%,#27587e,#0b1932 70%)}
+.jpk-v4-home.jpk-v4-photo-error .jpk-v4-photo{display:none}
+.jpk-v4-home.jpk-v4-photo-error .illustration{display:block;position:absolute;left:4%;top:16%;width:48%;height:65%;min-height:0;opacity:.9}
+@media(orientation:portrait){.jpk-v4-home.jpk-v4-photo-error .illustration{top:32%;left:10%;width:80%;height:37%;opacity:.68}}
