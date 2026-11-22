@@ -36,7 +36,7 @@ test('all modified JavaScript files parse and scripts load in dependency order',
         assert.doesNotThrow(() => new vm.Script(code));
     }
     assert.ok(menuHtml.indexOf('src="js/japeak-learning-history.js"') < menuHtml.indexOf('src="js/japeak-menu-main.js"'));
-    assert.ok(practiceHtml.indexOf('src="js/japeak-learning-history.js"') < practiceHtml.indexOf('src="js/japeak-app.js"'));
+    assert.ok(practiceHtml.indexOf('src="js/japeak-learning-history.js"') < practiceHtml.indexOf('src="js/japeak-app.js?v=20261122-9"'));
 });
 
 test('animated welcome is navigable with direct school/life routes and respects reduced motion', () => {

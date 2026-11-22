@@ -93,6 +93,7 @@ function buttons(recording,awaiting=false){
   const button=$('mic-btn');
   const finishing=recording||awaiting;
   if(button){
+    button.removeAttribute('aria-busy');
     button.disabled=!(root.SpeechRecognition||root.webkitSpeechRecognition);
     button.dataset.action=finishing?'stop':'start';
     button.setAttribute('aria-pressed',finishing?'true':'false');
@@ -189,7 +190,24 @@ root.JapeakPracticeView={
     updateGauge(null);
     closeResult();
   },
-  onStart(){buttons(true);updateGauge(null);},
+  onStarting(){
+    const button=$('mic-btn'),panel=$('jpk-v6-score-column');
+    if(button){
+      button.disabled=false;
+      button.dataset.action='starting';
+      button.setAttribute('aria-busy','true');
+      button.setAttribute('aria-label',label('start'));
+      button.textContent='… '+label('start');
+    }
+    if(panel)panel.dataset.recording='starting';
+    updateGauge(null);
+  },
+  onStart(){
+    const button=$('mic-btn');
+    if(button)button.removeAttribute('aria-busy');
+    buttons(true);
+    updateGauge(null);
+  },
   // Transcription remains live; the gauge is updated only after the learner ends the reading.
   onInterim(){},
   onWaiting(){buttons(false,true);},
@@ -203,7 +221,8 @@ root.JapeakPracticeView={
   refreshLabels(){
     if(!initialized)return;
     const panel=$('jpk-v6-score-column');
-    buttons(panel?.dataset.recording==='true',panel?.dataset.recording==='waiting');
+    if(panel?.dataset.recording==='starting')this.onStarting();
+    else buttons(panel?.dataset.recording==='true',panel?.dataset.recording==='waiting');
     const notes=document.querySelector('#jpk-v6-notes summary');
     if(notes)notes.textContent=label('notes');
     const transcript=document.querySelector('#jpk-v6-transcript-box > div:first-child');

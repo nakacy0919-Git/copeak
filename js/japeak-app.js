@@ -82,6 +82,7 @@ let currentIndex = 0, currentLesson = null, currentLang = 'en', recognition = nu
 let isRecording = false, hasCelebrated = false, isSwapped = false;
 let sentenceMode = false, selectedSentenceIndex = 0, practiceUnits = [];
 let manualStopRequested = false, awaitingFinish = false, recordingStartPending = false;
+let speechSessionId = 0, speechStartWatchdog = null;
 let recentSpeechText = '', pendingAudioUrl = null;
 const uiOnlyLanguages = new Set(['hi','ur','ar','de','it','tr','ms','uz','fa']);
 window.JapeakPracticeLanguage = () => currentLang;
@@ -456,16 +457,38 @@ function getCategoryLessons() {
     return allJapeakData.filter(item => item.category === currentLesson.category);
 }
 
+// Always retire old recognition callbacks, including iPad's delayed onend/onerror.
+// A late event from lesson A must never affect the microphone for lesson B.
+function clearSpeechStartWatchdog() {
+    if (speechStartWatchdog !== null) {
+        clearTimeout(speechStartWatchdog);
+        speechStartWatchdog = null;
+    }
+}
+function disposeRecognition() {
+    clearSpeechStartWatchdog();
+    speechSessionId++;
+    const previous = recognition;
+    recognition = null;
+    if (previous) {
+        previous.onstart = null;
+        previous.onresult = null;
+        previous.onerror = null;
+        previous.onend = null;
+        if (isRecording || recordingStartPending) {
+            try { previous.abort(); } catch (error) { console.warn('Could not abort previous speech recognition:', error); }
+        }
+    }
+    isRecording = false;
+    recordingStartPending = false;
+    awaitingFinish = false;
+    manualStopRequested = false;
+    window.JapeakPracticeControls = null;
+}
+
 // Leave no active microphone or audio behind when changing lessons or languages.
 function stopCurrentPractice() {
-    if (recognition && isRecording) {
-        recognition.onresult = null;
-        recognition.onerror = null;
-        recognition.onend = null;
-        try { recognition.abort(); } catch (error) { console.warn('Could not abort recognition:', error); }
-        isRecording = false;
-        resetMicButton($('mic-btn'));
-    }
+    disposeRecognition();
     if (currentAudio) {
         currentAudio.pause();
         currentAudio.currentTime = 0;
@@ -810,9 +833,9 @@ function setupSpeechRecognition() {
         return;
     }
 
-    if (recognition && isRecording) {
-        try { recognition.stop(); } catch (e) { console.warn(e); }
-    }
+    // Recreating recognition is safe only after retiring the preceding lesson's
+    // callbacks; otherwise Safari can send its delayed events into the next lesson.
+    if (recognition) disposeRecognition();
 
     try {
         recognition = new SpeechRecognition();
@@ -823,6 +846,9 @@ function setupSpeechRecognition() {
         if (voiceOutput) voiceOutput.textContent = '音声認識を初期化できませんでした。端末設定を確認してください。';
         return;
     }
+    const sessionRecognition = recognition;
+    const sessionId = ++speechSessionId;
+    const isCurrentSession = () => recognition === sessionRecognition && speechSessionId === sessionId;
     recognition.lang = 'ja-JP'; // 29 UI languages; speech recognition remains Japanese.
     recognition.interimResults = true;
     const mobileBrowser = typeof navigator !== 'undefined' && (
@@ -835,7 +861,9 @@ function setupSpeechRecognition() {
     let finalTranscriptText = '', latestTranscriptText = '', recognitionFailed = false, finalized = false;
 
     recognition.onstart = () => {
-        setRecognitionStatus('認識中：' + recognition.lang);
+        if (!isCurrentSession()) return;
+        clearSpeechStartWatchdog();
+        setRecognitionStatus('認識中：' + sessionRecognition.lang);
         isRecording = true;
         hasCelebrated = false;
         finalTranscriptText = '';
@@ -862,6 +890,14 @@ function setupSpeechRecognition() {
     };
 
     recognition.onresult = event => {
+        if (!isCurrentSession()) return;
+        // Some iPad browsers deliver the first result before their onstart event.
+        if (recordingStartPending) {
+            clearSpeechStartWatchdog();
+            isRecording = true;
+            recordingStartPending = false;
+            window.JapeakPracticeView?.onStart();
+        }
         let interimText = '';
         finalTranscriptText = '';
         for (let i = 0; i < event.results.length; i++) {
@@ -878,6 +914,8 @@ function setupSpeechRecognition() {
     };
 
     recognition.onerror = event => {
+        if (!isCurrentSession()) return;
+        clearSpeechStartWatchdog();
         recognitionFailed = true;
         setRecognitionStatus('音声認識のエラー：' + (event.error || 'unknown'));
         console.warn('Speech recognition error:', event.error);
@@ -921,7 +959,9 @@ function setupSpeechRecognition() {
     }
 
     recognition.onend = () => {
-        if(!recognitionFailed)setRecognitionStatus('認識終了：' + recognition.lang);
+        if (!isCurrentSession()) return;
+        clearSpeechStartWatchdog();
+        if(!recognitionFailed)setRecognitionStatus('認識終了：' + sessionRecognition.lang);
         isRecording = false;
         recordingStartPending = false;
         resetMicButton(micBtn);
@@ -931,6 +971,12 @@ function setupSpeechRecognition() {
             return;
         }
         if(manualStopRequested){finishAttempt();return;}
+        if(!recentSpeechText.trim()){
+            awaitingFinish=false;
+            window.JapeakPracticeView?.onError();
+            setRecognitionStatus('音声が聞き取れませんでした。もう一度「音読開始」を押してください。');
+            return;
+        }
         // On iPad/iPhone Web Speech may end automatically after a pause.
         // Keep the transcript and wait for the learner's large "Finish" button.
         awaitingFinish=true;
@@ -959,26 +1005,44 @@ function setupSpeechRecognition() {
     };
 
     micBtn.onclick = () => {
-        // One accessible button toggles Start -> Finish, including iPad's automatic speech-end waiting state.
+        // One accessible control can start, cancel pending startup or finish reading.
         if(isRecording || awaitingFinish){
             window.JapeakPracticeControls?.finish();
             return;
         }
-        if(recordingStartPending)return;
+        if(recordingStartPending){
+            disposeRecognition();
+            setupSpeechRecognition();
+            window.JapeakPracticeView?.onError();
+            setRecognitionStatus('マイクの準備を中止しました。もう一度お試しください。');
+            return;
+        }
         try {
             manualStopRequested=false;
             finalized=false;
             recognitionFailed=false;
             recentSpeechText='';
             recordingStartPending=true;
-            micBtn.disabled=true;
-            recognition.start();
+            window.JapeakPracticeView?.onStarting?.();
+            setRecognitionStatus('マイクを起動しています…');
+            // Do not disable the only button while waiting for Web Speech's onstart.
+            // If iPad never sends onstart/onerror, automatically re-arm the next tap.
+            clearSpeechStartWatchdog();
+            speechStartWatchdog=setTimeout(() => {
+                if(!isCurrentSession() || !recordingStartPending)return;
+                disposeRecognition();
+                setupSpeechRecognition();
+                window.JapeakPracticeView?.onError();
+                if(voiceOutput)voiceOutput.textContent='マイクの起動を確認できませんでした。もう一度音読開始を押してください。';
+                setRecognitionStatus('音声認識の開始がタイムアウトしました。再度お試しください。');
+            }, 15000);
+            sessionRecognition.start();
         } catch(error) {
             console.warn('Could not start recognition:',error);
-            if(voiceOutput)voiceOutput.textContent='音声認識を開始できませんでした。マイクの設定を確認してください。';
-            isRecording=false;
-            recordingStartPending=false;
-            resetMicButton(micBtn);
+            disposeRecognition();
+            setupSpeechRecognition();
+            if(voiceOutput)voiceOutput.textContent='音声認識を開始できませんでした。もう一度お試しください。';
+            setRecognitionStatus('マイクを起動できませんでした。もう一度「音読開始」を押してください。');
             window.JapeakPracticeView?.onError();
         }
     };

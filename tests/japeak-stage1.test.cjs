@@ -39,7 +39,9 @@ test('previous and next navigation is limited to the selected category', () => {
 });
 
 test('moving to another lesson cancels active recognition and audio', () => {
-  assert.match(app, /recognition\.abort\(\)/);
+  assert.match(app, /function disposeRecognition\(\)/);
+  assert.match(app, /previous\.abort\(\)/);
+  assert.match(app, /previous\.onend = null/);
   assert.match(app, /currentAudio\.pause\(\)/);
   assert.match(app, /stopCurrentPractice\(\);[\s\S]*?currentLesson = nextLesson/);
 });

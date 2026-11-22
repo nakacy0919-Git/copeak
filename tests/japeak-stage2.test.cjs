@@ -13,7 +13,7 @@ const html = fs.readFileSync(path.join(root, 'japeak.html'), 'utf8');
 test('stage 2 JavaScript parses and utilities load before application', () => {
     assert.doesNotThrow(() => new vm.Script(app));
     const utilsTag = html.indexOf('src="js/japeak-speech-utils.js"');
-    const appTag = html.indexOf('src="js/japeak-app.js"');
+    const appTag = html.indexOf('src="js/japeak-app.js?v=20261122-9"');
     assert.ok(utilsTag >= 0 && appTag > utilsTag);
 });
 
