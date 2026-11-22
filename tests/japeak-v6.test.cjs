@@ -41,7 +41,7 @@ test('29 language labels render instructions without changing Japanese target',(
       assert.ok(locale.t(lang,key),lang+' '+key);
   }
   assert.match(locale.t('id','create'),/materi/);
-  assert.match(code.app,/recognition\.lang = !isSwapped \? 'ja-JP'/);
+  assert.match(code.app,/recognition\.lang = 'ja-JP'/);
   assert.match(code.app,/uiOnlyLanguages/);
 });
 test('personal library supports create, edit, move, rename and safe folder delete',async()=>{
