@@ -741,6 +741,11 @@ function highlightNormalLine(index, total, block) {
     if (targetSpan) targetSpan.classList.add('bg-[#eab308]','text-white','shadow-sm','font-bold');
 }
 
+function setRecognitionStatus(message) {
+    const status = $('japeak-recognition-status');
+    if (status) status.textContent = message;
+}
+
 function setupSpeechRecognition() {
     if (!japeakSpeech) {
         const output = $('voice-output');
@@ -753,6 +758,7 @@ function setupSpeechRecognition() {
     if (!micBtn) return;
 
     if (!window.SpeechRecognition) {
+        setRecognitionStatus('音声認識：このブラウザでは利用できません');
         micBtn.disabled = true;
         micBtn.innerHTML = 'このブラウザでは音声認識が使えません';
         micBtn.className = 'flex-1 w-full py-4 bg-stone-400 text-white rounded-sm font-bold text-base whitespace-nowrap';
@@ -769,17 +775,23 @@ function setupSpeechRecognition() {
     } catch (error) {
         console.warn('Speech recognition initialization failed:', error);
         micBtn.disabled = true;
+        setRecognitionStatus('音声認識：初期化できませんでした');
         if (voiceOutput) voiceOutput.textContent = '音声認識を初期化できませんでした。端末設定を確認してください。';
         return;
     }
     recognition.lang = !isSwapped ? 'ja-JP' : (langCodeMap[currentLang] || 'en-US');
     recognition.interimResults = true;
-    const mobileBrowser = typeof navigator !== 'undefined' && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent || '');
+    const mobileBrowser = typeof navigator !== 'undefined' && (
+        /iPhone|iPad|iPod|Android/i.test(navigator.userAgent || '') ||
+        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+    );
     recognition.continuous = !sentenceMode && !mobileBrowser;
+    setRecognitionStatus('認識する言語：' + recognition.lang + '（対応状況は端末によって異なります）');
 
     let finalTranscriptText = '', latestTranscriptText = '', recognitionFailed = false;
 
     recognition.onstart = () => {
+        setRecognitionStatus('認識中：' + recognition.lang);
         isRecording = true;
         hasCelebrated = false;
         finalTranscriptText = '';
@@ -818,6 +830,7 @@ function setupSpeechRecognition() {
 
     recognition.onerror = event => {
         recognitionFailed = true;
+        setRecognitionStatus('音声認識のエラー：' + (event.error || 'unknown'));
         console.warn('Speech recognition error:', event.error);
         const messages = {
             'not-allowed': 'マイクまたは音声認識が許可されていません。端末とブラウザの設定を確認してください。',
@@ -834,6 +847,7 @@ function setupSpeechRecognition() {
     };
 
     recognition.onend = () => {
+        if (!recognitionFailed) setRecognitionStatus('認識終了：' + recognition.lang);
         isRecording = false;
         resetMicButton(micBtn);
 
