@@ -80,6 +80,8 @@ if (typeof japeakB1CareerConsultationData !== 'undefined') allJapeakData = allJa
 // 🌟 修正ポイント1：currentAudio を追加しました
 let currentIndex = 0, currentLesson = null, currentLang = 'en', recognition = null, currentAudio = null;
 let isRecording = false, hasCelebrated = false, isSwapped = false;
+let sentenceMode = false, selectedSentenceIndex = 0, practiceUnits = [];
+const japeakSpeech = window.JapeakSpeechUtils;
 
 const langCodeMap = {
     ja:'ja-JP',en:'en-US','zh-CN':'zh-CN','zh-TW':'zh-TW',ko:'ko-KR',vi:'vi-VN',tl:'fil-PH',id:'id-ID',
@@ -267,19 +269,24 @@ function selectBestVoice(langCode) {
 }
 
 function speakWithBrowserVoice(text, langCode, rate = 0.95) {
-    if (!text) return;
+    if (!text || !window.speechSynthesis || typeof SpeechSynthesisUtterance === 'undefined') return;
     window.speechSynthesis.cancel();
-
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = langCode; utterance.rate = rate; utterance.pitch = 1.0;
-
+    utterance.lang = langCode;
+    utterance.rate = rate;
+    utterance.pitch = 1.0;
     const voice = selectBestVoice(langCode);
-    if (voice) {
-        utterance.voice = voice;
-        window.speechSynthesis.speak(utterance);
-    } else {
-        alert(`【音声データが見つかりません】\nお使いの端末（ブラウザ）には ${langCode} の音声データが入っていません。\n\n💡 Google Chromeブラウザを使用してください。`);
-    }
+    if (voice) utterance.voice = voice;
+    // Voice enumeration is often empty at first on iOS; the browser may still
+    // synthesize its default language voice. Avoid incorrectly rejecting it.
+    utterance.onerror = event => {
+        console.warn('Speech synthesis failed:', event.error);
+        const output = $('voice-output');
+        if (output && !isRecording) {
+            output.textContent = 'お手本音声を再生できませんでした。端末の音声設定を確認してください。';
+        }
+    };
+    window.speechSynthesis.speak(utterance);
 }
 
 // スピード調整＆再生/停止トグル対応のお手本音声再生
@@ -310,6 +317,16 @@ function playExampleAudio(speed = 1.0) {
         currentAudio.currentTime = 0;
     }
     window.speechSynthesis.cancel();
+
+    // Short utterances use the browser voice; full lessons retain their existing MP3s.
+    if (sentenceMode) {
+        const unit = practiceUnits[selectedSentenceIndex];
+        if (!unit) return;
+        const speech = isSwapped ? unit.foreign : unit.japanese;
+        const lang = isSwapped ? langCodeMap[currentLang] || 'en-US' : 'ja-JP';
+        speakWithBrowserVoice(speech, lang, 0.95 * speed);
+        return;
+    }
 
     // 3. 新しく音声を再生する処理
     if (isSwapped) {
@@ -350,6 +367,8 @@ document.addEventListener('DOMContentLoaded', () => {
             stopCurrentPractice();
             currentLang = e.target.value;
             isSwapped = false;
+            sentenceMode = false;
+            selectedSentenceIndex = 0;
             const swapBtn = $('btn-swap-lang');
             if (swapBtn) {
                 swapBtn.classList.replace('bg-[#1e3a5f]', 'bg-[#eab308]');
@@ -372,6 +391,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const btnNext = $('btn-next');
     if (btnNext) btnNext.onclick = () => moveLesson(1);
+
+    const modeButton = $('btn-sentence-mode');
+    if (modeButton) modeButton.onclick = () => setSentenceMode(!sentenceMode);
+    const prevSentence = $('btn-sentence-prev');
+    if (prevSentence) prevSentence.onclick = () => chooseSentence(selectedSentenceIndex - 1);
+    const nextSentence = $('btn-sentence-next');
+    if (nextSentence) nextSentence.onclick = () => chooseSentence(selectedSentenceIndex + 1);
 });
 
 function getCategoryLessons() {
@@ -396,6 +422,85 @@ function stopCurrentPractice() {
     if (window.speechSynthesis?.speaking) window.speechSynthesis.cancel();
 }
 
+function getPracticeUnits(lesson = currentLesson) {
+    if (!lesson || !japeakSpeech) return [];
+    if (isDialogueLesson(lesson)) {
+        const lines = getDialogueTranslationLines(lesson, currentLang);
+        const hasAlignedTranslation = lines.length === lesson.dialogue.length;
+        return lesson.dialogue.map((turn, index) => ({
+            japanese: turn.target || turn.line || '',
+            ruby: turn.ruby || turn.line || '',
+            foreign: hasAlignedTranslation ? stripSpeakerPrefix(lines[index]) : ''
+        }));
+    }
+
+    const displayParts = japeakSpeech.splitJapaneseSentencesFromHtml(getRubyDisplayText(lesson));
+    const targetParts = japeakSpeech.splitJapaneseSentencesFromHtml(getJapanesePracticeTarget(lesson));
+    const translatedParts = japeakSpeech.splitTranslatedSentences(getForeignPracticeTarget(lesson, currentLang));
+    const sameTargetCount = targetParts.length === displayParts.length;
+    const sameTranslationCount = translatedParts.length === displayParts.length;
+    return displayParts.map((ruby, index) => ({
+        japanese: sameTargetCount ? japeakSpeech.stripRubyMarkup(targetParts[index]) : japeakSpeech.stripRubyMarkup(ruby),
+        ruby,
+        foreign: sameTranslationCount ? translatedParts[index] : ''
+    }));
+}
+
+function canUseSentenceMode() {
+    return practiceUnits.length > 1 && (!isSwapped || practiceUnits.every(unit => unit.foreign));
+}
+
+function updateFocusedSentence() {
+    document.querySelectorAll('[id^="reading-block-"]').forEach(block => {
+        block.classList.remove('bg-amber-50', 'border-amber-400', 'ring-2', 'ring-amber-200', 'opacity-60');
+        if (!sentenceMode) return;
+        if (block.id === 'reading-block-' + selectedSentenceIndex) {
+            block.classList.add('bg-amber-50', 'border-amber-400', 'ring-2', 'ring-amber-200');
+        } else {
+            block.classList.add('opacity-60');
+        }
+    });
+}
+
+function updateSentenceModeControls() {
+    const toolbar = $('sentence-practice-tools');
+    if (!toolbar) return;
+    if (!canUseSentenceMode()) sentenceMode = false;
+    toolbar.classList.toggle('hidden', !canUseSentenceMode());
+    const toggle = $('btn-sentence-mode');
+    if (toggle) {
+        toggle.textContent = sentenceMode ? '全文を練習' : '1文ずつ練習';
+        toggle.setAttribute('aria-pressed', String(sentenceMode));
+    }
+    const prev = $('btn-sentence-prev');
+    const next = $('btn-sentence-next');
+    const progress = $('sentence-progress');
+    if (prev) prev.disabled = !sentenceMode || selectedSentenceIndex <= 0;
+    if (next) next.disabled = !sentenceMode || selectedSentenceIndex >= practiceUnits.length - 1;
+    if (progress) progress.textContent = sentenceMode
+        ? (selectedSentenceIndex + 1) + ' / ' + practiceUnits.length + ' 文'
+        : '全 ' + practiceUnits.length + ' 文';
+    updateFocusedSentence();
+}
+
+function chooseSentence(index) {
+    if (!sentenceMode || index < 0 || index >= practiceUnits.length) return;
+    if (selectedSentenceIndex === index) return;
+    stopCurrentPractice();
+    selectedSentenceIndex = index;
+    renderLesson();
+    setupSpeechRecognition();
+}
+
+function setSentenceMode(enabled) {
+    if (enabled && !canUseSentenceMode()) return;
+    stopCurrentPractice();
+    sentenceMode = enabled;
+    selectedSentenceIndex = 0;
+    renderLesson();
+    setupSpeechRecognition();
+}
+
 function moveLesson(direction) {
     const categoryLessons = getCategoryLessons();
     const position = categoryLessons.findIndex(item => item === currentLesson || item.id === currentLesson?.id);
@@ -404,6 +509,8 @@ function moveLesson(direction) {
 
     stopCurrentPractice();
     currentLesson = nextLesson;
+    sentenceMode = false;
+    selectedSentenceIndex = 0;
     currentIndex = allJapeakData.indexOf(currentLesson);
     renderLesson();
     setupSpeechRecognition();
@@ -414,6 +521,8 @@ window.toggleLanguageSwap = function() {
     if (currentLang === 'ja') return; // Japanese is the learning target, not a foreign-language swap.
     stopCurrentPractice();
     isSwapped = !isSwapped;
+    sentenceMode = false;
+    selectedSentenceIndex = 0;
 
     const swapBtn = $('btn-swap-lang');
     if (swapBtn) {
@@ -433,6 +542,8 @@ window.toggleLanguageSwap = function() {
 function renderLesson() {
     if (!currentLesson) return;
 
+    practiceUnits = getPracticeUnits();
+    selectedSentenceIndex = Math.min(selectedSentenceIndex, Math.max(0, practiceUnits.length - 1));
     const categoryLessons = getCategoryLessons();
     const lessonPosition = categoryLessons.findIndex(item => item === currentLesson || item.id === currentLesson.id);
     [['btn-prev', lessonPosition <= 0], ['btn-next', lessonPosition >= categoryLessons.length - 1]].forEach(([id, disabled]) => {
@@ -479,10 +590,11 @@ function renderLesson() {
         if (isDialogue) renderDialogueLesson(sentenceContainer, transContainer);
         else renderNormalLesson(sentenceContainer, transContainer, isLongText);
     }
+    updateSentenceModeControls();
 
     if (voiceOutput) voiceOutput.textContent = '※「話す」ボタンを押してください';
     if (accOutput) {
-        accOutput.innerText = '0%';
+        accOutput.innerText = '—';
         accOutput.className = 'text-4xl font-black text-[#1e3a5f] mincho-font mt-1';
     }
 }
@@ -552,6 +664,7 @@ function createDialogueLineBlock(turn, index, mainTextHtml, subText, isJapaneseM
     block.onclick = () => {
         document.querySelectorAll('[id^="reading-block-"]').forEach(b => b.classList.remove('bg-emerald-50','border-emerald-300','scale-[1.01]'));
         document.querySelectorAll('[id^="trans-span-"]').forEach(s => s.classList.remove('bg-[#eab308]','text-white','shadow-sm','font-bold'));
+        if (sentenceMode) { chooseSentence(index); return; }
         block.classList.add('bg-emerald-50','border-emerald-300','scale-[1.01]');
         const targetSpan = $(`trans-span-${index}`);
         if (targetSpan) targetSpan.classList.add('bg-[#eab308]','text-white','shadow-sm','font-bold');
@@ -563,8 +676,9 @@ function createDialogueLineBlock(turn, index, mainTextHtml, subText, isJapaneseM
 function renderNormalLesson(sentenceContainer, transContainer, isLongText) {
     sentenceContainer.className = 'flex flex-col gap-6 md:gap-8 mx-auto w-fit transition-all duration-300';
 
-    const jpLines = getRubyDisplayText(currentLesson).split('<br>');
-    const roLines = getRomajiDisplayText(currentLesson).split('<br>');
+    const jpLines = japeakSpeech.splitJapaneseSentencesFromHtml(getRubyDisplayText(currentLesson));
+    const romajiParts = getRomajiDisplayText(currentLesson).split('<br>');
+    const roLines = romajiParts.length === jpLines.length ? romajiParts : [];
     const rawTrans = getTranslationText(currentLesson, currentLang);
     const transSentences = rawTrans.match(/.*?[.?!。？！]+(?:\s+|$)|.+$/g) || [rawTrans];
 
@@ -611,7 +725,7 @@ function createNormalLineBlock(index, innerHtml, total) {
         <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity text-[10px] text-emerald-600 font-bold bg-emerald-50 px-2 py-1 rounded-full border border-emerald-200 flex items-center gap-1"><span>👆</span> 意味を確認</div>
         ${innerHtml}
     `;
-    block.onclick = () => highlightNormalLine(index, total, block);
+    block.onclick = () => sentenceMode ? chooseSentence(index) : highlightNormalLine(index, total, block);
     return block;
 }
 
@@ -627,6 +741,11 @@ function highlightNormalLine(index, total, block) {
 }
 
 function setupSpeechRecognition() {
+    if (!japeakSpeech) {
+        const output = $('voice-output');
+        if (output) output.textContent = '採点機能を読み込めませんでした。ページを再読み込みしてください。';
+        return;
+    }
     window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
     const voiceOutput = $('voice-output'), accOutput = $('acc-output'), micBtn = $('mic-btn');
@@ -644,17 +763,27 @@ function setupSpeechRecognition() {
         try { recognition.stop(); } catch (e) { console.warn(e); }
     }
 
-    recognition = new SpeechRecognition();
+    try {
+        recognition = new SpeechRecognition();
+    } catch (error) {
+        console.warn('Speech recognition initialization failed:', error);
+        micBtn.disabled = true;
+        if (voiceOutput) voiceOutput.textContent = '音声認識を初期化できませんでした。端末設定を確認してください。';
+        return;
+    }
     recognition.lang = !isSwapped ? 'ja-JP' : (langCodeMap[currentLang] || 'en-US');
     recognition.interimResults = true;
-    recognition.continuous = true;
+    const mobileBrowser = typeof navigator !== 'undefined' && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent || '');
+    recognition.continuous = !sentenceMode && !mobileBrowser;
 
-    let finalTranscriptText = '';
+    let finalTranscriptText = '', latestTranscriptText = '', recognitionFailed = false;
 
     recognition.onstart = () => {
         isRecording = true;
         hasCelebrated = false;
         finalTranscriptText = '';
+        latestTranscriptText = '';
+        recognitionFailed = false;
 
         // 🌟 修正：録音中ボタンにスマホ用サイズと「改行禁止(whitespace-nowrap)」を追加
         micBtn.innerHTML = '<span class="text-lg md:text-2xl">⏹</span> 停止 (Stop)';
@@ -662,32 +791,32 @@ function setupSpeechRecognition() {
 
         if (voiceOutput) voiceOutput.textContent = '聞いています...';
         if (accOutput) {
-            accOutput.innerText = '0%';
+            accOutput.innerText = '—';
             accOutput.className = 'text-4xl font-black text-[#1e3a5f] mincho-font mt-1';
         }
     };
 
     recognition.onresult = event => {
-        let interimTranscript = '';
-
-        for (let i = event.resultIndex; i < event.results.length; ++i) {
-            const transcript = event.results[i][0].transcript;
-            if (event.results[i].isFinal) finalTranscriptText += transcript;
-            else interimTranscript += transcript;
+        let interimText = '';
+        finalTranscriptText = '';
+        for (let i = 0; i < event.results.length; i++) {
+            const result = event.results[i];
+            const fragment = result[0]?.transcript || '';
+            if (result.isFinal) finalTranscriptText += fragment;
+            else interimText += fragment;
         }
-
-        const currentText = finalTranscriptText + interimTranscript;
-        // Speech-to-text output is untrusted text: never parse it as HTML.
-        if (voiceOutput) voiceOutput.textContent = currentText || '聞いています...';
-
-        if (currentText.length > 0 && accOutput) {
-            const accuracy = calculateCurrentLessonAccuracy(currentText);
-            accOutput.innerText = `${accuracy}%`;
+        latestTranscriptText = finalTranscriptText + interimText;
+        // Recognition transcripts are untrusted text; do not parse them as HTML.
+        if (voiceOutput) voiceOutput.textContent = latestTranscriptText || '聞いています...';
+        if (latestTranscriptText && accOutput) {
+            const accuracy = calculateCurrentLessonAccuracy(latestTranscriptText);
+            accOutput.innerText = accuracy + '%';
             accOutput.className = 'text-4xl font-black text-[#1e3a5f] opacity-70 mincho-font mt-1 transition-all duration-75';
         }
     };
 
     recognition.onerror = event => {
+        recognitionFailed = true;
         console.warn('Speech recognition error:', event.error);
         const messages = {
             'not-allowed': 'マイクまたは音声認識が許可されていません。端末とブラウザの設定を確認してください。',
@@ -707,9 +836,10 @@ function setupSpeechRecognition() {
         isRecording = false;
         resetMicButton(micBtn);
 
-        if (!accOutput || finalTranscriptText.trim().length === 0) return;
+        const finalText = finalTranscriptText.trim() || latestTranscriptText.trim();
+        if (recognitionFailed || !accOutput || !finalText) return;
 
-        const accuracy = calculateCurrentLessonAccuracy(finalTranscriptText);
+        const accuracy = calculateCurrentLessonAccuracy(finalText);
         accOutput.innerText = `${accuracy}%`;
 
         if (accuracy >= 80) {
@@ -741,23 +871,20 @@ function setupSpeechRecognition() {
 
 function calculateCurrentLessonAccuracy(spokenText) {
     if (!spokenText || !currentLesson) return 0;
-
+    const unit = sentenceMode ? practiceUnits[selectedSentenceIndex] : null;
     if (!isSwapped) {
-        const rawTarget = getJapanesePracticeTarget(currentLesson);
-        const rubyHint = getRubyDisplayText(currentLesson);
-        let normSpoken = normalizeJapaneseText(spokenText, rubyHint);
-        const normTarget = normalizeJapaneseText(rawTarget, rubyHint);
-
-        normSpoken = removeDialogueSpeakerWordsFromNormalizedText(normSpoken, currentLesson);
-        return calculateJapaneseAccuracy(normSpoken, normTarget);
+        const rawTarget = unit?.japanese || getJapanesePracticeTarget(currentLesson);
+        const rubyHint = unit?.ruby || getRubyDisplayText(currentLesson);
+        let normalizedSpoken = japeakSpeech.normalizeJapaneseText(spokenText, rubyHint);
+        const normalizedTarget = japeakSpeech.normalizeJapaneseText(rawTarget, rubyHint);
+        if (!sentenceMode) normalizedSpoken = removeDialogueSpeakerWordsFromNormalizedText(normalizedSpoken, currentLesson);
+        return japeakSpeech.similarityPercent(normalizedSpoken, normalizedTarget);
     }
-
-    const punctuationRegex = /[\s.,?!¿¡。、！？「」'"：:]/g;
-    const targetText = getForeignPracticeTarget(currentLesson, currentLang);
-    const cleanSpoken = String(spokenText).toLowerCase().replace(punctuationRegex, '');
-    const cleanTarget = String(targetText).toLowerCase().replace(punctuationRegex, '');
-
-    return calculateJapaneseAccuracy(cleanSpoken, cleanTarget);
+    const foreignTarget = unit?.foreign || getForeignPracticeTarget(currentLesson, currentLang);
+    const punctuation = /[\s.,?!¿¡。、！？「」'"：:]/g;
+    const spoken = String(spokenText).normalize('NFKC').toLowerCase().replace(punctuation, '');
+    const target = String(foreignTarget).normalize('NFKC').toLowerCase().replace(punctuation, '');
+    return japeakSpeech.similarityPercent(spoken, target);
 }
 
 function resetMicButton(btn) {
@@ -768,100 +895,17 @@ function resetMicButton(btn) {
 }
 
 function normalizeJapaneseText(text, rubyHtml) {
-    if (!text) return '';
-
-    let normalized = stripHtmlTags(String(text));
-
-    // 全角英数字を半角に、カタカナをひらがなに変換
-    normalized = normalized.replace(/[A-Za-z]/g, s => String.fromCharCode(s.charCodeAt(0) + 0xFEE0));
-    normalized = normalized.replace(/[\u30a1-\u30f6]/g, m => String.fromCharCode(m.charCodeAt(0) - 0x60));
-    
-    // 🌟 改善ポイント1：9,999までの数字を正確にひらがなに変換
-    normalized = normalized.replace(/[0-9０-９]+/g, match => {
-        const numStr = match.replace(/[０-９]/g, s => String.fromCharCode(s.charCodeAt(0) - 0xFEE0));
-        const num = parseInt(numStr, 10);
-        if (num === 0) return 'ぜろ';
-        
-        const units = ['', 'いち', 'に', 'さん', 'よん', 'ご', 'ろく', 'なな', 'はち', 'きゅう'];
-        let res = '';
-
-        const t = Math.floor(num / 1000) % 10;
-        if (t === 1) res += 'せん';
-        else if (t === 3) res += 'さんぜん';
-        else if (t === 8) res += 'はっせん';
-        else if (t > 0) res += units[t] + 'せん';
-
-        const h = Math.floor(num / 100) % 10;
-        if (h === 1) res += 'ひゃく';
-        else if (h === 3) res += 'さんびゃく';
-        else if (h === 6) res += 'ろっぴゃく';
-        else if (h === 8) res += 'はっぴゃく';
-        else if (h > 0) res += units[h] + 'ひゃく';
-
-        const ten = Math.floor(num / 10) % 10;
-        if (ten === 1) res += 'じゅう';
-        else if (ten > 0) res += units[ten] + 'じゅう';
-
-        const one = num % 10;
-        if (one > 0) res += units[one];
-
-        return res;
-    });
-
-    // Rubyタグからの漢字→ひらがな置換
-    if (rubyHtml) {
-        const regex = /<ruby>\s*([^<]+?)\s*<rt>\s*([^<]+?)\s*<\/rt>\s*<\/ruby>/g;
-        let match;
-        while ((match = regex.exec(rubyHtml)) !== null) {
-            normalized = normalized.split(match[1].trim()).join(match[2].trim());
-        }
-    }
-
-    // 🌟 改善ポイント2：音声認識特有の揺れや、Rubyでカバーしきれない漢字の辞書を強化
-    const commonReplacements = {
-        '私':'わたし','僕':'ぼく','俺':'おれ','何':'なに','行く':'いく','来る':'くる','食べる':'たべる',
-        '飲む':'のむ','言う':'いう','話す':'はなす','見る':'みる','聞く':'きく','有難う':'ありがとう',
-        '御座います':'ございます','下さい':'ください','済みません':'すみません','御免なさい':'ごめんなさい',
-        '良い':'いい','無い':'ない','時':'とき','事':'こと','物':'もの','人':'ひと','所':'ところ',
-        '今日':'きょう','明日':'あした','昨日':'きのう','一緒':'いっしょ','太郎':'たろう','次郎':'じろう',
-        '花子':'はなこ','先生':'せんせい','度':'ど','熱':'ねつ','分':'ふん','半':'はん','頁':'ぺーじ',
-        '歳':'さい','分かる':'わかる','解る':'わかる','判る':'わかる','居る':'いる',
-        '1つ':'ひとつ', '2つ':'ふたつ', '3つ':'みっつ', '4つ':'よっつ', '5つ':'いつつ', 
-        '1人':'ひとり', '2人':'ふたり', '円':'えん', '百':'ひゃく', '千':'せん', '万':'まん'
-    };
-
-    for (const [k, v] of Object.entries(commonReplacements)) {
-        normalized = normalized.split(k).join(v);
-    }
-
-    return normalized.replace(/[\s\n\r\t、。！？!?「」『』（）()\[\]【】・,\.：:]/g, '');
+    return japeakSpeech.normalizeJapaneseText(text, rubyHtml);
 }
 
-function calculateJapaneseAccuracy(cleanSpoken, cleanTarget) {
-    if (!cleanSpoken || cleanSpoken.length === 0) return 0;
-    if (!cleanTarget || cleanTarget.length === 0) return 0;
-
-    const distance = levenshteinDistance(cleanSpoken, cleanTarget);
-    const maxLength = Math.max(cleanSpoken.length, cleanTarget.length);
-    return Math.max(0, Math.round(((maxLength - distance) / maxLength) * 100));
+function calculateJapaneseAccuracy(spoken, target) {
+    return japeakSpeech.similarityPercent(spoken, target);
 }
 
 function levenshteinDistance(a, b) {
-    const matrix = [];
-
-    for (let i = 0; i <= b.length; i++) matrix[i] = [i];
-    for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
-
-    for (let i = 1; i <= b.length; i++) {
-        for (let j = 1; j <= a.length; j++) {
-            matrix[i][j] = b.charAt(i - 1) === a.charAt(j - 1)
-                ? matrix[i - 1][j - 1]
-                : Math.min(matrix[i - 1][j - 1] + 1, matrix[i][j - 1] + 1, matrix[i - 1][j] + 1);
-        }
-    }
-
-    return matrix[b.length][a.length];
+    return japeakSpeech.levenshteinDistance(a, b);
 }
+
 const speakerNameDictionary = {
     "店員": {
         ja: "店員", en: "Staff", "zh-CN": "店员", "zh-TW": "店員", ko: "점원",
