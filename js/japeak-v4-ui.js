@@ -115,6 +115,7 @@
             selectedCategory=item.key;
             if(typeof renderCategories==='function')renderCategories();
             if(typeof renderPhraseList==='function')renderPhraseList(item.key);
+            if(typeof scrollToPhraseArea==='function')scrollToPhraseArea();
           }else if(typeof window.loadJapeakCategory==='function'){
             window.loadJapeakCategory(item.key,item.name);
           }
