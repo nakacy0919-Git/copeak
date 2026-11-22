@@ -60,7 +60,6 @@ if (typeof japeakB1SafeMovementData !== 'undefined') allJapeakData = allJapeakDa
 if (typeof japeakB1PharmacyData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1PharmacyData);
 if (typeof japeakB2DisasterPreparednessData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB2DisasterPreparednessData);
 if (typeof japeakB1PreventIllnessData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1PreventIllnessData);
-if (typeof japeakB1PreventIllnessData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1PreventIllnessData);
 if (typeof japeakB1CommunityActivitiesData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1CommunityActivitiesData);
 if (typeof japeakB1FindHomeData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1FindHomeData);
 if (typeof japeakB1MovingPreparationData !== 'undefined') allJapeakData = allJapeakData.concat(japeakB1MovingPreparationData);
@@ -83,14 +82,14 @@ let currentIndex = 0, currentLesson = null, currentLang = 'en', recognition = nu
 let isRecording = false, hasCelebrated = false, isSwapped = false;
 
 const langCodeMap = {
-    en:'en-US','zh-CN':'zh-CN','zh-TW':'zh-TW',ko:'ko-KR',vi:'vi-VN',tl:'fil-PH',id:'id-ID',
+    ja:'ja-JP',en:'en-US','zh-CN':'zh-CN','zh-TW':'zh-TW',ko:'ko-KR',vi:'vi-VN',tl:'fil-PH',id:'id-ID',
     th:'th-TH',my:'my-MM',km:'km-KH',ne:'ne-NP',mn:'mn-MN',si:'si-LK',bn:'bn-BD',
     pt:'pt-BR',es:'es-ES',fr:'fr-FR',ru:'ru-RU',uk:'uk-UA'
 };
 
 const urlParams = new URLSearchParams(window.location.search);
 const targetId = urlParams.get('id'), urlLang = urlParams.get('lang');
-if (urlLang) currentLang = urlLang;
+if (urlLang && Object.prototype.hasOwnProperty.call(langCodeMap, urlLang)) currentLang = urlLang;
 if (targetId) {
     const foundIndex = allJapeakData.findIndex(item => item.id === targetId);
     if (foundIndex !== -1) currentIndex = foundIndex;
@@ -102,7 +101,11 @@ const stripHtmlTags = text => text ? String(text).replace(/<[^>]*>?/gm, '') : ''
 const isDialogueLesson = lesson => lesson && Array.isArray(lesson.dialogue) && lesson.dialogue.length > 0;
 const stripSpeakerPrefix = text => text ? String(text).replace(/^.*?[：:]\s*/, '') : '';
 const getContextText = (lesson, lang) => lesson?.context ? lesson.context[lang] || lesson.context.en || lesson.context.ja || '' : '';
-const getTranslationText = (lesson, lang) => lesson?.translations ? lesson.translations[lang] || lesson.translations.en || '' : '';
+const getTranslationText = (lesson, lang) => {
+    if (!lesson) return '';
+    if (lang === 'ja') return lesson.translations?.ja || lesson.context?.ja || getJapaneseDisplayText(lesson);
+    return lesson.translations ? lesson.translations[lang] || lesson.translations.en || '' : '';
+};
 
 function escapeHtml(text) {
     if (text === null || text === undefined) return '';
@@ -343,9 +346,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (langSelect) {
         langSelect.value = currentLang;
         langSelect.addEventListener('change', e => {
+            if (!Object.prototype.hasOwnProperty.call(langCodeMap, e.target.value)) return;
+            stopCurrentPractice();
             currentLang = e.target.value;
+            isSwapped = false;
+            const swapBtn = $('btn-swap-lang');
+            if (swapBtn) {
+                swapBtn.classList.replace('bg-[#1e3a5f]', 'bg-[#eab308]');
+                swapBtn.classList.replace('hover:bg-[#172a45]', 'hover:bg-[#ca8a04]');
+            }
             renderLesson();
-            if (recognition && !isRecording) setupSpeechRecognition();
+            setupSpeechRecognition();
         });
     }
 
@@ -363,18 +374,45 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnNext) btnNext.onclick = () => moveLesson(1);
 });
 
-function moveLesson(direction) {
-    const nextIndex = currentIndex + direction;
-    if (nextIndex < 0 || nextIndex >= allJapeakData.length) return;
+function getCategoryLessons() {
+    if (!currentLesson) return [];
+    return allJapeakData.filter(item => item.category === currentLesson.category);
+}
 
-    currentIndex = nextIndex;
-    currentLesson = allJapeakData[currentIndex];
+// Leave no active microphone or audio behind when changing lessons or languages.
+function stopCurrentPractice() {
+    if (recognition && isRecording) {
+        recognition.onresult = null;
+        recognition.onerror = null;
+        recognition.onend = null;
+        try { recognition.abort(); } catch (error) { console.warn('Could not abort recognition:', error); }
+        isRecording = false;
+        resetMicButton($('mic-btn'));
+    }
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+    }
+    if (window.speechSynthesis?.speaking) window.speechSynthesis.cancel();
+}
+
+function moveLesson(direction) {
+    const categoryLessons = getCategoryLessons();
+    const position = categoryLessons.findIndex(item => item === currentLesson || item.id === currentLesson?.id);
+    const nextLesson = categoryLessons[position + direction];
+    if (!nextLesson) return;
+
+    stopCurrentPractice();
+    currentLesson = nextLesson;
+    currentIndex = allJapeakData.indexOf(currentLesson);
     renderLesson();
-    if (recognition && !isRecording) setupSpeechRecognition();
-    history.replaceState(null, '', `?id=${currentLesson.id}&lang=${currentLang}`);
+    setupSpeechRecognition();
+    history.replaceState(null, '', `?id=${encodeURIComponent(currentLesson.id)}&lang=${encodeURIComponent(currentLang)}`);
 }
 
 window.toggleLanguageSwap = function() {
+    if (currentLang === 'ja') return; // Japanese is the learning target, not a foreign-language swap.
+    stopCurrentPractice();
     isSwapped = !isSwapped;
 
     const swapBtn = $('btn-swap-lang');
@@ -389,11 +427,28 @@ window.toggleLanguageSwap = function() {
     }
 
     renderLesson();
-    if (recognition && !isRecording) setupSpeechRecognition();
+    setupSpeechRecognition();
 };
 
 function renderLesson() {
     if (!currentLesson) return;
+
+    const categoryLessons = getCategoryLessons();
+    const lessonPosition = categoryLessons.findIndex(item => item === currentLesson || item.id === currentLesson.id);
+    [['btn-prev', lessonPosition <= 0], ['btn-next', lessonPosition >= categoryLessons.length - 1]].forEach(([id, disabled]) => {
+        const button = $(id);
+        if (!button) return;
+        button.disabled = disabled;
+        button.classList.toggle('opacity-40', disabled);
+        button.classList.toggle('cursor-not-allowed', disabled);
+    });
+    const swapButton = $('btn-swap-lang');
+    if (swapButton) {
+        swapButton.disabled = currentLang === 'ja';
+        swapButton.title = currentLang === 'ja' ? '日本語を選択中は言語の入れ替えはできません' : '練習する言語を入れ替える';
+        swapButton.classList.toggle('opacity-40', swapButton.disabled);
+        swapButton.classList.toggle('cursor-not-allowed', swapButton.disabled);
+    }
 
     const lessonTitle = $('lesson-title'), contextText = $('context-text');
     const voiceOutput = $('voice-output'), accOutput = $('acc-output');
@@ -425,7 +480,7 @@ function renderLesson() {
         else renderNormalLesson(sentenceContainer, transContainer, isLongText);
     }
 
-    if (voiceOutput) voiceOutput.innerHTML = '※「話す」ボタンを押してください';
+    if (voiceOutput) voiceOutput.textContent = '※「話す」ボタンを押してください';
     if (accOutput) {
         accOutput.innerText = '0%';
         accOutput.className = 'text-4xl font-black text-[#1e3a5f] mincho-font mt-1';
@@ -581,7 +636,7 @@ function setupSpeechRecognition() {
         micBtn.disabled = true;
         micBtn.innerHTML = 'このブラウザでは音声認識が使えません';
         micBtn.className = 'flex-1 w-full py-4 bg-stone-400 text-white rounded-sm font-bold text-base whitespace-nowrap';
-        if (voiceOutput) voiceOutput.innerHTML = 'Google Chromeで開いてください。';
+        if (voiceOutput) voiceOutput.textContent = 'この端末・ブラウザでは音声認識を利用できません。別のブラウザをお試しください。';
         return;
     }
 
@@ -605,7 +660,7 @@ function setupSpeechRecognition() {
         micBtn.innerHTML = '<span class="text-lg md:text-2xl">⏹</span> 停止 (Stop)';
         micBtn.className = 'flex-1 w-full flex items-center justify-center gap-1.5 md:gap-3 py-2.5 md:py-4 bg-stone-700 hover:bg-stone-800 text-white rounded-sm font-black text-base md:text-xl shadow-inner tracking-widest whitespace-nowrap';
 
-        if (voiceOutput) voiceOutput.innerHTML = '<span class="text-stone-400 text-base">聞いています...</span>';
+        if (voiceOutput) voiceOutput.textContent = '聞いています...';
         if (accOutput) {
             accOutput.innerText = '0%';
             accOutput.className = 'text-4xl font-black text-[#1e3a5f] mincho-font mt-1';
@@ -622,7 +677,8 @@ function setupSpeechRecognition() {
         }
 
         const currentText = finalTranscriptText + interimTranscript;
-        if (voiceOutput) voiceOutput.innerHTML = currentText || '<span class="text-stone-400 text-base">聞いています...</span>';
+        // Speech-to-text output is untrusted text: never parse it as HTML.
+        if (voiceOutput) voiceOutput.textContent = currentText || '聞いています...';
 
         if (currentText.length > 0 && accOutput) {
             const accuracy = calculateCurrentLessonAccuracy(currentText);
@@ -633,6 +689,16 @@ function setupSpeechRecognition() {
 
     recognition.onerror = event => {
         console.warn('Speech recognition error:', event.error);
+        const messages = {
+            'not-allowed': 'マイクまたは音声認識が許可されていません。端末とブラウザの設定を確認してください。',
+            'service-not-allowed': 'この端末では音声認識サービスを利用できません。別のブラウザをお試しください。',
+            'audio-capture': 'マイクが見つかりません。接続やマイクの設定を確認してください。',
+            'no-speech': '声が聞き取れませんでした。静かな場所でもう一度お試しください。',
+            'network': '通信エラーが発生しました。インターネット接続を確認してください。',
+            'language-not-supported': '選択した言語の音声認識は、この端末では利用できません。',
+            'aborted': '音声認識を中断しました。'
+        };
+        if (voiceOutput) voiceOutput.textContent = messages[event.error] || '音声認識でエラーが発生しました。もう一度お試しください。';
         isRecording = false;
         resetMicButton(micBtn);
     };
@@ -660,7 +726,17 @@ function setupSpeechRecognition() {
         }
     };
 
-    micBtn.onclick = () => isRecording ? recognition.stop() : recognition.start();
+    micBtn.onclick = () => {
+        try {
+            if (isRecording) recognition.stop();
+            else recognition.start();
+        } catch (error) {
+            console.warn('Could not start/stop speech recognition:', error);
+            if (voiceOutput) voiceOutput.textContent = '音声認識を開始できませんでした。少し待ってからもう一度お試しください。';
+            isRecording = false;
+            resetMicButton(micBtn);
+        }
+    };
 }
 
 function calculateCurrentLessonAccuracy(spokenText) {
