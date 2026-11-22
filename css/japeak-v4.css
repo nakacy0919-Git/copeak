@@ -49,3 +49,12 @@ html:has(.jpk-v4-home),body:has(.jpk-v4-home){height:100%;overflow:hidden;oversc
 @media(max-height:700px) and (orientation:landscape){.jpk-v4-home .hero{padding-top:76px;padding-bottom:25px}.jpk-v4-home .hero-copy h1{font-size:clamp(2.4rem,5vw,4rem)}.jpk-v4-home .headline{font-size:1.25rem}.jpk-v4-home .description{margin:5px 0 9px;font-size:.76rem;line-height:1.4}.jpk-v4-home .start-btn{min-height:57px}.jpk-v4-home .secondary-link{display:none}}
 @media(max-height:700px) and (orientation:portrait){.jpk-v4-home .hero-copy h1{font-size:2.6rem}.jpk-v4-home .description{display:none}.jpk-v4-home .start-grid{bottom:18px}.jpk-v4-home .start-btn{min-height:51px}.jpk-v4-home .footer{display:none}}
 @media(prefers-reduced-motion:reduce){.jpk-v4-petal,.jpk-v4-mote{animation:none!important;display:none}}
+
+/* Finishing overlays and compact language picker. */
+.jpk-v4-home .jpk-v4-photo{z-index:0}.jpk-v4-home::before{z-index:1}.jpk-v4-home .hero{position:relative;z-index:3}.jpk-v4-home .jpk-v4-atmosphere{z-index:2}
+.jpk-v4-home .jpk-v4-language{min-width:125px;max-width:175px;height:39px;padding:7px 12px;color:white;background:#0d2546bc;border:1px solid #ffffffaa;border-radius:999px;font-weight:800;backdrop-filter:blur(8px)}
+.jpk-v4-home .jpk-v4-language option{background:#162a44;color:#fff}
+.jpk-v4-enhanced #life-categories-box,.jpk-v4-enhanced #category-container{display:none}
+.jpk-v4-reopen{width:100%;min-height:56px;text-align:center;border-radius:15px;border:1px solid #b6d0d1;background:#e9f8f5;color:#136957;padding:12px 20px;font-weight:900;box-shadow:0 4px 12px #0c334b18}
+.jpk-v4-reopen:hover{background:#d5f4ec}
+@media(max-width:600px){.jpk-v4-home .jpk-v4-language{min-width:85px;max-width:125px;height:33px;padding:5px 6px;font-size:12px}}
