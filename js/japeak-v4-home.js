@@ -14,8 +14,11 @@
     }
     try{select.value=localStorage.getItem('japeakLang')||'ja'}catch(e){select.value='ja'}
     if(!select.value)select.value='ja';
+    // Change the headings, every entry button, and the helper copy immediately.
+    window.JapeakTopI18n?.apply(select.value);
     select.addEventListener('change',()=>{
       try{localStorage.setItem('japeakLang',select.value)}catch(e){}
+      window.JapeakTopI18n?.apply(select.value);
     });
   }
   const photograph=home.querySelector('.jpk-v4-photo img');
