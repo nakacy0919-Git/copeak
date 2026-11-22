@@ -64,3 +64,17 @@ html:has(.jpk-v4-home),body:has(.jpk-v4-home){height:100%;overflow:hidden;oversc
 .jpk-v4-home.jpk-v4-photo-error .jpk-v4-photo{display:none}
 .jpk-v4-home.jpk-v4-photo-error .illustration{display:block;position:absolute;left:4%;top:16%;width:48%;height:65%;min-height:0;opacity:.9}
 @media(orientation:portrait){.jpk-v4-home.jpk-v4-photo-error .illustration{top:32%;left:10%;width:80%;height:37%;opacity:.68}}
+
+/* The original Stage-3 category panels remain available to scripts, not shown twice. */
+.jpk-v4-enhanced #area-school > div,.jpk-v4-enhanced #area-life > div{display:none!important}
+.jpk-v4-enhanced #area-school,.jpk-v4-enhanced #area-life{gap:0!important}
+.jpk-v4-enhanced .jpk-v4-reopen{width:auto;max-width:100%;align-self:flex-start;min-height:48px;border-radius:14px;padding:11px 20px;letter-spacing:.015em}
+.jpk-v4-selected-summary{margin:4px 0 0;padding:12px 18px;background:#eaf8f6;border:1px solid #c0e2dd;border-radius:14px;color:#11685c;font-size:.89rem;font-weight:800}
+.jpk-v4-selected-summary[hidden],#phrase-panel[hidden]{display:none!important}
+.jpk-v4-enhanced #workspace-container{gap:12px!important}
+@media(max-width:640px){
+ .jpk-v4-enhanced #workspace-container{margin-top:11px;gap:10px!important}
+ .jpk-v4-enhanced .jpk-v4-reopen{width:100%;min-height:46px}
+ .jpk-v4-enhanced #phrase-panel{padding:14px;border-radius:14px;min-height:0}
+ .jpk-v4-enhanced .japeak-stage3-menu .jpk-v4-reopen{border-radius:12px}
+}
