@@ -1,0 +1,187 @@
+/* Japeak V7: landscape tablet full-bleed fix, soft washi glass and aligned controls.
+   Loaded last to override old V4/V6 rules without changing speech or lesson logic. */
+html:has(.jpk-v4-home),
+body:has(.jpk-v4-home) {
+  width:100%;
+  min-width:100%;
+  max-width:none;
+  margin:0;
+  padding:0;
+  overflow-x:clip;
+}
+.jpk-v4-home {
+  box-sizing:border-box;
+  position:relative;
+  display:block;
+  width:100vw !important;
+  min-width:100vw !important;
+  max-width:none !important;
+  height:100dvh;
+  min-height:100svh;
+  margin:0 !important;
+  overflow:hidden !important;
+  background:#142b46;
+}
+/* The older photo inherited the content-stage width. Pin the photo itself to
+   the visual viewport so rotation / iPad landscape cannot expose a navy strip. */
+.jpk-v4-home .jpk-v4-photo {
+  position:fixed !important;
+  inset:0 !important;
+  box-sizing:border-box;
+  width:100vw !important;
+  height:100dvh !important;
+  min-height:100svh;
+  max-width:none !important;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:0;
+}
+.jpk-v4-home .jpk-v4-photo img {
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  max-width:none !important;
+  object-fit:cover !important;
+  object-position:center center;
+}
+.jpk-v4-home::before {position:absolute;inset:0;pointer-events:none;}
+.jpk-v4-home .topbar,
+.jpk-v4-home .hero,
+.jpk-v4-home .footer {box-sizing:border-box;max-width:none;}
+.jpk-v4-home .topbar {width:calc(100% - clamp(28px,6vw,95px))!important;max-width:1600px!important}
+.jpk-v4-home .hero {
+  width:100%!important;
+  max-width:100%!important;
+  min-width:0;
+  overflow:visible;
+}
+/* Warm translucent washi behind the main heading and entry buttons. */
+.jpk-v4-home .hero-copy {
+  isolation:isolate;
+  min-width:0;
+  max-width:880px;
+  padding:clamp(17px,2.7vw,32px)!important;
+  border:1px solid rgba(255,255,255,.43);
+  border-radius:clamp(19px,2.1vw,29px);
+  background:linear-gradient(146deg,rgba(255,255,255,.24),rgba(251,247,239,.13) 62%,rgba(255,255,255,.18));
+  box-shadow:0 20px 45px rgba(6,28,49,.25),inset 0 1px 0 rgba(255,255,255,.45);
+  -webkit-backdrop-filter:blur(8px) saturate(122%);
+  backdrop-filter:blur(8px) saturate(122%);
+}
+.jpk-v4-home .hero-copy .eyebrow,
+.jpk-v4-home .hero-copy .headline,
+.jpk-v4-home .hero-copy .start-label,
+.jpk-v4-home .hero-copy .description {
+  text-shadow:0 2px 10px rgba(4,28,43,.52);
+}
+.jpk-v4-home .hero-copy .description,
+.jpk-v4-home .hero-copy .headline {
+  color:#fff!important;
+  white-space:pre-line;
+}
+.jpk-v4-home .start-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:clamp(9px,1vw,13px);
+  isolation:isolate;
+}
+.jpk-v4-home .start-btn {
+  box-sizing:border-box;
+  min-width:0;
+  width:100%;
+  max-width:100%;
+  border:1px solid rgba(255,255,255,.53);
+  border-bottom:2px solid rgba(228,195,143,.74);
+  background-clip:padding-box;
+  box-shadow:0 12px 27px rgba(4,27,48,.29),inset 0 1px 0 rgba(255,255,255,.18);
+  -webkit-backdrop-filter:blur(11px) saturate(120%);
+  backdrop-filter:blur(11px) saturate(120%);
+  border-radius:19px;
+}
+.jpk-v4-home .start-school{background:linear-gradient(119deg,rgba(29,87,140,.83),rgba(19,55,101,.84))!important;}
+.jpk-v4-home .start-life{background:linear-gradient(119deg,rgba(15,132,111,.84),rgba(9,88,88,.86))!important;}
+.jpk-v4-home .start-my {
+  grid-column:1/-1;
+  width:calc((100% - clamp(9px,1vw,13px))/2)!important;
+  max-width:none!important;
+  justify-self:center!important;
+  min-height:81px!important;
+  padding:14px 15px!important;
+  border-radius:19px!important;
+  background:linear-gradient(116deg,rgba(31,56,82,.85),rgba(33,71,83,.84))!important;
+}
+.jpk-v4-home .start-btn .symbol{background:rgba(255,255,255,.22)!important;}
+.jpk-v4-home .start-btn .text{min-width:0;overflow-wrap:anywhere;}
+.jpk-v4-home .start-btn strong{font-size:clamp(.82rem,1.25vw,1.08rem);line-height:1.45;text-wrap:balance;text-shadow:0 2px 5px rgba(1,24,44,.25);}
+.jpk-v4-home .start-btn small{font-size:clamp(.62rem,.8vw,.78rem);line-height:1.4;overflow-wrap:anywhere;color:#f3faf9!important;}
+.jpk-v4-home .start-btn .arrow{flex-shrink:0;}
+.jpk-v4-home .top-actions{min-width:0;display:flex;align-items:center;}
+.jpk-v4-home .jpk-v4-language{min-width:0;max-width:min(36vw,220px);width:clamp(125px,18vw,220px);text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+/* Middle widths include iPad portrait and landscape, avoiding the old 44vw panel. */
+@media (min-width:700px) and (max-width:1500px) and (orientation:landscape) {
+  .jpk-v4-home .hero {
+    justify-content:center!important;
+    padding:clamp(65px,10vh,110px) 3vw clamp(30px,6vh,67px)!important;
+  }
+  .jpk-v4-home .hero-copy {
+    flex:0 1 940px;
+    width:min(84vw,940px)!important;
+    max-width:min(84vw,940px)!important;
+    text-align:center;
+  }
+  .jpk-v4-home .hero-copy h1{font-size:clamp(3.5rem,6vw,6.6rem);}
+  .jpk-v4-home .description{max-width:100%;margin-inline:auto;}
+}
+/* Portrait iPads: retain bottom-access buttons but give them a separate glass rail. */
+@media (orientation:portrait) {
+  .jpk-v4-home .hero-copy {width:min(90vw,780px)!important;max-width:min(90vw,780px)!important;}
+  .jpk-v4-home .start-grid::before{
+    content:"";
+    position:absolute;
+    inset:-12px;
+    z-index:-1;
+    border-radius:24px;
+    border:1px solid rgba(255,255,255,.38);
+    background:rgba(255,255,255,.16);
+    -webkit-backdrop-filter:blur(8px);
+    backdrop-filter:blur(8px);
+    box-shadow:0 12px 28px rgba(12,31,46,.23);
+  }
+}
+@media (max-width:699px) {
+  .jpk-v4-home .hero-copy {padding:16px 14px!important;border-radius:19px;}
+  .jpk-v4-home .start-grid{grid-template-columns:1fr!important;gap:8px!important;}
+  .jpk-v4-home .start-my{
+    grid-column:auto!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-height:59px!important;
+    justify-self:stretch!important;
+    padding:8px 13px!important;
+  }
+  .jpk-v4-home .start-btn{min-height:59px!important;}
+  .jpk-v4-home .start-btn strong{font-size:.93rem!important;}
+  .jpk-v4-home .start-btn small{font-size:.65rem;}
+}
+@media (max-width:380px) {
+  .jpk-v4-home .start-grid{bottom:calc(env(safe-area-inset-bottom,0px) + 19px);}
+  .jpk-v4-home .hero-copy .description{font-size:.69rem;}
+}
+/* Compact, level header on the personal library screen. */
+.jp-top{width:100%;display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;}
+.jp-top-actions{display:flex;align-items:center;justify-content:flex-end;gap:clamp(7px,1.25vw,14px);flex-wrap:nowrap;margin-left:auto;min-width:0;}
+.jp-lang{display:inline-flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-end;gap:9px;white-space:nowrap;flex:0 1 auto;min-width:0;}
+.jp-lang>span{font-size:.8rem!important;font-weight:800;line-height:1.2;white-space:nowrap;}
+.jp-lang select{display:block;height:44px;flex:0 1 auto;width:clamp(120px,16vw,183px);min-width:0!important;max-width:183px!important;padding:8px 10px;line-height:normal;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;border-radius:12px;}
+.jp-back{display:inline-flex;align-items:center;justify-content:center;height:44px;min-height:44px;white-space:nowrap;flex-shrink:0;padding:0 14px;line-height:1.2;border-radius:12px;}
+@media(max-width:620px){
+ .jp-top{gap:7px;padding-inline:12px;}
+ .jp-top-actions{gap:6px;}
+ .jp-lang{gap:5px;}
+ .jp-lang>span{font-size:.67rem!important;}
+ .jp-lang select{width:clamp(90px,28vw,138px);height:40px;font-size:.79rem;padding:6px 5px;}
+ .jp-back{height:40px;min-height:40px;padding:0 8px;font-size:.71rem;}
+}
+@media(max-width:410px){.jp-lang>span{display:none;}}
+@media(prefers-reduced-motion:reduce){
+ .jpk-v4-home .hero-copy,.jpk-v4-home .start-btn{animation:none!important;transition-duration:.01ms!important;}
+}
