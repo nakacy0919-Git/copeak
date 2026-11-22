@@ -744,20 +744,27 @@ function initLanguageMenu() {
 
     list.innerHTML = '';
 
+    // Native buttons keep the 20-language selector accessible with keyboards and touch.
     langData.forEach(lang => {
         const li = document.createElement('li');
-        li.className = 'px-4 py-3 hover:bg-[#eef8ff] cursor-pointer border-b border-stone-100 last:border-0 transition-colors flex items-baseline gap-2 text-left';
-        li.innerHTML = `<span class="text-base font-medium">${esc(lang.native)}</span><span class="text-[10px] text-stone-500 font-bold mb-0.5">${esc(lang.jp)}</span>`;
-        li.onclick = () => {
+        li.className = 'border-b border-stone-100 last:border-0';
+        const option = document.createElement('button');
+        option.type = 'button';
+        option.className = 'w-full px-4 py-3 hover:bg-[#eef8ff] focus:bg-[#eef8ff] transition-colors flex items-baseline gap-2 text-left';
+        option.innerHTML = `<span class="text-base font-medium">${esc(lang.native)}</span><span class="text-[10px] text-stone-500 font-bold mb-0.5">${esc(lang.jp)}</span>`;
+        option.addEventListener('click', () => {
             setLanguage(lang.code);
             closeMenu();
-        };
+            btn.focus();
+        });
+        li.appendChild(option);
         list.appendChild(li);
     });
 
     function toggleMenu() {
         if (menu.classList.contains('hidden')) {
             menu.classList.remove('hidden');
+            btn.setAttribute('aria-expanded', 'true');
             chevron.classList.add('rotate-180');
         } else {
             closeMenu();
@@ -766,6 +773,7 @@ function initLanguageMenu() {
 
     function closeMenu() {
         menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
         chevron.classList.remove('rotate-180');
     }
 
@@ -778,6 +786,9 @@ function initLanguageMenu() {
         if (!menu.contains(event.target) && !btn.contains(event.target)) closeMenu();
     });
 
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') closeMenu();
+    });
     hiddenSelect.addEventListener('change', event => setLanguage(event.target.value));
 }
 
