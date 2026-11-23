@@ -35,7 +35,7 @@ test('all modified JavaScript files parse and scripts load in dependency order',
     for (const code of [historyCode, menuCode, menuDataCode, practiceCode]) {
         assert.doesNotThrow(() => new vm.Script(code));
     }
-    assert.ok(menuHtml.indexOf('src="js/japeak-learning-history.js"') < menuHtml.indexOf('src="js/japeak-menu-main.js"'));
+    assert.ok(menuHtml.indexOf('src="js/japeak-learning-history.js"') < menuHtml.indexOf('src="js/japeak-menu-main.js?v=20261123-11"'));
     assert.ok(practiceHtml.indexOf('src="js/japeak-learning-history.js"') < practiceHtml.indexOf('src="js/japeak-app.js?v=20261122-10"'));
 });
 
