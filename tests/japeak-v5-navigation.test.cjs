@@ -142,13 +142,26 @@ test('daily life shows all actual categories, with level and domain button filte
     assert.ok(window.JapeakV5Dialog.visibleGroups().length<55);
     assert.equal(elements.get('jpk-v5-controls').hidden,false);
 });
-test('old menu back links open their selected category directly in the modal',()=>{
-    const {elements,ready}=runPopupHarness(true,'?mode=life&cat=a1_restaurant');
+test('menu loads with the popup hidden even for old ?mode and category bookmarked URLs',()=>{
+    const {window,document,elements,ready}=runPopupHarness(true,'?mode=life&cat=a1_restaurant');
     ready.forEach(fn=>fn());
+    assert.equal(elements.get('jpk-v5-overlay').hidden,true);
+    assert.equal(document.body.style.overflow,undefined);
+    // Opening the lesson picker must require the user to press a course choice.
+    elements.get('btn-text-life').listeners.click({preventDefault(){},stopImmediatePropagation(){}});
     assert.equal(elements.get('jpk-v5-overlay').hidden,false);
-    assert.ok(elements.get('jpk-v5-results').children.length>=1);
-    assert.equal(elements.get('jpk-v5-results').children[0].tag,'a');
-    assert.match(elements.get('jpk-v5-kicker').textContent,/予約|レストラン|restaurant|sekolah|Bahasa|暮らし/i);
+    assert.equal(elements.get('jpk-v5-results').children[0].tag,'button');
+    assert.equal(window.JapeakV5Dialog.visibleGroups().length,55);
+    window.JapeakV5Dialog.close();
+    assert.equal(elements.get('jpk-v5-overlay').hidden,true);
+    elements.get('btn-text-school').listeners.click({preventDefault(){},stopImmediatePropagation(){}});
+    assert.equal(elements.get('jpk-v5-overlay').hidden,false);
+    assert.equal(window.JapeakV5Dialog.visibleGroups().length,14);
+});
+test('course home explicitly disables the old DOMContentLoaded automatic modal trigger',()=>{
+    assert.doesNotMatch(dialogCode,/open\(mode,params\.get\('cat'\)\)/);
+    assert.match(menu,/js\/japeak-v5-dialog\.js\?v=20261123-no-auto-1/);
+    assert.match(dialogCode,/root\.JapeakV5Dialog=\{open,close,visibleGroups,practiceHref\}/);
 });
 test('the modal never injects lesson title or Japanese text as HTML',()=>{
     assert.match(dialogCode,/title\.textContent=item\.title/);
