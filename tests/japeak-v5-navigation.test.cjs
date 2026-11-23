@@ -158,6 +158,13 @@ test('menu loads with the popup hidden even for old ?mode and category bookmarke
     assert.equal(elements.get('jpk-v5-overlay').hidden,false);
     assert.equal(window.JapeakV5Dialog.visibleGroups().length,14);
 });
+test('plain menu URL also remains on the scenic course choices until a click',()=>{
+    const {elements,ready}=runPopupHarness(true,'');
+    ready.forEach(fn=>fn());
+    assert.equal(elements.get('jpk-v5-overlay').hidden,true);
+    elements.get('btn-text-school').listeners.click({preventDefault(){},stopImmediatePropagation(){}});
+    assert.equal(elements.get('jpk-v5-overlay').hidden,false);
+});
 test('course home explicitly disables the old DOMContentLoaded automatic modal trigger',()=>{
     assert.doesNotMatch(dialogCode,/open\(mode,params\.get\('cat'\)\)/);
     assert.match(menu,/js\/japeak-v5-dialog\.js\?v=20261123-no-auto-1/);
