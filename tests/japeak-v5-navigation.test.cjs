@@ -158,68 +158,79 @@ test('the modal never injects lesson title or Japanese text as HTML',()=>{
 });
 
 
-test('menu home restores immersive photo and translucent course cards without altering learning navigation',()=>{
-    const immersive=read('css/japeak-menu-immersive.css');
-    const bg=immersive.slice(immersive.indexOf('body.japeak-stage3-menu::before'),immersive.indexOf('/* The older pale veil'));
-    assert.match(bg,/url\("\.\.\/assets\/japeak-bg-landscape\.webp"\)!important/);
-    assert.match(immersive,/url\("\.\.\/assets\/japeak-bg-portrait\.webp"\)!important/);
-    assert.doesNotMatch(bg,/rgba\(246,250,250,\.8/);
-    assert.match(immersive,/body\.japeak-stage3-menu #jpk-menu-header/);
-    assert.match(immersive,/#jpk-menu-school/);
-    assert.match(immersive,/#jpk-menu-life/);
-    assert.match(immersive,/#quick-access-section/);
-    assert.match(immersive,/backdrop-filter:blur\(12px\)/);
-    assert.ok(menu.indexOf('css/japeak-menu-immersive.css?v=20261122-10')>menu.indexOf('css/japeak-v5.css'));
-    assert.match(menu,/id="jpk-menu-header"/);
-    assert.match(menu,/id="jpk-menu-school" onclick="enterWorkspace\('school'\)"/);
-    assert.match(menu,/id="jpk-menu-life" onclick="enterWorkspace\('life'\)"/);
-    assert.match(menu,/id="quick-tab-favorites"/);
-    assert.match(menu,/id="quick-tab-recent"/);
-    assert.match(menu,/id="menu-lang-select"/);
-    assert.doesNotMatch(menu,/id="btn-top-back"/);
+test('v12 restores bright photographic scenery without the old dark panels',()=>{
+  const css=read('css/japeak-menu-spring-v12.css');
+  const photo=css.slice(css.indexOf('body.japeak-stage3-menu::before{'),css.indexOf('body.japeak-stage3-menu::after{'));
+  assert.match(photo,/url\("\.\.\/assets\/japeak-bg-landscape\.webp"\)/);
+  assert.match(css,/url\("\.\.\/assets\/japeak-bg-portrait\.webp"\)/);
+  assert.doesNotMatch(photo,/rgba\(7,26,44,\.3/);
+  assert.doesNotMatch(photo,/rgba\(246,250,250,\.9/);
+  assert.match(css,/#jpk-menu-header\{/);
+  assert.match(css,/#jpk-menu-header h1/);
+  assert.match(css,/#jpk-menu-header \.jpk-menu-brand-title p/);
+  assert.match(css,/background:transparent!important/);
+  assert.match(css,/#gate-container\{\s*grid-column:2;grid-row:2/);
+  assert.match(css,/#quick-access-section\{\s*grid-column:2;grid-row:3/);
+  assert.match(css,/#japeak-info-footer\{\s*grid-column:2;grid-row:5/);
+  assert.match(css,/#japeak-info-footer >div\{\s*background:transparent!important/);
+  assert.ok(menu.indexOf('css/japeak-menu-spring-v12.css?v=20261123-12')>menu.indexOf('css/japeak-v5.css'));
+  assert.doesNotMatch(menu,/japeak-menu-photo-rail-v11.css/);
+  assert.doesNotMatch(menu,/japeak-menu-immersive.css/);
 });
 
-
-test('v11 PC and tablet menu leaves photo unobstructed and places three courses on the right',()=>{
-    const css=read('css/japeak-menu-photo-rail-v11.css');
-    const body=css.slice(css.indexOf('body.japeak-stage3-menu{'),css.indexOf('/* Remove the previous heavy darkening:'));
-    const photo=css.slice(css.indexOf('body.japeak-stage3-menu::before{'),css.indexOf('body.japeak-stage3-menu #jpk-menu-header{'));
-    assert.match(body,/display:grid!important/);
-    assert.match(body,/grid-template-columns:minmax\(0,1fr\)/);
-    assert.match(photo,/rgba\(8,27,42,\.015\)/);
-    assert.match(photo,/japeak-bg-landscape\.webp/);
-    assert.match(css,/japeak-bg-portrait\.webp/);
-    assert.match(css,/#gate-container\{\s*grid-column:2;/);
-    assert.match(css,/#quick-access-section\{\s*grid-column:2;grid-row:3;/);
-    assert.match(css,/#japeak-info-footer\{\s*grid-column:2;grid-row:5;/);
-    assert.match(css,/#jpk-menu-my\{\s*grid-column:1\/-1;/);
-    assert.match(css,/@media\(max-width:720px\)/);
-    assert.match(css,/@media\(prefers-reduced-motion:reduce\)/);
-    assert.ok(menu.indexOf('css/japeak-menu-photo-rail-v11.css?v=20261123-11')>menu.indexOf('css/japeak-menu-immersive.css'));
-    assert.match(menu,/id="jpk-menu-header"/);
-    assert.match(menu,/class="jpk-menu-brand" href="japeak-top.html"/);
-    assert.match(menu,/class="jpk-menu-brand-title"/);
-    assert.match(menu,/class="jpk-menu-actions/);
-    assert.doesNotMatch(menu,/id="btn-top-back"/);
-    assert.match(menu,/id="jpk-menu-my" href="japeak-my.html"/);
-    assert.match(menu,/id="jpk-menu-school" onclick="enterWorkspace\('school'\)"/);
-    assert.match(menu,/id="jpk-menu-life" onclick="enterWorkspace\('life'\)"/);
-    assert.match(menu,/id="quick-access-section"/);
-    assert.match(menu,/id="japeak-info-footer"/);
-    assert.doesNotMatch(menu,/Japeak Support Center/);
-    assert.match(menu,/安心して日本語を学ぶために/);
-    for(const action of ['trouble','terms','privacy','developer']){
-      assert.match(menu,new RegExp("openJapeakInfoModal\\('"+action+"'\\)"));
-    }
+test('v12 replaces emoji course icons and bulky support block with editorial SVG',()=>{
+  const css=read('css/japeak-menu-spring-v12.css');
+  assert.match(menu,/id="jpk-menu-school"[^>]*onclick="enterWorkspace\('school'\)"/);
+  assert.match(menu,/id="jpk-menu-life"[^>]*onclick="enterWorkspace\('life'\)"/);
+  assert.match(menu,/id="jpk-menu-my"[^>]*href="japeak-my.html"/);
+  assert.match(menu,/class="jpk-v12-path-icon"/);
+  assert.match(menu,/class="jpk-v12-path-copy"/);
+  assert.match(menu,/class="jpk-v12-path-arrow"/);
+  assert.doesNotMatch(menu,/🏫|🏘️|📚/);
+  assert.match(menu,/id="btn-text-school"/);
+  assert.match(menu,/id="btn-text-life"/);
+  assert.match(menu,/id="jpk-menu-my-title"/);
+  assert.match(menu,/id="quick-access-section"/);
+  assert.match(menu,/id="quick-tab-favorites"/);
+  assert.match(menu,/id="quick-tab-recent"/);
+  assert.match(menu,/id="japeak-info-footer"/);
+  assert.match(menu,/id="jp-info-footer-title"/);
+  assert.match(menu,/安心して日本語を学ぶために/);
+  assert.match(css,/#jp-info-footer-title\{[\s\S]*?white-space:nowrap/);
+  assert.doesNotMatch(menu,/Japeak Support Center/);
+  assert.doesNotMatch(menu,/id="btn-top-back"/);
+  for(const action of ['trouble','terms','privacy','developer']){
+    assert.match(menu,new RegExp("openJapeakInfoModal\\('"+action+"'\\)"));
+  }
+  assert.match(menu,/data-jpinfo="navCopeak"/);
 });
 
-test('v11 My Lessons card respects UI language and preserves creation route',()=>{
-    const js=read('js/japeak-menu-main.js');
-    assert.match(menu,/japeak-my-i18n\.js\?v=20261122-1/);
-    assert.match(js,/window\.JapeakMyI18n/);
-    assert.match(js,/myLink\.href = 'japeak-my\.html\?lang='/);
-    assert.match(js,/myText\?\.t\(menuLang, 'my'\)/);
-    assert.match(js,/myText\?\.t\(menuLang, 'create'\)/);
-    assert.match(js,/menuLang === 'ja' \? '安心して日本語を学ぶために'/);
-    assert.ok(menu.indexOf('js/japeak-my-i18n.js')<menu.indexOf('js/japeak-menu-main.js?v=20261123-11'));
+test('v12 spring glints and petals are subtle, photo-aligned and respect reduced-motion',()=>{
+  const css=read('css/japeak-menu-spring-v12.css');
+  assert.match(menu,/class="jpk-v12-atmosphere" aria-hidden="true"/);
+  assert.match(menu,/class="jpk-v12-sun-glow"/);
+  assert.match(menu,/class="jpk-v12-sun-glint"/);
+  assert.equal((menu.match(/class="jpk-v12-petal"/g)||[]).length,5);
+  assert.match(css,/@keyframes jpk-v12-petal-drift/);
+  assert.match(css,/@keyframes jpk-v12-sunbreath/);
+  assert.match(css,/@media\(prefers-reduced-motion:reduce\)/);
+  assert.match(css,/\.jpk-v12-petal\{display:none!important;animation:none!important\}/);
+  assert.match(css,/@media\(max-width:820px\)/);
+  assert.match(css,/@media\(max-width:480px\)/);
+  assert.match(css,/@media\(prefers-contrast:more\)/);
+  assert.match(css,/\.jpk-v12-path:focus-visible|#gate-container :is\(button,a\):focus-visible/);
+});
+
+test('My Lessons remains localized; language select and learn-again shortcuts are unchanged',()=>{
+  const js=read('js/japeak-menu-main.js');
+  assert.match(menu,/japeak-my-i18n\.js\?v=20261122-1/);
+  assert.match(js,/window\.JapeakMyI18n/);
+  assert.match(js,/myLink\.href = 'japeak-my\.html\?lang='/);
+  assert.match(js,/myText\?\.t\(menuLang, 'my'\)/);
+  assert.match(js,/myText\?\.t\(menuLang, 'create'\)/);
+  assert.ok(menu.indexOf('js/japeak-my-i18n.js')<menu.indexOf('js/japeak-menu-main.js?v=20261123-11'));
+  assert.match(menu,/id="menu-lang-select"/);
+  assert.match(menu,/data-share-qr/);
+  assert.match(menu,/id="quick-access-list"/);
+  assert.match(menu,/id="quick-clear-recent"/);
 });
