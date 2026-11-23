@@ -176,5 +176,50 @@ test('menu home restores immersive photo and translucent course cards without al
     assert.match(menu,/id="quick-tab-favorites"/);
     assert.match(menu,/id="quick-tab-recent"/);
     assert.match(menu,/id="menu-lang-select"/);
-    assert.match(menu,/id="btn-top-back"/);
+    assert.doesNotMatch(menu,/id="btn-top-back"/);
+});
+
+
+test('v11 PC and tablet menu leaves photo unobstructed and places three courses on the right',()=>{
+    const css=read('css/japeak-menu-photo-rail-v11.css');
+    const body=css.slice(css.indexOf('body.japeak-stage3-menu{'),css.indexOf('/* Remove the previous heavy darkening:'));
+    const photo=css.slice(css.indexOf('body.japeak-stage3-menu::before{'),css.indexOf('body.japeak-stage3-menu #jpk-menu-header{'));
+    assert.match(body,/display:grid!important/);
+    assert.match(body,/grid-template-columns:minmax\(0,1fr\)/);
+    assert.match(photo,/rgba\(8,27,42,\.015\)/);
+    assert.match(photo,/japeak-bg-landscape\.webp/);
+    assert.match(css,/japeak-bg-portrait\.webp/);
+    assert.match(css,/#gate-container\{\s*grid-column:2;/);
+    assert.match(css,/#quick-access-section\{\s*grid-column:2;grid-row:3;/);
+    assert.match(css,/#japeak-info-footer\{\s*grid-column:2;grid-row:5;/);
+    assert.match(css,/#jpk-menu-my\{\s*grid-column:1\/-1;/);
+    assert.match(css,/@media\(max-width:720px\)/);
+    assert.match(css,/@media\(prefers-reduced-motion:reduce\)/);
+    assert.ok(menu.indexOf('css/japeak-menu-photo-rail-v11.css?v=20261123-11')>menu.indexOf('css/japeak-menu-immersive.css'));
+    assert.match(menu,/id="jpk-menu-header"/);
+    assert.match(menu,/class="jpk-menu-brand" href="japeak-top.html"/);
+    assert.match(menu,/class="jpk-menu-brand-title"/);
+    assert.match(menu,/class="jpk-menu-actions/);
+    assert.doesNotMatch(menu,/id="btn-top-back"/);
+    assert.match(menu,/id="jpk-menu-my" href="japeak-my.html"/);
+    assert.match(menu,/id="jpk-menu-school" onclick="enterWorkspace\('school'\)"/);
+    assert.match(menu,/id="jpk-menu-life" onclick="enterWorkspace\('life'\)"/);
+    assert.match(menu,/id="quick-access-section"/);
+    assert.match(menu,/id="japeak-info-footer"/);
+    assert.doesNotMatch(menu,/Japeak Support Center/);
+    assert.match(menu,/安心して日本語を学ぶために/);
+    for(const action of ['trouble','terms','privacy','developer']){
+      assert.match(menu,new RegExp("openJapeakInfoModal\\('"+action+"'\\)"));
+    }
+});
+
+test('v11 My Lessons card respects UI language and preserves creation route',()=>{
+    const js=read('js/japeak-menu-main.js');
+    assert.match(menu,/japeak-my-i18n\.js\?v=20261122-1/);
+    assert.match(js,/window\.JapeakMyI18n/);
+    assert.match(js,/myLink\.href = 'japeak-my\.html\?lang='/);
+    assert.match(js,/myText\?\.t\(menuLang, 'my'\)/);
+    assert.match(js,/myText\?\.t\(menuLang, 'create'\)/);
+    assert.match(js,/menuLang === 'ja' \? '安心して日本語を学ぶために'/);
+    assert.ok(menu.indexOf('js/japeak-my-i18n.js')<menu.indexOf('js/japeak-menu-main.js?v=20261123-11'));
 });
