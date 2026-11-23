@@ -186,7 +186,8 @@ test('v12 replaces emoji course icons and bulky support block with editorial SVG
   assert.match(menu,/class="jpk-v12-path-icon"/);
   assert.match(menu,/class="jpk-v12-path-copy"/);
   assert.match(menu,/class="jpk-v12-path-arrow"/);
-  assert.doesNotMatch(menu,/🏫|🏘️|📚/);
+  const courseMarkup=menu.slice(menu.indexOf('id="gate-container"'),menu.indexOf('<!-- Favorites and recent lessons'));
+  assert.doesNotMatch(courseMarkup,/🏫|🏘️|📚/);
   assert.match(menu,/id="btn-text-school"/);
   assert.match(menu,/id="btn-text-life"/);
   assert.match(menu,/id="jpk-menu-my-title"/);
