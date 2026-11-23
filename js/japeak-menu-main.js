@@ -175,6 +175,14 @@ function updateUiLanguage() {
     if ($('sub-text-school')) $('sub-text-school').innerText = d.schoolSub;
     if ($('btn-text-life')) $('btn-text-life').innerText = d.life;
     if ($('sub-text-life')) $('sub-text-life').innerText = d.lifeSub;
+    const myText = window.JapeakMyI18n;
+    const myTitle = $('jpk-menu-my-title'), mySubtitle = $('jpk-menu-my-subtitle'), myLink = $('jpk-menu-my');
+    if (myTitle) myTitle.textContent = myText?.t(menuLang, 'my') || (menuLang === 'ja' ? 'マイ教材' : 'My lessons');
+    if (mySubtitle) mySubtitle.textContent = menuLang === 'ja' ? '自分の教材を作る・読む' : (myText?.t(menuLang, 'create') || 'Create a reading lesson');
+    if (myLink) {
+        myLink.href = 'japeak-my.html?lang=' + encodeURIComponent(menuLang);
+        myLink.setAttribute('aria-label', (myTitle?.textContent || 'My lessons') + ' — ' + (mySubtitle?.textContent || ''));
+    }
     if ($('btn-back-to-course')) $('btn-back-to-course').innerText = d.back;
     if ($('btn-top-back')) $('btn-top-back').innerText = d.top;
     if ($('label-category')) $('label-category').innerText = d.category;
@@ -555,7 +563,7 @@ function updateJapeakInfoFooterTexts() {
     const p = getInfoPack();
 
     if ($('jp-info-footer-badge')) $('jp-info-footer-badge').innerText = p.footerBadge;
-    if ($('jp-info-footer-title')) $('jp-info-footer-title').innerText = p.footerTitle;
+    if ($('jp-info-footer-title')) $('jp-info-footer-title').innerText = menuLang === 'ja' ? '安心して日本語を学ぶために' : p.footerTitle;
     if ($('jp-info-footer-subtitle')) $('jp-info-footer-subtitle').innerText = p.footerSubtitle;
 
     document.querySelectorAll('[data-jpinfo]').forEach(el => {
