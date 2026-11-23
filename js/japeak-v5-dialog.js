@@ -211,13 +211,7 @@
     $(id)?.addEventListener('change',()=>{if(active)render();});
   }
   root.JapeakV5Dialog={open,close,visibleGroups,practiceHref};
-  if(inMenu){
-    document.addEventListener('DOMContentLoaded',()=>{
-      const params=new URLSearchParams(root.location.search);
-      const mode=params.get('mode');
-      if(mode==='school'||mode==='life'){
-        open(mode,params.get('cat'));
-      }
-    });
-  }
+  // A course menu must always start on the scenic home screen.
+  // Even old bookmarked URLs with ?mode=school/life&cat=... must NOT auto-open.
+  // Keep open() available only after an explicit user click on School or Daily Life.
 })(window);
